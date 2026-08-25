@@ -159,7 +159,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
+| `setting(workbench.startupEditor)` <br/>Configure the {% data variables.product.prodname_vscode_shortname %} welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [{% data variables.product.prodname_vscode_shortname %} welcome page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the Chat view. | `"sideBySide"` |
 | `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |

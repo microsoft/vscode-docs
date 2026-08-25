@@ -7,6 +7,8 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Debug and inspect a Spring Boot request in Visual Studio Code
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/y8SdqmjEqq8?si=HCMMP-G-YbvPkhdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 A web app that works is not the same as a web app you understand. The page says the item
 was added. It does not say which method received the title, where the id came from, or
 whether the process is healthy while it does all that.
@@ -36,14 +38,7 @@ In this chapter, you will learn to:
 
 Here is the path the request takes, and where we interrupt it.
 
-```mermaid
-flowchart LR
-    A["Browser form<br/>POST /todos"] --> B["TodoController<br/>addForm"]
-    B -->|breakpoint| C["TodoService<br/>add"]
-    C --> D["TodoRepository<br/>save → assigns id"]
-    D --> E["redirect:/<br/>list re-rendered"]
-    E --> F["Actuator health<br/>+ live memory"]
-```
+![Chapter 2 journey through a Spring Boot request and runtime inspection](../images/java-spring-boot/ch2-journey.png)
 
 Fig 1: Chapter 2 journey — one add request, paused at the hand-off, then inspected.
 
@@ -90,7 +85,7 @@ Those hints are not decoration. They are a clickable link to the exact endpoint 
 method serves, which is how we will trigger the breakpoint without hunting for a browser
 tab.
 
-![Inline URL hints above the controller mappings](images/ch2-url-hints.png)
+![Inline URL hints above the controller mappings](../images/java-spring-boot/ch2-url-hints.png)
 
 Fig 2: Spring Boot Tools renders live URL hints above `@GetMapping` and `@PostMapping`. Requests that have already run add a count and timing to the hint.
 
@@ -112,7 +107,7 @@ The request is now frozen immediately before the controller calls the service, w
 means the Variables panel holds exactly what the web layer received and nothing it has
 produced yet.
 
-![Visual Studio Code paused at the breakpoint, with the Variables panel showing the incoming title](images/ch2-breakpoint-paused.png)
+![Visual Studio Code paused at the breakpoint, with the Variables panel showing the incoming title](../images/java-spring-boot/ch2-breakpoint-paused.png)
 
 Fig 3: The paused request. **Local** holds the `title` the form sent, the debug toolbar offers the stepping actions, and the editor annotates the stopped line with its live values.
 
@@ -166,7 +161,7 @@ running app serves. That includes the endpoints contributed by Spring Boot Actua
 dependency that exposes health and monitoring endpoints — and the protocol-level routes
 Chapter 3 relies on. Endpoints the project itself declares are marked `(defined)`.
 
-![Endpoint Mappings showing all endpoints for the running app](images/ch2-endpoint-mappings.png)
+![Endpoint Mappings showing all endpoints for the running app](../images/java-spring-boot/ch2-endpoint-mappings.png)
 
 Fig 4: With **Show All Endpoints** selected, the section lists every route the live process serves, under a node carrying the app's process id.
 
@@ -174,7 +169,7 @@ Find `/actuator/health` — not the `/actuator/health/**` entry beside it — an
 **Open** action. The response's `status` field reads `UP`, and may also include a
 `groups` field. That is a point-in-time answer: healthy, right now.
 
-![Actuator health response showing status UP](images/02-actuator-health.png)
+![Actuator health response showing status UP](../images/java-spring-boot/02-actuator-health.png)
 
 Fig 5: `/actuator/health` from the running sample. A single snapshot, served by the Actuator starter.
 
@@ -184,7 +179,7 @@ For something that keeps answering, open **Memory**. It renders the application'
 heap — size, used, and maximum — and keeps updating while the app runs under the
 debugger.
 
-![Spring Boot Dashboard Memory view with live heap information](images/ch2-memory-view.png)
+![Spring Boot Dashboard Memory view with live heap information](../images/java-spring-boot/ch2-memory-view.png)
 
 Fig 6: The Memory section tracks heap usage continuously, which is why it only appears when a live process is attached.
 
@@ -221,7 +216,7 @@ You can now stop a Spring Boot request mid-flight, follow it across a class boun
 read the values it produces, and check the health and memory of the process that produced
 them.
 
-In [Chapter 3, Expose Your Java Operations to Copilot with MCP](3-expose-tools-with-mcp.md),
+In [Chapter 3, Expose Your Java Operations to Copilot with MCP](/learn/java-spring-boot/3-expose-tools-with-mcp),
 the same `TodoService` gets a second caller. Instead of a browser form, GitHub Copilot
 calls it — the app publishes its operations as Model Context Protocol tools, and a todo
 created from a chat prompt shows up on the very page you have been debugging.
@@ -236,4 +231,4 @@ created from a chat prompt shows up on the very page you have been debugging.
 
 ---
 
-Chapter 2 of 4 · Previous: [Build and Run Your First Spring Boot App](1-build-and-run.md) · Next: [Expose Your Java Operations to Copilot with MCP](3-expose-tools-with-mcp.md)
+Chapter 2 of 4 · Previous: [Build and Run Your First Spring Boot App](/learn/java-spring-boot/1-build-and-run) · Next: [Expose Your Java Operations to Copilot with MCP](/learn/java-spring-boot/3-expose-tools-with-mcp)

@@ -7,6 +7,8 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Build and run your first Spring Boot app in Visual Studio Code
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZX8LEQpKPx0?si=HUjEWz0XHj_aDysn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 You know that moment when you clone a Java repository, open it, and nothing happens? No
 run button, no green ticks, no clue which of the two hundred files is the one that
 starts. Just a folder.
@@ -38,15 +40,7 @@ In this chapter, you will learn to:
 
 Here is the whole chapter on one line, so you always know where you are.
 
-```mermaid
-flowchart LR
-    A["Cloned folder"] --> B["Install 2<br/>extension packs"]
-    B --> C["Confirm the JDK"]
-    C --> D["Read the code<br/>page → controller → service"]
-    D --> E["Maven package<br/>BUILD SUCCESS"]
-    E --> F["Run from the<br/>Spring Boot Dashboard"]
-    F --> G["Verify in the browser"]
-```
+![Chapter 1 journey from a cloned folder to a verified running app](../images/java-spring-boot/ch1-journey.png)
 
 Fig 1: Chapter 1 journey, from an unopened folder to a verified running app.
 
@@ -100,7 +94,7 @@ The **Spring Boot Extension Pack** sits on top of that and adds Spring awareness
 **Spring Boot Tools** for Spring-aware editing of configuration and mapping code, and
 the **Spring Boot Dashboard** for running, stopping, and inspecting the application.
 
-![Extensions view with the Extension Pack for Java and the Spring Boot Extension Pack](images/ch1-extensions-java-pack.png)
+![Extensions view with the Extension Pack for Java and the Spring Boot Extension Pack](../images/java-spring-boot/ch1-extensions-java-pack.png)
 
 Fig 2: Searching the Extensions view surfaces both packs used in this chapter.
 
@@ -170,7 +164,7 @@ With the code understood, let's prove it works.
 5. In the page, enter **`Prepare the demo`** and select **Add**. Select that row's checkbox, then select its **Delete** button.
 6. Return to the Dashboard and select the app's **Stop** action.
 
-![Spring Boot Dashboard showing springboot-mcp-demo running on port 8080](images/ch1-dashboard-running.png)
+![Spring Boot Dashboard showing springboot-mcp-demo running on port 8080](../images/java-spring-boot/ch1-dashboard-running.png)
 
 Fig 3: The Dashboard reports the app as running, alongside the port it bound to.
 
@@ -179,7 +173,7 @@ Each of those three browser actions is a full server round trip: **Add** posts t
 the item from the map. The page re-renders every time, which is why the list is always in
 step with the server.
 
-![The Todo web app running at localhost:8080](images/ch1-web-app.png)
+![The Todo web app running at localhost:8080](../images/java-spring-boot/ch1-web-app.png)
 
 Fig 4: The running app — `TodoController` rendered this page from `index.html`. This is the moment just after **Add** in step 5, before the row is completed and deleted.
 
@@ -209,7 +203,7 @@ You now have a working Java and Spring Boot setup, a project you can navigate, a
 application you can start and stop from the editor. That is the foundation every later
 chapter assumes.
 
-In [Chapter 2, Debug and Inspect a Spring Boot Request](2-debug-and-inspect.md), we'll
+In [Chapter 2, Debug and Inspect a Spring Boot Request](/learn/java-spring-boot/2-debug-and-inspect), we'll
 stop trusting the browser and start inspecting the process. You'll set a breakpoint on the
 exact line where the web layer hands off to the service, step through the call, and watch
 the repository assign an id — then check the app's health and memory while it is still
@@ -225,4 +219,4 @@ running.
 
 ---
 
-Chapter 1 of 4 · Next: [Debug and Inspect a Spring Boot Request](2-debug-and-inspect.md)
+Chapter 1 of 4 · Next: [Debug and Inspect a Spring Boot Request](/learn/java-spring-boot/2-debug-and-inspect)

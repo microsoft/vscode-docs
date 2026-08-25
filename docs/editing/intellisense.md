@@ -176,14 +176,7 @@ The keyboard shortcuts shown here are the default keyboard shortcuts. To assign 
 
 GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-To get started:
-
-1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
-
-1. Discover the key functionality with our [Copilot quickstart](/docs/agents/quickstart.md).
-
-> [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+Learn how to get started with [AI in VS Code](/docs/agents/overview.md).
 
 ## Troubleshooting
 

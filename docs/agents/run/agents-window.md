@@ -65,9 +65,9 @@ To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled
 
 While you're signed out of GitHub, the model picker only shows models from providers with available credentials. Sign in to GitHub from the account menu to add Copilot-backed models. If both Copilot and ChatGPT provide a model with the same name, the model picker identifies the provider.
 
-When VS Code discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+When {% data variables.product.prodname_vscode_shortname %} discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
 
-If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
+If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
 
 ## {% data variables.copilot.agents_window %} interface overview
 
