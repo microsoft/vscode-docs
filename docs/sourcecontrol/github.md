@@ -1,21 +1,21 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-DateApproved: 8/19/2026
-MetaDescription: Use GitHub in Visual Studio Code to clone repositories, manage pull requests and issues, or edit remote repositories without cloning.
+DateApproved: 8/26/2026
+MetaDescription: Use GitHub in {% data variables.product.prodname_vscode %} to clone repositories, manage pull requests and issues, or edit remote repositories without cloning.
 Keywords:
 - source control
 - scm
 - version control
 - git
 ---
-# Work with GitHub in VS Code
+# Work with GitHub in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code provides several ways to work with repositories, pull requests, and issues on [GitHub](https://github.com). Basic GitHub authentication and Git operations are built into VS Code. Extensions add pull request, issue, and virtual repository workflows.
+{% data variables.product.prodname_vscode %} provides several ways to work with repositories, pull requests, and issues on [GitHub](https://github.com). Basic GitHub authentication and Git operations are built into {% data variables.product.prodname_vscode_shortname %}. Extensions add pull request, issue, and virtual repository workflows.
 
-This article helps you choose the right GitHub integration and use it without leaving VS Code.
+This article helps you choose the right GitHub integration and use it without leaving {% data variables.product.prodname_vscode_shortname %}.
 
 > [!TIP]
-> If you're new to source control or want to learn more about VS Code's basic Git support, you can start with the [Source Control](/docs/sourcecontrol/overview.md) topic.
+> If you're new to source control or want to learn more about {% data variables.product.prodname_vscode_shortname %}'s basic Git support, you can start with the [Source Control](/docs/sourcecontrol/overview.md) topic.
 
 ## Choose a GitHub workflow
 
@@ -42,11 +42,11 @@ git config --global user.email "your.email@example.com"
 
 ## Sign in to GitHub for Git operations
 
-You don't need an extension to authenticate Git operations with GitHub. When you clone a private repository or push to a GitHub repository, VS Code prompts you to sign in. Follow the browser prompts, then return to VS Code.
+You don't need an extension to authenticate Git operations with GitHub. When you clone a private repository or push to a GitHub repository, {% data variables.product.prodname_vscode_shortname %} prompts you to sign in. Follow the browser prompts, then return to {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot showing the GitHub authentication prompt in VS Code.](images/github/auth-prompt.png)
+![Screenshot showing the GitHub authentication prompt in {% data variables.product.prodname_vscode_shortname %}.](images/github/auth-prompt.png)
 
-Personal access token authentication is supported for GitHub Enterprise Server. To use a personal access token, cancel the browser sign-in prompts until VS Code asks for a token. For other authentication options, see [GitHub authentication methods](https://docs.github.com/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
+Personal access token authentication is supported for GitHub Enterprise Server. To use a personal access token, cancel the browser sign-in prompts until {% data variables.product.prodname_vscode_shortname %} asks for a token. For other authentication options, see [GitHub authentication methods](https://docs.github.com/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
 ## Get started with GitHub Pull Requests and Issues
 
@@ -58,13 +58,13 @@ After you install the [GitHub Pull Requests and Issues](https://marketplace.visu
 
     ![Screenshot showing the sign-in button in the GitHub view.](images/github/extension-signin.png)
 
-1. Return to VS Code when authentication is complete.
+1. Return to {% data variables.product.prodname_vscode_shortname %} when authentication is complete.
 
-If you are not redirected to VS Code, you can add your authorization token manually:
+If you are not redirected to {% data variables.product.prodname_vscode_shortname %}, you can add your authorization token manually:
 
 1. In the browser window, copy your authorization token.
 
-1. In VS Code, select **Signing in to github.com...** in the Status Bar.
+1. In {% data variables.product.prodname_vscode_shortname %}, select **Signing in to github.com...** in the Status Bar.
 
 1. Paste the token and press `kbstyle(Enter)` to complete the sign-in process.
 
@@ -155,7 +155,7 @@ Pull requests can be reviewed from the **Pull Requests** view. You can assign re
 
 ![Screenshot showing a pull request description in the editor.](images/github/pull-request-description-editor.png)
 
-From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch VS Code to open the fork and branch of the pull request (visible in the Status Bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch {% data variables.product.prodname_vscode_shortname %} to open the fork and branch of the pull request (visible in the Status Bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
 
 ![Screenshot showing files and commits in the Changes in Pull Request view.](images/github/changes-view.png)
 
@@ -224,13 +224,13 @@ After you install the GitHub Repositories extension, open a repository with the 
 
 When you run the **Open Repository** command, you then choose whether to open a repository from GitHub, open a Pull Request from GitHub, or reopen a repository that you had previously connected to.
 
-If you haven't logged into GitHub from VS Code before, you'll be prompted to authenticate with your GitHub account.
+If you haven't logged into GitHub from {% data variables.product.prodname_vscode_shortname %} before, you'll be prompted to authenticate with your GitHub account.
 
 ![Screenshot showing the repository picker for the GitHub Repositories extension.](images/github/open-github-repository-dropdown.png)
 
 You can provide the repository URL directly or search GitHub for the repository you want by typing in the text box.
 
-After you select a repository or pull request, VS Code reloads the window and shows the repository contents in the Explorer view. You can open files with syntax highlighting and bracket matching, make edits, and commit changes as you would in a local clone.
+After you select a repository or pull request, {% data variables.product.prodname_vscode_shortname %} reloads the window and shows the repository contents in the Explorer view. You can open files with syntax highlighting and bracket matching, make edits, and commit changes as you would in a local clone.
 
 One difference from working with a local repository is that when you commit a change with the GitHub Repository extension, the changes are pushed directly to the remote repository, similar to if you were working in the GitHub web interface.
 
@@ -282,7 +282,7 @@ If you are using the [browser-based editor](/docs/remote/codespaces.md#browser-b
 
 ![Screenshot showing Continue Working On options in the browser-based editor.](images/github/codespaces-continue.png)
 
-The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which stores your pending changes on the same VS Code service used for Settings Sync.
+The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which stores your pending changes on the same {% data variables.product.prodname_vscode_shortname %} service used for Settings Sync.
 
 These changes are deleted from our service once they are applied to your target development environment. If you choose to continue without your uncommitted changes, you can always change this preference later by configuring the setting `"workbench.cloudChanges.continueOn": "prompt"`.
 
@@ -293,4 +293,4 @@ In the event that your pending changes are not automatically applied to your tar
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Clone, publish, and synchronize repositories
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Manage branches for pull request workflows
 * [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits and file history
-* [AI in VS Code](/docs/agents/overview.md) - Learn about AI features in VS Code
+* [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Learn about AI features in {% data variables.product.prodname_vscode_shortname %}

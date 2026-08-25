@@ -1,15 +1,15 @@
 ---
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 DateApproved: 5/21/2020
-MetaDescription: How to debug C++ programs in Visual Studio Code.
+MetaDescription: How to debug C++ programs in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 ---
-# Debug C++ in Visual Studio Code
+# Debug C++ in {% data variables.product.prodname_vscode %}
 
 After you have set up the basics of your debugging environment as specified in the configuration tutorials for each target compiler/platform, you can learn more details about debugging C/C++ in this section.
 
-Visual Studio Code supports the following debuggers for C/C++ depending on the operating system you are using:
+{% data variables.product.prodname_vscode %} supports the following debuggers for C/C++ depending on the operating system you are using:
 
 * **Linux**: GDB
 * **macOS**: LLDB or GDB
@@ -17,7 +17,7 @@ Visual Studio Code supports the following debuggers for C/C++ depending on the o
 
 ## Windows debugging with GDB
 
-You can debug Windows applications created using Cygwin or MinGW by using VS Code. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW application, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
+You can debug Windows applications created using Cygwin or MinGW by using {% data variables.product.prodname_vscode_shortname %}. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW application, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
 
 For example:
 
@@ -45,7 +45,7 @@ Function breakpoints enable you to break execution at the beginning of a functio
 
 ## Expression evaluation
 
-VS Code supports expression evaluation in several contexts:
+{% data variables.product.prodname_vscode_shortname %} supports expression evaluation in several contexts:
 
 * You can type an expression into the **Watch** section of the **Run** view and it will be evaluated each time a breakpoint is hit.
 * You can type an expression into the **Debug Console** and it will be evaluated only once.
@@ -55,13 +55,13 @@ Expressions in the **Watch** section take effect in the application being debugg
 
 ## Multi-threaded debugging
 
-The C/C++ extension for VS Code has the ability to debug multi-threaded programs. All threads and their call stacks appear in the **Call Stack** section:
+The C/C++ extension for {% data variables.product.prodname_vscode_shortname %} has the ability to debug multi-threaded programs. All threads and their call stacks appear in the **Call Stack** section:
 
 ![Multi-threaded process](images/cpp/threads.png)
 
 ## Memory dump debugging
 
-The C/C++ extension for VS Code also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the **C++ Launch** configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
+The C/C++ extension for {% data variables.product.prodname_vscode_shortname %} also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the **C++ Launch** configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
 
 ## Additional symbols
 
@@ -94,7 +94,7 @@ For example:
 
 ## GDB, LLDB, and LLDB-MI Commands (GDB/LLDB)
 
-For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LLDB-MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
+For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LLDB-MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash {% data variables.product.prodname_vscode_shortname %} in some cases.
 
 ## Other debugging features
 
@@ -103,7 +103,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 * Call stack
 * Stepping
 
-For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/debugtest/debugging.md).
+For more information on debugging with {% data variables.product.prodname_vscode_shortname %}, see this introduction to [debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
 
 For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
@@ -159,13 +159,13 @@ macOS:
 
 Read on to find out about:
 
-* [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
-* [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
-* [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for macOS](/docs/cpp/config-clang-mac.md)
 * [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/debugtest/tasks.md) - use tasks to build your project and more.
-* [Debugging](/docs/debugtest/debugging.md) - find out about the Visual Studio Code debugger.
+* [Debugging](/docs/debugtest/debugging.md) - find out about the {% data variables.product.prodname_vscode %} debugger.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).

@@ -1,10 +1,10 @@
 ---
 ContentId:
 DateApproved: 02/04/2026
-MetaDescription: Running Python Code in Visual Studio Code
+MetaDescription: Running Python Code in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Running Python code in Visual Studio Code
+# Running Python code in {% data variables.product.prodname_vscode %}
 
 Whether you are experimenting with smaller lines of Python code in the REPL or ready to run a Python script, the Python extension offers multiple ways to run your code.
 
@@ -14,11 +14,11 @@ The Python interpreter that is installed on your machine gives you what's known 
 
 After installing a Python interpreter on your machine, you can interact with the Python REPL by opening the terminal or command prompt on your system, and typing `python` (Windows) or `python3` (macOS/Linux) to activate the Python REPL, notated by `>>>`.
 
-There are two additional ways you can interact with a Python REPL in VS Code.
+There are two additional ways you can interact with a Python REPL in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Native REPL
 
-The VS Code Native REPL for Python builds upon the classic Python REPL and provides additional features, such as Intellisense and syntax highlighting to make your Python development experience more efficient. However, this REPL still adheres to principles present in the REPL built-in to Python itself, in that historical execution order and its content are immutable.
+The {% data variables.product.prodname_vscode_shortname %} Native REPL for Python builds upon the classic Python REPL and provides additional features, such as Intellisense and syntax highlighting to make your Python development experience more efficient. However, this REPL still adheres to principles present in the REPL built-in to Python itself, in that historical execution order and its content are immutable.
 
 You can open the Native REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Start Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line in Python REPL** by setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
 
@@ -26,7 +26,7 @@ You can open the Native REPL via the Command Palette (`kb(workbench.action.showC
 
 ### Terminal REPL
 
-Similar to how you can interact with the Python REPL outside of VS Code, you can open a terminal within VS Code and activate a Python REPL. To do so, you can search in the Command Palette (`kb(workbench.action.showCommands)`) for **Python: Start Terminal REPL**, which opens a terminal for the currently selected Python interpreter. Alternatively, you can navigate to **Terminal > New Terminal** and enter the `python` (Windows) or `python3` (macOS/Linux) command.
+Similar to how you can interact with the Python REPL outside of {% data variables.product.prodname_vscode_shortname %}, you can open a terminal within {% data variables.product.prodname_vscode_shortname %} and activate a Python REPL. To do so, you can search in the Command Palette (`kb(workbench.action.showCommands)`) for **Python: Start Terminal REPL**, which opens a terminal for the currently selected Python interpreter. Alternatively, you can navigate to **Terminal > New Terminal** and enter the `python` (Windows) or `python3` (macOS/Linux) command.
 
 There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration), such as run recent command, command decorators, and improved accessibility. To enable or disable shell integration in the terminal, you can toggle `setting(python.terminal.shellIntegration.enabled)` in your settings.
 

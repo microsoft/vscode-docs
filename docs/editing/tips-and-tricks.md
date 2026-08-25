@@ -1,27 +1,27 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 8/19/2026
-MetaDescription: Improve productivity in Visual Studio Code with editing, navigation, source control, debugging, and keyboard shortcut tips.
+DateApproved: 8/26/2026
+MetaDescription: Improve productivity in {% data variables.product.prodname_vscode %} with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
-# Visual Studio Code tips and tricks
+# {% data variables.product.prodname_vscode %} tips and tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/editing/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with {% data variables.product.prodname_vscode %}. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/editing/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
 
-If you're just getting started, make sure to check out the [VS Code tutorial](/docs/editing/getting-started.md) for a step-by-step to discover the key features.
+If you're just getting started, make sure to check out the [{% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started.md) for a step-by-step to discover the key features.
 
-> If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
+> If you don't have {% data variables.product.prodname_vscode %} installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running {% data variables.product.prodname_vscode_shortname %} on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 
-Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your VS Code experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
+Prefer a video? You can watch the {% data variables.product.prodname_vscode_shortname %} Day talks [{% data variables.product.prodname_vscode %} tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your {% data variables.product.prodname_vscode_shortname %} experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
+Learn about the key features of {% data variables.product.prodname_vscode %} in our introduction video.
 
 * [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
@@ -31,7 +31,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Welcome** page and then pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+The best way of exploring {% data variables.product.prodname_vscode_shortname %} hands-on is to open the **Welcome** page and then pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that {% data variables.product.prodname_vscode_shortname %} offers. As you discover and learn, the walkthroughs track your progress.
 
 Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: Welcome** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -41,7 +41,7 @@ Extensions can also contribute walkthroughs. You can also directly open a walkth
 
 ![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
 
-If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editing/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editing/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
+If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out {% data variables.product.prodname_vscode_shortname %}'s [code editing features](/docs/editing/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editing/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
 
 Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -76,9 +76,9 @@ Download the keyboard shortcut reference sheet for your platform ([macOS](https:
 
 You can open an editor, the terminal, or specific views in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
 
-![Screenshot that shows the OS desktop with VS Code window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
 
-Drag an editor tab out of the current VS Code window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
+Drag an editor tab out of the current {% data variables.product.prodname_vscode_shortname %} window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
 
 ### Integrated terminal
 
@@ -91,7 +91,7 @@ You can select another terminal shell from the dropdown. Depending on your opera
 Further reading:
 
 * [Integrated Terminal](/docs/terminal/basics.md) documentation
-* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
+* [Mastering {% data variables.product.prodname_vscode_shortname %}'s Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
 ### Toggle Sidebar
 
@@ -117,9 +117,9 @@ Press `kbstyle(Esc)` twice to exit Zen Mode.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start VS Code from the command line to open a diff editor for comparing two files.
+{% data variables.product.prodname_vscode_shortname %} has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start {% data variables.product.prodname_vscode_shortname %} from the command line to open a diff editor for comparing two files.
 
-> Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
+> Make sure the {% data variables.product.prodname_vscode_shortname %} binary is on your path so you can simply type 'code' to launch {% data variables.product.prodname_vscode_shortname %}. See the platform specific setup topics if {% data variables.product.prodname_vscode_shortname %} is added to your environment path during installation ([Running {% data variables.product.prodname_vscode_shortname %} on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
 ```bash
 # open code with current directory
@@ -177,7 +177,7 @@ If you want to persist the new language mode for a file type, use the **Configur
 
 ## Customization
 
-There are many options to customize VS Code to meet your preferences:
+There are many options to customize {% data variables.product.prodname_vscode_shortname %} to meet your preferences:
 
 * Change your theme
 * Change your keyboard shortcuts
@@ -188,13 +188,13 @@ There are many options to customize VS Code to meet your preferences:
 
 ### Change your theme
 
-VS Code comes with a number of built-in [color themes](/docs/configure/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+{% data variables.product.prodname_vscode_shortname %} comes with a number of built-in [color themes](/docs/configure/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
 ![Preview themes](images/tips-and-tricks/PreviewThemes.gif)
 
-You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
+You can install more themes from the {% data variables.product.prodname_vscode_shortname %} extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
 
 Additionally, you can install and change your File Icon themes.
 
@@ -202,7 +202,7 @@ Additionally, you can install and change your File Icon themes.
 
 ### Keymaps
 
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
+Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to {% data variables.product.prodname_vscode_shortname %}. Use the **Preferences: Keymaps** command to see the current list on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
 
 Some of the more popular keymaps are:
 
@@ -228,11 +228,11 @@ You can also search for shortcuts and add your own keyboard shortcuts to the `ke
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
-See more in [Key Bindings for Visual Studio Code](/docs/configure/keybindings.md).
+See more in [Key Bindings for {% data variables.product.prodname_vscode %}](/docs/configure/keybindings.md).
 
 ### Tune your settings
 
-By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `setting(workbench.settings.editor)` setting.
+By default, {% data variables.product.prodname_vscode_shortname %} shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `setting(workbench.settings.editor)` setting.
 
 Open User Settings `settings.json`
 
@@ -264,7 +264,7 @@ Font ligatures
 "editor.fontLigatures": true
 ```
 
-> **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the VS Code team.
+> **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the {% data variables.product.prodname_vscode_shortname %} team.
 
 ![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
 
@@ -397,7 +397,7 @@ See more in the [JSON](/docs/languages/json.md) documentation.
 
 ### Configure the default browser
 
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/configure/settings.md).
+In {% data variables.product.prodname_vscode_shortname %}, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/configure/settings.md).
 
 Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
 
@@ -421,8 +421,8 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 You can use multiple sources to find extensions:
 
-* In the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
-* Search inside VS Code in the **Extensions** view.
+* In the {% data variables.product.prodname_vscode_shortname %} [Marketplace](https://marketplace.visualstudio.com/vscode).
+* Search inside {% data variables.product.prodname_vscode_shortname %} in the **Extensions** view.
 * View extension recommendations
 * Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode).
 
@@ -456,7 +456,7 @@ Are you interested in creating your own extension? You can learn how to do this 
 
 ### Simple file dialog
 
-With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
+With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within {% data variables.product.prodname_vscode_shortname %}.
 
 Setting: `setting(files.simpleDialog)`
 
@@ -537,9 +537,9 @@ Create language associations for files that aren't detected correctly. For examp
 
 ### Preventing dirty writes
 
-VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
+{% data variables.product.prodname_vscode_shortname %} will show you an error message when you try to save a file that cannot be saved because it has changed on disk. {% data variables.product.prodname_vscode_shortname %} blocks saving the file to prevent overwriting changes that have been made outside of the editor.
 
-To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in {% data variables.product.prodname_vscode_shortname %} (on the right):
 
 ![dirty write](images/tips-and-tricks/dirty-write.png)
 
@@ -626,7 +626,7 @@ You can choose to only activate the scrolling sync when you're holding down a sp
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keyboard shortcuts would conflict with Ubuntu keyboard shortcuts, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
+> The commands **Copy Line Up/Down** are unbound on Linux because the {% data variables.product.prodname_vscode_shortname %} default keyboard shortcuts would conflict with Ubuntu keyboard shortcuts, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
 
@@ -862,11 +862,11 @@ See more details in [Creating your own Snippets](/docs/editing/userdefinedsnippe
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
+Git integration comes "out-of-the-box" with {% data variables.product.prodname_vscode_shortname %}. You can install other source control management (SCM) providers from the {% data variables.product.prodname_vscode_shortname %} [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
 
 ## Git blame
 
-VS Code shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
+{% data variables.product.prodname_vscode_shortname %} shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
 
 ![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/tips-and-tricks/scm-git-blame.png)
 
@@ -875,7 +875,7 @@ To enable or disable git blame information, use the **Git: Toggle Git Blame Edit
 * `setting(git.blame.statusBarItem.enabled)` (enabled by default)
 * `setting(git.blame.editorDecoration.enabled)`
 
-Learn more about [Git blame support in VS Code](/docs/sourcecontrol/history.md#view-git-blame-information) and how to customize the layout.
+Learn more about [Git blame support in {% data variables.product.prodname_vscode_shortname %}](/docs/sourcecontrol/history.md#view-git-blame-information) and how to customize the layout.
 
 ### Diffs
 
@@ -931,7 +931,7 @@ Select the (...) button, and then select **Commit** > **Undo Last Commit** to un
 
 ### See Git output
 
-VS Code makes it easy to see what Git commands are actually running. This can be helpful when you're still learning Git or when you're debugging a difficult source control issue.
+{% data variables.product.prodname_vscode_shortname %} makes it easy to see what Git commands are actually running. This can be helpful when you're still learning Git or when you're debugging a difficult source control issue.
 
 To view the Git output, select the (...) button in the Source Control view, and then select **Show Git Output**, use the **Git: Show Git Output** command, or use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and then select **Git** from the dropdown.
 
@@ -951,14 +951,14 @@ You can resolve merge conflicts with the inline CodeLens which lets you **Accept
 
 Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md) in the source control documentation.
 
-### Set VS Code as default merge tool
+### Set {% data variables.product.prodname_vscode_shortname %} as default merge tool
 
 ```bash
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 ```
 
-### Set VS Code as default diff tool
+### Set {% data variables.product.prodname_vscode_shortname %} as default diff tool
 
 ```bash
 git config --global diff.tool vscode
@@ -1013,7 +1013,7 @@ Triggered breakpoints can be set by right-clicking on the glyph margin, selectin
 
 ## Task runner
 
-Tasks in VS Code can be configured to run scripts and start processes so that these tools can be used from within VS Code without having to enter a command line or write new code.
+Tasks in {% data variables.product.prodname_vscode_shortname %} can be configured to run scripts and start processes so that these tools can be used from within {% data variables.product.prodname_vscode_shortname %} without having to enter a command line or write new code.
 
 ### Auto detect tasks
 
@@ -1070,11 +1070,11 @@ With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm s
 
 ## Portable mode
 
-VS Code has a [Portable mode](/docs/setup/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+{% data variables.product.prodname_vscode_shortname %} has a [Portable mode](/docs/setup/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Insiders builds
 
-The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
+The {% data variables.product.prodname_vscode %} team uses the Insiders version to test the latest features and bug fixes of {% data variables.product.prodname_vscode_shortname %}. You can also use the Insiders version by [downloading it here](/insiders).
 
 * For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
 * Frequent Builds - New builds every day with the latest bug fixes and features.

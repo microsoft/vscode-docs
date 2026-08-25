@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -26,7 +26,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Higher monthly AI credits allowance](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
 * [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
-* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
+* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
 * [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
@@ -139,7 +139,7 @@ Agents handle complete coding tasks autonomously. They plan multi-step implement
 
 ### Does Copilot work with large codebases and monorepos?
 
-Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
+Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#semantic-index-sources) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
 
 ### Can my organization control AI features and agent access?
 

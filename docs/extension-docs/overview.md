@@ -1,11 +1,11 @@
 ---
 PageTitle: Extension Docs
-DateApproved: 8/19/2026
-MetaDescription: Overview of Visual Studio Code extension documentation for containers, data science, intelligent apps, Azure, remote development, and dev containers.
+DateApproved: 8/26/2026
+MetaDescription: Overview of {% data variables.product.prodname_vscode %} extension documentation for containers, data science, intelligent apps, Azure, remote development, and dev containers.
 ---
 # Extension Docs
 
-Visual Studio Code has a rich ecosystem of extensions that enable specialized workflows. This section covers documentation for key extension areas.
+{% data variables.product.prodname_vscode %} has a rich ecosystem of extensions that enable specialized workflows. This section covers documentation for key extension areas.
 
 ## Container Tools
 
@@ -13,7 +13,7 @@ Use the [Docker extension](/docs/containers/overview) to build, manage, and depl
 
 ## Data Science
 
-Work with [Jupyter Notebooks](/docs/datascience/jupyter-notebooks) directly in VS Code, explore data with [Data Wrangler](/docs/datascience/data-wrangler), and build machine learning models with [PyTorch](/docs/datascience/pytorch-support) and [Azure Machine Learning](/docs/datascience/azure-machine-learning).
+Work with [Jupyter Notebooks](/docs/datascience/jupyter-notebooks) directly in {% data variables.product.prodname_vscode_shortname %}, explore data with [Data Wrangler](/docs/datascience/data-wrangler), and build machine learning models with [PyTorch](/docs/datascience/pytorch-support) and [Azure Machine Learning](/docs/datascience/azure-machine-learning).
 
 ## Intelligent Apps
 
@@ -25,7 +25,7 @@ Deploy and manage cloud resources with [Azure extensions](/docs/azure/overview).
 
 ## Remote
 
-Develop on remote machines, containers, and WSL with [Remote Development](/docs/remote/remote-overview). Connect via [SSH](/docs/remote/ssh), use [GitHub Codespaces](/docs/remote/codespaces), or work with [VS Code Server](/docs/remote/vscode-server) and [Tunnels](/docs/remote/tunnels).
+Develop on remote machines, containers, and WSL with [Remote Development](/docs/remote/remote-overview). Connect via [SSH](/docs/remote/ssh), use [GitHub Codespaces](/docs/remote/codespaces), or work with [{% data variables.product.prodname_vscode_shortname %} Server](/docs/remote/vscode-server) and [Tunnels](/docs/remote/tunnels).
 
 ## Dev Containers
 

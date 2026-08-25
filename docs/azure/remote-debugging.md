@@ -1,15 +1,15 @@
 ---
 ContentId: 09cb23b6-b1e9-4a29-a934-cbc16fe109c7
-MetaDescription: Azure Remote Debugging for Node.js with Visual Studio Code
+MetaDescription: Azure Remote Debugging for Node.js with {% data variables.product.prodname_vscode %}
 DateApproved: 11/1/2022
 ---
 # Azure Remote Debugging for Node.js
 
-Connect the Visual Studio Code debugger to your Node.js applications running on **Azure App Service** on **Linux**. The debugger works the same as when it's connected to a local Node.js process - including the use of Breakpoints and Logpoints.
+Connect the {% data variables.product.prodname_vscode %} debugger to your Node.js applications running on **Azure App Service** on **Linux**. The debugger works the same as when it's connected to a local Node.js process - including the use of Breakpoints and Logpoints.
 
 ## Install the extension
 
-Remote debugging support for VS Code is provided by the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension for apps deployed to Azure.
+Remote debugging support for {% data variables.product.prodname_vscode_shortname %} is provided by the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension for apps deployed to Azure.
 
 ![Select App Service extension](images/remote-debugging/install-app-service.png)
 
@@ -37,7 +37,7 @@ To start a remote debugging session for your application, right-click your app i
 
 This process requires that the app be restarted with the debugger enabled. You are prompted to confirm the restart.
 
-Once restarted, VS Code connects to the app's debugging port via an SSH tunnel. It might take some time to establish the connection. Once connected, VS Code switches to debugging mode and works in the same way as when you're debugging an app locally.
+Once restarted, {% data variables.product.prodname_vscode_shortname %} connects to the app's debugging port via an SSH tunnel. It might take some time to establish the connection. Once connected, {% data variables.product.prodname_vscode_shortname %} switches to debugging mode and works in the same way as when you're debugging an app locally.
 
 ![Remote breakpoint](images/remote-debugging/remote-breakpoint.png)
 
@@ -46,5 +46,5 @@ When you're ready to end your remote debugging session, disconnect from the debu
 ## Next steps
 
 * [Logpoints](/docs/debugtest/debugging.md#logpoints) - Use Logpoints to log to the console without "breaking" in the debugger.
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

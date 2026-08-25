@@ -1,15 +1,15 @@
 ---
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 8/19/2026
-MetaDescription: Resources for educators and students to get started with Visual Studio Code.
+DateApproved: 8/26/2026
+MetaDescription: Resources for educators and students to get started with {% data variables.product.prodname_vscode %}.
 ---
-# VS Code for Educators and Students
+# {% data variables.product.prodname_vscode_shortname %} for Educators and Students
 
-Welcome to the world of using Visual Studio Code as an educator or student! In this article, we introduce you to various tools, extension packs, and learning paths that can help you get started with coding in Visual Studio Code. Whether you're an educator looking for resources to enhance your classroom experience, or a student eager to learn and explore coding, this guide is here to help you get started.
+Welcome to the world of using {% data variables.product.prodname_vscode %} as an educator or student! In this article, we introduce you to various tools, extension packs, and learning paths that can help you get started with coding in {% data variables.product.prodname_vscode %}. Whether you're an educator looking for resources to enhance your classroom experience, or a student eager to learn and explore coding, this guide is here to help you get started.
 
 ## Educator resources
 
-The following resources can help you get started with Visual Studio Code in your classroom:
+The following resources can help you get started with {% data variables.product.prodname_vscode %} in your classroom:
 
 ### Coding and extension packs
 
@@ -23,7 +23,7 @@ It can be frustrating to install all the different software components to get re
 
 Helping students understand a new codebase can be challenging and time-consuming. Creating descriptive enough instructions can be cumbersome and still not easy enough for students to follow. CodeTour can help you introduce your students to your assignments and projects in a streamlined and interactive way.
 
-[CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) is a Visual Studio Code extension that enables you to create a step-by-step guide through your codebases. This functionality can be helpful in your classroom to break up your assignments into steps for students to follow or to get them familiar with all parts of the assignment by pointing them to relevant pieces within the assignment.
+[CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) is a {% data variables.product.prodname_vscode %} extension that enables you to create a step-by-step guide through your codebases. This functionality can be helpful in your classroom to break up your assignments into steps for students to follow or to get them familiar with all parts of the assignment by pointing them to relevant pieces within the assignment.
 
 The following short clip shows a student using CodeTour to start working on their app:
 
@@ -37,7 +37,7 @@ In the following video, an instructor is removing existing instructions embedded
 
 #### Getting started with CodeTour
 
-To start using CodeTour, you need to download the CodeTour extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+To start using CodeTour, you need to download the CodeTour extension from the {% data variables.product.prodname_vscode_shortname %} [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ![CodeTour extension in Extension Marketplace](images/educators-and-students/codetour-extension-marketplace.png)
 
@@ -45,14 +45,14 @@ To use CodeTour effectively in your classroom, we recommend following the guidel
 
 ## Student resources
 
-### Lessons for getting started with VS Code
+### Lessons for getting started with {% data variables.product.prodname_vscode_shortname %}
 
 | Title | Description |
 |-------|-------------|
 | [Set up your Python beginner development environment](https://learn.microsoft.com/training/modules/python-install-vscode/) | Get started with learning Python by installing and configuring the tools you need to build real applications. |
-| [Use Git version-control tools](https://learn.microsoft.com/training/modules/use-git-from-vs-code/) | Utilize the tight integration of Visual Studio Code with the Git source-control management system. |
-| [Write basic Python in notebooks](https://learn.microsoft.com/training/modules/basic-python-nasa/) | Learn the basics of Python by using notebooks in Visual Studio Code. |
-| [Build a Node.js app for Azure Cosmos DB](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode/) | Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. |
+| [Use Git version-control tools](https://learn.microsoft.com/training/modules/use-git-from-vs-code/) | Utilize the tight integration of {% data variables.product.prodname_vscode %} with the Git source-control management system. |
+| [Write basic Python in notebooks](https://learn.microsoft.com/training/modules/basic-python-nasa/) | Learn the basics of Python by using notebooks in {% data variables.product.prodname_vscode %}. |
+| [Build a Node.js app for Azure Cosmos DB](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode/) | Build a database app to store and query data in Azure Cosmos DB by using {% data variables.product.prodname_vscode %} and Node.js. |
 
 ### Learn Python with NASA inspired lessons
 
@@ -73,11 +73,11 @@ Through these modules, you will:
 
 ### Learn Python with Over the Moon
 
-Try out these space-travel themed challenges that introduce you to data science, machine learning, and artificial intelligence with tools like Python, Visual Studio Code, and Azure.
+Try out these space-travel themed challenges that introduce you to data science, machine learning, and artificial intelligence with tools like Python, {% data variables.product.prodname_vscode %}, and Azure.
 
 | Title | Description |
 |-------|-------------|
-| [Explore space with Python and Visual Studio Code](https://learn.microsoft.com/training/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa) | Plan a moon mission, predict meteor showers, and use artificial intelligence to recognize objects in this learning path inspired by the Netflix film "Over the Moon". |
+| [Explore space with Python and {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/training/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa) | Plan a moon mission, predict meteor showers, and use artificial intelligence to recognize objects in this learning path inspired by the Netflix film "Over the Moon". |
 
 ### Learn Python with Wonder Woman
 
@@ -91,11 +91,11 @@ Follow along with the [video walkthrough of the first lesson](https://www.youtub
 
 ### Learn Python with Space Jam
 
-Inspired by the film "Space Jam: A New Legacy," this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in Visual Studio Code, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals. Watch the [introduction video](https://www.youtube-nocookie.com/embed/pXkIIzihEYM).
+Inspired by the film "Space Jam: A New Legacy," this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in {% data variables.product.prodname_vscode %}, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals. Watch the [introduction video](https://www.youtube-nocookie.com/embed/pXkIIzihEYM).
 
 | Title | Description |
 |-------|-------------|
-| [Use basketball stats to optimize game play with Visual Studio Code](https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa) | Analyze basketball stats and create an app in this learning path inspired by the film "Space Jam: A New Legacy." |
+| [Use basketball stats to optimize game play with {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa) | Analyze basketball stats and create an app in this learning path inspired by the film "Space Jam: A New Legacy." |
 
 ## Tools for both educators and students
 
@@ -107,17 +107,17 @@ Inspired by the film "Space Jam: A New Legacy," this learning path shows basketb
 
 >**Note**: The video mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
 
-When you share a collaborative session, the person you're working with sees the workspace files in their editor and also receives editor context, such as language services or debugging configuration. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
+When you share a collaborative session, the person you're working with sees the workspace files in their editor and also receives editor context, such as language services or debugging configuration. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the {% data variables.product.prodname_vscode %} environment that's familiar to them.
 
 Each of you can open files, navigate, edit code, or highlight, and changes are instantly reflected. As you edit, you can see your classmate's cursor, jump to the same location, and follow their actions.
 
-You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
+You can also debug together using {% data variables.product.prodname_vscode_shortname %}'s debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
 
 For more details about what you can do with Live Share, visit the [how-to-guide](https://learn.microsoft.com/visualstudio/liveshare/use/install-live-share-visual-studio-code).
 
 #### Get started with Live Share
 
-To get started with using Live Share in VS Code, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the VS Code Marketplace.
+To get started with using Live Share in {% data variables.product.prodname_vscode_shortname %}, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
 
 > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 
@@ -127,7 +127,7 @@ Once you log into your GitHub account, you can see the Live Share icon in the Ac
 
 #### Starting a Live Share session
 
-If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session is automatically copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share extension installed.
+If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session is automatically copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have {% data variables.product.prodname_vscode_shortname %} and the Live Share extension installed.
 
 ![Live Share invitation](images/educators-and-students/liveshare-invitation.png)
 
@@ -145,11 +145,11 @@ You should be able to see and interact with your classmate's code on your screen
 
 #### Joining a Live Share session from the browser
 
-If you want to join a Live Share session but you don't have Visual Studio Code installed on your machine, you can use [Visual Studio Code for the Web](/docs/remote/vscode-web.md) to join a session. VS Code for the Web provides a zero-install Visual Studio Code experience running entirely in your browser. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
+If you want to join a Live Share session but you don't have {% data variables.product.prodname_vscode %} installed on your machine, you can use [{% data variables.product.prodname_vscode %} for the Web](/docs/remote/vscode-web.md) to join a session. {% data variables.product.prodname_vscode_shortname %} for the Web provides a zero-install {% data variables.product.prodname_vscode %} experience running entirely in your browser. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
 
-After you navigate to VS Code for the Web, you can then install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension, and [join the Live Share session](#joining-a-live-share-session).
+After you navigate to {% data variables.product.prodname_vscode_shortname %} for the Web, you can then install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension, and [join the Live Share session](#joining-a-live-share-session).
 
 ## Next steps
 
-- Watch the [VS Code intro videos](/docs/getstarted/introvideos.md)
-- Check out the [VS Code tips and tricks](/docs/editing/tips-and-tricks.md)
+- Watch the [{% data variables.product.prodname_vscode_shortname %} intro videos](/docs/getstarted/introvideos.md)
+- Check out the [{% data variables.product.prodname_vscode_shortname %} tips and tricks](/docs/editing/tips-and-tricks.md)

@@ -1,0 +1,21 @@
+{
+  "$schema": "./feature-lifecycle.schema.json",
+  "features": {
+    "agent-artifacts": {
+      "label": "Agent artifacts",
+      "state": "preview"
+    },
+    "integrated-browser-full-page-screenshot": {
+      "label": "Integrated browser full page screenshots",
+      "state": "experimental"
+    },
+    "integrated-browser-remote": {
+      "label": "Integrated browser remote connections",
+      "state": "preview"
+    },
+    "rubber-duck": {
+      "label": "Rubber Duck",
+      "state": "experimental"
+    }
+  }
+}

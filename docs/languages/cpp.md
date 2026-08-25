@@ -1,18 +1,18 @@
 ---
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 DateApproved: 8/19/2026
-MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
+MetaDescription: Find out how to get the best out of {% data variables.product.prodname_vscode %} and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---
-# C/C++ for Visual Studio Code
+# C/C++ for {% data variables.product.prodname_vscode %}
 
-C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. When you create a `*.cpp` file, the extension adds features such as syntax highlighting (colorization), smart completions and hovers (IntelliSense), and error checking.
+C/C++ support for {% data variables.product.prodname_vscode %} is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. When you create a `*.cpp` file, the extension adds features such as syntax highlighting (colorization), smart completions and hovers (IntelliSense), and error checking.
 
 ![C++ language features](images/cpp/msg-intellisense.png)
 
 ## Install the extension
 
-1. Open VS Code.
+1. Open {% data variables.product.prodname_vscode_shortname %}.
 1. Select the Extensions view icon on the Activity Bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
 1. Search for `'C++'`.
 1. Select **Install**.
@@ -21,7 +21,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 
 ## Set up your C++ Environment
 
-C++ is a compiled language meaning your program's source code must be translated (compiled) before it can be run on your computer. The C/C++ extension doesn't include a C++ compiler or debugger, since VS Code as an editor relies on command-line tools for the development workflow. You need to install these tools or use the tools already installed on your computer.
+C++ is a compiled language meaning your program's source code must be translated (compiled) before it can be run on your computer. The C/C++ extension doesn't include a C++ compiler or debugger, since {% data variables.product.prodname_vscode_shortname %} as an editor relies on command-line tools for the development workflow. You need to install these tools or use the tools already installed on your computer.
 
 ### Check if you have a compiler installed
 
@@ -31,7 +31,7 @@ Common compilers that already come preinstalled on some platforms are the [GNU C
 
 To check if you already have them installed:
 
-1. Open a new VS Code terminal window using (`kb(workbench.action.terminal.new)`)
+1. Open a new {% data variables.product.prodname_vscode_shortname %} terminal window using (`kb(workbench.action.terminal.new)`)
 2. Use the following command to check for the GCC compiler `g++`:
 
     ```bash
@@ -114,7 +114,7 @@ To make sure the compiler is installed and configured correctly, lets create a H
 ### Create a C++ file
 
 1. On Windows, launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar). On macOS and Linux, you can enter these commands in the terminal.
-1. Run the following commands. They are creating an empty folder called `projects` where you can place all your VS Code projects. The next commands create and navigate you to a subfolder called `helloworld`. From there, you are opening `helloworld` directly in VS Code using the `code` command.
+1. Run the following commands. They are creating an empty folder called `projects` where you can place all your {% data variables.product.prodname_vscode_shortname %} projects. The next commands create and navigate you to a subfolder called `helloworld`. From there, you are opening `helloworld` directly in {% data variables.product.prodname_vscode_shortname %} using the `code` command.
 
     ```bat
     mkdir projects
@@ -124,7 +124,7 @@ To make sure the compiler is installed and configured correctly, lets create a H
     code .
     ```
 
-    The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+    The "code ." command opens {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 1. Now, create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 
@@ -162,11 +162,11 @@ Now press `kb(workbench.action.files.save)` to save the file. You can also enabl
 
     ![screenshot of program output](images/cpp/helloworld-terminal-output.png)
 
-Congratulations! You've just run your first C++ program in VS Code! The next step is to learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging using one of the Tutorials in the next section.
+Congratulations! You've just run your first C++ program in {% data variables.product.prodname_vscode_shortname %}! The next step is to learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging using one of the Tutorials in the next section.
 
 ## Tutorials
 
-Get started with C++ and VS Code with tutorials for your environment:
+Get started with C++ and {% data variables.product.prodname_vscode_shortname %} with tutorials for your environment:
 
 - [GCC on Windows via MinGW](/docs/cpp/config-mingw.md)
 - [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
@@ -177,7 +177,7 @@ Get started with C++ and VS Code with tutorials for your environment:
 
 ## Documentation
 
-You can find more documentation on using the Microsoft C/C++ extension under the [C++ section](/docs/cpp) of the VS Code website, where you can find articles on:
+You can find more documentation on using the Microsoft C/C++ extension under the [C++ section](/docs/cpp) of the {% data variables.product.prodname_vscode_shortname %} website, where you can find articles on:
 
 - [Debugging](/docs/cpp/cpp-debug.md)
 - [Editing](/docs/cpp/cpp-ide.md)
@@ -188,11 +188,11 @@ You can find more documentation on using the Microsoft C/C++ extension under the
 
 ## Remote Development
 
-VS Code and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL).
+{% data variables.product.prodname_vscode_shortname %} and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL).
 
 To install support for Remote Development:
 
-1. Install the VS Code [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+1. Install the {% data variables.product.prodname_vscode_shortname %} [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 1. If the remote source files are hosted in WSL, use the **WSL** extension.
 1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
 1. If the remote source files are hosted in a container (for example, Docker), use the **Dev Containers** extension.
@@ -201,7 +201,7 @@ To install support for Remote Development:
 
 GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-Learn how to get started with [AI in VS Code](/docs/agents/overview.md).
+Learn how to get started with [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 ## Feedback
 

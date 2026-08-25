@@ -1,17 +1,17 @@
 ---
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 DateApproved: 8/19/2026
-MetaDescription: Additional info for using task runners in Visual Studio Code.
+MetaDescription: Additional info for using task runners in {% data variables.product.prodname_vscode %}.
 ---
 # Appendix
 
-This is additional information for Visual Studio Code [tasks](/docs/debugtest/tasks.md).
+This is additional information for {% data variables.product.prodname_vscode %} [tasks](/docs/debugtest/tasks.md).
 
 ## Schema for tasks.json
 
 The following interfaces define the basic schema of the `tasks.json` file.
 
->**Note**: Some task options are contributed by VS Code extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
+>**Note**: Some task options are contributed by {% data variables.product.prodname_vscode_shortname %} extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
 ```typescript
 
@@ -240,8 +240,8 @@ interface ProblemMatcher {
     base?: string;
 
     /**
-     * The owner of the produced VS Code problem. This is typically
-     * the identifier of a VS Code language service if the problems are
+     * The owner of the produced {% data variables.product.prodname_vscode_shortname %} problem. This is typically
+     * the identifier of a {% data variables.product.prodname_vscode_shortname %} language service if the problems are
      * to be merged with the one produced by the language service
      * or 'external'. Defaults to 'external' if omitted.
      */
@@ -254,7 +254,7 @@ interface ProblemMatcher {
     source?: string;
 
     /**
-     * The severity of the VS Code problem produced by this problem matcher.
+     * The severity of the {% data variables.product.prodname_vscode_shortname %} problem produced by this problem matcher.
      *
      * Valid values are:
      *   "error": to produce errors.

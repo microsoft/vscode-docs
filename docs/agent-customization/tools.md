@@ -1,6 +1,6 @@
 ---
 ContentId: 4ef4e839-e552-4b61-954e-ad58fbd9a2bd
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Manage the client-side tools available to Copilot harness sessions in Agent Host across chats and {% data variables.product.prodname_vscode %} user profiles.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

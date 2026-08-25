@@ -442,6 +442,7 @@
 { "key": "alt+cmd+pageup",        "command": "editor.action.accessibleViewPreviousCodeBlock" },
 { "key": "cmd+k cmd+k",           "command": "editor.action.defineKeybinding" },
 { "key": "tab",                   "command": "editor.action.inlineSuggest.commit" },
+{ "key": "shift+cmd+v",           "command": "editor.action.pasteAsText" },
 { "key": "alt+cmd+o",             "command": "editor.action.toggleOvertypeInsertMode" },
 { "key": "shift+f9",              "command": "editor.debug.action.toggleInlineBreakpoint" },
 { "key": "shift+alt+d",           "command": "editor.detectLanguage" },

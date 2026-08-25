@@ -1,17 +1,17 @@
 ---
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 DateApproved: 8/19/2026
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
+MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Go.
 ---
-# Go in Visual Studio Code
+# Go in {% data variables.product.prodname_vscode %}
 
-Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://go.dev/) development.
+Using the Go extension for {% data variables.product.prodname_vscode %}, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://go.dev/) development.
 
 ![Go extension banner](images/go/go-extension.png)
 
-You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=golang.go).
+You can install the Go extension from the {% data variables.product.prodname_vscode_shortname %} [Marketplace](https://marketplace.visualstudio.com/items?itemName=golang.go).
 
-Watch ["Getting started with VS Code Go"](https://youtu.be/1MXIGYrMk80) for an explanation of how to build your first Go application using VS Code Go.
+Watch ["Getting started with {% data variables.product.prodname_vscode_shortname %} Go"](https://youtu.be/1MXIGYrMk80) for an explanation of how to build your first Go application using {% data variables.product.prodname_vscode_shortname %} Go.
 
 This article describes only a subset of the features the Go extension provides. See the extension's [documentation](https://github.com/golang/vscode-go/wiki/features) for the full, up-to-date list of supported features.
 
@@ -100,7 +100,7 @@ Formatting is provided by `gopls`. If you want `gofumpt`-style formatting, you c
 
 ## Test
 
-The VS Code [Test UI](/api/extension-guides/testing.md) and editor [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup) elements allow users to easily run tests, benchmarks, profiles for a given function, file, package, or workspace.
+The {% data variables.product.prodname_vscode_shortname %} [Test UI](/api/extension-guides/testing.md) and editor [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup) elements allow users to easily run tests, benchmarks, profiles for a given function, file, package, or workspace.
 
 Alternatively, the same functionality is available through a set of commands:
 
@@ -129,13 +129,13 @@ Run the command **Go: Add Import** to get a list of packages that can be importe
 
 ## Refactoring
 
-Select the area for refactoring (for example variable, function body, etc.). Click on the Code Action light bulb icon that appears in the selected area, or select **Refactoring...** or **Rename Symbol** (`kb(editor.action.rename)`) from the VS Code context menu.
+Select the area for refactoring (for example variable, function body, etc.). Click on the Code Action light bulb icon that appears in the selected area, or select **Refactoring...** or **Rename Symbol** (`kb(editor.action.rename)`) from the {% data variables.product.prodname_vscode_shortname %} context menu.
 
 ## Debugging
 
 The Go extension lets you debug Go code by utilizing the [Delve](https://github.com/go-delve/delve) debugger.
 
-Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/debugtest/debugging.md).
+Read [Debug Go programs in {% data variables.product.prodname_vscode_shortname %}](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [{% data variables.product.prodname_vscode_shortname %} debugging](/docs/debugtest/debugging.md).
 
 Some features unique to Go are:
 
@@ -148,14 +148,14 @@ Some features unique to Go are:
 
 ## Next steps
 
-This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://github.com/golang/vscode-go/blob/master/README.md).
+This has been a brief overview showing the Go extension features within {% data variables.product.prodname_vscode_shortname %}. For more information, see the details provided in the Go extension [README](https://github.com/golang/vscode-go/blob/master/README.md).
 
 To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/golang/vscode-go/blob/master/CHANGELOG.md).
 
 If you have any issues or feature requests, feel free to log them in the Go extension [vscode-go repo](https://github.com/golang/vscode-go/issues).
 
-If you'd like to learn more about VS Code, try these topics:
+If you'd like to learn more about {% data variables.product.prodname_vscode_shortname %}, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

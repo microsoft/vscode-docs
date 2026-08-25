@@ -1,26 +1,26 @@
 ---
 ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
 DateApproved: 8/19/2026
-MetaDescription: Learn about using PowerShell in Visual Studio Code
+MetaDescription: Learn about using PowerShell in {% data variables.product.prodname_vscode %}
 ---
-# PowerShell in Visual Studio Code
+# PowerShell in {% data variables.product.prodname_vscode %}
 
 [PowerShell][24] is a task-based command-line shell and scripting language built on [.NET][23] that
 provides a powerful toolset for administrators on any platform.
 
-The Microsoft [PowerShell][31] extension for Visual Studio Code (VS Code) provides rich language
+The Microsoft [PowerShell][31] extension for {% data variables.product.prodname_vscode %} ({% data variables.product.prodname_vscode_shortname %}) provides rich language
 support and capabilities such as syntax completions, definition tracking, and linting for
-PowerShell. The extension should work everywhere VS Code is supported using
+PowerShell. The extension should work everywhere {% data variables.product.prodname_vscode_shortname %} is supported using
 [PowerShell 7+ currently supported versions][17].
 
 Support for Windows PowerShell 5.1 is provided on a best effort basis. [.NET Framework 4.8][18] or
 higher is required.
 
-[VS Code Remote Development][13] Environments, including [GitHub Codespaces][19] and
-[VS Code Server][14] are supported.
+[{% data variables.product.prodname_vscode_shortname %} Remote Development][13] Environments, including [GitHub Codespaces][19] and
+[{% data variables.product.prodname_vscode_shortname %} Server][14] are supported.
 
 > [!IMPORTANT]
-> [Visual Studio Code for the Web][12] is only supported for limited functionality such as basic
+> [{% data variables.product.prodname_vscode %} for the Web][12] is only supported for limited functionality such as basic
 > syntax highlighting, as the PowerShell engine can't run in this environment.
 
 We actively test the following configurations:
@@ -33,8 +33,8 @@ On Windows, we also test with and without Constrained Language Mode enabled.
 
 ## Installing the PowerShell extension
 
-The PowerShell extension can be installed from the Visual Studio Code Marketplace by clicking the
-[Install Button][44]. You can also install the PowerShell extension from within VS Code by opening
+The PowerShell extension can be installed from the {% data variables.product.prodname_vscode %} Marketplace by clicking the
+[Install Button][44]. You can also install the PowerShell extension from within {% data variables.product.prodname_vscode_shortname %} by opening
 the **Extensions** view with keyboard shortcut `kb(workbench.view.extensions)`, typing _PowerShell_,
 and selecting the PowerShell extension:
 
@@ -59,9 +59,9 @@ and selecting the PowerShell extension:
 
 ### Debugging
 
-The PowerShell extension uses the built-in [debugging interface][01] of VS Code to allow for
+The PowerShell extension uses the built-in [debugging interface][01] of {% data variables.product.prodname_vscode_shortname %} to allow for
 debugging of PowerShell scripts and modules. For more information about debugging PowerShell, see
-[Using VS Code][29].
+[Using {% data variables.product.prodname_vscode_shortname %}][29].
 
 ### Multi-version support
 
@@ -73,7 +73,7 @@ Or run the **PowerShell: Show Session Menu** command from the Command Palette
 
 ### CodeLens support
 
-CodeLenses are a VS Code feature to provide actionable, contextual information that's displayed
+CodeLenses are a {% data variables.product.prodname_vscode_shortname %} feature to provide actionable, contextual information that's displayed
 within the source code.
 
 CodeLens features include:
@@ -102,7 +102,7 @@ are based on PowerShell best practices identified by the PowerShell Team and the
 potential code defects and suggests possible solutions for improvements.
 
 The PowerShell extension includes **PSScriptAnalyzer** by default, and automatically performs
-analysis on PowerShell script files you edit in VS Code.
+analysis on PowerShell script files you edit in {% data variables.product.prodname_vscode_shortname %}.
 
 **PSScriptAnalyzer** comes with a collection of built-in rules that check various aspects of
 PowerShell source code such as presence of uninitialized variables, usage of **PSCredential** type,
@@ -126,7 +126,7 @@ platforms, follow the [Pester installation instructions][34].
 
 ## PowerShell extension settings
 
-You can customize VS Code [settings][06] from the **File** > **Preferences** > **Settings** menu item.
+You can customize {% data variables.product.prodname_vscode_shortname %} [settings][06] from the **File** > **Preferences** > **Settings** menu item.
 
 You can also select the gear icon located in the lower left corner of the Activity Bar.
 
@@ -137,7 +137,7 @@ You can still open the `settings.json` file using **Preferences: Open User Setti
 the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor
 with the `"workbench.settings.editor"` setting.
 
-Go to [User and Workspace settings][06] for more information on configuring VS Code settings.
+Go to [User and Workspace settings][06] for more information on configuring {% data variables.product.prodname_vscode_shortname %} settings.
 
 ### Types.ps1xml and Format.ps1xml files
 
@@ -179,7 +179,7 @@ Example scripts are included with the extension and can be found at the followin
 
 `~/.vscode/extensions/ms-vscode.PowerShell-<version>/examples`
 
-To open or view the examples in VS Code, run the following from your PowerShell command prompt:
+To open or view the examples in {% data variables.product.prodname_vscode_shortname %}, run the following from your PowerShell command prompt:
 
 ```powershell
 code (Get-ChildItem ~\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
@@ -192,15 +192,15 @@ the **PowerShell: Open Examples Folder** command.
 
 ## Additional resources
 
-There are more detailed articles in the PowerShell documentation. Start with [Using VS Code][27].
+There are more detailed articles in the PowerShell documentation. Start with [Using {% data variables.product.prodname_vscode_shortname %}][27].
 
 Check out the [troubleshooting guide][21] for answers to common questions.
 
 For more information on debugging, check out the _Hey, Scripting Guy!_ two-part blog post series
 written by [@keithHill][35] on debugging with the PowerShell extension:
 
-- [Debugging PowerShell script in Visual Studio Code - Part 1][15]
-- [Debugging PowerShell script in Visual Studio Code - Part 2][16]
+- [Debugging PowerShell script in {% data variables.product.prodname_vscode %} - Part 1][15]
+- [Debugging PowerShell script in {% data variables.product.prodname_vscode %} - Part 2][16]
 
 ## Testing new features and providing feedback
 

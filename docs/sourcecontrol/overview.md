@@ -1,28 +1,28 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 8/19/2026
-MetaDescription: Learn how to use VS Code's integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to use {% data variables.product.prodname_vscode_shortname %}'s integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
 Keywords:
 - source control
 - scm
 - version control
 - git
 ---
-# Source control in VS Code
+# Source control in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code has integrated source control management (SCM) that lets you work with Git and other version control systems directly in your editor. Git support is built-in, and you can install extensions for other SCM providers from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
+{% data variables.product.prodname_vscode %} has integrated source control management (SCM) that lets you work with Git and other version control systems directly in your editor. Git support is built-in, and you can install extensions for other SCM providers from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
 
 The integrated source control interface provides access to Git functionality through a graphical interface instead of terminal commands. You can perform Git operations like staging changes, committing files, creating branches, and resolving merge conflicts without switching to the command line.
 
-Changes you make in the VS Code interface are synced with your command-line Git operations, so you can use both the UI and terminal as needed. The source control interface works alongside the command line rather than replacing it.
+Changes you make in the {% data variables.product.prodname_vscode_shortname %} interface are synced with your command-line Git operations, so you can use both the UI and terminal as needed. The source control interface works alongside the command line rather than replacing it.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Video showing how to use Git with Visual Studio Code." frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Video showing how to use Git with {% data variables.product.prodname_vscode %}." frameborder="0" allowfullscreen></iframe>
 
 ## Prerequisites
 
-To use Git features in VS Code, you need:
+To use Git features in {% data variables.product.prodname_vscode_shortname %}, you need:
 
-* VS Code uses your machine's Git installation. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
+* {% data variables.product.prodname_vscode_shortname %} uses your machine's Git installation. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
 
 * When you commit changes, Git uses your configured username and email. You can set these values with:
 
@@ -36,7 +36,7 @@ To use Git features in VS Code, you need:
 
 ## Get started with a repository
 
-VS Code automatically detects when you open a folder that's a Git repository and activates all source control features. To get started with a new or existing repository, you have several options:
+{% data variables.product.prodname_vscode_shortname %} automatically detects when you open a folder that's a Git repository and activates all source control features. To get started with a new or existing repository, you have several options:
 
 * **Initialize a new repository**: Create a new Git repository for your current folder.
 
@@ -51,7 +51,7 @@ Learn more about [cloning and publishing repositories](/docs/sourcecontrol/repos
 
 ## Source control interface
 
-VS Code provides Git functionality through several key interface elements. This UI integration enables you to perform Git operations without knowing terminal commands:
+{% data variables.product.prodname_vscode_shortname %} provides Git functionality through several key interface elements. This UI integration enables you to perform Git operations without knowing terminal commands:
 
 * **Source Control view**: central hub for common Git operations like staging, committing, and managing changes
 
@@ -93,7 +93,7 @@ Learn more about [staging changes and writing commits](/docs/sourcecontrol/stagi
 
 ### Sync with remotes
 
-When your branch is connected to a remote branch, VS Code shows sync status in the Status Bar and shows incoming and outgoing commits in the Source Control view. You can quickly sync or perform individual fetch, pull, and push operations.
+When your branch is connected to a remote branch, {% data variables.product.prodname_vscode_shortname %} shows sync status in the Status Bar and shows incoming and outgoing commits in the Source Control view. You can quickly sync or perform individual fetch, pull, and push operations.
 
 ![Screenshot of the Source Control view showing the sync button indicating outgoing and incoming changes.](images/overview/incoming-outgoing-changes.png)
 
@@ -101,7 +101,7 @@ Learn more about [working with repositories and remotes](/docs/sourcecontrol/rep
 
 ### Resolve merge conflicts
 
-When you encounter merge conflicts, VS Code highlights the conflicting files in the Source Control view. Open a file with conflicts to see inline conflict markers. You have several options to resolve the conflicts:
+When you encounter merge conflicts, {% data variables.product.prodname_vscode_shortname %} highlights the conflicting files in the Source Control view. Open a file with conflicts to see inline conflict markers. You have several options to resolve the conflicts:
 
 * Use inline editor actions to choose how to resolve the conflicts directly in the editor
 * Use the 3-way merge editor for a side-by-side view of changes and merge result
@@ -113,7 +113,7 @@ Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts
 
 ### Work with branches, worktrees, and stashes
 
-VS Code supports multiple workflows for managing parallel development work.
+{% data variables.product.prodname_vscode_shortname %} supports multiple workflows for managing parallel development work.
 
 * Quickly switch between **branches** within a single workspace to work on different features or fixes.
 
@@ -141,18 +141,18 @@ Learn more about [viewing source control history](/docs/sourcecontrol/history.md
 
 ## Working with GitHub pull requests and issues
 
-VS Code integrates with GitHub to provide pull request and issue management directly in your editor. Install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension to:
+{% data variables.product.prodname_vscode_shortname %} integrates with GitHub to provide pull request and issue management directly in your editor. Install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension to:
 
 * Create, review, and merge pull requests
 * View and manage issues
-* Comment on and approve PRs without leaving VS Code
+* Comment on and approve PRs without leaving {% data variables.product.prodname_vscode_shortname %}
 * Check out PR branches and review changes locally
 
-Learn more about [working with GitHub in VS Code](/docs/sourcecontrol/github.md).
+Learn more about [working with GitHub in {% data variables.product.prodname_vscode_shortname %}](/docs/sourcecontrol/github.md).
 
 ## Other source control providers
 
-VS Code supports multiple source control providers. While Git support is built-in, you can [install extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs) for other version control systems like Azure DevOps, Subversion, or Mercurial.
+{% data variables.product.prodname_vscode_shortname %} supports multiple source control providers. While Git support is built-in, you can [install extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs) for other version control systems like Azure DevOps, Subversion, or Mercurial.
 
 Browse available SCM provider extensions in the Extensions view (`kb(workbench.view.extensions)`) by searching for `@category:"scm providers"`.
 
@@ -160,13 +160,13 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 
 ## Next steps
 
-* [Source Control Quickstart](/docs/sourcecontrol/quickstart.md) - Quickly get started with Git source control in VS Code
+* [Source Control Quickstart](/docs/sourcecontrol/quickstart.md) - Quickly get started with Git source control in {% data variables.product.prodname_vscode_shortname %}
 
-* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support
+* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of {% data variables.product.prodname_vscode_shortname %} Git support
 
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
 * [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and Git blame information
-* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in {% data variables.product.prodname_vscode_shortname %}
 * [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues with output logs and trace logging
-* [Copilot in VS Code](/docs/agents/overview.md) - Discover more AI-powered features beyond Git workflows
+* [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Discover more AI-powered features beyond Git workflows

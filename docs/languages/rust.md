@@ -1,16 +1,16 @@
 ---
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
 DateApproved: 8/19/2026
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
+MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Rust.
 ---
-# Rust in Visual Studio Code
+# Rust in {% data variables.product.prodname_vscode %}
 
-[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
+[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within {% data variables.product.prodname_vscode %}, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
 > [!NOTE]
-> There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended VS Code Rust extension by rust-lang.org.
+> There is also another popular Rust extension in the {% data variables.product.prodname_vscode_shortname %} Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended {% data variables.product.prodname_vscode_shortname %} Rust extension by rust-lang.org.
 
 ## Installation
 
@@ -19,11 +19,11 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 First you will need to have the Rust toolset installed on your machine. Rust is installed via the [rustup](https://rustup.rs) installer, which supports installation on Windows, macOS, and Linux. Follow the rustup installation guidance for your platform, taking care to install any extra tools required to build and run Rust programs.
 
 > [!NOTE]
-> As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+> As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and {% data variables.product.prodname_vscode_shortname %} instances to use the updated toolset location in your platform's PATH variable.
 
 ### 2. Install the rust-analyzer extension
 
-You can find and install the rust-analyzer extension from within VS Code via the Extensions view (`kb(workbench.view.extensions)`) and searching for 'rust-analyzer'. You should install the **Release Version**.
+You can find and install the rust-analyzer extension from within {% data variables.product.prodname_vscode_shortname %} via the Extensions view (`kb(workbench.view.extensions)`) and searching for 'rust-analyzer'. You should install the **Release Version**.
 
 ![rust-analyzer extension in the Extensions view](images/rust/rust-analyzer-extensions-view.png)
 
@@ -67,7 +67,7 @@ Let's create Hello World. Navigate to a folder where you'd like to create your p
 cargo new hello_world
 ```
 
-To open your new project in VS Code, navigate into the new folder and launch VS Code via `code .`:
+To open your new project in {% data variables.product.prodname_vscode_shortname %}, navigate into the new folder and launch {% data variables.product.prodname_vscode_shortname %} via `code .`:
 
 ```bash
 cd hello_world
@@ -98,7 +98,7 @@ This simple Hello World program doesn't have any dependencies but you would add 
 
 ### Cargo build
 
-Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
+Cargo can be used to build your Rust project. Open a new {% data variables.product.prodname_vscode_shortname %} [integrated terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
 
 ```bash
 cargo build
@@ -126,7 +126,7 @@ IntelliSense features are provided by the Rust language server, [rust-analyzer](
 
 When you first open a Rust project, you can watch rust-analyzer's progress in the lower left of the Status bar. You want to wait until rust-analyzer has completely reviewed your project to get the full power of the language server.
 
-![rust-analyzer in progress status in the VS Code Status bar](images/rust/rust-analyzer-status-bar.png)
+![rust-analyzer in progress status in the {% data variables.product.prodname_vscode_shortname %} Status bar](images/rust/rust-analyzer-status-bar.png)
 
 ### Inlay hints
 
@@ -157,7 +157,7 @@ rust-analyzer is able to use [semantic syntax highlighting](https://github.com/m
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/configure/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with {% data variables.product.prodname_vscode_shortname %} `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/configure/settings.md).
 
 In `settings.json`, you would add:
 
@@ -229,7 +229,7 @@ You also have the option to run the formatter on each save (**Editor: Format On 
 
 ## Debugging
 
-The rust-analyzer extension supports debugging Rust from within VS Code.
+The rust-analyzer extension supports debugging Rust from within {% data variables.product.prodname_vscode_shortname %}.
 
 ### Install debugging support
 
@@ -238,7 +238,7 @@ To start debugging, you will first need to install one of two language extension
 * [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *on Windows*
 * [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *on macOS/Linux*
 
-If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the VS Code Marketplace when you try to start a debug session.
+If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the {% data variables.product.prodname_vscode_shortname %} Marketplace when you try to start a debug session.
 
 ![rust-analyzer notification to install a debugging extension](images/rust/install-debugging-extensions.png)
 
@@ -276,15 +276,15 @@ To create a `launch.json` for a Rust program:
 
 ## Next steps
 
-This has been a brief overview showing the rust-analyzer extension features within VS Code. For more information, see the details provided in the Rust Analyzer extension [User Manual](https://rust-analyzer.github.io/manual.html), including how to tune specific [VS Code editor](https://rust-analyzer.github.io/manual.html#vs-code-2) configurations.
+This has been a brief overview showing the rust-analyzer extension features within {% data variables.product.prodname_vscode_shortname %}. For more information, see the details provided in the Rust Analyzer extension [User Manual](https://rust-analyzer.github.io/manual.html), including how to tune specific [{% data variables.product.prodname_vscode_shortname %} editor](https://rust-analyzer.github.io/manual.html#vs-code-2) configurations.
 
 To stay up to date on the latest features/bug fixes for the rust-analyzer extension, see the [CHANGELOG](https://rust-analyzer.github.io/thisweek). You can also try out new features and fixes by installing the rust-analyzer **Pre-Release Version** available in the Extensions view **Install** dropdown.
 
 If you have any issues or feature requests, feel free to log them in the rust-analyzer extension [GitHub repo](https://github.com/rust-lang/rust-analyzer/issues).
 
-If you'd like to learn more about VS Code, try these topics:
+If you'd like to learn more about {% data variables.product.prodname_vscode_shortname %}, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 
@@ -299,7 +299,7 @@ If you see linker errors such as **"error: linker `link.exe` not found"** when y
 On Windows, you will need to also install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) in order to get the C/C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
 
 > [!NOTE]
-> You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
+> You can use the C++ toolset from Visual Studio Build Tools along with {% data variables.product.prodname_vscode %} to compile, build, and verify any codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
 
 **macOS**
 

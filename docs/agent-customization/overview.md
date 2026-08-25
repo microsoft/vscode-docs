@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Create, manage, evaluate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} for user profiles, workspaces, and monorepos.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

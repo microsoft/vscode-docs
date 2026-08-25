@@ -1,23 +1,23 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 8/19/2026
-MetaDescription: Learn how to configure and manage Visual Studio Code in enterprise environments, including policies, extensions, AI settings, and network configuration.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to configure and manage {% data variables.product.prodname_vscode %} in enterprise environments, including policies, extensions, AI settings, and network configuration.
 ---
 
-# VS Code for enterprise
+# {% data variables.product.prodname_vscode_shortname %} for enterprise
 
-Visual Studio Code can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure VS Code to achieve consistency and compliance across your organization.
+{% data variables.product.prodname_vscode %} can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure {% data variables.product.prodname_vscode_shortname %} to achieve consistency and compliance across your organization.
 
 ## Enterprise policies
 
-VS Code supports centrally managed policies that override user settings on managed devices. Policies can be deployed through device management solutions like Microsoft Intune, Active Directory Group Policy, or MDM solutions on macOS.
+{% data variables.product.prodname_vscode_shortname %} supports centrally managed policies that override user settings on managed devices. Policies can be deployed through device management solutions like Microsoft Intune, Active Directory Group Policy, or MDM solutions on macOS.
 
 Policies are available to control:
 
 * [AI and Copilot features](/docs/enterprise/ai-settings.md) - Agent mode, MCP servers, and tool approvals
 * [Extensions](/docs/enterprise/extensions.md) - Allowed extensions and private marketplace
 * [Telemetry](/docs/enterprise/telemetry.md) - Data collection levels and feedback mechanisms
-* [Automatic updates](/docs/enterprise/updates.md) - Control when and how VS Code updates
+* [Automatic updates](/docs/enterprise/updates.md) - Control when and how {% data variables.product.prodname_vscode_shortname %} updates
 
 See the [enterprise policies reference](/docs/enterprise/policies.md) for a complete list of available policies.
 
@@ -32,13 +32,13 @@ Learn more about [managing extensions in enterprise environments](/docs/enterpri
 
 ## Network configuration
 
-VS Code requires network access for several features, including automatic updates, extension marketplace, and telemetry. For environments with restricted network access or proxy servers, you might need to configure:
+{% data variables.product.prodname_vscode_shortname %} requires network access for several features, including automatic updates, extension marketplace, and telemetry. For environments with restricted network access or proxy servers, you might need to configure:
 
-* **Firewall allowlist** - Allow specific hostnames for VS Code functionality
-* **Proxy server** - VS Code uses system proxy settings by default
+* **Firewall allowlist** - Allow specific hostnames for {% data variables.product.prodname_vscode_shortname %} functionality
+* **Proxy server** - {% data variables.product.prodname_vscode_shortname %} uses system proxy settings by default
 * **SSL certificates** - Configure trusted certificates for HTTPS proxies
 
-For detailed network configuration, see [Network connections in VS Code](/docs/setup/network.md).
+For detailed network configuration, see [Network connections in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/network.md).
 
 ### Common hostnames
 
@@ -53,7 +53,7 @@ See the [complete list of hostnames](/docs/setup/network.md#common-hostnames) in
 
 ## Preinstalled extensions
 
-You can prepare machine images or virtual machines with VS Code and a set of preinstalled extensions. When users launch VS Code for the first time, the extensions are installed automatically.
+You can prepare machine images or virtual machines with {% data variables.product.prodname_vscode_shortname %} and a set of preinstalled extensions. When users launch {% data variables.product.prodname_vscode_shortname %} for the first time, the extensions are installed automatically.
 
 Learn more about [preinstalling extensions](/docs/enterprise/extensions.md#preinstall-extensions).
 

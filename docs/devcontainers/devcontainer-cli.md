@@ -15,13 +15,13 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Development containers are supported in Visual Studio Code via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in {% data variables.product.prodname_vscode %} via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://containers.dev/), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond {% data variables.product.prodname_vscode_shortname %}. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://containers.dev/), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
 ## The dev container CLI
 
-When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. The dev container CLI is a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
+When tools like {% data variables.product.prodname_vscode_shortname %} and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. The dev container CLI is a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
 This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
@@ -44,7 +44,7 @@ On this page, we'll focus on using the npm package.
 
 ### npm install
 
-To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
+To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The {% data variables.product.prodname_vscode_shortname %} [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
 ```bash
 npm install -g @devcontainers/cli
@@ -69,7 +69,7 @@ Options:
   --version  Show version number                                       [boolean]
 ```
 
-> **Note:** The `open` command to open your dev container will be listed if you installed the CLI via VS Code.
+> **Note:** The `open` command to open your dev container will be listed if you installed the CLI via {% data variables.product.prodname_vscode_shortname %}.
 
 ## Running the CLI
 
@@ -116,7 +116,7 @@ This will compile and run the Rust sample, outputting:
    Compiling hello_remote_world v0.1.0 (/workspaces/vscode-remote-try-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 1.06s
      Running `target/debug/hello_remote_world`
-Hello, VS Code Dev Containers!
+Hello, {% data variables.product.prodname_vscode_shortname %} Dev Containers!
 {"outcome":"success"}
 ```
 
@@ -136,7 +136,7 @@ The `devcontainer build` command allows you to quickly build a dev container ima
 
 For example, you may want to pre-build a number of images that you then reuse across multiple projects or repositories. To do so, follow these steps:
 
-1. [Create](/docs/sourcecontrol/overview.md#initialize-a-repository) a source code repository.
+1. [Create](/docs/sourcecontrol/overview.md#get-started-with-a-repository) a source code repository.
 
 1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features)). For example, consider this `devcontainer.json` file:
 
@@ -161,7 +161,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 ## Avoiding problems with images built using Docker
 
-Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
+Given Dockerfiles and Docker Compose files can be used without {% data variables.product.prodname_vscode_shortname %} or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
 
 ## Templates and Features
 

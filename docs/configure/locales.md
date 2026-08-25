@@ -1,23 +1,23 @@
 ---
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
 DateApproved: 02/04/2026
-MetaDescription: How to change the display language (locale) of Visual Studio Code.
+MetaDescription: How to change the display language (locale) of {% data variables.product.prodname_vscode %}.
 ---
 # Display Language
 
-Visual Studio Code ships by default with English as the display language and other [languages](#available-locales) rely on Language Pack [extensions](/docs/configure/extensions/extension-marketplace.md) available from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
+{% data variables.product.prodname_vscode %} ships by default with English as the display language and other [languages](#available-locales) rely on Language Pack [extensions](/docs/configure/extensions/extension-marketplace.md) available from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
 
-VS Code detects the operating system's UI language and prompts you to install the appropriate Language Pack, if available on the Marketplace. Below is an example recommending a Simplified Chinese Language Pack:
+{% data variables.product.prodname_vscode_shortname %} detects the operating system's UI language and prompts you to install the appropriate Language Pack, if available on the Marketplace. Below is an example recommending a Simplified Chinese Language Pack:
 
 ![Language Pack recommendation](images/locales/lang-pack-recommendation.png)
 
-After installing the Language Pack extension and following the prompt to restart, VS Code uses the Language Pack matching your operating system's UI language.
+After installing the Language Pack extension and following the prompt to restart, {% data variables.product.prodname_vscode_shortname %} uses the Language Pack matching your operating system's UI language.
 
->**Note**: This article explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
+>**Note**: This article explains how to change the display language in the {% data variables.product.prodname_vscode_shortname %} UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
 
 ## Changing the Display Language
 
-You can also override the default UI language by explicitly setting the VS Code display language using the **Configure Display Language** command.
+You can also override the default UI language by explicitly setting the {% data variables.product.prodname_vscode_shortname %} display language using the **Configure Display Language** command.
 
 Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
 
@@ -27,11 +27,11 @@ Press `kbstyle(Enter)` and a list of available languages by [locale](#available-
 
 ![installed languages list](images/locales/installed-languages-list.png)
 
-Select another language to change the display language. If the Language Pack is not yet installed, VS Code installs it. You are prompted to restart when you select a different display language.
+Select another language to change the display language. If the Language Pack is not yet installed, {% data variables.product.prodname_vscode_shortname %} installs it. You are prompted to restart when you select a different display language.
 
-The **Configure Display Language** command writes to the Runtime Configuration Arguments file `argv.json` in your user VS Code folder (`.vscode`).
+The **Configure Display Language** command writes to the Runtime Configuration Arguments file `argv.json` in your user {% data variables.product.prodname_vscode_shortname %} folder (`.vscode`).
 
-The display language can also be changed by editing the `argv.json` file directly (**Preferences: Configure Runtime Arguments**) and restarting VS Code.
+The display language can also be changed by editing the `argv.json` file directly (**Preferences: Configure Runtime Arguments**) and restarting {% data variables.product.prodname_vscode_shortname %}.
 
 ## Available locales
 
@@ -55,7 +55,7 @@ Hungarian | `hu`
 
 ## Marketplace Language Packs
 
-As described above, VS Code ships with English as the default display language, but other languages are available through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
+As described above, {% data variables.product.prodname_vscode_shortname %} ships with English as the default display language, but other languages are available through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
 
 You can also search for Language Packs in the Extensions view (`kb(workbench.view.extensions)`) by typing the language you are looking for along with `category:"Language Packs"`.
 
@@ -65,15 +65,15 @@ You can have multiple Language Packs installed and select the current display la
 
 ## Setting the Language
 
-If you want to use a specific language for a VS Code session, you can use the command-line switch `--locale` to specify a locale when you launch VS Code.
+If you want to use a specific language for a {% data variables.product.prodname_vscode_shortname %} session, you can use the command-line switch `--locale` to specify a locale when you launch {% data variables.product.prodname_vscode_shortname %}.
 
-Below is an example of using the `--locale` command-line switch to set the VS Code display language to French:
+Below is an example of using the `--locale` command-line switch to set the {% data variables.product.prodname_vscode_shortname %} display language to French:
 
 ```bash
 code . --locale=fr
 ```
 
-**Note**: You must have the appropriate Language Pack installed for the language you specify with the command-line switch. If the matching Language Pack is not installed, VS Code will display English.
+**Note**: You must have the appropriate Language Pack installed for the language you specify with the command-line switch. If the matching Language Pack is not installed, {% data variables.product.prodname_vscode_shortname %} will display English.
 
 ## Common questions
 
@@ -83,7 +83,7 @@ This notification may mean that your `argv.json` file wasn't saved after a previ
 
 ### Can I contribute to a language pack's translations?
 
-Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.
+Yes, the [{% data variables.product.prodname_vscode %} Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.
 
 ### How can I enable a programming language like Python?
 

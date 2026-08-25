@@ -5,7 +5,7 @@ MetaDescription: Debug, visualize, and iterate on AI agents with the Agent Inspe
 ---
 # Develop agents with Agent Inspector in Foundry Toolkit
 
-This article describes how to use the Agent Inspector to debug, visualize, and improve your AI agents directly in VS Code. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
+This article describes how to use the Agent Inspector to debug, visualize, and improve your AI agents directly in {% data variables.product.prodname_vscode_shortname %}. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
 
 ![Screenshot showing the Agent Inspector interface](./images/agent-inspector/test_tool_visualizer.png)
 
@@ -23,8 +23,8 @@ Agent Inspector provides the following capabilities for your agent development w
 
 ## Prerequisites
 
-- **Python 3.10+** and **VS Code Foundry Toolkit** extension
-- [**Python** extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for debugging support (if using Python)
+- **Python 3.10+** and **{% data variables.product.prodname_vscode_shortname %} Foundry Toolkit** extension
+- [**Python** extension for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for debugging support (if using Python)
 
 ## Quick start
 
@@ -152,6 +152,6 @@ When you press F5, the Inspector:
 
 ### Architecture overview
 
-The `agentdev` CLI launches a local TestToolServer that wraps your agent as an HTTP server on port 8087. The Inspector UI (a VS Code webview) communicates with this server over HTTP and WebSocket to list agents, stream SSE responses, and trigger code navigation in the editor. An EventMapper converts Agent Framework events into OpenAI-compatible SSE format, and a Python debugger (debugpy) attaches on port 5679 for step-through debugging. Your agent or workflow runs via `run_stream()` through the Agent Framework SDK.
+The `agentdev` CLI launches a local TestToolServer that wraps your agent as an HTTP server on port 8087. The Inspector UI (a {% data variables.product.prodname_vscode_shortname %} webview) communicates with this server over HTTP and WebSocket to list agents, stream SSE responses, and trigger code navigation in the editor. An EventMapper converts Agent Framework events into OpenAI-compatible SSE format, and a Python debugger (debugpy) attaches on port 5679 for step-through debugging. Your agent or workflow runs via `run_stream()` through the Agent Framework SDK.
 
 ![Diagram showing the Agent Inspector architecture](./images/agent-inspector/architecture-diagram.png)
