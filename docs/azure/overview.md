@@ -1,17 +1,17 @@
 ---
 ContentId: d2e93075-4cfe-48f4-b05e-f985c86d9713
-MetaDescription: Visual Studio Code Azure Extensions
+MetaDescription: {% data variables.product.prodname_vscode %} Azure Extensions
 DateApproved: 02/1/2024
 ---
 # Azure Extensions
 
-You can use Azure directly from Visual Studio Code through a range of extensions. The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains various extensions designed to deploy your application to Azure within minutes.
+You can use Azure directly from {% data variables.product.prodname_vscode %} through a range of extensions. The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains various extensions designed to deploy your application to Azure within minutes.
 
 ![app service](images/extensions/azure-tools.png)
 
 ## Which extension should I use?
 
-The table below describes the various extensions available in the Azure Tools extension pack for VS Code and highlights common use cases.
+The table below describes the various extensions available in the Azure Tools extension pack for {% data variables.product.prodname_vscode_shortname %} and highlights common use cases.
 
 |Type of Developer|Description|When to use|
 |----------------------|---------------------|-------------|
@@ -23,9 +23,9 @@ The table below describes the various extensions available in the Azure Tools ex
 |API developer|Developers who create and manage APIs for various clients and apps.|For building RESTful or serverless APIs, these extensions streamline the process of deployment and scaling.</br></br>**Azure Functions** or **Azure Container Apps** are options for building and deploying serverless APIs.</br> **Azure Storage** fulfills your API data storage requirements with options like blobs, queues, tables, and files. It also allows for uploading and downloading data.|
 |Data engineer|Engineers who process and analyze data streams.|When working with large-scale data streams, these tools help create scalable environments for real-time data processing and analysis.</br></br> Deploy data processing and machine learning models in containers using **Azure Container Apps**, creating scalable and reproducible environments for your data-driven applications.</br> **Azure Functions** let you trigger data workflows, perform ETL tasks, and react to real-time data changes.|
 
-## Visual Studio Code Marketplace
+## {% data variables.product.prodname_vscode %} Marketplace
 
-There are many VS Code extensions on the [Marketplace](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) that make it easy to build and host applications on Azure.
+There are many {% data variables.product.prodname_vscode_shortname %} extensions on the [Marketplace](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) that make it easy to build and host applications on Azure.
 
 <div class="marketplace-extensions-azure-curated"></div>
 
@@ -35,4 +35,4 @@ There are many VS Code extensions on the [Marketplace](https://marketplace.visua
 
 * [Azure Tools Getting Started](/docs/azure/gettingstarted.md) - Learn how to get started quickly.
 * [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/?source=docs) - Guidance for architecting solutions on Azure using established patterns and practices
-* [VS Code Getting Started](https://code.visualstudio.com/docs/editing/getting-started)
+* [{% data variables.product.prodname_vscode_shortname %} Getting Started](https://code.visualstudio.com/docs/editing/getting-started)

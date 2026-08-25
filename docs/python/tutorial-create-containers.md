@@ -1,7 +1,7 @@
 ---
 ContentId: 4e45a3f6-b72d-4647-82a5-22f7ee593d47
 DateApproved: 02/04/2026
-MetaDescription: How to create containers for Python web apps using the VS Code Container Tools extension
+MetaDescription: How to create containers for Python web apps using the {% data variables.product.prodname_vscode_shortname %} Container Tools extension
 MetaSocialImage: images/tutorial/python-social.png
 ---
 # Create containers for Python

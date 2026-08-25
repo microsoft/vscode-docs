@@ -1,19 +1,19 @@
 ---
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
-MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
+MetaDescription: Work in Windows Subsystem for Linux with {% data variables.product.prodname_vscode %}
 DateApproved: 8/19/2026
 ---
 # Remote development in WSL
 
-This tutorial walks you through enabling [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and running Visual Studio Code in WSL using the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+This tutorial walks you through enabling [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and running {% data variables.product.prodname_vscode %} in WSL using the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ## Prerequisites
 
-You need [Visual Studio Code](https://code.visualstudio.com/) installed.
+You need [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) installed.
 
 ### Install the extension
 
-The WSL extension enables you to run Visual Studio Code within the Windows Subsystem for Linux (WSL).
+The WSL extension enables you to run {% data variables.product.prodname_vscode %} within the Windows Subsystem for Linux (WSL).
 
 > <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the WSL extension</a>
 
@@ -25,7 +25,7 @@ With the WSL extension installed, you will see a new Status bar item at the far 
 
 ![Remote Status bar item](images/wsl-tutorial/remote-status-bar.png)
 
-The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the WSL extension commands.
+The Remote Status bar item can quickly show you in which context {% data variables.product.prodname_vscode_shortname %} is running (local or remote) and clicking on the item will bring up the WSL extension commands.
 
 ![WSL extension commands](images/wsl-tutorial/wsl-commands.png)
 
@@ -110,15 +110,15 @@ Remember, Python is installed in the Linux distro, which means if you're editing
 
 ## Run in WSL
 
-In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder. If you use the [Insiders](/insiders) version of VS Code, you will have to run `'code-insiders .'` instead.
+In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch {% data variables.product.prodname_vscode %}. The `'.'` argument tells {% data variables.product.prodname_vscode_shortname %} to open the current folder. If you use the [Insiders](/insiders) version of {% data variables.product.prodname_vscode_shortname %}, you will have to run `'code-insiders .'` instead.
 
-> **Note:** If this command does not work, you may need to restart your terminal, or you may not have added VS Code to your path when it was installed.
+> **Note:** If this command does not work, you may need to restart your terminal, or you may not have added {% data variables.product.prodname_vscode_shortname %} to your path when it was installed.
 
-![launch VS Code](images/wsl-tutorial/launch-code.png)
+![launch {% data variables.product.prodname_vscode_shortname %}](images/wsl-tutorial/launch-code.png)
 
-The first thing you'll see is a message about "Installing VS Code Server" (the c7d83e57… number is the version of the VS Code Server that matches the client-side tools you just installed). VS Code is installing a small server on the Linux side that the desktop VS Code will then talk to. That server will then install and host extensions in WSL, so that they run in the context of the tools and frameworks installed in WSL. In other words, your language extensions will run against the tools and frameworks installed in WSL, not against what is installed on the Windows side, as it should for the proper development experience.
+The first thing you'll see is a message about "Installing {% data variables.product.prodname_vscode_shortname %} Server" (the c7d83e57… number is the version of the {% data variables.product.prodname_vscode_shortname %} Server that matches the client-side tools you just installed). {% data variables.product.prodname_vscode_shortname %} is installing a small server on the Linux side that the desktop {% data variables.product.prodname_vscode_shortname %} will then talk to. That server will then install and host extensions in WSL, so that they run in the context of the tools and frameworks installed in WSL. In other words, your language extensions will run against the tools and frameworks installed in WSL, not against what is installed on the Windows side, as it should for the proper development experience.
 
-The next thing that happens is VS Code will start and open the `helloWorld` folder. You may see a quick notification telling you that VS Code is connecting to WSL, and you may be prompted to allow access to the Node.js-based server.
+The next thing that happens is {% data variables.product.prodname_vscode_shortname %} will start and open the `helloWorld` folder. You may see a quick notification telling you that {% data variables.product.prodname_vscode_shortname %} is connecting to WSL, and you may be prompted to allow access to the Node.js-based server.
 
 ![installing vscode server](images/wsl-tutorial/installing-vscode-server.png)
 
@@ -132,7 +132,7 @@ Run **Terminal** > **New Terminal** (`kb(workbench.action.terminal.toggleTermina
 
 ![new terminal in WSL](images/wsl-tutorial/new-terminal-in-wsl.png)
 
-You'll start a new instance of the bash shell in WSL, again from VS Code running on Windows.
+You'll start a new instance of the bash shell in WSL, again from {% data variables.product.prodname_vscode_shortname %} running on Windows.
 
 **Tip**: In the lower left corner of the Status Bar, you can see that you're connected to your **WSL: Ubuntu** instance.
 
@@ -176,9 +176,9 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 
 Press `kb(workbench.action.debug.stepOver)` to step and you'll see the output of the print statement in the debug console.
 
-![VS Code debug view](images/wsl-tutorial/debug-view.png)
+![{% data variables.product.prodname_vscode_shortname %} debug view](images/wsl-tutorial/debug-view.png)
 
-You get the full development experience of Visual Studio Code, using the Linux instance installed in WSL.
+You get the full development experience of {% data variables.product.prodname_vscode %}, using the Linux instance installed in WSL.
 
 If you want to open another folder in WSL, open the **File** menu and choose **Open Folder**. You'll get a minimal file and folder navigator for the Linux file system, not the Windows file system.
 
@@ -188,7 +188,7 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 ### Ending your WSL connection
 
-You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
+You can end your session in WSL and go back to running {% data variables.product.prodname_vscode_shortname %} locally with **File** > **Close Remote Connection**.
 
 ### Congratulations
 

@@ -1,11 +1,11 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
+MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
 DateApproved: 8/19/2026
 ---
 # Remote Development Tips and Tricks
 
-This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+This article covers troubleshooting tips and tricks for each of the {% data variables.product.prodname_vscode %} [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
 For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
@@ -25,7 +25,7 @@ For macOS / linux remote hosts, add this snippet to your shell configuration fil
 
 ```bash
 if [ "$VSCODE_INJECTION" = "1" ]; then
-    export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
+    export EDITOR="code --wait" # or 'code-insiders' if you're using {% data variables.product.prodname_vscode_shortname %} Insiders
 fi
 ```
 
@@ -33,11 +33,11 @@ For Windows hosts, here is the equivalent PowerShell:
 
 ```powershell
 if ($env:VSCODE_INJECTION -eq "1") {
-    $env:EDITOR = "code --wait"  # or 'code-insiders' for VS Code Insiders
+    $env:EDITOR = "code --wait"  # or 'code-insiders' for {% data variables.product.prodname_vscode_shortname %} Insiders
 }
 ```
 
-Now running a terminal command that uses the $EDITOR variable, like `git commit`, will open the file in VS Code instead of the default terminal-based editor (like `vim` or `nano`).
+Now running a terminal command that uses the $EDITOR variable, like `git commit`, will open the file in {% data variables.product.prodname_vscode_shortname %} instead of the default terminal-based editor (like `vim` or `nano`).
 
 ### Configuring key based authentication
 
@@ -167,7 +167,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_ed25519-remote-ssh.pub` file instead.
 
-3. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
+3. In {% data variables.product.prodname_vscode_shortname %}, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -185,7 +185,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 1. Open PuTTYGen **locally** and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
 3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
+4. In {% data variables.product.prodname_vscode_shortname %}, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -196,7 +196,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Improving security on multi-user servers
 
-The Remote - SSH extension installs and maintains the "VS Code Server". The server is started with a randomly generated key, and any new connection to the server needs to provide the key. The key is stored on the remote's disk, readable only by the current user. There is one HTTP path that is available without authentication at `/version`.
+The Remote - SSH extension installs and maintains the "{% data variables.product.prodname_vscode_shortname %} Server". The server is started with a randomly generated key, and any new connection to the server needs to provide the key. The key is stored on the remote's disk, readable only by the current user. There is one HTTP path that is available without authentication at `/version`.
 
 By default, the server listens to `localhost` on a random TCP port that is then forwarded to your local machine. If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
 
@@ -206,11 +206,11 @@ To configure it:
 
 1. Ensure you have a **local OpenSSH 6.7+ SSH client** on Windows, macOS, or Linux and an **OpenSSH 6.7+ Linux or macOS Host** (Windows does not support this mode).
 
-2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Server Listen On Socket** in your **local** VS Code [User settings](/docs/configure/settings.md).
+2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Server Listen On Socket** in your **local** {% data variables.product.prodname_vscode_shortname %} [User settings](/docs/configure/settings.md).
 
-    ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
+    ![Listen on socket {% data variables.product.prodname_vscode_shortname %} setting](images/ssh/ssh-listen-on-socket.png)
 
-3. If you've already connected to the SSH Host, select **Remote-SSH: Kill VS Code Server on Host...** from the Command Palette (`kbstyle(F1)`) so the setting takes effect.
+3. If you've already connected to the SSH Host, select **Remote-SSH: Kill {% data variables.product.prodname_vscode_shortname %} Server on Host...** from the Command Palette (`kbstyle(F1)`) so the setting takes effect.
 
 If you encounter an error when connecting, you may need to enable socket forwarding on your SSH Host's [sshd config](https://www.ssh.com/ssh/sshd_config/). To do so:
 
@@ -221,15 +221,15 @@ If you encounter an error when connecting, you may need to enable socket forward
 
 ### Troubleshooting hanging or failing connections
 
-If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+If you are running into problems with {% data variables.product.prodname_vscode_shortname %} hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
 
 **General troubleshooting: Remove the server**
 
-One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill VS Code Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
+One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill {% data variables.product.prodname_vscode_shortname %} Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The {% data variables.product.prodname_vscode_shortname %} Server failed to start."
 
-**See if VS Code is waiting on a prompt**
+**See if {% data variables.product.prodname_vscode_shortname %} is waiting on a prompt**
 
-Enable the `remote.SSH.showLoginTerminal` [setting](/docs/configure/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
+Enable the `remote.SSH.showLoginTerminal` [setting](/docs/configure/settings.md) in {% data variables.product.prodname_vscode_shortname %} and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
 
 If you are still having trouble, set the following properties in `settings.json` and retry:
 
@@ -242,13 +242,13 @@ If you are still having trouble, set the following properties in `settings.json`
 
 Due to a bug in certain versions of OpenSSH server for Windows, the default check to determine if the host is running Windows may not work properly. This does not occur with OpenSSH server that ships with Windows 1909 and below.
 
-Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
+Fortunately, you can work around this problem by specifically telling {% data variables.product.prodname_vscode_shortname %} if your SSH host is running Windows by adding the following to `settings.json`:
 
 ```json
 "remote.SSH.useLocalServer": false
 ```
 
-You can also force VS Code to identify a particular host as Windows using the following property:
+You can also force {% data variables.product.prodname_vscode_shortname %} to identify a particular host as Windows using the following property:
 
 ```json
 "remote.SSH.remotePlatform": {
@@ -279,7 +279,7 @@ If you are behind a proxy and are unable to connect to your SSH host, you may ne
 
 **Ensure the remote machine has internet access**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See the [FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
+The remote machine must have internet access to be able to download the {% data variables.product.prodname_vscode_shortname %} Server and extensions from the Marketplace. See the [FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
@@ -296,17 +296,17 @@ export HTTPS_PROXY=$HTTP_PROXY
 
 **Work around `/tmp` mounted with `noexec`**
 
-Some remote servers are set up to disallow executing scripts from `/tmp`. VS Code writes its install script to the system temp directory and tries to execute it from there. You can work with your system administrator to determine whether this can be worked around.
+Some remote servers are set up to disallow executing scripts from `/tmp`. {% data variables.product.prodname_vscode_shortname %} writes its install script to the system temp directory and tries to execute it from there. You can work with your system administrator to determine whether this can be worked around.
 
 **Check whether a different shell is launched during install**
 
-Some users launch a different shell from their `.bash_profile` or other startup script on their **SSH host** because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
+Some users launch a different shell from their `.bash_profile` or other startup script on their **SSH host** because they want to use a different shell than the default. This can break {% data variables.product.prodname_vscode_shortname %}'s remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
 
 **Connecting to systems that dynamically assign machines per connection**
 
-Some systems will dynamically route an SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
+Some systems will dynamically route an SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for {% data variables.product.prodname_vscode_shortname %} because it makes two connections to open a remote window: the first to install or start the {% data variables.product.prodname_vscode_shortname %} Server (or find an already running instance) and the second to create the SSH port tunnel that {% data variables.product.prodname_vscode_shortname %} uses to talk to the server. If {% data variables.product.prodname_vscode_shortname %} is routed to a different machine when it creates the second connection, it won't be able to talk to the {% data variables.product.prodname_vscode_shortname %} server.
 
-One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described in [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
+One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described in [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods), so that {% data variables.product.prodname_vscode_shortname %}'s two connections will be multiplexed through a single SSH connection to the same node.
 
 **Contact your system administrator for configuration help**
 
@@ -324,7 +324,7 @@ If you are connecting to an SSH remote host and are either:
 * Using password authentication
 * Using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
 
-then VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/configure/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
+then {% data variables.product.prodname_vscode_shortname %} should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/configure/settings.md) in {% data variables.product.prodname_vscode_shortname %}. This setting displays the terminal whenever {% data variables.product.prodname_vscode_shortname %} runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
 
 If you are still having trouble, you may need to add the following properties in `settings.json` and retry:
 
@@ -350,9 +350,9 @@ To enable `ControlMaster`:
 
 ### Setting up the SSH Agent
 
-If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running **locally**. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
+If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running **locally**. {% data variables.product.prodname_vscode_shortname %} will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote {% data variables.product.prodname_vscode_shortname %} window.
 
-To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in the terminal of a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart VS Code.
+To verify that the agent is running and is reachable from {% data variables.product.prodname_vscode_shortname %}'s environment, run `ssh-add -l` in the terminal of a local {% data variables.product.prodname_vscode_shortname %} window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart {% data variables.product.prodname_vscode_shortname %}.
 
 **Windows:**
 
@@ -460,7 +460,7 @@ See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
 
-VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path. You can also specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property to `settings.json`.
+{% data variables.product.prodname_vscode_shortname %} will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path. You can also specifically tell {% data variables.product.prodname_vscode_shortname %} where to find the SSH client by adding the `remote.SSH.path` property to `settings.json`.
 
 ### Installing a supported SSH server
 
@@ -474,7 +474,7 @@ VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it
 
 ### Resolving hangs when doing a Git push or sync on an SSH host
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+If you clone a Git repository using SSH and your SSH key has a passphrase, {% data variables.product.prodname_vscode_shortname %}'s pull and sync features may hang when running remotely.
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
@@ -577,9 +577,9 @@ To push content, reverse the source and target parameters in the command. Howeve
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
 ```
 
-### Cleaning up the VS Code Server on the remote
+### Cleaning up the {% data variables.product.prodname_vscode_shortname %} Server on the remote
 
-The SSH extension provides a command for cleaning up the VS Code Server from the remote machine, **Remote-SSH: Uninstall VS Code Server from Host...**. The command does two things: it kills any running VS Code Server processes and it deletes the folder where the server was installed.
+The SSH extension provides a command for cleaning up the {% data variables.product.prodname_vscode_shortname %} Server from the remote machine, **Remote-SSH: Uninstall {% data variables.product.prodname_vscode_shortname %} Server from Host...**. The command does two things: it kills any running {% data variables.product.prodname_vscode_shortname %} Server processes and it deletes the folder where the server was installed.
 
 If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
 
@@ -590,7 +590,7 @@ kill -9 $(ps aux | grep vscode-server | grep $USER | grep -v grep | awk '{print 
 rm -rf $HOME/.vscode-server # Or ~/.vscode-server-insiders
 ```
 
-The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
+The {% data variables.product.prodname_vscode_shortname %} Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
 ### SSH into a remote WSL 2 host
 
@@ -606,9 +606,9 @@ If you'd like to read about tips for using Dev Containers, you can go to Dev Con
 
 ## WSL tips
 
-### First time start: VS Code Server prerequisites
+### First time start: {% data variables.product.prodname_vscode_shortname %} Server prerequisites
 
-Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
+Some WSL Linux distributions are lacking libraries that are required by the {% data variables.product.prodname_vscode_shortname %} server to start up. You can add additional libraries into your Linux distribution by using its package manager.
 
 #### Debian and Ubuntu
 
@@ -656,7 +656,7 @@ wslconfig /l
 
 ### Configure the environment for the server startup
 
-When the WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+When the WSL extension starts the {% data variables.product.prodname_vscode_shortname %} server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
 
 If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
@@ -672,22 +672,22 @@ To change the default shell of a WSL distro, follow the instructions of [this bl
 
 If typing `code` from a WSL terminal on Window does not work because `code` cannot be found, you may be missing some key locations from your PATH in WSL.
 
-Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
+Check by opening a WSL terminal and typing `echo $PATH`. You should see {% data variables.product.prodname_vscode_shortname %} install path listed. By default, this would be:
 
 ```bash
-/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
+/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin
 ```
 
 But, if you used the **System Installer**, the install path is:
 
 ```bash
-/mnt/c/Program Files/Microsoft VS Code/bin
+/mnt/c/Program Files/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin
 ```
 
 ...or...
 
 ```bash
-/mnt/c/Program Files (x86)/Microsoft VS Code/bin
+/mnt/c/Program Files (x86)/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin
 ```
 
 It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the **Edit environment variables for your account** command from the start menu in Windows.
@@ -697,11 +697,11 @@ If you have disabled the path sharing feature, edit your `.bashrc`, add the foll
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
 
-export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin"
 # or...
-# export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
+# export PATH="$PATH:/mnt/c/Program Files/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin"
 # or...
-# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft {% data variables.product.prodname_vscode_shortname %}/bin"
 
 ```
 
@@ -709,7 +709,7 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 ### Finding problems with the 'code' command
 
-If typing `code` from a Windows command prompt does not launch VS Code, you can help us diagnose the problem by running `VSCODE_WSL_DEBUG_INFO=true code .`.
+If typing `code` from a Windows command prompt does not launch {% data variables.product.prodname_vscode_shortname %}, you can help us diagnose the problem by running `VSCODE_WSL_DEBUG_INFO=true code .`.
 
 Please file an issue and attach the full output.
 
@@ -731,7 +731,7 @@ In a Windows command prompt:
 
 * Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the WSL extension folder.
 * `cd` to the path that is returned.
-* Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
+* Open the `wslServer.sh` script with {% data variables.product.prodname_vscode_shortname %}, `code .\scripts\wslServer.sh`.
 * Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
 `ulimit -C unlimited`.
 * Start the WSL window running the remote server and wait for the segmentation fault.
@@ -740,7 +740,7 @@ The core file will be in the WSL extension folder from above.
 
 ### I see EACCES: permission denied error trying to rename a folder in the open workspace
 
-This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
+This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by {% data variables.product.prodname_vscode_shortname %}. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
 
@@ -798,7 +798,7 @@ Any password you enter when working with Git on the Windows side will now be ava
 
 ### Resolving hangs when doing a Git push or sync from WSL
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+If you clone a Git repository using SSH and your SSH key has a passphrase, {% data variables.product.prodname_vscode_shortname %}'s pull and sync features may hang when running remotely.
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
@@ -816,7 +816,7 @@ Some extensions rely on libraries not found in the basic install of certain WSL 
 
 ### Local absolute path settings fail when applied remotely
 
-VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
+{% data variables.product.prodname_vscode_shortname %}'s local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
 **Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These settings will override any local settings you have in place whenever you connect.
 
@@ -836,7 +836,7 @@ Some extensions use external node modules or custom code to launch a browser win
 
 Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side.
 
-**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
+**Resolution:** The extension can switch to the {% data variables.product.prodname_vscode_shortname %} clipboard API to resolve the problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
 
 ### Cannot access local web server from browser or application
 
@@ -850,13 +850,13 @@ If the extension's webview content uses an `iframe` to connect to a local web se
 
 **Resolution:** The extension can use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
 
-If ports are being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for the Codespaces browser-based editor (only) by [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
+If ports are being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from {% data variables.product.prodname_vscode_shortname %}. However, this is currently blocked for the Codespaces browser-based editor (only) by [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
+**Resolution:** {% data variables.product.prodname_vscode_shortname %} 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
 
 ### Errors storing extension data
 
@@ -870,9 +870,9 @@ Extensions that require sign in may persist secrets using their own code. This c
 
 **Resolution:** Extensions can use the [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
-### An incompatible extension prevents VS Code from connecting
+### An incompatible extension prevents {% data variables.product.prodname_vscode_shortname %} from connecting
 
-If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen instances where the VS Code Server hangs or crashes due to the incompatibility. If the extension activates right away, this can prevent you from connecting and being able to uninstall the extension.
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen instances where the {% data variables.product.prodname_vscode_shortname %} Server hangs or crashes due to the incompatibility. If the extension activates right away, this can prevent you from connecting and being able to uninstall the extension.
 
 **Resolution:** Manually delete the remote extensions folder by following these steps:
 
@@ -883,13 +883,13 @@ If an incompatible extension has been installed on a remote host, container, or 
    * If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
    * If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
-3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
+3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for {% data variables.product.prodname_vscode_shortname %} stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for {% data variables.product.prodname_vscode_shortname %} Insiders to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 
-Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
+Native modules bundled with (or dynamically acquired for) a {% data variables.product.prodname_vscode_shortname %} extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, {% data variables.product.prodname_vscode_shortname %} Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that {% data variables.product.prodname_vscode_shortname %} ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
 
 ### Extension only fails on non-x86_64 hosts or Alpine Linux
 
@@ -900,7 +900,7 @@ Extensions will need to opt-in to supporting these platforms by compiling / incl
 
 ### Extensions fail due to missing modules
 
-Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
+Extensions that rely on Electron or {% data variables.product.prodname_vscode_shortname %} base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
 
 **Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension author's guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
 

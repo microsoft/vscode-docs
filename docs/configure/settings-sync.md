@@ -1,13 +1,13 @@
 ---
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 DateApproved: 02/04/2026
-MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
+MetaDescription: Synchronize your user settings across all your {% data variables.product.prodname_vscode %} instances.
 ---
 # Settings Sync
 
-Settings Sync lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+Settings Sync lets you share your {% data variables.product.prodname_vscode %} configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> **Note**: {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Turning on Settings Sync
 
@@ -84,7 +84,7 @@ If at any time you want to sync your data to a different account, you can turn o
 
 ## Syncing Stable versus Insiders
 
-By default, the VS Code Stable and [Insiders](/insiders) builds use different Settings Sync services, and therefore do not share settings. You can sync your Insiders with Stable by selecting the Stable sync service while turning on Settings Sync. This option is only available in VS Code Insiders.
+By default, the {% data variables.product.prodname_vscode_shortname %} Stable and [Insiders](/insiders) builds use different Settings Sync services, and therefore do not share settings. You can sync your Insiders with Stable by selecting the Stable sync service while turning on Settings Sync. This option is only available in {% data variables.product.prodname_vscode_shortname %} Insiders.
 
 ![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
 
@@ -92,7 +92,7 @@ By default, the VS Code Stable and [Insiders](/insiders) builds use different Se
 
 ## Restoring data
 
-VS Code always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
+{% data variables.product.prodname_vscode_shortname %} always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
 
 ![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
 
@@ -106,7 +106,7 @@ Local backups folder in the disk can be accessed via the **Settings Sync: Open L
 
 ## Synced Machines
 
-VS Code keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of VS Code (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Settings Sync** context menu action on the machine entry in the view.
+{% data variables.product.prodname_vscode_shortname %} keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of {% data variables.product.prodname_vscode_shortname %} (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Settings Sync** context menu action on the machine entry in the view.
 
 ![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
 
@@ -132,19 +132,19 @@ If you want to remove all your data from our servers, just turn off sync via **S
 
 ## Next steps
 
-* [User and Workspace settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [User and Workspace settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through user and workspace settings.
 
 ## Common questions
 
-### Is VS Code Settings Sync the same as the Settings Sync extension?
+### Is {% data variables.product.prodname_vscode_shortname %} Settings Sync the same as the Settings Sync extension?
 
-No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your VS Code settings across different machines and is unrelated to the VS Code Settings Sync.
+No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your {% data variables.product.prodname_vscode_shortname %} settings across different machines and is unrelated to the {% data variables.product.prodname_vscode_shortname %} Settings Sync.
 
 ### What types of accounts can I use for Settings Sync sign in?
 
-VS Code Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
+{% data variables.product.prodname_vscode_shortname %} Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
 
->**Note**: VS Code Settings Sync does not support using your [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) account at this time. If this is something you would like, please let us know what kind of Microsoft Sovereign Cloud you would like to use [in this GitHub issue](https://github.com/microsoft/vscode/issues/196509).
+>**Note**: {% data variables.product.prodname_vscode_shortname %} Settings Sync does not support using your [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) account at this time. If this is something you would like, please let us know what kind of Microsoft Sovereign Cloud you would like to use [in this GitHub issue](https://github.com/microsoft/vscode/issues/196509).
 
 ### Can I use a different backend or service for Settings Sync?
 
@@ -152,13 +152,13 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 
 ## Troubleshooting keychain issues
 
->**Note**: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
+>**Note**: This section applies to {% data variables.product.prodname_vscode_shortname %} version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
 >
 >**Note**: keychain, keyring, wallet, credential store are synonymous in this document.
 
 Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
 
-To help diagnose the problem, you can restart VS Code with the following flags to generate a verbose log:
+To help diagnose the problem, you can restart {% data variables.product.prodname_vscode_shortname %} with the following flags to generate a verbose log:
 
 ```
 code --verbose --vmodule="*/components/os_crypt/*=1"
@@ -166,7 +166,7 @@ code --verbose --vmodule="*/components/os_crypt/*=1"
 
 ### Windows & macOS
 
-At this time, there are no known configuration issues on Windows or macOS but, if you suspect something is wrong, you can open an [issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+At this time, there are no known configuration issues on Windows or macOS but, if you suspect something is wrong, you can open an [issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
 ### Linux
 
@@ -185,11 +185,11 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 
 #### KDE
 
-> KDE 6 is not yet fully supported by Visual Studio Code. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with VS Code](#other-linux-desktop-environments).
+> KDE 6 is not yet fully supported by {% data variables.product.prodname_vscode %}. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with {% data variables.product.prodname_vscode_shortname %}](#other-linux-desktop-environments).
 
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
-If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial VS Code Flatpak in [issue #189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
+If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial {% data variables.product.prodname_vscode_shortname %} Flatpak in [issue #189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
 
 If you're still experiencing trouble connecting to `kwallet5`, some users have reported that granting the specific D-Bus service permissions proved a viable fix:
 ```sh
@@ -198,11 +198,11 @@ flatpak override --user --talk-name=org.kde.kwalletd5 --talk-name=org.freedeskto
 
 #### Other Linux desktop environments
 
-First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+First off, if your desktop environment wasn't detected, you can [open an issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
-#### (recommended) Configure the keyring to use with VS Code
+#### (recommended) Configure the keyring to use with {% data variables.product.prodname_vscode_shortname %}
 
-You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch VS Code with `code --password-store="gnome-libsecret"`.
+You can manually tell {% data variables.product.prodname_vscode_shortname %} which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch {% data variables.product.prodname_vscode_shortname %} with `code --password-store="gnome-libsecret"`.
 
 If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome-libsecret"`.
 
@@ -213,7 +213,7 @@ Here are all the possible values of `password-store` if you would like to try us
 * _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
 * _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
 
-> If your password store was not detected automatically, see if your setup is mentioned in issue [#187338](https://github.com/microsoft/vscode/issues/187338). If not, feel free to include your setup there or [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you think your issue is not related to automatic password store detection.
+> If your password store was not detected automatically, see if your setup is mentioned in issue [#187338](https://github.com/microsoft/vscode/issues/187338). If not, feel free to include your setup there or [open an issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you think your issue is not related to automatic password store detection.
 
 #### (not recommended) Configure basic text encryption
 
@@ -221,7 +221,7 @@ We rely on Chromium's oscrypt module to discover and store encryption key inform
 
 If you accept this risk, you can set `password-store` to `basic` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"basic"`.
 
-## Can I share settings between VS Code Stable and Insiders?
+## Can I share settings between {% data variables.product.prodname_vscode_shortname %} Stable and Insiders?
 
 Yes. Please refer to the [Syncing Stable versus Insiders](#syncing-stable-versus-insiders) section for more information.
 

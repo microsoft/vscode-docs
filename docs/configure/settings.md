@@ -1,22 +1,22 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 DateApproved: 02/04/2026
-MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
+MetaDescription: How to modify {% data variables.product.prodname_vscode %} User and Workspace Settings.
 ---
 # User and workspace settings
 
-You can configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+You can configure {% data variables.product.prodname_vscode %} to your liking through its various settings. Nearly every part of {% data variables.product.prodname_vscode_shortname %}'s editor, user interface, and functional behavior has options you can modify.
 
-VS Code provides different scopes for settings:
+{% data variables.product.prodname_vscode_shortname %} provides different scopes for settings:
 
-* **User settings** - Settings that apply globally to any instance of VS Code you open.
+* **User settings** - Settings that apply globally to any instance of {% data variables.product.prodname_vscode_shortname %} you open.
 * **Workspace settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-VS Code stores setting values in a settings JSON file. You can change settings values either by editing the settings JSON file or by using the [Settings editor](#settings-editor), which provides a graphical interface to manage settings.
+{% data variables.product.prodname_vscode_shortname %} stores setting values in a settings JSON file. You can change settings values either by editing the settings JSON file or by using the [Settings editor](#settings-editor), which provides a graphical interface to manage settings.
 
 ## User settings
 
-User settings are your personal settings for customizing VS Code. These settings apply globally to any instance of VS Code you open. For example, if you set the editor font size to 14 in your user settings, it will be 14 in all instances of VS Code on your computer.
+User settings are your personal settings for customizing {% data variables.product.prodname_vscode_shortname %}. These settings apply globally to any instance of {% data variables.product.prodname_vscode_shortname %} you open. For example, if you set the editor font size to 14 in your user settings, it will be 14 in all instances of {% data variables.product.prodname_vscode_shortname %} on your computer.
 
 You can access your user settings in a few ways:
 
@@ -31,9 +31,9 @@ You can access your user settings in a few ways:
 Workspace settings are specific to a project and override user settings. If you have specific settings that you want to apply to a specific project, you can use workspace settings. For example, for a backend server project, you might want to set the `files.exclude` setting to exclude the `node_modules` folder from the File Explorer.
 
 > [!NOTE]
-> A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editing/workspaces/workspaces.md).
+> A {% data variables.product.prodname_vscode_shortname %} "workspace" is usually just your project root folder. You can also have more than one root folder in a {% data variables.product.prodname_vscode_shortname %} workspace through a feature called [Multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md). Get more info about [{% data variables.product.prodname_vscode_shortname %} workspaces](/docs/editing/workspaces/workspaces.md).
 
-VS Code stores workspace settings at the root of the project in a `.vscode` folder. This makes it easy to share settings with others in a version-controlled (for example, Git) project.
+{% data variables.product.prodname_vscode_shortname %} stores workspace settings at the root of the project in a `.vscode` folder. This makes it easy to share settings with others in a version-controlled (for example, Git) project.
 
 You can access the workspace settings in a few ways:
 
@@ -55,7 +55,7 @@ When you open the Settings editor, you can search and discover the settings you 
 
 ![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
 
-VS Code applies changes to settings directly as you change them. You can identify settings that you modified by the colored bar on the left of the setting, similar to modified lines in the editor.
+{% data variables.product.prodname_vscode_shortname %} applies changes to settings directly as you change them. You can identify settings that you modified by the colored bar on the left of the setting, similar to modified lines in the editor.
 
 In the example below, the Side Bar location and File Icon Theme were changed.
 
@@ -77,7 +77,7 @@ In the following example, the source control settings are focused by selecting *
 ![Settings editor with the Source Control section of the table of contents selected](images/settings/settings-groups.png)
 
 > [!NOTE]
-> VS Code extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
+> {% data variables.product.prodname_vscode_shortname %} extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
 
 ### Settings editor filters
 
@@ -104,7 +104,7 @@ Here are some of the filters available:
 * `@haspolicy`: settings that are controlled by your [organization](/docs/enterprise/policies.md).
 * `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings. Advanced settings are intended for specialized scenarios. By default, advanced settings are hidden from search results unless you use the `@tag:advanced` filter. To always show advanced settings in the Settings editor, enable `setting(workbench.settings.alwaysShowAdvancedSettings)`.
+* `@tag`: settings specific to a system of {% data variables.product.prodname_vscode_shortname %}. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced {% data variables.product.prodname_vscode_shortname %} settings. Advanced settings are intended for specialized scenarios. By default, advanced settings are hidden from search results unless you use the `@tag:advanced` filter. To always show advanced settings in the Settings editor, enable `setting(workbench.settings.alwaysShowAdvancedSettings)`.
 
 The search bar remembers your settings search queries and supports undo or redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
@@ -112,7 +112,7 @@ The search bar remembers your settings search queries and supports undo or redo 
 
 ## Extension settings
 
-Installed VS Code extensions can also contribute their own settings, which you can review under the **Extensions** section of the Settings editor.
+Installed {% data variables.product.prodname_vscode_shortname %} extensions can also contribute their own settings, which you can review under the **Extensions** section of the Settings editor.
 
 ![C++ extension settings in the Settings editor](images/settings/cpp-extension-settings.png)
 
@@ -124,7 +124,7 @@ Extension authors can learn more about adding custom settings in the [configurat
 
 ## Settings JSON file
 
-VS Code stores setting values in a `settings.json` file. The Settings editor is the user interface that enables you to review and modify setting values that are stored in a `settings.json` file.
+{% data variables.product.prodname_vscode_shortname %} stores setting values in a `settings.json` file. The Settings editor is the user interface that enables you to review and modify setting values that are stored in a `settings.json` file.
 
 You can also review and edit the `settings.json` file directly by opening it in the editor with the **Preferences: Open User Settings (JSON)** or **Preferences: Open Workspace Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -196,7 +196,7 @@ Or, if `setting(workbench.settings.editor)` is set to `json`, now you can start 
 
 ![Suggestions for language-specific settings shown in the settings JSON file](images/settings/lang-based-settings.png)
 
-If you have a file open and you want to customize the editor for this file type, select the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
+If you have a file open and you want to customize the editor for this file type, select the Language Mode in the Status Bar to the bottom-right of the {% data variables.product.prodname_vscode_shortname %} window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
 
 Language-specific editor settings always override non-language-specific editor settings, even if the non-language-specific setting
 has a narrower scope. For example, language-specific user settings override non-language-specific workspace settings.
@@ -236,7 +236,7 @@ If a setting is configured in both a single-language block and a multiple-langua
 
 ## Profile settings
 
-You can use [profiles in VS Code](/docs/configure/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize VS Code for a specific programming language.
+You can use [profiles in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize {% data variables.product.prodname_vscode_shortname %} for a specific programming language.
 
 When you switch to a profile, the user settings are scoped to only that profile. When you switch to another profile, the user settings of that other profile are applied. This way, you can have different settings for different profiles.
 
@@ -258,7 +258,7 @@ When you're using a non-default profile, you can access the `settings.json` file
 Configurations can be overridden at multiple levels by the different setting scopes. In the following list, **later scopes override earlier scopes**:
 
 * Default settings - This scope represents the default unconfigured setting values.
-* User settings - Apply globally to all VS Code instances.
+* User settings - Apply globally to all {% data variables.product.prodname_vscode_shortname %} instances.
 * Remote settings - Apply to a remote machine opened by a user.
 * Workspace settings - Apply to the open folder or workspace.
 * Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces.md).
@@ -318,7 +318,7 @@ If you are using [multiple language-specific settings](#multiple-language-specif
 
 ## Settings and security
 
-Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+Some settings allow you to specify an executable that {% data variables.product.prodname_vscode_shortname %} will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
 Here is the list of settings not supported in workspace settings:
 
@@ -327,18 +327,18 @@ Here is the list of settings not supported in workspace settings:
 * `setting(terminal.external.osxExec)`
 * `setting(terminal.external.linuxExec)`
 
-The first time you open a workspace that defines any of these settings, VS Code will warn you and then always ignore the values after that.
+The first time you open a workspace that defines any of these settings, {% data variables.product.prodname_vscode_shortname %} will warn you and then always ignore the values after that.
 
 ## Settings Sync
 
-You can share your user settings across your VS Code instances with the [Settings Sync](/docs/configure/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+You can share your user settings across your {% data variables.product.prodname_vscode_shortname %} instances with the [Settings Sync](/docs/configure/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your {% data variables.product.prodname_vscode_shortname %} installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
 
 ![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
 
 You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/configure/settings-sync.md) user guide.
 
 > [!NOTE]
-> VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Feature lifecycle
 
@@ -352,29 +352,29 @@ Features and their corresponding settings can be in one of the following states.
 
     ![Settings editor filtered with '@tag:preview' showing preview settings.](images/settings/settings-editor-preview.png)
 
-* **Stable** - The feature is stable and fully supported in VS Code.
+* **Stable** - The feature is stable and fully supported in {% data variables.product.prodname_vscode_shortname %}.
 
-Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our VS Code issues](https://github.com/microsoft/vscode/issues).
+Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our {% data variables.product.prodname_vscode_shortname %} issues](https://github.com/microsoft/vscode/issues).
 
 ## Related resources
 
-* [VS Code default settings reference](/docs/reference/default-settings.md)
+* [{% data variables.product.prodname_vscode_shortname %} default settings reference](/docs/reference/default-settings.md)
 * [Synchronize settings across machines](/docs/configure/settings-sync.md)
 
 ## Common questions
 
-### VS Code says "Unable to write settings."
+### {% data variables.product.prodname_vscode_shortname %} says "Unable to write settings."
 
 If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write into user settings. Please open user settings to correct errors/warnings in it and try again.", it means your `settings.json` file is ill-formed or has errors. The error can be as simple as a missing comma or incorrect setting value. Open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`) and you should see the error highlighted with red squiggles.
 
 ### How can I reset my user settings?
 
-The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and VS Code will go back to using the default values.
+The easiest way to reset {% data variables.product.prodname_vscode_shortname %} back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and {% data variables.product.prodname_vscode_shortname %} will go back to using the default values.
 
 ### When does it make sense to use workspace settings?
 
-If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+If you're using a workspace that needs custom settings but you don't want to apply them to your other {% data variables.product.prodname_vscode_shortname %} projects. A good example is language-specific linting rules.
 
 ### Where can I find extension settings?
 
-In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** command) or via IntelliSense in your `settings.json` file (**Preferences: Open User Settings (JSON)** command). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
+In general, {% data variables.product.prodname_vscode_shortname %} extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** command) or via IntelliSense in your `settings.json` file (**Preferences: Open User Settings (JSON)** command). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.

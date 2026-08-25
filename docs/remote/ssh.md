@@ -1,17 +1,17 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
+MetaDescription: Developing on Remote Machines or VMs using {% data variables.product.prodname_vscode %} Remote Development and SSH
 DateApproved: 8/19/2026
 ---
 # Remote Development using SSH
 
-The **Visual Studio Code Remote - SSH** extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
+The **{% data variables.product.prodname_vscode %} Remote - SSH** extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of {% data variables.product.prodname_vscode_shortname %}'s feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.  The extension will install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
+No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.  The extension will install {% data variables.product.prodname_vscode_shortname %} Server on the remote OS; the server is independent of any existing {% data variables.product.prodname_vscode_shortname %} installation on the remote OS.
 
 ![SSH Architecture](images/ssh/architecture-ssh.png)
 
-This lets VS Code provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted**.
+This lets {% data variables.product.prodname_vscode_shortname %} provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -40,19 +40,19 @@ To get started, you need to:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
-2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+2. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) or [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). If you plan to work with other remote extensions in VS Code, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
+3. Install the [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). If you plan to work with other remote extensions in {% data variables.product.prodname_vscode_shortname %}, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 ### SSH host setup
 
 1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
-2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/configure/settings.md) for improved security.
+2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in {% data variables.product.prodname_vscode_shortname %} [User settings](/docs/configure/settings.md) for improved security.
 
     In the Settings editor:
 
-    ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
+    ![Listen on socket {% data variables.product.prodname_vscode_shortname %} setting](images/ssh/ssh-listen-on-socket.png)
 
     See the [Tips and Tricks](/docs/remote/troubleshooting.md#improving-security-on-multi-user-servers) article for details.
 
@@ -70,17 +70,17 @@ To connect to a remote host for the first time, follow these steps:
     ssh user@domain@hostname
     ```
 
-2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) and use the same `user@hostname` as in step 1.
+2. In {% data variables.product.prodname_vscode_shortname %}, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) and use the same `user@hostname` as in step 1.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
-3. If VS Code cannot automatically detect the type of server you are connecting to, you will be asked to select the type manually.
+3. If {% data variables.product.prodname_vscode_shortname %} cannot automatically detect the type of server you are connecting to, you will be asked to select the type manually.
 
     ![Illustration of platform selection](images/ssh/ssh-select-platform.png)
 
-    Once you select a platform, it will be stored in [VS Code settings](/docs/configure/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
+    Once you select a platform, it will be stored in [{% data variables.product.prodname_vscode_shortname %} settings](/docs/configure/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
 
-4. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
+4. After a moment, {% data variables.product.prodname_vscode_shortname %} will connect to the SSH server and set itself up. {% data variables.product.prodname_vscode_shortname %} will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
     > **Tip:** Connection hanging or failing? See [troubleshooting tips](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for information on resolving common problems.
     >
@@ -106,7 +106,7 @@ If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [De
 
 To do so:
 
-1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for installing Docker on your remote host and VS Code and the Dev Containers extension locally.
+1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for installing Docker on your remote host and {% data variables.product.prodname_vscode_shortname %} and the Dev Containers extension locally.
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. Follow the [quick start](#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
@@ -115,7 +115,7 @@ The rest of the [Dev Containers quick start](/docs/devcontainers/containers.md#q
 
 ### Disconnect from a remote host
 
-To close the connection when you finish editing files on the remote host, choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
+To close the connection when you finish editing files on the remote host, choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit {% data variables.product.prodname_vscode_shortname %} to close the remote connection.
 
 ### Remember hosts and advanced settings
 
@@ -158,7 +158,7 @@ The **Remote Explorer** allows you to both open a new empty window on the remote
 
 ## Managing extensions
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
+{% data variables.product.prodname_vscode_shortname %} runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the {% data variables.product.prodname_vscode_shortname %} UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
 
 If you install an extension from the Extensions view, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category grouping.
 
@@ -222,7 +222,7 @@ A notification will tell you the localhost port you should use to access the rem
 
 This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 
-If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
+If you would like {% data variables.product.prodname_vscode_shortname %} to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
 
 ![Restore forwarded ports setting](images/common/restore-forwarded-ports.png)
 
@@ -250,7 +250,7 @@ Host remote-linux-machine
 
 ## Opening a terminal on a remote host
 
-Opening a terminal on the remote host from VS Code is simple. Once connected, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run on the remote host rather than locally.
+Opening a terminal on the remote host from {% data variables.product.prodname_vscode_shortname %} is simple. Once connected, **any terminal window** you open in {% data variables.product.prodname_vscode_shortname %} (**Terminal > New Terminal**) will automatically run on the remote host rather than locally.
 
 You can also use the `code` command line from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host. Type `code --help` to see all the options available from the command line.
 
@@ -258,13 +258,13 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ## Debugging on the SSH host
 
-Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
+Once you are connected to a remote host, you can use {% data variables.product.prodname_vscode_shortname %}'s debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
 
-See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring {% data variables.product.prodname_vscode_shortname %}'s debugging features in `.vscode/launch.json`.
 
 ## SSH host-specific settings
 
-VS Code's local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
+{% data variables.product.prodname_vscode_shortname %}'s local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
 
 ![Host-specific settings tab](images/ssh/ssh-settings.png)
 
@@ -275,7 +275,7 @@ The Remote - SSH extension does not provide direct support for sync'ing source c
 1. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host).
 2. [Sync files to/from the remote host to your local machine using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code).
 
-SSHFS is the most convenient option and does not require any file sync'ing. However, performance will be significantly slower than working through VS Code, so it is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
+SSHFS is the most convenient option and does not require any file sync'ing. However, performance will be significantly slower than working through {% data variables.product.prodname_vscode_shortname %}, so it is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
 
 ## Known limitations
 
@@ -285,13 +285,13 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
-- If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+- If you clone a Git repository using SSH and your SSH key has a passphrase, {% data variables.product.prodname_vscode_shortname %}'s pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Container Tools Extension limitations
 
-If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
+If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach {% data variables.product.prodname_vscode %}** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
 
 ### Extension limitations
 
@@ -323,42 +323,42 @@ Most Linux distributions will not require additional dependency installation ste
 
 See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
-### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
+### What are the connectivity requirements for the {% data variables.product.prodname_vscode_shortname %} Server when it is running on a remote machine / VM?
 
-Installation of VS Code Server requires that your local machine has outbound HTTPS (port 443) connectivity to:
+Installation of {% data variables.product.prodname_vscode_shortname %} Server requires that your local machine has outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
 - `vscode.download.prss.microsoft.com`
 
-By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
+By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading {% data variables.product.prodname_vscode_shortname %} Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
 
-You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access to:
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel to install extensions, your local machine and {% data variables.product.prodname_vscode_shortname %} Server server will need outbound HTTPS (port 443) access to:
 
 - `marketplace.visualstudio.com`
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-All other communication between the server and the VS Code client is accomplished through the authenticated, secure SSH tunnel.
+All other communication between the server and the {% data variables.product.prodname_vscode_shortname %} client is accomplished through the authenticated, secure SSH tunnel.
 
 ### Can I use local tools on source code sitting on the remote SSH host?
 
 Yes. Typically this is done [using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) or by [using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code) to get a copy of the files on your local machine. SSHFS mounts the remote filesystem is ideal for scenarios where you need to edit individual files or browse the source tree and requires no sync step to use. However, it is not ideal for using something like a source control tool that bulk manages files. In this case, the `rsync` approach is better since you get a complete copy of the remote source code on your local machine. See [Tips and Tricks](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) for details.
 
-### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
+### Can I use {% data variables.product.prodname_vscode_shortname %} when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
-Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote Development was not designed with this use case in mind since it negates the performance and user experience benefits.
+Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. {% data variables.product.prodname_vscode_shortname %} Remote Development was not designed with this use case in mind since it negates the performance and user experience benefits.
 
 However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](/docs/nodejs/nodejs-debugging.md#remote-debugging), [Python](/docs/python/debugging.md#remote-script-debugging-with-ssh), [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), or others.
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The {% data variables.product.prodname_vscode_shortname %} extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#ssh-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
+- Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [{% data variables.product.prodname_vscode_shortname %} itself](https://github.com/microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

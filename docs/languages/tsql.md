@@ -1,28 +1,28 @@
 ---
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
 DateApproved: 8/19/2026
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
+MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Transact-SQL.
 ---
-# Transact-SQL in Visual Studio Code
+# Transact-SQL in {% data variables.product.prodname_vscode %}
 
-Turn Visual Studio Code into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the VS Code Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
+Turn {% data variables.product.prodname_vscode %} into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the {% data variables.product.prodname_vscode_shortname %} Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
 
 Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and save results as JSON or CSV files. While typing T-SQL code, you get rich T-SQL language features like T-SQL IntelliSense (code completion), syntax highlighting, linting, code navigation and code snippets.
 
-> [Download VS Code] - If you haven't downloaded VS Code yet, quickly install for your platform (Linux, macOS or Windows).
+> [Download {% data variables.product.prodname_vscode_shortname %}] - If you haven't downloaded {% data variables.product.prodname_vscode_shortname %} yet, quickly install for your platform (Linux, macOS or Windows).
 
 ## Install T-SQL support
 
-Add T-SQL language support to VS Code by installing the [mssql] extension from the VS Code marketplace as follows:
+Add T-SQL language support to {% data variables.product.prodname_vscode_shortname %} by installing the [mssql] extension from the {% data variables.product.prodname_vscode_shortname %} marketplace as follows:
 
-1. Open the **Extensions** view from VS Code Side Bar (`kb(workbench.view.extensions)`).
-2. Type "mssql" in the search bar, click **Install**, and reload VS Code when prompted.
+1. Open the **Extensions** view from {% data variables.product.prodname_vscode_shortname %} Side Bar (`kb(workbench.view.extensions)`).
+2. Type "mssql" in the search bar, click **Install**, and reload {% data variables.product.prodname_vscode_shortname %} when prompted.
 
 ![install mssql extension](images/tsql/install-mssql.png)
 
 ## Connect and Execute T-SQL
 
-Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
+Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within {% data variables.product.prodname_vscode_shortname %}. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
 
 ![Execute T-SQL](images/tsql/execute.gif)
 
@@ -34,13 +34,13 @@ View results and messages when you execute your T-SQL code. Save results as a JS
 
 ## T-SQL IntelliSense
 
-As you type T-SQL code in the editor, VS Code provides intelligent code completion for T-SQL keywords, suggestions for schema object names (tables, columns, views), and parameter help for functions and procedures when connected to a database.
+As you type T-SQL code in the editor, {% data variables.product.prodname_vscode_shortname %} provides intelligent code completion for T-SQL keywords, suggestions for schema object names (tables, columns, views), and parameter help for functions and procedures when connected to a database.
 
 ![tsql intellisense](images/tsql/intellisense.gif)
 
 ## Linting
 
-Linting is the analysis of your T-SQL code for potential syntax errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your T-SQL code as you type.
+Linting is the analysis of your T-SQL code for potential syntax errors. Use {% data variables.product.prodname_vscode %} to quickly navigate to the errors and warnings in your T-SQL code as you type.
 
 ![tsql linting](images/tsql/linting.gif)
 
@@ -59,7 +59,7 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 ## Next steps
 
 * Download the free [SQL Server 2017 Developer Edition].
-* Install the [mssql] extension from the Visual Studio Code Marketplace.
+* Install the [mssql] extension from the {% data variables.product.prodname_vscode %} Marketplace.
 * [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
 * Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].
 
@@ -70,7 +70,7 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server Blog]
 
 [Build an app]: https://aka.ms/sqldev
-[Download VS Code]: https://code.visualstudio.com/download
+[Download {% data variables.product.prodname_vscode_shortname %}]: https://code.visualstudio.com/download
 [GitHub]: https://github.com/microsoft/vscode-mssql
 [GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues
 [mssql]: https://aka.ms/mssql-marketplace

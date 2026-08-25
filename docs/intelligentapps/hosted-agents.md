@@ -4,9 +4,9 @@ DateApproved: 05/29/2026
 MetaDescription: Get Started with creating hosted agents in Foundry Toolkit and deploying to Foundry.
 ---
 
-# Create and deploy a hosted agent in Foundry Toolkit for VS Code
+# Create and deploy a hosted agent in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}
 
-Hosted Agents are code-based AI agents that run in Microsoft Foundry Agent Service, providing managed hosting, scaling, observability, and secure execution environments so you can focus on agent logic instead of infrastructure. With Microsoft Foundry Toolkit for Visual Studio Code, you can quickly create a new Hosted Agent from a variety of project templates in Python or .NET, develop and test it locally, and deploy it directly to your Foundry project.
+Hosted Agents are code-based AI agents that run in Microsoft Foundry Agent Service, providing managed hosting, scaling, observability, and secure execution environments so you can focus on agent logic instead of infrastructure. With Microsoft Foundry Toolkit for {% data variables.product.prodname_vscode %}, you can quickly create a new Hosted Agent from a variety of project templates in Python or .NET, develop and test it locally, and deploy it directly to your Foundry project.
 
 ## Create a new hosted agent
 
@@ -14,9 +14,9 @@ To create a new hosted agent:
 
 1. In Foundry Toolkit's primary sidebar, navigate to **MY RESOURCES** > **Your project name** > **Hosted Agents (Preview)** and select the **+** to the right of that tree node.
 
-    ![Screenshot showing Visual Studio Code's primary sidebar with the Foundry Toolkit selected from the action bar, and a highlight to the plus icon to create a new hosted agent.](./images/hosted-agents/primary-sidebar-add.png)
+    ![Screenshot showing {% data variables.product.prodname_vscode %}'s primary sidebar with the Foundry Toolkit selected from the action bar, and a highlight to the plus icon to create a new hosted agent.](./images/hosted-agents/primary-sidebar-add.png)
 
-2. The "Create Hosted Agent from Sample" designer appears in the main area of Visual Studio Code.
+2. The "Create Hosted Agent from Sample" designer appears in the main area of {% data variables.product.prodname_vscode %}.
 
     ![Screenshot showing the agent details designer.](./images/hosted-agents/create-step-1.png)
 
@@ -47,7 +47,7 @@ Select the **Next** button.
 
 Select the **Create** button.
 
-4. A new instance of Visual Studio Code will open with your generated files. The number and names of the files will depend on the sample you selected.
+4. A new instance of {% data variables.product.prodname_vscode %} will open with your generated files. The number and names of the files will depend on the sample you selected.
 
 5. Read the `README.md` file for an explanation of the sample, instructions on how to deploy your new hosted agent, and troubleshooting steps.
 

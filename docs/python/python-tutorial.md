@@ -1,16 +1,16 @@
 ---
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 DateApproved: 02/04/2026
-MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
+MetaDescription: A Python hello world tutorial using the Python extension in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Getting Started with Python in VS Code
+# Getting Started with Python in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice!" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
+In this tutorial, you will learn how to use Python 3 in {% data variables.product.prodname_vscode %} to create, run, and debug a Python "Roll a dice!" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn {% data variables.product.prodname_vscode_shortname %} into a great, lightweight Python editor.
 
-If you are new to programming, check out the [Visual Studio Code for Education - Introduction to Python](https://vscodeedu.com/courses/intro-to-python) course. This course offers a comprehensive introduction to Python, featuring structured modules in a ready-to-code browser-based development environment.
+If you are new to programming, check out the [{% data variables.product.prodname_vscode %} for Education - Introduction to Python](https://vscodeedu.com/courses/intro-to-python) course. This course offers a comprehensive introduction to Python, featuring structured modules in a ready-to-code browser-based development environment.
 
-To gain a deeper understanding of the Python language, you can explore any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
+To gain a deeper understanding of the Python language, you can explore any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of {% data variables.product.prodname_vscode_shortname %}.
 
 For a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
 
@@ -19,20 +19,20 @@ For a Data Science focused tutorial with Python, check out our [Data Science sec
 To successfully complete this tutorial, you need to first set up your Python development environment. Specifically, this tutorial requires:
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
-- [VS Code](https://code.visualstudio.com/)
-- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
+- [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode_shortname %} Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
 
 ## Understand the Python setup
 
-If you're new to programming tools, it helps to know that three separate pieces work together to run Python in VS Code:
+If you're new to programming tools, it helps to know that three separate pieces work together to run Python in {% data variables.product.prodname_vscode_shortname %}:
 
-* **VS Code**: the editor where you write and organize your code.
+* **{% data variables.product.prodname_vscode_shortname %}**: the editor where you write and organize your code.
 
-* **Python extension**: adds Python language support to VS Code, such as IntelliSense, running, and debugging. The extension doesn't include Python itself.
+* **Python extension**: adds Python language support to {% data variables.product.prodname_vscode_shortname %}, such as IntelliSense, running, and debugging. The extension doesn't include Python itself.
 
-* **Python interpreter**: the program that actually runs your Python code. You install it separately from VS Code.
+* **Python interpreter**: the program that actually runs your Python code. You install it separately from {% data variables.product.prodname_vscode_shortname %}.
 
-You install all three in this tutorial. VS Code is the workspace, the Python extension connects VS Code to Python, and the interpreter does the work of running your script.
+You install all three in this tutorial. {% data variables.product.prodname_vscode_shortname %} is the workspace, the Python extension connects {% data variables.product.prodname_vscode_shortname %} to Python, and the interpreter does the work of running your script.
 
 ## Install a Python interpreter
 
@@ -50,7 +50,7 @@ For additional information about using Python on Windows, see [Using Python on W
 
 The system install of Python on macOS is not supported. Instead, a package management system like  [Homebrew](https://brew.sh/) is recommended. To install Python using Homebrew on macOS use `brew install python3` at the Terminal prompt.
 
-> **Note**: On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [these setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+> **Note**: On macOS, make sure the location of your {% data variables.product.prodname_vscode_shortname %} installation is included in your PATH environment variable.  See [these setup instructions](/docs/setup/mac.md#launch-vs-code-from-the-command-line) for more information.
 
 ### Linux
 
@@ -60,7 +60,7 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 - **Data Science**: If your primary purpose for using Python is Data Science, then you might consider a download from [Anaconda](https://www.anaconda.com/download/). Anaconda provides not just a Python interpreter, but many useful libraries and tools for data science.
 
-- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
 
 >**Note**: To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
 >
@@ -73,16 +73,16 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 >py -3 --version
 >```
 >If the installation was successful, the output window should show the version of Python that you installed.
->Alternatively, you can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+>Alternatively, you can use the `py -0` command in the {% data variables.product.prodname_vscode_shortname %} integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 
 > [!NOTE]
-> You run these commands in a terminal, also called a shell, which is the panel that lets you type and run commands. If you install Python while VS Code or a terminal is already open, close and reopen the terminal (or restart VS Code) so it detects the newly installed interpreter. A terminal reads your system configuration when it starts, so a fresh terminal is needed to find Python on your `PATH`.
+> You run these commands in a terminal, also called a shell, which is the panel that lets you type and run commands. If you install Python while {% data variables.product.prodname_vscode_shortname %} or a terminal is already open, close and reopen the terminal (or restart {% data variables.product.prodname_vscode_shortname %}) so it detects the newly installed interpreter. A terminal reads your system configuration when it starts, so a fresh terminal is needed to find Python on your `PATH`.
 
-## Start VS Code in a workspace folder
+## Start {% data variables.product.prodname_vscode_shortname %} in a workspace folder
 
-By starting VS Code in a folder, that folder becomes your "workspace".
+By starting {% data variables.product.prodname_vscode_shortname %} in a folder, that folder becomes your "workspace".
 
-Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open {% data variables.product.prodname_vscode_shortname %} (`code`) in that folder (`.`) by entering the following commands:
 
 ```bash
 mkdir hello
@@ -92,11 +92,11 @@ code .
 
 >**Note**: If you're using an Anaconda distribution, be sure to use an Anaconda command prompt.
 
-Alternately, you can create a folder through the operating system UI, then use VS Code's **File > Open Folder** to open the project folder.
+Alternately, you can create a folder through the operating system UI, then use {% data variables.product.prodname_vscode_shortname %}'s **File > Open Folder** to open the project folder.
 
 ## Create a virtual environment
 
-A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
+A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in {% data variables.product.prodname_vscode_shortname %} using Venv or Anaconda with **Python: Create Environment**.
 
 Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
 
@@ -116,7 +116,7 @@ Ensure your new environment is selected by using the **Python: Select Interprete
 
 ![Select an Interpreter](images/tutorial/interpreter-venv.png)
 
-> **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#creating-environments).
+> **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#create-environments).
 
 ## Create a Python source code file
 
@@ -124,11 +124,11 @@ From the File Explorer toolbar, select the **New File** button on the `hello` fo
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
-Name the file `hello.py`, and VS Code will automatically open it in the editor:
+Name the file `hello.py`, and {% data variables.product.prodname_vscode_shortname %} will automatically open it in the editor:
 
 ![File Explorer hello.py](images/tutorial/hello-py-file-created.png)
 
-By using the `.py` file extension, you tell VS Code to interpret this file as a Python program, so that it evaluates the contents with the Python extension and the selected interpreter.
+By using the `.py` file extension, you tell {% data variables.product.prodname_vscode_shortname %} to interpret this file as a Python program, so that it evaluates the contents with the Python extension and the selected interpreter.
 
 >**Note**: The File Explorer toolbar also allows you to create folders within your workspace to better organize your code. You can use the **New folder** button to quickly create a folder.
 
@@ -147,7 +147,7 @@ IntelliSense and auto-completions work for standard Python modules as well as ot
 
 ![IntelliSense appearing for a variable whose type provides methods](images/tutorial/intellisense02.png)
 
-Finally, save the file (`kb(workbench.action.files.save)`). At this point, you're ready to run your first Python file in VS Code.
+Finally, save the file (`kb(workbench.action.files.save)`). At this point, you're ready to run your first Python file in {% data variables.product.prodname_vscode_shortname %}.
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
@@ -161,7 +161,7 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
-There are three other ways you can run Python code within VS Code:
+There are three other ways you can run Python code within {% data variables.product.prodname_vscode_shortname %}:
 
 1. Right-click anywhere in the editor window and select **Run Python > Run Python File in Terminal** (which saves the file automatically):
 
@@ -173,13 +173,13 @@ There are three other ways you can run Python code within VS Code:
 
 3. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start Terminal REPL** command to open a REPL terminal (notated by `>>>`) for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
-Congrats, you just ran your first Python code in Visual Studio Code!
+Congrats, you just ran your first Python code in {% data variables.product.prodname_vscode %}!
 
 ## Configure and run the debugger
 
 Let's now try debugging our Python program. Debugging support is provided by the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), which is automatically installed with the Python extension. To ensure it has been installed correctly, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
-![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
+![Python Debugger extension shown in installed extensions view in {% data variables.product.prodname_vscode_shortname %}.](images/shared/python-debugger-extension.png)
 
 Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
 
@@ -189,7 +189,7 @@ Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Sinc
 
 ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
-> **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
+> **Note**: {% data variables.product.prodname_vscode_shortname %} uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
 Select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
@@ -207,7 +207,7 @@ To continue running the program, select the continue command on the debug toolba
 
 > **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Roll a dice!` in a box above the variable.
 
-You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of VS Code, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
+You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of {% data variables.product.prodname_vscode_shortname %}, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
 
 ```python
 msg
@@ -217,7 +217,7 @@ msg.split()
 
 ![Debugging step 3 - using the debug console](images/tutorial/debug-step-03.png)
 
-Select the blue **Continue** button on the toolbar again (or press `kb(workbench.action.debug.continue)`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
+Select the blue **Continue** button on the toolbar again (or press `kb(workbench.action.debug.continue)`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and {% data variables.product.prodname_vscode_shortname %} exits debugging mode once the program is complete.
 
 If you restart the debugger, the debugger again stops on the first breakpoint.
 
@@ -225,7 +225,7 @@ To stop running a program before it's complete, use the red square stop button o
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 
-> **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/debugtest/debugging.md#logpoints) in the main VS Code debugging article.
+> **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In {% data variables.product.prodname_vscode_shortname %}, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/debugtest/debugging.md#logpoints) in the main {% data variables.product.prodname_vscode_shortname %} debugging article.
 
 ## Install and use packages
 
@@ -312,23 +312,23 @@ You can now use the newly generated `requirements.txt` file to install dependenc
 
 By following these steps, you ensure that your project dependencies are consistent across different environments, making it easier to collaborate with others and deploy your project.
 
-Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
+Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in {% data variables.product.prodname_vscode %}!
 
 ## Next steps
 
 To learn how to build web apps with popular Python web frameworks, see the following tutorials:
 
-- [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
-- [Use Flask in Visual Studio Code](/docs/python/tutorial-flask.md)
-- [Use FastAPI in Visual Studio Code](/docs/python/tutorial-fastapi.md)
+- [Use Django in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-django.md)
+- [Use Flask in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-flask.md)
+- [Use FastAPI in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-fastapi.md)
 
-There is then much more to explore with Python in Visual Studio Code:
+There is then much more to explore with Python in {% data variables.product.prodname_vscode %}:
 
 - [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in {% data variables.product.prodname_vscode_shortname %}.
 - [Deploy Python to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
 - [Deploy Python to Container Apps](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01)

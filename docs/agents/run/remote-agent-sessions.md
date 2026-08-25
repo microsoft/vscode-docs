@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Connect to remote machines via SSH or dev tunnels to run agent sessions, or use the browser-based {% data variables.copilot.agents_window %} to manage sessions from any device.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

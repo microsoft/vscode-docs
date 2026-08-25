@@ -1,11 +1,11 @@
 ---
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 DateApproved: 8/19/2026
-MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the {% data variables.product.prodname_vscode %} editor.
 ---
-# Using React in Visual Studio Code
+# Using React in {% data variables.product.prodname_vscode %}
 
-[React](https://reactjs.org) is a popular JavaScript library developed by Facebook for building user interfaces. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
+[React](https://reactjs.org) is a popular JavaScript library developed by Facebook for building user interfaces. The {% data variables.product.prodname_vscode %} editor supports React.js IntelliSense and code navigation out of the box.
 
 ![Welcome to React](images/reactjs/welcome-to-react.png)
 
@@ -37,9 +37,9 @@ npm start
 
 <!-- TBD mention yarn and link -->
 
-You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with {% data variables.product.prodname_vscode_shortname %}.
 
-To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
+To open your React application in {% data variables.product.prodname_vscode_shortname %}, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
 
 ```bash
 cd my-app
@@ -48,13 +48,13 @@ code .
 
 ### Markdown preview
 
-In the File Explorer, one file you'll see is the application `README.md` Markdown file. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code [Markdown Preview](/docs/languages/markdown.md#markdown-preview). You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.togglePreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+In the File Explorer, one file you'll see is the application `README.md` Markdown file. This has lots of great information about the application and React in general. A nice way to review the README is by using the {% data variables.product.prodname_vscode_shortname %} [Markdown Preview](/docs/languages/markdown.md#markdown-preview). You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.togglePreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
 
 ![README Markdown Preview](images/reactjs/markdown-preview.png)
 
 ### Syntax highlighting and bracket matching
 
-Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
+Now expand the `src` folder and select the `index.js` file. You'll notice that {% data variables.product.prodname_vscode_shortname %} has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
 
 ![React bracket matching](images/reactjs/bracket-matching.png)
 
@@ -68,7 +68,7 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![React IntelliSense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+{% data variables.product.prodname_vscode_shortname %} uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
@@ -76,7 +76,7 @@ If you select a method, you'll also get parameter help:
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editing/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+Through the TypeScript language service, {% data variables.product.prodname_vscode_shortname %} can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editing/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
 
 ![React Peek definition](images/reactjs/peek-definition.png)
 
@@ -112,7 +112,7 @@ reportWebVitals();
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!" when you refresh your browser.
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
+>**Tip**: {% data variables.product.prodname_vscode_shortname %} supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
 
 ![Hello, world](images/reactjs/hello-world.png)
 
@@ -161,17 +161,17 @@ For more information about the debugger and its available options, check out our
 
 ### Live editing and debugging
 
-If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post and the [webpack Hot Module Replacement documentation](https://webpack.js.org/concepts/hot-module-replacement/).
+If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from {% data variables.product.prodname_vscode_shortname %}. You can learn more in this [Live edit and debug your React apps directly from {% data variables.product.prodname_vscode_shortname %}](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post and the [webpack Hot Module Replacement documentation](https://webpack.js.org/concepts/hot-module-replacement/).
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The JavaScript language services included with VS Code has syntax error checking support by default, which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. The JavaScript language services included with {% data variables.product.prodname_vscode_shortname %} has syntax error checking support by default, which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
 
 Try making a small error in your React source code and you'll see a red squiggle and an error in the **Problems** panel.
 
 ![JavaScript error](images/reactjs/js-error.png)
 
-Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint, when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), provides a great in-product linting experience.
+Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint, when combined with the ESLint {% data variables.product.prodname_vscode_shortname %} [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), provides a great in-product linting experience.
 
 First, install the ESLint command-line tool:
 
@@ -183,7 +183,7 @@ Then install the ESLint extension by going to the **Extensions** view and typing
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file, `.eslintrc.js`. You can create one using the extension's **ESLint: Create ESLint configuration** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+Once the ESLint extension is installed and {% data variables.product.prodname_vscode_shortname %} reloaded, you'll want to create an ESLint configuration file, `.eslintrc.js`. You can create one using the extension's **ESLint: Create ESLint configuration** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Find the configuration command](images/reactjs/create-eslintrc.png)
 
@@ -236,7 +236,7 @@ Now when you mistakenly have multiple semicolons on a line, you'll see an error 
 
 In this tutorial, we used the `create-react-app` generator to create a simple React application. There are lots of great samples and starter kits available to help build your first React application.
 
-### VS Code React Sample
+### {% data variables.product.prodname_vscode_shortname %} React Sample
 
 This is a [sample](https://github.com/microsoft/vscode-react-sample) React application, which creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
 
@@ -252,7 +252,7 @@ See the details at [Adding TypeScript](https://create-react-app.dev/docs/adding-
 
 ### Angular
 
-[Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with VS Code, check out the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the JavaScript debugger.
+[Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with {% data variables.product.prodname_vscode_shortname %}, check out the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the JavaScript debugger.
 
 ## Common questions
 

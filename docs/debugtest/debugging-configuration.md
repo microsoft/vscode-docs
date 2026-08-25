@@ -1,25 +1,25 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 8/19/2026
-MetaDescription: Learn how to configure debugging in Visual Studio Code with launch.json, including attributes, variable substitution, and compound configurations.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to configure debugging in {% data variables.product.prodname_vscode %} with launch.json, including attributes, variable substitution, and compound configurations.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
-# Visual Studio Code debug configuration
+# {% data variables.product.prodname_vscode %} debug configuration
 
 For complex debugging scenarios or applications, you need to create a `launch.json` file to specify the debugger configuration. For example, to specify the application entry point, attach to a running application, or to set environment variables.
 
-To learn more about debugging in VS Code, see [Debugging in Visual Studio Code](/docs/debugtest/debugging.md).
+To learn more about debugging in {% data variables.product.prodname_vscode_shortname %}, see [Debugging in {% data variables.product.prodname_vscode %}](/docs/debugtest/debugging.md).
 
 > [!TIP]
-> Copilot in VS Code can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
+> Copilot in {% data variables.product.prodname_vscode_shortname %} can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
 
 ## Launch configurations
 
-For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations. Use the `kb(workbench.action.debug.start)` key and VS Code will try to run your currently active file.
+For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations. Use the `kb(workbench.action.debug.start)` key and {% data variables.product.prodname_vscode_shortname %} will try to run your currently active file.
 
 However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
-VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
+{% data variables.product.prodname_vscode_shortname %} stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
 
 The following snippet describes a sample configuration for debugging a Node.js application:
 
@@ -40,10 +40,10 @@ The following snippet describes a sample configuration for debugging a Node.js a
 }
 ```
 
-VS Code also supports [compound launch configurations](#compound-launch-configurations) for starting multiple configurations at the same time.
+{% data variables.product.prodname_vscode_shortname %} also supports [compound launch configurations](#compound-launch-configurations) for starting multiple configurations at the same time.
 
 > [!NOTE]
-> You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging.
+> You can debug a simple application even if you don't have a folder open in {% data variables.product.prodname_vscode_shortname %}, but it is not possible to manage launch configurations and set up advanced debugging.
 
 ## Create a debug configuration file
 
@@ -53,13 +53,13 @@ To create an initial `launch.json` file:
 
     ![launch configuration](images/debugging/launch-configuration.png)
 
-1. VS Code tries to detect your debug environment. If it's unable to do so, you can choose it manually:
+1. {% data variables.product.prodname_vscode_shortname %} tries to detect your debug environment. If it's unable to do so, you can choose it manually:
 
     ![debug environment selector](images/debugging/debug-environments.png)
 
-    Based on the selected debug environment, VS Code creates a starter configuration in the `launch.json` file.
+    Based on the selected debug environment, {% data variables.product.prodname_vscode_shortname %} creates a starter configuration in the `launch.json` file.
 
-1. In the Explorer view (`kb(workbench.view.explorer)`), notice that VS Code created a `.vscode` folder and added the `launch.json` file to your workspace.
+1. In the Explorer view (`kb(workbench.view.explorer)`), notice that {% data variables.product.prodname_vscode_shortname %} created a `.vscode` folder and added the `launch.json` file to your workspace.
 
     ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
 
@@ -77,7 +77,7 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 ### Generate a launch configuration with AI
 
-With Copilot in VS Code, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
+With Copilot in {% data variables.product.prodname_vscode_shortname %}, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
 
 1. Open the Chat view with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
 
@@ -108,13 +108,13 @@ Alternatively, you can run your configuration through the **Command Palette** (`
 
 ## Launch versus attach configurations
 
-In VS Code, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+In {% data variables.product.prodname_vscode_shortname %}, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
 
 If you come from a browser Developer Tools background, you might not be used to "launching from your tool," since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
 
-The best way to explain the difference between launch and attach is to think of a launch configuration as a recipe for how to start your app in debug mode _before_ VS Code attaches to it, while an attach configuration is a recipe for how to connect VS Code's debugger to an app or process that's _already_ running.
+The best way to explain the difference between launch and attach is to think of a launch configuration as a recipe for how to start your app in debug mode _before_ {% data variables.product.prodname_vscode_shortname %} attaches to it, while an attach configuration is a recipe for how to connect {% data variables.product.prodname_vscode_shortname %}'s debugger to an app or process that's _already_ running.
 
-VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
+{% data variables.product.prodname_vscode_shortname %} debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and {% data variables.product.prodname_vscode_shortname %}'s `launch.json` validation and suggestions should help with that.
 
 ## Launch.json attributes
 
@@ -152,7 +152,7 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
+{% data variables.product.prodname_vscode_shortname %} makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
 
 You can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
 
@@ -169,7 +169,7 @@ You can see a full list of predefined variables in the [Variables Reference](/do
 
 ## Platform-specific properties
 
-VS Code supports defining debugging configuration settings (for example, arguments to be passed to the program) that depend on the operating system where the debugger is running. To do so, put a platform-specific literal in the `launch.json` file and specify the corresponding properties inside that literal.
+{% data variables.product.prodname_vscode_shortname %} supports defining debugging configuration settings (for example, arguments to be passed to the program) that depend on the operating system where the debugger is running. To do so, put a platform-specific literal in the `launch.json` file and specify the corresponding properties inside that literal.
 
 The following example shows how to pass `"args"` to the program differently on Windows:
 
@@ -254,13 +254,13 @@ You can define launch configurations that are available across all your workspac
 
 ## Redirect input/output to/from the debug target
 
-Redirecting input/output is debugger or runtime specific, so VS Code does not have a built-in solution that works for all debuggers.
+Redirecting input/output is debugger or runtime specific, so {% data variables.product.prodname_vscode_shortname %} does not have a built-in solution that works for all debuggers.
 
 Here are two approaches you might want to consider:
 
 * Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Ensure that you pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
 
-* If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
+* If the debugger extension you are using can run the debug target in {% data variables.product.prodname_vscode_shortname %}'s Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
 
     Here's an example `launch.json` configuration:
 
@@ -320,7 +320,7 @@ Compound launch configurations are also displayed in the launch configuration dr
 
 ## Automatically open a URI when debugging a server program
 
-Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
+Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. {% data variables.product.prodname_vscode_shortname %} has a built-in feature "**serverReadyAction**" to automate this task.
 
 Here is an example of a simple [Node.js Express](https://expressjs.com) application:
 
@@ -360,7 +360,7 @@ Here the `pattern` property describes the regular expression for matching the pr
 
 The `uriFormat` property describes how the port number is turned into a URI. The first `%s` is substituted by the first capture group of the matching pattern.
 
-The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
+The resulting URI is then opened outside of {% data variables.product.prodname_vscode_shortname %} ("externally") with the standard application configured for the URI's scheme.
 
 ### Trigger debugging via Microsoft Edge or Chrome
 
@@ -385,7 +385,7 @@ Here the **serverReadyAction** feature in action:
 ## Next steps
 
 * [Tasks](/docs/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
-* [Variables Reference](/docs/reference/variables-reference.md) - Describes the variables available in VS Code.
+* [Variables Reference](/docs/reference/variables-reference.md) - Describes the variables available in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 

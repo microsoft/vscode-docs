@@ -63,10 +63,10 @@ To configure an MCP server from featured selections, follow these steps:
 
 1. The MCP server is added to your agent in the **MCP** subsection under **Tools**.
 
-### Select tools from VS Code
+### Select tools from {% data variables.product.prodname_vscode_shortname %}
 
 1. In the **Tool** section, select **+ MCP Server**, and then select **MCP Server** in the Quick Pick.
-1. Select **Use Tools Added in Visual Studio Code** from the dropdown list.
+1. Select **Use Tools Added in {% data variables.product.prodname_vscode %}** from the dropdown list.
       ![Screenshot showing the connect to MCP server interface in Agent Builder.](./images/promptbuilder/featured-server.png)
 1. Select tools you want to use.
    ![Screenshot showing the select tools interface in Agent Builder.](./images/promptbuilder/select-tools.png)
@@ -129,7 +129,7 @@ Follow these steps to test the MCP server:
 > [!NOTE]
 > To run the MCP Server in your local dev machine, you need: [Node.js](https://nodejs.org/) or Python installed on your machine.
 
-1. Open VS Code Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
+1. Open {% data variables.product.prodname_vscode_shortname %} Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
 1. The server is automatically connected to Agent Builder.
 1. Use Foundry Toolkit Agent Builder to enable the agent with the following instructions:
    - "You are a weather forecast professional that can tell weather information based on given location.".
@@ -184,8 +184,8 @@ Use the selector located in the upper right-hand corner of the Agent Builder to 
 
 To consume your Prompt Agent in Python code, you can either:
 
-- **View Code** generates an entire project with example code that calls your Prompt Agent hosted in Foundry. You will be asked to select a folder location on your local drive, then an entire project will be generated in that folder and opened in a new instance of Visual Studio Code.
-  
+- **View Code** generates an entire project with example code that calls your Prompt Agent hosted in Foundry. You will be asked to select a folder location on your local drive, then an entire project will be generated in that folder and opened in a new instance of {% data variables.product.prodname_vscode %}.
+
   ![Screenshot of entire project generated Python code to call Prompt Agent](./images/promptbuilder/view-code-project.png)
 
 - **View Snippet** generates a single file snippet that calls your Prompt Agent hosted in Foundry.
@@ -220,7 +220,7 @@ The Prompt Agent switcher in the Agent Builder allows you to easily switch betwe
 
 In this article, you learned how to:
 
-- Use the Foundry Toolkit for VS Code to test and debug your agents.
+- Use the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} to test and debug your agents.
 - Discover, configure, and build MCP servers to connect your agents to external APIs and services.
 - Set up function calling to connect your agents to external APIs and services.
 - Implement structured output to deliver predictable results from your agents.

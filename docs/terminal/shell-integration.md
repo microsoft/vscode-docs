@@ -1,11 +1,11 @@
 ---
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-DateApproved: 8/19/2026
-MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
+DateApproved: 8/26/2026
+MetaDescription: {% data variables.product.prodname_vscode %}'s embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 # Terminal Shell Integration
 
-Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful features such as [working directory detection](#current-working-directory-detection) and command detection, [decorations](#command-decorations-and-the-overview-ruler), and [navigation](#command-navigation).
+{% data variables.product.prodname_vscode %} has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful features such as [working directory detection](#current-working-directory-detection) and command detection, [decorations](#command-decorations-and-the-overview-ruler), and [navigation](#command-navigation).
 
 Supported shells:
 
@@ -16,13 +16,13 @@ Supported shells:
 
 ### Automatic script injection
 
-By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `setting(terminal.integrated.shellIntegration.enabled)` to `false`.
+By default, the shell integration script should automatically activate on supported shells launched from {% data variables.product.prodname_vscode_shortname %}. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `setting(terminal.integrated.shellIntegration.enabled)` to `false`.
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
 >**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
->**Windows Note**: VS Code shell integration requires the [permission to run PowerShell scripts](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
+>**Windows Note**: {% data variables.product.prodname_vscode_shortname %} shell integration requires the [permission to run PowerShell scripts](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
 >
 > ```powershell
 > if ((Get-ExecutionPolicy -Scope LocalMachine) -eq 'Undefined' -and (Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
@@ -32,13 +32,13 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 ### Manual installation
 
-To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `setting(terminal.integrated.shellIntegration.enabled)` to `false`, though not mandatory.
+To manually install shell integration, the {% data variables.product.prodname_vscode_shortname %} shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `setting(terminal.integrated.shellIntegration.enabled)` to `false`, though not mandatory.
 
 > **Tip:** When using the [Insiders build](https://code.visualstudio.com/insiders), replace `code` with `code-insiders` below.
 
 **bash**
 
-Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in {% data variables.product.prodname_vscode_shortname %}.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
@@ -46,7 +46,7 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 
 **fish**
 
-Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in {% data variables.product.prodname_vscode_shortname %}.
 
 ```sh
 string match -q "$TERM_PROGRAM" "vscode"
@@ -55,7 +55,7 @@ and . (code --locate-shell-integration-path fish)
 
 **pwsh**
 
-Add the following to your [PowerShell profile](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2). Run `code $Profile` in pwsh to open the file in VS Code.
+Add the following to your [PowerShell profile](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2). Run `code $Profile` in pwsh to open the file in {% data variables.product.prodname_vscode_shortname %}.
 
 ```powershell
 if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }
@@ -63,7 +63,7 @@ if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path 
 
 **zsh**
 
-Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in zsh to open the file in VS Code.
+Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in zsh to open the file in {% data variables.product.prodname_vscode_shortname %}.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
@@ -71,7 +71,7 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in zsh to open th
 
 **Git Bash**
 
-Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in VS Code.
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in {% data variables.product.prodname_vscode_shortname %}.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
@@ -128,7 +128,7 @@ There are various settings to configure how terminal IntelliSense behaves:
 
 ### Global completion caching
 
-To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
+To improve performance, {% data variables.product.prodname_vscode_shortname %} aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
 
 ## Command decorations and the overview ruler
 
@@ -164,7 +164,7 @@ This can be enabled with the `setting(terminal.integrated.stickyScroll.enabled)`
 
 ## Quick fixes
 
-VS Code scans the output of a command and presents a Quick Fix with actions that have a high likelihood of being what the user will want to do next.
+{% data variables.product.prodname_vscode_shortname %} scans the output of a command and presents a Quick Fix with actions that have a high likelihood of being what the user will want to do next.
 
 ![Running 'git push --set-upstream' will present a lightbulb that opens a dropdown with an option to open a new PR on github.com](images/shell-integration/quick-fix.png)
 
@@ -218,7 +218,7 @@ The default keyboard shortcut for this command is `kb(workbench.action.terminal.
 
 ## Current working directory detection
 
-Shell integration tells VS Code what the current working directory of the shell is. This information is not possible to get on Windows without trying to detect the prompt through regex and requires polling on macOS and Linux, which isn't good for performance.
+Shell integration tells {% data variables.product.prodname_vscode_shortname %} what the current working directory of the shell is. This information is not possible to get on Windows without trying to detect the prompt through regex and requires polling on macOS and Linux, which isn't good for performance.
 
 One of the biggest features this enables is enhanced resolving of links in the terminal. Take a link `package.json` for example, when the link is activated while shell integration is disabled this will open a search quick pick with `package.json` as the filter if there are multiple `package.json` files in the workspace. When shell integration is enabled however, it will open the `package.json` file in the current folder directly because the current location is known. This allows the output of `ls` for example to reliably open the correct file.
 
@@ -226,7 +226,7 @@ The current working directory is also used to show the directory in the terminal
 
 ## Extended PowerShell keyboard shortcuts
 
-Windows' console API allows for more keyboard shortcuts than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keyboard shortcuts that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keyboard shortcuts to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
+Windows' console API allows for more keyboard shortcuts than Linux/macOS terminals, since {% data variables.product.prodname_vscode_shortname %}'s terminal emulates the latter even on Windows there are some PowerShell keyboard shortcuts that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows {% data variables.product.prodname_vscode_shortname %} to attach a custom keyboard shortcuts to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
 
 The following keyboard shortcuts should work in PowerShell when shell integration is enabled:
 
@@ -238,7 +238,7 @@ The following keyboard shortcuts should work in PowerShell when shell integratio
 
 ## Enhanced accessibility
 
-The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/configure/accessibility/accessibility.md#terminal-accessibility). Some examples of enhancements are:
+The information that shell integration provides to {% data variables.product.prodname_vscode_shortname %} is used to improve [accessibility in the terminal](/docs/configure/accessibility/accessibility.md#terminal-accessibility). Some examples of enhancements are:
 
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
 - An [audio cue](/docs/configure/accessibility/accessibility.md#accessibility-signals) plays when a command fails.
@@ -246,11 +246,11 @@ The information that shell integration provides to VS Code is used to improve [a
 
 ## Supported escape sequences
 
-VS Code supports several custom escape sequences:
+{% data variables.product.prodname_vscode_shortname %} supports several custom escape sequences:
 
-### VS Code custom sequences 'OSC 633 ; ... ST'
+### {% data variables.product.prodname_vscode_shortname %} custom sequences 'OSC 633 ; ... ST'
 
-VS Code has a set of custom escape sequences designed to enable the shell integration feature when run in VS Code's terminal. These are used by the built-in scripts but can also be used by any application capable of sending sequences to the terminal, for example the [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) uses these to support shell integration in the Julia REPL.
+{% data variables.product.prodname_vscode_shortname %} has a set of custom escape sequences designed to enable the shell integration feature when run in {% data variables.product.prodname_vscode_shortname %}'s terminal. These are used by the built-in scripts but can also be used by any application capable of sending sequences to the terminal, for example the [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) uses these to support shell integration in the Julia REPL.
 
 These sequences should be ignored by other terminals, but unless other terminals end up adopting the sequences more widely, it's recommended to check that `$TERM_PROGRAM` is `vscode` before writing them.
 
@@ -280,12 +280,12 @@ These sequences should be ignored by other terminals, but unless other terminals
 
   - `Cwd`: Reports the current working directory to the terminal.
   - `IsWindows`: Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
-  - `HasRichCommandDetection`: Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as VS Code expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
+  - `HasRichCommandDetection`: Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as {% data variables.product.prodname_vscode_shortname %} expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
 
 
 ### Final Term shell integration
 
-VS Code supports Final Term's shell integration sequences, which allow non-VS Code shell integration scripts to work in VS Code. This results in a somewhat degraded experience as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
+{% data variables.product.prodname_vscode_shortname %} supports Final Term's shell integration sequences, which allow non-{% data variables.product.prodname_vscode_shortname %} shell integration scripts to work in {% data variables.product.prodname_vscode_shortname %}. This results in a somewhat degraded experience as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
 
 - `OSC 133 ; A ST`: Mark prompt start.
 - `OSC 133 ; B ST`: Mark prompt end.
@@ -318,11 +318,11 @@ There are several cases where automatic injection doesn't work, here are some co
   PROMPT_COMMAND=prompt
   ```
 
-- Some shell plugins may disable VS Code's shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
+- Some shell plugins may disable {% data variables.product.prodname_vscode_shortname %}'s shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
 
 ### Why are command decorations showing when the feature is disabled?
 
-The likely cause of this is that your system has shell integration for another terminal installed that [VS Code understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
+The likely cause of this is that your system has shell integration for another terminal installed that [{% data variables.product.prodname_vscode_shortname %} understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
 
 ```json
 "terminal.integrated.shellIntegration.decorationsEnabled": never
@@ -332,4 +332,4 @@ Alternatively, you could remove the shell integration script from your shell rc/
 
 ### Why does the command decoration jump around on Windows?
 
-Windows uses an emulated pseudoterminal (pty) backend called ConPTY. It works a little differently to a regular pty because it needs to maintain compatibility with the Windows Console API. One of the impacts of this is the pty handles rendering specially in such a way that the shell integration sequences that identify the commands in the terminal buffer may be misplaced. When the command jumps around it's typically after a command has run, and VS Code's heuristics have kicked in to improve the position of the command decorations.
+Windows uses an emulated pseudoterminal (pty) backend called ConPTY. It works a little differently to a regular pty because it needs to maintain compatibility with the Windows Console API. One of the impacts of this is the pty handles rendering specially in such a way that the shell integration sequences that identify the commands in the terminal buffer may be misplaced. When the command jumps around it's typically after a command has run, and {% data variables.product.prodname_vscode_shortname %}'s heuristics have kicked in to improve the position of the command decorations.

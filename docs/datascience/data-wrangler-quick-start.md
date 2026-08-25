@@ -1,11 +1,11 @@
 ---
 ContentId: 0227288a-2698-47bd-b97a-3a1736acb473
 DateApproved: 04/04/2024
-MetaDescription: A quick start guide to get you up and running with the Data Wrangler extension in Visual Studio Code.
+MetaDescription: A quick start guide to get you up and running with the Data Wrangler extension in {% data variables.product.prodname_vscode %}.
 ---
-# Quick Start Guide for Data Wrangler in VS Code
+# Quick Start Guide for Data Wrangler in {% data variables.product.prodname_vscode_shortname %}
 
-[Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
+[Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vscode_shortname %} Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
 
 The following is an example of opening Data Wrangler from the notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the notebook.
 
@@ -33,7 +33,7 @@ If you have a Pandas data frame in your notebook, you’ll now see an **Open 'df
 
 ### Launch Data Wrangler directly from a file
 
-You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in VS Code that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
+You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in {% data variables.product.prodname_vscode_shortname %} that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
 
 ![a screenshot showing the entry point into Data Wrangler from a file](images/data-wrangler-quick-start/open-from-file.png)
 

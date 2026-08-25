@@ -1,14 +1,14 @@
 ---
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 DateApproved: 5/31/2022
-MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
+MetaDescription: Learn how to use Git version control basics in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/opengraph/introvideos-social.png
 ---
-# Version control in VS Code
+# Version control in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
+In this tutorial, we will learn how to use the basics of Git version control in {% data variables.product.prodname_vscode %}. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
-<iframe src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with {% data variables.product.prodname_vscode %}"></iframe>
 
 Here's the next video we recommend: [Customize](/docs/introvideos/customize.md)
 
@@ -50,11 +50,11 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Next video
 
-* [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
+* [Customize](/docs/introvideos/customize.md) - Customize {% data variables.product.prodname_vscode_shortname %} with settings and keyboard shortcuts.
 * [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
 * [Source Control](/docs/sourcecontrol/overview.md) - Read more about integrated Git support.
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Create and manage GitHub issues and pull requests.
-* [Setup Overview](/docs/getstarted/overview.md) - Set up and start using VS Code.
+* [Setup Overview](/docs/getstarted/overview.md) - Set up and start using {% data variables.product.prodname_vscode_shortname %}.

@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

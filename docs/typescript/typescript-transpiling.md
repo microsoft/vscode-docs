@@ -1,7 +1,7 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 DateApproved: 8/19/2026
-MetaDescription: Learn about TypeScript transpiling with Visual Studio Code.
+MetaDescription: Learn about TypeScript transpiling with {% data variables.product.prodname_vscode %}.
 ---
 # Transpiling TypeScript
 
@@ -9,7 +9,7 @@ MetaDescription: Learn about TypeScript transpiling with Visual Studio Code.
 
 ## Install the TypeScript compiler
 
-Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
+{% data variables.product.prodname_vscode %} includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
 
 The easiest way to install TypeScript is through npm, the [Node.js Package Manager](https://www.npmjs.com/). If you have npm installed, you can install TypeScript globally (`-g`) on your computer by:
 
@@ -28,14 +28,14 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ### Compiler versus language service
 
-It is important to keep in mind that VS Code's TypeScript language service is separate from your installed TypeScript compiler. You can see the VS Code's TypeScript version in the language Status Bar item when you open a TypeScript file.
+It is important to keep in mind that {% data variables.product.prodname_vscode_shortname %}'s TypeScript language service is separate from your installed TypeScript compiler. You can see the {% data variables.product.prodname_vscode_shortname %}'s TypeScript version in the language Status Bar item when you open a TypeScript file.
 
 ![TypeScript version displayed in the language status in the Status Bar.](images/compiling/version-status-bar.png)
 
 > [!TIP]
 > You can pin the TypeScript version to the Status Bar by using the _pin_ icon.
 
-Later in the article, we'll discuss how you can [change](#using-newer-typescript-versions) the version of TypeScript language service that VS Code uses.
+Later in the article, we'll discuss how you can [change](#using-newer-typescript-versions) the version of TypeScript language service that {% data variables.product.prodname_vscode_shortname %} uses.
 
 ## tsconfig.json
 
@@ -59,18 +59,18 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 ## Transpile TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+{% data variables.product.prodname_vscode_shortname %} integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using {% data variables.product.prodname_vscode_shortname %} tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors--warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 
-Open VS Code on an empty folder and create a `helloworld.ts` file, place the following code in that file...
+Open {% data variables.product.prodname_vscode_shortname %} on an empty folder and create a `helloworld.ts` file, place the following code in that file...
 
 ```typescript
 let message : string = "Hello World";
 console.log(message);
 ```
 
-To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc helloworld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
+To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc helloworld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in {% data variables.product.prodname_vscode_shortname %}.
 
 You should now see the transpiled `helloworld.js` JavaScript file, which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node helloworld.js`.
 
@@ -115,11 +115,11 @@ You can also define the TypeScript build task as the default build task so that 
 
 Notice that the task has a `group` JSON object that sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`kb(workbench.action.tasks.build)`), you are not prompted to select a task and your compilation starts.
 
-> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)
+> **Tip:** You can also run the program using {% data variables.product.prodname_vscode_shortname %}'s Run/Debug feature. Details about running and debugging Node.js applications in {% data variables.product.prodname_vscode_shortname %} can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)
 
 ### Step 4: Reviewing build issues
 
-The VS Code task system can also detect build issues through a [problem matcher](/docs/debugtest/tasks.md#defining-a-problem-matcher). A problem matcher parses build output based on the specific build tool and provides integrated issue display and navigation. VS Code ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
+The {% data variables.product.prodname_vscode_shortname %} task system can also detect build issues through a [problem matcher](/docs/debugtest/tasks.md#defining-a-problem-matcher). A problem matcher parses build output based on the specific build tool and provides integrated issue display and navigation. {% data variables.product.prodname_vscode_shortname %} ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
 
 As an example, if there was a simple error (extra 'g' in `console.log`) in our TypeScript file, we may get the following output from `tsc`:
 
@@ -157,7 +157,7 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 
 ## Hiding derived JavaScript files
 
-When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/configure/settings.md) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. {% data variables.product.prodname_vscode_shortname %} offers filtering capabilities with a `files.exclude` [workspace setting](/docs/configure/settings.md) and you can easily create an expression to hide those derived files:
 
 `**/*.js: { "when": "$(basename).ts" }`
 
@@ -180,7 +180,7 @@ This is a bit of a trick. The search [glob patterns](/docs/editor/glob-patterns.
 
 ## Using newer TypeScript versions
 
-VS Code ships with a recent stable version of the TypeScript language service and uses this by default to provide IntelliSense in your workspace. The workspace version of TypeScript is independent of the version of TypeScript you use to compile your `*.ts` files. You can just use VS Code's built-in TypeScript version for IntelliSense without worry for most common cases, but sometimes you may need to change the version of TypeScript VS Code uses for IntelliSense.
+{% data variables.product.prodname_vscode_shortname %} ships with a recent stable version of the TypeScript language service and uses this by default to provide IntelliSense in your workspace. The workspace version of TypeScript is independent of the version of TypeScript you use to compile your `*.ts` files. You can just use {% data variables.product.prodname_vscode_shortname %}'s built-in TypeScript version for IntelliSense without worry for most common cases, but sometimes you may need to change the version of TypeScript {% data variables.product.prodname_vscode_shortname %} uses for IntelliSense.
 
 Reasons for doing this include:
 
@@ -195,13 +195,13 @@ You have a few options if you want to change the default version of TypeScript i
 
 ### Using the workspace version of TypeScript
 
-If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that VS Code uses by default by opening a TypeScript or JavaScript file and clicking on the TypeScript version number in the Status Bar. A message box will appear asking you which version of TypeScript VS Code should use:
+If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that {% data variables.product.prodname_vscode_shortname %} uses by default by opening a TypeScript or JavaScript file and clicking on the TypeScript version number in the Status Bar. A message box will appear asking you which version of TypeScript {% data variables.product.prodname_vscode_shortname %} should use:
 
 ![TypeScript version selector](images/compiling/select-ts-version-message.png)
 
-Use this to switch between the version of TypeScript that comes with VS Code and the version of TypeScript in your workspace. You can also trigger the TypeScript version selector with the **TypeScript: Select TypeScript Version** command.
+Use this to switch between the version of TypeScript that comes with {% data variables.product.prodname_vscode_shortname %} and the version of TypeScript in your workspace. You can also trigger the TypeScript version selector with the **TypeScript: Select TypeScript Version** command.
 
-VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `js/ts.tsdk.path` in your user or workspace [settings](/docs/configure/settings.md). The `js/ts.tsdk.path` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
+{% data variables.product.prodname_vscode_shortname %} will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell {% data variables.product.prodname_vscode_shortname %} which version of TypeScript to use by configuring the `js/ts.tsdk.path` in your user or workspace [settings](/docs/configure/settings.md). The `js/ts.tsdk.path` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
 For example:
 
@@ -215,7 +215,7 @@ For example:
 
 Note that while `js/ts.tsdk.path` points to the `lib` directory inside of `typescript` in these examples, the `typescript` directory must be a full TypeScript install that contains the TypeScript `package.json` file.
 
-You can also tell VS Code to use a specific version of TypeScript in a particular workspace by adding a `js/ts.tsdk.path` workspace setting pointing to the directory of the `tsserver.js` file:
+You can also tell {% data variables.product.prodname_vscode_shortname %} to use a specific version of TypeScript in a particular workspace by adding a `js/ts.tsdk.path` workspace setting pointing to the directory of the `tsserver.js` file:
 
 ```json
 {
@@ -223,13 +223,13 @@ You can also tell VS Code to use a specific version of TypeScript in a particula
 }
 ```
 
-The `js/ts.tsdk.path` workspace setting only tells VS Code that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the **TypeScript: Select TypeScript Version** command and select the workspace version.
+The `js/ts.tsdk.path` workspace setting only tells {% data variables.product.prodname_vscode_shortname %} that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the **TypeScript: Select TypeScript Version** command and select the workspace version.
 
 ### Using TypeScript nightly builds
 
-The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
+The simplest way to try out the latest TypeScript features in {% data variables.product.prodname_vscode_shortname %} is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#using-the-workspace-version-of-typescript) if you've configured your TypeScript version with the **TypeScript: Select TypeScript Version** command.
+This extension automatically replaces {% data variables.product.prodname_vscode_shortname %}'s built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using {% data variables.product.prodname_vscode_shortname %}'s TypeScript version](#using-the-workspace-version-of-typescript) if you've configured your TypeScript version with the **TypeScript: Select TypeScript Version** command.
 
 ## Mixed TypeScript and JavaScript projects
 
@@ -239,7 +239,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To enable JavaS
 
 ## Working with large projects
 
-If you are working in a codebase with hundreds or thousands of TypeScript files, here are some steps you can take to improve both the editing experience in VS Code as well as compile times on the command line.
+If you are working in a codebase with hundreds or thousands of TypeScript files, here are some steps you can take to improve both the editing experience in {% data variables.product.prodname_vscode_shortname %} as well as compile times on the command line.
 
 ### Make sure your tsconfig only includes files you care about
 
@@ -265,19 +265,19 @@ Read on to find out about:
 
 ### How do I resolve a TypeScript "Cannot compile external module" error?
 
-If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [tsconfig.json overview](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how {% data variables.product.prodname_vscode %} compiles your TypeScript code. For more information, see the [tsconfig.json overview](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-### Why do I get different errors and warnings with VS Code than when I compile my TypeScript project?
+### Why do I get different errors and warnings with {% data variables.product.prodname_vscode_shortname %} than when I compile my TypeScript project?
 
-VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](#using-newer-typescript-versions) for details on installing a matching TypeScript version.
+{% data variables.product.prodname_vscode_shortname %} ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](#using-newer-typescript-versions) for details on installing a matching TypeScript version.
 
 ### Can I use the version of TypeScript that ships with VS 2022?
 
-No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with {% data variables.product.prodname_vscode_shortname %}. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
 ### Why are some errors reported as warnings?
 
-By default, VS Code TypeScript displays code style issues as warnings instead of errors. This applies to:
+By default, {% data variables.product.prodname_vscode_shortname %} TypeScript displays code style issues as warnings instead of errors. This applies to:
 
 * Variable is declared but never used
 * Property is declared but its value is never read

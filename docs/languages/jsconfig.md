@@ -15,9 +15,9 @@ The presence of `jsconfig.json` file in a directory indicates that the directory
 
 ## Why do I need a jsconfig.json file?
 
-Visual Studio Code's JavaScript support can run in two different modes:
+{% data variables.product.prodname_vscode %}'s JavaScript support can run in two different modes:
 
-* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using `import` or **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0)), there is no common project context between the two files.
+* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in {% data variables.product.prodname_vscode %} are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using `import` or **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0)), there is no common project context between the two files.
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
@@ -39,7 +39,7 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute (a [glob pattern](/docs/editor/glob-patterns.md)) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
+The `exclude` attribute (a [glob pattern](/docs/editor/glob-patterns.md)) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list ({% data variables.product.prodname_vscode_shortname %} will prompt you to do this if it detects the slow down).
 
 ```json
 {
@@ -120,7 +120,7 @@ import Something from 'ClientApp/foo'
 
 Whenever possible, you should exclude folders with JavaScript files that are not part of the source code for your project.
 
->**Tip:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder.
+>**Tip:** If you do not have a `jsconfig.json` in your workspace, {% data variables.product.prodname_vscode_shortname %} will by default exclude the `node_modules` folder.
 
 Below is a table, mapping common project components to their installation folders that are recommended to exclude:
 
@@ -132,4 +132,4 @@ Component | folder to exclude
 `ember` | exclude the `tmp` and `temp` folders
 `jspm` | exclude the `jspm_packages` folder
 
-When your JavaScript project is growing too large and performance slows, it is often because of library folders like `node_modules`. If VS Code detects that your project is growing too large, it will prompt you to edit the `exclude` list.
+When your JavaScript project is growing too large and performance slows, it is often because of library folders like `node_modules`. If {% data variables.product.prodname_vscode_shortname %} detects that your project is growing too large, it will prompt you to edit the `exclude` list.

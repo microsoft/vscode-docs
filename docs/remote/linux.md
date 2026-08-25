@@ -1,11 +1,11 @@
 ---
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
-MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Dev Containers, and WSL extensions
+MetaDescription: Linux Prerequisites for {% data variables.product.prodname_vscode_shortname %} Remote - SSH, Dev Containers, and WSL extensions
 DateApproved: 8/19/2026
 ---
 # Remote Development with Linux
 
-Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
+Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. {% data variables.product.prodname_vscode %} Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
 The extensions are known to work when connecting to recent stable/LTS version of:
 
@@ -26,7 +26,7 @@ Note that **other extensions may have dependencies** beyond those listed here. S
 
 ## Local Linux prerequisites
 
-If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/requirements.md) drive most of the requirements.
+If you are running Linux locally, the [{% data variables.product.prodname_vscode_shortname %} prerequisites](/docs/supporting/requirements.md) drive most of the requirements.
 
 In addition, specific Remote Development extensions have further requirements:
 
@@ -81,5 +81,5 @@ The following is a list of distributions and any base requirements that may be m
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
-* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
+* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [{% data variables.product.prodname_vscode_shortname %} itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

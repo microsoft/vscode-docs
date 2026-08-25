@@ -1,18 +1,18 @@
 ---
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 DateApproved: 8/19/2026
-MetaDescription: Get the best out of editing TypeScript with Visual Studio Code.
+MetaDescription: Get the best out of editing TypeScript with {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
-# TypeScript in Visual Studio Code
+# TypeScript in {% data variables.product.prodname_vscode %}
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
 
-![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
+![Working with TypeScript in {% data variables.product.prodname_vscode %}](images/typescript/overview.png)
 
 ## Installing the TypeScript compiler
 
-Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
+{% data variables.product.prodname_vscode %} includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
 
 The easiest way to install TypeScript is through npm, the [Node.js Package Manager](https://www.npmjs.com/). If you have npm installed, you can install TypeScript globally (`-g`) on your computer by:
 
@@ -30,7 +30,7 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ## Hello World
 
-Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
+Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch {% data variables.product.prodname_vscode_shortname %}.
 
 ```bash
 mkdir HelloWorld
@@ -70,7 +70,7 @@ IntelliSense shows you intelligent code completion, hover information, and signa
 
 ![TypeScript small completions for String type](images/typescript/ts-intellisense.png)
 
-VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
+{% data variables.product.prodname_vscode_shortname %} provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
 
 ### Hover information
 
@@ -82,7 +82,7 @@ You can also show the hover information at the current cursor position with the 
 
 ### Signature help
 
-As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+As you write a TypeScript function call, {% data variables.product.prodname_vscode_shortname %} shows information about the function signature and highlights the parameter that you are currently completing:
 
 ![Signature help for the lodash capitalize function](images/typescript/signature-help.png)
 
@@ -90,7 +90,7 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type.
+In addition to smart code completions, {% data variables.product.prodname_vscode_shortname %} also includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type.
 
 ![TypeScript 'for' snippet suggestions](images/typescript/ts-snippets.png)
 
@@ -129,15 +129,15 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Formatting
 
-VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
+{% data variables.product.prodname_vscode_shortname %} includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
 Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
+For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
 
 ## Refactoring
 
-VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the light bulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+{% data variables.product.prodname_vscode_shortname %} includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the light bulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
 ![TypeScript refactoring](images/typescript/refactorings.png)
 
@@ -151,7 +151,7 @@ One of the simplest refactorings is to rename a method or variable. Press `kb(ed
 
 ## Debugging
 
-VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) and the overall [Debugging topic](/docs/debugtest/debugging.md) to learn more.
+{% data variables.product.prodname_vscode_shortname %} comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) and the overall [Debugging topic](/docs/debugtest/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -159,19 +159,19 @@ You can debug your client-side code using a browser debugger such as the [built-
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
+Debug Node.js in {% data variables.product.prodname_vscode_shortname %} using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provide warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the Marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provide warnings for suspicious looking code. While {% data variables.product.prodname_vscode_shortname %} does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the Marketplace.
 
-[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
+[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into {% data variables.product.prodname_vscode_shortname %} so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
 
 ## TypeScript extensions
 
-VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
+{% data variables.product.prodname_vscode_shortname %} provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-typescript-curated"></div>
 
@@ -181,20 +181,20 @@ VS Code provides many features for TypeScript out of the box. In addition to wha
 
 To learn more, see:
 
-* [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in VS Code.
+* [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in {% data variables.product.prodname_vscode_shortname %}.
 * [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
 * [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Transpiling TypeScript](/docs/typescript/typescript-transpiling.md) - Compile TypeScript to a JavaScript target version.
-* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with VS Code.
+* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 
 ### Can I use the version of TypeScript that ships with VS 2022?
 
-No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with {% data variables.product.prodname_vscode_shortname %}. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
-### How can I use the latest TypeScript beta with VS Code?
+### How can I use the latest TypeScript beta with {% data variables.product.prodname_vscode_shortname %}?
 
-The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
+The simplest way to try out the latest TypeScript features in {% data variables.product.prodname_vscode_shortname %} is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-transpiling.md#using-newer-typescript-versions).
+You can also [configure {% data variables.product.prodname_vscode_shortname %} to use a specific TypeScript version](/docs/typescript/typescript-transpiling.md#using-newer-typescript-versions).

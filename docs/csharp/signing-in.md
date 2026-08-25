@@ -16,7 +16,7 @@ You can also get [subscription support](https://visualstudio.microsoft.com/subsc
 
 ## Sign in with a Microsoft or organizational account
 
-1. Launch Visual Studio Code.  When the C# Dev Kit extension is activated for the first time, you'll be asked to sign in via a toast notification.
+1. Launch {% data variables.product.prodname_vscode %}.  When the C# Dev Kit extension is activated for the first time, you'll be asked to sign in via a toast notification.
 
   ![Sign-in notification](images/signing-in/sign-in-notification.png)
 

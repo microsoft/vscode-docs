@@ -1,11 +1,11 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 DateApproved: 8/19/2026
-MetaDescription: Visual Studio Code variable substitution reference
+MetaDescription: {% data variables.product.prodname_vscode %} variable substitution reference
 ---
 # Variables reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/debugtest/debugging.md) and [Task](/docs/debugtest/tasks.md) configuration files, and for some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files by using the **${variableName}** syntax.
+{% data variables.product.prodname_vscode %} supports variable substitution in [Debugging](/docs/debugtest/debugging.md) and [Task](/docs/debugtest/tasks.md) configuration files, and for some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files by using the **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -14,8 +14,8 @@ The following predefined variables are supported:
 | Variable                       | Description                                                                 |
 |--------------------------------|-----------------------------------------------------------------------------|
 | **${userHome}**                | Path of the user's home folder                                              |
-| **${workspaceFolder}**         | Path of the folder opened in VS Code                                        |
-| **${workspaceFolderBasename}** | Name of the folder opened in VS Code without any slashes (/)                |
+| **${workspaceFolder}**         | Path of the folder opened in {% data variables.product.prodname_vscode_shortname %}                                        |
+| **${workspaceFolderBasename}** | Name of the folder opened in {% data variables.product.prodname_vscode_shortname %} without any slashes (/)                |
 | **${file}**                    | Currently opened file                                                       |
 | **${fileWorkspaceFolder}**     | Currently opened file's workspace folder                                    |
 | **${relativeFile}**            | Currently opened file relative to `workspaceFolder`                         |
@@ -25,11 +25,11 @@ The following predefined variables are supported:
 | **${fileExtname}**             | Currently opened file's extension                                           |
 | **${fileDirname}**             | Currently opened file's folder path                                         |
 | **${fileDirnameBasename}**     | Currently opened file's folder name                                         |
-| **${cwd}**                     | Task runner's current working directory upon the startup of VS Code         |
+| **${cwd}**                     | Task runner's current working directory upon the startup of {% data variables.product.prodname_vscode_shortname %}         |
 | **${lineNumber}**              | Currently selected line number in the active file                           |
 | **${columnNumber}**            | Currently selected column number in the active file                         |
 | **${selectedText}**            | Currently selected text in the active file                                  |
-| **${execPath}**                | Path to the running VS Code executable                                      |
+| **${execPath}**                | Path to the running {% data variables.product.prodname_vscode_shortname %} executable                                      |
 | **${defaultBuildTask}**        | Name of the default build task                                              |
 | **${pathSeparator}**           | Character used by the operating system to separate components in file paths |
 | **${/}**                       | Shorthand for **${pathSeparator}**                                          |
@@ -99,15 +99,15 @@ You can reference environment variables with the **${env:Name}** syntax. For exa
 
 ## Configuration variables
 
-To reference VS Code settings (_configurations_), use the **${config:Name}** syntax. For example, **${config:editor.fontSize}** references the `editor.fontSize` setting.
+To reference {% data variables.product.prodname_vscode_shortname %} settings (_configurations_), use the **${config:Name}** syntax. For example, **${config:editor.fontSize}** references the `editor.fontSize` setting.
 
 ## Command variables
 
-You can use any VS Code command as a variable with the **${command:commandID}** syntax.
+You can use any {% data variables.product.prodname_vscode_shortname %} command as a variable with the **${command:commandID}** syntax.
 
-A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
+A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via {% data variables.product.prodname_vscode_shortname %}'s extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
 
-An example of this functionality is in VS Code's Node.js debugger extension, which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
+An example of this functionality is in {% data variables.product.prodname_vscode_shortname %}'s Node.js debugger extension, which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
 
 ```json
 {
@@ -152,7 +152,7 @@ The following example shows the overall structure of a `tasks.json` that makes u
 }
 ```
 
-Currently VS Code supports three types of input variables:
+Currently {% data variables.product.prodname_vscode_shortname %} supports three types of input variables:
 
 - **promptString**: shows an input box to get a string from the user.
 - **pickString**: shows a Quick Pick dropdown to let the user select from several options.
@@ -298,7 +298,7 @@ Not all values in `tasks.json` support variable substitution. Specifically, only
 
 ### How can I know a variable's actual value?
 
-One easy way to check a variable's runtime value is to create a VS Code [task](/docs/debugtest/tasks.md) to output the variable value to the console. For example, to see the resolved value for `${workspaceFolder}`, you can create and run (**Terminal** > **Run Task**) the following simple 'echo' task in `tasks.json`:
+One easy way to check a variable's runtime value is to create a {% data variables.product.prodname_vscode_shortname %} [task](/docs/debugtest/tasks.md) to output the variable value to the console. For example, to see the resolved value for `${workspaceFolder}`, you can create and run (**Terminal** > **Run Task**) the following simple 'echo' task in `tasks.json`:
 
 ```json
 {

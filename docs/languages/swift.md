@@ -1,11 +1,11 @@
 ---
 DateApproved: 8/19/2026
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, testing) for Swift.
+MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, testing) for Swift.
 ---
-# Swift in Visual Studio Code
+# Swift in {% data variables.product.prodname_vscode %}
 
 [Swift](https://www.swift.org) is a general-purpose programming language that's approachable for newcomers and powerful for experts.
-It is fast, modern, safe, and a joy to write. This topic goes into detail about setting up and using Swift within Visual Studio Code, with the [swiftlang.swift-vscode](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode) extension.
+It is fast, modern, safe, and a joy to write. This topic goes into detail about setting up and using Swift within {% data variables.product.prodname_vscode %}, with the [swiftlang.swift-vscode](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode) extension.
 
 The Swift extension includes:
 
@@ -25,10 +25,10 @@ The Swift extension is designed to support the following projects:
 
 1. First, install Swift. If you do not already have Swift installed on your system, see the
    [Getting Started Guide on Swift.org](https://www.swift.org/getting-started/).
-2. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
+2. Download and install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/Download).
 3. Install the Swift extension from the
-   [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
-   or directly from within the VS Code extensions pane.
+   [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
+   or directly from within the {% data variables.product.prodname_vscode_shortname %} extensions pane.
 
 ![Installing the swift-vscode extension from the extensions pane](images/swift/installation.png)
 
@@ -55,7 +55,7 @@ the Command Palette and following the instructions below.
 
 The Swift extension uses [SourceKit LSP](https://github.com/apple/sourcekit-lsp)
 to power language features. SourceKit LSP provides the following features in the
-editor. Use these links to see the VS Code documentation for each topic:
+editor. Use these links to see the {% data variables.product.prodname_vscode_shortname %} documentation for each topic:
 
 - [Code completion](/docs/editing/intellisense.md)
 - [Go to definition](/docs/editing/editingevolved.md#go-to-definition)
@@ -64,7 +64,7 @@ editor. Use these links to see the VS Code documentation for each topic:
 - [Diagnostics](/docs/editing/editingevolved.md#errors--warnings)
 - [Quick Fixes](/docs/editing/editingevolved.md#code-action)
 
-SourceKit LSP also provides code actions to automate common tasks. Code actions in VS Code
+SourceKit LSP also provides code actions to automate common tasks. Code actions in {% data variables.product.prodname_vscode_shortname %}
 appear as a light bulb near the editor margin (see the below screenshot for an
 example of this). Clicking on the light bulb will show you the available actions
 which can include:
@@ -77,12 +77,12 @@ which can include:
 
 > [!IMPORTANT]
 > Prior to Swift 6.1 you must perform a `swift build` command on your project either
-> on the command line or using a task in VS Code before language features can be used.
+> on the command line or using a task in {% data variables.product.prodname_vscode_shortname %} before language features can be used.
 > This populates the index in SourceKit-LSP.
 
 ## Swift tasks
 
-Visual Studio Code provides tasks as a way to run external tools. See the
+{% data variables.product.prodname_vscode %} provides tasks as a way to run external tools. See the
 [Integrate with External Tools via Tasks](/docs/debugtest/tasks.md)
 documentation to learn more.
 
@@ -120,7 +120,7 @@ diagnostics from the previous build task.
 
 ## Debugging
 
-Visual Studio Code provides a rich debugging experience. See the
+{% data variables.product.prodname_vscode %} provides a rich debugging experience. See the
 [Debugging](/docs/debugtest/debugging.md) documentation for
 more information.
 
@@ -149,7 +149,7 @@ target in your Swift package. You may configure these yourself by adding a
 }
 ```
 
-You can launch a debugging session via the Debug view in VS Code.
+You can launch a debugging session via the Debug view in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Select the launch configuration you wish to debug.
 2. Click on the green play button to launch a debugging session.
@@ -166,7 +166,7 @@ their variable values:
 
 ## Test Explorer
 
-Visual Studio Code provides a Test Explorer view in the left sidebar which can
+{% data variables.product.prodname_vscode %} provides a Test Explorer view in the left sidebar which can
 be used:
 
 - To navigate to tests
@@ -197,7 +197,7 @@ can be filtered in the Test Explorer using `@TestTarget:tagName`. You can then
 run or debug the filtered list of tests.
 
 > [!IMPORTANT]
-> The Swift VS Code extension does not support running Swift Testing tests in Swift 5.10 or earlier.
+> The Swift {% data variables.product.prodname_vscode_shortname %} extension does not support running Swift Testing tests in Swift 5.10 or earlier.
 
 ## Advanced toolchain selection
 
@@ -206,7 +206,7 @@ However, it also provides a command called `Swift: Select Toolchain...` which
 can be used to select between toolchains if you have multiple installed.
 
 > [!IMPORTANT]
-> This is an advanced feature used to configure VS Code with a toolchain other
+> This is an advanced feature used to configure {% data variables.product.prodname_vscode_shortname %} with a toolchain other
 > than the default on your machine. It is recommended to use `xcode-select` on
 > macOS or `swiftly` on Linux to switch between toolchains globally.
 
@@ -224,4 +224,4 @@ The Swift extension will then prompt you to reload the extension in order to
 pick up the new toolchain. You must do so, otherwise the extension will not
 function correctly:
 
-![Reload VS Code warning](images/swift/reload.png)
+![Reload {% data variables.product.prodname_vscode_shortname %} warning](images/swift/reload.png)
