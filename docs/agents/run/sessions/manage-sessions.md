@@ -55,6 +55,8 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
+To collaborate on an existing pull request, [start a session from the pull request](/docs/agents/run/agents-window.md#start-a-session-from-a-pull-request).
+
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 

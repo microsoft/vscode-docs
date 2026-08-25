@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 8/26/2026
-MetaDescription: Operate the {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.agents_window %} to select sessions, review workspace files and changes, validate results, and commit agent work.
+MetaDescription: Use the VS Code Agents window to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
@@ -135,6 +135,29 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 After you start a session, its row in the sessions list shows its status and change statistics. You can make another session active while the agent works, then select the session again to check its progress or respond to a request for input.
 
 The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+### Start a session from a pull request
+
+For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
+
+To start a session from a pull request:
+
+1. In the sessions list, group sessions by workspace.
+
+1. Hover over the workspace for the pull request, expand the **+** (New Session) action, and select **New Session from Pull Request**.
+
+    ![Screenshot showing the New Session from Pull Request action and pull request picker in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-new-session-from-pull-request.png)
+
+1. Select a pull request from the list.
+
+    The new session opens with the pull request title. Use the chat to ask questions about the pull request or enter a prompt to make more changes. The **Changes** view shows the pull request changes.
+
+1. Review and validate the changes, then select **Commit Changes** and **Sync Changes** in the title bar.
+
+    **Sync Changes** updates the pull request branch on GitHub, so the existing pull request includes your commits.
+
+> [!NOTE]
+> Pull requests from forks are not supported and don't appear in the pull request picker.
 
 ## Start a quick chat
 
