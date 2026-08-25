@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 8/26/2026
-MetaDescription: Use the VS Code Agents window to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
+MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
@@ -28,7 +28,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
 * **Switch freely between surfaces**: move to the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
 
-For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Prerequisites
 
