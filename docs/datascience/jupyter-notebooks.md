@@ -24,7 +24,7 @@ Once the appropriate environment is activated, you can create and open a Jupyter
 
 ### Environment variables
 
-Environment variables are loaded from a `.env` file. See [that section of the Python environments documentation](/docs/python/environments#environment-variable-definitions-file).
+Environment variables are loaded from a `.env` file. See [.env file support in the Python environments documentation](/docs/python/environments.md#env-file-support).
 
 ## Workspace Trust
 

@@ -5,7 +5,7 @@ MetaDescription: {% data variables.product.prodname_vscode %} language mode iden
 ---
 # Language Identifiers
 
-In {% data variables.product.prodname_vscode %}, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
+In {% data variables.product.prodname_vscode %}, each [language mode](/docs/languages/overview.md#change-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
 
 ```json
     "files.associations": {

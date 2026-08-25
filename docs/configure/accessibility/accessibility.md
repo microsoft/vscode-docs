@@ -59,7 +59,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 The default Color Theme for {% data variables.product.prodname_vscode_shortname %} is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Go to [Customizing a Color Theme](/docs/configure/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
+>**Note**: Go to [Customize a Color Theme](/docs/configure/themes.md#customize-a-color-theme) for more information about overriding the colors in your current theme.
 
 To customize the error and warning squiggles, go to **File** > **Preferences** > **Settings** for user settings. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 

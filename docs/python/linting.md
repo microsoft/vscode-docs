@@ -56,7 +56,7 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
+Some linters may offer [Code Actions](/docs/editing/refactoring.md#code-actions--quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 

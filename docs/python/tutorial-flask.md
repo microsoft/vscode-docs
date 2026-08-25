@@ -34,7 +34,7 @@ To successfully complete this Flask tutorial, you must do the following (which a
 
 In this section, you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application.
 
-The [Python Environments extension](/docs/python/environments.md) supports multiple environment types including venv, conda, poetry, and others. This tutorial uses **venv** because it's built into Python and requires no additional tools. The steps for other environment types are similar — see [Creating environments](/docs/python/environments.md#creating-environments) for details.
+The [Python Environments extension](/docs/python/environments.md) supports multiple environment types including venv, conda, poetry, and others. This tutorial uses **venv** because it's built into Python and requires no additional tools. The steps for other environment types are similar — see [Create environments](/docs/python/environments.md#create-environments) for details.
 
 1. On your file system, create a folder for this tutorial, such as `hello_flask`.
 

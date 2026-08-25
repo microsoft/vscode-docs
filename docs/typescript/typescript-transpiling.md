@@ -59,7 +59,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 ## Transpile TypeScript into JavaScript
 
-{% data variables.product.prodname_vscode_shortname %} integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using {% data variables.product.prodname_vscode_shortname %} tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+{% data variables.product.prodname_vscode_shortname %} integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using {% data variables.product.prodname_vscode_shortname %} tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors--warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 

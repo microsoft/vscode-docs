@@ -147,7 +147,7 @@ Configure the `setting(git.addAICoAuthor)` setting with one of the following val
 
 The trailer is added only when you commit from within {% data variables.product.prodname_vscode_shortname %}. Commits made with external Git tools or the command line don't include the trailer.
 
-Co-author information from commit trailers is also shown in the [Git blame hover tooltip](#git-blame-information).
+Co-author information from commit trailers is also shown in the [Git blame hover tooltip](/docs/sourcecontrol/history.md#view-git-blame-information).
 
 ### Commit changes
 

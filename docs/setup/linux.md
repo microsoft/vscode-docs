@@ -126,7 +126,7 @@ Learn more about snaps from the [official Snap documentation](https://docs.snapc
 <details id="_opensuse-and-slebased-distributions">
 <summary id="opensuse-and-sle-based-distributions">openSUSE and SLE-based distributions</summary>
 
-The yum repository from the [RHEL, Fedora, and CentOS panel](#rhel-fedora-and-centosbased-distributions) also works for openSUSE and SLE-based systems.
+The yum repository from the [RHEL, Fedora, and CentOS panel](#rhel-fedora-and-centos-based-distributions) also works for openSUSE and SLE-based systems.
 
 1. Install the key and yum repository:
 

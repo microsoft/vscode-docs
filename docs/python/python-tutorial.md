@@ -50,7 +50,7 @@ For additional information about using Python on Windows, see [Using Python on W
 
 The system install of Python on macOS is not supported. Instead, a package management system like  [Homebrew](https://brew.sh/) is recommended. To install Python using Homebrew on macOS use `brew install python3` at the Terminal prompt.
 
-> **Note**: On macOS, make sure the location of your {% data variables.product.prodname_vscode_shortname %} installation is included in your PATH environment variable.  See [these setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+> **Note**: On macOS, make sure the location of your {% data variables.product.prodname_vscode_shortname %} installation is included in your PATH environment variable.  See [these setup instructions](/docs/setup/mac.md#launch-vs-code-from-the-command-line) for more information.
 
 ### Linux
 
@@ -116,7 +116,7 @@ Ensure your new environment is selected by using the **Python: Select Interprete
 
 ![Select an Interpreter](images/tutorial/interpreter-venv.png)
 
-> **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#creating-environments).
+> **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#create-environments).
 
 ## Create a Python source code file
 

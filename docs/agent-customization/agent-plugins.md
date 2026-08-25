@@ -391,7 +391,7 @@ You can enable or disable a plugin globally or for a specific workspace:
 
 * Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
 
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) to toggle a plugin's enabled state.
+* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle a plugin's enabled state.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 

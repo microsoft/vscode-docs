@@ -43,7 +43,7 @@ MetaDescription: Java code refactoring and Source Actions for {% data variables.
   - [Generate `toString()`](#generate-tostring)
   - [Change modifiers to final where possible](#change-modifiers-to-final-where-possible)
 - Other Code Actions supported
-  - [Fix non-accessible reference](#fix-nonaccessible-reference)
+  - [Fix non-accessible reference](#fix-non-accessible-reference)
   - [Create non-existing package](#create-non-existing-package)
   - [More...](#other-code-actions-supported)
 

@@ -271,7 +271,7 @@ The {% data variables.copilot.agents_window %} shares your GitHub account, {% da
 
 ### Customize agents for your project and workflow
 
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#agent-customizations-editor).
 
 ### Adjust the window layout
 

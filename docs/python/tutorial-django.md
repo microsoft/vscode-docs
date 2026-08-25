@@ -31,7 +31,7 @@ To successfully complete this Django tutorial, you must do the following (which 
 
 In this section, you create a virtual environment in which Django is installed. Using a virtual environment avoids installing Django into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirementstxt-file-for-the-environment).
 
-The [Python Environments extension](/docs/python/environments.md) supports multiple environment types including venv, conda, poetry, and others. This tutorial uses **venv** because it's built into Python and requires no additional tools. The steps for other environment types are similar — see [Creating environments](/docs/python/environments.md#creating-environments) for details.
+The [Python Environments extension](/docs/python/environments.md) supports multiple environment types including venv, conda, poetry, and others. This tutorial uses **venv** because it's built into Python and requires no additional tools. The steps for other environment types are similar — see [Create environments](/docs/python/environments.md#create-environments) for details.
 
 1. On your file system, create a project folder for this tutorial, such as `hello_django`.
 

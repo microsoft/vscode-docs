@@ -140,7 +140,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice how the fil
 
 ![File Explorer](images/wsl/file-explorer-helloworld.png)
 
-You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/userinterface.md).
 

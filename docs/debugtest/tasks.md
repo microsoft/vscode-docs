@@ -997,7 +997,7 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
 }
 ```
 
-For more on background tasks, go to [Background / watching tasks](/docs/debugtest/tasks.md#background-watching-tasks).
+For more on background tasks, go to [Background / watching tasks](/docs/debugtest/tasks.md#background--watching-tasks).
 
 ### Why do I get "command not found" when running a task?
 

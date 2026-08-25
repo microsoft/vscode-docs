@@ -197,7 +197,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
-> **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
+> **LLM model quantization**: If you want to quantize LLM models, a Nvidia GPU is required.
 >
 > If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 

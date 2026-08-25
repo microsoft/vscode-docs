@@ -9,7 +9,7 @@ Keywords:
 
 In this article, you'll learn how to create a CMake hello world project from scratch using the CMake Tools extension in {% data variables.product.prodname_vscode_shortname %}.
 
-If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a `CMakePresets.json` file](#Create-a-CMakePresets.json-file) to configure your project with CMake presets.
+If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a `CMakePresets.json` file](#create-a-cmakepresetsjson-file) to configure your project with CMake presets.
 
 Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `HelloWorld`, navigate into it, and open {% data variables.product.prodname_vscode_shortname %} in that folder by entering the following commands:
 

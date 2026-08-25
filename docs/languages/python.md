@@ -17,7 +17,7 @@ The [tutorial](/docs/python/python-tutorial.md) guides you through installing Py
 
 >**Note**: To help get you started with Python development, you can use the [Python profile template](/docs/configure/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
 
-Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If {% data variables.product.prodname_vscode_shortname %} doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
+Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If {% data variables.product.prodname_vscode_shortname %} doesn't automatically locate the interpreter you're looking for, refer to [select an environment](/docs/python/environments.md#select-an-environment).
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
 
@@ -25,7 +25,7 @@ You can configure the Python extension through settings. Learn more in the [Pyth
 
 ## Run Python code
 
-To experience Python, create a file (using the [File Explorer](/docs/editing/userinterface.md#explorer)) named `hello.py` and paste in the following code:
+To experience Python, create a file (using the [File Explorer](/docs/editing/userinterface.md#explorer-view)) named `hello.py` and paste in the following code:
 
 ```python
 print("Hello World")

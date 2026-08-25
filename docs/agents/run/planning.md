@@ -45,7 +45,7 @@ To plan a task, use the built-in **Plan** agent in the {% data variables.copilot
 
 1. When the plan is finalized, choose to start the implementation or open the planning prompt in the editor for further review.
 
-    To implement the plan, select **Start Implementation** and choose an available implementation agent. The plan and conversation context carry over to the implementation agent. Learn more about [handing off a plan to implementation](/docs/agents/run/agent-harnesses.md#hand-off-a-plan-to-implementation).
+    To implement the plan, select **Start Implementation** and choose an available implementation agent. The plan and conversation context carry over to the implementation agent. Learn more about [handing off a plan to implementation](/docs/agents/run/agent-harnesses.md#hand-off-a-session).
 
 > [!TIP]
 > The Plan agent automatically saves its implementation plan to a session memory file (`/memories/session/plan.md`). To access this file, run the **Chat: Show Memory Files** command and select `plan.md` from the list. Session memory is cleared when the conversation ends, so the plan is not available in subsequent sessions.

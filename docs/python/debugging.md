@@ -489,7 +489,7 @@ Sets optional environment variables for the debugger process beyond system envir
 
 ### `envFile`
 
-Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
+Optional path to a file that contains environment variable definitions. See [.env file support](/docs/python/environments.md#env-file-support).
 
 ### `gevent`
 

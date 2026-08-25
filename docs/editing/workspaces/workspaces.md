@@ -5,7 +5,7 @@ MetaDescription: Learn about {% data variables.product.prodname_vscode %} worksp
 ---
 # What is a {% data variables.product.prodname_vscode_shortname %} workspace?
 
-A {% data variables.product.prodname_vscode %} *workspace* is the collection of one or more folders that are opened in a {% data variables.product.prodname_vscode_shortname %} window (instance). In most cases, you will have a single folder opened as the workspace. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multiroot-workspaces).
+A {% data variables.product.prodname_vscode %} *workspace* is the collection of one or more folders that are opened in a {% data variables.product.prodname_vscode_shortname %} window (instance). In most cases, you will have a single folder opened as the workspace. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multi-root-workspaces).
 
 The concept of a workspace enables {% data variables.product.prodname_vscode_shortname %} to:
 

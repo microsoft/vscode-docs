@@ -57,7 +57,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so {% data variables.product.prodname_vscode_shortname %} also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so {% data variables.product.prodname_vscode_shortname %} also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-keyboard-shortcut):
 
 ```json
 {
