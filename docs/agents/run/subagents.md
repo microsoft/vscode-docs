@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
 DateApproved: 8/26/2026
-MetaDescription: Learn how to use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate complex tasks to autonomous agents within your chat session.
+MetaDescription: Use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate focused tasks, compare models, and review results without crowding the main chat context.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
@@ -121,6 +121,8 @@ The main agent collects both results and synthesizes a combined analysis.
 ### How subagents are invoked
 
 Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `agent/runSubagent` tool is enabled.
+
+Provider-specific built-in subagents can work differently. In Copilot harness sessions, [Rubber Duck](/docs/agents/run/agent-harnesses.md#get-a-second-opinion-with-rubber-duck) is a read-only critic that Copilot can invoke automatically or that you can request directly.
 
 By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting. Learn more in [Nested subagents](#nested-subagents).
 

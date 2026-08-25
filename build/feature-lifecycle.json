@@ -12,6 +12,10 @@
     "integrated-browser-remote": {
       "label": "Integrated browser remote connections",
       "state": "preview"
+    },
+    "rubber-duck": {
+      "label": "Rubber Duck",
+      "state": "experimental"
     }
   }
 }
