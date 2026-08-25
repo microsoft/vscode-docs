@@ -237,12 +237,14 @@ The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
 |------|-------------|
 | **Add Screenshot to Chat** | Capture the current browser viewport. |
 | **Add Area Screenshot to Chat** | Drag to select a rectangular area of the page, then capture only that region. |
-| **Add Full Page Screenshot to Chat (Experimental)** | Capture the entire scrollable page, including content beyond the current viewport. |
+| **Add Full Page Screenshot to Chat** | Capture the entire scrollable page, including content beyond the current viewport. |
 
 Each mode is also available as a **Browser:** command in the Command Palette.
 
+<div class="docs-feature-status" data-feature="integrated-browser-full-page-screenshot"></div>
+
 > [!NOTE]
-> The full page screenshot mode is experimental. To enable it, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
+> To enable the full page screenshot mode, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
 ### Add console logs
 
@@ -281,10 +283,9 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
-## Browse over remote connections (Preview)
+## Browse over remote connections
 
-> [!NOTE]
-> This is a preview feature and might change in future releases.
+<div class="docs-feature-status" data-feature="integrated-browser-remote"></div>
 
 When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
 
