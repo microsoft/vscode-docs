@@ -21,10 +21,10 @@
     },
     {
       "type": "blog",
-      "title": "Iterating faster with TypeScript 7",
-      "description": "How the VS Code and TypeScript teams collaborated to adopt TypeScript 7, speeding up builds and improving the day-to-day editing loop for both developers and agents.",
-      "link": "/blogs/2026/06/26/iterating-faster-with-ts-7",
-      "image": "/assets/blogs/2026/06/26/ts-7.png"
+      "title": "Introducing the Agent Host",
+      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
+      "link": "/blogs/2026/08/26/agent-host-architecture",
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
     }
   ]
 }
