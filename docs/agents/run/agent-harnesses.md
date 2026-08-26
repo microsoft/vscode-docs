@@ -231,7 +231,7 @@ To use the Agent Host implementation in the {% data variables.copilot.chat_view 
 
 On the Agent Host, Codex supports two authentication and subscription options:
 
-* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-backed models. This option requires Copilot Pro+.
+* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-backed models. This option requires {% data variables.copilot.copilot_pro_plus_short %}.
 * **ChatGPT subscription**: open the account menu and select **Sign in to ChatGPT**. A free ChatGPT account is sufficient.
 
 When both accounts are signed in, the model picker groups models by **Copilot** and **ChatGPT**. Your selection determines which subscription is used, and {% data variables.product.prodname_vscode_shortname %} saves that provider with the session.

@@ -28,7 +28,7 @@ Get familiar with the {% data variables.product.prodname_vscode_shortname %} use
 * [Install Git](https://git-scm.com/)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Create a project folder
 

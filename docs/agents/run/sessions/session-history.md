@@ -36,7 +36,7 @@ Sessions from matching repositories are stored locally only.
 
 ## Enterprise policy
 
-For Copilot Business and Copilot Enterprise users, two policies control session sync:
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, two policies control session sync:
 
 * **GitHub.com enterprise policy** ("Store local sessions in the Cloud"): enterprise and organization owners configure this on GitHub.com to enable or disable cloud sync for their users.
 * **{% data variables.product.prodname_vscode_shortname %} group policy** (`CopilotSessionSync`): when disabled, the `setting(chat.sessionSync.enabled)` setting is forced to `false` and sessions stay local only.

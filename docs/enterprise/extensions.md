@@ -113,7 +113,7 @@ Key features of the private marketplace:
 > [!NOTE]
 > Connecting from {% data variables.product.prodname_vscode_shortname %} Server or {% data variables.product.prodname_vscode_shortname %} for the Web is not supported.
 
-Private marketplace is currently available to GitHub Enterprise customers. {% data variables.product.prodname_vscode_shortname %} users must sign in with a GitHub Enterprise or Copilot Enterprise/Business account to access the private marketplace.
+Private marketplace is currently available to GitHub Enterprise customers. {% data variables.product.prodname_vscode_shortname %} users must sign in with a GitHub Enterprise or {% data variables.copilot.copilot_enterprise_short %}/Business account to access the private marketplace.
 
 Get started with the **[deployment and feature guide](https://aka.ms/private-marketplace/readme)**, which includes deployment instructions, scripts, and development environment configuration. For questions or assistance, contact [private marketplace support](https://aka.ms/vspm/support).
 

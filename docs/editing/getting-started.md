@@ -31,7 +31,7 @@ Learn about the key features of {% data variables.product.prodname_vscode %} in 
 * Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Open a folder in {% data variables.product.prodname_vscode_shortname %}
 

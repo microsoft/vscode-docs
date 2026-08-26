@@ -16,9 +16,9 @@ Learn how to [deploy policies for {% data variables.product.prodname_vscode_shor
 
 ## Deploy Copilot managed settings
 
-Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI. When you set a managed setting, it maps to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and overrides the corresponding user setting on managed devices.
+Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}. When you set a managed setting, it maps to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and overrides the corresponding user setting on managed devices.
 
-Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and Copilot CLI.
+Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
 
 {% data variables.product.prodname_vscode_shortname %} reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
 
@@ -178,7 +178,7 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 [Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
 
-{% data variables.product.prodname_vscode_shortname %} reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
+{% data variables.product.prodname_vscode_shortname %} reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for {% data variables.copilot.copilot_cli_short %}](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
 
 The following policies are available:
 
@@ -216,7 +216,7 @@ You can host a private MCP server registry for your organization and configure {
 
 When configured, developers see MCP servers from your custom registry in the Extensions view when they enter `@mcp` in the search field.
 
-Organizations with GitHub Copilot Enterprise or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
+Organizations with {% data variables.copilot.copilot_enterprise %} or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
 
 ### Allow or deny individual MCP servers
 
@@ -265,7 +265,7 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in
 
 ### Enforce fine-grained permissions
 
-Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI.
+Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}.
 
 Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
 
@@ -482,7 +482,7 @@ Agents can run on different infrastructure depending on the agent type, and each
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
 
 > [!NOTE]
-> [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise Copilot Memory settings on GitHub, not by a {% data variables.product.prodname_vscode_shortname %} policy. Developers opt in per repository, and in {% data variables.product.prodname_vscode_shortname %} the memory tool syncs repository memory to Copilot Memory only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
+> [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise {% data variables.copilot.copilot_memory %} settings on GitHub, not by a {% data variables.product.prodname_vscode_shortname %} policy. Developers opt in per repository, and in {% data variables.product.prodname_vscode_shortname %} the memory tool syncs repository memory to {% data variables.copilot.copilot_memory %} only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
 
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 
