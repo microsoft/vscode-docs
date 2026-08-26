@@ -16,9 +16,9 @@ Learn how to [deploy policies for {% data variables.product.prodname_vscode_shor
 
 ## Deploy Copilot managed settings
 
-Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI. When you set a managed setting, it maps to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and overrides the corresponding user setting on managed devices.
+Copilot managed settings provide shared governance settings for {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI. Support varies by key. Most managed settings map to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and override the corresponding user setting on managed devices.
 
-Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and Copilot CLI.
+Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape. For keys that both clients support, a single definition governs {% data variables.product.prodname_vscode_shortname %} and Copilot CLI.
 
 {% data variables.product.prodname_vscode_shortname %} reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
 
@@ -43,9 +43,11 @@ The precedence order is:
 
 For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. {% data variables.product.prodname_vscode_shortname %} applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
 
+The `permissions.allow`, `permissions.ask`, and `permissions.deny` keys are an exception to the per-key precedence order. Rules from native MDM, server-managed, and file-based settings combine in the most restrictive direction. Deny and ask rules accumulate across sources. An operation matches an allow rule only when every source that defines an `allow` list admits it.
+
 ### Precedence with {% data variables.product.prodname_vscode_shortname %} device policies
 
-Copilot managed settings and [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. A managed setting maps to a {% data variables.product.prodname_vscode_shortname %} policy. If both systems provide the same policy, the Copilot managed setting takes precedence. The values are not merged.
+Copilot managed settings and [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. When a managed setting maps to a {% data variables.product.prodname_vscode_shortname %} policy and both systems provide that policy, the Copilot managed setting takes precedence. The values are not merged.
 
 For example, if the `ChatAllowedMcpServers` policy is configured through both the {% data variables.product.prodname_vscode_shortname %} ADMX policy and the `allowedMcpServers` Copilot managed setting, {% data variables.product.prodname_vscode_shortname %} uses the managed setting value. If `allowedMcpServers` is not configured through managed settings, the ADMX policy value remains in effect.
 
@@ -265,16 +267,18 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in
 
 ### Enforce fine-grained permissions
 
-Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI.
+Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in GitHub Copilot CLI and {% data variables.product.prodname_vscode_shortname %} sessions that use [Agent Host](/docs/agents/concepts/agent-host.md). Sessions that run on the extension host do not yet have full parity.
 
 Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
 
 | Selector | Controls | Example |
 |----------|----------|---------|
-| `Shell` | Shell commands | `Shell(echo allowed *)` |
+| `Shell` | Shell commands. `Bash` and `PowerShell` are compatibility aliases. | `Shell(echo allowed *)` |
 | `Read` | File reads | `Read(~/.ssh/**)` |
-| `Edit` | File edits | `Edit(/generated/**)` |
-| `Domain` | Network domains | `Domain(api.github.com)` |
+| `Edit` | File edits. `Write` is a compatibility alias. | `Edit(/generated/**)` |
+| `Domain` | Network domains. Supports wildcard host patterns. | `Domain(*.github.com)` |
+
+Other selectors are not supported and cause managed settings validation to fail.
 
 The following `managed-settings.json` example allows selected operations, requires approval for others, and blocks access to sensitive resources:
 
@@ -310,6 +314,8 @@ When multiple rules match, the Copilot runtime applies them in the following ord
 1. Default to `ask` when no rule matches.
 
 A `deny` rule blocks the operation without presenting an approval option. An `ask` rule requires a human decision for every invocation and presents only **Allow Once** and **Skip**. Developers can't override these rules by selecting **Bypass Approvals** or **Autopilot**. An `allow` rule permits the operation at the managed permissions layer, but does not override stricter client-side approval settings in {% data variables.product.prodname_vscode_shortname %}.
+
+Deny and ask rules are the union of rules from all managed settings sources that apply to the developer. Every source that defines an `allow` list must admit an operation before it matches `allow`. If a managed source defines any permission rule, an operation that matches no rule defaults to `ask`. Without a managed permission rule, the operation follows the regular approval flow.
 
 For `Read` and `Edit` rules, the path prefix determines how the pattern is resolved:
 
@@ -489,6 +495,7 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
+* [Enterprise managed settings for GitHub Copilot](https://docs.github.com/copilot/reference/enterprise-administrators/enterprise-managed-settings) - Managed settings schema and client support
 * [Use tools with agents](/docs/agents/run/tools.md) - Learn how tools work in {% data variables.product.prodname_vscode_shortname %} chat
 * [MCP servers in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
