@@ -36,24 +36,6 @@ If you don't plan to use the integrated browser, you can also:
 * Set `setting(workbench.browser.showInTitleBar)` to `false` to hide the integrated browser button from the title bar.
 * Disable `setting(workbench.browser.enableChatTools)` to prevent chat agents from using browser tools to open and interact with pages in the integrated browser.
 
-## Configure the integrated browser
-
-Use the following settings to configure integrated browser behavior:
-
-| Setting | Description |
-|---------|-------------|
-| `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
-| `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
-| `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
-| `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
-| `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
-| `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
-| `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
-| `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
-| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
-| `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
-| `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
-
 ## Navigation
 
 The browser supports `http://`, `https://`, and `file://` URLs. Use the address bar to navigate to any URL, or use in-page links to navigate within a site.
@@ -367,6 +349,24 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 ### Enterprise policies for browser tools
 
 Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
+
+## Configure the integrated browser
+
+Use the following settings to configure integrated browser behavior:
+
+| Setting | Description |
+|---------|-------------|
+| `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
+| `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
+| `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
+| `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
+| `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
+| `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
+| `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
+| `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
+| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
+| `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
+| `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
 
 ## Related
 
