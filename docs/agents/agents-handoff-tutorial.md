@@ -17,7 +17,7 @@ Keywords:
 This tutorial walks you through using different agent harnesses in {% data variables.product.prodname_vscode %}. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across Local, Plan, Copilot, and Cloud sessions.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Test web apps with browser agent tools">
 Use browser agent tools to build and automatically test web applications.

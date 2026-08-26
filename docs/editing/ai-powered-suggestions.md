@@ -25,7 +25,7 @@ Follow a hands-on tutorial to build your first app with AI in {% data variables.
 ## Prerequisites
 
 * {% data variables.product.prodname_vscode %} installed on your machine. Follow these steps to [set up {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md).
-* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up Copilot Free to get a monthly allowance of inline suggestions and AI credits.
+* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up {% data variables.copilot.copilot_free_short %} to get a monthly allowance of inline suggestions and AI credits.
 
 ## Ghost text suggestions
 
@@ -139,7 +139,7 @@ To change the language model that is used for generating ghost text suggestions 
 > [!NOTE]
 > The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
 >
-> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 

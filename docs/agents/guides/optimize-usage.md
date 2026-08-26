@@ -91,7 +91,7 @@ To view the cumulative cost and token breakdown for the entire session, hover ov
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
 
-To view your overall monthly consumption, open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+To view your overall monthly consumption, open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the {% data variables.copilot.copilot_free_short %} plan).
 
 ![Screenshot of the Copilot status dashboard, showing the percentage of monthly AI credits used and a link to view usage details on GitHub.](../images/optimize-usage-guide/copilot-status-dashboard.png)
 

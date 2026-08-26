@@ -10,7 +10,7 @@ MetaDescription: One of the great things in {% data variables.product.prodname_v
 In this article, you'll learn how to start with testing in {% data variables.product.prodname_vscode_shortname %}, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in {% data variables.product.prodname_vscode_shortname %} can help you write tests faster and can assist you in fixing failing tests.
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly allowance of inline suggestions and AI credits.
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup). You'll get a monthly allowance of inline suggestions and AI credits.
 
 <!-- ![Testing in {% data variables.product.prodname_vscode %}](images/testing/testing-hero.png) -->
 

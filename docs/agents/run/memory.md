@@ -126,7 +126,7 @@ As Copilot agents work in your repositories, they automatically capture tightly 
 
 {% data variables.copilot.copilot_memory %} is turned off by default and must be enabled in your GitHub settings:
 
-* **Individual users** (Copilot Pro or Pro+): enable {% data variables.copilot.copilot_memory %} in your [personal Copilot settings](https://github.com/settings/copilot) on GitHub.
+* **Individual users** ({% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}): enable {% data variables.copilot.copilot_memory %} in your [personal Copilot settings](https://github.com/settings/copilot) on GitHub.
 * **Organizations and enterprises**: enable through policy settings in your organization or enterprise settings.
 
 Repository owners can review and delete stored memories in **Repository Settings** > **Copilot** > **Memory**.

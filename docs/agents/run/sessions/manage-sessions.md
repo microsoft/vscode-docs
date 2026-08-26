@@ -229,7 +229,7 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 ### View sessions from other applications
 
-{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from Copilot CLI, the GitHub Copilot app, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
 For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
 
