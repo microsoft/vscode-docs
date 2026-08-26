@@ -1,14 +1,14 @@
 ---
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 DateApproved: 11/16/2021
-MetaDescription: Learn the basics of editing and running code in VS Code.
+MetaDescription: Learn the basics of editing and running code in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage:
 ---
-# Code editing in Visual Studio Code
+# Code editing in {% data variables.product.prodname_vscode %}
 
-In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
+In this {% data variables.product.prodname_vscode %} tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/MNBwGGwvvKE" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Code editing in Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/MNBwGGwvvKE" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Code editing in {% data variables.product.prodname_vscode %}"></iframe>
 
 Here's the next video we recommend: [Productivity Tips](/docs/introvideos/productivity.md)
 
@@ -43,15 +43,15 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Next video
 
-* [Productivity Tips](/docs/introvideos/productivity.md) -Become a VS Code power user with these productivity tips.
+* [Productivity Tips](/docs/introvideos/productivity.md) -Become a {% data variables.product.prodname_vscode_shortname %} power user with these productivity tips.
 * [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
-* [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
+* [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside {% data variables.product.prodname_vscode_shortname %}.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
-* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Helpful tips and tricks for VS Code.
+* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Helpful tips and tricks for {% data variables.product.prodname_vscode_shortname %}.

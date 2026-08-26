@@ -1,5 +1,5 @@
 {
   "enabled": true,
-  "version": "2026-06-01-vscode-live-build",
-  "message": "<a href=\"https://aka.ms/VSCode/Livestage?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">📼 Rewatch VS Code Live at MS Build 2026</a>"
+  "version": "2026-08-21-vscode-gpt-model-promo",
+  "message": "<a href=\"https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing?source=vsc-website-banner#openai\" target=\"_blank\" rel=\"noopener\">🤖 GPT-5.6 Sol has a new lower price, plus 50% off through Sept. 3. Try it in VS Code!</a>"
 }

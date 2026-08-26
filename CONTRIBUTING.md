@@ -16,6 +16,7 @@ Thank you for your interest in VS Code documentation!
 * [Authoring Tools](#authoring-tools)
 * [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [Topic Metadata](#topic-metadata)
+* [Experimental and preview features](#experimental-and-preview-features)
 * [Learn courses](#learn-courses)
 * [Formatting](#formatting)
 
@@ -234,6 +235,37 @@ The page title is taken from the first H1 heading in the topic.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
 * **Keywords** - Optional. A list of keywords relevant to this topic to help with search.
+* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental or preview feature.
+
+## Experimental and preview features
+
+The `/build/feature-lifecycle.json` registry is the source of truth for non-stable feature states in the documentation. Each entry has a lowercase kebab-case ID, display label, and `experimental` or `preview` state. Do not add stable features to the registry.
+
+The website can build without the registry so infrastructure and content changes can be deployed independently. When the file is absent, the build treats it as an empty registry and renders no lifecycle status UI. An existing registry must still be valid.
+
+To mark a whole page, add its feature ID to the topic metadata:
+
+```yaml
+FeatureStatus: agent-artifacts
+```
+
+Keep the H1 free of manually authored `(Preview)` or `(Experimental)` text. The website build adds a consistent status treatment after the H1.
+
+To mark a feature within a page, add an empty marker directly after the heading or content that introduces it:
+
+```html
+<div class="docs-feature-status" data-feature="integrated-browser-remote"></div>
+```
+
+Keep enablement steps, limitations, and other feature-specific guidance in the authored content. The generated treatment only describes the lifecycle state.
+
+When a feature becomes stable:
+
+1. Remove its entry from `/build/feature-lifecycle.json`.
+2. Remove all matching `FeatureStatus` metadata and inline markers.
+3. Update prose that describes preview or experimental limitations.
+
+The registry is the authoritative switch. If a valid page or inline reference is accidentally left behind after its entry is removed, the website build omits the status treatment and renders the surrounding content normally. The build reports unresolved references as non-blocking audit output so stale source can be cleaned up.
 
 ## Table of contents
 

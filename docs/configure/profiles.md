@@ -1,15 +1,15 @@
 ---
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 DateApproved: 02/04/2026
-MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
+MetaDescription: Expand your development workflow with task integration in {% data variables.product.prodname_vscode %}.
 ---
-# Profiles in Visual Studio Code
+# Profiles in {% data variables.product.prodname_vscode %}
 
-Visual Studio Code has hundreds of [settings](/docs/configure/settings.md), thousands of [extensions](/docs/configure/extensions/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
+{% data variables.product.prodname_vscode %} has hundreds of [settings](/docs/configure/settings.md), thousands of [extensions](/docs/configure/extensions/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. {% data variables.product.prodname_vscode_shortname %} **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
 
 ## Access the Profiles editor
 
-The **Profiles editor** enables you to create and manage your profiles in VS Code from a single place. The Profiles editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+The **Profiles editor** enables you to create and manage your profiles in {% data variables.product.prodname_vscode_shortname %} from a single place. The Profiles editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Profiles editor.](images/profiles/profiles-editor.png)
 
@@ -25,7 +25,7 @@ You can access the Profiles editor in either of the following ways:
 
 ## Create a Profile
 
-VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
+{% data variables.product.prodname_vscode_shortname %} treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
 To create a new profile, open the Profiles editor and select the **New Profile** button. This opens the New Profile form, where you can enter a profile name, choose an icon, and configure the contents that are included in the new profile.
 
@@ -35,19 +35,19 @@ You can choose to either create a new profile by copying the contents from a Pro
 
 ![Copy from options](images/profiles/copy-from.png)
 
-You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, MCP servers, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
+You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, MCP servers, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and {% data variables.product.prodname_vscode_shortname %} will apply the keyboard shortcuts from the Default Profile when this profile is active.
 
 You can browse the contents of the template or profile you are copying from in the **Contents** section. There is an **Open** button next to each section that you can select to see its contents.
 
 ![Configure, browse and preview profile](images/profiles/configure-browse-preview.png)
 
-Preview the new profile before creating it by selecting the **Preview** button. This opens a new VS Code window with the new profile applied to it. Once you are happy with the preview, you can select the **Create** button to create the new profile.
+Preview the new profile before creating it by selecting the **Preview** button. This opens a new {% data variables.product.prodname_vscode_shortname %} window with the new profile applied to it. Once you are happy with the preview, you can select the **Create** button to create the new profile.
 
 ### Check the current profile
 
-You can find the profile that is currently in use by the VS Code window in several places in the VS Code UI:
+You can find the profile that is currently in use by the {% data variables.product.prodname_vscode_shortname %} window in several places in the {% data variables.product.prodname_vscode_shortname %} UI:
 
-* In the VS Code title bar
+* In the {% data variables.product.prodname_vscode_shortname %} title bar
 
 * In the hover text when you hover over the **Manage** button in the Activity Bar
 
@@ -67,7 +67,7 @@ You can find the profile that is currently in use by the VS Code window in sever
 
 ### Configure a profile
 
-You can configure a profile just as you would change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
+You can configure a profile just as you would change any {% data variables.product.prodname_vscode_shortname %} configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
 
 ### Folder & workspace associations
 
@@ -101,11 +101,11 @@ You can also delete a profile via the **Delete Profile** command. The **Delete P
 
 ### Open a new window with a profile
 
-You can choose a profile to use when you open a new VS Code window by using **Use for New Windows** option that is available in the Profile Content view in the Profiles editor.
+You can choose a profile to use when you open a new {% data variables.product.prodname_vscode_shortname %} window by using **Use for New Windows** option that is available in the Profile Content view in the Profiles editor.
 
 ![Configure custom profile for new window](images/profiles/profile-new-window.png)
 
-You can directly open a new VS Code window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
+You can directly open a new {% data variables.product.prodname_vscode_shortname %} window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
 
 ### Apply a setting to all profiles
 
@@ -129,7 +129,7 @@ You can use [Settings Sync](/docs/configure/settings-sync.md) to move your profi
 
 ![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> **Note**: {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Share Profiles
 
@@ -145,9 +145,9 @@ When you select **Export...**, you are prompted for the profile name and whether
 
 After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** for sharing your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/editor/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
 
-If you launch the profile URL, it opens [VS Code for the Web](https://vscode.dev) with the Profiles editor open and the imported profile contents displayed. You can unselect profile elements if you wish, and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in [VS Code for the Web](https://vscode.dev).
+If you launch the profile URL, it opens [{% data variables.product.prodname_vscode_shortname %} for the Web](https://vscode.dev) with the Profiles editor open and the imported profile contents displayed. You can unselect profile elements if you wish, and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in [{% data variables.product.prodname_vscode_shortname %} for the Web](https://vscode.dev).
 
-You also have the option to **Import Profile in Visual Studio Code**, which opens VS Code Desktop with the profile's contents displayed and an **Import Profile** button.
+You also have the option to **Import Profile in {% data variables.product.prodname_vscode %}**, which opens {% data variables.product.prodname_vscode_shortname %} Desktop with the profile's contents displayed and an **Import Profile** button.
 
 You can review your gists at `https://gist.github.com/{username}`. From your GitHub gist page, you can rename, delete, or copy the GUID of a gist.
 
@@ -165,25 +165,25 @@ When you select **Import Profile...**, you are prompted for the URL of a GitHub 
 
 ## Uses for profiles
 
-Profiles are a great way to customize VS Code to better fit your needs. In this section, we look at some common use cases for profiles.
+Profiles are a great way to customize {% data variables.product.prodname_vscode_shortname %} to better fit your needs. In this section, we look at some common use cases for profiles.
 
-Since profiles are remembered per workspace, they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customizations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customizations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have VS Code configured the right way.
+Since profiles are remembered per workspace, they are a great way to customize {% data variables.product.prodname_vscode_shortname %} for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customizations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customizations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have {% data variables.product.prodname_vscode_shortname %} configured the right way.
 
 ### Demos
 
-When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal VS Code setup and you can customize VS Code for better visibility during your presentation.
+When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal {% data variables.product.prodname_vscode_shortname %} setup and you can customize {% data variables.product.prodname_vscode_shortname %} for better visibility during your presentation.
 
 ### Education
 
-Profiles can be used to customize VS Code for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customized VS Code setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
+Profiles can be used to customize {% data variables.product.prodname_vscode_shortname %} for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customized {% data variables.product.prodname_vscode_shortname %} setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
 
-### Report VS Code issues
+### Report {% data variables.product.prodname_vscode_shortname %} issues
 
-One use of an Empty Profile is to reset your editor when you want to report an issue with VS Code. An Empty Profile disables all extensions and modified settings so you can quickly see if the issue is due to an extension, a setting, or is in VS Code core.
+One use of an Empty Profile is to reset your editor when you want to report an issue with {% data variables.product.prodname_vscode_shortname %}. An Empty Profile disables all extensions and modified settings so you can quickly see if the issue is due to an extension, a setting, or is in {% data variables.product.prodname_vscode_shortname %} core.
 
 ## Profile Templates
 
-VS Code comes with a predefined set of profile templates that you can use to customize VS Code for your specific workflow. To create a new profile based on a template, select a Profile Template when going through the **Create Profile** flow.
+{% data variables.product.prodname_vscode_shortname %} comes with a predefined set of profile templates that you can use to customize {% data variables.product.prodname_vscode_shortname %} for your specific workflow. To create a new profile based on a template, select a Profile Template when going through the **Create Profile** flow.
 
 ### Python Profile Template
 
@@ -210,7 +210,7 @@ This profile also sets the following settings:
 The Data Science profile is a good starting point for all data and notebook work. It comes with specific snippets and has the following extensions:
 
 * [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - Data viewing, cleaning and preparation for tabular datasets and Excel/CSV/Parquet files.
-* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
+* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within {% data variables.product.prodname_vscode_shortname %}.
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
 * [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
 * [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
@@ -246,13 +246,13 @@ This profile also sets the following settings:
 The Doc Writer profile is a good lightweight setup for writing documentation. It comes with the following extensions:
 
 * [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - Spelling checker for source code.
-* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - Adds checkbox support to the VS Code built-in Markdown Preview.
+* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - Adds checkbox support to the {% data variables.product.prodname_vscode_shortname %} built-in Markdown Preview.
 * [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) - Adds emoji syntax support to Markdown Preview and notebook Markdown cells.
 * [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Adds ^footnote syntax support to the Markdown Preview.
 * [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) - Use GitHub styling in the Markdown Preview.
 * [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
 * [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
-* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for {% data variables.product.prodname_vscode %}.
 * [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - View the number of words in a Markdown document in the Status Bar.
 * [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Estimate how long it takes to read your Markdown.
 
@@ -283,14 +283,14 @@ The Node.js profile is a good starting point for all Node.js work. It comes with
 * [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) - Create, manage, and debug containerized applications.
 * [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
 * [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - Support for dotenv file syntax.
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [EditorConfig for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for {% data variables.product.prodname_vscode %}.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into {% data variables.product.prodname_vscode_shortname %}.
 * [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
 * [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) -  Use Facebook's [jest](https://jestjs.io) testing framework.
-* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
+* [Microsoft Edge Tools for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within {% data variables.product.prodname_vscode_shortname %}.
 * [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - Autocomplete npm modules in import statements.
 * [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
-* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for {% data variables.product.prodname_vscode %}.
 * [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
 
 This profile comes with the following settings:
@@ -326,15 +326,15 @@ The Angular profile is a good starting point for all Angular work. It comes with
 * [Angular Schematics](https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics) - Integrate Angular schematics (CLI commands).
 * [angular2-switcher](https://marketplace.visualstudio.com/items?itemName=infinity1207.angular2-switcher) - Easily navigate to `typescript`|`template`|`style` in angular2 project.
 * [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [EditorConfig for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for {% data variables.product.prodname_vscode %}.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into {% data variables.product.prodname_vscode_shortname %}.
 * [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
 * [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Use Facebook's [jest](https://jestjs.io) testing framework.
-* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for Visual Studio Code.
-* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
-* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Run [Playwright](https://playwright.dev) tests in Visual Studio Code.
+* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for {% data variables.product.prodname_vscode %}.
+* [Microsoft Edge Tools for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within {% data variables.product.prodname_vscode_shortname %}.
+* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Run [Playwright](https://playwright.dev) tests in {% data variables.product.prodname_vscode %}.
 * [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
-* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for {% data variables.product.prodname_vscode %}.
 * [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
 
 This profile sets the following settings:
@@ -372,7 +372,7 @@ The Java General profile is a good starting point for all Java work. It customiz
 * [IntelliCode API Usage Examples](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.intellicode-api-usage-examples) - Provides code examples for over 100K different APIs.
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) - Fundamental Java language support, Linting, Intellisense, formatting, refactoring.
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) - Manage [Maven](https://maven.apache.org) projects and builds.
-* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) - Manage Java projects within VS Code.
+* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) - Manage Java projects within {% data variables.product.prodname_vscode_shortname %}.
 * [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) - Run and debug JUnit or TestNG test cases.
 
 ### Java Spring Profile Template
@@ -394,7 +394,7 @@ This profile sets the following settings:
 
 ## Command line
 
-You can launch VS Code with a specific profile via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+You can launch {% data variables.product.prodname_vscode_shortname %} with a specific profile via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
 
 `code ~/projects/web-sample --profile "Web Development"`
 
@@ -414,9 +414,9 @@ If you are using the [Insiders](/insiders) version, the intermediate folder name
 
 ### What is a Temporary Profile?
 
-A Temporary Profile is a profile that is not saved across VS Code sessions. You create a Temporary Profile via the **Profiles: Create a Temporary Profile** command in the Command Palette. The Temporary Profile starts as an Empty Profile and has an automatically generated name (such as **Temp 1**). You can modify the profile settings and extensions, use the profile for the lifetime of your VS Code session, but it will be deleted once you close VS Code.
+A Temporary Profile is a profile that is not saved across {% data variables.product.prodname_vscode_shortname %} sessions. You create a Temporary Profile via the **Profiles: Create a Temporary Profile** command in the Command Palette. The Temporary Profile starts as an Empty Profile and has an automatically generated name (such as **Temp 1**). You can modify the profile settings and extensions, use the profile for the lifetime of your {% data variables.product.prodname_vscode_shortname %} session, but it will be deleted once you close {% data variables.product.prodname_vscode_shortname %}.
 
-Temporary Profiles are useful if you want to try a new configuration or test an extension without modifying your default or existing profile. Restarting VS Code reenables the current profile for your workspace.
+Temporary Profiles are useful if you want to try a new configuration or test an extension without modifying your default or existing profile. Restarting {% data variables.product.prodname_vscode_shortname %} reenables the current profile for your workspace.
 
 ### Can I inherit settings from another profile?
 
@@ -434,4 +434,4 @@ When exporting profiles, machine-specific settings are not included because thes
 
 ### Why are templates not available when creating a new profile?
 
-Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.
+Profile templates are hosted externally by {% data variables.product.prodname_vscode_shortname %} and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.

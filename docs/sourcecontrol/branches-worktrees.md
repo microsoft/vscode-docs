@@ -1,18 +1,18 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 8/19/2026
-MetaDescription: Manage Git branches and worktrees in Visual Studio Code to develop in parallel, compare changes, and move work between checkouts.
+DateApproved: 8/26/2026
+MetaDescription: Manage Git branches and worktrees in {% data variables.product.prodname_vscode %} to develop in parallel, compare changes, and move work between checkouts.
 Keywords:
 - source control
 - scm
 - version control
 - git
 ---
-# Git branches and worktrees in VS Code
+# Git branches and worktrees in {% data variables.product.prodname_vscode_shortname %}
 
-Git branches enable you to work on different features or experiments simultaneously without affecting your main codebase. VS Code provides tools for branch management, Git worktrees for parallel development, and stash management for temporary changes.
+Git branches enable you to work on different features or experiments simultaneously without affecting your main codebase. {% data variables.product.prodname_vscode_shortname %} provides tools for branch management, Git worktrees for parallel development, and stash management for temporary changes.
 
-This article covers working with branches, worktrees, and stashes in VS Code to manage parallel development work.
+This article covers working with branches, worktrees, and stashes in {% data variables.product.prodname_vscode_shortname %} to manage parallel development work.
 
 ## Working with branches
 
@@ -27,7 +27,7 @@ Each branch maintains its own set of changes without affecting the other. You ca
 
 ### View current branch
 
-The current branch appears in several places in VS Code:
+The current branch appears in several places in {% data variables.product.prodname_vscode_shortname %}:
 
 * **Status Bar**: shows the current branch name and provides quick branch switching
 * **Repositories view**: displays the current branch in the repository header
@@ -60,13 +60,13 @@ Create a new branch to start working on a feature or experiment:
 1. Enter a name for your new branch. Use descriptive names like `feature/user-authentication` or `bugfix/login-error`.
 
     > [!TIP]
-    > VS Code can generate random branch names for you. Configure this with the `setting(git.branchRandomName.enable)` and `setting(git.branchRandomName.dictionary)` settings.
+    > {% data variables.product.prodname_vscode_shortname %} can generate random branch names for you. Configure this with the `setting(git.branchRandomName.enable)` and `setting(git.branchRandomName.dictionary)` settings.
 
 1. Choose the source branch (usually `main` or `develop`) from which to create the new branch.
 
 ![Screenshot showing the create branch dialog with branch name input and source branch selection.](images/branches-worktrees/scm-create-branch.png)
 
-VS Code switches to the new branch after creation.
+{% data variables.product.prodname_vscode_shortname %} switches to the new branch after creation.
 
 > [!TIP]
 > If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create branches directly from GitHub issues, which gets you started working in a new local branch and automatically prefills the pull request for you.
@@ -99,7 +99,7 @@ When your feature is complete, merge it back into the main branch:
 
 To publish a branch to your remote repository, use the **Publish Branch** action.
 
-VS Code shows the merge result in the Source Control view. If there are conflicts, VS Code highlights them and provides tools to resolve them. Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
+{% data variables.product.prodname_vscode_shortname %} shows the merge result in the Source Control view. If there are conflicts, {% data variables.product.prodname_vscode_shortname %} highlights them and provides tools to resolve them. Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
 
 ## Manage stashes
 
@@ -144,7 +144,7 @@ Run **Git: Drop Stash...** to permanently delete a selected stash, or run **Git:
 
 ## Working with Git worktrees
 
-VS Code has built-in support for [Git worktrees](https://git-scm.com/docs/git-worktree), making it easy to manage and work with multiple branches at the same time.
+{% data variables.product.prodname_vscode_shortname %} has built-in support for [Git worktrees](https://git-scm.com/docs/git-worktree), making it easy to manage and work with multiple branches at the same time.
 
 ### Understanding worktrees
 
@@ -171,7 +171,7 @@ Worktrees are especially useful to:
 
 ### Create a worktree
 
-To create a new worktree in VS Code:
+To create a new worktree in {% data variables.product.prodname_vscode_shortname %}:
 
 1. Open the **Source Control Repositories** view from the Source Control view.
 
@@ -183,13 +183,13 @@ To create a new worktree in VS Code:
 
 1. Follow the prompts to choose a branch and location for the new worktree.
 
-    VS Code creates a new folder for the worktree at the specified location and checks out the selected branch into that folder.
+    {% data variables.product.prodname_vscode_shortname %} creates a new folder for the worktree at the specified location and checks out the selected branch into that folder.
 
 The new worktree appears as a separate entry in the **Source Control Repositories** view.
 
 ### Include files when creating a worktree
 
-When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. This behavior also applies when VS Code creates a worktree for an agent session.
+When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. This behavior also applies when {% data variables.product.prodname_vscode_shortname %} creates a worktree for an agent session.
 
 Use the `setting(git.worktreeIncludeFiles)` setting to configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders to copy into a new worktree. A file is copied only when it matches one of the patterns and is also listed in `.gitignore`.
 
@@ -206,17 +206,17 @@ For agent worktrees, only include files that the agent can safely access.
 
 ### Switch between worktrees
 
-VS Code can display multiple repositories (including worktrees) simultaneously:
+{% data variables.product.prodname_vscode_shortname %} can display multiple repositories (including worktrees) simultaneously:
 
 * Each worktree appears as a separate repository in the **Source Control Repositories** view
-* You can open multiple VS Code windows, each pointing to a different worktree
+* You can open multiple {% data variables.product.prodname_vscode_shortname %} windows, each pointing to a different worktree
 * Use **File** > **Open Recent** to quickly switch between worktree directories
 
 ### Open a worktree
 
 There are multiple ways to open a worktree:
 
-* Directly open the folder associated with the worktree in VS Code. VS Code automatically detects that it's a worktree of an existing repository.
+* Directly open the folder associated with the worktree in {% data variables.product.prodname_vscode_shortname %}. {% data variables.product.prodname_vscode_shortname %} automatically detects that it's a worktree of an existing repository.
 
 * Right-click the worktree in the Source Control Repositories view and select **Open Worktree in New Window** or **Open Worktree in Current Window**.
 
@@ -224,9 +224,9 @@ There are multiple ways to open a worktree:
 
 ### Automatically detect worktrees
 
-By default, VS Code lists the worktrees that you create from the **Source Control Repositories** view. To also automatically detect worktrees that already exist in your repository, enable the `setting(git.detectWorktrees)` setting. When this setting is enabled, VS Code scans the repository for worktrees and shows them in the **Source Control Repositories** view.
+By default, {% data variables.product.prodname_vscode_shortname %} lists the worktrees that you create from the **Source Control Repositories** view. To also automatically detect worktrees that already exist in your repository, enable the `setting(git.detectWorktrees)` setting. When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} scans the repository for worktrees and shows them in the **Source Control Repositories** view.
 
-To avoid scanning a large number of worktrees, VS Code limits the number of detected worktrees. Use the `setting(git.detectWorktreesLimit)` setting to change this limit. The default value is 50.
+To avoid scanning a large number of worktrees, {% data variables.product.prodname_vscode_shortname %} limits the number of detected worktrees. Use the `setting(git.detectWorktreesLimit)` setting to change this limit. The default value is 50.
 
 ### Compare and migrate changes from a worktree
 

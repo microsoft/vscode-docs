@@ -1,10 +1,10 @@
 ---
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 DateApproved: 02/04/2026
-MetaDescription: Linting Python in Visual Studio Code
+MetaDescription: Linting Python in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Linting Python in Visual Studio Code
+# Linting Python in {% data variables.product.prodname_vscode %}
 
 Linting highlights semantic and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or coding practices that can lead to errors. For example, linting can detect the use of an undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is distinct from [Formatting](/docs/python/formatting.md) because linting analyzes how the code runs and detects errors, whereas formatting only restructures how code appears.
 
@@ -12,7 +12,7 @@ Linting highlights semantic and stylistic problems in your Python source code, w
 
 ## Choose a linter
 
-Search the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.
+Search the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.
 
 Microsoft publishes the following linting extensions for Python:
 | Linter | Extension                                                                       |
@@ -28,7 +28,7 @@ Linting extensions offered by the community:
 | Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) |
 | mypy   | [https://marketplace.visualstudio.com/items?itemName=matangover.mypy](https://marketplace.visualstudio.com/items?itemName=matangover.mypy)    |
 
-> **Note**: If you don't find your preferred linter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
+> **Note**: If you don't find your preferred linter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into {% data variables.product.prodname_vscode_shortname %}.
 
 ## General Settings
 
@@ -56,7 +56,7 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
+Some linters may offer [Code Actions](/docs/editing/refactoring.md#code-actions--quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 
@@ -73,7 +73,7 @@ Linters report issues with some predefined severity. This can be changed using `
 | Issue | Cause | Solution |
 | --- | --- | --- |
 | Linter extension is not reporting any problems. | No Python has been selected for your workspace. | Look at the logs for the linter you are using and check the path to the Python environment it's using. If there is no Python selected, run the **Python: Select Interpreter** command from the Command Palette and select an existing interpreter for your workspace. You can also select the Python version in the Status Bar to select an interpreter.  |
-| The "You have deprecated linting or formatting settings" notification is displayed  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in VS Code. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extension in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
+| The "You have deprecated linting or formatting settings" notification is displayed  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in {% data variables.product.prodname_vscode_shortname %}. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in {% data variables.product.prodname_vscode_shortname %} by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extension in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
 | Linting doesn't work even though I have a linter extension installed.  | Linting can fail for different reasons, such as an unsupported version of Python being used, or the linter isn't configured correctly. Check the linter extension's Output channel to understand why the linter has failed (run the **Output: Focus on Output** command in the Command Palette, and then select the linter extension channel).|
 
 ## Next steps
@@ -81,5 +81,5 @@ Linters report issues with some predefined severity. This can be changed using `
 - [Formatting](/docs/python/formatting.md) - Learn about how to format your Python code.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
-- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into {% data variables.product.prodname_vscode_shortname %}.

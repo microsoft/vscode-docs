@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn about the different types of tools that extend AI agents in {% data variables.product.prodname_vscode_shortname %}, including built-in tools, MCP servers, and extension tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -1,24 +1,24 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 8/19/2026
-MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
+DateApproved: 8/26/2026
+MetaDescription: This tutorial gives you an overview of the key features of {% data variables.product.prodname_vscode %} to help you get started quickly.
 ---
-# Tutorial: Get started with Visual Studio Code
+# Tutorial: Get started with {% data variables.product.prodname_vscode %}
 
-In this tutorial, you learn about the key features of Visual Studio Code to help you get started quickly. You learn about the different components of the user interface, use an AI agent to build a web app, and explore how to enhance your setup with extensions. You also learn about configuring VS Code settings, using source control, and running and debugging your code.
+In this tutorial, you learn about the key features of {% data variables.product.prodname_vscode %} to help you get started quickly. You learn about the different components of the user interface, use an AI agent to build a web app, and explore how to enhance your setup with extensions. You also learn about configuring {% data variables.product.prodname_vscode_shortname %} settings, using source control, and running and debugging your code.
 
 > [!TIP]
-> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
+> If you prefer a video to learn about {% data variables.product.prodname_vscode %}, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
+Learn about the key features of {% data variables.product.prodname_vscode %} in our introduction video.
 
 * [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
@@ -26,44 +26,44 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-* [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md)
+* [Download and install {% data variables.product.prodname_vscode %} on your computer](https://code.visualstudio.com/download)
+* [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md)
 * Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-## Open a folder in VS Code
+## Open a folder in {% data variables.product.prodname_vscode_shortname %}
 
-You can use VS Code to work on individual files to make quick edits, or you can open a folder, also known as a *workspace*.
+You can use {% data variables.product.prodname_vscode_shortname %} to work on individual files to make quick edits, or you can open a folder, also known as a *workspace*.
 
-Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
+Let's start by creating a folder and opening it in {% data variables.product.prodname_vscode_shortname %}. You'll use this folder throughout the tutorial.
 
-1. Open Visual Studio Code and select **File** > **Open Folder...** from the menu to open a folder.
+1. Open {% data variables.product.prodname_vscode %} and select **File** > **Open Folder...** from the menu to open a folder.
 
-1. Select **New Folder** and create a new folder named `vscode101`. Then select **Select Folder** (**Open** on macOS) to open the folder in VS Code.
+1. Select **New Folder** and create a new folder named `vscode101`. Then select **Select Folder** (**Open** on macOS) to open the folder in {% data variables.product.prodname_vscode_shortname %}.
 
-    VS Code now considers the folder you've opened a workspace.
+    {% data variables.product.prodname_vscode_shortname %} now considers the folder you've opened a workspace.
 
 1. On the Workspace Trust dialog, select **Yes, I trust the authors** to enable all features in the workspace.
 
     ![Screenshot that shows the Workspace Trust dialog.](images/getting-started/workspace-trust.png)
 
     > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+    > Workspace Trust lets you decide whether code in your project folder can be executed by {% data variables.product.prodname_vscode_shortname %}. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
 
-    ![Screenshot of VS Code with the Explorer view opened and showing the vscode101 folder.](images/getting-started/vscode-folder-opened.png)
+    ![Screenshot of {% data variables.product.prodname_vscode_shortname %} with the Explorer view opened and showing the vscode101 folder.](images/getting-started/vscode-folder-opened.png)
 
 > [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
+> When you open a folder in {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_vscode_shortname %} can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
 
 ## Explore the user interface
 
-Now that you have a folder open in VS Code, let's take a quick tour of the user interface.
+Now that you have a folder open in {% data variables.product.prodname_vscode_shortname %}, let's take a quick tour of the user interface.
 
 ### Switch between views with the Activity Bar
 
@@ -107,7 +107,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Access the terminal from the Panel area
 
-1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`. You can also use the **View** > **Terminal** menu item.
+1. {% data variables.product.prodname_vscode_shortname %} has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`. You can also use the **View** > **Terminal** menu item.
 
     You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
 
@@ -116,7 +116,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 1. In the terminal, enter the following command to create a new file in your workspace.
 
     ```bash
-    echo "Hello, VS Code" > greetings.txt
+    echo "Hello, {% data variables.product.prodname_vscode_shortname %}" > greetings.txt
     ```
 
     The default working folder is the root of your workspace. Notice that the Explorer view automatically picks up and shows the new file.
@@ -131,7 +131,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette** menu item.
 
-    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can add extra commands to the Command Palette.
+    Many of the commands in {% data variables.product.prodname_vscode_shortname %} are available through the Command Palette. When you install extensions, they can add extra commands to the Command Palette.
 
     ![Screenshot that shows the Command Palette.](images/getting-started/command-palette.png)
 
@@ -151,11 +151,11 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
     1. **Symbol search mode (`#`)**: replace the `>` character by `#` to search for symbols like variables or functions in your code.
 
 > [!TIP]
-> VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
+> {% data variables.product.prodname_vscode_shortname %} uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
 
 ## Build an app with an AI agent
 
-Visual Studio Code has built-in support for GitHub Copilot for AI-powered coding. AI agents can autonomously plan a solution, create and edit multiple files, run terminal commands, and iterate on errors, all from a single natural-language prompt. You describe what you want, and the agent does whatever is needed to get the job done.
+{% data variables.product.prodname_vscode %} has built-in support for GitHub Copilot for AI-powered coding. AI agents can autonomously plan a solution, create and edit multiple files, run terminal commands, and iterate on errors, all from a single natural-language prompt. You describe what you want, and the agent does whatever is needed to get the job done.
 
 Let's use agents to build a recipe list web app from a single prompt.
 
@@ -186,13 +186,13 @@ In the next step, you install an extension to host the app in an integrated brow
 
 ## Enhance your setup with extensions
 
-VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+{% data variables.product.prodname_vscode_shortname %} has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
 Let's install an extension that helps with the recipe list app you just built.
 
 1. Select the **Extensions** view in the Activity Bar.
 
-    The Extensions view enables you to browse and install extensions from within VS Code.
+    The Extensions view enables you to browse and install extensions from within {% data variables.product.prodname_vscode_shortname %}.
 
     ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
 
@@ -214,11 +214,11 @@ Let's install an extension that helps with the recipe list app you just built.
 
     The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
 
-Explore more AI features in VS Code with the [Copilot Quickstart](/docs/agents/quickstart.md).
+Explore more AI features in {% data variables.product.prodname_vscode_shortname %} with the [Copilot Quickstart](/docs/agents/quickstart.md).
 
-## Configure VS Code settings
+## Configure {% data variables.product.prodname_vscode_shortname %} settings
 
-You can customize almost every part of VS Code by configuring settings. You can use the **Settings Editor** to modify the settings in VS Code or directly modify the `settings.json` file.
+You can customize almost every part of {% data variables.product.prodname_vscode_shortname %} by configuring settings. You can use the **Settings Editor** to modify the settings in {% data variables.product.prodname_vscode_shortname %} or directly modify the `settings.json` file.
 
 1. Press `kb(workbench.action.openSettings)` to open the Settings Editor (or select the **File** > **Preferences** > **Settings** menu item).
 
@@ -227,11 +227,11 @@ You can customize almost every part of VS Code by configuring settings. You can 
     > [!TIP]
     > Use the search box to filter the list of settings that are shown.
 
-1. By default, VS Code doesn't automatically save modified files. Select a value from the Auto Save dropdown to change this behavior.
+1. By default, {% data variables.product.prodname_vscode_shortname %} doesn't automatically save modified files. Select a value from the Auto Save dropdown to change this behavior.
 
     ![Screenshot that shows the Auto Save dropdown in the Settings Editor.](images/getting-started/settings-editor-auto-save.png)
 
-    VS Code automatically applies changes to settings. When you modify a file in your workspace, it should now be automatically saved.
+    {% data variables.product.prodname_vscode_shortname %} automatically applies changes to settings. When you modify a file in your workspace, it should now be automatically saved.
 
 1. To revert a setting to its default value, select the gear icon next to the setting and select **Reset Setting**.
 
@@ -242,11 +242,11 @@ You can customize almost every part of VS Code by configuring settings. You can 
 
 1. You can use the tabs in the Settings Editor to switch between **User** settings and **Workspace** settings.
 
-    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/configure/settings.md).
+    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/settings.md).
 
 ## Use source control
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
+{% data variables.product.prodname_vscode %} has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
 
 Let's use the built-in Git support to commit the changes you've made previously.
 
@@ -276,11 +276,11 @@ Let's use the built-in Git support to commit the changes you've made previously.
     > [!TIP]
     > Select **Graph** in the Source Control view to show a visual representation of the commit history of your Git repository.
 
-There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
+There's a lot more to discover about source control in {% data variables.product.prodname_vscode_shortname %}. Get more info about [source control in {% data variables.product.prodname_vscode_shortname %}](/docs/sourcecontrol/overview.md).
 
 ## Run and debug your code
 
-VS Code has built-in support for running and debugging JavaScript and Node.js applications. Let's use the debugger to step through the recipe list app that the agent generated.
+{% data variables.product.prodname_vscode_shortname %} has built-in support for running and debugging JavaScript and Node.js applications. Let's use the debugger to step through the recipe list app that the agent generated.
 
 > [!NOTE]
 > Because the agent generates code dynamically, the file names and function names in your project might differ from the examples shown here. Look for similar patterns in your own generated code.
@@ -299,7 +299,7 @@ VS Code has built-in support for running and debugging JavaScript and Node.js ap
 
     The debugger starts and launches a browser window with your app.
 
-1. When the breakpoint is hit, the execution pauses and VS Code highlights the current line.
+1. When the breakpoint is hit, the execution pauses and {% data variables.product.prodname_vscode_shortname %} highlights the current line.
 
     ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
 
@@ -310,11 +310,11 @@ VS Code has built-in support for running and debugging JavaScript and Node.js ap
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/debugtest/debugging.md).
+There are many more debugging features in {% data variables.product.prodname_vscode_shortname %}, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
 
 ## Next steps
 
-Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
+Congratulations! You've completed the tutorial and explored some of the key features of {% data variables.product.prodname_vscode %}. Now that you've learned the basics of {% data variables.product.prodname_vscode %}, get more info about how to:
 
 * [Build your first app with AI](/docs/agents/agents-tutorial.md)
 

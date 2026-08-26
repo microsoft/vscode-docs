@@ -108,7 +108,7 @@ For self-hosted or deployed models accessible from the internet with an OpenAI c
 
 Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If Ollama is installed on your local machine with downloaded Ollama models, add them to Foundry Toolkit for use in the model playground.
 
-Prerequisites for using Ollama models in the Microsoft Foundry Toolkit for Visual Studio Code extension is [Ollama](https://ollama.com/download) (Tested on Ollama v0.4.1).
+Prerequisites for using Ollama models in the Microsoft Foundry Toolkit for {% data variables.product.prodname_vscode %} extension is [Ollama](https://ollama.com/download) (Tested on Ollama v0.4.1).
 
 To add local Ollama into the Foundry Toolkit
 

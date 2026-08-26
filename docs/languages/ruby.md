@@ -1,13 +1,13 @@
 ---
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
 DateApproved: 8/19/2026
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
+MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
-# Ruby in Visual Studio Code
+# Ruby in {% data variables.product.prodname_vscode %}
 
 [Ruby](https://www.ruby-lang.org) is a dynamic, open-source programming language known for its simplicity and productivity. With an expressive and elegant syntax, part of the Ruby philosophy is to make developers happy. It is often used for web development with a range of different frameworks, and for scripting, allowing for fast iterations when building prototypes.
 
-This topic goes into detail about setting up and using Ruby within Visual Studio Code, with the
+This topic goes into detail about setting up and using Ruby within {% data variables.product.prodname_vscode %}, with the
 [Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp) extension.
 
 ![Ruby extension banner](images/ruby/ruby_lsp_extension.png)
@@ -18,11 +18,11 @@ This topic goes into detail about setting up and using Ruby within Visual Studio
 
 While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager to access newer versions of Ruby such as [rbenv](https://github.com/rbenv/rbenv) on macOS and Linux and [rbenv on Windows](https://github.com/RubyMetric/rbenv-for-windows). Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
 
->**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+>**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and {% data variables.product.prodname_vscode_shortname %} instances to use the updated toolset location in your platform's PATH variable.
 
-### Install the Ruby LSP extension in VS Code
+### Install the Ruby LSP extension in {% data variables.product.prodname_vscode_shortname %}
 
-You can find and install the Ruby LSP extension from within VS Code via the Extensions view
+You can find and install the Ruby LSP extension from within {% data variables.product.prodname_vscode_shortname %} via the Extensions view
 (`kb(workbench.view.extensions)`) and searching for 'Ruby LSP'.
 
 ![Ruby LSP extension in the Extensions view](images/ruby/ruby_lsp_extensions_view.png)
@@ -63,7 +63,7 @@ symbol, document symbol, completion and signature help.
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editing/editingevolved.md).
+To learn more about moving quickly through your source code with {% data variables.product.prodname_vscode_shortname %}, check out [Code Navigation](/docs/editing/editingevolved.md).
 
 ### Inlay hints
 
@@ -137,7 +137,7 @@ In addition to Quick Fixes, the Ruby LSP also provides refactor options through 
 ## Debugging
 
 The Ruby LSP extension supports debugging using the debug gem (Ruby's official debugger). Alternatively, developers can
-also install the [VS Code RDBG](https://marketplace.visualstudio.com/items?itemName=KoichiSasada.vscode-rdbg) extension
+also install the [{% data variables.product.prodname_vscode_shortname %} RDBG](https://marketplace.visualstudio.com/items?itemName=KoichiSasada.vscode-rdbg) extension
 to get debugging functionality.
 
 The following documentation is for the Ruby LSP's debugger client. Please refer to [RDBG's README](https://github.com/ruby/vscode-rdbg)
@@ -204,14 +204,14 @@ After adding the launch configurations, we can debug Ruby programs by adding bre
 
 ## Next steps
 
-This has been a brief overview showing the Ruby LSP extension features within VS Code. For more information, see the details provided in the Ruby LSP [documentation](https://shopify.github.io/ruby-lsp), including how to tune specific [VS Code editor](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) configurations.
+This has been a brief overview showing the Ruby LSP extension features within {% data variables.product.prodname_vscode_shortname %}. For more information, see the details provided in the Ruby LSP [documentation](https://shopify.github.io/ruby-lsp), including how to tune specific [{% data variables.product.prodname_vscode_shortname %} editor](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) configurations.
 
-To stay up to date on the latest features/bug fixes for the Ruby LSP extension, see the Releases page for the [monorepo](https://github.com/Shopify/ruby-lsp/releases), which includes both the server and VS Code extension implementations.
+To stay up to date on the latest features/bug fixes for the Ruby LSP extension, see the Releases page for the [monorepo](https://github.com/Shopify/ruby-lsp/releases), which includes both the server and {% data variables.product.prodname_vscode_shortname %} extension implementations.
 
 If you have any issues or feature requests, feel free to log them in the Ruby LSP's [GitHub repo](https://github.com/Shopify/ruby-lsp/issues).
 
-If you'd like to learn more about VS Code, try these topics:
+If you'd like to learn more about {% data variables.product.prodname_vscode_shortname %}, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

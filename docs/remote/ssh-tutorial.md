@@ -1,11 +1,11 @@
 ---
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
-MetaDescription: Connect over SSH with Visual Studio Code
+MetaDescription: Connect over SSH with {% data variables.product.prodname_vscode %}
 DateApproved: 8/19/2026
 ---
 # Remote development over SSH
 
-This tutorial walks you through creating and connecting to a virtual machine (VM) on Azure using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. You'll create a Node.js Express web app to show how you can edit and debug on a remote machine with VS Code just like you could if the source code was local.
+This tutorial walks you through creating and connecting to a virtual machine (VM) on Azure using the {% data variables.product.prodname_vscode %} [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. You'll create a Node.js Express web app to show how you can edit and debug on a remote machine with {% data variables.product.prodname_vscode_shortname %} just like you could if the source code was local.
 
 > **Note**: Your Linux VM can be hosted anywhere - on your local host, on premise, in Azure, or in any other cloud, as long as the chosen Linux distribution meets these [prerequisites](/docs/remote/linux.md#local-linux-prerequisites).
 
@@ -14,7 +14,7 @@ This tutorial walks you through creating and connecting to a virtual machine (VM
 To get started, you need to have done the following steps:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) (PuTTY is not supported).
-2. Install [Visual Studio Code](https://code.visualstudio.com).
+2. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com).
 3. Have an Azure subscription (If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin).
 
 ### Install the extension
@@ -31,7 +31,7 @@ With the Remote - SSH extension installed, you will see a new Status bar item at
 
 ![Remote Status bar item](images/ssh-tutorial/remote-status-bar.png)
 
-The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
+The Remote Status bar item can quickly show you in which context {% data variables.product.prodname_vscode_shortname %} is running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
 
 ![Remote - SSH commands](images/ssh-tutorial/remote-ssh-commands.png)
 
@@ -43,7 +43,7 @@ If you don't have an existing Linux virtual machine, you can create a new VM thr
 
 ![Create a virtual machine](images/ssh-tutorial/create-vm.png)
 
-Now you can specify details of your VM, such as the name, the size, and the base image. Choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at VS Code's [supported SSH servers](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
+Now you can specify details of your VM, such as the name, the size, and the base image. Choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at {% data variables.product.prodname_vscode_shortname %}'s [supported SSH servers](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
 ![Virtual machine instance details](images/ssh-tutorial/vm-instance-details.png)
 
@@ -87,7 +87,7 @@ Once the deployment is finished (it may take several minutes), go to the new res
 
 Now that you've created an SSH host, let's connect to it!
 
-You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
+You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context {% data variables.product.prodname_vscode_shortname %} is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands-simple.png)
 
@@ -107,9 +107,9 @@ Set the user and hostname in the connection information text box.
 
 ![Set user and host name](images/ssh-tutorial/set-user-host.png)
 
-VS Code will now open a new window (instance). You'll then see a notification that the "VS Code Server" is initializing on the SSH Host. Once the VS Code Server is installed on the remote host, it can run extensions and talk to your local instance of VS Code.
+{% data variables.product.prodname_vscode_shortname %} will now open a new window (instance). You'll then see a notification that the "{% data variables.product.prodname_vscode_shortname %} Server" is initializing on the SSH Host. Once the {% data variables.product.prodname_vscode_shortname %} Server is installed on the remote host, it can run extensions and talk to your local instance of {% data variables.product.prodname_vscode_shortname %}.
 
-![Initializing VS Code Server](images/ssh-tutorial/init-vs-code-server.png)
+![Initializing {% data variables.product.prodname_vscode_shortname %} Server](images/ssh-tutorial/init-vs-code-server.png)
 
 You'll know you're connected to your VM by looking at the indicator in the Status bar. It shows the hostname of your VM.
 
@@ -203,7 +203,7 @@ The server will now forward traffic on port 3000 to your local machine. When you
 
 ## Edit and debug
 
-From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
+From the {% data variables.product.prodname_vscode %} File Explorer (`kb(workbench.view.explorer)`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
 
 ### IntelliSense
 
@@ -227,13 +227,13 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 
 Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
 
-![VS Code debug view](images/ssh-tutorial/debug-view.png)
+![{% data variables.product.prodname_vscode_shortname %} debug view](images/ssh-tutorial/debug-view.png)
 
-You get the full development experience of Visual Studio Code connected over SSH.
+You get the full development experience of {% data variables.product.prodname_vscode %} connected over SSH.
 
 ### Ending your SSH connection
 
-You can end your session over SSH and go back to running VS Code locally with **File** > **Close Remote Connection**.
+You can end your session over SSH and go back to running {% data variables.product.prodname_vscode_shortname %} locally with **File** > **Close Remote Connection**.
 
 ### Congratulations
 

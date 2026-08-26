@@ -8,7 +8,7 @@ MetaDescription: Get started using the Foundry Toolkit Copilot tools to streamli
 The Foundry Toolkit Copilot tools help you build AI agent applications faster. These tools give you ready-made features, templates, and best practices. You can create smart applications that use AI more quickly.
 
 > [!NOTE]
-> The Foundry Toolkit Copilot tools use the VS Code [Language Model Tool API](/api/extension-guides/ai/tools.md). These tools extend a large language model (LLM) with domain-specific features in chat. In agent mode, VS Code can automatically use these tools to handle user prompts and perform tasks.
+> The Foundry Toolkit Copilot tools use the {% data variables.product.prodname_vscode_shortname %} [Language Model Tool API](/api/extension-guides/ai/tools.md). These tools extend a large language model (LLM) with domain-specific features in chat. In agent mode, {% data variables.product.prodname_vscode_shortname %} can automatically use these tools to handle user prompts and perform tasks.
 
 The Foundry Toolkit Copilot tools include four main tools:
 
@@ -19,9 +19,9 @@ The Foundry Toolkit Copilot tools include four main tools:
 
 ## Prerequisites
 
-1. [Visual Studio Code](/download) - Latest version to support MCP Server development.
-1. [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
-1. [Foundry Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-ai.vscode-ai-toolkit) Visual Studio Code extension
+1. [{% data variables.product.prodname_vscode %}](/download) - Latest version to support MCP Server development.
+1. [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) {% data variables.product.prodname_vscode %} extension
+1. [Foundry Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-ai.vscode-ai-toolkit) {% data variables.product.prodname_vscode %} extension
 
 ## Using Copilot tools in Foundry Toolkit
 
@@ -33,7 +33,7 @@ After installing the prerequisites, you can use the tools Foundry Toolkit provid
 
     Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
 
-    ![Screenshot showing the Chat view in Visual Studio Code with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/configure-tools.png)
+    ![Screenshot showing the Chat view in {% data variables.product.prodname_vscode %} with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/configure-tools.png)
 
 ## Agent Code Gen tool
 

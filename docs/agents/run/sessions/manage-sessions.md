@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Create and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, context compaction, organization, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -54,6 +54,8 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
     In the {% data variables.copilot.agents_window %}, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
+
+To collaborate on an existing pull request, [start a session from the pull request](/docs/agents/run/agents-window.md#start-a-session-from-a-pull-request).
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -289,7 +291,7 @@ There are two ways to fork a chat session:
 
 ## Orchestrate sessions from agent host sessions
 
-In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
+In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#process-architecture).
 
 With these tools, an agent can:
 

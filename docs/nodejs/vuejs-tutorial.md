@@ -1,11 +1,11 @@
 ---
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 DateApproved: 8/19/2026
-MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the {% data variables.product.prodname_vscode %} editor.
 ---
-# Using Vue in Visual Studio Code
+# Using Vue in {% data variables.product.prodname_vscode %}
 
-[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web applications and user interfaces, and Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vue - Official (previously Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension to have support for IntelliSense, [TypeScript](/docs/languages/typescript), formatting, and more.
+[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web applications and user interfaces, and {% data variables.product.prodname_vscode %} has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vue - Official (previously Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension to have support for IntelliSense, [TypeScript](/docs/languages/typescript), formatting, and more.
 
 >**Note**: [Vue 2 support ended on December 31st, 2023](https://v2.vuejs.org/lts/), so the use of the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension is [not recommended](https://github.com/vuejs/vetur/discussions/3378). You will need to [disable Vetur](https://vuejs.org/guide/typescript/overview.html#ide-support) to use the Vue - Official extension.
 
@@ -52,20 +52,20 @@ npm run dev
 
 You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser.
 
-To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
+To open your Vue application in {% data variables.product.prodname_vscode_shortname %}, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
 
 ```bash
 cd vue-project
 code .
 ```
 
-VS Code will launch and display your Vue application in the File Explorer.
+{% data variables.product.prodname_vscode_shortname %} will launch and display your Vue application in the File Explorer.
 
 ## Vue - Official extension
 
-Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
+Now expand the `src` folder and select the `App.vue` file. You'll notice that {% data variables.product.prodname_vscode_shortname %} doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
 
-The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, and formatting) to VS Code.
+The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, and formatting) to {% data variables.product.prodname_vscode_shortname %}.
 
 ![Vue - Official extension](images/vuejs/vue-extension.png)
 
@@ -87,7 +87,7 @@ and Vue properties such as `computed` in the `scripts` section:
 
 ### Go to Definition, Peek definition
 
-The Vue - Official extension in VS Code enhances the Vue.js development experience by providing language service features such as type definitions. You can access these features using:
+The Vue - Official extension in {% data variables.product.prodname_vscode_shortname %} enhances the Vue.js development experience by providing language service features such as type definitions. You can access these features using:
 
 - **Go to Definition** (`kb(editor.action.revealDefinition)`): Navigate directly to the type definition in your code.
 - **Peek Definition** (`kb(editor.action.peekDefinition)`): View the type definition inline without leaving your current context.
@@ -124,7 +124,7 @@ Let's update the sample application to render "Hello World!". In `App.vue` repla
 Once you save the `App.vue` file (`kb(workbench.action.files.save)`), Vite's [Hot Module Replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement) feature will instantly reflect the updates in the browser, and you'll see "Hello World!". Keep the server running as we move on to learn about Vue.js client-side debugging.
 
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
+>**Tip**: {% data variables.product.prodname_vscode_shortname %} supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
 
 ---
 
@@ -142,9 +142,9 @@ Below you can see an error when the Vue linter detects more than one root elemen
 
 ## Debugging
 
-You can debug client side Vue.js code with the built-in JavaScript debugger. Follow this [conversation](https://github.com/vitejs/vite/discussions/4065#discussioncomment-1359932) to use Vite/Vue.js 3 project with VS Code using Microsoft Edge.
+You can debug client side Vue.js code with the built-in JavaScript debugger. Follow this [conversation](https://github.com/vitejs/vite/discussions/4065#discussioncomment-1359932) to use Vite/Vue.js 3 project with {% data variables.product.prodname_vscode_shortname %} using Microsoft Edge.
 
-For Vue CLI, which is [now in maintenance mode](https://vuejs.org/guide/scaling-up/tooling#vue-cli), check out [Vue.js debugging in VS Code](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli) recipe on the VS Code debugging [recipes](https://github.com/microsoft/vscode-recipes) site to learn more.
+For Vue CLI, which is [now in maintenance mode](https://vuejs.org/guide/scaling-up/tooling#vue-cli), check out [Vue.js debugging in {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli) recipe on the {% data variables.product.prodname_vscode_shortname %} debugging [recipes](https://github.com/microsoft/vscode-recipes) site to learn more.
 
 Another popular tool for debugging Vue.js is the [vue-devtools](https://devtools.vuejs.org/) plug-in, which can be used regardless of the environment.
 
@@ -154,9 +154,9 @@ Another popular tool for debugging Vue.js is the [vue-devtools](https://devtools
 
   ![Vue.js extensions](images/vuejs/vue-extensions.png)
 
-- Extensions like [Vue VS Code Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
+- Extensions like [Vue {% data variables.product.prodname_vscode_shortname %} Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
 
-  ![Vue VS Code Snippets](images/vuejs/vue-vscode-snippets.png)
+  ![Vue {% data variables.product.prodname_vscode_shortname %} Snippets](images/vuejs/vue-vscode-snippets.png)
 
 - There are also Extension Packs, which bundle extensions that other people have found useful for Vue.js development.
 

@@ -1,11 +1,11 @@
 ---
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 DateApproved: 8/19/2026
-MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
+MetaDescription: Find out how {% data variables.product.prodname_vscode %} can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
 
-Visual Studio Code has built-in support for editing style sheets in CSS `.css`, SCSS `.scss` and Less `.less`. In addition, you can install an extension for greater functionality.
+{% data variables.product.prodname_vscode %} has built-in support for editing style sheets in CSS `.css`, SCSS `.scss` and Less `.less`. In addition, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-css-curated"></div>
 
@@ -13,7 +13,7 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 ## IntelliSense
 
-VS Code has support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
+{% data variables.product.prodname_vscode_shortname %} has support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
 
 ![IntelliSense in CSS](images/css/intellisense.png)
 
@@ -31,7 +31,7 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 > **Tip:** You can trigger between different color modes by clicking on the color string at the top of the picker.
 
-You can hide VS Code's color previews by setting the following [setting](/docs/configure/settings.md):
+You can hide {% data variables.product.prodname_vscode_shortname %}'s color previews by setting the following [setting](/docs/configure/settings.md):
 
 ```json
 "editor.colorDecorators": false
@@ -63,17 +63,17 @@ If you prefer to switch to indentation based folding for CSS, Less and SCSS, use
 
 ## Emmet snippets
 
-[Emmet abbreviation support](/docs/languages/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
+[Emmet abbreviation support](/docs/languages/emmet.md) is built into {% data variables.product.prodname_vscode_shortname %}, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-VS Code also supports [User Defined Snippets](/docs/editing/userdefinedsnippets.md).
+{% data variables.product.prodname_vscode_shortname %} also supports [User Defined Snippets](/docs/editing/userdefinedsnippets.md).
 
 ## Syntax Verification & Linting
 
 There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/configure/settings.md) to false.
+>**Note:** You can disable {% data variables.product.prodname_vscode_shortname %}'s default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/configure/settings.md) to false.
 >```json
 >"css.validate": false
 >```
@@ -96,7 +96,7 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 
 ## CSS custom data
 
-You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `setting(css.customData)` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pseudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pseudo-elements.
+You can extend {% data variables.product.prodname_vscode_shortname %}'s CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `setting(css.customData)` to a list of JSON files following the custom data format, you can enhance {% data variables.product.prodname_vscode_shortname %}'s understanding of new CSS properties, at-directives, pseudo-classes and pseudo-elements. {% data variables.product.prodname_vscode_shortname %} will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pseudo-elements.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
@@ -113,7 +113,7 @@ The same settings also exist for `less` and `scss`.
 
 ## Transpiling Sass and Less into CSS
 
-VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
+{% data variables.product.prodname_vscode_shortname %} can integrate with Sass and Less transpilers through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
 
 ### Step 1: Install a Sass or Less transpiler
 
@@ -127,7 +127,7 @@ npm install -g sass less
 
 ### Step 2: Create a simple Sass or Less file
 
-Open VS Code on an empty folder and create a `styles.scss` or `styles.less` file. Place the following code in that file:
+Open {% data variables.product.prodname_vscode_shortname %} on an empty folder and create a `styles.scss` or `styles.less` file. Place the following code in that file:
 
 ```scss
 $padding: 6px;
@@ -207,7 +207,7 @@ If you want to make the task the default build task to run execute **Configure D
 
 ## Automating Sass/Less compilation
 
-Let's take things a little further and automate Sass/Less compilation with VS Code. We can do so with the same task runner integration as before, but with a few modifications.
+Let's take things a little further and automate Sass/Less compilation with {% data variables.product.prodname_vscode_shortname %}. We can do so with the same task runner integration as before, but with a few modifications.
 
 ### Step 1: Install Gulp and some plug-ins
 
@@ -226,7 +226,7 @@ You can test that your gulp installation was successful by typing `gulp -v` in t
 
 ### Step 2: Create a simple Gulp task
 
-Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.
+Open {% data variables.product.prodname_vscode_shortname %} on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.
 
 Place the following code in the `gulpfile.js` file:
 
@@ -273,13 +273,13 @@ gulp.task('default', gulp.series('less', function(cb) {
 What is happening here?
 
 1. Our `default` gulp task first runs the `sass` or `less` task once when it starts up.
-2. It then watches for changes to any SCSS/Less file at the root of our workspace, for example the current folder open in VS Code.
+2. It then watches for changes to any SCSS/Less file at the root of our workspace, for example the current folder open in {% data variables.product.prodname_vscode_shortname %}.
 3. It takes the set of SCSS/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
 4. We now have a set of CSS files, each named respectively after their original SCSS/Less file. We then put these files in the same directory.
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to make things even more streamlined.
+To complete the tasks integration with {% data variables.product.prodname_vscode_shortname %}, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to make things even more streamlined.
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list.
 
@@ -330,13 +330,13 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 Read on to find out about:
 
 * [Configure Tasks](/docs/debugtest/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
-* [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
+* [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 
-### Does VS Code provide a color picker?
+### Does {% data variables.product.prodname_vscode_shortname %} provide a color picker?
 
 Yes, hover over a CSS color reference and the color picker is displayed.
 

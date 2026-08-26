@@ -1,11 +1,11 @@
 ---
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 DateApproved: 8/19/2026
-MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
+MetaDescription: Using Emmet abbreviations inside {% data variables.product.prodname_vscode %}.
 ---
-# Emmet in Visual Studio Code
+# Emmet in {% data variables.product.prodname_vscode %}
 
-Support for [Emmet](https://emmet.io/) snippets and expansion is built right into Visual Studio Code, **no extension required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Support for [Emmet](https://emmet.io/) snippets and expansion is built right into {% data variables.product.prodname_vscode %}, **no extension required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
@@ -68,7 +68,7 @@ Emmet has no knowledge of these new languages, and so there might be Emmet sugge
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
 ```
 
-> **Note:** If you used `setting(emmet.syntaxProfiles)` previously to map new file types, from VS Code 1.15 onwards you should use the setting `setting(emmet.includeLanguages)` instead. `setting(emmet.syntaxProfiles)` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
+> **Note:** If you used `setting(emmet.syntaxProfiles)` previously to map new file types, from {% data variables.product.prodname_vscode_shortname %} 1.15 onwards you should use the setting `setting(emmet.includeLanguages)` instead. `setting(emmet.syntaxProfiles)` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
 ## Emmet with multi-cursors
 
@@ -118,7 +118,7 @@ For example `div>div#page>p.title+p|c` will be expanded to:
 
 You can customize this filter by using the `filter.commentTrigger`, `filter.commentAfter` and `filter.commentBefore` preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/).
 
-The format for the `filter.commentAfter` preference is different in VS Code Emmet 2.0.
+The format for the `filter.commentAfter` preference is different in {% data variables.product.prodname_vscode_shortname %} Emmet 2.0.
 
 For example, instead of:
 
@@ -128,7 +128,7 @@ For example, instead of:
 }
 ```
 
-in VS Code, you would use a simpler:
+in {% data variables.product.prodname_vscode_shortname %}, you would use a simpler:
 
 ```json
 "emmet.preferences": {
@@ -199,7 +199,7 @@ The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets
 
 ## Emmet configuration
 
-Below are Emmet [settings](/docs/configure/settings.md) that you can use to customize your Emmet experience in VS Code.
+Below are Emmet [settings](/docs/configure/settings.md) that you can use to customize your Emmet experience in {% data variables.product.prodname_vscode_shortname %}.
 
 * `setting(emmet.includeLanguages)`
 
@@ -326,9 +326,9 @@ Below are Emmet [settings](/docs/configure/settings.md) that you can use to cust
 
 ## Next steps
 
-Emmet is just one of the great web developer features in VS Code.  Read on to find out about:
+Emmet is just one of the great web developer features in {% data variables.product.prodname_vscode_shortname %}.  Read on to find out about:
 
-* [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
+* [HTML](/docs/languages/html.md) - {% data variables.product.prodname_vscode_shortname %} supports HTML with IntelliSense, closing tags, and formatting.
 * [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
 ## Troubleshooting
@@ -349,7 +349,7 @@ HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatshee
 
 ### Abbreviations are failing to expand
 
-First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `setting(emmet.extensionsPath)` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `setting(emmet.extensionsPath)` setting). The format of custom snippets changed in {% data variables.product.prodname_vscode_shortname %} release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
 
 If abbreviations are still failing to expand:
 

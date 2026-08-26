@@ -3,36 +3,36 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 8/19/2026
 
-VSCodeCommitHash: fc62850c022bbba2c93b0202dd24f42d1e0b3882
-VSCodeVersion: 1.134.0
+VSCodeCommitHash: 0052619e71feb774a574b37f4f2ea20c36547373
+VSCodeVersion: 1.135.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
+MetaDescription: Enterprise policies in {% data variables.product.prodname_vscode %} enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
 ---
 
-# Centrally manage VS Code settings with policies
+# Centrally manage {% data variables.product.prodname_vscode_shortname %} settings with policies
 
-Enterprise policies in Visual Studio Code enable organizations to centrally manage VS Code settings for their development teams to ensure consistency and compatibility across their organization. When a policy value is set, the value overrides the VS Code setting value configured at any level (default, user, and workspace).
+Enterprise policies in {% data variables.product.prodname_vscode %} enable organizations to centrally manage {% data variables.product.prodname_vscode_shortname %} settings for their development teams to ensure consistency and compatibility across their organization. When a policy value is set, the value overrides the {% data variables.product.prodname_vscode_shortname %} setting value configured at any level (default, user, and workspace).
 
-IT admins can deploy and enforce specific VS Code configurations on users' devices through different device management solutions. VS Code supports applying policies on Windows, macOS, and Linux.
+IT admins can deploy and enforce specific {% data variables.product.prodname_vscode_shortname %} configurations on users' devices through different device management solutions. {% data variables.product.prodname_vscode_shortname %} supports applying policies on Windows, macOS, and Linux.
 
 ![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/policies/allowed-extensions-managed-by-organization.png)
 
-In this article, you learn which enterprise policies are available in VS Code and how to configure them on different operating systems.
+In this article, you learn which enterprise policies are available in {% data variables.product.prodname_vscode_shortname %} and how to configure them on different operating systems.
 
 ## Windows group policies
 
-VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy).
+{% data variables.product.prodname_vscode_shortname %} has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy).
 
 These profiles can be deployed using Mobile Device Management (MDM) solutions or installed manually on individual devices.
 
 ### Step 1: Obtain the sample ADMX and ADML files
 
-Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that define the available policies.
+Starting from {% data variables.product.prodname_vscode_shortname %} version 1.69, each release ships with a `policies` directory containing ADMX template files that define the available policies.
 
-You can get the ADMX and ADML files from either an existing installation or by downloading and extracting the VS Code zip archive. Follow these steps to obtain the files:
+You can get the ADMX and ADML files from either an existing installation or by downloading and extracting the {% data variables.product.prodname_vscode_shortname %} zip archive. Follow these steps to obtain the files:
 
-1. Download the [VS Code zip archive](/download) for your version of VS Code.
+1. Download the [{% data variables.product.prodname_vscode_shortname %} zip archive](/download) for your version of {% data variables.product.prodname_vscode_shortname %}.
 1. Extract the zip file to a temporary location.
 1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template files (for example, `vscode.admx`) and a `locales` subfolder with ADML files for different languages.
 
@@ -40,8 +40,8 @@ You can get the ADMX and ADML files from either an existing installation or by d
 
 After installing the ADMX and ADML files, configure policy values through your management tool:
 
-- For Active Directory environments, use the Group Policy Editor (`gpedit.msc`) and navigate to **Computer Configuration** > **Administrative Templates** > **Visual Studio Code**.
-- For cloud-managed devices, use your MDM solution (for example, Microsoft Intune) to configure the imported VS Code administrative template policies.
+- For Active Directory environments, use the Group Policy Editor (`gpedit.msc`) and navigate to **Computer Configuration** > **Administrative Templates** > **{% data variables.product.prodname_vscode %}**.
+- For cloud-managed devices, use your MDM solution (for example, Microsoft Intune) to configure the imported {% data variables.product.prodname_vscode_shortname %} administrative template policies.
 - Open each policy, set it to **Enabled** or **Disabled**, and provide any required value in the policy UI.
 - Leave policies in the **Not Configured** state if you don't want to enforce them.
 
@@ -67,7 +67,7 @@ For Active Directory environments, copy the ADMX and ADML files to the [Central 
 
 If you want to test the policies on a local Windows machine before deploying them at scale, you can manually install the ADMX/ADML files and configure the policies using the Local Group Policy Editor.
 
-Follow these steps to configure VS Code policies on a local Windows machine:
+Follow these steps to configure {% data variables.product.prodname_vscode_shortname %} policies on a local Windows machine:
 
 #### Step 1: Install the policy definition files
 
@@ -83,12 +83,12 @@ Follow these steps to configure VS Code policies on a local Windows machine:
 1. Type `gpedit.msc` and press Enter to open the Local Group Policy Editor.
 1. If prompted by User Account Control, select **Yes** to allow the app to make changes.
 
-#### Step 3: Navigate to VS Code policies
+#### Step 3: Navigate to {% data variables.product.prodname_vscode_shortname %} policies
 
-The VS Code policies are available under both Computer Configuration and User Configuration:
+The {% data variables.product.prodname_vscode_shortname %} policies are available under both Computer Configuration and User Configuration:
 
-* **Computer Configuration** > **Administrative Templates** > **Microsoft VS Code**
-* **User Configuration** > **Administrative Templates** > **Microsoft VS Code**
+* **Computer Configuration** > **Administrative Templates** > **Microsoft {% data variables.product.prodname_vscode_shortname %}**
+* **User Configuration** > **Administrative Templates** > **Microsoft {% data variables.product.prodname_vscode_shortname %}**
 
 > [!TIP]
 > Computer-level policies take precedence over user-level policies when both are configured.
@@ -96,14 +96,14 @@ The VS Code policies are available under both Computer Configuration and User Co
 #### Step 4: Configure a policy
 
 1. Select the policy category (either Computer Configuration or User Configuration).
-1. Navigate to **Administrative Templates** > **Microsoft VS Code**.
+1. Navigate to **Administrative Templates** > **Microsoft {% data variables.product.prodname_vscode_shortname %}**.
 1. Double-click on the policy you want to configure (for example, **Update Mode**).
 1. In the policy settings dialog, select **Enabled** to enforce the policy.
 1. Configure the policy value using the available options or text fields.
 1. Select **OK** to save the changes.
 1. Close the Local Group Policy Editor.
 
-The policy will take effect the next time VS Code is started. Some policies may require restarting Windows to take effect.
+The policy will take effect the next time {% data variables.product.prodname_vscode_shortname %} is started. Some policies may require restarting Windows to take effect.
 
 </details>
 
@@ -115,17 +115,17 @@ These profiles can be deployed using Mobile Device Management (MDM) solutions or
 
 ### Step 1: Obtain the sample configuration profile
 
-Starting from VS Code version 1.99, each release ships with a sample `.mobileconfig` file. Follow these steps to locate the sample file on a macOS device with VS Code installed:
+Starting from {% data variables.product.prodname_vscode_shortname %} version 1.99, each release ships with a sample `.mobileconfig` file. Follow these steps to locate the sample file on a macOS device with {% data variables.product.prodname_vscode_shortname %} installed:
 
 1. Open Finder and navigate to `/Applications`.
-1. Right-click on **Visual Studio Code.app** (or your VS Code variant) and select **Show Package Contents**.
+1. Right-click on **{% data variables.product.prodname_vscode %}.app** (or your {% data variables.product.prodname_vscode_shortname %} variant) and select **Show Package Contents**.
 1. Navigate to `Contents/Resources/app/policies`.
 1. Locate the sample `.mobileconfig` file (for example, `vscode-sample.mobileconfig`).
 
 ### Step 2: Configure policy values
 
 1. Copy the sample `.mobileconfig` file to a working location (for example, your Desktop or Documents folder).
-1. Open the copied file in a text editor (for example, TextEdit, VS Code, or any XML editor).
+1. Open the copied file in a text editor (for example, TextEdit, {% data variables.product.prodname_vscode_shortname %}, or any XML editor).
 1. Edit the policy values according to your requirements:
 
     Example `policy.json` configuration:
@@ -140,7 +140,7 @@ Starting from VS Code version 1.99, each release ships with a sample `.mobilecon
     ```
 
     > [!IMPORTANT]
-    > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+    > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in {% data variables.product.prodname_vscode_shortname %} for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
     **Remove unwanted policies** - remove the corresponding JSON property for any policy you don't want to enforce.
 
@@ -167,7 +167,7 @@ For more information on configuration profiles, refer to [Apple's documentation]
 
 ### Configure policies manually
 
-Follow these steps to manually test your VS Code policy configuration on a macOS device before deploying at scale:
+Follow these steps to manually test your {% data variables.product.prodname_vscode_shortname %} policy configuration on a macOS device before deploying at scale:
 
 #### Step 1: Install the configuration profile
 
@@ -182,18 +182,18 @@ Follow these steps to manually test your VS Code policy configuration on a macOS
 
 1. Open **System Settings** (macOS Ventura and later) or **System Preferences** (earlier versions).
 1. Navigate to **Privacy & Security** > **Profiles** (or **General** > **Device Management** on older versions).
-1. Verify that your VS Code configuration profile appears in the list.
-1. Launch VS Code to see the policies in effect.
+1. Verify that your {% data variables.product.prodname_vscode_shortname %} configuration profile appears in the list.
+1. Launch {% data variables.product.prodname_vscode_shortname %} to see the policies in effect.
 
 > [!NOTE]
-> Policies take effect immediately for new VS Code instances. You may need to restart VS Code if it's already running.
+> Policies take effect immediately for new {% data variables.product.prodname_vscode_shortname %} instances. You may need to restart {% data variables.product.prodname_vscode_shortname %} if it's already running.
 
 #### Remove a configuration profile
 
 To remove policies and revert to default settings:
 
 1. Open **System Settings** > **Privacy & Security** > **Profiles**.
-1. Select the VS Code configuration profile.
+1. Select the {% data variables.product.prodname_vscode_shortname %} configuration profile.
 1. Select the **Remove** (or **-**) button.
 1. Authenticate with your administrator credentials to confirm removal.
 
@@ -201,13 +201,13 @@ To remove policies and revert to default settings:
 
 ## Linux JSON policies
 
-Starting from VS Code version 1.106, you can configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
+Starting from {% data variables.product.prodname_vscode_shortname %} version 1.106, you can configure {% data variables.product.prodname_vscode_shortname %} setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
 
 These profiles can be deployed using Mobile Device Management (MDM) solutions or installed manually on individual devices.
 
 ### Step 1: Obtain the sample policy file
 
-Starting from VS Code version 1.106, each release ships with a sample `.policy.json` file. You can obtain it from either an existing installation or by downloading and extracting the VS Code archive. The file is located in the `resources/app/policies` directory.
+Starting from {% data variables.product.prodname_vscode_shortname %} version 1.106, each release ships with a sample `.policy.json` file. You can obtain it from either an existing installation or by downloading and extracting the {% data variables.product.prodname_vscode_shortname %} archive. The file is located in the `resources/app/policies` directory.
 
 ### Step 2: Configure policy values
 
@@ -241,7 +241,7 @@ Starting from VS Code version 1.106, each release ships with a sample `.policy.j
     ```
 
     > [!IMPORTANT]
-    > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+    > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in {% data variables.product.prodname_vscode_shortname %} for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
     **Remove unwanted policies** - remove the corresponding JSON property for any policy you don't want to enforce.
 
@@ -289,27 +289,27 @@ These tools allow administrators to deploy, update, and remove policies remotely
 
 #### Step 2: Verify the policy installation
 
-1. Launch VS Code (or restart it if already running).
+1. Launch {% data variables.product.prodname_vscode_shortname %} (or restart it if already running).
 1. Open **File** > **Preferences** > **Settings** (or press `Ctrl+,`).
 1. Look for settings that correspond to your configured policies - they should show as "managed by your organization" or have a lock icon.
 1. Hover over managed settings to see that they are controlled by policy.
 
 > [!TIP]
-> You can verify the policy file is being read by checking VS Code's logs or by attempting to change a managed setting (the change will be prevented).
+> You can verify the policy file is being read by checking {% data variables.product.prodname_vscode_shortname %}'s logs or by attempting to change a managed setting (the change will be prevented).
 
 #### Remove policies
 
-To remove all policies and revert to default settings, delete the `/etc/vscode/policy.json` file and restart VS Code.
+To remove all policies and revert to default settings, delete the `/etc/vscode/policy.json` file and restart {% data variables.product.prodname_vscode_shortname %}.
 
 </details>
 
 ## Verify policy enforcement
 
-After you deploy enterprise policies to a device, you can confirm that VS Code is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
+After you deploy enterprise policies to a device, you can confirm that {% data variables.product.prodname_vscode_shortname %} is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
 
 The report includes the following sections:
 
-* **System Information**: VS Code product name, version, and commit, useful for matching the report to a specific build.
+* **System Information**: {% data variables.product.prodname_vscode_shortname %} product name, version, and commit, useful for matching the report to a specific build.
 * **Account Information**: details of the default account that is signed in, including the raw account-level policy data returned by the account provider.
 * **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
 * **Policy-Controlled Settings**: two tables that list the policy state for each registered setting:
@@ -323,11 +323,11 @@ The report includes the following sections:
 > [!TIP]
 > If the **Account Policy Gate** state is `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
 
-## VS Code enterprise policy reference
+## {% data variables.product.prodname_vscode_shortname %} enterprise policy reference
 
-The following table lists all available enterprise policies in VS Code.
+The following table lists all available enterprise policies in {% data variables.product.prodname_vscode_shortname %}.
 
 {$ Content $}
 
 > [!NOTE]
-> If you want to enact more policies, open an issue in the [VS Code GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting and policy should be created.
+> If you want to enact more policies, open an issue in the [{% data variables.product.prodname_vscode_shortname %} GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting and policy should be created.

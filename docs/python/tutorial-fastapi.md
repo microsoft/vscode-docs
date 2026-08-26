@@ -1,15 +1,15 @@
 ---
 ContentId: 0d32bced-91aa-5c2e-e569-6fc7995370ae
 DateApproved: 02/04/2026
-MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging support in Visual Studio Code, the best Python IDE.
+MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging support in {% data variables.product.prodname_vscode %}, the best Python IDE.
 ---
-# FastAPI Tutorial in Visual Studio Code
+# FastAPI Tutorial in {% data variables.product.prodname_vscode %}
 
 [FastAPI](https://fastapi.tiangolo.com/) is a modern high-performant web framework for building APIs with Python. It is designed to make it easy to build APIs quickly and efficiently while providing features like automatic validation, serialization, and documentation of your API, making it a popular choice for building web services and microservices.
 
-In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the Visual Studio Code terminal, editor, and debugger. This tutorial is not a FastAPI deep dive. For that, you can refer to the [official FastAPI documentation](https://fastapi.tiangolo.com/).
+In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the {% data variables.product.prodname_vscode %} terminal, editor, and debugger. This tutorial is not a FastAPI deep dive. For that, you can refer to the [official FastAPI documentation](https://fastapi.tiangolo.com/).
 
-If this is your first time using Python, we recommend you to start with our [Python tutorial](/docs/python/python-tutorial.md) to get familiar with the language and VS Code's Python support. This tutorial is more suited for those who are already familiar with Python and want to learn how to work with FastAPI in VS Code.
+If this is your first time using Python, we recommend you to start with our [Python tutorial](/docs/python/python-tutorial.md) to get familiar with the language and {% data variables.product.prodname_vscode_shortname %}'s Python support. This tutorial is more suited for those who are already familiar with Python and want to learn how to work with FastAPI in {% data variables.product.prodname_vscode_shortname %}.
 
 The completed code project from this FastAPI tutorial can be found on GitHub: [python-sample-vscode-fastapi-tutorial](https://github.com/microsoft/python-sample-vscode-fastapi-tutorial).
 
@@ -17,7 +17,7 @@ If you have any problems, you can search for answers or ask a question on the [P
 
 ## Set up the project
 
-There are different ways you can set up your project for this tutorial. We will cover how you can set it up in [GitHub Codespaces](#github-codespaces) and in [VS Code on your local machine](#locally-in-vs-code).
+There are different ways you can set up your project for this tutorial. We will cover how you can set it up in [GitHub Codespaces](#github-codespaces) and in [{% data variables.product.prodname_vscode_shortname %} on your local machine](#locally-in-vs-code).
 
 ### GitHub Codespaces
 
@@ -35,18 +35,18 @@ Then, select **Code** > **Codespaces** > **Create Codespace on \<dictionarybased
 
 Once you're done, you can continue with the [Replace the database](#replace-the-database) section below.
 
-### Locally in VS Code
+### Locally in {% data variables.product.prodname_vscode_shortname %}
 
-To successfully complete this tutorial in [VS Code](https://code.visualstudio.com/), you first need to set up your Python development environment. Specifically, this tutorial requires:
+To successfully complete this tutorial in [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/), you first need to set up your Python development environment. Specifically, this tutorial requires:
 
 * Python 3 (check the [installation guide](/docs/python/python-tutorial.md#install-a-python-interpreter) if you don't have it installed)
-* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md)).
+* [Python extension for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md)).
 
-In this section, we will create a folder to open as a workspace in VS Code, set up a Python virtual environment, and install the project's dependencies.
+In this section, we will create a folder to open as a workspace in {% data variables.product.prodname_vscode_shortname %}, set up a Python virtual environment, and install the project's dependencies.
 
 1. In your file system, create a project folder for this tutorial, such as `groceries-plugin`.
 
-2. Open this new folder in VS Code (**File** > **Open Folder…**).
+2. Open this new folder in {% data variables.product.prodname_vscode_shortname %} (**File** > **Open Folder…**).
 
 3. When the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editing/workspaces/workspace-trust.md).
 
@@ -54,7 +54,7 @@ Now, let's create a `requirements.txt` file that lists the dependencies we wish 
 
 We will install FastAPI for creating the app, [uvicorn](https://www.uvicorn.org) to work as the server, and [Redis](https://redis.io) and `type-redis` for handling data storage and interacting with a Redis database.
 
-4. Create a new file in VS Code (**File** > **New Text File** or `kb(workbench.action.files.newUntitledFile)`).
+4. Create a new file in {% data variables.product.prodname_vscode_shortname %} (**File** > **New Text File** or `kb(workbench.action.files.newUntitledFile)`).
 
 5. Add the following content to it:
 
@@ -83,7 +83,7 @@ We will install FastAPI for creating the app, [uvicorn](https://www.uvicorn.org)
 
     ![Check box selected to install dependencies from requirements.txt file](images/fastapi-tutorial/create_environment_select_requirements.png)
 
-The virtual environment will be created, the dependencies automatically installed, and the environment selected for your workspace to be used by the Python extension. You can confirm it's been selected by checking the bottom right corner of VS Code:
+The virtual environment will be created, the dependencies automatically installed, and the environment selected for your workspace to be used by the Python extension. You can confirm it's been selected by checking the bottom right corner of {% data variables.product.prodname_vscode_shortname %}:
 
 ![Environment in the Status bar](images/shared/environment-in-status-bar.png)
 
@@ -149,7 +149,7 @@ Let's create a model for our grocery list items. We will use the `ItemPayload` m
         quantity: int
     ```
 
-[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), the default language server for Python in VS Code, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. This is because Pylance is built on top of [Pyright](https://github.com/microsoft/pyright), a static type checker for Python that can detect type errors in your code to prevent bugs and improve code quality.
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), the default language server for Python in {% data variables.product.prodname_vscode_shortname %}, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. This is because Pylance is built on top of [Pyright](https://github.com/microsoft/pyright), a static type checker for Python that can detect type errors in your code to prevent bugs and improve code quality.
 
 The three steps below are optional, but given that FastAPI uses type hints extensively to improve code readability and validation, we can take advantage of Pylance's type checking features to catch errors early on:
 
@@ -217,7 +217,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     ![Inlay function return and variable type hints being displayed by Pylance throughout the sample code](images/fastapi-tutorial/pylance_inlay_hints.png)
 
-    Now let's check if this route is working as expected. The fastest way to do so is to use both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
+    Now let's check if this route is working as expected. The fastest way to do so is to use both {% data variables.product.prodname_vscode_shortname %}'s debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
 4. Add a breakpoint next to the `if quantity <= 0` statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). The debugger will stop prior to the execution of that line, so you can inspect the code line by line.
 
@@ -239,7 +239,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     ![Execute button displayed below the /items route](images/fastapi-tutorial/fastapi_execute_button.png)
 
-9. Open VS Code again and notice the debugger has stopped at the breakpoint you set earlier.
+9. Open {% data variables.product.prodname_vscode_shortname %} again and notice the debugger has stopped at the breakpoint you set earlier.
 
     ![Debugger stopped at the breakpoint set in the add_item function](images/fastapi-tutorial/fastapi_breakpoint_hit.png)
 
@@ -247,7 +247,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     ![Variables window displayed in the Run and Debug view, with the item and grocery_list variables highlighted](images/fastapi-tutorial/fastapi_debugger_variables.png)
 
-    Now let's use VS Code's Debug Console to do some exploration.
+    Now let's use {% data variables.product.prodname_vscode_shortname %}'s Debug Console to do some exploration.
 
 10. Select the `quantity <= 0` statement, right-click on the editor and select **Evaluate in Debug Console**:
 
@@ -255,7 +255,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     This opens the Debug Console and runs the selected expression. As expected in our example, the expression evaluates to `False`.
 
-    The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of a breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. You can learn more about Python debugging in VS Code in the [Python tutorial](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+    The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of a breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. You can learn more about Python debugging in {% data variables.product.prodname_vscode_shortname %} in the [Python tutorial](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
     You can now continue the execution of the code by selecting **Continue** in the Debug view tool bar, or by pressing `kb(workbench.action.debug.continue)`.
 
@@ -358,7 +358,7 @@ Otherwise, if you are on a Linux or a macOS machine, you can install Redis by fo
 
 ### Setting up a Docker Container on Windows
 
-The VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension offers a streamlined approach to consolidate your project, its dependencies, and all necessary tools into one tidy container, creating a full-featured development environment. The extension lets you open your project inside (or mounted into) the container in VS Code, where you'll have its full feature set.
+The {% data variables.product.prodname_vscode_shortname %} [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension offers a streamlined approach to consolidate your project, its dependencies, and all necessary tools into one tidy container, creating a full-featured development environment. The extension lets you open your project inside (or mounted into) the container in {% data variables.product.prodname_vscode_shortname %}, where you'll have its full feature set.
 
 For the steps below, make sure you have the following requirements installed on your machine:
 
@@ -383,7 +383,7 @@ For the steps below, make sure you have the following requirements installed on 
 
     ![Redis Server option selected in the Dev Containers configuration files list](images/fastapi-tutorial/devcontainers_redis_server_feature.png)
 
-    This creates a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup includes steps such as installing the VS Code extensions we need as well as the project dependencies.
+    This creates a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup includes steps such as installing the {% data variables.product.prodname_vscode_shortname %} extensions we need as well as the project dependencies.
 
 5. Open the `devcontainer.json` file.
 
@@ -399,7 +399,7 @@ For the steps below, make sure you have the following requirements installed on 
 
     You can learn about `postCreateCommand` and more lifecycle scripts in the [Development Containers Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-    Now we will use the `customizations` property to add the VS Code extensions we want installed in the container.
+    Now we will use the `customizations` property to add the {% data variables.product.prodname_vscode_shortname %} extensions we want installed in the container.
 
 8. Add the following setting to `devcontainer.json`:
 
@@ -428,9 +428,9 @@ For the steps below, make sure you have the following requirements installed on 
 
 Once it's done, you will have a fully configured Linux-based workspace with Python 3 and Redis Server installed.
 
-Once the container is set up, you will notice an indicator on the bottom left corner of VS Code:
+Once the container is set up, you will notice an indicator on the bottom left corner of {% data variables.product.prodname_vscode_shortname %}:
 
-![Dev Containers indicator displayed on the bottom left corner of VS Code](images/fastapi-tutorial/devcontainer_indicator.png)
+![Dev Containers indicator displayed on the bottom left corner of {% data variables.product.prodname_vscode_shortname %}](images/fastapi-tutorial/devcontainer_indicator.png)
 
 >**Note**: Double check that the Python and Pylance extensions have been successfully installed in the container by opening the Extensions view (`kb(workbench.view.extensions)`) and searching for them. If not, you can install them by running **Install in Dev Container**.
 
@@ -711,7 +711,7 @@ redis_client.flushdb()
 
 ```
 
-Then when you want to reset the database, you can open the `flushdb.py` file in VS Code and select the **Run** button on the top-right corner of the editor, or run the **Python: Run Python File in Terminal** command from the Command Palette.
+Then when you want to reset the database, you can open the `flushdb.py` file in {% data variables.product.prodname_vscode_shortname %} and select the **Run** button on the top-right corner of the editor, or run the **Python: Run Python File in Terminal** command from the Command Palette.
 
 Note that this should be done with caution because it will delete all the keys in the current database, which could lead to data loss if done in production.
 
@@ -719,13 +719,13 @@ Note that this should be done with caution because it will delete all the keys i
 
 With GitHub Codespaces, you can host your application for testing purposes when using [GPT Actions](https://platform.openai.com/docs/actions/introduction). GPT Actions are tools that enable [ChatGPT](https://chatgpt.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. You can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a GPT Action with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a GPT Action with {% data variables.product.prodname_vscode_shortname %} and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 >**Note**: All personal GitHub.com accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan. For more information, go to [About billing for GitHub Codespaces](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 ## Next Steps
 
-Thank you for following along this tutorial! We hope you learned something new about FastAPI and how to use it with VS Code.
+Thank you for following along this tutorial! We hope you learned something new about FastAPI and how to use it with {% data variables.product.prodname_vscode_shortname %}.
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-fastapi-tutorial](https://github.com/microsoft/python-sample-vscode-fastapi-tutorial).
 
@@ -733,7 +733,7 @@ Learn more about FastAPI at the [official documentation](https://fastapi.tiangol
 
 To try the app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01).
 
-You can also review these other VS Code Python articles:
+You can also review these other {% data variables.product.prodname_vscode_shortname %} Python articles:
 
 * [Editing Python code](/docs/python/editing.md)
 * [Managing Python environments](/docs/python/environments.md)

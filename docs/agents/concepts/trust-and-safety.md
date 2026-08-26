@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn about AI safety controls in {% data variables.product.prodname_vscode_shortname %}, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

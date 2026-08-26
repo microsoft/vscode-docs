@@ -11,7 +11,7 @@ Keywords:
 
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
-GitHub Copilot Chat can use the C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
+GitHub Copilot Chat can use the C++ tools built into {% data variables.product.prodname_vscode_shortname %} to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
 
 This guide covers the available tools and how to use them effectively with AI agents to accomplish tasks such as:
 
@@ -39,7 +39,7 @@ You can enable/disable any of these tools at any point by navigating to the `Too
 
 The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/docs/cpp/configure-intellisense.md) to take advantage of these tools.
 
-To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
+To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your {% data variables.product.prodname_vscode_shortname %} user settings.
 
 ![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-devtools/cpp-code-editing-tools-setting.png)
 
@@ -64,7 +64,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 ![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/cpp-devtools/get-symbol-references-example.png)
 
 > [!NOTE]
-> You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in VS Code.
+> You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in {% data variables.product.prodname_vscode_shortname %}.
 >
 > ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/cpp-devtools/get-symbol-references-setting.png)
 

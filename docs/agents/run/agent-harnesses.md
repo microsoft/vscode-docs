@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/19/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, choose where sessions run, configure code isolation, and hand off work between providers.
+DateApproved: 8/26/2026
+MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure code isolation, use provider capabilities, and hand off work between providers.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -125,6 +125,32 @@ Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode]
 ### Provider-specific capabilities
 
 * **Slash commands**: enter `/` in the chat input to view the slash commands available in a Copilot session. For example, use `/compact` to reduce conversation context or `/yolo` and `/autoApprove` to control [automatic tool approval](/docs/agents/run/approvals.md#frequently-asked-questions).
+
+#### Get a second opinion with Rubber Duck
+
+<div class="docs-feature-status" data-feature="rubber-duck"></div>
+
+Rubber Duck is a built-in, read-only critic that gives Copilot a second opinion on its plans, code, and tests. It uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+
+For non-trivial work, Copilot might consult Rubber Duck automatically at key points, such as:
+
+* After creating a plan, before implementation.
+* During a complex implementation.
+* After writing tests.
+* After repeated failures or unexpected results.
+
+For smaller tasks, Copilot typically skips this review. To request a review at any time, ask Copilot in natural language:
+
+```prompt
+Get a second opinion on the changes you made so far.
+```
+
+You can also enter `/rubber-duck <question>` in the chat input. For example, enter `/rubber-duck What edge cases are missing?`.
+
+> [!NOTE]
+> Rubber Duck is available only when the main session uses a Claude or GPT model and a suitable complementary model is available. The additional model pass adds latency and model usage.
+
+Learn more about the [Rubber Duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in the GitHub documentation.
 
 <a name="remote-control-copilot-sessions"></a>
 

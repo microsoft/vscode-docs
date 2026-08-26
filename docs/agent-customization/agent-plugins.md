@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including plugins that follow the open Agent Plugins standard.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -391,7 +391,7 @@ You can enable or disable a plugin globally or for a specific workspace:
 
 * Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
 
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) to toggle a plugin's enabled state.
+* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle a plugin's enabled state.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 

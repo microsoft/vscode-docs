@@ -1,14 +1,14 @@
 ---
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 DateApproved: 8/19/2026
-MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
+MetaDescription: The {% data variables.product.prodname_vscode %} editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes-node-social.png
 ---
-# Node.js tutorial in Visual Studio Code
+# Node.js tutorial in {% data variables.product.prodname_vscode %}
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [npm](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
-Visual Studio Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
+{% data variables.product.prodname_vscode %} has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
 To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command-line tools to be on your PATH.
 
@@ -16,13 +16,13 @@ To test that you have Node.js installed correctly on your computer, open a new t
 
 >**Linux**: There are specific Node.js packages available for the various flavors of Linux. See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your version of Linux.
 
->**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Node.js development. You can run Linux distributions on Windows and install Node.js into the Linux environment. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Node.js development. You can run Linux distributions on Windows and install Node.js into the Linux environment. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full {% data variables.product.prodname_vscode_shortname %} editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Hello World
 
 Let's get started by creating the simplest Node.js application, "Hello World".
 
-Create an empty folder called "hello", navigate into and open VS Code:
+Create an empty folder called "hello", navigate into and open {% data variables.product.prodname_vscode_shortname %}:
 
 ```bash
 mkdir hello
@@ -30,7 +30,7 @@ cd hello
 code .
 ```
 
->**Tip:** You can open files or folders directly from the command line.  The period '.' refers to the current folder, therefore VS Code will start and open the `Hello` folder.
+>**Tip:** You can open files or folders directly from the command line.  The period '.' refers to the current folder, therefore {% data variables.product.prodname_vscode_shortname %} will start and open the `Hello` folder.
 
 From the File Explorer toolbar, press the New File button:
 
@@ -40,7 +40,7 @@ and name the file `app.js`:
 
 ![File Explorer app.js](images/nodejs/app-js-file-created.png)
 
-By using the `.js` file extension, VS Code interprets this file as JavaScript and will evaluate the contents with the JavaScript language service. Refer to the VS Code [JavaScript language](/docs/languages/javascript.md) topic to learn more about JavaScript support.
+By using the `.js` file extension, {% data variables.product.prodname_vscode_shortname %} interprets this file as JavaScript and will evaluate the contents with the JavaScript language service. Refer to the {% data variables.product.prodname_vscode_shortname %} [JavaScript language](/docs/languages/javascript.md) topic to learn more about JavaScript support.
 
 Create a simple string variable in `app.js` and send the contents of the string to the console:
 
@@ -53,7 +53,7 @@ Note that when you typed `console.` [IntelliSense](/docs/editing/intellisense.md
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 
-Also notice that VS Code knows that `msg` is a string based on the initialization to `'Hello World'`.  If you type `msg.` you'll see IntelliSense showing all of the string functions available on `msg`.
+Also notice that {% data variables.product.prodname_vscode_shortname %} knows that `msg` is a string based on the initialization to `'Hello World'`.  If you type `msg.` you'll see IntelliSense showing all of the string functions available on `msg`.
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
@@ -71,17 +71,17 @@ You should see "Hello World" output to the terminal and then Node.js returns.
 
 ### Integrated Terminal
 
-VS Code has an [integrated terminal](/docs/terminal/basics.md) which you can use to run shell commands. You can run Node.js directly from there and avoid switching out of VS Code while running command-line tools.
+{% data variables.product.prodname_vscode_shortname %} has an [integrated terminal](/docs/terminal/basics.md) which you can use to run shell commands. You can run Node.js directly from there and avoid switching out of {% data variables.product.prodname_vscode_shortname %} while running command-line tools.
 
 **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character) will open the integrated terminal and you can run `node app.js` there:
 
 ![integrated terminal](images/nodejs/integrated-terminal.png)
 
-For this walkthrough, you can use either an external terminal or the VS Code integrated terminal for running the command-line tools.
+For this walkthrough, you can use either an external terminal or the {% data variables.product.prodname_vscode_shortname %} integrated terminal for running the command-line tools.
 
 ### Debugging Hello World
 
-As mentioned in the introduction, VS Code ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
+As mentioned in the introduction, {% data variables.product.prodname_vscode_shortname %} ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
 
 To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
@@ -91,11 +91,11 @@ To start debugging, select the **Run and Debug** view in the Activity Bar:
 
 ![Run icon](images/nodejs/debugicon.png)
 
-You can now click Debug toolbar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
+You can now click Debug toolbar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that {% data variables.product.prodname_vscode_shortname %} displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
-Now that you've seen VS Code in action with "Hello World", the next section shows using VS Code with a full-stack Node.js web app.
+Now that you've seen {% data variables.product.prodname_vscode_shortname %} in action with "Hello World", the next section shows using {% data variables.product.prodname_vscode_shortname %} with a full-stack Node.js web app.
 
 >**Note:** We're done with the "Hello World" example so navigate out of that folder before you create an Express app. You can delete the "Hello" folder if you want as it is not required for the rest of the walkthrough.
 
@@ -144,21 +144,21 @@ The Node.js web server will start and you can browse to [http://localhost:3000](
 
 Close the browser and from a terminal in the `myExpressApp` folder, stop the Node.js server by pressing `kbstyle(CTRL+C)`.
 
-Now launch VS Code:
+Now launch {% data variables.product.prodname_vscode_shortname %}:
 
 ```bash
 code .
 ```
 
->**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder** command.
+>**Note:** If you've been using the {% data variables.product.prodname_vscode_shortname %} integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running {% data variables.product.prodname_vscode_shortname %} instance with the **File** > **Open Folder** command.
 
-The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive in developing these types of applications by providing great code editing and navigation experiences.
+The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. {% data variables.product.prodname_vscode %} will make you more productive in developing these types of applications by providing great code editing and navigation experiences.
 
-Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands that `__dirname` is a string. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how {% data variables.product.prodname_vscode_shortname %} understands that `__dirname` is a string. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in {% data variables.product.prodname_vscode %}.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
-VS Code uses TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Type Acquisition`, you do not have to worry about downloading these type declaration files, VS Code will install them automatically for you.
+{% data variables.product.prodname_vscode_shortname %} uses TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata to {% data variables.product.prodname_vscode_shortname %} about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing {% data variables.product.prodname_vscode_shortname %} to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Type Acquisition`, you do not have to worry about downloading these type declaration files, {% data variables.product.prodname_vscode_shortname %} will install them automatically for you.
 
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `index`, you can see the shape of the `Router` class.
 
@@ -166,7 +166,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debug your Express app
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on **Run and Debug** in the **Activity Bar** (`kb(workbench.view.debug)`) and then select the **create a launch.json file** link to create a default `launch.json` file.  Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on **Run and Debug** in the **Activity Bar** (`kb(workbench.view.debug)`) and then select the **create a launch.json file** link to create a default `launch.json` file.  Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`.  When the file is first created, {% data variables.product.prodname_vscode_shortname %} will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
 
 ```json
 {
@@ -182,7 +182,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
 }
 ```
 
-Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the **Run and Debug** view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the **Run and Debug** view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. {% data variables.product.prodname_vscode_shortname %} will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 
@@ -194,12 +194,12 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 ## Next steps
 
-There is much more to explore with Visual Studio Code, please try the following topics:
+There is much more to explore with {% data variables.product.prodname_vscode %}, please try the following topics:
 
 * [Node.js profile template](/docs/configure/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
-* [Settings](/docs/configure/settings.md) - Learn how to customize VS Code for how you like to work.
-* [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
-* [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn how to use debugging in VS Code.
-* [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
+* [Settings](/docs/configure/settings.md) - Learn how to customize {% data variables.product.prodname_vscode_shortname %} for how you like to work.
+* [Debugging](/docs/debugtest/debugging.md) - This is where {% data variables.product.prodname_vscode_shortname %} really shines.
+* [Video: Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn how to use debugging in {% data variables.product.prodname_vscode_shortname %}.
+* [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about {% data variables.product.prodname_vscode_shortname %}'s built-in Node.js debugging.
 * [Debugging recipes](/docs/nodejs/debugging-recipes.md) - Examples for scenarios like client-side and container debugging.
 * [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.

@@ -1,15 +1,15 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 DateApproved: 02/04/2026
-MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
+MetaDescription: {% data variables.product.prodname_vscode %} user accessibility features.  Learn here about the various ways {% data variables.product.prodname_vscode_shortname %} aids user accessibility.
 ---
 # Accessibility
 
-Visual Studio Code has many features to help make the editor accessible to all users. Zoom levels and High Contrast colors improve editor visibility, keyboard-only navigation supports use without a mouse, and the editor is optimized for screen readers.
+{% data variables.product.prodname_vscode %} has many features to help make the editor accessible to all users. Zoom levels and High Contrast colors improve editor visibility, keyboard-only navigation supports use without a mouse, and the editor is optimized for screen readers.
 
 ## Zoom
 
-You can adjust the zoom level in VS Code with the **View** > **Appearance** > **Zoom** commands.  Each **Zoom** command increases or decreases the zoom level by 20 percent.
+You can adjust the zoom level in {% data variables.product.prodname_vscode_shortname %} with the **View** > **Appearance** > **Zoom** commands.  Each **Zoom** command increases or decreases the zoom level by 20 percent.
 
 * **View** > **Appearance** > **Zoom In** (`kb(workbench.action.zoomIn)`) - increase the zoom level.
 * **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the zoom level.
@@ -33,7 +33,7 @@ You can dismiss the accessibility help menu or open additional documentation fro
 
 ## High Contrast theme
 
-VS Code supports a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+{% data variables.product.prodname_vscode_shortname %} supports a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
@@ -41,7 +41,7 @@ VS Code supports a High Contrast color theme on all platforms.  Use **File** > *
 
 You can search for extensions in **Visual Studio Marketplace** that are compatible with color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "color blind" to populate relevant options.
 
-![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
+![Visual Studio Marketplace in {% data variables.product.prodname_vscode_shortname %} UI](images/accessibility/accessibility-extension-marketplace.png)
 
 Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/configure/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
@@ -57,9 +57,9 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 ## Customizing warning colors
 
-The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
+The default Color Theme for {% data variables.product.prodname_vscode_shortname %} is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Go to [Customizing a Color Theme](/docs/configure/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
+>**Note**: Go to [Customize a Color Theme](/docs/configure/themes.md#customize-a-color-theme) for more information about overriding the colors in your current theme.
 
 To customize the error and warning squiggles, go to **File** > **Preferences** > **Settings** for user settings. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 
@@ -108,13 +108,13 @@ Unfocused views can be dimmed to make it clearer where typed input will go. This
 
 ## Keyboard navigation
 
-VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can use VS Code without a mouse. Press `kb(workbench.action.showCommands)`, then type a command name (for example 'git') to filter the list of commands.
+{% data variables.product.prodname_vscode_shortname %} provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can use {% data variables.product.prodname_vscode_shortname %} without a mouse. Press `kb(workbench.action.showCommands)`, then type a command name (for example 'git') to filter the list of commands.
 
-VS Code also has many preset keyboard shortcuts for commands.
+{% data variables.product.prodname_vscode_shortname %} also has many preset keyboard shortcuts for commands.
 
 ![Key bindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify keyboard shortcuts for VS Code actions. See [Key Bindings](/docs/configure/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify keyboard shortcuts for {% data variables.product.prodname_vscode_shortname %} actions. See [Key Bindings](/docs/configure/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
 For quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
 
@@ -124,7 +124,7 @@ To make it easier to start and end selections with the keyboard, there are four 
 
 ## Tab navigation
 
-You can use the `kbstyle(Tab)` key to navigate between UI controls in VS Code. Use `kbstyle(Shift+Tab)` to tab in reverse order. As you tab through the UI controls, an indicator will appear around each UI element when it has focus.
+You can use the `kbstyle(Tab)` key to navigate between UI controls in {% data variables.product.prodname_vscode_shortname %}. Use `kbstyle(Shift+Tab)` to tab in reverse order. As you tab through the UI controls, an indicator will appear around each UI element when it has focus.
 
 All elements in the workbench support tab navigation. To avoid having too many tab stops, workbench toolbars and tab lists each have only one. Once a toolbar or a tab list has focus, you can use the arrow keys to navigate within them.
 
@@ -144,7 +144,7 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 ## Screen readers
 
-VS Code supports screen readers in the editor using a strategy based on text pagination. The following screen readers have been tested:
+{% data variables.product.prodname_vscode_shortname %} supports screen readers in the editor using a strategy based on text pagination. The following screen readers have been tested:
 
 * Windows: [NVDA](https://www.nvaccess.org) and [JAWS](https://www.freedomscientific.com/products/software/jaws)
 * macOS: [VoiceOver](https://support.apple.com/guide/voiceover/welcome/mac)
@@ -160,11 +160,11 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Screen reader mode
 
-When VS Code detects that a screen reader is being used, it goes into an optimized screen reader mode for UI such as the editor and Integrated Terminal. The Status bar will display **Screen Reader Optimized** in the lower right. You can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
+When {% data variables.product.prodname_vscode_shortname %} detects that a screen reader is being used, it goes into an optimized screen reader mode for UI such as the editor and Integrated Terminal. The Status bar will display **Screen Reader Optimized** in the lower right. You can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
 
 ![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 
-Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`setting(editor.accessibilitySupport)`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
+Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether {% data variables.product.prodname_vscode_shortname %} uses screen reader mode with the **Editor: Accessibility Support** setting (`setting(editor.accessibilitySupport)`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
 
 ## Resize table columns via the keyboard
 
@@ -210,7 +210,7 @@ There is an Accessible Diff Viewer in the Diff editor that presents changes in a
 
 ## Debugger accessibility
 
-The VS Code debugger UI is user accessible and has the following features:
+The {% data variables.product.prodname_vscode_shortname %} debugger UI is user accessible and has the following features:
 
 * Debug state changes are read out (for example, 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
@@ -235,7 +235,7 @@ Some hovers cannot be hovered normally, which makes them hard to use with screen
 
 ## Current known issues
 
-VS Code has some known accessibility issues, depending on the platform. For the full list, go to [VS Code accessibility issues](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility).
+{% data variables.product.prodname_vscode_shortname %} has some known accessibility issues, depending on the platform. For the full list, go to [{% data variables.product.prodname_vscode_shortname %} accessibility issues](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility).
 
 ### macOS
 
@@ -243,18 +243,18 @@ The editor includes screen reader support for VoiceOver.
 
 ### Linux
 
-VS Code works well with the Orca screen reader. If Orca in your Linux distribution does not read the editor content:
+{% data variables.product.prodname_vscode_shortname %} works well with the Orca screen reader. If Orca in your Linux distribution does not read the editor content:
 
-* Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
+* Make sure to have the setting `"editor.accessibilitySupport": "on"` in {% data variables.product.prodname_vscode_shortname %}. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 
-After you enable that setting, VS Code should work with the Orca screen reader.
+After you enable that setting, {% data variables.product.prodname_vscode_shortname %} should work with the Orca screen reader.
 
 ## Next steps
 
 Read on to find out about:
 
-* [Voice interactions](/docs/configure/accessibility/voice.md) - Learn how to use voice commands in VS Code.
-* [Visual Studio Code User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Voice interactions](/docs/configure/accessibility/voice.md) - Learn how to use voice commands in {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

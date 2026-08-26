@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Review, revise, revert, and integrate AI-generated code changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

@@ -1,12 +1,12 @@
 ---
 ContentId: 17345073-cb40-448c-a312-28982900f132
 DateApproved: 1/9/2023
-MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
+MetaDescription: Working with Jupyter Notebooks in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Jupyter Notebooks in VS Code
+# Jupyter Notebooks in {% data variables.product.prodname_vscode_shortname %}
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively (through the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)), and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. {% data variables.product.prodname_vscode %} supports working with Jupyter Notebooks natively (through the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)), and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
 
 - Create, open, and save Jupyter Notebooks
 - Work with Jupyter code cells
@@ -14,23 +14,23 @@ MetaSocialImage: images/tutorial/python-social.png
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/suAkMeWJ1yE" title="Get started with Jupyter Notebooks in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/suAkMeWJ1yE" title="Get started with Jupyter Notebooks in {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Setting up your environment
 
-To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in {% data variables.product.prodname_vscode_shortname %}, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
 ### Environment variables
 
-Environment variables are loaded from a `.env` file. See [that section of the Python environments documentation](/docs/python/environments#environment-variable-definitions-file).
+Environment variables are loaded from a `.env` file. See [.env file support in the Python environments documentation](/docs/python/environments.md#env-file-support).
 
 ## Workspace Trust
 
 When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
 
-If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
+If you attempt to open a notebook when {% data variables.product.prodname_vscode_shortname %} is in an untrusted workspace running [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
 
 ## Create or open a Jupyter Notebook
 
@@ -46,7 +46,7 @@ After selecting a kernel, the language picker located in the bottom right of eac
 
 ![Language Picker](images/jupyter/native-language-picker-01.png)
 
-If you have an existing Jupyter Notebook, you can open it by right-clicking on the file and opening with VS Code, or through the VS Code File Explorer.
+If you have an existing Jupyter Notebook, you can open it by right-clicking on the file and opening with {% data variables.product.prodname_vscode_shortname %}, or through the {% data variables.product.prodname_vscode_shortname %} File Explorer.
 
 ## Running cells
 
@@ -257,7 +257,7 @@ You can even customize what types of changes you want displayed within your diff
 
 ![Custom notebook diffing](images/jupyter/notebook-diffing.png)
 
-To learn more about Git integration within VS Code, visit [Source Control in VS Code](/docs/sourcecontrol/overview.md).
+To learn more about Git integration within {% data variables.product.prodname_vscode_shortname %}, visit [Source Control in {% data variables.product.prodname_vscode_shortname %}](/docs/sourcecontrol/overview.md).
 
 ## Debug a Jupyter Notebook
 
@@ -267,7 +267,7 @@ There are two different ways to debug a Jupyter notebook: a simpler mode called 
 
 ### Run by Line
 
-Run by Line lets you execute a cell one line at a time, without being distracted by other VS Code debug features. To start, select the **Run by Line** button in the cell toolbar:
+Run by Line lets you execute a cell one line at a time, without being distracted by other {% data variables.product.prodname_vscode_shortname %} debug features. To start, select the **Run by Line** button in the cell toolbar:
 
 ![Run by line button](images/jupyter/run-by-line.png)
 
@@ -275,11 +275,11 @@ Use the same button to advance by one statement. You can select the cell **Stop*
 
 ### Debug Cell
 
-If you want to use the full set of debugging features supported in VS Code, such as breakpoints and the ability to step in to other cells and modules, you can use the full VS Code debugger.
+If you want to use the full set of debugging features supported in {% data variables.product.prodname_vscode_shortname %}, such as breakpoints and the ability to step in to other cells and modules, you can use the full {% data variables.product.prodname_vscode_shortname %} debugger.
 
 1. Start by setting any breakpoints you need by clicking in the left margin of a notebook cell.
 2. Then select the **Debug Cell** button in the menu next to the **Run** button. This will run the cell in a debug session, and will pause on your breakpoints in any code that runs, even if it is in a different cell or a `.py` file.
-3. You can use the Debug view, Debug Console, and all the buttons in the Debug Toolbar as you normally would in VS Code.
+3. You can use the Debug view, Debug Console, and all the buttons in the Debug Toolbar as you normally would in {% data variables.product.prodname_vscode_shortname %}.
 
 Note that debugging cells in a jupyter notebook does not use any of the debug configurations in launch.json.  It can be customized instead via settings such as `jupyter.debugJustMyCode`.
 
@@ -316,7 +316,7 @@ To connect to a remote Jupyter server:
 
    ![Choose to connect to an existing server](images/jupyter/select-enter-server-url.png)
 
-4. When prompted to **Enter the URL of the running Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+4. When prompted to **Enter the URL of the running Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the {% data variables.product.prodname_vscode_shortname %} terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 

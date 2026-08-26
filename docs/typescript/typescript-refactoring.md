@@ -1,13 +1,13 @@
 ---
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
 DateApproved: 8/19/2026
-MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
+MetaDescription: Learn about TypeScript refactorings supported by {% data variables.product.prodname_vscode %}.
 ---
 # Refactoring TypeScript
 
-[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (refactorings) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your code base from within your editor.
+[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. {% data variables.product.prodname_vscode %} supports refactoring operations (refactorings) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your code base from within your editor.
 
-Visual Studio Code has built-in support for TypeScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service and in this topic we'll demonstrate refactoring support with the TypeScript language service.
+{% data variables.product.prodname_vscode %} has built-in support for TypeScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
 ## Rename
 
@@ -70,7 +70,7 @@ Quick Fixes are suggested edits that address simple coding errors. Example Quick
 * Removing unreachable code or unused imports
 * Declaring
 
-When you move your cursor on to a TypeScript error, VS Code shows a light bulb that indicates that Quick Fixes are available. Click the light bulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
+When you move your cursor on to a TypeScript error, {% data variables.product.prodname_vscode_shortname %} shows a light bulb that indicates that Quick Fixes are available. Click the light bulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
 
 Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
@@ -115,7 +115,7 @@ Organize imports can also be done automatically when you save a TypeScript file 
 
 ## Update imports on file move
 
-When you move or rename a file that is imported by other files in your TypeScript project, VS Code can automatically update all import paths that reference the moved file.
+When you move or rename a file that is imported by other files in your TypeScript project, {% data variables.product.prodname_vscode_shortname %} can automatically update all import paths that reference the moved file.
 
 The `js/ts.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
 
@@ -153,7 +153,7 @@ See [TypeScript](/docs/typescript/typescript-tutorial.md) for more information.
 
 ## Code suggestions
 
-VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
+{% data variables.product.prodname_vscode_shortname %} automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
 <video src="images/refactoring/code-suggestions-convert-async.mp4" placeholder="images/refactoring/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -165,5 +165,5 @@ Set `"js/ts.suggestionActions.enabled"` to `false` to disable suggestions.
 
 Read on to find out about:
 
-* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Learn about VS Code editing features for TypeScript.
+* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Learn about {% data variables.product.prodname_vscode_shortname %} editing features for TypeScript.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.

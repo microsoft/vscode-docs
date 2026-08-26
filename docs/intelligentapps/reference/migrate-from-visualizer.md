@@ -38,7 +38,7 @@ Agent Inspector offers the following improvements over Local Agent Playground an
 
 | Before (old tools) | After (Agent Inspector) |
 |--------------------|-------------------------|
-| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press `kbstyle(F5)` in VS Code |
+| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press `kbstyle(F5)` in {% data variables.product.prodname_vscode_shortname %} |
 | Enter endpoint URL manually in Local Agent Playground | Automatic, configured in launch.json |
 | View traces in a separate Visualizer tab | View traces in Inspector alongside chat |
 | No debugging | Full breakpoint and step-through debugging |
@@ -54,7 +54,7 @@ If your project uses the **Local Visualizer** (via the Microsoft Foundry extensi
 Before you start, make sure you have:
 
 - **Python 3.10+** installed
-- **VS Code Foundry Toolkit extension** installed (Agent Inspector is part of this extension). For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- **{% data variables.product.prodname_vscode_shortname %} Foundry Toolkit extension** installed (Agent Inspector is part of this extension). For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 - Your agent built with the [Agent Framework SDK (`agent-framework` package)](https://github.com/microsoft/agent-framework).
 
 ### Step 1: Update your observability code
@@ -68,13 +68,13 @@ from agent_framework.observability import setup_observability
 setup_observability(vs_code_extension_port=4319)
 ```
 
-### Step 2: Add VS Code debug configuration
+### Step 2: Add {% data variables.product.prodname_vscode_shortname %} debug configuration
 
 Use GitHub Copilot to generate the debug files, or add them manually:
 
 #### Option A: Let GitHub Copilot configure it (recommended)
 
-1. Open GitHub Copilot in VS Code.
+1. Open GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}.
 2. Select **AIAgentExpert** from Agent Mode.
 3. Enter this prompt:
    ```
@@ -179,6 +179,6 @@ For additional questions or issues, visit the [Foundry Toolkit GitHub repository
 In this article, you learned how to:
 
 - Migrate from Local Agent Playground and Local Visualizer to Agent Inspector.
-- Update your agent code and VS Code configuration for the new debugging experience.
+- Update your agent code and {% data variables.product.prodname_vscode_shortname %} configuration for the new debugging experience.
 - Use the new capabilities of Agent Inspector to improve your agent development workflow.
 - Troubleshoot common issues during migration and setup.

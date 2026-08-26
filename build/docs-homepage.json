@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.134 release",
-      "description": "Arrange related chats side by side, navigate long conversations, and preview HTML files in the integrated browser.",
-      "link": "/updates/v1_134",
-      "image": "/assets/updates/1_134/release-highlights.webp"
+      "title": "VS Code 1.135 release",
+      "description": "Continue Copilot or Claude agent sessions from other applications, get a second opinion with Rubber Duck, and inspect detailed chat usage.",
+      "link": "/updates/v1_135",
+      "image": "/assets/updates/1_135/release-highlights.webp"
     },
     {
       "type": "documentation",

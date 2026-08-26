@@ -1,28 +1,28 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 8/19/2026
-MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to personalize {% data variables.product.prodname_vscode_shortname %} to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
-# Personalize VS Code
+# Personalize {% data variables.product.prodname_vscode_shortname %}
 
-VS Code is highly customizable. You can change the look of the editor with color and icon themes and assign the keyboard shortcuts you're most familiar with. Settings enable you to configure nearly every part of VS Code's editor, user interface, and functional behavior.
+{% data variables.product.prodname_vscode_shortname %} is highly customizable. You can change the look of the editor with color and icon themes and assign the keyboard shortcuts you're most familiar with. Settings enable you to configure nearly every part of {% data variables.product.prodname_vscode_shortname %}'s editor, user interface, and functional behavior.
 
 This article covers the following topics:
 
 * [Configure settings](#configure-settings)
 * [Change default keyboard shortcuts](#change-default-keyboard-shortcuts)
-* [Change the look of VS Code with themes](#change-the-look-of-vs-code-with-themes)
+* [Change the look of {% data variables.product.prodname_vscode_shortname %} with themes](#change-the-look-of-vs-code-with-themes)
 * [Change the display language](#change-the-display-language)
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
+Learn about the key features of {% data variables.product.prodname_vscode %} in our introduction video.
 
 * [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
@@ -30,15 +30,15 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Configure settings
 
-Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/configure/extensions/extensions.md#open-extension-settings).
+Almost every aspect of {% data variables.product.prodname_vscode_shortname %} can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/configure/extensions/extensions.md#open-extension-settings).
 
-The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, VS Code stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
+The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, {% data variables.product.prodname_vscode_shortname %} stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
 
 ![Screenshot that shows the Settings editor, with the settings filtered by 'wordwrap'.](images/personalize-vscode/settings-search.png)
 
-VS Code provides two types of settings. _User settings_ apply globally to any VS Code instance, while _workspace settings_ are stored with your project and apply only to that project. In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
+{% data variables.product.prodname_vscode_shortname %} provides two types of settings. _User settings_ apply globally to any {% data variables.product.prodname_vscode_shortname %} instance, while _workspace settings_ are stored with your project and apply only to that project. In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
 
-To modify a setting in VS Code with the Settings editor:
+To modify a setting in {% data variables.product.prodname_vscode_shortname %} with the Settings editor:
 
 1. Open the Settings editor via the **File** > **Preferences** > **Settings** menu or press `kb(workbench.action.openSettings)`.
 
@@ -51,67 +51,67 @@ To modify a setting in VS Code with the Settings editor:
 
 ## Welcome page
 
-By default, VS Code shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
+By default, {% data variables.product.prodname_vscode_shortname %} shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
 
-You can customize what VS Code shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page).
+You can customize what {% data variables.product.prodname_vscode_shortname %} shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page).
 
-Get more details about [configuring settings in VS Code](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
+Get more details about [configuring settings in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
 ## Change default keyboard shortcuts
 
-VS Code lets you perform most tasks directly from the keyboard. When you install VS Code, it comes with a set of [default keyboard shortcuts](/docs/reference/default-keybindings.md). Hover over a UI element in the VS Code interface to see its keyboard shortcut, if one's available. The Command Palette also shows the keyboard shortcut for commands that have a shortcut.
+{% data variables.product.prodname_vscode_shortname %} lets you perform most tasks directly from the keyboard. When you install {% data variables.product.prodname_vscode_shortname %}, it comes with a set of [default keyboard shortcuts](/docs/reference/default-keybindings.md). Hover over a UI element in the {% data variables.product.prodname_vscode_shortname %} interface to see its keyboard shortcut, if one's available. The Command Palette also shows the keyboard shortcut for commands that have a shortcut.
 
 You can customize these default shortcuts or add new ones for your favorite commands and actions by using the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`).
 
 ![Video that shows how to open the Keyboard Shortcuts editor, search for commands, and modify shortcuts.](images/personalize-vscode/keyboard-shortcuts.gif)
 
-To change a keyboard shortcut in VS Code with the Keyboard Shortcuts editor:
+To change a keyboard shortcut in {% data variables.product.prodname_vscode_shortname %} with the Keyboard Shortcuts editor:
 
 1. Select **File** > **Preferences** > **Keyboard Shortcuts** or use the `kb(workbench.action.openGlobalKeybindings)`shortcut to open the Keyboard Shortcuts editor.
 1. Select the pencil icon next to the command you want to change.
 1. Press the keys you want to assign as a shortcut for the command.
 
-A _keymap extension_ enables you to modify the VS Code shortcuts to match those of your preferred editor. Select the **Preferences: Keymaps** command from the Command Palette to see a list of keymap extensions.
+A _keymap extension_ enables you to modify the {% data variables.product.prodname_vscode_shortname %} shortcuts to match those of your preferred editor. Select the **Preferences: Keymaps** command from the Command Palette to see a list of keymap extensions.
 
-Get more details about [configuring keyboard shortcuts in VS Code](/docs/configure/keybindings.md), such as specifying keyboard rules or running multiple commands.
+Get more details about [configuring keyboard shortcuts in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/keybindings.md), such as specifying keyboard rules or running multiple commands.
 
-## Change the look of VS Code with themes
+## Change the look of {% data variables.product.prodname_vscode_shortname %} with themes
 
-Themes let you modify VS Code's appearance to match your preferences. VS Code comes with several built-in themes. You can install more themes from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+Themes let you modify {% data variables.product.prodname_vscode_shortname %}'s appearance to match your preferences. {% data variables.product.prodname_vscode_shortname %} comes with several built-in themes. You can install more themes from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
-_Color themes_ enable you to modify the colors in the Visual Studio Code user interface to match your preferences and work environment. A theme affects both the VS Code user interface elements and the editor highlighting colors. VS Code supports both light and dark color themes to suit different lighting environments and personal preferences.
+_Color themes_ enable you to modify the colors in the {% data variables.product.prodname_vscode %} user interface to match your preferences and work environment. A theme affects both the {% data variables.product.prodname_vscode_shortname %} user interface elements and the editor highlighting colors. {% data variables.product.prodname_vscode_shortname %} supports both light and dark color themes to suit different lighting environments and personal preferences.
 
 ![Video that shows how to preview color themes from the Command Palette.](images/personalize-vscode/themes_hero.gif)
 
-To change the color theme in VS Code:
+To change the color theme in {% data variables.product.prodname_vscode_shortname %}:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`).
 1. Type _color_, and then select **Preferences: Color Theme**.
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to preview color themes and use `kbstyle(Enter)` to select one.
 1. Optionally, select **Browse Additional Color Themes** to browse the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) for more color themes.
 
-There are more theming options available in VS Code, such as File Icon themes or creating your own themes. Get more details about [themes in VS Code](/docs/configure/themes.md).
+There are more theming options available in {% data variables.product.prodname_vscode_shortname %}, such as File Icon themes or creating your own themes. Get more details about [themes in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/themes.md).
 
 ## Change the display language
 
-Visual Studio Code ships by default with English as the display language. You can change the display language by installing a Language Pack extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
+{% data variables.product.prodname_vscode %} ships by default with English as the display language. You can change the display language by installing a Language Pack extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
 
-VS Code detects the operating system's UI language and prompts you to install the appropriate Language Pack, if available on the Marketplace.
+{% data variables.product.prodname_vscode_shortname %} detects the operating system's UI language and prompts you to install the appropriate Language Pack, if available on the Marketplace.
 
 To change the current display language:
 
 1. Open the Command Palette  (`kb(workbench.action.showCommands)`).
 1. Select the **Configure Display Language** command.
 1. Select your preferred language from the list.
-1. Restart VS Code when prompted.
+1. Restart {% data variables.product.prodname_vscode_shortname %} when prompted.
 
-Get more details about [changing the display language in VS Code](/docs/configure/locales.md).
+Get more details about [changing the display language in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/locales.md).
 
 ## Next steps
 
-After personalizing VS Code, you can:
+After personalizing {% data variables.product.prodname_vscode_shortname %}, you can:
 
-* [Explore key VS Code features with our Quickstart](/docs/editing/getting-started.md)
+* [Explore key {% data variables.product.prodname_vscode_shortname %} features with our Quickstart](/docs/editing/getting-started.md)
 * [Install extensions to add features for your programming language](/docs/configure/extensions/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/debugtest/debugging.md)

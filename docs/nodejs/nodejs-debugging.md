@@ -1,22 +1,22 @@
 ---
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 DateApproved: 8/19/2026
-MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
+MetaDescription: The {% data variables.product.prodname_vscode %} editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
-# Node.js debugging in VS Code
+# Node.js debugging in {% data variables.product.prodname_vscode_shortname %}
 
-The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript. Setting up a project for Node.js debugging is straightforward with VS Code providing appropriate launch configuration defaults and snippets.
+The {% data variables.product.prodname_vscode %} editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript. Setting up a project for Node.js debugging is straightforward with {% data variables.product.prodname_vscode_shortname %} providing appropriate launch configuration defaults and snippets.
 
-There are a few ways you can debug your Node.js programs in VS Code:
+There are a few ways you can debug your Node.js programs in {% data variables.product.prodname_vscode_shortname %}:
 
-* Use [auto attach](#auto-attach) to debug processes you run in VS Code's integrated terminal.
+* Use [auto attach](#auto-attach) to debug processes you run in {% data variables.product.prodname_vscode_shortname %}'s integrated terminal.
 * Use the [JavaScript debug terminal](#javascript-debug-terminal), similar to using the integrated terminal.
-* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code.
+* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of {% data variables.product.prodname_vscode_shortname %}.
 
 ## Auto Attach
 
-If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from VS Code's Integrated Terminal. To enable the feature, either use the **Toggle Auto Attach** command from the Command Palette (`kb(workbench.action.showCommands)`) or, if it's already activated, use the **Auto Attach** Status bar item.
+If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from {% data variables.product.prodname_vscode_shortname %}'s Integrated Terminal. To enable the feature, either use the **Toggle Auto Attach** command from the Command Palette (`kb(workbench.action.showCommands)`) or, if it's already activated, use the **Auto Attach** Status bar item.
 
 There are three modes for auto attach, which you can select in the resulting Quick Pick and via the **debug.javascript.autoAttachFilter** setting:
 
@@ -28,7 +28,7 @@ After enabling **Auto Attach**, you'll need to restart your terminal by clicking
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
-When auto attach is on, the `Auto Attach` item will appear in the status bar across the bottom of the VS Code window. Clicking it allows you to change the auto attach mode, or temporarily turn it off. Temporarily turning off auto attach is useful if you're running some one-off programs where you don't need debugging, but you don't want to disable the feature entirely.
+When auto attach is on, the `Auto Attach` item will appear in the status bar across the bottom of the {% data variables.product.prodname_vscode_shortname %} window. Clicking it allows you to change the auto attach mode, or temporarily turn it off. Temporarily turning off auto attach is useful if you're running some one-off programs where you don't need debugging, but you don't want to disable the feature entirely.
 
 ### Additional Configuration
 
@@ -46,7 +46,7 @@ You can apply [other properties normally found in launch.json](#launch-configura
 
 **Auto Attach Smart Patterns**
 
-In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/glob-patterns.md). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, {% data variables.product.prodname_vscode_shortname %} will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/glob-patterns.md). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
@@ -88,13 +88,13 @@ You can apply [other properties normally found in launch.json](#launch-configura
 
 ## Launch Configuration
 
-Launch configs are the traditional way to set up debugging in VS Code, and provide you the most configuration options for running complex applications.
+Launch configs are the traditional way to set up debugging in {% data variables.product.prodname_vscode_shortname %}, and provide you the most configuration options for running complex applications.
 
 In this section we'll go into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
 
-If you'd like to watch an introductory video, see [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg).
+If you'd like to watch an introductory video, see [Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}](https://www.youtube.com/watch?v=3HiLLByBWkg).
 
->**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
+>**Note**: If you are just getting started with {% data variables.product.prodname_vscode_shortname %}, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
 
 ## Launch configuration attributes
 
@@ -108,7 +108,7 @@ The following attributes are supported in launch configurations of type `launch`
 * `resolveSourceMapLocations` - an array of [glob patterns](/docs/editor/glob-patterns.md) for locations where source maps should be parsed. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `stopOnEntry` - break immediately when the program launches.
-* `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
+* `localRoot` - {% data variables.product.prodname_vscode_shortname %}'s root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `remoteRoot` - Node's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `smartStep`- try to automatically step over code that doesn't map to source files. See section [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
 * `skipFiles` - automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
@@ -150,7 +150,7 @@ The following snippets are available:
 * **Launch Program**: Launch a Node.js program in debug mode.
 * **Launch via npm**: Launch a Node.js program through an npm 'debug' script. You can use an npm debug script from your launch configuration if it has been defined in your package.json. The debug port used in the npm script must correspond to the port specified in the snippet.
 * **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet.
-* **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help VS Code map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
+* **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help {% data variables.product.prodname_vscode_shortname %} map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
 * **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration, you can even attach to a node or gulp process that was not started in debug mode.
 * **Nodemon Setup**: Use nodemon to relaunch a debug session automatically whenever the JavaScript source has changed. Make sure that you have nodemon installed globally. Note that terminating the debug session only terminates the program to debug, not nodemon itself. To terminate nodemon, press `kbstyle(Ctrl+C)` in the Integrated Terminal.
 * **Mocha Tests**: Debug mocha tests in a `test` folder of your project. Make sure that your project has 'mocha' installed in its `node_modules` folder.
@@ -160,7 +160,7 @@ The following snippets are available:
 
 ### Node console
 
-By default, Node.js debug sessions launch the target in the internal VS Code Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable either an external terminal or use the VS Code Integrated Terminal by setting the `console` attribute in your launch configuration to `externalTerminal` or `integratedTerminal` respectively. The default is `internalConsole`.
+By default, Node.js debug sessions launch the target in the internal {% data variables.product.prodname_vscode_shortname %} Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable either an external terminal or use the {% data variables.product.prodname_vscode_shortname %} Integrated Terminal by setting the `console` attribute in your launch configuration to `externalTerminal` or `integratedTerminal` respectively. The default is `internalConsole`.
 
 In an external terminal, you can configure which terminal program to use via the `terminal.external.windowsExec`, `terminal.external.osxExec`, and `terminal.external.linuxExec` settings.
 
@@ -226,7 +226,7 @@ If you omit the minor and patch version and have, for example, `"runtimeVersion"
 
 ### Load environment variables from external file
 
-The VS Code Node debugger supports loading environment variables from a file and passing them to the Node.js runtime. To use this feature, add an attribute `envFile` to your launch configuration and specify the absolute path to the file containing the environment variables:
+The {% data variables.product.prodname_vscode_shortname %} Node debugger supports loading environment variables from a file and passing them to the Node.js runtime. To use this feature, add an attribute `envFile` to your launch configuration and specify the absolute path to the file containing the environment variables:
 
 ```json
    //...
@@ -254,7 +254,7 @@ lines="foo\nbar"
 
 ## Attaching to Node.js
 
-If you want to attach the VS Code debugger to an external Node.js program, launch Node.js as follows:
+If you want to attach the {% data variables.product.prodname_vscode_shortname %} debugger to an external Node.js program, launch Node.js as follows:
 
 ```bash
 node --inspect program.js
@@ -281,7 +281,7 @@ The **Attach to Node Process** command from the Command Palette (`kb(workbench.a
 
 The individual processes listed in the picker show the debug port and process ID. Once you select your Node.js process in that list, the Node.js debugger will try to attach to it.
 
-In addition to Node.js processes, the picker also shows other programs that were launched with one of the various forms `--inspect` arguments. This makes it possible to attach to Electron's or VS Code's helper processes.
+In addition to Node.js processes, the picker also shows other programs that were launched with one of the various forms `--inspect` arguments. This makes it possible to attach to Electron's or {% data variables.product.prodname_vscode_shortname %}'s helper processes.
 
 ### Setting up an "Attach" configuration
 
@@ -342,7 +342,7 @@ On Windows, pressing **Stop** forcibly kills the debuggee and its child processe
 
 ## Source maps
 
-The JavaScript debugger of VS Code supports source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
+The JavaScript debugger of {% data variables.product.prodname_vscode_shortname %} supports source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
 
 The `sourceMaps` attribute that defaults to `true` controls the source map feature. The debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
@@ -374,7 +374,7 @@ Also, if you have additional compilation steps in webpack, such as using a TypeS
 
 ### Source Map Discovery
 
-By default, VS Code will search your entire workspace, excluding `node_modules`, for sourcemaps. In large workspaces, this search might be slow. You can configure the locations where VS Code will search for source maps by setting the `outFiles` attribute in your `launch.json`. For example, this configuration will only discover sourcemaps for `.js` files in the `bin` folder:
+By default, {% data variables.product.prodname_vscode_shortname %} will search your entire workspace, excluding `node_modules`, for sourcemaps. In large workspaces, this search might be slow. You can configure the locations where {% data variables.product.prodname_vscode_shortname %} will search for source maps by setting the `outFiles` attribute in your `launch.json`. For example, this configuration will only discover sourcemaps for `.js` files in the `bin` folder:
 
 ```json
 {
@@ -408,7 +408,7 @@ You can configure this behavior by setting the `resolveSourceMapLocations` optio
 
 ### Smart stepping
 
-With the `smartStep` attribute set to `true` in a launch configuration, VS Code will automatically skip 'uninteresting code' when stepping through code in the debugger. 'Uninteresting code' is code that is generated by a transpiling process but is not covered by a source map so it does not map back to the original source. This code gets in your way when stepping through source code in the debugger because it makes the debugger switch between the original source code and generated code that you are not interested in. `smartStep` will automatically step through code not covered by a source map until it reaches a location that is covered by a source map again.
+With the `smartStep` attribute set to `true` in a launch configuration, {% data variables.product.prodname_vscode_shortname %} will automatically skip 'uninteresting code' when stepping through code in the debugger. 'Uninteresting code' is code that is generated by a transpiling process but is not covered by a source map so it does not map back to the original source. This code gets in your way when stepping through source code in the debugger because it makes the debugger switch between the original source code and generated code that you are not interested in. `smartStep` will automatically step through code not covered by a source map until it reaches a location that is covered by a source map again.
 
 Smart stepping is especially useful for cases like async/await downcompilation in TypeScript, where the compiler injects helper code that is not covered by a source map.
 
@@ -429,7 +429,7 @@ Here are some things to try when your breakpoints turn gray:
 * While debugging, run the **Debug: Diagnose Breakpoint Problems** command. This command will bring up a tool that can provide hints to help you resolve any issues from the Command Palette (`kb(workbench.action.showCommands)`).
 * Did you build with source maps enabled? Make sure there are `.js.map` files, or inlined source maps in your `.js` files.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
-* Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
+* Have you opened the folder in {% data variables.product.prodname_vscode_shortname %} with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
 
@@ -452,9 +452,9 @@ Note that for browser debugging, the `webRoot` is used in place of the `workspac
 
 ## Remote debugging
 
-> **Note:** VS Code now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
+> **Note:** {% data variables.product.prodname_vscode_shortname %} now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
 
-If you are unable to use any of the Remote Development extensions to debug your Node.js program, below is a guide on how to debug a remote Node.js program from your local instance of VS Code.
+If you are unable to use any of the Remote Development extensions to debug your Node.js program, below is a guide on how to debug a remote Node.js program from your local instance of {% data variables.product.prodname_vscode_shortname %}.
 
 The Node.js debugger supports remote debugging where you attach to a process running on a different machine, or in a container. Specify a remote host via the `address` attribute. For example:
 
@@ -468,7 +468,7 @@ The Node.js debugger supports remote debugging where you attach to a process run
 }
 ```
 
-By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can set up a mapping between the remote and local locations. A `localRoot` and a `remoteRoot` attribute can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+By default, {% data variables.product.prodname_vscode_shortname %} will stream the debugged source from the remote Node.js folder to the local {% data variables.product.prodname_vscode_shortname %} and show it in a read-only editor. You can step through this code, but cannot modify it. If you want {% data variables.product.prodname_vscode_shortname %} to open the editable source from your workspace instead, you can set up a mapping between the remote and local locations. A `localRoot` and a `remoteRoot` attribute can be used to map paths between a local {% data variables.product.prodname_vscode_shortname %} project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local {% data variables.product.prodname_vscode_shortname %} path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
 ```json
 {
@@ -484,7 +484,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 ## Access Loaded Scripts
 
-If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the **Run and Debug** view:
+If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal {% data variables.product.prodname_vscode_shortname %} file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the **Run and Debug** view:
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
@@ -502,7 +502,7 @@ If you have started your program `server.js` via **nodemon** on the command line
 nodemon --inspect server.js
 ```
 
-you can attach the VS Code debugger to it with the following launch configuration:
+you can attach the {% data variables.product.prodname_vscode_shortname %} debugger to it with the following launch configuration:
 
 ```json
 {
@@ -514,7 +514,7 @@ you can attach the VS Code debugger to it with the following launch configuratio
 }
 ```
 
-Alternatively, you can start your program `server.js` via **nodemon** directly with a launch config and attach the VS Code debugger:
+Alternatively, you can start your program `server.js` via **nodemon** directly with a launch config and attach the {% data variables.product.prodname_vscode_shortname %} debugger:
 
 ```json
 {
@@ -530,7 +530,7 @@ Alternatively, you can start your program `server.js` via **nodemon** directly w
 
 >**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if you use the `integratedTerminal` as shown above).
 
->**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
+>**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, {% data variables.product.prodname_vscode_shortname %} will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
 ## Restart frame
 
@@ -583,11 +583,11 @@ Triggered breakpoints can be set by right-clicking on the glyph margin, selectin
 
 For performance reasons, Node.js parses the functions inside JavaScript files lazily on first access. As a consequence, breakpoints don't work in source code areas that haven't been seen (parsed) by Node.js.
 
-Since this behavior is not ideal for debugging, VS Code passes the `--nolazy` option to Node.js automatically. This prevents the delayed parsing and ensures that breakpoints can be validated before running the code (so they no longer "jump").
+Since this behavior is not ideal for debugging, {% data variables.product.prodname_vscode_shortname %} passes the `--nolazy` option to Node.js automatically. This prevents the delayed parsing and ensures that breakpoints can be validated before running the code (so they no longer "jump").
 
 Since the `--nolazy` option might increase the start-up time of the debug target significantly, you can easily opt out by passing a `--lazy` as a `runtimeArgs` attribute.
 
-When doing so, you will find that some of your breakpoints don't "stick" to the line requested but instead "jump" for the next possible line in already-parsed code. To avoid confusion, VS Code always shows breakpoints at the location where Node.js thinks the breakpoint is. In the **BREAKPOINTS** section, these breakpoints are shown with an arrow between requested and actual line number:
+When doing so, you will find that some of your breakpoints don't "stick" to the line requested but instead "jump" for the next possible line in already-parsed code. To avoid confusion, {% data variables.product.prodname_vscode_shortname %} always shows breakpoints at the location where Node.js thinks the breakpoint is. In the **BREAKPOINTS** section, these breakpoints are shown with an arrow between requested and actual line number:
 
 ![Breakpoints View](images/nodejs-debugging/breakpointsvalidation.png)
 
@@ -597,7 +597,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ## Skipping uninteresting code
 
-VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of [glob patterns](/docs/editor/glob-patterns.md) for script paths to skip.
+{% data variables.product.prodname_vscode_shortname %} Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of [glob patterns](/docs/editor/glob-patterns.md) for script paths to skip.
 
 For example, using:
 
@@ -657,7 +657,7 @@ The JavaScript debugger can debug code compiled into WebAssembly if it includes 
   1. `cargo build --target wasm32-unknown-unknown` to build your library.
   1. `wasm-bindgen --keep-debug --out-dir pkg ./target/wasm32-unknown-unknown/debug/<library-name>.wasm <extra-arguments>` to generate the WebAssembly bindings, replacing `<library-name>` with the name from your Cargo.toml and configuring `<extra-arguments>` as necessary.
 
-After you have your code built, you'll want to install the [WebAssembly DWARF Debugging](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-dwarf-debugging) extension. This is shipped as a separate extension in order to keep the VS Code core 'streamlined.' Once installed, restart any active debugging sessions, and native code should then be mapped in the debugger! You should see your source code appear in the **Loaded Sources** view, and breakpoints should work.
+After you have your code built, you'll want to install the [WebAssembly DWARF Debugging](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-dwarf-debugging) extension. This is shipped as a separate extension in order to keep the {% data variables.product.prodname_vscode_shortname %} core 'streamlined.' Once installed, restart any active debugging sessions, and native code should then be mapped in the debugger! You should see your source code appear in the **Loaded Sources** view, and breakpoints should work.
 
 In the image below, the debugger is stopped on a breakpoint in C++ source code that creates a Mandelbrot fractal. The call stack is visible, with frames from the JavaScript code, to WebAssembly, to the mapped C++ code. You can also see the variables in the C++ code, and an edit to the memory associated with the int32 `height` variable.
 
@@ -669,11 +669,11 @@ While close to parity, debugging WebAssembly is a little different than ordinary
 * Basic expression evaluation in the **Debug Console** and **Watch** views is provided by [lldb-eval](https://github.com/google/lldb-eval). This is different than ordinary JavaScript expressions.
 * Locations not mapped to source code will be shown in disassembled WebAssembly Text Format. For WebAssembly, the command **Disable Source Map Stepping** will cause the debugger to step only in disassembled code.
 
-VS Code's WebAssembly debugging is built upon the [C/C++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
+{% data variables.product.prodname_vscode_shortname %}'s WebAssembly debugging is built upon the [C/C++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
 
 ## Supported Node-like runtimes
 
-The current VS Code JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions (via the `msedge` launch type).
+The current {% data variables.product.prodname_vscode_shortname %} JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions (via the `msedge` launch type).
 
 ## Next steps
 
@@ -681,17 +681,17 @@ In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node scenario with a sample application
 
-To see a tutorial on the basics of debugging in VS Code, check out this video:
+To see a tutorial on the basics of debugging in {% data variables.product.prodname_vscode_shortname %}, check out this video:
 
-* [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg).
+* [Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}](https://www.youtube.com/watch?v=3HiLLByBWkg).
 
-To learn about VS Code's task running support, go to:
+To learn about {% data variables.product.prodname_vscode_shortname %}'s task running support, go to:
 
 * [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 
 To write your own debugger extension, visit:
 
-* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Steps to create a VS Code debug extension starting from a mock sample
+* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Steps to create a {% data variables.product.prodname_vscode_shortname %} debug extension starting from a mock sample
 
 ## Common questions
 
