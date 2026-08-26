@@ -1,7 +1,7 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
 DateApproved: 8/26/2026
-MetaDescription: Use the integrated browser in {% data variables.product.prodname_vscode_shortname %} to preview and debug web apps, add page context to chat, and share browser sessions with AI agents.
+MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
@@ -17,11 +17,24 @@ There are several ways to open the integrated browser:
 * Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
 * Select **View** > **Browser** from the menu bar, or use the `kb(workbench.action.browser.openOrList)` keyboard shortcut.
 * Select the globe button in the {% data variables.product.prodname_vscode_shortname %} title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
-* Select a `localhost` link anywhere in {% data variables.product.prodname_vscode_shortname %}, like the terminal or chat. Enable this behavior with the `setting(workbench.browser.openLocalhostLinks)` setting.
+* Select a `localhost` link anywhere in {% data variables.product.prodname_vscode_shortname %}, like the terminal or chat. This behavior is enabled by default. To change it, see [Use an external browser](#use-an-external-browser).
 * Ask an agent to open or interact with a web page. See [Browser tools for agents](#browser-tools-for-agents).
 * Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
 You can open multiple browser instances simultaneously, each in its own editor tab. When a browser tab is already open, the **View** > **Browser** menu item and the title bar globe button open the [tab management](#tab-management) Quick Pick instead of creating a new browser tab.
+
+## Use an external browser
+
+By default, localhost links, such as `localhost`, `127.0.0.1`, and `[::1]`, and all-interfaces links, such as `0.0.0.0` and `[::]`, open in the integrated browser when you select them in the terminal, chat, or other parts of {% data variables.product.prodname_vscode_shortname %}.
+
+To open these links in an external browser instead, disable the `setting(workbench.browser.openLocalhostLinks)` setting. By default, {% data variables.product.prodname_vscode_shortname %} uses your operating system's default browser. To use a different browser, set `setting(workbench.externalBrowser)` to `edge`, `chrome`, `firefox`, or the absolute path to a browser executable.
+
+You can still open the integrated browser explicitly with the commands and UI actions described in [Open the browser](#open-the-browser).
+
+If you don't plan to use the integrated browser, you can also:
+
+* Set `setting(workbench.browser.showInTitleBar)` to `false` to hide the integrated browser button from the title bar.
+* Disable `setting(workbench.browser.enableChatTools)` to prevent chat agents from using browser tools to open and interact with pages in the integrated browser.
 
 ## Navigation
 
@@ -336,6 +349,24 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 ### Enterprise policies for browser tools
 
 Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
+
+## Configure the integrated browser
+
+Use the following settings to configure integrated browser behavior:
+
+| Setting | Description |
+|---------|-------------|
+| `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
+| `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
+| `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
+| `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
+| `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
+| `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
+| `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
+| `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
+| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
+| `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
+| `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
 
 ## Related
 
