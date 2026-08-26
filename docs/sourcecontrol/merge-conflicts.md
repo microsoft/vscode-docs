@@ -1,18 +1,18 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 8/19/2026
-MetaDescription: Learn how to resolve Git merge conflicts in VS Code using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to resolve Git merge conflicts in {% data variables.product.prodname_vscode_shortname %} using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
 Keywords:
 - source control
 - scm
 - version control
 - git
 ---
-# Resolve merge conflicts in VS Code
+# Resolve merge conflicts in {% data variables.product.prodname_vscode_shortname %}
 
-Merge conflicts occur when Git cannot automatically combine changes from different branches. VS Code provides several tools to help you identify and resolve these conflicts efficiently.
+Merge conflicts occur when Git cannot automatically combine changes from different branches. {% data variables.product.prodname_vscode_shortname %} provides several tools to help you identify and resolve these conflicts efficiently.
 
-Learn how to resolve merge conflicts in Visual Studio Code using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
+Learn how to resolve merge conflicts in {% data variables.product.prodname_vscode %} using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
 
 ## Understanding merge conflicts
 
@@ -27,13 +27,13 @@ When you attempt to merge, rebase, pull, or cherry-pick commits that contain con
 > [!TIP]
 > Learn more about [creating and managing branches](/docs/sourcecontrol/branches-worktrees.md) to organize your development work and minimize merge conflicts.
 
-## Recognize conflicts in VS Code
+## Recognize conflicts in {% data variables.product.prodname_vscode_shortname %}
 
-When merge conflicts occur, VS Code provides multiple visual indicators to help you identify and resolve them. Files with conflicts appear in the Source Control view under a **Merge Changes** section.
+When merge conflicts occur, {% data variables.product.prodname_vscode_shortname %} provides multiple visual indicators to help you identify and resolve them. Files with conflicts appear in the Source Control view under a **Merge Changes** section.
 
 ### Editor conflict markers
 
-When you open a file with conflicts, VS Code highlights the conflicting sections with the following markers:
+When you open a file with conflicts, {% data variables.product.prodname_vscode_shortname %} highlights the conflicting sections with the following markers:
 
 * `<<<<<<< HEAD` (or current branch name): marks the start of your current branch's changes
 * `=======`: separates the two conflicting versions
@@ -43,7 +43,7 @@ When you open a file with conflicts, VS Code highlights the conflicting sections
 
 ### CodeLens actions
 
-Above each conflict, VS Code displays CodeLens actions that let you quickly resolve the conflict:
+Above each conflict, {% data variables.product.prodname_vscode_shortname %} displays CodeLens actions that let you quickly resolve the conflict:
 
 * **Accept Current Change**: keep only your branch's version
 * **Accept Incoming Change**: keep only the incoming branch's version
@@ -130,7 +130,7 @@ The three dots next to **Incoming**, **Current**, and **Result** offer options f
 > [!NOTE]
 > AI-assisted conflict resolution is an experimental feature and requires a GitHub Copilot subscription.
 
-VS Code can [use AI](/docs/setup/copilot.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
+{% data variables.product.prodname_vscode_shortname %} can [use AI](/docs/setup/copilot.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
 
 1. Open a file with conflicts in the editor
 
@@ -138,7 +138,7 @@ VS Code can [use AI](/docs/setup/copilot.md) to help resolve merge conflicts aut
 
     ![Screenshot of the AI merge conflict resolution button in the editor.](images/overview/ai-merge-conflict-resolution.png)
 
-1. VS Code opens the Chat view and starts an agentic flow to analyze the conflict
+1. {% data variables.product.prodname_vscode_shortname %} opens the {% data variables.copilot.chat_view %} and starts an agentic flow to analyze the conflict
 
 1. Review the proposed changes in the editor
 
@@ -157,16 +157,16 @@ After resolving all conflicts, you need to complete the merge operation by commi
 > [!TIP]
 > If you need to abandon a merge operation, select **Git: Abort Merge** from the Command Palette. This returns your repository to its state before the merge began.
 
-## Configure VS Code as default merge tool
+## Configure {% data variables.product.prodname_vscode_shortname %} as default merge tool
 
-You can set VS Code as your default Git merge tool by running the following commands in your terminal. When you perform a merge in the command-line that results in conflicts, Git will open VS Code's merge editor to help you resolve them.
+You can set {% data variables.product.prodname_vscode_shortname %} as your default Git merge tool by running the following commands in your terminal. When you perform a merge in the command-line that results in conflicts, Git will open {% data variables.product.prodname_vscode_shortname %}'s merge editor to help you resolve them.
 
 ```bash
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 ```
 
-To use VS Code as your default diff tool for Git, run:
+To use {% data variables.product.prodname_vscode_shortname %} as your default diff tool for Git, run:
 
 ```bash
 git config --global diff.tool vscode
@@ -178,5 +178,5 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and strategies to minimize conflicts
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about staging changes and creating commits
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about working with remote repositories
-* [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features in VS Code
-* [Copilot in VS Code](/docs/agents/overview.md) - Discover more AI-powered development features
+* [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features in {% data variables.product.prodname_vscode_shortname %}
+* [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Discover more AI-powered development features

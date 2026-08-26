@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Create and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, context compaction, organization, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -54,6 +54,8 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
     In the {% data variables.copilot.agents_window %}, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
+
+To collaborate on an existing pull request, [start a session from the pull request](/docs/agents/run/agents-window.md#start-a-session-from-a-pull-request).
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -227,7 +229,7 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 ### View sessions from other applications
 
-{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from Copilot CLI, the GitHub Copilot app, Claude Code, and Codex in the Chat view or Agents window.
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
 For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
 
@@ -239,9 +241,9 @@ By default, sessions created in other applications are hidden. To control which 
 * **Last 7 Days**: show external sessions updated within the last seven days.
 * **All**: show all discovered external sessions.
 
-The filter applies to the sessions lists in both the Chat view and Agents window. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
+The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
 
-When you open an external session in the Agents window, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
+When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
 
 When you send a message in an external session, the Agent Host adopts it. The session is no longer external, so the **External** filter no longer affects its visibility.
 
@@ -251,11 +253,11 @@ To keep the sessions list organized, archive or mark sessions as done when they'
 
 When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 
-To archive a session, hover over the session in the sessions list and select the **Archive** ({% data variables.copilot.chat_view %}) or **Mark as Done** (Agents Window) option.
+To archive a session, hover over the session in the sessions list and select the **Archive** ({% data variables.copilot.chat_view %}) or **Mark as Done** ({% data variables.copilot.agents_window %}) option.
 
 ![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
 
-To view your archived sessions, use the filter options in the sessions list and select the **Archived** ({% data variables.copilot.chat_view %}) or **Done** (Agents Window) filter.
+To view your archived sessions, use the filter options in the sessions list and select the **Archived** ({% data variables.copilot.chat_view %}) or **Done** ({% data variables.copilot.agents_window %}) filter.
 
 ## Delete sessions
 
@@ -289,7 +291,7 @@ There are two ways to fork a chat session:
 
 ## Orchestrate sessions from agent host sessions
 
-In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
+In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#process-architecture).
 
 With these tools, an agent can:
 

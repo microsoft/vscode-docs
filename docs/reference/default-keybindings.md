@@ -1,13 +1,13 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
 DateApproved: 8/19/2026
-MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
+MetaDescription: Reference of default keyboard shortcuts in {% data variables.product.prodname_vscode %}.
 ---
 # Default keyboard shortcuts reference
 
-VS Code comes with a set of default keyboard shortcuts. This article lists common default keyboard shortcuts in VS Code.
+{% data variables.product.prodname_vscode_shortname %} comes with a set of default keyboard shortcuts. This article lists common default keyboard shortcuts in {% data variables.product.prodname_vscode_shortname %}.
 
-For a full list of keyboard shortcuts, use either of these options within VS Code:
+For a full list of keyboard shortcuts, use either of these options within {% data variables.product.prodname_vscode_shortname %}:
 
 * Select **Preferences: Open Default Keyboard Shortcuts (JSON)** in the Command Palette.
 * Open the Keyboard Shortcuts editor, and then select **Show System Keybindings** in the **More Actions** (**...**) menu.
@@ -211,7 +211,7 @@ Select Color Theme|`kb(workbench.action.selectTheme)`|`workbench.action.selectTh
 
 Command|Key|Command id
 -------|---|----------
-Open Chat view|`kb(workbench.action.chat.open)`|`workbench.action.chat.open`
+Open {% data variables.copilot.chat_view %}|`kb(workbench.action.chat.open)`|`workbench.action.chat.open`
 Open chat in agent mode|`kb(workbench.action.chat.openagent)`|`workbench.action.chat.openagent`
 Open editor inline chat|`kb(inlineChat.start)`|`inlineChat.start`
 Open terminal inline chat|`kb(workbench.action.terminal.chat.start)`|`workbench.action.terminal.chat.start`

@@ -1,27 +1,27 @@
 ---
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 DateApproved: 5/13/2022
-MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
+MetaDescription: Configuring the C++ extension in {% data variables.product.prodname_vscode %} to target g++ and GDB on WSL installation with Ubuntu
 Keywords:
 - C++
 ---
-# Using C++ and WSL in VS Code
+# Using C++ and WSL in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux environment within Windows that runs directly on the machine hardware, not in a virtual machine.
+In this tutorial, you will configure {% data variables.product.prodname_vscode %} to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux environment within Windows that runs directly on the machine hardware, not in a virtual machine.
 
-> **Note**: Much of this tutorial is applicable to working with C++ and VS Code directly on a Linux machine.
+> **Note**: Much of this tutorial is applicable to working with C++ and {% data variables.product.prodname_vscode_shortname %} directly on a Linux machine.
 
-Visual Studio Code has support for working directly in WSL with the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). We recommend this mode of [WSL development](/docs/remote/wsl.md), where all your source code files, in addition to the compiler, are hosted on the Linux distro. For more background, see [VS Code Remote Development](/docs/remote/remote-overview.md).
+{% data variables.product.prodname_vscode %} has support for working directly in WSL with the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). We recommend this mode of [WSL development](/docs/remote/wsl.md), where all your source code files, in addition to the compiler, are hosted on the Linux distro. For more background, see [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md).
 
-After completing this tutorial, you will be ready to create and configure your own C++ project, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
+After completing this tutorial, you will be ready to create and configure your own C++ project, and to explore the {% data variables.product.prodname_vscode_shortname %} documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [{% data variables.product.prodname_vscode_shortname %} documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you must do the following steps:
 
-1. Install [Visual Studio Code](/download).
+1. Install [{% data variables.product.prodname_vscode %}](/download).
 
 1. Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
 
@@ -45,7 +45,7 @@ To successfully complete this tutorial, you must do the following steps:
    mkdir helloworld
    ```
 
-1. Although you will be using VS Code to edit your source code, you'll be compiling the source code on Linux using the g++ compiler. You'll also debug on Linux using GDB. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that task is quite easy!
+1. Although you will be using {% data variables.product.prodname_vscode_shortname %} to edit your source code, you'll be compiling the source code on Linux using the g++ compiler. You'll also debug on Linux using GDB. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that task is quite easy!
 
 1. From the WSL command prompt, first run `apt-get update` to update the Ubuntu package lists. An out-of-date distro can sometimes interfere with attempts to install new packages.
 
@@ -68,18 +68,18 @@ To successfully complete this tutorial, you must do the following steps:
    whereis gdb
    ```
 
->**Note**: The setup steps for installing the g++ compiler and GDB debugger apply if you are working directly on a Linux machine rather than in WSL. Running VS Code in your helloworld project, as well as the editing, building, and debugging steps are the same.
+>**Note**: The setup steps for installing the g++ compiler and GDB debugger apply if you are working directly on a Linux machine rather than in WSL. Running {% data variables.product.prodname_vscode_shortname %} in your helloworld project, as well as the editing, building, and debugging steps are the same.
 
-## Run VS Code in WSL
+## Run {% data variables.product.prodname_vscode_shortname %} in WSL
 
-Navigate to your helloworld project folder and launch VS Code from the WSL terminal with `code .`:
+Navigate to your helloworld project folder and launch {% data variables.product.prodname_vscode_shortname %} from the WSL terminal with `code .`:
 
 ```bash
 cd $HOME/projects/helloworld
 code .
 ```
 
-You'll see a message about "Installing VS Code Server". VS Code is downloading and installing a small server on the Linux side that the desktop VS Code will then talk to. VS Code will then start and open the `helloWorld` folder. The File Explorer shows that VS Code is now running in the context of WSL with the title bar **WSL: Ubuntu**.
+You'll see a message about "Installing {% data variables.product.prodname_vscode_shortname %} Server". {% data variables.product.prodname_vscode_shortname %} is downloading and installing a small server on the Linux side that the desktop {% data variables.product.prodname_vscode_shortname %} will then talk to. {% data variables.product.prodname_vscode_shortname %} will then start and open the `helloWorld` folder. The File Explorer shows that {% data variables.product.prodname_vscode_shortname %} is now running in the context of WSL with the title bar **WSL: Ubuntu**.
 
 ![File Explorer in WSL](images/wsl/file-explorer-wsl.png)
 
@@ -87,9 +87,9 @@ You can also tell the remote context from the Status bar.
 
 ![Remote context in the Status bar](images/wsl/wsl-status-bar.png)
 
-If you click on the Remote Status bar item, you will see a dropdown of Remote commands appropriate for the session. For example, if you want to end your session running in WSL, you can select the **Close Remote Connection** command from the dropdown. Running `code .` from your WSL command prompt will restart VS Code running in WSL.
+If you click on the Remote Status bar item, you will see a dropdown of Remote commands appropriate for the session. For example, if you want to end your session running in WSL, you can select the **Close Remote Connection** command from the dropdown. Running `code .` from your WSL command prompt will restart {% data variables.product.prodname_vscode_shortname %} running in WSL.
 
-The **code .** command opened VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The **code .** command opened {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `c_cpp_properties.json` (compiler path and IntelliSense settings)
 - `tasks.json` (build instructions)
@@ -103,13 +103,13 @@ In the File Explorer title bar, select the **New File** button and name the file
 
 ### Install the C/C++ extension
 
-Once you create the file and VS Code detects it is a C++ language file, you may be prompted to install the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) if you don't already have it installed.
+Once you create the file and {% data variables.product.prodname_vscode_shortname %} detects it is a C++ language file, you may be prompted to install the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) if you don't already have it installed.
 
 ![C++ extension notification](images/wsl/cpp-extension-notification.png)
 
 Choose **Install** and then **Reload Required** when the button is displayed in the Extensions view to complete installing the C/C++ extension.
 
-If you already have C/C++ language extensions installed locally in VS Code, you'll need to go to the Extensions view (`kb(workbench.view.extensions)`) and install those extensions into WSL. Locally installed extensions can be installed into WSL by selecting the **Install in WSL** button and then **Reload Required**.
+If you already have C/C++ language extensions installed locally in {% data variables.product.prodname_vscode_shortname %}, you'll need to go to the Extensions view (`kb(workbench.view.extensions)`) and install those extensions into WSL. Locally installed extensions can be installed into WSL by selecting the **Install in WSL** button and then **Reload Required**.
 
 ![Install in WSL button](images/wsl/install-in-wsl.png)
 
@@ -126,7 +126,7 @@ Now paste in this source code:
 
    int main()
    {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+      vector<string> msg {"Hello", "C++", "World", "from", "{% data variables.product.prodname_vscode_shortname %}", "and the C++ extension!"};
 
       for (const string& word : msg)
       {
@@ -136,13 +136,13 @@ Now paste in this source code:
    }
    ```
 
-Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of {% data variables.product.prodname_vscode_shortname %}:
 
 ![File Explorer](images/wsl/file-explorer-helloworld.png)
 
-You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/editing/userinterface.md).
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/userinterface.md).
 
 ## Explore IntelliSense
 
@@ -154,7 +154,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member; then, when y
 
 ## Run helloworld.cpp
 
-Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Open `helloworld.cpp` so that it is the active file.
 2. Press the play button in the top right corner of the editor.
@@ -306,7 +306,7 @@ To keep track of the value of a variable as your program executes, set a **watch
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 
-Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
+Next, you'll create a `tasks.json` file to tell {% data variables.product.prodname_vscode_shortname %} how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
 
 It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
 
@@ -324,7 +324,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 
 ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
-VS Code creates a `launch.json` file, which looks something like this:
+{% data variables.product.prodname_vscode_shortname %} creates a `launch.json` file, which looks something like this:
 
 ```json
 {
@@ -371,13 +371,13 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+This opens the **C/C++ Configurations** page. When you make changes here, {% data variables.product.prodname_vscode_shortname %} writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 ![Command Palette](images/wsl/intellisense-configurations-wsl.png)
 
 You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 
-Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
+{% data variables.product.prodname_vscode %} places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -400,10 +400,10 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 ## Closing the WSL session
 
-When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands)`). This will restart VS Code running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
+When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands)`). This will restart {% data variables.product.prodname_vscode_shortname %} running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
+- Explore the [{% data variables.product.prodname_vscode_shortname %} User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

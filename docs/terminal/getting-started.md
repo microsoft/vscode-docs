@@ -1,23 +1,23 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 8/19/2026
-MetaDescription: Learn how to get started running shell commands with the integrated terminal in Visual Studio Code.
+DateApproved: 8/26/2026
+MetaDescription: Learn how to get started running shell commands with the integrated terminal in {% data variables.product.prodname_vscode %}.
 ---
 # Getting started with the terminal
 
-Visual Studio Code includes a fully featured integrated terminal. You can use it to run commands like `echo`, `ls`, and `git`, just like a standalone terminal. The terminal in VS Code also provides integration with the editor to support features such as links to workspace files and error detection.
+{% data variables.product.prodname_vscode %} includes a fully featured integrated terminal. You can use it to run commands like `echo`, `ls`, and `git`, just like a standalone terminal. The terminal in {% data variables.product.prodname_vscode_shortname %} also provides integration with the editor to support features such as links to workspace files and error detection.
 
 The terminal can use various shells installed on your machine. A shell is a program that interprets and executes the commands by interacting with the operating system. Examples of shells include Bash, Zsh, and PowerShell.
 
-This tutorial guides you through the basics of using the terminal in Visual Studio Code.
+This tutorial guides you through the basics of using the terminal in {% data variables.product.prodname_vscode %}.
 
 ## Run your first command in the terminal
 
-While you're writing code, you might have to run shell commands to build, test, or deploy your application. The terminal in VS Code enables you to run these commands without leaving the editor.
+While you're writing code, you might have to run shell commands to build, test, or deploy your application. The terminal in {% data variables.product.prodname_vscode_shortname %} enables you to run these commands without leaving the editor.
 
 To get started with the terminal:
 
-1. Start VS Code and open a folder or workspace.
+1. Start {% data variables.product.prodname_vscode_shortname %} and open a folder or workspace.
 
 1. Open the terminal by selecting **View** > **Terminal** from the menu bar, or by pressing the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
 
@@ -35,7 +35,7 @@ To get started with the terminal:
 
 ## Interact with command output
 
-The terminal in VS Code also provides features to interact with command output. Commands often output file paths or URLs that you might want to open or navigate to. For example, a compiler or linter might return an error message with a file path and line number. Instead of searching for that file, you can select the link in the terminal output to open the file directly in the editor.
+The terminal in {% data variables.product.prodname_vscode_shortname %} also provides features to interact with command output. Commands often output file paths or URLs that you might want to open or navigate to. For example, a compiler or linter might return an error message with a file path and line number. Instead of searching for that file, you can select the link in the terminal output to open the file directly in the editor.
 
 Let's see how you can interact with the command outputs in the terminal:
 
@@ -43,11 +43,11 @@ Let's see how you can interact with the command outputs in the terminal:
 
 1. In the terminal, hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key, hover over a file name, and then select the link.
 
-    Notice that when you hover over text in the output, it changes into a link. When you select a file name, VS Code opens the selected file in the editor.
+    Notice that when you hover over text in the output, it changes into a link. When you select a file name, {% data variables.product.prodname_vscode_shortname %} opens the selected file in the editor.
 
     ![Navigate to files/URLs using links in terminal output](./images/getting-started/terminal-links.png)
 
-    All text in the terminal output is clickable. If you select a hyperlink in the terminal, it opens the link in the default browser. For other text, VS Code tries to search the workspace for files that contain the text.
+    All text in the terminal output is clickable. If you select a hyperlink in the terminal, it opens the link in the default browser. For other text, {% data variables.product.prodname_vscode_shortname %} tries to search the workspace for files that contain the text.
 
 1. Run the following command to create a `Command.txt` file that contains a list of available shell commands.
 
@@ -133,7 +133,7 @@ To add a new terminal in a different shell:
 
 1. Drag a terminal from the terminal list into the editor area.
 
-    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/configure/custom-layout.md#editor).
+    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the {% data variables.product.prodname_vscode_shortname %} window to make it a floating window. Learn more about [custom layouts](/docs/configure/custom-layout.md#editor).
 
     ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
 
@@ -145,7 +145,7 @@ Learn more about [managing terminals](/docs/terminal/basics.md#managing-terminal
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the terminal in VS Code. Here are some more topics to explore:
+In this tutorial, you learned how to get started with the terminal in {% data variables.product.prodname_vscode_shortname %}. Here are some more topics to explore:
 
 * Learn the [fundamental concepts and features of the terminal](/docs/terminal/basics.md)
 * Explore how to [create and manage terminal profiles](/docs/terminal/profiles.md)

@@ -1,67 +1,67 @@
 ---
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
 DateApproved: 02/04/2026
-MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
+MetaDescription: A quick start guide to get you up and coding with the Python extension in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Quick Start Guide for Python in VS Code
+# Quick Start Guide for Python in {% data variables.product.prodname_vscode_shortname %}
 
-The Python extension makes Visual Studio Code an excellent Python editor, works on any operating system, and is usable with a variety of Python interpreters.
+The Python extension makes {% data variables.product.prodname_vscode %} an excellent Python editor, works on any operating system, and is usable with a variety of Python interpreters.
 
 Get started by installing:
 
-- [VS Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/)
 - [A Python Interpreter](/docs/python/python-tutorial.md#install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
-- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
+- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the {% data variables.product.prodname_vscode_shortname %} Marketplace
 
 > [!TIP]
-> These are three separate pieces that work together: VS Code is the editor, the Python extension adds Python support to VS Code, and the Python interpreter runs your code. For a plain-language explanation, see [Understand the Python setup](/docs/python/python-tutorial.md#understand-the-python-setup).
+> These are three separate pieces that work together: {% data variables.product.prodname_vscode_shortname %} is the editor, the Python extension adds Python support to {% data variables.product.prodname_vscode_shortname %}, and the Python interpreter runs your code. For a plain-language explanation, see [Understand the Python setup](/docs/python/python-tutorial.md#understand-the-python-setup).
 
-![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
+![Gif installing the Python extension in a fresh install of {% data variables.product.prodname_vscode_shortname %}](images/quick-start/qs-python-ext-install.gif)
 
-To further customize VS Code for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
+To further customize {% data variables.product.prodname_vscode_shortname %} for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
 
-![Gif showing the Python profile template being installing into VS Code.](images/quick-start/python-profile-create.gif)
+![Gif showing the Python profile template being installing into {% data variables.product.prodname_vscode_shortname %}.](images/quick-start/python-profile-create.gif)
 
 ## How to create and open a Python project or file
 
-If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code Welcome page or File Explorer view, or by selecting **File > Open Folder** (`kb(workbench.action.files.openFolder)`) or **File > Open File** (`kb(workbench.action.files.openFile)`).
+If you have an existing Python project you wish to work on in {% data variables.product.prodname_vscode_shortname %}, you can begin by opening your folder or file from the {% data variables.product.prodname_vscode_shortname %} Welcome page or File Explorer view, or by selecting **File > Open Folder** (`kb(workbench.action.files.openFolder)`) or **File > Open File** (`kb(workbench.action.files.openFile)`).
 
-You can create a new Python file by selecting **New File** on the VS Code Welcome page and then selecting **Python file**, or by navigating to **File > New File** (`kb(workbench.action.files.newFile)`).
+You can create a new Python file by selecting **New File** on the {% data variables.product.prodname_vscode_shortname %} Welcome page and then selecting **Python file**, or by navigating to **File > New File** (`kb(workbench.action.files.newFile)`).
 
-> **Tip:** If you already have a workspace folder open in VS Code, you can add new files or folders directly into your existing project. You can create new folders and files by using the corresponding **New Folder** or **New File** icons on the top level folder in the File Explorer view.
+> **Tip:** If you already have a workspace folder open in {% data variables.product.prodname_vscode_shortname %}, you can add new files or folders directly into your existing project. You can create new folders and files by using the corresponding **New Folder** or **New File** icons on the top level folder in the File Explorer view.
 
 ## UI tour
 
-When you launch VS Code for the very first time, you will need to install the Python extension to get Python-specific features and UI. Let’s look at the UI after installing the Python extension:
+When you launch {% data variables.product.prodname_vscode_shortname %} for the very first time, you will need to install the Python extension to get Python-specific features and UI. Let’s look at the UI after installing the Python extension:
 
-![Image of the Python UI highlights in VS Code.](images/quick-start/ui-tour.png)
+![Image of the Python UI highlights in {% data variables.product.prodname_vscode_shortname %}.](images/quick-start/ui-tour.png)
 
 ## Code Actions
 
-Code Actions (also known as Quick Fixes) are provided to help fix issues when there are warnings in your code. These helpful hints are displayed in the editor left margin as a lightbulb (💡). Select the light bulb to display Code Action options. These Code Action can come from extensions such as Python, Pylance, or VS Code itself. For more information about Code Actions, see [Python Quick Fixes](/docs/python/editing.md#quick-fixes).
+Code Actions (also known as Quick Fixes) are provided to help fix issues when there are warnings in your code. These helpful hints are displayed in the editor left margin as a lightbulb (💡). Select the light bulb to display Code Action options. These Code Action can come from extensions such as Python, Pylance, or {% data variables.product.prodname_vscode_shortname %} itself. For more information about Code Actions, see [Python Quick Fixes](/docs/python/editing.md#quick-fixes).
 
 ![Screenshot showing Code Actions in a Python project.](images/editing/quickFix.png)
 
 ## Python commands
 
-Python commands can be accessed through the [Command Palette](/docs/editing/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from VS Code and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
+Python commands can be accessed through the [Command Palette](/docs/editing/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from {% data variables.product.prodname_vscode_shortname %} and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
 
 ![Gif demonstrating how to access Python commands in the Command Palette.](images/quick-start/cmd-plt-v2.gif)
 
 ## Run, debug, and test
 
-Now that you are more familiar with Python in VS Code, let’s learn how to run, debug, and test your code.
+Now that you are more familiar with Python in {% data variables.product.prodname_vscode_shortname %}, let’s learn how to run, debug, and test your code.
 
 ### Run
 
-There are a few ways to run Python code in VS Code.
+There are a few ways to run Python code in {% data variables.product.prodname_vscode_shortname %}.
 
 To run the Python script you have open on the editor, select the **Run Python File in Terminal** play button in the top-right of the editor.
 
 ![Image showing the Run Python File in Terminal play button.](images/tutorial/run-python-file-in-terminal-button.png)
 
-There are also additional ways you can iteratively run snippets of your Python code within VS Code:
+There are also additional ways you can iteratively run snippets of your Python code within {% data variables.product.prodname_vscode_shortname %}:
 
 - Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
 - From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
@@ -78,7 +78,7 @@ Once your program reaches the breakpoint, it will stop and allow you to track da
 
 ![Gif showing how to configure the Python debugger for the first time.](images/quick-start/qs-debug-v2.gif)
 
-For a deeper dive into Python debugging functionality, see [Python debugging in VS Code](/docs/python/debugging.md).
+For a deeper dive into Python debugging functionality, see [Python debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/python/debugging.md).
 
 ### Test
 
@@ -90,21 +90,21 @@ You can also create tests for your Python project, which the Python extension wi
 
 ![Gif demonstrating test configuration, discovery, and run in the Python extension.](images/quick-start/qs-testing.gif)
 
-For a comprehensive look at testing functionality, see [Python testing in VS Code](/docs/python/testing.md).
+For a comprehensive look at testing functionality, see [Python testing in {% data variables.product.prodname_vscode_shortname %}](/docs/python/testing.md).
 
 ## Next steps
 
 To learn how to build web apps with popular Python web frameworks, see the following tutorials:
 
-- [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
-- [Use Flask in Visual Studio Code](/docs/python/tutorial-flask.md)
-- [Use FastAPI in Visual Studio Code](/docs/python/tutorial-fastapi.md)
+- [Use Django in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-django.md)
+- [Use Flask in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-flask.md)
+- [Use FastAPI in {% data variables.product.prodname_vscode %}](/docs/python/tutorial-fastapi.md)
 
-There is much more to explore with Python in Visual Studio Code:
+There is much more to explore with Python in {% data variables.product.prodname_vscode %}:
 
 - [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in {% data variables.product.prodname_vscode_shortname %}.

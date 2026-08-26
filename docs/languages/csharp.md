@@ -1,16 +1,16 @@
 ---
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 DateApproved: 8/19/2026
-MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
+MetaDescription: Find out how to get the best out of {% data variables.product.prodname_vscode %} and C#.
 MetaSocialImage: images/csharp/languages-csharp-social.png
 ---
 # Working with C&#35;
 
-The C# support in Visual Studio Code is optimized for cross-platform .NET development (see [working with .NET and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development by providing a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences
+The C# support in {% data variables.product.prodname_vscode %} is optimized for cross-platform .NET development (see [working with .NET and {% data variables.product.prodname_vscode_shortname %}](/docs/languages/dotnet.md) for another relevant article). Our focus with {% data variables.product.prodname_vscode_shortname %} is to be a great editor for cross-platform C# development by providing a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences
 
-![C# language within VS Code](images/csharp/csharp-hero.png)
+![C# language within {% data variables.product.prodname_vscode_shortname %}](images/csharp/csharp-hero.png)
 
-VS Code supports debugging of C# applications running on either .NET or Mono.
+{% data variables.product.prodname_vscode_shortname %} supports debugging of C# applications running on either .NET or Mono.
 
 For detailed instructions on:
 
@@ -19,13 +19,13 @@ For detailed instructions on:
 
 ## Installing C&#35; support
 
-C# language support is provided with the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). You can install it from within VS Code by searching for 'C# Dev Kit' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
+C# language support is provided with the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). You can install it from within {% data variables.product.prodname_vscode_shortname %} by searching for 'C# Dev Kit' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, {% data variables.product.prodname_vscode_shortname %} will prompt you to install the extension as soon as you open a C# file.
 
 For more information about the C# Dev Kit extension, see the [C# documentation](/docs/csharp/get-started.md).
 
 ## C&#35; Dev Kit
 
-Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) to offer an enhanced C# experience. We offer support for:
+{% data variables.product.prodname_vscode %} uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) to offer an enhanced C# experience. We offer support for:
 
 * .NET projects
 * MSBuild projects
@@ -43,11 +43,11 @@ Supported .NET project types include:
 
 And more.
 
-To find a full list of supported project types within VS Code, open the **Command Palette** and search for **.NET: New Project..**. This will display a full list of supported project types.
+To find a full list of supported project types within {% data variables.product.prodname_vscode_shortname %}, open the **Command Palette** and search for **.NET: New Project..**. This will display a full list of supported project types.
 
 ![Supported Projects](images/csharp/newproject.png)
 
-When you open a Workspace that contains .NET solution files or project files, the Solution Explorer will automatically appear. If you have a single solution file (.sln file) in the workspace, the Solution Explorer will detect that file and automatically load it after the workspace is loaded. For more information on managing your C# projects in VS Code, look at the documentation on [Project Management](/docs/csharp/project-management.md).
+When you open a Workspace that contains .NET solution files or project files, the Solution Explorer will automatically appear. If you have a single solution file (.sln file) in the workspace, the Solution Explorer will detect that file and automatically load it after the workspace is loaded. For more information on managing your C# projects in {% data variables.product.prodname_vscode_shortname %}, look at the documentation on [Project Management](/docs/csharp/project-management.md).
 
 ## Editing Evolved
 
@@ -55,7 +55,7 @@ There is a lot to discover with C# and the editor, such as format on type, Intel
 
 ![Right-click Menu](images/csharp/editingevolved.png)
 
-For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md) documentation.
+For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of {% data variables.product.prodname_vscode_shortname %} editing features, go to the [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md) documentation.
 
 Here are a few highlights...
 
@@ -67,17 +67,13 @@ IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to g
 
 ## Enhance completions with AI
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/csharp/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+Learn how to get started with [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 ## Snippets for C&#35;
 
-For information on snippets in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). There are also several built-in snippets included in VS Code that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
+For information on snippets in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). There are also several built-in snippets included in {% data variables.product.prodname_vscode_shortname %} that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
 
 ![Snippets](images/csharp/snippet.png)
 
@@ -107,7 +103,7 @@ You can click on the references of an object to find the locations of its use in
 
 ## Quick Fixes / Suggestions
 
-There are some basic quick fixes supported in VS Code. You will see a lightbulb and clicking on it, or pressing `kb(editor.action.quickFix)` provides you with a simple list of fixes/suggestions.
+There are some basic quick fixes supported in {% data variables.product.prodname_vscode_shortname %}. You will see a lightbulb and clicking on it, or pressing `kb(editor.action.quickFix)` provides you with a simple list of fixes/suggestions.
 
 ![Quick fix](images/csharp/lightbulb.png)
 
@@ -133,7 +129,7 @@ Read on to find out about:
 
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Tasks](/docs/debugtest/tasks.md) - Use tasks to build your project and more.
 * [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger with your project.
-* [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.
+* [Unity development](/docs/other/unity.md) - Learn about using {% data variables.product.prodname_vscode_shortname %} with your Unity projects.

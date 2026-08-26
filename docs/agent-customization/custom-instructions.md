@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to create custom instructions for {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -30,7 +30,7 @@ Set up your project for AI with `/init` to generate custom instructions tailored
 </div>
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!NOTE]
 > Custom instructions are not taken into account for [inline suggestions](/docs/editing/ai-powered-suggestions.md) as you type in the editor.

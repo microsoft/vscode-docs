@@ -1,10 +1,10 @@
 ---
 ContentId: c5039182-eee4-47ff-a2a8-dc28f4bc2cbc
 DateApproved: 02/04/2026
-MetaDescription: Formatting Python in Visual Studio Code
+MetaDescription: Formatting Python in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Formatting Python in VS Code
+# Formatting Python in {% data variables.product.prodname_vscode_shortname %}
 
 Formatting makes source code easier to read by human beings. By enforcing particular rules and conventions such as line spacing, indents, and spacing around operators, the code becomes more visually organized and comprehensible. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
 
@@ -12,7 +12,7 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 ## Choose a formatter
 
-Search the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) for the formatter extension of your choice.
+Search the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) for the formatter extension of your choice.
 
 Microsoft publishes the following formatting extensions:
 
@@ -35,13 +35,13 @@ Furthermore, below are formatter extensions that support import sorting:
 | Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)   |
 | isort   | [https://marketplace.visualstudio.com/items?itemName=ms-python.isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) |
 
-> **Note**: If you don't find your preferred formatter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
+> **Note**: If you don't find your preferred formatter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into {% data variables.product.prodname_vscode_shortname %}.
 
 ## Set a default formatter
 
-Once you install a formatter extension, you can select it as the default formatter for Python files in VS Code by following the steps below:
+Once you install a formatter extension, you can select it as the default formatter for Python files in {% data variables.product.prodname_vscode_shortname %} by following the steps below:
 
-1. Open a Python file in VS Code.
+1. Open a Python file in {% data variables.product.prodname_vscode_shortname %}.
 1. Right-click on the editor to display the context menu.
 1. Select **Format Document With...**.
 1. Select **Configure Default Formatter...** from the drop-down menu.
@@ -103,18 +103,18 @@ If formatting fails, check the following possible causes:
 | Problem | Solution |
 | --- | --- |
 | There are multiple formatters available for Python files. | Set the default formatter by following the instructions in [the section above](#set-a-default-formatter). |
-| No "Format Document With..." option is available.       | If you don't see this option in the context menu, it's likely you don't have a formatter extension installed or enabled in VS Code. Reference the [Choose a Formatter](#choose-a-formatter) section to see how you can install a Python formatter extension. |
+| No "Format Document With..." option is available.       | If you don't see this option in the context menu, it's likely you don't have a formatter extension installed or enabled in {% data variables.product.prodname_vscode_shortname %}. Reference the [Choose a Formatter](#choose-a-formatter) section to see how you can install a Python formatter extension. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
-| The "You have deprecated linting or formatting settings" notification is displayed.  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in VS Code. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extensions in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
+| The "You have deprecated linting or formatting settings" notification is displayed.  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in {% data variables.product.prodname_vscode_shortname %}. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in {% data variables.product.prodname_vscode_shortname %} by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extensions in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
 | The **Format Selection** command fails when using Black Formatter. | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 | Formatting doesn't work even though I have a formatter extension installed.  | Formatting can fail for various reasons, such as syntax issues in your code, an unsupported version of Python is used, or the formatter isn't configured correctly. Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette, and then select the formatter extension channel).|
 
-> **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
+> **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into {% data variables.product.prodname_vscode_shortname %}.
 
 ## Next steps
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 - [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
-- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into {% data variables.product.prodname_vscode_shortname %}.

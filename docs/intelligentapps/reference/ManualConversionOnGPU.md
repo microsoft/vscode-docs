@@ -6,7 +6,7 @@ MetaDescription: Model Conversion reference about manual model conversion for LL
 # Manual model conversion on GPU
 This article introduces the manual workflow for converting LLM models using a local Nvidia GPU. It describes the required environment setup, execution steps, and how to run inference on a Windows Copilot+ PC with a Qualcomm NPU.
 
-Conversion of LLM models requires a Nvidia GPU. If you want model lab to manage your local GPU, follow the steps in [Convert Model](/docs/intelligentapps/modelconversion.md#conversion). Otherwise, follow the steps in this article.
+Conversion of LLM models requires a Nvidia GPU. If you want model lab to manage your local GPU, follow the steps in [Convert Model](/docs/intelligentapps/modelconversion.md#create-project). Otherwise, follow the steps in this article.
 
 ## Manual run model conversion on GPU
 This workflow is configured using the `qnn_config.json` file and requires two separate Python environments.

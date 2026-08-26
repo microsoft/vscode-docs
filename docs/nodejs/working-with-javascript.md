@@ -1,15 +1,15 @@
 ---
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
 DateApproved: 8/19/2026
-MetaDescription: Working with JavaScript in Visual Studio Code
+MetaDescription: Working with JavaScript in {% data variables.product.prodname_vscode %}
 ---
 # Working with JavaScript
 
-This topic describes some of the advanced JavaScript features supported by Visual Studio Code. Using the TypeScript language service, VS Code can provide smart completions (IntelliSense) as well as type checking for JavaScript.
+This topic describes some of the advanced JavaScript features supported by {% data variables.product.prodname_vscode %}. Using the TypeScript language service, {% data variables.product.prodname_vscode_shortname %} can provide smart completions (IntelliSense) as well as type checking for JavaScript.
 
 ## IntelliSense
 
-Visual Studio Code's JavaScript [IntelliSense](/docs/editing/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JSDoc](/docs/languages/javascript.md#jsdoc-support) or by configuring a `jsconfig.json` project.
+{% data variables.product.prodname_vscode %}'s JavaScript [IntelliSense](/docs/editing/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JSDoc](/docs/languages/javascript.md#jsdoc-support) or by configuring a `jsconfig.json` project.
 
 For the details of how JavaScript IntelliSense works, including being based on type inference, JSDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
@@ -19,15 +19,15 @@ In addition to objects, methods, and properties, the JavaScript IntelliSense win
 
 ### Typings and Automatic Type Acquisition
 
-IntelliSense for JavaScript libraries and frameworks is powered by TypeScript type declaration (typings) files. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience in a performant manner.
+IntelliSense for JavaScript libraries and frameworks is powered by TypeScript type declaration (typings) files. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing {% data variables.product.prodname_vscode_shortname %} to provide a rich IntelliSense experience in a performant manner.
 
-Many popular libraries ship with typings files so you get IntelliSense for them automatically. For libraries that do not include typings, VS Code's `Automatic Type Acquisition` will automatically install community maintained typings file for you.
+Many popular libraries ship with typings files so you get IntelliSense for them automatically. For libraries that do not include typings, {% data variables.product.prodname_vscode_shortname %}'s `Automatic Type Acquisition` will automatically install community maintained typings file for you.
 
 Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js package manager, which is included with the [Node.js](https://nodejs.org) runtime. In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation for the popular [lodash](https://lodash.com/) library.
 
 ![lodash typings](images/working-with-javascript/lodash-typings.png)
 
-Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json` or that you import into a JavaScript file.
+Type declaration files are automatically downloaded and managed by {% data variables.product.prodname_vscode %} for packages listed in your project's `package.json` or that you import into a JavaScript file.
 
 ```json
 {
@@ -59,7 +59,7 @@ Run `npm --version` from a terminal or command prompt to quickly check that npm 
 
 npm is installed with the Node.js runtime, which is available for download from [Nodejs.org](https://nodejs.org). Install the current LTS (Long Term Support) version and the npm executable will be added by default to your system path.
 
-If you have npm installed but still see a warning message, you can explicitly tell VS Code where npm is installed with the `js/ts.tsserver.npm.path` [setting](/docs/configure/settings.md). This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `js/ts.tsserver.npm.path` requires TypeScript 2.3.4+.
+If you have npm installed but still see a warning message, you can explicitly tell {% data variables.product.prodname_vscode_shortname %} where npm is installed with the `js/ts.tsserver.npm.path` [setting](/docs/configure/settings.md). This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `js/ts.tsserver.npm.path` requires TypeScript 2.3.4+.
 
 For example, on Windows, you would add a path like this to your `settings.json` file:
 
@@ -106,7 +106,7 @@ Below is a simple template for `jsconfig.json` file, which defines the JavaScrip
 }
 ```
 
-The `exclude` attribute tells the language service which files are not part of your source code. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects slow completions). You will want to `exclude` files generated by a build process (such as a `dist` directory). These files will cause suggestions to show up twice and will slow down IntelliSense.
+The `exclude` attribute tells the language service which files are not part of your source code. If IntelliSense is slow, add folders to your `exclude` list ({% data variables.product.prodname_vscode_shortname %} will prompt you to do this if it detects slow completions). You will want to `exclude` files generated by a build process (such as a `dist` directory). These files will cause suggestions to show up twice and will slow down IntelliSense.
 
 You can explicitly set the files in your project using the `include` attribute. If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included.
 
@@ -136,7 +136,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 ## Type checking JavaScript
 
-VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
+{% data variables.product.prodname_vscode_shortname %} allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/working-with-javascript/checkjs-example.gif)
 
@@ -249,7 +249,7 @@ To start, [create a `jsconfig.json`](#javascript-projects-jsconfigjson) at the r
 }
 ```
 
-Then reload VS Code to make sure the change is applied. The presence of a `jsconfig.json` lets TypeScript know that your Javascript files are part of a larger project.
+Then reload {% data variables.product.prodname_vscode_shortname %} to make sure the change is applied. The presence of a `jsconfig.json` lets TypeScript know that your Javascript files are part of a larger project.
 
 Now create a `globals.d.ts` file somewhere your workspace:
 
@@ -275,7 +275,7 @@ Read more about the compiler options for down level compilation in the [jsconfig
 
 ### Running Babel
 
-The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture. `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/debugtest/tasks.md).
+The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture. `isBackground` tells {% data variables.product.prodname_vscode_shortname %} to keep running this task in the background. To learn more, go to [Tasks](/docs/debugtest/tasks.md).
 
 ```json
 {
@@ -299,23 +299,23 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ## Disable JavaScript support
 
-If you prefer to use JavaScript language features supported by other JavaScript language tools such as [Flow](https://flow.org/), you can disable VS Code's built-in JavaScript support. You do this by disabling the built-in TypeScript language extension **TypeScript and JavaScript Language Features** (vscode.typescript-language-features) which also provides the JavaScript language support.
+If you prefer to use JavaScript language features supported by other JavaScript language tools such as [Flow](https://flow.org/), you can disable {% data variables.product.prodname_vscode_shortname %}'s built-in JavaScript support. You do this by disabling the built-in TypeScript language extension **TypeScript and JavaScript Language Features** (vscode.typescript-language-features) which also provides the JavaScript language support.
 
-To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workbench.view.extensions)`) and filter on built-in extensions (**Show Built-in Extensions** in the **...** **More Actions** dropdown), then type 'typescript'. Select the **TypeScript and JavaScript Language Features** extension and press the **Disable** button. VS Code built-in extensions cannot be uninstalled, only disabled, and can be re-enabled at any time.
+To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workbench.view.extensions)`) and filter on built-in extensions (**Show Built-in Extensions** in the **...** **More Actions** dropdown), then type 'typescript'. Select the **TypeScript and JavaScript Language Features** extension and press the **Disable** button. {% data variables.product.prodname_vscode_shortname %} built-in extensions cannot be uninstalled, only disabled, and can be re-enabled at any time.
 
 ![TypeScript and JavaScript Language Features extension](images/working-with-javascript/disable-TS-language.png)
 
 ## Partial IntelliSense mode
 
-VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what makes features such as auto-imports and **Go to Definition** possible. However, there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
+{% data variables.product.prodname_vscode_shortname %} tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what makes features such as auto-imports and **Go to Definition** possible. However, there are some cases where {% data variables.product.prodname_vscode_shortname %} is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
 
 This can happen in a few instances:
 
-- You are working with JavaScript or TypeScript code on [vscode.dev](https://vscode.dev) or [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and VS Code is running in the browser.
+- You are working with JavaScript or TypeScript code on [vscode.dev](https://vscode.dev) or [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and {% data variables.product.prodname_vscode_shortname %} is running in the browser.
 - You open a file from a virtual file system (such as when using the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension).
 - The project is currently loading. Once loading completes, you will start getting project-wide IntelliSense for it.
 
-In these cases, VS Code's IntelliSense will operate in **partial mode**. Partial mode tries its best to provide IntelliSense for any JavaScript or TypeScript files you have open, but is limited and is not able to offer any cross-file IntelliSense features.
+In these cases, {% data variables.product.prodname_vscode_shortname %}'s IntelliSense will operate in **partial mode**. Partial mode tries its best to provide IntelliSense for any JavaScript or TypeScript files you have open, but is limited and is not able to offer any cross-file IntelliSense features.
 
 ### Which features are impacted?
 

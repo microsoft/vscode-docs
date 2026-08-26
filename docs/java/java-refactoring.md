@@ -1,11 +1,11 @@
 ---
 ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
 DateApproved: 12/9/2021
-MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
+MetaDescription: Java code refactoring and Source Actions for {% data variables.product.prodname_vscode %}
 ---
 # Java refactoring and Source Actions
 
-Visual Studio Code provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
+{% data variables.product.prodname_vscode %} provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
 
 ## List of Supported Code Actions
 
@@ -43,13 +43,13 @@ Visual Studio Code provides many options to refactor your source code as well as
   - [Generate `toString()`](#generate-tostring)
   - [Change modifiers to final where possible](#change-modifiers-to-final-where-possible)
 - Other Code Actions supported
-  - [Fix non-accessible reference](#fix-nonaccessible-reference)
+  - [Fix non-accessible reference](#fix-non-accessible-reference)
   - [Create non-existing package](#create-non-existing-package)
   - [More...](#other-code-actions-supported)
 
 ## Refactoring
 
-The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides many easily accessible refactoring options.
+The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for {% data variables.product.prodname_vscode_shortname %} provides many easily accessible refactoring options.
 
 ### Invoke refactoring
 
@@ -804,7 +804,7 @@ When your package name doesn't match the folder name, you have the options to ei
 
 ### Other Code Actions supported
 
-The list of Code Actions supported by VS Code keeps growing and only lists the most popular ones above. Other notable supported actions include (but not limited to):
+The list of Code Actions supported by {% data variables.product.prodname_vscode_shortname %} keeps growing and only lists the most popular ones above. Other notable supported actions include (but not limited to):
 
 - Create unresolved types
 - Remove the `final` modifier

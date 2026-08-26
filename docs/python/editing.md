@@ -1,12 +1,12 @@
 ---
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 DateApproved: 02/04/2026
-MetaDescription: Editing Python in Visual Studio Code
+MetaDescription: Editing Python in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Editing Python in Visual Studio Code
+# Editing Python in {% data variables.product.prodname_vscode %}
 
-Visual Studio Code is a powerful editing tool for Python source code. The editor includes various features to help you be productive when writing code. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
+{% data variables.product.prodname_vscode %} is a powerful editing tool for Python source code. The editor includes various features to help you be productive when writing code. For more information about editing in {% data variables.product.prodname_vscode %}, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
 
 In this overview, we will describe the specific editing features provided by the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), including steps on how to customize these features via user and workspace [settings](/docs/configure/settings.md).
 
@@ -18,13 +18,13 @@ IntelliSense is a general term for code editing features that relate to code com
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
-[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) is the default language server for Python in VS Code, and is installed alongside the Python extension to provide IntelliSense features.
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) is the default language server for Python in {% data variables.product.prodname_vscode_shortname %}, and is installed alongside the Python extension to provide IntelliSense features.
 
 Pylance is based on Microsoft’s [Pyright](https://github.com/microsoft/pyright) static type checking tool, leveraging [type stubs](https://typing.readthedocs.io/en/latest/source/stubs.html) (`.pyi` files) and lazy type inferencing to provide a highly-performant development experience.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editing/intellisense.md).
 
-> **Tip**: Check out the [IntelliCode extension for VS Code](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
+> **Tip**: Check out the [IntelliCode extension for {% data variables.product.prodname_vscode_shortname %}](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for {% data variables.product.prodname_vscode_shortname %} FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
 
 ### Customize IntelliSense behavior
 
@@ -64,13 +64,9 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ## Enhance completions with AI
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/editing/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+Learn how to get started with [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 ## Navigation
 
@@ -183,7 +179,7 @@ For help with common IntelliSense and Python editing issues, check the table bel
 | Pylance is not automatically adding missing imports | The auto import completion setting may be disabled. | Check the [Enable Auto Imports section](/docs/python/editing.md#customize-intellisense-behavior). |
 | Auto imports are enabled but Pylance is not automatically importing symbols defined in other files in the workspace. | User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor.<br> Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes). |  Use the add imports Quick Fix, or make sure to open the relevant files in your workspace first.  |
 | Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
-| You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+| You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart {% data variables.product.prodname_vscode_shortname %}. |
 
 ### Pylance Diagnostics
 
@@ -197,7 +193,7 @@ This error occurs when Pylance is able to find type stubs for the imported packa
 
 **How to fix it**
 
-- If the package is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#selecting-an-environment).
+- If the package is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-an-environment).
 - If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 
 #### importResolveFailure
@@ -208,7 +204,7 @@ This error happens when Pylance is unable to find the package or module you're i
 
 - If you are importing a module, make sure it exists in your workspace or in a location that is included in the `python.autoComplete.extraPaths` setting.
 - If you are importing a package that is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
-- If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#selecting-an-environment).
+- If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-an-environment).
 - If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files that only contain file paths instead, to enhance compatibility and ensure smoother import behavior. Learn more in the [Pyright documentation](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
 
 #### importCycleDetected
@@ -228,7 +224,7 @@ The severity of Pylance's diagnostics can be customized through the `python.anal
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply various Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 - [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editing/intellisense.md) - Learn about IntelliSense features.
 - [Jupyter Support](/docs/datascience/jupyter-notebooks.md) - Learn how to get started with Jupyter Notebooks.

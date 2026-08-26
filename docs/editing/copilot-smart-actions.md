@@ -1,15 +1,15 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 8/19/2026
-MetaDescription: Use smart actions in VS Code to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
+DateApproved: 8/26/2026
+MetaDescription: Use smart actions in {% data variables.product.prodname_vscode_shortname %} to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# AI smart actions in Visual Studio Code
+# AI smart actions in {% data variables.product.prodname_vscode %}
 
-For several common scenarios, you can use _smart actions_ to get help from AI without having to write a prompt. Examples of these smart actions are generating commit messages, generating documentation, explaining or fixing code, or performing a code review. These smart actions are available throughout the VS Code UI.
+For several common scenarios, you can use _smart actions_ to get help from AI without having to write a prompt. Examples of these smart actions are generating commit messages, generating documentation, explaining or fixing code, or performing a code review. These smart actions are available throughout the {% data variables.product.prodname_vscode_shortname %} UI.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
@@ -23,7 +23,7 @@ Get help generating commit messages and pull request (PR) titles and description
 
 ## Resolve merge conflicts with AI (Experimental)
 
-Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the {% data variables.copilot.chat_view %} and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
 
 ![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
 
@@ -73,7 +73,7 @@ To generate tests for your application code without writing a prompt, you can us
 1. Optionally, select the code you want to test.
 1. Right-click and select **Generate Code** > **Generate Tests**.
 
-    VS Code generates test code in an existing test file, or creates a new test file if one doesn't exist.
+    {% data variables.product.prodname_vscode_shortname %} generates test code in an existing test file, or creates a new test file if one doesn't exist.
 
 1. Optionally, refine the generated tests by providing additional context in the Inline Chat prompt.
 
@@ -85,7 +85,7 @@ Get help with explaining a block of code in the editor.
 1. Select the code you want to fix.
 1. Right-click and select **Explain**.
 
-    VS Code provides an explanation of the selected block of code.
+    {% data variables.product.prodname_vscode_shortname %} provides an explanation of the selected block of code.
 
 ## Fix coding errors
 
@@ -95,11 +95,11 @@ To fix coding issues for your application code without writing a prompt, you can
 1. Select the code you want to fix.
 1. Right-click and select **Generate Code** > **Fix**.
 
-    VS Code provides a code suggestion to fix the code.
+    {% data variables.product.prodname_vscode_shortname %} provides a code suggestion to fix the code.
 
 1. Optionally, refine the generated code by providing additional context in the chat prompt.
 
-Alternatively, if there's a compile or linting problem in a code file, VS Code shows a code action in the editor to help resolve the issue.
+Alternatively, if there's a compile or linting problem in a code file, {% data variables.product.prodname_vscode_shortname %} shows a code action in the editor to help resolve the issue.
 
 ![Screenshot of the editor showing the sparkle icon and Copilot context menu to explain or fix the issue.](images/copilot-smart-actions/copilot-code-action-fix.png)
 
@@ -113,7 +113,7 @@ Get help with fixing failing tests in your codebase, directly from the Test Expl
 
 Alternatively, you can:
 
-1. Open the Chat view
+1. Open the {% data variables.copilot.chat_view %}
 1. Enter the `/fixTestFailure` command
 1. Follow Copilot's suggestions to fix the test
 
@@ -122,13 +122,13 @@ Alternatively, you can:
 
 ## Fix terminal errors
 
-When a command fails to run in the terminal, VS Code displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+When a command fails to run in the terminal, {% data variables.product.prodname_vscode_shortname %} displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
 
 ![Fix with Copilot option in the terminal after a failed terminal command.](images/copilot-smart-actions/terminal-command-explanation.png)
 
 ## Review code
 
-VS Code can help with reviewing your code, either for a code block in the editor or all changes included in a pull request (requires the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items/?itemName=GitHub.vscode-pull-request-github)).
+{% data variables.product.prodname_vscode_shortname %} can help with reviewing your code, either for a code block in the editor or all changes included in a pull request (requires the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items/?itemName=GitHub.vscode-pull-request-github)).
 
 To review a code block in the editor:
 
@@ -136,18 +136,18 @@ To review a code block in the editor:
 1. Select the code you want to fix.
 1. Right-click and select **Generate Code** > **Review**.
 
-    VS Code creates review comments in the **Comments** panel and also shows them inline in the editor.
+    {% data variables.product.prodname_vscode_shortname %} creates review comments in the **Comments** panel and also shows them inline in the editor.
 
 To review all changes in a pull request:
 
 1. Create a pull request with the GitHub Pull Requests extension
 1. Select the **Code Review** button in the **Files Changed** view.
 
-    VS Code creates review comments in the **Comments** panel and also shows them inline in the editor.
+    {% data variables.product.prodname_vscode_shortname %} creates review comments in the **Comments** panel and also shows them inline in the editor.
 
 ## Semantic search results (Preview)
 
-The Search view in VS Code enables you to search for text across your files. Semantic search enables you to find results that are semantically relevant to your search query, even if they don't match the text exactly. This is particularly useful when you're looking for code snippets or documentation that relate to a concept rather than a specific term, or when you don't know the exact terms to search for.
+The Search view in {% data variables.product.prodname_vscode_shortname %} enables you to search for text across your files. Semantic search enables you to find results that are semantically relevant to your search query, even if they don't match the text exactly. This is particularly useful when you're looking for code snippets or documentation that relate to a concept rather than a specific term, or when you don't know the exact terms to search for.
 
 ![Search view showing semantic search results that are not an exact match for the search criteria.](images/copilot-smart-actions/semantic-search-results.png)
 

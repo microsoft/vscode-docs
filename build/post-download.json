@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Side-by-side chats, and faster navigation",
-    "description": "Arrange related chats side by side, navigate long conversations, and preview HTML files in the integrated browser.",
-    "link": "/updates/v1_134",
-    "image": "/assets/updates/1_134/release-highlights.webp"
+    "title": "Continue agent sessions and get a second opinion",
+    "description": "Continue Copilot or Claude agent sessions from other applications, get a second opinion with Rubber Duck, and inspect detailed chat usage.",
+    "link": "/updates/v1_135",
+    "image": "/assets/updates/1_135/release-highlights.webp"
   },
   "highlights": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "type": "blog",
-      "title": "Iterating faster with TypeScript 7",
-      "description": "How the VS Code and TypeScript teams collaborated to adopt TypeScript 7, speeding up builds and improving the day-to-day editing loop for both developers and agents.",
-      "link": "/blogs/2026/06/26/iterating-faster-with-ts-7",
-      "image": "/assets/blogs/2026/06/26/ts-7.png"
+      "title": "Introducing the Agent Host",
+      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
+      "link": "/blogs/2026/08/26/agent-host-architecture",
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
     }
   ]
 }

@@ -1,5 +1,5 @@
 [
- 
+
   {
     "name": "Agent Foundations",
     "area": "foundations",
@@ -42,7 +42,7 @@
       ["Using third-party agents in VS Code", "/learn/agents/4-using-third-party-agents-in-vs-code"]
     ]
   },
-   {
+  {
     "name": "Build your own Agent",
     "area": "foundry-toolkit-extension",
     "description": "Learn how to use Foundry Toolkit in VS Code to get started, explore models, build agents, and deploy hosted agent workflows.",

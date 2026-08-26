@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -16,7 +16,7 @@ There are different ways to get access to GitHub Copilot:
 
 | Type of User                   | Description |
 |--------------------------------|-------------|
-| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly allowance of inline suggestions and AI credits.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
+| Individual                     | <ul><li>Set up {% data variables.copilot.copilot_free %} to explore basic functionality at no cost with a monthly allowance of inline suggestions and AI credits.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
 | Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
 
 ### What's the advantage of signing in with a GitHub account?
@@ -26,7 +26,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Higher monthly AI credits allowance](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
 * [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
-* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
+* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
 * [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
@@ -46,7 +46,7 @@ Visit the GitHub Copilot documentation for more information about [monitoring us
 
 Your inline suggestions allowance and AI credits allowance reset every month. If you've only reached the AI credits limit, you can still use inline suggestions. Similarly, if you've reached the limit for inline suggestions, you can still use chat.
 
-For users on Copilot Free, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from {% data variables.product.prodname_vscode_shortname %}. Alternatively, you can wait until the next month to continue using Copilot for free.
+For users on {% data variables.copilot.copilot_free_short %}, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from {% data variables.product.prodname_vscode_shortname %}. Alternatively, you can wait until the next month to continue using Copilot for free.
 
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
 
@@ -116,7 +116,7 @@ Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copi
 - Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language
 - Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
 - Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
-- Verify that you have not reached the inline suggestions limit for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- Verify that you have not reached the inline suggestions limit for the month with the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Chat
 
@@ -125,9 +125,9 @@ Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copi
 Verify the following requirements to ensure Chat features work in {% data variables.product.prodname_vscode %}:
 
 - Make sure you are on the latest version of {% data variables.product.prodname_vscode %} (run **Code: Check for Updates**).
-- Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [{% data variables.copilot.copilot_chat %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
+- Make sure you have the latest version of [{% data variables.copilot.copilot_chat %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 - Your GitHub account that is signed into {% data variables.product.prodname_vscode_shortname %} must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
-- Verify that you have not reached your AI credits limit for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- Verify that you have not reached your AI credits limit for the month with the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ### Agents are not available in chat
 
@@ -139,7 +139,7 @@ Agents handle complete coding tasks autonomously. They plan multi-step implement
 
 ### Does Copilot work with large codebases and monorepos?
 
-Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
+Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#semantic-index-sources) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
 
 ### Can my organization control AI features and agent access?
 

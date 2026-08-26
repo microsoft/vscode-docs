@@ -604,7 +604,7 @@ The following end-to-end example uses the Azure AI Inference SDK in Python and s
 
 To run this example, you need the following prerequisites:
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 - [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
 - [OpenTelemetry](https://opentelemetry.io/)
@@ -668,7 +668,7 @@ Use the following instructions to deploy a preconfigured development environment
         cd my-tracing-app
         ```
 
-    1. Open Visual Studio Code in that directory:
+    1. Open {% data variables.product.prodname_vscode %} in that directory:
 
         ```shell
         code .
@@ -751,7 +751,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 1. Run the code
 
-    1. Open a new terminal in Visual Studio Code.
+    1. Open a new terminal in {% data variables.product.prodname_vscode %}.
 
     1. In the terminal, run the code using the command `python main.py`.
 
@@ -779,7 +779,7 @@ The following end-to-end example uses the OpenAI Agents SDK in Python with Monoc
 
 To run this example, you need the following prerequisites:
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 - [Okahu Trace Visualizer](https://marketplace.visualstudio.com/items?itemName=OkahuAI.okahu-ai-observability)
 - [OpenAI Agents SDK](https://github.com/openai/agents)
@@ -852,7 +852,7 @@ Use the following instructions to deploy a preconfigured development environment
         cd my-agents-tracing-app
         ```
 
-    1. Open Visual Studio Code in that directory:
+    1. Open {% data variables.product.prodname_vscode %} in that directory:
 
         ```shell
         code .
@@ -962,7 +962,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 1. Run the code
 
-    1. Open a new terminal in Visual Studio Code.
+    1. Open a new terminal in {% data variables.product.prodname_vscode %}.
 
     1. In the terminal, run the code using the command `python main.py`.
 

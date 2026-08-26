@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 8/19/2026
-MetaDescription: Operate the {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.agents_window %} to select sessions, review workspace files and changes, validate results, and commit agent work.
+DateApproved: 8/26/2026
+MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
@@ -28,7 +28,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
 * **Switch freely between surfaces**: move to the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
 
-For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar
 
-* Run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`)
+* Run the **Chat: Open {% data variables.copilot.agents_window %}** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
 * Select **Try out the new {% data variables.copilot.agents_window %}** link from the {% data variables.product.prodname_vscode_shortname %} welcome page
 
@@ -59,15 +59,15 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 ### Open without GitHub sign-in (Experimental)
 
-On desktop, you can open the Agents window without signing in to GitHub if Claude is configured with Anthropic credentials or Codex is signed in to ChatGPT. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
+On desktop, you can open the {% data variables.copilot.agents_window %} without signing in to GitHub if Claude is configured with Anthropic credentials or Codex is signed in to ChatGPT. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
 
-To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the Agents window, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
+To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the {% data variables.copilot.agents_window %}, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
 While you're signed out of GitHub, the model picker only shows models from providers with available credentials. Sign in to GitHub from the account menu to add Copilot-backed models. If both Copilot and ChatGPT provide a model with the same name, the model picker identifies the provider.
 
 When {% data variables.product.prodname_vscode_shortname %} discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
 
-If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
+If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the {% data variables.copilot.agents_window %} shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
 ## {% data variables.copilot.agents_window %} interface overview
 
@@ -135,6 +135,29 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 After you start a session, its row in the sessions list shows its status and change statistics. You can make another session active while the agent works, then select the session again to check its progress or respond to a request for input.
 
 The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+### Start a session from a pull request
+
+For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
+
+To start a session from a pull request:
+
+1. In the sessions list, group sessions by workspace.
+
+1. Hover over the workspace for the pull request, expand the **+** (New Session) action, and select **New Session from Pull Request**.
+
+    ![Screenshot showing the New Session from Pull Request action and pull request picker in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-new-session-from-pull-request.png)
+
+1. Select a pull request from the list.
+
+    The new session opens with the pull request title. Use the chat to ask questions about the pull request or enter a prompt to make more changes. The **Changes** view shows the pull request changes.
+
+1. Review and validate the changes, then select **Commit Changes** and **Sync Changes** in the title bar.
+
+    **Sync Changes** updates the pull request branch on GitHub, so the existing pull request includes your commits.
+
+> [!NOTE]
+> Pull requests from forks are not supported and don't appear in the pull request picker.
 
 ## Start a quick chat
 
@@ -248,7 +271,7 @@ The {% data variables.copilot.agents_window %} shares your GitHub account, {% da
 
 ### Customize agents for your project and workflow
 
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#agent-customizations-editor).
 
 ### Adjust the window layout
 

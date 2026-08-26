@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Create, manage, evaluate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} for user profiles, workspaces, and monorepos.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -116,7 +116,7 @@ To migrate user customizations:
 
 1. Enable the `setting(chat.customizations.userDataMigration.enabled)` setting.
 
-1. In the Chat view, select the agent host that should use the customizations.
+1. In the {% data variables.copilot.chat_view %}, select the agent host that should use the customizations.
 
 1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
 

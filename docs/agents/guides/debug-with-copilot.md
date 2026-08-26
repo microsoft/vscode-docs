@@ -1,6 +1,6 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to set up debugging configurations and fix issues during debugging.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -15,7 +15,7 @@ Copilot can help with the following debugging tasks:
 * **Fix issues**: receive suggestions for fixing issues discovered during debugging.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Set up debug configuration with Copilot
 

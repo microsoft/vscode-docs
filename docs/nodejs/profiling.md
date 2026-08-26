@@ -1,11 +1,11 @@
 ---
 ContentId: 3DAE803B-D479-4143-976F-B69F00A73891
 DateApproved: 8/19/2026
-MetaDescription: Learn more about profiling your JavaScript performance in the Visual Studio Code editor.
+MetaDescription: Learn more about profiling your JavaScript performance in the {% data variables.product.prodname_vscode %} editor.
 ---
 # Performance Profiling JavaScript
 
-Visual Studio Code supports collecting and viewing performance profiles for JavaScript programs. To get started, you'll first need to have the debugger configured for your [Node.js program](/docs/nodejs/nodejs-debugging.md) or [browser app](/docs/nodejs/browser-debugging.md).
+{% data variables.product.prodname_vscode %} supports collecting and viewing performance profiles for JavaScript programs. To get started, you'll first need to have the debugger configured for your [Node.js program](/docs/nodejs/nodejs-debugging.md) or [browser app](/docs/nodejs/browser-debugging.md).
 
 ## Types of profiles
 
@@ -28,9 +28,9 @@ Once you're debugging, switch to the Run and Debug view (`kb(workbench.view.debu
 
 ![Screenshot showing the button](images/profiling/take-profile.png)
 
-VS Code will then ask what [type of performance](#types-of-profiles) profile you'd like to take; pick the one that's relevant for you.
+{% data variables.product.prodname_vscode_shortname %} will then ask what [type of performance](#types-of-profiles) profile you'd like to take; pick the one that's relevant for you.
 
-Finally, VS Code will ask when you want to stop taking a profile. You can choose to either:
+Finally, {% data variables.product.prodname_vscode_shortname %} will ask when you want to stop taking a profile. You can choose to either:
 
 * Take the profile until you stop it manually.
 * Take the profile for a set duration.
@@ -54,7 +54,7 @@ The resulting `.cpuprofile` will be saved in your workspace folder automatically
 
 ### Table view
 
-VS Code has an integrated visualizer that supports viewing JavaScript `.cpuprofile` and `.heapprofile` files. When you open one of these files, you will first be presented with a table view that looks something like this:
+{% data variables.product.prodname_vscode_shortname %} has an integrated visualizer that supports viewing JavaScript `.cpuprofile` and `.heapprofile` files. When you open one of these files, you will first be presented with a table view that looks something like this:
 
 ![Screenshot showing the profile table](images/profiling/profile-table.png)
 
@@ -97,7 +97,7 @@ If you're working with a CPU profile, there's a good chance the flame graph you'
 
 ![A noisy CPU profile](images/profiling/cpu-profile-noise.png)
 
-For easier analysis, VS Code profiles a "left-heavy" view that groups all similar call stacks together.
+For easier analysis, {% data variables.product.prodname_vscode_shortname %} profiles a "left-heavy" view that groups all similar call stacks together.
 
 ![Toggle button](images/profiling/toggle-button.png)
 

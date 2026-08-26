@@ -1,25 +1,25 @@
 ---
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 DateApproved: 12/14/2023
-MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a MinGW-w64 installation
+MetaDescription: Configuring the C++ extension in {% data variables.product.prodname_vscode %} to target g++ and gdb on a MinGW-w64 installation
 Keywords:
 - C++
 ---
 # Using GCC with MinGW
 
-In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](http://mingw-w64.org) to create programs that run on Windows. After configuring VS Code, you will compile, run, and debug a Hello World program.
+In this tutorial, you configure {% data variables.product.prodname_vscode %} to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](http://mingw-w64.org) to create programs that run on Windows. After configuring {% data variables.product.prodname_vscode_shortname %}, you will compile, run, and debug a Hello World program.
 
 This tutorial does not teach you about GCC, GDB, minGW-w64, or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues/new).
+If you have any problems, feel free to file an issue for this tutorial in the [{% data variables.product.prodname_vscode_shortname %} documentation repository](https://github.com/microsoft/vscode-docs/issues/new).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you must do the following steps:
 
-1. Install [Visual Studio Code](/download).
+1. Install [{% data variables.product.prodname_vscode %}](/download).
 
-1. Install the [C/C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'C++' in the Extensions view (`kb(workbench.view.extensions)`).
+1. Install the [C/C++ extension for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'C++' in the Extensions view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
@@ -78,7 +78,7 @@ You should see output that states which versions of GCC, g++ and GDB you have in
 First, lets get a project set up.
 
 1. Launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar).
-1. Run the following commands. These will create an empty folder called `projects` where you can place all your VS Code projects. There, the next commands will create and navigate to a subfolder called `helloworld`. From there, you will open `helloworld` directly in VS Code.
+1. Run the following commands. These will create an empty folder called `projects` where you can place all your {% data variables.product.prodname_vscode_shortname %} projects. There, the next commands will create and navigate to a subfolder called `helloworld`. From there, you will open `helloworld` directly in {% data variables.product.prodname_vscode_shortname %}.
 
 ```bat
 mkdir projects
@@ -88,7 +88,7 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+The "code ." command opens {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
@@ -115,7 +115,7 @@ using namespace std;
 
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    vector<string> msg {"Hello", "C++", "World", "from", "{% data variables.product.prodname_vscode_shortname %}", "and the C++ extension!"};
 
     for (const string& word : msg)
     {
@@ -125,11 +125,11 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of {% data variables.product.prodname_vscode_shortname %}:
 
 ![File Explorer](images/mingw/file-explorer-mingw.png)
 
-You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by selecting **File** > **Auto Save**.  You can find out more about the other views in the VS Code [User Interface documentation](/docs/editing/userinterface.md).
+You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by selecting **File** > **Auto Save**.  You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
@@ -148,7 +148,7 @@ If IntelliSense is not already configured, open the Command Palette (`kb(workben
 
 ## Run helloworld.cpp
 
-Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have completed the "Installing the MinGW-w64 toolchain" step before attempting to run and debug `helloworld.cpp` in VS Code.
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have completed the "Installing the MinGW-w64 toolchain" step before attempting to run and debug `helloworld.cpp` in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Open `helloworld.cpp` so that it is the active file.
 2. Press the play button in the top right corner of the editor.
@@ -165,7 +165,7 @@ You'll only be asked to choose a compiler the first time you run `helloworld.cpp
 
     ![screenshot of program output](images/playbutton/helloworld-terminal-output.png)
 
-Congratulations! You've just run your first C++ program in VS Code!
+Congratulations! You've just run your first C++ program in {% data variables.product.prodname_vscode_shortname %}!
 
 ### Understanding tasks.json
 
@@ -324,7 +324,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 
 ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
-VS Code creates a `launch.json` file in the `.vscode` folder`, which looks something like this:
+{% data variables.product.prodname_vscode_shortname %} creates a `launch.json` file in the `.vscode` folder`, which looks something like this:
 
 ```json
 {
@@ -376,13 +376,13 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+This opens the **C/C++ Configurations** page. When you make changes here, {% data variables.product.prodname_vscode_shortname %} writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 Here, we've changed the **Configuration name** to **GCC**, set the **Compiler  path** dropdown to the g++ compiler, and the **IntelliSense mode** to match the compiler (**gcc-x64**).
 
 ![Command Palette](images/mingw/intellisense-configurations-mingw.png)
 
-Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
+{% data variables.product.prodname_vscode %} places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -438,6 +438,6 @@ When adding the MinGW-w64 destination folder to your list of environment variabl
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
+- Explore the [{% data variables.product.prodname_vscode_shortname %} User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your `.vscode` JSON files to it, adjust the necessary settings for the new workspace path, program name, etc. and start coding!

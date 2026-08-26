@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -37,7 +37,7 @@ You can further extend the list of available models by [using your own language 
 > For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Configure thinking effort
 
@@ -134,7 +134,7 @@ You can also use these models to [override the models used for utility tasks in 
 * [Custom endpoint](#add-a-custom-endpoint-model): You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Add a model from a built in provider
 
@@ -361,7 +361,7 @@ To change the language model that is used for generating inline suggestions in t
 > [!NOTE]
 > The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
 >
-> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Change the model for utility tasks
 
@@ -428,9 +428,9 @@ Each model in the `models` array supports the following properties:
 
 ## Frequently asked questions
 
-### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
+### How do I enable bring your own model key for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Can I use locally hosted models with Copilot in {% data variables.product.prodname_vscode_shortname %}?
 

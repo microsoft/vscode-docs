@@ -1,14 +1,14 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 8/19/2026
-MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, add page context to chat, and share browser sessions with AI agents.
+DateApproved: 8/26/2026
+MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
 
-The integrated browser enables you to open and interact with web pages directly inside VS Code. Use it to preview web applications, test authentication flows, and comment on page elements to give agents precise feedback.
+The integrated browser enables you to open and interact with web pages directly inside {% data variables.product.prodname_vscode_shortname %}. Use it to preview web applications, test authentication flows, and comment on page elements to give agents precise feedback.
 
-![Screenshot of the integrated browser in VS Code displaying a web page.](images/integrated-browser/integrated-browser.png)
+![Screenshot of the integrated browser in {% data variables.product.prodname_vscode_shortname %} displaying a web page.](images/integrated-browser/integrated-browser.png)
 
 ## Open the browser
 
@@ -16,12 +16,25 @@ There are several ways to open the integrated browser:
 
 * Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
 * Select **View** > **Browser** from the menu bar, or use the `kb(workbench.action.browser.openOrList)` keyboard shortcut.
-* Select the globe button in the VS Code title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
-* Select a `localhost` link anywhere in VS Code, like the terminal or chat. Enable this behavior with the `setting(workbench.browser.openLocalhostLinks)` setting.
+* Select the globe button in the {% data variables.product.prodname_vscode_shortname %} title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
+* Select a `localhost` link anywhere in {% data variables.product.prodname_vscode_shortname %}, like the terminal or chat. This behavior is enabled by default. To change it, see [Use an external browser](#use-an-external-browser).
 * Ask an agent to open or interact with a web page. See [Browser tools for agents](#browser-tools-for-agents).
 * Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
 You can open multiple browser instances simultaneously, each in its own editor tab. When a browser tab is already open, the **View** > **Browser** menu item and the title bar globe button open the [tab management](#tab-management) Quick Pick instead of creating a new browser tab.
+
+## Use an external browser
+
+By default, localhost links, such as `localhost`, `127.0.0.1`, and `[::1]`, and all-interfaces links, such as `0.0.0.0` and `[::]`, open in the integrated browser when you select them in the terminal, chat, or other parts of {% data variables.product.prodname_vscode_shortname %}.
+
+To open these links in an external browser instead, disable the `setting(workbench.browser.openLocalhostLinks)` setting. By default, {% data variables.product.prodname_vscode_shortname %} uses your operating system's default browser. To use a different browser, set `setting(workbench.externalBrowser)` to `edge`, `chrome`, `firefox`, or the absolute path to a browser executable.
+
+You can still open the integrated browser explicitly with the commands and UI actions described in [Open the browser](#open-the-browser).
+
+If you don't plan to use the integrated browser, you can also:
+
+* Set `setting(workbench.browser.showInTitleBar)` to `false` to hide the integrated browser button from the title bar.
+* Disable `setting(workbench.browser.enableChatTools)` to prevent chat agents from using browser tools to open and interact with pages in the integrated browser.
 
 ## Navigation
 
@@ -58,7 +71,7 @@ To favorite the current page, open the address bar and select the star icon. The
 
 ### Open tabs
 
-On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
+On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. {% data variables.product.prodname_vscode_shortname %} closes the new tab and activates the one you selected.
 
 ### Recents and history
 
@@ -126,7 +139,7 @@ Toggle the browser's Developer Tools from the browser toolbar to inspect element
 
 ## Debugging
 
-You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere Visual Studio Code Desktop is supported, even without an external browser installed.
+You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere {% data variables.product.prodname_vscode %} Desktop is supported, even without an external browser installed.
 
 > [!NOTE]
 > The `editor-browser` debug type is not yet available in the **Run and Debug** auto-detection flows. You need to manually add it to your `launch.json` file.
@@ -170,8 +183,8 @@ To attach the debugger to an integrated browser tab that is already open, use an
 
 When you start this configuration:
 
-* If no integrated browser tabs are open, VS Code creates a new tab and attaches to it.
-* If one tab is open, VS Code attaches to it automatically.
+* If no integrated browser tabs are open, {% data variables.product.prodname_vscode_shortname %} creates a new tab and attaches to it.
+* If one tab is open, {% data variables.product.prodname_vscode_shortname %} attaches to it automatically.
 * If multiple tabs are open, a picker lets you choose which tab to attach to.
 
 The browser tab stays open when you stop the debug session.
@@ -187,9 +200,9 @@ To automatically attach to a tab with a specific URL, add a `urlFilter` property
 }
 ```
 
-If one tab matches the filter, VS Code attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
+If one tab matches the filter, {% data variables.product.prodname_vscode_shortname %} attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
 
-For a full reference of launch configuration attributes, see [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
+For a full reference of launch configuration attributes, see [Browser debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
 
 ## Standalone window
 
@@ -237,12 +250,14 @@ The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
 |------|-------------|
 | **Add Screenshot to Chat** | Capture the current browser viewport. |
 | **Add Area Screenshot to Chat** | Drag to select a rectangular area of the page, then capture only that region. |
-| **Add Full Page Screenshot to Chat (Experimental)** | Capture the entire scrollable page, including content beyond the current viewport. |
+| **Add Full Page Screenshot to Chat** | Capture the entire scrollable page, including content beyond the current viewport. |
 
 Each mode is also available as a **Browser:** command in the Command Palette.
 
+<div class="docs-feature-status" data-feature="integrated-browser-full-page-screenshot"></div>
+
 > [!NOTE]
-> The full page screenshot mode is experimental. To enable it, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
+> To enable the full page screenshot mode, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
 ### Add console logs
 
@@ -254,7 +269,7 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
-The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, VS Code prompts you to allow or deny the request for the current site.
+The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, {% data variables.product.prodname_vscode_shortname %} prompts you to allow or deny the request for the current site.
 
 Pages can request access to web APIs such as:
 
@@ -281,10 +296,9 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
-## Browse over remote connections (Preview)
+## Browse over remote connections
 
-> [!NOTE]
-> This is a preview feature and might change in future releases.
+<div class="docs-feature-status" data-feature="integrated-browser-remote"></div>
 
 When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
 
@@ -316,7 +330,7 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 To let an agent read and interact with a page you opened, select the **Share with Agent** button in the browser toolbar. A confirmation dialog asks you to approve sharing before the agent gets access.
 
-![Screenshot showing the integrated browser, highlighting the Share with Agent button. The Chat view shows that the agent can see the shared browser page.](images/integrated-browser/share-with-agent.png)
+![Screenshot showing the integrated browser, highlighting the Share with Agent button. The {% data variables.copilot.chat_view %} shows that the agent can see the shared browser page.](images/integrated-browser/share-with-agent.png)
 
 A visual indicator on the browser tab shows that a page is currently being shared. To stop sharing, select the **Share with Agent** button again. This immediately revokes the agent's access to that page.
 
@@ -336,9 +350,27 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 
 Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
 
+## Configure the integrated browser
+
+Use the following settings to configure integrated browser behavior:
+
+| Setting | Description |
+|---------|-------------|
+| `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
+| `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
+| `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
+| `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
+| `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
+| `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
+| `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
+| `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
+| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
+| `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
+| `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
+
 ## Related
 
-* [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
+* [Browser debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/browser-debugging.md)
 * [Use browser tools with agents](/docs/agents/run/browser-tools.md)
 * [Build and validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/chat/copilot-chat-context.md)

@@ -179,14 +179,14 @@ def measure_the_response_if_human_like_or_not(query, **kwargs):
 
 ## pytest Evaluations
 
-Use pytest and Visual Studio Code's Testing tools to create comprehensive evaluations for your agents.
+Use pytest and {% data variables.product.prodname_vscode %}'s Testing tools to create comprehensive evaluations for your agents.
 
 1. Navigate the tree view to find an agent and select it so that the Agent Builder view appears in the main area.
 1. Select the Evaluation tab.
    ![Screenshot showing the evaluation setup feature to scaffold a pytest evaluation project.](./images/evaluation/pytest-evaluation-tab.png)
 1. Select the "Scaffold Evaluation Code" button.
 1. Choose the evaluator you want to scaffold and select OK. Regardless of which evaluator you select, you can edit the code later as needed.
-1. Select the folder where the scaffolded test code should be created. A new instance of Visual Studio Code will open with the new scaffolded test project loaded.
+1. Select the folder where the scaffolded test code should be created. A new instance of {% data variables.product.prodname_vscode %} will open with the new scaffolded test project loaded.
 1. Open the `README.md`. The "Quick Start" section contains the setup steps (also covered here). The `README.md` contains additional helpful information for understanding how to modify the project.
 1. Use the one-line command below to create Python environment and install dependencies.
    - **Windows**
@@ -201,10 +201,10 @@ Use pytest and Visual Studio Code's Testing tools to create comprehensive evalua
      python3 -m venv .venv && source .venv/bin/activate && pip install uv && uv pip install -r requirements.txt --prerelease=allow
      ```
 
-1. Select the Python environment in VS Code. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`), run `Python: Select Interpreter`, and select the new created environment.
+1. Select the Python environment in {% data variables.product.prodname_vscode_shortname %}. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`), run `Python: Select Interpreter`, and select the new created environment.
 1. Open the `.env` file and verify your configuration. It is pre-configured with the connection information to your agent in Foundry.
 1. Open the `data.jsonl` file. This contains example data in the JSONL format. You should modify this data, possibly adding additional properties and values depending on the type of evaluator you selected. For example, some evaluators may need a combination of `query`, `response`, `context`, `ground_truth` or other properties. You could add your own custom properties and handle them in your test harness logic.
-1. Open the **Testing** panel in VS Code (select the flask icon in the Activity Bar)
+1. Open the **Testing** panel in {% data variables.product.prodname_vscode_shortname %} (select the flask icon in the Activity Bar)
 1. Select the play button next to the testing code to run all tests.
 1. View results in the Test Results panel.
 
@@ -212,7 +212,7 @@ Use pytest and Visual Studio Code's Testing tools to create comprehensive evalua
 
 In this article, you learned how to:
 
-- Create and run evaluation jobs in Foundry Toolkit for VS Code.
+- Create and run evaluation jobs in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}.
 - Monitor the status of evaluation jobs and view their results.
 - Compare evaluation results between different versions of prompts and agents.
 - View version history for prompts and agents.

@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to use chat in {% data variables.product.prodname_vscode_shortname %}. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -23,8 +23,8 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 | Name | Description | How to open |
 |------|-------------|-------------|
-| [Agents window](/docs/agents/run/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open Agents Window** command</li><li>Run `code --agents`</li></ul> |
-| [Chat view](/docs/agents/run/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
+| [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open {% data variables.copilot.agents_window %}** command</li><li>Run `code --agents`</li></ul> |
+| [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
 | [Inline chat](/docs/chat/inline-chat.md) | Quick, in-place code edits or terminal suggestions. | <ul><li>Press `kb(inlineChat.start)`</li></ul> |
 | [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | A lightweight chat panel at the top of the editor. | <ul><li>Press `kb(workbench.action.quickchat.toggle)`</li></ul> |
 
@@ -49,7 +49,7 @@ Each session has configuration options that shape how the agent responds, such a
 
 ## Run terminal commands from chat
 
-Start a message with `!` to run a terminal command directly from the Chat view or Agents window. The `!` must be the first character and must be followed by a command.
+Start a message with `!` to run a terminal command directly from the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The `!` must be the first character and must be followed by a command.
 
 For example, enter the following message to run your tests:
 
@@ -104,8 +104,8 @@ When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or 
 
 After the AI changes your files, review and validate the result before you commit or integrate it.
 
-* **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the Agents window. To show a changed-files summary after each request in the Chat view, set `setting(chat.checkpoints.showFileChanges)` to `true`.
-* **Request revisions**: send a follow-up prompt, leave feedback in the Agents window diff editor, or edit the files directly.
+* **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the {% data variables.copilot.agents_window %}. To show a changed-files summary after each request in the {% data variables.copilot.chat_view %}, set `setting(chat.checkpoints.showFileChanges)` to `true`.
+* **Request revisions**: send a follow-up prompt, leave feedback in the {% data variables.copilot.agents_window %} diff editor, or edit the files directly.
 * **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints).
 * **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
@@ -136,7 +136,7 @@ Use `setting(chat.verbose)` to enable or disable these timestamps.
 
 ## Find text in a chat session
 
-Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the Chat view, chat editor tabs, and the Agents window. It searches prompts and responses, including off-screen content and code blocks.
+Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. It searches prompts and responses, including off-screen content and code blocks.
 
 Use `kb(workbench.action.chat.findNext)` and `kb(workbench.action.chat.findPrevious)` to navigate between matches. When a match is inside a collapsed **Completed N steps** section, navigating to the match expands the section. Use the **Match Case**, **Whole Word**, and **Regular Expression** options to refine the results.
 

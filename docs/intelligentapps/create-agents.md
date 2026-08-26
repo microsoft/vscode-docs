@@ -1,12 +1,12 @@
 ---
 ContentId: 09f4c3b8-1504-4fb2-9f84-5aa0fbe3969a
 DateApproved: 04/15/2026
-MetaDescription: Learn how to create AI agents with the Foundry Toolkit in Visual Studio Code, including hosted agents using templates or Copilot with Foundry skills and prompt agents using Agent Builder.
+MetaDescription: Learn how to create AI agents with the Foundry Toolkit in {% data variables.product.prodname_vscode %}, including hosted agents using templates or Copilot with Foundry skills and prompt agents using Agent Builder.
 ---
 
 # Create agents with the Foundry Toolkit
 
-The Foundry Toolkit extension for Visual Studio Code provides multiple ways to create AI agents using Microsoft Foundry. You can build hosted agents, which run as deployed services with supporting code and infrastructure, or prompt agents, which are lightweight agents defined by instructions, model settings, and optional tools.
+The Foundry Toolkit extension for {% data variables.product.prodname_vscode %} provides multiple ways to create AI agents using Microsoft Foundry. You can build hosted agents, which run as deployed services with supporting code and infrastructure, or prompt agents, which are lightweight agents defined by instructions, model settings, and optional tools.
 
 ## Choose the right approach
 
@@ -16,7 +16,7 @@ The Foundry Toolkit extension for Visual Studio Code provides multiple ways to c
 
 ## Prerequisites
 
-- Visual Studio Code
+- {% data variables.product.prodname_vscode %}
 - Foundry Toolkit extension installed
 - Access to Microsoft Foundry
 
@@ -39,7 +39,7 @@ Use templates to quickly scaffold a new hosted agent project.
    - **Browse model catalog** to choose a Foundry model to be deployed to your Foundry project
 1. In the **Workspace Folder** dialog, select the **Browse** option to choose the folder on your local drive where you want the template to generate the code
 
-Once you've made your selections, a new instance of Visual Studio Code will open with the working folder you selected and the new generated code from the template you selected. 
+Once you've made your selections, a new instance of {% data variables.product.prodname_vscode %} will open with the working folder you selected and the new generated code from the template you selected.
 
 ### Next steps
 
@@ -54,7 +54,7 @@ After the project is created:
 
 You can also create agents using GitHub Copilot with Foundry skills. Foundry Skills are automatically installed with Foundry Toolkit, and you do not have to do anything special to invoke the skills.
 
-1. Open GitHub Copilot Chat in Visual Studio Code
+1. Open GitHub Copilot Chat in {% data variables.product.prodname_vscode %}
 1. Enter a prompt such as: "Create a Foundry agent that..."
 1. Copilot uses Foundry skills to generate the required files and configuration
 1. Review and update the generated project

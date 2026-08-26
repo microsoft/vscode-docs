@@ -1,14 +1,14 @@
 ---
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 DateApproved: 02/04/2026
-MetaDescription: Settings Reference for the Python extension in Visual Studio Code
+MetaDescription: Settings Reference for the Python extension in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
 # Python settings reference
 
-The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
+The Python Extension for {% data variables.product.prodname_vscode %} is highly configurable. This page describes the key settings you can work with.
 
-For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
+For general information about working with settings in {% data variables.product.prodname_vscode_shortname %}, refer to [User and workspace settings](/docs/configure/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
 
 ## General Python settings
 
@@ -27,13 +27,13 @@ For general information about working with settings in VS Code, refer to [User a
 | terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). **Note**: This setting is superseded by `python-envs.terminal.autoActivationType` when that setting is configured. |
 | terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | terminal.focusAfterLaunch | `false` | Whether to switch the cursor focus to the terminal when launching a Python terminal. |
-| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that VS Code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
+| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that {% data variables.product.prodname_vscode_shortname %} ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | terminal.useEnvFile | `false` | Controls whether environment variables from env files and python.envFile setting are injected into terminals. |
 | venvFolders | `[]` | Paths to folders where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. **Note**: This setting is automatically merged with `python-envs.globalSearchPaths`. Consider migrating to the new setting for additional features. |
 
 ## Python Environments extension settings
 
-The Python Environments extension provides environment and package management within the VS Code UI. These settings control environment discovery, creation, and terminal activation.
+The Python Environments extension provides environment and package management within the {% data variables.product.prodname_vscode_shortname %} UI. These settings control environment discovery, creation, and terminal activation.
 
 For more information about environment management, see [Python environments](/docs/python/environments.md).
 
@@ -82,7 +82,7 @@ If you're migrating from older Python extension settings, the following table sh
 | autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. | [Testing](/docs/python/testing.md) |
 | cwd | null | Specifies an optional working directory for tests. | [Testing](/docs/python/testing.md) |
 | debugPort | `3000` | Port number used for debugging of unittest tests. | [Testing](/docs/python/testing.md) |
-| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
+| promptToConfigure | `true` | Specifies whether {% data variables.product.prodname_vscode_shortname %} prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
 
 ### unittest framework
 
@@ -141,7 +141,7 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | languageServerMode | default | Offers predefined configurations to optimize Pylance's performance based on the development needs. Available values are `default` and `light`. When set to `default`, the language server delivers sufficient functionality for most machines without overloading the system. When set to `light`, it enables a lightweight, memory-efficient setup. This mode disables various features to make Pylance function more like a streamlined text editor, and it's ideal for those who do not require the full breadth of IntelliSense capabilities and prefer Pylance to be as resource-friendly as possible. In `light` mode, the following settings are overridden: `python.analysis.exclude` is set to `["**"]`, `python.analysis.useLibraryCodeForTypes` is set to `false`, `python.analysis.enablePytestSupport` is set to `false`, and `python.analysis.indexing` is set to `false`. |
 | logLevel | `Error` | Specifies the level of logging to be performed by the language server. The possible levels of logging, in increasing level of information provided, are `Error`, `Warning`, `Information`, and `Trace`. |
 | nodeArguments | `"--max-old-space-size=8192"` | Specifies custom arguments directly the custom Node.js executable defined by `python.analysis.nodeExecutable`. This can be used to allocate more memory or configure Node.js behavior. Accepts a list of arguments supported by Node.js. Each `"arg=value"` should be separated by commas in the list. Usage example: `"python.analysis.nodeArguments": ["--max-old-space-size=8192"]` |
-| nodeExecutable | `""` | Specifies the Node.js executable to use, which allows Pylance to allocate more memory. Accepted values are strings with executable paths, an empty string or `"auto"`. When set to an empty string, Pylance will use VS Code's node executable. When set to `"auto"`, it will automatically download [Node.js](https://nodejs.org/dist/). |
+| nodeExecutable | `""` | Specifies the Node.js executable to use, which allows Pylance to allocate more memory. Accepted values are strings with executable paths, an empty string or `"auto"`. When set to an empty string, Pylance will use {% data variables.product.prodname_vscode_shortname %}'s node executable. When set to `"auto"`, it will automatically download [Node.js](https://nodejs.org/dist/). |
 | packageIndexDepths | [] | Used to override how many levels under installed packages to index on a per package basis. By default, only top-level modules are indexed (depth = 1). To index submodules, increase depth by 1 for each level of submodule you want to index. Accepted values are tuples of objects like `{"name": "package name (str)", "depth": "depth to scan (int)", "includeAllSymbols": "whether to include all symbols (bool)"}`. If `includeAllSymbols` is set to `false`, only symbols in each package's `__all__` are included. When it's set to `true`, Pylance will index every module/top level symbol declarations in the file. Usage example: `[{"name": "sklearn", "depth": 2, "includeAllSymbols": true}, {"name": "matplotlib", "depth": 3, "includeAllSymbols": false}]` |
 | stubPath | ./typings | Specifies a path to a directory that contains custom type stubs. Each package's type stub file(s) are expected to be in its own subdirectory. |
 | typeCheckingMode | off | Specifies the level of type checking analysis to perform. Available values are `off`, `basic`, and `strict`. When set to `off` no type checking analysis is conducted; unresolved imports/variables diagnostics are produced. When set to `basic` non-type checking-related rules (all rules in `off`), as well as basic type checking rules are used. When set to `strict` all type checking rules at the highest severity of error (including all rules in `off` and `basic` categories) are used. |
@@ -215,12 +215,12 @@ This section details all the available rules that can be customized using the `p
 
 ## Predefined variables
 
-The Python extension settings support predefined variables. Similar to the general VS Code settings, variables use the **${variableName}** syntax. Specifically, the extension supports the following variables:
+The Python extension settings support predefined variables. Similar to the general {% data variables.product.prodname_vscode_shortname %} settings, variables use the **${variableName}** syntax. Specifically, the extension supports the following variables:
 
 - **${cwd}** - the task runner's current working directory on startup
-- **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
-- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolder}** - the path of the folder opened in {% data variables.product.prodname_vscode_shortname %}
+- **${workspaceRootFolderName}** - the name of the folder opened in {% data variables.product.prodname_vscode_shortname %} without any slashes (/)
+- **${workspaceFolderBasename}** - the name of the folder opened in {% data variables.product.prodname_vscode_shortname %} without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceFolder`
 - **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
@@ -231,9 +231,9 @@ The Python extension settings support predefined variables. Similar to the gener
 
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
-- **${execPath}** - the path to the running VS Code executable
+- **${execPath}** - the path to the running {% data variables.product.prodname_vscode_shortname %} executable
 
-For additional information about predefined variables and example usages, see the [Variables reference](/docs/reference/variables-reference.md) in the general VS Code docs.
+For additional information about predefined variables and example usages, see the [Variables reference](/docs/reference/variables-reference.md) in the general {% data variables.product.prodname_vscode_shortname %} docs.
 
 ## Next steps
 

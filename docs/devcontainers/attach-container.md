@@ -1,11 +1,11 @@
 ---
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
-MetaDescription: Attach to a running container using Visual Studio Code Remote Development
+MetaDescription: Attach to a running container using {% data variables.product.prodname_vscode %} Remote Development
 DateApproved: 8/19/2026
 ---
 # Attach to a running container
 
-Visual Studio Code can create and start containers for you but that may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started. Once attached, you can install extensions, edit, and debug like you can when you open a folder in a container using [devcontainer.json](https://containers.dev/implementors/json_reference).
+{% data variables.product.prodname_vscode %} can create and start containers for you but that may not match your workflow and you may prefer to "attach" {% data variables.product.prodname_vscode_shortname %} to an already running Docker container - regardless of how it was started. Once attached, you can install extensions, edit, and debug like you can when you open a folder in a container using [devcontainer.json](https://containers.dev/implementors/json_reference).
 
 ## Attach to a Docker container
 
@@ -17,7 +17,7 @@ To attach to a Docker container, either select **Dev Containers: Attach to Runni
 
 ## Attached container configuration files
 
-VS Code supports image or container name-level configuration files to speed up setup when you repeatedly connect to a given Docker container. Once attached, anytime you open a folder, [install an extension](/docs/devcontainers/containers.md#managing-extensions), or [forward a port](/docs/devcontainers/containers.md#forwarding-or-publishing-a-port), a local image-specific configuration file will automatically be updated to remember your settings so that when you attach again, everything is back to the right place.
+{% data variables.product.prodname_vscode_shortname %} supports image or container name-level configuration files to speed up setup when you repeatedly connect to a given Docker container. Once attached, anytime you open a folder, [install an extension](/docs/devcontainers/containers.md#managing-extensions), or [forward a port](/docs/devcontainers/containers.md#forwarding-or-publishing-a-port), a local image-specific configuration file will automatically be updated to remember your settings so that when you attach again, everything is back to the right place.
 
 * By default, an **image-level** configuration is used. To view or update it after attaching, select **Dev Containers: Open Container Configuration File** from the Command Palette (`kbstyle(F1)`).
 
@@ -43,10 +43,10 @@ Both of these files support a subset of `devcontainer.json` properties:
     // An array port numbers to forward
     "forwardPorts": [8000],
 
-    // Container user VS Code should use when connecting
+    // Container user {% data variables.product.prodname_vscode_shortname %} should use when connecting
     "remoteUser": "vscode",
 
-    // Set environment variables for VS Code and sub-processes
+    // Set environment variables for {% data variables.product.prodname_vscode_shortname %} and sub-processes
     "remoteEnv": { "MY_VARIABLE": "some-value" }
 }
 ```
@@ -65,16 +65,16 @@ Attached container configuration files are similar to [devcontainer.json](https:
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Not set by default (an empty window is opened). |
+| `workspaceFolder` | string | Sets the default path that {% data variables.product.prodname_vscode_shortname %} should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Not set by default (an empty window is opened). |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 | `forwardPorts` | array | A list of ports that should be forwarded from inside the container to the local machine. |
 | `portsAttributes` | object | Object that maps a port number, `"host:port"` value, range, or regular expression to a set of default options. See [port attributes](https://containers.dev/implementors/json_reference/#port-attributes) for available options. For example: <br />`"portsAttributes": {"3000": {"label": "Application port"}}` |
 | `otherPortsAttributes` | object | Default options for ports, port ranges, and hosts that aren't configured using `portsAttributes`. See [port attributes](https://containers.dev/implementors/json_reference/#port-attributes) for available options. For example: <br /> `"otherPortsAttributes": {"onAutoForward": "silent"}` |
-| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-attached-container-configuration-files) may be referenced in the values.<br>For example: `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }` |
-| `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
-| `userEnvProbe` | enum | Indicates the type of shell to use to "probe" for user environment variables to include in VS Code or other connected tool's processes: `none`, `interactiveShell`, `loginShell`, or `loginInteractiveShell` (default). The specific shell used is based on the default shell for the user (typically bash). For example, bash interactive shells will typically include variables set in `/etc/bash.bashrc` and `~/.bashrc` while login shells usually include variables from `/etc/profile` and `~/.profile`. Setting this property to `loginInteractiveShell` will get variables from all four files. |
-| `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code attaches to the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Not set by default. <br>Note that the array syntax will execute the command without a shell. You can [learn more](https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties) about formatting string vs array properties. |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for {% data variables.product.prodname_vscode_shortname %} (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-attached-container-configuration-files) may be referenced in the values.<br>For example: `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }` |
+| `remoteUser` | string | Overrides the user that {% data variables.product.prodname_vscode_shortname %} runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
+| `userEnvProbe` | enum | Indicates the type of shell to use to "probe" for user environment variables to include in {% data variables.product.prodname_vscode_shortname %} or other connected tool's processes: `none`, `interactiveShell`, `loginShell`, or `loginInteractiveShell` (default). The specific shell used is based on the default shell for the user (typically bash). For example, bash interactive shells will typically include variables set in `/etc/bash.bashrc` and `~/.bashrc` while login shells usually include variables from `/etc/profile` and `~/.profile`. Setting this property to `loginInteractiveShell` will get variables from all four files. |
+| `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after {% data variables.product.prodname_vscode_shortname %} attaches to the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Not set by default. <br>Note that the array syntax will execute the command without a shell. You can [learn more](https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties) about formatting string vs array properties. |
 
 ### Variables in attached container configuration files
 
@@ -86,7 +86,7 @@ Variables can be referenced in certain string values in attached configuration f
 
 ## Attach to a container in a Kubernetes cluster
 
-To attach to a container in a Kubernetes cluster, select **Dev Containers: Attach to Running Kubernetes Container...** from the Command Palette (`kb(workbench.action.showCommands)`). Alternatively, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Dev Containers extension. Then select the Kubernetes explorer from the Activity Bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach Visual Studio Code** from the context menu.
+To attach to a container in a Kubernetes cluster, select **Dev Containers: Attach to Running Kubernetes Container...** from the Command Palette (`kb(workbench.action.showCommands)`). Alternatively, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Dev Containers extension. Then select the Kubernetes explorer from the Activity Bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach {% data variables.product.prodname_vscode %}** from the context menu.
 
 > **Note:** Attached container configuration files are not yet supported for containers in a Kubernetes cluster.
 

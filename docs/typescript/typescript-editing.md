@@ -1,11 +1,11 @@
 ---
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
 DateApproved: 8/19/2026
-MetaDescription: Learn about TypeScript editing with Visual Studio Code.
+MetaDescription: Learn about TypeScript editing with {% data variables.product.prodname_vscode %}.
 ---
 # Editing TypeScript
 
-Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editing/codebasics.md).
+{% data variables.product.prodname_vscode %} has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to {% data variables.product.prodname_vscode_shortname %}. If you'd like to know more about general editing features in {% data variables.product.prodname_vscode_shortname %}, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editing/codebasics.md).
 
 ## IntelliSense
 
@@ -13,7 +13,7 @@ IntelliSense shows you intelligent code completion, hover information, and signa
 
 ![TypeScript small completions for String type](images/editing/ts-intellisense.png)
 
-VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
+{% data variables.product.prodname_vscode_shortname %} provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
 
 ### Hover information
 
@@ -25,7 +25,7 @@ You can also show the hover information at the current cursor position with the 
 
 ### Signature help
 
-As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+As you write a TypeScript function call, {% data variables.product.prodname_vscode_shortname %} shows information about the function signature and highlights the parameter that you are currently completing:
 
 ![Signature help for the lodash capitalize function](images/editing/signature-help.png)
 
@@ -33,7 +33,7 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-VS Code includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
+{% data variables.product.prodname_vscode_shortname %} includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
 
 ![Typescript snippets](images/editing/ts-snippets.png)
 
@@ -112,7 +112,7 @@ Just start typing to see [suggestions](#intellisense) for all available TypeScri
 
 ![Global symbols are shown in the suggestion list](images/editing/auto-import-pre.png)
 
-If you choose one of the suggestions from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+If you choose one of the suggestions from another file or module, {% data variables.product.prodname_vscode_shortname %} will automatically add an import for it. In this example, {% data variables.product.prodname_vscode_shortname %} adds an import for `Hercules` to the top of the file:
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/editing/auto-import-post.png)
 
@@ -120,7 +120,7 @@ You can disable auto imports by setting `"js/ts.suggest.autoImports": false`.
 
 ### Add imports on paste
 
-When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+When you copy and paste code between editors, {% data variables.product.prodname_vscode_shortname %} can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
 
 <video src="images/editing/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
 
@@ -130,11 +130,11 @@ You can make paste with imports the default behavior, without showing the paste 
 
 ## JSX and auto closing tags
 
-VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
+{% data variables.product.prodname_vscode_shortname %}'s TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
 
 ![IntelliSense in JSX](images/editing/jsx.png)
 
-VS Code also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
+{% data variables.product.prodname_vscode_shortname %} also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
 
 <video src="images/editing/jsx-tag-complete.mp4" placeholder="images/editing/jsx-tag-complete.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -144,9 +144,9 @@ Set `"js/ts.autoClosingTags.enabled"` to `false` to disable JSX tag closing.
 
 ## JSDoc support
 
-VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover information](#hover-information), and [signature help](#signature-help).
+{% data variables.product.prodname_vscode_shortname %}'s TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover information](#hover-information), and [signature help](#signature-help).
 
-![TypeScript language within VS Code](images/editing/jsdocs.png)
+![TypeScript language within {% data variables.product.prodname_vscode_shortname %}](images/editing/jsdocs.png)
 
 Keep in mind that when using JSDoc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JSDoc.
 
@@ -173,11 +173,11 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Formatting
 
-VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
+{% data variables.product.prodname_vscode_shortname %} includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
 Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
+For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vscode_shortname %} marketplace.
 
 ## Syntax highlighting and semantic highlighting
 

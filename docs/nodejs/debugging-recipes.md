@@ -1,18 +1,18 @@
 ---
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 DateApproved: 8/19/2026
-MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
+MetaDescription:  Learn more about how to setup debugging in {% data variables.product.prodname_vscode %} with debugging recipes
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
 # JavaScript Debugging Recipes
 
-Visual Studio Code supports debugging of many languages and platforms via debuggers that are either built-in or contributed by extensions.
+{% data variables.product.prodname_vscode %} supports debugging of many languages and platforms via debuggers that are either built-in or contributed by extensions.
 
 To make it easier to get started with debugging, we have made a collection of debugging "recipes" which contain the steps and configuration you need to set up debugging for your favorite platform. The recipes are in GitHub at [https://github.com/microsoft/vscode-recipes](https://github.com/microsoft/vscode-recipes).
 
 ## Debug server-side JavaScript in Node.js
 
-The Visual Studio Code editor supports debugging Node.js applications via the built-in [Node.js](https://nodejs.org/) debugger.
+The {% data variables.product.prodname_vscode %} editor supports debugging Node.js applications via the built-in [Node.js](https://nodejs.org/) debugger.
 
 ![Node.js logo](images/recipes/nodejs.png)
 
@@ -23,7 +23,7 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 ## Debug client-side JavaScript in Browsers
 
-The Visual Studio Code editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/edge) and [Google Chrome](https://www.google.com/chrome/).
+The {% data variables.product.prodname_vscode %} editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/edge) and [Google Chrome](https://www.google.com/chrome/).
 
 ![JavaScript, Edge, and Chrome logo](images/recipes/browsers.png)
 
@@ -40,12 +40,12 @@ You can read more about debugging browsers works in the [Browser Debugging docum
 
 **Blog posts**:
 
-* [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
-* [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
+* [Live edit and debug your React apps directly from {% data variables.product.prodname_vscode_shortname %}](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
+* [Super-charged live editing and JavaScript debugging for Angular using {% data variables.product.prodname_vscode_shortname %}](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
 
 ## Electron - Debug Electron applications
 
-The Visual Studio Code editor supports debugging [Electron](https://www.electronjs.org) applications via the built-in JavaScript debugger.
+The {% data variables.product.prodname_vscode %} editor supports debugging [Electron](https://www.electronjs.org) applications via the built-in JavaScript debugger.
 
 ![electron logo](images/recipes/electron.png)
 
@@ -55,6 +55,6 @@ The Visual Studio Code editor supports debugging [Electron](https://www.electron
 
 ## Next steps
 
-* [Debugging](/docs/debugtest/debugging.md) - Read about general VS Code debugging features.
+* [Debugging](/docs/debugtest/debugging.md) - Read about general {% data variables.product.prodname_vscode_shortname %} debugging features.
 * [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in Node.js debugger.
-* [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
+* [Video: Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in {% data variables.product.prodname_vscode_shortname %}.

@@ -1,29 +1,29 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
 DateApproved: 08/04/2026
-MetaDescription: Use built-in dictation and voice features in Visual Studio Code, including local speech recognition in chat, editors, and terminals.
+MetaDescription: Use built-in dictation and voice features in {% data variables.product.prodname_vscode %}, including local speech recognition in chat, editors, and terminals.
 ---
 # Voice support
 
-VS Code has built-in dictation that converts your speech to text in chat, the Agents window, editors, and terminals. Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
+{% data variables.product.prodname_vscode_shortname %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
 
 > [!NOTE]
 > Built-in dictation is an experimental feature and is subject to change.
 
 ## Use built-in dictation
 
-Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use, VS Code downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
+Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use, {% data variables.product.prodname_vscode_shortname %} downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
 
 The on-device model is available on these desktop platforms:
 
 * Windows on x64 and Arm64.
 * macOS on Apple silicon.
 * Linux on x64 and Arm64 with glibc 2.34 or later.
-* Remote workspaces, because speech recognition runs on the local VS Code client.
+* Remote workspaces, because speech recognition runs on the local {% data variables.product.prodname_vscode_shortname %} client.
 
-VS Code asks for microphone access when you start dictation. Only one dictation session can be active at a time.
+{% data variables.product.prodname_vscode_shortname %} asks for microphone access when you start dictation. Only one dictation session can be active at a time.
 
-### Dictate in chat or the Agents window
+### Dictate in chat or the {% data variables.copilot.agents_window %}
 
 To dictate a chat prompt, select the microphone button in the chat input or press `kb(workbench.action.chat.toggleSpeechToText)`. Select the button or press the keyboard shortcut again to stop dictation and keep the transcribed text. Dictation inserts text in the input but does not submit the request.
 
@@ -33,7 +33,7 @@ To dictate a chat prompt, select the microphone button in the chat input or pres
 
 Press `kb(workbench.action.chat.cancelSpeechToText)` to cancel dictation and remove the text from the current dictation session.
 
-On first use, VS Code shows an introduction next to the chat input. To view it again, run **Chat: Dictate: Show Introduction** from the Command Palette.
+On first use, {% data variables.product.prodname_vscode_shortname %} shows an introduction next to the chat input. To view it again, run **Chat: Dictate: Show Introduction** from the Command Palette.
 
 ### Dictate in an editor
 
@@ -76,30 +76,30 @@ Dictation instructions apply when `setting(dictation.experimental.llmCleanup)` i
 
 ### Install the model from a local package
 
-If network restrictions prevent VS Code from downloading the on-device model, download the official CPU model package separately. Then run **Chat: Install Dictation Model from Local Package...** and select the ZIP file or prepared model folder.
+If network restrictions prevent {% data variables.product.prodname_vscode_shortname %} from downloading the on-device model, download the official CPU model package separately. Then run **Chat: Install Dictation Model from Local Package...** and select the ZIP file or prepared model folder.
 
 ## Understand dictation privacy
 
 The default speech recognition model processes microphone audio on your device. After the initial model download, speech recognition does not require an internet connection.
 
-When `setting(dictation.experimental.llmCleanup)` is enabled, VS Code sends the transcript text, but not the audio, to a Copilot language model for cleanup. Turn off this setting to keep transcript processing local.
+When `setting(dictation.experimental.llmCleanup)` is enabled, {% data variables.product.prodname_vscode_shortname %} sends the transcript text, but not the audio, to a Copilot language model for cleanup. Turn off this setting to keep transcript processing local.
 
-## VS Code Speech extension
+## {% data variables.product.prodname_vscode_shortname %} Speech extension
 
 Built-in dictation is not available on these platforms:
 
-* VS Code for the Web.
+* {% data variables.product.prodname_vscode_shortname %} for the Web.
 * Intel-based Mac computers.
 * 32-bit and Arm32 systems.
 * Linux distributions that use musl, such as Alpine Linux.
 
-On these platforms, install the [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech). The extension also provides voice chat, text-to-speech for chat responses, and the "Hey Code" keyword activation feature.
+On these platforms, install the [{% data variables.product.prodname_vscode_shortname %} Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech). The extension also provides voice chat, text-to-speech for chat responses, and the "Hey Code" keyword activation feature.
 
 ## Next steps
 
 Read on to find out about:
 
-* [Other VS Code accessibility features](/docs/configure/accessibility/accessibility.md).
-* [Visual Studio Code User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Other {% data variables.product.prodname_vscode_shortname %} accessibility features](/docs/configure/accessibility/accessibility.md).
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

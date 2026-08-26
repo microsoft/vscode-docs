@@ -1,6 +1,6 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Sync, share, and query Copilot session history in {% data variables.product.prodname_vscode %} with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -36,7 +36,7 @@ Sessions from matching repositories are stored locally only.
 
 ## Enterprise policy
 
-For Copilot Business and Copilot Enterprise users, two policies control session sync:
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, two policies control session sync:
 
 * **GitHub.com enterprise policy** ("Store local sessions in the Cloud"): enterprise and organization owners configure this on GitHub.com to enable or disable cloud sync for their users.
 * **{% data variables.product.prodname_vscode_shortname %} group policy** (`CopilotSessionSync`): when disabled, the `setting(chat.sessionSync.enabled)` setting is forced to `false` and sessions stay local only.

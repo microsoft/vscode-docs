@@ -1,30 +1,30 @@
 ---
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
 DateApproved: 5/13/2022
-MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
+MetaDescription: Configure the C++ extension in {% data variables.product.prodname_vscode %} to target g++ and GDB on Linux
 Keywords:
 - C++
 ---
-# Using C++ on Linux in VS Code
+# Using C++ on Linux in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Linux. GCC stands for GNU Compiler Collection; GDB is the GNU debugger.
+In this tutorial, you will configure {% data variables.product.prodname_vscode %} to use the GCC C++ compiler (g++) and GDB debugger on Linux. GCC stands for GNU Compiler Collection; GDB is the GNU debugger.
 
-After configuring VS Code, you will compile and debug a simple C++ program in VS Code. This tutorial does not teach you GCC, GDB, Ubuntu or the C++ language. For those subjects, there are many good resources available on the Web.
+After configuring {% data variables.product.prodname_vscode_shortname %}, you will compile and debug a simple C++ program in {% data variables.product.prodname_vscode_shortname %}. This tutorial does not teach you GCC, GDB, Ubuntu or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have trouble, feel free to file an issue for this tutorial in the [{% data variables.product.prodname_vscode_shortname %} documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install [Visual Studio Code](/download).
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
+1. Install [{% data variables.product.prodname_vscode %}](/download).
+1. Install the [C++ extension for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
 ### Ensure GCC is installed
 
-Although you'll use VS Code to edit your source code, you'll compile the source code on Linux using the g++ compiler. You'll also use GDB to debug. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that's easy.
+Although you'll use {% data variables.product.prodname_vscode_shortname %} to edit your source code, you'll compile the source code on Linux using the g++ compiler. You'll also use GDB to debug. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that's easy.
 
 First, check to see whether GCC is already installed. To verify whether it is, open a Terminal window and enter the following command:
 
@@ -46,7 +46,7 @@ sudo apt-get install build-essential gdb
 
 ## Create Hello World
 
-From the terminal window, create an empty folder called `projects` to store your VS Code projects. Then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
+From the terminal window, create an empty folder called `projects` to store your {% data variables.product.prodname_vscode_shortname %} projects. Then create a subfolder called `helloworld`, navigate into it, and open {% data variables.product.prodname_vscode_shortname %} in that folder by entering the following commands:
 
 ```bash
 mkdir projects
@@ -56,7 +56,7 @@ cd helloworld
 code .
 ```
 
-The `code .` command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will create three files in a `.vscode` folder in the workspace:
+The `code .` command opens {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace". As you go through the tutorial, you will create three files in a `.vscode` folder in the workspace:
 
 - `tasks.json` (compiler build settings)
 - `launch.json` (debugger settings)
@@ -79,7 +79,7 @@ using namespace std;
 
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    vector<string> msg {"Hello", "C++", "World", "from", "{% data variables.product.prodname_vscode_shortname %}", "and the C++ extension!"};
 
     for (const string& word : msg)
     {
@@ -91,13 +91,13 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of {% data variables.product.prodname_vscode_shortname %}:
 
 ![File Explorer](images/msvc/file-explorer.png)
 
-You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/editing/userinterface.md).
+The Activity Bar on the edge of {% data variables.product.prodname_vscode %} lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
@@ -111,7 +111,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member. Then, when y
 
 ## Run helloworld.cpp
 
-Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Open `helloworld.cpp` so that it is the active file.
 2. Press the play button in the top right corner of the editor.
@@ -263,7 +263,7 @@ To keep track of the value of a variable as your program executes, set a **watch
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 
-Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
+Next, you'll create a `tasks.json` file to tell {% data variables.product.prodname_vscode_shortname %} how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
 
 It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
 
@@ -281,7 +281,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 
 ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
-VS Code creates a `launch.json` file, which looks something like this:
+{% data variables.product.prodname_vscode_shortname %} creates a `launch.json` file, which looks something like this:
 
 ```json
 {
@@ -328,13 +328,13 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+This opens the **C/C++ Configurations** page. When you make changes here, {% data variables.product.prodname_vscode_shortname %} writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 ![IntelliSense configuration window](images/wsl/intellisense-configurations-wsl.png)
 
 You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 
-Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
+{% data variables.product.prodname_vscode %} places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -357,7 +357,7 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 ## Reusing your C++ configuration
 
-VS Code is now configured to use gcc on Linux. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
+{% data variables.product.prodname_vscode_shortname %} is now configured to use gcc on Linux. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
 
 ## Troubleshooting
 
@@ -367,6 +367,6 @@ The most common cause of errors (such as `undefined _main`, or `attempting to li
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
+- Explore the [{% data variables.product.prodname_vscode_shortname %} User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

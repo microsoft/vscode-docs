@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/19/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, choose where sessions run, configure code isolation, and hand off work between providers.
+DateApproved: 8/26/2026
+MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure code isolation, use provider capabilities, and hand off work between providers.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -126,6 +126,32 @@ Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode]
 
 * **Slash commands**: enter `/` in the chat input to view the slash commands available in a Copilot session. For example, use `/compact` to reduce conversation context or `/yolo` and `/autoApprove` to control [automatic tool approval](/docs/agents/run/approvals.md#frequently-asked-questions).
 
+#### Get a second opinion with Rubber Duck
+
+<div class="docs-feature-status" data-feature="rubber-duck"></div>
+
+Rubber Duck is a built-in, read-only critic that gives Copilot a second opinion on its plans, code, and tests. It uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+
+For non-trivial work, Copilot might consult Rubber Duck automatically at key points, such as:
+
+* After creating a plan, before implementation.
+* During a complex implementation.
+* After writing tests.
+* After repeated failures or unexpected results.
+
+For smaller tasks, Copilot typically skips this review. To request a review at any time, ask Copilot in natural language:
+
+```prompt
+Get a second opinion on the changes you made so far.
+```
+
+You can also enter `/rubber-duck <question>` in the chat input. For example, enter `/rubber-duck What edge cases are missing?`.
+
+> [!NOTE]
+> Rubber Duck is available only when the main session uses a Claude or GPT model and a suitable complementary model is available. The additional model pass adds latency and model usage.
+
+Learn more about the [Rubber Duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in the GitHub documentation.
+
 <a name="remote-control-copilot-sessions"></a>
 
 * **Remote control**: enter `"/remote on"` to monitor and steer a running Copilot session from GitHub.com or the GitHub Mobile app. Session history, tool activity, status, approvals, and questions stay synchronized. Remote control requires GitHub authentication and a workspace that maps to a GitHub repository. Enter `"/remote off"` to stop sharing the session.
@@ -168,7 +194,7 @@ When both authentication methods are available, the model picker groups models b
 
 To use Claude without signing in to GitHub _(Experimental)_, set `ANTHROPIC_API_KEY` in your environment or in the `env` object in `~/.claude/settings.json`. Alternatively, set `CLAUDE_CODE_OAUTH_TOKEN` to a token created with `claude setup-token`. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the Agents window while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the {% data variables.copilot.agents_window %} while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
 
 ### Permissions and approvals
 
@@ -198,14 +224,14 @@ The Codex harness uses OpenAI Codex for interactive and background coding tasks.
 
 Codex is not listed by default. Complete one of these options before you select it. You don't need both:
 
-* **Use the OpenAI Codex extension in the Chat view**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
-* **Use Codex on Agent Host in the Agents window** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
+* **Use the OpenAI Codex extension in the {% data variables.copilot.chat_view %}**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
+* **Use Codex on Agent Host in the {% data variables.copilot.agents_window %}** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
 
-To use the Agent Host implementation in the Chat view, also enable `setting(chat.editor.codex.preferAgentHost)`.
+To use the Agent Host implementation in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)`.
 
 On the Agent Host, Codex supports two authentication and subscription options:
 
-* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-backed models. This option requires Copilot Pro+.
+* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-backed models. This option requires {% data variables.copilot.copilot_pro_plus_short %}.
 * **ChatGPT subscription**: open the account menu and select **Sign in to ChatGPT**. A free ChatGPT account is sufficient.
 
 When both accounts are signed in, the model picker groups models by **Copilot** and **ChatGPT**. Your selection determines which subscription is used, and {% data variables.product.prodname_vscode_shortname %} saves that provider with the session.
@@ -213,7 +239,7 @@ When both accounts are signed in, the model picker groups models by **Copilot** 
 <a name="use-codex-without-github-sign-in"></a>
 <a name="use-codex-without-github-sign-in-experimental"></a>
 
-To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The desktop Agents window then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based Agents window still requires GitHub sign-in.
+To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The desktop {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based {% data variables.copilot.agents_window %} still requires GitHub sign-in.
 
 ### Permissions and approvals
 

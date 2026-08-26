@@ -1,26 +1,26 @@
 ---
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 DateApproved: 5/4/2022
-MetaDescription: Download and learn the basics of Visual Studio Code.
+MetaDescription: Download and learn the basics of {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/opengraph/introvideos-social.png
 ---
-# Getting started with Visual Studio Code
+# Getting started with {% data variables.product.prodname_vscode %}
 
-In this tutorial, we walk you through using Visual Studio Code powered with AI features.
+In this tutorial, we walk you through using {% data variables.product.prodname_vscode %} powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/f8_uF_IDV50" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/f8_uF_IDV50" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with {% data variables.product.prodname_vscode %}"></iframe>
 
-Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
+Here's the next video we recommend: [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md)
 
-Explore more in the [VS Code Tutorial](/docs/editing/getting-started.md) and [GitHub Copilot's Quickstart](/docs/agents/quickstart.md).
+Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tutorial](/docs/editing/getting-started.md) and [GitHub Copilot's Quickstart](/docs/agents/quickstart.md).
 
 ## Helpful shortcuts
 
-* Download and install VS Code.
+* Download and install {% data variables.product.prodname_vscode_shortname %}.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
-* Open the Chat view
+* Open the {% data variables.copilot.chat_view %}
   * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)
@@ -56,11 +56,11 @@ Explore more in the [VS Code Tutorial](/docs/editing/getting-started.md) and [Gi
 
 ## Next video
 
-* [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.
+* [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in {% data variables.product.prodname_vscode_shortname %}.
 * [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
-* [User Interface](/docs/editing/userinterface.md) - View the documentation for VS Code.
-* [Setup Overview](/docs/getstarted/overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.
+* [User Interface](/docs/editing/userinterface.md) - View the documentation for {% data variables.product.prodname_vscode_shortname %}.
+* [Setup Overview](/docs/getstarted/overview.md) - Documentation for getting up and running with {% data variables.product.prodname_vscode_shortname %}, including platform specific setup.
+* [IntelliSense](/docs/editing/intellisense.md) -{% data variables.product.prodname_vscode_shortname %} brings smart code completions as you type.
