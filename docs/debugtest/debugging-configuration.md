@@ -1,7 +1,7 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
 DateApproved: 8/26/2026
-MetaDescription: Learn how to configure debugging in {% data variables.product.prodname_vscode %} with launch.json, including attributes, variable substitution, and compound configurations.
+MetaDescription: Configure debugging in {% data variables.product.prodname_vscode %} with launch.json attributes, variable substitution, and compound configurations.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # {% data variables.product.prodname_vscode %} debug configuration
@@ -163,9 +163,16 @@ You can see a full list of predefined variables in the [Variables Reference](/do
     "name": "Launch Program",
     "program": "${workspaceFolder}/app.js",
     "cwd": "${workspaceFolder}",
-    "args": [ "${env:USERNAME}" ]
+    "args": [
+        "--input",
+        "${workspaceFolder}/data folder/input.txt"
+    ]
 }
 ```
+
+In an array attribute such as `args`, each array element is passed as one argument after variable substitution. If `${workspaceFolder}` contains spaces, or the rest of the path contains spaces, the resolved path in the preceding example remains one argument.
+
+JSON string delimiters are syntax and are not part of the value. Don't add escaped quotes around a variable only to handle spaces. Individual debugger extensions define how their configuration attributes are passed, so add embedded quotes only if the debugger or target program requires them.
 
 ## Platform-specific properties
 
