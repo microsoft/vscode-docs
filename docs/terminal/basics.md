@@ -353,7 +353,7 @@ For more information about using GitHub Copilot with the terminal, see [Use term
 
 Use the dedicated `@terminal` chat participant in chat to ask questions about terminal commands, shell scripting, or explaining terminal output:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
 2. Start your question with `@terminal` to direct it to the terminal participant
 3. Ask about terminal commands, shell scripting, or explaining terminal output
 

@@ -23,7 +23,7 @@ Get help generating commit messages and pull request (PR) titles and description
 
 ## Resolve merge conflicts with AI (Experimental)
 
-Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the {% data variables.copilot.chat_view %} and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
 
 ![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
 
@@ -113,7 +113,7 @@ Get help with fixing failing tests in your codebase, directly from the Test Expl
 
 Alternatively, you can:
 
-1. Open the Chat view
+1. Open the {% data variables.copilot.chat_view %}
 1. Enter the `/fixTestFailure` command
 1. Follow Copilot's suggestions to fix the test
 

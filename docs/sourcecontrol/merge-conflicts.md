@@ -138,7 +138,7 @@ The three dots next to **Incoming**, **Current**, and **Result** offer options f
 
     ![Screenshot of the AI merge conflict resolution button in the editor.](images/overview/ai-merge-conflict-resolution.png)
 
-1. {% data variables.product.prodname_vscode_shortname %} opens the Chat view and starts an agentic flow to analyze the conflict
+1. {% data variables.product.prodname_vscode_shortname %} opens the {% data variables.copilot.chat_view %} and starts an agentic flow to analyze the conflict
 
 1. Review the proposed changes in the editor
 

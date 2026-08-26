@@ -5,7 +5,7 @@ MetaDescription: Use built-in dictation and voice features in {% data variables.
 ---
 # Voice support
 
-{% data variables.product.prodname_vscode_shortname %} has built-in dictation that converts your speech to text in chat, the Agents window, editors, and terminals. Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
+{% data variables.product.prodname_vscode_shortname %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
 
 > [!NOTE]
 > Built-in dictation is an experimental feature and is subject to change.
@@ -23,7 +23,7 @@ The on-device model is available on these desktop platforms:
 
 {% data variables.product.prodname_vscode_shortname %} asks for microphone access when you start dictation. Only one dictation session can be active at a time.
 
-### Dictate in chat or the Agents window
+### Dictate in chat or the {% data variables.copilot.agents_window %}
 
 To dictate a chat prompt, select the microphone button in the chat input or press `kb(workbench.action.chat.toggleSpeechToText)`. Select the button or press the keyboard shortcut again to stop dictation and keep the transcribed text. Dictation inserts text in the input but does not submit the request.
 

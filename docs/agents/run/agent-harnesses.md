@@ -194,7 +194,7 @@ When both authentication methods are available, the model picker groups models b
 
 To use Claude without signing in to GitHub _(Experimental)_, set `ANTHROPIC_API_KEY` in your environment or in the `env` object in `~/.claude/settings.json`. Alternatively, set `CLAUDE_CODE_OAUTH_TOKEN` to a token created with `claude setup-token`. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the Agents window while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the {% data variables.copilot.agents_window %} while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
 
 ### Permissions and approvals
 
@@ -224,10 +224,10 @@ The Codex harness uses OpenAI Codex for interactive and background coding tasks.
 
 Codex is not listed by default. Complete one of these options before you select it. You don't need both:
 
-* **Use the OpenAI Codex extension in the Chat view**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
-* **Use Codex on Agent Host in the Agents window** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
+* **Use the OpenAI Codex extension in the {% data variables.copilot.chat_view %}**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
+* **Use Codex on Agent Host in the {% data variables.copilot.agents_window %}** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
 
-To use the Agent Host implementation in the Chat view, also enable `setting(chat.editor.codex.preferAgentHost)`.
+To use the Agent Host implementation in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)`.
 
 On the Agent Host, Codex supports two authentication and subscription options:
 
@@ -239,7 +239,7 @@ When both accounts are signed in, the model picker groups models by **Copilot** 
 <a name="use-codex-without-github-sign-in"></a>
 <a name="use-codex-without-github-sign-in-experimental"></a>
 
-To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The desktop Agents window then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based Agents window still requires GitHub sign-in.
+To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The desktop {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based {% data variables.copilot.agents_window %} still requires GitHub sign-in.
 
 ### Permissions and approvals
 

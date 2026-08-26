@@ -11,7 +11,7 @@ Keywords:
 - handoff
 - fork
 - context window
-- agents window
+- {% data variables.copilot.agents_window %}
 ---
 
 # Sessions and handoff

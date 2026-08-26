@@ -19,7 +19,7 @@ The **Tools** section in the Agent Customizations editor controls which client-s
 Disabled tools aren't advertised to the agent. This reduces the set of tools that the agent has to consider and prevents it from requesting tools that you don't want it to use.
 
 > [!NOTE]
-> The **Tools** section is only available for the Copilot harness, which runs on [Agent Host](/docs/agents/concepts/agent-host.md). For this harness, tool choices are profile-wide and persist across sessions. Other harnesses use the **Configure Tools** picker in the Chat view to select tools for individual requests.
+> The **Tools** section is only available for the Copilot harness, which runs on [Agent Host](/docs/agents/concepts/agent-host.md). For this harness, tool choices are profile-wide and persist across sessions. Other harnesses use the **Configure Tools** picker in the {% data variables.copilot.chat_view %} to select tools for individual requests.
 
 ## Open the Tools section
 
@@ -29,8 +29,8 @@ To manage tools for the Copilot harness:
 
 1. Open the Agent Customizations editor:
 
-    * In the Chat view, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
-    * In the Agents window, go to the **Customizations** panel.
+    * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+    * In the {% data variables.copilot.agents_window %}, go to the **Customizations** panel.
 
 1. Select **Tools**.
 
@@ -65,7 +65,7 @@ In the main {% data variables.product.prodname_vscode_shortname %} window, you c
 
 1. Install the extension. Its tools then appear in the tool list, where you can manage their availability.
 
-The Agents window shows the tool availability list but doesn't include Marketplace browsing.
+The {% data variables.copilot.agents_window %} shows the tool availability list but doesn't include Marketplace browsing.
 
 To remove an extension from the tool list, right-click its tool group and select **Uninstall Extension**.
 

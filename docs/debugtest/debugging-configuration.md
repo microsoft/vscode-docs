@@ -79,7 +79,7 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 With Copilot in {% data variables.product.prodname_vscode_shortname %}, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
 
-1. Open the Chat view with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
+1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
 
 1. Enter the `/startDebugging` chat prompt to generate a debug configuration.
 

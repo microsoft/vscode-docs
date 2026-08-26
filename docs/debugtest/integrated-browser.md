@@ -330,7 +330,7 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 To let an agent read and interact with a page you opened, select the **Share with Agent** button in the browser toolbar. A confirmation dialog asks you to approve sharing before the agent gets access.
 
-![Screenshot showing the integrated browser, highlighting the Share with Agent button. The Chat view shows that the agent can see the shared browser page.](images/integrated-browser/share-with-agent.png)
+![Screenshot showing the integrated browser, highlighting the Share with Agent button. The {% data variables.copilot.chat_view %} shows that the agent can see the shared browser page.](images/integrated-browser/share-with-agent.png)
 
 A visual indicator on the browser tab shows that a page is currently being shared. To stop sharing, select the **Share with Agent** button again. This immediately revokes the agent's access to that page.
 
