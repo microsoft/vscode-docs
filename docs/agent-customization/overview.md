@@ -116,7 +116,7 @@ To migrate user customizations:
 
 1. Enable the `setting(chat.customizations.userDataMigration.enabled)` setting.
 
-1. In the Chat view, select the agent host that should use the customizations.
+1. In the {% data variables.copilot.chat_view %}, select the agent host that should use the customizations.
 
 1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
 

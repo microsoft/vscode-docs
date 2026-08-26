@@ -94,7 +94,7 @@ To open the `keybindings.json` file:
 
 ### System-wide keyboard shortcuts
 
-To run a {% data variables.product.prodname_vscode_shortname %} command even when {% data variables.product.prodname_vscode_shortname %} is not in focus, add `"systemWide": true` to a user keyboard shortcut. For example, the following keyboard shortcut opens the Agents window from any application on macOS:
+To run a {% data variables.product.prodname_vscode_shortname %} command even when {% data variables.product.prodname_vscode_shortname %} is not in focus, add `"systemWide": true` to a user keyboard shortcut. For example, the following keyboard shortcut opens the {% data variables.copilot.agents_window %} from any application on macOS:
 
 ```json
 {

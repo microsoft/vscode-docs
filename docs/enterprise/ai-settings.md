@@ -144,7 +144,7 @@ The value accepts one of the following:
 * A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
 * A full model ID.
 
-New conversations start at the configured model across the chat panel and the Agents window. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+New conversations start at the configured model across the chat panel and the {% data variables.copilot.agents_window %}. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -152,7 +152,7 @@ New conversations start at the configured model across the chat panel and the Ag
 
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
-The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+The **Agent** option will not be available in the agents dropdown in the {% data variables.copilot.chat_view %} when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
 ## Enable or disable hooks
 
@@ -324,7 +324,7 @@ For `Read` and `Edit` rules, the path prefix determines how the pattern is resol
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the {% data variables.copilot.chat_view %}.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.

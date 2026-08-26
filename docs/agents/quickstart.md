@@ -41,9 +41,9 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
 
-    ![Screenshot of opening the Agents window in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/open-agents-window.png)
+    ![Screenshot of opening the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/open-agents-window.png)
 
-    You can also run **Chat: Open Agents Window** from the Command Palette (`kb(workbench.action.showCommands)`).
+    You can also run **Chat: Open {% data variables.copilot.agents_window %}** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Select **New** at the top of the left sidebar.
 
@@ -80,7 +80,7 @@ The **{% data variables.copilot.chat_view %}** lets you work with agents alongsi
 
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
 
-    ![Screenshot of opening a new chat in the Copilot chat view.](images/agents-quickstart/editor-new-chat.png)
+    ![Screenshot of opening a new chat in the Copilot {% data variables.copilot.chat_view %}.](images/agents-quickstart/editor-new-chat.png)
 
 1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
 

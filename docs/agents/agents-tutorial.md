@@ -63,7 +63,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
-    You can also open the {% data variables.copilot.agents_window %} from the {% data variables.product.prodname_vscode_shortname %} welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    You can also open the {% data variables.copilot.agents_window %} from the {% data variables.product.prodname_vscode_shortname %} welcome page, or run the **Chat: Open {% data variables.copilot.agents_window %}** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 

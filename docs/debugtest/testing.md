@@ -51,7 +51,7 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 <div class="marketplace-extensions-testing-tools-curated"></div>
 
 > [!TIP]
-> Copilot can assist with setting up a testing framework and suggesting relevant testing extensions. Open the Chat view (`kb(workbench.action.chat.open)`), enter the `/setupTests` command, and Copilot will guide you through the process of configuring your project.
+> Copilot can assist with setting up a testing framework and suggesting relevant testing extensions. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), enter the `/setupTests` command, and Copilot will guide you through the process of configuring your project.
 
 ## Automatic test discovery in Testing view
 
@@ -75,7 +75,7 @@ In the **More Actions** menu, you can access more functionality, such as sort an
 If you add new tests or change your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 > [!NOTE]
-> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. You can use the `setupTests` command in Copilot Chat view to get help with setting up a testing framework for your project.
+> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. You can use the `setupTests` command in Copilot {% data variables.copilot.chat_view %} to get help with setting up a testing framework for your project.
 
 ## Write tests with AI
 
@@ -93,7 +93,7 @@ To write tests with Copilot in {% data variables.product.prodname_vscode_shortna
 
 	1. Open the application code file for which you want to generate tests
 
-	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the Chat view (`kb(workbench.action.chat.open)`), or the editor Inline Chat (`kb(inlineChat.start)`)
+	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), or the editor Inline Chat (`kb(inlineChat.start)`)
 
 	1. Enter a prompt to generate tests, such as _Generate tests for this code. Also include tests for edge cases._
 
