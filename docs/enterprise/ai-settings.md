@@ -106,8 +106,8 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
-| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
-| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
+| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
 | `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
 | `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
 | `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
@@ -185,8 +185,10 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 The following policies are available:
 
 * To allowlist the plugin IDs that developers can use, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in {% data variables.product.prodname_vscode_shortname %}. The organization explicitly enables or disables each plugin in the list.
-* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. This policy has no user-facing setting and can only be configured through policy.
-* To trust only the marketplaces supplied by policy, set the `ChatStrictMarketplaces` policy to `true`. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. When this policy is enabled, marketplaces that developers add through `setting(chat.plugins.marketplaces)` are not trusted.
+* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. A marketplace entry can set `autoUpdate` to `true` or `false` to override the developer's global extension auto-update setting for plugins from that marketplace.
+* To restrict trusted marketplace sources, set the `ChatStrictMarketplaces` policy to an array of allowed sources. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. Only marketplaces that match an entry are trusted. An empty array blocks all marketplaces.
+
+The `autoUpdate` value does not override `ChatStrictMarketplaces`. A marketplace source must be trusted before {% data variables.product.prodname_vscode_shortname %} refreshes it or updates its plugins.
 
 Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
 
