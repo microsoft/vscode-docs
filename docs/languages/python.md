@@ -49,7 +49,7 @@ The Python extension supports code completion and IntelliSense using the current
 
 IntelliSense quickly shows methods, class members, and documentation as you type. You can also trigger completions at any time with `kb(editor.action.triggerSuggest)`. Hovering over identifiers will show more information about them.
 
-![IntelliSense and autocomplete for Python code](images/python/python-editing.gif)
+<video src="images/python/python-editing.mp4" title="Video showing IntelliSense and autocomplete for Python code." autoplay loop controls muted></video>
 
 ## Enhance completions with AI
 

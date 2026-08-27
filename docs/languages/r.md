@@ -47,13 +47,13 @@ For more advanced usage such as running multiple R terminals or self-managed R t
 
 The R extension supports code completion and many other code editing features thanks to the R language server. The completion shows the available functions and variables in the scope and the current R workspace along with the documentation from packages or provided as comments.
 
-![Code completion](images/r/completion.gif)
+<video src="images/r/completion.mp4" title="Video showing Code completion." autoplay loop controls muted></video>
 
 ## Linting
 
 Linting is a feature that checks the code for warnings and potential errors. R code linting is provided by [lintr](https://github.com/r-lib/lintr) package. You can customize it by choosing from the list of [available linters](https://lintr.r-lib.org/reference/index.html#individual-linters) via the [configuration file](https://lintr.r-lib.org/articles/lintr.html#configuring-linters).
 
-![Linting](images/r/linting.gif)
+<video src="images/r/linting.mp4" title="Video showing Linting." autoplay loop controls muted></video>
 
 Besides code completion and linting, the R extension also supports other features such as code formatting, go to definition, rename symbol, find references. Read [R Language Service](https://github.com/REditorSupport/vscode-R/wiki/R-Language-Service) for more details.
 
@@ -61,7 +61,7 @@ Besides code completion and linting, the R extension also supports other feature
 
 The workspace viewer is located in the side bar in {% data variables.product.prodname_vscode_shortname %} and contains the packages in use and global variables in the active R session. Select the R icon in the Activity bar and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
 
-![Workspace Viewer](images/r/workspace-viewer.gif)
+<video src="images/r/workspace-viewer.mp4" title="Video showing Workspace Viewer." autoplay loop controls muted></video>
 
 Besides the workspace viewer, there is also a data viewer, a plot viewer, and a widget viewer. Read [Interactive viewers](https://github.com/REditorSupport/vscode-R/wiki/Interactive-viewers) for more details.
 

@@ -11,7 +11,7 @@ Support for [Emmet](https://emmet.io/) snippets and expansion is built right int
 
 Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files, as well as any language that inherits from any of the above like `handlebars` and `php`.
 
-![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
+<video src="images/emmet/emmet.mp4" title="Video showing Emmet in suggestion/auto-completion list." autoplay loop controls muted></video>
 
 When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
@@ -74,7 +74,7 @@ Emmet has no knowledge of these new languages, and so there might be Emmet sugge
 
 You can use most of the Emmet actions with multi-cursors as well:
 
-![Emmet with multi cursors](images/emmet/emmet-multi-cursor.gif)
+<video src="images/emmet/emmet-multi-cursor.mp4" title="Video showing Emmet with multi cursors." autoplay loop controls muted></video>
 
 ## Using filters
 

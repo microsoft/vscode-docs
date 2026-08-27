@@ -57,7 +57,7 @@ To find out more about debugging Julia code with {% data variables.product.prodn
 
 The Julia {% data variables.product.prodname_vscode_shortname %} extension comes with code completion thanks to IntelliSense. This feature works out of the box and is useful for experienced and beginner Julia developers alike.
 
-![Code completion with IntelliSense](images/julia/code-completion.gif)
+<video src="images/julia/code-completion.mp4" title="Video showing Code completion with IntelliSense." autoplay loop controls muted></video>
 
 You can learn more in the [{% data variables.product.prodname_vscode_shortname %} IntelliSense](/docs/editing/intellisense.md) topic.
 
