@@ -251,10 +251,16 @@ FeatureStatus: agent-artifacts
 
 Keep the H1 free of manually authored `(Preview)` or `(Experimental)` text. The website build adds a consistent status treatment after the H1.
 
-To mark a feature within a page, add an empty marker directly after the heading or content that introduces it:
+To mark a feature within a page, add an empty marker directly after the heading or content that introduces it. Put the macro on a line by itself immediately after the heading or introductory content for the feature:
 
 ```html
-<div class="docs-feature-status" data-feature="integrated-browser-remote"></div>
+`feature(integrated-browser-remote)`
+```
+
+To include a beaker icon inline in text to mark a feature use the following syntax:
+
+```html
+Full page screenshots `feature(integrated-browser-full-page-screenshot)` capture the entire scrollable page.
 ```
 
 Keep enablement steps, limitations, and other feature-specific guidance in the authored content. The generated treatment only describes the lifecycle state.
