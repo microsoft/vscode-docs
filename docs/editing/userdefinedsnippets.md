@@ -11,7 +11,7 @@ In {% data variables.product.prodname_vscode %}, snippets appear in IntelliSense
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
-![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
+<video src="images/userdefinedsnippets/ajax-snippet.mp4" title="Video showing ajax snippet." autoplay loop controls muted></video>
 
 ## Built-in snippets
 
