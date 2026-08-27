@@ -474,7 +474,7 @@ There are many keyboard commands for adjusting the editor layout by using the ke
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
 
-![Grid Alt Click](images/userinterface/grid-alt.gif)
+<video src="images/userinterface/grid-alt.mp4" title="Video showing Grid Alt Click." autoplay loop controls muted></video>
 
 ### Keyboard shortcuts
 
