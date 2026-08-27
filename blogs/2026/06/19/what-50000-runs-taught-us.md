@@ -3,7 +3,7 @@ Order: 133
 TOCTitle: 50,000 Runs, One Eval
 PageTitle: "What 50,000 Runs of a 5-Line Eval Taught Us"
 MetaDescription: How AI coding models calibrate effort, token cost, and tool use on even the simplest task, and what that means for model selection and cost.
-MetaSocialImage: 5000-runs-social.png
+MetaSocialImage: 5000-runs-social.webp
 Date: 2026-06-19
 Author: Julia Kasper
 Keywords:
@@ -58,7 +58,7 @@ As expected, the `say_hello` task is easy enough that all models pass it most of
 
 To establish a baseline, we filtered for passing runs that used this one-tool-call path and looked at the lowest output-token counts in that group. Those runs averaged roughly 50 output tokens, including the tool-call structure. We then measured how often each model took that path.
 
-![Chart showing the percentage of passing runs where the model achieves the one-tool-call direct path.](passing-rate.png)
+![Chart showing the percentage of passing runs where the model achieves the one-tool-call direct path.](passing-rate.webp)
 
 One model takes the direct path every time. The broader trend is what stands out: a few models often take the direct path, most do so only occasionally, and five never do.
 
@@ -92,7 +92,7 @@ Why should you care about how many extra steps a model takes to write a five-cha
 
 For this simple task, about 50 output tokens is a realistic minimum. The following chart shows the range of output tokens used by different models. The selected models range from that minimum to thousands of tokens for the same five-character result!
 
-![Chart that shows average output tokens per run vary from near the ideal floor to thousands of tokens for the same HELLO.txt task.](token-consumption.png)
+![Chart that shows average output tokens per run vary from near the ideal floor to thousands of tokens for the same HELLO.txt task.](token-consumption.webp)
 
 The chart falls into four clear bands. The extreme group includes Model-AB, Model-M, and Model-U, which average 3,676, 2,120, and 1,441 output tokens, respectively. That is 29 to 74 times more than the realistic minimum for the same five-character result. The high-overhead group, from 400 to 1,000 tokens, includes Model-AA, Model-B, Model-N, Model-H, Model-V, Model-E, Model-S, and Model-K. These models are not in the thousands, but they still spend roughly 8x to 12x the realistic minimum.
 

@@ -3,7 +3,7 @@ Order: 120
 TOCTitle: "Announcing Private Marketplace for VS Code"
 PageTitle: "Announcing Private Marketplace for VS Code"
 MetaDescription: Private Marketplace for VS Code extensions now generally available.
-MetaSocialImage: PrivateMarketplaceHero.png
+MetaSocialImage: PrivateMarketplaceHero.webp
 Date: 2025-11-18
 Author: Sean Iyer
 ---
@@ -27,7 +27,7 @@ Developers shouldn't have to juggle manual installs, worry about unverified exte
 
 Fully integrated into the VS Code experience, your developers will find, install, and update extensions as easily as ever—without leaving the safety of your managed ecosystem. No more ticket-based installs, zip file confusion, or security compromises.
 
-![VS Code Private Marketplace](./vscpmga.png)
+![VS Code Private Marketplace](./vscpmga.webp)
 
 > [!NOTE]
 > Private Marketplace is available to GitHub Enterprise customers. VS Code users must sign in with a GitHub Enterprise or Copilot Business or Enterprise account to access.

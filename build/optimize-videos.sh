@@ -86,7 +86,7 @@ for file in "${mp4_files[@]}"; do
     echo "Processing: $filename"
 
     # Run ffmpeg command with minimal output
-    if ffmpeg -hide_banner -loglevel error -i "$file" -vcodec libx264 -crf 25 \
+    if ffmpeg -nostdin -hide_banner -loglevel error -i "$file" -vcodec libx264 -crf 25 \
         -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" "$temp_file" -y; then
         # Replace original with optimized version
         mv "$temp_file" "$file"
@@ -117,7 +117,7 @@ for file in "${gif_files[@]}"; do
         continue
     fi
 
-    if ffmpeg -hide_banner -loglevel error -i "$file" -vcodec libx264 -crf 25 \
+    if ffmpeg -nostdin -hide_banner -loglevel error -i "$file" -vcodec libx264 -crf 25 \
         -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -pix_fmt yuv420p "$temp_file" -y; then
         mv "$temp_file" "$mp4_file"
         rm "$file"

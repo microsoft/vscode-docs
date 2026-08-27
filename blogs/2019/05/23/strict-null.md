@@ -3,7 +3,7 @@ Order:
 TOCTitle: Strict null checking
 PageTitle: Strict null checking the Visual Studio Code codebase
 MetaDescription: Strict null checking the Visual Studio Code codebase
-MetaSocialImage: /assets/blogs/2019/05/23/social-strict-null.png
+MetaSocialImage: /assets/blogs/2019/05/23/social-strict-null.webp
 Date: 2019-05-23
 ShortDescription: Strict null checking
 Author: Matt Bierner

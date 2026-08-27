@@ -14,7 +14,7 @@ VS Code for the Web ([https://vscode.dev](https://vscode.dev)) has been availabl
 
 [WebAssembly](https://webassembly.org/) is a binary instruction format for a virtual machine. WebAssembly virtual machines ship in modern browsers today and there are tool chains to compile C/C++ to WebAssembly code. To find out what is possible with WebAssemblies today, we decided to take a Python interpreter written C/C++, compile it to WebAssembly, and run it in VS Code for the Web. Luckily, the Python team already started working on compiling [CPython to WASM](https://github.com/brettcannon/cpython-wasi-build/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the short video below:
 
-![Execute a Python file in VS Code for the Web](run-python-file.gif)
+<video src="run-python-file.mp4" title="Video showing Execute a Python file in VS Code for the Web." autoplay loop controls muted></video>
 
 It doesn't really look different than executing Python code in VS Code desktop. So, why is this cool?
 
@@ -133,7 +133,7 @@ export async function activate(context: ExtensionContext) {
 
 The video below shows the extension running in VS Code for the Web.
 
-![Run Hello World](helloWorld.gif)
+<video src="helloWorld.mp4" title="Video showing Run Hello World." autoplay loop controls muted></video>
 
 We used C/C++ code as a source for the WebAssembly and because WASI is a standard, there are other toolchains that support WASI. Examples are: [Rust](https://www.rust-lang.org), [.NET](https://github.com/dotnet/dotnet-wasi-sdk), or [Swift](https://swiftwasm.org).
 
@@ -157,7 +157,7 @@ The only difficulty with this approach is that `SharedArrayBuffer` and `Atomics`
 
 Below is a diagram showing the interaction between the WASM worker and the extension host worker in more detail for the C program above that we compiled to WebAssembly. The code in the orange box is WebAssembly code and all the code in green boxes runs in JavaScript. The yellow box represents the `SharedArrayBuffer`.
 
-![Interaction between the WASM worker and the extension host](diagram.png)
+![Interaction between the WASM worker and the extension host](diagram.webp)
 
 ## A web shell
 
@@ -165,11 +165,11 @@ Now that we were able to compile C/C++ and Rust code to WebAssembly and execute 
 
 We investigated compiling one of the Unix shells to WebAssembly. However, some shells rely on operating system features (spawning processes, ...), which are not available in WASI right now. This led us to take a slightly different approach: we implemented a basic shell in TypeScript and tried to compile only the Unix core utils like `ls`, `cat`, `date`, ... to WebAssembly. Since Rust has very good support for WASM and WASI, we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform reimplementation of the GNU coreutils in Rust, a try. Et voilà, we had a first minimal web shell.
 
-![A web shell](webshell.gif)
+<video src="webshell.mp4" title="Video showing A web shell." autoplay loop controls muted></video>
 
 A shell is very limited if you can't execute custom WebAssemblies or commands. To extend the web shell, other extensions can contribute additional mount points to the file system as well as commands that are invoked when they are typed into the web shell. The indirection via commands decouples the concrete WebAssembly execution from what is typed in the terminal. Using this support in the Python extension from the beginning allows you to execute Python code directly from within the shell by entering `python app.py` into the prompt or listing the default python 3.11 library, which is usually mounted under `/usr/local/lib/python3.11`.
 
-![Python integration into web shell](python-webshell.gif)
+<video src="python-webshell.mp4" title="Video showing Python integration into web shell." autoplay loop controls muted></video>
 
 ## What comes next?
 
