@@ -1,7 +1,7 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-DateApproved: 8/19/2026
-MetaDescription: {% data variables.product.prodname_vscode %} variable substitution reference
+DateApproved: 8/26/2026
+MetaDescription: Use variable substitution in {% data variables.product.prodname_vscode %} configuration files, including path values that contain spaces.
 ---
 # Variables reference
 
@@ -75,6 +75,26 @@ Some predefined variables may resolve differently depending on the operating sys
 
 It's recommended to use `${pathSeparator}` or `${/}` to make configurations portable across platforms.
 
+### Variables that contain spaces
+
+Variable substitution replaces a variable with its string value. It doesn't add quotes or split the result on spaces. The configuration property that contains the variable determines how the resolved value is interpreted.
+
+For an array property such as `args` in many `launch.json` configurations, define each argument as a separate array element. A variable-based path that contains spaces remains one string in its array element:
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Launch Program",
+    "program": "${workspaceFolder}/app.js",
+    "args": [
+        "--input",
+        "${workspaceFolder}/data folder/input.txt"
+    ]
+}
+```
+
+For shell tasks in `tasks.json`, shell-specific quoting rules also apply. Learn more about [handling spaces and special characters in custom tasks](/docs/debugtest/tasks.md#custom-tasks).
 
 ### Variables scoped per workspace folder
 

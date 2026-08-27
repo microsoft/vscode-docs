@@ -89,7 +89,7 @@ No. The models used by GitHub Copilot are licensed separately, and that does not
 
 Yes, {% data variables.product.prodname_vscode_shortname %} is free for private or commercial use. See the [product license](https://code.visualstudio.com/license) for details.
 
-If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Platform support
 

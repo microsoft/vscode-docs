@@ -27,13 +27,13 @@ The Foundry Toolkit Copilot tools include four main tools:
 
 After installing the prerequisites, you can use the tools Foundry Toolkit provides when using agents in chat:
 
-1. Open the Chat view `kb(workbench.action.chat.open)`, and select **Agent** from the dropdown.
+1. Open the {% data variables.copilot.chat_view %} `kb(workbench.action.chat.open)`, and select **Agent** from the dropdown.
 
 1. Select the **Configure Tools...** button to view the list of available tools.
 
     Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
 
-    ![Screenshot showing the Chat view in {% data variables.product.prodname_vscode %} with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/configure-tools.png)
+    ![Screenshot showing the {% data variables.copilot.chat_view %} in {% data variables.product.prodname_vscode %} with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/configure-tools.png)
 
 ## Agent Code Gen tool
 

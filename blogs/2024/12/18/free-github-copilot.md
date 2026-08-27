@@ -38,7 +38,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 Whether you're using [Chat](https://code.visualstudio.com/docs/chat/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/chat/inline-chat), or [Copilot Edits](https://code.visualstudio.com/docs/chat/copilot-chat#_builtin-chat-modes), you get to decide who your pair programmer is.
 
-![AI model selection menu in VS Code.](model-picker.png)
+![AI model selection menu in VS Code.](model-picker.webp)
 
 **Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/chat/copilot-chat#_builtin-chat-modes) to build it.
 
@@ -89,7 +89,7 @@ They say naming things is one of the hardest problems in computer science. Press
 
 Select the microphone icon to start a voice chat. This is powered by the free, cross-platform [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) that runs on local models. No 3rd party app required.
 
-![VS Code with file list and voice input active.](vscode-speech.png)
+![VS Code with file list and voice input active.](vscode-speech.webp)
 
 **Try this:** Use Speech with GitHub Copilot Edits to prototype your next app. You can literally talk your way to a working demo.
 
@@ -99,7 +99,7 @@ With terminal chat, you can do just about anything in your terminal. Press <kbd>
 
 For instance, I know that I can use the [ffmpeg library](https://ffmpeg.org/) to extract frames from videos, but I don't know the syntax and flags. No problem!
 
-![Terminal displaying a script to extract video frames.](terminal-inline-chat.png)
+![Terminal displaying a script to extract video frames.](terminal-inline-chat.webp)
 
 **Try this:** The next time you get an error in your terminal, look for the sparkle icon next to your prompt. Select it to have GitHub Copilot fix, explain, or even auto-correct the shell command for you.
 

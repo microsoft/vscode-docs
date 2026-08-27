@@ -17,7 +17,7 @@ This article describes only a subset of the features the Go extension provides. 
 
 ## IntelliSense
 
-![IntelliSense](images/go/completion-signature-help.gif)
+<video src="images/go/completion-signature-help.mp4" title="Video showing IntelliSense." autoplay loop controls muted></video>
 
 IntelliSense features are provided by the Go language server, [gopls](https://go.dev/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
 

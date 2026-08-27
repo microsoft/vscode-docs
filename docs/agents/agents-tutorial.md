@@ -28,7 +28,7 @@ Get familiar with the {% data variables.product.prodname_vscode_shortname %} use
 * [Install Git](https://git-scm.com/)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Create a project folder
 
@@ -63,7 +63,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
-    You can also open the {% data variables.copilot.agents_window %} from the {% data variables.product.prodname_vscode_shortname %} welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    You can also open the {% data variables.copilot.agents_window %} from the {% data variables.product.prodname_vscode_shortname %} welcome page, or run the **Chat: Open {% data variables.copilot.agents_window %}** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 

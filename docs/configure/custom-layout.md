@@ -33,9 +33,9 @@ By default, {% data variables.product.prodname_vscode_shortname %} shows views i
 
 When you first open a folder or multi-root workspace, the Secondary Side Bar is shown by default. In an empty window, it's hidden by default. You can configure this behavior with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
 
-The following image shows the Explorer view in the Primary Side Bar and the Copilot Chat view in the Secondary Side Bar:
+The following image shows the Explorer view in the Primary Side Bar and the Copilot {% data variables.copilot.chat_view %} in the Secondary Side Bar:
 
-![Explorer view in the Primary Side Bar and Copilot Chat view in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
+![Explorer view in the Primary Side Bar and Copilot {% data variables.copilot.chat_view %} in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
 
 If the Secondary Side Bar is hidden, you can show it by using the layout controls in the {% data variables.product.prodname_vscode_shortname %} title bar. If the layout controls are not visible, right-click the {% data variables.product.prodname_vscode_shortname %} title bar and select **Layout Controls**.
 

@@ -60,7 +60,7 @@ Select the source code you'd like to extract and then select the light bulb in t
 
 The TypeScript language service provides **Extract to const** refactoring to create a new local variable for the currently selected expression:
 
-![Extract local](images/refactoring/ts-extract-local.gif)
+<video src="images/refactoring/ts-extract-local.mp4" title="Video showing Extract local." autoplay loop controls muted></video>
 
 When working with classes, you can also extract a value to a new property.
 
@@ -76,7 +76,7 @@ When you apply a refactoring, the changes are directly implemented to your code.
 
 To open the **Refactor Preview** panel, open the Code Actions control, hover over a refactoring, and then press `kb(previewSelectedCodeAction)`.
 
-![Video of launching the Refactor Preview panel by pressing `CtrlCmd + Enter` on the Code Actions control.](images/refactoring/refactor-preview-launch.gif)
+<video src="images/refactoring/refactor-preview-launch.mp4" title="Video showing launching the Refactor Preview panel by pressing `CtrlCmd + Enter` on the Code Actions control." autoplay loop controls muted></video>
 
 You can select any of the changes in the **Refactor Preview** panel to get a diff view of the changes that are a result of the refactoring operation.
 

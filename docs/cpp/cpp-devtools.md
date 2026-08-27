@@ -50,7 +50,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Optimize memory performance and ensure non-breaking changes*
 
-![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/cpp-devtools/get-symbol-info-example.png)
+![Screenshot of the {% data variables.copilot.chat_view %}, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/cpp-devtools/get-symbol-info-example.png)
 
 ---
 
@@ -61,7 +61,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Add additional functionality to existing functions*
 
-![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/cpp-devtools/get-symbol-references-example.png)
+![Screenshot of the {% data variables.copilot.chat_view %}, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/cpp-devtools/get-symbol-references-example.png)
 
 > [!NOTE]
 > You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in {% data variables.product.prodname_vscode_shortname %}.
@@ -77,7 +77,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Dependency analysis for module migration*
 
-![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/cpp-devtools/get-symbol-call-hierarchy-example.png)
+![Screenshot of the {% data variables.copilot.chat_view %}, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/cpp-devtools/get-symbol-call-hierarchy-example.png)
 
 ---
 
@@ -92,7 +92,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Resolving build errors*
 
-![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cpp-devtools/cmake-build-example.png)
+![Screenshot of the {% data variables.copilot.chat_view %}, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cpp-devtools/cmake-build-example.png)
 
 ---
 
@@ -103,7 +103,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Fix code according to unit tests*
 
-![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/cpp-devtools/run-ctest-example.png)
+![Screenshot of the {% data variables.copilot.chat_view %}, showing a prompt to fix failing unit tests, which invokes run ctest.](images/cpp-devtools/run-ctest-example.png)
 
 ---
 

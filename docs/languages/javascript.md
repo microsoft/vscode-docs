@@ -356,7 +356,7 @@ Click on the reference count to quickly browse a list of references:
 
 You can leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files too. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
 
-![Using type checking and Quick Fixes in a JavaScript file](images/javascript/checkjs-example.gif)
+<video src="images/javascript/checkjs-example.mp4" title="Video showing Using type checking and Quick Fixes in a JavaScript file." autoplay loop controls muted></video>
 
 TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDoc for JavaScript type checking in [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
@@ -374,7 +374,7 @@ You can debug your client-side code using a browser debugger such as our built-i
 
 Debug Node.js in {% data variables.product.prodname_vscode_shortname %} using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
-![debug data inspection](images/javascript/debug_data_inspection.gif)
+<video src="images/javascript/debug_data_inspection.mp4" title="Video showing debug data inspection." autoplay loop controls muted></video>
 
 ## Popular extensions
 

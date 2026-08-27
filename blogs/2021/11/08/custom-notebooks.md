@@ -13,7 +13,7 @@ November 8, 2021 by Tanha Kabir, [@_tanhakabir](https://twitter.com/_tanhakabir)
 
 Notebooks are documents that contain a mix of rich Markdown, executable code snippets, and accompanying rich output. These are all separated into distinct cells and can be interleaved in any order.
 
-![An example notebook showing code cells, Markdown, and a rich graph output](notebook.png)
+![An example notebook showing code cells, Markdown, and a rich graph output](notebook.webp)
 
 If you aren't familiar with notebooks, you might be familiar with REPLs ([read-eval-print loop](https://wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop))? A REPL is an interactive application where you can write a few lines of code and execute the code immediately and see the output. Notebooks are the epitome of a REPL and let you quickly create an environment where you can iterate and work on small chunks of code.
 
@@ -39,7 +39,7 @@ The next section describes two custom notebooks that we developed while vetting 
 
 The first notebook experience the VS Code team created was the [GitHub Issues Notebook](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks). It is a notebook to help us triage and organize the thousands of issues we have in GitHub. With this notebook, we can examine multiple repos at once to find issues using queries such as "find all the issues labeled `bug` and assigned to me". The VS Code team uses this notebook daily to process issues across the many repos the team works on.
 
-![A preview of the GitHub Issues Notebook we use on the team that's available in the vscode repo](github-issues-notebook.png)
+![A preview of the GitHub Issues Notebook we use on the team that's available in the vscode repo](github-issues-notebook.webp)
 
 You can find the specific notebooks we use for triaging in the [VS Code repo under `.vscode/notebooks`](https://github.com/microsoft/vscode/tree/main/.vscode/notebooks). There's one called `inbox.github-issues` to triage new issues to their appropriate area and assignee.
 
@@ -58,7 +58,7 @@ You can view the source code for the [GitHub Issues Notebook here on GitHub.com]
 
 Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) as a learning exercise when I first joined the VS Code team. REST Book allows you to make HTTP calls in a notebook. I found REST Book useful to iterate on my projects with a server, by being able to make multiple calls over time and compare the results easily on one page. I also used REST Book notebooks to set up some manual testing of my project with documentation interleaved with the test cases.
 
-![A preview of the REST Book being used in a project with an Express App](rest-book.png)
+![A preview of the REST Book being used in a project with an Express App](rest-book.webp)
 
 This REST Book extension is also available on the Marketplace today. You can install the [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) extension, create a file with a `.restbook` ending, and then perform any HTTP query like `GET github.com`.
 

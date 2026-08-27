@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" role="img" aria-labelledby="remote-title remote-desc">
+  <title id="remote-title">A VS Code client connecting to local and remote Agent Hosts</title>
+  <desc id="remote-desc">
+    A VS Code client has separate AHP connections to a local Agent Host, remote Agent Hosts through
+    a dev tunnel, and remote Agent Hosts through SSH.
+  </desc>
+
+  <style>
+    svg {
+      --diagram-bg: #fff;
+      --diagram-surface: #f6f6f7;
+      --diagram-border: #e2e2e3;
+      --diagram-blue-fill: #edf4ff;
+      --diagram-blue-border: #b8d2fb;
+      --diagram-blue-border-soft: #d6e4fb;
+      --diagram-blue: #3b82f6;
+      --diagram-blue-text: #2563eb;
+      --diagram-text: #5f6067;
+      --diagram-muted: #909096;
+      --diagram-muted-text: #686971;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    .surface {
+      fill: var(--diagram-surface);
+      stroke: var(--diagram-border);
+      stroke-width: 2;
+    }
+    .card {
+      fill: var(--diagram-blue-fill);
+      stroke: var(--diagram-blue-border);
+      stroke-width: 1.5;
+    }
+    .host-card {
+      stroke-width: 1.8;
+    }
+    .stack-card {
+      fill: var(--diagram-bg);
+      stroke: var(--diagram-blue-border-soft);
+      stroke-width: 1.25;
+    }
+    .connector {
+      fill: none;
+      stroke: var(--diagram-muted);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .component-label {
+      fill: var(--diagram-text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .protocol-label {
+      fill: var(--diagram-blue-text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .endpoint-icon {
+      fill: none;
+      stroke: var(--diagram-blue);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .endpoint-icon-fill {
+      fill: var(--diagram-blue);
+    }
+  </style>
+
+  <rect class="surface" x="1" y="1" width="698" height="278" rx="14" />
+
+  <!-- Each connector is independent and keeps 10px of clearance from both endpoints. -->
+  <g aria-hidden="true">
+    <path class="connector" d="M282 115L420 57" />
+    <g class="connector" transform="translate(282 115) rotate(-22.8)">
+      <path d="M9-8L0 0l9 8" />
+    </g>
+    <g class="connector" transform="translate(420 57) rotate(-22.8)">
+      <path d="M-9-8L0 0l-9 8" />
+    </g>
+
+    <path class="connector" d="M282 137H420M291 129l-9 8 9 8M411 129l9 8-9 8" />
+
+    <path class="connector" d="M282 159L420 217" />
+    <g class="connector" transform="translate(282 159) rotate(22.8)">
+      <path d="M9-8L0 0l9 8" />
+    </g>
+    <g class="connector" transform="translate(420 217) rotate(22.8)">
+      <path d="M-9-8L0 0l-9 8" />
+    </g>
+  </g>
+
+  <!-- Shapes are painted over the connector layer so their borders stay uninterrupted. -->
+  <g>
+    <rect class="card" x="28" y="105" width="242" height="64" rx="11" />
+
+    <rect class="card host-card" x="432" y="25" width="240" height="64" rx="11" />
+
+    <rect class="stack-card" x="442" y="115" width="240" height="64" rx="11" />
+    <rect class="stack-card" x="437" y="110" width="240" height="64" rx="11" />
+    <rect class="card host-card" x="432" y="105" width="240" height="64" rx="11" />
+
+    <rect class="stack-card" x="442" y="195" width="240" height="64" rx="11" />
+    <rect class="stack-card" x="437" y="190" width="240" height="64" rx="11" />
+    <rect class="card host-card" x="432" y="185" width="240" height="64" rx="11" />
+  </g>
+
+  <!-- Labels and icons are the final paint layer. -->
+  <g>
+    <text class="protocol-label" x="351" y="74">AHP</text>
+    <text class="protocol-label" x="351" y="125">AHP</text>
+    <text class="protocol-label" x="351" y="176">AHP</text>
+
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="71" y="120" width="29" height="21" rx="3" />
+      <path d="M78 149h15m-7.5-8v8" />
+    </g>
+    <text class="component-label" x="118" y="142">VS Code client</text>
+
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="452" y="42" width="15" height="5" rx="1.25" />
+      <rect x="452" y="52" width="15" height="5" rx="1.25" />
+      <circle class="endpoint-icon-fill" cx="463" cy="44.5" r="1.1" />
+      <circle class="endpoint-icon-fill" cx="463" cy="54.5" r="1.1" />
+    </g>
+    <text class="component-label" x="483" y="62">Local Agent Host</text>
+
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="452" y="122" width="15" height="5" rx="1.25" />
+      <rect x="452" y="132" width="15" height="5" rx="1.25" />
+      <circle class="endpoint-icon-fill" cx="463" cy="124.5" r="1.1" />
+      <circle class="endpoint-icon-fill" cx="463" cy="134.5" r="1.1" />
+    </g>
+    <text class="component-label" x="483" y="142">Remote AH over dev tunnel</text>
+
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="452" y="202" width="15" height="5" rx="1.25" />
+      <rect x="452" y="212" width="15" height="5" rx="1.25" />
+      <circle class="endpoint-icon-fill" cx="463" cy="204.5" r="1.1" />
+      <circle class="endpoint-icon-fill" cx="463" cy="214.5" r="1.1" />
+    </g>
+    <text class="component-label" x="483" y="222">Remote AH over SSH</text>
+  </g>
+</svg>

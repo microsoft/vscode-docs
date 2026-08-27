@@ -20,7 +20,7 @@ Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tuto
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
-* Open the Chat view
+* Open the {% data variables.copilot.chat_view %}
   * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)

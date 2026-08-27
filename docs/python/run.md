@@ -22,7 +22,7 @@ The {% data variables.product.prodname_vscode_shortname %} Native REPL for Pytho
 
 You can open the Native REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Start Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line in Python REPL** by setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
 
-![Gif showing the Native REPL for Python.](images/shared/nativeREPL-demo.gif)
+<video src="images/shared/nativeREPL-demo.mp4" title="Video showing Gif showing the Native REPL for Python." autoplay loop controls muted></video>
 
 ### Terminal REPL
 

@@ -79,7 +79,7 @@ In addition to [path completion](#path-completions), {% data variables.product.p
 
 You can **Drag and drop** a file from {% data variables.product.prodname_vscode_shortname %}'s Explorer or from your operating system into a Markdown editor. Start by dragging a file from {% data variables.product.prodname_vscode_shortname %}'s Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
-![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+<video src="images/Markdown/drop-link.mp4" title="Video showing Inserting a Markdown link by dragging and dropping from the explorer." autoplay loop controls muted></video>
 
 If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor. When you paste a file, a link to a file, or a URL, you can choose to insert a Markdown link or to include the link as plain text.
 
@@ -143,7 +143,7 @@ Selection applies to the following, and follows a traditional hierarchical patte
 * Html code blocks
 * Paragraphs
 
-![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
+<video src="images/Markdown/smart-select.mp4" title="Video showing Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself." autoplay loop controls muted></video>
 
 ### Link validation
 
@@ -178,7 +178,7 @@ Use the **Find All References** (`kb(references-view.findReferences)`) command t
 
 Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, {% data variables.product.prodname_vscode_shortname %} updates the header and automatically updates all links to that header:
 
-![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
+<video src="images/Markdown/rename-header.mp4" title="Video showing Renaming a Markdown header to update all links to it." autoplay loop controls muted></video>
 
 You can also use `kb(editor.action.rename)` on:
 
@@ -211,7 +211,7 @@ Here is an example with a simple file.
 
 By default, Markdown previews automatically update to preview the currently active Markdown file:
 
-![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
+<video src="images/Markdown/md-dynamic-preview.mp4" title="Video showing The preview automatically switching to preview the current Markdown document." autoplay loop controls muted></video>
 
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
@@ -223,7 +223,7 @@ You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** c
 
 {% data variables.product.prodname_vscode_shortname %} automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
 
-![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
+<video src="images/Markdown/preview-scroll-sync.mp4" title="Video showing Markdown Preview editor selection scroll sync." autoplay loop controls muted></video>
 
 You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/configure/settings.md).
 
@@ -233,7 +233,7 @@ The currently selected line in the editor is indicated in the Markdown preview b
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
-![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
+<video src="images/Markdown/double-click-preview-switch.mp4" title="Video showing Markdown Preview double click switches to editor." autoplay loop controls muted></video>
 
 ### Markdown preview in diff view
 

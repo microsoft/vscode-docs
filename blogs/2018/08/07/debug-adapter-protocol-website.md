@@ -3,7 +3,7 @@ Order:
 TOCTitle: New home for Debug Adapter Protocol
 PageTitle: A new home for the Debug Adapter Protocol
 MetaDescription: A new home for the Debug Adapter Protocol
-MetaSocialImage: /assets/blogs/2018/08/07/with-DAP.png
+MetaSocialImage: /assets/blogs/2018/08/07/with-DAP.webp
 Date: 2018-08-07
 ShortDescription: The new Debug Adapter Protocol website
 Author: André Weinand
@@ -47,7 +47,7 @@ Implementing these features for a new language is not only a significant effort,
 
 This results in lots of duplicated functionality (and implementation) as visualized by the blue boxes in the following picture:
 
-![without Debug Adapter Protocol](without-DAP.png)
+![without Debug Adapter Protocol](without-DAP.webp)
 
 When we started the work on Visual Studio Code, we always envisioned decoupling the "frontend" UI from the language specific "backend" implementation as much as possible. We wanted to do this for both language smartness and debugging support.
 
@@ -65,7 +65,7 @@ Since it is unrealistic to assume that existing debuggers or runtimes would adop
 
 Here’s an example of how a development tool could use the DAP to communicate with a Debug Adapter for the popular "gdb" debugger:
 
-![breakpoint](breakpoint.png)
+![breakpoint](breakpoint.webp)
 
 We assume that the user has already started a debug session, but is currently stopped at the entry point of their program and wants to set (and later hit) a breakpoint.
 
@@ -79,7 +79,7 @@ For [historical reasons](https://github.com/microsoft/vscode-debugadapter-node/i
 
 After this short example of DAP communication, let's review the characteristics of the DAP approach:
 
-![with Debug Adapter Protocol](with-DAP.png)
+![with Debug Adapter Protocol](with-DAP.webp)
 
 The picture shows two important benefits of the DAP approach:
 

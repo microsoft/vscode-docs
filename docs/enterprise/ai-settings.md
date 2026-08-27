@@ -16,9 +16,9 @@ Learn how to [deploy policies for {% data variables.product.prodname_vscode_shor
 
 ## Deploy Copilot managed settings
 
-Copilot managed settings provide shared governance settings for {% data variables.product.prodname_vscode_shortname %} and GitHub Copilot CLI. Support varies by key. Most managed settings map to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and override the corresponding user setting on managed devices.
+Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}. When you set a managed setting, it maps to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and overrides the corresponding user setting on managed devices.
 
-Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape. For keys that both clients support, a single definition governs {% data variables.product.prodname_vscode_shortname %} and Copilot CLI.
+Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
 
 {% data variables.product.prodname_vscode_shortname %} reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
 
@@ -43,11 +43,9 @@ The precedence order is:
 
 For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. {% data variables.product.prodname_vscode_shortname %} applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
 
-The `permissions.allow`, `permissions.ask`, and `permissions.deny` keys are an exception to the per-key precedence order. Rules from native MDM, server-managed, and file-based settings combine in the most restrictive direction. Deny and ask rules accumulate across sources. An operation matches an allow rule only when every source that defines an `allow` list admits it.
-
 ### Precedence with {% data variables.product.prodname_vscode_shortname %} device policies
 
-Copilot managed settings and [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. When a managed setting maps to a {% data variables.product.prodname_vscode_shortname %} policy and both systems provide that policy, the Copilot managed setting takes precedence. The values are not merged.
+Copilot managed settings and [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. A managed setting maps to a {% data variables.product.prodname_vscode_shortname %} policy. If both systems provide the same policy, the Copilot managed setting takes precedence. The values are not merged.
 
 For example, if the `ChatAllowedMcpServers` policy is configured through both the {% data variables.product.prodname_vscode_shortname %} ADMX policy and the `allowedMcpServers` Copilot managed setting, {% data variables.product.prodname_vscode_shortname %} uses the managed setting value. If `allowedMcpServers` is not configured through managed settings, the ADMX policy value remains in effect.
 
@@ -146,7 +144,7 @@ The value accepts one of the following:
 * A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
 * A full model ID.
 
-New conversations start at the configured model across the chat panel and the Agents window. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+New conversations start at the configured model across the chat panel and the {% data variables.copilot.agents_window %}. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -154,7 +152,7 @@ New conversations start at the configured model across the chat panel and the Ag
 
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
-The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+The **Agent** option will not be available in the agents dropdown in the {% data variables.copilot.chat_view %} when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
 ## Enable or disable hooks
 
@@ -180,15 +178,13 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 [Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
 
-{% data variables.product.prodname_vscode_shortname %} reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
+{% data variables.product.prodname_vscode_shortname %} reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for {% data variables.copilot.copilot_cli_short %}](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
 
 The following policies are available:
 
 * To allowlist the plugin IDs that developers can use, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in {% data variables.product.prodname_vscode_shortname %}. The organization explicitly enables or disables each plugin in the list.
-* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. A marketplace entry can set `autoUpdate` to `true` or `false` to override the developer's global extension auto-update setting for plugins from that marketplace.
-* To restrict trusted marketplace sources, set the `ChatStrictMarketplaces` policy to an array of allowed sources. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. Only marketplaces that match an entry are trusted. An empty array blocks all marketplaces.
-
-The `autoUpdate` value does not override `ChatStrictMarketplaces`. A marketplace source must be trusted before {% data variables.product.prodname_vscode_shortname %} refreshes it or updates its plugins.
+* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. This policy has no user-facing setting and can only be configured through policy.
+* To trust only the marketplaces supplied by policy, set the `ChatStrictMarketplaces` policy to `true`. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. When this policy is enabled, marketplaces that developers add through `setting(chat.plugins.marketplaces)` are not trusted.
 
 Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
 
@@ -220,7 +216,7 @@ You can host a private MCP server registry for your organization and configure {
 
 When configured, developers see MCP servers from your custom registry in the Extensions view when they enter `@mcp` in the search field.
 
-Organizations with GitHub Copilot Enterprise or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
+Organizations with {% data variables.copilot.copilot_enterprise %} or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
 
 ### Allow or deny individual MCP servers
 
@@ -269,7 +265,7 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in
 
 ### Enforce fine-grained permissions
 
-Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in GitHub Copilot CLI and {% data variables.product.prodname_vscode_shortname %} sessions that use [Agent Host](/docs/agents/concepts/agent-host.md). Sessions that run on the extension host do not yet have full parity.
+Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}.
 
 Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
 
@@ -317,8 +313,6 @@ When multiple rules match, the Copilot runtime applies them in the following ord
 
 A `deny` rule blocks the operation without presenting an approval option. An `ask` rule requires a human decision for every invocation and presents only **Allow Once** and **Skip**. Developers can't override these rules by selecting **Bypass Approvals** or **Autopilot**. An `allow` rule permits the operation at the managed permissions layer, but does not override stricter client-side approval settings in {% data variables.product.prodname_vscode_shortname %}.
 
-Deny and ask rules are the union of rules from all managed settings sources that apply to the developer. Every source that defines an `allow` list must admit an operation before it matches `allow`. If a managed source defines any permission rule, an operation that matches no rule defaults to `ask`. Without a managed permission rule, the operation follows the regular approval flow.
-
 For `Read` and `Edit` rules, the path prefix determines how the pattern is resolved:
 
 | Prefix | Resolution | Example |
@@ -332,7 +326,7 @@ For `Read` and `Edit` rules, the path prefix determines how the pattern is resol
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the {% data variables.copilot.chat_view %}.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -490,14 +484,13 @@ Agents can run on different infrastructure depending on the agent type, and each
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
 
 > [!NOTE]
-> [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise Copilot Memory settings on GitHub, not by a {% data variables.product.prodname_vscode_shortname %} policy. Developers opt in per repository, and in {% data variables.product.prodname_vscode_shortname %} the memory tool syncs repository memory to Copilot Memory only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
+> [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise {% data variables.copilot.copilot_memory %} settings on GitHub, not by a {% data variables.product.prodname_vscode_shortname %} policy. Developers opt in per repository, and in {% data variables.product.prodname_vscode_shortname %} the memory tool syncs repository memory to {% data variables.copilot.copilot_memory %} only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
 
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Enterprise managed settings for GitHub Copilot](https://docs.github.com/copilot/reference/enterprise-administrators/enterprise-managed-settings) - Managed settings schema and client support
 * [Use tools with agents](/docs/agents/run/tools.md) - Learn how tools work in {% data variables.product.prodname_vscode_shortname %} chat
 * [MCP servers in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses

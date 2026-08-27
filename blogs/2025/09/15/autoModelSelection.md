@@ -3,7 +3,7 @@ Order: 106
 TOCTitle: "Introducing auto model selection (preview)"
 PageTitle: "Introducing auto model selection (preview)"
 MetaDescription: Use auto model selection in VS Code to get faster responses, reduced rate limiting, and a 10% discount on premium requests for paid users.
-MetaSocialImage: autoDropdown.png
+MetaSocialImage: autoDropdown.webp
 Date: 2025-09-15
 Author: Isidor Nikolic
 ---
@@ -22,7 +22,7 @@ Auto selects the best model to ensure that you get the optimal performance and r
 
 For paid users, we currently plan to primarily rely on Claude Sonnet 4 as the model powering auto.
 
-![Screenshot that shows the model picker in the Chat view, showing the auto option.](autoDropdown.png)
+![Screenshot that shows the model picker in the Chat view, showing the auto option.](autoDropdown.webp)
 
 When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the automatically selected model. If you are a paid user, auto applies a 10% request discount. For example, if auto selects Sonnet 4, it will be counted as 0.9x of a premium request; if auto selects GPT-5-mini, this counts as 0x because the model is included for paid users. You can see which model and model multiplier are used by hovering over the chat response.
 

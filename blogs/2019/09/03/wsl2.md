@@ -28,11 +28,11 @@ If you're following along, make sure you've opted into Windows Insiders builds a
 
 You'll also need to install [Visual Studio Code](https://code.visualstudio.com/download) and the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Optionally, check out the [beta Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701) for the best possible terminal experience on Windows.
 
-![WSL extension](remote-wsl-extension.png)
+![WSL extension](remote-wsl-extension.webp)
 
 Open WSL either by launching the Windows Terminal and creating a new WSL tab or by launching the Linux distro that you installed. You can also switch into Linux directly from the Command Prompt or PowerShell by entering `wsl` in the terminal - that's just one of the many ways WSL is so deeply integrated into Windows. You can also use WSL inline to do ridiculous things like…
 
-![WSL cow say example](wsl-cow-say.png)
+![WSL cow say example](wsl-cow-say.webp)
 
 From your terminal, launch into Visual Studio Code using `code .` from WSL. You can even use `wsl code .` to switch to Linux inline, launch into VS Code, then return to your Windows shell. 😏
 
@@ -40,7 +40,7 @@ Personally, I'm using WSL 2 for 100% of my development on Windows – all dev to
 
 Here's a look at my setup.
 
-![Matt's WSL 2 setup](matts-setup.png)
+![Matt's WSL 2 setup](matts-setup.webp)
 
 Notice in the screenshot that I'm connected to my WSL 2 instance (see 'Ubuntu-18.04' in the bottom-left as the remote source) and I've started a Node.js app from the debugger and it's at a breakpoint. In the Debug console, I've entered `process.platform` to show how the WSL extension defaults all editor interaction to the Linux environment. There is absolutely no configuration required to get this working, just connect to your WSL environment from the WSL extension and get to work. Also notice that my line endings are defaulted to LF (shown in the Status bar) without having to set any additional Git configuration options - if you're on Windows working in open source, you understand why this is a big deal.
 

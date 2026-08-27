@@ -19,7 +19,7 @@ As it turns out making a great tutorial isn't about **what** you write, it's abo
 
 Our very own tutorial on [how to use Dev Containers in Visual Studio Code](https://learn.microsoft.com/training/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
 
-![dev containers learn module screenshot](dev-containers-tutorial-screenshot.png)
+![dev containers learn module screenshot](dev-containers-tutorial-screenshot.webp)
 
 To figure out where people were giving up, we conducted user studies and watched as people tried to complete our tutorial. It was...painful.
 
@@ -41,11 +41,11 @@ But how do you develop **inside** of a container? It's not like containers have 
 
 The [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code does exactly this. It contains both the mechanism for configuring a Docker container as a dev environment, as well as allowing you to connect to that environment from VS Code. It does this by installing a small server component within the container that your local VS Code talks to. You then develop just like you would if you were local, but VS Code is attached to the container environment instead of your local environment.
 
-![The Dev Containers extension screenshot from extension gallery](dev-containers-extension.png)
+![The Dev Containers extension screenshot from extension gallery](dev-containers-extension.webp)
 
 In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you through selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and PowerShell…
 
-![Adding a dev container configuration to a Python project](add-dev-container.gif)
+<video src="add-dev-container.mp4" title="Video showing Adding a dev container configuration to a Python project." autoplay loop controls muted></video>
 
 This process adds a `.devcontainer` folder to this project with the necessary `Dockerfile` included. It also adds a `devcontainer.json` file, which is a standard for defining aspects of a dev container, like which extensions should be installed, which setup commands should be run after container build, etc. Since you have complete control over the environment and its setup, you can automate pretty much everything - including dependency installs, library versions, etc.
 
@@ -71,17 +71,17 @@ This creates a new project with a `docker-compose` file. This file sets up three
 
 The sample application just runs. No installing PHP. No Laravel. No dependency resolutions steps. Just immediate success.
 
-![An example Laravel application running in the browser on localhost](laravel-app.png)
+![An example Laravel application running in the browser on localhost](laravel-app.webp)
 
 I specified that our project has a MySQL Server and a Redis Cache, so we actually get three containers when the project spins up. We can see that using the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code.
 
-![The Docker extension in VS Code](docker-extension.png)
+![The Docker extension in VS Code](docker-extension.webp)
 
 These containers are networked together so that we can call the MySQL or Redis cache containers from the app container.
 
 If you connect an interactive terminal to the `sail-8.1/app container`, you'll see your project in the `/var/www/html` folder. Docker "mounts" the project from your machine into the container, so any changes you make while developing are reflected in the application when you refresh.
 
-![The file structure of the Laravel project in a container](container-file-structure.png)
+![The file structure of the Laravel project in a container](container-file-structure.webp)
 
 ## Adding Dev Containers
 
@@ -95,11 +95,11 @@ Support has also been added for the [Dev Containers](https://marketplace.visuals
 
 This creates the same project configuration, but will include a `.devcontainer` folder. VS Code will automatically detect that folder and prompt you to reopen the project in a container thereby skipping the required `sail up` step.
 
-![A notification in VS Code saying "Reopen in container"](reopen-in-container-prompt.png)
+![A notification in VS Code saying "Reopen in container"](reopen-in-container-prompt.webp)
 
 VS Code attaches to the container, so you are developing **within** the container environment as opposed to your local one. You'll know that because the Remote Indicator in the lower left-hand corner of VS Code tells you so...
 
-![The remote indicator in VS Code showing connection to a container](remote-indicator.png)
+![The remote indicator in VS Code showing connection to a container](remote-indicator.webp)
 
 Developing in the container as opposed to outside of it has some distinct benefits.
 
@@ -107,15 +107,15 @@ Developing in the container as opposed to outside of it has some distinct benefi
 
 When connected to the container, the context you are developing in is the same as the one where the application is running. So your terminal becomes the terminal of the container...
 
-![The VS Code terminal connected to the running container instance](terminal.png)
+![The VS Code terminal connected to the running container instance](terminal.webp)
 
 The Dev Containers extension also gives you a more complete view of what's going on, such as which ports are forwarded - just in case you forget where your application is running.
 
-![The port forwarding view in VS Code showing port 80 forwarded](port-forwarding.png)
+![The port forwarding view in VS Code showing port 80 forwarded](port-forwarding.webp)
 
 The Laravel application starts automatically, and the application logs are piped to the container logs. Since you probably want to see what's going on in the application, the Dev Containers extension provides a new view in VS Code, where you can see all running containers, as well as connect to stream container logs.
 
-![The Laravel application container logs in VS Code](container-logs.png)
+![The Laravel application container logs in VS Code](container-logs.webp)
 
 ### Automate the dev environment setup
 

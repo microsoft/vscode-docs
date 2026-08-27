@@ -97,7 +97,7 @@ To run tests with coverage enabled, select the coverage run icon in the Test Exp
 
 Once the coverage run completes, lines are highlighted in the editor for line-level coverage. Test coverage results appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in the Command Palette (`kb(workbench.action.showCommands)`). On this panel, you can view line coverage metrics for each file and folder in your workspace, as well as branch coverage, if relevant.
 
-![Gif showing running Python tests with coverage.](images/testing/python-coverage.gif)
+<video src="images/testing/python-coverage.mp4" title="Video showing Gif showing running Python tests with coverage." autoplay loop controls muted></video>
 
 For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
 

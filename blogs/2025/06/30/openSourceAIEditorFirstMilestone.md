@@ -3,7 +3,7 @@ Order: 102
 TOCTitle: "Open Source AI Editor: First Milestone"
 PageTitle: "Open Source AI Editor: First Milestone"
 MetaDescription: We are open sourcing the GitHub Copilot Chat extension. It’s the first milestone in making VS Code an open source AI editor.
-MetaSocialImage: open_source_ai_editor.png
+MetaSocialImage: open_source_ai_editor.webp
 Date: 2025-06-30
 Author: The VS Code team
 ---

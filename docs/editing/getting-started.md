@@ -31,7 +31,7 @@ Learn about the key features of {% data variables.product.prodname_vscode %} in 
 * Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Open a folder in {% data variables.product.prodname_vscode_shortname %}
 
@@ -159,11 +159,11 @@ Now that you have a folder open in {% data variables.product.prodname_vscode_sho
 
 Let's use agents to build a recipe list web app from a single prompt.
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)`.
+1. Open the {% data variables.copilot.chat_view %} by pressing `kb(workbench.action.chat.open)`.
 
-1. Select **Agent** from the dropdown in the Chat view. Agents enable the AI to autonomously create and edit files, run terminal commands, and more.
+1. Select **Agent** from the dropdown in the {% data variables.copilot.chat_view %}. Agents enable the AI to autonomously create and edit files, run terminal commands, and more.
 
-    ![Screenshot that shows the Agent mode selector in the Chat view.](images/getting-started/chat-agent-mode.png)
+    ![Screenshot that shows the Agent mode selector in the {% data variables.copilot.chat_view %}.](images/getting-started/chat-agent-mode.png)
 
 1. Enter the following prompt in the chat input box:
 
@@ -178,9 +178,9 @@ Let's use agents to build a recipe list web app from a single prompt.
 
     The agent starts generating the app. Notice how it creates multiple files, shows you the proposed changes, and might request approval to run terminal commands.
 
-    ![Screenshot that shows the agent generating the recipe list app in the Chat view.](images/getting-started/agent-generating-app.png)
+    ![Screenshot that shows the agent generating the recipe list app in the {% data variables.copilot.chat_view %}.](images/getting-started/agent-generating-app.png)
 
-1. Review the generated files and select **Keep** in the Chat view to accept all changes.
+1. Review the generated files and select **Keep** in the {% data variables.copilot.chat_view %} to accept all changes.
 
 In the next step, you install an extension to host the app in an integrated browser.
 

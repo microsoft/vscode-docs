@@ -29,7 +29,7 @@ Learn about the key features of {% data variables.product.prodname_vscode %} in 
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
 * **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
-* **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the Chat view. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
+* **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the {% data variables.copilot.chat_view %}. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar by right-clicking it to open a context menu.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
@@ -474,7 +474,7 @@ There are many keyboard commands for adjusting the editor layout by using the ke
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
 
-![Grid Alt Click](images/userinterface/grid-alt.gif)
+<video src="images/userinterface/grid-alt.mp4" title="Video showing Grid Alt Click." autoplay loop controls muted></video>
 
 ### Keyboard shortcuts
 

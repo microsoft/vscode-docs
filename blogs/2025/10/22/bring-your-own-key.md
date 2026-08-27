@@ -3,7 +3,7 @@ Order: 107
 TOCTitle: Expanding Model Choice
 PageTitle: Expanding Model Choice in VS Code with Bring Your Own Key
 MetaDescription: Learn how the new Language Model Chat Provider API in VS Code is enabling more model choice and extensibility for chat experiences via the Bring Your Own Key experience.
-MetaSocialImage: expanding-model-choice.png
+MetaSocialImage: expanding-model-choice.webp
 Date: 2025-10-22
 Author: Olivia Guzzardo McVicker, Pierce Boggan
 ---
@@ -50,7 +50,7 @@ For extension developers interested in contributing their own models, check out 
 
 For developers using OpenAI-compatible models, you can use the custom **OpenAI Compatible** provider for any OpenAI-compatible API endpoint and [configure the models for use in chat](https://code.visualstudio.com/docs/agent-customization/language-models#_use-an-openaicompatible-model). This feature is currently available in VS Code Insiders only.
 
-![Screenshot showing OpenAI-compatible model configuration in VS Code.](manage-openai-compatible.png)
+![Screenshot showing OpenAI-compatible model configuration in VS Code.](manage-openai-compatible.webp)
 
 Additionally, you can explicitly configure the list of edit tools through the `github.copilot.chat.customOAIModels` setting, giving you fine-grained control over which capabilities are available for your custom models.
 

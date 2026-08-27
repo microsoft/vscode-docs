@@ -13,7 +13,7 @@ September 28, 2017 Xiaokai He
 
 For Java developers on Visual Studio Code, the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension has been great for providing language features such as IntelliSense and project support. At the same time, we've also heard feedback that users would also like Java debugging. Today, we're excited to announce our ongoing collaboration with Red Hat and enabling Java developers to debug Java applications with a new lightweight [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) based on [Java Debug Server](https://github.com/microsoft/java-debug).
 
-![Java debug extension](java-debug-extension.png)
+![Java debug extension](java-debug-extension.webp)
 
 To help Java developers to get started with VS Code quickly, we also created an [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes both the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions so you won't need to search for them individually. This is just the start to creating a modern workflow for Java and we'll be adding more features and extensions to the **Extension Pack for Java** in the future.
 
@@ -36,7 +36,7 @@ After reloading VS Code, open a folder that contains a Java project and follow b
 3. Fill in the `mainClass` for `Launch` setting or `hostName` and `port` for `Attach`.
 4. Set your breakpoint and hit `F5` to start debugging.
 
-![Debugging Java Application](java-debug.gif)
+<video src="java-debug.mp4" title="Video showing Debugging Java Application." autoplay loop controls muted></video>
 
 ## Supported features
 
@@ -49,7 +49,7 @@ In this release, we support the following features:
 - **Diagnostics** - The **CALL STACK** panel shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
 - **Debug Console** - The Debug Console lets you see information from both stdout and stderr.
 
-![Debugging Features](debug-features.png)
+![Debugging Features](debug-features.webp)
 
 ## Next Steps
 

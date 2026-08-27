@@ -83,7 +83,7 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
     * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits.
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits.
 
 1. Start using Copilot in {% data variables.product.prodname_vscode_shortname %}!
 
@@ -94,9 +94,9 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
 {% data variables.product.prodname_vscode_shortname %} adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task.
 
-* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
-    ![Screenshot of the Agents window with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
+    ![Screenshot of the {% data variables.copilot.agents_window %} with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
 
 * **Write, test, and debug code.** Edit with IntelliSense, refactoring, and multi-cursor support, then find and fix problems with the built-in [debugger](/docs/debugtest/debugging.md) and [testing](/docs/debugtest/testing.md) tools. Track your work with integrated [source control](/docs/sourcecontrol/overview.md), and add [language support](/docs/languages/overview.md) for the stack you use.
 

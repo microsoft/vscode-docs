@@ -9,7 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 Providing relevant context helps the AI give more accurate responses. Add files, folders, symbols, images, web content, and other information directly to your prompt when you want the AI to consider specific details.
 
 > [!NOTE]
-> The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
+> The features on this page work in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 For background on what context is and how {% data variables.product.prodname_vscode_shortname %} assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
@@ -17,9 +17,9 @@ For background on what context is and how {% data variables.product.prodname_vsc
 
 You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the Chat view to open the context picker.
+Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the {% data variables.copilot.chat_view %} to open the context picker.
 
-![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
 View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
 
@@ -32,9 +32,9 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 * #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
     To reference a symbol, make sure to open the file containing the symbol in the editor first.
 
-* Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the Chat view to add them as context.
+* Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** in the Chat view and select **Files & Folders** or **Symbols** from the Quick Pick.
+* Select **Add Context** in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
 
 To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
 
@@ -71,7 +71,7 @@ Extensions can also contribute their own [chat participants](/api/extension-guid
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
 
 > [!TIP]
-> You can drag and drop an image from a web browser onto the Chat view to add it as context.
+> You can drag and drop an image from a web browser onto the {% data variables.copilot.chat_view %} to add it as context.
 
 ## Add browser context
 
@@ -87,7 +87,7 @@ Learn how to [add browser context to chat](/docs/debugtest/integrated-browser.md
 
 ## Related resources
 
-* [Use the Chat view](/docs/agents/run/chat-view.md)
+* [Use the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)

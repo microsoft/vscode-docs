@@ -3,7 +3,7 @@ Order: 136
 TOCTitle: MAI-Code-1-Flash
 PageTitle: "More with less: MAI-Code-1-Flash in real developer workflows"
 MetaDescription: MAI-Code-1-Flash is a lightweight coding model purpose built for the fast, iterative work developers do every day in GitHub. In this post, we share what the data is telling us about how it performs in real developer workflows.
-MetaSocialImage: mai-code-1-flash-comparison.png
+MetaSocialImage: mai-code-1-flash-comparison.webp
 Date: 2026-07-29
 Author: Faith Xu
 ---
@@ -27,7 +27,7 @@ To understand how MAI-Code-1-Flash performs in that tradeoff, we analyzed aggreg
 
 The results suggest that MAI-Code-1-Flash strikes an effective balance between quality and efficiency. It outperforms Claude Haiku 4.5 and GPT-5.4 Mini on quality. Larger-sized GPT-5.6 Luna and Kimi K2.7 Code achieve quality advantages, but require 67% to 94% more tokens per turn as well as more turns per commit.
 
-![Aggregated quality and efficiency metrics](mai-code-1-flash-comparison.png)
+![Aggregated quality and efficiency metrics](mai-code-1-flash-comparison.webp)
 
 | Model | Code survival rate | Commit survival rate | Accept rate | Tokens per turn | Turns per commit |
 |---|---:|---:|---:|---:|---:|

@@ -17,11 +17,11 @@ Get started by installing:
 > [!TIP]
 > These are three separate pieces that work together: {% data variables.product.prodname_vscode_shortname %} is the editor, the Python extension adds Python support to {% data variables.product.prodname_vscode_shortname %}, and the Python interpreter runs your code. For a plain-language explanation, see [Understand the Python setup](/docs/python/python-tutorial.md#understand-the-python-setup).
 
-![Gif installing the Python extension in a fresh install of {% data variables.product.prodname_vscode_shortname %}](images/quick-start/qs-python-ext-install.gif)
+<video src="images/quick-start/qs-python-ext-install.mp4" title="Video showing Gif installing the Python extension in a fresh install of {% data variables.product.prodname_vscode_shortname %}." autoplay loop controls muted></video>
 
 To further customize {% data variables.product.prodname_vscode_shortname %} for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
 
-![Gif showing the Python profile template being installing into {% data variables.product.prodname_vscode_shortname %}.](images/quick-start/python-profile-create.gif)
+<video src="images/quick-start/python-profile-create.mp4" title="Video showing Gif showing the Python profile template being installing into {% data variables.product.prodname_vscode_shortname %}." autoplay loop controls muted></video>
 
 ## How to create and open a Python project or file
 
@@ -47,7 +47,7 @@ Code Actions (also known as Quick Fixes) are provided to help fix issues when th
 
 Python commands can be accessed through the [Command Palette](/docs/editing/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from {% data variables.product.prodname_vscode_shortname %} and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
 
-![Gif demonstrating how to access Python commands in the Command Palette.](images/quick-start/cmd-plt-v2.gif)
+<video src="images/quick-start/cmd-plt-v2.mp4" title="Video showing Gif demonstrating how to access Python commands in the Command Palette." autoplay loop controls muted></video>
 
 ## Run, debug, and test
 
@@ -76,7 +76,7 @@ To start debugging, initialize the debugger by pressing `kbstyle(F5)`. Since thi
 
 Once your program reaches the breakpoint, it will stop and allow you to track data in the Python Debug console, and progress through your program using the debug toolbar.
 
-![Gif showing how to configure the Python debugger for the first time.](images/quick-start/qs-debug-v2.gif)
+<video src="images/quick-start/qs-debug-v2.mp4" title="Video showing Gif showing how to configure the Python debugger for the first time." autoplay loop controls muted></video>
 
 For a deeper dive into Python debugging functionality, see [Python debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/python/debugging.md).
 
@@ -88,7 +88,7 @@ You can configure Python tests through the Testing view on the Activity Bar by s
 
 You can also create tests for your Python project, which the Python extension will attempt to discover once your framework of choice is configured. The Python extension also allows you to run and debug your tests in the Testing view and inspect the test run output in the Test Results panel.
 
-![Gif demonstrating test configuration, discovery, and run in the Python extension.](images/quick-start/qs-testing.gif)
+<video src="images/quick-start/qs-testing.mp4" title="Video showing Gif demonstrating test configuration, discovery, and run in the Python extension." autoplay loop controls muted></video>
 
 For a comprehensive look at testing functionality, see [Python testing in {% data variables.product.prodname_vscode_shortname %}](/docs/python/testing.md).
 

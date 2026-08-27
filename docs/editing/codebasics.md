@@ -23,7 +23,7 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 > [!NOTE]
 > Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
-![Multi-cursor](images/codebasics/multicursor.gif)
+<video src="images/codebasics/multicursor.mp4" title="Video showing Multi-cursor." autoplay loop controls muted></video>
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
 
@@ -32,7 +32,7 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 > `kb(editor.action.moveSelectionToNextFindMatch)`. This helps you avoid adding unwanted
 > selections when editing repeated text.
 
-![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
+<video src="images/codebasics/multicursor-word.mp4" title="Video showing Multi-cursor-next-word." autoplay loop controls muted></video>
 
 > [!TIP]
 > You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
@@ -56,13 +56,13 @@ Quickly shrink or expand the current selection. Trigger it with `kb(editor.actio
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.expand)`:
 
-![Expand selection](images/codebasics/expandselection.gif)
+<video src="images/codebasics/expandselection.mp4" title="Video showing Expand selection." autoplay loop controls muted></video>
 
 ## Column (box) selection
 
 Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
-![Column text selection](images/codebasics/column-select.gif)
+<video src="images/codebasics/column-select.mp4" title="Video showing Column text selection." autoplay loop controls muted></video>
 
 > [!NOTE]
 > This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
@@ -143,7 +143,7 @@ By default, {% data variables.product.prodname_vscode_shortname %} saves the his
 
 When the Find control is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
 
-![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
+<video src="images/codebasics/seed-search-string-from-selection.mp4" title="Video showing Seed Search String From Selection." autoplay loop controls muted></video>
 
 This feature can be turned off by setting `setting(editor.find.seedSearchStringFromSelection)` to `"never"`.
 
@@ -151,7 +151,7 @@ This feature can be turned off by setting `setting(editor.find.seedSearchStringF
 
 By default, the find operations are run on the entire file in the editor. To limit the search to the text selection, select the **Find in Selection** icon on the Find control or press `kb(toggleFindInSelection)`.
 
-![Find In Selection](images/codebasics/find-in-selection.gif)
+<video src="images/codebasics/find-in-selection.mp4" title="Video showing Find In Selection." autoplay loop controls muted></video>
 
 If you want it to be the default behavior of the Find control, you can set `setting(editor.find.autoFindInSelection)` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
@@ -175,11 +175,11 @@ For more advanced scenarios, the Find and Replace control has the following opti
 
 You can search multiple line text by pasting the text into the Find input box and Replace input box. Pressing `kbstyle(Ctrl+Enter)` inserts a new line in the input box.
 
-![Multiple Line Support](images/codebasics/multiple-line-support.gif)
+<video src="images/codebasics/multiple-line-support.mp4" title="Video showing Multiple Line Support." autoplay loop controls muted></video>
 
 While searching long text, the default size of Find control might be too small. You can drag the left sash to enlarge the Find control or double click the left sash to maximize it or shrink it to its default size.
 
-![Resize Find control](images/codebasics/resize-find-widget.gif)
+<video src="images/codebasics/resize-find-widget.mp4" title="Video showing Resize Find control." autoplay loop controls muted></video>
 
 ## Search across files
 
@@ -243,7 +243,7 @@ When you type text into the Replace text box, you will see a diff display of the
 
 Example:
 
-![Changing case while doing find and replace](images/codebasics/case-change-replace.gif)
+<video src="images/codebasics/case-change-replace.mp4" title="Video showing Changing case while doing find and replace." autoplay loop controls muted></video>
 
 The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 

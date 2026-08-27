@@ -23,15 +23,15 @@ To thoroughly review a pull request, you need to understand the context of its c
 
 The rich code navigation experience we're building helps developers keep track of the pull requests they're interested in from within their development environment (via the [Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) and [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extensions), and at any time, begin seamlessly navigating changes across remotely-hosted PRs, without needing to checkout those topic branches locally. Specifically, it enhances files that you open from the *GitHub Pull Requests* view with the same code navigation capabilities that drives other editor experiences (e.g. hover info, go to definition, find all references), but in this case, **powered entirely by the cloud**. We believe this can enable teams to be more productive, and make superficial reviews a thing of the past.
 
-![Navigating a csharp PR](CSharp.gif)
+<video src="CSharp.mp4" title="Video showing Navigating a csharp PR." autoplay loop controls muted></video>
 
 *Navigating a C#-based PR on macOS, without even having the C# extension or .NET installed.*
 
-![Navigating a C++ PR](CPlusPlus.gif)
+<video src="CPlusPlus.mp4" title="Video showing Navigating a C++ PR." autoplay loop controls muted></video>
 
 *Navigating a C++-based PR on macOS, without even having the C++ extension installed.*
 
-![Navigating a Java PR](Java.gif)
+<video src="Java.mp4" title="Video showing Navigating a Java PR." autoplay loop controls muted></video>
 
 *Navigating a Java-based PR on macOS, without even having the Java Language Support (redhat.java) extension installed.*
 
@@ -41,7 +41,7 @@ With this experience, you can navigate to symbols (e.g. classes, functions, prop
 
 Additionally, if the PR you're reviewing makes use of dependencies in external repos, or includes APIs that are consumed by code in external repos, you can directly navigate to those sources as well! This way, you can fully—and more importantly, quickly—assess the impact of a change, **regardless how your application is organized in version control**. We believe this is an extremely powerful capability, especially as more teams are building multi-repository applications/microservices and relying heavily on OSS.
 
-![Navigating into a Mobx repo](CrossRepoJump.gif)
+<video src="CrossRepoJump.mp4" title="Video showing Navigating into a Mobx repo." autoplay loop controls muted></video>
 
 *Navigating directly into the [MobX repo](https://github.com/mobxjs/mobx) on GitHub from an [external](https://github.com/lostintangent/vsls-guestbook/pull/11/files#diff-babc63cbfdb83a46e935f16e3eb9066fR20) reference to its [observable](https://github.com/mobxjs/mobx/blob/master/src/api/observable.ts#L183) function.*
 

@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 390" role="img" aria-labelledby="wire-title wire-desc">
+  <title id="wire-title">A client subscribing to a chat and receiving its ordered event stream</title>
+  <desc id="wire-desc">
+    The client lists available sessions, subscribes to a chat channel, receives its current state at
+    sequence 40, then receives five action envelopes with increasing sequence numbers as the chat
+    continues.
+  </desc>
+
+  <style>
+    svg {
+      --diagram-bg: #fff;
+      --diagram-bg-soft: #f6f6f7;
+      --diagram-divider: #e2e2e3;
+      --diagram-text-2: #3c3c43c7;
+      --diagram-text-3: #3c3c438f;
+      --diagram-blue: #3b82f6;
+      --diagram-green: #14a37f;
+      --diagram-orange: #d97706;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    .wire-bg {
+      fill: var(--diagram-bg-soft);
+      stroke: var(--diagram-divider);
+      stroke-width: 1.5;
+    }
+
+    .endpoint-badge {
+      fill: color-mix(in srgb, var(--diagram-blue) 10%, transparent);
+      stroke: color-mix(in srgb, var(--diagram-blue) 30%, transparent);
+    }
+    .endpoint-icon {
+      fill: none;
+      stroke: var(--diagram-blue);
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .endpoint-icon-fill { fill: var(--diagram-blue); }
+    .endpoint-label {
+      fill: var(--diagram-blue);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .exchange-arrow {
+      fill: none;
+      stroke: var(--diagram-text-3);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .exchange-method,
+    .exchange-detail,
+    .stream-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      text-anchor: middle;
+    }
+    .exchange-method {
+      font-size: 11.5px;
+      font-weight: 600;
+      fill: var(--diagram-blue);
+    }
+    .exchange-method-response { fill: var(--diagram-green); }
+    .exchange-argument {
+      fill: var(--diagram-text-3);
+      font-weight: 400;
+    }
+    .exchange-detail {
+      font-size: 11px;
+      fill: var(--diagram-text-3);
+    }
+    .stream-divider {
+      stroke: var(--diagram-divider);
+      stroke-width: 1;
+    }
+    .stream-label {
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      fill: var(--diagram-text-3);
+    }
+
+    .wire-rail {
+      fill: none;
+      stroke: var(--diagram-green);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 5 7;
+      opacity: 0.7;
+      animation: wireRailFlow 0.9s linear infinite;
+      will-change: stroke-dashoffset;
+    }
+    @keyframes wireRailFlow {
+      from { stroke-dashoffset: 12; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    .wire-line { transform-box: fill-box; }
+    .wt-reveal:not(.in-view) .wire-line { opacity: 0; }
+    .in-view .wire-line {
+      animation: wireLineIn 0.5s var(--vp-ease, cubic-bezier(0.16, 1, 0.3, 1)) both;
+      animation-delay: calc(0.12s * var(--i) + 0.2s);
+    }
+    @keyframes wireLineIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wire-line-bg {
+      fill: var(--diagram-bg);
+      stroke: var(--diagram-divider);
+    }
+    .seq-bg { fill: var(--diagram-blue); }
+    .seq {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      fill: #fff;
+      text-anchor: middle;
+    }
+    .evt {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11.5px;
+    }
+    .evt-blue { fill: var(--diagram-blue); }
+    .evt-orange { fill: var(--diagram-orange); }
+    .evt-green { fill: var(--diagram-green); }
+    .payload {
+      font-size: 12px;
+      fill: var(--diagram-text-2);
+    }
+    .payload .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+    }
+    .payload .green { fill: var(--diagram-green); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wire-rail,
+      .wire-line {
+        animation: none !important;
+      }
+      .wire-line { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+
+  <rect class="wire-bg" x="0.75" y="0.75" width="458.5" height="388.5" rx="12" />
+
+  <g>
+    <rect class="endpoint-badge" x="16" y="61" width="76" height="26" rx="6" />
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="25" y="67" width="13" height="10" rx="1.5" />
+      <path d="M28 81h7m-3.5-4v4" />
+    </g>
+    <text class="endpoint-label" x="45" y="78">Client</text>
+
+    <rect class="endpoint-badge" x="368" y="61" width="76" height="26" rx="6" />
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="377" y="67" width="12" height="4" rx="1" />
+      <rect x="377" y="75" width="12" height="4" rx="1" />
+      <circle class="endpoint-icon-fill" cx="386" cy="69" r="1" />
+      <circle class="endpoint-icon-fill" cx="386" cy="77" r="1" />
+    </g>
+    <text class="endpoint-label" x="396" y="78">Host</text>
+  </g>
+
+  <g>
+    <text class="exchange-method" x="230" y="20">listSessions()</text>
+    <path class="exchange-arrow" d="M108 29H352m-7-6 7 6-7 6" />
+
+    <text class="exchange-method exchange-method-response" x="230" y="54">sessions: […]</text>
+    <path class="exchange-arrow" d="M352 63H108m7-6-7 6 7 6" />
+
+    <text class="exchange-method" x="230" y="88">subscribe<tspan class="exchange-argument">(ahp-chat:/c_8c1)</tspan></text>
+    <path class="exchange-arrow" d="M108 97H352m-7-6 7 6-7 6" />
+
+    <text class="exchange-method exchange-method-response" x="230" y="122">state: { turns: … }<tspan class="exchange-argument"> · fromSeq: 40</tspan></text>
+    <path class="exchange-arrow" d="M352 131H108m7-6-7 6 7 6" />
+  </g>
+
+  <line class="stream-divider" x1="32" y1="153" x2="174" y2="153" />
+  <text class="stream-label" x="230" y="156">CHAT CONTINUES</text>
+  <line class="stream-divider" x1="286" y1="153" x2="428" y2="153" />
+
+  <path class="wire-rail" d="M21 174V373" />
+
+  <g class="wire-line" style="--i:0">
+    <rect class="wire-line-bg" x="32" y="170" width="412" height="35" rx="7" />
+    <rect class="seq-bg" x="44" y="178.5" width="30" height="18" rx="5" />
+    <text class="seq" x="59" y="191.5">41</text>
+    <text class="evt evt-blue" x="86" y="191.5">chat/turnStarted</text>
+    <text class="payload" x="250" y="191.5">"Add retry logic to the API client"</text>
+  </g>
+
+  <g class="wire-line" style="--i:1">
+    <rect class="wire-line-bg" x="32" y="213" width="412" height="35" rx="7" />
+    <rect class="seq-bg" x="44" y="221.5" width="30" height="18" rx="5" />
+    <text class="seq" x="59" y="234.5">42</text>
+    <text class="evt evt-blue" x="86" y="234.5">chat/delta</text>
+    <text class="payload" x="250" y="234.5">"Sure — I'll wrap the fetch call…"</text>
+  </g>
+
+  <g class="wire-line" style="--i:2">
+    <rect class="wire-line-bg" x="32" y="256" width="412" height="35" rx="7" />
+    <rect class="seq-bg" x="44" y="264.5" width="30" height="18" rx="5" />
+    <text class="seq" x="59" y="277.5">43</text>
+    <text class="evt evt-orange" x="86" y="277.5">chat/toolCallStart</text>
+    <text class="payload" x="250" y="277.5">Edit file · <tspan class="mono">src/api.ts</tspan></text>
+  </g>
+
+  <g class="wire-line" style="--i:3">
+    <rect class="wire-line-bg" x="32" y="299" width="412" height="35" rx="7" />
+    <rect class="seq-bg" x="44" y="307.5" width="30" height="18" rx="5" />
+    <text class="seq" x="59" y="320.5">46</text>
+    <text class="evt evt-orange" x="86" y="320.5">chat/toolCallComplete</text>
+    <text class="payload" x="250" y="320.5"><tspan class="green">ok</tspan> · 1 file changed</text>
+  </g>
+
+  <g class="wire-line" style="--i:4">
+    <rect class="wire-line-bg" x="32" y="342" width="412" height="35" rx="7" />
+    <rect class="seq-bg" x="44" y="350.5" width="30" height="18" rx="5" />
+    <text class="seq" x="59" y="363.5">47</text>
+    <text class="evt evt-green" x="86" y="363.5">chat/turnComplete</text>
+    <text class="payload" x="250" y="363.5">turn <tspan class="mono">t_8c1</tspan> done</text>
+  </g>
+</svg>

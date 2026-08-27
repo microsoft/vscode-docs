@@ -211,7 +211,7 @@ Select Color Theme|`kb(workbench.action.selectTheme)`|`workbench.action.selectTh
 
 Command|Key|Command id
 -------|---|----------
-Open Chat view|`kb(workbench.action.chat.open)`|`workbench.action.chat.open`
+Open {% data variables.copilot.chat_view %}|`kb(workbench.action.chat.open)`|`workbench.action.chat.open`
 Open chat in agent mode|`kb(workbench.action.chat.openagent)`|`workbench.action.chat.openagent`
 Open editor inline chat|`kb(inlineChat.start)`|`inlineChat.start`
 Open terminal inline chat|`kb(workbench.action.terminal.chat.start)`|`workbench.action.terminal.chat.start`

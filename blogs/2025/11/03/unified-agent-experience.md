@@ -3,7 +3,7 @@ Order: 108
 TOCTitle: A Unified Agent Experience
 PageTitle: A Unified Experience for all Coding Agents
 MetaDescription: "Agents took over VS Code in 2025. We released agent mode for VS Code, integration for the Copilot coding agent, and the new GitHub Copilot CLI. But Copilot is not the only agent game in town. There are now more coding agents than ever, including options from OpenAI and Anthropic."
-MetaSocialImage: unified-agent-experience.png
+MetaSocialImage: unified-agent-experience.webp
 Date: 2025-11-05
 Author: VS Code Team
 ---
@@ -27,7 +27,7 @@ At GitHub Universe, we announced you can now use OpenAI Codex with your GitHub C
 
 To use this integration, install the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) and sign in with GitHub Copilot.
 
-![OpenAI Codex sign-in panel in VS Code](codex-signin.gif)
+<video src="codex-signin.mp4" title="Video showing OpenAI Codex sign-in panel in VS Code." autoplay loop controls muted></video>
 
 When you use Codex with Copilot Pro+, Copilot handles all model calls and standard rate limits apply. You get code generation, code explanation, and all the features - no need to manage a separate OpenAI account.
 
@@ -46,7 +46,7 @@ That's why we've introduced a new feature in VS Code for orchestrating all your 
 
 There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions#_sessions-list)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
 
-![VS Code window with Agent Sessions sidebar showing Copilot, Coding Agent, CLI, and Codex statuses against a calm gray workspace](agent-sessions.png)
+![VS Code window with Agent Sessions sidebar showing Copilot, Coding Agent, CLI, and Codex statuses against a calm gray workspace](agent-sessions.webp)
 
 With Agent Sessions, you see all agent sessions for your project. You can check which agents are running, their status, and jump between sessions with a click.
 
@@ -54,7 +54,7 @@ All agents now have a new tabbed experience called "chat editors". You can open 
 
 You can also delegate any task to any agent right from the Chat view.
 
-![VS Code showing the "Delegate" button from the chat, when clicked opens a menu of agents to delegate to](why-settle.gif)
+<video src="why-settle.mp4" title="Video showing VS Code showing the &quot;Delegate&quot; button from the chat, when clicked opens a menu of agents to delegate to." autoplay loop controls muted></video>
 
 This unified Agent Sessions view makes VS Code a "mission control" for orchestrating all your agents, while keeping you in the editor where you do your best work. We're excited to welcome OpenAI Codex today, and we're working to bring more agents to your Copilot+ subscription in the future.
 
@@ -64,13 +64,13 @@ A few months ago we introduced the concept of chat modes in VS Code. These are c
 
 To get you started building custom agents, we've added a new built-in agent called "[Plan](https://code.visualstudio.com/docs/agents/run/planning)".
 
-![Copilot chat in VS Code with Plan agent dropdown highlighted, planning guidance beside dark theme editor, label reads Plan for a focused tone.](planning-agent.png)
+![Copilot chat in VS Code with Plan agent dropdown highlighted, planning guidance beside dark theme editor, label reads Plan for a focused tone.](planning-agent.webp)
 
 The new Plan agent helps create a detailed plan from lazy prompts like "add drag and drop". That's an actual prompt I sent yesterday. No mention of what to add it to, what page, or whether to use a library. I do this a lot, and I bet I'm not alone.
 
 With the Plan agent, Copilot asks the questions that need answers. It even recommends libraries for drag and drop and gives reasons to pick one over another.
 
-![Plan agent breaking down drag-and-drop into steps recommending React Beautiful DnD and React DnD with comparisons.](plan-in-action.png)
+![Plan agent breaking down drag-and-drop into steps recommending React Beautiful DnD and React DnD with comparisons.](plan-in-action.webp)
 
 You can answer these with quick replies on separate lines so it knows which answer goes to which question. Here's how I'd answer:
 
@@ -84,7 +84,7 @@ link creation only
 
 When the Plan agent has enough info, it stops asking questions and asks if you're ready to proceed. You can use the new "[Handoff](https://code.visualstudio.com/docs/agent-customization/custom-agents#_handoffs)" feature in chat to either proceed or open the full plan in the editor.
 
-![Screenshot showing the Handoff feature in Copilot chat with options to proceed with implementation or open the plan in the editor.](handoffs.png)
+![Screenshot showing the Handoff feature in Copilot chat with options to proceed with implementation or open the plan in the editor.](handoffs.webp)
 
 Try different models to see which you like best for planning. We've found the [Claude models](https://www.anthropic.com/claude) are great at identifying missing context and edge cases, and asking the right questions.
 
@@ -110,7 +110,7 @@ Analyze the #file:api with #runSubagent and recommend the best authentication st
 
 You'll know a subagent is running because you can see tool calls and model responses below the subagent action. In the screenshot below, that's "Analyze app structure for auth".
 
-![A subagent process running in VS Code with tool calls underneath the main agent action](subagent-in-progress.png)
+![A subagent process running in VS Code with tool calls underneath the main agent action](subagent-in-progress.webp)
 
 We're still exploring ways to help you manage context with agents, and subagents are just the beginning.
 

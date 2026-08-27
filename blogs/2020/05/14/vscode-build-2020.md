@@ -5,7 +5,7 @@ PageTitle: Visual Studio Code at Microsoft Build 2020
 MetaDescription: Visual Studio Code at Microsoft Build 2020
 Date: 2020-05-14
 Author: Alessandro Segala
-MetaSocialImage: /assets/blogs/2020/05/14/vscode-build-social.png
+MetaSocialImage: /assets/blogs/2020/05/14/vscode-build-social.webp
 ---
 # Visual Studio Code at Build 2020
 
@@ -13,7 +13,7 @@ May 14, 2020 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPale
 
 The [Microsoft Build 2020](https://mybuild.microsoft.com) conference is starting next Tuesday, May 19, and will be running for 48 continuous hours. For the first time, Build is a fully digital event, open to everyone for free.
 
-[![Microsoft Build 2020](build-2020.png)](https://mybuild.microsoft.com)
+[![Microsoft Build 2020](build-2020.webp)](https://mybuild.microsoft.com)
 
 Our team has been hard at work creating new experiences for all developers using Visual Studio Code. At Build, we'll demo new features we've been working on in VS Code (hint: Settings Sync!) as well as Notebooks, Remote Development, and a bunch of cool tips and tricks. You will also be able to check out what we've been working on with partner teams (Visual Studio Codespaces, Visual Studio Live Share) and together with our friends at GitHub.
 
