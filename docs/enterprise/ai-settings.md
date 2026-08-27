@@ -462,7 +462,7 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 |---------------------|---------|-------------|
 | `telemetry.enabled` | `setting(chat.agentHost.otel.enabled)` | Enable or disable Copilot OpenTelemetry export. When managed, users cannot override the value. |
 | `telemetry.endpoint` | `setting(chat.agentHost.otel.otlpEndpoint)` | OTLP collector endpoint that receives the telemetry. |
-| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP transport, such as `otlp-http` or `otlp-grpc`. The managed wire protocol (protobuf or JSON) is applied to both surfaces. |
+| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP wire protocol. Use `http/json` or `http/protobuf`; both select the `otlp-http` exporter. `grpc` is accepted for forward compatibility but currently falls back to the HTTP default. |
 | `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
 | `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
 | `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
