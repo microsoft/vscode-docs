@@ -38,7 +38,7 @@ Hovering over `bar()` shows the following hover information in Visual Studio Cod
 
 ---
 
-![Hover over Bar](./hover.png)
+![Hover over Bar](./hover.webp)
 
 ---
 
@@ -102,7 +102,7 @@ For the hover example, the emitted LSIF graph data looks as follows:
 
 The corresponding graph looks like this:
 
-![LSIF graph for a hover](./hoverResult.png)
+![LSIF graph for a hover](./hoverResult.webp)
 
 The LSP also supports requests that only take a document as a parameter (they are not position based). Example requests that are useful for code comprehension are for a list of all document symbols or to compute all folding ranges. These requests are modeled in LSIF in the form `[request, document]` -> result.
 
@@ -125,7 +125,7 @@ The folding range result for the document containing above function `bar` is emi
 { id: 3, type: "edge", label: "textDocument/foldingRange", outV: 1, inV: 2 }
 ```
 
-![LSIF graph for a folding range result](./foldingRange.png)
+![LSIF graph for a folding range result](./foldingRange.webp)
 
 These are only two examples of LSP requests supported by the LSIF. The current version of the [LSIF specification](https://github.com/microsoft/language-server-protocol/blob/main/indexFormat/specification.md) also supports document symbols, document links, Go to Definition, Go to Declaration, Go to Type Definition, Find All References, and Go to Implementation.
 

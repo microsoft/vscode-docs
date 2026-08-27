@@ -201,7 +201,7 @@ Generate a TypeScript interface for the table specified by the user. Refer to th
 
 To use these prompt files in chat, use the attach button (paperclip) or use `kb(workbench.command.prompts.use)`. Select **Prompts** from the menu, and then select the prompt file you want to use. Notice that when I use the `generate-interface.prompt.md` file, it automatically pulls in the `database_users.prompt.md` file.
 
-![Animated gif showing how to use prompt files in chat.](prompts.gif)
+<video src="prompts.mp4" title="Video showing Animated gif showing how to use prompt files in chat." autoplay loop controls muted></video>
 
 ## Conclusion
 

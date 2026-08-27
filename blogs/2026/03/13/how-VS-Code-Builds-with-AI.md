@@ -3,7 +3,7 @@ Order: 129
 TOCTitle: How VS Code Builds with AI
 PageTitle: "How VS Code Builds with AI"
 MetaDescription: Learn how VS Code uses AI across its own development workflow with GitHub Copilot agent mode, automated testing, and AI-powered code review.
-MetaSocialImage: weekly-releases-x.png
+MetaSocialImage: weekly-releases-x.webp
 Date: 2026-03-13
 Author: Pierce Boggan
 ---
@@ -26,7 +26,7 @@ We shipped VS Code monthly for ten years. Every single month we went through our
 
 Recently, we decided to start shipping VS Code on a weekly cadence. And we wanted to keep the bar for rigor and quality just as high. A monthly cycle gives you breathing room with time to plan, time to run a full endgame week where the team cross-tests each other's features, and time to write thorough release notes. Moving to a weekly cadence means all of that has to get faster or get automated. This is a huge change and a year ago, we couldn't have done it. This shift was only possible because of the way agents have transformed how we work.
 
-![A screenshot of a post on X from @pierceboggan that says "You told us you wanted features available in Insiders to VS Code stable, faster. We're moving towards weekly stable releases to bring top features to VS Code".](weekly-releases-x.png)
+![A screenshot of a post on X from @pierceboggan that says "You told us you wanted features available in Insiders to VS Code stable, faster. We're moving towards weekly stable releases to bring top features to VS Code".](weekly-releases-x.webp)
 
 The weekly cadence isn't about shipping faster for its own sake. It's about getting improvements to developers sooner. A bug fix that used to wait three weeks for the next stable release now ships in days. A feature that's merged on Monday can be in developers' editors that same week. That feedback loop of *ship > learn > iterate* just gets so much faster.
 
@@ -59,7 +59,7 @@ Let me give you a real example. Peng starts each morning by updating [VS Code In
 
 From there, Peng decides what needs his focus, what to delegate to agents, and what to prioritize for the team. The agent handles the busywork of gathering context so he can cut straight to the interesting problems. By the time he's in his first call, tasks are already running in parallel.
 
-![A task management view showing a prioritized to-do list split into two sections: "Do Yourself (people/decisions)" with 4 items including prepping for VS Code Live Agent Sessions Day, scheduling a 1:1, sending a repo link, and communicating opt-out expectations; and "Open Code Tasks (delegate or do)" with 3 items including background agent worktree improvements, starting a group chat for review coordination, and discussing a GitHub endpoint for steering context. Each item includes status notes and dates.](task-management.png)
+![A task management view showing a prioritized to-do list split into two sections: "Do Yourself (people/decisions)" with 4 items including prepping for VS Code Live Agent Sessions Day, scheduling a 1:1, sending a repo link, and communicating opt-out expectations; and "Open Code Tasks (delegate or do)" with 3 items including background agent worktree improvements, starting a group chat for review coordination, and discussing a GitHub endpoint for steering context. Each item includes status notes and dates.](task-management.webp)
 
 > *"Previously, you were always working sequentially. You wrote notes, turned them into issues, and then someone else, or you, would pick that up later. Now you are empowered and able to do things in parallel. It's a habit you have to build. So, I don't write down meeting notes anymore. I'm kicking off the agents directly."* — Peng Lyu
 
@@ -77,7 +77,7 @@ Now, every time an issue is opened, it triggers an agent loop in GitHub Actions 
 
 You can see it in the repo's public data: comparing Jan-Mar year over year, commit volume has more than doubled and the team is closing nearly 3x as many issues. Better triage helps engineers find and fix the right issues faster, which frees up more time for actual software development.
 
-![Bar chart titled VS Code Repo Activity Jan 1 to Mar 10 showing a year-over-year comparison using public GitHub data. Commits grew from 2,339 in 2025 to 5,104 in 2026, a 2.2x increase. Issues Closed grew from 2,916 in 2025 to 8,402 in 2026, a 2.9x increase. 2025 bars are gray, 2026 bars are blue.](repo-activity.png)
+![Bar chart titled VS Code Repo Activity Jan 1 to Mar 10 showing a year-over-year comparison using public GitHub data. Commits grew from 2,339 in 2025 to 5,104 in 2026, a 2.2x increase. Issues Closed grew from 2,916 in 2025 to 8,402 in 2026, a 2.9x increase. 2025 bars are gray, 2026 bars are blue.](repo-activity.webp)
 
 > *"Now that piece of code is written by Copilot, who is the right owner for it? I would say it's still our engineers who are accountable for the outcome. But you do need the right harness to welcome other people to contribute to your component."* — Peng Lyu
 
@@ -95,7 +95,7 @@ What's changed is that instead of creating a spec, I create a prototype, an actu
 
 With agents in VS Code, I can go from someone giving us feedback on X or Reddit to a working prototype, self-host and experience it on Insiders, and continue to iterate. I had a PR merged last month that implements forking conversations in Copilot Chat. Together with Justin, one of our engineers, we reviewed the PR, worked through a few CSS changes together in the office and merged it. That's in VS Code now.
 
-![A screenshot of an X post from @pierceboggan sharing that the fork feature is coming to VS Code.](fork.png)
+![A screenshot of an X post from @pierceboggan sharing that the fork feature is coming to VS Code.](fork.webp)
 
 This doesn't mean that all these prototypes end up in the product. Engineers are still accountable for code quality and architecture. If Peng looks at my PR and says "this doesn’t have the right architecture," that's fair, I'm fine with my PR getting thrown away and rebuilt. But the PR moves the conversation forward faster than any document ever could. The first PR doesn't have to be perfect. It moves the needle and starts a conversation with the engineer who owns that feature area.
 

@@ -33,13 +33,13 @@ Before we can install VS Code on Chrome OS, we need to enable support for nati
 
 First, open your system's Settings, then look for **Linux (Beta)** on the sidebar. From there, turn on Linux support.
 
-![Enabling Linux support on Chrome OS](enable-crostini.png)
+![Enabling Linux support on Chrome OS](enable-crostini.webp)
 
 Follow the instructions on screen to configure the Linux environment (for most people, accepting the default values should be enough). Your Chromebook will then download the tools to create the Linux environment and configure it for you. Behind the scenes, this is actually creating a container running Debian 10, so you get a full Linux distribution to play with!
 
 Once the Linux environment has been set up, you'll see a new terminal window popping up.
 
-![Terminal running on Linux](terminal.png)
+![Terminal running on Linux](terminal.webp)
 
 Before we can install VS Code, we need to run a couple of commands in the Linux terminal. We need to update the list of Linux packages and to install the optional (but strongly recommended) dependency `gnome-keyring`. In the terminal, type the following two commands (press the `kbstyle(Enter)` key at the end of each command to execute them):
 
@@ -50,7 +50,7 @@ sudo apt-get install -y gnome-keyring
 
 The output will be similar to this:
 
-![Output of the commands in the terminal](install-deps.png)
+![Output of the commands in the terminal](install-deps.webp)
 
 As soon as the second command ends, you can move to the next step.
 
@@ -63,25 +63,25 @@ Go to the Visual Studio Code [Download](https://code.visualstudio.com/download) 
 - For Chromebooks running an Intel or AMD chip, pick the **.deb** in variant **64 bit**.
 - If your Chromebook is running on an ARM64 chip (like the one I'm testing with), pick the **.deb** package in the variant **ARM64** instead.
 
-![List of downloads](downloads.png)
+![List of downloads](downloads.webp)
 
 If you're unsure what kind of CPU your Chromebook is using, run the command `dpkg --print-architecture` in the Linux terminal to find out. You'll see either `amd64` (for both Intel and AMD chips: pick the **64 bit** variant for VS Code) or `arm64` (pick **ARM64**).
 
-![Output of the command to find the architecture: this laptop is running on arm64](dpkg-arch.png)
+![Output of the command to find the architecture: this laptop is running on arm64](dpkg-arch.webp)
 
 After you've downloaded VS Code, you'll find the package in your **Downloads** folder. Double-click on the package to launch the installer:
 
-![Package installer asking to install VS Code](install-deb.png)
+![Package installer asking to install VS Code](install-deb.webp)
 
 Your Chromebook will then install VS Code and all other dependencies.
 
 After the installation is complete, in your list of apps, you'll find **Visual Studio Code** inside a folder called **Linux apps** (along with the Linux terminal). You can now launch VS Code.
 
-![Launching the Visual Studio Code app](launch-vscode.png)
+![Launching the Visual Studio Code app](launch-vscode.webp)
 
 You should see VS Code running, and at this point you're ready to start coding!
 
-![VS Code running on the Chromebook](vscode-running.png)
+![VS Code running on the Chromebook](vscode-running.webp)
 
 If you're new to VS Code and want to know how to use the editor, here are some resources for you to explore:
 
@@ -106,7 +106,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 source .bashrc
 ```
 
-![Installing nvm](install-nvm.png)
+![Installing nvm](install-nvm.webp)
 
 After you have nvm installed, you can install the latest version of Node.js with this command:
 
@@ -114,7 +114,7 @@ After you have nvm installed, you can install the latest version of Node.js with
 nvm install node
 ```
 
-![Installing Node.js via nvm](install-node.png)
+![Installing Node.js via nvm](install-node.webp)
 
 > **Tip**: Did you know that VS Code contains an integrated terminal? You can launch it from the **Terminal** menu and then **New Terminal**. VS Code is running in the context of the Linux environment, so the integrated terminal is also running in Linux.
 
@@ -137,11 +137,11 @@ Chrome OS already comes with the Python 3 interpreter pre-installed, but we need
 sudo apt-get install -y python3-pip python3-dev python3-venv build-essential libssl-dev libffi-dev
 ```
 
-![Installing Python dependencies](install-python-deps.png)
+![Installing Python dependencies](install-python-deps.webp)
 
 Python support in VS Code is provided through the [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension. To install the Python extension, from within VS Code, use the left Activity bar to open the Extensions view (`kb(workbench.view.extensions)`), then search for "python" and install the extension provided by Microsoft:
 
-![Installing the Python extension for VS Code](install-python-ext.png)
+![Installing the Python extension for VS Code](install-python-ext.webp)
 
 At this point, you're ready to start developing with Python in VS Code! To learn more about using Python with VS Code, including running your code, using the integrated debugger, linting, etc., check out our documentation for [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 

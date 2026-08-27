@@ -3,7 +3,7 @@ Order:
 TOCTitle: Introducing Live Share
 PageTitle: Introducing Visual Studio Live Share
 MetaDescription: Real-time collaborative development
-MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
+MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.webp
 Date: 2017-11-15
 ShortDescription: Real-time collaborative development
 Author: Amanda Silver
@@ -26,14 +26,14 @@ When it comes to Live Share, seeing is believing.  Watch the following video to 
 When you share a collaborative session, your teammate sees the context of the workspace in their editor. This means your teammate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can use rich language features to navigate within the code; not only just opening other files as text but using semantic analysis-based navigation like Go to Definition or Peek.
 
 
-![Live Sharing with VS Code](vs-code-ls-session.png)
+![Live Sharing with VS Code](vs-code-ls-session.webp)
 
 When your teammate edits a file, they get editor enhancements like IntelliSense, statement completion, and suggestions.  Each of you can open files, navigate, edit code, highlight, or refactor - and changes are instantly reflected. As you edit you can see your teammate’s cursor, jump to the location of your teammate’s carat, or follow their actions.
 
 Collaborative debugging goes further, allowing you and your teammate to independently inspect objects using debugging features like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
 
 
-![Live Sharing with VS Code](vs-code-ls-session2.png)
+![Live Sharing with VS Code](vs-code-ls-session2.webp)
 
 ## Why Live Share?
 While Microsoft Teams and Slack bring dynamic team collaboration into a digital form, there is more we can do to make it easier to work together in a development team.  Screen-sharing or accessing a machine remotely means that only one person is in control while the other observes. Instant messaging, email, or other tools are great for basic messages but collaborating on a body of code often requires more than a code snippet or a single file to share the necessary context. Additionally, the validity of edits can be impacted by multiple files in the workspace. If you want to replicate your teammate’s environment, it just takes a lot of time to get everything set up.

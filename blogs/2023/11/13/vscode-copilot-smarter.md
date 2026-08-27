@@ -36,7 +36,7 @@ Client-side participants can be contributed through traditional VS Code extensio
 
 The `@workspace` participant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, etc. Imagine you are in the [VS Code repository](https://github.com/microsoft/vscode) and you want to find out more about the service in charge of the current ICodeEditor; you can use the participant like this:
 
-![@workspace participant answering question about detecting running extensions](workspace-agent-example.png)
+![@workspace participant answering question about detecting running extensions](workspace-agent-example.webp)
 
 Natural language is used to ask the `@workspace` participant "what service class do I use to get the current ICodeEditor". From there, the participant does the following to get just the right amount of context to send to the LLM:
 
@@ -62,7 +62,7 @@ VS Code can be customized in so many ways that even the members of the VS Code t
 
 This participant knows all about VS Code and can help you bridge the gap between natural language and VS Code commands and customizations. `@vscode` participant internally uses tools that give it access to the index of all the settings and commands and we are in the process of adding a tool so that this participant can also use the VS Code [documentation](https://code.visualstudio.com/docs). Now you can ask vague questions like "`@vscode` the name of that thing when vscode fake opens a file? And how to disable it?".
 
-![@vscode participant answering question about preview editors](vscode-agent-example.png)
+![@vscode participant answering question about preview editors](vscode-agent-example.webp)
 
 Note that there is a **Show in Settings Editor** button in the response. This is because the `@vscode` participant knows not only about how VS Code works, but also has a tool to invoke the Settings editor or the Command Palette.
 
@@ -76,11 +76,11 @@ Chat participants can also contribute what we call **slash commands**, which are
 
 We can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
-![New slash command](new-slash-command.png)
+![New slash command](new-slash-command.webp)
 
 Once the intent is clear, the `@workspace` participant has a much better chance of addressing the user's needs, despite the inherent ambiguity of natural language. `@workspace` can propose a directory structure and users can click on the proposed files to preview them. There is a **Create Workspace** button that will generate these files in a new folder.
 
-![@workspace /new results displaying project tree and Create Workspace button](create-workspace-tree-button.png)
+![@workspace /new results displaying project tree and Create Workspace button](create-workspace-tree-button.webp)
 
 ## Extensibility
 
@@ -92,15 +92,15 @@ Participants can respond using Markdown for simple text and image responses, or 
 
 Imagine installing a chat participant that knows all about Azure or Docker right in VS Code. Or you just might need a [DALL-E participant that uses image generation as a tool](https://github.com/roblourens/chat-agent-dalle) to present a cute animal that affirms you are doing a great job.
 
-![DALL-E generated image of cute cat providing an affirmation](dall-e-affirmation-image.png)
+![DALL-E generated image of cute cat providing an affirmation](dall-e-affirmation-image.webp)
 
 Participants can bring any domain specific content while accessing the tools for that domain. For example, 1ES stands for One Engineering System and is the internal Microsoft engineering system. The 1ES VS Code extension contributes an `@1es` participant that can answer specific questions for internal Microsoft engineers. The `@1es` participant is dynamically planning and showing what it is actually doing. It uses some of the public data available in LLM models, but it also recognizes Microsoft internal specifics and combines both to provide the best answer.
 
-![@1es participant answering a question about CFS, a Microsoft internal initiative](1es-agent-first.png)
+![@1es participant answering a question about CFS, a Microsoft internal initiative](1es-agent-first.webp)
 
 And because a participant has the current context, it can continue the discussion:
 
-![@1es participant providing more details about using CFS](1es-agent-second.png)
+![@1es participant providing more details about using CFS](1es-agent-second.webp)
 
 We are also adding an API that allows extensions to get access to the LLM and can choose to use the LLM to process and answer the user query. Today this API is limited to those extensions that implement a participant. The chat participant API passes the exact user prompts to contributed participants, and with the LLM access - participants can conveniently transition those language prompts into specific backend API calls. We will handle the usage of this API with care and transparency so that users are aware how many requests and tokens have been used by a participant.
 
@@ -114,35 +114,35 @@ We are very excited about participants and the endless possibilities they bring,
 
 Smart actions are seamlessly integrated in your VS Code flow (for example, in Quick Fix and context menus) and they do not require you to write any prompt at all. The most powerful smart action is `/fix`. Here is a relatively simple TypeScript quick sort algorithm with an error noting that "Argument of type 'number' is not assignable to parameter of type 'never'". Click on the light bulb and choose **Fix using Copilot**.
 
-![Quick Fix light bulb menu with Fix using Copilot selected](fix-using-copilot.png)
+![Quick Fix light bulb menu with Fix using Copilot selected](fix-using-copilot.webp)
 
 This option opens inline chat populated with `/fix` and also the error message. Behind the scenes, we bring in additional VS Code's diagnostic context that then lets Copilot provide a fix – updating the `left` and `right` arrays to use the right type declaration.
 
-![Copilot proposed fix shown in a diff view](proposed-fix.png)
+![Copilot proposed fix shown in a diff view](proposed-fix.webp)
 
 We have noticed that `/fix` is particularly useful for languages like shells, where traditional tooling is sometimes lacking.
 
-![Copilot proposed fix for a shell command](shell-proposed-fix.png)
+![Copilot proposed fix for a shell command](shell-proposed-fix.webp)
 
 To help make its suggestions clearer, Copilot will try to explain why it proposed a specific fix. We have been pleased to learn that users accept suggested Copilot fixes around 60% of the time. Sometimes the fix may not be related to the source code near the light bulb and what is needed is to install a missing dependency – in that case, `/fix` proposes a command that can be run in the integrated terminal.
 
 Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code and we think you'll be surprised by the doc quality.
 
-![/doc command with a generated JSDoc comment](generate-docs.png)
+![/doc command with a generated JSDoc comment](generate-docs.webp)
 
 ### Generate commit and pull request messages
 
 Sometimes the intent is crystal clear. When that's the case, experiences with AI can feel almost magical. My favorite right now is the ability to have Copilot generate commit messages automatically. In the Source Code view with Copilot installed, you'll see a new sparkle icon next to the commit message field. Select the sparkle and Copilot will fill in the message!
 
-![Source Control input box with sparkle to generate commit message](generate-commit-message.png)
+![Source Control input box with sparkle to generate commit message](generate-commit-message.webp)
 
 >I'm so excited about this experience, I even made this commit the other day when editing Markdown using vscode.dev/github because the Copilot extension isn't yet [web enabled](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
->![Commit message wishing that Copilot worked in VS Code for the Web](wish-copilot-web.png)
+>![Commit message wishing that Copilot worked in VS Code for the Web](wish-copilot-web.webp)
 
 Back to our flow, let's keep going and make a pull request. I have the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, which is aware of the presence of the Copilot Chat extension. When I make a PR, there is another sparkle icon next to the title and description. Select it and Copilot writes a nice description automatically!
 
-![GitHub Pull Request and Issue extension Create view with sparkle to generate title and description](generate-pr-title-description.png)
+![GitHub Pull Request and Issue extension Create view with sparkle to generate title and description](generate-pr-title-description.webp)
 
 This is another area where AI can help you be more productive by automatically taking care of the simple yet tedious tasks you do 10s or 100s of times a week.
 
@@ -154,11 +154,11 @@ We've gotten very good as an industry at voice recognition technology over the p
 
 The new [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension brings voice to text support to VS Code. Once installed, you'll see a microphone icon in all the natural language input dialogs. Select it, ask Copilot your question, and enjoy the magic.
 
-![Copilot chat input box with Speech extension microphone button](speech-extension-microphone.png)
+![Copilot chat input box with Speech extension microphone button](speech-extension-microphone.webp)
 
 How do ya like them apples!? I told you my boy's wicked smart!
 
-![Copilot chat answer to best code editor for node and express app](best-editor-answer.png)
+![Copilot chat answer to best code editor for node and express app](best-editor-answer.webp)
 
 The extension is still in preview and only supports English right now, but we'll continue to update it with new languages and capabilities over the coming months.
 

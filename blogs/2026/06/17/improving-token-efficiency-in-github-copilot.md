@@ -14,7 +14,7 @@ June 17, 2026 by [Ryan Caldwell](https://github.com/RyanJamesCaldwell) and [Bhav
 
 With the recent move to usage-based billing for GitHub Copilot, every token in an agentic session matters. They affect your credits, latency, and the context window an agent has left to finish the task. Each new model generation tends to consume more tokens per task than the last, as we've witnessed in our own data. This means that harness-level efficiencies are increasingly important to counter this trend. As agents take on longer, more autonomous work, an inefficient harness adds up fast.
 
-![Chart showing tokens per turn increasing across successive model generations](token-usage-trend.png)
+![Chart showing tokens per turn increasing across successive model generations](token-usage-trend.webp)
 
 Making the GitHub Copilot agentic harness in VS Code more token-efficient is continuous work, and it's the best way to counter this trend. For most changes, we run [A/B experiments in production and offline evaluations](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode) against task suites, confirming that task success rate holds or improves while token usage drops. It's rarely one big win, usually a steady stream of small ones. Below, we walk through recent gains, first for OpenAI models and then for Anthropic models.
 
@@ -22,7 +22,7 @@ Making the GitHub Copilot agentic harness in VS Code more token-efficient is con
 
 Two costs sit at the heart of every agentic request, and two ideas help us reduce them. Both apply across OpenAI and Anthropic models, even though each provider exposes them differently.
 
-![Screenshot of the Cache Explorer showing parts of the prompt in a horizontal stacked bar chart.](prompt-signature.png)
+![Screenshot of the Cache Explorer showing parts of the prompt in a horizontal stacked bar chart.](prompt-signature.webp)
 _Graphical overview of the prompt signature highlighting the different parts of the prompt._
 
 **The prompt prefix and caching.** In an agentic coding session, a large share of every request repeats across turns: system instructions, tool definitions, repository context, and conversation history. This repeated beginning is the **prompt prefix**. When requests share the exact same prefix, the inference provider can reuse cached model state instead of recomputing it from scratch on each request. Despite the name, the cached artifact is not a human-readable copy of the prompt. It is the model state computed while processing that prefix, represented internally as key/value tensors. Reusing the prefix cuts both cost (cached tokens can be **up to 10 times cheaper**) and latency, which is why we work to keep the prompt cache hit-rate high.

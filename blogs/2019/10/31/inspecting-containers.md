@@ -3,7 +3,7 @@ Order:
 TOCTitle: Inspecting Containers
 PageTitle: Inspecting Docker Containers with Visual Studio Code
 MetaDescription: Inspecting Docker Containers with Visual Studio Code
-MetaSocialImage: /assets/blogs/2019/10/31/social-remote-containers.png
+MetaSocialImage: /assets/blogs/2019/10/31/social-remote-containers.webp
 Date: 2019-10-31
 ShortDescription: Inspecting Docker Containers with Visual Studio Code
 Author: Bowden Kelly
@@ -14,7 +14,7 @@ October 31, 2019 by Bowden Kelly, [@bowdenk7](https://twitter.com/bowdenk7)
 
 When developing containerized applications, it is common to try to debug build and runtime issues by attaching a shell to the running container using `docker exec --it {containerID} /bin/sh`.
 
-![Running docker exec command](docker-exec.png)
+![Running docker exec command](docker-exec.webp)
 
 This technique allows you to inspect the container environment via the command line, but it doesn't give you a rich set of tools to diagnose issues.
 
@@ -50,11 +50,11 @@ docker-compose up
 
 If everything worked, you should see output like this:
 
-![docker-compose up output](docker-compose-output.png)
+![docker-compose up output](docker-compose-output.webp)
 
 And, you should be able to navigate to [http://localhost:3000](http://localhost:3000) and see the following:
 
-![Welcome to Express web page](welcome-express.png)
+![Welcome to Express web page](welcome-express.webp)
 
 ## Attach to the container
 
@@ -62,33 +62,33 @@ We can now use the Dev Containers extension to attach to our running container, 
 
 Select the Remote Explorer in the Activity Bar to see a list of running containers that you can attach to in the **Other Containers** section. Find the container we just started, it has the name 'express_server_1', and then attach to it by using the **Connect to Container** button. That container should now be displayed in the **Attached Containers** section of the Remote Explorer.
 
-![Attached Containers in the Remote Explorer](attached-containers.png)
+![Attached Containers in the Remote Explorer](attached-containers.webp)
 
 This will launch a new VS Code window (instance) that has the following notification in the bottom right.
 
-![Installing Dev Container notification](installing-dev-container.png)
+![Installing Dev Container notification](installing-dev-container.webp)
 
 During this time, VS Code is installing an instance of the VS Code **Server** inside the container where your app is running. To see more details and progress about this installation step, you can select the **details** link that is shown in the notification. Once the VS Code server is installed, your local VS Code client will connect to the remote VS Code server. The result is your local instance of VS Code, with all your settings, themes, and key bindings, is connected to a "back-end" running inside the container alongside your application.
 
-![Dev Containers architecture diagram](remote-container-architecture.png)
+![Dev Containers architecture diagram](remote-container-architecture.webp)
 
 Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a dropdown of commands relevant to the current remote context.
 
-![Remote context shown in the Status bar](remote-context-status-bar.png)
+![Remote context shown in the Status bar](remote-context-status-bar.webp)
 
 Let's go ahead and open our app by selecting the **Open Folder** button and navigating to `/usr/src/app`. Notice that the Open Folder dialog shows the file system from the running container, **not the local file system**.
 
-![Open Folder dialog show container file system](open-folder-dialog.png)
+![Open Folder dialog show container file system](open-folder-dialog.webp)
 
 Once you have opened your source folder, you'll notice that a file has been opened in your editor with the file name `express-server.json`. This name is derived from the container image name that you have attached to. In our example, docker-compose creates the image name 'express_server', which is derived from the folder name `express` and the service name `server` defined in the `docker-compose.yml` file.  This file is a configuration file associated with your image that will remember configuration settings when you attach to containers based on this image. If you don't have Auto Save on, you'll need to make sure to save this file. Now in future sessions, VS Code will reopen this source folder when you attach to this image.
 
 >**Note**: You can view this file for the current dev container by running the command **Open Container Configuration File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![express-server.json file contents](express-server-json.png)
+![express-server.json file contents](express-server-json.webp)
 
 At this point, VS Code looks the same as a normal local VS Code window.
 
-![VS Code running in a container](vscode-ui-in-container.png)
+![VS Code running in a container](vscode-ui-in-container.webp)
 
 You can do anything that you can do in a normal local VS Code context.
 
@@ -100,7 +100,7 @@ To further show how similar the dev container is to a local environment, let's a
 
 In the Command Palette (`kb(workbench.action.showCommands)`), search for and select **Debug: Attach to Node Process**. There will probably be several Node processes running inside the container. We want the process that is running our application, so select the one that shows `bin/www`.
 
-![Node process picker list](node-process-picker.png)
+![Node process picker list](node-process-picker.webp)
 
 Next, open `index.js` and place a breakpoint on line 6 by clicking on the gutter or pressing `kb(editor.debug.action.toggleBreakpoint)` on:
 
@@ -118,11 +118,11 @@ Depending on the type of extension, it can either run on the client side or in t
 
 If you open the Extensions view (`kb(workbench.view.extensions)`), you will see the list of extensions that you have installed locally and extensions you have installed in your current container instance. Locally installed extensions that need to be installed in the container (like the Azure Account extension below) will appear grayed out.
 
-![Remote Extensions view](remote-extensions-view.png)
+![Remote Extensions view](remote-extensions-view.webp)
 
 Let's install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension by typing 'gitlens' in the Extensions view and then selecting **Install in Attached Container**.
 
-![Search for GitLens](search-for-gitlens.png)
+![Search for GitLens](search-for-gitlens.webp)
 
 This will prompt you to restart VS Code, and upon doing so, you will briefly see the **Installing Dev Container** notification as the container and VS Code server are restarted with our newly installed extension.
 
@@ -139,7 +139,7 @@ You'll also notice that the container configuration file we saw earlier has open
 
 Now open any file, select a line of code, and notice you have inline Git information provided by GitLens!
 
-![GitLens information shown in the editor](gitlens-information.png)
+![GitLens information shown in the editor](gitlens-information.webp)
 
 ## Clean up
 

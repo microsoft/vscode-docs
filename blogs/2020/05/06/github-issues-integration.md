@@ -23,19 +23,19 @@ It was important that we not prescribe overly specific workflows. Instead, our g
 
 Linking to issues in source code is a normal part of our workflow, especially when there's some logic that's difficult to understand or when there's a //TODO comment that needs action. If you do a [search for issue references](https://github.com/microsoft/vscode/search?q=%22Microsoft%2Fvscode%2Fissues%22) in the VS Code repo, you'll see plenty of issues mentioned. While linking gives a pointer to more information, to actually learn more you need to leave the editor. Now, by gaining this issue context through hovers, you don't need to break your flow to learn more.
 
-![Issue Hover](issue-hover.png)
+![Issue Hover](issue-hover.webp)
 
 Issue hovers work on full issue URLs, issue comment URLs, issues referenced by number (`#1234`), and issues referenced by `owner/repository#1234` (for example `Microsoft/vscode#1234`). We also often reference users in our codebase. The VS Code [proposed API](https://github.com/microsoft/vscode/blob/d8317abc50e347d76fd471f5a070996cc7f73e20/src/vs/vscode.proposed.d.ts) has many developer references to make it obvious who's responsible for the proposals.
 
-![User Hover](user-hover.png)
+![User Hover](user-hover.webp)
 
 Issue context is typically needed in commit messages to reference an issue the commit resolves, within source code files, and in Markdown (such as a changelog). To easily add this context, we have added completion suggestions for issues and users. In the Git commit textbox, you can format your issue completion with the `githubIssues.issueCompletionFormatScm` setting. In Markdown files, issues complete as a Markdown link, and in other files, issues complete as a simple issue number (`#1234`).
 
-![Completion Suggestions](completion-suggestions.gif)
+<video src="completion-suggestions.mp4" title="Video showing Completion Suggestions." autoplay loop controls muted></video>
 
 The list of possible issues is configurable with the setting `githubIssues.queries`, so if you work across multiple repositories, you can include queries for those issues. The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). The list of users includes the collaborators in the currently open repository.
 
-![Issue Queries](issue-queries.png)
+![Issue Queries](issue-queries.webp)
 
 ## Creating an issue from anywhere
 
@@ -43,7 +43,7 @@ When we find a bug in VS Code while working on some source code, we create an is
 
 From a //TODO comment (configurable with `githubIssues.createIssueTriggers`), you can create and assign an issue without leaving VS Code.
 
-![Create Issue from TODO](create-from-todo.gif)
+<video src="create-from-todo.mp4" title="Video showing Create Issue from TODO." autoplay loop controls muted></video>
 
 And from a selection, you can quickly create an issue with a permalink back to the source code where it originated, using the **GitHub Issues: Create Issue from Selection** command. If you just need a pointer to some code, you can also use the **GitHub Issues: Copy GitHub Permalink** command. Finally, if there is failure information in the terminal, you can just copy the output to the clipboard and create an issue using **GitHub Issues: Create Issue from Clipboard**.
 
@@ -51,7 +51,7 @@ And from a selection, you can quickly create an issue with a permalink back to t
 
 A common workflow is to look at your issues, pick one to work on, create a branch to work in, make some commits, then merge your changes back into main with a pull request. From the new **Issues** view, you can do exactly that.
 
-![Work on an Issue](work-on-issue.gif)
+<video src="work-on-issue.mp4" title="Video showing Work on an Issue." autoplay loop controls muted></video>
 
 To fit more workflows, there are several options you can configure. If your flow doesn't involve creating a topic branch, you can disable the branch creation with `githubIssues.useBranchForIssues`. If you have a different naming scheme for your branches, you can use the `githubIssues.issueBranchTitle` setting. The issues listed in the **Issues** view can be configured to use a custom query with `githubIssues.queries`.
 

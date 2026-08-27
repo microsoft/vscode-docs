@@ -3,7 +3,7 @@ Order: 125
 TOCTitle: MCP Apps Support
 PageTitle: "Giving Agents a Visual Voice: MCP Apps Support in VS Code"
 MetaDescription: VS Code now supports MCP Apps, enabling AI agents to display interactive UIs for richer developer workflows.
-MetaSocialImage: mcp-apps-list-sort.png
+MetaSocialImage: mcp-apps-list-sort.webp
 Date: 2026-01-26
 Author: Harald Kirschner, Connor Peet
 ---
@@ -30,7 +30,7 @@ We've built a few [demos](https://github.com/digitarald/mcp-apps-playground) to 
 
 **With MCP Apps:** Agent displays a drag-and-drop interface alongside its suggested order. You reorder items visually, or select "Ask AI to Sort" to let the agent apply its reasoning.
 
-![Screenshot showing an interactive task sorting UI with drag-and-drop in the VS Code agent panel.](mcp-apps-list-sort.png)
+![Screenshot showing an interactive task sorting UI with drag-and-drop in the VS Code agent panel.](mcp-apps-list-sort.webp)
 
 ### Performance Profiler Visualization
 
@@ -38,7 +38,7 @@ We've built a few [demos](https://github.com/digitarald/mcp-apps-playground) to 
 
 **With MCP Apps:** Agent renders an interactive flame graph. You drill into call stacks, hover for timing details, and confirm or reject the agent's analysis with your own domain knowledge.
 
-![Screenshot showing an interactive flame graph visualization rendered by an MCP App.](mcp-apps-flame-graph.png)
+![Screenshot showing an interactive flame graph visualization rendered by an MCP App.](mcp-apps-flame-graph.webp)
 
 ### Feature Flag Selector
 
@@ -46,7 +46,7 @@ We've built a few [demos](https://github.com/digitarald/mcp-apps-playground) to 
 
 **With MCP Apps:** Agent displays a searchable flag picker with live environment status. You select flags, switch between prod/staging/dev views, and generate SDK code—all in one interaction.
 
-![Screenshot showing a feature flag selector with environment tabs in the agent panel.](mcp-apps-feature-flags.png)
+![Screenshot showing a feature flag selector with environment tabs in the agent panel.](mcp-apps-feature-flags.webp)
 
 ## Partner Spotlight: Storybook
 
