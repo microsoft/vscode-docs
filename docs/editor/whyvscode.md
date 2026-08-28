@@ -47,6 +47,6 @@ If you prefer a code editor-centric development tool or are building cross-platf
 
 Read on to find out about:
 
-* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [Intro Videos](/docs/getstarted/introvideos.md) - Learn about the {% data variables.product.prodname_vscode_shortname %} editor features.
 * [Debugging](/docs/debugtest/debugging.md) - OK time for the really fun stuff - break, step, watch.

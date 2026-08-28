@@ -12,7 +12,7 @@ In this tutorial, we walk you through using {% data variables.product.prodname_v
 
 Here's the next video we recommend: [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md)
 
-Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tutorial](/docs/editing/getting-started.md) and [GitHub Copilot's Quickstart](/docs/agents/quickstart.md).
+Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tutorial](/docs/editing/getting-started/editor-tutorial.md) and [GitHub Copilot's Quickstart](/docs/agents/quickstart.md).
 
 ## Helpful shortcuts
 
@@ -61,6 +61,6 @@ Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tuto
 
 ## Related resources
 
-* [User Interface](/docs/editing/userinterface.md) - View the documentation for {% data variables.product.prodname_vscode_shortname %}.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - View the documentation for {% data variables.product.prodname_vscode_shortname %}.
 * [Setup Overview](/docs/getstarted/overview.md) - Documentation for getting up and running with {% data variables.product.prodname_vscode_shortname %}, including platform specific setup.
 * [IntelliSense](/docs/editing/intellisense.md) -{% data variables.product.prodname_vscode_shortname %} brings smart code completions as you type.

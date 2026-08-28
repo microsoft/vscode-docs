@@ -111,7 +111,7 @@ Get more details about [changing the display language in {% data variables.produ
 
 After personalizing {% data variables.product.prodname_vscode_shortname %}, you can:
 
-* [Explore key {% data variables.product.prodname_vscode_shortname %} features with our Quickstart](/docs/editing/getting-started.md)
+* [Explore key {% data variables.product.prodname_vscode_shortname %} features with our Quickstart](/docs/editing/getting-started/editor-tutorial.md)
 * [Install extensions to add features for your programming language](/docs/configure/extensions/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/debugtest/debugging.md)

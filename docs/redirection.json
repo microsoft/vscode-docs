@@ -15,8 +15,8 @@
     { "from": "/docs/getstarted/extensions", "to": "/docs/configure/extensions/extensions", "status": 301 },
     { "from": "/docs/copilot/ai-powered-suggestions", "to": "/docs/editing/ai-powered-suggestions", "status": 301 },
     { "from": "/docs/copilot/copilot-smart-actions", "to": "/docs/editing/copilot-smart-actions", "status": 301 },
-    { "from": "/docs/getstarted/tips-and-tricks", "to": "/docs/editing/tips-and-tricks", "status": 301 },
-    { "from": "/docs/getstarted/userinterface", "to": "/docs/editing/userinterface", "status": 301 },
+    { "from": "/docs/getstarted/tips-and-tricks", "to": "/docs/editing/getting-started/tips-and-tricks", "status": 301 },
+    { "from": "/docs/getstarted/userinterface", "to": "/docs/editing/getting-started/userinterface", "status": 301 },
     { "from": "/docs/editor/portable", "to": "/docs/setup/portable", "status": 301 },
     { "from": "/docs/setup/setup-overview", "to": "/docs/getstarted/overview", "status": 301 },
     { "from": "/docs/getstarted/setup-overview", "to": "/docs/getstarted/overview", "status": 301 },
@@ -120,5 +120,9 @@
     { "from": "/docs/agents/sessions/session-history", "to": "/docs/agents/run/sessions/session-history", "status": 301 },
     { "from": "/docs/agents/security", "to": "/docs/agents/run/security", "status": 301 },
     { "from": "/docs/agents/subagents", "to": "/docs/agents/run/subagents", "status": 301 },
-    { "from": "/docs/cpp/c-cpp-properties-schema-reference", "to": "/docs/cpp/customize-cpp-settings", "status": 301 }
+    { "from": "/docs/cpp/c-cpp-properties-schema-reference", "to": "/docs/cpp/customize-cpp-settings", "status": 301 },
+    { "from": "/docs/core-editor/overview", "to": "/docs/editing/overview", "status": 301 },
+    { "from": "/docs/editing/getting-started", "to": "/docs/editing/getting-started/editor-tutorial", "status": 301 },
+    { "from": "/docs/editing/userinterface", "to": "/docs/editing/getting-started/userinterface", "status": 301 },
+    { "from": "/docs/editing/tips-and-tricks", "to": "/docs/editing/getting-started/tips-and-tricks", "status": 301 }
 ]

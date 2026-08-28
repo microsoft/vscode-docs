@@ -39,7 +39,7 @@ The source control icon in the Activity Bar also shows a badge with the number o
 
 ### Editor gutter indicators
 
-To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/userinterface.md#minimap).
+To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/getting-started/userinterface.md#minimap).
 
 The gutter color indicates the type of change:
 

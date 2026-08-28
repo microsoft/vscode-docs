@@ -293,7 +293,7 @@ The following example shows a `Getting Started` section that has two topics.
       "name": "Getting Started",
       "area": "getstarted",
       "topics": [
-        ["VS Code Tutorial", "/docs/editing/getting-started"],
+        ["VS Code Tutorial", "/docs/editing/getting-started/editor-tutorial"],
         ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"]
       ]
     },
