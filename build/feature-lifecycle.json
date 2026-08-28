@@ -28,6 +28,10 @@
     "rubber-duck": {
       "label": "Rubber Duck",
       "state": "experimental"
+    },
+    "user-customization-migration": {
+      "label": "User customization migration",
+      "state": "experimental"
     }
   }
 }
