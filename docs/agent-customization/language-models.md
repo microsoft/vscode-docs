@@ -365,16 +365,16 @@ To change the language model that is used for generating inline suggestions in t
 
 ### Change the model for utility tasks
 
-In addition to the main chat model, {% data variables.product.prodname_vscode_shortname %} uses lightweight models in the background for utility tasks such as generating titles, creating commit messages, and detecting intent. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
+In addition to the main chat model, {% data variables.product.prodname_vscode_shortname %} uses lightweight models in the background for utility tasks such as generating titles, creating commit messages and pull request descriptions, and detecting intent. The model you select for a chat or agent session does not control these utility tasks. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
 
 There are two settings for utility models, depending on the type of task:
 
 * `setting(chat.utilityModel)`: Override the model used for general utility flows, such as generating titles and summaries, settings search, and Git review.
-* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
+* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, pull request titles and descriptions, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
-If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation, commit message creation, and pull request description creation.
 
 #### Configure the default utility model for BYOK models
 
