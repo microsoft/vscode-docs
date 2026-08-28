@@ -2241,7 +2241,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/core-editor/overview</loc>
+        <loc>https://code.visualstudio.com/docs/editing/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
