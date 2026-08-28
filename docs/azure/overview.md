@@ -35,4 +35,4 @@ There are many {% data variables.product.prodname_vscode_shortname %} extensions
 
 * [Azure Tools Getting Started](/docs/azure/gettingstarted.md) - Learn how to get started quickly.
 * [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/?source=docs) - Guidance for architecting solutions on Azure using established patterns and practices
-* [{% data variables.product.prodname_vscode_shortname %} Getting Started](https://code.visualstudio.com/docs/editing/getting-started)
+* [{% data variables.product.prodname_vscode_shortname %} Getting Started](https://code.visualstudio.com/docs/editing/getting-started/editor-tutorial)

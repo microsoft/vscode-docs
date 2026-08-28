@@ -191,12 +191,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/tips-and-tricks</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/tips-and-tricks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/userinterface</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/userinterface</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2271,7 +2271,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/getting-started</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/editor-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

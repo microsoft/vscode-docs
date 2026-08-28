@@ -67,7 +67,7 @@ To learn more about the various Office Add-ins deployment methods, see [Deploy a
 Check out the other pages on the {% data variables.product.prodname_vscode_shortname %} site to find out how you can use more capabilities of the editor when creating custom Office Add-ins:
 
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what {% data variables.product.prodname_vscode_shortname %} has to offer.
-- [User Interface](/docs/editing/userinterface.md) - Just starting out with {% data variables.product.prodname_vscode_shortname %}? This is worth reviewing.
+- [User Interface](/docs/editing/getting-started/userinterface.md) - Just starting out with {% data variables.product.prodname_vscode_shortname %}? This is worth reviewing.
 - [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 
 ## Common questions

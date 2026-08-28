@@ -5,7 +5,7 @@
         "topics": [
         ["Overview", "/docs/getstarted/overview"],
         ["Agents Quickstart", "/docs/agents/quickstart"],
-        ["Editor Tutorial", "/docs/editing/getting-started"],
+        ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial"],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
     },
@@ -151,9 +151,9 @@
                 "name": "Getting Started",
                 "area": "editing/getting-started",
                 "topics": [
-                    ["Editor Tutorial", "/docs/editing/getting-started"],
-                    ["User Interface", "/docs/editing/userinterface"],
-                    ["Tips and Tricks", "/docs/editing/tips-and-tricks"]
+                    ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial"],
+                    ["User Interface", "/docs/editing/getting-started/userinterface"],
+                    ["Tips and Tricks", "/docs/editing/getting-started/tips-and-tricks"]
                 ]
             }],
             ["", "", {

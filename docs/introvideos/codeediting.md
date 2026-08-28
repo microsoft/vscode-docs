@@ -54,4 +54,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside {% data variables.product.prodname_vscode_shortname %}.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
-* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Helpful tips and tricks for {% data variables.product.prodname_vscode_shortname %}.
+* [Tips and Tricks](/docs/editing/getting-started/tips-and-tricks.md) - Helpful tips and tricks for {% data variables.product.prodname_vscode_shortname %}.

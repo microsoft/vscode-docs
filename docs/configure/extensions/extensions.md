@@ -58,6 +58,6 @@ You can uninstall an extension from the Extensions view in {% data variables.pro
 * [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md): learn more about recommended extensions, pre-release extensions, or installing extensions from the command-line.
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md): learn more about how {% data variables.product.prodname_vscode_shortname %} protects you from malicious extensions.
 * [{% data variables.product.prodname_vscode_shortname %} extension development](/api/get-started/your-first-extension.md): create and publish your own extension for {% data variables.product.prodname_vscode_shortname %}.
-* [{% data variables.product.prodname_vscode_shortname %} Quickstart](/docs/editing/getting-started.md): discover the key features of {% data variables.product.prodname_vscode_shortname %} with a step-by-step guide.
+* [{% data variables.product.prodname_vscode_shortname %} Quickstart](/docs/editing/getting-started/editor-tutorial.md): discover the key features of {% data variables.product.prodname_vscode_shortname %} with a step-by-step guide.
 * [Version control](/docs/sourcecontrol/overview.md): learn how to set up version control with Git in {% data variables.product.prodname_vscode_shortname %}.
 * [Debugging](/docs/debugtest/debugging.md): configure debugging for your project.

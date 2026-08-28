@@ -12,7 +12,7 @@ This overview introduces the concepts behind the core editor capabilities and di
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Learn the editor basics">
 New to {% data variables.product.prodname_vscode_shortname %}? Follow the hands-on tutorial to explore the editor and complete a coding task.
 
-* [Start the editor tutorial](/docs/editing/getting-started.md)
+* [Start the editor tutorial](/docs/editing/getting-started/editor-tutorial.md)
 
 </div>
 
@@ -81,7 +81,7 @@ Prefer to delegate coding tasks? Follow the agents quickstart to make changes ac
 
 ## Get oriented
 
-The {% data variables.product.prodname_vscode_shortname %} window is called the workbench. The [user interface](/docs/editing/userinterface.md) centers on the editor and provides dedicated views for files, search, source control, running and debugging, and extensions. The Activity Bar switches between these views, while the Panel hosts supporting tools such as the terminal, Problems view, and debug console.
+The {% data variables.product.prodname_vscode_shortname %} window is called the workbench. The [user interface](/docs/editing/getting-started/userinterface.md) centers on the editor and provides dedicated views for files, search, source control, running and debugging, and extensions. The Activity Bar switches between these views, while the Panel hosts supporting tools such as the terminal, Problems view, and debug console.
 
 A [workspace](/docs/editing/workspaces/workspaces.md) represents the project you have open. A workspace can contain one or more folders and gives {% data variables.product.prodname_vscode_shortname %} the context to restore your open files and layout, apply project-specific settings, and store task and debug configurations. You can also open an individual file when you do not need project context.
 
@@ -117,6 +117,6 @@ Choose and configure your preferred shell with [terminal profiles](/docs/termina
 
 ## Next steps
 
-* Follow the [editor tutorial](/docs/editing/getting-started.md) for a guided introduction.
-* Review [editing tips and tricks](/docs/editing/tips-and-tricks.md) to work more efficiently.
+* Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) for a guided introduction.
+* Review [editing tips and tricks](/docs/editing/getting-started/tips-and-tricks.md) to work more efficiently.
 * Learn how to develop on a [remote machine or in a container](/docs/remote/remote-overview.md).

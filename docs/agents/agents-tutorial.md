@@ -15,7 +15,7 @@ You build a simple personal portfolio page with HTML, CSS, and JavaScript. The p
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn {% data variables.product.prodname_vscode_shortname %} editor features">
 Get familiar with the {% data variables.product.prodname_vscode_shortname %} user interface, editing features, and key productivity tools.
 
-* [Start the {% data variables.product.prodname_vscode_shortname %} editing tutorial](/docs/editing/getting-started.md)
+* [Start the {% data variables.product.prodname_vscode_shortname %} editing tutorial](/docs/editing/getting-started/editor-tutorial.md)
 
 </div>
 

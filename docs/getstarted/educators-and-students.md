@@ -152,4 +152,4 @@ After you navigate to {% data variables.product.prodname_vscode_shortname %} for
 ## Next steps
 
 - Watch the [{% data variables.product.prodname_vscode_shortname %} intro videos](/docs/getstarted/introvideos.md)
-- Check out the [{% data variables.product.prodname_vscode_shortname %} tips and tricks](/docs/editing/tips-and-tricks.md)
+- Check out the [{% data variables.product.prodname_vscode_shortname %} tips and tricks](/docs/editing/getting-started/tips-and-tricks.md)
