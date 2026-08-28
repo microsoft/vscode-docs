@@ -29,6 +29,10 @@
       "label": "Rubber Duck",
       "state": "experimental"
     },
+    "terminal-block-detected-file-writes": {
+      "label": "Block detected terminal file writes",
+      "state": "experimental"
+    },
     "user-customization-migration": {
       "label": "User customization migration",
       "state": "experimental"
