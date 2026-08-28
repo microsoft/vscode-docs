@@ -49,8 +49,8 @@ Always-on instructions are automatically included in every chat request. Use the
 
 * One or more [`AGENTS.md`](#use-an-agentsmd-file) files
     * Useful if you work with multiple AI agents in your workspace
-    * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
-    * Stored in the root of the workspace or in subfolders (experimental)
+    * Automatically applies to all chat requests in the workspace or to specific subfolders `feature(nested-agents-md-files)`
+    * Stored in the root of the workspace or in subfolders `feature(nested-agents-md-files)`
 
 * [Organization-level instructions](#share-custom-instructions-across-teams)
     * Share instructions across multiple workspaces and repositories within a GitHub organization
@@ -304,11 +304,13 @@ Use `AGENTS.md` when:
 
 To enable or disable support for `AGENTS.md` files, configure the `setting(chat.useAgentsMdFile)` setting.
 
-### Use multiple `AGENTS.md` files (experimental)
+### Use multiple `AGENTS.md` files
+
+`feature(nested-agents-md-files)`
 
 Using multiple `AGENTS.md` files in subfolders is useful if you want to apply different instructions to different parts of your project. For example, you can have one `AGENTS.md` file for the frontend code and another for the backend code.
 
-Use the experimental `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
+Use the `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
 
 When enabled, {% data variables.product.prodname_vscode_shortname %} searches recursively in all subfolders of your workspace for `AGENTS.md` files and adds their relative path to the chat context. The agent can then decide which instructions to use based on the files being edited.
 

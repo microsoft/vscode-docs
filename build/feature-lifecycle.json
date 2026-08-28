@@ -17,6 +17,10 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "nested-agents-md-files": {
+      "label": "Nested AGENTS.md files",
+      "state": "experimental"
+    },
     "rubber-duck": {
       "label": "Rubber Duck",
       "state": "experimental"
