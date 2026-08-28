@@ -75,6 +75,10 @@ These are our documentation writing style guidelines.
 * When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
 * Preserve existing reusable data variables when editing content, including frontmatter. Never replace a product-name variable with its rendered product name, such as replacing `{% data variables.product.prodname_vscode %}` with `Visual Studio Code`.
 
+## Feature lifecycle markers
+
+* When you add or update a `feature(<id>)` marker, verify that the feature ID exists in [`build/feature-lifecycle.json`](../../build/feature-lifecycle.json). Don't infer or guess the feature ID.
+
 ## Alerts
 
 * Alerts are a Markdown extension to create block quotes that render with colors and icons that indicate the significance of the content. The following alert types are supported:
