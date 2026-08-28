@@ -151,7 +151,6 @@ The team is continuously working on improving the AI features in {% data variabl
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
-| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires {% data variables.copilot.copilot_memory %} to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
 
 ## Agent sessions
 
