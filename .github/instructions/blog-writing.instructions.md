@@ -5,6 +5,14 @@ applyTo: 'blogs/**/*.md'
 
 Apply the following guidelines when authoring blog posts on the VS Code website.
 
+## Content framing
+
+Before you outline or draft a post, identify its primary persona, reader intent, and narrative purpose by following the [documentation content-framing guidance](./docs-writing.instructions.md#content-framing).
+
+The broad blog audience includes developers who use VS Code, but each post must define a more specific primary persona when role, experience, or context affects the angle. Also identify what the reader wants to understand, evaluate, or try after reading, and how the post will move them toward that outcome. If the primary persona, reader intent, or narrative purpose is ambiguous and would change the angle, ask the writer to confirm before drafting.
+
+State the primary persona, reader intent, and narrative purpose in the proposed outline. Use them to choose the opening hook, key takeaways, examples, terminology, assumed knowledge, and call to action. After drafting, verify that each section advances the agreed narrative purpose for the primary persona.
+
 ## Metadata
 
 A blog post must have the following metadata fields, formatted with YAML frontmatter.
@@ -91,5 +99,5 @@ A blog post MUST be stored in the `blogs` folder, within a `year/month/day` subf
 - Blog posts should be engaging and can include a more conversational tone than standard documentation.
 - Use active voice and first-person plural ("we") to create a sense of community and shared experience.
 - Use contractions (e.g., "it's", "we're") to make the writing feel more natural and approachable.
-- The target audience is developers who use VS Code, ranging from beginners to advanced users.
-- Use simple and clear language, avoiding jargon unless it's widely understood by the target audience.
+- The broad audience is developers who use VS Code, ranging from beginners to advanced users. Write for the post's defined primary persona.
+- Use simple and clear language, avoiding jargon unless it's widely understood by the primary persona.

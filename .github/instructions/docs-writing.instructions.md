@@ -5,6 +5,18 @@ applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 
 These are our documentation writing style guidelines.
 
+## Content framing
+
+Before you plan or edit content, establish:
+
+* **Primary persona:** The specific reader the content serves, including their role, experience level, and relevant context. Account for secondary personas when they have distinct needs, but optimize the content for one primary persona.
+* **Reader intent:** What the reader came to understand, decide, or accomplish.
+* **Article purpose:** How the article helps the reader fulfill that intent and the outcome they should reach.
+
+Infer this framing from the existing article, its location in the documentation journey, source material, and the writer's request. If the primary persona, reader intent, or article purpose remains ambiguous and different interpretations would change the content, ask the writer to confirm before making edits. Do not rely on a broad audience such as "VS Code users" when a more specific persona is needed to make content decisions.
+
+Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
+
 ## General Style tips
 
 * Get to the point fast.

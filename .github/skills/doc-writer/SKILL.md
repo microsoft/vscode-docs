@@ -34,8 +34,9 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 Do not modify any files in this phase.
 
 1. **Understand the feature.** Read the feature description, issue, or PR provided. If the description is ambiguous or lacks detail, ask clarifying questions before continuing.
-2. **User-facing features.** Check that the features are already available for users and not just for internal dogfooding only. Only document user-facing features.
-3. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
+2. **Establish the content framing.** Identify the primary persona, reader intent, and article purpose by following the [content-framing guidance](../../instructions/docs-writing.instructions.md#content-framing). Infer them from the existing content, documentation journey, source material, and writer's request. If any part of the framing remains ambiguous and different interpretations would change the content, ask the writer to confirm before planning edits.
+3. **User-facing features.** Check that the features are already available for users and not just for internal dogfooding only. Only document user-facing features.
+4. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
    | Area being documented | Primary source repo |
    |----------------------|---------------------|
@@ -43,20 +44,22 @@ Do not modify any files in this phase.
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
    | Enterprise policies | `microsoft/vscode` (policy definitions) |
 
-4. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
-5. **Present the plan.** Summarize:
+5. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
+6. **Present the plan.** Summarize:
+   * The primary persona, reader intent, and article purpose.
    * Which `docs/` files you propose to create or change, and a short description of each edit.
    * Any `TODO` screenshot placeholders that will be needed.
    * Open questions or assumptions.
 
    If you conclude that **no documentation update is needed**, say so and ask the user to confirm before closing out.
-6. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
+7. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
 
 ## Phase 2 — Implement (after approval)
 
 Once the user approves the plan:
 
-1. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md).
+1. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
 2. Add `TODO` comments where screenshots need to be captured by a human.
 3. Respect the guardrails above (docs only; no release notes/API docs unless asked; never edit generated `policies.md`).
-4. Summarize the changes you made and call out any remaining `TODO`s for the user.
+4. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
+5. Summarize the changes you made and call out any remaining `TODO`s for the user.
