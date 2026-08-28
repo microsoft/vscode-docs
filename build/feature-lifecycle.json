@@ -5,6 +5,10 @@
       "label": "Agent artifacts",
       "state": "preview"
     },
+    "forked-skill-context": {
+      "label": "Forked skill context",
+      "state": "experimental"
+    },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",
       "state": "experimental"
