@@ -5,6 +5,10 @@
       "label": "Agent artifacts",
       "state": "preview"
     },
+    "agent-host-byok-models": {
+      "label": "BYOK models in Agent Host",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"
