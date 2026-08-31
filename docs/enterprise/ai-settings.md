@@ -483,9 +483,6 @@ Agents can run on different infrastructure depending on the agent type, and each
 * **Local agents and the Copilot agent** run on the developer's machine and process data locally.
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
 
-> [!NOTE]
-> [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise {% data variables.copilot.copilot_memory %} settings on GitHub, not by a {% data variables.product.prodname_vscode_shortname %} policy. Developers opt in per repository, and in {% data variables.product.prodname_vscode_shortname %} the memory tool syncs repository memory to {% data variables.copilot.copilot_memory %} only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
-
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 
 ## Related resources

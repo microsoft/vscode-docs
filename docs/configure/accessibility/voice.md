@@ -100,6 +100,6 @@ On these platforms, install the [{% data variables.product.prodname_vscode_short
 Read on to find out about:
 
 * [Other {% data variables.product.prodname_vscode_shortname %} accessibility features](/docs/configure/accessibility/accessibility.md).
-* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

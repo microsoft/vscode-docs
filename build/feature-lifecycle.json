@@ -5,6 +5,14 @@
       "label": "Agent artifacts",
       "state": "preview"
     },
+    "agent-host-byok-models": {
+      "label": "BYOK models in Agent Host",
+      "state": "experimental"
+    },
+    "forked-skill-context": {
+      "label": "Forked skill context",
+      "state": "experimental"
+    },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",
       "state": "experimental"
@@ -13,8 +21,20 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "nested-agents-md-files": {
+      "label": "Nested AGENTS.md files",
+      "state": "experimental"
+    },
     "rubber-duck": {
       "label": "Rubber Duck",
+      "state": "experimental"
+    },
+    "terminal-block-detected-file-writes": {
+      "label": "Block detected terminal file writes",
+      "state": "experimental"
+    },
+    "user-customization-migration": {
+      "label": "User customization migration",
       "state": "experimental"
     }
   }

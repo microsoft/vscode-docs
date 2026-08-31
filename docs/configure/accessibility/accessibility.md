@@ -255,6 +255,6 @@ After you enable that setting, {% data variables.product.prodname_vscode_shortna
 Read on to find out about:
 
 * [Voice interactions](/docs/configure/accessibility/voice.md) - Learn how to use voice commands in {% data variables.product.prodname_vscode_shortname %}.
-* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

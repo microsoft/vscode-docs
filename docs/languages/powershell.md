@@ -224,8 +224,8 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [06]: /docs/configure/settings
 [07]: /docs/configure/themes
 [08]: /docs/editing/userdefinedsnippets.md
-[09]: /docs/editing/tips-and-tricks.md#errors-and-warnings
-[10]: /docs/editing/userinterface.md#outline-view
+[09]: /docs/editing/getting-started/tips-and-tricks.md#errors-and-warnings
+[10]: /docs/editing/getting-started/userinterface.md#outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer
 [12]: https://code.visualstudio.com/docs/remote/vscode-web
 [13]: https://code.visualstudio.com/docs/remote/remote-overview

@@ -111,7 +111,7 @@ In {% data variables.product.prodname_vscode %}, a "Workspace" means a collectio
 
 A "folder workspace" is presented by {% data variables.product.prodname_vscode_shortname %} when you open a filesystem folder (directory) in {% data variables.product.prodname_vscode_shortname %}.
 
-A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and {% data variables.product.prodname_vscode_shortname %} displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/editing/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editing/workspaces/multi-root-workspaces.md).
+A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and {% data variables.product.prodname_vscode_shortname %} displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/editing/getting-started/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editing/workspaces/multi-root-workspaces.md).
 
 ### Java projects in {% data variables.product.prodname_vscode_shortname %}
 

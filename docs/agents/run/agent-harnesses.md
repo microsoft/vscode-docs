@@ -128,7 +128,7 @@ Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode]
 
 #### Get a second opinion with Rubber Duck
 
-<div class="docs-feature-status" data-feature="rubber-duck"></div>
+`feature(rubber-duck)`
 
 Rubber Duck is a built-in, read-only critic that gives Copilot a second opinion on its plans, code, and tests. It uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
 

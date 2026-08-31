@@ -48,5 +48,5 @@ You can always check when a new release is available in our [Updates](/updates) 
 Once you have installed {% data variables.product.prodname_vscode_shortname %}, these topics will help you learn more about it:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
-* [User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through settings.
