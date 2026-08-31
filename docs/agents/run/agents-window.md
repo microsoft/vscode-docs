@@ -107,7 +107,7 @@ The following parts of the window update when the active session changes:
 
 ## Start an agent session
 
-The {% data variables.copilot.agents_window %} lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
+The {% data variables.copilot.agents_window %} lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). Before you send your first prompt, you can attach other folders, repositories, issues, and pull requests as context. You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
 
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 
@@ -115,9 +115,20 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
     To directly start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
 
-1. Use the workspace dropdown to select a local folder, GitHub repository, or remote workspace via SSH or a dev tunnel.
+1. Select **Folder** or **Repository** to choose the primary execution workspace for the session. The first folder or repository you select determines where the agent runs and changes files.
+
+    To connect to a workspace through SSH or a dev tunnel, select **Remote Setup**.
 
     If the folder or repository isn't trusted, {% data variables.product.prodname_vscode_shortname %} prompts you to trust it before starting the session. The {% data variables.copilot.agents_window %} and main {% data variables.product.prodname_vscode_shortname %} window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+
+1. Optionally, attach more context to the request:
+
+    * Select **Folder** or **Repository** again to attach more projects. These items provide context for the request and don't become additional workspace roots.
+    * Select **Issue/PR** to attach issues or pull requests from the GitHub repository associated with the primary workspace. This control appears after you select a workspace associated with a GitHub repository. You can select an item from the picker or paste a GitHub issue or pull request URL.
+
+    You can attach multiple items. Select an issue or pull request attachment to open it in the browser, or use its remove control to detach it. Attachments are preserved if you reload a draft and are included when you send the first request.
+
+    ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
 1. Choose an available [agent harness](/docs/agents/concepts/agent-harnesses.md) from the dropdown, such as Copilot, Claude, or Codex.
 

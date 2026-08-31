@@ -29,7 +29,7 @@ Depending on how you prefer to work or the task you want to accomplish, you can 
 
 The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The {% data variables.copilot.agents_window %} is optimized for **agents-first workflows**.
 
-![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session-2.png)
 
 To start a new chat session in the {% data variables.copilot.agents_window %}:
 
@@ -37,7 +37,9 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
 
 1. Select **New** in the sidebar to create a new session.
 
-1. Choose the workspace or repository for the session, as the {% data variables.copilot.agents_window %} can target any of your projects.
+1. Select **Folder** or **Repository** to choose the primary execution workspace. To connect through SSH or a dev tunnel, select **Remote Setup**.
+
+    You can also attach more folders, repositories, issues, or pull requests as context for the first request. Learn more about [starting an agent session and adding context](/docs/agents/run/agents-window.md#start-an-agent-session).
 
 1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 

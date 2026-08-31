@@ -79,9 +79,9 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions. In the bottom left, you can configure customizations to modify the agent's behavior to match your coding practices.
 
-1. In the workspace dropdown, make sure the `myportfolio` folder on your machine is selected.
+1. Select **Folder**, and then select the `myportfolio` folder on your machine. This folder becomes the primary execution workspace for the session.
 
-    ![Screenshot of the workspace dropdown and session configuration in the {% data variables.copilot.agents_window %}.](images/getting-started/workspace-dropdown.png)
+    ![Screenshot of selecting the myportfolio folder as the primary workspace in the redesigned new-session input.](images/getting-started/workspace-dropdown-2.png)
 
     If you're prompted to trust the folder, select **Yes, I trust the authors**.
 
