@@ -25,7 +25,7 @@ Microsoft's Developer AI Service is [GitHub Copilot](https://github.com/features
 
 It's been more than a year since the [Copilot extension]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) first launched. [Oege De Moor]( https://twitter.com/oegerikus) and his team at GitHub collaborated with OpenAI to bring the first at scale example of using LLMs for development, specifically [OpenAI's codex model]( https://openai.com/blog/openai-codex).
 
-![Editor with Copilot generated ghost (faded) text suggestions](editor-ghost-text.png)
+![Editor with Copilot generated ghost (faded) text suggestions](editor-ghost-text.webp)
 
 Copilot offers real-time hints for the code you are writing by providing suggestions as "ghost text" based on the context of the surrounding code. If you write your intentions as comments or use descriptive function names, Copilot can use these hints to automatically generate code, word by word, line by line, or even block by block.
 
@@ -43,13 +43,13 @@ As interesting as these ideas were, we kept circling around the Chat experience.
 
 One exploration we did find interesting, involved building Chat directly into the editor. Here's the very first prototype:
 
-![Prototype of a chat input in the editor](in-editor-chat-prototype.png)
+![Prototype of a chat input in the editor](in-editor-chat-prototype.webp)
 
 As we iterated on the design, we realized this user model has advantages. It's easily invoked from the keyboard, you stay in your code, and the output is code (and only code).
 
 In the example below, we first selected the `users` array and then pressed `kbstyle(Cmd+I)` on macOS (or `kbstyle(Ctrl+I)` on Windows/Linux) to bring up the Chat input. We then asked Copilot to split the `username` field into both `firstName` and `lastName`, and last we clicked on **Inline Diff** to see the changes Copilot made.
 
-![Inline change with preview of update](inline-chat-preview.png)
+![Inline change with preview of update](inline-chat-preview.webp)
 
 No need to express your intentions to Copilot using a comment or an overly descriptive function name, just press `kbstyle(Cmd+I)` and describe what you want to do. Stay in the zone while the Copilot does the work.
 
@@ -59,7 +59,7 @@ As the excitement around ChatGPT grew, so did the number of internal and externa
 
 Over time and despite our initial hesitation, the full Chat view experience started to win us over. I mean, who doesn't want to start off their day with a greeting like this?
 
-![A GitHub Copilot conversation within an extension's chat view](extension-chat-view.png)
+![A GitHub Copilot conversation within an extension's chat view](extension-chat-view.webp)
 
 We started to realize more and more benefits of a Chat view.
 
@@ -67,7 +67,7 @@ The most obvious value of an integrated experience over a browser-based chat is 
 
 Answers to many programming questions often include multiple steps. Think about how many blog posts walk you through a process - a Chat view is well suited for this type of interaction. A great example is debugging. If we're being honest (and we are), it isn't easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "/vscode add a `launch.json` and a `tasks.json`" which then provides instructions on how to create the files, content to add, and so on, until you are hitting breakpoints and inspecting variables like a boss.
 
-![A GitHub Copilot chat asking how to add debugging support](add-debugging-support.png)
+![A GitHub Copilot chat asking how to add debugging support](add-debugging-support.webp)
 
 But perhaps the most important reason for integrating chat is because having a two-way conversation helps you decide what is right and what is wrong. Large language models are not perfect, and they don't "think". They simply figure out the next best word to respond with (granted, they are pretty good at this).
 
@@ -84,7 +84,7 @@ So, if you think of yourself as the Pilot of VS Code and GitHub Copilot as…wel
 * Copilot can do more with more context. We're all accustomed to quick keyword-based web searches, but the more details you provide, the better results you will get. For example, instead of "Node Express TypeScript", ask Copilot to "scaffold out a Node.js website using the Express.js framework using TypeScript" and then iterate!
 * You can scope interactions to specific topics by pressing `/` in the Chat input field. For example, to learn how to turn on or off breadcrumbs in the editor, type in `/vscode Turn off breadcrumbs`.
 
- ![Asking Copilot how to turn off VS Code breadcrumbs in the editor](turn-off-breadcrumbs.png)
+ ![Asking Copilot how to turn off VS Code breadcrumbs in the editor](turn-off-breadcrumbs.webp)
 
 * You can also use topics as shortcuts. Instead of typing "explain this code" in the inline chat, simply type "/" + `kbstyle(Tab)` (a shortcut to `/explain`) and hit `kbstyle(Enter)`. The Chat view will open with an explanation of the selected code.
 * Know that Copilot isn't perfect and will give wrong answers. Ask clarifying questions to help decide which are right, which are wrong, and use the **Up/Down** vote buttons to help us improve the experience.

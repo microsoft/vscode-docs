@@ -3,7 +3,7 @@ Order: 137
 TOCTitle: The Agent Host
 PageTitle: "Introducing the Agent Host for persistent, portable agent sessions"
 MetaDescription: Explore how the VS Code Agent Host and AHP support multiple agent harnesses with durable, synchronized local and remote sessions.
-MetaSocialImage: remote-agent-hosts.png
+MetaSocialImage: remote-agent-hosts.webp
 Date: 2026-08-26
 Author: Rob Lourens, Connor Peet, Brigit Murtaugh
 Keywords: [agent host, agent host protocol, ahp, agent harness, persistent agent sessions, remote agent sessions, github copilot, ai agents]
@@ -57,7 +57,7 @@ Try this workflow to experience how a session continues after you close its fold
 
 1. To try a remote connection, connect the Agents window to a remote Agent Host and start or open a session. Then open [insiders.vscode.dev/agents](https://insiders.vscode.dev/agents), select the same host, and continue the session from your browser.
 
-   ![Screenshot showing SSH and Tunnels options in the Remote workspace picker in the Agents window.](agents-window-remote.png)
+   ![Screenshot showing SSH and Tunnels options in the Remote workspace picker in the Agents window.](agents-window-remote.webp)
 
 ## How the pieces fit
 

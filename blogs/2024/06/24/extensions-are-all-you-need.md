@@ -3,7 +3,7 @@ Order:
 TOCTitle: Copilot extensions are all you need
 PageTitle: GitHub Copilot Extensions are all you need
 MetaDescription: Learn how to extend GitHub Copilot by using the Chat and Language Model APIs in your Visual Studio Code extension. Get inspired by early adopters and their extensions.
-MetaSocialImage: chat-extension-sample.png
+MetaSocialImage: chat-extension-sample.webp
 Date: 2024-06-24
 Author: Isidor Nikolic
 ---
@@ -34,13 +34,13 @@ Make sure to watch our Build session about [Enhancing VS Code extensions with Gi
 
 You might be most familiar with using LLMs through a chat interface. One way for your extension to leverage the power of GitHub Copilot is to build a **chat participant** that users can interact with in the Chat view inside VS Code. You can create a chat participant with the [Chat API](https://code.visualstudio.com/api/extension-guides/chat), and use the Language Model API to process natural language and formulate a response to the user query. Learn more about the [Chat API](https://code.visualstudio.com/api/extension-guides/chat) in our extension guide that uses a `@cat` code mentor as an example for the new API concepts.
 
-![Screenshot of the Chat view in VS Code, showing the cat sample participant.](chat-extension-sample.png)
+![Screenshot of the Chat view in VS Code, showing the cat sample participant.](chat-extension-sample.webp)
 
 With the [Language Model API](https://code.visualstudio.com/api/extension-guides/language-model), you can now directly access and take advantage of large language models (or LLMs, for short) contributed by GitHub Copilot in your own extensions. Just select the model you want to use, build a prompt, and fire off a request to the chosen model. And by using the VS Code APIs, you can add the relevant context to the prompt. For example, by including the content of the current file or the technology stack being used.
 
 The Language Model API   can also be used to enhance the developer experience in all parts of the editor, not just the Chat view. You can contribute an action that uses the Language Model API to all the contributable surfaces of VS Code, such as the editor context menu. For example, the Source Control view uses the Language Model API to allow users to [generate a commit message](https://code.visualstudio.com/updates/v1_84#_commit-message-generation), based on source code changes. Another example is the Copilot-powered rename functionality, where the language model provides symbol rename suggestions based on the context of the code .
 
-![Screenshot of the Copilot-powered rename functionality in the VS Code editor.](copilot-powered-rename.png)
+![Screenshot of the Copilot-powered rename functionality in the VS Code editor.](copilot-powered-rename.webp)
 
 Learn more about the [Language Model API](https://code.visualstudio.com/api/extension-guides/language-model) in our extension guide.
 
@@ -70,7 +70,7 @@ The `@stripe` participant helps you to:
 * Get answers to your questions, grounded in Stripe documentation
 * Step through building and eventually upgrading your API integration
 
-![Screenshot of the Stripe chat participant in the Chat view in VS Code.](stripe-chat-participant.png)
+![Screenshot of the Stripe chat participant in the Chat view in VS Code.](stripe-chat-participant.webp)
 
 The `@stripe` participant will be available to all Stripe VS Code extension users by mid-July.
 
@@ -85,7 +85,7 @@ The `@mongodb` chat participant:
 * Provides database and collection schema information
 * Answers questions directly in VS Code with references to the official documentation
 
-![Screenshot of the MongoDB chat participant in the Chat view in VS Code.](mongodb-chat-participant.png)
+![Screenshot of the MongoDB chat participant in the Chat view in VS Code.](mongodb-chat-participant.webp)
 
 If you are interested in using the MongoDB chat participant, you can sign up to get access to the [private preview](https://www.mongodb.com/products/tools/vs-code#github-copilot-promo).
 
@@ -97,13 +97,13 @@ Parallels, the popular macOS virtualization software, recently unveiled a new [P
 
 Through the new `@parallels` chat participant, you can effortlessly execute most virtual machine operations using natural language. You can, for instance, say "@parallels start the Windows 11 VM" and have the chat participant act on your behalf.
 
-![Screenshot of the Parallels chat participant in the Chat view in VS Code.](parallels-chat-participant.png)
+![Screenshot of the Parallels chat participant in the Chat view in VS Code.](parallels-chat-participant.webp)
 
 ### PostgreSQL
 
 PostgreSQL is an extremely popular relational database platform that you can now chat with directly by using the [PostgreSQL Chat Participant](https://marketplace.visualstudio.com/items?itemName=robconery.pg-chat) extension. The `@pg` chat participant will learn your database schema and provide answers for you, grounded in the database schema. You can also use it to generate schema, get help on SQL queries, and even generate code for interacting with your database.
 
-![Screenshot of the PostgreSQL chat participant in the Chat view in VS Code.](postgresql-chat-participant.png)
+![Screenshot of the PostgreSQL chat participant in the Chat view in VS Code.](postgresql-chat-participant.webp)
 
 ## Next steps
 

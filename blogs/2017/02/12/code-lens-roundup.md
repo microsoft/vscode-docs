@@ -19,11 +19,11 @@ CodeLens are links in your code:
 - **Contextual** - The links are close to the code they are representing.
 - **Interspersed** - The links located throughout your source code.
 
-![animation showing CodeLens](code_lens.gif)
+<video src="code_lens.mp4" title="Video showing animation showing CodeLens." autoplay loop controls muted></video>
 
 VS Code comes with CodeLens for TypeScript. You can enable it in User Settings with `"typescript.referencesCodeLens.enabled": true`.
 
-![CodeLens in TypeScript](typescript_code_lens.png)
+![CodeLens in TypeScript](typescript_code_lens.webp)
 
 You can create your own extension with the CodeLens feature. Get started by checking out the [documentation](/docs/extensionAPI/language-support.md#codelens-show-actionable-context-information-within-source-code). Additionally, you can find popular extensions in the Marketplace that use CodeLens. This blog post lists some of my favorite.
 
@@ -37,7 +37,7 @@ Author - [eamodio](https://marketplace.visualstudio.com/search?term=publisher%3A
 
 This feature-rich extension will meet all your Git needs. eamodio uses the CodeLens UI to show you the most recent commit, number of authors, inline blame annotations, and exposes the Peek window for a full history view. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) for the full list of features. With 14 five stars, this is a highly rated, excellent extension.
 
-![animation showing gitlens](preview_gitlens.gif)
+<video src="preview_gitlens.mp4" title="Video showing animation showing gitlens." autoplay loop controls muted></video>
 
 ## Azure Application Insights
 
@@ -47,7 +47,7 @@ Author - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%
 
 As you can imagine, this is a popular one on the VS Code team. Use this extension to see information on your production services right in VS Code!
 
-![app insights](appinsights.gif)
+<video src="appinsights.mp4" title="Video showing app insights." autoplay loop controls muted></video>
 
 ## CodeMetrics
 
@@ -57,7 +57,7 @@ Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publishe
 
 Imagine you have this colleague who likes to write complex functions. They thinks it's cool and are less concerned with maintainability. Use this extension to show them the complexity of their functions and also to check metrics on the source code you are writing.
 
-![code metrics](codemetrics.png)
+![code metrics](codemetrics.webp)
 
 As an added bonus, you can customize the descriptions. Here is the configuration we like to use on our team:
 
@@ -79,7 +79,7 @@ Author - [Christof Marti](https://marketplace.visualstudio.com/search?term=publi
 
 Do you write a lot of regular expressions? This is an excellent extension to quickly test your regex.
 
-![regex](regex.gif)
+<video src="regex.mp4" title="Video showing regex." autoplay loop controls muted></video>
 
 ## Version Lens
 
@@ -89,7 +89,7 @@ Author - [pflannery](https://marketplace.visualstudio.com/search?term=publisher%
 
 With support for many package management systems, including npm, bower, dotnet, and jspm, this extension is very useful. Install the extension and see what packages are out of date. With a quick click of the mouse, you can upgrade the version.
 
-![version lens demo](versionlens.png)
+![version lens demo](versionlens.webp)
 
 ## Pro Tip - Preview your Extension
 
@@ -99,7 +99,7 @@ Author - [Microsoft DevLabs](https://marketplace.visualstudio.com/search?term=pu
 
 Sometimes when I'm making an extension, I think it would be great to see how the extension will look in the Marketplace before publishing. The Extension Manifest Editor allows you to preview your extension's Marketplace presentation within VS Code.
 
-![manifest preview](manifest_preview.gif)
+<video src="manifest_preview.mp4" title="Video showing manifest preview." autoplay loop controls muted></video>
 
 Wade Anderson, VS Code Team Member 
 [@waderyan_](https://twitter.com/waderyan_)

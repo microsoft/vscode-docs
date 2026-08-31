@@ -27,6 +27,8 @@ Every `MetaDescription` value must satisfy **all** of the following:
 | **No colons** | Do not include `:` in the value — it breaks YAML parsing. |
 | **Uniqueness** | Each description must be unique across the docs. |
 
+Descriptions must also reflect the page's primary persona, reader intent, and article purpose. Establish that framing by following the [content-framing guidance](../../instructions/docs-writing.instructions.md#content-framing) before suggesting or applying a description. If the existing page and writer's request support multiple materially different interpretations, ask the writer to confirm the framing before editing.
+
 ## Procedure
 
 ### 1. Identify target files
@@ -39,17 +41,18 @@ Determine which files to check:
 
 ### 2. Extract and validate
 
-For each file, read the YAML frontmatter and check the `MetaDescription` field:
+For each file, read enough of the page to identify its primary persona, reader intent, and article purpose. Then read the YAML frontmatter and check the `MetaDescription` field:
 
 1. **Missing** — Flag if `MetaDescription` is absent.
 2. **Length** — Flag if the value exceeds 160 characters. Report the current length.
 3. **Voice** — Flag if it contains "you can", "users can", "this page explains", or similar reader-addressing phrases.
 4. **Tone** — Flag if the description is a fragment, a label, or passive rather than action-oriented.
 5. **Context** — Flag if the description does not mention the relevant feature or tool.
-6. **Forbidden words** — Flag any occurrence of "teaching", "enable", "disable", or condescending terms.
-7. **Colons** — Flag any `:` character in the value.
-8. **Versions** — Flag any version numbers (e.g., "v1.90", "VS Code 1.90").
-9. **Plain text** — Flag Jinja2 variables (`{{...}}`), HTML tags, or Markdown formatting.
+6. **Content alignment** — Flag if the description does not represent the page's purpose or the outcome sought by its primary persona.
+7. **Forbidden words** — Flag any occurrence of "teaching", "enable", "disable", or condescending terms.
+8. **Colons** — Flag any `:` character in the value.
+9. **Versions** — Flag any version numbers (e.g., "v1.90", "VS Code 1.90").
+10. **Plain text** — Flag Jinja2 variables (`{{...}}`), HTML tags, or Markdown formatting.
 
 ### 3. Report findings
 
@@ -69,7 +72,7 @@ Present results as a table:
 * Edit the `MetaDescription` value in the YAML frontmatter.
 * Do not change any other frontmatter fields.
 * Do not alter the page body content.
-* Verify the fix passes all rules before applying.
+* Verify the fix passes all rules and reflects the confirmed page framing before applying.
 
 ## Examples
 

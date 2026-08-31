@@ -9,7 +9,7 @@ MetaDescription: Expand your development workflow with task integration in {% da
 
 ## Access the Profiles editor
 
-The **Profiles editor** enables you to create and manage your profiles in {% data variables.product.prodname_vscode_shortname %} from a single place. The Profiles editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+The **Profiles editor** enables you to create and manage your profiles in {% data variables.product.prodname_vscode_shortname %} from a single place. The Profiles editor opens by default in a [modal overlay](/docs/editing/getting-started/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Profiles editor.](images/profiles/profiles-editor.png)
 

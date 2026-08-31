@@ -3,7 +3,7 @@ Order: 98
 TOCTitle: Adding MCP in VS Code
 PageTitle: "Beyond the tools, adding MCP in VS Code"
 MetaDescription: Bring your own tools to VS Code's agent mode with MCP.
-MetaSocialImage: agent-mcp-tools.png
+MetaSocialImage: agent-mcp-tools.webp
 Date: 2025-05-14
 Author: Harald Kirschner
 ---
@@ -26,11 +26,11 @@ VS Code's design philosophy was always focused on making powerful features easy 
 
 Getting started with MCP servers previously meant copying JSON blocks into a config file and managing command-line flags. We wanted to simplify this: with the **MCP: Add Server** command, you can set up a server from a package manager (NPM, PyPI, Docker) and have VS Code handle the rest. Websites can even offer an *'Install in VS Code'* button to streamline onboarding further, and VS Code auto-discovers configurations from other clients like Claude Desktop when possible.
 
-![Add MCP Server commands in VS Code](mcp-add-server.png)
+![Add MCP Server commands in VS Code](mcp-add-server.webp)
 
 Security was another major focus. Managing secrets for MCP servers should not mean checking passwords into source control. We added support for [input variables](https://code.visualstudio.com/docs/agent-customization/mcp-servers#_add-an-mcp-server-to-your-workspace) that prompt you once, then encrypt and store secrets securely, and for referencing existing `.env` files you already trust for local development. This makes it easier for teams to share and review configurations safely.
 
-![GitHub MCP Server with safely stored PAT using input variables](mcp-secure-inputs.png)
+![GitHub MCP Server with safely stored PAT using input variables](mcp-secure-inputs.webp)
 
 User control is central to the experience. With the [tool picker](https://code.visualstudio.com/docs/agent-customization/mcp-servers#_use-mcp-tools-in-agent-mode), you decide which tools an agent can access in a given session and see clear descriptions and controls. For those developing or debugging servers, VS Code surfaces logs and makes it simple to start, stop, and restart servers. These touches make MCP not just powerful, but approachable for both end users and server developers.
 

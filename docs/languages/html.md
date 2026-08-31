@@ -30,11 +30,11 @@ You can also control which built-in code completion providers are active. Overri
 
 Tag elements are automatically closed when `>` of the opening tag is typed.
 
-![HTML Close1](images/html/auto-close1.gif)
+<video src="images/html/auto-close1.mp4" title="Video showing HTML Close1." autoplay loop controls muted></video>
 
 The matching closing tag is inserted when `/` of the closing tag is entered.
 
-![HTML Close2](images/html/auto-close2.gif)
+<video src="images/html/auto-close2.mp4" title="Video showing HTML Close2." autoplay loop controls muted></video>
 
 You can turn off autoclosing tags with the following [setting](/docs/configure/settings.md):
 
@@ -136,7 +136,7 @@ The Marketplace has several alternative formatters to choose from. If you want t
 
 {% data variables.product.prodname_vscode_shortname %} supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
-![Emmet HTML support built-in](images/html/emmetsnippet.gif)
+<video src="images/html/emmetsnippet.mp4" title="Video showing Emmet HTML support built-in." autoplay loop controls muted></video>
 
 > [!TIP]
 > See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.

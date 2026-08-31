@@ -99,13 +99,11 @@ A session is the unit of work with an agent: one conversation, along with the co
 
 Agents use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 
-{% data variables.product.prodname_vscode_shortname %} supports two complementary memory systems:
+The memory tool stores notes locally on your machine in three scopes:
 
-* **Memory tool**: a built-in tool that stores notes locally on your machine, organized in three scopes:
-    * **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
-    * **Repository memory** (`/memories/repo/`): scoped to the current workspace, persists across conversations.
-    * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
-* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces ({% data variables.copilot.copilot_cloud_agent_short %}, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
+* **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
+* **Repository memory** (`/memories/repo/`): scoped to the current workspace and persists across conversations.
+* **Session memory** (`/memories/session/`): scoped to the current conversation and cleared when it ends.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 

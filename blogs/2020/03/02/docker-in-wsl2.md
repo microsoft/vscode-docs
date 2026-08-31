@@ -19,7 +19,7 @@ This article explains how the Docker Desktop technical preview works as well as 
 
 This new Docker architecture works a lot like Visual Studio Code's [WSL remote development](/docs/remote/wsl.md) support in that the Docker CLI running on the host machine executes commands within the Docker Integration Package, which runs on the remote WSL VM.
 
-![Docker in WSL 2](docker-in-wsl2.png)
+![Docker in WSL 2](docker-in-wsl2.webp)
 
 *Image credit: Docker Engineering*
 
@@ -37,21 +37,21 @@ First some prerequisites:
 
 Once installed, Docker will recognize that you have WSL installed and prompt to enable WSL integration. You want to **Enable WSL integration** for this tutorial.
 
-![Docker Desktop WSL integration dialog](docker-desktop-wsl-integration.png)
+![Docker Desktop WSL integration dialog](docker-desktop-wsl-integration.webp)
 
 This option will allow you to access Docker Desktop via the Docker CLI directly from within your Linux distro.
 
 If you have multiple Linux distros, make sure you only have WSL integration turned on for the correct one in your Docker settings:
 
-![Docker settings dialog](docker-resources-wsl-integration.png)
+![Docker settings dialog](docker-resources-wsl-integration.webp)
 
 With that configured, all commands will execute in the Linux context - this includes Docker commands run from PowerShell so running something like `docker run mongo…` will start a Linux container within the WSL VM.
 
-![docker run mongo command](docker-run-mongo.png)
+![docker run mongo command](docker-run-mongo.webp)
 
 Running the `docker ps` command over in WSL, you'll see the container as expected. Notice that the container ID matches.
 
-![docker ps command in WSL](docker-ps-in-wsl.png)
+![docker ps command in WSL](docker-ps-in-wsl.webp)
 
 ## Using VS Code
 
@@ -59,7 +59,7 @@ With this set up and running, you can install the VS Code [Docker](https://marke
 
 Notice how in the screenshot below, I'm connected and working in WSL and still building/running containers without changing from my preferred environment (zsh in Ubuntu).
 
-![VS Code working with containers in WSL](vscode-containers-in-wsl.png)
+![VS Code working with containers in WSL](vscode-containers-in-wsl.webp)
 
 *Theme: Noctis Sereno*
 

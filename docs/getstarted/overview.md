@@ -19,7 +19,7 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 
 </div>
 
-Prefer to write code yourself first? Start with the [editor tutorial](/docs/editing/getting-started.md) instead.
+Prefer to write code yourself first? Start with the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) instead.
 
 ## Get started in three steps
 
@@ -29,7 +29,7 @@ New to {% data variables.product.prodname_vscode_shortname %}? These three steps
 
 1. **Open your code.** Open an existing folder, [clone a repository from GitHub](/docs/sourcecontrol/github.md#cloning-a-repository), or create a new file to start working.
 
-1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional. You can use {% data variables.product.prodname_vscode_shortname %} fully as a traditional editor without signing in.
+1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started/editor-tutorial.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional. You can use {% data variables.product.prodname_vscode_shortname %} fully as a traditional editor without signing in.
 
 ## Install {% data variables.product.prodname_vscode_shortname %}
 
@@ -118,7 +118,7 @@ Pick a path based on what you want to do next.
             <p>Complete your first coding task with an AI agent.</p>
         </div>
     </a>
-    <a class="card" href="/docs/editing/getting-started">
+    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
         <i class="codicon codicon-tools" aria-hidden="true"></i>
         <div>
             <p><strong>Editing and debugging</strong></p>

@@ -19,7 +19,7 @@ For the latest videos and tutorials, visit the official {% data variables.produc
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Get started with agents in {% data variables.product.prodname_vscode_shortname %}</p>
     </a>
-    <a class="card" href="/docs/editing/getting-started">
+    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
         <i class="codicon codicon-edit" aria-hidden="true"></i>
         <p>Learn the basics of editing in {% data variables.product.prodname_vscode_shortname %}</p>
     </a>

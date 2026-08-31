@@ -14,7 +14,7 @@ In this overview, we will describe the specific editing features provided by the
 
 IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of options when they begin to type the variable named **greeting**.
 
-![Hello World Example for IntelliSense](images/editing/hello-world.gif)
+<video src="images/editing/hello-world.mp4" title="Video showing Hello World Example for IntelliSense." autoplay loop controls muted></video>
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
@@ -90,20 +90,20 @@ When using Pylance, the add import Quick Fix enables you to quickly complete imp
 
 This Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib` as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp, `panel` as pn, and `holoviews` as hv.
 
-![Common package abbreviations](images/editing/packageAbbreviations.gif)
+<video src="images/editing/packageAbbreviations.mp4" title="Video showing Common package abbreviations." autoplay loop controls muted></video>
 
 The import suggestions list displays the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.
 
 ### Search for additional import matches
 By default, the add import Quick Fix only shows 3 high-confidence import options. If they don't list what you are looking for, you can use the Pylance **Search for additional import matches** Quick Fix for missing import errors. This Quick Fix displays a quick pick menu that enables you to search for import options that prefix-match the missing import symbol.
 
-![Search for additional import matches Code Action](images/editing/search-imports-code-action.gif)
+<video src="images/editing/search-imports-code-action.mp4" title="Video showing Search for additional import matches Code Action." autoplay loop controls muted></video>
 
 
 ### Change spelling
 Pylance displays the **Change spelling** Quick Fix on unresolved variables or missing imports diagnostics when they are likely caused by typos. This Code Action suggests the correct spelling of the symbol, based on the closest matches found in the workspace.
 
-![Change spelling code action on missing import due to a typo](images/editing/change-spelling-code-action.gif)
+<video src="images/editing/change-spelling-code-action.mp4" title="Video showing Change spelling code action on missing import due to a typo." autoplay loop controls muted></video>
 
 
 > **Note**: For user symbols, these Quick Fixes will suggest the imports only from the files where they are defined. Import suggestions from files where the user symbols are external/imported aren't supported.
@@ -120,7 +120,7 @@ Extracts all similar occurrences of the selected text within the current scope, 
 
 You can invoke this command by selecting the line of code you wish to extract as a variable. Then select the light-bulb that is displayed next to it.
 
-![Refactoring a variable](images/editing/refactorExtractVar.gif)
+<video src="images/editing/refactorExtractVar.mp4" title="Video showing Refactoring a variable." autoplay loop controls muted></video>
 
 ### Extract Method
 
@@ -128,7 +128,7 @@ Extracts all similar occurrences of the selected expression or block within the 
 
 You can invoke this command by selecting the lines of code you wish to extract as a method. Then select the light-bulb that is displayed next to it.
 
-![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
+<video src="images/editing/refactorExtractMethod.mp4" title="Video showing Refactoring code into a method." autoplay loop controls muted></video>
 
 ### Rename Module
 
@@ -136,7 +136,7 @@ After a Python file/module is renamed, Pylance can find all instances that may n
 
 To customize which references need to be updated, you can toggle the checkboxes at the line or from the file level in **Refactor Preview**. Once you've made your selections, you can select **Apply Refactoring** or **Discard Refactoring**.
 
-![Renaming a module](images/editing/refactorRenameModule.gif)
+<video src="images/editing/refactorRenameModule.mp4" title="Video showing Renaming a module." autoplay loop controls muted></video>
 
 ### Move Symbol
 
@@ -148,7 +148,7 @@ The Pylance extension offers two Code Actions to simplify the process of moving 
 You can access these Code Actions by hovering over the symbol you want to move, then selecting the light bulb that appears next to the desired action. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
 
 
-![Move Symbol refactoring options](images/editing/move-symbol.gif)
+<video src="images/editing/move-symbol.mp4" title="Video showing Move Symbol refactoring options." autoplay loop controls muted></video>
 
 ### Implement All Inherited Abstract Classes
 
@@ -156,7 +156,7 @@ In Python, abstract classes serve as "blueprints" for other classes and help bui
 
 Pylance offers a Code Action to simplify the process of creating these classes. When you define a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
 
-![Implement inherited abstract classes](images/editing/implement-inherited-abstract-classes.gif)
+<video src="images/editing/implement-inherited-abstract-classes.mp4" title="Video showing Implement inherited abstract classes." autoplay loop controls muted></video>
 
 
 ### Sort Imports
@@ -167,7 +167,7 @@ You can invoke this by installing an extension that supports sorting imports, th
 
 > **Tip**: you can assign a keyboard shortcut to the `editor.action.organizeImports` command.
 
-![Sorting import statements](images/editing/sortImports.gif)
+<video src="images/editing/sortImports.mp4" title="Video showing Sorting import statements." autoplay loop controls muted></video>
 
 ## Troubleshooting
 

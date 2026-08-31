@@ -80,7 +80,7 @@ To use the window with a file, use the **Jupyter: Run Current File in Python Int
 
 The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you are in the code editor.
 
-![IntelliSense in the Python Interactive window](images/jupyter/interactive-window-intellisense.gif)
+<video src="images/jupyter/interactive-window-intellisense.mp4" title="Video showing IntelliSense in the Python Interactive window." autoplay loop controls muted></video>
 
 ### Plot Viewer
 
@@ -105,7 +105,7 @@ ax.legend()
 plt.show()
 ``` -->
 
-![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
+<video src="images/jupyter/plot-viewer.mp4" title="Video showing Plot Viewer with the Python Interactive window." autoplay loop controls muted></video>
 
 > **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
@@ -113,7 +113,7 @@ plt.show()
 
 The Python Interactive window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) for real-time collaboration. Live Share lets you co-edit and co-debug while sharing audio, servers, terminals, diffs, comments, and more.
 
-![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
+<video src="images/jupyter/live-share-and-interactive.mp4" title="Video showing Live Share for the Python Interactive window." autoplay loop controls muted></video>
 
 This feature requires the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to be installed on both host and guest machines. -->
 

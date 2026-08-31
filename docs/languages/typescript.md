@@ -161,7 +161,7 @@ You can debug your client-side code using a browser debugger such as the [built-
 
 Debug Node.js in {% data variables.product.prodname_vscode_shortname %} using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
-![debug data inspection](images/javascript/debug_data_inspection.gif)
+<video src="images/javascript/debug_data_inspection.mp4" title="Video showing debug data inspection." autoplay loop controls muted></video>
 
 ## Linters
 

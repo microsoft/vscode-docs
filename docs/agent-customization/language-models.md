@@ -78,7 +78,7 @@ To use auto model selection, select **Auto** from the model picker in chat. You 
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/getting-started/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
@@ -118,7 +118,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions `feature(agent-host-byok-models)`.
 
 You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 
