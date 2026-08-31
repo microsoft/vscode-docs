@@ -100,7 +100,6 @@ The following managed settings are available. Most keys map to a {% data variabl
 
 | Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
-| `permissions.allow`, `permissions.ask`, `permissions.deny` | Not applicable | Not applicable | Fine-grained rules for shell commands, file operations, and domains. See [Enforce fine-grained permissions](#enforce-fine-grained-permissions). |
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
@@ -263,64 +262,8 @@ Agent tools can perform actions that modify files, run commands, or access exter
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in {% data variables.product.prodname_vscode_shortname %}.
 
-### Enforce fine-grained permissions
-
-Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}.
-
-Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
-
-| Selector | Controls | Example |
-|----------|----------|---------|
-| `Shell` | Shell commands. `Bash` and `PowerShell` are compatibility aliases. | `Shell(echo allowed *)` |
-| `Read` | File reads | `Read(~/.ssh/**)` |
-| `Edit` | File edits. `Write` is a compatibility alias. | `Edit(/generated/**)` |
-| `Domain` | Network domains. Supports wildcard host patterns. | `Domain(*.github.com)` |
-
-Other selectors are not supported and cause managed settings validation to fail.
-
-The following `managed-settings.json` example allows selected operations, requires approval for others, and blocks access to sensitive resources:
-
-```json
-{
-    "permissions": {
-        "allow": [
-            "Shell(echo allowed *)",
-            "Read(/docs/**)",
-            "Edit(/generated/**)",
-            "Domain(api.github.com)"
-        ],
-        "ask": [
-            "Shell(git push *)",
-            "Edit(/src/**)",
-            "Domain(github.com)"
-        ],
-        "deny": [
-            "Shell(rm -rf *)",
-            "Read(~/.ssh/**)",
-            "Edit(//etc/**)",
-            "Domain(raw.githubusercontent.com)"
-        ]
-    }
-}
-```
-
-When multiple rules match, the Copilot runtime applies them in the following order:
-
-1. `deny`
-1. `ask`
-1. `allow`
-1. Default to `ask` when no rule matches.
-
-A `deny` rule blocks the operation without presenting an approval option. An `ask` rule requires a human decision for every invocation and presents only **Allow Once** and **Skip**. Developers can't override these rules by selecting **Bypass Approvals** or **Autopilot**. An `allow` rule permits the operation at the managed permissions layer, but does not override stricter client-side approval settings in {% data variables.product.prodname_vscode_shortname %}.
-
-For `Read` and `Edit` rules, the path prefix determines how the pattern is resolved:
-
-| Prefix | Resolution | Example |
-|--------|------------|---------|
-| `/` | Workspace root | `Read(/src/**)` |
-| `./` | Current working directory | `Edit(./generated/**)` |
-| `~/` | Current user's home directory | `Read(~/.ssh/**)` |
-| `//` | File system root | `Edit(//etc/**)` |
+> [!WARNING]
+> Fine-grained `permissions.allow`, `permissions.ask`, and `permissions.deny` managed settings are supported only in GitHub Copilot CLI. Support in {% data variables.product.prodname_vscode_shortname %} is coming soon. For configuration details, see [Enterprise managed settings for GitHub Copilot](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#permissions).
 
 ### Disable global auto-approval
 

@@ -56,8 +56,6 @@ The permission level applies to the current chat session, and can be changed at 
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
 
-Your organization can configure [fine-grained managed permissions](/docs/enterprise/ai-settings.md#enforce-fine-grained-permissions) for shell commands, file operations, and domains. Managed rules take precedence over the session permission level. A managed rule can still require approval or block an operation when you use **Bypass Approvals** or **Autopilot**.
-
 > [!IMPORTANT]
 > The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
 
