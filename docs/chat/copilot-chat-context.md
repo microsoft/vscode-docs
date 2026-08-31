@@ -9,7 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 Providing relevant context helps the AI give more accurate responses. Add files, folders, symbols, images, web content, and other information directly to your prompt when you want the AI to consider specific details.
 
 > [!NOTE]
-> The features on this page work in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+> Unless otherwise noted, the features on this page work in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 For background on what context is and how {% data variables.product.prodname_vscode_shortname %} assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
@@ -37,6 +37,17 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 * Select **Add Context** in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
 
 To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
+
+### Add project and GitHub context in the {% data variables.copilot.agents_window %}
+
+When you start a session in the {% data variables.copilot.agents_window %}, the first folder or repository you select is the primary execution workspace. It determines where the agent runs and changes files.
+
+After you select the primary workspace, you can attach more context to the first request:
+
+* Select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
+* Select **Issue/PR** to attach an issue or pull request from the GitHub repository associated with the primary workspace. You can choose an item from the picker or paste a GitHub issue or pull request URL.
+
+You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
 
 ### Reference content from the web
 
