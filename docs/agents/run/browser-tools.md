@@ -1,6 +1,6 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Use browser tools with AI agents in {% data variables.product.prodname_vscode_shortname %} to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

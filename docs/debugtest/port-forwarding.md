@@ -1,6 +1,6 @@
 ---
 ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Make your local web services accessible over the internet with {% data variables.product.prodname_vscode %}
 ---
 # Port Forwarding

@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Improve productivity in {% data variables.product.prodname_vscode %} with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
 # {% data variables.product.prodname_vscode %} tips and tricks

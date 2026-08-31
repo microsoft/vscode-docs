@@ -1,6 +1,6 @@
 ---
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: You can open and work on multiple project folders in {% data variables.product.prodname_vscode %} with multi-root workspaces.
 ---
 # Multi-root Workspaces

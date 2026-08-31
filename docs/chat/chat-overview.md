@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to use chat in {% data variables.product.prodname_vscode_shortname %}. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

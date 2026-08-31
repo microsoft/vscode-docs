@@ -1,6 +1,6 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Use GitHub in {% data variables.product.prodname_vscode %} to clone repositories, manage pull requests and issues, or edit remote repositories without cloning.
 Keywords:
 - source control

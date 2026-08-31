@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Manage Git branches and worktrees in {% data variables.product.prodname_vscode %} to develop in parallel, compare changes, and move work between checkouts.
 Keywords:
 - source control

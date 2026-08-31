@@ -1,6 +1,6 @@
 ---
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Resources for educators and students to get started with {% data variables.product.prodname_vscode %}.
 ---
 # {% data variables.product.prodname_vscode_shortname %} for Educators and Students

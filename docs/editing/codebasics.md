@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about the basic editing features of {% data variables.product.prodname_vscode %}. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---

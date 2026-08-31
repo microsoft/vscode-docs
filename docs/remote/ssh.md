@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using {% data variables.product.prodname_vscode %} Remote Development and SSH
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Remote Development using SSH
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Transact-SQL.
 ---
 # Transact-SQL in {% data variables.product.prodname_vscode %}

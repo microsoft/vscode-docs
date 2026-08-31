@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

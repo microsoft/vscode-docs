@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

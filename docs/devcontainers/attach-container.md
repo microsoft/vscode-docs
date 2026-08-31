@@ -1,7 +1,7 @@
 ---
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
 MetaDescription: Attach to a running container using {% data variables.product.prodname_vscode %} Remote Development
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Attach to a running container
 

@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how Copilot agents understand your codebase with semantic search, text search, grep, and other tools to gather context for accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

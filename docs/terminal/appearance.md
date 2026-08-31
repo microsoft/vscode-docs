@@ -1,6 +1,6 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance

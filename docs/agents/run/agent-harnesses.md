@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure code isolation, use provider capabilities, and hand off work between providers.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:

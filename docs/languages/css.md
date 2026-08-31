@@ -1,6 +1,6 @@
 ---
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Find out how {% data variables.product.prodname_vscode %} can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less

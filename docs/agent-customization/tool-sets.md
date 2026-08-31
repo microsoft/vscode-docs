@@ -1,6 +1,6 @@
 ---
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Create reusable tool sets in {% data variables.product.prodname_vscode %} to group agent tools for prompts, prompt files, and custom agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
