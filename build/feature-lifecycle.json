@@ -9,6 +9,10 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
+    "agents-window-chat-backgrounds": {
+      "label": "Agents window chat backgrounds",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"

@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 9/2/2026
-MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
+MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to run parallel coding sessions, review agent changes, and customize the chat experience.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
@@ -268,6 +268,27 @@ Supported agent host sessions can contain multiple independent chats that share 
 ## Customize and configure the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} shares your GitHub account, {% data variables.product.prodname_vscode_shortname %} settings, and default profile with the main {% data variables.product.prodname_vscode_shortname %} window. Configure the following options when you want to adjust the agent-first experience.
+
+### Customize the chat background
+
+`feature(agents-window-chat-backgrounds)`
+
+Add a decorative background to the chat area of the {% data variables.copilot.agents_window %} without changing chat in the main {% data variables.product.prodname_vscode_shortname %} window.
+
+To set a background, run the **Chat: Set Background...** command from the Command Palette (`kb(workbench.action.showCommands)`) or right-click an empty area of the chat. Then, choose one of these options:
+
+* **Codicons**: use a theme-aware pattern of built-in {% data variables.product.prodname_vscode_shortname %} icons.
+* **Image...**: select an image from your machine.
+* **Recently used**: reuse one of your five most recent background images.
+
+For an image background, run **Chat: Change Background Layout...** to repeat, stretch, center, or position the image along an edge or in a corner. Moving through the layout options previews each one. Select an option to save it, or dismiss the picker to restore the previous layout.
+
+To remove the background for the current color theme, run **Chat: Clear Background**.
+
+> [!NOTE]
+> Light and dark color themes have separate backgrounds. Background choices are stored on the current machine and don't sync, while the image layout syncs across devices.
+
+Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
 
 ### Customize agents for your project and workflow
 
