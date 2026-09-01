@@ -1,14 +1,14 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 9/2/2026
-MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to run parallel coding sessions, review agent changes, and customize the chat experience.
+MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
 
-The {% data variables.copilot.agents_window %} is a dedicated {% data variables.product.prodname_vscode_shortname %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for agent-first workflows.
+The {% data variables.copilot.agents_window %} is a dedicated {% data variables.product.prodname_vscode %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for agent-first workflows.
 
-In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, and review agent sessions across your projects.
+In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, review, and finish agent sessions across your projects.
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
 
@@ -246,6 +246,38 @@ To run terminal commands, select the **Open Terminal** icon in the title bar. Th
 ### Commit changes
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
+
+### Finish a pull request with Agent Merge
+
+`feature(agent-merge)`
+
+Agent Merge monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
+
+* Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
+* Fix failed required CI checks.
+* Update a branch that is behind its base branch and resolve merge conflicts.
+* Merge the pull request or add it to the merge queue after the selected maintenance work is complete.
+
+To use Agent Merge:
+
+1. Enable `setting(chat.agentMerge.enabled)`.
+
+1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+
+1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
+
+1. From the **Agent Merge** menu, configure which blockers the agent should address and whether to merge the pull request when it is ready.
+
+    You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
+
+<!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
+
+> [!CAUTION]
+> Agent Merge starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the Agent Merge options before you enable automatic merging.
+
+Agent Merge waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, Agent Merge turns off and requires you to enable it again.
+
+To stop monitoring the pull request, select **Agent Merge** in the title bar, and then select **Disable Agent Merge**.
 
 ## Work with multiple sessions
 

@@ -176,6 +176,13 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. The agent host process must be restarted to take effect. | `false` |
 | `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the sidebar chat on the Agent Host instead of the OpenAI extension. Requires `setting(chat.agentHost.codexAgent.enabled)`. | `false` |
+| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [Agent Merge](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. Agent Merge monitors a session's pull request and can ask the agent to address selected blockers. | `false` |
+| `setting(chat.agentMerge.addressReviews)` _(Experimental)_<br/>Address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer. | `true` |
+| `setting(chat.agentMerge.fixCI)` _(Experimental)_<br/>Ask the agent to fix failed required CI checks. | `true` |
+| `setting(chat.agentMerge.resolveConflicts)` _(Experimental)_<br/>Ask the agent to update branches that are behind and resolve merge conflicts. | `true` |
+| `setting(chat.agentMerge.mergePullRequest)` _(Experimental)_<br/>Control whether Agent Merge merges or enqueues the pull request when it is ready. `always` merges after any selected maintenance work, `ifUnchanged` merges only until an agent repair turn changes the pull request, and `never` turns off automatic merging. | `"never"` |
+| `setting(chat.agentMerge.mergeMethod)` _(Experimental)_<br/>Select the merge method. `auto` uses the first repository-compatible method in this order: squash, merge commit, or rebase. You can also require `squash`, `merge`, or `rebase`. | `"auto"` |
+| `setting(chat.agentMerge.replyAttribution)` _(Experimental)_<br/>Include an automated-reply attribution in review-thread replies posted by Agent Merge. | `true` |
 
 ## Inline chat settings
 

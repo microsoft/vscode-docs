@@ -9,6 +9,10 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
+    "agent-merge": {
+      "label": "Agent Merge",
+      "state": "preview"
+    },
     "agents-window-chat-backgrounds": {
       "label": "Agents window chat backgrounds",
       "state": "experimental"
