@@ -48,10 +48,12 @@ exports.deactivate = deactivate;
 const vscode = __importStar(__webpack_require__(1));
 const getReleaseIssues_1 = __webpack_require__(2);
 const getCurrentMilestone_1 = __webpack_require__(51);
+const releaseNoteTocDiagnostics_1 = __webpack_require__(52);
 function activate(context) {
     const logger = vscode.window.createOutputChannel('VS Code Doc Writer', { log: true });
     context.subscriptions.push(vscode.lm.registerTool(getReleaseIssues_1.GetReleaseFeatures.ID, new getReleaseIssues_1.GetReleaseFeatures(logger)));
     context.subscriptions.push(vscode.lm.registerTool(getCurrentMilestone_1.GetCurrentMilestoneName.ID, new getCurrentMilestone_1.GetCurrentMilestoneName(logger)));
+    (0, releaseNoteTocDiagnostics_1.registerReleaseNoteTocDiagnostics)(context);
 }
 function deactivate() {
     // Clean up resources if necessary
@@ -10215,6 +10217,300 @@ class GetCurrentMilestoneName {
     }
 }
 exports.GetCurrentMilestoneName = GetCurrentMilestoneName;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.registerReleaseNoteTocDiagnostics = registerReleaseNoteTocDiagnostics;
+const vscode = __importStar(__webpack_require__(1));
+const release_note_toc_1 = __webpack_require__(53);
+const RELEASE_NOTE_PATH_PATTERN = /\/release-notes\/v1_\d+\.md$/i;
+function isReleaseNote(document) {
+    return document.languageId === 'markdown'
+        && document.uri.scheme === 'file'
+        && RELEASE_NOTE_PATH_PATTERN.test(document.uri.path);
+}
+function registerReleaseNoteTocDiagnostics(context) {
+    const collection = vscode.languages.createDiagnosticCollection('release-note-toc');
+    const updateDiagnostics = (document) => {
+        if (!isReleaseNote(document)) {
+            collection.delete(document.uri);
+            return;
+        }
+        const diagnostics = (0, release_note_toc_1.validateReleaseNoteToc)(document.getText()).map(issue => {
+            const line = document.lineAt(issue.line);
+            const startCharacter = Math.min(issue.startCharacter, line.text.length);
+            const endCharacter = Math.max(startCharacter, Math.min(issue.endCharacter, line.text.length));
+            const range = new vscode.Range(issue.line, startCharacter, issue.line, endCharacter);
+            const diagnostic = new vscode.Diagnostic(range, issue.message, vscode.DiagnosticSeverity.Error);
+            diagnostic.code = issue.code;
+            diagnostic.source = 'Release note ToC';
+            return diagnostic;
+        });
+        collection.set(document.uri, diagnostics);
+    };
+    context.subscriptions.push(collection, vscode.workspace.onDidOpenTextDocument(updateDiagnostics), vscode.workspace.onDidChangeTextDocument(event => updateDiagnostics(event.document)), vscode.workspace.onDidCloseTextDocument(document => collection.delete(document.uri)));
+    for (const document of vscode.workspace.textDocuments) {
+        updateDiagnostics(document);
+    }
+}
+
+
+/***/ }),
+/* 53 */
+/***/ ((module) => {
+
+"use strict";
+//@ts-check
+
+
+/**
+ * @typedef {'anchor' | 'label' | 'missing-heading' | 'missing-toc' | 'order' | 'toc-format' | 'unexpected-entry'} ReleaseNoteTocIssueCode
+ */
+
+/**
+ * @typedef {Object} ReleaseNoteTocIssue
+ * @property {ReleaseNoteTocIssueCode} code
+ * @property {number} line
+ * @property {number} startCharacter
+ * @property {number} endCharacter
+ * @property {string} message
+ */
+
+/**
+ * @typedef {Object} ReleaseNoteSection
+ * @property {string} label
+ * @property {number} line
+ * @property {number} startCharacter
+ * @property {number} endCharacter
+ */
+
+/**
+ * @typedef {ReleaseNoteSection & { href: string }} ReleaseNoteTocEntry
+ */
+
+const TOC_ENTRY_PATTERN = /<li>\s*<a\s+href="([^"]+)">([^<]+)<\/a>\s*<\/li>/;
+const H2_PATTERN = /^##\s+(.+?)\s*$/;
+
+/**
+ * Convert a heading to the anchor format used by the release notes renderer.
+ * @param {string} heading
+ */
+function headingToAnchor(heading) {
+	return heading
+		.toLowerCase()
+		.replace(/&(?:amp|#38);|&/g, ' and ')
+		.replace(/[`*_~]/g, '')
+		.replace(/<[^>]+>/g, '')
+		.replace(/[^\w\s-]/g, '')
+		.trim()
+		.replace(/\s+/g, '-');
+}
+
+/**
+ * Validate that a release note's inline ToC is an exact, ordered representation
+ * of its H2 headings.
+ * @param {string} content
+ * @returns {ReleaseNoteTocIssue[]}
+ */
+function validateReleaseNoteToc(content) {
+	const lines = content.split(/\r?\n/);
+	const tocStart = lines.findIndex(line => line.trim() === '<!-- TOC');
+	const tocEnd = tocStart === -1
+		? -1
+		: lines.findIndex((line, index) => index > tocStart && line.includes('Navigation End -->'));
+
+	if (tocStart === -1 || tocEnd === -1) {
+		return [{
+			code: 'missing-toc',
+			line: tocStart === -1 ? 0 : tocStart,
+			startCharacter: 0,
+			endCharacter: tocStart === -1 ? 1 : lines[tocStart].length,
+			message: 'Release notes must contain an inline ToC block ending with "Navigation End -->".'
+		}];
+	}
+
+	/** @type {ReleaseNoteTocIssue[]} */
+	const issues = [];
+	/** @type {ReleaseNoteTocEntry[]} */
+	const tocEntries = [];
+
+	for (let lineNumber = tocStart + 1; lineNumber < tocEnd; lineNumber++) {
+		const line = lines[lineNumber];
+		if (!line.includes('<li')) {
+			continue;
+		}
+
+		const match = TOC_ENTRY_PATTERN.exec(line);
+		if (!match) {
+			issues.push({
+				code: 'toc-format',
+				line: lineNumber,
+				startCharacter: Math.max(0, line.indexOf('<li')),
+				endCharacter: line.length,
+				message: 'ToC entries must use <li><a href="#anchor">Heading</a></li>.'
+			});
+			continue;
+		}
+
+		const labelStart = line.indexOf(match[2], match.index);
+		tocEntries.push({
+			href: match[1],
+			label: match[2],
+			line: lineNumber,
+			startCharacter: labelStart,
+			endCharacter: labelStart + match[2].length
+		});
+	}
+
+	/** @type {ReleaseNoteSection[]} */
+	const headings = [];
+	for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+		if (lineNumber >= tocStart && lineNumber <= tocEnd) {
+			continue;
+		}
+
+		const match = H2_PATTERN.exec(lines[lineNumber]);
+		if (match) {
+			const labelStart = lines[lineNumber].indexOf(match[1]);
+			headings.push({
+				label: match[1],
+				line: lineNumber,
+				startCharacter: labelStart,
+				endCharacter: labelStart + match[1].length
+			});
+		}
+	}
+
+	const matchedHeadingIndexes = new Set();
+	/** @type {{ entry: ReleaseNoteTocEntry, headingIndex: number }[]} */
+	const exactMatches = [];
+	for (let tocIndex = 0; tocIndex < tocEntries.length; tocIndex++) {
+		const entry = tocEntries[tocIndex];
+		let headingIndex = headings.findIndex((heading, index) =>
+			!matchedHeadingIndexes.has(index) && heading.label === entry.label);
+		const isExactMatch = headingIndex !== -1;
+
+		if (headingIndex === -1) {
+			const positionalHeading = headings[tocIndex];
+			const positionalHeadingHasEntry = positionalHeading
+				&& tocEntries.some(candidate => candidate.label === positionalHeading.label);
+
+			if (positionalHeading && !matchedHeadingIndexes.has(tocIndex) && !positionalHeadingHasEntry) {
+				headingIndex = tocIndex;
+				issues.push({
+					code: 'label',
+					line: entry.line,
+					startCharacter: entry.startCharacter,
+					endCharacter: entry.endCharacter,
+					message: `ToC label "${entry.label}" must match H2 heading "${positionalHeading.label}".`
+				});
+			} else {
+				issues.push({
+					code: 'unexpected-entry',
+					line: entry.line,
+					startCharacter: entry.startCharacter,
+					endCharacter: entry.endCharacter,
+					message: `ToC entry "${entry.label}" does not have a matching H2 heading.`
+				});
+			}
+		}
+
+		if (headingIndex !== -1) {
+			matchedHeadingIndexes.add(headingIndex);
+			if (isExactMatch) {
+				exactMatches.push({ entry, headingIndex });
+			}
+			const expectedHref = `#${headingToAnchor(headings[headingIndex].label)}`;
+			if (entry.href !== expectedHref) {
+				const hrefStart = lines[entry.line].indexOf(entry.href);
+				issues.push({
+					code: 'anchor',
+					line: entry.line,
+					startCharacter: hrefStart,
+					endCharacter: hrefStart + entry.href.length,
+					message: `ToC anchor "${entry.href}" must be "${expectedHref}" for H2 heading "${headings[headingIndex].label}".`
+				});
+			}
+		}
+	}
+
+	const orderedMatches = exactMatches.slice().sort((left, right) => left.headingIndex - right.headingIndex);
+	for (let index = 0; index < exactMatches.length; index++) {
+		if (exactMatches[index].entry !== orderedMatches[index].entry) {
+			const entry = exactMatches[index].entry;
+			issues.push({
+				code: 'order',
+				line: entry.line,
+				startCharacter: entry.startCharacter,
+				endCharacter: entry.endCharacter,
+				message: `ToC entry "${entry.label}" is out of order; it must match the H2 heading order.`
+			});
+		}
+	}
+
+	for (let headingIndex = 0; headingIndex < headings.length; headingIndex++) {
+		if (!matchedHeadingIndexes.has(headingIndex)) {
+			const heading = headings[headingIndex];
+			issues.push({
+				code: 'missing-heading',
+				line: heading.line,
+				startCharacter: heading.startCharacter,
+				endCharacter: heading.endCharacter,
+				message: `H2 heading "${heading.label}" is missing from the ToC.`
+			});
+		}
+	}
+
+	return issues;
+}
+
+module.exports = {
+	headingToAnchor,
+	validateReleaseNoteToc
+};
 
 
 /***/ })
