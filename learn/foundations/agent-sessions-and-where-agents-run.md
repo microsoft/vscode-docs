@@ -1,14 +1,14 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c004
-DateApproved: 03/30/2026
-MetaDescription: Manage agent sessions in VS Code across local, background, and cloud execution modes, and choose the right agent type.
+DateApproved: 08/13/2026
+MetaDescription: Manage agent sessions in VS Code across local, Copilot, and cloud execution modes, and choose the right session target.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Agent sessions and where agents run
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0CsKOO7d35I?si=z020p9GwioCzmOH4" title="Video for agent sessions and where agents run." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously - one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, in the background with Copilot CLI, and remotely in the cloud on GitHub infrastructure.
+As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously, one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, on the Agent Host with Copilot, and remotely in the cloud on GitHub infrastructure.
 
 ## The agent sessions sidebar
 
@@ -45,13 +45,13 @@ Right-click any session for management options.
 * Archive hides the session from the active list but keeps it intact so you can search for it and reopen it later. Use this to declutter without losing history.
 * Delete removes the session permanently. Use this only when you're certain you don't need it.
 
-## The agent type picker
+## The Session Target picker
 
-At the bottom of the chat input is the agent type picker. It shows the current agent type and controls where the next session runs.
+At the bottom of the chat input is the **Session Target** picker. It shows the current session target and controls where the next session runs.
 
-In a fresh session, it shows the available agent types. In an active session, it shows options to start a new session or hand off the current one to a different agent type.
+In a fresh session, it shows the available session targets. In an active session, it shows options to start a new session or hand off the current one to a different session target.
 
-![Screenshot of the agent type picker in VS Code, showing options for choosing where the agent runs and handing off between agent types.](../images/foundations/agent-type.png)
+![Screenshot showing the Session Target picker in VS Code.](../images/foundations/agent-type.png)
 
 ## Local agents
 
@@ -63,13 +63,13 @@ Use Local when you want to:
 * Stay in control of each decision.
 * Do interactive debugging or exploratory development.
 
-## Copilot CLI (background agents)
+## Copilot sessions
 
-Copilot CLI runs the agent as a background process on your machine while you keep working in the editor. You can run multiple CLI sessions in parallel.
+Copilot runs the agent in the Agent Host process on your machine while you keep working in the editor. You can run multiple Copilot sessions in parallel.
 
-CLI sessions show up in the Agent Sessions sidebar alongside local sessions - one place to view everything.
+Copilot sessions show up in the Agent Sessions sidebar alongside local sessions - one place to view everything.
 
-Copilot CLI will be covered in depth in a later section of this series.
+Learn more about [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot).
 
 ## Cloud agents
 
@@ -101,28 +101,28 @@ If you have the [GitHub Pull Requests extension](https://marketplace.visualstudi
 
 On GitHub.com, your repository's Agents tab shows active sessions, their status, and the linked pull request. You can open a session there to inspect its step-by-step log and send follow-up guidance mid-run.
 
-## Handing off between agent types
+## Handing off between session targets
 
-In an active session, the agent type picker shows two options.
+In an active session, the **Session Target** picker shows two options.
 
-* New Chat Session starts a fresh session with an empty context window.
-* Continue In hands off the current session to a different agent type and carries the full context forward.
+* **New Chat Session** starts a fresh session with an empty context window.
+* **Continue In** hands off the current session to a different session target and carries the full context forward.
 
-Use Continue In when you want to start locally, then hand the work off to a background or cloud agent without rebuilding context from scratch.
+Use **Continue In** when you want to start locally, then hand the work off to a background or cloud agent without rebuilding context from scratch.
 
-## Choosing the right agent type
+## Choosing the right session target
 
 | Situation | Best choice |
 | --- | --- |
 | Interactive, hands-on development | Local |
-| Several independent tasks in parallel | Copilot CLI |
+| Several independent tasks in parallel | Copilot |
 | Well-scoped task to hand off as a pull request | Cloud |
 | Exploratory work where you want to stay in the loop | Local |
 | Async work to review later | Cloud |
 
 ## What's next
 
-The Agent Sessions sidebar gives a complete view of work happening across agent types. Local for interactive work. CLI for parallel background tasks. Cloud for fully async work that produces a pull request.
+The Agent Sessions sidebar gives a complete view of work happening across session targets. Local for interactive work. Copilot for parallel background tasks. Cloud for fully async work that produces a pull request.
 
 In the [next guide](/learn/foundations/debugging-and-whats-happening-behind-the-scenes.md), you will go behind the scenes and inspect prompts, tool calls, and responses to understand what the agent is doing.
 
