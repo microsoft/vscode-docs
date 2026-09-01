@@ -1,7 +1,7 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 8/26/2026
-MetaDescription: Learn how to centrally manage AI settings in {% data variables.product.prodname_vscode_shortname %} for enterprise environments, including agent mode, MCP servers, and tool approvals.
+DateApproved: 9/2/2026
+MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including agents, dictation privacy, MCP, and tool approvals.
 ---
 
 # Manage AI settings in enterprise environments
@@ -103,8 +103,8 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
-| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
-| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
+| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
 | `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
 | `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
 | `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
@@ -152,6 +152,20 @@ New conversations start at the configured model across the chat panel and the {%
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
 The **Agent** option will not be available in the agents dropdown in the {% data variables.copilot.chat_view %} when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+
+## Control dictation data
+
+Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) converts speech to text in chat, editors, and terminals. Organizations can use enterprise policies to control whether dictation audio and transcripts leave the developer's device.
+
+| Policy | Setting | Behavior |
+|--------|---------|----------|
+| `DictationEnabled` | `setting(dictation.enabled)` | Controls whether built-in dictation is available. |
+| `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
+| `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
+
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. Developers can continue using dictation, but the final transcript does not receive language-model cleanup.
+
+These policies enable organizations to meet data-handling requirements without removing speech-to-text workflows. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
 ## Enable or disable hooks
 
@@ -399,7 +413,7 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 |---------------------|---------|-------------|
 | `telemetry.enabled` | `setting(chat.agentHost.otel.enabled)` | Enable or disable Copilot OpenTelemetry export. When managed, users cannot override the value. |
 | `telemetry.endpoint` | `setting(chat.agentHost.otel.otlpEndpoint)` | OTLP collector endpoint that receives the telemetry. |
-| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP transport, such as `otlp-http` or `otlp-grpc`. The managed wire protocol (protobuf or JSON) is applied to both surfaces. |
+| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP wire protocol. Use `http/json` or `http/protobuf`; both select the `otlp-http` exporter. `grpc` is accepted for forward compatibility but currently falls back to the HTTP default. |
 | `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
 | `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
 | `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |

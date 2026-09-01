@@ -1,6 +1,6 @@
 ---
 ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about using PowerShell in {% data variables.product.prodname_vscode %}
 ---
 # PowerShell in {% data variables.product.prodname_vscode %}

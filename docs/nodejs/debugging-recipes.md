@@ -1,6 +1,6 @@
 ---
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription:  Learn more about how to setup debugging in {% data variables.product.prodname_vscode %} with debugging recipes
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---

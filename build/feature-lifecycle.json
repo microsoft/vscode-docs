@@ -9,6 +9,22 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
+    "agent-merge": {
+      "label": "Agent Merge",
+      "state": "preview"
+    },
+    "agents-window-chat-backgrounds": {
+      "label": "Agents window chat backgrounds",
+      "state": "experimental"
+    },
+    "built-in-dictation": {
+      "label": "Built-in dictation",
+      "state": "experimental"
+    },
+    "chat-pet": {
+      "label": "VS Code pet",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"
@@ -29,6 +45,10 @@
       "label": "MCP Apps",
       "state": "experimental"
     },
+    "modern-ui": {
+      "label": "Modern UI",
+      "state": "experimental"
+    },
     "nested-agents-md-files": {
       "label": "Nested AGENTS.md files",
       "state": "experimental"
@@ -39,6 +59,10 @@
     },
     "terminal-block-detected-file-writes": {
       "label": "Block detected terminal file writes",
+      "state": "experimental"
+    },
+    "voice-mode": {
+      "label": "Voice Mode",
       "state": "experimental"
     },
     "user-customization-migration": {

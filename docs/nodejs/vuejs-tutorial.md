@@ -1,6 +1,6 @@
 ---
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the {% data variables.product.prodname_vscode %} editor.
 ---
 # Using Vue in {% data variables.product.prodname_vscode %}

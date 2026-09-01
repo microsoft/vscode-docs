@@ -1,6 +1,6 @@
 ---
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Setting up additional components to use with {% data variables.product.prodname_vscode %}.
 ---
 # Additional components and tools

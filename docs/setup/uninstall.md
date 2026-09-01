@@ -1,6 +1,6 @@
 ---
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Uninstall {% data variables.product.prodname_vscode %} and clean up.
 ---
 # Uninstall {% data variables.product.prodname_vscode %}

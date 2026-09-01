@@ -1,7 +1,7 @@
 ---
 ContentId: 8a7c3f4e-5b2d-4c9a-8e1f-6d3a2b1c0e9f
 MetaDescription: Diagnose Git authentication, repository detection, trust, and synchronization problems in {% data variables.product.prodname_vscode %} with targeted fixes and Git logs.
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 Keywords:
 - source control
 - git

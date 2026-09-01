@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/26/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure code isolation, use provider capabilities, and hand off work between providers.
+DateApproved: 9/2/2026
+MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure isolation and multi-root workspaces, and hand off sessions.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -74,6 +74,17 @@ Worktree isolation requires a Git repository with at least one commit. A new wor
 Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to specify ignored files and folders that {% data variables.product.prodname_vscode_shortname %} should copy into new worktrees. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
 
 Worktree sessions use **Bypass Approvals** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. Worktree isolation does not restrict commands, network access, or access outside the worktree. For those protections, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+
+## Use multi-root workspaces (Experimental)
+
+Copilot and Claude sessions in the editor window can work across all folders in a [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces.md). Enable the setting for the harness you use:
+
+* Copilot: `setting(chat.agentHost.copilotAgent.multiRootEnabled)`
+* Claude: `setting(chat.agentHost.claudeAgent.multiRootEnabled)`
+
+Multi-root agent sessions are only available in the editor window. The {% data variables.copilot.agents_window %} does not support multi-root sessions.
+
+[Agent hooks](/docs/agent-customization/hooks.md) remain scoped to one workspace folder. If hooks are present in multiple folders, {% data variables.product.prodname_vscode_shortname %} prompts you to select the primary folder from which to load them.
 
 ## Configure an agent harness
 

@@ -1,7 +1,7 @@
 ---
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the {% data variables.product.prodname_vscode_shortname %} Dev Containers extension
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Advanced Container Configuration
 

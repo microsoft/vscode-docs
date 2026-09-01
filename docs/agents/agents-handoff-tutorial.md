@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Work with agent harnesses in {% data variables.product.prodname_vscode_shortname %} to run tasks locally or in the cloud, and hand off work between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

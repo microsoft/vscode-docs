@@ -1,7 +1,7 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Remote Development FAQ
 

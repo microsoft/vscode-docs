@@ -1,7 +1,7 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 8/26/2026
-MetaDescription: Get started with {% data variables.product.prodname_vscode %}, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
+DateApproved: 9/2/2026
+MetaDescription: Get started with {% data variables.product.prodname_vscode %} on Windows, macOS, or Linux, and choose whether to code with AI agents or without AI.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Get started with {% data variables.product.prodname_vscode %}
@@ -29,7 +29,7 @@ New to {% data variables.product.prodname_vscode_shortname %}? These three steps
 
 1. **Open your code.** Open an existing folder, [clone a repository from GitHub](/docs/sourcecontrol/github.md#cloning-a-repository), or create a new file to start working.
 
-1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started/editor-tutorial.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional. You can use {% data variables.product.prodname_vscode_shortname %} fully as a traditional editor without signing in.
+1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started/editor-tutorial.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional, and you can [use {% data variables.product.prodname_vscode_shortname %} without signing in](#can-i-use-vs-code-without-signing-in).
 
 ## Install {% data variables.product.prodname_vscode_shortname %}
 
@@ -89,6 +89,14 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
 > [!TIP]
 > You can also use AI features in {% data variables.product.prodname_vscode_shortname %} without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
+### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
+
+Yes. You don't need an account to install {% data variables.product.prodname_vscode_shortname %} or use its core editor features.
+
+Signing in with GitHub connects {% data variables.product.prodname_vscode_shortname %} to your GitHub Copilot plan and gives you access to the AI features, models, and usage allowances included with that plan. Without GitHub sign-in, you can use chat with a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Features that depend on the GitHub Copilot service, such as inline suggestions, semantic search, and embeddings, aren't available through bring-your-own-key models.
+
+You can also skip AI features and use {% data variables.product.prodname_vscode_shortname %} as a code editor. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 
 ## What you can do with {% data variables.product.prodname_vscode_shortname %}
 
