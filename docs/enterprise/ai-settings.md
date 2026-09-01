@@ -1,7 +1,7 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
 DateApproved: 9/2/2026
-MetaDescription: Learn how to centrally manage AI settings in {% data variables.product.prodname_vscode_shortname %} for enterprise environments, including agent mode, MCP servers, and tool approvals.
+MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including agents, dictation privacy, MCP, and tool approvals.
 ---
 
 # Manage AI settings in enterprise environments
@@ -152,6 +152,20 @@ New conversations start at the configured model across the chat panel and the {%
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
 The **Agent** option will not be available in the agents dropdown in the {% data variables.copilot.chat_view %} when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+
+## Control dictation data
+
+Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) converts speech to text in chat, editors, and terminals. Organizations can use enterprise policies to control whether dictation audio and transcripts leave the developer's device.
+
+| Policy | Setting | Behavior |
+|--------|---------|----------|
+| `DictationEnabled` | `setting(dictation.enabled)` | Controls whether built-in dictation is available. |
+| `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
+| `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
+
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. Developers can continue using dictation, but the final transcript does not receive language-model cleanup.
+
+These policies enable organizations to meet data-handling requirements without removing speech-to-text workflows. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
 ## Enable or disable hooks
 

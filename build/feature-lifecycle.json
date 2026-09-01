@@ -13,6 +13,10 @@
       "label": "Agents window chat backgrounds",
       "state": "experimental"
     },
+    "built-in-dictation": {
+      "label": "Built-in dictation",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"
@@ -35,6 +39,10 @@
     },
     "terminal-block-detected-file-writes": {
       "label": "Block detected terminal file writes",
+      "state": "experimental"
+    },
+    "voice-mode": {
+      "label": "Voice Mode",
       "state": "experimental"
     },
     "user-customization-migration": {
