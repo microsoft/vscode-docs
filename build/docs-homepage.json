@@ -47,7 +47,7 @@
     {
       "type": "release",
       "title": "VS Code 1.136 release",
-      "description": "Finish pull requests with Agent Merge, talk to agents with Voice Mode, and manage or personalize chat sessions across multi-root workspaces.",
+      "description": "Finish pull requests with Agent Merge and manage or personalize chat sessions across multi-root workspaces.",
       "link": "/updates/v1_136",
       "image": "/assets/updates/1_136/release-highlights.webp"
     },

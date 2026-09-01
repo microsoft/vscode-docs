@@ -21,6 +21,10 @@
       "label": "Built-in dictation",
       "state": "experimental"
     },
+    "chat-pet": {
+      "label": "VS Code pet",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"
