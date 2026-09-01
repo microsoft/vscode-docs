@@ -312,26 +312,9 @@ Supported agent host sessions can contain multiple independent chats that share 
 
 The {% data variables.copilot.agents_window %} shares your GitHub account, {% data variables.product.prodname_vscode_shortname %} settings, and default profile with the main {% data variables.product.prodname_vscode_shortname %} window. Configure the following options when you want to adjust the agent-first experience.
 
-### Customize the chat background
+### Personalize chat
 
-`feature(agents-window-chat-backgrounds)`
-
-Add a decorative background to the chat area of the {% data variables.copilot.agents_window %} without changing chat in the main {% data variables.product.prodname_vscode_shortname %} window.
-
-To set a background, run the **Chat: Set Background...** command from the Command Palette (`kb(workbench.action.showCommands)`) or right-click an empty area of the chat. Then, choose one of these options:
-
-* **Codicons**: use a theme-aware pattern of built-in {% data variables.product.prodname_vscode_shortname %} icons.
-* **Image...**: select an image from your machine.
-* **Recently used**: reuse one of your five most recent background images.
-
-For an image background, run **Chat: Change Background Layout...** to repeat, stretch, center, or position the image along an edge or in a corner. Moving through the layout options previews each one. Select an option to save it, or dismiss the picker to restore the previous layout.
-
-To remove the background for the current color theme, run **Chat: Clear Background**.
-
-> [!NOTE]
-> Light and dark color themes have separate backgrounds. Background choices are stored on the current machine and don't sync, while the image layout syncs across devices.
-
-Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
+Add a decorative chat background, enable the interactive VS Code pet, or adjust how chat content appears. Learn how to [personalize chat](/docs/chat/chat-overview.md#personalize-chat).
 
 ### Customize agents for your project and workflow
 
