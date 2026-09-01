@@ -24,6 +24,11 @@ You can customize Voice Mode in the following ways:
 
 Right-click the **Voice Mode** button in the chat input to access its configuration, instructions, introduction, microphone selection, and transcript controls.
 
+We are currently rolling out `feature(voice-mode)` gradually, so it may not be available to all users immediately.
+
+> [!NOTE]
+> `feature(voice-mode)` is not available for users on a {% data variables.copilot.copilot_enterprise_short %} and {% data variables.copilot.copilot_business_short %} plan.
+
 ## Use built-in dictation
 
 `feature(built-in-dictation)`
