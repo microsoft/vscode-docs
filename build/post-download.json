@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Continue agent sessions and get a second opinion",
-    "description": "Continue Copilot or Claude agent sessions from other applications, get a second opinion with Rubber Duck, and inspect detailed chat usage.",
-    "link": "/updates/v1_135",
-    "image": "/assets/updates/1_135/release-highlights.webp"
+    "title": "Finish pull requests with Agent Merge",
+    "description": "Address review feedback, failed checks, and merge conflicts with Agent Merge. Plus, use Voice Mode, multi-root workspaces, organized chat sessions, and custom chat backgrounds.",
+    "link": "/updates/v1_136",
+    "image": "/assets/updates/1_136/release-highlights.webp"
   },
   "highlights": [
     {
