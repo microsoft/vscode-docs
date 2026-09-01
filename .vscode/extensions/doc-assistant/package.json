@@ -7,6 +7,9 @@
   "engines": {
     "vscode": "^1.95.0"
   },
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "languageModelTools": [
