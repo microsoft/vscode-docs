@@ -1,7 +1,7 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 DateApproved: 9/2/2026
-MetaDescription: Overview of the configuration settings for AI features and agents in {% data variables.product.prodname_vscode %}.
+MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, Voice Mode, and accessibility settings.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI settings reference
@@ -171,6 +171,8 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in Agent Host sessions. Changes are synchronized to the running Agent Host. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. The agent host process must be restarted to take effect. | `true` |
+| `setting(chat.agentHost.copilotAgent.multiRootEnabled)` _(Experimental)_<br/>Enable Copilot sessions in the editor window to work across all folders in a [multi-root workspace](/docs/agents/run/agent-harnesses.md#use-multi-root-workspaces-experimental). | `false` |
+| `setting(chat.agentHost.claudeAgent.multiRootEnabled)` _(Experimental)_<br/>Enable Claude sessions in the editor window to work across all folders in a [multi-root workspace](/docs/agents/run/agent-harnesses.md#use-multi-root-workspaces-experimental). | `false` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. The agent host process must be restarted to take effect. | `false` |
 | `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the sidebar chat on the Agent Host instead of the OpenAI extension. Requires `setting(chat.agentHost.codexAgent.enabled)`. | `false` |
@@ -284,15 +286,18 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in Edit mode (deprecated) to create a new notebook file. | `true` |
 | `setting(github.copilot.chat.notebook.followCellExecution.enabled)` _(Experimental)_<br/>Show the currently executing cell in the editor. | `false` |
 
-## Dictation settings
+## Voice and dictation settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
-| `setting(dictation.model)` _(Experimental)_<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
-| `setting(dictation.showTranscript)` _(Experimental)_<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
-| `setting(dictation.experimental.llmCleanup)` _(Experimental)_<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
-| `setting(agents.voice.language)`<br/>Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
+| `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Enable Voice Mode for spoken conversations with an agent. | `false` |
+| `setting(agents.voice.showTranscript)` `feature(voice-mode)`<br/>Show the Voice Mode transcript in the chat input while Voice Mode is active. | `false` |
+| `setting(agents.voice.voice)` `feature(voice-mode)`<br/>Select the voice that reads agent responses aloud. | `"birch_neutral"` |
+| `setting(dictation.enabled)` `feature(built-in-dictation)`<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
+| `setting(dictation.model)` `feature(built-in-dictation)`<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.showTranscript)` `feature(built-in-dictation)`<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
+| `setting(dictation.experimental.llmCleanup)` `feature(built-in-dictation)`<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
+| `setting(agents.voice.language)` `feature(voice-mode)`<br/>Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
 
 ## Accessibility settings
 
