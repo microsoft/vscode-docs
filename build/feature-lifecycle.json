@@ -25,6 +25,10 @@
       "label": "Automatically start MCP servers",
       "state": "experimental"
     },
+    "mcp-apps": {
+      "label": "MCP Apps",
+      "state": "experimental"
+    },
     "nested-agents-md-files": {
       "label": "Nested AGENTS.md files",
       "state": "experimental"
