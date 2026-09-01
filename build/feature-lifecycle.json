@@ -33,6 +33,10 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "modern-ui": {
+      "label": "Modern UI",
+      "state": "experimental"
+    },
     "nested-agents-md-files": {
       "label": "Nested AGENTS.md files",
       "state": "experimental"
