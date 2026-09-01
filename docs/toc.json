@@ -91,16 +91,6 @@
             }],
 
             ["", "", {
-                "name": "Use chat",
-                "area": "chat",
-                "topics": [
-                    ["Chat Basics", "/docs/chat/chat-overview"],
-                    ["Inline & Quick Chat", "/docs/chat/inline-chat"],
-                    ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
-                ]
-            }],
-
-            ["", "", {
                 "name": "Tutorials & guides",
                 "area": "agents/guides",
                 "topics": [
@@ -139,6 +129,16 @@
                     ["FAQ", "/docs/agents/agent-troubleshooting/faq"]
                 ]
             }]
+        ]
+    },
+
+    {
+        "name": "Chat",
+        "area": "chat",
+        "topics": [
+            ["Chat Basics", "/docs/chat/chat-overview"],
+            ["Inline & Quick Chat", "/docs/chat/inline-chat"],
+            ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]
     },
 
