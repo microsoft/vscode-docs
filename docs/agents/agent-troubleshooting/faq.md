@@ -10,6 +10,14 @@ This article answers frequently asked questions about using GitHub Copilot in {%
 
 ## GitHub Copilot subscription
 
+### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
+
+Yes. You don't need an account to use the core editor features in {% data variables.product.prodname_vscode_shortname %}.
+
+Sign in with GitHub to use the AI features, models, and usage allowances included with your GitHub Copilot plan. Without GitHub sign-in, you can use chat with a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Some features, including inline suggestions, semantic search, and embeddings, require the GitHub Copilot service and aren't available through bring-your-own-key models.
+
+If you don't want to use AI, you can continue using {% data variables.product.prodname_vscode_shortname %} without signing in. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
+
 ### How can I get a Copilot subscription?
 
 There are different ways to get access to GitHub Copilot:
@@ -54,7 +62,7 @@ For tips on reducing credit consumption, see [optimize AI credit usage](/docs/ag
 
 ### My Copilot subscription is not detected in {% data variables.product.prodname_vscode_shortname %}
 
-To use chat in {% data variables.product.prodname_vscode %}, you must be signed into {% data variables.product.prodname_vscode %} with a GitHub account that has access to GitHub Copilot.
+To use your Copilot plan in chat, you must be signed into {% data variables.product.prodname_vscode %} with the GitHub account that has access to the plan.
 
 - If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/setup/copilot.md#use-a-different-github-account-with-copilot) for more information.
 
