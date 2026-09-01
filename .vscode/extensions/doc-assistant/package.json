@@ -8,9 +8,7 @@
     "vscode": "^1.95.0"
   },
   "activationEvents": [
-    "onLanguage:markdown",
-    "onLanguageModelTool:getCurrentMilestone",
-    "onLanguageModelTool:getReleaseFeatures"
+    "onLanguage:markdown"
   ],
   "main": "./dist/extension.js",
   "contributes": {

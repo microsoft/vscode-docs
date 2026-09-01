@@ -48,13 +48,13 @@ exports.deactivate = deactivate;
 const vscode = __importStar(__webpack_require__(1));
 const getReleaseIssues_1 = __webpack_require__(2);
 const getCurrentMilestone_1 = __webpack_require__(51);
-const providers_1 = __webpack_require__(52);
+const releaseNoteTocDiagnostics_1 = __webpack_require__(52);
 function activate(context) {
     const logger = vscode.window.createOutputChannel('VS Code Doc Writer', { log: true });
     context.subscriptions.push(logger);
     context.subscriptions.push(vscode.lm.registerTool(getReleaseIssues_1.GetReleaseFeatures.ID, new getReleaseIssues_1.GetReleaseFeatures(logger)));
     context.subscriptions.push(vscode.lm.registerTool(getCurrentMilestone_1.GetCurrentMilestoneName.ID, new getCurrentMilestone_1.GetCurrentMilestoneName(logger)));
-    (0, providers_1.registerMarkdownAuthoringSupport)(context, logger);
+    (0, releaseNoteTocDiagnostics_1.registerReleaseNoteTocDiagnostics)(context);
 }
 function deactivate() {
     // Clean up resources if necessary
@@ -220,7 +220,7 @@ exports.contentType = 'application/vnd.codechat.prompt+json.1';
  * @returns A promise that resolves to an object containing the serialized data.
  */
 function renderElementJSON(ctor, props, budgetInformation, token) {
-    const renderer = new promptRenderer_1.PromptRenderer({ modelMaxPromptTokens: budgetInformation?.tokenBudget ?? Number.MAX_SAFE_INTEGER }, ctor, props, 
+    const renderer = new promptRenderer_1.PromptRenderer({ modelMaxPromptTokens: budgetInformation?.tokenBudget ?? Number.MAX_SAFE_INTEGER }, ctor, props,
     // note: if tokenBudget is given, countTokens is also give and vise-versa.
     // `1` is used only as a dummy fallback to avoid errors if no/unlimited budget is provided.
     {
@@ -5355,7 +5355,7 @@ function fetchWrapper(requestOptions) {
         body: requestOptions.body,
         headers: requestOptions.headers,
         redirect: requestOptions.redirect,
-    }, 
+    },
     // `requestOptions.request.agent` type is incompatible
     // see https://github.com/octokit/types.ts/pull/264
     requestOptions.request))
@@ -10264,837 +10264,254 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.registerMarkdownAuthoringSupport = registerMarkdownAuthoringSupport;
+exports.registerReleaseNoteTocDiagnostics = registerReleaseNoteTocDiagnostics;
 const vscode = __importStar(__webpack_require__(1));
-const registry_1 = __webpack_require__(53);
-const references_1 = __webpack_require__(55);
-const selector = { language: 'markdown' };
-const diagnosticSource = 'VS Code docs';
-function registerMarkdownAuthoringSupport(context, logger) {
-    context.subscriptions.push(new MarkdownAuthoringSupport(logger));
+const release_note_toc_1 = __webpack_require__(53);
+const RELEASE_NOTE_PATH_PATTERN = /\/release-notes\/v1_\d+\.md$/i;
+function isReleaseNote(document) {
+    return document.languageId === 'markdown'
+        && document.uri.scheme === 'file'
+        && RELEASE_NOTE_PATH_PATTERN.test(document.uri.path);
 }
-class MarkdownAuthoringSupport {
-    registry;
-    diagnostics = vscode.languages.createDiagnosticCollection('vscode-docs-markdown');
-    disposables = [];
-    validationVersions = new Map();
-    constructor(logger) {
-        this.registry = new registry_1.DocumentationRegistry(logger);
-        const completionProvider = new DocumentationCompletionProvider(this.registry);
-        const hoverProvider = new DocumentationHoverProvider(this.registry);
-        const codeActionProvider = new DocumentationCodeActionProvider(this.registry);
-        this.disposables.push(this.registry, this.diagnostics, vscode.languages.registerCompletionItemProvider(selector, completionProvider, '(', '.', ':'), vscode.languages.registerHoverProvider(selector, hoverProvider), vscode.languages.registerCodeActionsProvider(selector, codeActionProvider, {
-            providedCodeActionKinds: DocumentationCodeActionProvider.providedCodeActionKinds
-        }), vscode.workspace.onDidOpenTextDocument(document => this.queueValidation(document)), vscode.workspace.onDidChangeTextDocument(event => this.queueValidation(event.document)), vscode.workspace.onDidCloseTextDocument(document => {
-            this.validationVersions.delete(document.uri.toString());
-            this.diagnostics.delete(document.uri);
-        }), this.registry.onDidChange(folder => {
-            for (const document of vscode.workspace.textDocuments) {
-                if (vscode.workspace.getWorkspaceFolder(document.uri)?.uri.toString() === folder.uri.toString()) {
-                    this.queueValidation(document);
-                }
-            }
-        }));
-        for (const document of vscode.workspace.textDocuments) {
-            this.queueValidation(document);
-        }
-    }
-    dispose() {
-        for (const disposable of this.disposables) {
-            disposable.dispose();
-        }
-    }
-    queueValidation(document) {
-        if (document.languageId !== 'markdown' || !(0, references_1.isPublishedDocument)(document.uri)) {
-            this.diagnostics.delete(document.uri);
+function registerReleaseNoteTocDiagnostics(context) {
+    const collection = vscode.languages.createDiagnosticCollection('release-note-toc');
+    const updateDiagnostics = (document) => {
+        if (!isReleaseNote(document)) {
+            collection.delete(document.uri);
             return;
         }
-        void this.validate(document);
+        const diagnostics = (0, release_note_toc_1.validateReleaseNoteToc)(document.getText()).map(issue => {
+            const line = document.lineAt(issue.line);
+            const startCharacter = Math.min(issue.startCharacter, line.text.length);
+            const endCharacter = Math.max(startCharacter, Math.min(issue.endCharacter, line.text.length));
+            const range = new vscode.Range(issue.line, startCharacter, issue.line, endCharacter);
+            const diagnostic = new vscode.Diagnostic(range, issue.message, vscode.DiagnosticSeverity.Error);
+            diagnostic.code = issue.code;
+            diagnostic.source = 'Release note ToC';
+            return diagnostic;
+        });
+        collection.set(document.uri, diagnostics);
+    };
+    context.subscriptions.push(collection, vscode.workspace.onDidOpenTextDocument(updateDiagnostics), vscode.workspace.onDidChangeTextDocument(event => updateDiagnostics(event.document)), vscode.workspace.onDidCloseTextDocument(document => collection.delete(document.uri)));
+    for (const document of vscode.workspace.textDocuments) {
+        updateDiagnostics(document);
     }
-    async validate(document) {
-        const key = document.uri.toString();
-        const version = (this.validationVersions.get(key) ?? 0) + 1;
-        this.validationVersions.set(key, version);
-        let snapshot;
-        try {
-            snapshot = await this.registry.getSnapshot(document.uri);
-        }
-        catch (error) {
-            if (this.validationVersions.get(key) === version) {
-                this.diagnostics.set(document.uri, [registryDiagnostic(document, error)]);
-            }
-            return;
-        }
-        if (this.validationVersions.get(key) !== version) {
-            return;
-        }
-        const parsed = (0, references_1.findDocumentationReferences)(document.getText());
-        const diagnostics = [];
-        for (const reference of parsed.references) {
-            const range = offsetsToRange(document, reference.start, reference.end);
-            if (reference.kind === 'variable') {
-                if (!snapshot.variables.has(reference.value)) {
-                    diagnostics.push(createDiagnostic(range, reference.value
-                        ? `Unknown reusable variable "${reference.value}".`
-                        : 'A reusable variable path is required.', vscode.DiagnosticSeverity.Error, 'unknown-variable'));
-                }
-            }
-            else if (!snapshot.features.has(reference.value)) {
-                diagnostics.push(createDiagnostic(range, reference.value
-                    ? `Unknown feature lifecycle ID "${reference.value}".`
-                    : 'A feature lifecycle ID is required.', vscode.DiagnosticSeverity.Warning, 'unknown-feature'));
-            }
-        }
-        for (const reference of parsed.incomplete) {
-            const position = document.positionAt(reference.offset);
-            diagnostics.push(createDiagnostic(new vscode.Range(position, position), reference.kind === 'feature'
-                ? 'Feature lifecycle marker is missing a closing parenthesis.'
-                : 'Reusable variable directive is missing a closing "%}".', vscode.DiagnosticSeverity.Warning, reference.kind === 'feature' ? 'incomplete-feature' : 'incomplete-variable'));
-        }
-        this.diagnostics.set(document.uri, diagnostics);
-    }
-}
-class DocumentationCompletionProvider {
-    registry;
-    constructor(registry) {
-        this.registry = registry;
-    }
-    async provideCompletionItems(document, position) {
-        const context = completionContext(document, position);
-        if (!context) {
-            return undefined;
-        }
-        let snapshot;
-        try {
-            snapshot = await this.registry.getSnapshot(document.uri);
-        }
-        catch {
-            return undefined;
-        }
-        if (context.kind === 'variable') {
-            return [...snapshot.variables.values()]
-                .sort((left, right) => left.path.localeCompare(right.path))
-                .map(definition => variableCompletion(definition, context.range));
-        }
-        return [...snapshot.features.values()]
-            .sort((left, right) => left.id.localeCompare(right.id))
-            .map(definition => featureCompletion(definition, context.range));
-    }
-}
-class DocumentationHoverProvider {
-    registry;
-    constructor(registry) {
-        this.registry = registry;
-    }
-    async provideHover(document, position) {
-        const offset = document.offsetAt(position);
-        const reference = (0, references_1.findDocumentationReferences)(document.getText()).references
-            .find(candidate => candidate.start <= offset && offset < candidate.end);
-        if (!reference) {
-            return undefined;
-        }
-        let snapshot;
-        try {
-            snapshot = await this.registry.getSnapshot(document.uri);
-        }
-        catch {
-            return undefined;
-        }
-        const contents = reference.kind === 'variable'
-            ? variableHover(snapshot.variables.get(reference.value))
-            : featureHover(snapshot.features.get(reference.value));
-        if (!contents) {
-            return undefined;
-        }
-        return new vscode.Hover(contents, offsetsToRange(document, reference.start, reference.end));
-    }
-}
-class DocumentationCodeActionProvider {
-    registry;
-    static providedCodeActionKinds = [vscode.CodeActionKind.QuickFix];
-    constructor(registry) {
-        this.registry = registry;
-    }
-    async provideCodeActions(document, _range, context) {
-        const actions = [];
-        const incompleteDiagnostics = context.diagnostics.filter(diagnostic => diagnostic.source === diagnosticSource && (diagnostic.code === 'incomplete-feature' ||
-            diagnostic.code === 'incomplete-variable'));
-        for (const diagnostic of incompleteDiagnostics) {
-            const suffix = diagnostic.code === 'incomplete-feature' ? ')' : ' %}';
-            const action = new vscode.CodeAction(`Insert "${suffix}"`, vscode.CodeActionKind.QuickFix);
-            action.diagnostics = [diagnostic];
-            action.isPreferred = true;
-            action.edit = new vscode.WorkspaceEdit();
-            action.edit.insert(document.uri, diagnostic.range.start, suffix);
-            actions.push(action);
-        }
-        const unknownDiagnostics = context.diagnostics.filter(diagnostic => diagnostic.source === diagnosticSource && (diagnostic.code === 'unknown-feature' ||
-            diagnostic.code === 'unknown-variable'));
-        if (unknownDiagnostics.length === 0) {
-            return actions;
-        }
-        let snapshot;
-        try {
-            snapshot = await this.registry.getSnapshot(document.uri);
-        }
-        catch {
-            return actions;
-        }
-        for (const diagnostic of unknownDiagnostics) {
-            const value = document.getText(diagnostic.range);
-            const candidates = diagnostic.code === 'unknown-feature'
-                ? snapshot.features.keys()
-                : snapshot.variables.keys();
-            for (const [index, candidate] of (0, references_1.rankCandidates)(value, candidates).entries()) {
-                const action = new vscode.CodeAction(`Replace with "${candidate}"`, vscode.CodeActionKind.QuickFix);
-                action.diagnostics = [diagnostic];
-                action.isPreferred = index === 0;
-                action.edit = new vscode.WorkspaceEdit();
-                action.edit.replace(document.uri, diagnostic.range, candidate);
-                actions.push(action);
-            }
-        }
-        return actions;
-    }
-}
-function completionContext(document, position) {
-    const linePrefix = document.lineAt(position.line).text.slice(0, position.character);
-    const variable = /\{%\s*data\s+variables\.([^%}]*)$/.exec(linePrefix);
-    if (variable) {
-        return {
-            kind: 'variable',
-            range: new vscode.Range(position.translate(0, -variable[1].length), position)
-        };
-    }
-    const feature = /feature\(([^)]*)$/.exec(linePrefix);
-    if (feature) {
-        return {
-            kind: 'feature',
-            range: new vscode.Range(position.translate(0, -feature[1].length), position)
-        };
-    }
-    if (isInFrontmatter(document, position.line)) {
-        const status = /^\s*FeatureStatus:\s*([^\s#]*)$/.exec(linePrefix);
-        if (status) {
-            return {
-                kind: 'feature',
-                range: new vscode.Range(position.translate(0, -status[1].length), position)
-            };
-        }
-    }
-    return undefined;
-}
-function isInFrontmatter(document, line) {
-    if (document.lineCount === 0 || document.lineAt(0).text.trim() !== '---') {
-        return false;
-    }
-    for (let current = 1; current <= line; current++) {
-        if (document.lineAt(current).text.trim() === '---') {
-            return false;
-        }
-    }
-    return true;
-}
-function featureCompletion(definition, range) {
-    const item = new vscode.CompletionItem(definition.id, vscode.CompletionItemKind.EnumMember);
-    item.detail = `${definition.label} (${capitalize(definition.state)})`;
-    item.documentation = definition.trackingUrl
-        ? new vscode.MarkdownString(`[Open tracking issue](${definition.trackingUrl})`)
-        : undefined;
-    item.range = range;
-    return item;
-}
-function variableCompletion(definition, range) {
-    const suffix = definition.path.slice('variables.'.length);
-    const item = new vscode.CompletionItem(definition.path, vscode.CompletionItemKind.Variable);
-    item.filterText = suffix;
-    item.insertText = suffix;
-    item.detail = definition.value;
-    item.documentation = `Defined in ${vscode.workspace.asRelativePath(definition.source, false)}:${definition.line}`;
-    item.range = range;
-    return item;
-}
-function featureHover(definition) {
-    if (!definition) {
-        return undefined;
-    }
-    const contents = new vscode.MarkdownString();
-    contents.appendText(definition.label);
-    contents.appendMarkdown(`\n\nLifecycle: **${capitalize(definition.state)}**`);
-    contents.appendMarkdown(`\n\nID: \`${definition.id}\``);
-    if (definition.trackingUrl) {
-        contents.appendMarkdown(`\n\n[Open tracking issue](${definition.trackingUrl})`);
-    }
-    return contents;
-}
-function variableHover(definition) {
-    if (!definition) {
-        return undefined;
-    }
-    const contents = new vscode.MarkdownString();
-    contents.appendMarkdown('Resolves to:\n\n');
-    contents.appendCodeblock(definition.value);
-    contents.appendMarkdown(`\nDefined in \`${vscode.workspace.asRelativePath(definition.source, false)}:${definition.line}\``);
-    return contents;
-}
-function createDiagnostic(range, message, severity, code) {
-    const diagnostic = new vscode.Diagnostic(range, message, severity);
-    diagnostic.source = diagnosticSource;
-    diagnostic.code = code;
-    return diagnostic;
-}
-function registryDiagnostic(document, error) {
-    const start = new vscode.Position(0, 0);
-    const end = document.lineCount > 0 && document.lineAt(0).text.length > 0
-        ? new vscode.Position(0, 1)
-        : start;
-    return createDiagnostic(new vscode.Range(start, end), `Unable to load documentation registries: ${error instanceof Error ? error.message : String(error)}`, vscode.DiagnosticSeverity.Error, 'registry-error');
-}
-function offsetsToRange(document, start, end) {
-    return new vscode.Range(document.positionAt(start), document.positionAt(end));
-}
-function capitalize(value) {
-    return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
 
 /***/ }),
 /* 53 */
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DocumentationRegistry = void 0;
-exports.parseVariableFile = parseVariableFile;
-const path = __importStar(__webpack_require__(54));
-const vscode = __importStar(__webpack_require__(1));
-class DocumentationRegistry {
-    logger;
-    cache = new Map();
-    watchers = new Map();
-    changeEmitter = new vscode.EventEmitter();
-    reportedErrors = new Map();
-    workspaceFolderListener;
-    onDidChange = this.changeEmitter.event;
-    constructor(logger) {
-        this.logger = logger;
-        for (const folder of vscode.workspace.workspaceFolders ?? []) {
-            this.watchFolder(folder);
-        }
-        this.workspaceFolderListener = vscode.workspace.onDidChangeWorkspaceFolders(event => {
-            for (const folder of event.removed) {
-                this.unwatchFolder(folder);
-            }
-            for (const folder of event.added) {
-                this.watchFolder(folder);
-            }
-        });
-    }
-    async getSnapshot(uri) {
-        const folder = vscode.workspace.getWorkspaceFolder(uri);
-        if (!folder) {
-            throw new Error('The document is not in a workspace folder.');
-        }
-        const key = folder.uri.toString();
-        let snapshot = this.cache.get(key);
-        if (!snapshot) {
-            snapshot = this.load(folder).catch(error => {
-                this.reportError(folder, error);
-                throw error;
-            });
-            this.cache.set(key, snapshot);
-        }
-        return snapshot;
-    }
-    dispose() {
-        for (const watchers of this.watchers.values()) {
-            for (const watcher of watchers) {
-                watcher.dispose();
-            }
-        }
-        this.workspaceFolderListener.dispose();
-        this.changeEmitter.dispose();
-    }
-    watchFolder(folder) {
-        const key = folder.uri.toString();
-        if (this.watchers.has(key)) {
-            return;
-        }
-        const patterns = [
-            new vscode.RelativePattern(folder, 'build/feature-lifecycle.json'),
-            new vscode.RelativePattern(folder, 'data/variables/**/*.{yml,yaml}')
-        ];
-        const watchers = [];
-        for (const pattern of patterns) {
-            const watcher = vscode.workspace.createFileSystemWatcher(pattern);
-            watcher.onDidChange(() => this.invalidate(folder));
-            watcher.onDidCreate(() => this.invalidate(folder));
-            watcher.onDidDelete(() => this.invalidate(folder));
-            watchers.push(watcher);
-        }
-        this.watchers.set(key, watchers);
-    }
-    unwatchFolder(folder) {
-        const key = folder.uri.toString();
-        for (const watcher of this.watchers.get(key) ?? []) {
-            watcher.dispose();
-        }
-        this.watchers.delete(key);
-        this.cache.delete(key);
-        this.reportedErrors.delete(key);
-    }
-    invalidate(folder) {
-        this.cache.delete(folder.uri.toString());
-        this.reportedErrors.delete(folder.uri.toString());
-        this.changeEmitter.fire(folder);
-    }
-    async load(folder) {
-        const [features, variables] = await Promise.all([
-            loadFeatures(folder),
-            loadVariables(folder)
-        ]);
-        this.reportedErrors.delete(folder.uri.toString());
-        return { features, variables };
-    }
-    reportError(folder, error) {
-        const message = error instanceof Error ? error.message : String(error);
-        const key = folder.uri.toString();
-        if (this.reportedErrors.get(key) === message) {
-            return;
-        }
-        this.reportedErrors.set(key, message);
-        this.logger.error(`Unable to load Markdown authoring registries for ${folder.name}: ${message}`);
-    }
-}
-exports.DocumentationRegistry = DocumentationRegistry;
-async function loadFeatures(folder) {
-    const source = vscode.Uri.joinPath(folder.uri, 'build', 'feature-lifecycle.json');
-    const contents = await readRequiredFile(source, 'feature lifecycle registry');
-    let parsed;
-    try {
-        parsed = JSON.parse(contents);
-    }
-    catch (error) {
-        throw new Error(`Invalid JSON in ${source.fsPath}: ${error instanceof Error ? error.message : String(error)}`);
-    }
-    if (!isRecord(parsed) || !isRecord(parsed.features)) {
-        throw new Error(`${source.fsPath} must contain a "features" object.`);
-    }
-    if (Object.keys(parsed).some(key => key !== '$schema' && key !== 'features') ||
-        (parsed.$schema !== undefined && typeof parsed.$schema !== 'string')) {
-        throw new Error(`${source.fsPath} contains an unsupported top-level property.`);
-    }
-    const features = new Map();
-    for (const [id, value] of Object.entries(parsed.features)) {
-        if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id) || !isRecord(value)) {
-            throw new Error(`Invalid feature entry "${id}" in ${source.fsPath}.`);
-        }
-        const { label, state, trackingUrl } = value;
-        if (Object.keys(value).some(key => key !== 'label' && key !== 'state' && key !== 'trackingUrl')) {
-            throw new Error(`Feature "${id}" in ${source.fsPath} contains an unsupported property.`);
-        }
-        if (typeof label !== 'string' || label.length === 0 || (state !== 'experimental' && state !== 'preview')) {
-            throw new Error(`Feature "${id}" in ${source.fsPath} must have a label and a valid state.`);
-        }
-        if (trackingUrl !== undefined && (typeof trackingUrl !== 'string' || !isHttpsUrl(trackingUrl))) {
-            throw new Error(`Feature "${id}" in ${source.fsPath} has an invalid trackingUrl.`);
-        }
-        features.set(id, { id, label, state, trackingUrl, source });
-    }
-    return features;
-}
-async function loadVariables(folder) {
-    const pattern = new vscode.RelativePattern(folder, 'data/variables/**/*.{yml,yaml}');
-    const sources = (await vscode.workspace.findFiles(pattern)).sort((left, right) => left.path.localeCompare(right.path));
-    if (sources.length === 0) {
-        throw new Error(`No reusable variable files were found under ${vscode.Uri.joinPath(folder.uri, 'data', 'variables').fsPath}.`);
-    }
-    const variables = new Map();
-    for (const source of sources) {
-        const contents = await readRequiredFile(source, 'reusable variable file');
-        const relativePath = path.relative(vscode.Uri.joinPath(folder.uri, 'data', 'variables').fsPath, source.fsPath);
-        const group = relativePath.replace(/\.(?:ya?ml)$/i, '').split(path.sep).join('.');
-        for (const entry of parseVariableFile(contents, source.fsPath)) {
-            const variablePath = `variables.${group}.${entry.key}`;
-            const previous = variables.get(variablePath);
-            if (previous) {
-                throw new Error(`Duplicate reusable variable "${variablePath}" in ${previous.source.fsPath} and ${source.fsPath}.`);
-            }
-            variables.set(variablePath, {
-                path: variablePath,
-                value: entry.value,
-                source,
-                line: entry.line
-            });
-        }
-    }
-    return variables;
-}
-function parseVariableFile(contents, sourceName) {
-    const entries = [];
-    const keys = new Set();
-    const lines = contents.split(/\r?\n/);
-    for (let index = 0; index < lines.length; index++) {
-        const line = lines[index];
-        const lineNumber = index + 1;
-        if (line.trim().length === 0) {
-            continue;
-        }
-        if (/^\s/.test(line)) {
-            throw variableError(sourceName, lineNumber, 'Indented mappings are not supported.');
-        }
-        if (line.startsWith('#')) {
-            continue;
-        }
-        const separator = line.indexOf(':');
-        if (separator <= 0) {
-            throw variableError(sourceName, lineNumber, 'Expected a flat "key: value" entry.');
-        }
-        const key = line.slice(0, separator).trim();
-        if (!key) {
-            throw variableError(sourceName, lineNumber, 'Variable keys cannot be empty.');
-        }
-        if (keys.has(key)) {
-            throw variableError(sourceName, lineNumber, `Duplicate variable key "${key}".`);
-        }
-        const value = parseVariableValue(line.slice(separator + 1), sourceName, lineNumber);
-        keys.add(key);
-        entries.push({ key, value, line: lineNumber });
-    }
-    return entries;
-}
-function parseVariableValue(input, sourceName, line) {
-    const trimmedStart = input.trimStart();
-    if (!trimmedStart) {
-        throw variableError(sourceName, line, 'Variable values cannot be empty.');
-    }
-    if (trimmedStart.startsWith('\'')) {
-        let value = '';
-        for (let index = 1; index < trimmedStart.length; index++) {
-            const character = trimmedStart[index];
-            if (character === '\'') {
-                if (trimmedStart[index + 1] === '\'') {
-                    value += '\'';
-                    index++;
-                    continue;
-                }
-                assertOnlyComment(trimmedStart.slice(index + 1), sourceName, line);
-                return value;
-            }
-            value += character;
-        }
-        throw variableError(sourceName, line, 'Unterminated single-quoted value.');
-    }
-    if (trimmedStart.startsWith('"')) {
-        let value = '';
-        for (let index = 1; index < trimmedStart.length; index++) {
-            const character = trimmedStart[index];
-            if (character === '"') {
-                assertOnlyComment(trimmedStart.slice(index + 1), sourceName, line);
-                return value;
-            }
-            if (character === '\\') {
-                const escape = trimmedStart[++index];
-                const replacements = { '"': '"', '\\': '\\', n: '\n', t: '\t' };
-                if (escape === undefined || replacements[escape] === undefined) {
-                    throw variableError(sourceName, line, `Unsupported escape sequence "\\${escape ?? ''}".`);
-                }
-                value += replacements[escape];
-                continue;
-            }
-            value += character;
-        }
-        throw variableError(sourceName, line, 'Unterminated double-quoted value.');
-    }
-    const comment = input.indexOf('#');
-    const rawValue = (comment >= 0 ? input.slice(0, comment) : input).trim();
-    if (!rawValue) {
-        throw variableError(sourceName, line, 'Variable values cannot be empty.');
-    }
-    if (/[:[\]{}]/.test(rawValue) || /(^|\s)[&*][^\s]+/.test(rawValue)) {
-        throw variableError(sourceName, line, 'Quote values that contain YAML collections, anchors, aliases, or colons.');
-    }
-    return rawValue;
-}
-function assertOnlyComment(remainder, sourceName, line) {
-    const trimmed = remainder.trim();
-    if (trimmed && !trimmed.startsWith('#')) {
-        throw variableError(sourceName, line, 'Unexpected content after the quoted value.');
-    }
-}
-function variableError(sourceName, line, message) {
-    return new Error(`${sourceName}:${line}: ${message}`);
-}
-async function readRequiredFile(uri, description) {
-    try {
-        return new TextDecoder().decode(await vscode.workspace.fs.readFile(uri));
-    }
-    catch (error) {
-        throw new Error(`Unable to read ${description} at ${uri.fsPath}: ${error instanceof Error ? error.message : String(error)}`);
-    }
-}
-function isRecord(value) {
-    return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-function isHttpsUrl(value) {
-    try {
-        const url = new URL(value);
-        return url.protocol === 'https:' && url.hostname.length > 0;
-    }
-    catch {
-        return false;
-    }
-}
-
-
-/***/ }),
-/* 54 */
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("path");
+//@ts-check
 
-/***/ }),
-/* 55 */
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-"use strict";
+/**
+ * @typedef {'anchor' | 'label' | 'missing-heading' | 'missing-toc' | 'order' | 'toc-format' | 'unexpected-entry'} ReleaseNoteTocIssueCode
+ */
 
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isPublishedDocument = isPublishedDocument;
-exports.isPublishedRelativePath = isPublishedRelativePath;
-exports.findDocumentationReferences = findDocumentationReferences;
-exports.rankCandidates = rankCandidates;
-const path = __importStar(__webpack_require__(54));
-const vscode = __importStar(__webpack_require__(1));
-const publishedFolders = new Set(['docs', 'api', 'remote', 'release-notes', 'blogs']);
-function isPublishedDocument(uri) {
-    const folder = vscode.workspace.getWorkspaceFolder(uri);
-    if (!folder) {
-        return false;
-    }
-    const relative = path.relative(folder.uri.fsPath, uri.fsPath);
-    if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) {
-        return false;
-    }
-    return isPublishedRelativePath(relative);
+/**
+ * @typedef {Object} ReleaseNoteTocIssue
+ * @property {ReleaseNoteTocIssueCode} code
+ * @property {number} line
+ * @property {number} startCharacter
+ * @property {number} endCharacter
+ * @property {string} message
+ */
+
+/**
+ * @typedef {Object} ReleaseNoteSection
+ * @property {string} label
+ * @property {number} line
+ * @property {number} startCharacter
+ * @property {number} endCharacter
+ */
+
+/**
+ * @typedef {ReleaseNoteSection & { href: string }} ReleaseNoteTocEntry
+ */
+
+const TOC_ENTRY_PATTERN = /<li>\s*<a\s+href="([^"]+)">([^<]+)<\/a>\s*<\/li>/;
+const H2_PATTERN = /^##\s+(.+?)\s*$/;
+
+/**
+ * Convert a heading to the anchor format used by the release notes renderer.
+ * @param {string} heading
+ */
+function headingToAnchor(heading) {
+	return heading
+		.toLowerCase()
+		.replace(/&(?:amp|#38);|&/g, ' and ')
+		.replace(/[`*_~]/g, '')
+		.replace(/<[^>]+>/g, '')
+		.replace(/[^\w\s-]/g, '')
+		.trim()
+		.replace(/\s+/g, '-');
 }
-function isPublishedRelativePath(relativePath) {
-    const normalized = relativePath.replace(/\\/g, '/');
-    return publishedFolders.has(normalized.split('/')[0]);
+
+/**
+ * Validate that a release note's inline ToC is an exact, ordered representation
+ * of its H2 headings.
+ * @param {string} content
+ * @returns {ReleaseNoteTocIssue[]}
+ */
+function validateReleaseNoteToc(content) {
+	const lines = content.split(/\r?\n/);
+	const tocStart = lines.findIndex(line => line.trim() === '<!-- TOC');
+	const tocEnd = tocStart === -1
+		? -1
+		: lines.findIndex((line, index) => index > tocStart && line.includes('Navigation End -->'));
+
+	if (tocStart === -1 || tocEnd === -1) {
+		return [{
+			code: 'missing-toc',
+			line: tocStart === -1 ? 0 : tocStart,
+			startCharacter: 0,
+			endCharacter: tocStart === -1 ? 1 : lines[tocStart].length,
+			message: 'Release notes must contain an inline ToC block ending with "Navigation End -->".'
+		}];
+	}
+
+	/** @type {ReleaseNoteTocIssue[]} */
+	const issues = [];
+	/** @type {ReleaseNoteTocEntry[]} */
+	const tocEntries = [];
+
+	for (let lineNumber = tocStart + 1; lineNumber < tocEnd; lineNumber++) {
+		const line = lines[lineNumber];
+		if (!line.includes('<li')) {
+			continue;
+		}
+
+		const match = TOC_ENTRY_PATTERN.exec(line);
+		if (!match) {
+			issues.push({
+				code: 'toc-format',
+				line: lineNumber,
+				startCharacter: Math.max(0, line.indexOf('<li')),
+				endCharacter: line.length,
+				message: 'ToC entries must use <li><a href="#anchor">Heading</a></li>.'
+			});
+			continue;
+		}
+
+		const labelStart = line.indexOf(match[2], match.index);
+		tocEntries.push({
+			href: match[1],
+			label: match[2],
+			line: lineNumber,
+			startCharacter: labelStart,
+			endCharacter: labelStart + match[2].length
+		});
+	}
+
+	/** @type {ReleaseNoteSection[]} */
+	const headings = [];
+	for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+		if (lineNumber >= tocStart && lineNumber <= tocEnd) {
+			continue;
+		}
+
+		const match = H2_PATTERN.exec(lines[lineNumber]);
+		if (match) {
+			const labelStart = lines[lineNumber].indexOf(match[1]);
+			headings.push({
+				label: match[1],
+				line: lineNumber,
+				startCharacter: labelStart,
+				endCharacter: labelStart + match[1].length
+			});
+		}
+	}
+
+	const matchedHeadingIndexes = new Set();
+	/** @type {{ entry: ReleaseNoteTocEntry, headingIndex: number }[]} */
+	const exactMatches = [];
+	for (let tocIndex = 0; tocIndex < tocEntries.length; tocIndex++) {
+		const entry = tocEntries[tocIndex];
+		let headingIndex = headings.findIndex((heading, index) =>
+			!matchedHeadingIndexes.has(index) && heading.label === entry.label);
+		const isExactMatch = headingIndex !== -1;
+
+		if (headingIndex === -1) {
+			const positionalHeading = headings[tocIndex];
+			const positionalHeadingHasEntry = positionalHeading
+				&& tocEntries.some(candidate => candidate.label === positionalHeading.label);
+
+			if (positionalHeading && !matchedHeadingIndexes.has(tocIndex) && !positionalHeadingHasEntry) {
+				headingIndex = tocIndex;
+				issues.push({
+					code: 'label',
+					line: entry.line,
+					startCharacter: entry.startCharacter,
+					endCharacter: entry.endCharacter,
+					message: `ToC label "${entry.label}" must match H2 heading "${positionalHeading.label}".`
+				});
+			} else {
+				issues.push({
+					code: 'unexpected-entry',
+					line: entry.line,
+					startCharacter: entry.startCharacter,
+					endCharacter: entry.endCharacter,
+					message: `ToC entry "${entry.label}" does not have a matching H2 heading.`
+				});
+			}
+		}
+
+		if (headingIndex !== -1) {
+			matchedHeadingIndexes.add(headingIndex);
+			if (isExactMatch) {
+				exactMatches.push({ entry, headingIndex });
+			}
+			const expectedHref = `#${headingToAnchor(headings[headingIndex].label)}`;
+			if (entry.href !== expectedHref) {
+				const hrefStart = lines[entry.line].indexOf(entry.href);
+				issues.push({
+					code: 'anchor',
+					line: entry.line,
+					startCharacter: hrefStart,
+					endCharacter: hrefStart + entry.href.length,
+					message: `ToC anchor "${entry.href}" must be "${expectedHref}" for H2 heading "${headings[headingIndex].label}".`
+				});
+			}
+		}
+	}
+
+	const orderedMatches = exactMatches.slice().sort((left, right) => left.headingIndex - right.headingIndex);
+	for (let index = 0; index < exactMatches.length; index++) {
+		if (exactMatches[index].entry !== orderedMatches[index].entry) {
+			const entry = exactMatches[index].entry;
+			issues.push({
+				code: 'order',
+				line: entry.line,
+				startCharacter: entry.startCharacter,
+				endCharacter: entry.endCharacter,
+				message: `ToC entry "${entry.label}" is out of order; it must match the H2 heading order.`
+			});
+		}
+	}
+
+	for (let headingIndex = 0; headingIndex < headings.length; headingIndex++) {
+		if (!matchedHeadingIndexes.has(headingIndex)) {
+			const heading = headings[headingIndex];
+			issues.push({
+				code: 'missing-heading',
+				line: heading.line,
+				startCharacter: heading.startCharacter,
+				endCharacter: heading.endCharacter,
+				message: `H2 heading "${heading.label}" is missing from the ToC.`
+			});
+		}
+	}
+
+	return issues;
 }
-function findDocumentationReferences(text) {
-    const references = [];
-    const incomplete = [];
-    const excludedLines = findFencedCodeLines(text);
-    const frontmatterEnd = findFrontmatterEnd(text);
-    for (const match of text.matchAll(/feature\(([^)\r\n]*)\)/g)) {
-        const matchStart = match.index;
-        if (matchStart === undefined || isExcluded(matchStart, text, excludedLines)) {
-            continue;
-        }
-        const value = match[1].trim();
-        const valueOffset = matchStart + match[0].indexOf(match[1]) + match[1].indexOf(value);
-        references.push({ kind: 'feature', value, start: valueOffset, end: valueOffset + value.length });
-    }
-    for (const match of text.matchAll(/\{%\s*data\s+(variables\.[^%\r\n]*?)\s*%\}/g)) {
-        const matchStart = match.index;
-        if (matchStart === undefined || isExcluded(matchStart, text, excludedLines)) {
-            continue;
-        }
-        const value = match[1].trim();
-        const valueOffset = matchStart + match[0].indexOf(match[1]) + match[1].indexOf(value);
-        references.push({ kind: 'variable', value, start: valueOffset, end: valueOffset + value.length });
-    }
-    if (frontmatterEnd !== undefined) {
-        const frontmatter = text.slice(0, frontmatterEnd);
-        for (const match of frontmatter.matchAll(/^FeatureStatus:[ \t]*([^#\r\n]*?)[ \t]*(?:#.*)?$/gm)) {
-            const matchStart = match.index;
-            if (matchStart === undefined) {
-                continue;
-            }
-            const value = match[1].trim();
-            const valueOffset = matchStart + match[0].indexOf(match[1]) + match[1].indexOf(value);
-            references.push({ kind: 'featureStatus', value, start: valueOffset, end: valueOffset + value.length });
-        }
-    }
-    const lines = lineOffsets(text);
-    for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
-        if (excludedLines.has(lineNumber)) {
-            continue;
-        }
-        const start = lines[lineNumber];
-        const end = lineNumber + 1 < lines.length ? lines[lineNumber + 1] : text.length;
-        const line = text.slice(start, end).replace(/\r?\n$/, '');
-        const feature = /feature\([^)\r\n`]*(`?)[ \t]*$/.exec(line);
-        if (feature) {
-            const trailingWhitespace = line.length - line.trimEnd().length;
-            const closingBacktickLength = feature[1].length;
-            incomplete.push({
-                kind: 'feature',
-                offset: start + line.length - trailingWhitespace - closingBacktickLength,
-                suffix: ')'
-            });
-        }
-        const variable = /\{%\s*data\s+variables\.[^%}\r\n]*$/.exec(line);
-        if (variable) {
-            incomplete.push({ kind: 'variable', offset: start + line.length, suffix: ' %}' });
-        }
-    }
-    return { references, incomplete };
-}
-function rankCandidates(query, candidates, limit = 3) {
-    if (!query) {
-        return [];
-    }
-    const threshold = Math.max(2, Math.floor(query.length * 0.35));
-    return [...candidates]
-        .map(candidate => ({
-        candidate,
-        distance: levenshteinDistance(query.toLowerCase(), candidate.toLowerCase())
-    }))
-        .filter(result => result.distance <= threshold)
-        .sort((left, right) => left.distance - right.distance || left.candidate.localeCompare(right.candidate))
-        .slice(0, limit)
-        .map(result => result.candidate);
-}
-function findFrontmatterEnd(text) {
-    if (!/^---\r?\n/.test(text)) {
-        return undefined;
-    }
-    const match = /^---[ \t]*$/gm;
-    match.exec(text);
-    const closing = match.exec(text);
-    return closing?.index === undefined ? undefined : closing.index;
-}
-function findFencedCodeLines(text) {
-    const excluded = new Set();
-    const lines = text.split(/\r?\n/);
-    let fence;
-    for (let index = 0; index < lines.length; index++) {
-        const match = /^\s*(`{3,}|~{3,})/.exec(lines[index]);
-        if (!fence && match) {
-            fence = { character: match[1][0], length: match[1].length };
-            excluded.add(index);
-            continue;
-        }
-        if (fence) {
-            excluded.add(index);
-            if (match?.[1][0] === fence.character && match[1].length >= fence.length) {
-                fence = undefined;
-            }
-        }
-    }
-    return excluded;
-}
-function lineOffsets(text) {
-    const offsets = [0];
-    for (let index = 0; index < text.length; index++) {
-        if (text[index] === '\n') {
-            offsets.push(index + 1);
-        }
-    }
-    return offsets;
-}
-function isExcluded(offset, text, excludedLines) {
-    let line = 0;
-    for (let index = 0; index < offset; index++) {
-        if (text[index] === '\n') {
-            line++;
-        }
-    }
-    return excludedLines.has(line);
-}
-function levenshteinDistance(left, right) {
-    const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
-    for (let leftIndex = 1; leftIndex <= left.length; leftIndex++) {
-        let diagonal = previous[0];
-        previous[0] = leftIndex;
-        for (let rightIndex = 1; rightIndex <= right.length; rightIndex++) {
-            const above = previous[rightIndex];
-            previous[rightIndex] = left[leftIndex - 1] === right[rightIndex - 1]
-                ? diagonal
-                : Math.min(diagonal, above, previous[rightIndex - 1]) + 1;
-            diagonal = above;
-        }
-    }
-    return previous[right.length];
-}
+
+module.exports = {
+	headingToAnchor,
+	validateReleaseNoteToc
+};
 
 
 /***/ })
@@ -11102,7 +10519,7 @@ function levenshteinDistance(left, right) {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -11116,14 +10533,14 @@ function levenshteinDistance(left, right) {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -11136,7 +10553,7 @@ function levenshteinDistance(left, right) {
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -11148,12 +10565,12 @@ function levenshteinDistance(left, right) {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -11164,15 +10581,15 @@ function levenshteinDistance(left, right) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__(0);
 /******/ 	module.exports = __webpack_exports__;
-/******/ 	
+/******/
 /******/ })()
 ;
 //# sourceMappingURL=extension.js.map

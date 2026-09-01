@@ -10,10 +10,13 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
+    "check-release-note-toc": "node ./build/check-release-note-toc.js",
+    "check-staged-files": "node ./build/check-staged-files.js",
     "lint": "eslint **/*.js",
     "prepare": "husky install",
     "generate-sidebar": "node ./build/generate-sidebar.js",
-    "serve": "npm run generate-sidebar && docsify serve ."
+    "serve": "npm run generate-sidebar && docsify serve .",
+    "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",
@@ -26,6 +29,9 @@
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "npm run check-lfs"
+    ],
+    "release-notes/v1_*.md": [
+      "npm run check-release-note-toc"
     ]
   }
 }
