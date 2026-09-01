@@ -1,7 +1,7 @@
 {
   "featured": {
     "title": "Finish pull requests with Agent Merge",
-    "description": "Address review feedback, failed checks, and merge conflicts with Agent Merge. Plus, use Voice Mode, multi-root workspaces, organized chat sessions, and custom chat backgrounds.",
+    "description": "Address review feedback, failed checks, and merge conflicts with Agent Merge. Plus, use multi-root workspaces, organized chat sessions, and custom chat backgrounds.",
     "link": "/updates/v1_136",
     "image": "/assets/updates/1_136/release-highlights.webp"
   },
