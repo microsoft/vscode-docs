@@ -38,7 +38,7 @@ function headingToAnchor(heading) {
 		.toLowerCase()
 		.replace(/&(?:amp|#38);|&/g, ' and ')
 		.replace(/[`*_~]/g, '')
-		.replace(/<[^>]+>/g, '')
+		.replace(/[<>]/g, '')
 		.replace(/[^\w\s-]/g, '')
 		.trim()
 		.replace(/\s+/g, '-');
