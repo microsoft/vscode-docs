@@ -44,6 +44,12 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
 
+### Correct misspelled words
+
+When you type in an editable field, the integrated browser underlines misspelled words. Right-click a misspelled word and select a suggested correction.
+
+To save a word to the browser dictionary, select **Add to Dictionary**. This action is only available when the browser uses persistent `global` or `workspace` [session storage](#session-storage). Spelling suggestions remain available in `ephemeral` storage, but dictionary changes can't be saved.
+
 ### Address bar and suggestions
 
 When you select the address bar, a suggestions picker opens to help you navigate. On a new browser tab, the picker opens automatically. Type a URL and press `kbstyle(Enter)` to navigate. As you type, the picker filters your favorites and other suggestions.
