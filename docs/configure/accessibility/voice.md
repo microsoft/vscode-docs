@@ -1,12 +1,13 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
 DateApproved: 9/2/2026
-MetaDescription: Use built-in dictation and Voice Mode in {% data variables.product.prodname_vscode %} for local speech recognition and spoken agent conversations.
+MetaDescription: Use built-in dictation in {% data variables.product.prodname_vscode %} for local speech recognition in chat, editors, and terminals.
 ---
 # Voice support
 
-{% data variables.product.prodname_vscode %} has built-in voice features for two workflows. Voice Mode lets you have a spoken conversation with an agent while it works on your code. Dictation converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
+{% data variables.product.prodname_vscode %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
 
+<!--
 ## Use Voice Mode
 
 `feature(voice-mode)`
@@ -28,6 +29,7 @@ We are currently rolling out `feature(voice-mode)` gradually, so it may not be a
 
 > [!NOTE]
 > `feature(voice-mode)` is not available for users on a {% data variables.copilot.copilot_enterprise_short %} and {% data variables.copilot.copilot_business_short %} plan.
+-->
 
 ## Use built-in dictation
 
@@ -83,10 +85,10 @@ Use these settings to configure built-in dictation:
 | `setting(dictation.model)` | Selects the speech recognition model. | `"nemotron-3.5-asr-streaming-0.6b"` |
 | `setting(dictation.showTranscript)` | Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` | Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
-| `setting(agents.voice.language)` | Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
+| `setting(agents.voice.language)` | Provides a language hint for dictation. Use `auto` to use the system language. | `"auto"` |
 | `setting(accessibility.voice.speechTimeout)` | Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
 
-To choose an input device, run **Chat: Dictate: Select Microphone** from the Command Palette. The microphone selection applies to all dictation surfaces and Voice Mode.
+To choose an input device, run **Chat: Dictate: Select Microphone** from the Command Palette. The microphone selection applies to all dictation surfaces.
 
 ### Add dictation instructions
 
