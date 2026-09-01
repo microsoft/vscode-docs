@@ -21,6 +21,10 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "mcp-autostart": {
+      "label": "Automatically start MCP servers",
+      "state": "experimental"
+    },
     "nested-agents-md-files": {
       "label": "Nested AGENTS.md files",
       "state": "experimental"

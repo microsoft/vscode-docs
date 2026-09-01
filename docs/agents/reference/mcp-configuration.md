@@ -307,7 +307,7 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 |---------|-------------|
 | `setting(chat.mcp.access)` | Manage which MCP servers can be used in {% data variables.product.prodname_vscode_shortname %}. |
 | `setting(chat.mcp.discovery.enabled)` | Configure automatic discovery of MCP server configuration from other applications. |
-| `setting(chat.mcp.autostart)` (Experimental) | Automatically start MCP servers when configuration changes are detected. |
+| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Automatically start MCP servers when configuration changes are detected. |
 | `setting(chat.mcp.serverSampling)` | Configure which models are exposed to MCP servers for sampling (making requests in the background). |
 | `setting(chat.mcp.apps.enabled)` (Experimental) | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
 

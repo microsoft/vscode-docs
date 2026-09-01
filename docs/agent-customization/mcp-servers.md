@@ -226,9 +226,11 @@ Organizations can centrally manage access to MCP servers via GitHub policies. Le
 
 ## Automatically start MCP servers
 
+`feature(mcp-autostart)`
+
 When you add an MCP server or change its configuration, {% data variables.product.prodname_vscode_shortname %} needs to (re)start the server to discover the tools it provides.
 
-You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
+You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting.
 
 ## MCP server trust
 
