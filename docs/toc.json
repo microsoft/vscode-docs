@@ -113,7 +113,6 @@
                 "topics": [
                     ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
                     ["Settings Reference", "/docs/agents/reference/ai-settings"],
-                    ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                     ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
                     ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]

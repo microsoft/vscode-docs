@@ -163,6 +163,7 @@ Use these settings to adjust the chat transcript:
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 
+<!--
 ### Use the VS Code pet
 
 `feature(chat-pet)`
@@ -179,6 +180,7 @@ Interact with the pet in the following ways:
 Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
 
 For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
+-->
 
 ### Customize the {% data variables.copilot.agents_window %} chat background
 
