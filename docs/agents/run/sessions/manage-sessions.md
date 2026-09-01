@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 9/2/2026
-MetaDescription: Create and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, context compaction, organization, archiving, and forking.
+MetaDescription: Create, orchestrate, and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
@@ -301,6 +301,14 @@ With these tools, an agent can:
 * Create a new session for a sub-task, or create a new chat in an existing session.
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
+
+You can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
+
+```prompt
+Create a session in the vscode workspace to run the tests.
+```
+
+If multiple workspaces have the same project name, the agent reports the possible matches instead of choosing one. Session-management tools also support remote workspace URIs and preserve the project URI and working directories for multi-root workspaces.
 
 When a tool creates or targets a session, {% data variables.product.prodname_vscode_shortname %} shows an **Open Session** pill in chat so you can jump directly to it.
 
