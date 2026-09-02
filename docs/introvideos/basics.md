@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this tutorial, we walk you through using {% data variables.product.prodname_vscode %} powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/f8_uF_IDV50" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Getting Started with {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/basics/youtube-f8_uF_IDV50.jpg)](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
 Here's the next video we recommend: [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md)
 

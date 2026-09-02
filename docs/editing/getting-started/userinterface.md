@@ -7,7 +7,7 @@ MetaDescription: A quick overview of the {% data variables.product.prodname_vsco
 
 At its heart, {% data variables.product.prodname_vscode %} is a code editor. Like many other code editors, {% data variables.product.prodname_vscode_shortname %} adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your {% data variables.product.prodname_vscode_shortname %} user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Transform your {% data variables.product.prodname_vscode_shortname %} user interface on YouTube (opens in new tab).](images/userinterface/youtube-nORT3-kONgA.jpg)](https://www.youtube.com/watch?v=nORT3-kONgA)
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.

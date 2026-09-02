@@ -18,7 +18,7 @@ In March, we released the [bring your own key (BYOK)](https://code.visualstudio.
 
 Now, we're taking BYOK to the next level. In the [v1.104 release](https://code.visualstudio.com/updates/v1_104), we introduced the [Language Model Chat Provider API](https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider) that enables model providers to contribute their models directly through VS Code extensions.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/xXFTlPZJJoo?si=UrgdYjNbOzVbSysl" title="BYOK in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch BYOK in VS Code on YouTube (opens in new tab).](images/bring-your-own-key/youtube-xXFTlPZJJoo.jpg)](https://www.youtube.com/watch?v=xXFTlPZJJoo)
 
 
 ## What is Bring Your Own Key (BYOK)?

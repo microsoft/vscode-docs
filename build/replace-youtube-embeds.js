@@ -136,6 +136,8 @@ function parseYouTubeIframe(iframe) {
   if (!title || isGenericTitle(title)) {
     return {
       isYouTube: true,
+      issueCode: 'missing-title',
+      videoId,
       error: `Video ${videoId} needs a meaningful iframe title before it can be migrated.`
     };
   }
@@ -197,7 +199,7 @@ function findIframeRanges(content) {
   return ranges;
 }
 
-function analyzeMarkdown(markdownPath, content) {
+function analyzeMarkdown(markdownPath, content, titleOverrides) {
   const embeds = [];
   const issues = [];
   let output = '';
@@ -205,16 +207,26 @@ function analyzeMarkdown(markdownPath, content) {
 
   findIframeRanges(content).forEach(function (range) {
     const iframe = content.substring(range.start, range.end);
-    const parsed = parseYouTubeIframe(iframe);
+    let parsed = parseYouTubeIframe(iframe);
     if (!parsed.isYouTube) {
       return;
     }
 
+    if (parsed.issueCode === 'missing-title' && titleOverrides && titleOverrides.has(parsed.videoId)) {
+      parsed = {
+        isYouTube: true,
+        title: titleOverrides.get(parsed.videoId),
+        videoId: parsed.videoId
+      };
+    }
+
     if (parsed.error) {
       issues.push({
+        code: parsed.issueCode,
         file: markdownPath,
         line: content.substring(0, range.start).split('\n').length,
-        message: parsed.error
+        message: parsed.error,
+        videoId: parsed.videoId
       });
       return;
     }
@@ -384,7 +396,51 @@ function downloadBestThumbnail(videoId, getBuffer) {
   return tryQuality();
 }
 
-function prepareMigration(files) {
+function downloadVideoTitle(videoId, getBuffer) {
+  const fetchBuffer = getBuffer || requestBuffer;
+  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(watchUrl)}&format=json`;
+
+  return fetchBuffer(url).then(function (result) {
+    if (!/^application\/json(?:;|$)/i.test(result.contentType)) {
+      throw new Error(`Invalid oEmbed response type for ${videoId}: ${result.contentType || 'missing'}`);
+    }
+
+    let metadata;
+    try {
+      metadata = JSON.parse(result.data.toString('utf8'));
+    } catch (error) {
+      throw new Error(`Invalid oEmbed JSON for ${videoId}: ${error.message}`);
+    }
+
+    const title = typeof metadata.title === 'string' ? metadata.title.replace(/\s+/g, ' ').trim() : '';
+    if (!title || isGenericTitle(title)) {
+      throw new Error(`YouTube oEmbed did not provide a meaningful title for ${videoId}.`);
+    }
+
+    return title;
+  });
+}
+
+function resolveIssueTitles(issues, getBuffer, logger) {
+  const videoIds = Array.from(new Set(issues.map(function (issue) {
+    return issue.videoId;
+  })));
+  const titles = new Map();
+
+  return videoIds.reduce(function (promise, videoId) {
+    return promise.then(function () {
+      return downloadVideoTitle(videoId, getBuffer).then(function (title) {
+        titles.set(videoId, title);
+        logger(`Resolved title for ${videoId}: ${title}`);
+      });
+    });
+  }, Promise.resolve()).then(function () {
+    return titles;
+  });
+}
+
+function prepareMigration(files, titleOverrides) {
   const filePlans = [];
   const downloads = new Map();
   const issues = [];
@@ -392,9 +448,9 @@ function prepareMigration(files) {
 
   files.forEach(function (file) {
     const originalContent = fs.readFileSync(file, 'utf8');
-    const analysis = analyzeMarkdown(file, originalContent);
+    const analysis = analyzeMarkdown(file, originalContent, titleOverrides);
 
-    embedCount += analysis.embeds.length + analysis.issues.length;
+    embedCount += analysis.embeds.length;
     issues.push.apply(issues, analysis.issues);
 
     if (analysis.embeds.length > 0) {
@@ -499,22 +555,24 @@ function formatSummary(summary, write) {
     `${summary.issueCount} embed(s) need attention; scanned ${summary.fileCount} Markdown file(s).`;
 }
 
-function runMigration(options) {
-  const logger = options.logger || console.log;
-  const root = path.resolve(options.root || ROOT);
-  const files = collectMarkdownFiles(options.inputs, root);
-  const plan = prepareMigration(files);
+function createSummary(plan, fileCount) {
   const summary = {
     downloads: plan.downloads,
     embedCount: plan.embedCount,
-    fileCount: files.length,
+    fileCount,
     filePlans: plan.filePlans,
     foundCount: plan.embedCount,
     issueCount: plan.issues.length
   };
   summary.foundCount += summary.issueCount;
 
-  if (plan.issues.length > 0) {
+  return summary;
+}
+
+function executeMigration(plan, options, files, root, logger) {
+  const summary = createSummary(plan, files.length);
+
+  if (summary.issueCount > 0) {
     plan.issues.forEach(function (issue) {
       logger(`${path.relative(root, issue.file)}:${issue.line}: ${issue.message}`);
     });
@@ -534,6 +592,28 @@ function runMigration(options) {
     logger(formatSummary(summary, true));
     return summary;
   });
+}
+
+function runMigration(options) {
+  const logger = options.logger || console.log;
+  const root = path.resolve(options.root || ROOT);
+  const files = collectMarkdownFiles(options.inputs, root);
+  const initialPlan = prepareMigration(files);
+
+  if (options.write && initialPlan.issues.length > 0) {
+    const unresolvableIssues = initialPlan.issues.filter(function (issue) {
+      return issue.code !== 'missing-title';
+    });
+    if (unresolvableIssues.length > 0) {
+      return executeMigration(initialPlan, options, files, root, logger);
+    }
+
+    return resolveIssueTitles(initialPlan.issues, options.getMetadataBuffer, logger).then(function (titles) {
+      return executeMigration(prepareMigration(files, titles), options, files, root, logger);
+    });
+  }
+
+  return executeMigration(initialPlan, options, files, root, logger);
 }
 
 function printUsage() {
@@ -594,6 +674,7 @@ module.exports = {
   analyzeMarkdown,
   collectMarkdownFiles,
   downloadBestThumbnail,
+  downloadVideoTitle,
   isJpeg,
   parseArguments,
   parseYouTubeIframe,

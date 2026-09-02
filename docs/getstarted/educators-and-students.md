@@ -83,7 +83,7 @@ Try out these space-travel themed challenges that introduce you to data science,
 
 Check out these WONDER WOMAN 1984 inspired lessons built to help you write your first lines of Python code. In the first module, learn how to crack a Caesar Cipher code that reveals a secret message with a location. In the second module, create a personality challenge to determine which character you're most like!
 
-Follow along with the [video walkthrough of the first lesson](https://www.youtube-nocookie.com/embed/VH_mU42lQkQ).
+Follow along with the [video walkthrough of the first lesson](https://www.youtube.com/watch?v=VH_mU42lQkQ).
 
 | Title | Description |
 |-------|-------------|
@@ -91,7 +91,7 @@ Follow along with the [video walkthrough of the first lesson](https://www.youtub
 
 ### Learn Python with Space Jam
 
-Inspired by the film "Space Jam: A New Legacy," this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in {% data variables.product.prodname_vscode %}, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals. Watch the [introduction video](https://www.youtube-nocookie.com/embed/pXkIIzihEYM).
+Inspired by the film "Space Jam: A New Legacy," this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in {% data variables.product.prodname_vscode %}, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals. Watch the [introduction video](https://www.youtube.com/watch?v=pXkIIzihEYM).
 
 | Title | Description |
 |-------|-------------|
@@ -103,7 +103,7 @@ Inspired by the film "Space Jam: A New Legacy," this learning path shows basketb
 
 [Live Share](https://learn.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate in real time with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
 
-<iframe src="https://www.youtube-nocookie.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
+[![Watch Collaborate with Live Share on YouTube (opens in new tab).](images/educators-and-students/youtube-A2ceblXTBBc.jpg)](https://www.youtube.com/watch?v=A2ceblXTBBc)
 
 >**Note**: The video mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
 

@@ -719,7 +719,7 @@ Note that this should be done with caution because it will delete all the keys i
 
 With GitHub Codespaces, you can host your application for testing purposes when using [GPT Actions](https://platform.openai.com/docs/actions/introduction). GPT Actions are tools that enable [ChatGPT](https://chatgpt.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. You can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a GPT Action with {% data variables.product.prodname_vscode_shortname %} and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch Build a GPT Action with {% data variables.product.prodname_vscode_shortname %} and Codespaces on YouTube (opens in new tab).](images/tutorial-fastapi/youtube-fPCjEbRpK1M.jpg)](https://www.youtube.com/watch?v=fPCjEbRpK1M)
 
 >**Note**: All personal GitHub.com accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan. For more information, go to [About billing for GitHub Codespaces](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 

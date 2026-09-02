@@ -11,43 +11,43 @@ Get started with C# in {% data variables.product.prodname_vscode %} by watching 
 
 This video explains how {% data variables.product.prodname_vscode_shortname %} together with the C# Dev Kit extension provide a productive and powerful C# development environment.
 
-<iframe src="https://www.youtube-nocookie.com/embed/tFCZw-wZVtg" width="960" height="540" allowFullScreen frameBorder="0" title="What is {% data variables.product.prodname_vscode_shortname %} and C# Dev Kit?"></iframe>
+[![Watch What is {% data variables.product.prodname_vscode_shortname %} and C# Dev Kit? on YouTube (opens in new tab).](images/introvideos-csharp/youtube-tFCZw-wZVtg.jpg)](https://www.youtube.com/watch?v=tFCZw-wZVtg)
 
 ## Installing C# Dev Kit
 
 Learn how to install {% data variables.product.prodname_vscode %} and C# Dev Kit and create your first C# project.
 
-<iframe src="https://www.youtube-nocookie.com/embed/S4Rks1L03LI" width="960" height="540" allowFullScreen frameBorder="0" title="Installing {% data variables.product.prodname_vscode_shortname %} and C# Dev Kit"></iframe>
+[![Watch Installing {% data variables.product.prodname_vscode_shortname %} and C# Dev Kit on YouTube (opens in new tab).](images/introvideos-csharp/youtube-S4Rks1L03LI.jpg)](https://www.youtube.com/watch?v=S4Rks1L03LI)
 
 ## C# project management
 
 This video shows you how to navigate your C# project using the Solution Explorer in C# Dev Kit.
 
-<iframe src="https://www.youtube-nocookie.com/embed/HnP6pkE8Tjs" width="960" height="540" allowFullScreen frameBorder="0" title="C# Project Management in {% data variables.product.prodname_vscode_shortname %}"></iframe>
+[![Watch C# Project Management in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/introvideos-csharp/youtube-HnP6pkE8Tjs.jpg)](https://www.youtube.com/watch?v=HnP6pkE8Tjs)
 
 ## {% data variables.product.prodname_vscode_shortname %} C# productivity
 
 This video shows you how to write C# code in {% data variables.product.prodname_vscode_shortname %} and discover cool productivity tools you can use along the way!
 
-<iframe src="https://www.youtube-nocookie.com/embed/8M-wwFTqsCs" width="960" height="540" allowFullScreen frameBorder="0" title="{% data variables.product.prodname_vscode_shortname %} C# Productivity"></iframe>
+[![Watch {% data variables.product.prodname_vscode_shortname %} C# Productivity on YouTube (opens in new tab).](images/introvideos-csharp/youtube-8M-wwFTqsCs.jpg)](https://www.youtube.com/watch?v=8M-wwFTqsCs)
 
 ## Debugging C# apps
 
 This video shows you how to debug your C# application using C# Dev Kits debugger tools.
 
-<iframe src="https://www.youtube-nocookie.com/embed/VuIOk3DqKgc" width="960" height="540" allowFullScreen frameBorder="0" title="Debugging C# Apps in {% data variables.product.prodname_vscode_shortname %}"></iframe>
+[![Watch Debugging C# Apps in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/introvideos-csharp/youtube-VuIOk3DqKgc.jpg)](https://www.youtube.com/watch?v=VuIOk3DqKgc)
 
 ## Testing C# apps
 
 This video shows you how to test your C# application using C# Dev Kit.
 
-<iframe src="https://www.youtube-nocookie.com/embed/TGM386ZzeOc" width="960" height="540" allowFullScreen frameBorder="0" title="Testing C# Apps in {% data variables.product.prodname_vscode_shortname %}"></iframe>
+[![Watch Testing C# Apps in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/introvideos-csharp/youtube-TGM386ZzeOc.jpg)](https://www.youtube.com/watch?v=TGM386ZzeOc)
 
 ## How to contribute to C# in {% data variables.product.prodname_vscode_shortname %}
 
 This video explains about how you can contribute to a better C# experience in {% data variables.product.prodname_vscode_shortname %}.
 
-<iframe src="https://www.youtube-nocookie.com/embed/jF9ltwBK2Wk" width="960" height="540" allowFullScreen frameBorder="0" title="How to Contribute to C# in {% data variables.product.prodname_vscode_shortname %}"></iframe>
+[![Watch How to Contribute to C# in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/introvideos-csharp/youtube-jF9ltwBK2Wk.jpg)](https://www.youtube.com/watch?v=jF9ltwBK2Wk)
 
 ## Next steps
 

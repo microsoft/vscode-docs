@@ -17,7 +17,7 @@ When you are working in a development container, you may want to execute a comma
 
 ### Video: Run npm install when a container is created
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9qRy_kxVCK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to automatically run npm install in a dev container on YouTube (opens in new tab).](images/start-processes/youtube-9qRy_kxVCK8.jpg)](https://www.youtube.com/watch?v=9qRy_kxVCK8)
 
 <br><br>
 
@@ -29,7 +29,7 @@ In other cases, you may want to start up a process and leave it running. This ca
 
 ### Video: Run 'npm start' whenever the container is started
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zFzPnWgBx_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to run a project when a dev container starts on YouTube (opens in new tab).](images/start-processes/youtube-zFzPnWgBx_I.jpg)](https://www.youtube.com/watch?v=zFzPnWgBx_I)
 
 <br><br>
 
@@ -49,7 +49,7 @@ These systems also include a `service` command that will use `systemctl` or `/et
 
 ### Video: Start SSH service in a container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/KuSNpZgDYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to start the SSH service in a dev container on YouTube (opens in new tab).](images/start-processes/youtube-KuSNpZgDYDs.jpg)](https://www.youtube.com/watch?v=KuSNpZgDYDs)
 
 ## Adding startup commands to the Docker image instead
 

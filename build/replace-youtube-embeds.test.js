@@ -9,6 +9,7 @@ const test = require('node:test');
 const {
   analyzeMarkdown,
   downloadBestThumbnail,
+  downloadVideoTitle,
   parseYouTubeIframe,
   renderLinkedThumbnail,
   runMigration
@@ -38,6 +39,8 @@ test('rejects generic iframe titles', function () {
     parseYouTubeIframe('<iframe src="https://youtu.be/3HiLLByBWkg" title="YouTube video player"></iframe>'),
     {
       isYouTube: true,
+      issueCode: 'missing-title',
+      videoId: '3HiLLByBWkg',
       error: 'Video 3HiLLByBWkg needs a meaningful iframe title before it can be migrated.'
     }
   );
@@ -72,6 +75,46 @@ test('falls back to the next valid JPEG thumbnail', function () {
   }).then(function (thumbnail) {
     assert.equal(thumbnail.quality, 'sddefault');
     assert.equal(requestedUrls.length, 2);
+  });
+});
+
+test('resolves a meaningful title from YouTube oEmbed metadata', function () {
+  return downloadVideoTitle('3HiLLByBWkg', function (url) {
+    assert.match(url, /^https:\/\/www\.youtube\.com\/oembed\?/);
+    return Promise.resolve({
+      contentType: 'application/json; charset=utf-8',
+      data: Buffer.from(JSON.stringify({ title: 'Getting Started with Debugging in VS Code' }))
+    });
+  }).then(function (title) {
+    assert.equal(title, 'Getting Started with Debugging in VS Code');
+  });
+});
+
+test('write mode resolves generic titles before migrating', function () {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'youtube-embed-title-'));
+  const markdownPath = path.join(root, 'article.md');
+  const original = '<iframe src="https://www.youtube.com/embed/3HiLLByBWkg" title="YouTube video player"></iframe>\n';
+
+  fs.writeFileSync(markdownPath, original);
+
+  return runMigration({
+    getBuffer: function () {
+      return Promise.resolve({ contentType: 'image/jpeg', data: JPEG });
+    },
+    getMetadataBuffer: function () {
+      return Promise.resolve({
+        contentType: 'application/json',
+        data: Buffer.from(JSON.stringify({ title: 'Getting Started with Debugging in VS Code' }))
+      });
+    },
+    inputs: [markdownPath],
+    logger: function () {},
+    root,
+    write: true
+  }).then(function () {
+    assert.match(fs.readFileSync(markdownPath, 'utf8'), /Watch Getting Started with Debugging in VS Code on YouTube/);
+  }).finally(function () {
+    fs.rmSync(root, { recursive: true, force: true });
   });
 });
 
