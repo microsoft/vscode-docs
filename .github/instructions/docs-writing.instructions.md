@@ -107,6 +107,7 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+* Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
 
 ## Images
 

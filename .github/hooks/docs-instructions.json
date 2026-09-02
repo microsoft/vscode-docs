@@ -1,10 +1,32 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "bash": "node ./.github/hooks/track-agent-feedback.js session-start",
+        "powershell": "node .\\.github\\hooks\\track-agent-feedback.js session-start",
+        "timeout": 10
+      }
+    ],
     "PreToolUse": [
       {
         "type": "command",
         "bash": "./.github/hooks/block-markdown-dashes.sh",
         "powershell": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\block-markdown-dashes.ps1",
+        "timeout": 10
+      },
+      {
+        "type": "command",
+        "bash": "node ./.github/hooks/track-agent-feedback.js pre-tool-use",
+        "powershell": "node .\\.github\\hooks\\track-agent-feedback.js pre-tool-use",
+        "timeout": 10
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "type": "command",
+        "bash": "node ./.github/hooks/track-agent-feedback.js user-prompt-submit",
+        "powershell": "node .\\.github\\hooks\\track-agent-feedback.js user-prompt-submit",
         "timeout": 10
       }
     ],
@@ -13,6 +35,14 @@
         "type": "command",
         "bash": "./.github/hooks/check-docs-instructions.sh",
         "powershell": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\check-docs-instructions.ps1",
+        "timeout": 10
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "bash": "node ./.github/hooks/track-agent-feedback.js stop",
+        "powershell": "node .\\.github\\hooks\\track-agent-feedback.js stop",
         "timeout": 10
       }
     ]
