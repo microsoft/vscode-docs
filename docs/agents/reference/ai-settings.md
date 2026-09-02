@@ -342,8 +342,8 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
-| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
+| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) in extension host chat sessions. This setting writes debug events to disk for the Agent Debug Logs panel and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command. Reload the window after changing this setting. | `false` |
+| `setting(chat.agentHost.agentDebugLog.enabled)` _(Experimental)_<br/>Enable agent debug logging for Agent Host sessions and show their debug events in the Agent Debug Logs panel. Only sessions that run while this setting is enabled are captured. | `false` |
 | `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the {% data variables.copilot.chat_view %} to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
 
