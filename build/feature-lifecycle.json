@@ -37,6 +37,14 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "mcp-autostart": {
+      "label": "Automatically start MCP servers",
+      "state": "experimental"
+    },
+    "mcp-apps": {
+      "label": "MCP Apps",
+      "state": "experimental"
+    },
     "modern-ui": {
       "label": "Modern UI",
       "state": "experimental"
