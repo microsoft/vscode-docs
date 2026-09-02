@@ -103,7 +103,7 @@ To attach debug events to chat:
 Alternatively, you can use the `/troubleshoot` slash command to ask questions about a chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use in #session`.
 
 > [!NOTE]
-> For extension host chat sessions, the `/troubleshoot` command requires `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`. Reload the window after you enable the setting.
+> For extension host chat sessions, the `/troubleshoot` command requires `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`. Reload the window after you enable the setting. For Agent Host sessions, enable `setting(chat.agentHost.agentDebugLog.enabled)` before you start the session that you want to capture.
 
 ### Export and import sessions
 
