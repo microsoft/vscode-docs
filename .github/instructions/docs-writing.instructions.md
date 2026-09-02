@@ -118,7 +118,9 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 
 * Use videos only when they add value.
 * Videos have a descriptive and meaningful title that starts with "Video showing" or "Video of" and ends with ".".
-* For embedded videos, you MUST use `youtube-nocookie.com` instead of `youtube.com`.
+* Do not embed YouTube videos with an `iframe`. Use linked-image Markdown with a locally stored thumbnail. The site automatically opens external Markdown links in a new tab.
+* The thumbnail alt text is the link's accessible name. It must identify the video and announce that the link opens in a new tab, for example `[![Watch <video description> on YouTube (opens in new tab).](<thumbnail-path>)](<youtube-url>)`.
+* To migrate existing YouTube iframe embeds, run `npm run replace-youtube-embeds -- --write <file-or-directory>`. Omit `--write` to preview the migration.
 
 ## Lists
 
