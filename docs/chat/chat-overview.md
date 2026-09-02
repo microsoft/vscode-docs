@@ -94,11 +94,13 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
-## Image carousel (Experimental)
+## Image carousel
 
-When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
+You can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
 
 ![Screenshot showing the image carousel view with multiple images.](images/chat-sessions/image-carousel.png)
+
+To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `false`.
 
 ## Review and manage changes
 
