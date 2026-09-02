@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Build a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review the code and use browser tools to validate the result.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -47,15 +47,15 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
 
 1. Select **New** at the top of the left sidebar.
 
-1. From the workspace dropdown, choose **Select** from the **Local** tab and select the `agent-quickstart` folder you just created.
+1. Select **Folder**, and then select the `agent-quickstart` folder you just created. This folder becomes the primary execution workspace for the session.
 
-    ![Screenshot of selecting the agent-quickstart folder when creating a new session.](images/agents-quickstart/agent-session-select-folder.png)
+    ![Screenshot of selecting the agent-quickstart folder as the primary workspace in the redesigned new-session input.](images/agents-quickstart/agent-session-select-folder-2.png)
 
     If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Trust**.
 
 1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
 
-    ![Screenshot of selecting the Copilot agent harness and the Agent role.](images/agents-quickstart/agent-session-select-harness-role.png)
+    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual Permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role-2.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 

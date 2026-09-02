@@ -1,6 +1,6 @@
 ---
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: {% data variables.product.prodname_vscode %} for the Web and the vscode.dev URL
 ---
 # {% data variables.product.prodname_vscode %} for the Web

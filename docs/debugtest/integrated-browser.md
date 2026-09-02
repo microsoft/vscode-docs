@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -43,6 +43,12 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * Normal navigation and anchor links work as expected
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
+
+### Correct misspelled words
+
+When you type in an editable field, the integrated browser underlines misspelled words. Right-click a misspelled word and select a suggested correction.
+
+To save a word to the browser dictionary, select **Add to Dictionary**. This action is only available when the browser uses persistent `global` or `workspace` [session storage](#session-storage). Spelling suggestions remain available in `ephemeral` storage, but dictionary changes can't be saved.
 
 ### Address bar and suggestions
 

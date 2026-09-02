@@ -1,16 +1,41 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved: 08/04/2026
-MetaDescription: Use built-in dictation and voice features in {% data variables.product.prodname_vscode %}, including local speech recognition in chat, editors, and terminals.
+DateApproved: 9/2/2026
+MetaDescription: Use built-in dictation in {% data variables.product.prodname_vscode %} for local speech recognition in chat, editors, and terminals.
 ---
 # Voice support
 
-{% data variables.product.prodname_vscode_shortname %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
+{% data variables.product.prodname_vscode %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
+
+<!--
+## Use Voice Mode
+
+`feature(voice-mode)`
+
+Voice Mode lets you speak with an agent and hear its responses. To start a voice conversation, enable `setting(agents.voice.enabled)` and select the **Voice Mode** button in the chat input.
+
+While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
+
+You can customize Voice Mode in the following ways:
+
+* Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
+* Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
+* Use `setting(agents.voice.voice)` to select the voice that reads responses aloud.
+* Run **Voice Mode: Show Introduction** from the Command Palette to reopen the introduction, where you can select a microphone and preview the available voices.
+
+Right-click the **Voice Mode** button in the chat input to access its configuration, instructions, introduction, microphone selection, and transcript controls.
+
+We are currently rolling out `feature(voice-mode)` gradually, so it may not be available to all users immediately.
 
 > [!NOTE]
-> Built-in dictation is an experimental feature and is subject to change.
+> `feature(voice-mode)` is not available for users on a {% data variables.copilot.copilot_enterprise_short %} and {% data variables.copilot.copilot_business_short %} plan.
+-->
 
 ## Use built-in dictation
+
+`feature(built-in-dictation)`
+
+Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
 
 Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use, {% data variables.product.prodname_vscode_shortname %} downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
 
@@ -60,10 +85,10 @@ Use these settings to configure built-in dictation:
 | `setting(dictation.model)` | Selects the speech recognition model. | `"nemotron-3.5-asr-streaming-0.6b"` |
 | `setting(dictation.showTranscript)` | Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` | Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
-| `setting(agents.voice.language)` | Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
+| `setting(agents.voice.language)` | Provides a language hint for dictation. Use `auto` to use the system language. | `"auto"` |
 | `setting(accessibility.voice.speechTimeout)` | Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
 
-To choose an input device, run **Chat: Dictate: Select Microphone** from the Command Palette. The microphone selection applies to all dictation surfaces and Voice Mode.
+To choose an input device, run **Chat: Dictate: Select Microphone** from the Command Palette. The microphone selection applies to all dictation surfaces.
 
 ### Add dictation instructions
 
@@ -83,6 +108,13 @@ If network restrictions prevent {% data variables.product.prodname_vscode_shortn
 The default speech recognition model processes microphone audio on your device. After the initial model download, speech recognition does not require an internet connection.
 
 When `setting(dictation.experimental.llmCleanup)` is enabled, {% data variables.product.prodname_vscode_shortname %} sends the transcript text, but not the audio, to a Copilot language model for cleanup. Turn off this setting to keep transcript processing local.
+
+Organizations can enforce these privacy choices with enterprise policies:
+
+* `DictationModel` controls whether dictation uses the on-device model or streams audio to the cloud transcription service.
+* `DictationLLMCleanup` controls whether the final transcript is sent to a Copilot language model for cleanup.
+
+To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md#control-dictation-data).
 
 ## {% data variables.product.prodname_vscode_shortname %} Speech extension
 

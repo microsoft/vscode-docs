@@ -1,6 +1,6 @@
 ---
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about TypeScript refactorings supported by {% data variables.product.prodname_vscode %}.
 ---
 # Refactoring TypeScript

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Use built-in, MCP, and extension tools with AI agents in {% data variables.product.prodname_vscode_shortname %}, including tool selection, parameters, terminal commands, and approvals.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:

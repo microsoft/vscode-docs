@@ -1,6 +1,6 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about TypeScript transpiling with {% data variables.product.prodname_vscode %}.
 ---
 # Transpiling TypeScript

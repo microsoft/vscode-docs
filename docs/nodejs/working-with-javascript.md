@@ -1,6 +1,6 @@
 ---
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Working with JavaScript in {% data variables.product.prodname_vscode %}
 ---
 # Working with JavaScript

@@ -1,6 +1,6 @@
 ---
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about working with the R programming language in {% data variables.product.prodname_vscode %}.
 ---
 # R in {% data variables.product.prodname_vscode %}

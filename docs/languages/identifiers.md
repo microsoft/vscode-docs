@@ -1,6 +1,6 @@
 ---
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: {% data variables.product.prodname_vscode %} language mode identifiers
 ---
 # Language Identifiers

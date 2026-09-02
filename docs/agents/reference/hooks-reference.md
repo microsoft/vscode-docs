@@ -1,6 +1,6 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Reference for agent hook configuration properties and per-event input and output schemas in {% data variables.product.prodname_vscode %}, including PreToolUse, PostToolUse, SessionStart, Stop, and more.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

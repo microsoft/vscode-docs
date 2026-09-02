@@ -1,7 +1,7 @@
 ---
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with {% data variables.product.prodname_vscode %}
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Remote development in WSL
 

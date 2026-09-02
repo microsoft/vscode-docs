@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Configure AI for a codebase in {% data variables.product.prodname_vscode_shortname %} with project instructions, targeted guidance, reusable workflows, and specialized agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

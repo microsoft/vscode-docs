@@ -1,14 +1,14 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/26/2026
-MetaDescription: Learn how to use chat in {% data variables.product.prodname_vscode_shortname %}. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
+DateApproved: 9/2/2026
+MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to send requests, add context, personalize chat, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-This article describes the mechanics of how to interact with chat: how to send a request, add context, choose a language model, write effective prompts, and review AI-generated changes. These mechanics apply to all chat surfaces in {% data variables.product.prodname_vscode_shortname %}. For an overview of what agents can do and how to configure a session, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+This article describes the mechanics of how to interact with chat: how to send a request, add context, choose a language model, personalize chat, write effective prompts, and review AI-generated changes. These mechanics apply to all chat surfaces in {% data variables.product.prodname_vscode_shortname %}. For an overview of what agents can do and how to configure a session, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -130,12 +130,6 @@ Both settings have three possible values:
 > [!TIP]
 > Set the value to `always` if you want to stay aware of chat activity while working in other parts of {% data variables.product.prodname_vscode_shortname %}, such as when running long agent tasks in the background.
 
-## Show request and completion timestamps
-
-Chat can show timestamps for when you send a request and when a response completes. Hover over a completion timestamp to see elapsed response time.
-
-Use `setting(chat.verbose)` to enable or disable these timestamps.
-
 ## Find text in a chat session
 
 Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. It searches prompts and responses, including off-screen content and code blocks.
@@ -153,6 +147,63 @@ Use the following keyboard shortcuts to navigate between prompts in a chat sessi
 * `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
 * `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
 * `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
+
+## Personalize chat
+
+Adjust how chat content appears, add an interactive pet, or set a decorative background in the {% data variables.copilot.agents_window %}.
+
+### Customize the chat display
+
+Use these settings to adjust the chat transcript:
+
+| Display option | Settings |
+|----------------|----------|
+| Markdown font | Set the font family with `setting(chat.fontFamily)` and the font size with `setting(chat.fontSize)`. |
+| Code block font and layout | Set the font family, size, weight, and line height with `setting(chat.editor.fontFamily)`, `setting(chat.editor.fontSize)`, `setting(chat.editor.fontWeight)`, and `setting(chat.editor.lineHeight)`. Control line wrapping with `setting(chat.editor.wordWrap)`. |
+| Sticky prompts | Use `setting(chat.stickyScroll.enabled)` to pin the current prompt to the top of the transcript while you scroll. |
+| Request timestamps | Use `setting(chat.verbose)` to show or hide request and completion timestamps. Hover over a completion timestamp to view the elapsed response time. |
+
+For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
+
+<!--
+### Use the VS Code pet
+
+`feature(chat-pet)`
+
+The interactive VS Code pet sits above the chat input box and reacts to chat activity and your interactions. Type `/vscode-pet` in the chat input to show or hide it. In the new-session view of the {% data variables.copilot.agents_window %}, you can also right-click outside the input box and select the **Pet (/vscode-pet)** item.
+
+Interact with the pet in the following ways:
+
+* Select the pet to trigger a reaction. With the keyboard, press `kbstyle(Tab)` to focus it, and then press `kbstyle(Enter)` or `kbstyle(Space)`.
+* Drag the pet around chat and release it to drop it. You can also flick it to throw it.
+* When the pet has keyboard focus, press `kbstyle(Left)` or `kbstyle(Right)` to make it hop. Hold `kbstyle(Shift)` with an arrow key to throw it toward a wall.
+* Right-click the pet to open its context menu and view achievements, send it on the run, resize it, or switch between Stable and Insiders colors. With the keyboard, focus the pet and press `kbstyle(Shift+F10)`.
+
+Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
+
+For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
+-->
+
+### Customize the {% data variables.copilot.agents_window %} chat background
+
+`feature(agents-window-chat-backgrounds)`
+
+Add a decorative background to the chat area of the {% data variables.copilot.agents_window %} without changing chat in the main {% data variables.product.prodname_vscode_shortname %} window.
+
+To set a background, run the **Chat: Set Background...** command from the Command Palette (`kb(workbench.action.showCommands)`) or right-click an empty area of the chat. Then, choose one of these options:
+
+* **Codicons**: use a theme-aware pattern of built-in {% data variables.product.prodname_vscode_shortname %} icons.
+* **Image...**: select an image from your machine.
+* **Recently used**: reuse one of your five most recent background images.
+
+For an image background, run **Chat: Change Background Layout...** to repeat, stretch, center, or position the image along an edge or in a corner. Moving through the layout options previews each one. Select an option to save it, or dismiss the picker to restore the previous layout.
+
+To remove the background for the current color theme, run **Chat: Clear Background**.
+
+> [!NOTE]
+> Light and dark color themes have separate backgrounds. Background choices are stored on the current machine and don't sync, while the image layout syncs across devices.
+
+Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
 
 ## Get better responses
 

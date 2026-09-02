@@ -1,6 +1,6 @@
 ---
 ContentId: 0144ad9a-14df-41b5-9629-cbba7dbfc396
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} workspaces
 ---
 # What is a {% data variables.product.prodname_vscode_shortname %} workspace?
