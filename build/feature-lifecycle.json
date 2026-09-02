@@ -53,10 +53,6 @@
       "label": "Block detected terminal file writes",
       "state": "experimental"
     },
-    "voice-mode": {
-      "label": "Voice Mode",
-      "state": "experimental"
-    },
     "user-customization-migration": {
       "label": "User customization migration",
       "state": "experimental"
