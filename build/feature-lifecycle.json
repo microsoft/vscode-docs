@@ -17,6 +17,10 @@
       "label": "Agents window chat backgrounds",
       "state": "experimental"
     },
+    "assisted-permissions": {
+      "label": "Assisted permissions",
+      "state": "experimental"
+    },
     "built-in-dictation": {
       "label": "Built-in dictation",
       "state": "experimental"
