@@ -1,7 +1,7 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 DateApproved: 02/04/2026
-MetaDescription: {% data variables.product.prodname_vscode %} custom user interface layout.
+MetaDescription: Customize the {% data variables.product.prodname_vscode %} layout with side bars, panels, editor groups, toolbars, and interface density.
 ---
 # Custom Layout
 
@@ -10,9 +10,20 @@ MetaDescription: {% data variables.product.prodname_vscode %} custom user interf
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 > [!NOTE]
-> If you are new to {% data variables.product.prodname_vscode_shortname %}, you may want to start with the [user interface overview](/docs/editing/userinterface.md) or take a look at the [Tips and Tricks](/docs/editing/tips-and-tricks.md) article.
+> If you are new to {% data variables.product.prodname_vscode_shortname %}, you may want to start with the [user interface overview](/docs/editing/getting-started/userinterface.md) or take a look at the [Tips and Tricks](/docs/editing/getting-started/tips-and-tricks.md) article.
 
 ## Workbench
+
+### Layout density
+
+`feature(modern-ui)`
+
+Use layout density to control the spacing around major parts of the editor window. First, enable `setting(workbench.experimental.modernUI)`. Then, open the **Settings** editor, select **Layout Density**, and choose one of these options:
+
+* **Default**: use the standard spacing between and within panels.
+* **Compact**: remove spacing between panels and reduce the spacing within panels.
+
+You can also configure the density with `setting(window.density.layout)`.
 
 ### Primary Side Bar
 
@@ -210,13 +221,13 @@ You can customize the layout of the {% data variables.product.prodname_vscode_sh
 
 The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
 
-* **Minimap** - A [visual overview](/docs/editing/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
-* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/editing/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
-* **Sticky Scroll** - Display [nested symbol scopes](/docs/editing/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
+* **Minimap** - A [visual overview](/docs/editing/getting-started/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
+* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/editing/getting-started/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
+* **Sticky Scroll** - Display [nested symbol scopes](/docs/editing/getting-started/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 
-By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/editing/userinterface.md#side-by-side-editing) of the same file.
+By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/editing/getting-started/userinterface.md#side-by-side-editing) of the same file.
 
 Create a new editor group by dragging an editor to the side, or by using one of the **Split** commands in the editor tab context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
 
@@ -261,7 +272,7 @@ The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.spl
 
 ### Grid layout
 
-If you'd like more control over the editor group layout, you can use the [grid layout](/docs/editing/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
+If you'd like more control over the editor group layout, you can use the [grid layout](/docs/editing/getting-started/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
@@ -353,6 +364,6 @@ You must have more that one editor group for these commands to be available.
 
 Read on to find out about:
 
-* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

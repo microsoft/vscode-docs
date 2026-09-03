@@ -1,6 +1,6 @@
 ---
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Watch introductory videos for {% data variables.product.prodname_vscode %} on the official {% data variables.product.prodname_vscode_shortname %} YouTube channel.
 MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---
@@ -19,7 +19,7 @@ For the latest videos and tutorials, visit the official {% data variables.produc
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Get started with agents in {% data variables.product.prodname_vscode_shortname %}</p>
     </a>
-    <a class="card" href="/docs/editing/getting-started">
+    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
         <i class="codicon codicon-edit" aria-hidden="true"></i>
         <p>Learn the basics of editing in {% data variables.product.prodname_vscode_shortname %}</p>
     </a>

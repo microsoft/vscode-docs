@@ -1,14 +1,14 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 8/26/2026
-MetaDescription: Use the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %} to start and manage sessions, collaborate on pull requests, review changes, and commit agent work.
+DateApproved: 9/2/2026
+MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %} (Preview)
 
-The {% data variables.copilot.agents_window %} is a dedicated {% data variables.product.prodname_vscode_shortname %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for agent-first workflows.
+The {% data variables.copilot.agents_window %} is a dedicated {% data variables.product.prodname_vscode %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for agent-first workflows.
 
-In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, and review agent sessions across your projects.
+In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, review, and finish agent sessions across your projects.
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
 
@@ -107,7 +107,7 @@ The following parts of the window update when the active session changes:
 
 ## Start an agent session
 
-The {% data variables.copilot.agents_window %} lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
+The {% data variables.copilot.agents_window %} lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). Before you send your first prompt, you can attach other folders, repositories, issues, and pull requests as context. You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
 
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 
@@ -115,9 +115,20 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
     To directly start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
 
-1. Use the workspace dropdown to select a local folder, GitHub repository, or remote workspace via SSH or a dev tunnel.
+1. Select **Folder** or **Repository** to choose the primary execution workspace for the session. The first folder or repository you select determines where the agent runs and changes files.
+
+    To connect to a workspace through SSH or a dev tunnel, select **Remote Setup**.
 
     If the folder or repository isn't trusted, {% data variables.product.prodname_vscode_shortname %} prompts you to trust it before starting the session. The {% data variables.copilot.agents_window %} and main {% data variables.product.prodname_vscode_shortname %} window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+
+1. Optionally, attach more context to the request:
+
+    * Select **Folder** or **Repository** again to attach more projects. These items provide context for the request and don't become additional workspace roots.
+    * Select **Issue/PR** to attach issues or pull requests from the GitHub repository associated with the primary workspace. This control appears after you select a workspace associated with a GitHub repository. You can select an item from the picker or paste a GitHub issue or pull request URL.
+
+    You can attach multiple items. Select an issue or pull request attachment to open it in the browser, or use its remove control to detach it. Attachments are preserved if you reload a draft and are included when you send the first request.
+
+    ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
 1. Choose an available [agent harness](/docs/agents/concepts/agent-harnesses.md) from the dropdown, such as Copilot, Claude, or Codex.
 
@@ -236,6 +247,38 @@ To run terminal commands, select the **Open Terminal** icon in the title bar. Th
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
 
+### Finish a pull request with Agent Merge
+
+`feature(agent-merge)`
+
+Agent Merge monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
+
+* Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
+* Fix failed required CI checks.
+* Update a branch that is behind its base branch and resolve merge conflicts.
+* Merge the pull request or add it to the merge queue after the selected maintenance work is complete.
+
+To use Agent Merge:
+
+1. Enable `setting(chat.agentMerge.enabled)`.
+
+1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+
+1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
+
+1. From the **Agent Merge** menu, configure which blockers the agent should address and whether to merge the pull request when it is ready.
+
+    You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
+
+<!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
+
+> [!CAUTION]
+> Agent Merge starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the Agent Merge options before you enable automatic merging.
+
+Agent Merge waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, Agent Merge turns off and requires you to enable it again.
+
+To stop monitoring the pull request, select **Agent Merge** in the title bar, and then select **Disable Agent Merge**.
+
 ## Work with multiple sessions
 
 The sessions list shows sessions across all your workspaces. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
@@ -268,6 +311,10 @@ Supported agent host sessions can contain multiple independent chats that share 
 ## Customize and configure the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} shares your GitHub account, {% data variables.product.prodname_vscode_shortname %} settings, and default profile with the main {% data variables.product.prodname_vscode_shortname %} window. Configure the following options when you want to adjust the agent-first experience.
+
+### Personalize chat
+
+Add a decorative chat background, enable the interactive VS Code pet, or adjust how chat content appears. Learn how to [personalize chat](/docs/chat/chat-overview.md#personalize-chat).
 
 ### Customize agents for your project and workflow
 

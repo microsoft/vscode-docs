@@ -1,7 +1,7 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 8/26/2026
-MetaDescription: Use built-in, MCP, and extension tools with AI agents in {% data variables.product.prodname_vscode_shortname %}, including tool selection, parameters, terminal commands, and approvals.
+DateApproved: 9/2/2026
+MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -18,7 +18,7 @@ Tools extend agents in {% data variables.product.prodname_vscode %} with special
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
-This article describes how to use tools in your prompts and manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
+This article shows how to complete a request with tools, direct the agent to specific tools, control which tools are available, and review tool calls.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
 Launch a chat prompt that uses the web tool to summarize the latest {% data variables.product.prodname_vscode_shortname %} updates.
@@ -27,49 +27,138 @@ Launch a chat prompt that uses the web tool to summarize the latest {% data vari
 
 </div>
 
-## Select tools for a request
+## Use tools in a request
 
-Use the tools picker in the {% data variables.copilot.chat_view %} to select which tools are available for a request. Add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+By default, the agent chooses from the enabled tools based on your request and the current context. You don't need to name or select each tool before you start.
 
-> [!NOTE]
-> The tools picker applies to the local agent. For the [Copilot harness](/docs/agents/run/agent-harnesses.md), manage tool availability with the profile-wide [Tools customization page](/docs/agent-customization/tools.md) instead.
+To complete a request with tools:
 
-> [!TIP]
-> Select only the tools that are relevant for your prompt to improve your results.
+1. In the chat input, select **Agent** from the agent picker.
 
-To access the tools picker:
+1. Enter a prompt that describes your goal and how the agent should verify its work. For example:
 
-1. Open the {% data variables.copilot.chat_view %} and select **Agent** from the agent picker.
+    ```prompt
+    Find the cause of the failing tests in this project, fix it, and run the relevant tests to verify the change.
+    ```
 
-1. Select the **Configure Tools** button in the chat input field.
+1. Review each tool call as the agent works. If an approval prompt appears, expand the tool details to review its inputs, and then select **Allow** to run it.
 
-    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+1. Expand a tool summary in the conversation to inspect the call and its output. When the task is complete, review the agent's response, code changes, and validation results.
 
-1. Select or deselect tools to control which ones are available for the current request.
+To control which calls require approval and how much autonomy the agent has, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
 
-    Use the search box to filter the list of tools.
+<details>
+<summary>Change how tool calls are grouped in chat</summary>
 
-When you customize chat with [prompt files](/docs/agent-customization/prompt-files.md) or [custom agents](/docs/agent-customization/custom-agents.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/agent-customization/custom-agents.md#tool-list-priority).
+By default, tool call details are collapsed in the chat conversation. Use `setting(chat.agent.thinking.collapsedTools)` (experimental) to change the grouping behavior. Use `off` to keep tool calls separate, `withThinking` to group tools with thinking when available, or `always` to always group tools. When `setting(chat.agent.thinkingStyle)` is set to `collapsed`, reasoning and grouped tool calls can appear in separate collapsible sections.
 
-## Use tools in your prompts
+</details>
 
-When using [agents](/docs/agents/concepts/agents.md), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+## Reference a tool explicitly
 
-You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
+Type `#` in the chat input to reference a specific tool or tool set. Use an explicit reference when you want to direct the agent to a particular capability instead of letting it choose.
 
-**Examples of explicit tool references:**
+For example, use the `#web/fetch` tool to retrieve a specific web page:
 
-* `"What is the latest version of Node.js #web"`
-* `"How does routing work in Next.js? #web"`
-* `"Fix the issues in #problems"`
-* `"Explain the authentication flow #codebase"`
+```prompt
+Summarize the latest release notes at code.visualstudio.com/updates with #web/fetch.
+```
 
-> [!TIP]
-> By default, tool call details are collapsed in the chat conversation. You can expand them by selecting the tool summary line in chat, or change grouping behavior with `setting(chat.agent.thinking.collapsedTools)` (experimental): use `off` to keep tool calls separate, `withThinking` to group with thinking when available, or `always` to always group. When `setting(chat.agent.thinkingStyle)` is `collapsed`, reasoning and grouped tool calls can appear in separate collapsible sections.
+Use a tool set, such as `#web`, to make a group of related tools available:
+
+```prompt
+Research how Next.js handles routing. Use #web tools and summarize the relevant guidance.
+```
+
+The `#` menu also contains context items, such as files, folders, and editor selections. Context items provide information for the request, while tools give the agent capabilities to gather information or take actions. Learn more about [adding context to chat prompts](/docs/chat/chat-overview.md#add-context-to-your-prompts).
 
 To group related tools and reuse them across prompts, prompt files, and custom agents, [create a tool set](/docs/agent-customization/tool-sets.md).
 
-## Use built-in browser tools
+## Select tools for a request
+
+The Local and Copilot harnesses use different controls to select client-side tools.
+
+{% tabs id="select-tools-by-harness" %}
+{% tab label="Local harness" %}
+
+Select tools for an individual request from the {% data variables.copilot.chat_view %}:
+
+1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+
+1. Select **Configure Tools**.
+
+    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+
+1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
+
+{% /tab %}
+{% tab label="Copilot harness" %}
+
+Manage tools for the Copilot harness from the Agent Customizations editor:
+
+1. In the chat input, select the **Copilot** harness.
+
+1. Open the Agent Customizations editor:
+
+    * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+    * In the {% data variables.copilot.agents_window %}, go to the **Customizations** panel.
+
+1. Select the **Tools** tab.
+
+1. Select or deselect tools to control which ones are available to the Copilot harness. These choices persist in the active [user profile](/docs/configure/profiles.md).
+
+{% /tab %}
+{% /tabs %}
+
+For either session type, limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+
+When you customize chat with [prompt files](/docs/agent-customization/prompt-files.md) or [custom agents](/docs/agent-customization/custom-agents.md), you can specify which tools are available for a workflow. Learn more about the [tool list priority order](/docs/agent-customization/custom-agents.md#tool-list-priority).
+
+### Manage tool availability for Copilot
+
+All client-side tools are available to the Copilot harness by default. In the **Tools** tab, tools are organized into collapsible groups. You can:
+
+* Enter text in the search box to filter tool groups and individual tools.
+* Select a tool group checkbox to enable or disable every tool in the group.
+* Expand a group and select individual tools. The group checkbox shows a mixed state when only some tools are enabled.
+* Review the enabled and total tool counts shown for each group.
+
+The count beside **Tools** in the customization navigation includes enabled client-side tools and excludes the read-only tools built into the Copilot harness.
+
+The **Copilot** group lists the harness's built-in tools. These tools run in the Copilot runtime and are read-only in the **Tools** tab. Other tools run in the {% data variables.product.prodname_vscode_shortname %} client and are available to the agent only while the client is connected.
+
+Tool availability is separate from tool approval. Enabling a tool makes it available to the agent, but doesn't bypass the configured [approval and permission controls](/docs/agents/run/approvals.md).
+
+### Add extension tools for Copilot
+
+In the main {% data variables.product.prodname_vscode_shortname %} window, you can find extensions that contribute language model tools:
+
+1. Open the **Tools** tab and select **Browse Marketplace**.
+
+1. Search for an extension and select it to view its details and contributed tools.
+
+1. Install the extension. Its tools then appear in the tool list, where you can manage their availability.
+
+The {% data variables.copilot.agents_window %} shows the tool availability list but doesn't include Marketplace browsing.
+
+To remove an extension from the tool list, right-click its tool group and select **Uninstall Extension**.
+
+> [!CAUTION]
+> Uninstalling a tool extension removes the entire extension, including contributions that aren't tools.
+
+## Edit tool parameters
+
+For a tool call that requires approval, you can review and edit its input parameters before it runs:
+
+1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
+
+1. Edit any tool input parameters as needed.
+
+1. Select **Allow** to run the tool with the modified parameters.
+
+## Common built-in tool workflows
+
+### Use browser tools
 
 Browser tools give agents an interactive way to validate web applications. Instead of inspecting only the source code, an agent can run your app, open it in the integrated browser, exercise a user flow, inspect page content and console errors, and fix problems it discovers.
 
@@ -82,17 +171,7 @@ Fix any issues you find and repeat the flow to verify the fix.
 
 Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md), including browser sessions, page sharing, privacy controls, and effective prompting patterns.
 
-## Edit tool parameters
-
-You can review and edit the input parameters before a tool runs:
-
-1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
-
-1. Edit any tool input parameters as needed.
-
-1. Select **Allow** to run the tool with the modified parameters.
-
-## Run terminal commands
+### Run terminal commands
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
@@ -102,9 +181,14 @@ In the chat conversation, the agent displays the commands it ran. You can view t
 
 ![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
 
-Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, or directly in the integrated terminal.
+<details>
+<summary>Change where terminal output appears</summary>
 
-### Continue terminal commands in background
+Use `setting(chat.tools.terminal.outputLocation)` (experimental) to show terminal command output inline in chat or directly in the integrated terminal.
+
+</details>
+
+#### Continue terminal commands in background
 
 When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
 
@@ -122,7 +206,9 @@ The agent can also choose to run commands directly in the background, without us
 <details>
 <summary>How do I know which tools are available?</summary>
 
-Type `#` in the chat input field to see a list of all available tools. You can also use the tools picker in chat to view and manage the list of active tools.
+Type `#` in the chat input field to browse available tools, tool sets, and context items. You can also use the tools picker in chat to view and manage the enabled tools.
+
+For Copilot sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools.
 
 </details>
 
@@ -164,6 +250,4 @@ Yes. You can create tools in two ways:
 
 * [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
 * [Create and use tool sets](/docs/agent-customization/tool-sets.md)
-* [Manage tools for the Copilot harness](/docs/agent-customization/tools.md)
-* [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
 * [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

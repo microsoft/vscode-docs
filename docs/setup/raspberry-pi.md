@@ -1,6 +1,6 @@
 ---
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Get {% data variables.product.prodname_vscode %} up and running on Raspberry Pi OS.
 ---
 # {% data variables.product.prodname_vscode %} on Raspberry Pi
@@ -48,5 +48,5 @@ You can always check when a new release is available in our [Updates](/updates) 
 Once you have installed {% data variables.product.prodname_vscode_shortname %}, these topics will help you learn more about it:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
-* [User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through settings.

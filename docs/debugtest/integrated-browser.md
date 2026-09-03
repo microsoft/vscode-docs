@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -43,6 +43,12 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * Normal navigation and anchor links work as expected
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
+
+### Correct misspelled words
+
+When you type in an editable field, the integrated browser underlines misspelled words. Right-click a misspelled word and select a suggested correction.
+
+To save a word to the browser dictionary, select **Add to Dictionary**. This action is only available when the browser uses persistent `global` or `workspace` [session storage](#session-storage). Spelling suggestions remain available in `ephemeral` storage, but dictionary changes can't be saved.
 
 ### Address bar and suggestions
 
@@ -250,11 +256,9 @@ The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
 |------|-------------|
 | **Add Screenshot to Chat** | Capture the current browser viewport. |
 | **Add Area Screenshot to Chat** | Drag to select a rectangular area of the page, then capture only that region. |
-| **Add Full Page Screenshot to Chat** | Capture the entire scrollable page, including content beyond the current viewport. |
+| **Add Full Page Screenshot to Chat** `feature(integrated-browser-full-page-screenshot)` | Capture the entire scrollable page, including content beyond the current viewport. |
 
 Each mode is also available as a **Browser:** command in the Command Palette.
-
-<div class="docs-feature-status" data-feature="integrated-browser-full-page-screenshot"></div>
 
 > [!NOTE]
 > To enable the full page screenshot mode, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
@@ -298,7 +302,7 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 
 ## Browse over remote connections
 
-<div class="docs-feature-status" data-feature="integrated-browser-remote"></div>
+`feature(integrated-browser-remote)`
 
 When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
 

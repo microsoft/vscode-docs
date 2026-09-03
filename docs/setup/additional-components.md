@@ -1,6 +1,6 @@
 ---
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Setting up additional components to use with {% data variables.product.prodname_vscode %}.
 ---
 # Additional components and tools
@@ -42,6 +42,6 @@ The following list shows some of the popular extensions in the {% data variables
 
 ## Next steps
 
-* [User Interface](/docs/editing/userinterface.md) - A quick orientation around {% data variables.product.prodname_vscode_shortname %}.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation around {% data variables.product.prodname_vscode_shortname %}.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through settings.
 * [Languages](/docs/languages/overview.md) - {% data variables.product.prodname_vscode_shortname %} supports many programming languages out-of-the-box as well as many more through community created extensions.

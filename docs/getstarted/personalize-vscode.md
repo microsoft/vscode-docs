@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to personalize {% data variables.product.prodname_vscode_shortname %} to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize {% data variables.product.prodname_vscode_shortname %}
@@ -111,7 +111,7 @@ Get more details about [changing the display language in {% data variables.produ
 
 After personalizing {% data variables.product.prodname_vscode_shortname %}, you can:
 
-* [Explore key {% data variables.product.prodname_vscode_shortname %} features with our Quickstart](/docs/editing/getting-started.md)
+* [Explore key {% data variables.product.prodname_vscode_shortname %} features with our Quickstart](/docs/editing/getting-started/editor-tutorial.md)
 * [Install extensions to add features for your programming language](/docs/configure/extensions/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/debugtest/debugging.md)

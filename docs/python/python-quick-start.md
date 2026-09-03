@@ -45,7 +45,7 @@ Code Actions (also known as Quick Fixes) are provided to help fix issues when th
 
 ## Python commands
 
-Python commands can be accessed through the [Command Palette](/docs/editing/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from {% data variables.product.prodname_vscode_shortname %} and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
+Python commands can be accessed through the [Command Palette](/docs/editing/getting-started/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from {% data variables.product.prodname_vscode_shortname %} and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
 
 <video src="images/quick-start/cmd-plt-v2.mp4" title="Video showing Gif demonstrating how to access Python commands in the Command Palette." autoplay loop controls muted></video>
 

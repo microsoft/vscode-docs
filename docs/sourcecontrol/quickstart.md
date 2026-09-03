@@ -1,6 +1,6 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Quickly get started with Git source control in {% data variables.product.prodname_vscode %}. Initialize a repository, stage changes, and commit code in minutes.
 Keywords:
 - source control

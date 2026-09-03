@@ -1,6 +1,6 @@
 ---
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Resources for educators and students to get started with {% data variables.product.prodname_vscode %}.
 ---
 # {% data variables.product.prodname_vscode_shortname %} for Educators and Students
@@ -152,4 +152,4 @@ After you navigate to {% data variables.product.prodname_vscode_shortname %} for
 ## Next steps
 
 - Watch the [{% data variables.product.prodname_vscode_shortname %} intro videos](/docs/getstarted/introvideos.md)
-- Check out the [{% data variables.product.prodname_vscode_shortname %} tips and tricks](/docs/editing/tips-and-tricks.md)
+- Check out the [{% data variables.product.prodname_vscode_shortname %} tips and tricks](/docs/editing/getting-started/tips-and-tricks.md)

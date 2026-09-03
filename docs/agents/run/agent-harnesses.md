@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/26/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure code isolation, use provider capabilities, and hand off work between providers.
+DateApproved: 9/2/2026
+MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, configure isolation and multi-root workspaces, and hand off sessions.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -75,6 +75,17 @@ Git-ignored files, such as `.env` files and installed dependencies, are also abs
 
 Worktree sessions use **Bypass Approvals** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. Worktree isolation does not restrict commands, network access, or access outside the worktree. For those protections, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
+## Use multi-root workspaces (Experimental)
+
+Copilot and Claude sessions in the editor window can work across all folders in a [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces.md). Enable the setting for the harness you use:
+
+* Copilot: `setting(chat.agentHost.copilotAgent.multiRootEnabled)`
+* Claude: `setting(chat.agentHost.claudeAgent.multiRootEnabled)`
+
+Multi-root agent sessions are only available in the editor window. The {% data variables.copilot.agents_window %} does not support multi-root sessions.
+
+[Agent hooks](/docs/agent-customization/hooks.md) remain scoped to one workspace folder. If hooks are present in multiple folders, {% data variables.product.prodname_vscode_shortname %} prompts you to select the primary folder from which to load them.
+
 ## Configure an agent harness
 
 Expand a harness to review its setup and capabilities.
@@ -118,7 +129,7 @@ Copilot sessions use the same GitHub authentication context as chat in {% data v
 The available [permission levels](/docs/agents/run/approvals.md#permission-levels) depend on the isolation mode:
 
 * **Worktree**: the permission level is **Bypass Approvals** and can't be changed.
-* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use **Assisted permissions**, turn on `setting(chat.assistedPermissions.enabled)`.
+* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use **Assisted permissions** `feature(assisted-permissions)`, turn on `setting(chat.assistedPermissions.enabled)`.
 
 Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/run/approvals.md#how-autopilot-works) rather than a permission level.
 
@@ -128,7 +139,7 @@ Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode]
 
 #### Get a second opinion with Rubber Duck
 
-<div class="docs-feature-status" data-feature="rubber-duck"></div>
+`feature(rubber-duck)`
 
 Rubber Duck is a built-in, read-only critic that gives Copilot a second opinion on its plans, code, and tests. It uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
 
@@ -166,7 +177,7 @@ Learn more about the [Rubber Duck agent](https://docs.github.com/en/copilot/conc
 
 ### Limitations
 
-Copilot sessions don't have access to every {% data variables.product.prodname_vscode_shortname %} built-in or extension-provided tool. Enabled client-side tools are available to the agent only while {% data variables.product.prodname_vscode_shortname %} is connected to the session, and you manage which tools are enabled from [Manage tools for the Copilot harness](/docs/agent-customization/tools.md). Copilot sessions can currently access only local MCP servers that don't require authentication.
+Copilot sessions don't have access to every {% data variables.product.prodname_vscode_shortname %} built-in or extension-provided tool. Enabled client-side tools are available to the agent only while {% data variables.product.prodname_vscode_shortname %} is connected to the session, and you [manage which tools are available to Copilot](/docs/agents/run/tools.md#manage-tool-availability-for-copilot). Copilot sessions can currently access only local MCP servers that don't require authentication.
 
 </details>
 

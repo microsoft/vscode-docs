@@ -1,6 +1,6 @@
 ---
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Using Emmet abbreviations inside {% data variables.product.prodname_vscode %}.
 ---
 # Emmet in {% data variables.product.prodname_vscode %}
@@ -354,7 +354,7 @@ First, check if you're using custom snippets (if there is a `snippets.json` file
 If abbreviations are still failing to expand:
 
 * Check the [builtin extensions](/docs/configure/extensions/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
-* Try restarting the extension host by running the **Developer: Restart Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/editing/userinterface.md#command-palette).
+* Try restarting the extension host by running the **Developer: Restart Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/editing/getting-started/userinterface.md#command-palette).
 
 ### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?
 

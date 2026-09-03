@@ -1,6 +1,6 @@
 ---
 ContentId: 3DAE803B-D479-4143-976F-B69F00A73891
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn more about profiling your JavaScript performance in the {% data variables.product.prodname_vscode %} editor.
 ---
 # Performance Profiling JavaScript

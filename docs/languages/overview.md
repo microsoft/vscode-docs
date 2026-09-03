@@ -1,6 +1,6 @@
 ---
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: In {% data variables.product.prodname_vscode %} we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages

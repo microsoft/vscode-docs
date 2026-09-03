@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: A quick overview of the {% data variables.product.prodname_vscode %} user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -34,11 +34,11 @@ Learn about the key features of {% data variables.product.prodname_vscode %} in 
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar by right-clicking it to open a context menu.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
-![Screenshot of the {% data variables.product.prodname_vscode_shortname %} user interface, highlighting the main areas.](images/userinterface/hero.png)
+![Screenshot of the {% data variables.product.prodname_vscode_shortname %} user interface, highlighting the main areas.](../images/userinterface/hero.png)
 
 Each time you start {% data variables.product.prodname_vscode_shortname %}, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
-Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editing/userinterface.md#tabs) section.
+Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editing/getting-started/userinterface.md#tabs) section.
 
 > [!TIP]
 > You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
@@ -56,7 +56,7 @@ You can open as many editors as you like side by side vertically and horizontall
 * Drag and drop a file to any side of the editor region. Hold `kbstyle(Ctrl)` (`kbstyle(Option)` on macOS) while dragging to copy the tab instead of moving it.
 * Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
-![Side by Side editing](images/userinterface/sidebyside.png)
+![Side by Side editing](../images/userinterface/sidebyside.png)
 
 When you open another file, the editor that is active will display the content of that file. If you have two editors side by side and you want to open file 'foo.cs' into the right-hand editor, make sure that this editor is active (by clicking inside it) before opening file 'foo.cs'.
 
@@ -73,7 +73,7 @@ When you split an editor (using the **Split Editor** or **Open to the Side** com
 
 You can see these clearly in the **Open Editors** section at the top of the Explorer view (toggle **...** > **Open Editors** in the Explorer view).
 
-![tabs editor groups](images/userinterface/tabs-editor-groups.png)
+![tabs editor groups](../images/userinterface/tabs-editor-groups.png)
 
 You can drag and drop editor groups on the workbench, move individual tabs between groups, and quickly close entire groups (**Close All**).
 
@@ -88,7 +88,7 @@ You can split the current editor without creating a new editor group with the **
 
 You can move editors, the terminal, or specific views into their own floating windows. This is useful if you have a multi-monitor setup and want to keep a file open on a different monitor.
 
-![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](../images/userinterface/floating-editor.png)
 
 Drag an editor tab out of the current {% data variables.product.prodname_vscode_shortname %} window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
 
@@ -118,7 +118,7 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 
 If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` comments, then the minimap shows the folding marker names. Folding markers are language-specific, so check which markers apply to your language.
 
-![minimap](images/userinterface/minimap.png)
+![minimap](../images/userinterface/minimap.png)
 
 > [!TIP]
 > You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/configure/settings.md).
@@ -127,7 +127,7 @@ If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor
 
 Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
 
-![stickyScroll](images/userinterface/sticky-scroll.png)
+![stickyScroll](../images/userinterface/sticky-scroll.png)
 
 > [!TIP]
 > You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
@@ -142,7 +142,7 @@ The editor shows indentation guides (vertical lines) which help you quickly see 
 
 The editor has a navigation bar at the top, also called [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). Breadcrumbs always show the file path and, if the current file type has language support for symbols, the symbol path up to the cursor position. The breadcrumbs enable you to quickly navigate between folders, files, and symbols.
 
-![Breadcrumbs](images/userinterface/breadcrumbs.png)
+![Breadcrumbs](../images/userinterface/breadcrumbs.png)
 
 You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editing/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editing/editingevolved.md) article.
 
@@ -194,19 +194,19 @@ Pressing the **Filter** button toggles between the two modes: highlighting and f
 
 Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, where you can type a sequence of characters to match any part of the file or folder name.
 
-![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
+![Filtering files in the File Explorer](../images/userinterface/file-explorer-filter.png)
 
 ### Outline view
 
 The Outline view is a separate section at the bottom of the Explorer view. When expanded, it shows the symbol tree of the currently active editor.
 
-![Outline view](images/userinterface/outline-view.png)
+![Outline view](../images/userinterface/outline-view.png)
 
 The Outline view has different **Sort By** modes, optional cursor tracking, and supports the usual open gestures. It also includes an input box to find or filter. Errors and warnings are also shown in the Outline view, letting you see at a glance a problem's location.
 
 For symbols, the view relies on information computed by your installed extensions for different file types. For example, the built-in Markdown support returns the Markdown header hierarchy for a Markdown file's symbols.
 
-![Markdown Outline view](images/userinterface/markdown-outline-view.png)
+![Markdown Outline view](../images/userinterface/markdown-outline-view.png)
 
 There are several Outline view [settings](/docs/configure/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
@@ -214,11 +214,11 @@ There are several Outline view [settings](/docs/configure/settings.md). Search f
 
 The Timeline view, accessible at the bottom of the File Explorer, is a unified view for visualizing the events history for a file. For example, you can view Git commits or local file saves in a timeline view.
 
-![Timeline view](images/userinterface/timeline-view.png)
+![Timeline view](../images/userinterface/timeline-view.png)
 
 A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
 
-![Timeline filter drop down with Git History unchecked and Local History checked](images/userinterface/timeline-filter.png)
+![Timeline filter drop down with Git History unchecked and Local History checked](../images/userinterface/timeline-filter.png)
 
 #### Local file history
 
@@ -270,17 +270,17 @@ The Explorer view is only one of the views available in {% data variables.produc
 > [!TIP]
 > You can open any view using the **View: Open View** command.
 
-![views](images/userinterface/views.png)
+![views](../images/userinterface/views.png)
 
 You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
 
-<video src="images/userinterface/view-management.mp4" autoplay loop controls muted title="View Management"></video>
+<video src="../images/userinterface/view-management.mp4" autoplay loop controls muted title="View Management"></video>
 
 ## Command Palette
 
 {% data variables.product.prodname_vscode_shortname %} is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all functionality within {% data variables.product.prodname_vscode_shortname %}, including keyboard shortcuts for the most common operations.
 
-![Command Palette](images/userinterface/commands.png)
+![Command Palette](../images/userinterface/commands.png)
 
 The **Command Palette** provides access to many commands. You can run editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
@@ -292,12 +292,12 @@ The **Command Palette** provides access to many commands. You can run editor com
 
 Type `?` in the input field to get a list of available commands that you can run from the Command Palette.
 
-![Quick Open Help](images/userinterface/quickopenhelp.png)
+![Quick Open Help](../images/userinterface/quickopenhelp.png)
 
 > [!TIP]
 > You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
 
-![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/userinterface/command-palette-position.png)
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](../images/userinterface/command-palette-position.png)
 
 ## Configure the editor
 
@@ -317,7 +317,7 @@ You can view and edit settings in the Settings Editor (select **File** > **Prefe
 
 Alternately, you can modify the user settings directly in the `settings.json` file. Use the **Preferences: Open User Settings (JSON)** command to open the `settings.json file`. For workspace settings, open the `settings.json` file in the `.vscode` folder in your workspace.
 
-![workspace settings](images/userinterface/workspace-settings.png)
+![workspace settings](../images/userinterface/workspace-settings.png)
 
 > [!NOTE]
 > Workspace settings override user settings and are useful for sharing project-specific settings across a team.
@@ -343,11 +343,11 @@ If you are overwhelmed by notifications popping up, there is a way to reduce not
 
 Select the bell icon in the Status Bar (or in the title bar, if notifications are positioned at top-right) to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode. You can change the notification position with the `setting(workbench.notifications.position)` setting. Learn more about [notification positions](/docs/configure/custom-layout.md#notifications).
 
-![Notifications center](images/userinterface/notifications-center.png)
+![Notifications center](../images/userinterface/notifications-center.png)
 
 Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications.
 
-![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
+![Notifications do not disturb menu](../images/userinterface/notifications-dnd.png)
 
 > [!NOTE]
 > The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
@@ -360,7 +360,7 @@ Centered editor layout allows you to center align the editor area. This is usefu
 
 {% data variables.product.prodname_vscode_shortname %} shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
 
-![tabs hero](images/userinterface/tabs-hero.png)
+![tabs hero](../images/userinterface/tabs-hero.png)
 
 You can drag and drop tabs to reorder them. To perform an action on multiple tabs at once, hold down the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and select the tabs you want to act on. To select a range of tabs, hold down the `kbstyle(Shift)` key and select the first and last tabs in the range.
 
@@ -374,7 +374,7 @@ If you don't want to use tabs, you can disable the feature by setting the `setti
     "workbench.editor.showTabs": "single"
 ```
 
-See the section below to optimize {% data variables.product.prodname_vscode_shortname %} for [working without Tabs](/docs/editing/userinterface.md#working-without-tabs).
+See the section below to optimize {% data variables.product.prodname_vscode_shortname %} for [working without Tabs](/docs/editing/getting-started/userinterface.md#working-without-tabs).
 
 > [!TIP]
 > Double-click in the editor title area to quickly create a new tab.
@@ -401,7 +401,7 @@ When you single-click or select a file in the Explorer view, it is shown in a pr
 
 Preview mode is indicated by italics in the tab heading:
 
-![preview mode](images/userinterface/preview-tab.png)
+![preview mode](../images/userinterface/preview-tab.png)
 
 If you prefer not to use preview mode and always create a new tab, you can control the behavior with these settings:
 
@@ -412,7 +412,7 @@ If you prefer not to use preview mode and always create a new tab, you can contr
 
 To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`setting(workbench.editor.wrapTabs)`) setting.
 
-![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
+![Wrapped editor tabs filling two rows about the editor region](../images/userinterface/wrapped-tabs.png)
 
 ### Customize tab labels
 
@@ -437,7 +437,7 @@ The following sample displays the `/src/orders/index.html` file with a tab label
     }
 ```
 
-![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+![Screenshot of Setting editor to enable and specify custom labels for tabs](../images/userinterface/tabs-custom-labels.png)
 
 The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
 
@@ -449,32 +449,32 @@ The following examples use the `${extname}` variable for the file `tests/editor.
 * `${extname(-2)}` => ts
 
 > [!NOTE]
-> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/editing/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
+> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/editing/getting-started/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 
 ## Grid editor layout
 
 By default, editor groups are laid out in vertical columns. For example, when you split an editor, it opens the editor to the side. You can arrange editor groups in any layout you like, both vertically and horizontally:
 
-<video src="images/userinterface/grid-layout.mp4" autoplay loop controls muted title="Grid Editor Layout"></video>
+<video src="../images/userinterface/grid-layout.mp4" autoplay loop controls muted title="Grid Editor Layout"></video>
 
 To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group also closes the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
 
-![Grid Empty](images/userinterface/grid-empty.png)
+![Grid Empty](../images/userinterface/grid-empty.png)
 
 There are a predefined set of editor layouts in the **View** > **Editor Layout** menu:
 
-![Grid Editor Layout Menu](images/userinterface/grid-layout-menu.png)
+![Grid Editor Layout Menu](../images/userinterface/grid-layout-menu.png)
 
 By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, set `setting(workbench.editor.openSideBySideDirection)` to `down`.
 
 There are many keyboard commands for adjusting the editor layout by using the keyboard. If you prefer to use the mouse, you can use drag and drop to split the editor into any direction:
 
-<video src="images/userinterface/grid-dnd.mp4" autoplay loop controls muted title="Grid Editor Drag and Drop"></video>
+<video src="../images/userinterface/grid-dnd.mp4" autoplay loop controls muted title="Grid Editor Drag and Drop"></video>
 
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
 
-<video src="images/userinterface/grid-alt.mp4" title="Video showing Grid Alt Click." autoplay loop controls muted></video>
+<video src="../images/userinterface/grid-alt.mp4" title="Video showing Grid Alt Click." autoplay loop controls muted></video>
 
 ### Keyboard shortcuts
 
@@ -498,7 +498,7 @@ If you prefer not to use tabs (tabbed headings), you can disable tabs entirely b
 
 ### Disable Preview mode
 
-Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/editing/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
+Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/editing/getting-started/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
 
 ### Use keyboard shortcuts to navigate the editor history
 
@@ -565,4 +565,4 @@ For example, to make the indent guides bright blue, add the following to your `s
 
 Yes, you can show or hide the Open Editors section by using the Views menu in the Explorer and toggling the **Open Editors** menu item.
 
-![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)
+![Explorer menu to enable or disable views in the Explorer](../images/userinterface/explorer-menu.png)

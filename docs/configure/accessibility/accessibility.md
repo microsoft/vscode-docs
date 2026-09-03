@@ -1,7 +1,7 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
-DateApproved: 02/04/2026
-MetaDescription: {% data variables.product.prodname_vscode %} user accessibility features.  Learn here about the various ways {% data variables.product.prodname_vscode_shortname %} aids user accessibility.
+DateApproved: 9/2/2026
+MetaDescription: Configure accessibility in {% data variables.product.prodname_vscode %} with screen reader mode, keyboard navigation, visual aids, and audio cues.
 ---
 # Accessibility
 
@@ -160,9 +160,9 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Screen reader mode
 
-When {% data variables.product.prodname_vscode_shortname %} detects that a screen reader is being used, it goes into an optimized screen reader mode for UI such as the editor and Integrated Terminal. The Status bar will display **Screen Reader Optimized** in the lower right. You can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
+When {% data variables.product.prodname_vscode_shortname %} detects that a screen reader is being used, it goes into an optimized screen reader mode for UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right. In the {% data variables.copilot.agents_window %}, the **Screen Reader Optimized** badge appears in the title bar. Select either indicator or run the **Toggle Screen Reader Accessibility Mode** command to turn off screen reader mode.
 
-![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
+![Screenshot showing the Screen Reader Optimized status bar item and notification to turn off screen reader mode.](images/accessibility/screen-reader-mode.png)
 
 Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether {% data variables.product.prodname_vscode_shortname %} uses screen reader mode with the **Editor: Accessibility Support** setting (`setting(editor.accessibilitySupport)`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
 
@@ -255,6 +255,6 @@ After you enable that setting, {% data variables.product.prodname_vscode_shortna
 Read on to find out about:
 
 * [Voice interactions](/docs/configure/accessibility/voice.md) - Learn how to use voice commands in {% data variables.product.prodname_vscode_shortname %}.
-* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

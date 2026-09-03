@@ -1,6 +1,6 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Inspect Git commits, branches, file history, and line authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline view, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:
@@ -50,7 +50,7 @@ The Timeline view shows events for the file that is active in the editor. These 
 
 ![Screenshot showing Git commits and local file saves in the Timeline view.](images/overview/timeline-view.png)
 
-Use the Timeline filter to show only Git commits or to include events from other timeline providers. Learn more about the [Timeline view](/docs/editing/userinterface.md#timeline-view).
+Use the Timeline filter to show only Git commits or to include events from other timeline providers. Learn more about the [Timeline view](/docs/editing/getting-started/userinterface.md#timeline-view).
 
 ## View Git blame information
 

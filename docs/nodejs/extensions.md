@@ -1,6 +1,6 @@
 ---
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the {% data variables.product.prodname_vscode %} editor.
 ---
 # JavaScript extensions for {% data variables.product.prodname_vscode_shortname %}

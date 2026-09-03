@@ -1,7 +1,7 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 8/26/2026
-MetaDescription: Learn about agents in {% data variables.product.prodname_vscode_shortname %}, including the agent loop, agent types, subagents, memory, and planning.
+DateApproved: 9/2/2026
+MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -21,115 +21,119 @@ Keywords:
 
 # Agents
 
-An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, subagents, memory, and planning. To learn where agents run and which harness powers them, see [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
+An agent is an AI system that uses a language model and [tools](/docs/agents/concepts/tools.md) to complete a goal on your behalf. A language model generates responses based on the information in a prompt. An agent goes further by gathering context, taking actions in your development environment, evaluating the results, and repeating these steps as needed.
+
+You choose the goal, control which actions require approval, and review the resulting changes. This article explains how the agent loop works and introduces the sessions, planning, subagents, memory, and customizations that support agentic work.
 
 For an overview of what you can do with agents in {% data variables.product.prodname_vscode_shortname %} and where to work with them, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
+Complete a short quickstart to create and validate an app with an agent in {% data variables.product.prodname_vscode_shortname %}.
 
-* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
+* [Start the agents quickstart](/docs/agents/quickstart.md)
 
 </div>
 
 ## How the concepts fit together
 
-The core concepts combine each time you send a request. A [language model](/docs/agents/concepts/language-models.md) does the reasoning. To respond usefully, it needs [context](/docs/agents/concepts/context.md): {% data variables.product.prodname_vscode_shortname %} assembles the relevant files, conversation history, and other information and sends it to the model. To act on your environment instead of only answering, the model calls [tools](/docs/agents/concepts/tools.md) to read and edit files, run commands, or reach external services. The agent ties these together in the agent loop, calling tools and feeding the results back to the model until the task is complete.
+The core concepts work together each time you send a request:
 
-[Customization](/docs/agents/concepts/customization.md) shapes how the agent behaves, and [trust and safety](/docs/agents/concepts/trust-and-safety.md) controls keep you in command of what it can do. The agent runs on a [harness](/docs/agents/concepts/agent-harnesses.md) that determines where it runs, and each conversation is a [session](/docs/agents/concepts/sessions.md) that you can manage and hand off.
+1. **Request:** You describe a goal and provide any requirements or constraints.
+1. **Context and reasoning:** {% data variables.product.prodname_vscode_shortname %} assembles relevant [context](/docs/agents/concepts/context.md), such as files and conversation history. A [language model](/docs/agents/concepts/language-models.md) reasons over that information and determines the next action.
+1. **Tool action:** The agent uses [tools](/docs/agents/concepts/tools.md) to gather more information or act on your environment, such as reading a file, editing code, or running a command.
+1. **Validation:** The result of the tool call returns to the model as context. The agent evaluates its progress and decides whether to take another action.
+1. **Review:** When the task is complete, you review the response, code changes, and validation results.
+
+The repeated reasoning, action, and validation steps form the **agent loop**. A [session](/docs/agents/concepts/sessions.md) keeps the conversation and task state together. An [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the loop, while the execution environment determines where tools run and code changes are made.
 
 ## Agent loop
 
-When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within {% data variables.product.prodname_vscode_shortname %}, an agent is the system that plans and takes actions, and the [language model](/docs/agents/concepts/language-models.md) generates responses that inform those actions.
+The agent loop enables an agent to work through a task instead of producing a single response. At each step, the agent evaluates its progress and chooses the next action. The output of that action informs the next decision.
 
-At each step, the agent evaluates its progress and picks the next action. It might open a file to understand an API, make an edit, then run a command to verify the change worked. The output of each action becomes input for the next decision.
+![Screenshot showing a diagram of the agentic loop from the user prompt through reasoning, tool calls, updates, and final review.](../images/concepts/agent-loop.png)
 
-![Diagram showing the agentic loop: User prompt -> Agent reasoning -> Tool calls (read files, edit code, run tests) -> Agent updates based on tool results -> Final output for user review](../images/concepts/agent-loop.png)
+For example, when you ask an agent to add validation to a form, the loop typically includes these stages:
 
-The agent loop typically involves three high-level stages:
+1. **Understand:** The agent finds the form, reads related code and tests, and identifies the project's existing validation patterns.
+1. **Act:** The agent updates the form and adds or modifies tests.
+1. **Validate:** The agent runs the relevant tests and checks for errors. If validation fails, it diagnoses the result, makes another change, and validates again.
 
-1. **Understand.** The agent reads files, searches the codebase, and looks up documentation to understand what needs to change.
-1. **Act.** The agent modifies code, runs terminal commands, installs dependencies, or calls external services through [tools](/docs/agents/concepts/tools.md).
-1. **Validate.** The agent runs tests, checks for compiler errors, and reviews its own changes. If something is wrong, it continues iterating.
+Simple questions might require only a few file reads. Larger implementation tasks might repeat the loop many times as the agent edits code, runs tests, and fixes problems.
 
-The agent uses the language model to reason about the best course of action. However, without the ability to interact with the environment, the model is limited to providing generic responses. With tools, the agent issues tool calls at each step to gather information and take actions like reading files, making code changes, running terminal commands, and reaching out to external services.
+## Stay in control
 
-The agent chains these actions together as needed until it accomplishes the task. Answering a question about your codebase might involve only a few file reads. Implementing a new feature typically loops through editing, running tests, diagnosing failures, and editing again until the tests pass.
+An agent can take actions, but you remain responsible for directing the task and deciding which changes to keep. During a session, you can:
 
-Behind the scenes, [{% data variables.product.prodname_vscode_shortname %} assembles the current context](/docs/agents/concepts/context.md#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
+* Choose which tools are available and which tool calls require approval.
+* Review an approval request before an action runs.
+* Send another message to add context or redirect the work.
+* Stop the agent if it is taking the wrong approach.
+* Review changed files and validation results before you keep the changes.
 
-You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
+Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-safety.md).
 
-### Customize the agent loop
+## Sessions
 
-The agent loop is not one-size-fits-all and might differ for each project. There are different options to personalize the agent's behavior:
+A session is the unit of work with an agent. It contains one conversation and the context, workspace, changes, and execution state associated with that task.
 
-* A [**custom agent**](/docs/agent-customization/custom-agents.md) lets you define different personas, each with their own instructions, available tools, language model, and optionally hand off to another agent.
-* With [**agent skills**](/docs/agent-customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task.
-* [**Hooks**](/docs/agent-customization/hooks.md) run custom commands at specific lifecycle points in the agent loop.
+Sessions are independent, can run in parallel, and are shared across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). A session can run on your machine or a remote host, and you can hand it off to another agent. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
-Learn more about [Customization concepts](/docs/agents/concepts/customization.md).
+## Agent harnesses and execution environments
 
-## Agent harnesses
+An agent harness is the runtime that coordinates the agent loop. It manages the session, connects the language model to tools, and provides provider-specific capabilities. {% data variables.product.prodname_vscode_shortname %} supports harnesses such as Copilot, Claude, and Codex.
 
-Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are where the agent runs, such as your machine or the cloud, and which harness powers it. {% data variables.product.prodname_vscode_shortname %} supports running agents using different harnesses, such as Copilot, Claude, or Codex. Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
+The execution environment is where the harness runs tools and changes code. Depending on the harness and task, this can be your machine, cloud infrastructure, or a remote machine. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md).
 
-## Subagents
+## Capabilities that extend agent work
 
-When working on complex tasks, the main agent can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic or analyzing code, and reports the results back to the main agent.
+Agents can use additional capabilities for complex tasks and recurring workflows. These capabilities are not required for every request.
 
-The primary benefit of subagents is context optimization. Without subagents, every file read, search result, and intermediate step during research accumulates in the main agent's [context window](/docs/agents/concepts/language-models.md#context-window), potentially crowding out important information. Subagents perform their work in a separate context window and return only a summary, keeping the main conversation focused on the task at hand.
+### Planning
+
+Every agent decides which action to take next as part of the agent loop. For a complex task, use the built-in Plan agent to research the codebase, clarify requirements, and propose an implementation plan before code changes begin.
+
+The Plan agent uses read-only tools while preparing the plan. After you review and approve the approach, you can hand off the plan to an implementation agent. Learn more about [planning with agents](/docs/agents/run/planning.md).
+
+### Subagents
+
+For complex tasks, the main agent can delegate focused work to subagents. A subagent performs a specific task, such as researching a topic or analyzing part of a codebase, and reports the result to the main agent.
+
+Subagents are useful when independent research would add large amounts of intermediate information to the main agent's [context window](/docs/agents/concepts/language-models.md#context-window). Each subagent works in a separate context window and returns a focused result.
 
 Key characteristics of subagents:
 
 * **Context isolation**: each subagent runs in its own context window and doesn't inherit the main agent's conversation history. It receives the task prompt, applicable instruction files, and the current agent configuration.
-* **Synchronous execution**: the main agent waits for subagent results before continuing, because subagent findings typically inform the next step.
 * **Parallel execution**: {% data variables.product.prodname_vscode_shortname %} can spawn multiple subagents in parallel for tasks like analyzing security, performance, and accessibility simultaneously.
 * **Focused results**: only the final result is returned to the main agent, keeping the main context focused and reducing token usage.
 
-For example, the built-in [Plan agent](#planning) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings.
+For example, the [Plan agent](#planning) can use subagents to research independent parts of a task before creating a plan.
 
 Learn more about [using subagents](/docs/agents/run/subagents.md).
 
-## Sessions
+### Memory
 
-A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+When the memory tool is available, an agent can store notes for use later in the same session or in future sessions. These notes can record preferences, lessons from previous tasks, or information about your codebase. Memory is separate from the conversation context that a session accumulates automatically.
 
-## Memory
+The memory tool stores notes locally on your machine in three scopes:
 
-Agents use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
-
-{% data variables.product.prodname_vscode_shortname %} supports two complementary memory systems:
-
-* **Memory tool**: a built-in tool that stores notes locally on your machine, organized in three scopes:
-    * **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
-    * **Repository memory** (`/memories/repo/`): scoped to the current workspace, persists across conversations.
-    * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
-* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces ({% data variables.copilot.copilot_cloud_agent_short %}, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
+* **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
+* **Repository memory** (`/memories/repo/`): scoped to the current workspace and persists across conversations.
+* **Session memory** (`/memories/session/`): scoped to the current conversation and cleared when it ends.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 
-## Planning
+### Customization
 
-For complex tasks, jumping straight into code generation can lead to incomplete implementations or wrong architectural decisions. The built-in Plan agent collaborates with you to research the task and create a detailed implementation plan before any code changes are made. This ensures requirements are understood, edge cases are identified, and you agree on the approach before the agent starts writing code.
+You can customize the agent loop for a project or workflow:
 
-The plan agent uses a 4-phase iterative workflow:
+* A [**custom agent**](/docs/agent-customization/custom-agents.md) defines instructions, available tools, a language model, and optional handoffs for a specific workflow.
+* [**Agent skills**](/docs/agent-customization/agent-skills.md) give an agent instructions and resources for a specialized task.
+* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent lifecycle.
 
-1. **Discovery**: research the task using read-only tools and codebase analysis.
-1. **Alignment**: ask clarifying questions to resolve ambiguities.
-1. **Design**: draft a structured implementation plan.
-1. **Refinement**: iterate on the plan based on your feedback.
-
-The Plan agent does not make code changes until the plan is reviewed and approved. Once approved, you can hand off the plan to the default agent or save it for further refinement.
-
-Learn more about [planning with agents](/docs/agents/run/planning.md).
+Learn more about [customization concepts](/docs/agents/concepts/customization.md).
 
 ## Related resources
 
-* [Using agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md)
-* [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
-* [Sessions and handoff](/docs/agents/concepts/sessions.md)
-* [{% data variables.product.prodname_vscode_shortname %} Agent Host architecture](/docs/agents/concepts/agent-host.md)
 * [Tools](/docs/agents/concepts/tools.md)
-* [Context](/docs/agents/concepts/context.md)
+* [Agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md)
 * [Trust and safety](/docs/agents/concepts/trust-and-safety.md)

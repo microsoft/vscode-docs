@@ -1,6 +1,6 @@
 ---
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for JavaScript development
 ---
 # JavaScript in {% data variables.product.prodname_vscode %}

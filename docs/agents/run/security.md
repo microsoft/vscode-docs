@@ -1,7 +1,7 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 8/26/2026
-MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in {% data variables.product.prodname_vscode_shortname %}.
+DateApproved: 9/2/2026
+MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
@@ -73,7 +73,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 

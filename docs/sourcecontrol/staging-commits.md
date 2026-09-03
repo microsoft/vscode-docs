@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with partial staging, diff review, commit message tools, amend and undo actions, and AI assistance.
 Keywords:
 - source control
@@ -39,7 +39,7 @@ The source control icon in the Activity Bar also shows a badge with the number o
 
 ### Editor gutter indicators
 
-To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/userinterface.md#minimap).
+To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/getting-started/userinterface.md#minimap).
 
 The gutter color indicates the type of change:
 

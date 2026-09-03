@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to create custom instructions for {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -49,8 +49,8 @@ Always-on instructions are automatically included in every chat request. Use the
 
 * One or more [`AGENTS.md`](#use-an-agentsmd-file) files
     * Useful if you work with multiple AI agents in your workspace
-    * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
-    * Stored in the root of the workspace or in subfolders (experimental)
+    * Automatically applies to all chat requests in the workspace or to specific subfolders `feature(nested-agents-md-files)`
+    * Stored in the root of the workspace or in subfolders `feature(nested-agents-md-files)`
 
 * [Organization-level instructions](#share-custom-instructions-across-teams)
     * Share instructions across multiple workspaces and repositories within a GitHub organization
@@ -141,7 +141,7 @@ You can define instructions for a specific workspace or at the user level, where
 | User profile | `~/.copilot/instructions` or `~/.claude/rules` |
 
 > [!IMPORTANT]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
 
 {% data variables.product.prodname_vscode_shortname %} searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
@@ -304,11 +304,13 @@ Use `AGENTS.md` when:
 
 To enable or disable support for `AGENTS.md` files, configure the `setting(chat.useAgentsMdFile)` setting.
 
-### Use multiple `AGENTS.md` files (experimental)
+### Use multiple `AGENTS.md` files
+
+`feature(nested-agents-md-files)`
 
 Using multiple `AGENTS.md` files in subfolders is useful if you want to apply different instructions to different parts of your project. For example, you can have one `AGENTS.md` file for the frontend code and another for the backend code.
 
-Use the experimental `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
+Use the `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
 
 When enabled, {% data variables.product.prodname_vscode_shortname %} searches recursively in all subfolders of your workspace for `AGENTS.md` files and adds their relative path to the chat context. The agent can then decide which instructions to use based on the files being edited.
 

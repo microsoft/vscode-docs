@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 8/26/2026
-MetaDescription: Create and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, context compaction, organization, archiving, and forking.
+DateApproved: 9/2/2026
+MetaDescription: Create, orchestrate, and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
@@ -29,7 +29,7 @@ Depending on how you prefer to work or the task you want to accomplish, you can 
 
 The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The {% data variables.copilot.agents_window %} is optimized for **agents-first workflows**.
 
-![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session-2.png)
 
 To start a new chat session in the {% data variables.copilot.agents_window %}:
 
@@ -37,7 +37,9 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
 
 1. Select **New** in the sidebar to create a new session.
 
-1. Choose the workspace or repository for the session, as the {% data variables.copilot.agents_window %} can target any of your projects.
+1. Select **Folder** or **Repository** to choose the primary execution workspace. To connect through SSH or a dev tunnel, select **Remote Setup**.
+
+    You can also attach more folders, repositories, issues, or pull requests as context for the first request. Learn more about [starting an agent session and adding context](/docs/agents/run/agents-window.md#start-an-agent-session).
 
 1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 
@@ -299,6 +301,14 @@ With these tools, an agent can:
 * Create a new session for a sub-task, or create a new chat in an existing session.
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
+
+You can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
+
+```prompt
+Create a session in the vscode workspace to run the tests.
+```
+
+If multiple workspaces have the same project name, the agent reports the possible matches instead of choosing one. Session-management tools also support remote workspace URIs and preserve the project URI and working directories for multi-root workspaces.
 
 When a tool creates or targets a session, {% data variables.product.prodname_vscode_shortname %} shows an **Open Session** pill in chat so you can jump directly to it.
 

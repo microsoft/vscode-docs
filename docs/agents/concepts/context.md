@@ -1,7 +1,7 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 8/26/2026
-MetaDescription: Learn how {% data variables.product.prodname_vscode_shortname %} assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
+DateApproved: 9/2/2026
+MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -16,60 +16,82 @@ Keywords:
 
 # Context
 
-Context is everything the model can see when generating a response. It includes the conversation history, file contents from your workspace, tool outputs, custom instructions, and any references you add explicitly. The model can only reason about what it can see, so providing relevant context is one of the most effective ways to improve AI responses.
+Context is the information available to an AI agent and its language model while they work on your request. It can include conversation history, files from your workspace, tool outputs, custom instructions, and references you add to your prompt.
 
-This article explains how {% data variables.product.prodname_vscode_shortname %} assembles context, what types of context are available, and how to work effectively with context window limits.
+The language model reasons over this information to decide what to say or do next. The agent can use [tools](/docs/agents/concepts/tools.md) to gather more context, take actions, and evaluate the results. This article explains how {% data variables.product.prodname_vscode_shortname %} assembles and discovers context, and how to work within context window limits.
 
 ## Why context matters
 
-A prompt with relevant files, clear instructions, and focused history produces better results than a vague prompt with no context. The model has no memory of previous sessions and no access to files it hasn't been given. Everything it knows about your task comes from the context assembled for the current request.
+A prompt with relevant files, clear instructions, and focused history produces better results than a vague prompt with no context. The language model can only reason over information included in its current context.
+
+You don't need to identify every relevant file before you start. During the [agent loop](/docs/agents/concepts/agents.md#agent-loop), the agent can search your workspace, read files, run commands, and add the results to the context for its next step. Explicit references are useful when you already know which information the agent should consider.
+
+Conversation history is scoped to its session and isn't automatically available in a different session. Information carries across sessions only through persistent sources, such as [custom instructions](/docs/agent-customization/custom-instructions.md) or [agent memory](/docs/agents/concepts/agents.md#memory).
 
 ## How {% data variables.product.prodname_vscode_shortname %} assembles context
 
-When you send a message, {% data variables.product.prodname_vscode_shortname %} builds a language model prompt from multiple sources:
+Each time the agent sends a request to the language model, {% data variables.product.prodname_vscode_shortname %} assembles a prompt from multiple sources:
 
 ![Diagram showing the context window as a container with seven layers: system instructions, customizations, user message, conversation history, implicit context, explicit references, and tool outputs, with an arrow sending the assembled prompt to the language model.](../images/concepts/context-assembly.png)
 
 * **System instructions**: built-in guidelines that define the agent's behavior.
 * **Customizations**: AI customizations you set up, including custom agents, skills, and custom instructions.
-* **User message**: the current message you're sending to the agent.
+* **User message**: the current request or follow-up message you send to the agent.
 * **Conversation history**: the messages exchanged so far in the current session.
 * **Implicit context**: the file you're editing, your current selection, visible errors, and git state.
 * **Explicit references**: files, editor context, web content, and other sources you reference with `#`-mentions.
 * **Tool outputs**: results from file reads, terminal commands, codebase search results, and other tool calls during agent sessions.
 
-This assembled prompt is what the model sees. Everything outside of it is invisible to the model. This is why referencing specific files with `#file` produces better results than asking about code the model hasn't seen.
+The context changes as the agent works. For example, the output of a code search can lead the agent to read a file, and that file can then inform the next model request. Information that isn't included in a request is unavailable to the model, but the agent can use tools to discover and add more information.
 
 ## Workspace indexing
 
-{% data variables.product.prodname_vscode_shortname %} uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+{% data variables.product.prodname_vscode_shortname %} uses a semantic index to find code by meaning rather than only by exact keywords. The index helps the agent locate relevant snippets quickly, especially in a large codebase. It doesn't add your entire workspace to every model request.
 
-* **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index to search your codebase quickly, even for large codebases.
-* **Local index**: use an advanced semantic index stored on your local machine for fast and accurate search results.
-* **Basic index**: if local indexing is not available, simpler algorithms work locally for larger codebases.
+{% data variables.product.prodname_vscode_shortname %} builds and maintains the index automatically. If a semantic index isn't available yet, the agent can still find context by using text search, file search, and language intelligence.
 
 Learn more about [workspace indexing](/docs/agents/reference/workspace-context.md).
 
 ## Implicit context
 
-{% data variables.product.prodname_vscode_shortname %} automatically provides context to the prompt based on your current activity:
+{% data variables.product.prodname_vscode_shortname %} uses your current activity to provide context to the prompt or suggest context you might add:
 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
-* If you're using the **Ask** agent, the active file is automatically included as context.
-* When using **Agent**, it decides autonomously if the active file needs to be added based on your prompt.
+* When you use the **Ask** agent, the contents of the active file.
+* When you use **Agent**, the active file as a suggested attachment that you can add to the context.
+
+Implicit context reduces how much information you need to specify. If a particular source is important to the task, add it explicitly instead of relying on the agent to infer that it is relevant.
+
+## Explicit context
+
+Add explicit context when you want to ensure that the agent considers a specific file, folder, symbol, image, web page, or other source. Type `#` in the chat input to choose a context item, or select **Add Context** (`+` icon) in the chat input field.
+
+Explicit context guides the agent toward relevant information but still counts toward the context window. Add only the sources that help the agent complete the current task. Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
+
+> [!TIP]
+> Providing focused context up front might reduce the searches and file reads the agent needs, which can lower AI credit use. Avoid adding unrelated or large sources because they also consume context window tokens. Learn more about [optimizing AI credit usage](/docs/agents/guides/optimize-usage.md).
+
+## Context window and compaction
+
+The context window is the maximum amount of information a language model can process in one request. The user message, conversation history, instructions, referenced files, and tool outputs all use space in this window.
+
+When a conversation approaches the limit, {% data variables.product.prodname_vscode_shortname %} automatically compacts older parts of the conversation into a summary. Compaction makes room for new information, but details from earlier messages might be summarized or omitted. You can also enter `/compact` in the chat input to compact the conversation manually.
+
+Start a new session when you switch to an unrelated task. If an instruction should apply across requests or sessions, store it in [custom instructions](/docs/agent-customization/custom-instructions.md) instead of relying on conversation history. Learn more about [managing conversation context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context).
 
 ## Working effectively with context
 
-* **Start new sessions for new tasks.** A [session](/docs/agents/run/sessions/manage-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
-* **Be selective with context.** Adding your entire codebase isn't always helpful. Reference specific files that are relevant to the task.
-* **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/agent-customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
+* **Describe the goal and constraints.** Explain the outcome you want and any requirements the agent should follow.
+* **Let the agent discover context.** The agent can search your workspace and read related files as it works. You don't need to attach the entire codebase.
+* **Reference important sources.** Explicitly add files, symbols, errors, or documentation that the agent must consider.
+* **Keep each session focused.** Use a separate session for an unrelated task so that its history doesn't compete for context.
 
-### Examples
+### How context improves a response
 
-The following examples show how adding context improves results:
+Consider asking an agent to explain how authentication works in your project.
 
-**Vague prompt (no context)**:
+Without relevant workspace context:
 
 ```prompt
 How does authentication work?
@@ -77,28 +99,16 @@ How does authentication work?
 
 The model has no way to know which project you mean and gives a generic answer about authentication patterns.
 
-**Prompt with explicit context**:
+After attaching `src/auth.ts` to the request as context:
 
 ```prompt
-How does authentication work for this project?
+Explain the authentication flow and identify where tokens are validated.
 ```
 
-The model reads your actual authentication files and explains how *your* implementation works, referencing specific functions and configuration values.
-
-**Prompt with web context**:
-
-```prompt
-Migrate the auth module to the latest passport.js API #fetch https://www.passportjs.org/concepts/authentication/
-```
-
-The model uses the current documentation from the web to guide the migration, avoiding outdated API patterns from its training data.
-
-Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
+The referenced file gives the agent a starting point. The agent can then search for related code and explain the implementation with specific functions and configuration values.
 
 ## Related resources
 
 * [Language models](/docs/agents/concepts/language-models.md)
-* [Add context to chat](/docs/chat/copilot-chat-context.md)
+* [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
-* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
-* [Workspace indexing](/docs/agents/reference/workspace-context.md)

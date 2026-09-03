@@ -34,7 +34,7 @@
       "icon": "codicon-mortar-board",
       "title": "Learn VS Code basics",
       "description": "Explore the editor, settings, extensions, and key features.",
-      "link": "/docs/editing/getting-started"
+      "link": "/docs/editing/getting-started/editor-tutorial"
     },
     {
       "icon": "codicon-organization",
@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.135 release",
-      "description": "Continue Copilot or Claude agent sessions from other applications, get a second opinion with Rubber Duck, and inspect detailed chat usage.",
-      "link": "/updates/v1_135",
-      "image": "/assets/updates/1_135/release-highlights.webp"
+      "title": "VS Code 1.136 release",
+      "description": "Finish pull requests with Agent Merge and manage or personalize chat sessions across multi-root workspaces.",
+      "link": "/updates/v1_136",
+      "image": "/assets/updates/1_136/release-highlights.webp"
     },
     {
       "type": "documentation",

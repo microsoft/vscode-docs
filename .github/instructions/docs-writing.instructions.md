@@ -5,6 +5,18 @@ applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 
 These are our documentation writing style guidelines.
 
+## Content framing
+
+Before you plan or edit content, establish:
+
+* **Primary persona:** The specific reader the content serves, including their role, experience level, and relevant context. Account for secondary personas when they have distinct needs, but optimize the content for one primary persona.
+* **Reader intent:** What the reader came to understand, decide, or accomplish.
+* **Article purpose:** How the article helps the reader fulfill that intent and the outcome they should reach.
+
+Infer this framing from the existing article, its location in the documentation journey, source material, and the writer's request. If the primary persona, reader intent, or article purpose remains ambiguous and different interpretations would change the content, ask the writer to confirm before making edits. Do not rely on a broad audience such as "VS Code users" when a more specific persona is needed to make content decisions.
+
+Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
+
 ## General Style tips
 
 * Get to the point fast.
@@ -75,6 +87,10 @@ These are our documentation writing style guidelines.
 * When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
 * Preserve existing reusable data variables when editing content, including frontmatter. Never replace a product-name variable with its rendered product name, such as replacing `{% data variables.product.prodname_vscode %}` with `Visual Studio Code`.
 
+## Feature lifecycle markers
+
+* When you add or update a `feature(<id>)` marker, verify that the feature ID exists in [`build/feature-lifecycle.json`](../../build/feature-lifecycle.json). Don't infer or guess the feature ID.
+
 ## Alerts
 
 * Alerts are a Markdown extension to create block quotes that render with colors and icons that indicate the significance of the content. The following alert types are supported:
@@ -91,6 +107,7 @@ These are our documentation writing style guidelines.
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+* Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
 
 ## Images
 

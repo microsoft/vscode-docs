@@ -1,6 +1,6 @@
 ---
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: {% data variables.product.prodname_vscode %} is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -198,7 +198,7 @@ The **Trusted Domains** JSON file also has comments with examples of the support
 Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [User Interface](/docs/editing/userinterface.md) - In case you missed a basic orientation around {% data variables.product.prodname_vscode_shortname %}.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - In case you missed a basic orientation around {% data variables.product.prodname_vscode_shortname %}.
 * [Key Bindings](/docs/configure/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
 * [Debugging](/docs/debugtest/debugging.md) - This is where {% data variables.product.prodname_vscode_shortname %} really shines.
 

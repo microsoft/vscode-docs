@@ -1,13 +1,13 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Improve productivity in {% data variables.product.prodname_vscode %} with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
 # {% data variables.product.prodname_vscode %} tips and tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with {% data variables.product.prodname_vscode %}. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/editing/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with {% data variables.product.prodname_vscode %}. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/editing/getting-started/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
 
-If you're just getting started, make sure to check out the [{% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started.md) for a step-by-step to discover the key features.
+If you're just getting started, make sure to check out the [{% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started/editor-tutorial.md) for a step-by-step to discover the key features.
 
 > If you don't have {% data variables.product.prodname_vscode %} installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running {% data variables.product.prodname_vscode_shortname %} on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 
@@ -35,17 +35,17 @@ The best way of exploring {% data variables.product.prodname_vscode_shortname %}
 
 Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: Welcome** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Welcome page](images/tips-and-tricks/welcome-page.png)
+![Welcome page](../images/tips-and-tricks/welcome-page.png)
 
 Extensions can also contribute walkthroughs. You can also directly open a walkthrough by using the **Help: Open Walkthrough...** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
+![Open walkthrough command in the Command Palette](../images/tips-and-tricks/open-walkthrough.png)
 
 If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out {% data variables.product.prodname_vscode_shortname %}'s [code editing features](/docs/editing/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editing/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
 
 Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
+![Interactive editor playground](../images/tips-and-tricks/interactive_playground.png)
 
 ### Command Palette
 
@@ -53,30 +53,30 @@ Access all available commands based on your current context.
 
 Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
-<video src="images/tips-and-tricks/OpenCommandPalette.mp4" title="Video showing Command Palette." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/OpenCommandPalette.mp4" title="Video showing Command Palette." autoplay loop controls muted></video>
 
 > [!TIP]
 > You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
 
-![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/tips-and-tricks/command-palette-position.png)
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](../images/tips-and-tricks/command-palette-position.png)
 
 ### Default keyboard shortcuts
 
 Many of the commands in the Command Palette have default keyboard shortcuts associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![keyboard references](images/tips-and-tricks/keyboard-references.png)
+![keyboard references](../images/tips-and-tricks/keyboard-references.png)
 
 ### Keyboard reference sheets
 
 Download the keyboard shortcut reference sheet for your platform ([macOS](https://go.microsoft.com/fwlink/?linkid=832143), [Windows](https://go.microsoft.com/fwlink/?linkid=832145), [Linux](https://go.microsoft.com/fwlink/?linkid=832144)).
 
-![Keyboard Reference Sheet](images/tips-and-tricks/KeyboardReferenceSheet.png)
+![Keyboard Reference Sheet](../images/tips-and-tricks/KeyboardReferenceSheet.png)
 
 ### Floating windows
 
 You can open an editor, the terminal, or specific views in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
 
-![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](../images/userinterface/floating-editor.png)
 
 Drag an editor tab out of the current {% data variables.product.prodname_vscode_shortname %} window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
 
@@ -84,7 +84,7 @@ Drag an editor tab out of the current {% data variables.product.prodname_vscode_
 
 Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
-![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
+![Integrated terminal](../images/tips-and-tricks/integrated_terminal.png)
 
 You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
 
@@ -97,13 +97,13 @@ Further reading:
 
 Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 
-<video src="images/tips-and-tricks/toggle_side_bar.mp4" title="Video showing toggle side bar." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/toggle_side_bar.mp4" title="Video showing toggle side bar." autoplay loop controls muted></video>
 
 ### Toggle Panel
 
 Keyboard Shortcut: `kb(workbench.action.togglePanel)`
 
-<video src="images/tips-and-tricks/toggle_panel.mp4" title="Video showing toggle panel." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/toggle_panel.mp4" title="Video showing toggle panel." autoplay loop controls muted></video>
 
 ### Zen mode
 
@@ -111,7 +111,7 @@ Enter distraction-free Zen mode.
 
 Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
 
-<video src="images/tips-and-tricks/zen_mode.mp4" title="Video showing zen mode." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/zen_mode.mp4" title="Video showing zen mode." autoplay loop controls muted></video>
 
 Press `kbstyle(Esc)` twice to exit Zen Mode.
 
@@ -161,7 +161,7 @@ Quickly jump to errors and warnings in the project.
 
 Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)`
 
-<video src="images/tips-and-tricks/Errors_Warnings.mp4" title="Video showing errors and warnings." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/Errors_Warnings.mp4" title="Video showing errors and warnings." autoplay loop controls muted></video>
 
 You can filter problem list either by type ('info', 'errors', 'warnings') or by matching text.
 
@@ -171,7 +171,7 @@ The language mode in the Status Bar indicates the language (for example, Markdow
 
 Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
 
-<video src="images/tips-and-tricks/change_syntax.mp4" title="Video showing change syntax." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/change_syntax.mp4" title="Video showing change syntax." autoplay loop controls muted></video>
 
 If you want to persist the new language mode for a file type, use the **Configure File Association for** command to associate the current file extension with an installed language.
 
@@ -192,13 +192,13 @@ There are many options to customize {% data variables.product.prodname_vscode_sh
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
-<video src="images/tips-and-tricks/PreviewThemes.mp4" title="Video showing Preview themes." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/PreviewThemes.mp4" title="Video showing Preview themes." autoplay loop controls muted></video>
 
 You can install more themes from the {% data variables.product.prodname_vscode_shortname %} extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
 
 Additionally, you can install and change your File Icon themes.
 
-<video src="images/tips-and-tricks/PreviewFileIconThemes.mp4" title="Video showing File icon themes." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/PreviewFileIconThemes.mp4" title="Video showing File icon themes." autoplay loop controls muted></video>
 
 ### Keymaps
 
@@ -222,11 +222,11 @@ Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
 
 Select the pencil icon or use `kbstyle(Enter)` on a specific entry to edit the keyboard shortcut. Filter the list by using the search field.
 
-![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
+![keyboard shortcuts](../images/tips-and-tricks/keyboard-shortcuts.png)
 
 You can also search for shortcuts and add your own keyboard shortcuts to the `keybindings.json` file.
 
-<video src="images/tips-and-tricks/KeyboardShortcuts.mp4" title="Video showing customize keyboard shortcuts." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/KeyboardShortcuts.mp4" title="Video showing customize keyboard shortcuts." autoplay loop controls muted></video>
 
 See more in [Key Bindings for {% data variables.product.prodname_vscode %}](/docs/configure/keybindings.md).
 
@@ -266,7 +266,7 @@ Font ligatures
 
 > **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the {% data variables.product.prodname_vscode_shortname %} team.
 
-![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
+![font ligatures](../images/tips-and-tricks/font-ligatures-annotated.png)
 
 Auto Save
 
@@ -342,7 +342,7 @@ You can scope settings for specific languages by using the language identifier. 
 
 > **Tip:** You can also create language-specific settings with the **Configure Language Specific Settings** command.
 >
-> ![language based settings](images/tips-and-tricks/lang-based-settings.png)
+> ![language based settings](../images/tips-and-tricks/lang-based-settings.png)
 
 ### Add JSON validation
 
@@ -411,7 +411,7 @@ The Output panel shows the output of various services. Each services typically h
 
 Select **Create Compound Log...** from the overflow menu of the Output panel.
 
-<video src="images/tips-and-tricks/compound-log.mp4" title="Video showing how to create a compound log that combines the log messages from two other logs." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/compound-log.mp4" title="Video showing how to create a compound log that combines the log messages from two other logs." autoplay loop controls muted></video>
 
 ## Extensions
 
@@ -430,13 +430,13 @@ You can use multiple sources to find extensions:
 
 In the **Extensions** view, select the **Filter** control, and then either select **Most Popular** or **Sort By** > **Install Count**.
 
-![install extensions](images/tips-and-tricks/show-popular-extensions.png)
+![install extensions](../images/tips-and-tricks/show-popular-extensions.png)
 
 ### Extension recommendations
 
 In the **Extensions** view, select the **Filter** control, and then select **Recommended** to view the list of recommended extensions.
 
-![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
+![show recommended extensions](../images/tips-and-tricks/show-recommended-extensions.png)
 
 ### Create your own extension
 
@@ -460,7 +460,7 @@ With the simple file dialog, you can replace the system's default file dialog fo
 
 Setting: `setting(files.simpleDialog)`
 
-![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
+![Simple File Dialog](../images/tips-and-tricks/simple-file-dialog.png)
 
 > [!TIP]
 > Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
@@ -477,15 +477,15 @@ Quickly search and open files.
 
 Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
-<video src="images/tips-and-tricks/QuickOpen.mp4" title="Video showing Quick Open." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/QuickOpen.mp4" title="Video showing Quick Open." autoplay loop controls muted></video>
 
 **Tip:** Type `kbstyle(?)` to view command suggestions.
 
-![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
+![Quick Open command list](../images/tips-and-tricks/quick-open-command-dropdown.png)
 
 Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
 
-![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
+![term command in Quick Open](../images/tips-and-tricks/term-quick-open.png)
 
 #### Navigate between recently opened files
 
@@ -509,7 +509,7 @@ Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
 
 You can quickly open a file or image, or create a new file by moving the cursor to the file link and then pressing `kbstyle(Ctrl+click)`.
 
-<video src="images/tips-and-tricks/create_open_file.mp4" title="Video showing create and open file." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/create_open_file.mp4" title="Video showing create and open file." autoplay loop controls muted></video>
 
 ### Close the currently opened folder
 
@@ -523,7 +523,7 @@ Navigate back: `kb(workbench.action.navigateBack)`
 
 Navigate forward: `kb(workbench.action.navigateForward)`
 
-<video src="images/tips-and-tricks/navigate_history.mp4" title="Video showing navigate history." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/navigate_history.mp4" title="Video showing navigate history." autoplay loop controls muted></video>
 
 ### File associations
 
@@ -541,7 +541,7 @@ Create language associations for files that aren't detected correctly. For examp
 
 To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in {% data variables.product.prodname_vscode_shortname %} (on the right):
 
-![dirty write](images/tips-and-tricks/dirty-write.png)
+![dirty write](../images/tips-and-tricks/dirty-write.png)
 
 Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
 
@@ -559,13 +559,13 @@ Keyboard Shortcut: `kb(workbench.action.splitEditor)`
 
 You can also drag and drop editors to create new editor groups and move editors between groups.
 
-<video src="images/tips-and-tricks/split_editor.mp4" title="Video showing split editors." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/split_editor.mp4" title="Video showing split editors." autoplay loop controls muted></video>
 
 ### Switch between editors
 
 Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
 
-<video src="images/tips-and-tricks/navigate_editors.mp4" title="Video showing navigate editors." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/navigate_editors.mp4" title="Video showing navigate editors." autoplay loop controls muted></video>
 
 ### Multi cursor selection
 
@@ -575,24 +575,24 @@ To set cursors above or below the current position use:
 
 Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
-<video src="images/tips-and-tricks/multicursor.mp4" title="Video showing multi cursor." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/multicursor.mp4" title="Video showing multi cursor." autoplay loop controls muted></video>
 
 You can add additional cursors to all occurrences of the current selection with `kb(editor.action.selectHighlights)`.
 
-<video src="images/tips-and-tricks/add_cursor_current_selection.mp4" title="Video showing add cursor to all occurrences of current selection." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/add_cursor_current_selection.mp4" title="Video showing add cursor to all occurrences of current selection." autoplay loop controls muted></video>
 
 > Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/configure/settings.md) . See [Multi-cursor Modifier](/docs/editing/codebasics.md#multi-cursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
 
-<video src="images/tips-and-tricks/add_cursor_current_selection_one_by_one.mp4" title="Video showing add cursor to next occurrences of current selection one by one." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/add_cursor_current_selection_one_by_one.mp4" title="Video showing add cursor to next occurrences of current selection one by one." autoplay loop controls muted></video>
 
 ### Column (box) selection
 
 You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Option)` on macOS) while you drag your mouse. A separate cursor will be added to the end of each selected line.
 
-<video src="images/tips-and-tricks/column-select.mp4" title="Video showing Column text selection." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/column-select.mp4" title="Video showing Column text selection." autoplay loop controls muted></video>
 
 You can also use [keyboard shortcuts](/docs/editing/codebasics.md#column-box-selection) to trigger column selection.
 
@@ -608,7 +608,7 @@ You can add vertical column rulers to the editor with the `setting(editor.rulers
 }
 ```
 
-![Editor rulers in the editor](images/tips-and-tricks/editor-rulers.png)
+![Editor rulers in the editor](../images/tips-and-tricks/editor-rulers.png)
 
 ### Fast scrolling
 
@@ -618,7 +618,7 @@ Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explore
 
 You can synchronize scrolling across all visible editors by using the **View: Toggle Locked Scrolling Across Editors** command. This means that when you scroll in one editor, all the other editors scroll by the same amount, keeping everything aligned.
 
-<video src="images/tips-and-tricks/locked-scrolling.mp4" title="Video showing Locked scrolling in the editor." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/locked-scrolling.mp4" title="Video showing Locked scrolling in the editor." autoplay loop controls muted></video>
 
 You can choose to only activate the scrolling sync when you're holding down a specific keyboard shortcut. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
 
@@ -628,19 +628,19 @@ Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.co
 
 > The commands **Copy Line Up/Down** are unbound on Linux because the {% data variables.product.prodname_vscode_shortname %} default keyboard shortcuts would conflict with Ubuntu keyboard shortcuts, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
-<video src="images/tips-and-tricks/copy_line_down.mp4" title="Video showing copy line down." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/copy_line_down.mp4" title="Video showing copy line down." autoplay loop controls muted></video>
 
 ### Move line up and down
 
 Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
 
-<video src="images/tips-and-tricks/move_line.mp4" title="Video showing move line up and down." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/move_line.mp4" title="Video showing move line up and down." autoplay loop controls muted></video>
 
 ### Shrink / expand selection
 
 Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.expand)`
 
-<video src="images/tips-and-tricks/shrink_expand_selection.mp4" title="Video showing shrink expand selection." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/shrink_expand_selection.mp4" title="Video showing shrink expand selection." autoplay loop controls muted></video>
 
 You can learn more in the [Basic Editing](/docs/editing/codebasics.md#shrinkexpand-selection) documentation.
 
@@ -648,23 +648,23 @@ You can learn more in the [Basic Editing](/docs/editing/codebasics.md#shrinkexpa
 
 Keyboard Shortcut: `kb(workbench.action.gotoSymbol)`
 
-<video src="images/tips-and-tricks/find_by_symbol.mp4" title="Video showing Find by symbol." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/find_by_symbol.mp4" title="Video showing Find by symbol." autoplay loop controls muted></video>
 
 You can group the symbols by kind by adding a colon, `@:`.
 
-![group symbols by kind](images/tips-and-tricks/group_symbols_by_kind.png)
+![group symbols by kind](../images/tips-and-tricks/group_symbols_by_kind.png)
 
 ### Go to Symbol in Workspace
 
 Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
-![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
+![go to symbol in workspace](../images/tips-and-tricks/go_to_symbol_in_workspace.png)
 
 ### Outline view
 
 The Outline view in the File Explorer (default collapsed at the bottom) shows you the symbols of the currently open file.
 
-![Outline view](images/tips-and-tricks/outline-view.png)
+![Outline view](../images/tips-and-tricks/outline-view.png)
 
 You can sort by symbol name, category, and position in the file, allowing quick navigation to symbol locations.
 
@@ -680,13 +680,13 @@ Keyboard Shortcut: `kb(cursorUndo)`
 
 Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
 
-<video src="images/tips-and-tricks/trim_whitespace.mp4" title="Video showing trailing whitespace." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/trim_whitespace.mp4" title="Video showing trailing whitespace." autoplay loop controls muted></video>
 
 ### Transform text commands
 
 You can change selected text to uppercase, lowercase, and title case with the **Transform** commands from the Command Palette.
 
-![Transform text commands](images/tips-and-tricks/transform-text-commands.png)
+![Transform text commands](../images/tips-and-tricks/transform-text-commands.png)
 
 ### Code formatting
 
@@ -694,13 +694,13 @@ Currently selected source code: `kb(editor.action.formatSelection)`
 
 Whole document format: `kb(editor.action.formatDocument)`
 
-<video src="images/tips-and-tricks/code_formatting.mp4" title="Video showing code formatting." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/code_formatting.mp4" title="Video showing code formatting." autoplay loop controls muted></video>
 
 ### Code folding
 
 Keyboard Shortcut: `kb(editor.fold)`, `kb(editor.unfold)` and `kb(editor.toggleFold)`
 
-<video src="images/tips-and-tricks/code_folding.mp4" title="Video showing code folding." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/code_folding.mp4" title="Video showing code folding." autoplay loop controls muted></video>
 
 You can also fold/unfold all regions in the editor with **Fold All** (`kb(editor.foldAll)`) and **Unfold All** (`kb(editor.unfoldAll)`).
 
@@ -720,7 +720,7 @@ In a Markdown file, use
 
 Keyboard Shortcut: `kb(markdown.togglePreview)`
 
-![Markdown preview](images/tips-and-tricks/markdown-preview.png)
+![Markdown preview](../images/tips-and-tricks/markdown-preview.png)
 
 ### Side by side Markdown edit and preview
 
@@ -730,13 +730,13 @@ Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
 
 The preview and editor will synchronize with your scrolling in either view.
 
-![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
+![side by side Markdown preview](../images/tips-and-tricks/markdown-preview-side-by-side.png)
 
 ## IntelliSense
 
 `kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
 
-<video src="images/tips-and-tricks/intellisense.mp4" title="Video showing intellisense." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/intellisense.mp4" title="Video showing intellisense." autoplay loop controls muted></video>
 
 You can view available methods, parameter hints, short documentation, etc.
 
@@ -744,13 +744,13 @@ You can view available methods, parameter hints, short documentation, etc.
 
 Select a symbol then type `kb(editor.action.peekDefinition)`. Alternatively, you can use the context menu.
 
-<video src="images/tips-and-tricks/peek.mp4" title="Video showing peek." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/peek.mp4" title="Video showing peek." autoplay loop controls muted></video>
 
 ### Go to Definition
 
 Select a symbol then type `kb(editor.action.revealDefinition)`. Alternatively, you can use the context menu or `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS).
 
-<video src="images/tips-and-tricks/goto_definition.mp4" title="Video showing go to definition." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/goto_definition.mp4" title="Video showing go to definition." autoplay loop controls muted></video>
 
 You can go back to your previous location with the **Go** > **Back** command or `kb(workbench.action.navigateBack)`.
 
@@ -760,7 +760,7 @@ You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)
 
 Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
 
-<video src="images/tips-and-tricks/find_all_references.mp4" title="Video showing peek references." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/find_all_references.mp4" title="Video showing peek references." autoplay loop controls muted></video>
 
 ### Find All References view
 
@@ -770,13 +770,13 @@ Select a symbol then type `kb(references-view.findReferences)` to open the Refer
 
 Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use the context menu.
 
-<video src="images/tips-and-tricks/rename_symbol.mp4" title="Video showing rename symbol." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/rename_symbol.mp4" title="Video showing rename symbol." autoplay loop controls muted></video>
 
 ### Search and modify
 
 Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parentheses to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
-![search and modify](images/tips-and-tricks/search_and_modify.png)
+![search and modify](../images/tips-and-tricks/search_and_modify.png)
 
 ### .eslintrc.json
 
@@ -827,13 +827,13 @@ Here is configuration to use ES6.
 
 See IntelliSense for your `package.json` file.
 
-<video src="images/tips-and-tricks/package_json_intellisense.mp4" title="Video showing package json intellisense." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/package_json_intellisense.mp4" title="Video showing package json intellisense." autoplay loop controls muted></video>
 
 ### Emmet syntax
 
 [Support for Emmet syntax](/docs/languages/emmet.md).
 
-<video src="images/tips-and-tricks/emmet_syntax.mp4" title="Video showing emmet syntax." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/emmet_syntax.mp4" title="Video showing emmet syntax." autoplay loop controls muted></video>
 
 ## Snippets
 
@@ -868,7 +868,7 @@ Git integration comes "out-of-the-box" with {% data variables.product.prodname_v
 
 {% data variables.product.prodname_vscode_shortname %} shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
 
-![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/tips-and-tricks/scm-git-blame.png)
+![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](../images/tips-and-tricks/scm-git-blame.png)
 
 To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
 
@@ -881,7 +881,7 @@ Learn more about [Git blame support in {% data variables.product.prodname_vscode
 
 From the **Source Control** view, select a file to open the diff editor. Alternatively, select the **Open Changes** button in the top right corner to diff the current open file.
 
-<video src="images/tips-and-tricks/msee-changes.mp4" title="Video showing git diff from source control." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/msee-changes.mp4" title="Video showing git diff from source control." autoplay loop controls muted></video>
 
 #### Views
 
@@ -889,7 +889,7 @@ The default view for diffs is the **side by side view**.
 
 Toggle **inline view** by selecting the **More Actions** (...) button in the top right, and then selecting **Inline View**.
 
-![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](images/tips-and-tricks/mdiff-switch-to-inline.png)
+![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](../images/tips-and-tricks/mdiff-switch-to-inline.png)
 
 If you prefer to have the inline view as the default, configure the `"diffEditor.renderSideBySide": false` setting.
 
@@ -897,7 +897,7 @@ If you prefer to have the inline view as the default, configure the `"diffEditor
 
 Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This presents changes in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` jumps back in the diff editor and the selected line.
 
-![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
+![diff_review_pane](../images/tips-and-tricks/diff_review_pane.png)
 
 #### Edit pending changes
 
@@ -907,7 +907,7 @@ While you're viewing changes in the diff editor, you can make edits directly in 
 
 Easily switch between Git branches via the Status Bar.
 
-<video src="images/tips-and-tricks/switch-branch.mp4" title="Video showing switch branches." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/switch-branch.mp4" title="Video showing switch branches." autoplay loop controls muted></video>
 
 ### Staging
 
@@ -917,7 +917,7 @@ Hover over the number of files and select the plus button to stage a file.
 
 Select the minus button to unstage changes.
 
-<video src="images/tips-and-tricks/stage-unstage.mp4" title="Video showing git stage all." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/stage-unstage.mp4" title="Video showing git stage all." autoplay loop controls muted></video>
 
 #### Stage selected
 
@@ -927,7 +927,7 @@ You can stage a portion of a file by making a text selection in a file and then 
 
 Select the (...) button, and then select **Commit** > **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
 
-<video src="images/tips-and-tricks/mundo-last-commit.mp4" title="Video showing undo last commit." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/mundo-last-commit.mp4" title="Video showing undo last commit." autoplay loop controls muted></video>
 
 ### See Git output
 
@@ -939,7 +939,7 @@ To view the Git output, select the (...) button in the Source Control view, and 
 
 The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md) for more details.
 
-<video src="images/tips-and-tricks/mgutter_icons.mp4" title="Video showing git gutter indicators." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/mgutter_icons.mp4" title="Video showing git gutter indicators." autoplay loop controls muted></video>
 
 ### Resolve merge conflicts
 
@@ -947,7 +947,7 @@ During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and
 
 You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
 
-![Git merge](images/tips-and-tricks/merge-conflict.png)
+![Git merge](../images/tips-and-tricks/merge-conflict.png)
 
 Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md) in the source control documentation.
 
@@ -979,7 +979,7 @@ From the Run and Debug view (`kb(workbench.view.debug)`), select **create a laun
 
 Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/debugtest/debugging.md) for more details.
 
-![configure debugging](images/tips-and-tricks/configure-debug.png)
+![configure debugging](../images/tips-and-tricks/configure-debug.png)
 
 ### Breakpoints and stepping through
 
@@ -987,13 +987,13 @@ Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.de
 
 Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/debugtest/debugging.md#debug-actions) in the debugging documentation.
 
-<video src="images/tips-and-tricks/node_debug.mp4" title="Video showing debug." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/node_debug.mp4" title="Video showing debug." autoplay loop controls muted></video>
 
 ### Data inspection
 
 Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view, by hovering over their source in the editor, or by using the debug console.
 
-<video src="images/tips-and-tricks/debug_data_inspection.mp4" title="Video showing data inspection." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/debug_data_inspection.mp4" title="Video showing data inspection." autoplay loop controls muted></video>
 
 ### Logpoints
 
@@ -1001,7 +1001,7 @@ Logpoints act much like breakpoints but instead of halting the debugger when the
 
 Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
-![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
+![Logpoint set in the editor](../images/tips-and-tricks/logpoint.png)
 
 ### Triggered breakpoints
 
@@ -1009,7 +1009,7 @@ A triggered breakpoint is a breakpoint that is automatically enabled once anothe
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
-<video src="../debugtest/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+<video src="../../debugtest/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
 ## Task runner
 
@@ -1044,7 +1044,7 @@ There are occasionally issues with auto generation. Check out the documentation 
 
 Select **Terminal** from the top-level menu, run the command **Run Task**, and select the task you want to run. Terminate the running task by running the command **Terminate Task**
 
-<video src="images/tips-and-tricks/task_runner.mp4" title="Video showing task runner." autoplay loop controls muted></video>
+<video src="../images/tips-and-tricks/task_runner.mp4" title="Video showing task runner." autoplay loop controls muted></video>
 
 ### Define keyboard shortcuts for tasks
 
@@ -1064,7 +1064,7 @@ For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the followin
 
 From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `setting(npm.scriptExplorerAction)` to `run`. Use the setting `setting(npm.exclude)` to exclude scripts in `package.json` files contained in particular folders.
 
-![Filter problems](images/tips-and-tricks/script_explorer.png)
+![Filter problems](../images/tips-and-tricks/script_explorer.png)
 
 With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
 

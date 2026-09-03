@@ -1,7 +1,7 @@
 ---
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in {% data variables.product.prodname_vscode %}
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 ---
 # Dev Containers tutorial
 

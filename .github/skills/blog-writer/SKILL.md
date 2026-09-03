@@ -38,41 +38,45 @@ Do **not** use this skill for reference documentation, release notes, or API doc
 
 Do not modify any files in this phase.
 
-1. **Understand the topic.** Read the feature description, issue, or PR provided. If it is ambiguous or lacks detail, ask clarifying questions (audience, angle, key takeaways, author name and social link) before continuing.
-2. **Check the source if needed.** To understand the feature, inspect the source code in the `microsoft/vscode` and `microsoft/vscode-copilot-chat` repos. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
+1. **Understand the topic.** Read the feature description, issue, or PR provided. If it is ambiguous or lacks detail, ask clarifying questions before continuing.
+2. **Establish the content framing.** Identify the primary persona, reader intent, and narrative purpose by following the [blog content-framing guidance](../../instructions/blog-writing.instructions.md#content-framing). Infer them from the topic, source material, existing coverage, and writer's request. If any part of the framing remains ambiguous and different interpretations would change the angle, ask the writer to confirm before proposing the outline.
+3. **Check the source if needed.** To understand the feature, inspect the source code in the `microsoft/vscode` and `microsoft/vscode-copilot-chat` repos. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
    | Area being written about | Primary source repo |
    |--------------------------|---------------------|
    | Core editor, workbench, debug, terminal, tasks, settings, commands, keybindings | `microsoft/vscode` |
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
 
-3. **Determine placement and metadata.** Decide the target folder (`blogs/<year>/<month>/<day>/`) and the next available `Order` value by checking recent posts. Confirm the author name and social media profile link with the user if unknown.
-4. **Present the outline.** Summarize:
+4. **Determine placement and metadata.** Decide the target folder (`blogs/<year>/<month>/<day>/`) and the next available `Order` value by checking recent posts. Confirm the author name and social media profile link with the user if unknown.
+5. **Present the outline.** Summarize:
+   * The primary persona, reader intent, and narrative purpose.
    * The proposed title, target folder path, and draft frontmatter values.
    * A section-by-section outline (H2 headings) with a one-line description of each.
    * Any `TODO` image placeholders that will be needed (hero/social image, inline screenshots).
    * Open questions or assumptions.
-5. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the outline (or adjusts it).
+6. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the outline (or adjusts it).
 
 ## Phase 2 — Draft the Post (after approval)
 
 Once the user approves the outline:
 
 1. Create the post at `blogs/<year>/<month>/<day>/<slug>.md` with complete YAML frontmatter.
-2. Write the body following the content structure from the style guide:
+2. Write the body following the approved content framing and the content structure from the style guide:
    * An H1 title, followed by a byline `<Month> <day>, <year> by [<author>](<social link>)` and a blank line.
    * A brief introduction that summarizes the main points.
    * H2 sections as outlined, in an engaging, conversational tone using active voice, "we", and contractions.
    * Images via relative paths with descriptive alt text. Use absolute URLs for links to documentation articles.
    * A closing call to action, ending with `Happy coding! 💙`.
 3. Add `TODO` comments where images or screenshots need to be captured by a human.
-4. Summarize the post you created and call out any remaining `TODO`s for the user.
+4. Verify that the opening, examples, terminology, key takeaways, and call to action serve the approved primary persona and reader intent.
+5. Summarize the post you created and call out any remaining `TODO`s for the user.
 
 ## Review Mode
 
 When the user asks you to review an existing blog post instead of writing one:
 
 1. Read the draft and check it against the [blog-writing style guide](../../instructions/blog-writing.instructions.md):
+   * Content framing (a clear primary persona, reader intent, and narrative purpose reflected consistently throughout the post).
    * Frontmatter completeness and correctness (all required fields, unique `Order`, `MetaDescription` under 160 chars, `TOCTitle` under 30 chars).
    * Folder structure (`blogs/<year>/<month>/<day>/`).
    * Content structure (H1 title, byline, intro, H2 sections, alt text on images, absolute URLs for doc links, closing call to action ending with `Happy coding! 💙`).

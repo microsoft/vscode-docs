@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in {% data variables.product.prodname_vscode_shortname %} for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -86,7 +86,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from `~/.copilot/agents` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents to this location, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from `~/.copilot/agents` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents to this location, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

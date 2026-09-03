@@ -1,6 +1,6 @@
 ---
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
-DateApproved: 8/19/2026
+DateApproved: 9/2/2026
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the {% data variables.product.prodname_vscode %} editor.
 ---
 # Using React in {% data variables.product.prodname_vscode %}

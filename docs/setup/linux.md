@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Linux with Debian, RPM, Snap, Arch, or Nix package options.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -250,7 +250,7 @@ After you install {% data variables.product.prodname_vscode_shortname %}, finish
 * [Install additional components](/docs/setup/additional-components.md), including Git, Node.js, TypeScript, language runtimes, and command-line tools.
 * [Install extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) to add themes, formatters, debuggers, and language support.
 * [Set up GitHub Copilot](/docs/setup/copilot.md) to use AI features in {% data variables.product.prodname_vscode_shortname %}.
-* [Start the {% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started.md) for a hands-on tour of the user interface and key features.
+* [Start the {% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started/editor-tutorial.md) for a hands-on tour of the user interface and key features.
 
 ## Common questions
 

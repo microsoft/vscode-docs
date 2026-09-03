@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 8/26/2026
+DateApproved: 9/2/2026
 MetaDescription: Learn how to set up a test-driven development (TDD) workflow in {% data variables.product.prodname_vscode_shortname %} with Copilot and custom agents and instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
