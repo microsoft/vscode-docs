@@ -29,6 +29,7 @@ Do **not** use this skill for reference documentation, release notes, or API doc
 ## Guardrails
 
 * **Blogs only.** Limit changes to the `blogs/` folder. Do **not** update reference docs, release notes, or API docs as part of this skill.
+* **Public functionality only.** Announce functionality only when it is publicly available in the named channel by the post's publication date. Do not announce internal dogfood or source-only functionality.
 * **Folder structure.** A new post MUST live in `blogs/<year>/<month>/<day>/` with each date level as its own subfolder. Store images and the social image alongside the post.
 * **Frontmatter is required.** Every post needs the YAML frontmatter fields from the style guide (`Order`, `TOCTitle`, `PageTitle`, `MetaDescription`, `MetaSocialImage`, `Date`, `Author`). `Order` must be unique and higher than the most recent post, so check existing posts before assigning it.
 * **Images and screenshots are human work.** When a hero image or screenshot is needed, insert a `TODO` comment for a human to capture and add it later. Do not fabricate image references or invent file names beyond the placeholder.
@@ -47,14 +48,15 @@ Do not modify any files in this phase.
    | Core editor, workbench, debug, terminal, tasks, settings, commands, keybindings | `microsoft/vscode` |
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
 
-4. **Determine placement and metadata.** Decide the target folder (`blogs/<year>/<month>/<day>/`) and the next available `Order` value by checking recent posts. Confirm the author name and social media profile link with the user if unknown.
-5. **Present the outline.** Summarize:
+4. **Verify public availability.** Confirm that each announced capability is available to users in the named public channel by the publication date. Public Preview, Experimental, and Insiders functionality qualifies when labeled clearly. Source-code existence or manual configurability is not enough. Exclude planned, hidden, internal dogfood, and source-only functionality.
+5. **Determine placement and metadata.** Decide the target folder (`blogs/<year>/<month>/<day>/`) and the next available `Order` value by checking recent posts. Confirm the author name and social media profile link with the user if unknown.
+6. **Present the outline.** Summarize:
    * The primary persona, reader intent, and narrative purpose.
    * The proposed title, target folder path, and draft frontmatter values.
    * A section-by-section outline (H2 headings) with a one-line description of each.
    * Any `TODO` image placeholders that will be needed (hero/social image, inline screenshots).
    * Open questions or assumptions.
-6. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the outline (or adjusts it).
+7. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the outline (or adjusts it).
 
 ## Phase 2 — Draft the Post (after approval)
 
@@ -82,4 +84,5 @@ When the user asks you to review an existing blog post instead of writing one:
    * Content structure (H1 title, byline, intro, H2 sections, alt text on images, absolute URLs for doc links, closing call to action ending with `Happy coding! 💙`).
    * Writing style (engaging and conversational, active voice, first-person plural, contractions, clear language for a developer audience).
 2. Verify technical claims against the source where practical (setting names, command IDs, version availability), using the `gh` CLI.
-3. Report concrete, practical suggestions grouped by theme. **Do not edit the file** unless the user asks you to apply the changes.
+3. Verify that announced functionality is public in the named channel by the post's publication date. Flag content that presents planned, hidden, internal dogfood, or source-only functionality as available.
+4. Report concrete, practical suggestions grouped by theme. **Do not edit the file** unless the user asks you to apply the changes.

@@ -13,6 +13,10 @@ The broad blog audience includes developers who use VS Code, but each post must 
 
 State the primary persona, reader intent, and narrative purpose in the proposed outline. Use them to choose the opening hook, key takeaways, examples, terminology, assumed knowledge, and call to action. After drafting, verify that each section advances the agreed narrative purpose for the primary persona.
 
+## Public availability
+
+Announce functionality only when it is publicly available in the named product channel by the post's publication date. Public Preview, Experimental, and Insiders functionality can be announced when the post identifies its lifecycle and availability clearly. Do not present planned, source-only, hidden, or internal dogfood functionality as available to readers.
+
 ## Metadata
 
 A blog post must have the following metadata fields, formatted with YAML frontmatter.
