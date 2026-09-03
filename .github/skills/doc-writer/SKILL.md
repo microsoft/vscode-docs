@@ -25,6 +25,7 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 ## Guardrails
 
 * **Docs only.** Limit changes to the `docs/` folder. Do **not** update release notes or API docs (`api/`) unless the user explicitly asks.
+* **Public functionality only.** Do not add or retain documentation for internal builds, dogfood-only functionality, hidden settings or commands, source-only implementation, or manually settable internal feature flags.
 * **Never edit `enterprise/policies.md`.** This file is generated from the enterprise policy definitions in the VS Code source. Edit `enterprise/policies-template.md` instead, which is used to regenerate `policies.md`.
 * **Screenshots are human work.** When a screenshot needs to be added or updated, insert a `TODO` comment in the doc for a human to capture and insert it later — do not fabricate image references.
 * **Style compliance.** All writing must follow the [docs-writing style guide](../../instructions/docs-writing.instructions.md).
@@ -35,8 +36,7 @@ Do not modify any files in this phase.
 
 1. **Understand the feature.** Read the feature description, issue, or PR provided. If the description is ambiguous or lacks detail, ask clarifying questions before continuing.
 2. **Establish the content framing.** Identify the primary persona, reader intent, and article purpose by following the [content-framing guidance](../../instructions/docs-writing.instructions.md#content-framing). Infer them from the existing content, documentation journey, source material, and writer's request. If any part of the framing remains ambiguous and different interpretations would change the content, ask the writer to confirm before planning edits.
-3. **User-facing features.** Check that the features are already available for users and not just for internal dogfooding only. Only document user-facing features.
-4. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
+3. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
    | Area being documented | Primary source repo |
    |----------------------|---------------------|
@@ -44,6 +44,7 @@ Do not modify any files in this phase.
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
    | Enterprise policies | `microsoft/vscode` (policy definitions) |
 
+4. **Verify public availability.** Check every feature, setting, and command against the public product channel intended for the article. Public Preview, Experimental, and Insiders functionality qualifies when labeled clearly. Source-code existence or manual configurability is not enough. Inspect registration metadata, product quality gates, feature flags, and the relevant public release. Treat metadata such as `included: false` as internal unless product evidence shows otherwise. If functionality is not public, do not document it. During an audit or review, propose removing existing coverage.
 5. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
 6. **Present the plan.** Summarize:
    * The primary persona, reader intent, and article purpose.
