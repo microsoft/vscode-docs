@@ -12,7 +12,7 @@ Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://do
 
 The lowest-cost model does not always produce the lowest-cost result. A model that needs retries or creates rework can cost more than a capable model that completes the task reliably. The inverse is also true: not every task requires a complex, reasoning model, and routing simple or repetitive tasks to a lighter model avoids paying for capability you don't need.
 
-Use representative tasks from your work to evaluate models:
+Start from the [AI model comparison table](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) and [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model) for general guidance, then use representative tasks from your own work to compare credit usage against response quality:
 
 1. Define the expected result and how you will assess its quality.
 1. Run each task more than once because model output is nondeterministic.
@@ -23,7 +23,7 @@ For a low-maintenance default, use **auto model selection** to let {% data varia
 
 The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to compare token usage, tool calls, errors, and duration across test runs.
 
-For more information, see [choosing and configuring language models](/docs/agent-customization/language-models.md), [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model), and the [AI model comparison table](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
+For more information, see [choosing and configuring language models](/docs/agent-customization/language-models.md).
 
 ## Plan and delegate before you implement
 
