@@ -1,7 +1,7 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
 DateApproved: 9/2/2026
-MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -43,7 +43,11 @@ Select a permission level from the permissions dropdown in the chat input area t
 
 The permission level applies to the current chat session, and can be changed at any time. New sessions start with the default permission level, which you can configure with the `setting(chat.permissions.default)` setting.
 
-**Assisted permissions** is only available for agents that run on the [Agent Host](/docs/agents/concepts/agent-host.md). To show this option in the permissions picker, enable `setting(chat.assistedPermissions.enabled)`.
+**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Bypass Approvals**.
+
+`feature(assisted-permissions)`
+
+Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assisted permissions** in supported Agent Host permission pickers. An organization can also hide this option by [disabling global auto-approval](/docs/enterprise/ai-settings.md#disable-global-auto-approval).
 
 | Permission level | Description |
 |---|---|
