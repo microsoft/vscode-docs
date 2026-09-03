@@ -1,35 +1,41 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
 DateApproved: 9/2/2026
-MetaDescription: Tips to optimize your AI credit usage in {% data variables.product.prodname_vscode_shortname %} by choosing efficient models, managing context, and monitoring consumption.
+MetaDescription: Reduce AI credit usage in {% data variables.product.prodname_vscode_shortname %} with efficient models, scoped tools, and focused context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Optimize AI credit usage in {% data variables.product.prodname_vscode_shortname %}
 
 Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Different actions consume credits at different rates, based on the model and the number of tokens processed. This guide covers practical ways to get the most out of your AI credits in {% data variables.product.prodname_vscode %}.
 
-## Choose efficient models
+## Choose models based on evidence
 
-More capable models cost more per token, while lighter models extend your usage further. Match the model to the complexity of the task:
+The lowest-cost model does not always produce the lowest-cost result. A model that needs retries or creates rework can cost more than a capable model that completes the task reliably.
 
-* Use **lighter models** for quick edits, boilerplate generation, and straightforward questions.
-* Use **reasoning models** for complex refactoring, architectural decisions, and multi-step debugging.
-* Use **auto model selection** to let {% data variables.product.prodname_vscode_shortname %} route each request to an efficient model that balances quality and cost.
-* Use [custom agents](/docs/agent-customization/custom-agents.md) with a preferred model to route specific subtasks to specialized, cost-effective models. When you invoke a custom agent as a subagent, it uses its own configured model instead of the chat session's model.
+Use representative tasks from your work to evaluate models:
 
-The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use this information to make informed choices.
+1. Define the expected result and how you will assess its quality.
+1. Run each task more than once because model output is nondeterministic.
+1. Compare task completion, output quality, reliability, duration, and credit consumption.
+1. Choose the lowest-cost model that consistently meets your requirements, and reevaluate as models change.
+
+For a low-maintenance default, use **auto model selection** to let {% data variables.product.prodname_vscode_shortname %} route each request to an efficient model based on task complexity, model health, and availability. For repeatable workflows, configure a preferred model in a [custom agent](/docs/agent-customization/custom-agents.md).
+
+The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to compare token usage, tool calls, errors, and duration across test runs.
 
 For more information, see [choosing and configuring language models](/docs/agent-customization/language-models.md) and [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model).
 
-## Plan before you implement
+## Plan and delegate before you implement
 
-Jumping straight into code generation can lead to wasted effort if the approach is wrong. It also requires a model with enough reasoning capability throughout the process, which can consume more credits. Instead, separate the planning and implementation phases. This allows you to use a reasoning model for planning, and then switch to a faster, more efficient model for implementation once the plan is solidified.
+Jumping straight into code generation can waste credits if the approach is wrong. Separate planning, implementation, and review so that each phase uses an appropriate model:
 
-1. Use the [Plan agent](/docs/agents/run/planning.md) to research the task and create a structured implementation plan.
-1. Review and refine the plan before the agent writes any code.
-1. Hand off the approved plan to an implementation agent using a faster model to execute the plan.
+1. Use the [Plan agent](/docs/agents/run/planning.md) with a capable reasoning model to research the task and create a structured implementation plan.
+1. Review and refine the plan before the agent writes code.
+1. Divide the approved plan into well-scoped implementation tasks.
+1. Delegate those tasks to [custom agents running as subagents](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent). Configure each worker with a cost-effective model, focused instructions, and only the tools it needs.
+1. Have the primary agent evaluate the results and resolve work that requires broader context or stronger reasoning.
 
-This workflow ensures the agent understands the requirements before it starts generating code, reducing back-and-forth and rework.
+This coordinator-and-worker pattern keeps the primary agent focused on planning and evaluation while lower-cost models perform bounded tasks. Delegation itself uses tokens, so keep small tasks in the primary session when isolation and a cheaper model would not offset the orchestration overhead.
 
 For more information, see [plan first, then implement](/docs/agents/best-practices.md#plan-first-then-implement).
 
@@ -47,23 +53,42 @@ As a conversation grows, it accumulates context from previous messages, tool out
 
 Start a [new agent session](/docs/agents/run/sessions/manage-sessions.md) (`kb(workbench.action.chat.newChat)`) when you change topics. This gives the model a clean context window focused on the current task.
 
-## Leverage forking
+## Fork conversations
 
 When you want to explore an alternative approach or ask a side question, [fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) instead of re-prompting from scratch. Forking creates a new session that inherits the existing conversation history, so you don't need to re-establish context.
 
 * Type `/fork` in the chat input to fork the entire session up to the current message.
 * Hover over a previous message and select **Fork Conversation** to fork from a specific checkpoint.
 
-## Disable unneeded tools and MCP servers
+## Keep the tool catalog focused
 
-Every tool call produces output that consumes space in the [context window](/docs/agents/concepts/language-models.md#context-window) and contributes to credit consumption. Disable tools you don't need for the current task to prevent unnecessary calls.
+Large tool catalogs increase the input context and make tool selection more complex. Tool calls also add their output to the [context window](/docs/agents/concepts/language-models.md#context-window). Expose only the tools relevant to the current task:
 
-* Use the **Configure Tools** button in the chat input field to enable or disable individual tools or entire MCP servers for the current request.
-* In [custom agents](/docs/agent-customization/custom-agents.md), specify only the tools the agent needs via the `tools` property. This prevents the agent from calling tools that aren't relevant to its workflow.
+* Use the **Configure Tools** button in the chat input field to select individual tools or MCP servers for the current request. Search the tools picker and add another tool when the task needs it.
+* In [custom agents](/docs/agent-customization/custom-agents.md), use the `tools` property to give each agent a narrow, task-specific tool set.
 
-For more information, see [Use tools with agents](/docs/agents/run/tools.md).
+For organizations with a large internal tool catalog, consider providing a curated command-line interface for common workflows. The agent can invoke the commands through the terminal tool without loading every operation as a separate MCP tool. This approach requires your organization to maintain and secure the command-line interface.
 
-## Exclude files from Copilot context
+For more information, see [use tools with agents](/docs/agents/run/tools.md).
+
+## Batch repetitive operations
+
+Repeated submit, poll, and retrieve tool calls add intermediate results to the model context. For deterministic or bulk workflows, use a script or command-line tool to run the loop outside the agent conversation and return only the final result.
+
+For example, instead of asking the agent to issue and inspect many similar database queries one at a time, use a reviewed script that runs the query batch and produces a concise summary. Run the script with the terminal tool, then give the summary to the model for analysis. Benchmark the scripted and interactive versions of your workflow because the savings depend on the tools, results, and task.
+
+## Ground the agent before broad exploration
+
+Relevant context helps an agent avoid failed searches, unnecessary tool calls, and incorrect changes. Before broad exploration:
+
+* Make sure the [workspace semantic index](/docs/agents/reference/workspace-context.md#semantic-search) is available, and use `#codebase` when you want to explicitly ground a request in the indexed codebase.
+* Provide the relevant files, errors, constraints, and success criteria in the prompt.
+* Use symbol-aware search and focused MCP or command-line tools for authoritative project and organization data.
+* Add stable project conventions to [custom instructions](/docs/agent-customization/custom-instructions.md) so the agent does not rediscover them in every session.
+
+Grounding should narrow the search space, not preload every available source. Include the smallest set of authoritative context that lets the agent complete the task.
+
+## Exclude files from chat context
 
 Large generated files, build outputs, or irrelevant directories can increase token usage without adding value. Exclude these files to keep agent context focused:
 
@@ -106,7 +131,12 @@ Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md
 * The **Summary view** shows aggregate token usage for the session, including total tool calls and overall duration.
 * The **[Cache Explorer view](/docs/agents/agent-troubleshooting/cache-explorer.md)** shows prompt cache hit rates and how many input tokens were reused. Prompt caching lets model providers reuse the prefix of a request that matches a previous one, which reduces latency and token costs.
 
-Reviewing these logs helps you identify sessions or workflows that consume more tokens than expected, so you can adjust your approach.
+Use these measurements as an optimization loop:
+
+1. Run a representative task and record its quality, reliability, credits, tokens, duration, tool calls, and errors.
+1. Change one variable, such as the model, available tools, delegation strategy, or grounding source.
+1. Repeat the task and compare the results.
+1. Keep the configuration that meets your quality threshold at the lowest cost.
 
 ## Related content
 
