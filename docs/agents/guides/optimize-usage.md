@@ -23,7 +23,7 @@ For a low-maintenance default, use **auto model selection** to let {% data varia
 
 The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to compare token usage, tool calls, errors, and duration across test runs.
 
-For more information, see [choosing and configuring language models](/docs/agent-customization/language-models.md) and [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model).
+For more information, see [choosing and configuring language models](/docs/agent-customization/language-models.md), [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model), and the [AI model comparison table](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
 
 ## Plan and delegate before you implement
 
