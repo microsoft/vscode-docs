@@ -147,7 +147,7 @@ Once you select **Create**, if you have not already pushed your branch to a GitH
 The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
 
 > [!TIP]
-> Use AI to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description.
+> Use AI to generate a pull request title and description based on the included commits. Select the sparkle icon <i class="codicon codicon-sparkle"></i> next to the pull request title field. This action uses the fast, lightweight utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. Learn more about [configuring models for utility tasks](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks).
 
 ### Reviewing
 
