@@ -10,7 +10,7 @@ Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://do
 
 ## Choose models based on evidence
 
-The lowest-cost model does not always produce the lowest-cost result. A model that needs retries or creates rework can cost more than a capable model that completes the task reliably.
+The lowest-cost model does not always produce the lowest-cost result. A model that needs retries or creates rework can cost more than a capable model that completes the task reliably. The inverse is also true: not every task requires a complex, reasoning model, and routing simple or repetitive tasks to a lighter model avoids paying for capability you don't need.
 
 Use representative tasks from your work to evaluate models:
 
