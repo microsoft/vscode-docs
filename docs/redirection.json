@@ -25,6 +25,7 @@
     { "from": "/docs/copilot/agents/agents-window", "to": "/docs/agents/run/agents-window", "status": 301 },
     { "from": "/docs/copilot/agents/agent-tools", "to": "/docs/agents/run/tools", "status": 301 },
     { "from": "/docs/agents/agent-tools", "to": "/docs/agents/run/tools", "status": 301 },
+    { "from": "/docs/agent-customization/tools", "to": "/docs/agents/run/tools", "status": 301 },
     { "from": "/docs/agents/checkpoints", "to": "/docs/agents/run/review-code-edits", "status": 301 },
     { "from": "/docs/agents/handoff", "to": "/docs/agents/run/agent-harnesses", "status": 301 },
     { "from": "/docs/agents/sessions/session-insights", "to": "/docs/agents/run/sessions/session-history", "status": 301 },
