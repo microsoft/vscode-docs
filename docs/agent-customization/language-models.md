@@ -276,6 +276,7 @@ In addition to the [common model properties](#model-configuration-reference) the
 | `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and {% data variables.product.prodname_vscode_shortname %} derives it as `contextWindow - maxOutputTokens`. |
 | `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
+| `extraBody` | _(Optional)_ Additional JSON properties to include in the request parameters. This allows to support custom parameters engines might support, such as vLLM's `top_k`, QwenCloud's `enable_thinking` or SGLang's `chat_template_kwargs`. (for example, `extraBody: {"ttl": 300}` or `extraBody: {"chat_template_kwargs": {"enable_thinking": false}}`) |
 
 ##### Endpoint URL resolution
 
@@ -422,6 +423,7 @@ Each model in the `models` array supports the following properties:
 | `supportsReasoningEffort` | _(Optional)_ An array of reasoning effort levels the model accepts (for example, `["low", "medium", "high"]`). When set, a **Thinking Effort** picker is shown in the model picker. Common levels are `minimal`, `low`, `medium`, `high`. |
 | `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string, `responses` sends a nested `reasoning.effort` object, and `messages` sends `output_config.effort`. When unset, the format follows the URL. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
+| `extraBody` | _(Optional)_ Additional JSON properties to include in the request parameters. This is more useful with custom endpoints (see [Custom endpoint](#add-a-custom-endpoint-model)), but you can also provide undocumented request parameters if instructed by the provider. |
 
 > [!NOTE]
 > The sum of `maxInputTokens` and `maxOutputTokens` must not exceed the model's context window. {% data variables.product.prodname_vscode_shortname %} uses the sum of these two values as the model's total context window, for example to show context usage in the {% data variables.copilot.chat_view %}. Typically, you set `maxInputTokens` to the model's context window size minus `maxOutputTokens`. Check your provider's model documentation for the context window size.
