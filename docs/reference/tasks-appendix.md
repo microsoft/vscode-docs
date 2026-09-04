@@ -1,6 +1,6 @@
 ---
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Additional info for using task runners in {% data variables.product.prodname_vscode %}.
 ---
 # Appendix

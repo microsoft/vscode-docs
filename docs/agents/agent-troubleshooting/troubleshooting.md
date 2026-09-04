@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in {% data variables.product.prodname_vscode %} with logs, diagnostics, and debugging tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

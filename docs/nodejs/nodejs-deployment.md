@@ -1,7 +1,7 @@
 ---
 ContentId: 856a4a73-a4b4-4418-b88d-1f65d0ba7824
 MetaDescription: Node.js Deployment to Azure with {% data variables.product.prodname_vscode %}
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 ---
 # Deploy Node.js Web Apps
 

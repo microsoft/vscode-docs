@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Choose an agent harness in {% data variables.product.prodname_vscode %}, configure code isolation and permissions, start a session, and hand off work.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Optimize your development experience with chat in {% data variables.product.prodname_vscode_shortname %} with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

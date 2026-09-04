@@ -1,6 +1,6 @@
 ---
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in {% data variables.product.prodname_vscode %}

@@ -1,6 +1,6 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Inspect Git commits, branches, file history, and line authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline view, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:

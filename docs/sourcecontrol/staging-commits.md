@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with partial staging, diff review, commit message tools, amend and undo actions, and AI assistance.
 Keywords:
 - source control

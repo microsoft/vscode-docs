@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Understand agentic coding in {% data variables.product.prodname_vscode %}, including agents, models, tools, context, sessions, execution environments, customization, and controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

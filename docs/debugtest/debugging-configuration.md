@@ -1,6 +1,6 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Configure debugging in {% data variables.product.prodname_vscode %} with launch.json attributes, variable substitution, and compound configurations.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

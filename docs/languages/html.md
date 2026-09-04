@@ -1,6 +1,6 @@
 ---
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for HTML development
 ---
 # HTML in {% data variables.product.prodname_vscode %}

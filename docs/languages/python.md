@@ -1,6 +1,6 @@
 ---
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} as a Python IDE (code completion, debugging, linting).
 ---
 # Python in {% data variables.product.prodname_vscode %}

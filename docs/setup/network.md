@@ -1,6 +1,6 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Setup {% data variables.product.prodname_vscode_shortname %}'s Network Connection.
 ---
 # Network Connections in {% data variables.product.prodname_vscode %}

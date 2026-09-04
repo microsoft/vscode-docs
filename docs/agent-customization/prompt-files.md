@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to create reusable prompt files for Copilot Chat in {% data variables.product.prodname_vscode_shortname %} to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

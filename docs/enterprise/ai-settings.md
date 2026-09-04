@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including agents, dictation privacy, MCP, and tool approvals.
 ---
 

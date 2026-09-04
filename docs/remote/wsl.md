@@ -1,7 +1,7 @@
 ---
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using {% data variables.product.prodname_vscode %} Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 ---
 # Developing in WSL
 
