@@ -396,7 +396,7 @@ If you want to modify the Azure subscription and resource group that were previo
 ## Inference with the Phi Silica LoRA adapter
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](https://learn.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
 > [!NOTE]
 > Inference with the Phi Silica LoRA adapter is currently supported only on Copilot+ PCs with ARM processors.
