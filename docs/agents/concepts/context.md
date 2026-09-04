@@ -14,7 +14,7 @@ Keywords:
 - implicit context
 ---
 
-# Context
+# Understand context in AI agents
 
 Context is the information available to an AI agent and its language model while they work on your request. It can include conversation history, files from your workspace, tool outputs, custom instructions, and references you add to your prompt.
 

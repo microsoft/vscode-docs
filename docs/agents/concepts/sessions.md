@@ -14,7 +14,7 @@ Keywords:
 - {% data variables.copilot.agents_window %}
 ---
 
-# Sessions and handoff
+# Understand agent sessions and handoff
 
 A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 

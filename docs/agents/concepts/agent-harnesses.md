@@ -14,7 +14,7 @@ Keywords:
 - code isolation
 ---
 
-# Agent harnesses
+# Understand agent harnesses
 
 An agent harness is the software that runs an agent session and coordinates the [agent loop](/docs/agents/concepts/agents.md#agent-loop). It sends prompts and context to a language model, executes requested [tool calls](/docs/agents/concepts/tools.md), returns the results to the model, and maintains the session as the work progresses.
 

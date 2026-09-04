@@ -14,7 +14,7 @@ Keywords:
 - multi-client
 ---
 
-# {% data variables.product.prodname_vscode_shortname %} Agent Host architecture
+# Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host
 
 {% data variables.product.prodname_vscode_shortname %} runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
 

@@ -14,7 +14,7 @@ Keywords:
 - tool approval
 ---
 
-# Tools
+# Understand tools in AI agents
 
 A tool is a capability that lets an [agent](/docs/agents/concepts/agents.md) gather information or take an action. Without tools, a [language model](/docs/agents/concepts/language-models.md) can only generate text. With tools, an agent can read files, edit code, run terminal commands, search your codebase, and connect to external services.
 
