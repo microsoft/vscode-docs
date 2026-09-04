@@ -58,7 +58,7 @@ When working with agents, choose the harness that matches your task and workflow
 
 * **Use Claude or Codex for provider-specific capabilities.** These harnesses also run on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
 
-* **Use cloud harnesses for team collaboration.** [Cloud harnesses](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
 * **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
@@ -146,7 +146,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud harness](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution.
 1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).

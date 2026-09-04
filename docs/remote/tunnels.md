@@ -15,7 +15,7 @@ This can eliminate the need for source code to be on your {% data variables.prod
 
 {% data variables.product.prodname_vscode_shortname %} can provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted**.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SyLHXdXhE1U?si=J8ndBzVB0RPEsB7R" title="Access your computer anywhere with {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Access your computer anywhere with {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/tunnels/youtube-SyLHXdXhE1U.jpg)](https://www.youtube.com/watch?v=SyLHXdXhE1U)
 
 ## Getting Started
 

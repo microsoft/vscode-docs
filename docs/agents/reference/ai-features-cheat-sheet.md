@@ -1,7 +1,7 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 9/2/2026
-MetaDescription: Quick reference for AI features in {% data variables.product.prodname_vscode_shortname %}, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
+MetaDescription: Find AI features in {% data variables.product.prodname_vscode_shortname %}, including agents, editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI features in {% data variables.product.prodname_vscode_shortname %} cheat sheet
@@ -150,7 +150,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
 | `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
-| `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
+| `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. For extension host chat sessions, enable `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` and reload the window. For Agent Host sessions, enable `setting(chat.agentHost.agentDebugLog.enabled)` before you start the session that you want to capture. |
 | `/new` | Scaffold a new {% data variables.product.prodname_vscode_shortname %} workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
@@ -190,7 +190,7 @@ When using [agents](/docs/agents/concepts/agents.md), you can use natural langua
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the {% data variables.copilot.chat_view %} |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/run/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Assisted permissions** (Agent Host). Controls how tool approvals are handled. On the Agent Host, **Autopilot** is selected as an agent mode instead of a permission level. |
+| Permission levels | Choose a [permission level](/docs/agents/run/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Assisted permissions** `feature(assisted-permissions)` for supported Agent Host sessions. Controls how tool approvals are handled. On the Agent Host, **Autopilot** is selected as an agent mode instead of a permission level. |
 | Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/run/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |

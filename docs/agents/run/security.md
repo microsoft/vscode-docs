@@ -1,7 +1,7 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
 DateApproved: 9/2/2026
-MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
@@ -13,7 +13,7 @@ Keywords:
 - enterprise
 - sandbox
 ---
-# AI security in {% data variables.product.prodname_vscode_shortname %}
+# Secure AI-assisted development in {% data variables.product.prodname_vscode_shortname %}
 
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
@@ -63,7 +63,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using {% data variables.product.prodname_vscode_shortname %}'s secure credentials store to protect authentication tokens and other sensitive data.
 
@@ -73,7 +73,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 

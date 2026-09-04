@@ -1,7 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
 DateApproved: 9/2/2026
-MetaDescription: Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host architecture, AHP, multi-client sessions, agent runtimes, remote execution, and client-provided tools.
+MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host runs local and remote agent sessions across editor windows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
@@ -14,7 +14,7 @@ Keywords:
 - multi-client
 ---
 
-# {% data variables.product.prodname_vscode_shortname %} Agent Host architecture
+# Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host
 
 {% data variables.product.prodname_vscode_shortname %} runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
 
@@ -78,7 +78,7 @@ There are some differences in behavior for agent sessions that run on the extens
 | Reviewing changes | Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Extension-host sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md). |
 | Customizations | The Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your {% data variables.product.prodname_vscode_shortname %} profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md). |
 | Autopilot | On the Agent Host, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is an agent mode. On the extension host, it's a permission level. |
-| Assisted permissions | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only on the Agent Host. |
+| Assisted permissions `feature(assisted-permissions)` | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only for supported Agent Host sessions and is off by default in Stable. |
 | Session capabilities | Shared multi-window sessions, multiple chats per session, quick chats, and remote hosting are available only on the Agent Host. |
 | Extension-provided tools | Tools from extensions are only available in chats in an editor window where the extension is running. |
 | MCP configuration | The Agent Host reads harness-agnostic MCP config from `.mcp.json` (workspace) and `~/.copilot/mcp-config.json` (user). It doesn't read `.vscode/mcp.json` directly, but {% data variables.product.prodname_vscode_shortname %} forwards servers you configure in {% data variables.product.prodname_vscode_shortname %} to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). Learn more about [configuring MCP servers](/docs/agent-customization/mcp-servers.md). |

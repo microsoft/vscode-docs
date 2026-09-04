@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 # Why agent customization matters
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AZzCk-WGks4?si=pzfh99aDDFODSrG_" title="The Agent Customizations UI Nobody Knows About" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch The Agent Customizations UI Nobody Knows About on YouTube (opens in new tab).](images/1-why-customization-matter/youtube-AZzCk-WGks4.jpg)](https://www.youtube.com/watch?v=AZzCk-WGks4)
 
 Most developers are using VS Code the same way: open chat, type something, and hope for a good result. Sometimes it works. Sometimes it doesn't.
 

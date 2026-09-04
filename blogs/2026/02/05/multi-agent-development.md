@@ -24,7 +24,7 @@ The Agent Sessions view gives you one place to see all your agent sessions—loc
 
 Kick off a cloud agent for a well-defined refactor, then jump into a local session for something more exploratory. Monitor a background task or let it run as you work on something else.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BsAHunfVwNs?si=6m4vsMuc2Wb0YRpb" title="Video showing the unified agent experience." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video showing the unified agent experience on YouTube (opens in new tab).](youtube-BsAHunfVwNs.jpg)](https://www.youtube.com/watch?v=BsAHunfVwNs)
 
 The above demo illustrates how developers are constantly tackling multiple things at once: planning improvements, building features, reviewing results, debugging errors. For each moment, you need to pick the right tool: local when needing to steer, background or cloud when wanting isolated changes, parallel subagents when needing multiple processes.
 

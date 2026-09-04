@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Let GitHub Copilot test your Spring Boot app with Playwright
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NR4YHj_9WFw?si=UBOLCtYL2T5gHIqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch End-to-End Testing for Spring Boot apps with Playwright in VS Code on YouTube (opens in new tab).](images/4-test-with-playwright/youtube-NR4YHj_9WFw.jpg)](https://www.youtube.com/watch?v=NR4YHj_9WFw)
 
 Your unit tests pass. Your integration tests pass. And you still open the browser
 afterwards to check that the page actually works, because a green build has never proved

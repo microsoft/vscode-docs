@@ -13,7 +13,7 @@ MetaDescription: {% data variables.product.prodname_vscode %} for the Web and th
 
 The following video gives a quick overview of {% data variables.product.prodname_vscode %} for the Web.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2sdXMJZKLJE" title="Introduction to {% data variables.product.prodname_vscode %} for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Introduction to {% data variables.product.prodname_vscode %} for the Web on YouTube (opens in new tab).](images/vscode-web/youtube-2sdXMJZKLJE.jpg)](https://www.youtube.com/watch?v=2sdXMJZKLJE)
 
 ## Relationship to {% data variables.product.prodname_vscode_shortname %} Desktop
 

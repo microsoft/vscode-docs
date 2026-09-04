@@ -17,6 +17,14 @@ Infer this framing from the existing article, its location in the documentation 
 
 Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
 
+## Public availability and product truth
+
+Document functionality only when it is available to the intended audience in a public product channel. Public Preview, Experimental, and Insiders functionality can be documented when its lifecycle and channel are identified clearly.
+
+Do not document functionality that is limited to internal builds or dogfooding. This includes hidden settings or commands, registrations with metadata such as `included: false`, implementation that exists only in source code, and internal feature flags that users can set manually but that the product does not expose or support publicly.
+
+Existence in source code is not proof of public availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is present in the public release channel for the intended audience. When reviewing existing content, flag or remove coverage of functionality that is not public.
+
 ## General Style tips
 
 * Get to the point fast.
@@ -118,7 +126,10 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 
 * Use videos only when they add value.
 * Videos have a descriptive and meaningful title that starts with "Video showing" or "Video of" and ends with ".".
-* For embedded videos, you MUST use `youtube-nocookie.com` instead of `youtube.com`.
+* Do not embed YouTube videos with an `iframe`. Use linked-image Markdown with a locally stored thumbnail. The site automatically opens external Markdown links in a new tab.
+* Store blog post thumbnails alongside the Markdown file. For other content, store them in `images/<article-name>/`.
+* The thumbnail alt text is the link's accessible name. It must identify the video and announce that the link opens in a new tab, for example `[![Watch <video description> on YouTube (opens in new tab).](<thumbnail-path>)](<youtube-url>)`.
+* To migrate existing YouTube iframe embeds, run `npm run replace-youtube-embeds -- --write <file-or-directory>`. Omit `--write` to preview the migration.
 
 ## Lists
 

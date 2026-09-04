@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 This article covers tips to write prompts to get better and more relevant responses from AI in {% data variables.product.prodname_vscode %}. _Prompt engineering_ or _prompt crafting_ is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Core principles of prompt engineering with GitHub Copilot on YouTube (opens in new tab).](images/prompt-engineering-guide/youtube-hh1nOX14TyY.jpg)](https://www.youtube.com/watch?v=hh1nOX14TyY)
 
 If you are new to {% data variables.product.prodname_vscode_shortname %} or AI, you might want to review the [AI in {% data variables.product.prodname_vscode_shortname %} Overview](/docs/agent-native/overview.md) article first or dive straight into the [Getting started](/docs/agents/agents-tutorial.md) tutorial.
 

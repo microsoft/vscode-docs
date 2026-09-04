@@ -13,7 +13,7 @@ Keywords:
 - parallel
 ---
 
-# Subagents in {% data variables.product.prodname_vscode %}
+# Use subagents in {% data variables.product.prodname_vscode %}
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 

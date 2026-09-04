@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to hooks
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZsyiRa91XZg?si=tI_1D0AgRBSEMrel" title="Hooks: The Underestimated Feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Hooks: The Underestimated Feature on YouTube (opens in new tab).](images/5-hooks/youtube-ZsyiRa91XZg.jpg)](https://www.youtube.com/watch?v=ZsyiRa91XZg)
 
 It seems like nobody talks enough about hooks.
 

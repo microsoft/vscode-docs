@@ -14,7 +14,7 @@ Keywords:
 - {% data variables.copilot.agents_window %}
 ---
 
-# Sessions and handoff
+# Understand agent sessions and handoff
 
 A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 
@@ -50,13 +50,13 @@ On the [Agent Host](/docs/agents/concepts/agent-host.md), an agent can also coor
 
 ## Hand off a session
 
-Handoff changes the session target from one [harness](/docs/agents/concepts/agent-harnesses.md) to another and carries the full conversation history and context with it. Use handoff when a different harness or execution environment is a better fit for the next part of the task.
+Handoff continues ongoing work with a different agent configuration and carries the full conversation history and context with it. A handoff can change the [harness](/docs/agents/concepts/agent-harnesses.md), execution environment, or agent role. Use handoff when another configuration is a better fit for the next part of the task.
 
 Common handoffs include:
 
 * **Harness to harness**: continue a Copilot session with Claude or Codex to use provider-specific capabilities.
 * **Plan to implementation**: use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent.
-* **Continue in the cloud**: hand off a well-scoped task to a [cloud harness](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution and a pull request workflow.
+* **Continue in the cloud**: hand off a well-scoped task to the [Cloud target](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution and a pull request workflow.
 
 Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#hand-off-a-session).
 

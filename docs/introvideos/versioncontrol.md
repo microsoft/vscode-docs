@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this tutorial, we will learn how to use the basics of Git version control in {% data variables.product.prodname_vscode %}. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
-<iframe src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Using Git with {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/versioncontrol/youtube-i_23KUAEtUM.jpg)](https://www.youtube.com/watch?v=i_23KUAEtUM)
 
 Here's the next video we recommend: [Customize](/docs/introvideos/customize.md)
 

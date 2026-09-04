@@ -29,7 +29,7 @@ Get the latest version of MinGW-w64 via [MSYS2](https://www.msys2.org/), which p
 
 To install the MinGW-w64 toolchain, check out this video or follow the steps below:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oC69vlWofJQ" title="Installing MinGW to build C++ code on Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch Installing MinGW to build C++ code on Windows on YouTube (opens in new tab).](images/config-mingw/youtube-oC69vlWofJQ.jpg)](https://www.youtube.com/watch?v=oC69vlWofJQ)
 
 1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe).
 

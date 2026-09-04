@@ -18,7 +18,7 @@ Keywords:
 - prompt injection
 ---
 
-# Trust and safety
+# Understand trust and safety for AI agents
 
 AI-generated output requires review. {% data variables.product.prodname_vscode %} includes multiple mechanisms to keep you in control of what changes reach your codebase. This article explains the control mechanisms, AI limitations, and security considerations you should be aware of.
 

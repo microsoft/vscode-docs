@@ -44,7 +44,9 @@ For more information about network configuration, see [Network and firewall conf
 
 * **`/troubleshoot` slash command:**
 
-    Ask the AI to analyze debug logs for chat sessions and agent host sessions. Use it to understand agent behavior, such as why custom instructions were ignored or why responses are slow. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+    Ask the AI to analyze debug logs for extension host chat sessions and Agent Host sessions. Use it to understand agent behavior, such as why custom instructions were ignored or why responses are slow. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`.
+
+    For extension host chat sessions, enable `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` and reload the window before you use `/troubleshoot`. For Agent Host sessions, enable `setting(chat.agentHost.agentDebugLog.enabled)` before you start the session that you want to capture.
 
     To diagnose an agent host session:
 

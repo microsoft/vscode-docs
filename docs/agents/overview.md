@@ -137,14 +137,11 @@ Organizations can centrally control which AI features, models, and tools are ava
 
 AI features are built into {% data variables.product.prodname_vscode_shortname %}. Sign in with your GitHub account to use your {% data variables.product.prodname_copilot %} subscription or bring your own models, and then choose a learning path:
 
+* [Understand agent concepts](/docs/agents/concepts/agents.md) to learn how models, context, tools, sessions, and harnesses work together.
+
 * [Complete the agents quickstart](/docs/agents/quickstart.md) to build and validate a small app with an agent.
 
 * [Follow the agents tutorial](/docs/agents/agents-tutorial.md) for a longer, guided introduction to the {% data variables.copilot.agents_window %}, the {% data variables.copilot.chat_view %}, source control, and browser tools.
 
 > [!NOTE]
 > Make sure agents are enabled with `setting(chat.agent.enabled)`. If your organization has disabled agents, contact your GitHub organization administrator.
-
-## Related resources
-
-* [Learn how agents work](/docs/agents/concepts/agents.md).
-* [Review best practices for using AI](/docs/agents/best-practices.md).

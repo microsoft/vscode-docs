@@ -32,7 +32,7 @@ You can add a volume bound to any local folder by using the following appropriat
 
 ### Video: Add additional folders from your local machine to a dev container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/L1-dx-ZD0Ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to add a folder from your local file system to a dev container on YouTube (opens in new tab).](images/add-local-file-mount/youtube-L1-dx-ZD0Ao.jpg)](https://www.youtube.com/watch?v=L1-dx-ZD0Ao)
 
 <br><br>
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
 DateApproved: 9/2/2026
-MetaDescription: Understand how agent harnesses in {% data variables.product.prodname_vscode_shortname %} differ from models, roles, execution environments, and code isolation.
+MetaDescription: Understand how agent harnesses coordinate models, tools, and sessions in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,38 +14,63 @@ Keywords:
 - code isolation
 ---
 
-# Agent harnesses
+# Understand agent harnesses
 
-An agent harness is the runtime that coordinates the [agent loop](/docs/agents/concepts/agents.md#agent-loop). It passes prompts and context to a language model, executes requested [tool calls](/docs/agents/concepts/tools.md), returns the results to the model, and maintains the session as the work progresses.
+An agent harness is the software layer that runs an agent session. It turns a language model into an agent by connecting the model to context and tools, coordinating the [agent loop](/docs/agents/concepts/agents.md#agent-loop), and maintaining session state as the work progresses.
 
-Choosing a harness affects which provider-specific tools and capabilities are available. It can also affect which models, agent roles, execution environments, and code-isolation options you can use. This article explains how these choices differ. To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
+The model provides the reasoning and decides what to say or which tool to request. The harness makes those decisions operate as a stateful workflow by preparing model requests, coordinating tool calls and approvals, returning results to the model, and tracking the conversation and changes.
 
-![Screenshot showing the Session Target control in the {% data variables.copilot.agents_window %} with a list of available agent harnesses.](../images/agent-harnesses/agents-window-session-target.png)
+This article explains what a harness does and how it differs from a language model, agent role, session target, and execution environment. To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
 
-## Understand the session choices
+<!-- TODO: Add a conceptual diagram showing the user interface, agent harness, language model, tools, session, and execution environment. -->
 
-The options in the chat input control different parts of an agent session:
+## Follow a turn through an agent harness
 
-* **Agent harness**: coordinates the agent loop and provides provider-specific tools and capabilities. Examples include Local, Copilot, Claude, and Codex.
-* **Execution environment**: determines where tools run and code changes are made. An agent can run on your machine, a remote machine, or cloud infrastructure.
-* **Agent role**: provides instructions, tools, and behavior for a task. Examples include Agent, Plan, Ask, and custom agents.
-* **Language model**: provides the reasoning and generates responses. The model might run in a different location from the harness.
+When you submit a prompt, the harness coordinates each step of the turn:
 
-The available roles, models, and execution environments depend on the selected harness, but these choices are not interchangeable. For example, the Local harness can use a supported Claude model configured in {% data variables.product.prodname_vscode_shortname %}. Local remains the harness and Claude is the language model. Selecting the Claude harness instead uses only Claude language models and its provider-specific capabilities.
+1. The harness receives your request and the current session state. It prepares the instructions, context, and available tool definitions for the language model.
+1. The language model reasons over that information and returns either a response or a request to call a tool.
+1. For a tool request, the harness applies the configured permission and approval rules, routes the call to the environment where the tool runs, and captures the result.
+1. The harness returns the tool result to the model. The model decides whether to call another tool, ask for input, or finish the task.
+1. The harness associates the messages, tool calls, results, and code changes with the session, and presents the current status in {% data variables.product.prodname_vscode_shortname %}.
 
-**Session Target** is the {% data variables.product.prodname_vscode_shortname %} control that combines harness and execution-environment selection. For targets that run on your machine, it directly identifies a harness, such as Copilot, Claude, or Codex. The Cloud target first selects remote execution and then lets you choose an available cloud agent.
+The model chooses the actions, while the harness coordinates the system that carries them out.
 
-## Compare harness types
+## How a harness differs from other agent concepts
 
-{% data variables.product.prodname_vscode_shortname %} provides a shared chat, session-management, change-review, and handoff experience across harnesses. Choose a harness based on the capabilities and environment the task requires:
+Several choices determine how an agent works. They work together, but they are not interchangeable:
 
-| Type | How it works | Choose it for |
-|------|--------------|---------------|
-| **Local** | The built-in {% data variables.product.prodname_vscode_shortname %} harness runs in the extension host. It can use built-in tools, extension tools, MCP servers, and models configured in {% data variables.product.prodname_vscode_shortname %}. | Interactive work that needs editor context or a model configured in {% data variables.product.prodname_vscode_shortname %}. |
-| **Provider harnesses** | Copilot, Claude, and Codex use provider runtimes and expose provider-specific tools and capabilities. Depending on the provider, they can run on your machine or in the cloud. | Work that benefits from a specific provider's agent workflow or capabilities. |
-| **Cloud target** | The target runs an available provider harness on remote infrastructure against a GitHub repository and returns the result through a pull request. | Well-scoped work that can run independently or benefit from team review. |
+| Concept | What it determines | Relationship to the harness |
+|---------|--------------------|-----------------------------|
+| **Language model** | How the agent reasons and generates responses. | A harness can offer multiple models, and the same model might be available through more than one harness. The model can run in a different location from the harness. |
+| **Agent role** | Which instructions, tools, and behavior apply to a task. Examples include Agent, Plan, Ask, and custom agents. | A role shapes the task behavior within a harness. Changing the role does not replace the harness. |
+| **Execution environment** | Where tools run and code changes are made, such as your machine, a remote machine, or cloud infrastructure. | The harness coordinates work in the selected environment. The environment is not the harness. |
+| **Session target** | Which harness and execution environment {% data variables.product.prodname_vscode_shortname %} uses for a session. | The **Session Target** UI control directly identifies local harnesses. The Cloud target groups remote cloud agents rather than identifying one harness. |
 
-## Choose where work runs
+## Understand what the harness choice changes
+
+The selected harness defines the runtime integration for the agent. Depending on the harness and your configuration, this choice affects:
+
+* **Tools and capabilities**: which built-in, extension-provided, [MCP](/docs/agent-customization/mcp-servers.md), or provider-specific tool integrations the agent supports, and how the harness routes tool calls.
+* **Model options**: which language models the harness offers and how it configures requests to them.
+* **Agent workflows**: which provider-specific commands, customizations, and session features are available.
+* **Permissions**: which approval modes and tool permission settings the harness supports.
+
+The harness choice does not by itself determine where the language model runs or whether code changes go into a folder or worktree. Those choices depend on the models, execution environments, and isolation options that the session target supports.
+
+## Map session targets to harnesses
+
+{% data variables.product.prodname_vscode_shortname %} provides a shared chat, session-management, change-review, and handoff experience across session targets. The **Session Target** control includes both harnesses and the Cloud execution target:
+
+| Session target choice | Harness | Execution environment |
+|-----------------------|---------|-----------------------|
+| **Local** | The built-in {% data variables.product.prodname_vscode_shortname %} harness. It can use built-in tools, extension tools, MCP servers, and models configured in {% data variables.product.prodname_vscode_shortname %}. | The extension host on your machine. |
+| **Copilot, Claude, or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine by default, or a connected remote machine when supported. |
+| **Cloud** | The provider harness for the cloud agent that you select, such as Copilot, Claude, or Codex. | The provider's cloud infrastructure, working against a GitHub repository and returning the result through a pull request. |
+
+Cloud is an execution target that groups available cloud agents, not a single provider harness. After you select Cloud, you choose an available cloud agent.
+
+## Relate execution environments and code isolation
 
 The execution environment determines where the harness runs tools and changes code:
 
@@ -53,28 +78,14 @@ The execution environment determines where the harness runs tools and changes co
 * **Cloud infrastructure**: the harness works with a GitHub repository and creates a pull request. It uses the tools and models configured in the cloud service instead of your local {% data variables.product.prodname_vscode_shortname %} environment.
 * **A remote machine**: the harness runs next to the source code on a remote host. You connect to it over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
 
-Changing the session target for ongoing work is a [handoff](/docs/agents/concepts/sessions.md#hand-off-a-session). The handoff carries the conversation history and context to the new harness or execution environment.
+For work on your machine, code isolation controls which working directory receives changes. Folder isolation applies edits directly to your current workspace, including its uncommitted changes. Worktree isolation gives the session a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) based on committed Git state.
 
-## Code isolation
+A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) for operating system-level file system and network restrictions.
 
-When an agent runs on your machine, code isolation determines which working directory receives its changes. It does not change which harness or model the session uses.
-
-* **Folder isolation**: the agent works directly in your current workspace. The agent sees any uncommitted changes and applies edits in place.
-* **Worktree isolation**: {% data variables.product.prodname_vscode_shortname %} creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) for the session. The agent runs in the worktree folder and starts from the committed state of the selected base branch. It keeps its changes out of your primary branch until you integrate them.
-
-Worktree isolation requires a Git repository with at least one commit. It is useful for parallel tasks because each worktree has its own checked-out files and uncommitted changes.
-
-> [!IMPORTANT]
-> A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) when you need operating system-level file system and network restrictions.
-
-Code isolation also affects [permissions and approvals](/docs/agents/run/approvals.md). Learn how to [choose folder or worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
-
-## Agent harnesses and the Agent Host
-
-Provider harnesses such as Copilot can run in the [Agent Host](/docs/agents/concepts/agent-host.md), a dedicated process that is independent of the windows displaying their sessions. This separation lets sessions continue in the background, stay synchronized across windows, and run on a remote machine. You don't need to manage the Agent Host directly during normal agent use.
+Changing the session target for ongoing work is one type of [handoff](/docs/agents/concepts/sessions.md#hand-off-a-session). The handoff carries the conversation history and context to the new harness or execution environment. Learn how to [choose a session target and code isolation](/docs/agents/run/agent-harnesses.md).
 
 ## Related resources
 
 * [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Complete your first task with an agent](/docs/agents/quickstart.md)
 * [Sessions and handoff](/docs/agents/concepts/sessions.md)
-* [Language models](/docs/agents/concepts/language-models.md)

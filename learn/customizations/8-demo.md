@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Customization features in practice
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Bb45ZoKfJf0?si=SgI3qnVLwYpLUxZV" title="Customization Features in Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Customization Features in Practice on YouTube (opens in new tab).](images/8-demo/youtube-Bb45ZoKfJf0.jpg)](https://www.youtube.com/watch?v=Bb45ZoKfJf0)
 
 You may have seen quite a few videos about customization features in VS Code.
 
