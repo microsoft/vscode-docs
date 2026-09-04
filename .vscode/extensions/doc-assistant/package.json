@@ -44,7 +44,7 @@
     "compile-tests": "tsc -p ./tsconfig.test.json",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src --ext ts,tsx --cache",
     "pretest": "npm run compile-tests && npm run compile",
     "test": "vscode-test"
   },

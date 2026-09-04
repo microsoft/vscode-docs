@@ -4,7 +4,7 @@ DateApproved: 9/2/2026
 MetaDescription: Connect to remote machines via SSH or dev tunnels to run agent sessions, or use the browser-based {% data variables.copilot.agents_window %} to manage sessions from any device.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Remote agent sessions
+# Run and manage remote agent sessions
 
 The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) lets you connect to remote machines to start agent sessions or check in on existing ones. You can connect over SSH, through a dev tunnel, or use the {% data variables.copilot.agents_window %} directly in a browser from any device.
 

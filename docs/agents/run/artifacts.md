@@ -5,7 +5,7 @@ FeatureStatus: agent-artifacts
 MetaDescription: Use the artifacts panel in {% data variables.product.prodname_vscode %} to view screenshots, plans, documents, and other resources produced during an agent session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Agent artifacts
+# Use artifacts in agent sessions
 
 The artifacts panel in {% data variables.product.prodname_vscode %} surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
 
