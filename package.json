@@ -21,7 +21,7 @@
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
-    "docsify-cli": "^4.4.4",
+    "docsify-cli": "^5.0.0",
     "eslint": "^8.57.1",
     "eslint-plugin-security": "^1.7.1",
     "gulp": "~5.0.0",
