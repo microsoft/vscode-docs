@@ -14,7 +14,7 @@ Keywords:
 
 # Getting Started with Foundry Toolkit in Visual Studio Code
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aQFSDGAk9DA" title="Chapter 1 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Chapter 1 Video on YouTube (opens in new tab).](images/1-get-started/youtube-aQFSDGAk9DA.jpg)](https://www.youtube.com/watch?v=aQFSDGAk9DA)
 
 You know that moment when a prototype looks great, but the team still feels slow? Usually it is not the model quality. It is workflow sprawl: model lookup in one place, prompt testing in another, deployment checks somewhere else.
 

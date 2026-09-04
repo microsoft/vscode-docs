@@ -145,7 +145,7 @@ To learn more, check out the VS Code docs on [AI language models](https://code.v
 
 We also have a video for how to [Bring Your Own AI... No Sign-In Required!](https://www.youtube.com/watch?v=EB7dQv1ALCU).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EB7dQv1ALCU?si=mDo0BJiZ5FLJBPwJ" title="Bring Your Own AI... No Sign-In Required!" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Bring Your Own AI... No Sign-In Required! on YouTube (opens in new tab).](youtube-EB7dQv1ALCU.jpg)](https://www.youtube.com/watch?v=EB7dQv1ALCU)
 
 We are continuing to improve model choice in VS Code, and your feedback helps shape what comes next. Try BYOK with your workflow and let us know what you think in the [VS Code repository](https://github.com/microsoft/vscode).
 

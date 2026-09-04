@@ -15,7 +15,7 @@ Keywords:
 # Agent plugins
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9lonfxt7dqU" title="Agent Plugins" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Agent Plugins on YouTube (opens in new tab).](images/3-agent-plugins/youtube-9lonfxt7dqU.jpg)](https://www.youtube.com/watch?v=9lonfxt7dqU)
 
 Agent plugins bundle multiple customizations into one installable package. In this guide, you will inspect a plugin before installing it, use a plugin-provided command, and decide when a plugin is a better fit than separate local customizations.
 

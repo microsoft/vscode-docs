@@ -8,7 +8,7 @@ MetaSocialImage:
 
 In this {% data variables.product.prodname_vscode %} tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/MNBwGGwvvKE" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Code editing in {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Code editing in {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/codeediting/youtube-MNBwGGwvvKE.jpg)](https://www.youtube.com/watch?v=MNBwGGwvvKE)
 
 Here's the next video we recommend: [Productivity Tips](/docs/introvideos/productivity.md)
 

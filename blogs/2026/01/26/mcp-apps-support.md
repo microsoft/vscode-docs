@@ -52,7 +52,7 @@ We've built a few [demos](https://github.com/digitarald/mcp-apps-playground) to 
 
 [Storybook](https://storybook.js.org) has [added MCP Apps support](https://github.com/storybookjs/mcp/pull/134) to their open source MCP server. Simply ask an agent to *"build a login form using our design system"* instead of describing the desired result in extensive detail, and the agent renders an interactive component preview directly in VS Code.
 
-<iframe src="https://www.youtube-nocookie.com/embed/fbNH6_jdwQU?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Storybook MCP Apps demo"></iframe>
+[![Watch Storybook MCP Apps demo on YouTube (opens in new tab).](youtube-fbNH6_jdwQU.jpg)](https://www.youtube.com/watch?v=fbNH6_jdwQU)
 
 > "We've been working with the VS Code team on MCP Apps and we're excited about the results. Users can now preview Storybook stories directly in the agent chat, eliminating the need to navigate between the chat and their Storybook to review changes." – Jeppe Reinhold (Storybook core contributor, Chromatic)
 

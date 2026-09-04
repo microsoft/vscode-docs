@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Agent sessions and where agents run
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0CsKOO7d35I?si=z020p9GwioCzmOH4" title="Video for agent sessions and where agents run." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video for agent sessions and where agents run on YouTube (opens in new tab).](images/agent-sessions-and-where-agents-run/youtube-0CsKOO7d35I.jpg)](https://www.youtube.com/watch?v=0CsKOO7d35I)
 
 As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously, one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, on the Agent Host with Copilot, and remotely in the cloud on GitHub infrastructure.
 

@@ -19,7 +19,7 @@ We're introducing the **Agent Host**, a self-contained process that owns agent s
 
 In this post, we'll explain why we built the Agent Host, what it enables in VS Code (and how you can try it), how its architecture works, and how AHP opens that architecture to other clients.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/k91ejc3G1YM?si=vSL3mEKcR3YOMBHI" title="Video showing an Agent Host session continuing across folders, VS Code surfaces, and remote connections." frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video showing an Agent Host session continuing across folders, VS Code surfaces, and remote connections on YouTube (opens in new tab).](youtube-k91ejc3G1YM.jpg)](https://www.youtube.com/watch?v=k91ejc3G1YM)
 
 ## Why we built the Agent Host
 

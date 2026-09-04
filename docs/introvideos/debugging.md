@@ -10,7 +10,7 @@ Debugging is a core feature of {% data variables.product.prodname_vscode %}. In 
 
 > **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org). To follow along with the Python portion of the video, you'll need to install [Python](https://www.python.org/downloads/).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Getting started with debugging in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/debugging/youtube-3HiLLByBWkg.jpg)](https://www.youtube.com/watch?v=3HiLLByBWkg)
 
 Here's the next video we recommend: [Version Control](/docs/introvideos/versioncontrol.md)
 

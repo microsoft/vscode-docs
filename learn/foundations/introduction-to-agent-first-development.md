@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Introduction to agent-first development
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uu4sf8z9n8c?si=LCd-U0f2diDZ4JUE" title="Video for introduction to agent-first development." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video for introduction to agent-first development on YouTube (opens in new tab).](images/introduction-to-agent-first-development/youtube-uu4sf8z9n8c.jpg)](https://www.youtube.com/watch?v=uu4sf8z9n8c)
 
 How you write code is changing. You can still write every single line yourself, and that might be appropriate for specific use cases. But another pattern is emerging across the industry, using agents in programming, often called agentic programming or agent-first development.
 

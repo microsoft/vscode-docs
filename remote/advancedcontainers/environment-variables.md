@@ -35,7 +35,7 @@ Depending on what you reference in `devcontainer.json`:
 
 ### Video: Modify PATH in a dev container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vEb7hKlagAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+[![Watch How to modify the PATH variable in a dev container on YouTube (opens in new tab).](images/environment-variables/youtube-vEb7hKlagAU.jpg)](https://www.youtube.com/watch?v=vEb7hKlagAU)
 
 <br><br>
 
@@ -100,4 +100,4 @@ If you've already built the container and connected to it, run **Dev Containers:
 
 ### Video: Load variables from an .env file
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qTU7w3bWrOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+[![Watch How to use a .env file to load environment variables in a dev container on YouTube (opens in new tab).](images/environment-variables/youtube-qTU7w3bWrOk.jpg)](https://www.youtube.com/watch?v=qTU7w3bWrOk)

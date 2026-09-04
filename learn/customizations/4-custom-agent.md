@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to custom agents
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Y7MPeZTIgqo?si=1vBjXBngpAg7Zm4x" title="Let's Build a Custom Agent!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Let's Build a Custom Agent! on YouTube (opens in new tab).](images/4-custom-agent/youtube-Y7MPeZTIgqo.jpg)](https://www.youtube.com/watch?v=Y7MPeZTIgqo)
 
 Are custom agents really that powerful?
 

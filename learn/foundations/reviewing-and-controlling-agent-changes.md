@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Reviewing and controlling agent changes
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oFSJs6RnFt4?si=jCPXRc6GxzgYG1y9" title="Video for reviewing and controlling agent changes." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video for reviewing and controlling agent changes on YouTube (opens in new tab).](images/reviewing-and-controlling-agent-changes/youtube-oFSJs6RnFt4.jpg)](https://www.youtube.com/watch?v=oFSJs6RnFt4)
 
 When an agent finishes a round of work, it leaves behind proposed changes, edits to files, new files, and deleted files. Nothing is permanent until you say so. This guide covers how to review what the agent did, accept or undo changes at any granularity, and use the tools available to steer the agent, correct mistakes, and explore multiple directions without losing work.
 
