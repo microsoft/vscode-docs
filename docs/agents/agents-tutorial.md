@@ -90,7 +90,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
 1. Select the **Copilot** agent harness to run your agent session locally on your machine using the {% data variables.copilot.copilot_sdk %}.
 
-    {% data variables.product.prodname_vscode_shortname %} supports multiple agent harnesses, such as Claude and Codex. The agent harness is what connects the language model to the development environment.
+    {% data variables.product.prodname_vscode_shortname %} supports multiple [agent harnesses](/docs/agents/concepts/agent-harnesses.md), such as Claude and Codex. The harness coordinates the model, tools, and session in the selected execution environment.
 
 1. Review the other session configuration options:
 
