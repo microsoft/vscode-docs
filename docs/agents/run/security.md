@@ -63,7 +63,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using {% data variables.product.prodname_vscode_shortname %}'s secure credentials store to protect authentication tokens and other sensitive data.
 
