@@ -13,7 +13,7 @@ Keywords:
 - enterprise
 - sandbox
 ---
-# AI security in {% data variables.product.prodname_vscode_shortname %}
+# Secure AI-assisted development in {% data variables.product.prodname_vscode_shortname %}
 
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
