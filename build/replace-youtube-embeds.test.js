@@ -60,6 +60,31 @@ test('renders an accessible Markdown thumbnail link', function () {
   );
 });
 
+test('stores blog thumbnails beside the Markdown file', function () {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'youtube-embed-blog-'));
+  const blogDirectory = path.join(root, 'blogs', '2026', '09', '04');
+  const markdownPath = path.join(blogDirectory, 'article.md');
+
+  fs.mkdirSync(blogDirectory, { recursive: true });
+  fs.writeFileSync(markdownPath, '<iframe src="https://www.youtube.com/embed/3HiLLByBWkg" title="Video showing debugging."></iframe>\n');
+
+  return runMigration({
+    getBuffer: function () {
+      return Promise.resolve({ contentType: 'image/jpeg', data: JPEG });
+    },
+    inputs: [markdownPath],
+    logger: function () {},
+    root,
+    write: true
+  }).then(function () {
+    assert.match(fs.readFileSync(markdownPath, 'utf8'), /\]\(youtube-3HiLLByBWkg\.jpg\)\]\(https:\/\/www\.youtube\.com/);
+    assert.equal(fs.existsSync(path.join(blogDirectory, 'youtube-3HiLLByBWkg.jpg')), true);
+    assert.equal(fs.existsSync(path.join(blogDirectory, 'images')), false);
+  }).finally(function () {
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+});
+
 test('falls back to the next valid JPEG thumbnail', function () {
   const requestedUrls = [];
 

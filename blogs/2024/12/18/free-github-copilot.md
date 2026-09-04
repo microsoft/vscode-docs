@@ -115,7 +115,7 @@ No more commits that say "changes". GitHub Copilot will suggest a commit message
 
 Every VS Code extension can tie directly into the GitHub Copilot APIs and offer a customized AI experience. Check out MongoDB with [their extension](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) that can write impressively complex queries, use fuzzy search and a lot more...
 
-[![Watch VS Code MongoDB extension on YouTube (opens in new tab).](images/free-github-copilot/youtube-MLWlWrRAb4w.jpg)](https://www.youtube.com/watch?v=MLWlWrRAb4w)
+[![Watch VS Code MongoDB extension on YouTube (opens in new tab).](youtube-MLWlWrRAb4w.jpg)](https://www.youtube.com/watch?v=MLWlWrRAb4w)
 
 **Try this:** Build your own extension for GitHub Copilot using GitHub Copilot! We've created some new tutorials that show you how to [build a code tutor chat participant](https://code.visualstudio.com/api/extension-guides/chat-tutorial) or [generate AI-powered code annotations](https://code.visualstudio.com/api/extension-guides/language-model-tutorial).
 

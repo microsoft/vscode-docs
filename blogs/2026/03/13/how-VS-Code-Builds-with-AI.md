@@ -16,7 +16,7 @@ We use AI every day to ship VS Code. It's made us so much faster that, after ten
 
 To kick off [Agent Sessions Day](https://youtube.com/live/tAezuMSJuFs), I sat down with Peng Lyu, Engineering Manager on the VS Code team, to walk through how the VS Code team actually uses AI for our day-to-day work. Not only for implementing features (that part's self-evident), but for everything *around* building features: triage, code review, release notes, validation, staying productive in a meeting-heavy schedule.
 
-[![Watch Agent Sessions Day: How VS Code Builds with AI on YouTube (opens in new tab).](images/how-VS-Code-Builds-with-AI/youtube-ee-obY-4rqk.jpg)](https://www.youtube.com/watch?v=ee-obY-4rqk)
+[![Watch Agent Sessions Day: How VS Code Builds with AI on YouTube (opens in new tab).](youtube-ee-obY-4rqk.jpg)](https://www.youtube.com/watch?v=ee-obY-4rqk)
 
 In that session, we probably only covered 5% of what the team does with agents on any given day. But it's representative of how a product that's used by millions of developers is built. So, we wanted to share more about these big recent changes to our workflow, and where we think we're going next.
 

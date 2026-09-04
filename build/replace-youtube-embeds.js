@@ -149,7 +149,12 @@ function parseYouTubeIframe(iframe) {
   };
 }
 
-function getThumbnailPath(markdownPath, videoId) {
+function getThumbnailPath(markdownPath, videoId, root) {
+  const relativeMarkdownPath = path.relative(root || ROOT, path.resolve(markdownPath));
+  if (relativeMarkdownPath.split(path.sep)[0] === 'blogs') {
+    return path.join(path.dirname(markdownPath), `youtube-${videoId}.jpg`);
+  }
+
   const articleName = path.basename(markdownPath, path.extname(markdownPath));
   return path.join(path.dirname(markdownPath), 'images', articleName, `youtube-${videoId}.jpg`);
 }
@@ -199,7 +204,7 @@ function findIframeRanges(content) {
   return ranges;
 }
 
-function analyzeMarkdown(markdownPath, content, titleOverrides) {
+function analyzeMarkdown(markdownPath, content, titleOverrides, root) {
   const embeds = [];
   const issues = [];
   let output = '';
@@ -231,7 +236,7 @@ function analyzeMarkdown(markdownPath, content, titleOverrides) {
       return;
     }
 
-    const imagePath = getThumbnailPath(markdownPath, parsed.videoId);
+    const imagePath = getThumbnailPath(markdownPath, parsed.videoId, root);
     output += content.substring(lastIndex, range.start);
     output += renderLinkedThumbnail(parsed, imagePath, markdownPath);
     lastIndex = range.end;
@@ -440,7 +445,7 @@ function resolveIssueTitles(issues, getBuffer, logger) {
   });
 }
 
-function prepareMigration(files, titleOverrides) {
+function prepareMigration(files, titleOverrides, root) {
   const filePlans = [];
   const downloads = new Map();
   const issues = [];
@@ -448,7 +453,7 @@ function prepareMigration(files, titleOverrides) {
 
   files.forEach(function (file) {
     const originalContent = fs.readFileSync(file, 'utf8');
-    const analysis = analyzeMarkdown(file, originalContent, titleOverrides);
+    const analysis = analyzeMarkdown(file, originalContent, titleOverrides, root);
 
     embedCount += analysis.embeds.length;
     issues.push.apply(issues, analysis.issues);
@@ -598,7 +603,7 @@ function runMigration(options) {
   const logger = options.logger || console.log;
   const root = path.resolve(options.root || ROOT);
   const files = collectMarkdownFiles(options.inputs, root);
-  const initialPlan = prepareMigration(files);
+  const initialPlan = prepareMigration(files, undefined, root);
 
   if (options.write && initialPlan.issues.length > 0) {
     const unresolvableIssues = initialPlan.issues.filter(function (issue) {
@@ -609,7 +614,7 @@ function runMigration(options) {
     }
 
     return resolveIssueTitles(initialPlan.issues, options.getMetadataBuffer, logger).then(function (titles) {
-      return executeMigration(prepareMigration(files, titles), options, files, root, logger);
+      return executeMigration(prepareMigration(files, titles, root), options, files, root, logger);
     });
   }
 

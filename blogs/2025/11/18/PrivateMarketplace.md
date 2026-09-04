@@ -14,7 +14,7 @@ November 18, 2025 by [Sean Iyer](https://x.com/nuget)
 
 Developers shouldn't have to juggle manual installs, worry about unverified extensions, or chase compliance exceptions just to get their favorite tools. Today, we're excited to announce Private Marketplace for VS Code—a dedicated, enterprise-ready hub that puts you in full control of how extensions are sourced, reviewed, and distributed to your dev teams. 🔐✨
 
-[![Watch Video showing the VS Code private marketplace on YouTube (opens in new tab).](images/PrivateMarketplace/youtube-nQLdmy50cb0.jpg)](https://www.youtube.com/watch?v=nQLdmy50cb0)
+[![Watch Video showing the VS Code private marketplace on YouTube (opens in new tab).](youtube-nQLdmy50cb0.jpg)](https://www.youtube.com/watch?v=nQLdmy50cb0)
 
 ## With the Private Marketplace, you can:
 

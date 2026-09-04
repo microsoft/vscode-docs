@@ -25,13 +25,13 @@ Among all the sessions that were presented, here is a hand-picked selection for 
 
 Join Sana Ajani and Jeffrey Mew for some of the newest features of VS Code, including new debugging and testing features, custom notebooks, better support for Python, PyTorch, and Jupyter Notebooks.
 
-[![Watch What's new in Visual Studio Code | BRK212 on YouTube (opens in new tab).](images/build-2021/youtube-eKJftIqv8Uo.jpg)](https://www.youtube.com/watch?v=eKJftIqv8Uo)
+[![Watch What's new in Visual Studio Code | BRK212 on YouTube (opens in new tab).](youtube-eKJftIqv8Uo.jpg)](https://www.youtube.com/watch?v=eKJftIqv8Uo)
 
 ### Application development with Scott Hanselman & friends
 
 Why did this "not a keynote" keynote get so many rave reviews? Find out for yourself, and learn about what's new for developers from Microsoft, including with VS Code: custom notebooks, GitHub integration, GitHub Codespaces, and more.
 
-[![Watch Application Development with Scott Hanselman & Friends | KEY11D on YouTube (opens in new tab).](images/build-2021/youtube-EWYYgEkGJfs.jpg)](https://www.youtube.com/watch?v=EWYYgEkGJfs)
+[![Watch Application Development with Scott Hanselman & Friends | KEY11D on YouTube (opens in new tab).](youtube-EWYYgEkGJfs.jpg)](https://www.youtube.com/watch?v=EWYYgEkGJfs)
 
 ### What's new with TypeScript
 
@@ -51,13 +51,13 @@ VS Code developer Christof Marti gives a brief demo of developing in a container
 
 [Dapr](https://dapr.io/) is a distributed application runtime to build microservice-based apps and works with any programming language. Check out Dapr and how it is used with VS Code.
 
-[![Watch Microservices made easy with Dapr | OD521 on YouTube (opens in new tab).](images/build-2021/youtube-DyKYB76SDx0.jpg)](https://www.youtube.com/watch?v=DyKYB76SDx0)
+[![Watch Microservices made easy with Dapr | OD521 on YouTube (opens in new tab).](youtube-DyKYB76SDx0.jpg)](https://www.youtube.com/watch?v=DyKYB76SDx0)
 
 ### Build cloud-native applications that run anywhere
 
 Use VS Code and Azure to build, debug, and run serverless or containerized apps.
 
-[![Watch Build cloud-native applications that run anywhere | TS03 on YouTube (opens in new tab).](images/build-2021/youtube-jN2INtCLRTo.jpg)](https://www.youtube.com/watch?v=jN2INtCLRTo)
+[![Watch Build cloud-native applications that run anywhere | TS03 on YouTube (opens in new tab).](youtube-jN2INtCLRTo.jpg)](https://www.youtube.com/watch?v=jN2INtCLRTo)
 
 ## Learn new skills
 
@@ -67,19 +67,19 @@ This year's Build had a large "student zone", for beginners and perennial learne
 
 Learn how VS Code and GitHub can help student and beginning programmers learn to code. Hosted by Sana Ajani, from the VS Code team, and Meaghan Lewis.
 
-[![Watch Core tools for a dev career: an introduction to Visual Studio Code and GitHub | CON068 on YouTube (opens in new tab).](images/build-2021/youtube-Jk708pQJSyk.jpg)](https://www.youtube.com/watch?v=Jk708pQJSyk)
+[![Watch Core tools for a dev career: an introduction to Visual Studio Code and GitHub | CON068 on YouTube (opens in new tab).](youtube-Jk708pQJSyk.jpg)](https://www.youtube.com/watch?v=Jk708pQJSyk)
 
 ### The art of artificial intelligence: creating images with Python and Azure
 
 Learn how to use AI to generate images and photos, with Python and Jupyter Notebooks in VS Code.
 
-[![Watch The art of artificial intelligence: creating images with Python and Azure | CON070 on YouTube (opens in new tab).](images/build-2021/youtube-WyAikmxLlhs.jpg)](https://www.youtube.com/watch?v=WyAikmxLlhs)
+[![Watch The art of artificial intelligence: creating images with Python and Azure | CON070 on YouTube (opens in new tab).](youtube-WyAikmxLlhs.jpg)](https://www.youtube.com/watch?v=WyAikmxLlhs)
 
 ### Get started with popular programming languages: Intro to Python and C#
 
 James Montemagno and Christopher Harrison offer a beginner-friendly introduction to programming in C# and Python, and of course using VS Code.
 
-[![Watch Get started with popular programming languages: Intro to Python and C# | CON069 on YouTube (opens in new tab).](images/build-2021/youtube-wiUzCG_mEGo.jpg)](https://www.youtube.com/watch?v=wiUzCG_mEGo)
+[![Watch Get started with popular programming languages: Intro to Python and C# | CON069 on YouTube (opens in new tab).](youtube-wiUzCG_mEGo.jpg)](https://www.youtube.com/watch?v=wiUzCG_mEGo)
 
 ## Reach out
 
