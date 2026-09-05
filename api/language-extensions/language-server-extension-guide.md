@@ -559,13 +559,9 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
-The server runs in a separate process started by the `LanguageClient`. The sample's **Launch Client** configuration sets `autoAttachChildProcesses` to `true`, so VS Code automatically attaches the debugger to the server too. You don't need a separate attach configuration or a fixed debug port.
+The sample's **Launch Client** configuration enables `autoAttachChildProcesses`, so VS Code also attaches to the server started by `LanguageClient`.
 
-To debug document validation:
-
-1. In the sample workspace, open `server/src/server.ts` and set a breakpoint inside `validateTextDocument`, for example on the line that calls `getDocumentSettings`.
-2. In the **Run and Debug** view, select **Launch Client** and press `kb(workbench.action.debug.start)`.
-3. In the **Extension Development Host** window, open or edit a plain text file. When the client requests diagnostics, execution pauses at the server breakpoint in the original window.
+To debug validation, set a breakpoint in `validateTextDocument` in `server/src/server.ts` and start **Launch Client**. Open or edit a plain text file in the **Extension Development Host** to trigger the breakpoint.
 
 ![Screenshot showing the automatically attached language server paused at a breakpoint in validateTextDocument.](images/language-server-extension-guide/debugging-server.png)
 
