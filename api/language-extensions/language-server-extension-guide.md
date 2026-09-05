@@ -151,9 +151,6 @@ let client: LanguageClient | undefined;
 export async function activate(context: ExtensionContext) {
   // The server is implemented in node
   let serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
-  // The debug options for the server
-  // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
-  let debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
   // If the extension is launched in debug mode then the debug server options are used
   // Otherwise the run options are used
@@ -161,8 +158,7 @@ export async function activate(context: ExtensionContext) {
     run: { module: serverModule, transport: TransportKind.ipc },
     debug: {
       module: serverModule,
-      transport: TransportKind.ipc,
-      options: debugOptions
+      transport: TransportKind.ipc
     }
   };
 
@@ -563,9 +559,15 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the **Run and Debug** view and select the launch configuration **Attach to Server** and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
+The server runs in a separate process started by the `LanguageClient`. The sample's **Launch Client** configuration sets `autoAttachChildProcesses` to `true`, so VS Code automatically attaches the debugger to the server too. You don't need a separate attach configuration or a fixed debug port.
 
-![Debugging the server](images/language-server-extension-guide/debugging-server.png)
+To debug document validation:
+
+1. In the sample workspace, open `server/src/server.ts` and set a breakpoint inside `validateTextDocument`, for example on the line that calls `getDocumentSettings`.
+2. In the **Run and Debug** view, select **Launch Client** and press `kb(workbench.action.debug.start)`.
+3. In the **Extension Development Host** window, open or edit a plain text file. When the client requests diagnostics, execution pauses at the server breakpoint in the original window.
+
+![Screenshot showing the automatically attached language server paused at a breakpoint in validateTextDocument.](images/language-server-extension-guide/debugging-server.png)
 
 ### Logging Support for Language Server
 
