@@ -560,9 +560,9 @@ Since the server is started by the `LanguageClient` running in the extension (cl
 
 If you are using `vscode-languageclient` to implement the client, you can specify a setting `[langId].trace.server` that instructs the Client to log communications between Language Client / Server to a channel of the Language Client's `name`.
 
-For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Now head to the channel "Language Server Example". You should see the logs:
+For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Open the **Language Server Example** channel in the **Output** panel. The trace shows the client sending a `textDocument/diagnostic` request and receiving a full diagnostic report:
 
-![LSP Log](images/language-server-extension-guide/lsp-log.png)
+![Screenshot showing a pull diagnostics request and the server's response in the Output panel.](images/language-server-extension-guide/lsp-log.png)
 
 ### Using Configuration Settings in the Server
 
