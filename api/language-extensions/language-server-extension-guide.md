@@ -565,7 +565,7 @@ The sample's **Launch Client** configuration enables `autoAttachChildProcesses`,
 
 ### Logging Support for Language Server
 
-If you are using `vscode-languageclient` to implement the client, you can specify a setting `[langId].trace.server` that instructs the Client to log communications between Language Client / Server to a channel of the Language Client's `name`.
+If you are using `vscode-languageclient`, set `[clientId].trace.server` to log client/server communications, where `clientId` is the ID passed to `LanguageClient`. The output channel uses the client's `name`.
 
 For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Open the **Language Server Example** channel in the **Output** panel. The trace shows the client sending a `textDocument/diagnostic` request and receiving a full diagnostic report:
 
