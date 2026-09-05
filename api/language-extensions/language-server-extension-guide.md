@@ -124,10 +124,10 @@ The actual Language Client source code and the corresponding `package.json` are 
 
 ```json
 "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.100.0"
 },
 "dependencies": {
-    "vscode-languageclient": "^7.0.0"
+    "vscode-languageclient": "^9.0.1"
 }
 ```
 
@@ -204,8 +204,8 @@ The source code for the Language Server is at `/server`. The interesting section
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^7.0.0",
-    "vscode-languageserver-textdocument": "^1.0.1"
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
 }
 ```
 
@@ -226,7 +226,9 @@ import {
   CompletionItemKind,
   TextDocumentPositionParams,
   TextDocumentSyncKind,
-  InitializeResult
+  InitializeResult,
+  DocumentDiagnosticReportKind,
+  type DocumentDiagnosticReport
 } from 'vscode-languageserver/node';
 
 import {
@@ -267,6 +269,10 @@ connection.onInitialize((params: InitializeParams) => {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: true
+      },
+      diagnosticProvider: {
+        interFileDependencies: false,
+        workspaceDiagnostics: false
       }
     }
   };
@@ -316,8 +322,8 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Revalidate all open text documents
-  documents.all().forEach(validateTextDocument);
+  // Refresh the diagnostics since the `maxNumberOfProblems` could have changed.
+  connection.languages.diagnostics.refresh();
 });
 
 function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
@@ -340,13 +346,24 @@ documents.onDidClose(e => {
   documentSettings.delete(e.document.uri);
 });
 
-// The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
-documents.onDidChangeContent(change => {
-  validateTextDocument(change.document);
+connection.languages.diagnostics.on(async (params) => {
+  const document = documents.get(params.textDocument.uri);
+  if (document !== undefined) {
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: await validateTextDocument(document)
+    } satisfies DocumentDiagnosticReport;
+  } else {
+    // We don't know the document. We can either try to read it from disk
+    // or we don't report problems for it.
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: []
+    } satisfies DocumentDiagnosticReport;
+  }
 });
 
-async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -389,8 +406,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+  return diagnostics;
 }
 
 connection.onDidChangeWatchedFiles(_change => {
@@ -444,13 +460,25 @@ connection.listen();
 
 ### Adding a Simple Validation
 
-To add document validation to the server, we add a listener to the text document manager that gets called whenever the content of a text document changes. It is then up to the server to decide when the best time is to validate a document. In the example implementation, the server validates the plain text document and flags all occurrences of words that use ALL CAPS. The corresponding code snippet looks like this:
+To add document validation to the server, register a pull diagnostics handler. VS Code calls this handler when it needs diagnostics for a document. The example validates the plain text document and flags all words that use all uppercase letters. The corresponding code snippet looks like this:
 
 ```typescript
-// The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
-documents.onDidChangeContent(async(change) => {
-  let textDocument = change.document;
+connection.languages.diagnostics.on(async (params) => {
+  const document = documents.get(params.textDocument.uri);
+  if (document !== undefined) {
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: await validateTextDocument(document)
+    } satisfies DocumentDiagnosticReport;
+  } else {
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: []
+    } satisfies DocumentDiagnosticReport;
+  }
+});
+
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -493,9 +521,8 @@ documents.onDidChangeContent(async(change) => {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
-});
+  return diagnostics;
+}
 ```
 
 ### Diagnostics Tips and Tricks
@@ -558,10 +585,10 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 }
 ```
 
-The only thing we need to do now is to listen to configuration changes on the server side and if a setting changes, revalidate the open text documents. To be able to reuse the validate logic of the document change event handling, we extract the code into a `validateTextDocument` function and modify the code to honor a `maxNumberOfProblems` variable:
+The validation logic in `validateTextDocument` reads the `maxNumberOfProblems` setting and limits the returned diagnostics:
 
 ```typescript
-async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -604,12 +631,11 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+  return diagnostics;
 }
 ```
 
-The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
+When the setting changes, ask the client to refresh diagnostics. The client then sends new pull diagnostics requests:
 
 ```typescript
 connection.onDidChangeConfiguration(change => {
@@ -622,8 +648,8 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Revalidate all open text documents
-  documents.all().forEach(validateTextDocument);
+  // Refresh the diagnostics since the `maxNumberOfProblems` could have changed.
+  connection.languages.diagnostics.refresh();
 });
 ```
 
