@@ -270,6 +270,7 @@ connection.onInitialize((params: InitializeParams) => {
       completionProvider: {
         resolveProvider: true
       },
+      // Tell the client that this server supports pull diagnostics.
       diagnosticProvider: {
         interFileDependencies: false,
         workspaceDiagnostics: false
@@ -322,7 +323,7 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Refresh the diagnostics since the `maxNumberOfProblems` could have changed.
+  // Ask the client to request diagnostics again with the updated settings.
   connection.languages.diagnostics.refresh();
 });
 
@@ -346,20 +347,21 @@ documents.onDidClose(e => {
   documentSettings.delete(e.document.uri);
 });
 
-connection.languages.diagnostics.on(async (params) => {
+// This handler is called when the client requests diagnostics for a document.
+connection.languages.diagnostics.on(async (params): Promise<DocumentDiagnosticReport> => {
   const document = documents.get(params.textDocument.uri);
   if (document !== undefined) {
     return {
       kind: DocumentDiagnosticReportKind.Full,
       items: await validateTextDocument(document)
-    } satisfies DocumentDiagnosticReport;
+    };
   } else {
-    // We don't know the document. We can either try to read it from disk
-    // or we don't report problems for it.
+    // This example only validates open documents managed by TextDocuments.
+    // Return an empty report for documents we don't know.
     return {
       kind: DocumentDiagnosticReportKind.Full,
       items: []
-    } satisfies DocumentDiagnosticReport;
+    };
   }
 });
 
@@ -460,21 +462,28 @@ connection.listen();
 
 ### Adding a Simple Validation
 
-To add document validation to the server, register a pull diagnostics handler. VS Code calls this handler when it needs diagnostics for a document. The example validates the plain text document and flags all words that use all uppercase letters. The corresponding code snippet looks like this:
+To add document validation to the server, register a handler for `textDocument/diagnostic` requests. With pull diagnostics, the client decides when it needs fresh results, for example after you open or edit a document. The `TextDocuments` manager keeps the server's copy of the document up to date, so the handler can validate its current contents.
+
+The `diagnosticProvider` capability in the initialization code tells the client that the server supports these requests. This example sets `interFileDependencies` to `false` because each document is validated independently, and `workspaceDiagnostics` to `false` because it does not provide workspace-wide diagnostics.
+
+The handler calls `validateTextDocument`, which flags uppercase words of two or more letters, and returns the results to the client:
 
 ```typescript
-connection.languages.diagnostics.on(async (params) => {
+// This handler is called when the client requests diagnostics for a document.
+connection.languages.diagnostics.on(async (params): Promise<DocumentDiagnosticReport> => {
   const document = documents.get(params.textDocument.uri);
   if (document !== undefined) {
     return {
       kind: DocumentDiagnosticReportKind.Full,
       items: await validateTextDocument(document)
-    } satisfies DocumentDiagnosticReport;
+    };
   } else {
+    // This example only validates open documents managed by TextDocuments.
+    // Return an empty report for documents we don't know.
     return {
       kind: DocumentDiagnosticReportKind.Full,
       items: []
-    } satisfies DocumentDiagnosticReport;
+    };
   }
 });
 
@@ -524,6 +533,8 @@ async function validateTextDocument(textDocument: TextDocument): Promise<Diagnos
   return diagnostics;
 }
 ```
+
+A full report replaces the previous diagnostics for the document. Returning an empty `items` array clears any previous problems. Unlike the push model, the server does not send diagnostics from a document-change listener; it returns them in response to the client's request.
 
 ### Diagnostics Tips and Tricks
 
@@ -635,7 +646,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<Diagnos
 }
 ```
 
-When the setting changes, ask the client to refresh diagnostics. The client then sends new pull diagnostics requests:
+A configuration change can affect diagnostics even when the document's text has not changed. Clear the cached settings and call `connection.languages.diagnostics.refresh()` to send a `workspace/diagnostic/refresh` request. The client then requests fresh diagnostics, and the validator reads the updated settings:
 
 ```typescript
 connection.onDidChangeConfiguration(change => {
@@ -648,7 +659,7 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Refresh the diagnostics since the `maxNumberOfProblems` could have changed.
+  // Ask the client to request diagnostics again with the updated settings.
   connection.languages.diagnostics.refresh();
 });
 ```
