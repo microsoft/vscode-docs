@@ -381,7 +381,7 @@ Keep the following in mind when enabling extensions:
 
 ## Limitations
 
-* The {% data variables.copilot.agents_window %} supports Copilot, cloud, Claude, and Codex sessions that run on the Agent Host. Use the Local harness and Codex sessions that run through the OpenAI extension from the main {% data variables.product.prodname_vscode_shortname %} window.
+* Agent Host Codex sessions can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 

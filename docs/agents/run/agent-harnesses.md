@@ -244,9 +244,9 @@ The Codex harness uses OpenAI Codex for interactive and background coding tasks.
 Codex is not listed by default. Complete one of these options before you select it. You don't need both:
 
 * **Use the OpenAI Codex extension in the {% data variables.copilot.chat_view %}**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
-* **Use Codex on Agent Host in the {% data variables.copilot.agents_window %}** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
+* **Use Codex on Agent Host** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`. This makes Codex available in the {% data variables.copilot.agents_window %}. To use Agent Host Codex in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)` and restart {% data variables.product.prodname_vscode_shortname %} when prompted.
 
-To use the Agent Host implementation in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)`.
+Only one Codex implementation appears in each window. When you prefer Agent Host Codex in the {% data variables.copilot.chat_view %}, it replaces the Codex target from the OpenAI extension in that window.
 
 On the Agent Host, Codex supports two authentication and subscription options:
 
