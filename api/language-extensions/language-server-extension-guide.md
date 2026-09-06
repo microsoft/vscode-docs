@@ -124,10 +124,10 @@ The actual Language Client source code and the corresponding `package.json` are 
 
 ```json
 "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.100.0"
 },
 "dependencies": {
-    "vscode-languageclient": "^7.0.0"
+    "vscode-languageclient": "^9.0.1"
 }
 ```
 
@@ -151,9 +151,6 @@ let client: LanguageClient | undefined;
 export async function activate(context: ExtensionContext) {
   // The server is implemented in node
   let serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
-  // The debug options for the server
-  // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
-  let debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
   // If the extension is launched in debug mode then the debug server options are used
   // Otherwise the run options are used
@@ -161,8 +158,7 @@ export async function activate(context: ExtensionContext) {
     run: { module: serverModule, transport: TransportKind.ipc },
     debug: {
       module: serverModule,
-      transport: TransportKind.ipc,
-      options: debugOptions
+      transport: TransportKind.ipc
     }
   };
 
@@ -204,8 +200,8 @@ The source code for the Language Server is at `/server`. The interesting section
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^7.0.0",
-    "vscode-languageserver-textdocument": "^1.0.1"
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
 }
 ```
 
@@ -226,7 +222,9 @@ import {
   CompletionItemKind,
   TextDocumentPositionParams,
   TextDocumentSyncKind,
-  InitializeResult
+  InitializeResult,
+  DocumentDiagnosticReportKind,
+  type DocumentDiagnosticReport
 } from 'vscode-languageserver/node';
 
 import {
@@ -267,6 +265,11 @@ connection.onInitialize((params: InitializeParams) => {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: true
+      },
+      // Tell the client that this server supports pull diagnostics.
+      diagnosticProvider: {
+        interFileDependencies: false,
+        workspaceDiagnostics: false
       }
     }
   };
@@ -316,8 +319,8 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Revalidate all open text documents
-  documents.all().forEach(validateTextDocument);
+  // Ask the client to request diagnostics again with the updated settings.
+  connection.languages.diagnostics.refresh();
 });
 
 function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
@@ -340,13 +343,25 @@ documents.onDidClose(e => {
   documentSettings.delete(e.document.uri);
 });
 
-// The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
-documents.onDidChangeContent(change => {
-  validateTextDocument(change.document);
+// This handler is called when the client requests diagnostics for a document.
+connection.languages.diagnostics.on(async (params): Promise<DocumentDiagnosticReport> => {
+  const document = documents.get(params.textDocument.uri);
+  if (document !== undefined) {
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: await validateTextDocument(document)
+    };
+  } else {
+    // This example only validates open documents managed by TextDocuments.
+    // Return an empty report for documents we don't know.
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: []
+    };
+  }
 });
 
-async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -389,8 +404,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+  return diagnostics;
 }
 
 connection.onDidChangeWatchedFiles(_change => {
@@ -444,13 +458,32 @@ connection.listen();
 
 ### Adding a Simple Validation
 
-To add document validation to the server, we add a listener to the text document manager that gets called whenever the content of a text document changes. It is then up to the server to decide when the best time is to validate a document. In the example implementation, the server validates the plain text document and flags all occurrences of words that use ALL CAPS. The corresponding code snippet looks like this:
+To add document validation to the server, register a handler for `textDocument/diagnostic` requests. With pull diagnostics, the client decides when it needs fresh results, for example after you open or edit a document. The `TextDocuments` manager keeps the server's copy of the document up to date, so the handler can validate its current contents.
+
+The `diagnosticProvider` capability in the initialization code tells the client that the server supports these requests. This example sets `interFileDependencies` to `false` because each document is validated independently, and `workspaceDiagnostics` to `false` because it does not provide workspace-wide diagnostics.
+
+The handler calls `validateTextDocument`, which flags uppercase words of two or more letters, and returns the results to the client:
 
 ```typescript
-// The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
-documents.onDidChangeContent(async(change) => {
-  let textDocument = change.document;
+// This handler is called when the client requests diagnostics for a document.
+connection.languages.diagnostics.on(async (params): Promise<DocumentDiagnosticReport> => {
+  const document = documents.get(params.textDocument.uri);
+  if (document !== undefined) {
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: await validateTextDocument(document)
+    };
+  } else {
+    // This example only validates open documents managed by TextDocuments.
+    // Return an empty report for documents we don't know.
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: []
+    };
+  }
+});
+
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -493,10 +526,11 @@ documents.onDidChangeContent(async(change) => {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
-});
+  return diagnostics;
+}
 ```
+
+A full report replaces the previous diagnostics for the document. Returning an empty `items` array clears any previous problems. Unlike the push model, the server does not send diagnostics from a document-change listener; it returns them in response to the client's request.
 
 ### Diagnostics Tips and Tricks
 
@@ -525,17 +559,17 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the **Run and Debug** view and select the launch configuration **Attach to Server** and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
+The sample's **Launch Client** configuration enables `autoAttachChildProcesses`, so VS Code also attaches to the server started by `LanguageClient`. To debug validation, set a breakpoint in `validateTextDocument` in `server/src/server.ts`, then start **Launch Client** from the **Run and Debug** view. Open or edit a plain text file in the **Extension Development Host** to trigger the breakpoint.
 
-![Debugging the server](images/language-server-extension-guide/debugging-server.png)
+![Screenshot showing the automatically attached language server paused at a breakpoint in validateTextDocument.](images/language-server-extension-guide/debugging-server.png)
 
 ### Logging Support for Language Server
 
-If you are using `vscode-languageclient` to implement the client, you can specify a setting `[langId].trace.server` that instructs the Client to log communications between Language Client / Server to a channel of the Language Client's `name`.
+If you are using `vscode-languageclient`, set `[clientId].trace.server` to log client/server communications, where `clientId` is the ID passed to `LanguageClient`. The output channel uses the client's `name`.
 
-For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Now head to the channel "Language Server Example". You should see the logs:
+For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Open the **Language Server Example** channel in the **Output** panel. The trace shows the client sending a `textDocument/diagnostic` request and receiving a full diagnostic report:
 
-![LSP Log](images/language-server-extension-guide/lsp-log.png)
+![Screenshot showing a pull diagnostics request and the server's response in the Output panel.](images/language-server-extension-guide/lsp-log.png)
 
 ### Using Configuration Settings in the Server
 
@@ -558,10 +592,10 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 }
 ```
 
-The only thing we need to do now is to listen to configuration changes on the server side and if a setting changes, revalidate the open text documents. To be able to reuse the validate logic of the document change event handling, we extract the code into a `validateTextDocument` function and modify the code to honor a `maxNumberOfProblems` variable:
+The validation logic in `validateTextDocument` reads the `maxNumberOfProblems` setting and limits the returned diagnostics:
 
 ```typescript
-async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+async function validateTextDocument(textDocument: TextDocument): Promise<Diagnostic[]> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
@@ -604,12 +638,11 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
-  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+  return diagnostics;
 }
 ```
 
-The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
+A configuration change can affect diagnostics even when the document's text has not changed. Clear the cached settings and call `connection.languages.diagnostics.refresh()` to send a `workspace/diagnostic/refresh` request. The client then requests fresh diagnostics, and the validator reads the updated settings:
 
 ```typescript
 connection.onDidChangeConfiguration(change => {
@@ -622,8 +655,8 @@ connection.onDidChangeConfiguration(change => {
     );
   }
 
-  // Revalidate all open text documents
-  documents.all().forEach(validateTextDocument);
+  // Ask the client to request diagnostics again with the updated settings.
+  connection.languages.diagnostics.refresh();
 });
 ```
 

@@ -51,9 +51,9 @@ This listing includes the following items for each language feature:
 
 | VS Code API                                                                                                                       | LSP method                                                                                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection)                                   | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics)                                                                                                                 |
+| [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection)                                   | [Document Diagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_diagnostic) and [Publish Diagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics)          |
 | [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider)                           | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve)               |
-[`registerInlineCompletionItemProvider`](/api/references/vscode-api#languages.registerInlineCompletionItemProvider)               |  |
+| [`registerInlineCompletionItemProvider`](/api/references/vscode-api#languages.registerInlineCompletionItemProvider)               |  |
 | [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider)                                             | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover)                                                                                                                                           |
 | [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider)                             | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp)                                                                                                                           |
 | [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider)                                   | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition)                                                                                                                                 |
@@ -81,9 +81,9 @@ Diagnostics are a way to indicate issues with the code.
 
 #### Language Server Protocol
 
-Your language server sends the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
+Language servers can provide diagnostics with the pull or push model.
 
-**Note**: The client does not ask the server for diagnostics. The server pushes the diagnostic information to the client.
+With pull diagnostics, the server announces a diagnostic provider and responds to `textDocument/diagnostic` requests from the client. With push diagnostics, the server sends `textDocument/publishDiagnostics` notifications to the client.
 
 #### Direct Implementation
 
