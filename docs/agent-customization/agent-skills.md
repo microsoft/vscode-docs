@@ -1,7 +1,7 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
 DateApproved: 9/9/2026
-MetaDescription: Learn how to use Agent Skills in {% data variables.product.prodname_vscode_shortname %} to teach GitHub Copilot specialized capabilities that work across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
+MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -68,7 +68,8 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 | Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
 | Personal skills, stored in your user profile | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
 
-You can configure additional file locations for project skills with the `setting(chat.agentSkillsLocations)` setting. This is useful if you want to organize skills in a different folder structure or have multiple skill directories.
+> [!NOTE]
+> The `setting(chat.agentSkillsLocations)` setting is deprecated and only used by the Local agent. If you configured other skill locations with this setting, [migrate the skills to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

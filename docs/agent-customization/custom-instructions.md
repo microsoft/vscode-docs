@@ -1,7 +1,7 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
 DateApproved: 9/9/2026
-MetaDescription: Learn how to create custom instructions for {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
+MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customize
@@ -132,7 +132,7 @@ Use `.instructions.md` files for:
 
 ### Instructions file locations
 
-You can define instructions for a specific workspace or at the user level, where they are applied across all your workspaces. The following table lists the default file locations for instructions files based on their scope. You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting.
+You can define instructions for a specific workspace or at the user level, where they are applied across all your workspaces. The following table lists the supported file locations for instructions files based on their scope.
 
 | Scope | Default file location |
 |-------|-----------------------|
@@ -141,9 +141,12 @@ You can define instructions for a specific workspace or at the user level, where
 | User profile | `~/.copilot/instructions` or `~/.claude/rules` |
 
 > [!IMPORTANT]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from supported folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
 
-{% data variables.product.prodname_vscode_shortname %} searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
+> [!NOTE]
+> The `setting(chat.instructionsFilesLocations)` setting is deprecated and only used by the Local agent. If you configured other instruction locations with this setting, [migrate the customizations to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
+
+{% data variables.product.prodname_vscode_shortname %} searches these folders recursively, which enables you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
 ```text
 .github/instructions/
@@ -154,17 +157,6 @@ You can define instructions for a specific workspace or at the user level, where
     api-design.instructions.md
   testing/
     unit-tests.instructions.md
-```
-
-The following example shows how to configure the instructions file locations to only allow workspace-level instructions:
-
-```json
-"chat.instructionsFilesLocations": {
-  ".github/instructions": true,
-  ".claude/rules": true,
-  "~/.copilot/instructions": false,
-  "~/.claude/rules": false
-}
 ```
 
 > [!TIP]
@@ -417,7 +409,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 
 If your instructions file is not being applied, check the following:
 
-* Verify that your instructions file is in the correct location. A `.github/copilot-instructions.md` file must be in the `.github` folder at the root of your workspace. A `*.instructions.md` file must be in one of the folders (or their subdirectories) specified in the `setting(chat.instructionsFilesLocations)` setting (default: `.github/instructions`) or in your user profile.
+* Verify that your instructions file is in a [supported instructions location](#instructions-file-locations). A `.github/copilot-instructions.md` file must be in the `.github` folder at the root of your workspace.
 
 * For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the **References** section in the chat response to see which instructions files were used.
 
