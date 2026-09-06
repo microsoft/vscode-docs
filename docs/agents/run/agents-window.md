@@ -186,6 +186,25 @@ To start a new quick chat in the {% data variables.copilot.agents_window %}:
 
 By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide empty default groups, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
 
+### Continue a quick chat in a workspace
+
+If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
+
+> [!NOTE]
+> This option is currently available for quick chats that use the Copilot harness. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+
+To continue a quick chat in a workspace:
+
+1. Ask the agent to continue the task in a specific local workspace.
+
+1. When prompted, confirm the folder and choose whether the agent should make changes directly in the folder or use an isolated Git worktree.
+
+1. Review and approve the **Set Workspace** tool confirmation.
+
+    If the folder isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you proceed.
+
+1. Wait for workspace setup to finish. The quick chat becomes a workspace session and moves from the **Chats** group to the selected workspace in the sessions list. The agent then continues the original request.
+
 ## Review and finish an agent session
 
 When the agent finishes a task, select the session active to inspect, validate, or commit its changes.
