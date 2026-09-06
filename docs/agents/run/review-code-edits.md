@@ -1,7 +1,7 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 9/9/2026
-MetaDescription: Review, revise, revert, and integrate AI-generated code changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
+MetaDescription: Review, revise, revert, and integrate AI changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
@@ -63,6 +63,8 @@ To review and integrate the changes:
 
     Use the diff toolbar to show the editor side by side with chat or in a modal window.
 
+    To change the diff layout, select **More Actions** (**...**) > **Diff View**, and then select **Inline**, **Side by Side**, or **Automatic**. With **Automatic**, the Changes editor shows files side by side when there is enough space and switches to inline when the editor is narrow.
+
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
@@ -81,7 +83,7 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
 
-Use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the {% data variables.copilot.agents_window %}.
+Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. The `kb(toggle.diff.renderSideBySide)` keybinding toggles the preferred diff view in the {% data variables.copilot.agents_window %}.
 
 The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
