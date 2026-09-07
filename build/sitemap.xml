@@ -611,7 +611,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/debug-with-copilot</loc>
+        <loc>https://code.visualstudio.com/docs/agents/guides/fix-a-bug-with-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -97,6 +97,7 @@ To get the best results when generating tests with Copilot, follow these tips:
 
 ## Next steps
 
+* Follow a complete workflow to [fix an API bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md).
 * Try [testing web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md).
 * Learn more about [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md).
 * Explore [general testing features in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md).

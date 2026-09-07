@@ -305,8 +305,8 @@ Use AI to help fix coding problems and to get help with configuring and starting
 |--------|-------------|
 | `/fix` | Ask the AI for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
 | `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
-| `/startDebugging` _(Experimental)_ | Generate a `launch.json` debug configuration file and [start a debugging session](/docs/agents/guides/debug-with-copilot.md) from the {% data variables.copilot.chat_view %}. |
-| `copilot-debug` command | Terminal command to help you [debug your programs](/docs/agents/guides/debug-with-copilot.md). Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). |
+| `/startDebugging` _(Experimental)_ | Generate a `launch.json` debug configuration file and start a debugging session from the {% data variables.copilot.chat_view %}. |
+| `copilot-debug` command | Terminal command to help you debug your programs. Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). |
 
 > **Tips**
 >

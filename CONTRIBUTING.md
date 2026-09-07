@@ -319,7 +319,7 @@ The following example shows a `Guides` subsection with two topics, within the `G
           "area": "copilot/guides",
           "topics": [
             ["Test with Copilot", "/docs/agents/guides/test-with-copilot"],
-            ["Debug with Copilot", "/docs/agents/guides/debug-with-copilot"]
+            ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"]
           ]
         }
         ],

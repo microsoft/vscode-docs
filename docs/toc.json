@@ -99,7 +99,7 @@
                     ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Test with AI", "/docs/agents/guides/test-with-copilot"],
                     ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
-                    ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
+                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
                     ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
                     ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
