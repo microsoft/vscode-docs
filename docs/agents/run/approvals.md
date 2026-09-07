@@ -168,7 +168,7 @@ URL auto-approval examples:
 
 The agent uses a single terminal tool to run [terminal commands](/docs/agents/run/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
 
-By default, {% data variables.product.prodname_vscode_shortname %} already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
+By default, {% data variables.product.prodname_vscode_shortname %} auto-approves a set of safe commands, while risky ones, such as `rm` and `del`, always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own auto-approve and require-approval rules:
 
 * Set commands to `true` to automatically approve them
 * Set commands to `false` to always require approval
@@ -183,12 +183,14 @@ For example:
   // Allow `git status` and commands starting with `git show`
   "/^git (status|show\\b.*)$/": true,
 
-  // Block the `del` command
+  // Always require approval for the `del` command
   "del": false,
-  // Block any command containing "dangerous"
+  // Always require approval for commands containing "dangerous"
   "/dangerous/": false
 }
 ```
+
+A `false` rule prevents automatic approval, but it does not prevent the command from running after you approve it. To prevent a terminal tool call from executing, use a [Preview `PreToolUse` hook](/docs/agent-customization/hooks.md#usage-scenarios) that returns `permissionDecision: "deny"`.
 
 By default, patterns match against individual subcommands. For a command to be auto-approved, all subcommands must match a `true` entry and must not match a `false` entry.
 
@@ -206,7 +208,7 @@ Related settings:
 > * {% data variables.product.prodname_vscode_shortname %} uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
 > * {% data variables.product.prodname_vscode_shortname %} uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
-> * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
+> * Subverting auto approval is possible through various techniques such as quote concatenation. For example, `find -exec` normally requires approval, but `find -e"x"ec` might be auto-approved despite doing the same thing.
 >
 > If prompt injection is a possibility or you're in a high-risk environment, consider [enabling agent sandboxing](#sandbox-agent-commands) or running {% data variables.product.prodname_vscode_shortname %} within a container.
 
