@@ -1,12 +1,12 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
 DateApproved: 9/9/2026
-MetaDescription: Work with agents beside your code in the {% data variables.copilot.chat_view %}, with layouts for the side bar, editor, and separate windows.
+MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.chat_view %}
 
-The {% data variables.copilot.chat_view %} is a code-first interface for working with agents in the main {% data variables.product.prodname_vscode %} window. Use it when your task centers on the current project and you want the editor, debugger, tests, extensions, and notebooks available alongside the conversation.
+The {% data variables.copilot.chat_view %} is a code-first interface for asking questions and working with agents in the main {% data variables.product.prodname_vscode %} window. Use it when your task centers on the current project and you want the editor, debugger, tests, extensions, and notebooks available alongside the conversation.
 
 In this article, you learn how to open the {% data variables.copilot.chat_view %}, choose a layout, understand its interface, and start a workspace-scoped session. To compare it with other interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For conversation mechanics shared with the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 

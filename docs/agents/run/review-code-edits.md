@@ -1,7 +1,7 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 9/9/2026
-MetaDescription: Review, revise, revert, and integrate AI changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
+MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
@@ -20,9 +20,11 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Review agent changes
 
-The agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending approval state, so you don't need to keep or undo each edit before you continue.
+In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so review them in a diff before you commit or integrate them. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
 
-Review the changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
+Older extension-host sessions save edits and then mark them as pending so you can keep or undo them. Expand **Review extension-host changes** below for that workflow.
+
+Review agent changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -126,7 +128,7 @@ Select the request in the conversation, modify it, and resend it. Configure or t
 
 ### Restore a checkpoint
 
-When checkpoints are enabled, {% data variables.product.prodname_vscode_shortname %} creates a snapshot of affected files before processing each request. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
+Checkpoints are enabled by default for supported chat sessions. Before processing each request, {% data variables.product.prodname_vscode_shortname %} creates a snapshot of affected workspace files. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
 
 To restore your workspace to an earlier checkpoint:
 
@@ -139,6 +141,9 @@ To restore your workspace to an earlier checkpoint:
 1. Confirm that you want to restore the checkpoint.
 
 {% data variables.product.prodname_vscode_shortname %} removes subsequent requests from the conversation history and restores the workspace files to their state at the checkpoint.
+
+> [!IMPORTANT]
+> A checkpoint restores affected workspace files and chat history. It doesn't reverse completed terminal commands, network requests, deployments, or changes that tools made to external services. Use Git and the external service's recovery controls for those effects.
 
 #### Redo after restoring
 
@@ -162,9 +167,9 @@ Hover over a request and select **Fork Conversation** to create an independent s
 <details>
 <summary>Review extension-host changes</summary>
 
-If [agent host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+If [Agent Host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
 
-After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
+After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
 ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
@@ -199,7 +204,7 @@ Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edit
 
 ## Edit sensitive files
 
-Sensitive-file approval is separate from reviewing changes after the agent makes them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
+Sensitive-file approval is separate from reviewing changes after the agent saves them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
 
 Use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval. The setting uses glob patterns to match file paths in your workspace.
 

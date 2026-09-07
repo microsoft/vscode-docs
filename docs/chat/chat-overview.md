@@ -1,7 +1,7 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
 DateApproved: 9/9/2026
-MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to send requests, add context, personalize chat, and review AI-generated changes.
+MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
@@ -25,7 +25,7 @@ For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to ed
 
 ## Send a chat request
 
-Type your message in the chat input box and press `kbstyle(Enter)` or select the **Send** button. The agent analyzes your code, makes the changes, and responds with a summary. You can then continue the conversation with follow-up messages. For example, you might start with a request like:
+Type your message in the chat input box and press `kbstyle(Enter)` or select the **Send** button. The agent can answer questions, analyze your code, run tools, make changes, and respond with a summary. You can then continue the conversation with follow-up messages. For example, you might ask an agent to make this change:
 
 ```prompt
 Add input validation to the signup form
@@ -66,6 +66,8 @@ You don't have to wait for a response to finish before sending your next message
 * **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
 * **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
 * **Stop and Send**: cancels the current request entirely and sends your new message right away.
+
+Stopping a request doesn't undo file edits, terminal commands, or other actions that already completed. To restore affected workspace files and chat history, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint). Checkpoints don't reverse changes to external services.
 
 The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
 

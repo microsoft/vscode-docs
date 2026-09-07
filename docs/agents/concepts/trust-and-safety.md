@@ -1,7 +1,7 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 DateApproved: 9/9/2026
-MetaDescription: Learn about AI safety controls in {% data variables.product.prodname_vscode_shortname %}, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
+MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -33,15 +33,15 @@ Understand the control mechanisms and safety considerations for using AI in {% d
 
 Agents can read files, edit code, run terminal commands, and call external services. {% data variables.product.prodname_vscode_shortname %}'s trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
-* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) let you roll back a session.
-* **Approve before acting.** Tools with side effects and terminal commands prompt for approval, with per-session, per-workspace, or per-user scoping.
+* **Review before integrating.** Agents can save edits directly in the session folder or worktree. Inspect the changes in a diff before you commit, merge, or create a pull request. For supported sessions, [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) restore affected workspace files and chat to an earlier point.
+* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Agent Host sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
 * **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
 * **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
 
 For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
-Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
+Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues. Stopping a request or restoring workspace files doesn't reverse completed terminal commands, network requests, deployments, or changes to external services.
 
 ## Trust boundaries
 
