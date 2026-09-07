@@ -81,7 +81,7 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 ### Review changes in the single-pane layout (Experimental)
 
-When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
+When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
 
 Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. The `kb(toggle.diff.renderSideBySide)` keybinding toggles the preferred diff view in the {% data variables.copilot.agents_window %}.
 

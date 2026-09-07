@@ -47,6 +47,7 @@
                 "area": "agents/run",
                 "topics": [
                     ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
                     ["Chat View", "/docs/agents/run/chat-view"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Use Tools", "/docs/agents/run/tools"],
@@ -135,7 +136,7 @@
         "name": "Chat",
         "area": "chat",
         "topics": [
-            ["Chat Basics", "/docs/chat/chat-overview"],
+            ["Chat Interactions", "/docs/chat/chat-overview"],
             ["Inline & Quick Chat", "/docs/chat/inline-chat"],
             ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]

@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-This article describes the mechanics of how to interact with chat: how to send a request, add context, choose a language model, personalize chat, write effective prompts, and review AI-generated changes. These mechanics apply to all chat surfaces in {% data variables.product.prodname_vscode_shortname %}. For an overview of what agents can do and how to configure a session, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, navigate a conversation, and personalize the chat display. For an overview of agents, session configuration, and the available interfaces, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -17,16 +17,11 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 </div>
 
-## Ways to chat in {% data variables.product.prodname_vscode_shortname %}
+## Choose where to chat
 
-{% data variables.product.prodname_vscode_shortname %} gives you two main surfaces for working with agents, plus lightweight options for quick interactions. You can choose the experience that best fits your current task and workflow, and switch between them as needed.
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. To compare these interfaces with browser and terminal options, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents).
 
-| Name | Description | How to open |
-|------|-------------|-------------|
-| [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open {% data variables.copilot.agents_window %}** command</li><li>Run `code --agents`</li></ul> |
-| [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
-| [Inline chat](/docs/chat/inline-chat.md) | Quick, in-place code edits or terminal suggestions. | <ul><li>Press `kb(inlineChat.start)`</li></ul> |
-| [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | A lightweight chat panel at the top of the editor. | <ul><li>Press `kb(workbench.action.quickchat.toggle)`</li></ul> |
+For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
 ## Send a chat request
 
@@ -104,14 +99,9 @@ To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `fal
 
 ## Review and manage changes
 
-After the AI changes your files, review and validate the result before you commit or integrate it.
+After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
 
-* **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the {% data variables.copilot.agents_window %}. To show a changed-files summary after each request in the {% data variables.copilot.chat_view %}, set `setting(chat.checkpoints.showFileChanges)` to `true`.
-* **Request revisions**: send a follow-up prompt, leave feedback in the {% data variables.copilot.agents_window %} diff editor, or edit the files directly.
-* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints).
-* **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
-
-For more information, see [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
 

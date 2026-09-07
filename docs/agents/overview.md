@@ -1,7 +1,7 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 9/9/2026
-MetaDescription: Understand agentic coding in {% data variables.product.prodname_vscode %}, including agents, models, tools, context, sessions, execution environments, customization, and controls.
+MetaDescription: Understand agents in {% data variables.product.prodname_vscode %}, choose an interface and execution environment, and learn how sessions and tools work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - GitHub Copilot
@@ -135,7 +135,7 @@ Organizations can centrally control which AI features, models, and tools are ava
 
 ## Get started
 
-AI features are built into {% data variables.product.prodname_vscode_shortname %}. Sign in with your GitHub account to use your {% data variables.product.prodname_copilot %} subscription or bring your own models, and then choose a learning path:
+AI features are built into {% data variables.product.prodname_vscode_shortname %}. Sign in to GitHub for {% data variables.product.prodname_copilot %}, configure Anthropic or ChatGPT credentials for Claude or Codex, or bring your own models without a GitHub account. Then choose a learning path:
 
 * [Understand agent concepts](/docs/agents/concepts/agents.md) to learn how models, context, tools, sessions, and harnesses work together.
 
