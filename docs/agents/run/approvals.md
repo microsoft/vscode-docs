@@ -81,7 +81,7 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 ### Allow all tools globally
 
-To auto-approve tools across all workspaces, enable `setting(chat.tools.global.autoApprove)`. You can also use `/yolo` or `/autoApprove` in chat to enable the setting, and `/disableYolo` or `/disableAutoApprove` to turn it off.
+To auto-approve tools across all workspaces, enable `setting(chat.tools.global.autoApprove)`. To bypass approvals only for the current supported local or {% data variables.copilot.copilot_cli_short %} session, use `/yolo` or `/autoApprove`. Use `/disableYolo` or `/disableAutoApprove` to restore the session's default permission level.
 
 Prefer the session-scoped **Allow all** level when you do not need auto-approval in every workspace.
 

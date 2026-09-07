@@ -137,7 +137,7 @@ In agent host sessions, additional session-management tools are available for cr
 
 ## Slash commands
 
-Slash commands are shortcuts to specific functionality within the chat. You can use them to quickly perform actions, like fixing issues, generating tests, or explaining code.
+Slash commands are shortcuts to specific functionality within chat. The available commands depend on the current chat surface, session type, agent, and enabled features. Enter `/` in the chat input to see the commands that are available in the current session.
 
 | Slash command | Description |
 |---------------|-------------|
@@ -145,30 +145,35 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/explain` | Explain a code block, file, or programming concept. |
 | `/fix` | Ask to fix a code block or resolve compiler or linting errors. |
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
-| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
-| `/clear` | Start a new chat session in the {% data variables.copilot.chat_view %}. |
-| `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
+| `/setupTests` _(Experimental)_ | Get help setting up a testing framework for your code. Get a recommendation for a relevant testing framework, setup and configuration steps, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
+| `/clear` | Start a new chat and archive or mark the current chat as done. |
+| `/help` | List the agents and slash commands available in a local Ask chat. |
+| `/rename <name>` | Rename the current local chat. |
+| `/compact` | Compact the conversation context in a supported agent session. Useful when a conversation grows too long for the model's context window. |
 | `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
-| `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
-| `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. For extension host chat sessions, enable `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` and reload the window. For Agent Host sessions, enable `setting(chat.agentHost.agentDebugLog.enabled)` before you start the session that you want to capture. |
+| `/debug` | Show the Chat Debug view from the {% data variables.copilot.chat_view %} to [inspect chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). This command isn't available in the {% data variables.copilot.agents_window %}. |
+| `/troubleshoot` | In a local or {% data variables.copilot.copilot_cli_short %} session, ask the AI to analyze [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md). Optionally, include `#session` to select another session. |
+| `/models` | Open the model picker. |
+| `/tools` | Configure tools for a local chat session. |
 | `/new` | Scaffold a new {% data variables.product.prodname_vscode_shortname %} workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
-| `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
-| `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
-| `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
-| `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the {% data variables.copilot.chat_view %}. |
+| `/init` | In a local agent session, generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
+| `/plan` | Create a detailed implementation plan for a complex coding task in a supported agent session. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
+| `@vscode /search` | Generate a query for the Search view. Use natural language to describe what you want to search for. |
 | `/agents` | Configure your [custom agents](/docs/agent-customization/custom-agents.md). |
 | `/hooks` | Configure your [hooks](/docs/agent-customization/hooks.md). |
 | `/instructions` | Configure your [custom instructions](/docs/agent-customization/custom-instructions.md). |
 | `/prompts` | Configure your [reusable prompt files](/docs/agent-customization/prompt-files.md). |
 | `/skills` | Configure your [agent skills](/docs/agent-customization/agent-skills.md). |
-| `/create-prompt` | Generate a [prompt file](/docs/agent-customization/prompt-files.md) with AI assistance in Agent mode. |
-| `/create-instruction` | Generate an [instructions file](/docs/agent-customization/custom-instructions.md) with AI assistance in Agent mode. |
-| `/create-skill` | Generate an [agent skill](/docs/agent-customization/agent-skills.md) with AI assistance in Agent mode. |
-| `/create-agent` | Generate a [custom agent](/docs/agent-customization/custom-agents.md) with AI assistance in Agent mode. |
-| `/create-hook` | Generate a [hook](/docs/agent-customization/hooks.md) configuration with AI assistance in Agent mode. |
-| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/run/approvals.md) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
-| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/run/approvals.md) of all tool calls. |
+| `/create-prompt` | In a local agent session, generate a [prompt file](/docs/agent-customization/prompt-files.md). |
+| `/create-instructions` | In a local agent session, generate an [instructions file](/docs/agent-customization/custom-instructions.md). |
+| `/create-skill` | In a local agent session, generate an [agent skill](/docs/agent-customization/agent-skills.md). |
+| `/create-agent` | In a local agent session, generate a [custom agent](/docs/agent-customization/custom-agents.md). |
+| `/create-hook` | In a local agent session, generate a [hook](/docs/agent-customization/hooks.md) configuration. |
+| `/yolo`<br/>`/autoApprove` | Set the current supported local or {% data variables.copilot.copilot_cli_short %} session to [bypass approvals](/docs/agents/run/approvals.md). |
+| `/disableYolo`<br/>`/disableAutoApprove` | Restore the default permission level for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
+| `/autopilot` | Enable Autopilot for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
+| `/exitAutopilot` | Exit Autopilot and restore the default permission level for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/<skill name>` | Run an [agent skill](/docs/agent-customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/agent-customization/prompt-files.md) in chat. |
 
@@ -289,8 +294,8 @@ Get semantically relevant search results in the Search view or help with searchi
 | Action | Description |
 |--------|-------------|
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
-| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions.   |
-| `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
+| `/setupTests` _(Experimental)_ | Get help setting up a testing framework for your code. Get a recommendation for a relevant testing framework, setup and configuration steps, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
+| **Fix Test Failure** | From the Test Explorer or a failed test in the editor, ask Copilot to fix a specific test failure. |
 | Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](/updates/v1_93.md#generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
@@ -304,9 +309,8 @@ Use AI to help fix coding problems and to get help with configuring and starting
 | Action | Description |
 |--------|-------------|
 | `/fix` | Ask the AI for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
-| `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
-| `/startDebugging` _(Experimental)_ | Generate a `launch.json` debug configuration file and start a debugging session from the {% data variables.copilot.chat_view %}. |
-| `copilot-debug` command | Terminal command to help you debug your programs. Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). |
+| **Fix Test Failure** | From the Test Explorer or a failed test in the editor, ask Copilot to fix a specific test failure. |
+| `copilot-debug` command _(Preview)_ | Prefix a run command in the terminal to generate a debug configuration and start debugging it. For example, `copilot-debug python foo.py`. |
 
 > **Tips**
 >

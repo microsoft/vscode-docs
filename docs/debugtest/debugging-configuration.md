@@ -81,9 +81,7 @@ With Copilot in {% data variables.product.prodname_vscode_shortname %}, you can 
 
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
 
-1. Enter the `/startDebugging` chat prompt to generate a debug configuration.
-
-    Alternatively, you can also enter a custom prompt, like _generate a debug config for an express app #codebase_.
+1. Enter a prompt that describes the application and how you start it. For example, _generate a debug configuration for an Express app that starts with `npm run dev` #codebase_.
 
     This can be useful if your workspace has files with different languages.
 

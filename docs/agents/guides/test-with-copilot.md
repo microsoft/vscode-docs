@@ -66,11 +66,7 @@ Copilot integrates with the Test Explorer in {% data variables.product.prodname_
 1. Select the **Fix Test Failure** button (sparkle icon)
 1. Review and apply Copilot's suggested fix
 
-Alternatively, you can:
-
-1. Open the {% data variables.copilot.chat_view %}
-1. Enter the `/fixTestFailure` command
-1. Follow Copilot's suggestions to fix the test
+Alternatively, open the {% data variables.copilot.chat_view %} and ask the agent to investigate the failing test. Include the failure output and the behavior you expect.
 
 > [!TIP]
 > When using [agents](/docs/agents/concepts/agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
