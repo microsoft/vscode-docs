@@ -1,231 +1,259 @@
 ---
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
 DateApproved: 10/03/2025
-MetaDescription: Get Started with creating, iterating and optimizing your agents in Foundry Toolkit.
+MetaDescription: Create, test, and version prompt agents in Foundry Toolkit with Agent Builder. Add tools, review conversations, and generate client code.
 ---
-# Build agents and prompts in Foundry Toolkit
+# Build prompt agents with Agent Builder in Foundry Toolkit
 
-Agent Builder in Foundry Toolkit streamlines the engineering workflow for building agents, including prompt engineering and integration with tools, such as MCP servers. It helps with common prompt engineering tasks:
+Use Agent Builder in Foundry Toolkit for {% data variables.product.prodname_vscode %} to configure, test, and version a prompt agent. A prompt agent combines a model, instructions, and tools. You can test it in the playground, review its conversations, and generate client code without creating a hosted-agent project.
 
-- Iterate and refine in real-time
-- Provide easy access to code for seamless Large Language Model (LLM) integration via APIs
+This guide starts with prompt agents saved in Microsoft Foundry. Agent Builder also supports [locally stored prompts](#work-with-local-prompts), which have different tool, evaluation, and storage options. To choose a code-based approach instead, see [Create agents with the Foundry Toolkit](/docs/intelligentapps/create-agents.md).
 
-Agent Builder also enhances intelligent app's capabilities with tool use:
-- Connect to existing MCP servers
-- Build new MCP servers from scaffolds
-- Use function calling to connect to external APIs and services
+## Prerequisites
 
-![Screenshot showing the Agent Builder interface with prompt engineering and testing capabilities.](./images/promptbuilder/AgentBuilder.gif)
+For the Foundry prompt-agent path, you need:
 
-## Create, edit, and test prompts
+* [{% data variables.product.prodname_vscode %}](/download) and the [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio).
+* Access to a Microsoft Foundry project and permission to create agents and use its models and tools.
+* A model deployment in that project. See [Set up Microsoft Foundry resources](https://learn.microsoft.com/en-us/azure/foundry/tutorials/quickstart-create-foundry-resources).
 
-To access Agent Builder, use either of these options:
+Select your Foundry project in the Toolkit before you start. For extension and project setup, see the [Foundry Toolkit overview](/docs/intelligentapps/overview.md). Local prompt development does not require a Foundry project unless you use Foundry resources.
 
-- In the Foundry Toolkit view, select **Developer Tools** > **Create Agent** > **Open Agent Builder**
-- In the Foundry Toolkit view, select **My Resources** > **You project name** > **Prompt Agents** > select any prompt agent
+## Create a prompt agent
 
-To test a prompt in Agent Builder, follow these steps:
+1. In the **Foundry Toolkit** view, select **Developer Tools** > **Build** > **Create Agent**.
+2. Select **Build an agent** to open Agent Builder.
+3. In **Basic Information**, enter an **Agent name**. Start and end the name with a letter or number. You can use hyphens between them.
+4. Select a Foundry-hosted model from **Model**. Use **Browse models** if you need to add a model.
+5. In **Instructions**, describe the task, required behavior, and expected response.
 
-1. If you haven't chosen a model, select one from the **Model** dropdown list in Agent Builder. You can also select **Browse models** to add a different model from the model catalog.
+   For example:
 
-   ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select-models.png)
+   ```text
+   Summarize a software issue for the engineering team.
+   Identify the reported problem, steps to reproduce, and expected behavior.
+   Ask for missing information instead of inventing details.
+   ```
 
-1. Enter the agent instructions.
+6. Select **Save to Foundry**.
+7. On the **Playground** tab, enter a request and select **Send message**. Ask a follow-up question to test the conversation.
 
-   Use the **Instructions** field to tell your agent exactly what to do and how to do it. List the specific tasks, put them in order, and add any special instructions like tone or how to engage.
+If Developer Tools uses **Group by Resource**, **Create Agent** is under **Agent Dev Tools** instead of **Build**. You can also open **My Resources** > **Agents**, select the **Prompt Agent** tab, and select **Add Prompt Agent**. Select an existing agent in that list to edit it.
 
-1. Iterate over your instructions by observing the model response and making changes to the instructions.
-1. Use the `{{your_variable}}` syntax to add a dynamic value in instructions.  For example, add a variable called `user_name` and use it in your instructions like this: `Greet the user by their name: {{user_name}}`.
-1. Provide a value for the variable in the **Variables** section.
-1. Enter a prompt in the text box and select the send icon to test your agent.
-1. Observe the model's response and make any necessary adjustments to your instructions.
+![Screenshot showing Agent Builder with a saved Foundry prompt agent, version selector, model, instructions, web search tool, and a playground conversation.](./images/agentbuilder/agent-builder.png)
 
-## Use MCP servers
+### Choose where to save
 
-An MCP server is a tool that allows you to connect to external APIs and services, enabling your agent to perform actions beyond just generating text. For example, you can use an MCP server to access databases, call web services, or interact with other applications.
+The available save actions depend on the selected model and tools:
 
-Use the agent builder to discover and configure featured MCP servers, connect to existing MCP servers, or build a new MCP server from scaffold.
+| Configuration | Save destination |
+| --- | --- |
+| Foundry-hosted model without local tools. | **Save to Foundry**. When available, the save menu also offers **Save to Local**. |
+| Foundry-hosted model with Foundry tools. | **Save to Foundry**. |
+| A model from another provider, or an agent with local tools. | **Save to Local**. |
 
-> [!NOTE]
-> Using MCP servers might require either [Node](https://nodejs.org/en/download) or [Python](https://www.python.org/downloads/) environment. Foundry Toolkit validates your environment to ensure that the required dependencies are installed.
-> After installing, use the command `npm install -g npx` to install `npx`. If you prefer Python, we recommend using [`uv`](https://docs.astral.sh/uv/getting-started/installation/)
+The **Microsoft Foundry** and **Local** badges identify where the agent is stored. A locally stored prompt can still call a cloud model. Local storage does not mean that inference runs on your machine.
 
-### Configure a featured MCP server
-Foundry Toolkit provides a list of featured MCP servers that you can use to connect to external APIs and services.
+## Save drafts and versions
 
-To configure an MCP server from featured selections, follow these steps:
-1. In the **Tool** section, select **+ MCP Server**, and then select **MCP Server** in the Quick Pick.
-1. Select **Could not find one? Browse more MCP servers** from the dropdown list.
-      ![Screenshot showing the connect to MCP server interface in Agent Builder.](./images/promptbuilder/featured-server.png)
+Agent Builder preserves work in three different ways:
 
-1. Choose an MCP server that meets your needs.
-   ![Screenshot showing the connect to MCP server interface in Agent Builder.](./images/promptbuilder/featured-server.png)
+| Action | Result |
+| --- | --- |
+| Edit instructions, model settings, or tools. | Agent Builder stores a local recovery draft. This does not create a Foundry version. |
+| Run a new, unsaved agent. | Agent Builder validates its name and model and saves it before the first run. It prefers Foundry when the model and tools support that destination. |
+| Select **Save to Foundry** after changing an existing Foundry agent. | Agent Builder saves the changes as a new version in the project. |
 
-1. The MCP server is added to your agent in the **MCP** subsection under **Tools**.
+When Agent Builder finds a recovery draft, it offers **Restore Draft** or **Discard**. Save important changes explicitly before switching agents or versions.
 
-### Select tools from {% data variables.product.prodname_vscode_shortname %}
+You can test unsaved changes to an existing Foundry agent in the playground. That run uses the edited configuration rather than a saved agent-version reference. Save the configuration before you rely on version-linked conversation history, tracing, evaluation, or generated client code.
 
-1. In the **Tool** section, select **+ MCP Server**, and then select **MCP Server** in the Quick Pick.
-1. Select **Use Tools Added in {% data variables.product.prodname_vscode %}** from the dropdown list.
-      ![Screenshot showing the connect to MCP server interface in Agent Builder.](./images/promptbuilder/featured-server.png)
-1. Select tools you want to use.
-   ![Screenshot showing the select tools interface in Agent Builder.](./images/promptbuilder/select-tools.png)
+> [!IMPORTANT]
+> **Save to Foundry** saves an agent version. It does not publish an agent application with a stable application endpoint. For that separate operation, see [Agent applications in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications).
 
-1. An MCP Server tool called `VSCode Tools` is added to your agent in the **MCP** subsection under **Tools**.
+### Select an agent version
 
-### Use an existing MCP server
-> [!TIP]
-> Find MCP servers in these [reference servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
+Use the version selector next to the agent name to load a saved version. Saved Foundry versions are immutable. To keep edits made from an earlier version, select **Save to Foundry** to create a new version.
 
-To use an existing MCP server, follow these steps:
-1. In the **MCP Workflow** section, select **+ Add MCP Server**.
+The selected version also determines the conversation history shown in Agent Builder and the version referenced by generated client code.
 
-1. Or in Agent Builder, in the **Tool** section, select the `+` icon to add a tool for your agent, and then select **+ Add server** in the Quick Pick.
-1. Select **MCP server** in the Quick Pick.
-1. Select **Connect to an Existing MCP Server**
-1. Scroll down to the bottom of the dropdown list for the options to connect to the MCP server:
-   - **Command (stdio)**: Run a local command that implements the MCP protocol
-   - **HTTP (HTTP or server-sent events)**: Connect to a remote server that implements the MCP protocol
-1. Select tools from the MCP server if there are multiple tools available.
-1. Enter your prompts in the text box and select the send icon to test the connection.
+<!-- TODO: Capture the current agent and version selectors and the unsaved-changes indicator. -->
 
-Here's an example of configuring the [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in Foundry Toolkit:
+## Add tools to a Foundry agent
 
-1. In the **Tool** section, select **+ MCP Server** in the Quick Pick.
-1. Select **Could not find one? Browse more MCP servers** from the dropdown list.
-1. Scroll down to the bottom of the dropdown list and select **Command (stdio)**
-   > [!NOTE]
-   > Some servers use the Python runtime and the `uvx` command. The process is the same as using the `npx` command.
-1. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
-1. Copy the `command` and `args` into the input box in Foundry Toolkit. For the Filesystem server example, it's `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
-1. Input an ID for the server.
-1. Optionally, enter extra environment variables.
-   Some servers might require extra environment variables such as API keys. In this case, Foundry Toolkit fails at the stage of adding tools and a file `mcp.json` opens, where you can enter the required server details following the instructions provided by each server.
-   ![Screenshot showing an example of a missing arg exception](./images/promptbuilder/modify-args.png)
-   After you complete the configuration:
-       1. Navigate back to **Tool** section and select **+ MCP Server**
-       1. Select the server you configured from the dropdown list
+Tools let an agent retrieve information or perform actions. For example, you can attach a configured Model Context Protocol (MCP) connection, file search, or code interpreter. Tool availability depends on the model and the resources in your project.
 
-1. Select the tools you want to use.
+Use [Tool Catalog](/docs/intelligentapps/tool-catalog.md) to register shared connections and configure their endpoints and authentication. In Agent Builder, attach the tools needed by this agent:
 
-![connect to MCP server](./images/promptbuilder/mcp_existing.gif)
+1. Open a saved Foundry agent on the **Playground** tab.
+2. In **Tool**, select **+** > **Add tools**.
+3. In **Select a tool**, choose a connection from **Configured**, or use **Catalog** to find a tool.
+4. Complete any required configuration, then select **Add Tool**.
+5. Select **Save to Foundry** and send a request that requires the tool.
 
-Foundry Toolkit also provides a scaffold to help you build a new MCP server. The scaffold includes a basic implementation of the MCP protocol, which you can customize to suit your needs.
+Review tool inputs and results in the response. If the agent requests approval, select **Approve** or **Deny** for that call.
 
-### Build a new MCP server
+### Configure tool approvals
 
-To build a new MCP server, follow these steps:
-1. In the **MCP Workflow** section, select **Create New MCP Server**.
-1. Select a programming language from the dropdown list: **Python** or **TypeScript**
-1. Select a folder to create the new MCP server project in.
-1. Enter a name for the MCP server project.
+For an MCP tool, open the tool's options and select **Configure**. Choose whether to require approval for every call, automatically approve all tools, or automatically approve specific tools. Review the selection before saving the agent.
 
-After you create the MCP server project, you can customize the implementation to suit your needs. The scaffold includes a basic implementation of the MCP protocol, which you can modify to add your own functionality.
+These settings control approval prompts. They do not grant access to the underlying service. For service permissions, see [Agent identity concepts in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-identity).
 
-You can also use the Agent Builder to test the MCP server. The Agent Builder sends the prompts to the MCP server and displays the response.
+## Use a toolbox
 
-Follow these steps to test the MCP server:
+A [toolbox](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview) groups reusable tools behind one managed MCP endpoint. It can also contain skills and provide tool search, which are preview features.
 
 > [!NOTE]
-> To run the MCP Server in your local dev machine, you need: [Node.js](https://nodejs.org/) or Python installed on your machine.
+> Toolbox integration in prompt agents is off by default. In {% data variables.product.prodname_vscode_shortname %} settings, turn on `windowsaistudio.enableToolboxInPromptAgent` to show the attachment controls.
 
-1. Open {% data variables.product.prodname_vscode_shortname %} Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
-1. The server is automatically connected to Agent Builder.
-1. Use Foundry Toolkit Agent Builder to enable the agent with the following instructions:
-   - "You are a weather forecast professional that can tell weather information based on given location.".
+Before you attach a toolbox, note these effects:
 
-1. Enter the prompt "What is the weather in Seattle?" in the prompt box and select the send icon to test the server with the prompt.
-1. Observe the response from the MCP server in the Agent Builder.
+* A prompt agent uses either a toolbox or a set of individual Foundry tools. Attaching a toolbox replaces the individual tools already attached to the agent.
+* With a toolbox attached, **Add tools** adds tools inside that toolbox. These edits are staged until you save the agent, when they create a new toolbox version.
+* Toolboxes are shared resources. Review changes to the toolbox and the agent before you save.
 
-## Use function calling
+To attach an existing toolbox:
 
-Function calling connects your agent to external APIs and services.
+1. Open a saved Foundry agent.
+2. In **Tool**, select **+** > **Browse toolboxes**.
+3. Select the toolbox and review its version, tools, and skills.
+4. Select **Add**.
+5. Expand the toolbox card to inspect its contents and review approval settings.
+6. Select **Save to Foundry**.
 
-![Screenshot showing the Add Custom Function Tool dialog with options to add tools by example or upload schemas.](./images/promptbuilder/add-function-call.png)
+![Screenshot showing the Select a toolbox dialog in Agent Builder with available toolboxes, their versions, and tool and skill counts.](./images/agentbuilder/select-toolbox.png)
 
-1. In **Tool**, select **Add Tool**, then **Custom Tool**.
-1. Choose how to add the tool:
-   - **By Example**: Add from a JSON schema example
-   - **Upload Existing Schema**: Upload a JSON schema file
-1. Enter the tool name and description, then select **Add**.
-1. Provide a mock response in the tool card.
+You can also use **Add to Prompt Agent** from the Toolbox resource list. To create a toolbox or configure its shared connections, use the [Tool Catalog guide](/docs/intelligentapps/tool-catalog.md).
 
-![Screenshot showing a function calling tool card with weather tool configuration.](./images/promptbuilder/function-call-card.png)
+### Manage an attached toolbox
 
-1. Run the agent with the function calling tool.
+Use the toolbox card's **More options** menu:
 
-Use function calling tools in the **Evaluation** tab by entering mock responses for test cases.
+| Action | Effect |
+| --- | --- |
+| **Configure** | Change tool-call approval settings for this agent. |
+| **Switch version** | Select another version of the attached toolbox. |
+| **Replace** | Choose a different toolbox. |
+| **Remove** | Detach the toolbox from this agent. |
+| **Opt out** | Keep the tools as individual agent tools. Toolbox skills, tool search, and reuse as a versioned set are no longer available to the agent. |
 
-![Screenshot showing function calling tool usage in the evaluation tab.](./images/promptbuilder/function-call-eval.png)
+Expand the card to inspect tools and skills. For tools that support configuration, use the nested tool's **Configure** action. Save the agent after changing its toolbox configuration.
 
-## Integrate prompt engineering into your application
+<!-- TODO: Capture an attached toolbox with its version, tool details, and More options menu. -->
 
-After experimenting with models and prompts, you can get into coding right away with the automatically generated Python code.
+## Connect another agent with A2A (Preview)
 
-![Animated GIF showing the generated Python code](./images/promptbuilder/view-code-2.gif)
+Agent-to-Agent (A2A) connections let a prompt agent invoke an A2A-compatible agent as a tool. This is different from asking Copilot to generate agent code.
 
-To view the Python code, follow these steps:
+1. Open a saved Foundry agent.
+2. In **Tool**, select **+** > **Add agent (A2A)**.
+3. In **Connect an A2A agent**, choose the path that matches your target:
 
-1. Select **View Code**.
+   | Tab | What to provide |
+   | --- | --- |
+   | **Configured** | Select an existing A2A connection. This tab is available when configured connections exist. |
+   | **Catalog** | Select an agent from the Foundry account catalog. Continue through the agent-card and authentication steps when prompted. |
+   | **Custom** | Enter a name, a valid HTTPS A2A endpoint, and its agent-card path. Select **Authenticate when retrieving agent card** if required by the endpoint. |
 
-1. For models hosted on GitHub, select the inference SDK you want to use.
+4. Complete the dialog to connect or add the agent.
+5. Select **Save to Foundry**, then test a request that requires the connected agent.
 
-   Foundry Toolkit generates the code for the model you selected by using the provider's client SDK. For models hosted by GitHub, you can choose which inference SDK you want to use: [Agent Framework SDK](https://github.com/microsoft/agent-framework) or the SDK from the model provider, such as [OpenAI SDK](https://platform.openai.com/docs/libraries) or [Mistral API](https://docs.mistral.ai/api).
+For a catalog agent that does not yet expose A2A, the dialog asks you to define an agent card. The card describes the agent and the capabilities it exposes. The authentication step lets you choose an agent identity or user identity passthrough. For endpoint setup and permissions, see [Enable an A2A endpoint](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/enable-agent-to-agent-endpoint).
 
-1. The generated code snippet is shown in a new editor, where you can copy it into your application.
+You can attach an A2A connection directly to the prompt agent or add it through an attached toolbox. The direct A2A path does not require the toolbox opt-in setting.
 
-   > To authenticate with the model, you usually need an API key from the provider. To access models hosted by GitHub, [generate a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) (PAT) in your GitHub settings.
+![Screenshot showing the Custom tab in the Connect an A2A agent dialog with fields for the name, HTTPS endpoint, agent card path, and authentication option.](./images/agentbuilder/connect-a2a-agent.png)
 
-## Code snippets and code projects
+## Review conversations and switch agents
 
-Use the selector located in the upper right-hand corner of the Agent Builder to View Code or View Snippet.
+The **Playground** contains the current test conversation. Use **Clear all messages** to start a fresh conversation.
 
-![Screenshot of the selector to view code or view snippet](./images/promptbuilder/view-code-selector.png)
+For a saved Foundry agent, select **Conversations** to review history for the selected agent version. The list includes the conversation status, token usage, and start time. Select a conversation to open its messages and response details. Opening history does not resume that conversation in the playground.
 
-To consume your Prompt Agent in Python code, you can either:
+![Screenshot showing the Conversations tab in Agent Builder with conversation IDs, completion status, input and output token counts, and start times.](./images/agentbuilder/conversations.png)
 
-- **View Code** generates an entire project with example code that calls your Prompt Agent hosted in Foundry. You will be asked to select a folder location on your local drive, then an entire project will be generated in that folder and opened in a new instance of {% data variables.product.prodname_vscode %}.
+Use the agent selector at the top of Agent Builder to switch between local agents and Foundry prompt agents. Check the storage badge and version after switching. The **Conversations** tab is available for saved Foundry agents, not local prompts.
 
-  ![Screenshot of entire project generated Python code to call Prompt Agent](./images/promptbuilder/view-code-project.png)
+## Generate and improve instructions
 
-- **View Snippet** generates a single file snippet that calls your Prompt Agent hosted in Foundry.
+Use **Generate** to draft instructions from a task description, or **Improve** to revise existing instructions. If you need a starting idea, select a model and use **Inspire me** while the Instructions field is empty.
 
-  ![Screenshot of a single Python code file to call Prompt Agent](./images/promptbuilder/view-code-snippet.png)
+1. Select a model that supports instruction generation.
+2. Under **Instructions**, select **Generate** if the field is empty, or **Improve** if it already contains instructions.
+3. Describe the task or the change you want. For an existing Foundry agent, improvement suggestions are optional.
+4. Select **Generate** or **Improve** in the dialog.
+5. Review the revised instructions and test the agent with representative requests.
+6. Select **Save to Foundry** to keep the new configuration.
 
-## View Prompt Agent conversations
+For Foundry agents, these actions use Foundry Prompt Optimizer. If its optimization API does not support the selected model, the Toolkit falls back to standard prompt generation when supported. This instruction-editing flow is separate from a hosted-agent optimization job.
 
-Agent Builder provides a historical list of conversations which is useful for diagnosing and debugging your Prompt Agents.
+## Evaluate a Foundry prompt agent
 
-To view the details of test conversations with the Prompt Agent, use the **Conversations** tab.
+Save the agent version that you want to evaluate, then select **Evaluation**.
 
-![Screenshot of conversation tab listing conversations](./images/promptbuilder/conversation-tab.png)
+* Select **Scaffold Evaluation Code** to generate a local Python evaluation project. Follow its generated instructions to configure and run the evaluation.
+* Select the **Foundry** link for guided evaluation setup.
 
-Selecting a conversation from the list will display all the details about the conversation.
+The Foundry agent's Evaluation tab is not the local prompt dataset grid. For service-side evaluation concepts and procedures, see [Evaluate your AI agents](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent).
 
-![Screenshot of conversation details](./images/promptbuilder/conversation-details.png)
+## Generate client code
 
-## Select Prompt Agent versions
+After you save a Foundry agent, use the **View Code** menu to integrate it into an application:
 
-Each time you make changes to a Prompt Agent and save them, a new version of the Prompt Agent is created in your Foundry project. To view and work with previous versions in the Playground, use the version selector.
+| Action | Output |
+| --- | --- |
+| **View Code** | A Python project that calls the existing Foundry prompt agent. Choose a folder, then follow the generated `README.md` for dependencies, configuration, and authentication. |
+| **View Snippets** | A Python code snippet in an editor that calls the existing Foundry prompt agent. |
 
-![Screenshot of version selector](./images/promptbuilder/version-selector.png)
+Both outputs reference the selected saved version. Save your edits before generating code if you want the application to use the revised configuration.
 
-## Switch Prompt Agents from within the Agent Builder
+Generating client code does not convert the prompt agent into a hosted agent. To create and call a prompt agent directly with a supported SDK, see the [Microsoft Learn prompt-agent quickstart](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/prompt-agent?tabs=python).
 
-The Prompt Agent switcher in the Agent Builder allows you to easily switch between Prompt Agents associated with your current project, both local and those hosted in Foundry.
+## Work with local prompts
 
-![Screenshot of version selector](./images/promptbuilder/prompt-agent-switcher.png)
+Use a locally stored prompt when you want to work with a model from another provider or test local tools. Create the prompt in Agent Builder, select a model, enter its instructions, and select **Save to Local**. With a Foundry model, use the save menu to select local storage when that option is available.
 
-## What you learned
+Local prompts use **Save to Local** to save changes and create local versions. They do not create Foundry agent versions or Foundry conversation-history records.
 
-In this article, you learned how to:
+### Connect local MCP tools and mock functions
 
-- Use the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} to test and debug your agents.
-- Discover, configure, and build MCP servers to connect your agents to external APIs and services.
-- Set up function calling to connect your agents to external APIs and services.
-- Implement structured output to deliver predictable results from your agents.
-- Integrate prompt engineering into your application with generated code snippets.
+For a local prompt, use **Tool** > **+** > **MCP Server** to select an MCP server and its tools. Use [Tool Catalog](/docs/intelligentapps/tool-catalog.md#connect-a-local-mcp-server-tool) for server configuration and runtime prerequisites.
 
-## Next steps
+To test a function schema without implementing the service:
 
-- [Run an evaluation job](/docs/intelligentapps/evaluation.md) for the popular evaluators
+1. In **Tool**, select **+** > **Custom Tool**.
+2. Choose **By Example** or **Upload Existing Schema**.
+3. Provide the function schema, name, and description, then add the tool.
+4. Enter a mock response in the tool card.
+5. Run the prompt and inspect how the model uses the response.
+
+A mock response tests the model's use of a function. It does not call your external API. A configured MCP server, by contrast, can execute its tools.
+
+### Configure structured output
+
+For a local prompt with a model that supports structured output:
+
+1. Open **Settings** next to the model selector.
+2. Under **Structure Output**, select `json_schema`.
+3. In **Select JSON Schema**, choose **Use Example** or **Upload File**.
+4. Review the schema and select **Select**.
+5. Save the local prompt and run a request to inspect its output.
+
+The available response formats depend on the model. These instructions apply to local prompt execution. Do not use them to configure the response schema of a Foundry prompt agent.
+
+### Evaluate local prompts with dataset variables
+
+For a saved local prompt, the **Evaluation** tab provides a dataset-based evaluation view. Use variables to run the same instructions against different dataset values.
+
+For example, the instruction <code>Summarize the issue for &#123;&#123;audience&#125;&#125;.</code> uses a dataset column named `audience`. Supply a value in that column for each test case. The local batch runner substitutes the value when it runs the prompt.
+
+Use the dataset to supply variable values. There is no separate Variables panel in the current Agent Builder playground. For importing data, running evaluators, and comparing results, see [Evaluate models, prompts, and agents](/docs/intelligentapps/evaluation.md).
+
+### Generate code for a local prompt
+
+Select **View Code** to generate model integration code. Available SDK, authentication, and language choices depend on the selected provider and model. This differs from the Foundry agent project and snippet options described above.
+
+## Related resources
+
+* [Agent development lifecycle in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle)
+* [Agent applications and publication](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications)
