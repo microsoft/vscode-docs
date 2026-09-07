@@ -6,9 +6,30 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Configure the {% data variables.copilot.agents_window %} (Preview)
 
-The {% data variables.copilot.agents_window %} uses the AI providers and accounts configured in {% data variables.product.prodname_vscode_shortname %}. It shares settings and the default profile with the main {% data variables.product.prodname_vscode_shortname %} window. This article describes how to manage providers and accounts, adjust the layout and editors, and configure window-specific settings and extensions.
+The {% data variables.copilot.agents_window %} uses the AI providers and accounts configured in {% data variables.product.prodname_vscode_shortname %}. It shares settings and the default profile with the main {% data variables.product.prodname_vscode_shortname %} window. This article describes the shared account options and the window-specific layout, editor, setting, and extension configuration.
 
 For instructions about starting and working with sessions, see [Use the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+
+## Manage AI providers and accounts
+
+The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
+
+* **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
+* **Claude**: use an Anthropic API key or Claude Code OAuth token.
+* **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
+* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
+For complete authentication, billing, and capability information, see [Configure a harness or Cloud target](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+
+Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in. This signed-out experience is experimental and requires `setting(chat.agentHost.allowSignedOutWhenUsable)`. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
+
+## Configure settings for the {% data variables.copilot.agents_window %}
+
+The {% data variables.copilot.agents_window %} shares all of your {% data variables.product.prodname_vscode_shortname %} settings. To use different behavior in the {% data variables.copilot.agents_window %} and the editor window, override individual settings for the {% data variables.copilot.agents_window %} without affecting the main {% data variables.product.prodname_vscode_shortname %} setup.
+
+To override a setting for the {% data variables.copilot.agents_window %} only, edit your settings file and scope the value under the {% data variables.copilot.agents_window %} section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the {% data variables.copilot.agents_window %} to see which scope a setting applies to.
+
+![Screenshot showing the Settings editor open in the {% data variables.copilot.agents_window %}, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
 
 ## Adjust the window layout
 
@@ -39,27 +60,6 @@ In **Markdown Editor (Experimental)**, switch between **Editing** and **Locked**
 
 When you edit a Markdown file, the editor shows Git change markers in the margin. Green indicates added content, blue indicates modified content, and red indicates deleted content. The markers reflect the current Git changes and disappear when you undo or revert the corresponding changes.
 
-## Manage AI providers and accounts
-
-The {% data variables.copilot.agents_window %} supports multiple authentication and billing options:
-
-* **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use an Anthropic API key or Claude Code OAuth token.
-* **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
-* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
-
-For complete Claude and Codex setup instructions, see [Configure a harness or Cloud target](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
-
-Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in. This signed-out experience is experimental and requires `setting(chat.agentHost.allowSignedOutWhenUsable)`. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
-
-## Configure settings for the {% data variables.copilot.agents_window %}
-
-The {% data variables.copilot.agents_window %} shares all of your {% data variables.product.prodname_vscode_shortname %} settings. To use different behavior in the {% data variables.copilot.agents_window %} and the editor window, override individual settings for the {% data variables.copilot.agents_window %} without affecting the main {% data variables.product.prodname_vscode_shortname %} setup.
-
-To override a setting for the {% data variables.copilot.agents_window %} only, edit your settings file and scope the value under the {% data variables.copilot.agents_window %} section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the {% data variables.copilot.agents_window %} to see which scope a setting applies to.
-
-![Screenshot showing the Settings editor open in the {% data variables.copilot.agents_window %}, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
-
 ## Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} can run {% data variables.product.prodname_vscode_shortname %} extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
@@ -80,6 +80,6 @@ Add a decorative chat background, use the interactive VS Code pet, or adjust how
 
 ## Next steps
 
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare providers, execution environments, permissions, and isolation.
 * [Use the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) - start, monitor, review, and finish agent sessions across workspaces.
-* [Customize agents](/docs/agent-customization/overview.md) - configure instructions, agents, skills, tools, and hooks.
 * [AI settings reference](/docs/agents/reference/ai-settings.md) - review settings for agents and chat.

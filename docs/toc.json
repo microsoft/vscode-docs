@@ -46,17 +46,17 @@
                 "name": "Run agents",
                 "area": "agents/run",
                 "topics": [
-                    ["Agents Window", "/docs/agents/run/agents-window"],
-                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
                     ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                    ["AI Security", "/docs/agents/run/security"],
+                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
                     ["Use Tools", "/docs/agents/run/tools"],
                     ["Browser Tools", "/docs/agents/run/browser-tools"],
-                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
-                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Plan Work", "/docs/agents/run/planning"],
                     ["Artifacts", "/docs/agents/run/artifacts"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
-                    ["Plan Work", "/docs/agents/run/planning"],
                     ["Memory", "/docs/agents/run/memory"],
                     ["Subagents", "/docs/agents/run/subagents"],
 
@@ -69,7 +69,7 @@
                         ]
                     }],
 
-                    ["AI Security", "/docs/agents/run/security"]
+                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"]
                 ]
             }],
 

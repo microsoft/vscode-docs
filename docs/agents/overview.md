@@ -43,6 +43,19 @@ Choose a short quickstart or a guided tutorial to complete your first coding tas
 
 </div>
 
+## Choose the right AI experience
+
+Start with the experience that matches the scope of your task. You can move to an agent when the work requires more autonomy or spans multiple steps.
+
+| Your goal | Use |
+|-----------|-----|
+| Get code suggestions as you type | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) |
+| Ask questions, explore a codebase, or brainstorm an approach | [Ask in chat](/docs/chat/chat-overview.md) |
+| Make a focused edit in the editor or terminal | [Inline chat](/docs/chat/inline-chat.md) |
+| Run a built-in, task-specific action | [Smart actions](/docs/editing/copilot-smart-actions.md) |
+| Implement or validate a multi-step change across files | The **Agent** role |
+| Research a complex change and review the approach before implementation | The [**Plan** role](/docs/agents/run/planning.md) |
+
 ## What you can do with agents
 
 Agents combine language-model reasoning with tools that act on your development environment. This makes them useful for tasks that involve multiple steps or files, such as:
@@ -54,16 +67,6 @@ Agents combine language-model reasoning with tools that act on your development 
 * Working on independent tasks in parallel or in the background.
 
 Agents are the most autonomous of several AI experiences in {% data variables.product.prodname_vscode_shortname %}. For lighter-weight help, you can also use [chat](/docs/chat/chat-overview.md), [inline chat](/docs/chat/inline-chat.md), [inline suggestions](/docs/editing/ai-powered-suggestions.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
-
-## How agentic coding works
-
-Agentic coding relies on three concepts:
-
-* **Agent loop**: the [agent](/docs/agents/concepts/agents.md#agent-loop) uses a [language model](/docs/agents/concepts/language-models.md) to reason over [context](/docs/agents/concepts/context.md) and call [tools](/docs/agents/concepts/tools.md). It repeats this loop until it completes the task, needs your input, or you stop it.
-* **Session**: a [session](/docs/agents/concepts/sessions.md) holds the conversation, workspace, changes, and execution state for a task so that you can pause, resume, and hand off the work.
-* **Harness and execution environment**: the [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the agent loop. The execution environment determines where tools run and where the agent changes code.
-
-You can further shape the agent with [customizations](/docs/agents/concepts/customization.md).
 
 ## Ways to work with agents
 
@@ -107,6 +110,21 @@ Use the [{% data variables.copilot.github_copilot_app %}](https://github.com/fea
 {% /tab %}
 {% /tabs %}
 
+### Choose a starting configuration
+
+For a first local task, use the following configuration. These defaults keep the agent interactive and let you review actions while you learn the workflow.
+
+| Control | Start with | Choose another option when |
+|---------|------------|----------------------------|
+| **Interface** | Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) when your project is already open. | Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) to manage work across projects or run multiple sessions. |
+| **Session Target** | Use **Copilot** for general coding tasks. | Use **Claude**, **Codex**, or **Cloud** for provider-specific or remote workflows. |
+| **Agent** | Use **Agent** to implement a task. | Use **Plan** to review an approach before implementation. Use **Ask** for questions when the selected target provides it. |
+| **Language model** | Use **Auto** when it is available. | Select a model when you need specific speed, reasoning, context-window, or cost characteristics. |
+| **Permissions** | Use **Manual permissions** so actions that aren't covered by your approval settings require confirmation. | Use **Assisted permissions** or **Allow all** only after you understand the [security implications](/docs/agents/run/security.md). |
+| **Code isolation** | Use **Folder** for the guided quickstart or when the agent needs your current uncommitted files. | Use **New Worktree** to isolate changes from your active workspace. Worktree sessions use **Allow all**, and a worktree isn't a security boundary. |
+
+Learn more about [choosing a session target, permissions, and code isolation](/docs/agents/run/agent-harnesses.md).
+
 ### Access and continue sessions across interfaces and devices
 
 Agent sessions aren't tied to a single interface. You can switch between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, or connect from a browser on another device through a dev tunnel.
@@ -127,6 +145,16 @@ The execution environment determines where the agent runs tools and changes code
 
 Choose a harness and execution environment when you start a session. You can [hand off the session](/docs/agents/run/agent-harnesses.md#hand-off-a-session) when another target is a better fit for the next part of the task. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md).
 
+## How agentic coding works
+
+Agentic coding relies on three concepts:
+
+* **Agent loop**: the [agent](/docs/agents/concepts/agents.md#agent-loop) uses a [language model](/docs/agents/concepts/language-models.md) to reason over [context](/docs/agents/concepts/context.md) and call [tools](/docs/agents/concepts/tools.md). It repeats this loop until it completes the task, needs your input, or you stop it.
+* **Session**: a [session](/docs/agents/concepts/sessions.md) holds the conversation, workspace, changes, and execution state for a task so that you can pause, resume, and hand off the work.
+* **Harness and execution environment**: the [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the agent loop. The execution environment determines where tools run and where the agent changes code.
+
+You can further shape the agent with [customizations](/docs/agents/concepts/customization.md).
+
 ## Stay in control
 
 Agents can read and edit files, run terminal commands, and call external services. Set a permission level to control which tool calls require your approval. Use agent sandboxing when you need operating system-level file system and network restrictions. Review generated code and validate the result before you keep the changes. Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-safety.md).
@@ -135,13 +163,15 @@ Organizations can centrally control which AI features, models, and tools are ava
 
 ## Get started
 
-AI features are built into {% data variables.product.prodname_vscode_shortname %}. Sign in to GitHub for {% data variables.product.prodname_copilot %}, configure Anthropic or ChatGPT credentials for Claude or Codex, or bring your own models without a GitHub account. Then choose a learning path:
+AI features are built into {% data variables.product.prodname_vscode_shortname %}. Follow this path to start using agents:
 
-* [Understand agent concepts](/docs/agents/concepts/agents.md) to learn how models, context, tools, sessions, and harnesses work together.
+* **Set up access.** [Set up GitHub Copilot](/docs/setup/copilot.md), configure [Claude or Codex](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), or [bring your own model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
-* [Complete the agents quickstart](/docs/agents/quickstart.md) to build and validate a small app with an agent.
+* **Review the safety defaults.** Start with the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline) for workspace trust, approvals, sandboxing, sensitive files, and code review.
 
-* [Follow the agents tutorial](/docs/agents/agents-tutorial.md) for a longer, guided introduction to the {% data variables.copilot.agents_window %}, the {% data variables.copilot.chat_view %}, source control, and browser tools.
+* **Complete a first task.** Use the [agents quickstart](/docs/agents/quickstart.md) for a short exercise, or follow the [agents tutorial](/docs/agents/agents-tutorial.md) for a longer introduction to both agent interfaces, source control, and browser tools.
+
+* **Learn how agents work.** Read the [agent concepts](/docs/agents/concepts/agents.md) when you need more detail about models, context, tools, sessions, and harnesses.
 
 > [!NOTE]
 > Make sure agents are enabled with `setting(chat.agent.enabled)`. If your organization has disabled agents, contact your GitHub organization administrator.

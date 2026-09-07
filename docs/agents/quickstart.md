@@ -18,7 +18,10 @@ Follow a hands-on tutorial to build and refine an app with agents in {% data var
 ## Prerequisites
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
-* [Set up AI in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
+* [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md). This quickstart uses the Copilot harness. To use Claude, Codex, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
+
+> [!NOTE]
+> Requests in this quickstart use AI credits from your Copilot plan. {% data variables.copilot.copilot_free_short %} includes a monthly allowance. Learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs).
 
 ## Create a project folder
 
@@ -29,6 +32,9 @@ Run the following command in your terminal to create the folder:
 ```bash
 mkdir agent-quickstart
 ```
+
+> [!IMPORTANT]
+> Use the empty folder you created for this quickstart. Before you run an agent against an existing codebase, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).
 
 ## Build the app
 
@@ -53,9 +59,9 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
 
     If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Trust**.
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval. This configuration is a good starting point for a general coding task.
 
-    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual Permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role-2.png)
+    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role-2.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -82,9 +88,9 @@ The **{% data variables.copilot.chat_view %}** lets you work with agents alongsi
 
     ![Screenshot of opening a new chat in the Copilot {% data variables.copilot.chat_view %}.](images/agents-quickstart/editor-new-chat.png)
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval. This configuration is a good starting point for a general coding task.
 
-    ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual Permissions.](images/agents-quickstart/agent-session-editor-select-harness-role.png)
+    ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual permissions.](images/agents-quickstart/agent-session-editor-select-harness-role.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -112,7 +118,7 @@ In the following steps you'll ask the agent to validate the basic functionality 
 
 1. Open the **Changes** panel in the right sidebar (`kb(workbench.view.agentSessions.changesContainer)`) and select `index.html` to review the generated code.
 
-    If you're not happy with a specific part of the, select it in the diff view and enter feedback to send it to the agent.
+    If you're not happy with a specific part of the result, select it in the diff view and enter feedback to send it to the agent.
 
     ![Screenshot of reviewing the generated code in the Changes panel.](images/agents-quickstart/review-changes-panel.png)
 
@@ -170,5 +176,5 @@ When you no longer need the app, run these steps to clean up your local resource
 ## Next steps
 
 * [Build a complete app with agents](/docs/agents/agents-tutorial.md).
-* [Learn how agents use browser tools](/docs/agents/run/browser-tools.md).
-* [Learn more about agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md).
+* [Choose a session target, permissions, and code isolation](/docs/agents/run/agent-harnesses.md).
+* [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).

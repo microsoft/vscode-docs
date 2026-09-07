@@ -21,6 +21,20 @@ Keywords:
 
 For the relationship between harnesses, language models, agent roles, and execution environments, see [Agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
+## Understand the session controls
+
+The controls in the chat input configure separate parts of the session. For a first local coding task, use these starting choices:
+
+| Control | What it determines | Start with |
+|---------|--------------------|------------|
+| **Session Target** | Which harness runs the session and where its tools operate | **Copilot** for a general coding task |
+| **Agent** | Which instructions, tools, and behavior apply | **Agent** for implementation or **Plan** to review an approach first. Use **Ask** for questions when the selected target provides it. |
+| **Language model** | How the agent reasons, how quickly it responds, and how it consumes AI credits | **Auto** when it is available |
+| **Permissions** | Which actions require your confirmation | **Manual permissions** |
+| **Code isolation** | Whether changes go into the current folder or a separate Git worktree | **Folder** for the guided quickstart or current uncommitted files |
+
+Use **New Worktree** when you want changes separate from your active workspace and the task can start from committed Git state. Worktree sessions use **Allow all**, so choose **Folder** when you want manual approval prompts. A worktree isolates code changes but isn't a security boundary.
+
 ## Choose a session target
 
 If you're unsure which target to choose, use these guidelines:
@@ -90,7 +104,7 @@ Worktree isolation requires a Git repository with at least one commit. A new wor
 
 Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to specify ignored files and folders that {% data variables.product.prodname_vscode_shortname %} should copy into new worktrees. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
 
-Worktree sessions use **Bypass Approvals** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+Worktree sessions use **Allow all** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 <a name="configure-an-agent-harness"></a>
 
@@ -136,8 +150,8 @@ Copilot sessions use the same GitHub authentication context as chat in {% data v
 
 The available [permission levels](/docs/agents/run/approvals.md#permission-levels) depend on the isolation mode:
 
-* **Worktree**: the permission level is **Bypass Approvals** and can't be changed.
-* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use **Assisted permissions** `feature(assisted-permissions)`, turn on `setting(chat.assistedPermissions.enabled)`.
+* **Worktree**: the permission level is **Allow all** and can't be changed.
+* **Folder**: select **Manual permissions** or **Allow all** from the permissions picker. To also use **Assisted permissions** `feature(assisted-permissions)`, turn on `setting(chat.assistedPermissions.enabled)`.
 
 Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/run/approvals.md#how-autopilot-works) rather than a permission level.
 

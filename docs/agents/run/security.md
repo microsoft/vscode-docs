@@ -73,7 +73,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Manual permissions** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -151,7 +151,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Assisted permissions**: Model-based risk assessments can make mistakes and approve potentially risky tool calls. This permission level reduces approval interruptions but is not a security boundary.
 
-* **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code. This applies to the `setting(chat.tools.global.autoApprove)` setting, the **Bypass Approvals** [permission level](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode.
+* **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code. This applies to the `setting(chat.tools.global.autoApprove)` setting, the **Allow all** [permission level](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode.
 
 * **Autopilot mode**: **Autopilot** combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
@@ -211,7 +211,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
 * **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
-* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Bypass Approvals** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
+* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Allow all** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
 * **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 

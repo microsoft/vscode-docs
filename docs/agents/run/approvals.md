@@ -42,7 +42,7 @@ Permission levels control how the agent handles approvals for the current chat s
 
 New sessions use the level configured by `setting(chat.permissions.default)`.
 
-**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Bypass Approvals**.
+**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Allow all**.
 
 `feature(assisted-permissions)`
 
@@ -50,23 +50,23 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assiste
 
 | Permission level | Description |
 |---|---|
-| **Default Approvals** (default) | Uses your tool, URL, and terminal approval settings. Actions that are not auto-approved require your confirmation. |
+| **Manual permissions** (default) | Uses your tool, URL, and terminal approval settings. Actions that are not auto-approved require your confirmation. |
 | **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
-| **Bypass Approvals** | Runs all tool calls without confirmation. |
+| **Allow all** | Runs all tool calls without confirmation. |
 
-Sandboxing is independent of the permission level. **Bypass Approvals** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. Because sandboxing applies only to terminal commands, use tool and URL approvals to control other actions with **Default Approvals**.
+Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. Because sandboxing applies only to terminal commands, use tool and URL approvals to control other actions with **Manual permissions**.
 
 > [!IMPORTANT]
 > **Assisted permissions** reduces approval interruptions but does not replace your judgment. The model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm.
 
 > [!CAUTION]
-> **Bypass Approvals** and **Autopilot** skip confirmation for potentially destructive actions, including file edits, terminal commands, and external tool calls. The first time you select either option, a warning dialog asks you to confirm. Use these options only when you trust the workspace and understand the [security implications](/docs/agents/run/security.md).
+> **Allow all** and **Autopilot** skip confirmation for potentially destructive actions, including file edits, terminal commands, and external tool calls. The first time you select either option, a warning dialog asks you to confirm. Use these options only when you trust the workspace and understand the [security implications](/docs/agents/run/security.md).
 
 ### How Autopilot works
 
 **Autopilot** is an agent mode, not a permission level. Select it from the mode picker in the chat input to let the agent work autonomously until it determines that the task is complete. Autopilot:
 
-* Auto-approves all tools, like **Bypass Approvals**.
+* Auto-approves all tools, like **Allow all**.
 * Retries when it encounters errors.
 * Responds automatically to questions that would otherwise block progress.
 
@@ -79,11 +79,11 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 > [!NOTE]
 > Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
 
-### Bypass approvals globally
+### Allow all tools globally
 
 To auto-approve tools across all workspaces, enable `setting(chat.tools.global.autoApprove)`. You can also use `/yolo` or `/autoApprove` in chat to enable the setting, and `/disableYolo` or `/disableAutoApprove` to turn it off.
 
-Prefer the session-scoped **Bypass Approvals** level when you do not need auto-approval in every workspace.
+Prefer the session-scoped **Allow all** level when you do not need auto-approval in every workspace.
 
 > [!CAUTION]
 > Global auto-approval removes confirmation prompts in every workspace. Only enable it if you understand the [security implications](/docs/agents/run/security.md). The first time you enable it, a warning dialog asks you to confirm.

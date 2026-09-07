@@ -1,7 +1,7 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 9/9/2026
-MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
+MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
@@ -96,7 +96,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
     * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
-    * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
+    * **Manual permissions**: the permission level that uses the configured approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
