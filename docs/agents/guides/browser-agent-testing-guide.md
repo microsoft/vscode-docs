@@ -1,6 +1,6 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Build and validate web applications with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %} through an interactive test and fix workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

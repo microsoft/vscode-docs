@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Get started with {% data variables.product.prodname_vscode %} on Windows, macOS, or Linux, and choose whether to code with AI agents or without AI.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

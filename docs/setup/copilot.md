@@ -1,12 +1,14 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 9/2/2026
-MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
+DateApproved: 9/9/2026
+MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
-This guide walks you through setting up GitHub Copilot in {% data variables.product.prodname_vscode %}. To use Copilot in {% data variables.product.prodname_vscode_shortname %}, you need to have access to GitHub Copilot with your GitHub account.
+This guide walks you through setting up GitHub Copilot in {% data variables.product.prodname_vscode %}. To use Copilot in {% data variables.product.prodname_vscode_shortname %}, you need access to GitHub Copilot with your GitHub account.
+
+This article covers the GitHub Copilot setup path. To use Claude, Codex, or your own model credentials for supported agent workflows, compare the [agent harness authentication and billing options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target). Some agent workflows without GitHub sign-in are experimental.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Complete your first coding task with an AI agent in {% data variables.product.prodname_vscode_shortname %}.
@@ -14,6 +16,19 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 * [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
+
+## Before you start
+
+Review these account, usage, and data-handling details before you send project content to an AI model:
+
+* **Account access**: the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in {% data variables.copilot.copilot_free_short %}.
+* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use Anthropic credentials, a ChatGPT subscription, or your own API key, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+* **Monitor usage**: open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar to view the percentage of your monthly allowance that you used. Learn [how to monitor usage and what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#how-can-i-monitor-my-copilot-usage).
+* **Data handling**: review the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. {% data variables.product.prodname_vscode_shortname %} [telemetry settings](/docs/configure/telemetry.md) are separate from AI-provider data handling.
+
+To use chat with your own model instead, [bring your own language model key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). This path doesn't require a Copilot plan, but some features, including inline suggestions, semantic search, and embeddings, still require the GitHub Copilot service.
+
+## Set up GitHub Copilot
 
 Follow these steps to get started with Copilot in {% data variables.product.prodname_vscode_shortname %}:
 
@@ -29,12 +44,12 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
     Learn the basics with the [agents quickstart](/docs/agents/quickstart.md).
 
-1. Type `/init` in a chat session to set up your project for AI.
-
-    The `/init` command analyzes your codebase and creates [custom instructions](/docs/agent-customization/custom-instructions.md) to help the AI generate code that matches your coding practices.
-
 > [!IMPORTANT]
 > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+
+## Prepare a project for AI (optional)
+
+After you sign in, enter `/init` in a chat session to create starter [custom instructions](/docs/agent-customization/custom-instructions.md) for a project. The command analyzes the codebase and records coding practices that help AI-generated code match the project.
 
 ## Use Copilot with a GHE account
 

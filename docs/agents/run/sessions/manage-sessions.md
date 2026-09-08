@@ -1,12 +1,12 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Create, orchestrate, and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
-A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to manage session context, conversations, history, and organization across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -17,79 +17,14 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Start an agent session
 
-When you start an agent session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent harness. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between sessions.
+Each agent session has its own conversation, context window, workspace, and configuration. Start a new session when you begin an independent task or change topics, so the agent works with focused context.
 
-> [!TIP]
-> Start a new session when you change topics to help the AI provide more relevant responses.
+Choose the surface that matches your workflow:
 
-Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in {% data variables.product.prodname_vscode_shortname %}. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
+* Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) for a workspace-scoped, code-first session beside the editor.
+* Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) to start and monitor sessions across workspaces, attach related projects or GitHub items, or start from an existing pull request.
 
-{% tabs id="chat-surface" %}
-{% tab label="{% data variables.copilot.agents_window %}" %}
-
-The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The {% data variables.copilot.agents_window %} is optimized for **agents-first workflows**.
-
-![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session-2.png)
-
-To start a new chat session in the {% data variables.copilot.agents_window %}:
-
-1. Open the {% data variables.copilot.agents_window %} by selecting the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
-
-1. Select **New** in the sidebar to create a new session.
-
-1. Select **Folder** or **Repository** to choose the primary execution workspace. To connect through SSH or a dev tunnel, select **Remote Setup**.
-
-    You can also attach more folders, repositories, issues, or pull requests as context for the first request. Learn more about [starting an agent session and adding context](/docs/agents/run/agents-window.md#start-an-agent-session).
-
-1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
-
-    The available harnesses depend on the workspace location. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
-
-1. Optionally, select additional configuration options for the session:
-
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role).
-
-    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
-
-    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md).
-
-    In the {% data variables.copilot.agents_window %}, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
-
-1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
-
-To collaborate on an existing pull request, [start a session from the pull request](/docs/agents/run/agents-window.md#start-a-session-from-a-pull-request).
-
-{% /tab %}
-{% tab label="{% data variables.copilot.chat_view %}" %}
-
-The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to {% data variables.product.prodname_vscode_shortname %}'s rich coding experience. The {% data variables.copilot.chat_view %} is optimized for **code-first workflows**.
-
-![Screenshot of opening a new chat session in the {% data variables.copilot.chat_view %} in {% data variables.product.prodname_vscode_shortname %}.](../../images/chat-sessions/new-chat-session-chat-view.png)
-
-To start a new chat session in the {% data variables.copilot.chat_view %}:
-
-1. Open the {% data variables.copilot.chat_view %} by selecting the **Chat** icon in the {% data variables.product.prodname_vscode_shortname %} title bar.
-
-1. Create an empty session by selecting the **New Chat** (`+`) button.
-
-    The session is scoped to the current workspace, so if you have a workspace open, the session is automatically linked to that workspace.
-
-1. Choose an agent harness from the **Session Target** control to determine where the agent session runs and what capabilities it can access.
-
-    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
-
-1. Optionally, select additional configuration options for the session:
-
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role).
-
-    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
-
-    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md).
-
-1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
-
-{% /tab %}
-{% /tabs %}
+The surfaces share the same underlying sessions, so you can switch between them after you start. To compare all agent interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 ## Manage session context
 
@@ -158,6 +93,8 @@ Visible and hidden chats, including their conversation history, are restored whe
 
 > [!NOTE]
 > Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
+
+To practice separating and monitoring independent work, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
 ## Ask side questions
 

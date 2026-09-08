@@ -1,12 +1,12 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 9/2/2026
-MetaDescription: Best practices for getting the most out of GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, from writing prompts to configuring your project for AI.
+DateApproved: 9/9/2026
+MetaDescription: Use AI effectively in {% data variables.product.prodname_vscode_shortname %} by choosing the right workflow, writing focused prompts, and reviewing results.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Best practices for using AI in {% data variables.product.prodname_vscode_shortname %}
 
-This article covers proven practices for getting the most out of using AI in {% data variables.product.prodname_vscode %}. Each section provides actionable guidance with links to deeper documentation.
+This article covers good practices for using AI in {% data variables.product.prodname_vscode %}. Start with a bounded task, provide relevant context, and verify the result. Configure custom instructions, agents, or tools later when you have a recurring need.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in {% data variables.product.prodname_vscode_shortname %}">
 Learn about the agent loop, context window, tools, and other core concepts.
@@ -15,28 +15,6 @@ Learn about the agent loop, context window, tools, and other core concepts.
 
 </div>
 
-## Optimize your project for AI
-
-By configuring your project and codebase with AI in mind, you can improve the accuracy of AI responses and ensure the AI follows your team's coding standards and practices.
-
-{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Enter `/init` in chat to generate a starter configuration.
-
-| Mechanism | Best for | Get started |
-|-----------|----------|-------------|
-| [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
-| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
-| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
-| [Tools and MCP servers](/docs/agents/run/tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
-
-Tips for effective project configuration:
-
-* **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
-* **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
-* **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
-* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
-
-For full setup details, see [Customize agent behavior in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md).
-
 ## Pick the right tool for the task
 
 AI in {% data variables.product.prodname_vscode_shortname %} offers several interaction modes. Choosing the right one for the task at hand saves time and produces better results.
@@ -44,27 +22,34 @@ AI in {% data variables.product.prodname_vscode_shortname %} offers several inte
 | Tool | Best for | Example |
 |------|----------|---------|
 | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in the flow while writing code | Inline suggestions, variable names, boilerplate |
-| [Ask (chat)](/docs/chat/chat-overview.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
 | [Inline chat](/docs/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
 | [Agents](/docs/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/agents/run/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
 | [Smart actions](/docs/editing/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
 
-## Choose the right agent harness
+## Apply the workflow to your project
 
-When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
+When you're ready to use an agent in your own project, start with one bounded task in a project you know:
 
-* **Use Copilot for day-to-day coding.** Copilot runs on your machine with access to your workspace, tools, and run-time context. It is a good default for most coding tasks.
+1. Open a trusted project. Commit or stash unrelated work so that you can distinguish the agent's edits from your own changes.
 
-* **Use Claude or Codex for provider-specific capabilities.** These harnesses also run on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
+1. Choose a small task and define an observable result. If the approach is unclear, ask questions in chat or use the [Plan role](/docs/agents/run/planning.md) before implementation.
 
-* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+1. Provide the relevant files, errors, constraints, and existing test commands. For example:
 
-* **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+    ```prompt
+    Add empty-state text to the results view. Limit changes to the existing
+    view and its tests. Follow the current component patterns, run the
+    existing tests for this area, and summarize the behavior you verified.
+    ```
 
-* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
+1. Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md), the **Copilot** session target, the **Agent** role, and **Manual permissions** for an interactive first task.
 
-For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
+1. Review each approval request. When the agent finishes, inspect every changed file and run the relevant tests yourself.
+
+1. Commit only the intended changes. If the result is wrong, provide focused feedback or [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
+
+Checkpoints restore affected workspace files and chat history, but they don't reverse completed terminal commands, deployments, or changes to external services. Use Git and the external service's recovery controls for those effects.
 
 ## Write effective prompts
 
@@ -95,6 +80,8 @@ The quality of AI responses depends on the clarity and specificity of your promp
 * **Iterate with follow-up prompts.** Refine responses by adding constraints or corrections in follow-up messages rather than rewriting the entire prompt.
 
 * **Course-correct early.** If the AI is heading in the wrong direction, [steer it](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) with a follow-up message to redirect the current request, queue a follow-up request, or stop and send a new prompt.
+
+    For help deciding whether to steer, restore changes, or start fresh, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md).
 
 * **Tell the AI to ask clarifying questions.** If a task is ambiguous, instruct the AI to ask you questions before proceeding. This leads to more accurate results than guessing at requirements.
 
@@ -144,7 +131,7 @@ For more information, see [selecting AI models](/docs/agent-customization/langua
 
 For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem and avoids spending [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) on code that needs to be thrown away.
 
-1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
+1. **Explore.** Use chat for questions or use a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
 1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution.
 1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
@@ -159,11 +146,49 @@ AI-generated code can contain bugs, security issues, or subtle logic errors. Alw
 
 * **Run tests after AI changes.** Include test cases in your prompt so the AI can verify its own work. If the AI doesn't run tests automatically, run them yourself before moving on.
 
-* **Use checkpoints to rewind.** If the agent goes off track, use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to roll back to a known good state instead of trying to fix cascading errors.
+* **Use checkpoints to rewind file edits and chat.** If the agent goes off track, use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to restore affected workspace files and chat history. Checkpoints don't reverse completed commands or changes to external services.
 
 * **Check for security issues.** Review AI-generated code for common vulnerabilities such as injection flaws, hardcoded secrets, or missing input validation. Avoid pasting credentials or sensitive data into prompts.
 
 For more information, see [GitHub Copilot security](/docs/agents/run/security.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/faq).
+
+## Choose the right agent harness
+
+When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
+
+* **Use Copilot for day-to-day coding.** Copilot runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
+
+* **Use Claude or Codex for provider-specific capabilities.** These harnesses also run tools on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
+
+* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+
+* **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+
+* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
+
+For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
+
+## Optimize your project for AI
+
+Project customization is optional. Add it when you have conventions, project context, or workflows that the AI can't reliably infer from your code. Concise customization can also help [optimize AI credit usage](/docs/agents/guides/optimize-usage.md) by reducing repeated context gathering, corrections, and retries.
+
+{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Enter `/init` in chat to generate a starter configuration.
+
+| Mechanism | Best for | Get started |
+|-----------|----------|-------------|
+| [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
+| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
+| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
+| [Tools and MCP servers](/docs/agents/run/tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
+
+Tips for effective project configuration:
+
+* **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
+* **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
+* **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
+* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
+
+For full setup details, see [Customize agent behavior in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md).
 
 ## Manage context and sessions
 
