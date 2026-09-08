@@ -1,35 +1,38 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
 DateApproved: 9/2/2026
-MetaDescription: Use built-in dictation in {% data variables.product.prodname_vscode %} for local speech recognition in chat, editors, and terminals.
+MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support
 
-{% data variables.product.prodname_vscode %} has built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
+{% data variables.product.prodname_vscode %} supports spoken agent conversations with Voice Mode and built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
 
-<!--
 ## Use Voice Mode
 
 `feature(voice-mode)`
 
-Voice Mode lets you speak with an agent and hear its responses. To start a voice conversation, enable `setting(agents.voice.enabled)` and select the **Voice Mode** button in the chat input.
+Voice Mode is a feature that lets you have a hands-free, spoken conversation with an agent while it works on your code. Unlike dictation, which only converts speech to text, Voice Mode also reads the agent's responses aloud and listens for follow-up requests.
 
-While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
+To start a voice conversation, enable `setting(agents.voice.enabled)`, open the chat view or the {% data variables.copilot.agents_window %}, and select the **Voice Mode** button in the chat input. You can also focus the chat input and press `kb(agentsVoice.startVoiceInChat)`.
 
-You can customize Voice Mode in the following ways:
+On first use, allow microphone access and follow the introduction to select a microphone and preview the available voices. Voice Mode sends your request to the active chat or agent session and uses its selected model and attached files. You can also ask Voice Mode about running sessions or ask it to start a new session. Voice Mode announces when it routes a request to an existing session or starts a new one.
+
+When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening again after the agent finishes speaking. While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
+
+> [!NOTE]
+> Voice Mode is rolling out gradually and might not be available to every eligible account immediately. It requires an eligible individual {% data variables.product.prodname_copilot %} plan and is not available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. Organizations can also turn off Copilot preview features by policy.
+
+### Configure Voice Mode
+
+Use the controls in the chat input to mute or unmute your microphone without ending the voice session. You can also configure Voice Mode in the following ways:
 
 * Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
 * Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
 * Use `setting(agents.voice.voice)` to select the voice that reads responses aloud.
+* Use `setting(agents.voice.speakResponses)` to control whether the agent reads responses aloud. If you turn off spoken responses, enable `setting(agents.voice.showTranscript)` to read them as text.
 * Run **Voice Mode: Show Introduction** from the Command Palette to reopen the introduction, where you can select a microphone and preview the available voices.
 
-Right-click the **Voice Mode** button in the chat input to access its configuration, instructions, introduction, microphone selection, and transcript controls.
-
-We are currently rolling out `feature(voice-mode)` gradually, so it may not be available to all users immediately.
-
-> [!NOTE]
-> `feature(voice-mode)` is not available for users on a {% data variables.copilot.copilot_enterprise_short %} and {% data variables.copilot.copilot_business_short %} plan.
--->
+Open the context menu for the **Voice Mode** button to access its settings, instructions, introduction, microphone selection, and transcript controls. For all available options, see the [Voice Mode and dictation settings](/docs/agents/reference/ai-settings.md#voice-and-dictation-settings).
 
 ## Use built-in dictation
 

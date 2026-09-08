@@ -31,6 +31,8 @@ Type your message in the chat input box and press `kbstyle(Enter)` or select the
 Add input validation to the signup form
 ```
 
+For a hands-free conversation, start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) from the chat input. Voice Mode listens for follow-up requests and reads the agent's responses aloud. `feature(voice-mode)`
+
 To give extra project-specific context, you can [add context to your prompt](#add-context-to-your-prompts) by referencing files, symbols, or other information with `#`-mentions.
 
 For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.

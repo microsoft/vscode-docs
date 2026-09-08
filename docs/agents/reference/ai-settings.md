@@ -370,19 +370,25 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 
 ## Voice and dictation settings
 
-<!--
-| `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Enable Voice Mode for spoken conversations with an agent. | `false` |
-| `setting(agents.voice.showTranscript)` `feature(voice-mode)`<br/>Show the Voice Mode transcript in the chat input while Voice Mode is active. | `false` |
-| `setting(agents.voice.voice)` `feature(voice-mode)`<br/>Select the voice that reads agent responses aloud. | `"birch_neutral"` |
--->
+Learn how to [use Voice Mode and built-in dictation](/docs/configure/accessibility/voice.md).
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Controls whether Voice Mode is available for spoken conversations with an agent. | `false` |
+| `setting(agents.voice.showButton)` `feature(voice-mode)`<br/>Controls whether the **Voice Mode** button appears in the chat input. The keyboard shortcut remains available when the button is hidden. | `true` |
+| `setting(agents.voice.speakResponses)` `feature(voice-mode)`<br/>Controls whether the agent reads responses aloud. Enable `setting(agents.voice.showTranscript)` to read responses as text when spoken responses are off. | `true` |
+| `setting(agents.voice.agentProgress)` `feature(voice-mode)`<br/>Controls whether the agent speaks brief progress updates while it works. | `true` |
+| `setting(agents.voice.voice)` `feature(voice-mode)`<br/>Selects the voice that reads agent responses aloud. | `"birch_neutral"` |
+| `setting(agents.voice.language)` `feature(built-in-dictation)`<br/>Selects the language for speech recognition, dictation, and spoken responses. Use `auto` to use the configured display language when supported, or the system or browser locale otherwise. | `"auto"` |
+| `setting(agents.voice.showTranscript)` `feature(voice-mode)`<br/>Shows the Voice Mode transcript in the chat input while Voice Mode is active. | `false` |
+| `setting(agents.voice.liveTranscript)` `feature(voice-mode)`<br/>Shows speech word by word while you are speaking. Requires `setting(agents.voice.showTranscript)`. | `false` |
+| `setting(agents.voice.handsFree)` `feature(voice-mode)`<br/>Starts listening again after the agent finishes speaking for a hands-free conversation. | `true` |
+| `setting(agents.voice.turn.silenceMs)` `feature(voice-mode)`<br/>Sets the trailing silence, in milliseconds, before Voice Mode ends and sends a turn. Set to `-1` to turn off silence-based turn ending. | `800` |
+| `setting(agents.voice.turn.stopPhrases)` `feature(voice-mode)`<br/>Lists phrases that end and send a turn when spoken at the end of an utterance. | `["send it"]` |
 | `setting(dictation.enabled)` `feature(built-in-dictation)`<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
 | `setting(dictation.model)` `feature(built-in-dictation)`<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
 | `setting(dictation.showTranscript)` `feature(built-in-dictation)`<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` `feature(built-in-dictation)`<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
-| `setting(agents.voice.language)` `feature(built-in-dictation)`<br/>Provides a language hint for dictation. Use `auto` to use the system language. | `"auto"` |
 
 ## Accessibility settings
 
