@@ -6,9 +6,24 @@ MetaDescription: Choose a prompt or hosted agent path in Foundry Toolkit for {% 
 
 # Create agents with the Foundry Toolkit
 
-Choose how to build an agent with Foundry Toolkit for {% data variables.product.prodname_vscode %}. Configure a **prompt agent** with a model, instructions, and tools, or write a **hosted agent** in code and deploy it to Foundry Agent Service.
+Choose how to build an agent with Foundry Toolkit for {% data variables.product.prodname_vscode %}. Compare the agent types, then follow the creation guide that fits your scenario.
 
-## Choose the right approach
+## Choose an agent type
+
+Microsoft Foundry supports two [agent types](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle#agent-types-in-microsoft-foundry). Both can use tools to retrieve information and perform actions, and both require testing and evaluation before production use. You can integrate either type into an application, so prompt agents are not limited to prototypes.
+
+| Compare | Prompt agent | Hosted agent |
+| --- | --- | --- |
+| Example uses | A support assistant that answers from product documents, or a summarizer that retrieves information through tools. | A multi-agent research workflow, a webhook processor, or an assistant with custom runtime logic. |
+| How you define behavior | Configure a model, instructions, and supported tools through Agent Builder, an SDK, or an API. | Implement the agent with a supported framework or custom code and deploy it to Foundry Agent Service. |
+| Strengths | Iterate on instructions and tools without maintaining a hosted-agent code project. Save configurations as versions. | Control orchestration, dependencies, and runtime behavior while Foundry manages hosting and scaling. |
+| Trade-offs | Work within the service's agent configuration and supported tools. A prompt-agent definition does not host your own agent runtime. | Maintain, test, package, and deploy your agent code and dependencies, even though Foundry manages the hosting infrastructure. |
+
+These examples are starting points, not exclusive capabilities. Start with a prompt agent when instructions and supported tools meet your needs. Choose a hosted agent when you need custom agent logic or orchestration. See [when to use hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents#when-to-use-hosted-agents) for more guidance.
+
+## Choose a creation route
+
+Agent Builder, samples, and Copilot are ways to create agents, not additional agent types.
 
 | Approach | Use it when | Get started |
 | --- | --- | --- |
@@ -30,5 +45,5 @@ Each guide includes its prerequisites and creation steps. For extension installa
 
 ## Related resources
 
-* [Agent development lifecycle in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle)
+* [Debug code-based agents with Agent Inspector](/docs/intelligentapps/agent-inspector.md)
 * [Use Tool Catalog to connect shared tools](/docs/intelligentapps/tool-catalog.md)
