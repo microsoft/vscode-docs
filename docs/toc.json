@@ -102,7 +102,7 @@
                     ["Get an Agent Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
                     ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-                    ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Work with Jupyter Notebooks using AI", "/docs/agents/guides/notebooks-with-ai"],
                     ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
