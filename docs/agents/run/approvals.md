@@ -61,7 +61,7 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assiste
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
 
 > [!NOTE]
-> Organizations can enforce `allow`, `ask`, and `deny` rules for Copilot Agent Host sessions through [Copilot enterprise managed settings](/docs/enterprise/ai-settings.md#configure-agent-host-permissions). Managed rules take precedence over the approval settings that you configure.
+> Organizations can enforce `allow`, `ask`, and `deny` rules for Copilot sessions that use Agent Host through [Copilot enterprise managed settings](/docs/enterprise/ai-settings.md#configure-agent-host-permissions). Managed rules take precedence over the approval settings that you configure.
 
 > [!IMPORTANT]
 > The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.

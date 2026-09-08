@@ -78,7 +78,7 @@ Place `managed-settings.json` in the well-known location for each operating syst
 | Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
 | Linux | `/etc/github-copilot/managed-settings.json` |
 
-The file uses the Copilot managed settings shape. The following example configures permissions for Copilot Agent Host sessions:
+The file uses the Copilot managed settings shape. The following example configures permissions for Copilot sessions that use Agent Host:
 
 ```json
 {
@@ -113,9 +113,9 @@ The following managed settings are available. Most keys map to a {% data variabl
 | Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
-| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot Agent Host sessions. |
-| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot Agent Host sessions. |
-| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot Agent Host sessions. |
+| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
+| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
+| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
@@ -127,7 +127,7 @@ The following managed settings are available. Most keys map to a {% data variabl
 
 ### Configure Agent Host permissions
 
-Use `permissions.allow`, `permissions.ask`, and `permissions.deny` to control file, shell, and network operations in Copilot Agent Host sessions. These settings apply only to users who receive Copilot enterprise managed settings. They don't affect unmanaged users, the legacy Local implementation, or other agent providers.
+Use `permissions.allow`, `permissions.ask`, and `permissions.deny` to control file, shell, and network operations. These settings apply only to users who receive Copilot enterprise managed settings and to Copilot sessions that use Agent Host.
 
 Permission rules use the following precedence:
 
