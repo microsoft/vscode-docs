@@ -16,7 +16,7 @@ The {% data variables.product.prodname_vscode %} pet sits above the chat input b
 To learn how to show, hide, and control the pet, see [Personalize chat](/docs/chat/chat-overview.md#use-the-vs-code-pet).
 
 > [!NOTE]
-> The naming contest runs from September 8 through September 16, 2026. [Submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY) and review the [contest terms and conditions](#contest-terms-and-conditions).
+> The naming contest runs from September 10 through September 17, 2026. [Submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY) and review the [contest terms and conditions](#contest-terms-and-conditions).
 
 ## Chat activity reactions
 
@@ -69,7 +69,7 @@ Open the pet's context menu to access these actions:
 
 ## Contest terms and conditions
 
-The Microsoft Name Our VS Code Pet Contest runs from September 8 through September 16, 2026. To enter, [submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY).
+The Microsoft Name Our VS Code Pet Contest runs from September 10 through September 17, 2026. To enter, [submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY).
 
 <details>
 <summary><b>Read the official contest rules</b></summary>
@@ -86,7 +86,7 @@ In these Rules, "Microsoft", "we", "our", and "us" refer to Sponsor and "you" an
 
 #### Entry period
 
-The Contest starts at 12:00 a.m. Pacific Time ("PT") on September 8, 2026, and ends at 11:59 p.m. PT on September 16, 2026 ("Entry Period").
+The Contest starts at 12:00 a.m. Pacific Time ("PT") on September 10, 2026, and ends at 11:59 p.m. PT on September 17, 2026 ("Entry Period").
 
 #### Eligibility
 
@@ -179,7 +179,7 @@ This Contest will be governed by the laws of the State of Washington, and you co
 
 #### Winners list
 
-Send an email to [ansorac@microsoft.com](mailto:ansorac@microsoft.com) with the subject line "Name our VS Code pet Contest winners" within thirty (30) days of September 16, 2026, to receive a list of winners that received a prize worth $25.00 USD or more.
+Send an email to [ansorac@microsoft.com](mailto:ansorac@microsoft.com) with the subject line "Name our VS Code pet Contest winners" within thirty (30) days of September 17, 2026, to receive a list of winners that received a prize worth $25.00 USD or more.
 
 </details>
 
