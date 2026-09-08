@@ -69,6 +69,8 @@ You don't have to wait for a response to finish before sending your next message
 
 Stopping a request doesn't undo file edits, terminal commands, or other actions that already completed. To restore affected workspace files and chat history, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint). Checkpoints don't reverse changes to external services.
 
+For examples of when to steer or stop a request and how to write a focused correction, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#redirect-a-running-request).
+
 The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
 
 ### Reorder pending messages

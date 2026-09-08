@@ -113,6 +113,8 @@ The available actions and labels depend on the session harness and whether you u
 
 ## Edit requests and restore checkpoints
 
+For help deciding whether to revise a request, restore changes, or start fresh, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
+
 Use request editing and checkpoints to revise or undo a batch of changes:
 
 * **Edit a previous request**: modify a prompt you already sent. {% data variables.product.prodname_vscode_shortname %} reverts changes made by that request and all subsequent requests, then resends the edited prompt.
