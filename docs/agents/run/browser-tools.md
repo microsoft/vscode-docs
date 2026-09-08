@@ -246,5 +246,5 @@ Agent network filtering or an organization policy might block the domain. Check 
 
 * Follow the [build and validate a web app with browser tools tutorial](/docs/agents/guides/browser-agent-testing-guide.md).
 * Learn about the [integrated browser](/docs/debugtest/integrated-browser.md).
-* Explore [testing with AI](/docs/agents/guides/test-with-copilot.md).
+* Explore [testing with AI](/docs/agents/guides/test-code-with-ai.md).
 * Learn [how tools work in the agent loop](/docs/agents/concepts/tools.md).
