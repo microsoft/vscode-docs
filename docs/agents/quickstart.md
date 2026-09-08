@@ -177,6 +177,8 @@ You have completed your first task with an agent. The agent interpreted your goa
 * **Revise the result**: send a follow-up prompt. In a diff, you can select code and provide focused feedback when the interface offers that action.
 * **Undo file changes from a request**: hover over an earlier request and select **Restore Checkpoint**. This restores affected workspace files and chat history. It doesn't reverse terminal commands, network requests, deployments, or changes to external services. Learn more about [reviewing and reverting agent changes](/docs/agents/run/review-code-edits.md).
 
+If a follow-up doesn't resolve the problem, use [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md) to choose your next recovery action.
+
 ## If your screen looks different
 
 * If the **Copilot** target or **Agent** role isn't available, verify your sign-in and review the [agent harness setup requirements](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target). Your organization's policies might restrict specific agents, models, or tools.

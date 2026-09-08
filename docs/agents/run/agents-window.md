@@ -169,6 +169,8 @@ To start a new quick chat in the {% data variables.copilot.agents_window %}:
 
 1. Enter a prompt in the input box to submit it to the agent. The agent responds in the chat area.
 
+To use speech instead of typing, start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) from the chat input. Voice Mode works with the active chat or agent session in the {% data variables.copilot.agents_window %}. `feature(voice-mode)`
+
 By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide empty default groups, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
 
 ### Continue a quick chat in a workspace

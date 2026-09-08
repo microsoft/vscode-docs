@@ -319,5 +319,5 @@ You fixed a reproducible API defect by establishing the expected behavior before
 
 ## Related resources
 
-* Explore more ways to [test with GitHub Copilot](/docs/agents/guides/test-with-copilot.md).
+* Explore more ways to [test with GitHub Copilot](/docs/agents/guides/test-code-with-ai.md).
 * Review how to [inspect, revise, and revert agent changes](/docs/agents/run/review-code-edits.md).

@@ -94,6 +94,8 @@ Visible and hidden chats, including their conversation history, are restored whe
 > [!NOTE]
 > Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
 
+To practice separating and monitoring independent work, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
 ## Ask side questions
 
 Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens in a group beside the source chat, so both conversations remain visible. It privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.

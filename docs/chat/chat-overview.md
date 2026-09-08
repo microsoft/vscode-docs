@@ -31,6 +31,8 @@ Type your message in the chat input box and press `kbstyle(Enter)` or select the
 Add input validation to the signup form
 ```
 
+For a hands-free conversation, start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) from the chat input. Voice Mode listens for follow-up requests and reads the agent's responses aloud. `feature(voice-mode)`
+
 To give extra project-specific context, you can [add context to your prompt](#add-context-to-your-prompts) by referencing files, symbols, or other information with `#`-mentions.
 
 For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.
@@ -68,6 +70,8 @@ You don't have to wait for a response to finish before sending your next message
 * **Stop and Send**: cancels the current request entirely and sends your new message right away.
 
 Stopping a request doesn't undo file edits, terminal commands, or other actions that already completed. To restore affected workspace files and chat history, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint). Checkpoints don't reverse changes to external services.
+
+For examples of when to steer or stop a request and how to write a focused correction, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#redirect-a-running-request).
 
 The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
 
@@ -157,7 +161,6 @@ Use these settings to adjust the chat transcript:
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 
-<!--
 ### Use the VS Code pet
 
 `feature(chat-pet)`
@@ -174,7 +177,6 @@ Interact with the pet in the following ways:
 Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
 
 For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
--->
 
 ### Customize the {% data variables.copilot.agents_window %} chat background
 

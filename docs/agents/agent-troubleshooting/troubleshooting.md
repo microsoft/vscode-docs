@@ -15,6 +15,8 @@ Keywords:
 
 This article covers diagnostic tools and techniques for troubleshooting AI-related issues in {% data variables.product.prodname_vscode_shortname %}. Use these tools to identify problems with network connectivity, customization files, and AI responses.
 
+If an agent is responding but follows the wrong approach, repeats an unsuccessful action, or changes more than expected, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md).
+
 ## View logs for GitHub Copilot
 
 The log files for the GitHub Copilot extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. Use these logs to diagnose connection issues, extension errors, and unexpected behavior.

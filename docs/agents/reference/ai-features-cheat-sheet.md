@@ -14,11 +14,12 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ## Essential keyboard shortcuts
 
 * `kb(workbench.panel.chat)` - Open the {% data variables.copilot.chat_view %}
-* `kb(workbench.action.chat.startVoiceChat)` - Enter voice chat prompt in {% data variables.copilot.chat_view %}
+* `kb(agentsVoice.startVoiceInChat)` - Start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) in the {% data variables.copilot.chat_view %} `feature(voice-mode)`
+* `kb(workbench.action.chat.startVoiceChat)` - Dictate a chat prompt in the {% data variables.copilot.chat_view %}
 * `kb(workbench.action.chat.newChat)` - Start a new chat session in {% data variables.copilot.chat_view %}
 * `kb(workbench.action.chat.openAgent)` - Switch to using agents in {% data variables.copilot.chat_view %}
 * `kb(inlineChat.start)` - Start inline chat in the editor or terminal
-* `kb(workbench.action.chat.startVoiceChat)` (hold) - Start inline voice chat
+* `kb(workbench.action.chat.startVoiceChat)` (hold) - Dictate a chat prompt with push-to-talk
 * `kb(editor.action.inlineSuggest.commit)` - Accept inline suggestion or navigate to the next edit suggestion
 * `kb(editor.action.inlineSuggest.hide)` - Dismiss inline suggestion
 
@@ -58,7 +59,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
-| Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
+| Voice Mode | Have a spoken conversation with an agent and hear its responses aloud. Learn how to [use Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode). `feature(voice-mode)` |
 | [KaTeX](https://katex.org) | Render mathematical equations in chat responses. Enable with `setting(chat.math.enabled)`. Right-click on a math expression to copy the source expression. |
 | [Mermaid](https://mermaid.js.org) | Render Mermaid diagrams in chat responses. Enable with `setting(mermaid-chat.enabled)`. Right-click on a diagram to copy the source code. |
 
