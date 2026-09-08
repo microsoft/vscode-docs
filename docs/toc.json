@@ -100,6 +100,7 @@
                     ["Test with AI", "/docs/agents/guides/test-with-copilot"],
                     ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
                     ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Delegate Two Tasks Without Mixing Their Changes", "/docs/agents/guides/delegate-two-tasks"],
                     ["Get an Agent Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
                     ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
@@ -114,6 +115,7 @@
                 "topics": [
                     ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
                     ["Settings Reference", "/docs/agents/reference/ai-settings"],
+                    ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                     ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
                     ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]

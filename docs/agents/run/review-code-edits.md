@@ -111,6 +111,8 @@ Before you apply or merge changes:
 
 The available actions and labels depend on the session harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
+For a walkthrough of reviewing two results separately, integrating them one at a time, and testing the combined change, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
 ## Edit requests and restore checkpoints
 
 For help deciding whether to revise a request, restore changes, or start fresh, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
