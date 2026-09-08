@@ -10,7 +10,9 @@ Choose how to build an agent with Foundry Toolkit for {% data variables.product.
 
 ## Choose an agent type
 
-Microsoft Foundry supports two [agent types](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle#agent-types-in-microsoft-foundry). Both can use tools to retrieve information and perform actions, and both require testing and evaluation before production use. You can integrate either type into an application, so prompt agents are not limited to prototypes.
+Microsoft Foundry supports two [agent types](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle#agent-types-in-microsoft-foundry): **prompt agents** and **hosted agents**. The main difference is how you define their behavior: prompt agents use instructions and tool configuration, while hosted agents use custom code.
+
+Both can use tools to retrieve information and perform actions, and both require testing and evaluation before production use. You can integrate either type into an application, so prompt agents are not limited to prototypes. The following table compares their uses, strengths, and trade-offs.
 
 | Compare | Prompt agent | Hosted agent |
 | --- | --- | --- |
@@ -23,7 +25,7 @@ These examples are starting points, not exclusive capabilities. Start with a pro
 
 ## Choose a creation route
 
-Agent Builder, samples, and Copilot are ways to create agents, not additional agent types.
+After choosing an agent type, select a creation method. Use Agent Builder to configure a prompt agent, or use samples or Copilot to develop hosted-agent code. The following table helps you choose a method and find its setup guide.
 
 | Approach | Use it when | Get started |
 | --- | --- | --- |
