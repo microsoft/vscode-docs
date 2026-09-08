@@ -21,6 +21,10 @@
       "label": "Assisted permissions",
       "state": "experimental"
     },
+    "automations": {
+      "label": "Automations",
+      "state": "preview"
+    },
     "built-in-dictation": {
       "label": "Built-in dictation",
       "state": "experimental"

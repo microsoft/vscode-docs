@@ -48,6 +48,7 @@
                 "topics": [
                     ["Chat View", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Automations", "/docs/agents/run/automations"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Approvals & Permissions", "/docs/agents/run/approvals"],
                     ["AI Security", "/docs/agents/run/security"],

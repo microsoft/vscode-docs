@@ -74,7 +74,7 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 
 1. **Sessions list**: view and manage sessions across workspaces. By default, sessions are grouped by workspace. Select a session to [make it active](#understand-the-active-session).
 
-1. **Customizations panel**: access agent customizations for your workflow and preferences
+1. **Customizations panel**: access agent customizations for your workflow and preferences, and open [Automations](#schedule-recurring-tasks) when enabled.
 
 1. **Chat area**: view and interact with the active agent chat conversation
 
@@ -272,6 +272,14 @@ These commands are also in the Command Palette (`kb(workbench.action.showCommand
 ### Work with multiple chats in a session
 
 Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Arrange peer chats, side chats, and read-only subagent chats in horizontal or vertical groups to work with multiple conversations at the same time. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+
+## Schedule recurring tasks
+
+`feature(automations)`
+
+Automations run recurring agent tasks from a saved prompt and schedule. Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+
+Learn how to [create an automation and review its results](/docs/agents/run/automations.md).
 
 ## Configure the {% data variables.copilot.agents_window %}
 
