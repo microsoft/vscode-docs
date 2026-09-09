@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

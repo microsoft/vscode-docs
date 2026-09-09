@@ -1,7 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 9/2/2026
-MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in {% data variables.product.prodname_vscode_shortname %} for your specific workflows and development scenarios.
+DateApproved: 9/9/2026
+MetaDescription: Create and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles, tools, and workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - custom agents
@@ -75,18 +75,21 @@ When users see the handoff button and select it, they switch to the target agent
 
 ## Custom agent file locations
 
-You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations for custom agents based on their scope. You can configure additional file locations for workspace custom agent files with the `setting(chat.agentFilesLocations)` setting.
+You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the supported file locations for custom agents based on their scope.
 
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
 | Workspace (Claude format) | `.claude/agents` folder |
-| User profile | `~/.copilot/agents` |
+| User profile | `~/.copilot/agents` or `~/.claude/agents` |
 
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from `~/.copilot/agents` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents to this location, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from the selected host's folder, such as `~/.copilot/agents` or `~/.claude/agents`, and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
+
+> [!NOTE]
+> The `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings are deprecated and only used by the Local agent. If you configured other agent locations with these settings, [migrate the customizations to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
@@ -265,9 +268,6 @@ You can create a custom agent file in your workspace or user profile.
 
     Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-    > [!TIP]
-    > You can configure additional locations where {% data variables.product.prodname_vscode_shortname %} searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
-
 1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
 1. Provide the details for the custom agent in the newly created `.agent.md` file.
@@ -313,7 +313,7 @@ Learn how you can [create custom agents for your organization](https://docs.gith
 
 Custom agents were previously known as custom chat modes. The functionality remains the same, but the terminology has been updated to better reflect their purpose in customizing AI behavior for specific tasks.
 
-If you have existing `.chatmode.md` files, rename them to `.agent.md` to convert them to the new custom agent format and place them in the appropriate location (`setting(chat.agentFilesLocations)`) to continue using them.
+If you have existing `.chatmode.md` files, rename them to `.agent.md` and place them in one of the [supported custom agent locations](#custom-agent-file-locations).
 
 ### How do I remove a custom agent?
 

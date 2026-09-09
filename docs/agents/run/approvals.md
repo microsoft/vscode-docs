@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 9/8/2026
+DateApproved: 9/9/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -14,9 +14,12 @@ keywords:
 ---
 # Manage approvals and permissions
 
-Agents in {% data variables.product.prodname_vscode %} can run tools and terminal commands to complete tasks. To keep you in control, {% data variables.product.prodname_vscode_shortname %} asks for your approval before the agent runs actions that modify files, run commands, or access external resources.
+Agents in {% data variables.product.prodname_vscode %} can edit files, run terminal commands, and call external tools. {% data variables.product.prodname_vscode_shortname %} uses two security layers to help you control these actions:
 
-This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/run/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
+* **Approvals** determine whether an action runs automatically or requires your confirmation.
+* **Sandboxing** restricts the file system and network resources that agent terminal commands can access, even after the commands are approved.
+
+This article explains how these layers work together and how to configure permission levels, tool and URL approvals, terminal auto-approval, and sandboxing. For the security concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
 Learn why {% data variables.product.prodname_vscode_shortname %} uses permission levels, tool approval, and sandboxing to keep you in control.
@@ -25,25 +28,21 @@ Learn why {% data variables.product.prodname_vscode_shortname %} uses permission
 
 </div>
 
-{% data variables.product.prodname_vscode_shortname %} provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
-
 | Mechanism | What it controls | Key setting |
 |---|---|---|
-| [Permission levels](#permission-levels) | Overall agent autonomy for the session | `setting(chat.permissions.default)` |
-| [Tool approval](#tool-approval) | When individual tools can run | `setting(chat.tools.eligibleForAutoApproval)` |
-| [URL approval](#url-approval) | Access to specific URLs and domains | `setting(chat.tools.urls.autoApprove)` |
-| [Terminal command approval](#automatically-approve-terminal-commands) | Which terminal commands run automatically | `setting(chat.tools.terminal.autoApprove)` |
-| [Sandboxing](#sandbox-agent-commands) | File system and network access for agent commands | `setting(chat.agent.sandbox.enabled)` |
+| [Permission levels](#permission-levels) | The approval behavior for a chat session | `setting(chat.permissions.default)` |
+| [Tool approval](#tool-approval) | Which tools require confirmation before or after they run | `setting(chat.tools.eligibleForAutoApproval)` |
+| [URL approval](#url-approval) | Which URLs can be requested and which responses can enter the chat context | `setting(chat.tools.urls.autoApprove)` |
+| [Terminal approval](#automatically-approve-terminal-commands) | Which terminal commands run without confirmation | `setting(chat.tools.terminal.autoApprove)` |
+| [Sandboxing](#sandbox-agent-commands) | The file system and network boundaries for terminal commands | `setting(chat.agent.sandbox.enabled)` |
 
 ## Permission levels
 
-Permission levels are the high-level control for how much autonomy the agent has during a session. They sit on top of the finer-grained approval settings described in the rest of this article, such as tool approval, URL approval, and terminal command auto-approval.
+Permission levels control how the agent handles approvals for the current chat session. Select a level from the permissions dropdown in the chat input. You can change it at any time.
 
-Select a permission level from the permissions dropdown in the chat input area to choose how tool calls and approvals are handled.
+New sessions use the level configured by `setting(chat.permissions.default)`.
 
-The permission level applies to the current chat session, and can be changed at any time. New sessions start with the default permission level, which you can configure with the `setting(chat.permissions.default)` setting.
-
-**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Bypass Approvals**.
+**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Allow all**.
 
 `feature(assisted-permissions)`
 
@@ -51,131 +50,122 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assiste
 
 | Permission level | Description |
 |---|---|
-| **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
-| **Assisted permissions** | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
-| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
+| **Manual permissions** (default) | Uses your tool, URL, and terminal approval settings. Actions that are not auto-approved require your confirmation. |
+| **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
+| **Allow all** | Runs all tool calls without confirmation. |
 
-> [!NOTE]
-> **Autopilot** is an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). For how Autopilot behaves on the extension host, see [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
-
-The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. Because sandboxing applies only to terminal commands, use tool and URL approvals to control other actions with **Manual permissions**.
 
 > [!NOTE]
 > Organizations can enforce `allow`, `ask`, and `deny` rules for Copilot sessions that use Agent Host through [Copilot enterprise managed settings](/docs/enterprise/ai-settings.md#configure-agent-host-permissions). Managed rules take precedence over the approval settings that you configure.
 
 > [!IMPORTANT]
-> The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
+> **Assisted permissions** reduces approval interruptions but does not replace your judgment. The model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm.
 
 > [!CAUTION]
-> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/run/security.md) for more details.
+> **Allow all** and **Autopilot** skip confirmation for potentially destructive actions, including file edits, terminal commands, and external tool calls. The first time you select either option, a warning dialog asks you to confirm. Use these options only when you trust the workspace and understand the [security implications](/docs/agents/run/security.md).
 
 ### How Autopilot works
 
-Select **Autopilot** from the mode picker in the chat input. Autopilot makes the agent behave differently from a standard agent session:
+**Autopilot** is an agent mode, not a permission level. Select it from the mode picker in the chat input to let the agent work autonomously until it determines that the task is complete. Autopilot:
 
-* **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
-* **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.
-* **Auto-retry on errors**: the agent automatically retries when it encounters errors.
-* **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
+* Auto-approves all tools, like **Allow all**.
+* Retries when it encounters errors.
+* Responds automatically to questions that would otherwise block progress.
+
+For differences between Autopilot on the Agent Host and extension host, see [Agent Host behavior](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 ### Advanced autopilot (Preview)
 
-With autopilot, the agent keeps iterating until it considers the task is complete. You can enable advanced autopilot (preview), which delegates this decision to a separate model instead. After each autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, autopilot keeps working and uses that evaluation as guidance for the next turn.
-
-To use advanced autopilot (preview) functionality, set `setting(chat.autopilot.advanced.enabled)` to `true`.
+Advanced Autopilot delegates the completion decision to a separate model. After each turn, a small, fast model evaluates whether the original request is complete and guides the next turn when more work is needed. Set `setting(chat.autopilot.advanced.enabled)` to `true` to use this preview feature.
 
 > [!NOTE]
-> Autopilot consumes AI credits in the same way as using chat in an interactive way. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
+> Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
+
+### Allow all tools globally
+
+To auto-approve tools across all workspaces, enable `setting(chat.tools.global.autoApprove)`. To bypass approvals only for the current supported local or {% data variables.copilot.copilot_cli_short %} session, use `/yolo` or `/autoApprove`. Use `/disableYolo` or `/disableAutoApprove` to restore the session's default permission level.
+
+Prefer the session-scoped **Allow all** level when you do not need auto-approval in every workspace.
+
+> [!CAUTION]
+> Global auto-approval removes confirmation prompts in every workspace. Only enable it if you understand the [security implications](/docs/agents/run/security.md). The first time you enable it, a warning dialog asks you to confirm.
 
 ## Tool approval
 
-Some tools require your approval before they can run. This is a security measure because tools can modify files or change your environment. In addition, the data a tool returns might contain prompt injection attempts that try to manipulate the agent.
+Some tools can modify your environment or access external services. Their results can also contain prompt injection attempts. Tool approval protects against both risks.
 
-When a tool requires approval, a confirmation dialog appears with the tool name and its input parameters. Review this information carefully, then choose the scope of your approval: a single use, the current session, the current workspace, or all future invocations.
+When approval is required, review the tool name and input parameters, then approve a single use or grant approval for the session, workspace, or all future invocations.
 
 ![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/approvals/chat-approve-tool.png)
 
-Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Manage tool approvals
 
-Use the **Chat: Manage Tool Approval** command from the Command Palette (`kb(workbench.action.showCommands)`) to centrally review and configure tool approvals. The Quick Pick shows all tools grouped by their source, such as an MCP server or extension.
+Run **Chat: Manage Tool Approval** from the Command Palette (`kb(workbench.action.showCommands)`) to review and configure approvals. Tools are grouped by source, such as an MCP server or extension.
 
-For each tool, you can configure two types of approvals:
-
-* **Pre-approval** ("without approval"): skip the confirmation dialog before the tool runs.
-* **Post-approval** ("without reviewing result"): skip reviewing the tool's output before it is added to the chat context. This is relevant for tools that return external data, where the content might contain prompt injection attempts.
+| Approval | Effect |
+|---|---|
+| **Pre-approval** ("without approval") | Runs the tool without a confirmation dialog. |
+| **Post-approval** ("without reviewing result") | Adds the tool result to the chat context without review. Use caution with external data that might contain prompt injection. |
 
 Expand a source to configure approvals for individual tools, or select the top-level checkboxes to trust all tools from a specific MCP server or extension at once.
 
 ### Prevent tools from being auto-approved
 
-When a tool asks for approval, you can choose to approve it for all future invocations, which auto-approves it from then on. For sensitive tools, you might want to remove that option so the tool always requires manual approval and can't be auto-approved by accident.
-
-Use the `setting(chat.tools.eligibleForAutoApproval)` setting to control which tools are eligible for auto-approval. Set a tool to `false` to always require manual approval for it.
+Set a tool to `false` in `setting(chat.tools.eligibleForAutoApproval)` to always require manual approval. The confirmation dialog then does not offer an auto-approval option for that tool.
 
 Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/enterprise/ai-settings.md).
 
 ### Reset tool confirmations
 
-To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
-
-To review and selectively change individual tool approvals instead of clearing all of them, use the [**Chat: Manage Tool Approval**](#manage-tool-approvals) command.
+Run **Chat: Reset Tool Confirmations** from the Command Palette (`kb(workbench.action.showCommands)`) to clear all saved approvals. To change individual approvals, use [**Chat: Manage Tool Approval**](#manage-tool-approvals).
 
 ## URL approval
 
-When a tool attempts to access a URL, for example the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval process to protect you from malicious or unexpected content. Each step shows a confirmation dialog in the {% data variables.copilot.chat_view %} for your review.
+When a tool accesses a URL, such as the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} separates approval into two decisions:
 
-* **Pre-approval: approve the request to the URL**
+| Step | What you approve | Protection |
+|---|---|---|
+| **Request approval** | Contacting the URL or domain | Prevents data from being sent to an untrusted site. |
+| **Response approval** | Adding the fetched content to the chat context | Helps prevent prompt injection from untrusted content. |
 
-    This step confirms that you trust the domain being contacted, and prevents sensitive data from being sent to untrusted sites.
+![Screenshot of a URL approval dialog showing URL details and approval options.](../images/approvals/chat-approve-url.png)
 
-    ![Screenshot of a URL approval dialog showing URL details and approval options.](../images/approvals/chat-approve-url.png)
+For each step, you can approve once or automatically approve future requests or responses for the URL or domain. Approving a request does not approve its response.
 
-    You can approve the request once, or automatically approve future requests to the specific URL or domain. Approving a request does not approve the response: you still review the fetched content in the next step. To configure both the request and response approvals at the same time, select **Allow requests to**.
+Request approval uses the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. A trusted domain does not require request approval, but its response still requires review unless you separately auto-approve responses for that domain.
 
-    > [!NOTE]
-    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#outgoing-link-protection). If a domain is listed there, requests to it are automatically approved and the response reviewing step is deferred.
-
-* **Post-approval: approve the response content fetched from the URL**
-
-    This step lets you review the fetched content before it is added to the chat or passed to other tools, which helps prevent prompt injection attacks.
-
-    For example, you might approve a request to fetch content from a well-known site like GitHub.com. But because content such as issue descriptions or comments is user-generated, it could contain harmful content that manipulates the agent.
-
-    You can approve the response once, or automatically approve future responses from the specific URL or domain.
-
-    > [!IMPORTANT]
-    > The post-approval step is not linked to the "Trusted Domains" feature and always requires your review. This is a security measure to prevent issues with untrusted content on a domain that you would otherwise trust.
-
-The `setting(chat.tools.urls.autoApprove)` setting stores your auto-approve URL patterns. The value is either a boolean that enables or disables auto-approval for both requests and responses, or an object with `approveRequest` and `approveResponse` properties for granular control. You can use exact URLs, glob patterns, or wildcards.
+Use `setting(chat.tools.urls.autoApprove)` to store exact URLs, glob patterns, or wildcards. Set a pattern to a boolean to control both steps, or use `approveRequest` and `approveResponse` to control them separately.
 
 URL auto-approval examples:
 
 ```jsonc
 {
-"chat.tools.urls.autoApprove": {
+  "chat.tools.urls.autoApprove": {
     "https://www.example.com": false,
     "https://*.contoso.com/*": true,
     "https://example.com/api/*": {
-        "approveRequest": true,
-        "approveResponse": false
+      "approveRequest": true,
+      "approveResponse": false
     }
+  }
 }
 ```
 
 ## Automatically approve terminal commands
 
-The agent uses a single terminal tool to run [terminal commands](/docs/agents/run/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
+The agent uses one tool to run any [terminal command](/docs/agents/run/tools.md#run-terminal-commands). To avoid granting that tool unrestricted approval, {% data variables.product.prodname_vscode_shortname %} evaluates each command separately.
 
-By default, {% data variables.product.prodname_vscode_shortname %} already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
+By default, common read-only commands run automatically, while risky commands such as `rm` and `del` require approval. Add rules to `setting(chat.tools.terminal.autoApprove)` to change this behavior:
 
-* Set commands to `true` to automatically approve them
-* Set commands to `false` to always require approval
-* Use regular expressions by wrapping patterns in `/` characters
+* Set a command to `true` to auto-approve it.
+* Set a command to `false` to require approval.
+* Wrap a regular expression in `/` characters to match a command pattern.
 
 For example:
 
@@ -186,85 +176,72 @@ For example:
   // Allow `git status` and commands starting with `git show`
   "/^git (status|show\\b.*)$/": true,
 
-  // Block the `del` command
+  // Always require approval for the `del` command
   "del": false,
-  // Block any command containing "dangerous"
+  // Always require approval for commands containing "dangerous"
   "/dangerous/": false
 }
 ```
 
-By default, patterns match against individual subcommands. For a command to be auto-approved, all subcommands must match a `true` entry and must not match a `false` entry.
+A `false` rule requires approval. It does not block the command. To block a terminal tool call, use a [Preview `PreToolUse` hook](/docs/agent-customization/hooks.md#usage-scenarios) that returns `permissionDecision: "deny"`.
 
-For advanced scenarios, use object syntax with the `matchCommandLine` property to match against the full command line instead of individual subcommands.
+By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
+
+To evaluate the full command line instead, use object syntax and set `matchCommandLine` to `true`.
 
 Related settings:
 
-* `setting(chat.tools.terminal.enableAutoApprove)`: turn off terminal command auto-approval entirely, so every command requires manual approval
-* `setting(chat.tools.terminal.blockDetectedFileWrites)` `feature(terminal-block-detected-file-writes)`: when set to `outsideWorkspace` (default), require approval for terminal commands that write files outside your workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active.
-* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` (experimental): ignore the built-in default allow and deny rules, so only the rules you define in `setting(chat.tools.terminal.autoApprove)` apply.
+* Disable `setting(chat.tools.terminal.enableAutoApprove)` to require approval for every command.
+* `setting(chat.tools.terminal.blockDetectedFileWrites)` `feature(terminal-block-detected-file-writes)` defaults to `outsideWorkspace`, which requires approval for detected writes outside the workspace. The OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) is exempt when session-level command approval is active.
+* Enable the experimental `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` setting to ignore the built-in rules and use only your rules. Built-in deny rules are designed to protect against dangerous commands.
 
 > [!CAUTION]
-> Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
+> Terminal auto-approval is a best-effort convenience, not a security boundary. Command detection has these limitations:
 >
-> * {% data variables.product.prodname_vscode_shortname %} uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
-> * {% data variables.product.prodname_vscode_shortname %} uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
-> * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
-> * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
+> * The PowerShell and bash tree-sitter grammars might not identify every subcommand.
+> * zsh and fish commands are parsed with the bash grammar, which can miss syntax differences.
+> * File write detection is limited, and obfuscated commands can evade matching.
 >
-> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling agent sandboxing](#sandbox-agent-commands) or running {% data variables.product.prodname_vscode_shortname %} within a container.
+> If prompt injection is a concern or you work in a high-risk environment, [sandbox agent commands](#sandbox-agent-commands) or run {% data variables.product.prodname_vscode_shortname %} in a container.
 
 ## Sandbox agent commands
 
 > [!NOTE]
 > Agent sandboxing is currently in preview and might further evolve.
 
-For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
-
-Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot agent-host sessions that use the {% data variables.product.prodname_vscode_shortname %} agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
+Agent sandboxing restricts file system and network access for terminal commands, including Copilot agent-host sessions that use the {% data variables.product.prodname_vscode_shortname %} terminal integration. It does not sandbox other agent tools. For the security model and OS-level implementation, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
 
-Sandbox enablement and unrestricted network access are configured independently:
+### Configure the sandbox
 
-* **Sandbox enablement** controls whether agent terminal commands run in the sandbox. On macOS and Linux, use `setting(chat.agent.sandbox.enabled)`, which accepts the following values:
+On macOS and Linux, configure these settings:
 
-    | Value | Description |
-    |-------|-------------|
-    | `off` (default) | Sandboxing is disabled. |
-    | `on` | Sandboxing is enabled with file system and network isolation. All outbound network access is blocked unless domains are explicitly allowed. |
+| Setting | Default | Effect |
+|---|---|---|
+| `setting(chat.agent.sandbox.enabled)` | `off` | Set to `on` to run terminal commands with file system and network isolation. |
+| `setting(chat.agent.sandbox.allowNetwork)` | `false` | Set to `true` to give sandboxed commands unrestricted network access. File system restrictions remain active. |
+| `setting(chat.agent.sandbox.allowAutoApprove)` | `true` | Set to `false` to require the normal terminal approval flow for commands inside the sandbox. |
 
-    The **Sandboxing for terminal** checkbox in the permission picker maps its checked state to these values and updates the setting.
+The **Sandboxing for terminal** checkbox in the permission picker updates `setting(chat.agent.sandbox.enabled)`.
 
-* **Unrestricted network access** controls whether sandboxed commands can reach any network domain. Set `setting(chat.agent.sandbox.allowNetwork)` to `true` to permit all outbound network traffic while keeping file system restrictions in effect. This setting applies only when sandboxing is enabled and defaults to `false`.
+With the default sandbox configuration, terminal commands:
 
-When file system access is restricted, the following rules apply to agent commands:
-
-* Commands have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that {% data variables.product.prodname_vscode_shortname %} adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
-* Commands have write access only to the current working directory and its subdirectories
-* Commands run without the user confirmation prompt
-
-When network access is restricted, the following rules apply to agent commands:
-
-* All outbound network access is blocked unless domains are explicitly allowed.
-* You can configure domain-level exceptions with `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. Denied domains take precedence over allowed domains.
-* When `setting(chat.agent.sandbox.allowNetwork)` is enabled, all outbound network traffic is permitted and domain settings are ignored.
+* Have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that {% data variables.product.prodname_vscode_shortname %} adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
+* Have write access only to the current working directory and its subdirectories.
+* Cannot access the network unless you configure domain access or unrestricted network access.
+* Run without confirmation unless you disable `setting(chat.agent.sandbox.allowAutoApprove)`.
 
 > [!IMPORTANT]
 > If the required OS dependencies for sandboxing are not installed, {% data variables.product.prodname_vscode_shortname %} offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
 
-### Try commands in the sandbox before elevation
-
-By default, when a sandboxed command fails or sandbox restrictions would block it, the agent asks for confirmation to run the command outside the sandbox. This behavior is controlled by the `setting(chat.agent.sandbox.allowUnsandboxedCommands)` setting, which applies only when sandboxing is enabled.
-
-Because the agent attempts the command inside the sandbox first and only surfaces the confirmation to run outside the sandbox when the sandboxed attempt fails, you avoid an elevation prompt for commands that succeed within the sandbox. If you disable this setting, commands that the sandbox blocks are not offered for elevation.
-
 ### Configure file system access
 
-Use the platform-specific file system sandbox setting to control file system access: `setting(chat.agent.sandbox.fileSystem.mac)` on macOS and `setting(chat.agent.sandbox.fileSystem.linux)` on Linux and WSL2.
+Use `setting(chat.agent.sandbox.fileSystem.mac)` on macOS or `setting(chat.agent.sandbox.fileSystem.linux)` on Linux and WSL2 to change file system access.
 
-You can specify allow rules for read and write access, and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` and `allowRead` rules.
+Configure `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` with literal paths. Glob patterns are not supported. Deny rules take precedence over allow rules.
 
-Workspace folders, the sandbox runtime temp folder, and per-command read paths are allowed automatically, so you typically only need `allowRead` to grant access to tool configurations or data outside your workspace.
+Workspace folders, the sandbox runtime temp folder, and per-command read paths are allowed automatically. You typically only need `allowRead` for configuration or data outside the workspace.
 
 ```jsonc
 {
@@ -283,13 +260,18 @@ Workspace folders, the sandbox runtime temp folder, and per-command read paths a
 
 ### Configure network access
 
-You can restrict which domains agent tools (fetch tool, integrated browser) can access by enabling the `setting(chat.agent.networkFilter)` setting. When enabled, network access is controlled by the `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` settings. When both lists are empty, all domains are blocked.
+Sandbox network isolation and the agent network filter work together:
 
-When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, these network rules additionally apply to terminal commands executed by the agent. When `setting(chat.agent.sandbox.allowNetwork)` is on, sandboxed terminal commands can reach any domain while file system restrictions remain in effect.
+| Setting | Applies to | Behavior |
+|---|---|---|
+| `setting(chat.agent.networkFilter)` | Agent tools such as fetch and the integrated browser | When enabled, permits only domains in `setting(chat.agent.allowedNetworkDomains)`. |
+| `setting(chat.agent.allowedNetworkDomains)` | Filtered agent tools and network-isolated terminal commands | Lists permitted domains. An empty list blocks all domains. |
+| `setting(chat.agent.deniedNetworkDomains)` | Filtered agent tools and network-isolated terminal commands | Lists blocked domains and takes precedence over the allow list. |
+| `setting(chat.agent.sandbox.allowNetwork)` | Sandboxed terminal commands | When enabled, permits unrestricted network access for terminal commands and ignores domain lists for those commands. |
 
-Denied domains always take precedence over allowed domains. Both settings support wildcards like `*.example.com`.
+When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is `false`, enable `setting(chat.agent.networkFilter)` and add allowed domains to give terminal commands selective network access. Domain lists support wildcards such as `*.example.com`.
 
-When a sandboxed command is blocked by network restrictions and `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is enabled (default), the agent asks for confirmation to retry the command inside the sandbox with unrestricted network access. The file system restrictions still apply to the retried command. If you disable this setting, the agent instead falls back to the confirmation to run the command outside the sandbox, which is controlled by `setting(chat.agent.sandbox.allowUnsandboxedCommands)`.
+When network restrictions block a sandboxed command, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` controls the fallback. Its default value, `true`, prompts you to retry inside the sandbox with unrestricted network access. File system restrictions remain active.
 
 ```jsonc
 {
@@ -303,22 +285,11 @@ When a sandboxed command is blocked by network restrictions and `setting(chat.ag
 }
 ```
 
-## Frequently asked questions
+### Run commands outside the sandbox
 
-<details>
-<summary>Can I automatically approve all tools and terminal commands?</summary>
+If a command cannot run inside the sandbox, the agent asks for approval to run it outside the sandbox. Disable `setting(chat.agent.sandbox.allowUnsandboxedCommands)` to prevent this elevation option.
 
-You have several options for auto-approving tool calls:
-
-* **Permission level or agent mode**: select **Bypass Approvals** from the [permissions picker](#permission-levels), or select **Autopilot** (available as an agent mode on the Agent Host), to auto-approve all tools for the current session.
-* **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
-
-> [!CAUTION]
-> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/agents/run/security.md) for more details.
->
-> The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
-
-</details>
+The agent tries the command inside the sandbox first, so commands that succeed there do not produce an elevation prompt.
 
 ## Related resources
 

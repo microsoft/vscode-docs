@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to use {% data variables.product.prodname_vscode_shortname %}'s integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
 Keywords:
 - source control

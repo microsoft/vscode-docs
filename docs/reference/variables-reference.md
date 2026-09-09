@@ -1,6 +1,6 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Use variable substitution in {% data variables.product.prodname_vscode %} configuration files, including path values that contain spaces.
 ---
 # Variables reference

@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.136 release",
-      "description": "Finish pull requests with Agent Merge and manage or personalize chat sessions across multi-root workspaces.",
-      "link": "/updates/v1_136",
-      "image": "/assets/updates/1_136/release-highlights.webp"
+      "title": "VS Code 1.137 release",
+      "description": "Watch The Story of VS Code, schedule agent tasks, use Voice Mode, continue quick chats in a workspace, review GitHub issues and pull requests, and help name the VS Code pet.",
+      "link": "/updates/v1_137",
+      "image": "/assets/updates/1_137/release-highlights.webp"
     },
     {
       "type": "documentation",

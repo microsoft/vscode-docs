@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Reference for MCP server configuration format, commands, and settings in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

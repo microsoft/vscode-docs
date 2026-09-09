@@ -1237,6 +1237,7 @@
 { "key": "delete",                "command": "sessions.chatCompositeBar.deleteChat" },
 { "key": "ctrl+shift+]",          "command": "sessions.chatCompositeBar.navigateNextChat" },
 { "key": "ctrl+shift+[",          "command": "sessions.chatCompositeBar.navigatePreviousChat" },
+{ "key": "f2",                    "command": "sessions.chatCompositeBar.renameChat" },
 { "key": "ctrl+shift+t",          "command": "sessions.reopenLastClosedItem" },
 { "key": "ctrl+tab",              "command": "sessions.chatsPicker.quickNavigateNext" },
 { "key": "ctrl+shift+tab",        "command": "sessions.chatsPicker.quickNavigatePrevious" },

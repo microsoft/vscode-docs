@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

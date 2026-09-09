@@ -1,7 +1,7 @@
 ---
 ContentId: 4f0942be-6808-4252-8940-b9e9688792af
 MetaDescription: Developing inside a Container using {% data variables.product.prodname_vscode %} Remote Development
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 ---
 # Dev Containers
 

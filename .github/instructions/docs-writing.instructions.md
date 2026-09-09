@@ -93,6 +93,7 @@ Existence in source code is not proof of public availability. Verify how the fun
 ## Reusable variables
 
 * When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
+* Use existing reusable data variables for product names in new and updated content, including frontmatter. Don't hardcode product names such as VS Code or GitHub Copilot when a matching variable exists.
 * Preserve existing reusable data variables when editing content, including frontmatter. Never replace a product-name variable with its rendered product name, such as replacing `{% data variables.product.prodname_vscode %}` with `Visual Studio Code`.
 
 ## Feature lifecycle markers

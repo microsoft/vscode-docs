@@ -46,16 +46,18 @@
                 "name": "Run agents",
                 "area": "agents/run",
                 "topics": [
-                    ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Automations", "/docs/agents/run/automations"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                    ["AI Security", "/docs/agents/run/security"],
+                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
                     ["Use Tools", "/docs/agents/run/tools"],
                     ["Browser Tools", "/docs/agents/run/browser-tools"],
-                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
-                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Plan Work", "/docs/agents/run/planning"],
                     ["Artifacts", "/docs/agents/run/artifacts"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
-                    ["Plan Work", "/docs/agents/run/planning"],
                     ["Memory", "/docs/agents/run/memory"],
                     ["Subagents", "/docs/agents/run/subagents"],
 
@@ -68,7 +70,7 @@
                         ]
                     }],
 
-                    ["AI Security", "/docs/agents/run/security"]
+                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"]
                 ]
             }],
 
@@ -93,13 +95,15 @@
                 "name": "Tutorials & guides",
                 "area": "agents/guides",
                 "topics": [
-                    ["Customize AI", "/docs/agents/guides/customize-copilot-guide"],
+                    ["Configure AI for your project", "/docs/agents/guides/customize-copilot-guide"],
+                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Delegate Two Tasks Without Mixing Their Changes", "/docs/agents/guides/delegate-two-tasks"],
+                    ["Test Code with AI", "/docs/agents/guides/test-code-with-ai"],
+                    ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Get an Agent Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
                     ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-                    ["Test with AI", "/docs/agents/guides/test-with-copilot"],
-                    ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
-                    ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
-                    ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Work with Jupyter Notebooks using AI", "/docs/agents/guides/notebooks-with-ai"],
                     ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
@@ -112,6 +116,7 @@
                 "topics": [
                     ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
                     ["Settings Reference", "/docs/agents/reference/ai-settings"],
+                    ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                     ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
                     ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
@@ -135,7 +140,7 @@
         "name": "Chat",
         "area": "chat",
         "topics": [
-            ["Chat Basics", "/docs/chat/chat-overview"],
+            ["Chat Interactions", "/docs/chat/chat-overview"],
             ["Inline & Quick Chat", "/docs/chat/inline-chat"],
             ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]

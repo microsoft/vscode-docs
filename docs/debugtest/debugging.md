@@ -1,6 +1,6 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 9/8/2026
+DateApproved: 9/9/2026
 MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including agents, dictation privacy, MCP, and tool approvals.
 ---
 
@@ -312,7 +312,7 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** `feature(assisted-permissions)` and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the {% data variables.copilot.chat_view %}.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** `feature(assisted-permissions)` and **Allow all** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the {% data variables.copilot.chat_view %}.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.

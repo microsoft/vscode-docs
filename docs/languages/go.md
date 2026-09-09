@@ -1,6 +1,6 @@
 ---
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in {% data variables.product.prodname_vscode %}
