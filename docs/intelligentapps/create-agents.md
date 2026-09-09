@@ -6,7 +6,9 @@ MetaDescription: Choose a prompt or hosted agent path in Foundry Toolkit for {% 
 
 # Create agents with the Foundry Toolkit
 
-Choose how to build an agent with Foundry Toolkit for {% data variables.product.prodname_vscode %}. Compare the agent types, then follow the creation guide that fits your scenario.
+Microsoft Foundry Agent Service helps you build, test, and run AI agents that use models and tools to answer questions, retrieve information, and take actions. Foundry supports the agent lifecycle, from experimenting with behavior to evaluation and application integration.
+
+Before you create an agent, choose how much control you need over its logic and runtime. This affects what you configure, what code you maintain, and how you deploy. Use this guide to compare prompt and hosted agents, then choose a creation path in Foundry Toolkit for {% data variables.product.prodname_vscode %}.
 
 ## Choose an agent type
 
