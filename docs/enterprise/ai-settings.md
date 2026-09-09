@@ -16,7 +16,7 @@ Learn how to [deploy policies for {% data variables.product.prodname_vscode_shor
 
 ## Deploy Copilot managed settings
 
-Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}. When you set a managed setting, it maps to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and overrides the corresponding user setting on managed devices.
+Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}. Most managed settings map to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and override the corresponding user setting on managed devices. Runtime-owned settings, such as granular Agent Host permissions, are enforced directly by the Copilot runtime.
 
 Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
 
@@ -78,12 +78,24 @@ Place `managed-settings.json` in the well-known location for each operating syst
 | Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
 | Linux | `/etc/github-copilot/managed-settings.json` |
 
-The file uses the Copilot managed settings shape. The following example disables bypass permissions mode:
+The file uses the Copilot managed settings shape. The following example configures permissions for Copilot sessions that use Agent Host:
 
 ```json
 {
     "permissions": {
-        "disableBypassPermissionsMode": "disable"
+        "disableBypassPermissionsMode": "disable",
+        "allow": [
+            "Read(/src/**)",
+            "Shell(git status)"
+        ],
+        "ask": [
+            "Write(/src/**)",
+            "Shell(git push *)"
+        ],
+        "deny": [
+            "Read(~/.config/secret.txt)",
+            "Write(/.github/workflows/**)"
+        ]
     }
 }
 ```
@@ -101,6 +113,9 @@ The following managed settings are available. Most keys map to a {% data variabl
 | Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
+| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
+| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
+| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
@@ -109,6 +124,20 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
 | `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
 | `telemetry.*` | `CopilotOtel*` | `setting(chat.agentHost.otel.*)` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
+
+### Configure Agent Host permissions
+
+Use `permissions.allow`, `permissions.ask`, and `permissions.deny` to control file, shell, and network operations. These settings apply only to users who receive Copilot enterprise managed settings and to Copilot sessions that use Agent Host.
+
+Permission rules use the following precedence:
+
+* `deny` blocks a matching operation with no approval option.
+* `ask` requires fresh human approval, even when another setting would automatically approve the operation.
+* `allow` lets a matching operation proceed without a prompt.
+
+The rules support `Shell`, `Read`, `Edit` or `Write`, and `Domain` selectors. For paths, `/` represents the workspace root, `~/` represents the user's home directory, and `**` includes nested directories.
+
+For the complete selector grammar, matching behavior, and configuration examples, see the [GitHub Copilot enterprise managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#permissions).
 
 ### Verify applied managed settings
 
