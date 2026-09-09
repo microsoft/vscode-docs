@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: A quick overview of the {% data variables.product.prodname_vscode %} user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface

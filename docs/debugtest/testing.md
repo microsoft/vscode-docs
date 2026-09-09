@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -135,7 +135,7 @@ Use the **Show Output** button in the Test Explorer to view the test output in t
 ![Test Results panel](images/testing/test-results-panel.png)
 
 > [!TIP]
-> Copilot can help you fix failing tests. In the Test Explorer, hover over the tree view, and select the **Fix Test Failure** button (_sparkle_) and Copilot will suggest a fix for the failing test. Alternatively, enter the `/fixTestFailure` command in Copilot Chat.
+> Copilot can help you fix failing tests. In the Test Explorer, hover over the tree view, and select the **Fix Test Failure** button (_sparkle_) and Copilot will suggest a fix for the failing test.
 
 ![Screenshot showing the Test Explorer, highlighting the "Fix Test Failure" button, and the editor that shows a suggestion from Copilot on how to fix the failing test.](images/testing/copilot-fix-test-failure.png)
 

@@ -1,91 +1,103 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 9/2/2026
-MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to edit Jupyter notebooks with AI.
+DateApproved: 9/9/2026
+MetaDescription: Create, edit, run, and analyze Jupyter notebooks with AI in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Edit Jupyter notebooks with AI in {% data variables.product.prodname_vscode_shortname %}
+# Work with Jupyter notebooks using AI in {% data variables.product.prodname_vscode_shortname %}
 
-{% data variables.product.prodname_vscode %} supports working with [Jupyter notebooks](/docs/datascience/jupyter-notebooks.md) natively, and through [Python code files](/docs/python/jupyter-support-py.md). The AI features in {% data variables.product.prodname_vscode_shortname %} can help you in creating and editing notebooks, as well as analyzing and visualizing data. In this article, you learn how to use the AI features in {% data variables.product.prodname_vscode_shortname %} to work with Jupyter notebooks.
+Use AI throughout your notebook workflow. An agent can create a Jupyter notebook, edit and run cells, inspect outputs, and iterate on errors. For focused changes, use inline chat directly in a notebook cell.
 
-## Scaffold a new notebook
+This guide shows how to use AI for data analysis in a Jupyter notebook while you review the generated code and control when it runs.
 
-To accelerate getting started with a new notebook, you can use the AI features in {% data variables.product.prodname_vscode_shortname %} to scaffold a new notebook. Use natural language to provide details about what functionality you want to add and which libraries you want to use.
+## Prerequisites
 
-To create a new notebook with AI, choose either of these options:
+* Set up [{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
 
-* Type the `/newNotebook` slash command in the chat input box, followed by the details of the notebook to create.
+* Install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). To learn how to configure a Python environment and select a kernel, see [Jupyter notebooks in {% data variables.product.prodname_vscode_shortname %}](/docs/datascience/jupyter-notebooks.md).
 
-* Choose [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) and type a natural language prompt asking to create a new notebook.
+* Open a [workspace that you trust](/docs/editing/workspaces/workspace-trust.md). Running a notebook cell executes code in the selected kernel and can access workspace files.
 
-See the [Prompt examples](/docs/agents/guides/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
+## Create a notebook with an agent
 
-The following screenshot shows how the output from the agent to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
+Start with the outcome you want instead of specifying individual cells. The agent plans the notebook, creates Markdown and code cells, and can run the code to validate the result.
 
-![Screenshot that shows a new notebook created by the agent that reads the 'housing.csv' file in the workspace.](../images/notebooks-with-ai/agent-mode-create-new-notebook.png)
+1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) (`kb(workbench.action.chat.open)`) and start a **Local** agent session.
 
-Notice that a new `.ipynb` file is created, which contains Markdown and code cells for reading the CSV file and displaying the first few rows of the data.
+1. Add your data file as context, then describe the analysis and output you want.
 
-You can now further edit the notebook manually, or use AI to make inline edits or send follow-up chat requests to modify the notebook.
+    ```prompt
+    Create a Jupyter notebook that uses pandas and seaborn to analyze #housing.csv. Clean the data, summarize key metrics, and visualize the price distribution.
+    ```
 
-## Make inline edits in notebook cells
+1. Review any requested tool and command approvals before you continue. If the notebook does not have a kernel, follow the prompts to select or create a Python environment.
 
-If you already have a notebook and want to make some inline changes in a cell, you can use inline chat, like you would in a code file.
+The agent creates an `.ipynb` file that you can continue to refine in the same session. You can also start your prompt with `/newNotebook` to explicitly request a new Jupyter notebook.
 
-To make inline edits in a cell, press `kb(notebook.cell.chat.start)`. This opens the inline {% data variables.copilot.chat_view %}, where you can enter your prompt.
+## Iterate by editing and running cells
 
-> [!TIP]
-> You can reference kernel variables in your chat prompt. Type `#` followed by the variable name to reference it. For example, if you have a variable named `df`, you can type `#df` in your chat prompt to reference it.
+Agents have notebook-specific tools for understanding the cell structure, editing cells, running code, and reading cell outputs. This edit-run loop lets the agent validate the analysis and respond to runtime errors instead of only generating a static notebook.
 
-![Screenshot that shows the inline {% data variables.copilot.chat_view %} in a notebook cell.](../images/notebooks-with-ai/notebook-inline-chat.png)
+Ask the agent to continue from the current notebook:
 
-When the response is generated, notice that the code is updated in the notebook cell. You can **Accept** the changes and decide to **Accept and Run** the cell changes.
+```prompt
+Run the notebook from top to bottom. Fix any errors you find, then explain the main result.
+```
 
-To generate a new cell with AI, select the **Generate** button in the notebook view, or don't focus on a cell and press `kb(notebook.cell.chat.start)` to open the inline {% data variables.copilot.chat_view %} for a new cell.
+You can also request a specific revision:
 
-## Make edits across multiple cells
+```prompt
+Add a section that identifies outliers, explains how they affect the analysis, and compares the results before and after removing them.
+```
 
-To make larger edits, across multiple cells, you can switch to use [agents](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the {% data variables.copilot.chat_view %}. Provide a prompt to request changes to the notebook and the agent will iterate through the tasks to implement the changes.
+Keep the notebook editor open to review cell changes and outputs as the agent works. Configure agent permissions to control which tool and command invocations require approval. Learn more about [agent approvals](/docs/agents/run/approvals.md).
 
-![Screenshot that shows the response from chat to the prompt 'Plot a graph of the price distribution'.](../images/notebooks-with-ai/notebook-agent-mode-plot-prices.png)
+<!-- TODO: Add a screenshot showing an agent editing and running notebook cells in the current UI. -->
 
-Notice that you can use the overlay controls to navigate between the different edit suggestions, and to keep or undo the changes.
+## Add notebook context to a prompt
 
-## Ask questions about notebook content
+Give the agent notebook-specific context when a request depends on the current kernel state or a cell result.
 
-You can use the chat interface to ask questions about the content of your notebook. This is useful for getting explanations of code, data, or visualizations. You can add extra context to your chat request, such as the cell output, graphs, or errors.
+### Add a kernel variable
 
-The following example shows how to ask questions about a visualization in a notebook.
+With the notebook active, type `#` in the chat input and select a kernel variable from the suggestions. The selected variable becomes available as context for your request.
 
-1. Select `...` next to the graph, and select **Add Cell Output to Chat** to add the chart as context to your chat request.
+For example, add the `df` variable and enter:
 
-    ![Screenshot that shows the context menu for a graph in a notebook cell.](../images/notebooks-with-ai/notebook-ask-mode-add-cell-output.png)
+```prompt
+Check this DataFrame for missing values and recommend a cleaning strategy.
+```
 
-1. Enter the prompt *Explain this chart* in the chat input field.
+### Add a cell output
 
-    Notice that you get a detailed explanation of the chart.
+From the cell output toolbar, select **Add Cell Output to Chat** to attach a supported output. You can then ask the agent to explain a chart, diagnose an error, or update the notebook based on the result.
 
-    ![Screenshot that shows the response from chat to the prompt 'Explain this chart'.](../images/notebooks-with-ai/notebook-ask-mode-explain-chart.png)
+```prompt
+Explain the outliers in this chart and update the analysis to investigate them.
+```
 
-## Perform data analysis and visualization
+<!-- TODO: Add a screenshot showing Add Cell Output to Chat in the current notebook UI. -->
 
-You can do a full data analysis and visualization notebook of a dataset by using agents in chat. The agent analyzes the dataset, and then scaffolds a new notebook, implements the code for performing the data analysis, and runs the cells to process and visualize the data. As needed, the agent invokes relevant tools and terminal commands to complete its tasks.
+## Make focused cell changes with inline chat
 
-For example, to perform a data analysis of the housing dataset:
+Use inline chat when you want to change one cell without starting a broader agent workflow.
 
-1. Select [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) from the agent picker in the {% data variables.copilot.chat_view %}.
+1. Place the cursor in a cell or select the code you want to change.
 
-1. Enter the following prompt in the chat input field: *Perform data analysis of the data in #housing.csv*.
+1. Press `kb(inlinechat.start)` and describe the change.
 
-    Notice that the agent iterates through the different tasks. When needed, approve the tool and command invocations.
-1. The result is a new notebook with a complete data analysis of the dataset, including data cleaning, data visualization, and statistical analysis.
+1. Review the suggested diff. Select **Accept and Run** to apply the change and execute the cell in one step.
 
-    ![Screenshot that shows the response from chat to the prompt 'Perform data analysis of the data in housing.csv'.](../images/notebooks-with-ai/notebook-agent-mode-data-analysis.png)
+To generate a new cell, select **Generate** between cells or press `kb(notebook.cell.chat.start)` when a cell editor is not focused. The **Generate** action is experimental and is controlled by the `setting(notebook.experimental.generate)` setting.
 
-You can now further edit the notebook manually, or use AI to make inline edits or send follow-up chat requests to modify the notebook.
+<!-- TODO: Add a screenshot showing inline chat editing an existing notebook cell in the current UI. -->
+
+## Follow cell execution (Experimental)
+
+To keep the cell that an agent is running in view, enable the `setting(github.copilot.chat.notebook.followCellExecution.enabled)` setting. After the agent starts to run cells, use the pin action in the notebook toolbar to pause or resume following the current execution.
 
 ## Next steps
 
 * [Learn more about Jupyter notebooks in {% data variables.product.prodname_vscode_shortname %}](/docs/datascience/jupyter-notebooks.md)
-* [Learn more about the AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/copilot/overview.md)
-* [Learn more about chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
+* [Add context to chat](/docs/chat/copilot-chat-context.md)
+* [Explore prompt examples for Jupyter notebooks](/docs/agents/guides/prompt-examples.md#working-with-jupyter-notebooks)

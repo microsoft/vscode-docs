@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in {% data variables.product.prodname_vscode %} with logs, diagnostics, and debugging tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -14,6 +14,8 @@ Keywords:
 # Troubleshoot AI in {% data variables.product.prodname_vscode %}
 
 This article covers diagnostic tools and techniques for troubleshooting AI-related issues in {% data variables.product.prodname_vscode_shortname %}. Use these tools to identify problems with network connectivity, customization files, and AI responses.
+
+If an agent is responding but follows the wrong approach, repeats an unsuccessful action, or changes more than expected, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md).
 
 ## View logs for GitHub Copilot
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how agents in {% data variables.product.prodname_vscode_shortname %} use the memory tool to retain context, learn preferences, and improve across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

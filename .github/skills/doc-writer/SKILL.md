@@ -6,7 +6,7 @@ argument-hint: 'Feature to document, or a link to the relevant issue/PR.'
 
 # Document a Feature
 
-Help document a new or updated VS Code feature in the project documentation (the `docs/` folder). This skill works in two phases: it first **researches the feature and proposes a documentation plan**, then implements the changes **only after you approve**. It is acceptable to conclude that no documentation update is needed.
+Help document a new or updated VS Code feature in the project documentation (the `docs/` folder) and keep its required navigation metadata current. This skill works in two phases: it first **researches the feature and proposes a documentation plan**, then implements the changes **only after you approve**. It is acceptable to conclude that no documentation update is needed.
 
 ## When to Use
 
@@ -24,7 +24,7 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 
 ## Guardrails
 
-* **Docs only.** Limit changes to the `docs/` folder. Do **not** update release notes or API docs (`api/`) unless the user explicitly asks.
+* **Docs and sitemap only.** Limit content changes to the `docs/` folder. When you add an article or change an article URL, update `build/sitemap.xml` in the same change. Do **not** update release notes or API docs (`api/`) unless the user explicitly asks.
 * **Public functionality only.** Do not add or retain documentation for internal builds, dogfood-only functionality, hidden settings or commands, source-only implementation, or manually settable internal feature flags.
 * **Never edit `enterprise/policies.md`.** This file is generated from the enterprise policy definitions in the VS Code source. Edit `enterprise/policies-template.md` instead, which is used to regenerate `policies.md`.
 * **Screenshots are human work.** When a screenshot needs to be added or updated, insert a `TODO` comment in the doc for a human to capture and insert it later — do not fabricate image references.
@@ -45,10 +45,10 @@ Do not modify any files in this phase.
    | Enterprise policies | `microsoft/vscode` (policy definitions) |
 
 4. **Verify public availability.** Check every feature, setting, and command against the public product channel intended for the article. Public Preview, Experimental, and Insiders functionality qualifies when labeled clearly. Source-code existence or manual configurability is not enough. Inspect registration metadata, product quality gates, feature flags, and the relevant public release. Treat metadata such as `included: false` as internal unless product evidence shows otherwise. If functionality is not public, do not document it. During an audit or review, propose removing existing coverage.
-5. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
+5. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section. Include `docs/toc.json` and `build/sitemap.xml` in the plan when you add an article or change an article URL.
 6. **Present the plan.** Summarize:
    * The primary persona, reader intent, and article purpose.
-   * Which `docs/` files you propose to create or change, and a short description of each edit.
+   * Which `docs/` files and required navigation metadata you propose to create or change, and a short description of each edit.
    * Any `TODO` screenshot placeholders that will be needed.
    * Open questions or assumptions.
 
@@ -61,6 +61,6 @@ Once the user approves the plan:
 
 1. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
 2. Add `TODO` comments where screenshots need to be captured by a human.
-3. Respect the guardrails above (docs only; no release notes/API docs unless asked; never edit generated `policies.md`).
+3. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
 4. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
 5. Summarize the changes you made and call out any remaining `TODO`s for the user.
