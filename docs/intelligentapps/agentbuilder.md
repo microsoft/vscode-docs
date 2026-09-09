@@ -5,7 +5,9 @@ MetaDescription: Create, test, and version prompt agents in Foundry Toolkit with
 ---
 # Build prompt agents with Agent Builder in Foundry Toolkit
 
-Use Agent Builder in Foundry Toolkit for {% data variables.product.prodname_vscode %} to configure, test, and version a prompt agent. A prompt agent combines a model, instructions, and tools. You can test it in the playground, review its conversations, and generate client code without creating a hosted-agent project.
+Prompt agents in Microsoft Foundry combine a model, instructions, and tools to carry out a task. Instructions guide the agent's behavior, and tools connect it to information and actions outside the model. Use this approach when instructions and supported tools meet your needs without a custom agent runtime.
+
+Agent Builder in Foundry Toolkit for {% data variables.product.prodname_vscode %} lets you develop that configuration in a visual editor. You can test conversations, refine instructions and tools, and save useful changes as versions. This guide takes you from creating a prompt agent to reviewing its behavior, setting up evaluation, and generating client code for application integration.
 
 This guide starts with prompt agents saved in Microsoft Foundry. Agent Builder also supports [locally stored prompts](#work-with-local-prompts), which have different tool, evaluation, and storage options. To choose a code-based approach instead, see [Create agents with the Foundry Toolkit](/docs/intelligentapps/create-agents.md).
 
