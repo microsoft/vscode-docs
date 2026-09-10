@@ -11,9 +11,6 @@ Hosted agents run your agent code in Microsoft Foundry Agent Service. Choose a h
 
 In this article, you use Foundry Toolkit for {% data variables.product.prodname_vscode %} to create a Python Agent Framework sample, test it locally with [Agent Inspector](/docs/intelligentapps/agent-inspector.md), and deploy its source code to Foundry. The sample uses the Responses protocol for conversational requests. After deployment, you test the remote agent and inspect its status, versions, and logs.
 
-> [!NOTE]
-> Hosted agents are in public preview. The Toolkit's hosted-agent tracing and evaluation features are generally available, but related service and CLI experiences can have separate preview limits. See the [Foundry Toolkit release notes](https://microsoft.github.io/foundry-dev-tools/) and [hosted-agent service documentation](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents) for availability and service limits.
-
 ## Prerequisites
 
 For the Python walkthrough, prepare:
