@@ -257,7 +257,7 @@ The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hell
 Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
 
 1. A regular expression that is matched against the value of a variable, or the empty string when the variable cannot be resolved.
-2. A "format string" that allows to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
+2. A "format string" that allows you to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
 3. Options that are passed to the regular expression.
 
 The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
