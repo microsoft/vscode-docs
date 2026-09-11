@@ -56,6 +56,9 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assiste
 
 Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. Because sandboxing applies only to terminal commands, use tool and URL approvals to control other actions with **Manual permissions**.
 
+> [!NOTE]
+> Organizations can enforce `allow`, `ask`, and `deny` rules for Copilot sessions that use Agent Host through [Copilot enterprise managed settings](/docs/enterprise/ai-settings.md#configure-agent-host-permissions). Managed rules take precedence over the approval settings that you configure.
+
 > [!IMPORTANT]
 > **Assisted permissions** reduces approval interruptions but does not replace your judgment. The model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm.
 
