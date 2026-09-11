@@ -1,6 +1,6 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
-DateApproved: 9/2/2026
+DateApproved: 9/16/2026
 MetaDescription: Configure accessibility in {% data variables.product.prodname_vscode %} with screen reader mode, keyboard navigation, visual aids, and audio cues.
 ---
 # Accessibility

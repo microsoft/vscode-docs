@@ -1,6 +1,6 @@
 ---
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: Discover, add, update, disable and uninstall {% data variables.product.prodname_vscode %} extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace

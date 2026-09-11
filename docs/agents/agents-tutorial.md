@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

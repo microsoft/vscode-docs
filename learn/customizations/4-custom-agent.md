@@ -1,6 +1,6 @@
 ---
 ContentId: f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to create and use custom agents with GitHub Copilot to define AI roles, maintain consistency, and build specialized workflows in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

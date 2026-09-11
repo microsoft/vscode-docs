@@ -1,6 +1,6 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c002
-DateApproved: 03/30/2026
+DateApproved: 9/16/2026
 MetaDescription: Manage approvals, autonomy, and context budget for coding agents in VS Code, including scoped approvals and compaction.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

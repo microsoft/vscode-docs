@@ -1,6 +1,6 @@
 ---
 ContentId: d2c6da4d-350d-4007-8b28-7277114e3e23
-DateApproved: 08/18/2026
+DateApproved: 9/16/2026
 MetaDescription: Build and run a Spring Boot application in Visual Studio Code with Java extensions, Maven, and the Spring Boot Dashboard.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

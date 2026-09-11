@@ -1,6 +1,6 @@
 ---
 ContentId: 76a5b461-bcbd-474f-9638-d4533c51a4e3
-DateApproved: 9/8/2026
+DateApproved: 9/16/2026
 FeatureStatus: automations
 MetaDescription: Schedule recurring agent tasks in the {% data variables.copilot.agents_window %}, review run results, and manage automations.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png

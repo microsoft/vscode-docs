@@ -1,6 +1,6 @@
 ---
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: {% data variables.product.prodname_vscode %} provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. {% data variables.product.prodname_vscode %} is available for macOS, Linux, and Windows.
 ---
 # Why did we build {% data variables.product.prodname_vscode %}?

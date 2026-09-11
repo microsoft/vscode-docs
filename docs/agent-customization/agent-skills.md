@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 1e2d3c4b-5a6f-4d7e-8c9b-0a1b2c3d4e06
-DateApproved: 05/21/2026
+DateApproved: 9/16/2026
 MetaDescription: Start Claude and Codex agent sessions in VS Code and choose local or cloud workflows for coding tasks.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

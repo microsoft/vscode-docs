@@ -1,6 +1,6 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c004
-DateApproved: 08/13/2026
+DateApproved: 9/16/2026
 MetaDescription: Manage agent sessions in VS Code across local, Copilot, and cloud execution modes, and choose the right session target.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

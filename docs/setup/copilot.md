@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

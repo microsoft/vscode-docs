@@ -1,6 +1,6 @@
 ---
 ContentId: 77f594c1-b808-4421-9729-d6b17dd16e16
-DateApproved: 09/08/2026
+DateApproved: 9/16/2026
 MetaDescription: Recover an AI agent session in {% data variables.product.prodname_vscode_shortname %} by steering requests, restoring checkpoints, and resetting context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

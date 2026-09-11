@@ -1,6 +1,6 @@
 ---
 ContentId: 5d7a2a1e-9f1c-4d2a-8c6a-1c2a8f7d4a01
-DateApproved: 05/21/2026
+DateApproved: 9/16/2026
 MetaDescription: Practice choosing agent tools, tool sets, approvals, and sandboxing settings for focused AI workflows in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
