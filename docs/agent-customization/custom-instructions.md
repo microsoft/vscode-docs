@@ -413,7 +413,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 ### Why is my instructions file not being applied?
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded instruction files and any errors. In the {% data variables.copilot.chat_view %}, open the context menu and select **Diagnostics**. Learn more about [checking customization diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics).
 
 If your instructions file is not being applied, check the following:
 
@@ -423,7 +423,7 @@ If your instructions file is not being applied, check the following:
 
 * Check that the relevant settings are enabled: `setting(chat.includeApplyingInstructions)` for pattern-based instructions, `setting(chat.includeReferencedInstructions)` for instructions referenced via Markdown links, `setting(chat.useAgentsMdFile)` for `AGENTS.md` files.
 
-For advanced diagnostics, [check language model requests in the Chat Debug view](https://github.com/microsoft/vscode/wiki/Copilot-Issues#language-model-requests-and-responses) or [debug the `applyTo` matching logic](https://github.com/microsoft/vscode/wiki/Copilot-Issues#custom-instructions-logs).
+For advanced diagnostics, [inspect the instructions sent in the model request](/docs/agents/agent-troubleshooting/chat-debug-view.md#instructions-or-a-prompt-file-are-not-applied).
 
 ### How do I know where a custom instruction file comes from?
 
@@ -434,7 +434,7 @@ To identify the source of a custom instruction file:
 1. Select **Chat: Configure Instructions** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the instruction file in the list. The source location is displayed in a tooltip.
 
-Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+Use the chat customization diagnostics view to see all loaded instruction files and any errors. In the {% data variables.copilot.chat_view %}, open the context menu and select **Diagnostics**. Learn more about [checking customization diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics).
 
 ## Related resources
 

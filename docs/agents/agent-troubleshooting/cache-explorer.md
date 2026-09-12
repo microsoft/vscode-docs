@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3d1c2f-6a94-4e7b-9f21-5c8d0a1e2b34
 DateApproved: 9/2/2026
-MetaDescription: Use the Cache Explorer view in {% data variables.product.prodname_vscode %} to diagnose prompt cache misses and reduce token cost and latency in AI chat sessions.
+MetaDescription: Diagnose prompt cache misses in {% data variables.product.prodname_vscode %} and investigate whether cache reuse contributes to AI latency and token usage.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - prompt caching
@@ -12,55 +12,75 @@ Keywords:
 ---
 # Diagnose prompt caching with the Cache Explorer
 
-When you send a prompt to the AI in {% data variables.product.prodname_vscode %}, the language model provider can reuse the parts of your request that match a previous request. This is called prompt caching. The Cache Explorer view helps you diagnose prompt cache misses by comparing consecutive model requests in a chat session, which helps you reduce token cost and latency.
+Some language model providers can reuse an unchanged prefix from an earlier request instead of processing those input tokens again. The Cache Explorer compares consecutive model requests in a chat session to help you investigate whether changes to that prefix contribute to higher latency or token usage.
 
-The Cache Explorer is one of the views in the [Agent Debug Logs panel](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel).
+Use the Cache Explorer after the Agent Debug Logs Summary view reports low cache reuse together with unexpected duration or input token usage. For general agent failures, missing context, or tool errors, start with [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md).
 
-## Why prompt caching matters
+## Understand prompt caching
 
-Prompt caching lets a model provider reuse the prefix of a request that matches a previous one. When the beginning of a request is identical to the previous request, the provider serves that portion from cache instead of processing it again. A higher cache hit rate reduces both latency and token cost.
+Prompt caching is provider and model dependent. When it is supported, the provider might reuse the beginning of a request that matches cached content. A change early in the request can reduce how much of that prefix is reusable.
 
-The cache only applies to the matching prefix of a request. As soon as the content of two consecutive requests diverges, everything after that point is a cache miss. Small changes early in the prompt, such as a reordered tool definition or a modified instruction, break the cache for the rest of the request. The Cache Explorer pinpoints exactly where the prompt prefix diverges, which helps you understand and address a low cache hit rate.
+The Cache Explorer shows a diff between consecutive requests and identifies their first divergence. The diff helps explain a reported cache metric, but it does not prove how the model provider processed or billed the request.
+
+> [!IMPORTANT]
+> Do not remove necessary instructions, tools, or context only to increase cache reuse. Response quality and task correctness take priority over the cache metric.
+
+## Before you start
+
+To make the comparison useful:
+
+* Use a session with at least two model requests.
+* Open the Agent Debug Logs Summary view and confirm that cache reuse is low for a request that also has unexpected duration or input token usage.
+* Compare requests from the same session. Keep the model and task comparable when you verify a change.
+
+If the Summary view does not report cache information, the selected model or provider might not expose it. Use the Logs view to investigate request duration, errors, and tool calls instead.
 
 ## Open the Cache Explorer
 
-1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and selecting **Show Agent Debug Logs**.
-
-1. Select the session description in the breadcrumb at the top to go to the Summary view.
-
-1. Select **Cache Explorer** to open the Cache Explorer view for the selected session.
+1. Open the Agent Debug Logs panel by selecting the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and selecting **Show Agent Debug Logs**.
+1. Select the session description in the breadcrumb to open the Summary view.
+1. Select **Cache Explorer**.
 
 ![Screenshot showing the Cache Explorer view in Agent Logs, with a side-by-side diff of two model requests.](../images/cache-explorer/cache-explorer.png)
 
-## Read the Cache Explorer
+## Read the comparison
 
-The Cache Explorer has two panels:
+The side panel lists model turns grouped by user request. Each turn can show the cache hit percentage, duration, model name, and timestamp. Select a turn to compare its request with the preceding request.
 
-* The side panel lists all model turns in the session, grouped by user request. Each turn shows the cache hit percentage, duration, model name, and timestamp. Select a turn to compare it against the previous turn.
-* The main content shows a side-by-side prefix diff between the current request and the previous request.
+The main area contains:
 
-The main content area includes the following information:
+* **Cache performance**: The reported cache percentage and the number of reused input tokens.
+* **Prompt signature**: A summary of request components, such as system instructions, tool definitions, and messages. The first divergence marks where the consecutive requests stop matching.
+* **Components**: Expandable text diffs for the request components.
 
-* **Cache performance**: the cache hit percentage and the number of input tokens reused out of the total.
-* **Prompt signature**: a visual summary of each component in the request, such as system instructions, tool definitions, and messages, with color-coded status indicators. The first divergence point marks where the prompt cache breaks.
-* **Components**: expandable sections for system instructions, tool definitions, and individual messages that show the text-level diff between the two requests.
+If a turn has no preceding model request, there is no consecutive request for the Cache Explorer to compare.
 
-To find the cause of a cache miss, locate the first divergence point in the prompt signature, then expand the corresponding component to see the exact text that changed between the two requests.
+## Investigate a cache miss
 
-## Improve your cache hit rate
+1. Select a turn with low reported cache reuse and unexpected duration or input token usage.
+1. Find the first divergence in the prompt signature.
+1. Expand that component and identify what changed.
+1. Decide whether the change was necessary and under your control.
+1. Make one justified adjustment.
+1. Start a new session with the adjusted configuration and repeat the same two-request sequence.
+1. Compare the second request's cache metric, duration, input token usage, and response quality. Keep the adjustment only if the overall result improves.
 
-Prompt caching works best when the early parts of your requests stay stable across turns. Use the following practices to keep the prompt prefix consistent:
+For example, suppose the first divergence is in the tool definitions because you enabled an MCP server between turns. If the server is required for the task, keep it and accept the lower reuse. If it is not required, choose your tools before starting a new session and repeat the same two-request sequence. A change in the diff is evidence about the request structure, not proof that caching caused all observed latency.
 
-* **Lock in settings before you start**: Switching the model, reasoning effort, context size, or the enabled tools and MCP servers during a session rebuilds the cache. Choose them upfront, or use auto model selection, which switches models only at cache boundaries.
-* **Keep instructions stable**: Changing instructions files or custom agent definitions mid-session breaks the cache. For more information, see the [context engineering guide](/docs/agents/guides/context-engineering-guide.md).
-* **Add volatile context late**: Place content that changes often, such as file attachments or terminal output, later in the conversation.
-* **Isolate exploration in subagents**: Run research in a [subagent](/docs/agents/run/subagents.md) to keep the parent session prompt stable.
-* **Start fresh after a break**: Caches expire after inactivity. Start a new session or run `/compact` to rebuild from a short summary instead of the full history.
+## Keep request context stable
 
-## Related content
+The following practices can reduce unnecessary changes between turns:
+
+* **Choose session options before starting**: Select the model, reasoning effort, context size, and required tools before the first request when possible.
+* **Keep shared instructions stable**: Avoid editing instructions files or custom agent definitions while comparing turns. For guidance, see the [context engineering guide](/docs/agents/guides/context-engineering-guide.md).
+* **Attach only relevant context**: Repeatedly adding or replacing attachments changes the request. Prefer focused context that the task needs.
+* **Isolate independent research**: Use a [subagent](/docs/agents/run/subagents.md) for a separate research task when keeping that exploration out of the parent conversation improves clarity.
+* **Reset long conversations intentionally**: Start a new session or use `/compact` when accumulated history no longer helps the task.
+
+Some request components are assembled by {% data variables.product.prodname_vscode_shortname %}, extensions, or the model provider and are not directly controllable. If the first divergence is outside your configuration, use the comparison as diagnostic evidence rather than attempting to rewrite your prompt around it.
+
+## Related resources
 
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
 * [Optimize your AI usage](/docs/agents/guides/optimize-usage.md)
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
-* [OpenTelemetry monitoring for agents](/docs/agents/guides/monitoring-agents.md)
-* [Optimizing your AI usage to maximize efficiency and reduce cost](https://docs.github.com/en/copilot/tutorials/optimize-ai-usage)
