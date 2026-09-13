@@ -1433,7 +1433,7 @@ In addition to a title, commands can also define icons that VS Code will show in
 
 ## contributes.taskDefinitions
 
-Contributes and defines an object literal structure that allows to uniquely identify a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional properties. For example a task definition for a task representing a script in a package.json file looks like this:
+Contributes and defines an object literal structure that allows uniquely identifying a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional properties. For example a task definition for a task representing a script in a package.json file looks like this:
 
 ```json
 {
