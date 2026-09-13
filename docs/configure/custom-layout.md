@@ -18,12 +18,14 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 
 `feature(modern-ui)`
 
-Use layout density to control the spacing around major parts of the editor window. First, enable `setting(workbench.experimental.modernUI)`. Then, open the **Settings** editor, select **Layout Density**, and choose one of these options:
+Use layout density to control the spacing around major parts of the editor window. First, enable `setting(workbench.experimental.modernUI)`. Then, select the **Customize Layout** control in the title bar and choose an option under **Layout Density**:
 
 * **Default**: use the standard spacing between and within panels.
 * **Compact**: remove spacing between panels and reduce the spacing within panels.
 
-You can also configure the density with `setting(window.density.layout)`.
+Your selection applies immediately and persists when you restart {% data variables.product.prodname_vscode_shortname %}. To reset the density to **Default**, along with the other layout settings, select **Restore Defaults** in **Customize Layout**.
+
+You can also configure the density in the Settings editor with `setting(window.density.layout)`.
 
 ### Primary Side Bar
 

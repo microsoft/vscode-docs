@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Improve productivity in {% data variables.product.prodname_vscode %} with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
 # {% data variables.product.prodname_vscode %} tips and tricks
@@ -885,13 +885,11 @@ From the **Source Control** view, select a file to open the diff editor. Alterna
 
 #### Views
 
-The default view for diffs is the **side by side view**.
+Diffs use the **Automatic** layout by default. This layout shows changes side by side when there is enough space and switches to inline when the editor is narrow.
 
-Toggle **inline view** by selecting the **More Actions** (...) button in the top right, and then selecting **Inline View**.
+To choose a layout, select **More Actions** (**...**) > **Diff View**, and then select **Inline**, **Side by Side**, or **Automatic**.
 
-![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](../images/tips-and-tricks/mdiff-switch-to-inline.png)
-
-If you prefer to have the inline view as the default, configure the `"diffEditor.renderSideBySide": false` setting.
+Learn more about [choosing a diff layout](/docs/sourcecontrol/staging-commits.md#choose-a-diff-layout) and configuring its behavior.
 
 #### Accessible Diff Viewer
 

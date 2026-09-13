@@ -1,7 +1,7 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 9/2/2026
-MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with partial staging, diff review, commit message tools, amend and undo actions, and AI assistance.
+DateApproved: 9/9/2026
+MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with staging, diff review, amend, undo, and AI tools.
 Keywords:
 - source control
 - scm
@@ -176,24 +176,32 @@ Discarded changes are moved to the Recycle Bin (Windows) or Trash (macOS/Linux),
 
 ## Review changes with the diff editor
 
-The diff editor shows what changed in your files. It displays side-by-side comparisons of the original and modified versions. The diff editor can open in side-by-side or inline view.
+The diff editor shows what changed in your files by comparing the original and modified versions. It can show changes in a side-by-side or inline layout.
 
 To open the diff editor, select any file in the Source Control view **Changes** or **Staged Changes** lists to see the changes for that file versus the last committed version.
 
 > [!TIP]
 > For large files, collapse the unchanged sections by selecting the **Collapse Unchanged Regions** button in the diff editor toolbar. This helps you focus on the actual changes. You can also quickly navigate between changes using the **Next Change** and **Previous Change** buttons.
 
-### Side-by-side vs inline view
+### Choose a diff layout
 
-By default, the diff editor shows a side-by-side comparison with the original file on the left and your changes on the right.
+By default, the diff editor uses the **Automatic** layout. It shows a side-by-side comparison when there is enough space and switches to inline when the editor is narrow.
+
+To choose a layout, select **More Actions** (**...**) > **Diff View**, and then select one of these options:
+
+* **Inline**: shows changes within one editor.
+* **Side by Side**: shows the original file on the left and your changes on the right.
+* **Automatic**: switches between side-by-side and inline based on the editor width.
+
+The following example shows a side-by-side comparison:
 
 ![Screenshot of the Diff Editor showing side-by-side changes between file versions.](images/staging-commits/diff-editor.png)
 
-Toggle to inline view by selecting **More Actions** (**...**) > **Inline View** in the diff editor toolbar to view changes within one editor.
+The inline layout shows the changes within one editor:
 
 ![Screenshot of the Diff Editor showing inline changes between file versions.](images/staging-commits/diff-editor-inline.png)
 
-Configure your preferred default view with the `setting(diffEditor.renderSideBySide)` setting.
+The default width threshold for the **Automatic** layout is 900 pixels. Configure it with `setting(diffEditor.renderSideBySideInlineBreakpoint)`. You can also configure the underlying layout behavior directly with `setting(diffEditor.renderSideBySide)` and `setting(diffEditor.useInlineViewWhenSpaceIsLimited)`.
 
 ### Stage and revert from the diff editor
 

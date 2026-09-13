@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to configure and manage {% data variables.product.prodname_vscode %} in enterprise environments, including policies, extensions, AI settings, and network configuration.
 ---
 

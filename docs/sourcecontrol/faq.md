@@ -1,7 +1,7 @@
 ---
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Find answers about Git clients, source control providers, SSH authentication, and GitHub Enterprise support in {% data variables.product.prodname_vscode %}.
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 Keywords:
 - source control
 - scm

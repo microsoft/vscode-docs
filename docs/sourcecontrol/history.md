@@ -1,7 +1,7 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 9/2/2026
-MetaDescription: Inspect Git commits, branches, file history, and line authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline view, and Git blame.
+DateApproved: 9/9/2026
+MetaDescription: Explore Git commits, branches, history, and authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:
 - source control
@@ -23,9 +23,11 @@ Use the graph to:
 
 * Select a commit to view the files that changed.
 * Select a changed file to open its diff.
-* Select **Open Changes** to review all changes in a commit.
+* Select **Open Changes** to open a multi-file diff and review all changes in a commit.
 * Open the context menu for a commit to check it out, cherry-pick it, or add it as context to chat.
 * Compare a commit with another branch, a remote branch, or its merge base.
+
+Changed binary files, such as images, remain in the multi-file diff and show **Binary file changed** instead of a text diff. When both file versions are available, select **Open Diff** to open the file in the normal diff editor, such as an image diff or applicable custom editor.
 
 Use the graph toolbar to select a branch and to fetch, pull, push, or sync changes.
 

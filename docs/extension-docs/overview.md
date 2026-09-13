@@ -1,6 +1,6 @@
 ---
 PageTitle: Extension Docs
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Overview of {% data variables.product.prodname_vscode %} extension documentation for containers, data science, intelligent apps, Azure, remote development, and dev containers.
 ---
 # Extension Docs

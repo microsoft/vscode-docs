@@ -1,6 +1,6 @@
 ---
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: The {% data variables.product.prodname_vscode %} editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---

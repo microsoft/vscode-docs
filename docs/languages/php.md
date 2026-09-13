@@ -1,6 +1,6 @@
 ---
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in {% data variables.product.prodname_vscode %}

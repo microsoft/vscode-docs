@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Use smart actions in {% data variables.product.prodname_vscode_shortname %} to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -111,11 +111,7 @@ Get help with fixing failing tests in your codebase, directly from the Test Expl
 1. Select the **Fix Test Failure** button (sparkle icon)
 1. Review and apply Copilot's suggested fix
 
-Alternatively, you can:
-
-1. Open the {% data variables.copilot.chat_view %}
-1. Enter the `/fixTestFailure` command
-1. Follow Copilot's suggestions to fix the test
+Alternatively, open the {% data variables.copilot.chat_view %} and ask the agent to investigate the failing test. Include the failure output and the behavior you expect.
 
 > [!TIP]
 > When using [agents](/docs/agents/concepts/agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.

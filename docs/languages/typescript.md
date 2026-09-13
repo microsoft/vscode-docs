@@ -1,6 +1,6 @@
 ---
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Get the best out of editing TypeScript with {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/typescript/typescript-social.png
 ---

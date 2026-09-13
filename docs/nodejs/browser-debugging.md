@@ -1,6 +1,6 @@
 ---
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: The {% data variables.product.prodname_vscode %} editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---

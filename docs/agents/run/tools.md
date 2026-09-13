@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:

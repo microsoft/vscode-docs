@@ -1,6 +1,6 @@
 ---
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Get {% data variables.product.prodname_vscode %} up and running on Raspberry Pi OS.
 ---
 # {% data variables.product.prodname_vscode %} on Raspberry Pi

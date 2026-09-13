@@ -1,6 +1,6 @@
 ---
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: {% data variables.product.prodname_vscode %}'s embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 # Terminal Shell Integration

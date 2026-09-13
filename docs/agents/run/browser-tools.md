@@ -1,6 +1,6 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Use browser tools with AI agents in {% data variables.product.prodname_vscode_shortname %} to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -246,5 +246,5 @@ Agent network filtering or an organization policy might block the domain. Check 
 
 * Follow the [build and validate a web app with browser tools tutorial](/docs/agents/guides/browser-agent-testing-guide.md).
 * Learn about the [integrated browser](/docs/debugtest/integrated-browser.md).
-* Explore [testing with AI](/docs/agents/guides/test-with-copilot.md).
+* Explore [testing with AI](/docs/agents/guides/test-code-with-ai.md).
 * Learn [how tools work in the agent loop](/docs/agents/concepts/tools.md).

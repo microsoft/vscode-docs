@@ -1,6 +1,6 @@
 ---
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Get started writing and debugging .NET apps with {% data variables.product.prodname_vscode %}.
 ---
 # Using .NET in {% data variables.product.prodname_vscode %}

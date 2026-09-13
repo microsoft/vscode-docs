@@ -1,78 +1,53 @@
 ---
 ContentId: 09f4c3b8-1504-4fb2-9f84-5aa0fbe3969a
 DateApproved: 04/15/2026
-MetaDescription: Learn how to create AI agents with the Foundry Toolkit in {% data variables.product.prodname_vscode %}, including hosted agents using templates or Copilot with Foundry skills and prompt agents using Agent Builder.
+MetaDescription: Choose a prompt or hosted agent path in Foundry Toolkit for {% data variables.product.prodname_vscode %}, then open its setup guide.
 ---
 
 # Create agents with the Foundry Toolkit
 
-The Foundry Toolkit extension for {% data variables.product.prodname_vscode %} provides multiple ways to create AI agents using Microsoft Foundry. You can build hosted agents, which run as deployed services with supporting code and infrastructure, or prompt agents, which are lightweight agents defined by instructions, model settings, and optional tools.
+Microsoft Foundry Agent Service helps you build, test, and run AI agents that use models and tools to answer questions, retrieve information, and take actions. Foundry supports the agent lifecycle, from experimenting with behavior to evaluation and application integration.
 
-## Choose the right approach
+Before you create an agent, choose how much control you need over its logic and runtime. This affects what you configure, what code you maintain, and how you deploy. Use this guide to compare prompt and hosted agents, then choose a creation path in Foundry Toolkit for {% data variables.product.prodname_vscode %}.
 
-- **Templates** Full agent projects with code and deployment support
-- **Copilot + Foundry skills** Quickly generate a custom agent
-- **Agent Builder** Simple prompt-based agents without full project setup
+## Choose an agent type
 
-## Prerequisites
+Microsoft Foundry supports two [agent types](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle#agent-types-in-microsoft-foundry): **prompt agents** and **hosted agents**. The main difference is how you define their behavior: prompt agents use instructions and tool configuration, while hosted agents use custom code.
 
-- {% data variables.product.prodname_vscode %}
-- Foundry Toolkit extension installed
-- Access to Microsoft Foundry
+Both can use tools to retrieve information and perform actions, and both require testing and evaluation before production use. You can integrate either type into an application, so prompt agents are not limited to prototypes. The following table compares their uses, strengths, and trade-offs.
 
-## Create a hosted agent from a template
+| Compare | Prompt agent | Hosted agent |
+| --- | --- | --- |
+| Example uses | A support assistant that answers from product documents, or a summarizer that retrieves information through tools. | A multi-agent research workflow, a webhook processor, or an assistant with custom runtime logic. |
+| How you define behavior | Configure a model, instructions, and supported tools through Agent Builder, an SDK, or an API. | Implement the agent with a supported framework or custom code and deploy it to Foundry Agent Service. |
+| Strengths | Iterate on instructions and tools without maintaining a hosted-agent code project. Save configurations as versions. | Control orchestration, dependencies, and runtime behavior while Foundry manages hosting and scaling. |
+| Trade-offs | Work within the service's agent configuration and supported tools. A prompt-agent definition does not host your own agent runtime. | Maintain, test, package, and deploy your agent code and dependencies, even though Foundry manages the hosting infrastructure. |
 
-Use templates to quickly scaffold a new hosted agent project.
+These examples are starting points, not exclusive capabilities. Start with a prompt agent when instructions and supported tools meet your needs. Choose a hosted agent when you need custom agent logic or orchestration. See [when to use hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents#when-to-use-hosted-agents) for more guidance.
 
-1. In the Foundry Toolkit panel, select **My Resources** > **Your project name** > **Hosted Agents (Preview)**
-1. Select the **+** icon to create a new hosted agent
-1. In the **Choose Framework** dialog, choose either "Microsoft Agent Framework" or "LangGraph".
-1. In the **Create a Hosted Agent** dialog, select one of the templates:
-   - Single Agent Hotel Assistant - single agent template
-   - Writer-Reviewer Agent Workflow - multi-agent template
-1. In the **Choose Programming Language** dialog, choose either:
-   - Python
-   - C#
-1. In the **Choose Model** dialog, select of the options:
-   - An existing models you've already deployed to your Foundry project
-   - **Deploy & use new model** to upload an existing local model
-   - **Browse model catalog** to choose a Foundry model to be deployed to your Foundry project
-1. In the **Workspace Folder** dialog, select the **Browse** option to choose the folder on your local drive where you want the template to generate the code
+## Choose a creation route
 
-Once you've made your selections, a new instance of {% data variables.product.prodname_vscode %} will open with the working folder you selected and the new generated code from the template you selected.
+After choosing an agent type, select a creation method. Use Agent Builder to configure a prompt agent, or use samples or Copilot to develop hosted-agent code. The following table helps you choose a method and find its setup guide.
 
-### Next steps
+| Approach | Use it when | Get started |
+| --- | --- | --- |
+| Agent Builder | You want to configure and test a prompt agent without a code project. | [Build a prompt agent](/docs/intelligentapps/agentbuilder.md) |
+| Hosted-agent samples | You need custom logic or code-based orchestration, starting from an Agent Framework, Copilot SDK, or LangGraph sample. | [Create and deploy a hosted agent](/docs/intelligentapps/hosted-agents.md) |
+| Copilot-assisted coding | You want help writing and modifying agent code for your scenario. | [Use Foundry Toolkit Copilot tools and skills](/docs/intelligentapps/copilot-tools.md) |
 
-After the project is created:
+Each guide includes its prerequisites and creation steps. For extension installation and project setup, see the [Foundry Toolkit overview](/docs/intelligentapps/overview.md).
 
-1. Follow the directions in the `README.md` file. For example, in the case of a Python project, it will provide the exact PowerShell or bash commands to run to set up an environment and install dependencies.
-1. Press F5 to run and test the agent locally
-1. Update configuration and code as needed
-1. Deploy the agent to Microsoft Foundry
+![Screenshot showing the Create Agent page with options to start from samples, code with Copilot, or build an agent in Agent Builder.](./images/create-agents/create-agent.png)
 
-## Create a hosted agent using Copilot and Foundry skills
+## Workflows and routines
 
-You can also create agents using GitHub Copilot with Foundry skills. Foundry Skills are automatically installed with Foundry Toolkit, and you do not have to do anything special to invoke the skills.
+* **Workflows:** Coordinate multiple steps, decisions, or agents. For new code-based orchestration, use Microsoft Agent Framework through the sample or Copilot route.
+* **Routines (Preview):** Invoke an existing agent when a trigger fires, for example, for a daily summary. See [Routines in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/routines).
 
-1. Open GitHub Copilot Chat in {% data variables.product.prodname_vscode %}
-1. Enter a prompt such as: "Create a Foundry agent that..."
-1. Copilot uses Foundry skills to generate the required files and configuration
-1. Review and update the generated project
+> [!IMPORTANT]
+> Declarative workflows in Microsoft Foundry are in preview and retire on December 1, 2026. This does not affect code-based orchestration in hosted agents. See the [Foundry workflow migration guidance](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow).
 
-This approach is useful for quickly generating a customized agent based on a scenario.
+## Related resources
 
-## Create a prompt agent with Agent Builder
-
-Use Agent Builder to create lightweight prompt-based agents.
-
-1. In the Foundry Toolkit panel, select **My Resources** > **Your project name** > **Prompt Agents**
-1. Select the **+** to create a new agent
-1. Configure the Basic Information like:
-   - Agent name
-   - Model
-   - Instructions (system prompt)
-   - Optional tools
-1. Test the agent
-1. Use the **Save** button to publish to your Foundry project
-
-For more information, see [Agent Builder](/docs/intelligentapps/agentbuilder.md).
+* [Debug code-based agents with Agent Inspector](/docs/intelligentapps/agent-inspector.md)
+* [Use Tool Catalog to connect shared tools](/docs/intelligentapps/tool-catalog.md)

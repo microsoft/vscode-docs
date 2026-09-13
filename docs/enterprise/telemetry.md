@@ -1,6 +1,6 @@
 ---
 ContentId: 9b3e5c2d-1a4f-6e8b-c7d9-0f2a3b4c5d6e
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to centrally manage {% data variables.product.prodname_vscode_shortname %} telemetry settings for enterprise environments, including telemetry levels and feedback options.
 ---
 

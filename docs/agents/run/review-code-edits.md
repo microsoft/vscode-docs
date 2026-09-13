@@ -1,7 +1,7 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 9/2/2026
-MetaDescription: Review, revise, revert, and integrate AI-generated code changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
+DateApproved: 9/9/2026
+MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
@@ -20,9 +20,11 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Review agent changes
 
-The agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending approval state, so you don't need to keep or undo each edit before you continue.
+In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so review them in a diff before you commit or integrate them. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
 
-Review the changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
+Older extension-host sessions save edits and then mark them as pending so you can keep or undo them. Expand **Review extension-host changes** below for that workflow.
+
+Review agent changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -63,6 +65,8 @@ To review and integrate the changes:
 
     Use the diff toolbar to show the editor side by side with chat or in a modal window.
 
+    To change the diff layout, select **More Actions** (**...**) > **Diff View**, and then select **Inline**, **Side by Side**, or **Automatic**. With **Automatic**, the Changes editor shows files side by side when there is enough space and switches to inline when the editor is narrow.
+
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
@@ -79,9 +83,9 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 ### Review changes in the single-pane layout (Experimental)
 
-When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
+When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
 
-Use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the {% data variables.copilot.agents_window %}.
+Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. The `kb(toggle.diff.renderSideBySide)` keybinding toggles the preferred diff view in the {% data variables.copilot.agents_window %}.
 
 The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
@@ -107,7 +111,11 @@ Before you apply or merge changes:
 
 The available actions and labels depend on the session harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
+For a walkthrough of reviewing two results separately, integrating them one at a time, and testing the combined change, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
 ## Edit requests and restore checkpoints
+
+For help deciding whether to revise a request, restore changes, or start fresh, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
 
 Use request editing and checkpoints to revise or undo a batch of changes:
 
@@ -124,7 +132,7 @@ Select the request in the conversation, modify it, and resend it. Configure or t
 
 ### Restore a checkpoint
 
-When checkpoints are enabled, {% data variables.product.prodname_vscode_shortname %} creates a snapshot of affected files before processing each request. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
+Checkpoints are enabled by default for supported chat sessions. Before processing each request, {% data variables.product.prodname_vscode_shortname %} creates a snapshot of affected workspace files. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
 
 To restore your workspace to an earlier checkpoint:
 
@@ -137,6 +145,9 @@ To restore your workspace to an earlier checkpoint:
 1. Confirm that you want to restore the checkpoint.
 
 {% data variables.product.prodname_vscode_shortname %} removes subsequent requests from the conversation history and restores the workspace files to their state at the checkpoint.
+
+> [!IMPORTANT]
+> A checkpoint restores affected workspace files and chat history. It doesn't reverse completed terminal commands, network requests, deployments, or changes that tools made to external services. Use Git and the external service's recovery controls for those effects.
 
 #### Redo after restoring
 
@@ -160,9 +171,9 @@ Hover over a request and select **Fork Conversation** to create an independent s
 <details>
 <summary>Review extension-host changes</summary>
 
-If [agent host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+If [Agent Host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
 
-After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
+After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
 ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
@@ -197,7 +208,7 @@ Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edit
 
 ## Edit sensitive files
 
-Sensitive-file approval is separate from reviewing changes after the agent makes them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
+Sensitive-file approval is separate from reviewing changes after the agent saves them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
 
 Use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval. The setting uses glob patterns to match file paths in your workspace.
 

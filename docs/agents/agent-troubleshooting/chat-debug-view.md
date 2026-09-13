@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Diagnose agent behavior in {% data variables.product.prodname_vscode %} by inspecting requests, context, tool calls, token usage, and agent flows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

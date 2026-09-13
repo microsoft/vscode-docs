@@ -1,6 +1,6 @@
 ---
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Windows, choose User or System setup, and configure Windows developer tools.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

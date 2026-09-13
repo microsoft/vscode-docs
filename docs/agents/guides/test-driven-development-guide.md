@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to set up a test-driven development (TDD) workflow in {% data variables.product.prodname_vscode_shortname %} with Copilot and custom agents and instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -262,7 +262,7 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 Learn more about testing and AI customization in {% data variables.product.prodname_vscode_shortname %}:
 
-* [Testing with AI](/docs/agents/guides/test-with-copilot.md)
+* [Testing with AI](/docs/agents/guides/test-code-with-ai.md)
 * [Custom agents](/docs/agent-customization/custom-agents.md)
 * [Custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Running tests with {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Choose an agent harness in {% data variables.product.prodname_vscode %}, configure code isolation and permissions, start a session, and hand off work.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -20,6 +20,20 @@ Keywords:
 {% data variables.product.prodname_vscode %} supports the Local, GitHub Copilot, Anthropic Claude, and OpenAI Codex agent harnesses. It also provides a Cloud target for running an available cloud agent remotely. An agent harness coordinates an agent session, including tool calls, context, and code changes. Use the **Session Target** control to choose a harness and where it runs. This article helps you choose a target, configure the available options, start a session, and hand off ongoing work.
 
 For the relationship between harnesses, language models, agent roles, and execution environments, see [Agent harnesses](/docs/agents/concepts/agent-harnesses.md).
+
+## Understand the session controls
+
+The controls in the chat input configure separate parts of the session. For a first local coding task, use these starting choices:
+
+| Control | What it determines | Start with |
+|---------|--------------------|------------|
+| **Session Target** | Which harness runs the session and where its tools operate | **Copilot** for a general coding task |
+| **Agent** | Which instructions, tools, and behavior apply | **Agent** for implementation or **Plan** to review an approach first. Use **Ask** for questions when the selected target provides it. |
+| **Language model** | How the agent reasons, how quickly it responds, and how it consumes AI credits | **Auto** when it is available |
+| **Permissions** | Which actions require your confirmation | **Manual permissions** |
+| **Code isolation** | Whether changes go into the current folder or a separate Git worktree | **Folder** for the guided quickstart or current uncommitted files |
+
+Use **New Worktree** when you want changes separate from your active workspace and the task can start from committed Git state. Worktree sessions use **Allow all**, so choose **Folder** when you want manual approval prompts. A worktree isolates code changes but isn't a security boundary.
 
 ## Choose a session target
 
@@ -82,6 +96,8 @@ Code isolation controls where the agent applies file changes. The permission lev
 | **New Worktree** | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
 | **Folder** | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
 
+For a walkthrough that uses separate worktrees for two independent coding tasks, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
 When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace.
 
 ![Screenshot of the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
@@ -90,7 +106,7 @@ Worktree isolation requires a Git repository with at least one commit. A new wor
 
 Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to specify ignored files and folders that {% data variables.product.prodname_vscode_shortname %} should copy into new worktrees. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
 
-Worktree sessions use **Bypass Approvals** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+Worktree sessions use **Allow all** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 <a name="configure-an-agent-harness"></a>
 
@@ -136,12 +152,14 @@ Copilot sessions use the same GitHub authentication context as chat in {% data v
 
 The available [permission levels](/docs/agents/run/approvals.md#permission-levels) depend on the isolation mode:
 
-* **Worktree**: the permission level is **Bypass Approvals** and can't be changed.
-* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use **Assisted permissions** `feature(assisted-permissions)`, turn on `setting(chat.assistedPermissions.enabled)`.
+* **Worktree**: the permission level is **Allow all** and can't be changed.
+* **Folder**: select **Manual permissions** or **Allow all** from the permissions picker. To also use **Assisted permissions** `feature(assisted-permissions)`, turn on `setting(chat.assistedPermissions.enabled)`.
 
 Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/run/approvals.md#how-autopilot-works) rather than a permission level.
 
 ### Provider-specific capabilities
+
+* **Shell initialization** _(Experimental)_: in local Copilot sessions that use the SDK built-in shell tool, enable `setting(chat.agentHost.shellTool.initScript.enabled)` to load `.bashrc` on macOS and Linux or PowerShell profiles on Windows before each command. With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, the selected workspace environment is also activated. This does not apply to remote sessions or the Agent Host custom terminal tool.
 
 * **Slash commands**: enter `/` in the chat input to view the slash commands available in a Copilot session. For example, use `/compact` to reduce conversation context or `/yolo` and `/autoApprove` to control [automatic tool approval](/docs/agents/run/approvals.md#frequently-asked-questions).
 
@@ -244,9 +262,9 @@ The Codex harness uses OpenAI Codex for interactive and background coding tasks.
 Codex is not listed by default. Complete one of these options before you select it. You don't need both:
 
 * **Use the OpenAI Codex extension in the {% data variables.copilot.chat_view %}**: install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
-* **Use Codex on Agent Host in the {% data variables.copilot.agents_window %}** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`.
+* **Use Codex on Agent Host** _(Experimental)_: enable `setting(chat.agentHost.codexAgent.enabled)`. This makes Codex available in the {% data variables.copilot.agents_window %}. To use Agent Host Codex in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)` and restart {% data variables.product.prodname_vscode_shortname %} when prompted.
 
-To use the Agent Host implementation in the {% data variables.copilot.chat_view %}, also enable `setting(chat.editor.codex.preferAgentHost)`.
+Only one Codex implementation appears in each window. When you prefer Agent Host Codex in the {% data variables.copilot.chat_view %}, it replaces the Codex target from the OpenAI extension in that window.
 
 On the Agent Host, Codex supports two authentication and subscription options:
 

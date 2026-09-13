@@ -162,7 +162,7 @@ Watch for future sections covering MCP, custom instructions and skills, and more
 
 ## Learn more
 
-* [Agent handoff tutorial in VS Code](https://code.visualstudio.com/docs/agents/agents-handoff-tutorial)
+* [Choose and use an agent harness in VS Code](https://code.visualstudio.com/docs/agents/run/agent-harnesses)
 * [Planning with agents in VS Code](https://code.visualstudio.com/docs/agents/run/planning)
 * [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits)
 * [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_edit-requests-and-restore-checkpoints)

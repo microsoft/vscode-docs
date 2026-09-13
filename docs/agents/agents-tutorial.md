@@ -1,7 +1,7 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 9/2/2026
-MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
+DateApproved: 9/9/2026
+MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
@@ -96,7 +96,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
     * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
-    * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
+    * **Manual permissions**: the permission level that uses the configured approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -142,7 +142,7 @@ To preview the generated portfolio in the integrated browser:
 
 ### Review and commit the changes
 
-Before you commit the agent's work, you might want to review the code changes that the agent applied. The **Changes** panel shows diffs for every file the agent created or modified during its session. To review and commit the file changes:
+Before you commit the agent's work, review the code changes that the agent applied. The **Changes** panel shows diffs for every file the agent created or modified during its session. To review and commit the file changes:
 
 1. Select the **Changes** panel to see the diffs of the files the agent added or modified. Each item also shows change stats and an add/delete/update indicator.
 
@@ -228,17 +228,17 @@ Congratulations! You built a portfolio page with Copilot by using both an agent-
 
 ## Next steps
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Tailor the agent experience">
-Configure custom agents, skills, and instructions to tailor the agent experience to your coding standards and workflows.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Use agents in your own project">
+Apply the same prompt, review, and validation workflow to a bounded task in an existing project.
 
-* [Start customization tutorial](/docs/agents/guides/customize-copilot-guide.md)
+* [Apply the workflow to your project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project)
 
 </div>
 
 To go deeper with agentic coding in {% data variables.product.prodname_vscode %}, get more info about how to:
 
-* [Learn more about agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
+* [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline)
 
-* [Learn more about the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md)
+* [Learn how agents work in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
 
-* [Learn more about the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)
+* [Customize agent behavior for recurring project needs](/docs/agent-customization/overview.md)

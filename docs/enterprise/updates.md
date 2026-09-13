@@ -1,6 +1,6 @@
 ---
 ContentId: 2c4d6e8f-0a1b-3c5d-7e9f-1a2b3c4d5e6f
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to centrally manage {% data variables.product.prodname_vscode_shortname %} automatic updates in enterprise environments, including update modes and deployment strategies.
 ---
 

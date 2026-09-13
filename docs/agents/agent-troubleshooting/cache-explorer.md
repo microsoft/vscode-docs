@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3d1c2f-6a94-4e7b-9f21-5c8d0a1e2b34
-DateApproved: 9/2/2026
+DateApproved: 9/9/2026
 MetaDescription: Diagnose prompt cache misses in {% data variables.product.prodname_vscode %} and investigate whether cache reuse contributes to AI latency and token usage.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
