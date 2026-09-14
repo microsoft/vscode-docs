@@ -1,15 +1,14 @@
 ---
-Order: 2
-Area: terminal
-TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 04/03/2025
-MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
+DateApproved: 9/9/2026
+MetaDescription: {% data variables.product.prodname_vscode %} has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
 
-Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/debugtest/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
+{% data variables.product.prodname_vscode %} includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/debugtest/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
+
+> [!NOTE]
+> Opening a terminal is blocked when a workspace is in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#terminal) to prevent shells from automatically executing code based on workspace contents.
 
 You can open a terminal as follows:
 
@@ -19,11 +18,12 @@ You can open a terminal as follows:
 * To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
 * To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
 
-VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
+{% data variables.product.prodname_vscode_shortname %}'s terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
-![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
+![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. {% data variables.product.prodname_vscode_shortname %}'s terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
-> **Note:** If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
+> [!NOTE]
+> If you prefer to work outside {% data variables.product.prodname_vscode_shortname %}, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
 
 ## Terminal shells
 
@@ -51,12 +51,13 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* Hover over a entry in the list of terminals on the right and select the inline split button.
-* Right-click the context menu and selecting the **Split** menu option.
+* Hover over an entry in the list of terminals on the right and select the inline split button.
+* Right-click the context menu and select the **Split** menu option.
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
 * Trigger the `kb(workbench.action.terminal.split)` command.
 
-> **Tip:** The working directory for the new terminal depends on the `setting(terminal.integrated.splitCwd)` [setting](/docs/configure/settings.md).
+> [!TIP]
+> The working directory for the new terminal depends on the `setting(terminal.integrated.splitCwd)` [setting](/docs/configure/settings.md).
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
@@ -75,6 +76,14 @@ You can have terminal editors on either side or arranged in multiple dimensions 
 ![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
 The `setting(terminal.integrated.defaultLocation)` setting can change the default `view` or `editor` area terminal location.
+
+## Terminals in new windows
+
+Opening a terminal in a new {% data variables.product.prodname_vscode_shortname %} window is possible in a few different ways:
+
+* Use `kb(workbench.action.terminal.newInNewWindow)`
+* Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened. Then select **Move Terminal to New Window**
+* Select the **New Terminal Window** entry that's available in several different menus
 
 ## Navigating the buffer
 
@@ -110,7 +119,7 @@ These built-in link handlers are used in the following priority order:
 
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
-* Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
+* Folder links: Links to folders are similar to file links but will open a new {% data variables.product.prodname_vscode_shortname %} window at the folder.
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
@@ -122,7 +131,8 @@ The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLi
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
-> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `setting(terminal.integrated.enableFileLinks)` [setting](/docs/configure/settings.md).
+> [!TIP]
+> If link verification causes performance issues, like in high latency remote environments, disable it via the `setting(terminal.integrated.enableFileLinks)` [setting](/docs/configure/settings.md).
 
 ### Extensions handling links
 
@@ -168,6 +178,10 @@ This can be configured using the `setting(terminal.integrated.rightClickBehavior
 * `selectWord` - Select the word under the cursor and show the context menu.
 * `nothing` - Do nothing and pass event to terminal.
 
+### Column selection
+
+Press `kbstyle(Alt)` and left-click drag to select a rectangle of text inside the terminal instead of the regular selection of a line.
+
 ### Reposition the cursor with Alt
 
 `kbstyle(Alt)` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `setting(terminal.integrated.altClickMovesCursor)` setting.
@@ -182,17 +196,19 @@ The integrated terminal has find functionality that can be triggered with `kb(wo
 
 ![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keyboard-shortcuts-and-the-shell).
+> [!TIP]
+> `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keyboard-shortcuts-and-the-shell).
 
 ## Run selected text
 
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
 
->**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
+> [!TIP]
+> Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
 ## Maximizing the terminal
 
-The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
+The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use {% data variables.product.prodname_vscode_shortname %} as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
 
 Note that the panel can only be maximized if its [alignment](/docs/configure/custom-layout.md#panel-alignment) option is set to **Center**.
 
@@ -312,14 +328,56 @@ The **Terminal: Set Fixed Dimensions** command allows changing the number of col
 
 You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
+## GitHub Copilot in the terminal
+
+If you have access to [GitHub Copilot](/docs/setup/copilot.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
+
+### Terminal inline chat
+
+Start an inline chat directly in the terminal to get help with shell commands:
+
+1. Open the terminal (`kb(workbench.action.terminal.toggleTerminal)`)
+2. Press `kb(workbench.action.terminal.chat.start)` or run the **Terminal Inline Chat** command from the Command Palette
+3. Enter your question or request in natural language, such as:
+   * "How do I find the largest files in this directory?"
+   * "Show me how to undo the last git commit"
+   * "Create a bash script to analyze log files"
+
+![Terminal inline chat helps you quickly get and run shell commands](./images/basics/terminal-chat-2.png)
+
+When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
+
+For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat).
+
+### Terminal chat participant
+
+Use the dedicated `@terminal` chat participant in chat to ask questions about terminal commands, shell scripting, or explaining terminal output:
+
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
+2. Start your question with `@terminal` to direct it to the terminal participant
+3. Ask about terminal commands, shell scripting, or explaining terminal output
+
+Examples:
+
+* `@terminal list the 5 largest files in this workspace`
+* `@terminal /explain top shell command`
+* `@terminal how to grep for patterns recursively`
+
+### Reference terminal context in chat
+
+You can include terminal information as context in your chat prompts:
+
+* Use `#terminalSelection` to add selected text from the terminal to your chat prompt
+* Use `#terminalLastCommand` to include the last command you ran in the terminal
+
 ## Next steps
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
-* [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+* [Terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat) - AI-powered suggestions right in your terminal.
 * [Tasks](/docs/debugtest/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
-* Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
+* [Mastering {% data variables.product.prodname_vscode_shortname %}'s Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* Explore terminal commands by browsing the keyboard shortcuts within {% data variables.product.prodname_vscode_shortname %} (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
 
 ## Common questions
 
@@ -329,7 +387,7 @@ There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-termin
 
 ### How do I create an Admin terminal?
 
-The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+The integrated terminal shell is running with the permissions of {% data variables.product.prodname_vscode_shortname %}. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
 You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
 
@@ -353,7 +411,7 @@ The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)
 
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
-nvm (Node Version Manager) users often see this error for the first time inside VS Code's integrated terminal:
+nvm (Node Version Manager) users often see this error for the first time inside {% data variables.product.prodname_vscode_shortname %}'s integrated terminal:
 
 ```bash
 nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"
@@ -363,7 +421,7 @@ Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to u
 This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
 
 * `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
-* To get the development tools on the `$PATH`, VS Code will launch a bash login shell on startup. This means that your `~/.bash_profile` has already run and when an integrated terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
+* To get the development tools on the `$PATH`, {% data variables.product.prodname_vscode_shortname %} will launch a bash login shell on startup. This means that your `~/.bash_profile` has already run and when an integrated terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
 
 To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out-of-date node_modules. Find the `nvm` initialization script and run `which npm` before it runs, which should print the path when you launch a new terminal.
 
@@ -380,7 +438,7 @@ This will give you the resolved path at the end:
 ... npx -> ../lib/node_modules/npm/bin/npx-cli.js
 ```
 
-From there, removing the files and relaunching VS Code should fix the issue:
+From there, removing the files and relaunching {% data variables.product.prodname_vscode_shortname %} should fix the issue:
 
 ```bash
 rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
@@ -423,7 +481,7 @@ See the [GPU acceleration](/docs/terminal/appearance.md#gpu-acceleration) sectio
 
 This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To work around this, you could run `printf "\e[?2004l"` to disable it for that session or add the following to your `~/.inputrc` file:
 
-```
+```bash
 set enable-bracketed-paste off
 ```
 
@@ -446,7 +504,7 @@ To work around this, you have two options:
 
 ### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
 
-The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keyboard shortcut](/docs/configure/keybindings.md):
+The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in {% data variables.product.prodname_vscode_shortname %}, add this [custom keyboard shortcut](/docs/configure/keybindings.md):
 
 ```json
 {

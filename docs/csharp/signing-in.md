@@ -1,11 +1,8 @@
 ---
-Area: csharp
 ContentId: 44aa6759-14dd-41ba-b48c-dc5ba3a6e8de
-PageTitle: Signing in to C# Dev Kit
 DateApproved: 6/6/2023
 MetaDescription: Signing in to C# Dev Kit
 ---
-
 # Signing in to C# Dev Kit
 
 In this article, you'll learn:
@@ -19,7 +16,7 @@ You can also get [subscription support](https://visualstudio.microsoft.com/subsc
 
 ## Sign in with a Microsoft or organizational account
 
-1. Launch Visual Studio Code.  When the C# Dev Kit extension is activated for the first time, you'll be asked to sign in via a toast notification.
+1. Launch {% data variables.product.prodname_vscode %}.  When the C# Dev Kit extension is activated for the first time, you'll be asked to sign in via a toast notification.
 
   ![Sign-in notification](images/signing-in/sign-in-notification.png)
 

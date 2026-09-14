@@ -1,24 +1,122 @@
 ---
-Area: csharp
 ContentId: 34c5ba31-5844-4eca-8fef-dabb6e917314
-PageTitle: Configuring C# debugging
 DateApproved: 6/6/2023
 MetaDescription: Configuring C# debugging
 ---
-
 # Configuring C# debugging
 
-You can configure the C# debugger in Visual Studio Code with a `launch.json`, `launchSettings.json`, or your user `settings.json` file.
+You can configure the C# debugger in {% data variables.product.prodname_vscode %} with a `launch.json`, `launchSettings.json`, or your user `settings.json` file.
+
+## Walkthrough: setting command-line arguments
+
+Before we get into the details of all the possible options, let's walk through a basic scenario: setting command-line arguments to your program. These steps also work for updating other basic options like environment variables or the current working directory.
+
+### Approach 1: `launchSettings.json`
+
+For C# Dev Kit, the recommended way to debug is to let C# Dev Kit automatically figure out how to debug from settings in the project file. This means that you either don't have a `<workspace_root>/.vscode/launch.json` file, or if you have one, you have `"type": "dotnet"` set for the active configuration. For command-line arguments, "figure out from the project file" means to pull the value from `<Project-Directory>/Properties/launchSettings.json`. The advantage of `launchSettings.json` is that it allows settings to be shared between {% data variables.product.prodname_vscode %}, full Visual Studio, and `dotnet run`.
+
+For this case, here are the steps to set the command-line arguments:
+1. In workspace Explorer view, navigate to the directory of the project (.csproj file) you want to launch
+2. If there isn't a `Properties` directory already, create it
+3. If there isn't a `launchSettings.json` file already, create one, you can use the below text as an example
+4. Change the `commandLineArgs` property to what you would like the command-line arguments to be
+
+**Example `launchSettings.json` file**:
+```json
+{
+  "profiles": {
+    "MyLaunchProfileName": {
+      "commandName": "Project",
+      "commandLineArgs": "MyFirstArgument MySecondArgument"
+    }
+  }
+}
+```
+
+### Approach 2: `launch.json`
+
+If you are using the `coreclr` or `clr` debug adapter type in {% data variables.product.prodname_vscode_shortname %}, command-line arguments are stored in your `<workspace_root>/.vscode/launch.json`. To edit them in this case:
+
+1. Open up `<workspace_root>/.vscode/launch.json`
+2. Find the `coreclr` or `clr` launch configuration you want to launch
+3. Edit the `args` property. This can either be a string, or an array of strings
+
+## Configuring launchSettings.json
+
+With C# Dev Kit, you can bring your `launchSettings.json` from Visual Studio to work with {% data variables.product.prodname_vscode %}
+
+Example:
+
+```json
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:59481",
+      "sslPort": 44308
+    }
+  },
+  "profiles": {
+    "EnvironmentsSample": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7152;http://localhost:5105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "EnvironmentsSample-Staging": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7152;http://localhost:5105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging",
+        "ASPNETCORE_DETAILEDERRORS": "1",
+        "ASPNETCORE_SHUTDOWNTIMEOUTSECONDS": "3"
+      }
+    },
+    "EnvironmentsSample-Production": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7152;http://localhost:5105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+```
+
+## Profile properties
+
+* `commandLineArgs` - The arguments to pass to the target being run.
+* `executablePath` - An absolute or relative path to the executable.
+* `workingDirectory` - Sets the working directory of the command.
+* `launchBrowser` - Set to `true` if the browser should be launched.
+* `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
+* `sslPort` - The SSL port to use for the web site.
+* `httpPort` - The HTTP port to use for the web site.
+
+# List of configurable options
 
 Below are common options you may want to change while debugging.
 
-## Configuring VS Code's debugging behavior
+## PreLaunchTask
 
-### PreLaunchTask
+The `preLaunchTask` field runs the associated taskName in `tasks.json` before debugging your program. You can get the default build prelaunch task by executing the command **Tasks: Configure Tasks Runner** from the {% data variables.product.prodname_vscode_shortname %} Command Palette.
 
-The `preLaunchTask` field runs the associated taskName in `tasks.json` before debugging your program. You can get the default build prelaunch task by executing the command **Tasks: Configure Tasks Runner** from the VS Code Command Palette.
-
-This creates a task that runs `dotnet build`. You can read more in the VS Code [Tasks](/docs/debugtest/tasks.md) documentation.
+This creates a task that runs `dotnet build`. You can read more in the {% data variables.product.prodname_vscode_shortname %} [Tasks](/docs/debugtest/tasks.md) documentation.
 
 **Availability**
 
@@ -77,7 +175,7 @@ If you need to stop at the entry point of the target, you can optionally set `st
 
 ## Starting a Web Browser
 
-The default `launch.json` template (as of C# extension v1.20.0) for ASP.NET Core projects uses the following to configure VS Code to launch a web browser when ASP.NET starts:
+The default `launch.json` template (as of C# extension v1.20.0) for ASP.NET Core projects uses the following to configure {% data variables.product.prodname_vscode_shortname %} to launch a web browser when ASP.NET starts:
 
 ```json
     "serverReadyAction": {
@@ -92,11 +190,11 @@ Notes about this:
 
 2. This pattern launches the web browser using the URL that ASP.NET Core writes to the console. If you want to modify the URL see [specifying the browser's URL](#specifying-the-browsers-url). This may be useful if the target application is running on another machine or container, or if `applicationUrl` has a special host name (example: `"applicationUrl": "http://*:1234/"`).
 
-3. `serverReadyAction` is a new feature from VS Code. It is recommended over the previous`launchBrowser` feature that is built into the C# extension's debugger as it can work when the C# extension is running on a remote machine, it uses the default browser configured for VS Code, and it also allows using a script debugger. You can continue using `launchBrowser` instead if none of those features are important to you. You also can continue to use `launchBrowser` if you want to run a specific program instead of starting the default browser.
+3. `serverReadyAction` is a new feature from {% data variables.product.prodname_vscode_shortname %}. It is recommended over the previous`launchBrowser` feature that is built into the C# extension's debugger as it can work when the C# extension is running on a remote machine, it uses the default browser configured for {% data variables.product.prodname_vscode_shortname %}, and it also allows using a script debugger. You can continue using `launchBrowser` instead if none of those features are important to you. You also can continue to use `launchBrowser` if you want to run a specific program instead of starting the default browser.
 
-4. More documentation for `serverReadyAction` can be found in the [Visual Studio Code February 2019 release notes](https://code.visualstudio.com/updates/v1_32#_automatically-open-a-uri-when-debugging-a-server-program).
+4. More documentation for `serverReadyAction` can be found in the [{% data variables.product.prodname_vscode %} February 2019 release notes](/updates/v1_32.md#automatically-open-a-uri-when-debugging-a-server-program).
 
-5. The way this works is that VS Code scrapes the output that is set to the console. If a line matches the pattern, it launches a browser against the URL that was 'captured' by the pattern.
+5. The way this works is that {% data variables.product.prodname_vscode_shortname %} scrapes the output that is set to the console. If a line matches the pattern, it launches a browser against the URL that was 'captured' by the pattern.
 
     Here is an explanation of what the pattern does:
 
@@ -174,9 +272,9 @@ Environment variables may be passed to your program using this schema:
 
 The `"console"` setting controls what console (terminal) window the target app is launched into. It can be set to any of these values --
 
-* `"internalConsole"` (default) : the target process's console input (stdin) and output (stdout/stderr) are routed through the VS Code Debug Console. The advantage of this mode is that it allows you to see messages from both the debugger and the target program in one place, so you will not miss important messages or need to switch back and forth. This is useful for programs with simple console interactions (example: using `Console.WriteLine` and/or `Console.ReadLine`). This should NOT be used when the target program needs full control over the console, such as a program that changes the cursor position, uses `Console.ReadKey` for input, etc. See below for instructions on inputting into the console.
-* `"integratedTerminal"` : the target process will run inside [VS Code's integrated terminal](/docs/terminal/basics.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. When using this mode, by default, the Debug Console will not be shown when starting debugging. If using `launch.json`, this can be configured with `internalConsoleOptions`.
-* `"externalTerminal"`: the target process will run inside its own external terminal. When using this mode, you will need to switch focus between Visual Studio Code and the external terminal window.
+* `"internalConsole"` (default) : the target process's console input (stdin) and output (stdout/stderr) are routed through the {% data variables.product.prodname_vscode_shortname %} Debug Console. The advantage of this mode is that it allows you to see messages from both the debugger and the target program in one place, so you will not miss important messages or need to switch back and forth. This is useful for programs with simple console interactions (example: using `Console.WriteLine` and/or `Console.ReadLine`). This should NOT be used when the target program needs full control over the console, such as a program that changes the cursor position, uses `Console.ReadKey` for input, etc. See below for instructions on inputting into the console.
+* `"integratedTerminal"` : the target process will run inside [{% data variables.product.prodname_vscode_shortname %}'s integrated terminal](/docs/terminal/basics.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. When using this mode, by default, the Debug Console will not be shown when starting debugging. If using `launch.json`, this can be configured with `internalConsoleOptions`.
+* `"externalTerminal"`: the target process will run inside its own external terminal. When using this mode, you will need to switch focus between {% data variables.product.prodname_vscode %} and the external terminal window.
 
 **Availability**
 
@@ -188,15 +286,15 @@ The `"console"` setting controls what console (terminal) window the target app i
 
 ### Inputting text into the target process when using internalConsole
 
-When using `internalConsole`, you can input text into Visual Studio Code that will be returned from `Console.ReadLine` and similar APIs that read from `stdin`. To do so, while the program is running, type text into the input box at the bottom of the Debug Console. Pressing `kbstyle(Enter)` will send the text to the target process. Note that if you enter text in this box while your program is stopped under the debugger, this text will be evaluated as a C# expression, not sent to the target process.
+When using `internalConsole`, you can input text into {% data variables.product.prodname_vscode %} that will be returned from `Console.ReadLine` and similar APIs that read from `stdin`. To do so, while the program is running, type text into the input box at the bottom of the Debug Console. Pressing `kbstyle(Enter)` will send the text to the target process. Note that if you enter text in this box while your program is stopped under the debugger, this text will be evaluated as a C# expression, not sent to the target process.
 
 Example:
 
 ![Example of inputting text to the Console to be set to the target process's standard input](images/debugging/console-input.gif)
 
-## launchSettings.json support
+## `launchSettingsProfile` and `launchSettingsFilePath`
 
-In addition to `launch.json`, launch options can be configured through a `launchSettings.json` file. The advantage of `launchSettings.json` is that it allows settings to be shared between Visual Studio Code, full Visual Studio, and `dotnet run`.
+While full support for `launchSettings.json` requires use of a launch configuration with `"type": "dotnet"`, the `coreclr` and `clr` debugger types also support a limited subset of `launchSettings.json` functionality. This is useful for users who want to use the same settings in both {% data variables.product.prodname_vscode %} and full Visual Studio.
 
 To configure which `launchSettings.json` profile to use (or to prevent it from being used), set the `launchSettingsProfile` option:
 
@@ -221,9 +319,9 @@ Which would then, for example, use `myVariableName` from this example `launchSet
 
 If `launchSettingsProfile` is NOT specified, the first profile with `"commandName": "Project"` will be used.
 
-If `launchSettingsProfile` is set to null/an empty string, then Properties/launchSettings.json will be ignored.
+If `launchSettingsProfile` is set to null/an empty string, then `Properties/launchSettings.json` will be ignored.
 
-By default, the debugger will search for `launchSettings.json` in {cwd}/Properties/launchSettings.json. To customize this path, set `launchSettingsFilePath`:
+By default, the debugger will search for `launchSettings.json` in `{cwd}/Properties/launchSettings.json`. To customize this path, set `launchSettingsFilePath`:
 
 ```json
    "launchSettingsFilePath": "${workspaceFolder}/<Relative-Path-To-Project-Directory/Properties/launchSettings.json"
@@ -253,8 +351,8 @@ You can optionally configure how source files are opened by providing a map usin
 
 In this example:
 
-* `C:\foo` is the original location for one or more source files (example: `program.cs`) when a module (example: MyCode.dll) was compiled. It can either be a directory that has source files under it, or a complete path to a source file (example: `c:\foo\program.cs`). It doesn't need to exist either on the computer running Visual Studio Code, or if you are remote debugging, on the remote machine. The debugger reads the path to the source file from the `.pdb` (symbol) file, and transforms the path using this map.
-* `/home/me/foo` is the path where the source file can now be found by Visual Studio Code.
+* `C:\foo` is the original location for one or more source files (example: `program.cs`) when a module (example: MyCode.dll) was compiled. It can either be a directory that has source files under it, or a complete path to a source file (example: `c:\foo\program.cs`). It doesn't need to exist either on the computer running {% data variables.product.prodname_vscode %}, or if you are remote debugging, on the remote machine. The debugger reads the path to the source file from the `.pdb` (symbol) file, and transforms the path using this map.
+* `/home/me/foo` is the path where the source file can now be found by {% data variables.product.prodname_vscode %}.
 
 **Availability**
 
@@ -323,7 +421,7 @@ There are also advanced options under 'logging.diagnosticsLog' that are meant fo
 
 ## PipeTransport
 
-If you need to have the debugger to connect to a remote computer using another executable to relay standard input and output between VS Code and the .NET Core debugger backend (vsdbg), then add the pipeTransport field following this schema:
+If you need to have the debugger to connect to a remote computer using another executable to relay standard input and output between {% data variables.product.prodname_vscode_shortname %} and the .NET Core debugger backend (vsdbg), then add the pipeTransport field following this schema:
 
 ```json
     "pipeTransport": {
@@ -474,7 +572,7 @@ Currently Source Link only works for source files that can be accessed without a
 
 .NET on Apple M1 supports both x86_64 and ARM64. When debugging, the architecture of the process the debugger is attaching to and the debugger must match. If they do not match, it may result in `Unknown Error: 0x80131c3c`.
 
-The extension tries to resolve `targetArchitecture` based on the output of `dotnet --info` in the PATH, else it tries to use the same architecture as VS Code.
+The extension tries to resolve `targetArchitecture` based on the output of `dotnet --info` in the PATH, else it tries to use the same architecture as {% data variables.product.prodname_vscode_shortname %}.
 
 You can override this behavior by setting `targetArchitecture` in your `launch.json`.
 
@@ -494,7 +592,7 @@ Example:
 
 This option controls if, on launch, the debugger should check if the computer has a self-signed HTTPS certificate used to develop web projects running on https endpoints. For this, it tries to run `dotnet dev-certs https --check --trust`, if no certs are found, it will prompt the user to suggest creating one. If approved by the user, the extension runs `dotnet dev-certs https --trust` to create a trusted self-signed certificate.
 
-If unspecified, defaults to true when `serverReadyAction` is set. This option does nothing on Linux, VS Code remote, and VS Code for the Web scenarios.
+If unspecified, defaults to true when `serverReadyAction` is set. This option does nothing on Linux, {% data variables.product.prodname_vscode_shortname %} remote, and {% data variables.product.prodname_vscode_shortname %} for the Web scenarios.
 
 You can override this behavior by setting `checkForDevCert` to false in your `launch.json`.
 
@@ -509,73 +607,6 @@ Example:
 * `launch.json` ✔️
 * `settings.json` ❌
 * `launchSettings.json` ✔️ as `useSSL`
-
-## Configuring launchSettings.json
-
-With C# Dev Kit, you can bring your `launchSettings.json` from Visual Studio to work with Visual Studio Code
-
-Example:
-
-```json
-{
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:59481",
-      "sslPort": 44308
-    }
-  },
-  "profiles": {
-    "EnvironmentsSample": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:7152;http://localhost:5105",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "EnvironmentsSample-Staging": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:7152;http://localhost:5105",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Staging",
-        "ASPNETCORE_DETAILEDERRORS": "1",
-        "ASPNETCORE_SHUTDOWNTIMEOUTSECONDS": "3"
-      }
-    },
-    "EnvironmentsSample-Production": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:7152;http://localhost:5105",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
-      }
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    }
-  }
-}
-```
-
-## Profile Properties
-
-* `commandLineArgs` - The arguments to pass to the target being run.
-* `executablePath` - An absolute or relative path to the executable.
-* `workingDirectory` - Sets the working directory of the command.
-* `launchBrowser` - Set to true if the browser should be launched.
-* `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
-* `sslPort` - The SSL port to use for the web site.
-* `httpPort` - The HTTP port to use for the web site.
 
 ## See Also
 

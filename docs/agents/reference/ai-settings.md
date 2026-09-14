@@ -1,0 +1,415 @@
+---
+ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
+DateApproved: 9/9/2026
+MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
+MetaSocialImage: ../images/shared/github-copilot-social.png
+---
+# AI settings reference
+
+This article lists the configuration settings for the AI features and agents in {% data variables.product.prodname_vscode %}. For general information about working with settings in {% data variables.product.prodname_vscode_shortname %}, refer to [User and workspace settings](/docs/configure/settings.md).
+
+The team is continuously working on improving the AI features in {% data variables.product.prodname_vscode_shortname %} and adding new functionality. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/settings.md#feature-lifecycle).
+
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+
+Use the following links to jump to the settings for a specific area:
+
+* Core AI features: [general](#general-settings), [code editing](#code-editing-settings), [chat](#chat-settings), [agents](#agent-settings), [agent sessions](#agent-sessions), and [inline chat](#inline-chat-settings).
+* Agent customization: [migration](#customization-migration-settings), [custom instructions](#custom-instructions-settings), [prompt files](#reusable-prompt-files-settings), [custom agents](#custom-agents-settings), [agent skills](#agent-skills-settings), and [agent plugins](#agent-plugins-settings).
+* Other AI features: [code review](#code-review-settings), [source control](#source-control-settings), [memory](#memory-settings), [observability](#observability-settings), [debugging](#debugging-settings), [testing](#testing-settings), [notebooks](#notebook-settings), [voice and dictation](#voice-and-dictation-settings), and [accessibility](#accessibility-settings).
+
+## General settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Chat menu in the {% data variables.product.prodname_vscode_shortname %} title bar. | `true` |
+| `setting(workbench.settings.showAISearchToggle)`<br/>Enable searching settings with AI in the Settings editor. | `true` |
+| `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_<br/>Controls where the Command Palette should ask chat questions. | `"chatView"` |
+| `setting(search.searchView.semanticSearchBehavior)` _(Preview)_<br/>Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always. | `"manual"` |
+| `setting(search.searchView.keywordSuggestions)` _(Preview)_<br/>Controls whether to show keyword suggestions in the Search view. | `false` |
+| `setting(chat.disableAIFeatures)`<br/>Disable and hide built-in AI features in {% data variables.product.prodname_vscode_shortname %}, such as chat and inline suggestions, and disable the Copilot extensions. | `false` |
+
+## Code editing settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.editor.enableCodeActions)`<br/>Controls if AI commands are shown as Code Actions when available. | `true` |
+| `setting(github.copilot.renameSuggestions.triggerAutomatically)`<br/>Generate symbol renaming suggestions. | `true` |
+| `setting(github.copilot.enable)`<br/>Enable or disable inline suggestions for specified [languages](/docs/languages/identifiers.md). | `{ "*": true, "plaintext": false, "markdown": false, "scminput": false }` |
+| `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [{% data variables.copilot.next edit suggestions %}](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
+| `setting(editor.inlineSuggest.edits.allowCodeShifting)`<br/>Configure if NES is able to shift your code to show a suggestion. | `"always"` |
+| `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code. | `"auto"` |
+| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable {% data variables.copilot.next edit suggestions %} based on diagnostics (squiggles). For example, missing imports. | `true` |
+| `setting(editor.inlineSuggest.edits.showCollapsed)`<br/>Show NES code changes in the editor only when you press `kbstyle(Tab)` to navigate to the suggestion or hover over the gutter arrow. | `false` |
+| `setting(editor.inlineSuggest.fontFamily)`<br/>Configure the font family for inline completions. | `"default"` |
+| `setting(editor.inlineSuggest.showToolbar)`<br/>Enable or disable the toolbar that appears for inline completions. | `"onHover"` |
+| `setting(editor.inlineSuggest.minShowDelay)`<br/>Time in milliseconds to wait before showing inline suggestions. | `0` |
+
+## Chat settings
+
+### Chat experience
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.localeOverride)`<br/>Specify a locale for chat responses, such as `en` or `fr`. | `"auto"` |
+| `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
+| `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
+| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
+| `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
+| `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
+| `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
+| `setting(chat.editor.lineHeight)`<br/>Line height in pixels in chat codeblocks. | `0` |
+| `setting(chat.editor.wordWrap)`<br/>Toggle line wrapping in chat codeblocks. | `"off"` |
+| `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
+| `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
+| `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
+| `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
+| `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
+| `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
+| `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
+| `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
+| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the {% data variables.copilot.chat_view %}. | `false` |
+| `setting(imageCarousel.chat.enabled)` _(Experimental)_<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
+
+### Chat editing and artifacts
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
+| `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
+| `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
+| `setting(chat.artifacts.rules.byMemoryFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) in the chat. | `true` |
+| `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
+| `setting(chat.editing.confirmEditRequestRetry)`<br/>Ask for confirmation before performing a redo of the last edit. | `true` |
+| `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
+| `setting(chat.editing.revealNextChangeOnResolve)`<br/>Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit. | `true` |
+
+### Chat models and context
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
+| `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
+| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the {% data variables.copilot.chat_view %}. | `false` |
+| `setting(imageCarousel.chat.enabled)` <br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
+| `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the {% data variables.copilot.chat_view %} as context. | `true` |
+| `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
+| `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
+| `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
+| `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
+| `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
+| `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, pull request titles and descriptions, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
+| `setting(chat.byokUtilityModelDefault)`<br/>Control which model built-in [utility flows](/docs/agent-customization/language-models.md#configure-the-default-utility-model-for-byok-models) use when the main agent model is a [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) model. Choose the main agent model, GitHub Copilot utility models, or no default utility model. Has no effect when the main agent model is provided by GitHub Copilot. | `"GitHub Copilot"` |
+| `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
+
+## Agent settings
+
+### Agent behavior
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agent.enabled:true)`<br/>Enable or disable using agents (requires {% data variables.product.prodname_vscode_shortname %} 1.99 or later). | `true` |
+| `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that the agent can make. | `25` |
+| `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
+| `setting(chat.subagents.allowInvocationsFromSubagents)`<br/>Enable subagents to invoke other subagents, up to a maximum nesting depth of five. | `false` |
+| `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
+| `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
+| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking is rendered in chat: `collapsed` collapses thinking by default and can separate reasoning from grouped tool calls, `collapsedPreview` starts expanded and collapses after non-thinking content appears, and `fixedScrolling` shows thinking in a fixed-height auto-scrolling panel that you can expand. | `fixedScrolling` |
+
+### MCP settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in {% data variables.product.prodname_vscode_shortname %}. | `true` |
+| `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
+| `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
+| `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)`<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
+| `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
+| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
+
+### Agent tools
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.tools.compressOutput.enabled)` _(Preview)_<br/>Compress large terminal output before sending it to the model to reduce context window usage. Collapses unchanged diff hunks, drops lockfile diffs, and strips install progress. | `false` |
+| `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
+| `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
+| `setting(chat.tools.terminal.outputLocation)` _(Experimental)_<br/>Configure where terminal command output appears: inline in chat or in the integrated terminal. | `"chat"` |
+| `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
+| `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the {% data variables.copilot.chat_view %} as context. | `true` |
+| `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
+| `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
+| `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
+
+### Approvals and permissions
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.tools.riskAssessment.enabled)` _(Experimental)_<br/>Show an AI-generated risk badge on terminal command confirmations, indicating whether a command is safe, requires caution, or should be reviewed carefully. | `true` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/agents/run/approvals.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
+| `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
+| `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
+| `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/agents/run/security.md). | `false` |
+| `setting(chat.assistedPermissions.enabled)` `feature(assisted-permissions)`<br/>Show [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) in supported Agent Host permission pickers. An LLM judge evaluates the risk of each tool call and asks for your approval when it does not approve a call. | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Manual permissions), `autoApprove` (Allow all), `autopilot` (Autopilot). You can still change the permission level per session. On the Agent Host, Autopilot is selected as an agent mode instead. If enterprise policy disables auto-approval, new sessions use Manual permissions. | `"default"` |
+| `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/run/approvals.md#advanced-autopilot-preview), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
+| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/run/approvals.md#url-approval). | `[]` |
+| `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
+| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking is rendered in chat: `collapsed` collapses thinking by default and can separate reasoning from grouped tool calls, `collapsedPreview` starts expanded and collapses after non-thinking content appears, and `fixedScrolling` shows thinking in a fixed-height auto-scrolling panel that you can expand. | `fixedScrolling` |
+| `setting(chat.mcp.autostart)` `feature(mcp-autostart)`<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
+| `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
+| `setting(chat.tools.terminal.blockDetectedFileWrites)` `feature(terminal-block-detected-file-writes)`<br/>Require user approval for terminal commands that perform file writes outside the workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active. | `outsideWorkspace` |
+| `setting(github.copilot.chat.additionalReadAccessFolders)`<br/>Grant read-only access to additional folders outside the current workspace for built-in agent tools. | `[]` |
+| `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` <br/>Bypass all permission checks for the Claude agent. Only enable this in isolated sandbox environments. | `false` |
+
+### Sandboxing and network access
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/agents/run/approvals.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
+| `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
+| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. | `[]` |
+| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. | `[]` |
+
+### Planning, models, and agent providers
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
+| `setting(chat.planWidget.inlineEditor.enabled)` <br/>Use an inline editor inside the plan control to edit plans, instead of opening a separate editor tab. | `true` |
+| `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
+| `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
+| `setting(github.copilot.chat.planAgent.additionalTools)` _(Experimental)_<br/>Give the plan agent access to additional tools during research and planning phases. | `[]` |
+| `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK. | `true` |
+| `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
+| `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
+| `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
+
+## Memory settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
+
+## Agent sessions
+
+The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+
+### Session experience
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(workbench.startupEditor)` <br/>Configure the {% data variables.product.prodname_vscode_shortname %} welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [{% data variables.product.prodname_vscode_shortname %} welcome page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
+| `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
+| `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |
+| `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
+| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
+| `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
+| `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
+| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(chat.automations.enabled)` `feature(automations)`<br/>Show [Automations](/docs/agents/run/automations.md) in the {% data variables.copilot.agents_window %} and run scheduled agent tasks. When disabled, automation entry points are hidden and scheduled tasks aren't dispatched. | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
+| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
+| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
+
+### Agent Host
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
+| `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in Agent Host sessions. Changes are synchronized to the running Agent Host. | `false` |
+| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. The agent host process must be restarted to take effect. | `true` |
+| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Enabling takes effect without restarting the Agent Host. Disabling takes effect after the next Agent Host restart. | `false` |
+| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. | `true` |
+| `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the {% data variables.copilot.chat_view %} on the Agent Host instead of the OpenAI extension. Only one Codex implementation appears per window. Requires `setting(chat.agentHost.codexAgent.enabled)` and prompts for a restart when changed. | `false` |
+
+### Agent Merge
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [Agent Merge](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. Agent Merge monitors a session's pull request and can ask the agent to address selected blockers. | `false` |
+| `setting(chat.agentMerge.addressReviews)` _(Experimental)_<br/>Address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer. | `true` |
+| `setting(chat.agentMerge.fixCI)` _(Experimental)_<br/>Ask the agent to fix failed required CI checks. | `true` |
+| `setting(chat.agentMerge.resolveConflicts)` _(Experimental)_<br/>Ask the agent to update branches that are behind and resolve merge conflicts. | `true` |
+| `setting(chat.agentMerge.mergePullRequest)` _(Experimental)_<br/>Control whether Agent Merge merges or enqueues the pull request when it is ready. `always` merges after any selected maintenance work, `ifUnchanged` merges only until an agent repair turn changes the pull request, and `never` turns off automatic merging. | `"never"` |
+| `setting(chat.agentMerge.mergeMethod)` _(Experimental)_<br/>Select the merge method. `auto` uses the first repository-compatible method in this order: squash, merge commit, or rebase. You can also require `squash`, `merge`, or `rebase`. | `"auto"` |
+| `setting(chat.agentMerge.replyAttribution)` _(Experimental)_<br/>Include an automated-reply attribution in review-thread replies posted by Agent Merge. | `true` |
+
+## Inline chat settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(inlineChat.defaultModel)`<br/>Configure the default language model for editor inline chat. The model you select persists during the session, but resets to this configured default after {% data variables.product.prodname_vscode_shortname %} reloads. | N/A |
+| `setting(inlineChat.askInChat)`<br/>When a file belongs to an active chat editing session, use "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of opening regular inline chat when you press `kb(inlineChat.start)`. When disabled, always opens regular inline chat. | `true` |
+| `setting(inlineChat.renderMode)` _(Experimental)_<br/>Configure how inline chat is displayed. `hover`: shows inline chat in a floating overlay, `zone`: shows inline chat in a dedicated zone in the editor. | `"hover"` |
+| `setting(inlineChat.finishOnType)`<br/>Finish an editor inline chat session when typing outside of changed regions. | `false` |
+| `setting(inlineChat.holdToSpeech)`<br/>Holding the editor inline chat keyboard shortcut (`kb(inlineChat.start)`) automatically enables speech recognition. | `true` |
+| `setting(editor.inlineSuggest.syntaxHighlightingEnabled)`<br/>Show syntax highlighting for inline suggestions. | `true` |
+| `setting(inlineChat.affordance)` _(Experimental)_<br/>Show a visual hint when you select text to help start inline chat. `off`: no hint, `gutter`: shows in line number area, `editor`: shows at cursor position with lightbulb. | `"off"` |
+| `setting(inlineChat.lineEmptyHint)` _(Experimental)_<br/>Show a hint for editor inline chat on an empty line. | `false` |
+| `setting(inlineChat.lineNaturalLanguageHint)` _(Experimental)_<br/>Trigger editor inline chat as soon as a line mostly consists of words. | `true` |
+| `setting(github.copilot.chat.editor.temporalContext.enabled)` _(Experimental)_<br/>Include recently viewed and edited files in the context for editor inline chat. | `false` |
+
+## Code review settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.reviewSelection.enabled)` _(Preview)_<br/>Enable code review with AI for an editor text selection. | `true` |
+| `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_<br/>Custom instructions that are added to requests for reviewing the current editor selection with AI. | `[]` |
+
+## Source control settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"chatAndAgent"` |
+
+## Customization migration settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.customizations.promptMigration.enabled)` _(Experimental)_<br/>Show the migration that converts prompt files to [agent skills](/docs/agent-customization/agent-skills.md) for Agent Host sessions. | `true` |
+| `setting(chat.customizations.userDataMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents and instructions from profile user data to locations supported by the selected Agent Host. | `false` |
+| `setting(chat.customizations.locationsMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents, instructions, and skills from Local agent location settings to locations supported by the selected Agent Host. | `false` |
+
+Learn how to [migrate agent customizations](/docs/agent-customization/overview.md#migrate-customizations-experimental).
+
+## Custom instructions settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
+| `setting(chat.includeApplyingInstructions)`<br/>Automatically add instruction files with a matching `applyTo` pattern to chat requests. | `true` |
+| `setting(chat.includeReferencedInstructions)`<br/>Automatically add instruction files referenced via Markdown links to chat requests. | `false` |
+| `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
+| `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
+| `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
+| `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
+| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/agent-customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
+| `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
+| `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+
+## Reusable prompt files settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/overview.md#migrate-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
+
+## Custom agents settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
+| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
+| `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
+
+## Agent skills settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
+| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
+| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
+
+## Observability settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.otel.enabled)` <br/>Enable [OpenTelemetry](/docs/agents/guides/monitoring-agents.md) emission for Copilot Chat agent interactions. | `false` |
+| `setting(github.copilot.chat.otel.exporterType)` <br/>OTel exporter type: `otlp-http`, `otlp-grpc`, `console`, or `file`. | `"otlp-http"` |
+| `setting(github.copilot.chat.otel.otlpEndpoint)` <br/>OTLP collector endpoint URL. | `"http://localhost:4318"` |
+| `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
+| `setting(github.copilot.chat.otel.captureContent)` <br/>Capture full prompt and response content in OTel spans. May include sensitive information. | `false` |
+
+## Agent plugins settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.plugins.enabled)`<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
+| `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
+| `setting(chat.plugins.enabledPlugins)`<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
+| `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Trust only marketplaces supplied by [enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `false` |
+| `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
+
+## Debugging settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) in extension host chat sessions. This setting writes debug events to disk for the Agent Debug Logs panel and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command. Reload the window after changing this setting. | `false` |
+| `setting(chat.agentHost.agentDebugLog.enabled)` _(Experimental)_<br/>Enable agent debug logging for Agent Host sessions and show their debug events in the Agent Debug Logs panel. Only sessions that run while this setting is enabled are captured. | `false` |
+| `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
+
+## Testing settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(github.copilot.chat.generateTests.codeLens)` _(Experimental)_<br/>Show **Generate tests** code lens for symbols that are not covered by current test coverage information. | `false` |
+| `setting(github.copilot.chat.setupTests.enabled)` _(Experimental)_<br/>Enables the experimental `/setupTests` intent and prompting in `/tests` generation. | `true` |
+
+## Notebook settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(notebook.experimental.generate)` _(Experimental)_<br/>Enable the **Generate** action to create code cells with notebook inline chat. | `true` |
+| `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in Edit mode (deprecated) to create a new notebook file. | `true` |
+| `setting(github.copilot.chat.notebook.followCellExecution.enabled)` _(Experimental)_<br/>Show the currently executing cell in the editor. | `false` |
+
+## Voice and dictation settings
+
+Learn how to [use Voice Mode and built-in dictation](/docs/configure/accessibility/voice.md).
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Controls whether Voice Mode is available for spoken conversations with an agent. | `false` |
+| `setting(agents.voice.showButton)` `feature(voice-mode)`<br/>Controls whether the **Voice Mode** button appears in the chat input. The keyboard shortcut remains available when the button is hidden. | `true` |
+| `setting(agents.voice.speakResponses)` `feature(voice-mode)`<br/>Controls whether the agent reads responses aloud. Enable `setting(agents.voice.showTranscript)` to read responses as text when spoken responses are off. | `true` |
+| `setting(agents.voice.agentProgress)` `feature(voice-mode)`<br/>Controls whether the agent speaks brief progress updates while it works. | `true` |
+| `setting(agents.voice.voice)` `feature(voice-mode)`<br/>Selects the voice that reads agent responses aloud. | `"birch_neutral"` |
+| `setting(agents.voice.language)` `feature(built-in-dictation)`<br/>Selects the language for speech recognition, dictation, and spoken responses. Use `auto` to use the configured display language when supported, or the system or browser locale otherwise. | `"auto"` |
+| `setting(agents.voice.showTranscript)` `feature(voice-mode)`<br/>Shows the Voice Mode transcript in the chat input while Voice Mode is active. | `false` |
+| `setting(agents.voice.liveTranscript)` `feature(voice-mode)`<br/>Shows speech word by word while you are speaking. Requires `setting(agents.voice.showTranscript)`. | `false` |
+| `setting(agents.voice.handsFree)` `feature(voice-mode)`<br/>Starts listening again after the agent finishes speaking for a hands-free conversation. | `true` |
+| `setting(agents.voice.turn.silenceMs)` `feature(voice-mode)`<br/>Sets the trailing silence, in milliseconds, before Voice Mode ends and sends a turn. Set to `-1` to turn off silence-based turn ending. | `800` |
+| `setting(agents.voice.turn.stopPhrases)` `feature(voice-mode)`<br/>Lists phrases that end and send a turn when spoken at the end of an utterance. | `["send it"]` |
+| `setting(dictation.enabled)` `feature(built-in-dictation)`<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
+| `setting(dictation.model)` `feature(built-in-dictation)`<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.showTranscript)` `feature(built-in-dictation)`<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
+| `setting(dictation.experimental.llmCleanup)` `feature(built-in-dictation)`<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
+
+## Accessibility settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(inlineChat.accessibleDiffView)`<br/>Whether the Inline Chat also renders an accessible diff viewer for its changes. | `"auto"` |
+| `setting(accessibility.signals.chatRequestSent)`<br/>Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made. | `{ "sound": "auto", "announcement": "auto" }` |
+| `setting(accessibility.signals.chatResponseReceived)`<br/>Plays a sound / audio cue when the response has been received. | `{ "sound": "auto" }` |
+| `setting(accessibility.signals.chatEditModifiedFile)`<br/>Plays a sound / audio cue when the file has been modified by chat edits. | `{ "sound": "auto" }` |
+| `setting(accessibility.signals.chatUserActionRequired)`<br/>Plays a sound / audio cue when the user needs to take an action in chat. | `{ "sound": "auto", "announcement": "auto" }` |
+| `setting(accessibility.signals.lineHasInlineSuggestion)`<br/>Plays a sound / audio cue when the cursor is on a line that has an inline suggestion. | `{ "sound": "auto" }` |
+| `setting(accessibility.signals.nextEditSuggestion)`<br/>Plays a sound / audio cue when a next edit suggestion is available. | `{ "sound": "auto", "announcement": "auto" }` |
+| `setting(accessibility.verboseChatProgressUpdates)`<br/>Provide verbose updates about chat activity. | `true` |
+| `setting(accessibility.verbosity.inlineChat)`<br/>Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused. | `true` |
+| `setting(accessibility.verbosity.inlineCompletions)`<br/>Provide information about how to access the inline suggestions hover and Accessible View. | `true` |
+| `setting(accessibility.verbosity.panelChat)`<br/>Provide information about how to access the chat help menu when the chat input is focused. | `true` |
+| `setting(accessibility.voice.keywordActivation)`<br/>Controls whether the keyword phrase 'Hey Code' is recognized to start a voice chat session. | `"off"` |
+| `setting(accessibility.voice.autoSynthesize)`<br/>Controls whether a textual response should automatically be read out aloud when speech was used as input. | `"off"` |
+| `setting(accessibility.voice.speechTimeout)`<br/>Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
+
+## Related resources
+
+* [Get a quick overview of the AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/reference/ai-features-cheat-sheet.md)

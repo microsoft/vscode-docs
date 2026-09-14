@@ -58,7 +58,7 @@ The animation below shows how to access the document line by line in a piece tab
 
 ---
 
-![Traditional piece table](traditional-piece-table.gif)
+<video src="traditional-piece-table.mp4" title="Video showing Traditional piece table." autoplay loop controls muted></video>
 
 ---
 
@@ -180,7 +180,7 @@ class Node {
 
 ---
 
-![piece tree](piece-tree.gif)
+<video src="piece-tree.mp4" title="Video showing piece tree." autoplay loop controls muted></video>
 
 ---
 
@@ -207,13 +207,13 @@ and manually created a couple of large files:
 
 The memory usage of the piece tree immediately after loading is very close to the original file size, and it is significantly lower than the old implementation. First round, piece tree wins:
 
-![Memory usage](memoryusage.png)
+![Memory usage](memoryusage.webp)
 
 ### 2. File opening times
 
 Finding and caching line breaks is much faster than splitting the file into an array of strings:
 
-![File opening](fileopen.png)
+![File opening](fileopen.webp)
 
 ### 3. Editing
 
@@ -224,7 +224,7 @@ I have simulated two workflows:
 
 I tried to mimic these two scenarios: Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs:
 
-![Random edits](write.png)
+![Random edits](write.webp)
 
 As expected, line array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The line array starts to choke when the file has many lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. Piece tree behaves in a stable fashion as each edit is just a string append and a couple red-black tree operations.
 
@@ -237,7 +237,7 @@ For our text buffers, the hottest method is `getLineContent`. It is invoked by t
 * Read 10 distinct line windows after doing 1000 random edits.
 * Read 10 distinct line windows after doing 1000 sequential inserts.
 
-![Read all lines after random edits](read.png)
+![Read all lines after random edits](read.webp)
 
 TA DA, we found the Achilles heel of piece tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the line array enjoyed.
 

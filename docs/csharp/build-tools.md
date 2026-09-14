@@ -1,16 +1,11 @@
 ---
-Order: 8
-Area: csharp
-TOCTitle: Build Tools
 ContentId: 1d35afc9-2439-48bf-84e5-547446d89239
-PageTitle: C# Build Tools for Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: C# Build Tools for Visual Studio
 ---
-
 # Build Tools
 
-This document is an overview of how to build your C# projects and solutions in the C# tools for Visual Studio Code. It covers the features provided by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension.
+This document is an overview of how to build your C# projects and solutions in the C# tools for {% data variables.product.prodname_vscode %}. It covers the features provided by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension.
 
 ## Building a solution
 
@@ -18,7 +13,7 @@ When a solution is loaded, the C# Dev Kit extension provides several tasks that 
 
 ![Choosing the .NET:Build command](images/build-tools/net-build-command.gif)
 
-You can also build your solution using the Tasks feature of Visual Studio Code. C# Dev Kit integrates with the Task system and registers several tasks under the `dotnet` grouping. Here's what that looks like:
+You can also build your solution using the Tasks feature of {% data variables.product.prodname_vscode %}. C# Dev Kit integrates with the Task system and registers several tasks under the `dotnet` grouping. Here's what that looks like:
 
 ![Showing the `dotnet` task grouping here](images/build-tools/show-dotnet-tasks.gif)
 

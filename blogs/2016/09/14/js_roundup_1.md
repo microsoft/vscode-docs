@@ -32,7 +32,7 @@ Easily integrate [ESLint](https://eslint.org/) into your project. Dirk is a memb
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
-![eslint animation](eslint.gif)
+<video src="eslint.mp4" title="Video showing eslint animation." autoplay loop controls muted></video>
 
 ## JavaScript (ES6) code snippets
 
@@ -42,7 +42,7 @@ Publisher - [charalampos karypidis](https://marketplace.visualstudio.com/search?
 
 VS Code comes with many built-in code snippets. The **JavaScript (ES6) code snippets** extension adds snippets for ES6 (ECMAScript 6) syntax. Here is a small sampling of the snippets provided by this extension. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) to see the dozens of snippets this pack gives you.
 
-![javascript snippets](javascript_snippets.png)
+![javascript snippets](javascript_snippets.webp)
 
 You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Downloads).
 
@@ -54,7 +54,7 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 
 This extension autocompletes file paths in your source code. Use this in JavaScript, HTML, CSS files and more.
 
-![path intellisense](path_intellisense.gif)
+<video src="path_intellisense.mp4" title="Video showing path intellisense." autoplay loop controls muted></video>
 
 ## npm IntelliSense
 
@@ -64,7 +64,7 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 
 A second incredibly useful extension from Christian Kohler. This extension provides IntelliSense for npm modules.
 
-![npm intellisense](npm_intellisense.gif)
+<video src="npm_intellisense.mp4" title="Video showing npm intellisense." autoplay loop controls muted></video>
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

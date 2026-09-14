@@ -38,13 +38,14 @@ extends:
         suppressionsFile: $(Build.SourcesDirectory)/.config/CredScanSuppressions.json
       git:
         fetchDepth: 1
-        lfs: true
         retryCount: 3
       policheck:
         break: true
       sourceAnalysisPool: 1es-windows-2022-x64
       tsa:
         enabled: true
+    settings:
+      networkIsolationPolicy: Permissive,CFSClean,CFSClean2,CFSClean3
 
     stages:
     - template: templates/stages/build-main.yml@self

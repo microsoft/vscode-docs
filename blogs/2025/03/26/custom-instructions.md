@@ -12,7 +12,7 @@ Author: Rob Conery, Harald Kirschner
 
 March 26, 2025 by Rob Conery, [@robconery.com](https://bsky.app/profile/robconery.com), Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
-Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
+Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
 
 In this post we'll dive into what custom instructions are, how you can use them today to drastically improve your results with GitHub Copilot, and even a brand new preview feature called "prompt files" that you can try today.
 
@@ -201,7 +201,7 @@ Generate a TypeScript interface for the table specified by the user. Refer to th
 
 To use these prompt files in chat, use the attach button (paperclip) or use `kb(workbench.command.prompts.use)`. Select **Prompts** from the menu, and then select the prompt file you want to use. Notice that when I use the `generate-interface.prompt.md` file, it automatically pulls in the `database_users.prompt.md` file.
 
-![Animated gif showing how to use prompt files in chat.](prompts.gif)
+<video src="prompts.mp4" title="Video showing Animated gif showing how to use prompt files in chat." autoplay loop controls muted></video>
 
 ## Conclusion
 

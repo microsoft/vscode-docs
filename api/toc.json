@@ -23,16 +23,25 @@
     "area": "extension-guides",
     "topics": [
       ["Overview", "/api/extension-guides/overview"],
+      ["", "", {
+        "name": "AI",
+        "area": "extension-guides/ai",
+        "topics": [
+          ["AI Extensibility", "/api/extension-guides/ai/ai-extensibility-overview"],
+          ["Language Model Tool", "/api/extension-guides/ai/tools"],
+          ["MCP Dev Guide", "/api/extension-guides/ai/mcp"],
+          ["Chat Participant", "/api/extension-guides/ai/chat"],
+          ["Chat Tutorial", "/api/extension-guides/ai/chat-tutorial"],
+          ["Language Model", "/api/extension-guides/ai/language-model"],
+          ["Language Model Tutorial", "/api/extension-guides/ai/language-model-tutorial"],
+          ["Language Model Chat Provider", "/api/extension-guides/ai/language-model-chat-provider"],
+          ["Prompt TSX", "/api/extension-guides/ai/prompt-tsx"]
+        ]
+      }],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
       ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
       ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
-      ["Chat", "/api/extension-guides/chat"],
-      ["Chat Tutorial", "/api/extension-guides/chat-tutorial"],
-      ["Language Model", "/api/extension-guides/language-model"],
-      ["Language Model Tutorial", "/api/extension-guides/language-model-tutorial"],
-      ["Language Model Tools", "/api/extension-guides/tools"],
-      ["Prompt TSX", "/api/extension-guides/prompt-tsx"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Notebook", "/api/extension-guides/notebook"],
@@ -116,12 +125,12 @@
     "name": "References",
     "area": "references",
     "topics": [
-      ["VS Code API ", "/api/references/vscode-api"],
+      ["VS Code API", "/api/references/vscode-api"],
       ["Contribution Points", "/api/references/contribution-points"],
       ["Activation Events", "/api/references/activation-events"],
       ["Extension Manifest", "/api/references/extension-manifest"],
-      ["Built-in Commands", "/api/references/commands"],
-      ["When clause contexts", "/api/references/when-clause-contexts"],
+      ["Built-In Commands", "/api/references/commands"],
+      ["When Clause Contexts", "/api/references/when-clause-contexts"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
       ["Document Selector", "/api/references/document-selector"]

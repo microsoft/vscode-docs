@@ -1,11 +1,7 @@
 ---
-Order: 13
-Area: devcontainers
-TOCTitle: devcontainer.json
-PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 04/03/2025
+DateApproved: 9/9/2026
 ---
 # devcontainer.json reference
 

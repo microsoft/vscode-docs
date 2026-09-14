@@ -1,16 +1,12 @@
 ---
-Order: 5
-Area: typescript
-TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
-PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 04/03/2025
-MetaDescription: TypeScript debugging with Visual Studio Code.
+DateApproved: 9/9/2026
+MetaDescription: TypeScript debugging with {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
 # Debugging TypeScript
 
-Visual Studio Code supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and [Edge and Chrome debugger](/docs/nodejs/browser-debugging.md).
+{% data variables.product.prodname_vscode %} supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and [Edge and Chrome debugger](/docs/nodejs/browser-debugging.md).
 
 ## JavaScript source map support
 
@@ -18,7 +14,7 @@ TypeScript debugging supports JavaScript source maps. To generate source maps fo
 
 In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
-For a simple example of source maps in action, see the [TypeScript tutorial](/docs/typescript/typescript-tutorial.md), which shows debugging a simple "Hello World" Node.js application using the following `tsconfig.json` and VS Code default Node.js debugging configuration.
+For a simple example of source maps in action, see the [TypeScript tutorial](/docs/typescript/typescript-tutorial.md), which shows debugging a simple "Hello World" Node.js application using the following `tsconfig.json` and {% data variables.product.prodname_vscode_shortname %} default Node.js debugging configuration.
 
 ```json
 {
@@ -56,7 +52,7 @@ This will create a `launch.json` file in a `.vscode` folder with default values 
 }
 ```
 
-VS Code has determined the program to launch, `helloworld.ts`, included the build as a `preLaunchTask`, and told the debugger where to find the generated JavaScript files.
+{% data variables.product.prodname_vscode_shortname %} has determined the program to launch, `helloworld.ts`, included the build as a `preLaunchTask`, and told the debugger where to find the generated JavaScript files.
 
 There is full IntelliSense with suggestions and information for `launch.json` to help you learn about other debug configuration options. You can also add new debug configurations to `launch.json` with the **Add Configuration** button in the lower right.
 
@@ -66,7 +62,7 @@ Also see [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) for examples and 
 
 ## Mapping the output location
 
-If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by setting the `outFiles` attribute in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source by searching the files specified by glob patterns in `outFiles`.
+If generated (transpiled) JavaScript files do not live next to their source, you can help the {% data variables.product.prodname_vscode_shortname %} debugger locate them by setting the `outFiles` attribute in the launch configuration. Whenever you set a breakpoint in the original source, {% data variables.product.prodname_vscode_shortname %} tries to find the generated source by searching the files specified by glob patterns in `outFiles`.
 
 ## Client-side debugging
 
@@ -74,7 +70,7 @@ TypeScript is great for writing client-side code as well as Node.js applications
 
 We'll create a tiny web application to show client-side debugging in action.
 
-Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content"
+Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content:
 
 helloweb.ts
 
@@ -137,4 +133,4 @@ The **Run and Debug** view configuration dropdown will now show the new configur
 
 ### Cannot launch program because corresponding JavaScript cannot be found
 
-You've likely not set `"sourceMap": true` in your `tsconfig.json` or `outFiles` in your `launch.json` and the VS Code Node.js debugger can't map your TypeScript source code to the running JavaScript. Turn on source maps and rebuild your project.
+You've likely not set `"sourceMap": true` in your `tsconfig.json` or `outFiles` in your `launch.json` and the {% data variables.product.prodname_vscode_shortname %} Node.js debugger can't map your TypeScript source code to the running JavaScript. Turn on source maps and rebuild your project.

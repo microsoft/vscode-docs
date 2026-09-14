@@ -3,7 +3,7 @@ Order:
 TOCTitle: GitHub Pull Requests
 PageTitle: Introducing GitHub Pull Requests for Visual Studio Code
 MetaDescription: Introducing GitHub Pull Requests for Visual Studio Code
-MetaSocialImage: /assets/blogs/2018/09/10/github_pr_hero.png
+MetaSocialImage: /assets/blogs/2018/09/10/github_pr_hero.webp
 Date: 2018-09-10
 ShortDescription: Introducing GitHub Pull Requests for Visual Studio Code
 Author: Kenneth Auchenberg
@@ -16,7 +16,7 @@ Like many other open-source projects, the [Visual Studio Code community collabor
 
 Today, we are announcing the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), closing a gap in the workflow that we and millions of engineers experience every day: The ability to review source code where it was written – inside the editor.
 
-![hero](github_pr_hero.png)
+![hero](github_pr_hero.webp)
 
 ## Review and manage Pull Requests
 
@@ -28,7 +28,7 @@ The new GitHub Pull Requests extension is designed to help you review and manage
 - Validate PRs from the editor with a new local `checkout and run` workflow for rich language features such as Go To Definition and IntelliSense.
 - Terminal integration so that the Visual Studio Code UI and command-line tools like `git` can co-exist.
 
-![overview](github_pr_overview.png)
+![overview](github_pr_overview.webp)
 
 ## Collaboration with GitHub
 

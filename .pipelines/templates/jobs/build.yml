@@ -18,6 +18,7 @@ jobs:
 
   steps:
   - checkout: self
+    lfs: true
     path: vscode-docs
 
   - download: ${{ parameters.artifactName }}
@@ -48,18 +49,20 @@ jobs:
   - script: npm config list
     displayName: List npm properties
 
-  - task: npmAuthenticate@0
-    displayName: Setup NPM Authentication
-    inputs:
-      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-auth-setup.ps1
+    displayName: Auth Setup
+    workingDirectory: $(Pipeline.Workspace)/vscode-website
+
+  - powershell: |
+      echo "##vso[task.setvariable variable=NPMRC_PATH]$(npm config get userconfig)"
+    displayName: Setup NPM
 
   - task: npmAuthenticate@0
     displayName: Setup NPM Authentication
     inputs:
-      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
-      customEndpoint: website npm feed
+      workingFile: $(NPMRC_PATH)
 
-  - script: npm install
+  - script: npm ci --verbose
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 

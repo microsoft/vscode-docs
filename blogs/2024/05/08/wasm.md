@@ -1,9 +1,9 @@
 ---
-Order: 86
+Order: 
 TOCTitle: VS Code Extensions and WebAssembly
 PageTitle: VS Code Extensions and WebAssembly
 MetaDescription: Using WebAssembly for Extension Development.
-MetaSocialImage: resource-memory.png
+MetaSocialImage: resource-memory.webp
 Date: 2024-05-08
 Author: Dirk Bäumer
 ---
@@ -26,7 +26,7 @@ I also want to say thank you to L. Pereira and Luke Wagner from [Fastly](https:/
 
 In the first example, we demonstrate how a developer can integrate a library written in Rust into a VS Code extension. As previously mentioned, components are described using a WIT file. In our example, the library performs simple operations such as addition, subtraction, multiplication, and division. The corresponding WIT file is shown below:
 
-```wit
+```text
 package vscode:example;
 
 interface types {
@@ -163,7 +163,7 @@ You might have noticed that when generating the binding, functions are reference
 
 In the above example, the `add` operation parameter passed into the `calc` function consists of three fields: the operation code, the left value, and the right value. According to the component model's canonical ABI, arguments are passed by value. It also outlines how the data is serialized, passed to WebAssembly functions, and deserialized on the other side. This process results in two operation objects: one on the JavaScript heap and another in the linear WebAssembly memory. The following diagram illustrates this:
 
-![Diagram illustrating how parameters are passed.](params-memory.png)
+![Diagram illustrating how parameters are passed.](params-memory.webp)
 
 The table below lists the available WIT types, their mapping onto JavaScript objects in the VS Code component model implementation, and the corresponding TypeScript types used.
 
@@ -199,7 +199,7 @@ The [jco project](https://github.com/bytecodealliance/jco) also supports generat
 
 WIT files describe the interaction between the host (a VS Code extension) and the WebAssembly code, facilitating bi-directional communication. In our example, this feature allows the WebAssembly code to log traces of its activities. To enable this, we modify the WIT file as follows:
 
-```wit
+```text
 world calculator {
 
 	/// ....
@@ -259,7 +259,7 @@ The WebAssembly component model introduces the concept of resources, which provi
 
 Resources can also function in the reverse direction, where their state is managed by the WebAssembly code and accessed and manipulated by the extension code. This approach is particularly beneficial for VS Code to implement stateful services in WebAssembly, which are then accessed from the TypeScript side. In the example below, we define a resource that implements a calculator supporting the [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation), similar to those used in [Hewlett-Packard](https://www.hp.com/) hand-held calculators.
 
-```wit
+```text
 // wit/calculator.wit
 package vscode:example;
 
@@ -348,7 +348,7 @@ context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-
 
 When you run the corresponding command, it prints `Result: 60` to the output channel. As mentioned earlier, the state of resources resides on one side of the call boundary and is accessed from the other side using handles. No data copying occurs, except for the arguments passed to methods that interact with the resources.
 
-![Diagram illustrating how resources are accessed.](resource-memory.png)
+![Diagram illustrating how resources are accessed.](resource-memory.webp)
 
 The full source code for this example is available in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-resource/src/extension.ts#L1).
 

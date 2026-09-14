@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 04/03/2025
+DateApproved: 9/9/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -70,6 +70,23 @@ VS Code offers two commands for comment toggling. **Toggle Line Comment** and **
 {
   "comments": {
     "lineComment": "//",
+    "blockComment": ["/*", "*/"]
+  }
+}
+```
+
+The `lineComment` property supports two formats for backwards compatibility:
+
+- A string value for simple line comment definitions.
+- An object value that enables configuring the indentation behavior of comment lines.
+
+```json
+{
+  "comments": {
+    "lineComment": {
+      "comment": "//",
+      "noIndent": true
+    },
     "blockComment": ["/*", "*/"]
   }
 }
@@ -217,7 +234,7 @@ if (true) {
   console.log();
 ```
 
-In addition to `increaseIndentPattern` and `decreaseIndentPatter`, there are two other indentation rules:
+In addition to `increaseIndentPattern` and `decreaseIndentPattern`, there are two other indentation rules:
 
 - `indentNextLinePattern` - If a line matches this pattern, then **only the next line** after it should be indented once.
 - `unIndentedLinePattern` - If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.

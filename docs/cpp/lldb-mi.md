@@ -1,11 +1,9 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Setup Help for LLDB-MI
 ContentId: 1e84d196-397f-4dbb-9746-06f15766d83e
-PageTitle: How to set up debugging on macOS with LLDB-MI
 DateApproved: 2/12/2020
 MetaDescription: How to set up debugging on macOS with LLDB-MI
+Keywords:
+- C++
 ---
 # Debugging with LLDB-MI on macOS
 
@@ -91,5 +89,4 @@ If you built your own `lldb-mi`, you can use it by setting `miDebuggerPath` to t
 
 ## References
 
-* [LLDB-MI Build](https://dev.azure.com/ms/vscode-cpptools/_build?definitionId=313)
 * [LLDB-MI Repository](https://github.com/lldb-tools/lldb-mi)

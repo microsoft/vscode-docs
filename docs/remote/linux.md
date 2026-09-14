@@ -1,15 +1,11 @@
 ---
-Order:
-Area: remote
-TOCTitle: Linux Prerequisites
-PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
-MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Dev Containers, and WSL extensions
-DateApproved: 04/03/2025
+MetaDescription: Linux Prerequisites for {% data variables.product.prodname_vscode_shortname %} Remote - SSH, Dev Containers, and WSL extensions
+DateApproved: 9/9/2026
 ---
 # Remote Development with Linux
 
-Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
+Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. {% data variables.product.prodname_vscode %} Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
 The extensions are known to work when connecting to recent stable/LTS version of:
 
@@ -30,7 +26,7 @@ Note that **other extensions may have dependencies** beyond those listed here. S
 
 ## Local Linux prerequisites
 
-If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/requirements.md) drive most of the requirements.
+If you are running Linux locally, the [{% data variables.product.prodname_vscode_shortname %} prerequisites](/docs/supporting/requirements.md) drive most of the requirements.
 
 In addition, specific Remote Development extensions have further requirements:
 
@@ -39,7 +35,7 @@ In addition, specific Remote Development extensions have further requirements:
 
 ## Remote host / container / WSL Linux prerequisites
 
-Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies) runtime (and by extension the [V8 JavaScript engine](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
+Platform prerequisites are primarily driven by the version of the Node.js runtime (and by extension the [V8 JavaScript engine](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
 You may encounter issues with certain extensions with native dependencies with **ARMv7l (AArch32) / ARMv8l (AArch64) glibc-based** hosts, containers, or WSL and **64-bit x86 musl-based Alpine Linux**. For ARMv7l/ARMv8l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. Please raise an issue with the appropriate extension author requesting support if you encounter an extension that does not work as expected.
 
@@ -85,5 +81,5 @@ The following is a list of distributions and any base requirements that may be m
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
-* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
+* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [{% data variables.product.prodname_vscode_shortname %} itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

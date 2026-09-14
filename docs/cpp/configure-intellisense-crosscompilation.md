@@ -1,19 +1,17 @@
 ---
-Order: 16
-Area: cpp
-TOCTitle: Configure IntelliSense for cross-compiling
 ContentId: 381b7ce1-5766-49b0-ad26-f9eedae70e63
-PageTitle: Configure IntelliSense for C++ cross-compilation
 DateApproved: 1/17/2023
-MetaDescription: Configure Visual Studio Code c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
+MetaDescription: Configure {% data variables.product.prodname_vscode %} c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
+Keywords:
+- C++
 ---
 # IntelliSense for cross-compiling
 
-This article is about configuring the C/C++ extension to provide proper IntelliSense (e.g. code completions) in Visual Studio Code when you compile for a different architecture than your development host machine. For example, when your host machine is x64 but you are compiling for Arm.
+This article is about configuring the C/C++ extension to provide proper IntelliSense (e.g. code completions) in {% data variables.product.prodname_vscode %} when you compile for a different architecture than your development host machine. For example, when your host machine is x64 but you are compiling for Arm.
 
 The C/C++ extension isn't a compiler -- it provides rich language features such as syntax highlighting and IntelliSense. For the extension to provide correct IntelliSense suggestions and to reflect the right sizes of data types, you need to configure the C++ extension to emulate the target architecture.
 
-These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, in VS Code, select **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`):
+These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, in {% data variables.product.prodname_vscode_shortname %}, select **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`):
 
 ![Command Palette](images/cpp/command-palette.png)
 
@@ -73,7 +71,6 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
 
 ## Next steps
 
-- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
+- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-cpp-settings.md).
 - If you have trouble configuring the settings, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
-- Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).

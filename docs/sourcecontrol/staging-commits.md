@@ -1,0 +1,250 @@
+---
+ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
+DateApproved: 9/9/2026
+MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with staging, diff review, amend, undo, and AI tools.
+Keywords:
+- source control
+- scm
+- version control
+- git
+- ai
+---
+# Staging and committing changes
+
+Creating focused commits with clear descriptions helps you and your team understand the history of your codebase. {% data variables.product.prodname_vscode_shortname %} provides integrated Git tools for staging changes and creating commits, with support for granular control over which changes to include.
+
+This article covers the staging and commit workflow in {% data variables.product.prodname_vscode_shortname %}, from Git's two-step process to using AI assistance for commit messages and reviewing changes before committing.
+
+## Git workflow
+
+Git uses a two-step process to save your work: staging and committing. When you modify files, Git tracks these changes but doesn't automatically include them in your next commit. Staging lets you select which changes to include in each commit.
+
+Think of staging as preparing a snapshot of your work. You can stage all changes at once for a comprehensive commit, or stage specific files and even individual lines to create focused, logical commits that are easier to review and understand later.
+
+## View changes
+
+The Source Control view (`kb(workbench.view.scm)`) is your central hub for managing changes in your Git repository. Changes are organized into two sections based on their staging status:
+
+* **Changes**: lists all modified, added, or deleted files that are not yet staged for commit
+* **Staged Changes**: lists files that have been staged and are ready to be committed
+
+![Screenshot of the Source Control view showing a modified and new file under Changes.](images/staging-commits/view-changes.png)
+
+Notice that changed files are listed with a "U" (untracked), "M" (modified), or "D" (deleted) icon next to them to indicate the type of change. This change indicator is also shown in the Explorer view and in the editor tab title for modified files.
+
+The source control icon in the Activity Bar also shows a badge with the number of affected files to give you a quick overview of your uncommitted changes.
+
+> [!TIP]
+> You can view the list of changes in either a flat or tree structure. Toggle this with the **More Actions** (**...**) > **View & Sort** > **View as Tree/List** option in the Source Control view toolbar.
+
+### Editor gutter indicators
+
+To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/getting-started/userinterface.md#minimap).
+
+The gutter color indicates the type of change:
+
+* **Green bar**: new lines added since the last commit
+* **Blue bar**: lines modified since the last commit
+* **Red triangle**: lines deleted (shown above the deletion point)
+
+When you select the gutter indicator, an inline diff preview of your changes appears. You can stage or revert changes directly from this preview using the corresponding buttons.
+
+![Screenshot of editor gutter indicators showing line changes and a hover showing Git blame information.](images/staging-commits/gutter-diff-preview.png)
+
+You can customize the gutter indicator behavior with these settings:
+
+* `setting(scm.diffDecorations)`: control when diff decorations appear (all, gutter, overview, minimap, or none)
+* `setting(scm.diffDecorationsGutterAction)`: control the actions available in the gutter menu
+* `setting(scm.diffDecorationsGutterPattern)`: customize the pattern used for gutter decorations
+* `setting(scm.diffDecorationsGutterVisibility)`: control when to show gutter decorations (always or on hover)
+* `setting(scm.diffDecorationsGutterWidth)`: set the width of the gutter indicator
+* `setting(scm.diffDecorationsIgnoreTrimWhitespace)`: ignore whitespace changes in diff decorations
+
+## Staging changes
+
+Staging changes prepares them for adding to your next commit. You can stage entire files or specific lines and code blocks for more granular control.
+
+To stage individual files, hover over them in the **Changes** list and select the **+** (plus) icon, or right-click the file and select **Stage Changes**. You can also drag files from the **Changes** section and drop them into the **Staged Changes** section to stage them.
+
+![Screenshot of staging changes in the Source Control view.](images/staging-commits/stage-changes.png)
+
+When you're using the tree view, you can stage entire folders by staging the folder itself. To stage all modified files at once, hover over the **Changes** header and select the **+** (plus) icon.
+
+There are more specialized staging actions available in the Command Palette (`kb(workbench.action.showCommands)`). Type "Git: Stage" to see options for staging files.
+
+### Stage specific lines or code blocks
+
+Instead of staging entire files, you can also stage specific parts of a file. Partial staging enables you to create focused commits. For example, if you've made formatting changes and bug fixes in the same file, you can commit them separately with appropriate commit messages.
+
+You can perform partial staging from the diff editor:
+
+1. Select a file in the **Changes** list to open the [diff editor](#review-changes-with-the-diff-editor)
+
+1. Select the lines you want to stage
+
+1. Use the **Stage** button in the gutter of the diff editor next to your selection to stage only those lines
+
+    ![Screenshot of staging specific lines from the diff editor.](images/staging-commits/stage-specific-lines.png)
+
+    You can also right-click the selection and choose **Stage Selected Ranges** or run **Git: Stage Selected Ranges** from the Command Palette.
+
+### Unstage changes
+
+To remove files from staging, hover over them in the **Staged Changes** list and select the **-** (minus) icon, or right-click and choose **Unstage Changes**. The files move back to the **Changes** section without losing your modifications.
+
+![Screenshot of unstaging changes in the Source Control view.](images/staging-commits/unstage-changes.png)
+
+Similarly, you can also unstage specific lines or code blocks from the diff editor using the **Unstage** button in the gutter next to your selection.
+
+## Commit your changes
+
+Once you've staged your changes, you can create a commit to save them to your local repository. To create a commit, you need to write a commit message that describes the changes. This message helps you and others understand the purpose of the commit when reviewing the commit history.
+
+### Write commit messages
+
+A commit message describes the changes you're committing and helps others (and your future self) understand the purpose of the commit. Type your message in the commit message input box at the top of the Source Control view and select **Commit** to save your staged changes.
+
+To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. Commit message generation uses the fast, lightweight utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. Learn more about [configuring models for utility tasks](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks). You can also [create custom instructions](/docs/agent-customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
+
+![Screenshot of generating a commit message with AI.](images/staging-commits/generate-commit-message.png)
+
+If you want to write commit messages with multiple paragraphs, you can use a full editor instead of the input box. Enable this with the `setting(git.useEditorAsCommitInput)` setting. When you commit changes without a commit message, a new editor tab opens for you to write your message.
+
+> [!TIP]
+> To cycle through your previous commit messages, press `kb(history.showPrevious)` and `kb(history.showNext)` while focused in the commit message input box.
+
+### Use the editor for commit messages
+
+Instead of using the commit message input box, you can write commit messages in a full editor tab. This is useful for longer messages or when you want more space to compose your message.
+
+1. In the Source Control view, select **Commit** without entering a message in the commit input box. This opens a new editor tab named `COMMIT_EDITMSG`.
+
+    ![Screenshot of the COMMIT_EDITMSG editor for writing commit messages.](images/staging-commits/commit-editmsg.png)
+
+1. Write your commit message in the editor. You can use multiple paragraphs and format your message as needed.
+
+1. To accept the commit message and complete the commit operation, either close the editor tab or select **Commit** in the editor.
+
+    ![Screenshot showing the commit message written in the COMMIT_EDITMSG editor, highlighting the Commit button.](images/staging-commits/commit-editmsg-done.png)
+
+1. To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select **Cancel (`X`)** in the editor.
+
+    ![Screenshot showing the commit message written in the COMMIT_EDITMSG editor, highlighting the Cancel button.](images/staging-commits/commit-editmsg-cancel.png)
+
+To disable using the editor for commit messages and revert to the quick input control, disable the `setting(git.useEditorAsCommitInput)` setting (restart {% data variables.product.prodname_vscode_shortname %} for the change to take effect).
+
+To use the same flow for `git commit` commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting (restart your terminal for the change to take effect).
+
+### AI co-author attribution
+
+When you commit code that was generated with AI assistance, {% data variables.product.prodname_vscode_shortname %} can automatically append a `Co-authored-by:` Git trailer to your commit message. This helps you and your team track which commits include AI-generated contributions.
+
+Configure the `setting(git.addAICoAuthor)` setting with one of the following values:
+
+* `chatAndAgent` (default): adds the trailer when committing code generated via Copilot Chat or agent mode
+* `all`: adds the trailer for all AI-generated code, including inline completions
+* `off`: no co-author trailer is added
+
+The trailer is added only when you commit from within {% data variables.product.prodname_vscode_shortname %}. Commits made with external Git tools or the command line don't include the trailer.
+
+Co-author information from commit trailers is also shown in the [Git blame hover tooltip](/docs/sourcecontrol/history.md#view-git-blame-information).
+
+### Commit changes
+
+Select the **Commit** button in the Source Control view to commit the changes in the **Staged Changes** section. Any unstaged changes remain in the **Changes** section for future commits.
+
+To commit all changes (staged and unstaged) at once, select the **More Actions** (**...**) menu and choose **Commit** > **Commit All**. This stages and commits all modified files in one step.
+
+### Amend the previous commit
+
+If you need to modify your most recent commit, you can amend it instead of creating a new commit. This is useful for adding forgotten changes or correcting the commit message.
+
+To amend a commit, select the **Commit** button dropdown and select **Commit (Amend)**, or use the **Commit Staged (Amend)** option from the **More Actions** (**...**) menu.
+
+> [!NOTE]
+> Only amend commits that haven't been pushed to a shared repository. Amending pushed commits rewrites history and can cause issues for other collaborators.
+
+### Undo the last commit
+
+If you need to undo your last commit, select the **More Actions** (**...**) menu in the Source Control view, then choose **Commit** > **Undo Last Commit**. This removes the last commit from your branch history but keeps all the changes from that commit staged in the **Staged Changes** section.
+
+### Discard changes
+
+To completely discard uncommitted changes and revert a file to its last committed state, right-click the file in the Source Control view and select **Discard Changes**. Alternatively, hover over the file in the **Changes** list and select the discard icon (a curved arrow pointing left).
+
+Discarded changes are moved to the Recycle Bin (Windows) or Trash (macOS/Linux), giving you a chance to recover them if needed.
+
+## Review changes with the diff editor
+
+The diff editor shows what changed in your files by comparing the original and modified versions. It can show changes in a side-by-side or inline layout.
+
+To open the diff editor, select any file in the Source Control view **Changes** or **Staged Changes** lists to see the changes for that file versus the last committed version.
+
+> [!TIP]
+> For large files, collapse the unchanged sections by selecting the **Collapse Unchanged Regions** button in the diff editor toolbar. This helps you focus on the actual changes. You can also quickly navigate between changes using the **Next Change** and **Previous Change** buttons.
+
+### Choose a diff layout
+
+By default, the diff editor uses the **Automatic** layout. It shows a side-by-side comparison when there is enough space and switches to inline when the editor is narrow.
+
+To choose a layout, select **More Actions** (**...**) > **Diff View**, and then select one of these options:
+
+* **Inline**: shows changes within one editor.
+* **Side by Side**: shows the original file on the left and your changes on the right.
+* **Automatic**: switches between side-by-side and inline based on the editor width.
+
+The following example shows a side-by-side comparison:
+
+![Screenshot of the Diff Editor showing side-by-side changes between file versions.](images/staging-commits/diff-editor.png)
+
+The inline layout shows the changes within one editor:
+
+![Screenshot of the Diff Editor showing inline changes between file versions.](images/staging-commits/diff-editor-inline.png)
+
+The default width threshold for the **Automatic** layout is 900 pixels. Configure it with `setting(diffEditor.renderSideBySideInlineBreakpoint)`. You can also configure the underlying layout behavior directly with `setting(diffEditor.renderSideBySide)` and `setting(diffEditor.useInlineViewWhenSpaceIsLimited)`.
+
+### Stage and revert from the diff editor
+
+The diff editor includes a gutter with **Stage** and **Revert** buttons next to each change. These buttons let you:
+
+* Stage individual code blocks or lines directly from the diff view
+* Revert specific changes without affecting other modifications
+
+If you select specific lines in the diff editor, the buttons operate only on your selection.
+
+You can hide the diff editor gutter with the `setting(diffEditor.renderGutterMenu)` setting.
+
+### Accessible diff viewer
+
+For screen reader users, {% data variables.product.prodname_vscode_shortname %} provides the Accessible Diff Viewer, which presents changes in a unified patch format. To open the Accessible Diff Viewer, use the **More Actions** (**...**) menu in the diff editor toolbar and select **Open Accessible Diff Viewer** or use the `kb(editor.action.accessibleDiffViewer.next)` keyboard shortcut.
+
+Navigate through changes with **Go to Next Difference** (`kb(editor.action.accessibleDiffViewer.next)`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.previous)`) commands.
+
+## Review code changes with AI
+
+{% data variables.product.prodname_vscode_shortname %} enables you to review your uncommitted changes using AI assistance before committing them. These AI features complement manual code review and help catch problems early in your development workflow.
+
+To perform an AI-powered code review of your uncommitted changes:
+
+1. Select the **Code Review** button in the Source Control view
+
+    ![Screenshot of the Code Review button in the Source Control view.](images/staging-commits/copilot-code-review.png)
+
+1. {% data variables.product.prodname_vscode_shortname %} analyzes your changes and generates review comments and suggestions, which appear as overlay comments in the editor
+
+    ![Screenshot of the code review results, showing as editor overlay comments.](images/staging-commits/copilot-code-review-results.png)
+
+## Inspect source control history
+
+After you create commits, use the Source Control Graph, Git blame information, and Timeline view to understand when and why code changed.
+
+Learn more about [viewing source control history](/docs/sourcecontrol/history.md).
+
+## Next steps
+
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
+* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
+* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and Git blame information
+* [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues
+* [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Discover more AI-powered development features

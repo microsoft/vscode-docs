@@ -29,7 +29,7 @@ yo code
 
 Choose `New Extension Pack` as shown in the image below.
 
-![new extension pack](create_extension_pack.png)
+![new extension pack](create_extension_pack.webp)
 
 Fill out the options as given by Yeoman. One of the options is to create an Extension Pack based on the extensions you currently have installed. This will fill out much of the Extension Pack's details for you!
 

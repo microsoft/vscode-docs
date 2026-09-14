@@ -1,15 +1,11 @@
 ---
-Order: 5
-Area: terminal
-TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 04/03/2025
-MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
+DateApproved: 9/9/2026
+MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
 
-The look of Visual Studio Code's terminal can be customized extensively.
+The look of {% data variables.product.prodname_vscode %}'s terminal can be customized extensively.
 
 ![An example of a custom UI, using Powerline and Nerd Font symbols in the prompt and a custom workbench theme](images/appearance/terminal_appearance.png)
 
@@ -22,14 +18,14 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.fontFamily)`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `"'Fira Code', monospace"` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
 - `setting(terminal.integrated.fontSize)`: Changes the font size of text in the terminal.
 - `setting(terminal.integrated.letterSpacing)`: Configures additional horizontal spacing between characters in pixels.
-- `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
+- `setting(terminal.integrated.lineHeight)`: Configures additional vertical spacing between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
 - `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts
 
-[Powerline](https://powerline.readthedocs.io) fonts are special patched fonts that contain additional characters that can be used in the terminal. VS Code's terminal [renders some of the Powerline symbols without needing to configure a font](#custom-glyphs), but if more glyphs are desired, configure a Powerline font with the font family setting. Powerline fonts typically end in `" for Powerline"`, the following setting is an example of how to configure a DejaVu Sans Mono that has been patched:
+[Powerline](https://powerline.readthedocs.io) fonts are special patched fonts that contain additional characters that can be used in the terminal. {% data variables.product.prodname_vscode_shortname %}'s terminal [renders some of the Powerline symbols without needing to configure a font](#custom-glyphs), but if more glyphs are desired, configure a Powerline font with the font family setting. Powerline fonts typically end in `" for Powerline"`, the following setting is an example of how to configure a DejaVu Sans Mono that has been patched:
 
 ```json
 "editor.fontFamily": "'DejaVu Sans Mono for Powerline'"
@@ -60,7 +56,7 @@ Terminal tabs appear on the right of the terminal view when there are two or mor
 
 The default visibility is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
 
-- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `"never"` to always show them.
+- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `never` to always show them.
 - `setting(terminal.integrated.tabs.showActiveTerminal)`: When to show the active terminal in the terminal view header.
 - `setting(terminal.integrated.tabs.showActions)`: When to show the active terminal's actions in the view header.
 - `setting(terminal.integrated.tabs.location)`: Whether the tabs should be shown on the left or right of the terminal.
@@ -144,7 +140,7 @@ When ligatures are enabled, it's also possible to set a detailed list of font fe
 
 ### Fallback ligatures
 
-When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
+When a font supports ligatures but {% data variables.product.prodname_vscode_shortname %} does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
 
 By default, the fallback ligatures are a list of common ligatures used in coding. Fine-tune the list by configuring the `setting(terminal.integrated.fontLigatures.fallbackLigatures)` setting. For example:
 
@@ -166,21 +162,43 @@ The terminal features two different renderers, each of which have different trad
 
 GPU acceleration driven by the WebGL renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
-The default `setting(terminal.integrated.gpuAcceleration)` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
+The default `setting(terminal.integrated.gpuAcceleration)` value of `auto` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
 
 ### Custom glyphs
 
-When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of Powerline symbols (`U+E0B0-U+E0BF`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
+When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. The following unicode ranges are supported:
 
-Below are some examples of these characters with custom line height and letter spacing configured. Notice how there are no gaps between cells thanks to the custom glyphs:
+- Box Drawing (`U+2500`-`U+257F`)
+- Block Elements (`U+2580`-`U+259F`)
+- Braille Patterns (`U+2800`-`U+28FF`)
+- Powerline Symbols (`U+E0A0`-`U+E0D4`, Private Use Area)
+- Progress Indicators (`U+EE00`-`U+EE0B`, Private Use Area)
+- Git Branch Symbols (`U+F5D0`-`U+F60D`, Private Use Area)
+- Symbols for Legacy Computing (`U+1FB00`-`U+1FBFF`)
+
+This also means that the configured font does not need to include these characters, as well as having them draw pixel perfect and where appropriate will stretch to the size of the entire cell.
+
+Below are all ~800 supported characters in the above ranges:
 
 ![Box drawing, block characters and some Powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 
-This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
+This feature can be disabled by setting `setting(terminal.integrated.customGlyphs)` to `false`.
+
+### Rescaling ambiguous width glyphs
+
+Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this ambiguity occurs, the glyph will be rescaled horizontally to fit in a single cell and prevent overlapping.
+
+For example, the below image features roman numeral characters that are squashed into a single cell:
+
+![VIII and XII characters would be rescaled horizontally so as to not overlap with following characters. They feature a thinner stroke width when this happens due to the scaling](images/appearance/rescale-on.png)
+
+This feature can be disabled by setting `setting(terminal.integrated.rescaleOverlappingGlyphs)` to `false`, which would result in the following overlapped rendering:
+
+![When off, the VIII and XII characters may overlap the following characters](images/appearance/rescale-off.png)
 
 ## Customizing your prompt
 
-Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside VS Code, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
+Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside {% data variables.product.prodname_vscode_shortname %}, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
 
 Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmyposh.dev/) show things like git status and work with most shells, so they're a good choice when starting out.
 
@@ -188,7 +206,7 @@ Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmy
 
 ### Why is my terminal showing a multi-colored triangle or a black rectangle?
 
-The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
+The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by setting `setting(terminal.integrated.gpuAcceleration)` to `off` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
 
 ### Why are the colors in the terminal not correct?
 

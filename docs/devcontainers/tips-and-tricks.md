@@ -1,11 +1,7 @@
 ---
-Order: 15
-Area: devcontainers
-TOCTitle: Tips and Tricks
-PageTitle: Visual Studio Code Dev Containers Tips and Tricks
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
-MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 04/03/2025
+MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for Dev Containers
+DateApproved: 9/9/2026
 ---
 # Dev Containers Tips and Tricks
 
@@ -22,6 +18,16 @@ You can use Docker with the Dev Containers extension in a few ways, including:
 
 You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
 
+## Customize AI Chat Responses
+
+[Custom instructions](/docs/agent-customization/overview.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+
+You can use custom instructions with dev containers to give Copilot more information about the type of dev container you're connected to (like what kind of languages or toolchains are installed). You can achieve this in a few ways:
+* Add `"github.copilot.chat.codeGeneration.instructions"` directly in your `devcontainer.json`
+    * We publish dev container resources (like [images](https://github.com/devcontainers/images) and [Features](https://github.com/devcontainers/features)) to make the process of creating and connecting to dev containers even easier, and we now include custom instructions in these files.
+    * [Here](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80) is an example of custom instructions in the Python Feature.
+* Use a `copilot-instructions.md` file just as you would locally
+
 ## Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
@@ -30,7 +36,7 @@ You can learn more in the [alternative Docker options doc](/remote/advancedconta
 
 2. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Dev Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
 
-3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
+3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports.
 
 Here are some tips that applied to older versions of Docker for Windows but should now be resolved. If you run into strange behaviors due to a possible regression, these tips have solved problems in the past.
 
@@ -44,7 +50,7 @@ If you are still having trouble, see the [Docker Desktop for Windows troubleshoo
 
 ## Enabling file sharing in Docker Desktop
 
-The VS Code [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
+The {% data variables.product.prodname_vscode_shortname %} [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
 
 Note that this step is **not required** with [Docker Desktop's WSL 2 engine](https://aka.ms/vscode-remote/containers/docker-wsl2).
 
@@ -95,7 +101,7 @@ See [Sharing Git credentials with your container](/remote/advancedcontainers/sha
 
 ## Resolving hangs when doing a Git push or sync from a Container
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+If you clone a Git repository using SSH and your SSH key has a passphrase, {% data variables.product.prodname_vscode_shortname %}'s pull and sync features may hang when running remotely.
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
@@ -127,7 +133,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On macOS, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/remote/advancedcontainers/improve-performance.md) for tips. VS Code's defaults optimize for convenience and universal support, but can be optimized.
+Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/remote/advancedcontainers/improve-performance.md) for tips. {% data variables.product.prodname_vscode_shortname %}'s defaults optimize for convenience and universal support, but can be optimized.
 
 ## Cleaning out unused containers and images
 
@@ -141,24 +147,24 @@ You can delete containers by selecting the **Remote Explorer**, right-click on t
 
 However, this does not clean up any images you may have downloaded, which can clutter up your system.
 
-### Option 2: Use the Docker extension
+### Option 2: Use the Container Tools extension
 
-1. Open a **local** window in VS Code (**File > New Window**).
+1. Open a **local** window in {% data variables.product.prodname_vscode_shortname %} (**File > New Window**).
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
+2. Install the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) from the Extensions view if not already present.
 
-3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+3. You can then go to the Container Explorer and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
-     ![Docker Explorer screenshot](images/tips-and-tricks/docker-remove.png)
+     ![Container Explorer screenshot](images/tips-and-tricks/docker-remove.png)
 
 ### Option 3: Use the Docker CLI to pick containers to delete
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/command prompt (or use a local window in {% data variables.product.prodname_vscode_shortname %}).
 2. Type `docker ps -a` to see a list of all containers.
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
 
-If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all development containers managed by VS Code and the folder used to generate them.
+If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all development containers managed by {% data variables.product.prodname_vscode_shortname %} and the folder used to generate them.
 
 ```bash
 docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
@@ -166,13 +172,13 @@ docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}
 
 ### Option 4: Use Docker Compose
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/command prompt (or use a local window in {% data variables.product.prodname_vscode_shortname %}).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/command prompt (or use a local window in {% data variables.product.prodname_vscode_shortname %}).
 2. Type `docker system prune --all`.
 
 ## Resolving Dockerfile build failures for images using Debian 8
@@ -211,7 +217,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ## Using an SSH tunnel to connect to a remote Docker host
 
-The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to setup {% data variables.product.prodname_vscode_shortname %} when working with a remote Docker host. This is often as simple as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
@@ -223,10 +229,10 @@ Follow these steps:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
 
-2. Update the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)  `docker.environment` property in your user or workspace `settings.json` as follows:
+2. Update the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers)  `containers.environment` property in your user or workspace `settings.json` as follows:
 
     ```json
-    "docker.environment": {
+    "containers.environment": {
         "DOCKER_HOST": "tcp://localhost:23750"
     }
     ```
@@ -237,7 +243,7 @@ Follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-VS Code will now be able to [attach to any running container](/docs/devcontainers/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/remote/advancedcontainers/develop-remote-host.md#converting-an-existing-or-predefined-devcontainerjson).
+{% data variables.product.prodname_vscode_shortname %} will now be able to [attach to any running container](/docs/devcontainers/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/remote/advancedcontainers/develop-remote-host.md#converting-an-existing-or-predefined-devcontainerjson).
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
 
@@ -259,7 +265,7 @@ You can use the `mounts` property to persist the user profile (to keep things li
     ],
 ```
 
-The above code first creates a named volume called `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows VS Code to reinstall extensions and dotfiles.
+The above code first creates a named volume called `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows {% data variables.product.prodname_vscode_shortname %} to reinstall extensions and dotfiles.
 
 ## Advanced container configuration tips
 

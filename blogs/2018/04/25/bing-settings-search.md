@@ -19,7 +19,7 @@ So several months ago, we started talking to the Bing team about whether they co
 <div>
     <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">Before</h3>
-        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.png" alt="Before example">
+        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.webp" alt="Before example">
     </div>
     <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">After</h3>
@@ -35,7 +35,7 @@ Integrating Bing's natural language search capabilities into VS Code proved chal
 
 Here is a high level overview of the system:
 
-![Bing Diagram](BingDiagram.png)
+![Bing Diagram](BingDiagram.webp)
 
 Let's take a look at each part.
 
@@ -90,11 +90,11 @@ We now have a system which does a better job of understanding settings queries a
 
 Here are some examples:
 
-![format on keypress](FormatOnKeypress.gif)
+<video src="FormatOnKeypress.mp4" title="Video showing format on keypress." autoplay loop controls muted></video>
 
-![example - how to open new files on the left](OpenFilesOnLeft.gif)
+<video src="OpenFilesOnLeft.mp4" title="Video showing example - how to open new files on the left." autoplay loop controls muted></video>
 
-![beautify](Beautify.gif)
+<video src="Beautify.mp4" title="Video showing beautify." autoplay loop controls muted></video>
 
 If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/), which will help you add some intelligence into your own apps. For example:
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
