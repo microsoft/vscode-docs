@@ -41,7 +41,7 @@ The Agent Host can run as a local utility process or as a standalone server on a
 
 The first-party agent adapters run inside the Agent Host process. An adapter translates between its agent runtime and the common AHP session model.
 
-The Agent Host lives next to the workspace. When the host runs remotely, file edits and commands run on the remote machine.
+The Agent Host lives next to the workspace. It can run on your machine, inside a Dev Container, or on a remote machine. File edits and commands run in the environment that contains the host.
 
 ## Agent Host Protocol
 
@@ -58,6 +58,8 @@ Agent sessions are not tied to the lifetime of the window for their workspace. Y
 Connected clients can also contribute tools. For example, {% data variables.product.prodname_vscode_shortname %} can advertise tools that are provided by the client (like the browser tools) or by installed extensions. The Agent Host adds those definitions to the active session and routes a tool call back to the client that contributed it.
 
 ## Local and remote hosts
+
+For a Dev Container session, the Agent Host runs inside the project's container while the {% data variables.copilot.agents_window %} remains on your machine. This gives the agent access to the tools and dependencies in the container. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The {% data variables.copilot.agents_window %} reaches it through SSH or a dev tunnel.
 

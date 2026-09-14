@@ -49,12 +49,14 @@ Most targets share the same chat and session-management experience in {% data va
 | Session target | Where tools run | Code access | Choose it for |
 |----------------|-----------------|-------------|---------------|
 | **Local** | In the {% data variables.product.prodname_vscode_shortname %} extension host on your machine | Current workspace | Interactive work that needs {% data variables.product.prodname_vscode_shortname %} tools, extension tools, or any model configured in {% data variables.product.prodname_vscode_shortname %} |
-| **Copilot** | In the Agent Host on your machine | Current folder or an isolated Git worktree | General coding tasks, background sessions, and Copilot-specific capabilities |
+| **Copilot** | In the Agent Host on your machine or in a Dev Container | Current folder, an isolated Git worktree, or a Dev Container workspace | General coding tasks, background sessions, and Copilot-specific capabilities |
 | **Claude** | On your machine | Current folder or an isolated Git worktree | Claude-specific agent capabilities, slash commands, and permission modes |
 | **Codex** | On your machine | Current folder or an isolated Git worktree | Codex-specific capabilities for interactive or background work |
 | **Cloud** | On a provider's remote infrastructure | A GitHub repository and pull request | Independent tasks that don't need local editor context and benefit from team review |
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
+
+For an eligible local folder, the {% data variables.copilot.agents_window %} workspace picker can start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Start a session
 

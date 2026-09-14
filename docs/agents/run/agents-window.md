@@ -132,6 +132,28 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
+### Run a session in a Dev Container
+
+Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+
+Before you start, make sure that:
+
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation).
+* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
+* `setting(chat.agentHost.devContainer.enabled)` is enabled.
+
+To run a session in a Dev Container:
+
+1. Select **New** at the top of the sidebar.
+
+1. In the workspace picker, expand the menu for an eligible local folder and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local**.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
 ### Start a session from a pull request
 
 For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
