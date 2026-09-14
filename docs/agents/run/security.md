@@ -33,7 +33,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Enable agent sandboxing.** On macOS and Linux, including WSL2 environments, enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
+1. **Use agent sandboxing.** On a supported platform, turn on agent sandboxing to restrict file system and network access for agent-executed terminal commands. Learn more about [configuring agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
@@ -89,11 +89,11 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-approval).
 
-### Agent sandboxing (Preview)
+### Agent sandboxing
 
-Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+Agent sandboxing uses OS-level isolation to restrict what agent-executed terminal commands can access on your machine. It is in Preview on macOS, Linux, and WSL2, and Experimental on Windows. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
 
-Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments. The same sandboxing applies to Copilot agent-host sessions that run commands through the {% data variables.product.prodname_vscode_shortname %} agent terminal integration.
+The sandbox applies to Copilot Agent Host sessions and is independent of the selected permission level. For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 > [!IMPORTANT]
 > Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run {% data variables.product.prodname_vscode_shortname %} in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.

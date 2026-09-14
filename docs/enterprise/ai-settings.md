@@ -341,7 +341,7 @@ To disable terminal auto-approval entirely, set the policy to `false`. This conf
 
 ### Configure agent sandboxing
 
-Organizations should recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
+Organizations should recommend that developers use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
 The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
@@ -460,7 +460,7 @@ The agent host computes its telemetry configuration when it starts. If a managed
 
 AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/run/security.md) for a comprehensive overview of AI security considerations and best practices.
 
-For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
+For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
 
 ### Agent deployment options and data residency
 
