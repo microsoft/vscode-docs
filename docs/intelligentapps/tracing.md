@@ -2,7 +2,7 @@
 ContentId: e1e49b32-272f-4aef-a73b-56920112057d
 DateApproved: 10/03/2025
 MetaDescription: Collect local traces and inspect hosted-agent telemetry in Foundry Toolkit to diagnose model calls, tool execution, and latency.
-MetaSocialImage: images/hosted-agents/local-agent-inspector.png
+MetaSocialImage: images/tracing/hosted-agent-traces.png
 ---
 
 # Tracing in Foundry Toolkit
@@ -95,7 +95,7 @@ The example keeps sensitive content capture off. If a trace has timing data but 
 > [!CAUTION]
 > Content recording can capture personal data, secrets, tool arguments, and results. Use non-sensitive test data and minimize or redact content before it enters telemetry. Don't turn on content recording in production solely to fill an empty input and output view.
 
-<!-- TODO: Capture a current local trace span with Metadata and, using non-sensitive test data, Input + Output. Replace the tracing page's social image with the new trace screenshot when available. -->
+<!-- TODO: Capture a current local trace span with Metadata and, using non-sensitive test data, Input + Output. -->
 
 Collected traces persist in a local SQLite database named `traces.db`, in the `tracing` subdirectory of `.aitk` under your user home folder. Closing the viewer doesn't delete them. Select **Stop Collector** to stop local telemetry collection. Your agent and its model calls continue running. To remove local records, select the traces in the list and select **Delete**.
 
@@ -121,9 +121,16 @@ Before starting, prepare:
 
 4. Return to **Playground** and send a test request to the deployed agent.
 5. Allow time for ingestion, then open **Traces** again. Use the time range, **Search by conversation ID**, **Status**, or **Duration** filters to locate the request.
+
+    ![Screenshot showing the hosted-agent Traces tab with time, conversation, status, and duration filters and a list of completed requests, with resource and request identifiers redacted.](./images/tracing/hosted-agent-traces.png)
+
 6. Select a trace, then select a span to review **Metadata** and **Input + Output**, when content is available.
 
-<!-- TODO: Capture the released hosted-agent Traces tab and App Insights Settings dialog. Redact project, subscription, resource, and conversation identifiers. -->
+To inspect the operations associated with a conversation, select its **Conversation ID** in the trace list. The conversation view shows an operation tree and metadata.
+
+![Screenshot showing a hosted-agent conversation view with agent, model, and tool operations alongside metadata, with resource and conversation identifiers redacted.](./images/tracing/hosted-agent-conversation.png)
+
+<!-- TODO: Capture the App Insights Settings dialog. Redact project, subscription, and resource identifiers. -->
 
 Connecting Application Insights enables Foundry's server-side tracing. Visibility into your own model calls, tool calls, and custom code also depends on the hosting library and framework instrumentation. Follow [Set up tracing in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup) for service-side collection and additional client instrumentation.
 
