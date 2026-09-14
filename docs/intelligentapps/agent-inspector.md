@@ -35,14 +35,14 @@ Start the agent server before connecting Inspector. Use your project's generated
 1. Start your agent using its documented debug configuration. For the hosted-agent Python sample, follow [Run and test locally](/docs/intelligentapps/hosted-agents.md#run-and-test-locally). Its **Debug Local Agent HTTP Server** configuration opens Inspector when you press `F5`.
 2. If Inspector isn't open, select **Foundry Toolkit** in the Activity Bar, then **Developer Tools** > **Build** > **Agent Inspector**.
 3. Check the endpoint in the Inspector header. The current Python scaffold uses `http://localhost:8088`. If your server uses a different port, select the pencil button beside the endpoint, enter that port, and select **Connect**.
-4. Confirm that the header shows **Connected** and the protocol matches your agent. For this walkthrough, use **Responses Protocol**.
+4. Confirm that the header shows **Connected**. When the endpoint is reachable, Inspector automatically detects the Responses or Invocations protocol. You don't need to select it manually.
 5. Set a breakpoint in your agent code, send a message in the playground, and use the debugger to inspect variables when execution pauses. After continuing, review the response and diagnostics as described in [Use the Inspector](#use-the-inspector).
 
 ![Screenshot showing the local agent debug configuration and Agent Inspector connected to localhost on port 8088 with a successful response.](./images/agent-inspector/connect-and-debug.png)
 
 Opening Inspector alone doesn't launch a server or attach a debugger. The generated Python configuration uses port 5679 for the debugger and port 8088 for agent HTTP requests. These are separate from the OTLP tracing ports described in [Tracing in Foundry Toolkit](/docs/intelligentapps/tracing.md).
 
-### Generic Responses endpoints (Preview)
+### Generic Responses endpoints
 
 Inspector can connect to a local generic Responses endpoint without the full development diagnostics interface. You can inspect the Responses events the server sends, but the workflow graph and its input and output view aren't available. A successful connection doesn't mean the server supplies source locations, token usage, or reasoning.
 
@@ -50,7 +50,7 @@ Inspector can connect to a local generic Responses endpoint without the full dev
 
 Use HTTP Invocations when your agent accepts a custom request body rather than a conversational message. The server's request format and response protocol determine how Inspector sends and displays the result.
 
-1. Connect to your running server and select **Invocations Protocol** in the Inspector header.
+1. Connect to your running HTTP Invocations server. Inspector detects the protocol automatically.
 2. Enter the request body required by your agent. When the server exposes a compatible OpenAPI specification, Inspector can fill in an example. Review that example before sending it, and follow the sample's request format if no example is available.
 3. Select the **Request settings** gear beside the input to set **Content-Type** and **Accept** as required by the server. For example, use `application/json` for a JSON body and `text/event-stream` as the accepted response type when the server supports streaming.
 4. Select **Send** and inspect the response status and body.
@@ -105,13 +105,13 @@ For tool connection and authentication setup, follow [Tool Catalog](/docs/intell
 
 ### Inspect workflows and source code
 
-When the development server provides workflow diagnostics and source locations, Inspector can show the execution graph and help you navigate to your code:
+For supported Agent Framework workflows, the development server can provide workflow diagnostics and source locations so Inspector can show the execution graph and help you navigate to your code:
 
 1. Select a workflow node to inspect the available inputs and outputs.
 2. Double-click the node to open its source location.
 3. Set a breakpoint and repeat the request to inspect the operation in the debugger.
 
-Workflow visualization is available for supported instrumented workflows, including Agent Framework and LangGraph workflows. It isn't available for every agent or protocol. A server without workflow metadata can still return useful response events.
+You can test LangGraph workflows in the playground, but workflow visualization isn't supported for them. A server without workflow metadata can still return useful response events.
 
 ### Investigate failures with Copilot
 
@@ -160,7 +160,7 @@ After local testing, follow the existing [hosted-agent deployment procedure](/do
 | --- | --- |
 | Inspector can't connect. | Check the agent terminal for startup errors. Confirm the interpreter, installed dependencies, and HTTP port, then reconnect to the port the server reports. Opening Inspector doesn't start the process. |
 | A request succeeds but breakpoints aren't hit. | Confirm the debugger is attached to the process serving the request and that the debug configuration uses the correct source directory. For Python, see [debugging troubleshooting](/docs/python/debugging.md#troubleshooting). |
-| The graph or source navigation is missing. | Confirm the server and workflow provide development diagnostics and source locations. Generic Responses inspection doesn't provide these capabilities. |
+| The graph or source navigation is missing. | Confirm the server and workflow provide development diagnostics and source locations. Generic Responses inspection doesn't provide these capabilities. LangGraph workflows work in the playground without workflow visualization. |
 | Tool results are missing. | Check **Events** for failures and pending approvals. Confirm the request actually requires a tool and that the tool is configured and reachable. |
 | Token or reasoning details are missing. | Check what the model and server emit. Inspector can only display the information they provide. |
 | Remote images in a response are blocked. | Select **Load Remote Images** only if you want Inspector to fetch them from the remote hosts. Loading is a display permission, not a tool approval. Unsupported image URLs or content can still fail to load, and a missing image doesn't necessarily mean the agent request failed. |
