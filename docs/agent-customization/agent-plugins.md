@@ -1,7 +1,7 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
 DateApproved: 9/16/2026
-MetaDescription: Learn how to discover, install, and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including plugins that follow the open Agent Plugins standard.
+MetaDescription: Discover and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including skills, tools, hooks, and automation templates.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -13,13 +13,14 @@ Keywords:
 - skills
 - hooks
 - mcp
+- automations
 ---
 # Agent plugins in {% data variables.product.prodname_vscode_shortname %}
 
-Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
+Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations become available in the relevant agent interfaces.
 
 Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
-{% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, and [hooks](/docs/agent-customization/hooks.md). In an Agent Plugins package, these come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
+{% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, [hooks](/docs/agent-customization/hooks.md), and [automation templates](#automations-in-plugins). In an Agent Plugins package, most of these capabilities come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -36,6 +37,7 @@ Agent Plugins 1.0 defines skills and MCP servers as portable component types. Ot
 | [Skills](/docs/agent-customization/agent-skills.md) | Instructions, scripts, and resources that load on-demand | | ✓ |
 | [Agents](/docs/agent-customization/custom-agents.md) | Specialized personas and tool configurations | ✓ | |
 | [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
+| [Automation templates](#automations-in-plugins) | Reusable prompts and schedules for agent tasks | ✓ | |
 | Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
 For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. In the Agent Plugins format, the directory structure looks like this:
@@ -48,6 +50,8 @@ my-testing-plugin/
       SKILL.md             # Testing skill instructions
       run-tests.sh         # Supporting script
   mcp.json                 # MCP server definitions
+  automations/
+    review.automation.md   # Automation template
   scripts/
     validate-tests.sh      # Hook script
   com.github.copilot/
@@ -137,6 +141,90 @@ Some plugin formats provide a root token that you can use in hook commands and M
 | Legacy OpenPlugin | `${PLUGIN_ROOT}` |
 
 Agent Plugins 1.0 also defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. {% data variables.product.prodname_vscode_shortname %} preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
+
+## Automations in plugins
+
+Agent Plugins can contribute automation templates that appear under **Templates from Plugins** in the [{% data variables.copilot.agents_window %}](/docs/agents/run/automations.md#start-from-a-template). A template provides a reusable name, prompt, and schedule. It doesn't create or enable an automation when the plugin is installed.
+
+> [!NOTE]
+> Automation templates are a {% data variables.product.prodname_vscode_shortname %}-specific plugin capability, not a portable Agent Plugins 1.0 component type.
+
+### Automation template location
+
+Store automation templates in an `automations/` folder at the root of an Agent Plugins package. Each file must use the `.automation.md` suffix:
+
+```text
+my-plugin/
+  plugin.json
+  automations/
+    daily-review.automation.md
+    weekly-review.automation.md
+```
+
+To add templates from other folders, configure `extensions.com.github.copilot.automations.paths` in `plugin.json`. These paths are relative to the `com.github.copilot/` folder and supplement the default `automations/` folder:
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "my-dev-tools",
+  "version": "1.2.0",
+  "extensions": {
+    "com.github.copilot": {
+      "automations": {
+        "paths": [
+          "./team-automations/"
+        ]
+      }
+    }
+  }
+}
+```
+
+Set `exclusive` to `true` alongside `paths` to load templates only from the configured folders and skip the default `automations/` folder.
+
+### Automation template format
+
+An automation template is a Markdown file with YAML frontmatter. The Markdown body is the prompt:
+
+```markdown
+---
+version: 1
+id: weekly-review
+name: Weekly review
+description: Review the workspace for regressions.
+schedule:
+  kind: cron
+  expression: "30 10 * * 5"
+  timeZone: local
+---
+Review the workspace changes from the past week.
+Identify regressions and suggest follow-up actions.
+```
+
+The frontmatter supports these fields:
+
+| Field | Required | Description |
+|-------|:--------:|-------------|
+| `version` | Yes | File format version. Use `1`. |
+| `id` | Yes | Identifier that is unique within the plugin. Use lowercase letters, numbers, periods, or hyphens, with a maximum of 64 characters. |
+| `name` | Yes | Display name for the template. |
+| `description` | No | Short description of the automation's purpose. |
+| `schedule` | Yes | Manual, hourly, daily, or weekly schedule. |
+
+Use one of these schedule formats:
+
+| Schedule | YAML |
+|----------|------|
+| Manual | `kind: manual` |
+| Hourly | `kind: hourly` |
+| Daily | `kind: cron`, a five-field expression such as `"0 9 * * *"`, and `timeZone: local` |
+| Weekly | `kind: cron`, a five-field expression such as `"30 10 * * 5"`, and `timeZone: local` |
+
+The five cron fields represent minute, hour, day of month, month, and day of week. Only local-time cron expressions that represent a daily or weekly schedule are supported. {% data variables.product.prodname_vscode_shortname %} ignores invalid templates rather than changing their schedule.
+
+Plugin templates can't specify a workspace, provider, model, permissions, enabled state, or run history. When someone selects a template, the **New Automation** dialog opens so they can review the prompt and choose the execution configuration. The **Enabled** checkbox is cleared by default.
+
+Disabling a plugin removes its templates from the Automations view. Automations that were previously created from those templates and their run history remain available.
 
 ## MCP servers in plugins
 
@@ -395,7 +483,7 @@ You can enable or disable a plugin globally or for a specific workspace:
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 
-When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**. Disabled plugins appear with a dimmed style in the Agent Customizations editor and Extensions view.
+When a plugin is disabled, its skills, agents, hooks, MCP servers, slash commands, and automation templates are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**, and automation templates do not appear in **Templates from Plugins**. Disabled plugins appear with a dimmed style in the Agent Customizations editor and Extensions view.
 
 ### Uninstall plugins
 
@@ -478,7 +566,7 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. {% data variables.product.prodname_vscode_shortname %} reads custom agents, slash commands, rules, and hooks from the `com.github.copilot` namespace, which {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} also read.
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. {% data variables.product.prodname_vscode_shortname %} reads custom agents, slash commands, rules, hooks, and automation path configuration from the `com.github.copilot` namespace. Other clients only use the capabilities in that namespace that they support.
 
 For example:
 
