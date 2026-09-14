@@ -222,6 +222,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
+| `setting(sessions.showApplicationBadge)` _(Preview)_<br/>Show the number of unarchived sessions that need attention on the [application icon](/docs/agents/run/sessions/manage-sessions.md#monitor-sessions-from-the-application-icon-preview). | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
 | `setting(sessions.useWorktree)` _(Insiders)_<br/>Control whether **New Worktree** is selected when no previous code-isolation choice has been saved. After you start a session, the saved choice applies across workspaces instead. | `true` |

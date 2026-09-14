@@ -282,6 +282,22 @@ The {% data variables.copilot.chat_view %} supports different options for copyin
 
 * **Copy Final Response**: Copy just the final Markdown section of the agent's response, after the last tool call. This is useful for sharing or reusing the final output without the intermediate steps.
 
+## Monitor sessions from the application icon (Preview)
+
+The application icon can show how many unarchived sessions in the {% data variables.copilot.agents_window %} need your attention. The badge appears on the dock icon on macOS, the launcher icon on Linux, or the taskbar icon on Windows.
+
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} application icon with a badge count of one in the Windows taskbar.](../../images/agents-overview/application-icon-session-badge.png)
+
+The badge counts sessions that:
+
+* Have unread results and are no longer in progress.
+* Are waiting for your input.
+* Have failing CI checks on an open, non-draft pull request and are no longer in progress.
+
+Unread sessions that are still in progress aren't included. The count updates as sessions change state. Reading or archiving a session removes it from the count when it no longer needs your attention.
+
+Use the `setting(sessions.showApplicationBadge)` setting to control the application badge. The setting defaults to `true` in Insiders and `false` in Stable.
+
 ## Session status indicator (Experimental)
 
 The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
