@@ -276,6 +276,7 @@ The sessions list shows sessions across all your workspaces. You can group sessi
 
 Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
 
+* To keep the active session visible while you start a new session beside it, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.
