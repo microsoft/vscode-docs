@@ -67,7 +67,7 @@ Agent Framework instruments supported model clients, agents, and workflow operat
 
 For another SDK or language, use its current instrumentation guidance or the Toolkit's [Tracing Code Gen tool](/docs/intelligentapps/copilot-tools.md#tracing-code-gen-tool). Support for a particular model API, such as Chat Completions or Responses, depends on that instrumentation. It isn't determined by whether Agent Inspector supports the same API.
 
-<!-- TODO: Capture the current local Tracing view with Start Collector and a populated trace list. Use the released Foundry Toolkit sidebar, not the retired GitHub Models navigation. -->
+![Screenshot showing the running local OTLP collector with gRPC and HTTP endpoints and a populated trace list.](./images/tracing/local-trace-list.png)
 
 ### Collector endpoints
 
@@ -95,7 +95,7 @@ The example keeps sensitive content capture off. If a trace has timing data but 
 > [!CAUTION]
 > Content recording can capture personal data, secrets, tool arguments, and results. Use non-sensitive test data and minimize or redact content before it enters telemetry. Don't turn on content recording in production solely to fill an empty input and output view.
 
-<!-- TODO: Capture a current local trace span with Metadata and, using non-sensitive test data, Input + Output. -->
+![Screenshot showing a local trace with a workflow span tree and the selected span's Metadata tab, with request, trace, and conversation identifiers redacted.](./images/tracing/local-trace-details.png)
 
 Collected traces persist in a local SQLite database named `traces.db`, in the `tracing` subdirectory of `.aitk` under your user home folder. Closing the viewer doesn't delete them. Select **Stop Collector** to stop local telemetry collection. Your agent and its model calls continue running. To remove local records, select the traces in the list and select **Delete**.
 
@@ -129,8 +129,6 @@ Before starting, prepare:
 To inspect the operations associated with a conversation, select its **Conversation ID** in the trace list. The conversation view shows an operation tree and metadata.
 
 ![Screenshot showing a hosted-agent conversation view with agent, model, and tool operations alongside metadata, with resource and conversation identifiers redacted.](./images/tracing/hosted-agent-conversation.png)
-
-<!-- TODO: Capture the App Insights Settings dialog. Redact project, subscription, and resource identifiers. -->
 
 Connecting Application Insights enables Foundry's server-side tracing. Visibility into your own model calls, tool calls, and custom code also depends on the hosting library and framework instrumentation. Follow [Set up tracing in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup) for service-side collection and additional client instrumentation.
 
