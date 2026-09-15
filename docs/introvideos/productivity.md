@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this {% data variables.product.prodname_vscode %} tutorial, we describe {% data variables.product.prodname_vscode %} features that help increase your coding productivity. Learning just a few tips can speed up your workflow and help you discover the full power of the {% data variables.product.prodname_vscode_shortname %} editor.
 
-<iframe src="https://www.youtube-nocookie.com/embed/HIqONcVBEm0" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Productivity tips for {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Productivity tips for {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/productivity/youtube-HIqONcVBEm0.jpg)](https://www.youtube.com/watch?v=HIqONcVBEm0)
 
 Here's the next video we recommend: [Personalize {% data variables.product.prodname_vscode %}](/docs/introvideos/configure.md)
 

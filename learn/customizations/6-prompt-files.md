@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to prompt files
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/d37Y28uU2JY?si=MAKB-3F4Bopmv_Q6" title="Stop Prompting So Much. Do This Instead!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Stop Prompting So Much. Do This Instead! on YouTube (opens in new tab).](images/6-prompt-files/youtube-d37Y28uU2JY.jpg)](https://www.youtube.com/watch?v=d37Y28uU2JY)
 
 If you’re constantly repeating prompts, you’re doing too much.
 

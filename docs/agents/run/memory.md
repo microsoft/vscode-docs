@@ -1,11 +1,11 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how agents in {% data variables.product.prodname_vscode_shortname %} use the memory tool to retain context, learn preferences, and improve across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 
-# Memory in {% data variables.product.prodname_vscode_shortname %} agents
+# Use memory with agents in {% data variables.product.prodname_vscode_shortname %}
 
 Agents in {% data variables.product.prodname_vscode %} use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 

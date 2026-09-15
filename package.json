@@ -12,14 +12,17 @@
     "check-lfs": "node ./build/check-lfs.js",
     "check-release-note-toc": "node ./build/check-release-note-toc.js",
     "check-staged-files": "node ./build/check-staged-files.js",
-    "lint": "eslint **/*.js",
+    "lint": "eslint build/*.js",
     "prepare": "husky install",
+    "replace-youtube-embeds": "node ./build/replace-youtube-embeds.js",
+    "test:replace-youtube-embeds": "node --test ./build/replace-youtube-embeds.test.js",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && docsify serve .",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",
+    "eslint": "^8.57.1",
     "eslint-plugin-security": "^1.7.1",
     "gulp": "~5.0.0",
     "husky": "^7.0.0",

@@ -1,7 +1,7 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 DateApproved: 02/04/2026
-MetaDescription: {% data variables.product.prodname_vscode %} custom user interface layout.
+MetaDescription: Customize the {% data variables.product.prodname_vscode %} layout with side bars, panels, editor groups, toolbars, and interface density.
 ---
 # Custom Layout
 
@@ -13,6 +13,19 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 > If you are new to {% data variables.product.prodname_vscode_shortname %}, you may want to start with the [user interface overview](/docs/editing/getting-started/userinterface.md) or take a look at the [Tips and Tricks](/docs/editing/getting-started/tips-and-tricks.md) article.
 
 ## Workbench
+
+### Layout density
+
+`feature(modern-ui)`
+
+Use layout density to control the spacing around major parts of the editor window. First, enable `setting(workbench.experimental.modernUI)`. Then, select the **Customize Layout** control in the title bar and choose an option under **Layout Density**:
+
+* **Default**: use the standard spacing between and within panels.
+* **Compact**: remove spacing between panels and reduce the spacing within panels.
+
+Your selection applies immediately and persists when you restart {% data variables.product.prodname_vscode_shortname %}. To reset the density to **Default**, along with the other layout settings, select **Restore Defaults** in **Customize Layout**.
+
+You can also configure the density in the Settings editor with `setting(window.density.layout)`.
 
 ### Primary Side Bar
 

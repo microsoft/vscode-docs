@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.135 release",
-      "description": "Continue Copilot or Claude agent sessions from other applications, get a second opinion with Rubber Duck, and inspect detailed chat usage.",
-      "link": "/updates/v1_135",
-      "image": "/assets/updates/1_135/release-highlights.webp"
+      "title": "VS Code 1.137 release",
+      "description": "Watch The Story of VS Code, schedule agent tasks, use Voice Mode, continue quick chats in a workspace, review GitHub issues and pull requests, and help name the VS Code pet.",
+      "link": "/updates/v1_137",
+      "image": "/assets/updates/1_137/release-highlights.webp"
     },
     {
       "type": "documentation",

@@ -14,7 +14,7 @@ MetaSocialImage: images/tutorial/python-social.png
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/suAkMeWJ1yE" title="Get started with Jupyter Notebooks in {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Get started with Jupyter Notebooks in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/jupyter-notebooks/youtube-suAkMeWJ1yE.jpg)](https://www.youtube.com/watch?v=suAkMeWJ1yE)
 
 ## Setting up your environment
 

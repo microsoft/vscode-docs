@@ -1,6 +1,6 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -12,7 +12,7 @@ This article describes the debugging features of {% data variables.product.prodn
 
 The following video shows how to get started with debugging in {% data variables.product.prodname_vscode_shortname %}.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allowfullscreen></iframe>
+[![Watch Getting started with debugging in {% data variables.product.prodname_vscode_shortname %} on YouTube (opens in new tab).](images/debugging/youtube-3HiLLByBWkg.jpg)](https://www.youtube.com/watch?v=3HiLLByBWkg)
 
 ## Debugger user interface
 

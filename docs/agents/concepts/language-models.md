@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Understand how large language models power AI features in {% data variables.product.prodname_vscode_shortname %}, including model characteristics, context windows, and model selection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 - BYOK
 ---
 
-# Language models
+# Understand language models
 
 {% data variables.product.prodname_vscode %} uses large language models (LLMs) to power its AI features. You have flexibility in which models you use and how you access them:
 

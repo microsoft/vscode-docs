@@ -6,7 +6,6 @@
 import * as vscode from 'vscode';
 import { BasePromptElementProps, PromptElement, renderElementJSON } from '@vscode/prompt-tsx';
 import { createLanguageModelToolResult } from './utils';
-import path from 'path';
 import { getCurrentMilestoneName } from './queries';
 
 interface GetCurrentMilestoneNameResultSuccessProps extends BasePromptElementProps {

@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Build and run your first Spring Boot app in Visual Studio Code
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZX8LEQpKPx0?si=HUjEWz0XHj_aDysn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Getting started with your first Java app in VS Code on YouTube (opens in new tab).](images/1-build-and-run/youtube-ZX8LEQpKPx0.jpg)](https://www.youtube.com/watch?v=ZX8LEQpKPx0)
 
 You know that moment when you clone a Java repository, open it, and nothing happens? No
 run button, no green ticks, no clue which of the two hundred files is the one that

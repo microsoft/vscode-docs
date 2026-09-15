@@ -1,6 +1,6 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn about the AI agent customization options in {% data variables.product.prodname_vscode_shortname %}, including instructions, prompt files, custom agents, skills, hooks, and plugins.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -16,7 +16,7 @@ Keywords:
 - MCP
 ---
 
-# Agent customization
+# Understand agent customization
 
 AI models have broad knowledge, but they don't know your codebase, team practices, or development systems. Agent customization adapts an agent to your environment by adding persistent context, repeatable workflows, specialized roles, external tools, and deterministic controls.
 

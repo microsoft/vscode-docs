@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 Use {% data variables.product.prodname_vscode %} extensions to add new features, themes and more. In this tutorial, we will show you how to find extensions, install the ones you like, and disable extensions you don't want to use all the time.
 
-<iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Using extensions in {% data variables.product.prodname_vscode %}" ></iframe>
+[![Watch Using extensions in {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/extend/youtube-SKcZ3cwX8lA.jpg)](https://www.youtube.com/watch?v=SKcZ3cwX8lA)
 
 Here's the next video we recommend: [Debugging](/docs/introvideos/debugging.md)
 

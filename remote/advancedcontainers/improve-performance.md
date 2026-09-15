@@ -5,7 +5,7 @@ TOCTitle: Improve performance
 PageTitle: Improve container performance
 ContentId: 0956602e-d7a7-4071-8345-86075fd81374
 MetaDescription: Improve container performance
-DateApproved: 8/19/2026
+DateApproved: 9/9/2026
 ---
 # Improve disk performance
 
@@ -19,7 +19,7 @@ See [Open a WSL 2 folder in a container on Windows](/docs/devcontainers/containe
 
 ### Video: Speed up Dev Containers on Windows
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MUsROtVmPJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to speed up Remote-Containers on Windows on YouTube (opens in new tab).](images/improve-performance/youtube-MUsROtVmPJM.jpg)](https://www.youtube.com/watch?v=MUsROtVmPJM)
 
 ## Use Clone Repository in Container Volume
 
@@ -107,7 +107,7 @@ If you've already built the container and connected to it, run **Dev Containers:
 
 ### Video: Speed up npm install in a dev container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iDdJWIPRUx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to speed up npm install in a dev container on YouTube (opens in new tab).](images/improve-performance/youtube-iDdJWIPRUx4.jpg)](https://www.youtube.com/watch?v=iDdJWIPRUx4)
 
 ## Use a named volume for your entire source tree
 

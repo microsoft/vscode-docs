@@ -1,10 +1,10 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in {% data variables.product.prodname_vscode_shortname %} chat.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Planning with agents in {% data variables.product.prodname_vscode_shortname %}
+# Plan work with agents in {% data variables.product.prodname_vscode_shortname %}
 
 The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 

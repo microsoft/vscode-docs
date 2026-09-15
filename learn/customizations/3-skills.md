@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to agent skills
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mPjTZviv23s?si=ADTQ4EhKNhzvqrgZ" title="Agent Skills Explained in 5 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Agent Skills Explained in 5 Minutes on YouTube (opens in new tab).](images/3-skills/youtube-mPjTZviv23s.jpg)](https://www.youtube.com/watch?v=mPjTZviv23s)
 
 Most developers are either using agent skills wrong… or not at all.
 

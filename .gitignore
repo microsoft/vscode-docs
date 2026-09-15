@@ -3,6 +3,8 @@ node_modules
 
 .DS_Store
 .vscode/spell.json
+.vscode/extensions/doc-assistant/.vscode-test/
+.vscode/extensions/doc-assistant/out/
 
 .idea
 

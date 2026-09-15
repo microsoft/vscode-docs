@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Build your first app with agent mode
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hmfldW7dmgw?si=v9OJQDJZPMkGf-jt" title="Video for building your first app with agent mode." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video for building your first app with agent mode on YouTube (opens in new tab).](images/build-your-first-app-with-agent-mode/youtube-hmfldW7dmgw.jpg)](https://www.youtube.com/watch?v=hmfldW7dmgw)
 
 This guide is a capstone walkthrough that ties together everything covered in the series. You will build a URL shortener from scratch using agent-first development, FastAPI for the API, Python `sqlite3` for the database, a simple HTML frontend, and the base62 encoder from earlier in the series.
 
@@ -162,7 +162,7 @@ Watch for future sections covering MCP, custom instructions and skills, and more
 
 ## Learn more
 
-* [Agent handoff tutorial in VS Code](https://code.visualstudio.com/docs/agents/agents-handoff-tutorial)
+* [Choose and use an agent harness in VS Code](https://code.visualstudio.com/docs/agents/run/agent-harnesses)
 * [Planning with agents in VS Code](https://code.visualstudio.com/docs/agents/run/planning)
 * [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits)
 * [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_edit-requests-and-restore-checkpoints)

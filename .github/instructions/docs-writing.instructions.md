@@ -17,6 +17,14 @@ Infer this framing from the existing article, its location in the documentation 
 
 Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
 
+## Public availability and product truth
+
+Document functionality only when it is available to the intended audience in a public product channel. Public Preview, Experimental, and Insiders functionality can be documented when its lifecycle and channel are identified clearly.
+
+Do not document functionality that is limited to internal builds or dogfooding. This includes hidden settings or commands, registrations with metadata such as `included: false`, implementation that exists only in source code, and internal feature flags that users can set manually but that the product does not expose or support publicly.
+
+Existence in source code is not proof of public availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is present in the public release channel for the intended audience. When reviewing existing content, flag or remove coverage of functionality that is not public.
+
 ## General Style tips
 
 * Get to the point fast.
@@ -85,6 +93,7 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 ## Reusable variables
 
 * When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
+* Use existing reusable data variables for product names in new and updated content, including frontmatter. Don't hardcode product names such as VS Code or GitHub Copilot when a matching variable exists.
 * Preserve existing reusable data variables when editing content, including frontmatter. Never replace a product-name variable with its rendered product name, such as replacing `{% data variables.product.prodname_vscode %}` with `Visual Studio Code`.
 
 ## Feature lifecycle markers
@@ -107,6 +116,7 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+* Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
 
 ## Images
 
@@ -117,7 +127,10 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 
 * Use videos only when they add value.
 * Videos have a descriptive and meaningful title that starts with "Video showing" or "Video of" and ends with ".".
-* For embedded videos, you MUST use `youtube-nocookie.com` instead of `youtube.com`.
+* Do not embed YouTube videos with an `iframe`. Use linked-image Markdown with a locally stored thumbnail. The site automatically opens external Markdown links in a new tab.
+* Store blog post thumbnails alongside the Markdown file. For other content, store them in `images/<article-name>/`.
+* The thumbnail alt text is the link's accessible name. It must identify the video and announce that the link opens in a new tab, for example `[![Watch <video description> on YouTube (opens in new tab).](<thumbnail-path>)](<youtube-url>)`.
+* To migrate existing YouTube iframe embeds, run `npm run replace-youtube-embeds -- --write <file-or-directory>`. Omit `--write` to preview the migration.
 
 ## Lists
 

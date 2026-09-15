@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this {% data variables.product.prodname_vscode %} tutorial, we show you how to customize {% data variables.product.prodname_vscode %} with settings and keyboard shortcuts.
 
-<iframe src="https://www.youtube-nocookie.com/embed/nORT3-kONgA?si=yrBv0XmZATIA7gVr" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Customize {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Customize {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/customize/youtube-nORT3-kONgA.jpg)](https://www.youtube.com/watch?v=nORT3-kONgA)
 
 Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 

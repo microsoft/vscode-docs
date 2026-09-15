@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Learn how to use {% data variables.product.prodname_vscode_shortname %}'s integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
 Keywords:
 - source control
@@ -16,7 +16,7 @@ The integrated source control interface provides access to Git functionality thr
 
 Changes you make in the {% data variables.product.prodname_vscode_shortname %} interface are synced with your command-line Git operations, so you can use both the UI and terminal as needed. The source control interface works alongside the command line rather than replacing it.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Video showing how to use Git with {% data variables.product.prodname_vscode %}." frameborder="0" allowfullscreen></iframe>
+[![Watch Video showing how to use Git with {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/overview/youtube-i_23KUAEtUM.jpg)](https://www.youtube.com/watch?v=i_23KUAEtUM)
 
 ## Prerequisites
 

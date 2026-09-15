@@ -1,14 +1,14 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/26/2026
-MetaDescription: Learn how to use chat in {% data variables.product.prodname_vscode_shortname %}. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
+DateApproved: 9/9/2026
+MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-This article describes the mechanics of how to interact with chat: how to send a request, add context, choose a language model, write effective prompts, and review AI-generated changes. These mechanics apply to all chat surfaces in {% data variables.product.prodname_vscode_shortname %}. For an overview of what agents can do and how to configure a session, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, navigate a conversation, and personalize the chat display. For an overview of agents, session configuration, and the available interfaces, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -17,24 +17,21 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 </div>
 
-## Ways to chat in {% data variables.product.prodname_vscode_shortname %}
+## Choose where to chat
 
-{% data variables.product.prodname_vscode_shortname %} gives you two main surfaces for working with agents, plus lightweight options for quick interactions. You can choose the experience that best fits your current task and workflow, and switch between them as needed.
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. To compare these interfaces with browser and terminal options, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents).
 
-| Name | Description | How to open |
-|------|-------------|-------------|
-| [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open {% data variables.copilot.agents_window %}** command</li><li>Run `code --agents`</li></ul> |
-| [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the {% data variables.product.prodname_vscode_shortname %} title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
-| [Inline chat](/docs/chat/inline-chat.md) | Quick, in-place code edits or terminal suggestions. | <ul><li>Press `kb(inlineChat.start)`</li></ul> |
-| [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | A lightweight chat panel at the top of the editor. | <ul><li>Press `kb(workbench.action.quickchat.toggle)`</li></ul> |
+For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
 ## Send a chat request
 
-Type your message in the chat input box and press `kbstyle(Enter)` or select the **Send** button. The agent analyzes your code, makes the changes, and responds with a summary. You can then continue the conversation with follow-up messages. For example, you might start with a request like:
+Type your message in the chat input box and press `kbstyle(Enter)` or select the **Send** button. The agent can answer questions, analyze your code, run tools, make changes, and respond with a summary. You can then continue the conversation with follow-up messages. For example, you might ask an agent to make this change:
 
 ```prompt
 Add input validation to the signup form
 ```
+
+For a hands-free conversation, start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) from the chat input. Voice Mode listens for follow-up requests and reads the agent's responses aloud. `feature(voice-mode)`
 
 To give extra project-specific context, you can [add context to your prompt](#add-context-to-your-prompts) by referencing files, symbols, or other information with `#`-mentions.
 
@@ -72,6 +69,10 @@ You don't have to wait for a response to finish before sending your next message
 * **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
 * **Stop and Send**: cancels the current request entirely and sends your new message right away.
 
+Stopping a request doesn't undo file edits, terminal commands, or other actions that already completed. To restore affected workspace files and chat history, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint). Checkpoints don't reverse changes to external services.
+
+For examples of when to steer or stop a request and how to write a focused correction, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#redirect-a-running-request).
+
 The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
 
 ### Reorder pending messages
@@ -94,22 +95,19 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
-## Image carousel (Experimental)
+## Image carousel
 
-When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
+You can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
 
 ![Screenshot showing the image carousel view with multiple images.](images/chat-sessions/image-carousel.png)
 
+To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `false`.
+
 ## Review and manage changes
 
-After the AI changes your files, review and validate the result before you commit or integrate it.
+After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
 
-* **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the {% data variables.copilot.agents_window %}. To show a changed-files summary after each request in the {% data variables.copilot.chat_view %}, set `setting(chat.checkpoints.showFileChanges)` to `true`.
-* **Request revisions**: send a follow-up prompt, leave feedback in the {% data variables.copilot.agents_window %} diff editor, or edit the files directly.
-* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints).
-* **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
-
-For more information, see [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
 
@@ -128,12 +126,6 @@ Both settings have three possible values:
 > [!TIP]
 > Set the value to `always` if you want to stay aware of chat activity while working in other parts of {% data variables.product.prodname_vscode_shortname %}, such as when running long agent tasks in the background.
 
-## Show request and completion timestamps
-
-Chat can show timestamps for when you send a request and when a response completes. Hover over a completion timestamp to see elapsed response time.
-
-Use `setting(chat.verbose)` to enable or disable these timestamps.
-
 ## Find text in a chat session
 
 Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. It searches prompts and responses, including off-screen content and code blocks.
@@ -151,6 +143,61 @@ Use the following keyboard shortcuts to navigate between prompts in a chat sessi
 * `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
 * `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
 * `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
+
+## Personalize chat
+
+Adjust how chat content appears, add an interactive pet, or set a decorative background in the {% data variables.copilot.agents_window %}.
+
+### Customize the chat display
+
+Use these settings to adjust the chat transcript:
+
+| Display option | Settings |
+|----------------|----------|
+| Markdown font | Set the font family with `setting(chat.fontFamily)` and the font size with `setting(chat.fontSize)`. |
+| Code block font and layout | Set the font family, size, weight, and line height with `setting(chat.editor.fontFamily)`, `setting(chat.editor.fontSize)`, `setting(chat.editor.fontWeight)`, and `setting(chat.editor.lineHeight)`. Control line wrapping with `setting(chat.editor.wordWrap)`. |
+| Sticky prompts | Use `setting(chat.stickyScroll.enabled)` to pin the current prompt to the top of the transcript while you scroll. |
+| Request timestamps | Use `setting(chat.verbose)` to show or hide request and completion timestamps. Hover over a completion timestamp to view the elapsed response time. |
+
+For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
+
+### Use the VS Code pet
+
+`feature(chat-pet)`
+
+The interactive VS Code pet sits above the chat input box and reacts to chat activity and your interactions. Type `/vscode-pet` in the chat input to show or hide it. In the new-session view of the {% data variables.copilot.agents_window %}, you can also right-click outside the input box and select the **Pet (/vscode-pet)** item.
+
+Interact with the pet in the following ways:
+
+* Select the pet to trigger a reaction. With the keyboard, press `kbstyle(Tab)` to focus it, and then press `kbstyle(Enter)` or `kbstyle(Space)`.
+* Drag the pet around chat and release it to drop it. You can also flick it to throw it.
+* When the pet has keyboard focus, press `kbstyle(Left)` or `kbstyle(Right)` to make it hop. Hold `kbstyle(Shift)` with an arrow key to throw it toward a wall.
+* Right-click the pet to open its context menu and view achievements, send it on the run, resize it, or switch between Stable and Insiders colors. With the keyboard, focus the pet and press `kbstyle(Shift+F10)`.
+
+Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
+
+For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
+
+### Customize the {% data variables.copilot.agents_window %} chat background
+
+`feature(agents-window-chat-backgrounds)`
+
+Add a decorative background to the chat area of the {% data variables.copilot.agents_window %} without changing chat in the main {% data variables.product.prodname_vscode_shortname %} window.
+
+To set a background, run the **Chat: Set Background...** command from the Command Palette (`kb(workbench.action.showCommands)`) or right-click an empty area of the chat. Then, choose one of these options:
+
+* **Codicons**: use a theme-aware pattern of built-in {% data variables.product.prodname_vscode_shortname %} icons.
+* **Image...**: select an image from your machine.
+* **Recently used**: reuse one of your five most recent background images.
+
+For an image background, run **Chat: Change Background Layout...** to repeat, stretch, center, or position the image along an edge or in a corner. Moving through the layout options previews each one. Select an option to save it, or dismiss the picker to restore the previous layout.
+
+To remove the background for the current color theme, run **Chat: Clear Background**.
+
+> [!NOTE]
+> Light and dark color themes have separate backgrounds. Background choices are stored on the current machine and don't sync, while the image layout syncs across devices.
+
+Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
 
 ## Get better responses
 

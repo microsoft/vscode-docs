@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this {% data variables.product.prodname_vscode %} tutorial, we show you how to personalize {% data variables.product.prodname_vscode %} with themes.
 
-<iframe src="https://www.youtube-nocookie.com/embed/HOShAQzOy4Q" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Personalize {% data variables.product.prodname_vscode %}"></iframe>
+[![Watch Personalize {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/configure/youtube-HOShAQzOy4Q.jpg)](https://www.youtube.com/watch?v=HOShAQzOy4Q)
 
 Here's the next video we recommend: [Extensions in {% data variables.product.prodname_vscode %}](/docs/introvideos/extend.md)
 

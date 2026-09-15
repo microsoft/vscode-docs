@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 8/26/2026
+DateApproved: 9/9/2026
 MetaDescription: Use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate focused tasks, compare models, and review results without crowding the main chat context.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -13,7 +13,7 @@ Keywords:
 - parallel
 ---
 
-# Subagents in {% data variables.product.prodname_vscode %}
+# Use subagents in {% data variables.product.prodname_vscode %}
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 

@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Debug and inspect a Spring Boot request in Visual Studio Code
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/y8SdqmjEqq8?si=HCMMP-G-YbvPkhdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Debugging your Java App in VS Code on YouTube (opens in new tab).](images/2-debug-and-inspect/youtube-y8SdqmjEqq8.jpg)](https://www.youtube.com/watch?v=y8SdqmjEqq8)
 
 A web app that works is not the same as a web app you understand. The page says the item
 was added. It does not say which method received the title, where the id came from, or

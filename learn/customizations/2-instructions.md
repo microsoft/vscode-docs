@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to custom instructions
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dk2biPguo_E?si=O15sDX8Jf18pXZFr" title="Custom Instructions: How I Really Made Copilot Listen!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Custom Instructions: How I Really Made Copilot Listen! on YouTube (opens in new tab).](images/2-instructions/youtube-dk2biPguo_E.jpg)](https://www.youtube.com/watch?v=dk2biPguo_E)
 
 You’ve probably been lied to about custom instructions.
 

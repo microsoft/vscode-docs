@@ -3,13 +3,21 @@ TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: {% data variables.product.prodname_vscode %} Frequently Asked Questions
 DateApproved: 02/04/2026
-MetaDescription: {% data variables.product.prodname_vscode %} Frequently Asked Questions
+MetaDescription: Find answers to common questions about {% data variables.product.prodname_vscode %}, including accounts, AI features, licensing, and supported platforms.
 ---
 # {% data variables.product.prodname_vscode %} FAQ
 
 Our docs contain a **Common questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
 If you don't see an answer to your question here, check our previously [reported issues on GitHub](https://github.com/microsoft/vscode/issues) and our [release notes](/updates).
+
+## Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
+
+Yes. You don't need an account to install {% data variables.product.prodname_vscode_shortname %} or use its core editor features.
+
+Signing in with GitHub connects {% data variables.product.prodname_vscode_shortname %} to your GitHub Copilot plan and gives you access to the AI features, models, and usage allowances included with that plan. If you don't want to sign in, you can still use chat with a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) without a GitHub account or Copilot plan. Features that depend on the GitHub Copilot service, such as inline suggestions, semantic search, and embeddings, aren't available through bring-your-own-key models.
+
+You can also use {% data variables.product.prodname_vscode_shortname %} without AI features. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 
 ## Open sourcing AI in {% data variables.product.prodname_vscode_shortname %}
 
