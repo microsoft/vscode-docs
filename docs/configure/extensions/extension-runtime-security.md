@@ -1,6 +1,6 @@
 ---
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn about the security measures in place for {% data variables.product.prodname_vscode %} extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 # Extension runtime security

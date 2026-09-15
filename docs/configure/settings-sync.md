@@ -1,6 +1,6 @@
 ---
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: Synchronize your user settings across all your {% data variables.product.prodname_vscode %} instances.
 ---
 # Settings Sync

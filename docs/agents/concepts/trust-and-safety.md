@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -57,13 +57,13 @@ You can revoke trust at any time through dedicated commands in the Command Palet
 ## Agent sandboxing
 
 > [!NOTE]
-> Agent sandboxing is currently in preview and might further evolve.
+> Agent sandboxing is in Preview on macOS, Linux, and WSL2, and Experimental on Windows.
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
-{% data variables.product.prodname_vscode_shortname %} applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot agent-host sessions that use the {% data variables.product.prodname_vscode_shortname %} agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/run/approvals.md#sandbox-agent-commands).
+{% data variables.product.prodname_vscode_shortname %} applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot Agent Host sessions. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
 
-When sandboxing is enabled, {% data variables.product.prodname_vscode_shortname %} automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
+By default, {% data variables.product.prodname_vscode_shortname %} automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
 
 ### Why sandboxing matters
 
@@ -81,38 +81,12 @@ Sandboxing addresses these challenges by enforcing boundaries at the OS level. T
 
 ### How sandboxing works
 
-Sandboxing enforces two types of isolation: **file system access** and **network access**. Both are applied at the OS level and can't be bypassed by the commands running inside the sandbox.
+Sandboxing enforces two types of isolation:
 
-#### File system isolation
+* **File system isolation** limits read and write access to configured paths. It protects sensitive locations, such as SSH keys and shell configuration, and applies to child processes such as package managers and build scripts.
+* **Network isolation** limits outbound connections to configured domains. It reduces the risk of data exfiltration and unintended actions on external services.
 
-Without file system isolation, a compromised command could modify files anywhere on your machine, for example, injecting malicious code into your shell configuration (`~/.bashrc`, `~/.zshrc`) or reading SSH keys from `~/.ssh/`. File system isolation prevents this by restricting access to explicitly permitted paths.
-
-* **Default behavior.** Read access is allowed for workspace folders and the sandbox runtime temp folder. Reads from your home directory (`$HOME`) are denied by default to protect sensitive files such as SSH keys, shell configuration, and credentials. Write access is limited to the current working directory and its subdirectories. When a request is made that requires additional permissions, {% data variables.product.prodname_vscode_shortname %} prompts you to allow running the command outside the sandbox.
-
-    ![Screenshot of a {% data variables.product.prodname_vscode_shortname %} prompt asking the user to allow a command to run outside the sandbox for additional permissions.](../images/trust-and-safety/sandbox-prompt.png)
-
-* **Per-command read paths.** Before a command runs, {% data variables.product.prodname_vscode_shortname %} parses it and grants read access to the specific paths the command needs. This covers common developer workflows such as `git`, `node`, `npm`, `dotnet`, Java, and Rust. For example, running a `node` command automatically allows reads from the Node version manager directory, and running a `git` command allows reads from `~/.gitconfig`.
-
-* **Configurable rules.** You can grant read or write access to additional paths, or deny read or write access to specific paths. Deny rules always take precedence over allow rules.
-
-* **Inherited restrictions.** All child processes spawned by a sandboxed command inherit the same file system boundaries. This means tools like `npm`, `pip`, or build scripts are also restricted.
-
-#### Network isolation
-
-Without network isolation, a compromised command could exfiltrate sensitive data or could perform unintended actions on external services. Network isolation prevents this by blocking all outbound connections by default.
-
-Sandbox enablement and unrestricted network access are separate controls. When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, all outbound network access is blocked unless you explicitly allow specific domains. When `setting(chat.agent.sandbox.allowNetwork)` is on, commands can reach external services freely while file system restrictions still apply. On macOS and Linux, `setting(chat.agent.sandbox.enabled)` controls sandbox enablement and accepts `off` (default) or `on`.
-
-{% data variables.product.prodname_vscode_shortname %} provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/run/approvals.md#configure-network-access).
-
-* **Retry with network access.** When a sandboxed command is blocked by network restrictions, the agent first asks for confirmation to retry inside the sandbox with unrestricted network access before falling back to running the command outside the sandbox.
-
-* **Domain allowlist.** You can explicitly permit access to specific domains.
-
-    > [!CAUTION]
-    > The agent can perform actions on allowed domains on your behalf, not just read data. For example, allowing `api.github.com` means the agent could create pull requests or modify repository settings. Allowing a cloud service API domain could lead to cloud resource modifications. Only configure this setting if absolutely required. This configuration is specified in a setting and applies to all agent tools and sandboxed commands, not only the current task.
-
-* **Inherited restrictions.** All child processes inherit the same network restrictions, so scripts or tools that spawn subprocesses cannot bypass the network rules.
+Both boundaries are applied at the operating system level and inherited by child processes. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
 
 ### OS-level enforcement
 
@@ -122,6 +96,7 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 |----------|-----------|---------------|
 | macOS | Apple's sandboxing framework ("Seatbelt"), built into the operating system. Enforces fine-grained file system and network restrictions at the kernel level. | None. Works out of the box. |
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
+| Windows | Microsoft MXC process containers apply file system and network policies to the command process. | Install the applicable Windows security update. Windows support is Experimental. |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
@@ -136,7 +111,7 @@ Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file
 
 For full environment isolation, pair sandboxing with a [dev container](/docs/devcontainers/containers.md). Dev containers provide a complete boundary around the entire development environment, including all tools, file access, and network access.
 
-Agent sandboxing is currently in preview and continues to evolve to cover more tools and scenarios.
+Agent sandboxing continues to evolve to cover more tools and scenarios.
 
 ## AI limitations to watch for
 
@@ -149,7 +124,5 @@ Treat AI-generated output as a first draft: useful as a starting point, but alwa
 ## Related resources
 
 * [AI security considerations](/docs/agents/run/security.md)
-* [Terminal sandbox configuration](/docs/agents/run/approvals.md#sandbox-agent-commands)
+* [Terminal sandbox configuration](/docs/agents/run/agent-sandboxing.md)
 * [Reviewing code edits](/docs/agents/run/review-code-edits.md)
-* [Checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints)
-* [Tool approval](/docs/agents/run/approvals.md#tool-approval)

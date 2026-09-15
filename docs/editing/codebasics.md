@@ -1,7 +1,7 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 9/9/2026
-MetaDescription: Learn about the basic editing features of {% data variables.product.prodname_vscode %}. Search, multiple selection, code formatting.
+DateApproved: 9/16/2026
+MetaDescription: Edit code efficiently in {% data variables.product.prodname_vscode %} with multiple cursors, search, formatting, folding, and automatic bracket closing.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
 # Basic editing
@@ -83,6 +83,22 @@ You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind t
 ### Column Selection mode
 
 The user setting **Editor: Column Selection** controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the **Selection** > **Column Selection Mode** menu item. In addition, one can also disable Column Selection mode from the Status bar.
+
+## Auto-closing brackets
+
+When you type an opening bracket, {% data variables.product.prodname_vscode_shortname %} can insert the matching closing bracket based on the active language configuration. The `setting(editor.autoClosingBrackets)` setting controls this behavior:
+
+* `languageDefined`: Use the language configuration to determine when to insert a closing bracket. This value is the default.
+* `beforeWhitespace`: Insert a closing bracket only when the cursor is before whitespace.
+* `always`: Always insert a closing bracket.
+* `never`: Do not insert a closing bracket.
+
+For the `languageDefined` and `beforeWhitespace` values, if a matching unpaired closing bracket exists later in the document, {% data variables.product.prodname_vscode_shortname %} does not insert a duplicate. Set `setting(editor.autoClosingBrackets)` to `always` to insert a closing bracket even when an unpaired closing bracket already exists.
+
+> [!NOTE]
+> Bracket balancing depends on token-aware bracket information. Until tokenization is complete, or for files too large for bracket-pair analysis, the editor uses its standard auto-closing behavior. With multiple cursors, if any cursor can pair with an unpaired closing bracket, the editor suppresses auto-closing at every cursor.
+
+Auto-closing for quotes is controlled separately by the `setting(editor.autoClosingQuotes)` setting.
 
 ## Save / Auto Save
 

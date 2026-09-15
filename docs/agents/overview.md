@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Choose an AI experience and starting configuration in {% data variables.product.prodname_vscode %}, then learn how agents, sessions, and tools work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -161,7 +161,7 @@ You can further shape the agent with [customizations](/docs/agents/concepts/cust
 
 ## Stay in control
 
-Agents can read and edit files, run terminal commands, and call external services. Set a permission level to control which tool calls require your approval. Use agent sandboxing when you need operating system-level file system and network restrictions. Review generated code and validate the result before you commit or integrate the changes. Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-safety.md).
+Agents can read and edit files, run terminal commands, and call external services. Set a permission level to control which tool calls require your approval. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) when you need operating system-level file system and network restrictions. Review generated code and validate the result before you commit or integrate the changes. Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-safety.md).
 
 Organizations can centrally control which AI features, models, and tools are available. Administrators can restrict agent capabilities and enforce requirements for their teams. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
 
