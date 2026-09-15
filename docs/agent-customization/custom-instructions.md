@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

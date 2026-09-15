@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -34,7 +34,7 @@ Learn why {% data variables.product.prodname_vscode_shortname %} uses permission
 | [Tool approval](#tool-approval) | Which tools require confirmation before or after they run | `setting(chat.tools.eligibleForAutoApproval)` |
 | [URL approval](#url-approval) | Which URLs can be requested and which responses can enter the chat context | `setting(chat.tools.urls.autoApprove)` |
 | [Terminal approval](#automatically-approve-terminal-commands) | Which terminal commands run without confirmation | `setting(chat.tools.terminal.autoApprove)` |
-| [Sandboxing](#sandbox-agent-commands) | The file system and network boundaries for terminal commands | `setting(chat.agent.sandbox.enabled)` |
+| [Sandboxing](/docs/agents/run/agent-sandboxing.md) | The file system and network boundaries for terminal commands | Platform-specific |
 
 ## Permission levels
 
@@ -204,89 +204,13 @@ Related settings:
 ## Sandbox agent commands
 
 > [!NOTE]
-> Agent sandboxing is currently in preview and might further evolve.
+> Agent sandboxing is in Preview on macOS, Linux, and WSL2, and Experimental on Windows.
 
-Agent sandboxing restricts file system and network access for terminal commands, including Copilot agent-host sessions that use the {% data variables.product.prodname_vscode_shortname %} terminal integration. It does not sandbox other agent tools. For the security model and OS-level implementation, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+Agent sandboxing restricts file system and network access for terminal commands. It is independent of the selected permission level, so an enabled sandbox continues to restrict terminal commands with **Allow all** and **Autopilot**.
 
-Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
+Select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off. For Copilot Agent Host sessions, the toggle applies only to the current session. New sessions use the effective User or Workspace setting for their platform, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
 
-### Configure the sandbox
-
-On macOS and Linux, configure these settings:
-
-| Setting | Default | Effect |
-|---|---|---|
-| `setting(chat.agent.sandbox.enabled)` | `off` | Set to `on` to run terminal commands with file system and network isolation. |
-| `setting(chat.agent.sandbox.allowNetwork)` | `false` | Set to `true` to give sandboxed commands unrestricted network access. File system restrictions remain active. |
-| `setting(chat.agent.sandbox.allowAutoApprove)` | `true` | Set to `false` to require the normal terminal approval flow for commands inside the sandbox. |
-
-The **Sandboxing for terminal** checkbox in the permission picker updates `setting(chat.agent.sandbox.enabled)`.
-
-With the default sandbox configuration, terminal commands:
-
-* Have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that {% data variables.product.prodname_vscode_shortname %} adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
-* Have write access only to the current working directory and its subdirectories.
-* Cannot access the network unless you configure domain access or unrestricted network access.
-* Run without confirmation unless you disable `setting(chat.agent.sandbox.allowAutoApprove)`.
-
-> [!IMPORTANT]
-> If the required OS dependencies for sandboxing are not installed, {% data variables.product.prodname_vscode_shortname %} offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
-
-### Configure file system access
-
-Use `setting(chat.agent.sandbox.fileSystem.mac)` on macOS or `setting(chat.agent.sandbox.fileSystem.linux)` on Linux and WSL2 to change file system access.
-
-Configure `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` with literal paths. Glob patterns are not supported. Deny rules take precedence over allow rules.
-
-Workspace folders, the sandbox runtime temp folder, and per-command read paths are allowed automatically. You typically only need `allowRead` for configuration or data outside the workspace.
-
-```jsonc
-{
-  "chat.agent.sandbox.fileSystem.mac": {
-    // Allow writes to the working directory
-    "allowWrite": ["."],
-    // Allow reads from an additional path outside the workspace
-    "allowRead": ["/Users/me/.config/myapp"],
-    // Block writes to specific subdirectories
-    "denyWrite": ["./secrets/"],
-    // Block reads from specific paths
-    "denyRead": ["/etc/passwd"]
-  }
-}
-```
-
-### Configure network access
-
-Sandbox network isolation and the agent network filter work together:
-
-| Setting | Applies to | Behavior |
-|---|---|---|
-| `setting(chat.agent.networkFilter)` | Agent tools such as fetch and the integrated browser | When enabled, permits only domains in `setting(chat.agent.allowedNetworkDomains)`. |
-| `setting(chat.agent.allowedNetworkDomains)` | Filtered agent tools and network-isolated terminal commands | Lists permitted domains. An empty list blocks all domains. |
-| `setting(chat.agent.deniedNetworkDomains)` | Filtered agent tools and network-isolated terminal commands | Lists blocked domains and takes precedence over the allow list. |
-| `setting(chat.agent.sandbox.allowNetwork)` | Sandboxed terminal commands | When enabled, permits unrestricted network access for terminal commands and ignores domain lists for those commands. |
-
-When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is `false`, enable `setting(chat.agent.networkFilter)` and add allowed domains to give terminal commands selective network access. Domain lists support wildcards such as `*.example.com`.
-
-When network restrictions block a sandboxed command, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` controls the fallback. Its default value, `true`, prompts you to retry inside the sandbox with unrestricted network access. File system restrictions remain active.
-
-```jsonc
-{
-    "chat.agent.networkFilter": true,
-    "chat.agent.allowedNetworkDomains": [
-        "api.github.com"
-    ],
-    "chat.agent.deniedNetworkDomains": [
-        "example.com"
-    ]
-}
-```
-
-### Run commands outside the sandbox
-
-If a command cannot run inside the sandbox, the agent asks for approval to run it outside the sandbox. Disable `setting(chat.agent.sandbox.allowUnsandboxedCommands)` to prevent this elevation option.
-
-The agent tries the command inside the sandbox first, so commands that succeed there do not produce an elevation prompt.
+Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md), including platform prerequisites, file system and network restrictions, session behavior, and fallback controls.
 
 ## Related resources
 

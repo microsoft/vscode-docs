@@ -105,7 +105,15 @@ echo ""
 
 # Step 5: Generate social media image
 echo "--- Step 5: Generate social media image ---"
-bash "$SCRIPT_DIR/generate-social-image.sh" "1.$RELEASE_NUMBER"
+if command -v magick &> /dev/null; then
+    bash "$SCRIPT_DIR/generate-social-image.sh" "1.$RELEASE_NUMBER"
+elif command -v convert &> /dev/null; then
+    bash "$SCRIPT_DIR/generate-social-image-im6.sh" "1.$RELEASE_NUMBER"
+else
+    echo "Skipping: ImageMagick not found ('magick' or 'convert')."
+    echo "  macOS:  brew install imagemagick"
+    echo "  Ubuntu: sudo apt install imagemagick"
+fi
 echo ""
 
 # Step 6: Update date metadata

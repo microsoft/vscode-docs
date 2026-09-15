@@ -1,6 +1,6 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c003
-DateApproved: 03/30/2026
+DateApproved: 9/16/2026
 MetaDescription: Review AI-generated changes in VS Code with diff controls, checkpoints, forks, and session steering for safe agent workflows.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

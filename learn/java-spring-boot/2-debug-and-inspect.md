@@ -1,6 +1,6 @@
 ---
 ContentId: 3481fe44-98b0-4590-8e36-12fe0c0ff067
-DateApproved: 08/18/2026
+DateApproved: 9/16/2026
 MetaDescription: Debug a Spring Boot request and inspect application health and memory with Java tools in Visual Studio Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

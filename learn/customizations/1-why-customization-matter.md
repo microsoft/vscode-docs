@@ -1,6 +1,6 @@
 ---
 ContentId: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn why GitHub Copilot agent customization in VS Code matters, and how to get started with the Agent Customizations view for more consistent AI results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

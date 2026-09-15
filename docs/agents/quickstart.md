@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Build and validate a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review and recover changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

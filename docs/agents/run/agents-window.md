@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -132,6 +132,28 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
+### Run a session in a Dev Container
+
+Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+
+Before you start, make sure that:
+
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation).
+* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
+* `setting(chat.agentHost.devContainer.enabled)` is enabled.
+
+To run a session in a Dev Container:
+
+1. Select **New** at the top of the sidebar.
+
+1. In the workspace picker, expand the menu for an eligible local folder and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local**.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
 ### Start a session from a pull request
 
 For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
@@ -178,7 +200,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is currently available for quick chats that use the Copilot harness. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+> This option is currently available for quick chats that use the Copilot harness or Codex on the Agent Host. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 
@@ -254,6 +276,7 @@ The sessions list shows sessions across all your workspaces. You can group sessi
 
 Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
 
+* To keep the active session visible while you start a new session beside it, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.

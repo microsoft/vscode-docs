@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles, tools, and workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
