@@ -23,9 +23,24 @@ Previously, specialized model paths powered each type of suggestion. The tried-a
 
 Unifying the models **improves suggestion quality** by allowing a **single model to choose the best edit for the developer’s current work end-to-end** instead of using programmatic logic to choose among specialized models. For instance, let’s say the developer has typed `class Fa` in the penguin feeding program below. Using the previous standalone models (left), the most mature and battle-tested completions model is always triggered first. Since it can only append to the prefix `Fa`, it does what it knows best and suggests `FastingPenguin`. However, in this particular case, a better NES suggestion exists, as suggested by the unified model (right): semantically rewrite `Fa` to `Fish`.
 
-| Before (standalone models) | After (unified model) |
-| --- | --- |
-| <img src="/assets/blogs/2026/09/16/quality_improvement_before.png" alt="A code example where the standalone completion model chooses FastingPenguin instead of the better Fish rewrite." height="300"> | <img src="/assets/blogs/2026/09/16/quality_improvement_after.png" alt="A code example where the unified model selects the better Fish rewrite for the same context." height="300"> |
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Before (standalone models)</th>
+      <th scope="col">After (unified model)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 50%;">
+        <img src="/assets/blogs/2026/09/16/quality_improvement_before.png" alt="A code example where the standalone completion model chooses FastingPenguin instead of the better Fish rewrite." style="width: 100%;">
+      </td>
+      <td style="width: 50%;">
+        <img src="/assets/blogs/2026/09/16/quality_improvement_after.png" alt="A code example where the unified model selects the better Fish rewrite for the same context." style="width: 100%;">
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Not only can we tackle all existing tasks in one model, but because this model can **output multiple edits in one response**, we can cache these additional edits to deliver a **faster experience** for subsequent edits if the preceding suggestions were desirable. This creates a **smoother, snappier tab-tab-tab experience** across the editing flow.
 
