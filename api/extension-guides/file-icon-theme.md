@@ -136,7 +136,7 @@ A file extension match is preferred over a language match, but is weaker than a 
 
 `file name match with parent > file name match > file extension match with parent > file extension match > language match ...`
 
-The `light` and the `highContrast` section have the same file association properties as just listed. They allow to override icons for the corresponding themes.
+The `light` and the `highContrast` section have the same file association properties as just listed. They allow overriding icons for the corresponding themes.
 
 ### Font definitions
 
