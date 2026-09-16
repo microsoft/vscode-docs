@@ -1,7 +1,7 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 8/19/2026
-MetaDescription: Create focused Git commits in VS Code with partial staging, diff review, commit message tools, amend and undo actions, and AI assistance.
+DateApproved: 9/16/2026
+MetaDescription: Create focused Git commits in {% data variables.product.prodname_vscode_shortname %} with staging, diff review, amend, undo, and AI tools.
 Keywords:
 - source control
 - scm
@@ -11,9 +11,9 @@ Keywords:
 ---
 # Staging and committing changes
 
-Creating focused commits with clear descriptions helps you and your team understand the history of your codebase. VS Code provides integrated Git tools for staging changes and creating commits, with support for granular control over which changes to include.
+Creating focused commits with clear descriptions helps you and your team understand the history of your codebase. {% data variables.product.prodname_vscode_shortname %} provides integrated Git tools for staging changes and creating commits, with support for granular control over which changes to include.
 
-This article covers the staging and commit workflow in VS Code, from Git's two-step process to using AI assistance for commit messages and reviewing changes before committing.
+This article covers the staging and commit workflow in {% data variables.product.prodname_vscode_shortname %}, from Git's two-step process to using AI assistance for commit messages and reviewing changes before committing.
 
 ## Git workflow
 
@@ -39,7 +39,7 @@ The source control icon in the Activity Bar also shows a badge with the number o
 
 ### Editor gutter indicators
 
-To help you quickly identify changes in your files, VS Code shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/userinterface.md#minimap).
+To help you quickly identify changes in your files, {% data variables.product.prodname_vscode_shortname %} shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/getting-started/userinterface.md#minimap).
 
 The gutter color indicates the type of change:
 
@@ -104,7 +104,7 @@ Once you've staged your changes, you can create a commit to save them to your lo
 
 A commit message describes the changes you're committing and helps others (and your future self) understand the purpose of the commit. Type your message in the commit message input box at the top of the Source Control view and select **Commit** to save your staged changes.
 
-To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. You can [create custom instructions](/docs/agent-customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
+To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. Commit message generation uses the fast, lightweight utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. Learn more about [configuring models for utility tasks](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks). You can also [create custom instructions](/docs/agent-customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
 
 ![Screenshot of generating a commit message with AI.](images/staging-commits/generate-commit-message.png)
 
@@ -131,13 +131,13 @@ Instead of using the commit message input box, you can write commit messages in 
 
     ![Screenshot showing the commit message written in the COMMIT_EDITMSG editor, highlighting the Cancel button.](images/staging-commits/commit-editmsg-cancel.png)
 
-To disable using the editor for commit messages and revert to the quick input control, disable the `setting(git.useEditorAsCommitInput)` setting (restart VS Code for the change to take effect).
+To disable using the editor for commit messages and revert to the quick input control, disable the `setting(git.useEditorAsCommitInput)` setting (restart {% data variables.product.prodname_vscode_shortname %} for the change to take effect).
 
 To use the same flow for `git commit` commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting (restart your terminal for the change to take effect).
 
 ### AI co-author attribution
 
-When you commit code that was generated with AI assistance, VS Code can automatically append a `Co-authored-by:` Git trailer to your commit message. This helps you and your team track which commits include AI-generated contributions.
+When you commit code that was generated with AI assistance, {% data variables.product.prodname_vscode_shortname %} can automatically append a `Co-authored-by:` Git trailer to your commit message. This helps you and your team track which commits include AI-generated contributions.
 
 Configure the `setting(git.addAICoAuthor)` setting with one of the following values:
 
@@ -145,9 +145,9 @@ Configure the `setting(git.addAICoAuthor)` setting with one of the following val
 * `all`: adds the trailer for all AI-generated code, including inline completions
 * `off`: no co-author trailer is added
 
-The trailer is added only when you commit from within VS Code. Commits made with external Git tools or the command line don't include the trailer.
+The trailer is added only when you commit from within {% data variables.product.prodname_vscode_shortname %}. Commits made with external Git tools or the command line don't include the trailer.
 
-Co-author information from commit trailers is also shown in the [Git blame hover tooltip](#git-blame-information).
+Co-author information from commit trailers is also shown in the [Git blame hover tooltip](/docs/sourcecontrol/history.md#view-git-blame-information).
 
 ### Commit changes
 
@@ -176,24 +176,32 @@ Discarded changes are moved to the Recycle Bin (Windows) or Trash (macOS/Linux),
 
 ## Review changes with the diff editor
 
-The diff editor shows what changed in your files. It displays side-by-side comparisons of the original and modified versions. The diff editor can open in side-by-side or inline view.
+The diff editor shows what changed in your files by comparing the original and modified versions. It can show changes in a side-by-side or inline layout.
 
 To open the diff editor, select any file in the Source Control view **Changes** or **Staged Changes** lists to see the changes for that file versus the last committed version.
 
 > [!TIP]
 > For large files, collapse the unchanged sections by selecting the **Collapse Unchanged Regions** button in the diff editor toolbar. This helps you focus on the actual changes. You can also quickly navigate between changes using the **Next Change** and **Previous Change** buttons.
 
-### Side-by-side vs inline view
+### Choose a diff layout
 
-By default, the diff editor shows a side-by-side comparison with the original file on the left and your changes on the right.
+By default, the diff editor uses the **Automatic** layout. It shows a side-by-side comparison when there is enough space and switches to inline when the editor is narrow.
+
+To choose a layout, select **More Actions** (**...**) > **Diff View**, and then select one of these options:
+
+* **Inline**: shows changes within one editor.
+* **Side by Side**: shows the original file on the left and your changes on the right.
+* **Automatic**: switches between side-by-side and inline based on the editor width.
+
+The following example shows a side-by-side comparison:
 
 ![Screenshot of the Diff Editor showing side-by-side changes between file versions.](images/staging-commits/diff-editor.png)
 
-Toggle to inline view by selecting **More Actions** (**...**) > **Inline View** in the diff editor toolbar to view changes within one editor.
+The inline layout shows the changes within one editor:
 
 ![Screenshot of the Diff Editor showing inline changes between file versions.](images/staging-commits/diff-editor-inline.png)
 
-Configure your preferred default view with the `setting(diffEditor.renderSideBySide)` setting.
+The default width threshold for the **Automatic** layout is 900 pixels. Configure it with `setting(diffEditor.renderSideBySideInlineBreakpoint)`. You can also configure the underlying layout behavior directly with `setting(diffEditor.renderSideBySide)` and `setting(diffEditor.useInlineViewWhenSpaceIsLimited)`.
 
 ### Stage and revert from the diff editor
 
@@ -208,13 +216,13 @@ You can hide the diff editor gutter with the `setting(diffEditor.renderGutterMen
 
 ### Accessible diff viewer
 
-For screen reader users, VS Code provides the Accessible Diff Viewer, which presents changes in a unified patch format. To open the Accessible Diff Viewer, use the **More Actions** (**...**) menu in the diff editor toolbar and select **Open Accessible Diff Viewer** or use the `kb(editor.action.accessibleDiffViewer.next)` keyboard shortcut.
+For screen reader users, {% data variables.product.prodname_vscode_shortname %} provides the Accessible Diff Viewer, which presents changes in a unified patch format. To open the Accessible Diff Viewer, use the **More Actions** (**...**) menu in the diff editor toolbar and select **Open Accessible Diff Viewer** or use the `kb(editor.action.accessibleDiffViewer.next)` keyboard shortcut.
 
 Navigate through changes with **Go to Next Difference** (`kb(editor.action.accessibleDiffViewer.next)`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.previous)`) commands.
 
 ## Review code changes with AI
 
-VS Code enables you to review your uncommitted changes using AI assistance before committing them. These AI features complement manual code review and help catch problems early in your development workflow.
+{% data variables.product.prodname_vscode_shortname %} enables you to review your uncommitted changes using AI assistance before committing them. These AI features complement manual code review and help catch problems early in your development workflow.
 
 To perform an AI-powered code review of your uncommitted changes:
 
@@ -222,7 +230,7 @@ To perform an AI-powered code review of your uncommitted changes:
 
     ![Screenshot of the Code Review button in the Source Control view.](images/staging-commits/copilot-code-review.png)
 
-1. VS Code analyzes your changes and generates review comments and suggestions, which appear as overlay comments in the editor
+1. {% data variables.product.prodname_vscode_shortname %} analyzes your changes and generates review comments and suggestions, which appear as overlay comments in the editor
 
     ![Screenshot of the code review results, showing as editor overlay comments.](images/staging-commits/copilot-code-review-results.png)
 
@@ -239,4 +247,4 @@ Learn more about [viewing source control history](/docs/sourcecontrol/history.md
 * [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and Git blame information
 * [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues
-* [Copilot in VS Code](/docs/agents/overview.md) - Discover more AI-powered development features
+* [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Discover more AI-powered development features

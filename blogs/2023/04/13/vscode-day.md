@@ -13,7 +13,7 @@ April 13, 2023 by Burke Holland, [@burkeholland](https://twitter.com/burkehollan
 
 VS Code Day is a one-day "Virtually Live" event starting at 10:00 AM PST on April 26. Naming things is hard, but we feel like this title says it all – a full day of community, learning, and all things Visual Studio Code. Registration is now open, and you can grab your spot today: [https://aka.ms/vscodeday](https://aka.ms/vscodeday).
 
-![VS Code Day Banner](vscodeday-header.png)
+![VS Code Day Banner](vscodeday-header.webp)
 
 The event kicks off with "Inside VS Code: How we build and ship it" - a keynote from Microsoft Technical Fellow Erich Gamma and Partner Engineering Manager Kai Maetzel. Prior to joining Microsoft and creating VS Code, Erich and Kai both worked on Eclipse at IBM. Between the two of them, they have ~60 years of experience building developer tools. 😳
 
@@ -43,11 +43,11 @@ In his [keynote from VS Code Day 2021](https://www.youtube.com/watch?v=hilznKQij
 
 The first actual IDE built with Monaco Editor was called "Monaco Workbench". It was used internally by Microsoft, and it looked like this. Shoutout to Internet Explorer 11.
 
-![Monaco Workbench](monaco-workbench.png)
+![Monaco Workbench](monaco-workbench.webp)
 
 Eventually, this became "Visual Studio Online", which was embedded in Azure as a way to edit websites. And you can see the VS Code you know starting to emerge here...
 
-![Visual Studio Online](visual-studio-online.png)
+![Visual Studio Online](visual-studio-online.webp)
 
 VS Code as it is today was announced at Microsoft Build in 2015. Fast-forward to 2023, and the world of developer tools is seeing a renaissance of new functionality.
 

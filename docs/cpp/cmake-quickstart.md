@@ -1,28 +1,28 @@
 ---
 ContentId: 55b5d15c-a020-4808-941f-e0255751a5f7
 DateApproved: 5/29/2024
-MetaDescription: Create a Hello World project by using the CMake Quick Start in the CMake Tools Visual Studio Code extension
+MetaDescription: Create a Hello World project by using the CMake Quick Start in the CMake Tools {% data variables.product.prodname_vscode %} extension
 Keywords:
 - C++
 ---
 # Create a CMake hello world project with CMake Quick Start
 
-In this article, you'll learn how to create a CMake hello world project from scratch using the CMake Tools extension in VS Code.
+In this article, you'll learn how to create a CMake hello world project from scratch using the CMake Tools extension in {% data variables.product.prodname_vscode_shortname %}.
 
-If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a `CMakePresets.json` file](#Create-a-CMakePresets.json-file) to configure your project with CMake presets.
+If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a `CMakePresets.json` file](#create-a-cmakepresetsjson-file) to configure your project with CMake presets.
 
-Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `HelloWorld`, navigate into it, and open VS Code in that folder by entering the following commands:
+Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `HelloWorld`, navigate into it, and open {% data variables.product.prodname_vscode_shortname %} in that folder by entering the following commands:
 
 ```bash
 mkdir helloworld
 cd helloworld
 code .
 ```
-The `code .` command opens VS Code in the current working folder, which becomes your "workspace".
+The `code .` command opens {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace".
 
 ## Create a CMakeLists.txt file
 
-The CMake Tools extension can create the files for a basic CMake project for you. 
+The CMake Tools extension can create the files for a basic CMake project for you.
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Quick Start** command:
 

@@ -1,7 +1,7 @@
 ---
 ContentId: eaef83f6-294a-4bb6-a2fe-bc8ffb3b33bf
 DateApproved: 12/6/2022
-MetaDescription: Learn how to use CMake with Visual Studio Code
+MetaDescription: Learn how to use CMake with {% data variables.product.prodname_vscode %}
 Keywords:
 - C++
 ---

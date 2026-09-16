@@ -53,7 +53,7 @@ Apply the checklist for the detected release note type. Check every item and rec
 
 Follow the VS Code release notes writing style:
 * Present tense, active voice, second person ("you").
-* No banned words: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to", "harness".
+* No banned words: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to".
 * "Select" instead of "Click" for UI actions.
 * "might" instead of "may" for conditional statements.
 * "for example" instead of "e.g.".

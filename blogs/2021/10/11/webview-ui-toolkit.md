@@ -13,7 +13,7 @@ October 11, 2021 by David Dossett, [@david_dossett](https://twitter.com/david_do
 
 We're so excited to announce the public preview of the [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit). With this toolkit, extensions developers can quickly and easily create [webview-based extensions](https://code.visualstudio.com/api/extension-guides/webview) in Visual Studio Code that look, feel, and act like the editor itself.
 
-![Webview UI Toolkit for Visual Studio Code: gallery view of components](webview-ui-toolkit-artwork.png)
+![Webview UI Toolkit for Visual Studio Code: gallery view of components](webview-ui-toolkit-artwork.webp)
 
 ## What is the Webview UI Toolkit?
 

@@ -1,23 +1,23 @@
 ---
 ContentId: 23ce059e-95ec-4eaa-975c-d4cf76159516
 DateApproved: 1/9/2023
-MetaDescription: Doing Data Science in Visual Studio Code.
+MetaDescription: Doing Data Science in {% data variables.product.prodname_vscode %}.
 ---
-# Data Science in Visual Studio Code
+# Data Science in {% data variables.product.prodname_vscode %}
 
-You can do all of your data science work within VS Code. Use Jupyter Notebooks and the [Interactive Window](/docs/python/jupyter-support-py.md) to start analyzing and visualizing your data in minutes! Power your Python coding experience with IntelliSense support and build, train, and deploy machine learning models to the cloud or the edge with Azure Machine Learning service.
+You can do all of your data science work within {% data variables.product.prodname_vscode_shortname %}. Use Jupyter Notebooks and the [Interactive Window](/docs/python/jupyter-support-py.md) to start analyzing and visualizing your data in minutes! Power your Python coding experience with IntelliSense support and build, train, and deploy machine learning models to the cloud or the edge with Azure Machine Learning service.
 
-![Preview of Jupyter Notebooks in VS Code](images/overview/jupyter-notebook-preview.png)
+![Preview of Jupyter Notebooks in {% data variables.product.prodname_vscode_shortname %}](images/overview/jupyter-notebook-preview.png)
 
 ## Extensions
 
-The VS Code Marketplace offers a family of extensions that provide a first-class data science experience for Python data science. In order to get started with Python, Microsoft recommends the following extensions:
+The {% data variables.product.prodname_vscode_shortname %} Marketplace offers a family of extensions that provide a first-class data science experience for Python data science. In order to get started with Python, Microsoft recommends the following extensions:
 
 <div class="marketplace-extensions-datascience-python"></div>
 
 ### Build an extension for notebooks
 
-We welcome (and encourage you to!) build Visual Studio Code extensions for your favorite notebooks tools. After going through [Your First Extension](/api/get-started/your-first-extension.md) tutorial, check out some of the extensions that augment the notebooks development experience in VS Code:
+We welcome (and encourage you to!) build {% data variables.product.prodname_vscode %} extensions for your favorite notebooks tools. After going through [Your First Extension](/api/get-started/your-first-extension.md) tutorial, check out some of the extensions that augment the notebooks development experience in {% data variables.product.prodname_vscode_shortname %}:
 
 <div class="marketplace-extensions-notebook-tools-curated"></div>
 
@@ -27,7 +27,7 @@ You can also contribute directly to the [Jupyter extension](https://github.com/m
 
 ## Data Science profile template
 
-[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Data Science in VS Code, you can use the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Data Science in {% data variables.product.prodname_vscode_shortname %}, you can use the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

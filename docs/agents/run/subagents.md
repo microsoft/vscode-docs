@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 8/19/2026
-MetaDescription: Learn how to use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate complex tasks to autonomous agents within your chat session.
+DateApproved: 9/16/2026
+MetaDescription: Use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate focused tasks, compare models, and review results without crowding the main chat context.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
@@ -13,7 +13,7 @@ Keywords:
 - parallel
 ---
 
-# Subagents in {% data variables.product.prodname_vscode %}
+# Use subagents in {% data variables.product.prodname_vscode %}
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
@@ -27,7 +27,7 @@ This article explains how to use subagents in {% data variables.product.prodname
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try a subagent">
 Launch a chat prompt that delegates research to a subagent before implementation.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
 
 </div>
 
@@ -121,6 +121,8 @@ The main agent collects both results and synthesizes a combined analysis.
 ### How subagents are invoked
 
 Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `agent/runSubagent` tool is enabled.
+
+Provider-specific built-in subagents can work differently. In Copilot harness sessions, [Rubber Duck](/docs/agents/run/agent-harnesses.md#get-a-second-opinion-with-rubber-duck) is a read-only critic that Copilot can invoke automatically or that you can request directly.
 
 By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting. Learn more in [Nested subagents](#nested-subagents).
 

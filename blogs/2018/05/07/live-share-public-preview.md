@@ -18,7 +18,7 @@ We are excited to announce the public preview of Visual Studio Live Share! At [C
 
 When talking with developers, the need for better collaboration tools is clear, and isn't limited to any particular programming language or app type. To empower the diverse and increasingly polyglot developer community, we’ve brought Live Share to all the languages and platforms.
 
-![Python-based IntelliSense](lsp.png)
+![Python-based IntelliSense](lsp.webp)
 
 Whether you’re building a Python web app, a Go microservice, a React Native mobile app or an Ethereum smart contract, you can use Live Share. Everything from Go to Definition, code fixes/refactorings ("lightbulbs"), build errors, and debugging sessions are shared with guests, which ensures that everyone stays productive no matter what you’re working on. Even better, all of this works without requiring guests to have any language extensions, dependencies, or SDKs installed! You can instantly invite others to work with you and allow them to share the context from your development environment.
 
@@ -26,7 +26,7 @@ Whether you’re building a Python web app, a Go microservice, a React Native mo
 
 Modern development commonly makes use of command-line tools to perform tasks such as build and running unit tests. Because the command line represents such a core component of the common developer workflow, it’s critical that participants within a Live Share session can use them, without requiring a separate tool. To further support your collaborative debugging sessions, and address one of our [top feature requests](https://github.com/MicrosoftDocs/live-share/issues/41), Live Share now allows hosts to share terminals with their guests.
 
-![Shared terminal](shared-terminal.png)
+![Shared terminal](shared-terminal.webp)
 
 When you share a new terminal, it is read-only by default. This allows everyone to see the real-time results of any command you run without needing to expose access to your machine. Additionally, you can choose to make a shared terminal writable, which enables a fully collaborative experience between you and your guests which executes in your environment. This makes pair programming much easier, especially when seeking help with environment configuration.
 
@@ -36,11 +36,11 @@ We want collaboration to become simpler and more natural for everyone so that ad
 
 1. You can require each guest to be explicitly approved by you before joining your collaboration session. This way, simply gaining access to the share URL (which is already unique for each session) isn't enough to join.
 
-  ![User acceptance dialog](user-accept.png)
+  ![User acceptance dialog](user-accept.webp)
 
 2. You can exclude specific files from your sharing session, so guests can only view what you want them to. No surprises. By default, your .gitignore file is used to determine which files to exclude, but you can customize that behavior using a .vsls.json configuration file.
 
-  ![VSLS configuration file](vsls.json.png)
+  ![VSLS configuration file](vsls.json.webp)
 
 These enhancements represent some of our most [frequently requested](https://github.com/MicrosoftDocs/live-share/issues/52) items so you can collaborate with confidence, without adding unnecessary friction. For more information on how to share your projects securely, refer to the [Live Share documentation](https://learn.microsoft.com/visualstudio/liveshare/reference/security).
 

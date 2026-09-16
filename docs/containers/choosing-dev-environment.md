@@ -1,7 +1,7 @@
 ---
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
 DateApproved: 1/18/2023
-MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
+MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using {% data variables.product.prodname_vscode %}.
 ---
 # Your development environment
 
@@ -74,13 +74,13 @@ The recommended way to enable container development with a remote machine is to 
 
 >**Note**: Docker Desktop product is supported only on physical Windows and macOS machines, not virtual machines. If you want to use a virtual machine as a remote development environment, we recommend to use a Linux VM with [Docker Engine](https://docs.docker.com/engine/).
 
-After Docker is installed and working on the remote machine, you can use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
+After Docker is installed and working on the remote machine, you can use {% data variables.product.prodname_vscode_shortname %}'s [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
 
-1. Open VS Code Command Palette (`kb(workbench.action.showCommands)`) and run command **Remote-SSH: Add new SSH host...**. Follow the prompts to set up a connection to the target host.
+1. Open {% data variables.product.prodname_vscode_shortname %} Command Palette (`kb(workbench.action.showCommands)`) and run command **Remote-SSH: Add new SSH host...**. Follow the prompts to set up a connection to the target host.
 
 1. Run command **Remote-SSH: Connect to host...** and connect to the host.
 
-1. A new VS Code window opens, running in the context of the target machine. If you're using password authentication, the password will be prompted here. We strongly recommend that you set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
+1. A new {% data variables.product.prodname_vscode_shortname %} window opens, running in the context of the target machine. If you're using password authentication, the password will be prompted here. We strongly recommend that you set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
 
 1. In the Extensions view, install the Container Tools extension (on the remote host) (a reload may be required after this step):
 
@@ -90,7 +90,7 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 ### Local Linux VM
 
-To use a Linux virtual machine running on your developer workstation, you should [install Docker](https://docs.docker.com/install/) on the VM in the same way as you would install it on a remote machine, and use the [VS Code Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to the VM.
+To use a Linux virtual machine running on your developer workstation, you should [install Docker](https://docs.docker.com/install/) on the VM in the same way as you would install it on a remote machine, and use the [{% data variables.product.prodname_vscode_shortname %} Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to the VM.
 
 Alternatively, you can install just the Docker CLI inside your development environment and point the CLI to the Docker host (engine) running on the developer workstation using the [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker engine on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) or [Remote - Tunnels](/docs/remote/tunnels.md) to the developer workstation. Another option is to [have the Docker engine listen on an HTTPS port](https://docs.docker.com/engine/security/https/). You need to be proficient with SSH and public-key infrastructure (PKI) to use the host Docker engine from the Docker CLI running inside the VM. For most users, we recommend full Docker installation inside the virtual machine.
 
@@ -100,8 +100,8 @@ The Container Tools extension supports debugging .NET and Node.js-based services
 
 Debugging in a container may be harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
-- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET).
-- Source file information generated during build time is valid in the context of the build environment (where VS Code is running). The container filesystem is different from the build environment filesystem, and paths to source files need to be re-mapped in order for the debugger to display correct source file when a breakpoint is hit.
+- The debug engine running inside {% data variables.product.prodname_vscode_shortname %} process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET).
+- Source file information generated during build time is valid in the context of the build environment (where {% data variables.product.prodname_vscode_shortname %} is running). The container filesystem is different from the build environment filesystem, and paths to source files need to be re-mapped in order for the debugger to display correct source file when a breakpoint is hit.
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
 

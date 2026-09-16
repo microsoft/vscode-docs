@@ -5,7 +5,7 @@ PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-08
 Author: Alexandru Dima
-MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.png
+MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.webp
 ---
 # Optimizations in Syntax Highlighting
 
@@ -44,7 +44,7 @@ The code for the editor in VS Code was written long before VS Code existed. It w
 In the past, we wrote tokenizers by hand (there is no feasible way to interpret TextMate grammars in the browser even today, but that's another story). For the line below, we would get the following tokens from our hand-written tokenizers:
 
 <center>
-<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
+<img src="/assets/blogs/2017/02/08/line-offsets.webp" alt="Line offsets">
 </center>
 
 ```javascript
@@ -132,7 +132,7 @@ For the launch of VS Code, we had something like 10 hand-written tokenizers, mos
 
 TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
 
-![TextMate Scopes](TM-scopes.png)
+![TextMate Scopes](TM-scopes.webp)
 
 ---
 
@@ -141,7 +141,7 @@ TextMate grammars, through their use of begin/end states, or while states, can p
 If we were to make a section through the scopes stack, each token basically gets an array of scope names, and we'd get something like the following back from the tokenizer:
 
 <center>
-<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
+<img src="/assets/blogs/2017/02/08/line-offsets.webp" alt="Line offsets">
 </center>
 
 ```javascript
@@ -439,7 +439,7 @@ theme = [
 We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) data structure out of the theme rules, where each node holds on to the resolved theme options:
 
 <center>
-<img src="/assets/blogs/2017/02/08/trie.png" alt="Theme Trie">
+<img src="/assets/blogs/2017/02/08/trie.webp" alt="Theme Trie">
 </center>
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
@@ -545,7 +545,7 @@ And they get rendered with:
 <span class="mtk1">()&nbsp;{</span>
 ```
 
-![TextMate Scopes](monokai-tokens.png)
+![TextMate Scopes](monokai-tokens.webp)
 
 The tokens are returned as an [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 x 32-bit numbers), but again we're probably observing some v8 metadata overhead.
 
@@ -574,7 +574,7 @@ Tokenization runs in a yielding fashion on the UI thread, so I had to add some c
 | <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 16010.42 ms | 10964.42 ms | <span style="color:green">31.52%</span> |
 
 <center>
-<img src="/assets/blogs/2017/02/08/tokenization-times.png" alt="Tokenization times">
+<img src="/assets/blogs/2017/02/08/tokenization-times.webp" alt="Tokenization times">
 </center>
 
 > Although tokenization now also does theme matching, the time savings can be explained by doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string, and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TextMate tokenization engine. The amount of generated objects that need to be garbage collected has been also reduced substantially.
@@ -590,7 +590,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 | <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 27.49 MB | 21.22 MB | <span style="color:green">22.83%</span> |
 
 <center>
-<img src="/assets/blogs/2017/02/08/tokenization-memory.png" alt="Memory usage">
+<img src="/assets/blogs/2017/02/08/tokenization-memory.webp" alt="Memory usage">
 </center>
 
 > The reduced memory usage can be explained by no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the backing store. We could further improve here by always collapsing whitespace-only tokens into the previous token, as it does not matter what color whitespace gets rendered (whitespace is invisible).
@@ -599,7 +599,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 We've added a new widget to help with authoring and debugging themes or grammars: You can run it with **Developer: Inspect Editor Tokens and Scopes** in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![TextMate scope inspector](TM-scope-inspector.gif)
+<video src="TM-scope-inspector.mp4" title="Video showing TextMate scope inspector." autoplay loop controls muted></video>
 
 ### Validating the change
 
@@ -609,7 +609,7 @@ In VS Code, we have an integration suite that asserts colors for all the program
 
 To validate the tokenization change, we've collected colorization results from these tests, across all the 14 themes we ship with (not just the five themes we author) using the old CSS based approach. Then, after each change, we ran the same tests using the new trie-based logic and, using a custom-built visual diff (and patch) tool, we would look into each and every color difference and figure out the root cause of the color change. We caught at least 2 bugs using this technique and we were able to change our five themes to get minimal color changes across VS Code versions:
 
-![Tokenization validation](tokenization-validation.png)
+![Tokenization validation](tokenization-validation.webp)
 
 ### Before and After
 
@@ -617,21 +617,21 @@ Below are various color themes as they appeared in VS Code 1.8 and now in VS Cod
 
 Monokai Theme
 
-![Monokai before](monokai-before.png)
+![Monokai before](monokai-before.webp)
 
-![Monokai after](monokai-after.png)
+![Monokai after](monokai-after.webp)
 
 Quiet Light Theme
 
-![Quiet Light before](quiet-light-before.png)
+![Quiet Light before](quiet-light-before.webp)
 
-![Quiet Light after](quiet-light-after.png)
+![Quiet Light after](quiet-light-after.webp)
 
 Red Theme
 
-![Red before](red-before.png)
+![Red before](red-before.webp)
 
-![Red after](red-after.png)
+![Red after](red-after.webp)
 
 ## In conclusion
 

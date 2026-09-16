@@ -3,7 +3,7 @@ Order:
 TOCTitle: What's New for Chrome Debugging
 PageTitle: What's New for Chrome debugging in VS Code
 MetaDescription: What's New for Chrome debugging in Visual Studio Code
-MetaSocialImage: /assets/blogs/2017/12/20/social_paused.png
+MetaSocialImage: /assets/blogs/2017/12/20/social_paused.webp
 Date: 2017-12-20
 ShortDescription: Learn what's new with Chrome debugging in Visual Studio Code
 Author: Kenneth Auchenberg
@@ -24,7 +24,7 @@ This has been a user request since day one, but we were limited by Chrome's lack
 
 Multiple connections means that you now can debug your JavaScript from VS Code while using the DOM Explorer, profiler or any other tool inside Chrome DevTools, without getting disconnected!
 
-![chrome_code](code_chrome_devtools.gif)
+<video src="code_chrome_devtools.mp4" title="Video showing chrome_code." autoplay loop controls muted></video>
 
 The Chrome team began working on this a few months ago, and we have been working closely with them to make sure the VS Code experience is optimal. Multi-connections [shipped officially in Chrome 63](https://developers.google.com/web/updates/2017/10/devtools-release-notes#multi-client), and works out-of-the-box with VS Code. To get multi-connection support, update to the latest Chrome version, and you should be good to go.
 
@@ -34,7 +34,7 @@ We think being able to combine VS Code and Chrome DevTools is an extremely power
 
 The first step towards better integrating the tools is **synchronized stepping between Chrome DevTools and VS Code**, as shown here:
 
-![sync_stepping](sync_stepping.gif)
+<video src="sync_stepping.mp4" title="Video showing sync_stepping." autoplay loop controls muted></video>
 
 Synchronized stepping allows you to debug your JavaScript source code in VS Code and Chrome DevTools at the same time, and gives you the opportunity to seamlessly jump between the two tools. From within each tool, you can step-in, continue, and debug your JavaScript without worrying about the other debugger getting out of sync.
 
@@ -43,7 +43,7 @@ It's still early days and we are excited to explore the new world of integration
 ## Localized debugging UI
 In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are localized and available for our supported languages, such as Chinese.
 
-![locale1](locale1.png)
+![locale1](locale1.webp)
 
 ## Breakpoints set before your app runs
 
@@ -51,7 +51,7 @@ Another feature we have been working on with [our friends in Visual Studio](http
 
 Many users have had the experience that their breakpoints aren't hit when launching Chrome. To add to their confusion, their breakpoints are hit after a simple page refresh. Why would that be? It's a bit complicated, but it comes down to a timing issue between VS Code and Chrome, which is best illustrated in a timeline:
 
-![](break_on_load_before.png)
+![](break_on_load_before.webp)
 
 As you can see on the timeline in yellow, the issue is that some JavaScript is executed before VS Code sets the breakpoints.
 
@@ -61,7 +61,7 @@ Good news! We have found a way where you reliably can set breakpoints in early e
 
 Break-on-load breakpoints are powered by DOM Instrumentation Breakpoints in Chrome that allow us to pause script execution every time a new script is loaded. This changes the workflow for our debugger, and allows us to have more time to set breakpoints before your JavaScript is executed.
 
-![](break_on_load_after.png)
+![](break_on_load_after.webp)
 
 ### Enable break-on-load
 

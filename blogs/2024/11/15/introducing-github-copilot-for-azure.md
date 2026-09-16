@@ -3,7 +3,7 @@ Order:
 TOCTitle: GitHub Copilot for Azure
 PageTitle: Introducing GitHub Copilot for Azure
 MetaDescription: Introducing GitHub Copilot for Azure, a chat participant to ask about Azure and help you manage and troubleshoot your Azure resources.
-MetaSocialImage: quickstart-create.png
+MetaSocialImage: quickstart-create.webp
 Date: 2024-11-15
 Author: Chris Harris
 ---
@@ -24,7 +24,7 @@ GitHub Copilot for Azure can help with different tasks throughout the lifecycle 
 
 ## Learning about Azure
 
-![GIF demonstrating learning about Azure](learn_10-11-2024.gif)
+<video src="learn_10-11-2024.mp4" title="Video showing GIF demonstrating learning about Azure." autoplay loop controls muted></video>
 
 GitHub Copilot for Azure brings in relevant, up-to-date documentation without leaving your editor, instead of searching through multiple sources. Ask questions about Azure OpenAI models, Azure AI Search, or even pricing details for services like Azure SQL. This feature is incredibly useful for developers new to Azure, helping them quickly grasp complex concepts, and it also saves time for seasoned developers who need quick reminders or details on the latest services and features.
 
@@ -35,7 +35,7 @@ GitHub Copilot for Azure brings in relevant, up-to-date documentation without le
 
 ## Deploying
 
-![GIF showing how to search for and deploy an azd template](deploy-init_10-11-2024.gif)
+<video src="deploy-init_10-11-2024.mp4" title="Video showing GIF showing how to search for and deploy an azd template." autoplay loop controls muted></video>
 
 GitHub Copilot for Azure streamlines the process of deploying your applications by guiding you through tasks such as resource setup and automated deployments. Whether you're developing a RAG (Retrieval-Augmented Generation) app with Python, setting up a CI/CD pipeline, or using the Azure Developer CLI (azd) to deploy your project, it can recommend app templates, appropriate commands, and configurations. There's no need to search for sample applications, look up CLI commands, or figure out YAML syntax. This is particularly useful when you need to quickly launch or dismantle services, saving you time and allowing you to focus on writing excellent code instead of managing infrastructure.
 
@@ -47,7 +47,7 @@ GitHub Copilot for Azure streamlines the process of deploying your applications 
 
 ## Troubleshooting
 
-![GIF demonstrating how to diagnose an app issue](diagnose-logs_10-11-2024.gif)
+<video src="diagnose-logs_10-11-2024.mp4" title="Video showing GIF demonstrating how to diagnose an app issue." autoplay loop controls muted></video>
 
 When issues arise, GitHub Copilot for Azure makes diagnosing and troubleshooting easier by providing quick insights into your application's performance and resource problems. Whether you're trying to understand why your Kubernetes cluster is slow or identifying the cause of those frustrating 500 errors on your website, `@azure` is there to help. It performs diagnostics, searches logs, and highlights potential issues.
 
@@ -61,9 +61,9 @@ Moreover, it doesn't just help identify problems - it actively assists in resolv
 
 ## Operating
 
-![GIF demonstrating searching for Azure resources](view-resources_10-11-2024.gif)
+<video src="view-resources_10-11-2024.mp4" title="Video showing GIF demonstrating searching for Azure resources." autoplay loop controls muted></video>
 
-![GIF demonstrating how to get cost information](cost-breakdown_10-30-2024.gif)
+<video src="cost-breakdown_10-30-2024.mp4" title="Video showing GIF demonstrating how to get cost information." autoplay loop controls muted></video>
 
 After troubleshooting, GitHub Copilot for Azure also helps you manage resource operations effectively. Ensuring your resources are utilized properly is essential, and this tool simplifies the process. For instance, you can easily inquire about the number of Azure OpenAI deployments you have or request a list of your storage accounts in a specific data center region and have them sorted by size. Additionally, you can ask for the cost of a specific set of resources.
 

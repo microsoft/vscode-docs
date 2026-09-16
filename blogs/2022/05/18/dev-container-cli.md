@@ -23,7 +23,7 @@ A consistent, predictable environment is key to a productive and enjoyable softw
 
 Containers have historically been used to standardize apps when they're deployed, but there's a great opportunity to support additional scenarios, including continuous integration (CI), test automation, and full-featured coding environments. A development container provides this full-featured coding environment and ensures your project has the tools and software it needs, whether it's complex and distributed or just has a few requirements.
 
-![Diagram comparing dev versus production containers](dev-container-stages.png)
+![Diagram comparing dev versus production containers](dev-container-stages.webp)
 
 Dev containers have been supported in Visual Studio Code since [the announcement](https://code.visualstudio.com/blogs/2019/05/02/remote-development) of the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019, and more recently in [GitHub Codespaces](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers). This support is backed by **devcontainer.json**, a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 

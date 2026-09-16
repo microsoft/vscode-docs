@@ -1,37 +1,33 @@
-# My VS Code Extension
+# VS Code Doc AI Assistant
 
-This is a sample Visual Studio Code extension that demonstrates how to create a virtual document.
+This embedded extension provides authoring support for the VS Code documentation repository. It also contributes the language model tools used to generate release notes.
 
-## Features
+## Markdown authoring features
 
-- Provides a virtual document that can be edited and interacted with.
-- Supports commands and event listeners.
+In Markdown files, the extension provides:
 
-## Installation
+* Completions for feature IDs in `` `feature(<id>)` `` markers and `FeatureStatus` frontmatter.
+* Completions for reusable paths in `{% data variables.<group>.<name> %}` directives.
+* Hover details that show a feature's lifecycle state or a variable's resolved value.
+* Diagnostics for unknown references and incomplete syntax.
+* Quick fixes for likely reference typos and missing closing delimiters.
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/my-vscode-extension.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd my-vscode-extension
-   ```
-3. Install the dependencies:
-   ```
-   npm install
-   ```
+Feature completions come from `build/feature-lifecycle.json`. Variable completions come from `.yml` and `.yaml` files under `data/variables`.
 
-## Usage
+Diagnostics run for Markdown files under `docs`, `api`, `remote`, `release-notes`, and `blogs`. Completions and hover information are available in any Markdown file in the repository.
 
-1. Open the project in Visual Studio Code.
-2. Press `F5` to start debugging the extension.
-3. Use the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) to access the commands provided by the extension.
+Registry files are watched for changes. If a registry is missing or invalid, the extension reports the error in the **VS Code Doc Writer** output channel and in open published Markdown files.
 
-## Contributing
+## Development
 
-Feel free to submit issues or pull requests to improve the extension.
+1. Open `.vscode/extensions/doc-assistant` as a folder in VS Code.
+2. Run `npm install`.
+3. Press `F5` to compile the extension and open an Extension Development Host.
 
-## License
+Run the available checks from the extension folder:
 
-This project is licensed under the MIT License.
+```console
+npm run compile
+npm run lint
+npm test
+```

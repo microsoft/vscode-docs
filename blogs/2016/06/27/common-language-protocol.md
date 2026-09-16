@@ -14,7 +14,7 @@ June 27, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 Visual Studio Code is an editor for any developer, no matter what programming language you use.  Between languages bundled in the tool or extensions in the [Marketplace](https://marketplace.visualstudio.com/VSCode), we have support for over [150 languages](/blogs/2016/04/14/vscode-1.0.md).  We’re also committed to developing VS Code in the open, and making the components that power VS Code available and open source.  One of our most notable components is the [Monaco editor](https://github.com/microsoft/monaco-editor), but another technology that powers VS Code is an [open, JSON-based protocol](https://github.com/microsoft/language-server-protocol) that anyone can use to add support for a new programming language to VS Code by implementing a "language server".
 
-![any developer any language any tool](any-developer-any-language-any-tool.png)
+![any developer any language any tool](any-developer-any-language-any-tool.webp)
 
 ## Any Language, Any Tool
 
@@ -24,7 +24,7 @@ Today at the [DevNation](https://www.devnation.org) conference in San Francisco,
 
 Visual Studio Code provides rich language support for many programming languages. Support for a particular programming language is powered by a **language server** that has a deep understanding of that language. VS Code communicates with these servers to enable rich editing capabilities like 'Errors & Warnings', 'Refactor', and 'Go To Definition'.
 
-![language server protocol](language-server-protocol.png)
+![language server protocol](language-server-protocol.webp)
 
 Here’s an example of how a tool and a language server could communicate semantic information during a routine editing session:
 
@@ -38,7 +38,7 @@ Here’s an example of how a tool and a language server could communicate semant
 
 This communication, which takes place over [JSON-RPC](https://www.jsonrpc.org/specification), happens many times over the course of a typical session.
 
-![language server sequence](language-server-sequence.png)
+![language server sequence](language-server-sequence.webp)
 
 This architecture allows for VS Code to interact with multiple language servers, each of which can be implemented in any language (independent of the language the tool was implemented in), and support a variety of features, as long as it utilizes the common JSON-based protocol.
 

@@ -1,18 +1,18 @@
 ---
 ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04
 DateApproved: 8/7/2023
-MetaDescription: Descriptions of kernel selection options and tutorials on managing different types of kernels when working with Jupyter Notebooks in Visual Studio Code.
+MetaDescription: Descriptions of kernel selection options and tutorials on managing different types of kernels when working with Jupyter Notebooks in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Manage Jupyter Kernels in VS Code
+# Manage Jupyter Kernels in {% data variables.product.prodname_vscode_shortname %}
 
-The Visual Studio Code notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook or through the Command Palette with the **Notebook: Select Notebook Kernel** command.
+The {% data variables.product.prodname_vscode %} notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook or through the Command Palette with the **Notebook: Select Notebook Kernel** command.
 
-Once you open the Kernel Picker, VS Code shows the most recently used (MRU) kernel(s):
+Once you open the Kernel Picker, {% data variables.product.prodname_vscode_shortname %} shows the most recently used (MRU) kernel(s):
 
 ![MRU Kernel](images/jupyter-kernel-management/mru-kernel.png)
 
-> **Note**: In the previous versions of VS Code (version <1.76), VS Code used to show all available kernels by default.
+> **Note**: In the previous versions of {% data variables.product.prodname_vscode_shortname %} (version <1.76), {% data variables.product.prodname_vscode_shortname %} used to show all available kernels by default.
 
 To see other kernels, you can click **Select Another Kernel...**. All existing kernels are categorized into kernel source options, with these sources supported by the Jupyter extension out of the box:
 
@@ -22,15 +22,15 @@ To see other kernels, you can click **Select Another Kernel...**. All existing k
 
 ![Notebook Kernel Picker](images/jupyter-kernel-management/noterbook-kernel-picker.gif)
 
-By default, VS Code will recommend the one you've previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below. VS Code will also remember the last selected kernel for your notebooks, and will automatically select them the next time you open your notebook.
+By default, {% data variables.product.prodname_vscode_shortname %} will recommend the one you've previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below. {% data variables.product.prodname_vscode_shortname %} will also remember the last selected kernel for your notebooks, and will automatically select them the next time you open your notebook.
 
 ## Jupyter Kernels
 
-The **Jupyter Kernels** category lists all Jupyter kernels that VS Code detects in the context of the compute system it's operating in (your desktop, [GitHub Codespaces](https://github.com/features/codespaces), remote server, etc.). Each Jupyter kernel has a Jupyter [kernel specification](https://jupyter-client.readthedocs.io/en/stable/kernels.html#kernel-specs), or Jupyter kernelspec, which contains a JSON file (`kernel.json`) with details about the kernel—name, description, and CLI information required to launch a process as a kernel.
+The **Jupyter Kernels** category lists all Jupyter kernels that {% data variables.product.prodname_vscode_shortname %} detects in the context of the compute system it's operating in (your desktop, [GitHub Codespaces](https://github.com/features/codespaces), remote server, etc.). Each Jupyter kernel has a Jupyter [kernel specification](https://jupyter-client.readthedocs.io/en/stable/kernels.html#kernel-specs), or Jupyter kernelspec, which contains a JSON file (`kernel.json`) with details about the kernel—name, description, and CLI information required to launch a process as a kernel.
 
 ## Python Environments
 
-The **Python Environments** category lists the Python environments that VS Code detects from the compute system it's operating in (your desktop, Codespaces, remote server, etc.). It shows all Python environments grouped by type (for example, conda, venv)—whether the [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) is installed or not.
+The **Python Environments** category lists the Python environments that {% data variables.product.prodname_vscode_shortname %} detects from the compute system it's operating in (your desktop, Codespaces, remote server, etc.). It shows all Python environments grouped by type (for example, conda, venv)—whether the [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) is installed or not.
 
    > **Note**: You **do not** need to install [jupyter](https://pypi.org/project/jupyter/) into the Python environment you want to use. Only the IPyKernel package is required to launch a Python process as a kernel and execute code against your notebook (`pip install ipykernel`). Visit the [Jupyter extension wiki](https://github.com/microsoft/vscode-jupyter/wiki/Kernels-(Architecture)) to learn more.
 
@@ -60,7 +60,7 @@ The **Connect to Codespace** category contains a special type of Jupyter server 
 
 1. Install the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
-    > **Note**: If you're on VS Code for the Web ([vscode.dev](https://vscode.dev) or [github.dev](https://github.dev)), this extension is already installed for you. Also ensure that the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) is also installed.
+    > **Note**: If you're on {% data variables.product.prodname_vscode_shortname %} for the Web ([vscode.dev](https://vscode.dev) or [github.dev](https://github.dev)), this extension is already installed for you. Also ensure that the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) is also installed.
 
 2. Go to the Command Palette (`kb(workbench.action.showCommands)`), select **Codespaces: Sign In** and follow the steps to sign into Codespaces.
 
@@ -72,7 +72,7 @@ It is not required, but you can also manage all your Codespaces and Codespaces J
 
 ## Adding Kernel Options
 
-If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the Command Palette (`kb(workbench.action.showCommands)`), select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+If you do not have any Jupyter kernel or Python environment on your machine, {% data variables.product.prodname_vscode_shortname %} can help you set up: go to the Command Palette (`kb(workbench.action.showCommands)`), select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 ![More Kernel Sources](images/jupyter-kernel-management/more-kernel-sources.png)
 

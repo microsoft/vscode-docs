@@ -1,7 +1,7 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 8/19/2026
-MetaDescription: Inspect Git commits, branches, file history, and line authorship in Visual Studio Code with the Source Control Graph, Timeline view, and Git blame.
+DateApproved: 9/16/2026
+MetaDescription: Explore Git commits, branches, history, and authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:
 - source control
@@ -11,7 +11,7 @@ Keywords:
 ---
 # View source control history
 
-Source control history helps you understand how a codebase changed, which commits affected a file, and who last changed a line. VS Code provides the Source Control Graph for repository history, the Timeline view for file history, and Git blame information for individual lines.
+Source control history helps you understand how a codebase changed, which commits affected a file, and who last changed a line. {% data variables.product.prodname_vscode_shortname %} provides the Source Control Graph for repository history, the Timeline view for file history, and Git blame information for individual lines.
 
 ## View branch and commit history
 
@@ -23,9 +23,11 @@ Use the graph to:
 
 * Select a commit to view the files that changed.
 * Select a changed file to open its diff.
-* Select **Open Changes** to review all changes in a commit.
+* Select **Open Changes** to open a multi-file diff and review all changes in a commit.
 * Open the context menu for a commit to check it out, cherry-pick it, or add it as context to chat.
 * Compare a commit with another branch, a remote branch, or its merge base.
+
+Changed binary files, such as images, remain in the multi-file diff and show **Binary file changed** instead of a text diff. When both file versions are available, select **Open Diff** to open the file in the normal diff editor, such as an image diff or applicable custom editor.
 
 Use the graph toolbar to select a branch and to fetch, pull, push, or sync changes.
 
@@ -50,11 +52,11 @@ The Timeline view shows events for the file that is active in the editor. These 
 
 ![Screenshot showing Git commits and local file saves in the Timeline view.](images/overview/timeline-view.png)
 
-Use the Timeline filter to show only Git commits or to include events from other timeline providers. Learn more about the [Timeline view](/docs/editing/userinterface.md#timeline-view).
+Use the Timeline filter to show only Git commits or to include events from other timeline providers. Learn more about the [Timeline view](/docs/editing/getting-started/userinterface.md#timeline-view).
 
 ## View Git blame information
 
-Git blame information identifies the commit and author that last changed a line. VS Code can show this information in the editor and in the Status Bar.
+Git blame information identifies the commit and author that last changed a line. {% data variables.product.prodname_vscode_shortname %} can show this information in the editor and in the Status Bar.
 
 <video src="images/staging-commits/git-blame.mp4" title="Video showing Git blame information in the Status Bar and inline in the editor." autoplay muted loop controls></video>
 
@@ -65,7 +67,7 @@ Use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame 
 * `setting(git.blame.editorDecoration.disableHover)`: hides the blame hover in the editor.
 * `setting(git.blame.ignoreWhitespace)`: ignores whitespace changes when Git determines line authorship.
 
-Hover over a blame decoration to view commit details, including co-author trailers. If VS Code adds [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution) to a commit, the blame hover includes that attribution.
+Hover over a blame decoration to view commit details, including co-author trailers. If {% data variables.product.prodname_vscode_shortname %} adds [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution) to a commit, the blame hover includes that attribution.
 
 ### Customize blame information
 

@@ -65,7 +65,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 1. Select "microsoft/phi-silica" from the Model Catalog and select **Next**.
 
-1. In the dialog, select a Project Folder and enter a Project Name. A new VS Code window will open for the project.
+1. In the dialog, select a Project Folder and enter a Project Name. A new {% data variables.product.prodname_vscode_shortname %} window will open for the project.
 
     ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
 

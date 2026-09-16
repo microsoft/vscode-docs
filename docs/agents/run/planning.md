@@ -1,10 +1,10 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 8/19/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in {% data variables.product.prodname_vscode_shortname %} chat.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Planning with agents in {% data variables.product.prodname_vscode_shortname %}
+# Plan work with agents in {% data variables.product.prodname_vscode_shortname %}
 
 The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
@@ -45,7 +45,7 @@ To plan a task, use the built-in **Plan** agent in the {% data variables.copilot
 
 1. When the plan is finalized, choose to start the implementation or open the planning prompt in the editor for further review.
 
-    To implement the plan, select **Start Implementation** and choose an available implementation agent. The plan and conversation context carry over to the implementation agent. Learn more about [handing off a plan to implementation](/docs/agents/run/agent-harnesses.md#hand-off-a-plan-to-implementation).
+    To implement the plan, select **Start Implementation** and choose an available implementation agent. The plan and conversation context carry over to the implementation agent. Learn more about [handing off a plan to implementation](/docs/agents/run/agent-harnesses.md#hand-off-a-session).
 
 > [!TIP]
 > The Plan agent automatically saves its implementation plan to a session memory file (`/memories/session/plan.md`). To access this file, run the **Chat: Show Memory Files** command and select `plan.md` from the list. Session memory is cleared when the conversation ends, so the plan is not available in subsequent sessions.

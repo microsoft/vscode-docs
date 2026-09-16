@@ -1,17 +1,17 @@
 ---
 ContentId: 90f8dc30-1e71-4ea7-8230-2bf09bfb97d4
-MetaDescription: Visual Studio Code Azure Tutorials
+MetaDescription: {% data variables.product.prodname_vscode %} Azure Tutorials
 DateApproved: 02/1/2024
 ---
 # Deploying Applications to Azure
 
-Visual Studio Code makes it easy to deploy your applications to the cloud with Azure and we've created walkthroughs to help you get started.
+{% data variables.product.prodname_vscode %} makes it easy to deploy your applications to the cloud with Azure and we've created walkthroughs to help you get started.
 
 Whether you're a fullstack, backend, API developer, or DevOps engineer,  you'll find the deployment steps you need.
 
 ## Deployment tutorials
 
-The tutorials and topics below describe different ways of creating and deploying apps to Azure via Visual Studio Code:
+The tutorials and topics below describe different ways of creating and deploying apps to Azure via {% data variables.product.prodname_vscode %}:
 
 Tutorial(s) | Description | Framework / Language
 --- | --- | ---
@@ -26,5 +26,5 @@ You can find additional tutorials and walkthroughs on the
 ## Next steps
 
 * [Deploy to Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/deploy-visual-studio-code) - Run microservices and containerized applications on a serverless platform.
-* [Visual Studio Code Azure Extensions](/docs/azure/overview.md) - The Azure Tools extension pack is designed to deploy your application to Azure within minutes.
+* [{% data variables.product.prodname_vscode %} Azure Extensions](/docs/azure/overview.md) - The Azure Tools extension pack is designed to deploy your application to Azure within minutes.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

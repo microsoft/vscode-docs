@@ -1,7 +1,7 @@
 ---
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 DateApproved: 12/1/2023
-MetaDescription: Work with container registries in Visual Studio Code
+MetaDescription: Work with container registries in {% data variables.product.prodname_vscode %}
 ---
 # Using container registries
 
@@ -26,7 +26,7 @@ Before you can deploy a container image, the image must be uploaded to a contain
 
    ![Registries](images/registries/explorer-registries.png)
 
-3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the `docker push` will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
+3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the `docker push` will upload it to the right registry. If the image isn't tagged when you try to push it, {% data variables.product.prodname_vscode_shortname %} asks you what registry you want to associate with the image.
     - Images you previously built appear in the Container Explorer under the **Images** view. Right-click and choose **Tag...**.
 
         ![Tag image](images/registries/explorer-tag-image.png)
