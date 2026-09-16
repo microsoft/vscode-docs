@@ -1,6 +1,6 @@
 ---
 Order: 138
-TOCTitle: "Building the GitHub Copilot Inline Suggestions Model: Part One"
+TOCTitle: "Inline Suggestions Model: Part One"
 PageTitle: "Building the GitHub Copilot Inline Suggestions Model: Part One"
 MetaDescription: Explore how the VS Code Agent Host and AHP support multiple agent harnesses with durable, synchronized local and remote sessions.
 MetaSocialImage: building_github_copilot_inline_suggestions.png
@@ -10,6 +10,8 @@ Keywords: [github copilot, inline suggestions, code editing, coding models, next
 ---
 
 # Building the GitHub Copilot Inline Suggestions Model: Part One
+
+September 16, 2026 by [Julia Gong](https://linkedin.com/in/juliagong), [Ben Liggett](https://www.linkedin.com/in/ben-liggett), and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
 _Completion-style ghost text, next edit suggestions near the cursor, and edits farther away were previously powered by separate models. We built one model for all three, and learned that the best results come from training, evaluation, and editor design evolving together._
 
