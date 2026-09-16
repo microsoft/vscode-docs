@@ -9,7 +9,7 @@ Author: Julia Gong, Ben Liggett, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, code editing, coding models, next edit suggestions, long-distance edits, code generation, ai-assisted coding, model training, vs code, machine learning]
 ---
 
-# Building the GitHub Copilot Inline Suggestions Model: Part One
+# Building the new GitHub Copilot Inline Suggestions Model: Part One
 
 September 16, 2026 by [Julia Gong](https://linkedin.com/in/juliagong), [Ben Liggett](https://www.linkedin.com/in/ben-liggett), and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
@@ -25,7 +25,7 @@ Unifying the models **improves suggestion quality** by allowing a **single model
 
 | Before (standalone models) | After (unified model) |
 | --- | --- |
-| ![A code example where the standalone completion model chooses FastingPenguin instead of the better Fish rewrite.](quality_improvement_before.png) | ![A code example where the unified model selects the better Fish rewrite for the same context.](quality_improvement_after.png) |
+| <img src="/assets/blogs/2026/09/16/quality_improvement_before.png" alt="A code example where the standalone completion model chooses FastingPenguin instead of the better Fish rewrite." height="300"> | <img src="/assets/blogs/2026/09/16/quality_improvement_after.png" alt="A code example where the unified model selects the better Fish rewrite for the same context." height="300"> |
 
 Not only can we tackle all existing tasks in one model, but because this model can **output multiple edits in one response**, we can cache these additional edits to deliver a **faster experience** for subsequent edits if the preceding suggestions were desirable. This creates a **smoother, snappier tab-tab-tab experience** across the editing flow.
 
@@ -36,6 +36,7 @@ To enable this better editing experience, we first **reframed the modeling task*
 ## Why unify?
 
 Prior to the unified model, the production implementation of inline suggestions in VS Code was powered by three separate models:
+
 1. **Completions** (the [familiar ghost text](https://github.blog/ai-and-ml/github-copilot/the-road-to-better-completions-building-a-faster-smarter-github-copilot-with-a-new-custom-model/) we all know and love),
 2. **NES** ([next edit suggestions](https://github.blog/ai-and-ml/github-copilot/evolving-github-copilots-next-edit-suggestions-through-custom-model-training/), or nearby edits bounded by a few lines above and below the cursor position),
 3. **Long-distance NES** ([longer-range NES-style suggestions](https://code.visualstudio.com/blogs/2026/02/26/long-distance-nes) farther from the cursor).
@@ -146,6 +147,7 @@ We deliberately chose to **first tackle NES and long-distance edits before compl
 ## Evaluation
 
 To build a good system and improve it, we must start by deciding what we want to measure. No single score captures the quality of an inline suggestions model. We therefore used four complementary stages of evaluation, similar to the process we used for earlier next edit suggestion releases.
+
 1. **Offline evaluation**: Targeted offline tests helped us inspect completion behavior, difficult editing scenarios, patch validity, suggestion length, and the balance among different types of edits.
 2. **Internal dogfooding**: Daily use exposed issues that aggregate scores could miss, such as suggestions that were reasonable but poorly timed, too eager, incomplete, or awkwardly presented.
 3. **Human evaluation at scale**: We also did human evaluation with programmers of diverse backgrounds on thousands of coding tasks using structured feedback templates to get a quantitative assessment of model quality from real developers.
@@ -156,6 +158,7 @@ Each stage answered a different question. Offline evaluation told us whether a c
 ### Offline benchmarks
 
 Offline evaluation for the original NES models consisted primarily of 3 benchmarks, which each assessed different dimensions of the NES models:
+
 1. **Simulation Tests (STests)**. A manually curated set of workspace recordings from our team that demonstrate must-have, nice-to-have, and must-avoid suggestion behaviors.
 2. **HumanEval**. An augmented version of the HumanEval dataset from OpenAI that was expanded to evaluate models’ completion capabilities on single-line, multi-line, and random spans of code.
 3. **Output View Kind**. Examples passed through prior production models, including the view kinds (ghost text, side-by-side NES, no edit, etc.) of the models’ output, used to track any differences in the distribution of view kinds produced by new candidates compared to the original models.
@@ -173,6 +176,7 @@ But how were we going to get multi-patch responses when our existing models did 
 ## Training the v2 models: Adding in long-distance NES
 
 Folding in long-distance edit capabilities wasn’t trivial because the sets of existing data for long-distance edits and NES were not joinable, as they were from completely different files and edit histories. We needed to bootstrap multi-edit data from the single-edit data. We ultimately came up with two approaches to solve this problem:
+
 1. **Bootstrapping responses using v1 model pseudolabels**. We first fast-forwarded the diff patch-format NES data by moving the output label into the edit history. We then fed this fast-forwarded data back into the best v1 models that we trained. If the model produced an edit response, we appended this pseudolabel to the original data’s output label as another patch. We continued to repeat this process until the v1 model produced no edit in its response. This yielded samples with n patches that we could then teach the model to produce. See the figure below for details.
 2. **Edit playback**. We parsed the NES data model input, which contained user edit histories, and used those edits to “rewind” the state of the workspace file by anywhere from 1 to n edits. We then removed those edits from the edit history in the input and prepended them to the output.
 
@@ -260,11 +264,12 @@ _Figure 5. Our model selection process was refined to leverage the insights gain
 ## Takeaways and learnings
 
 Unifying NES and long-distance edits hinged on **reformulating the output as a single diff patch format**. This one representation could express every prior task and, critically, chain multiple edits into a **multi-patch response**, which was the foundation for a low-latency tab-tab-tab flow. A few core lessons stood out:
-- **Bootstrap data when pioneering new scenarios.** Multi-patch training data didn't exist, so we synthesized it from single-edit data using pseudolabels and edit playback, followed by quality filtering. This formed the foundation of the SFT and RL data to start the flywheel of multi-patch model development.
-- **A repeatable recipe emerged for fixing specific failure modes.** Targeted examples, hard-example upweighting, and a gated auxiliary grader were critical to refining the model from a good model into a shipping candidate. It fixed issues of invalid patches and insertion-pattern propagation, and became our go-to technique going forward.
-- **Try to close the offline-to-online gap.** This drove the Pseudo-Online Evaluation (POE) benchmark and a self-refinement loop to calibrate the grader against model outputs and quality signals, and tightening the offline to online gap led to faster and more confident experimentation.
-- **Bring tried and true lessons and intuition into new territory.** In both the data filter and the RL grader, we enforced the guideline that edits must flow logically outward by priority and proximity to the cursor. This arose from our experience in orchestrating a successful experience for inline suggestions in the three-model setup.
-- **Dogfooding can catch what metrics are missing.** Issues that were invisible offline and online surfaced only through daily use, motivating the small Qualitative Must-Haves “canary” benchmark to guard against regressions in shared pipelines.
+
+1. **Bootstrap data when pioneering new scenarios.** Multi-patch training data didn't exist, so we synthesized it from single-edit data using pseudolabels and edit playback, followed by quality filtering. This formed the foundation of the SFT and RL data to start the flywheel of multi-patch model development.
+1. **A repeatable recipe emerged for fixing specific failure modes.** Targeted examples, hard-example upweighting, and a gated auxiliary grader were critical to refining the model from a good model into a shipping candidate. It fixed issues of invalid patches and insertion-pattern propagation, and became our go-to technique going forward.
+1. **Try to close the offline-to-online gap.** This drove the Pseudo-Online Evaluation (POE) benchmark and a self-refinement loop to calibrate the grader against model outputs and quality signals, and tightening the offline to online gap led to faster and more confident experimentation.
+1. **Bring tried and true lessons and intuition into new territory.** In both the data filter and the RL grader, we enforced the guideline that edits must flow logically outward by priority and proximity to the cursor. This arose from our experience in orchestrating a successful experience for inline suggestions in the three-model setup.
+1. **Dogfooding can catch what metrics are missing.** Issues that were invisible offline and online surfaced only through daily use, motivating the small Qualitative Must-Haves “canary” benchmark to guard against regressions in shared pipelines.
 
 ## Online results
 
