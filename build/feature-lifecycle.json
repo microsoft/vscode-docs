@@ -21,6 +21,10 @@
       "label": "Assisted permissions",
       "state": "experimental"
     },
+    "automatic-session-cleanup": {
+      "label": "Automatic session cleanup",
+      "state": "preview"
+    },
     "automations": {
       "label": "Automations",
       "state": "preview"

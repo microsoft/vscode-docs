@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e1d9c-4b8f-4a3d-8e0c-2f5d6b7c8a02
-DateApproved: 05/21/2026
+DateApproved: 9/16/2026
 MetaDescription: Install, use, configure, and sandbox an MCP server to give VS Code agents focused external capabilities.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

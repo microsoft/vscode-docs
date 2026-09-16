@@ -1,6 +1,6 @@
 ---
 ContentId: c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to create and use reusable prompt files in VS Code to standardize workflows, reduce repetition, and customize GitHub Copilot behavior.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

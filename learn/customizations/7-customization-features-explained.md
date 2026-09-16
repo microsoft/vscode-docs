@@ -1,6 +1,6 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Understand the differences between custom instructions, agent skills, hooks, custom agents, and prompt files in GitHub Copilot using interactive learning with Copilot.
 ---
 
