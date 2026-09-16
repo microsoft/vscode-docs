@@ -16,6 +16,8 @@
     "prepare": "husky install",
     "replace-youtube-embeds": "node ./build/replace-youtube-embeds.js",
     "test:replace-youtube-embeds": "node --test ./build/replace-youtube-embeds.test.js",
+    "test:data-variables": "node --test ./build/data-variables.test.js",
+    "test:tabs": "node --test ./build/tabs.test.js",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && docsify serve .",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
