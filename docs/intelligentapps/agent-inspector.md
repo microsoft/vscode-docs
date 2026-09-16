@@ -9,7 +9,7 @@ MetaSocialImage: images/hosted-agents/local-agent-inspector.png
 
 When an agent returns an unexpected answer, the response alone might not explain what went wrong. Agent Inspector in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} lets you send requests to a local agent, inspect model and tool activity, and debug your code before deploying a change.
 
-This is useful when developing a hosted agent: an agent you build in code and deploy to Microsoft Foundry Agent Service. You maintain its logic and dependencies, while Foundry manages the hosting infrastructure. Local inspection helps you test that code, but doesn't deploy it or prove that it is ready for production. For a comparison with prompt agents, see [Choose an agent type](/docs/intelligentapps/create-agents.md#choose-an-agent-type).
+This is useful when developing a hosted agent: an agent you build in code and deploy to Microsoft Foundry Agent Service. You maintain its logic and dependencies, while Foundry manages the hosting infrastructure. Use local inspection to debug your agent code before deployment. Before production use, also test the deployed agent with its runtime identity, configuration, and network access. For a comparison with prompt agents, see [Choose an agent type](/docs/intelligentapps/create-agents.md#choose-an-agent-type).
 
 In this article, you connect to a local agent, investigate a request, and preserve diagnostic events for further analysis. The main path uses the Responses protocol for conversational requests. The available views depend on the protocol and the diagnostics your agent server provides.
 
@@ -30,9 +30,9 @@ For help adapting an existing project, use the [Foundry Toolkit Copilot tools](/
 
 ## Connect and debug
 
-Start the agent server before connecting Inspector. Use your project's generated launch configuration so that the server, working directory, interpreter, and debugger agree.
+Start the agent server before connecting Inspector. Use your project's generated launch configuration to ensure that the server, working directory, interpreter, and debugger are all aligned.
 
-1. Start your agent using its documented debug configuration. For the hosted-agent Python sample, follow [Run and test locally](/docs/intelligentapps/hosted-agents.md#run-and-test-locally). Its **Debug Local Agent HTTP Server** configuration opens Inspector when you press `F5`.
+1. Start your agent using its documented debug configuration. For the hosted-agent Python sample, follow [Run and test locally](/docs/intelligentapps/hosted-agents.md#run-and-test-locally). Its **Debug Local Agent HTTP Server** configuration opens Inspector when you press `kbstyle(F5)`.
 2. If Inspector isn't open, select **Foundry Toolkit** in the Activity Bar, then **Developer Tools** > **Build** > **Agent Inspector**.
 3. Check the endpoint in the Inspector header. The current Python scaffold uses `http://localhost:8088`. If your server uses a different port, select the pencil button beside the endpoint, enter that port, and select **Connect**.
 4. Confirm that the header shows **Connected**. When the endpoint is reachable, Inspector automatically detects the Responses or Invocations protocol. You don't need to select it manually.
@@ -70,7 +70,7 @@ Start with one request that exercises the behavior you want to understand. For e
 2. Use the details tabs to find the slow or failing operation.
 3. Inspect the relevant event or tool call, change your code or configuration, and repeat the request.
 
-In the input, press `Enter` to send or `Shift+Enter` to add a newline. To recall an earlier request, place the caret at the start of the input and press `Up`. Press `Down` at the end of the input to move toward newer requests and return to your unsent draft. You can edit a recalled request before sending it. This input history is a convenience within Inspector, not a durable store of saved prompts.
+In the input, press `kbstyle(Enter)` to send or `kbstyle(Shift+Enter)` to add a newline. To recall an earlier request, place the caret at the start of the input and press `kbstyle(Up)`. Press `kbstyle(Down)` at the end of the input to move toward newer requests and return to your unsent draft. You can edit a recalled request before sending it. This input history is a convenience within Inspector, not a durable store of saved prompts.
 
 The Responses details tabs answer different questions:
 
