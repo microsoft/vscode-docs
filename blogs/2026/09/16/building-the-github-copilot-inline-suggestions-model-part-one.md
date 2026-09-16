@@ -2,7 +2,7 @@
 Order: 138
 TOCTitle: "Inline Suggestions Model: Part One"
 PageTitle: "Building the GitHub Copilot Inline Suggestions Model: Part One"
-MetaDescription: Explore how the VS Code Agent Host and AHP support multiple agent harnesses with durable, synchronized local and remote sessions.
+MetaDescription: Explore how GitHub Copilot unified completion, next edit, and long-distance suggestions into one model for a faster, more cohesive coding experience.
 MetaSocialImage: building_github_copilot_inline_suggestions.png
 Date: 2026-09-16
 Author: Julia Gong, Ben Liggett, Ulugbek Abdullaev
@@ -15,7 +15,7 @@ September 16, 2026 by [Julia Gong](https://linkedin.com/in/juliagong), [Ben Ligg
 
 _Completion-style ghost text, next edit suggestions near the cursor, and edits farther away were previously powered by separate models. We built one model for all three, and learned that the best results come from training, evaluation, and editor design evolving together._
 
-At GitHub Copilot, our mission is to support all development workflows, from AI-assisted coding using inline suggestions to agent-first software engineering in the VS Code Agents window. Inline suggestions is used and loved by millions of developers, and we continue to push the quality bar on it and all GitHub Copilot experiences.
+At GitHub Copilot, our mission is to support all development workflows, from AI-assisted coding using inline suggestions to agent-first software engineering in the VS Code Agents window. Inline suggestions are used and loved by millions of developers, and we continue to push the quality bar on it and all GitHub Copilot experiences.
 
 Writing code is rarely linear. The next useful change might be a few characters at the cursor, a nearby rewrite, or a related edit elsewhere in the codebase. Inline suggestions accommodate these different workflows through completion-style ghost text, nearby next edit suggestions, and long-distance edits.
 
@@ -42,7 +42,7 @@ Prior to the unified model, the production implementation of inline suggestions 
 
 This dedicated work on individual tasks, with a highly mature completions model alongside newer editing models, resulted in a client-orchestrated experience that triggered each where appropriate.
 
-While effective for these individual tasks and a necessary step to bring new editing capabilities to users, this created key shortcomings not only in terms of user flow quality (sometimes making suboptimal or piecemeal edits rather than a single clear edit that best serves the context) and latency (potentially up to 4 model calls per opportunity, as shown in the figure below), but also in terms of and extensibility to future features (e.g., multi-file edits).
+While effective for these individual tasks and a necessary step to bring new editing capabilities to users, this created key shortcomings not only in terms of user flow quality (sometimes making suboptimal or piecemeal edits rather than a single clear edit that best serves the context) and latency (potentially up to 4 model calls per opportunity, as shown in the figure below), but also in terms of extensibility to future features (for example, multi-file edits).
 
 ![Standalone models diagram showing separate completion, NES, and long-distance NES call paths.](standalone_models_diagram.jpg)
 
@@ -52,7 +52,7 @@ Unification also creates a compounding benefit. With **one shared model powering
 
 ## Reformulating the code editing task
 
-Knowing that a unified model was the north star, we realized this was an opportunity to reformulate the code editing problem, starting from the model output format. None of the three individual siloed tasks of predicting a suffix (completions), a window rewrite (NES), or a line number (cursor jump), which we had solved systematically and individually over time, were sufficiently expressive enough to represent the other tasks entirely. To combine these into a single model that could do all three, we needed a similarly unified output format—this gave rise to an elegant solution that we call the **“diff patch” output format**.
+Knowing that a unified model was the north star, we realized this was an opportunity to reformulate the code editing problem, starting from the model output format. None of the three individual siloed tasks of predicting a suffix (completions), a window rewrite (NES), or a line number (cursor jump), which we had solved systematically and individually over time, were sufficiently expressive to represent the other tasks entirely. To combine these into a single model that could do all three, we needed a similarly unified output format—this gave rise to an elegant solution that we call the **“diff patch” output format**.
 
 Consider a developer changing a function signature. The next useful action may be completing a new argument at the cursor. A moment later, it may be updating a call site below. After that, it may be adjusting validation logic elsewhere in the file. These are different interactions, but they are part of one editing task. A shared patch language lets the model reason about them as **sequential steps of the same problem**, which can be presented to the user with greater fluidity.
 
@@ -164,7 +164,7 @@ Offline evaluation for the original NES models consisted primarily of 3 benchmar
 
 We began by building tools to robustly convert the original NES model evaluation and training data into diff patch format. Once the data was converted, we trained some initial **supervised fine-tuning (SFT)** models, followed by **reinforcement learning (RL)** on the NES-only training data—let's call this round of models the **v1 models**.
 
-As we expected, the resulting models could perform on-par to the NES models in offline benchmarks, but the distribution of edits they learned was exactly that—NES edits, with almost no long-distance edits. We also discovered that the difference in data formats, despite using identical data samples, sometimes resulted in different behaviors. For instance, edits tended to be more incremental, which might be due to the diff patch format naturally expressing targeted changes at specific locations instead of rewriting an entire target window (this will come up again later when we discuss the 3-in-1 model). Upon flighting these models, we also discovered several client-side nuances for handling this new output format, including caching and error handling, that were refined early so that future model candidates could benefit from this dry-run.
+As we expected, the resulting models could perform on par with the NES models in offline benchmarks, but the distribution of edits they learned was exactly that—NES edits, with almost no long-distance edits. We also discovered that the difference in data formats, despite using identical data samples, sometimes resulted in different behaviors. For instance, edits tended to be more incremental, which might be due to the diff patch format naturally expressing targeted changes at specific locations instead of rewriting an entire target window (this will come up again later when we discuss the 3-in-1 model). Upon flighting these models, we also discovered several client-side nuances for handling this new output format, including caching and error handling, that were refined early so that future model candidates could benefit from this dry-run.
 
 Now it was time to fold in long-distance edits. In the diff patch formulation of the problem, an elegant property emerges for the long-distance NES case: **An NES edit + a long-distance NES edit = a multi-patch response**. Multi-patch responses were also critical to add because of the user experience economies of scale that come with caching subsequent patches for fast follow-up edits.
 
@@ -278,9 +278,9 @@ Give it a try the next time you are in the editor, whether you're working on a r
 
 In the second part of this blog post, we’ll dive deeper into how we moved to the 3-in-1 model for inline suggestions. Stay tuned!
 
-Happy coding! 💙
-
 ## Acknowledgements
 Special thanks to Luciana Abud, Alexandru Dima, Yu Hu, Simona Liao, Shengjie Ma, Elsie Nallipogu, and Nick Trogh for their thoughtful feedback, insights, and contributions to this blog post.
 
 We extend our deepest gratitude to our developer community for the ongoing feedback that pushes us to deliver the best possible experiences with VS Code and GitHub Copilot. Huge thanks to the researchers, engineers, product managers, and designers across GitHub and Microsoft who curated the training data, built the training pipeline, evaluation suites, and serving stack, and to the VS Code and GitHub Copilot teams for smooth model releases.
+
+Happy coding! 💙
