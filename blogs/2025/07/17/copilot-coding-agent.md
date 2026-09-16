@@ -3,7 +3,7 @@ Order: 103
 TOCTitle: "Command GitHub's Coding Agent from VS Code"
 PageTitle: "Command GitHub's Coding Agent from VS Code"
 MetaDescription: VS Code's integration with GitHub Copilot Coding Agent allows you to delegate tasks to the agent and let it handle them in the background.
-MetaSocialImage: copilot-wip.png
+MetaSocialImage: copilot-wip.webp
 Date: 2025-07-17
 Author: Burke Holland
 ---
@@ -35,7 +35,7 @@ It works like this:
 3. The agent does the work, opens a pull request, and keeps you in the loop.
 4. You review the PR, leave comments if you want changes, and the agent iterates until it’s done.
 
-![Copilot Coding Agent on GitHub](coding-agent-github.png)
+![Copilot Coding Agent on GitHub](coding-agent-github.webp)
 
 That's all there is to it. It's the workflow you already know with an agent in the mix.
 
@@ -47,7 +47,7 @@ And now, we're integrating the Coding Agent and all of its workflows directly in
 
 Copilot Coding Agent integrates with the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github). You can assign any issue to Copilot Coding Agent right from the sidebar - no need to switch to your browser. Just select, assign, and let the agent take it from there.
 
-![A GIF showing Copilot assigned to an issue from within VS Code](assign-to-copilot-gif.gif)
+<video src="assign-to-copilot-gif.mp4" title="Video showing A GIF showing Copilot assigned to an issue from within VS Code." autoplay loop controls muted></video>
 
 As with every VS Code feature, the VS Code team itself uses the Coding Agent integration in their own development. In fact, you can see just how many PRs have been [assigned to Copilot Coding Agent in the VS Code repo](https://github.com/search?q=is%3Apr+head%3Acopilot%2F+repo%3Amicrosoft%2Fvscode&type=pullrequests), and that number continues to increase.
 
@@ -55,7 +55,7 @@ As with every VS Code feature, the VS Code team itself uses the Coding Agent int
 
 There’s a new **Copilot on My Behalf** query in the Pull Requests view. This shows you everything Copilot is working on for you. Want to see exactly what the agent did? Click "View Session" and watch the play-by-play. You get full transparency into every command and decision. You can also terminate the agent if you're not happy with how things are going. And you can drive all of this without even leaving the editor.
 
-![A WIP PR shown under the "Copilot on my behalf" section with the "View Session" button highlighted](copilot-wip.png)
+![A WIP PR shown under the "Copilot on my behalf" section with the "View Session" button highlighted](copilot-wip.webp)
 
 In this screenshot, the agent implemented a "Trending" section to a website, complete with UI and database changes. All of this is one interaction so it's [only one premium request](https://github.blog/changelog/2025-07-10-github-copilot-coding-agent-now-uses-one-premium-request-per-session/).
 
@@ -63,20 +63,20 @@ In this screenshot, the agent implemented a "Trending" section to a website, com
 
 When the agent is done, it will assign the PR to you and request you as a reviewer. It even includes a screenshot if applicable so you can quickly verify whether it did the right thing.
 
-![PR from Coding Agent shown in VS Code with a screenshot](draft-with-screenshot.png)
+![PR from Coding Agent shown in VS Code with a screenshot](draft-with-screenshot.webp)
 
 You can review the agent’s PR, leave comments, and ask for changes - all from within VS Code. The agent will pick up your feedback, update the PR, and let you know when it's finished.
 
 This workflow integrates beautifully with services that offer previews for pull requests.
 For example, if you use Azure Static Web Apps, Vercel, Netlify, and others, you can review the agent's work without even having to check out and run a branch locally.
 
-![Live preview of the site on Netlify but we have an error](live-preview-netlify.png)
+![Live preview of the site on Netlify but we have an error](live-preview-netlify.webp)
 
 Uh oh - now that we look closely, it looks like we didn't quite get the "Trending" section working. In this case, that's ok. In fact it's good. Our agent couldn't succeed in one shot because it doesn't have access to create the required database changes. Instead, it created a migration script as part of the PR. That *will* require us to manually check out the PR, but you might feel more comfortable being in control over that sort of change.
 
 But what if we *did* want to give access to make the database changes to a dev environment? Coding Agent has support for MCP servers, and provided you have one for your database of choice (in this case Supabase), you can [configure MCP servers for the agent on the repo](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp). It's up to you - how autonomous do you want the agent to be?
 
-![MCP configuration shown for Copilot Coding Agent on github.com](coding-agent-mcp-config.png)
+![MCP configuration shown for Copilot Coding Agent on github.com](coding-agent-mcp-config.webp)
 
 But it gets even better - because you can do all of this right from VS Code.
 
@@ -86,7 +86,7 @@ We find ourselves wanting to do more and more right from the [chat panel](https:
 
 The Coding Agent then opens a PR and goes directly to work - skipping the issue step entirely. It distills down the context into a detailed PR description and you'll see that Copilot Coding Agent makes use of "to-do lists" so that you can see what it's doing and where it is in the process at a glance.
 
-<video src="delegate-to-coding-agent.mp4" title="Delegate to Coding Agent video" controls poster="delegate-to-coding-agent-poster.png"></video>
+<video src="delegate-to-coding-agent.mp4" title="Delegate to Coding Agent video" controls poster="delegate-to-coding-agent-poster.webp"></video>
 
 ## What’s next?
 

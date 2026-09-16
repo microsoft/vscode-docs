@@ -3,7 +3,7 @@ Order:
 TOCTitle: Introducing Copilot Edits
 PageTitle: Introducing Copilot Edits
 MetaDescription: Copilot Edits allows you to get to the changes you need in your workspace, across multiple files, using a UI designed for fast iteration. You can specify a set of files to be edited, and then use natural language to simply ask Copilot what you need. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
-MetaSocialImage: copilot-edits.png
+MetaSocialImage: copilot-edits.webp
 Date: 2024-11-12
 Author: Isidor Nikolic
 ---
@@ -20,7 +20,7 @@ Until recently, you could use GitHub Copilot in VS Code in two separate ways. Yo
 
 In Copilot Edits you specify a set of files to be edited, and then use natural language to ask Copilot what you need. Copilot Edits makes inline changes in your workspace, across multiple files, using an UI designed for fast iteration. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
 
-![Screenshot of the Copilot edits, and the proposed inline changes](copilot-edits.png)
+![Screenshot of the Copilot edits, and the proposed inline changes](copilot-edits.webp)
 
 Copilot Edits works because it puts you in control, from setting the right context to accepting changes, and not because it relies on an advanced model that never makes a mistake. And the experience is iterative: when the model gets it wrong, you can review changes across multiple files, accept good ones and iterate until, together with Copilot, you arrive at the right solution. When accepting changes, you can run the code to verify the changes and, when needed, Undo in Copilot Edits to get back to a previous working state.
 
@@ -28,11 +28,11 @@ Copilot Edits works because it puts you in control, from setting the right conte
 
 There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing `#` to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
 
-![Screenshot of the Working Set, showing the user adding index.js](working-set.png)
+![Screenshot of the Working Set, showing the user adding index.js](working-set.webp)
 
 Working Sets, together with the Undo and Redo functionality, gives you precise control over changes and allows you to decide exactly where and how to apply them. Copilot Edits shows the generated edits in-place right in your code and provides you with a code review flow, where you can accept or discard each of the AI-generated edits. Copilot Edits will not make changes outside of the Working Set – the only exception being when it proposes to create a new file.
 
-![Screenshot of the inline changes, showing the Accept / Discard widget](changes.png)
+![Screenshot of the inline changes, showing the Accept / Discard widget](changes.webp)
 
 Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/debugtest/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
 

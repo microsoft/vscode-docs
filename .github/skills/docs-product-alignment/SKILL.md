@@ -10,17 +10,18 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 ## Guardrails
 
 - **Factual only.** Every claim must map to something the product does today. No superlatives, no competitive comparisons, no invented terminology.
-- **Two audiences.** Humans read the prose; AI agents and search crawlers index Keywords, MetaDescriptions, and opening paragraphs. Both matter.
+- **Content framing.** Establish each page's primary persona, reader intent, and article purpose by following the [content-framing guidance](../../instructions/docs-writing.instructions.md#content-framing). Ask the writer before editing when the framing is ambiguous and would change the audit or recommendations.
+- **Two consumers.** The primary persona reads the prose; AI agents and search crawlers index Keywords, MetaDescriptions, and opening paragraphs. Both matter.
 - **Minimal edits.** Change only what is inaccurate, outdated, or missing. One precise sentence beats a rewritten section.
 - **Verifiable.** If you cannot point to a UI element, setting, or documented behavior, do not write it.
 
 ## Workflow
 
-1. **Gather context.** Read the latest [release notes](/release-notes/), check [github.com/features/copilot](https://github.com/features/copilot), and review any competitive claims or feature matrices the user provides.
+1. **Gather context and frame each page.** Read the latest [release notes](/release-notes/), check [github.com/features/copilot](https://github.com/features/copilot), and review any competitive claims or feature matrices the user provides. For each page, record its primary persona, reader intent, and article purpose before proposing edits.
 2. **Audit high-traffic pages.** Read each page and compare against current product truth. Focus on MetaDescriptions, Keywords, opening paragraphs, and terminology.
-3. **Gap analysis.** List what is inaccurate, outdated, or missing. Map each gap to a file and location. Prioritize by page traffic.
-4. **Edit.** Apply targeted changes. Vary phrasing across pages to avoid repetition.
-5. **Verify.** Search changed files for banned words, em-dashes, and MetaDescription length violations.
+3. **Gap analysis.** List what is inaccurate, outdated, or missing. Map each gap to a file and location. Include the page framing in the analysis, and prioritize by page traffic and impact on the primary persona's intent.
+4. **Edit.** Apply targeted changes that support the recorded framing. Vary phrasing across pages to avoid repetition.
+5. **Verify.** Search changed files for banned words, em-dashes, and MetaDescription length violations. Confirm that each changed page still serves its recorded primary persona and reader intent.
 
 **High-traffic pages to always check:**
 - [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/concepts/overview.md](/docs/agents/concepts/overview.md), [docs/agents/reference/ai-features-cheat-sheet.md](/docs/agents/reference/ai-features-cheat-sheet.md)

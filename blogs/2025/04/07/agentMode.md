@@ -3,7 +3,7 @@ Order:
 TOCTitle: Agent mode available to all users
 PageTitle: "Agent mode: available to all users and supports MCP"
 MetaDescription: Agent mode is now available to all users and supports MCP.
-MetaSocialImage: agent_full.png
+MetaSocialImage: agent_full.webp
 Date: 2025-04-07
 Author: Isidor Nikolic
 ---
@@ -30,7 +30,7 @@ On the other hand, use edit mode when the task has a well-defined scope, you wan
 
 We have created a unified chat experience, combining the Chat and Edits view, that brings benefits like session history, moving chat into a separate window, and simplification of the Working Set view. All of these are now also available in agent mode.
 
-![Agent mode with proposed changes in the editor](agent_full.png)
+![Agent mode with proposed changes in the editor](agent_full.webp)
 
 We continue to receive fantastic user feedback ([please keep it coming!]( http://github.com/microsoft/vscode/issues/)), which has inspired many of the improvements we have made. Most notably:
 
@@ -54,7 +54,7 @@ Agent mode can use the following tools:
 * Tools contributed by MCP servers (green in the diagram).
 * Tools contributed by VS Code extensions (green in the diagram).
 
-![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](diagram.png)
+![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](diagram.webp)
 
 When the VS Code team invented the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) back in [2016](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol), our goal was to standardize how language servers communicate with development tools. We are proud that LSP has become a widely adopted standard and fulfilled our vision. Recently, the [ideas behind LSP]( https://x.com/dsp_/status/1897821339332882617) inspired a new protocol: the [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP), which standardizes how applications provide context to LLMs. With agent mode in VS Code using tools contributed by MCP servers, we have now come full circle back to VS Code.
 
@@ -62,11 +62,11 @@ When the VS Code team invented the [Language Server Protocol](https://microsoft.
 
 Not every task needs all the tools you might have added to agent mode, and as with any AI workflow, being specific leads to better results. We recommend using the tools UI to manage and enable the tools needed for each scenario or explicitly referencing tools in your prompt by typing `#`.
 
-![Edit UI showing how to enable and disable tools](tools-ui.png)
+![Edit UI showing how to enable and disable tools](tools-ui.webp)
 
 To give you full control, every tool invocation is transparently displayed in the UI and requires your approval (except for read-only built-in tools). You can allow a specific tool for the current session, workspace, or all future invocations. If you want to minimize interruptions by always allowing the agent to use all tools, while still maintaining security, consider using the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. This isolates all agent-driven changes within the container environment up to a point (for example, the agent could still push changes to remote if you allow it).
 
-![Chat UI showing a tool call](tool-call.png)
+![Chat UI showing a tool call](tool-call.webp)
 
 ### Get started
 
@@ -74,7 +74,7 @@ To customize the agent for your workflows, select the **Tools** icon in the chat
 
 MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for official, and community-contributed servers that showcase MCP's versatility. To install extensions that contribute tools, open the Extensions view and search using the tag `@tag:language-model-tools`.
 
-![extension search showing extensions that contribute tools](tool-extensions.png)
+![extension search showing extensions that contribute tools](tool-extensions.webp)
 
 As a developer you can extend the agent by creating an MCP server, or if you are an extension author you can [contribute tools]( https://marketplace.visualstudio.com/search?term=%40tag%3Alanguage-model-tools&target=VSCode&category=All%20categories&sortBy=Relevance) to your VS Code extension. Refer to [these docs](https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview) for guidance and best practices on writing tools.
 

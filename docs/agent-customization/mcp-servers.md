@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 8/19/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -23,7 +23,7 @@ For background on how MCP fits into the AI customization framework, see [Customi
 This article covers how to add, configure, and manage MCP servers. To learn how agents invoke tools, see [Use tools with agents](/docs/agents/run/tools.md).
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Quickstart: use an MCP server in chat
 
@@ -72,7 +72,7 @@ You can manually configure MCP servers by editing the `mcp.json` file. There are
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
-For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, VS Code forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 > [!IMPORTANT]
 > Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
@@ -216,7 +216,7 @@ To enable or disable an MCP server:
 
 * Right-click a server in the **MCP SERVERS - INSTALLED** section of the Extensions view and select **Enable** or **Disable**.
 * Run **MCP: List Servers** from the Command Palette, select a server, and choose **Enable** or **Disable**.
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) to toggle the server's enabled state.
+* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle the server's enabled state.
 
 The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
 
@@ -226,9 +226,11 @@ Organizations can centrally manage access to MCP servers via GitHub policies. Le
 
 ## Automatically start MCP servers
 
+`feature(mcp-autostart)`
+
 When you add an MCP server or change its configuration, {% data variables.product.prodname_vscode_shortname %} needs to (re)start the server to discover the tools it provides.
 
-You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
+You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting.
 
 ## MCP server trust
 

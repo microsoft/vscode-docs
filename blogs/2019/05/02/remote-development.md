@@ -3,7 +3,7 @@ Order:
 TOCTitle: Remote Development
 PageTitle: Remote Development with Visual Studio Code
 MetaDescription: VS Code remote support for WSL, Containers, and SSH
-MetaSocialImage: /assets/blogs/2019/05/02/social-remote.png
+MetaSocialImage: /assets/blogs/2019/05/02/social-remote.webp
 Date: 2019-05-02
 ShortDescription: Remote Development with Visual Studio Code
 Author: Chris Dias
@@ -30,7 +30,7 @@ We've all experienced this problem. Unless we feel it's time to flatten that mac
 
 Python developers want to switch to VS Code but can't, because they need to use [containers and virtual machines](https://matttrent.com/remote-development/) as development environments configured for a specific Python stack.
 
-> ![Vagrant Box testimonial](vagrant-box-testimonial.png)
+> ![Vagrant Box testimonial](vagrant-box-testimonial.webp)
 
 Because the code bases are so large, we see engineers at shops like Facebook (and Microsoft!) use editors like vim to work remotely against secure and powerful "developer VMs", using alternative cloud-based search and navigation services that scale beyond what even the best laptop can handle.
 
@@ -38,7 +38,7 @@ Data Scientists building and training data models often need massive storage and
 
 The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
 
-> ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
+> ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.webp)
 
 ## Challenges with Current Solutions
 
@@ -60,13 +60,13 @@ But, it just wasn't right. It didn't make sense to do special work for every run
 
 We convinced ourselves that what we needed was a way to run VS Code in two places at once, to run the developer tools locally and connect to a set of development services running remotely in the context of a physical or virtual machine (for example, a container or VM). This gives you a rich local development experience in the context of what is in the remote environment.
 
-![Visual Studio Code connecting to remote environments](remote-environment.png)
+![Visual Studio Code connecting to remote environments](remote-environment.webp)
 
 ## Introducing the VS Code Remote Extensions
 
 Over the past few months, we've been working hard re-establishing proper boundaries between our code layers and eliminating assumptions about the local development environment. We've built three new extensions for working with remote workspaces running in WSL, Docker containers, or in physical and virtual machines over SSH.
 
-![Visual Studio Code Remote Extensions for WSL, Containers, and SSH](remote-extensions.png)
+![Visual Studio Code Remote Extensions for WSL, Containers, and SSH](remote-extensions.webp)
 
 The **[WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
 
@@ -78,7 +78,7 @@ Commands and extensions are run directly in the Linux distro, so you don't have 
 
 Check out this quick, 2-minute video to see how easy it is to develop in WSL.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mIHprjsSO9o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code WSL"></iframe>
+[![Watch Visual Studio Code WSL on YouTube (opens in new tab).](youtube-mIHprjsSO9o.jpg)](https://www.youtube.com/watch?v=mIHprjsSO9o)
 
 For more information, please see the [Developing in WSL](https://aka.ms/vscode-remote/wsl) documentation.
 
@@ -96,7 +96,7 @@ You could use Vim over SSH or Jupyter Notebooks to edit your remote code, but yo
 
 Check out this quick, 2-minute video to see how easy it is to develop on a virtual machine over SSH.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rh1Ag41J6IA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code Remote - SSH"></iframe>
+[![Watch Visual Studio Code Remote - SSH on YouTube (opens in new tab).](youtube-rh1Ag41J6IA.jpg)](https://www.youtube.com/watch?v=rh1Ag41J6IA)
 
 For more information, please see the [Developing using SSH](https://aka.ms/vscode-remote/ssh) documentation.
 
@@ -112,7 +112,7 @@ A `devcontainer.json` file can be used to tell VS Code how to configure the deve
 
 Check out this quick, 2-minute video to see Development Containers in action.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TVcoGLL6Smo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code Dev Containers"></iframe>
+[![Watch Visual Studio Code Dev Containers on YouTube (opens in new tab).](youtube-TVcoGLL6Smo.jpg)](https://www.youtube.com/watch?v=TVcoGLL6Smo)
 
 For more information on development containers, please see the [Developing inside a Container](https://aka.ms/vscode-remote/containers) documentation as well as the [vscode-remote-try-* repositories](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-) that contain samples you can use today.
 
@@ -124,7 +124,7 @@ When developing remotely, VS Code will attempt to infer where to install an exte
 
 * Workspace Extensions are installed remotely. They access files and folders in a workspace for editing, to provide IntelliSense (completions), GoTo Definition, debugging, and more. These extensions may customize the UI. These extensions run remotely so that they have full access to the file system and tools on the remote host.
 
-![Remote and local extensions](remote-local-extensions.png)
+![Remote and local extensions](remote-local-extensions.webp)
 
 Most extensions have been updated and work properly in a remote environment, but if you encounter some that do not, please do submit an issue on the extension.
 

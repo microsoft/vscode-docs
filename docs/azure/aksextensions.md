@@ -1,19 +1,19 @@
 ---
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
 DateApproved: 12/2/2022
-MetaDescription: Working with AKS tools and diagnostics in Visual Studio Code
+MetaDescription: Working with AKS tools and diagnostics in {% data variables.product.prodname_vscode %}
 ---
-# AKS tools and diagnostics in VS Code
+# AKS tools and diagnostics in {% data variables.product.prodname_vscode_shortname %}
 
-This document will walk you through some of the ways you can interact with your AKS clusters directly from Visual Studio Code. [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/#overview) is a fully managed [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/#overview) service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, a continuous integration and continuous delivery (CI/CD) experience, with enterprise-grade security and governance. Azure Kubernetes Service (AKS) is an open-source system for automating deployment, scaling, and management of containerized applications.
+This document will walk you through some of the ways you can interact with your AKS clusters directly from {% data variables.product.prodname_vscode %}. [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/#overview) is a fully managed [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/#overview) service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, a continuous integration and continuous delivery (CI/CD) experience, with enterprise-grade security and governance. Azure Kubernetes Service (AKS) is an open-source system for automating deployment, scaling, and management of containerized applications.
 
 We will show you how to run [diagnostic health-checks](https://learn.microsoft.com/azure/aks/concepts-diagnostics) on your AKS cluster, launch [AKS Periscope](https://github.com/azure/aks-periscope) for more in-depth troubleshooting, deploy [Azure Service Operator](https://github.com/Azure/azure-service-operator), or generate [GitHub Actions Starter Workflows](https://github.com/actions/starter-workflows).
 
 ## Before you begin
 
-The [AKS VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools).
+The [AKS {% data variables.product.prodname_vscode_shortname %} Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes {% data variables.product.prodname_vscode_shortname %} extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools).
 
-You will need to download the [Kubernetes VS Code extension](https://code.visualstudio.com/docs/azure/kubernetes).
+You will need to download the [Kubernetes {% data variables.product.prodname_vscode_shortname %} extension](https://code.visualstudio.com/docs/azure/kubernetes).
 
 You can follow this guide on an existing AKS cluster or you can [create AKS cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal).
 
@@ -21,17 +21,17 @@ You can follow this guide on an existing AKS cluster or you can [create AKS clus
 
 For a fully integrated Azure Kubernetes diagnostics experience, you can install the [Azure Kubernetes Services Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) extension.
 
-With the extension you can easily view and manage your AKS clusters from your VS Code environment.
+With the extension you can easily view and manage your AKS clusters from your {% data variables.product.prodname_vscode_shortname %} environment.
 
-To install the Azure Kubernetes Services VS Code extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for "AKS". Select the Microsoft [Azure Kubernetes Services](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) extension.
+To install the Azure Kubernetes Services {% data variables.product.prodname_vscode_shortname %} extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for "AKS". Select the Microsoft [Azure Kubernetes Services](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) extension.
 
 ![Install Azure Kubernetes Services](images/aksextensions/install-aks-extension.png)
 
 ## Installation
 
-1. Download and install the [Azure Kubernetes Service extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) for VS Code.
+1. Download and install the [Azure Kubernetes Service extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) for {% data variables.product.prodname_vscode_shortname %}.
 
-2. Wait for the extension to finish installing then reload VS Code when prompted.
+2. Wait for the extension to finish installing then reload {% data variables.product.prodname_vscode_shortname %} when prompted.
 
 3. Once the installation is complete, you'll see a section named **Azure** under **Clouds**.
 
@@ -164,11 +164,11 @@ Right-click on your AKS cluster and select **Run KubectlCommands** to run Kubect
 * Get Node
 * Get All Events
 
-Congratulations! You now know how to navigate through this VS Code extension.
+Congratulations! You now know how to navigate through this {% data variables.product.prodname_vscode_shortname %} extension.
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
 * [Azure Kubernetes Service Diagnostics (preview) overview](https://learn.microsoft.com/azure/aks/concepts-diagnostics)
 * [Azure Service Operator](https://azure.github.io/azure-service-operator/#azure-service-operator-v2) - Learn about Azure Service Operator.
 * [AKS Periscope](https://github.com/azure/aks-periscope)

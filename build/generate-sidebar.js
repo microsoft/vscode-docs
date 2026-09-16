@@ -3,16 +3,50 @@
 
 const fs = require('fs');
 const path = require('path');
+const {
+  createBrowserDataVariablesScript,
+  loadDataVariables,
+  substituteDataVariables,
+  validateDataVariableReferences
+} = require('./data-variables');
+const { transformTabbedContent } = require('./tabs');
 
 const ROOT = path.resolve(__dirname, '..');
+const CONTENT_DIRECTORIES = [
+  'docs',
+  'api',
+  'remote',
+  'blogs',
+  'release-notes',
+  'remote-release-notes',
+  'learn'
+];
 
-function loadJSON(filePath) {
+function resolveJsonDataVariables(value, variables, sourceFile) {
+  if (typeof value === 'string') {
+    return substituteDataVariables(value, variables, sourceFile);
+  }
+  if (Array.isArray(value)) {
+    return value.map(item => resolveJsonDataVariables(item, variables, sourceFile));
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [
+        key,
+        resolveJsonDataVariables(item, variables, sourceFile)
+      ])
+    );
+  }
+  return value;
+}
+
+function loadJSON(filePath, variables) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   // Strip JS-style comments (// ...) that appear in api/toc.json
   let cleaned = raw.replace(/^\s*\/\/.*$/gm, '');
   // Strip trailing commas before ] or } (common in hand-edited JSON)
   cleaned = cleaned.replace(/,\s*([}\]])/g, '$1');
-  return JSON.parse(cleaned);
+  return resolveJsonDataVariables(JSON.parse(cleaned), variables, filePath);
 }
 
 // Extract frontmatter fields from a markdown file
@@ -62,15 +96,38 @@ function renderSection(section, indent) {
 }
 
 function buildSidebar() {
-  const docsToc = loadJSON(path.join(ROOT, 'docs', 'toc.json'));
-  const apiToc = loadJSON(path.join(ROOT, 'api', 'toc.json'));
+  const dataVariables = loadDataVariables(path.join(ROOT, 'data', 'variables'));
+  let tabGroupCount = 0;
+  let tabCount = 0;
+  const validation = validateDataVariableReferences(
+    ROOT,
+    CONTENT_DIRECTORIES,
+    dataVariables,
+    function validateTabs(content, source) {
+      const tabValidation = transformTabbedContent(content, source);
+      tabGroupCount += tabValidation.groupCount;
+      tabCount += tabValidation.tabCount;
+    }
+  );
+  console.log(`Validated ${validation.directiveCount} data variable references in ${validation.fileCount} Markdown files`);
+  console.log(`Validated ${tabCount} tabs in ${tabGroupCount} tab groups`);
+
+  fs.writeFileSync(
+    path.join(ROOT, '_data-variables.js'),
+    createBrowserDataVariablesScript(dataVariables),
+    'utf-8'
+  );
+  console.log('Generated _data-variables.js');
+
+  const docsToc = loadJSON(path.join(ROOT, 'docs', 'toc.json'), dataVariables);
+  const apiToc = loadJSON(path.join(ROOT, 'api', 'toc.json'), dataVariables);
 
   // Docs sidebar
   let docsSidebar = '';
   for (const section of docsToc) {
     // If section delegates to a subsection toc file, load and inline it
     if (section.toc) {
-      const subToc = loadJSON(path.join(ROOT, 'docs', section.toc));
+      const subToc = loadJSON(path.join(ROOT, 'docs', section.toc), dataVariables);
       if (section.link) {
         docsSidebar += `- [**${section.name}**](${section.link})\n`;
       } else {
@@ -97,7 +154,7 @@ function buildSidebar() {
   // Learn sidebar
   const learnTocPath = path.join(ROOT, 'learn', 'toc.json');
   if (fs.existsSync(learnTocPath)) {
-    const learnToc = loadJSON(learnTocPath);
+    const learnToc = loadJSON(learnTocPath, dataVariables);
     let learnSidebar = '';
     for (const section of learnToc) {
       learnSidebar += renderSection(section, '');
@@ -111,11 +168,12 @@ function buildSidebar() {
   const rnEntries = fs.readdirSync(rnDir)
     .filter(f => f.endsWith('.md') && f !== 'README.md')
     .map(f => {
-      const fm = parseFrontmatter(path.join(rnDir, f));
+      const sourceFile = path.join(rnDir, f);
+      const fm = parseFrontmatter(sourceFile);
       return {
         file: f.replace(/\.md$/, ''),
         order: parseInt(fm.Order, 10) || 0,
-        title: fm.TOCTitle || f.replace(/\.md$/, '')
+        title: substituteDataVariables(fm.TOCTitle || f.replace(/\.md$/, ''), dataVariables, sourceFile)
       };
     })
     .sort((a, b) => b.order - a.order);
@@ -145,12 +203,17 @@ function buildSidebar() {
         const dayDir = path.join(monthDir, day);
         const posts = fs.readdirSync(dayDir).filter(f => f.endsWith('.md'));
         for (const post of posts) {
-          const fm = parseFrontmatter(path.join(dayDir, post));
+          const sourceFile = path.join(dayDir, post);
+          const fm = parseFrontmatter(sourceFile);
           blogEntries.push({
             year,
             path: `/blogs/${year}/${month}/${day}/${post.replace(/\.md$/, '')}`,
             order: parseInt(fm.Order, 10) || 0,
-            title: fm.TOCTitle || post.replace(/\.md$/, '').replace(/-/g, ' ')
+            title: substituteDataVariables(
+              fm.TOCTitle || post.replace(/\.md$/, '').replace(/-/g, ' '),
+              dataVariables,
+              sourceFile
+            )
           });
         }
       }
@@ -178,4 +241,12 @@ function buildSidebar() {
   console.log('Generated _sidebar.md (default → docs)');
 }
 
-buildSidebar();
+if (require.main === module) {
+  buildSidebar();
+}
+
+module.exports = {
+  buildSidebar,
+  loadJSON,
+  resolveJsonDataVariables
+};

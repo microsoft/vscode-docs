@@ -1,7 +1,7 @@
 ---
 ContentId: 60ed75f8-8cde-43b6-bd24-d0f0fc01937d
 DateApproved: 04/15/2026
-MetaDescription: Connect tools and Toolboxes in Foundry Toolkit for Visual Studio Code, then add them to agents or generate hosted agent samples.
+MetaDescription: Connect tools and Toolboxes in Foundry Toolkit for {% data variables.product.prodname_vscode %}, then add them to agents or generate hosted agent samples.
 ---
 
 # Use Tool Catalog to connect tools and Toolboxes in Foundry Toolkit
@@ -9,7 +9,7 @@ MetaDescription: Connect tools and Toolboxes in Foundry Toolkit for Visual Studi
 > [!NOTE]
 > Toolbox support is currently in preview and only available in pre-release version of Foundry Toolkit.
 
-Agents often depend on more than one tool. Some tools come from Microsoft Foundry, some run as local Model Context Protocol (MCP) servers, and some belong to a shared Toolbox managed by another team. Tool Catalog in Foundry Toolkit for Visual Studio Code gives you one place to connect those options, attach them to agents, and generate hosted agent samples that are wired to a Toolbox.
+Agents often depend on more than one tool. Some tools come from Microsoft Foundry, some run as local Model Context Protocol (MCP) servers, and some belong to a shared Toolbox managed by another team. Tool Catalog in Foundry Toolkit for {% data variables.product.prodname_vscode %} gives you one place to connect those options, attach them to agents, and generate hosted agent samples that are wired to a Toolbox.
 
 In this article, you learn how to connect Foundry tools, register local MCP servers, create and consume Toolboxes, and scaffold a hosted agent sample from a Toolbox so you can move from Agent Builder to runnable code.
 
@@ -31,9 +31,9 @@ A [Toolbox](https://aka.ms/toolbox-learn) is a centrally managed collection of t
 
 Before you start, make sure you have:
 
-* Visual Studio Code.
+* {% data variables.product.prodname_vscode %}.
 * The Foundry Toolkit extension installed.
-* Access to a Microsoft Foundry project. For more information, see [Foundry Toolkit for Visual Studio Code](/docs/intelligentapps/overview.md).
+* Access to a Microsoft Foundry project. For more information, see [Foundry Toolkit for {% data variables.product.prodname_vscode %}](/docs/intelligentapps/overview.md).
 * Permission to view or attach tools and Toolboxes in your project.
 * For hosted agent samples, Python 3.12 or later and Azure CLI signed in with `az login`.
 
@@ -134,7 +134,7 @@ The generated project includes the hosted agent entry point, deployment files, a
 
 Follow the generated `README.md` to install dependencies, configure environment variables, and sign in to Azure. Then start the agent in one of these ways:
 
-* Press `F5` in VS Code and select **Debug Local Agent HTTP Server**.
+* Press `F5` in {% data variables.product.prodname_vscode_shortname %} and select **Debug Local Agent HTTP Server**.
 * Run `python main.py` from the terminal.
 
 > [!TIP]
@@ -157,4 +157,4 @@ The generated project stores hosted agent settings in `agent.yaml` and `agent.ma
 
 * [Create agents with the Foundry Toolkit](/docs/intelligentapps/create-agents.md)
 * [Develop agents with Agent Inspector in Foundry Toolkit](/docs/intelligentapps/agent-inspector.md)
-* [Foundry Toolkit for Visual Studio Code](/docs/intelligentapps/overview.md)
+* [Foundry Toolkit for {% data variables.product.prodname_vscode %}](/docs/intelligentapps/overview.md)

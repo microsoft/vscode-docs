@@ -1,7 +1,7 @@
 ---
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
 DateApproved: 1/17/2023
-MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service or Azure Container Apps.
+MetaDescription: Using {% data variables.product.prodname_vscode %}, build a container image for your application, push the image to a container registry, and deploy to Azure App Service or Azure Container Apps.
 ---
 # Deploy a containerized app to Azure
 
@@ -22,7 +22,7 @@ In this guide you will learn how to:
 
 If you already have an image, skip this step and proceed to [Push the image to a container registry](#push-the-image-to-a-container-registry) step.
 
-1. Open the application folder in VS Code.
+1. Open the application folder in {% data variables.product.prodname_vscode_shortname %}.
 
 2. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Container Images: Build Image...** command to build the image.
 
@@ -73,15 +73,15 @@ In the previous section, the image is pushed to a remote container registry. Now
     - Resource group: Select an existing resource group or create a new one.
     - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website; you can use a basic or free plan tier for this tutorial).
 
-3. When deployment is complete, Visual Studio Code shows a notification with the website URL.
+3. When deployment is complete, {% data variables.product.prodname_vscode %} shows a notification with the website URL.
 
     ![Deployment complete notification](images/app-service/notification-appservice-deployment.png)
 
-4. You can also see the results in the Output panel of Visual Studio Code, in the Container Tools section.
+4. You can also see the results in the Output panel of {% data variables.product.prodname_vscode %}, in the Container Tools section.
 
     ![Deployment complete output](images/app-service/output-appservice-deployment.png)
 
-5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service or Container App also appears in the Azure view in Visual Studio Code, where you can right-click the website and select **Browse Website**.
+5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service or Container App also appears in the Azure view in {% data variables.product.prodname_vscode %}, where you can right-click the website and select **Browse Website**.
 
     ![Web Application](images/app-service/webapp-homepage.png)
 
@@ -89,6 +89,6 @@ In the previous section, the image is pushed to a remote container registry. Now
 
 Read on to learn more about
 
-- [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+- [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
 - [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
-- [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage, and query MongoDB databases from within VS Code.
+- [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage, and query MongoDB databases from within {% data variables.product.prodname_vscode_shortname %}.

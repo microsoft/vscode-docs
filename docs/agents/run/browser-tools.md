@@ -1,6 +1,6 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
-DateApproved: 8/19/2026
+DateApproved: 9/16/2026
 MetaDescription: Use browser tools with AI agents in {% data variables.product.prodname_vscode_shortname %} to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -25,7 +25,7 @@ Start the application, open it in the browser, test the sign-up flow, and fix an
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try browser tools in action">
 Launch a chat prompt that starts your app, opens it in the browser, and checks for visual issues.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Start%20the%20app%2C%20open%20it%20in%20the%20browser%2C%20and%20take%20a%20screenshot%20of%20the%20homepage.)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Start%20the%20app%2C%20open%20it%20in%20the%20browser%2C%20and%20take%20a%20screenshot%20of%20the%20homepage.)
 
 </div>
 
@@ -246,5 +246,5 @@ Agent network filtering or an organization policy might block the domain. Check 
 
 * Follow the [build and validate a web app with browser tools tutorial](/docs/agents/guides/browser-agent-testing-guide.md).
 * Learn about the [integrated browser](/docs/debugtest/integrated-browser.md).
-* Explore [testing with AI](/docs/agents/guides/test-with-copilot.md).
+* Explore [testing with AI](/docs/agents/guides/test-code-with-ai.md).
 * Learn [how tools work in the agent loop](/docs/agents/concepts/tools.md).

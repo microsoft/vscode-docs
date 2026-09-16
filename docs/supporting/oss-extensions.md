@@ -8,7 +8,7 @@ MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
 
-Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft results in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is important to the health of the Visual Studio Code community.
+Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft results in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is important to the health of the {% data variables.product.prodname_vscode %} community.
 
 As more and more teams in Microsoft contribute extensions, we realize that it can be difficult to keep track of which extensions are open source and which are not. To help, the following table is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and whether their source code is available. Given the rate new extensions are being released from an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employees to the community on their own time.
 
@@ -67,7 +67,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |
 | [Mono Debug](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug/license) |
 | [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
-| [OpenPAI VS Code Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
+| [OpenPAI {% data variables.product.prodname_vscode_shortname %} Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
 | [PostgreSQL](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql/license) |
 | [PowerShell](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/license) |
 | [Predawn Theme](https://marketplace.visualstudio.com/items/ms-vscode.Theme-PredawnKit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-PredawnKit/license) |

@@ -3,7 +3,7 @@ Order:
 TOCTitle: VS Code Extensions and WebAssembly - Part Two
 PageTitle: VS Code Extensions and WebAssembly - Part Two
 MetaDescription: Use WebAssembly in VS Code extensions to run in a separate worker, or write a language server with a language that compiles to WebAssembly.
-MetaSocialImage: goto-definition.png
+MetaSocialImage: goto-definition.webp
 Date: 2024-06-07
 Author: Dirk Bäumer
 ---
@@ -178,7 +178,7 @@ export async function activate(context: ExtensionContext) {
 
 Running the code adds a `Goto Definition` entry to the context menu of plain text files. Executing this action sends a corresponding request to the LSP server.
 
-![Running the goto definition action](goto-definition.png)
+![Running the goto definition action](goto-definition.webp)
 
 It is important to note that the `@vscode/wasm-wasi-lsp` npm module automatically transforms document URIs from their workspace value to the one recognized in the WASI Preview 1 host. In the above example, the text document's URI inside VS Code is usually something like `vscode-vfs://github/dbaeumer/plaintext-sample/lorem.txt`, and this value gets transformed into `file:///workspace/lorem.txt`, which is recognized inside the WASI host. This transformation also happens automatically when the language server sends a URI back to VS Code.
 
@@ -238,7 +238,7 @@ window.showInformationMessage(`The workspace contains ${result} files.`);
 
 Running this on the `vscode-languageserver` repository shows the following notification:
 
-![Running count all files](count-files.png)
+![Running count all files](count-files.webp)
 
 Please note that a language server doesn't necessarily need to implement any of the features specified in the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) specification. If an extension wants to integrate library code that can only be compiled to the WASI Preview 1 target, implementing a language server with custom messages might be a good choice until VS Code supports the WASI 0.2 preview in its component model implementation.
 

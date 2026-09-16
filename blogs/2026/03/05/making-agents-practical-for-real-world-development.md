@@ -3,7 +3,7 @@ Order: 128
 TOCTitle: Agents for Real-World Dev
 PageTitle: "Making agents practical for real-world development"
 MetaDescription: "Explore agent orchestration, extensibility, and continuity in VS Code 1.110: lifecycle hooks, agent skills, session memory, and integrated browser tools."
-MetaSocialImage: release-graphic.png
+MetaSocialImage: release-graphic.webp
 Date: 2026-03-05
 Author: VS Code Team
 ---
@@ -52,7 +52,7 @@ Now you can manually run context compaction for a session by typing `/compact`. 
 
 Especially when working with long-running sessions and dealing with lots of context, controlling compaction keeps the agent focused on the key information.
 
-![Screenshot showing the context window control and the compact option.](context-compaction.png)
+![Screenshot showing the context window control and the compact option.](context-compaction.webp)
 
 ## Agent controls
 
@@ -158,7 +158,7 @@ In practice:
 - VS Code surfaces them as diffs
 - You review and approve modifications directly in the editor
 
-![Screenshot of the Copilot CLI screen with VS Code auto‑connect settings and a selected workspace.](copilot-cli.png)
+![Screenshot of the Copilot CLI screen with VS Code auto‑connect settings and a selected workspace.](copilot-cli.webp)
 
 ## The next step for agents in VS Code
 

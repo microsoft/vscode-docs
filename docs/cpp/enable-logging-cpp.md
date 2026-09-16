@@ -1,7 +1,7 @@
 ---
 ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
 DateApproved: 7/25/2019
-MetaDescription: How to enable logging in the Visual Studio Code C/C++ extension
+MetaDescription: How to enable logging in the {% data variables.product.prodname_vscode %} C/C++ extension
 Keywords:
 - C++
 ---
@@ -29,7 +29,7 @@ To turn on full logging for the language server, follow these steps:
 
 ## Enable logging for the debug adapter
 
-Enabling logging for the debug adapter will show communication information between VS Code and our extension and between our extension and the debug adapter.
+Enabling logging for the debug adapter will show communication information between {% data variables.product.prodname_vscode_shortname %} and our extension and between our extension and the debug adapter.
 
 Logging configuration for the debug adapter is configured in `launch.json`.
 
@@ -45,9 +45,9 @@ The logging block for macOS LLDB-MI debuggers, along with its default configurat
 }
 ```
 
-## VS Code and the CppTools extension
+## {% data variables.product.prodname_vscode_shortname %} and the CppTools extension
 
-The logging here is called `trace` logging and can be enabled by setting `trace` and `traceResponse` to `true` in the logging block inside `launch.json`. This will help diagnose issues related to VS Code's communication to our extension and our responses.
+The logging here is called `trace` logging and can be enabled by setting `trace` and `traceResponse` to `true` in the logging block inside `launch.json`. This will help diagnose issues related to {% data variables.product.prodname_vscode_shortname %}'s communication to our extension and our responses.
 
 ### CppTools extension and the debugger
 
@@ -63,4 +63,4 @@ The logging block for the Visual C++ debugger with its default configuration in 
 }
 ```
 
-The Visual C++ debugger logging will show only the communication to and from VS Code as all communication to the debugger is done internally to the process and is not visible through logging.
+The Visual C++ debugger logging will show only the communication to and from {% data variables.product.prodname_vscode_shortname %} as all communication to the debugger is done internally to the process and is not visible through logging.

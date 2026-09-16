@@ -16,6 +16,7 @@ Thank you for your interest in VS Code documentation!
 * [Authoring Tools](#authoring-tools)
 * [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [Topic Metadata](#topic-metadata)
+* [Experimental and preview features](#experimental-and-preview-features)
 * [Learn courses](#learn-courses)
 * [Formatting](#formatting)
 
@@ -142,12 +143,14 @@ npm run serve
 
 This starts a local server (default `http://localhost:3000`) with:
 
-* Sidebar navigation generated from `docs/toc.json` and `api/toc.json`
+* Sidebar navigation generated from the Docs, Extension API, and Learn table of contents files
+* Reusable data variables validated and rendered in article content and navigation
+* Tabbed content validated and rendered with synchronized tab selections
 * Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
 * Full-text search across all content
 
 > [!NOTE]
-> The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
+> The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
 
 ### Validate your Markdown
 
@@ -234,14 +237,51 @@ The page title is taken from the first H1 heading in the topic.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
 * **Keywords** - Optional. A list of keywords relevant to this topic to help with search.
+* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental or preview feature.
+
+## Experimental and preview features
+
+The `/build/feature-lifecycle.json` registry is the source of truth for non-stable feature states in the documentation. Each entry has a lowercase kebab-case ID, display label, and `experimental` or `preview` state. Do not add stable features to the registry.
+
+The website can build without the registry so infrastructure and content changes can be deployed independently. When the file is absent, the build treats it as an empty registry and renders no lifecycle status UI. An existing registry must still be valid.
+
+To mark a whole page, add its feature ID to the topic metadata:
+
+```yaml
+FeatureStatus: agent-artifacts
+```
+
+Keep the H1 free of manually authored `(Preview)` or `(Experimental)` text. The website build adds a consistent status treatment after the H1.
+
+To mark a feature within a page, add an empty marker directly after the heading or content that introduces it. Put the macro on a line by itself immediately after the heading or introductory content for the feature:
+
+```html
+`feature(integrated-browser-remote)`
+```
+
+To include a beaker icon inline in text to mark a feature use the following syntax:
+
+```html
+Full page screenshots `feature(integrated-browser-full-page-screenshot)` capture the entire scrollable page.
+```
+
+Keep enablement steps, limitations, and other feature-specific guidance in the authored content. The generated treatment only describes the lifecycle state.
+
+When a feature becomes stable:
+
+1. Remove its entry from `/build/feature-lifecycle.json`.
+2. Remove all matching `FeatureStatus` metadata and inline markers.
+3. Update prose that describes preview or experimental limitations.
+
+The registry is the authoritative switch. If a valid page or inline reference is accidentally left behind after its entry is removed, the website build omits the status treatment and renders the surrounding content normally. The build reports unresolved references as non-blocking audit output so stale source can be cleaned up.
 
 ## Table of contents
 
-The table of contents (TOC) is defined in the `/docs/toc.yml` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.yml` file, it will not be included in the left rail navigation.
+The table of contents (TOC) is defined in the `/docs/toc.json` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.json` file, it will not be included in the left rail navigation.
 
-To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.yml` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
+To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.json` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
 
-The order in which the topics are listed in the `/docs/toc.yml` file determines the order in which they are displayed in the left rail navigation.
+The order in which the topics are listed in the `/docs/toc.json` file determines the order in which they are displayed in the left rail navigation.
 
 Each topic in the TOC has two attributes:
 
@@ -250,12 +290,12 @@ Each topic in the TOC has two attributes:
 
 The following example shows a `Getting Started` section that has two topics.
 
-```yaml
+```json
     {
       "name": "Getting Started",
       "area": "getstarted",
       "topics": [
-        ["VS Code Tutorial", "/docs/editing/getting-started"],
+        ["VS Code Tutorial", "/docs/editing/getting-started/editor-tutorial"],
         ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"]
       ]
     },
@@ -269,7 +309,7 @@ To create a subsection within a section, add a subsection entry to the `topics` 
 
 The following example shows a `Guides` subsection with two topics, within the `GitHub Copilot` section.
 
-```yaml
+```json
     {
       "name": "GitHub Copilot",
       "area": "copilot",
@@ -280,8 +320,8 @@ The following example shows a `Guides` subsection with two topics, within the `G
           "name": "Guides",
           "area": "copilot/guides",
           "topics": [
-            ["Test with Copilot", "/docs/agents/guides/test-with-copilot"],
-            ["Debug with Copilot", "/docs/agents/guides/debug-with-copilot"]
+            ["Test with Copilot", "/docs/agents/guides/test-code-with-ai"],
+            ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"]
           ]
         }
         ],

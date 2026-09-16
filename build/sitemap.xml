@@ -191,12 +191,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/tips-and-tricks</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/tips-and-tricks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/userinterface</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/userinterface</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -426,6 +426,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/agent-sandboxing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/run/tools</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -472,6 +477,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/run/agents-window</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/automations</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/agents-window-configuration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -546,11 +561,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agent-customization/tools</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/run/security</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -572,11 +582,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/agents/agents-handoff-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -606,7 +611,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/test-with-copilot</loc>
+        <loc>https://code.visualstudio.com/docs/agents/guides/test-code-with-ai</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -616,7 +621,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/debug-with-copilot</loc>
+        <loc>https://code.visualstudio.com/docs/agents/guides/fix-a-bug-with-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/delegate-two-tasks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/get-agent-back-on-track</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -632,6 +647,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/ai-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/chat-pet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2241,7 +2261,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/core-editor/overview</loc>
+        <loc>https://code.visualstudio.com/docs/editing/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2271,7 +2291,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/getting-started</loc>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/editor-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

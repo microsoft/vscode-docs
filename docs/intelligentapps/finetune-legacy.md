@@ -9,9 +9,9 @@ Fine-tune AI model is a common practice that allows you to use your custom datas
 
 A fine-tuned model can be downloaded to local and do inference test with GPUs, or be quantized to run locally on CPUs. Fine-tuned model can also be deployed to a cloud environment as remote model.
 
-## Fine-tune AI models on Azure with Foundry Toolkit for VS Code (Preview)
+## Fine-tune AI models on Azure with Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} (Preview)
 
-Foundry Toolkit for VS Code now supports provisioning an Azure Container App to run model fine-tuning and host an inference endpoint in the cloud.
+Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} now supports provisioning an Azure Container App to run model fine-tuning and host an inference endpoint in the cloud.
 
 ### Set up your cloud environment
 
@@ -24,14 +24,14 @@ Foundry Toolkit for VS Code now supports provisioning an Azure Container App to 
 
 1. Accept the LICENSE on HuggingFace if you are fine-tuning Mistral or Llama.
 
-1. Enable Remote Fine-tuning and Inference feature flag in the Foundry Toolkit for VS Code
-    1. Open the VS Code Settings by selecting *File -> Preferences -> Settings*.
+1. Enable Remote Fine-tuning and Inference feature flag in the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}
+    1. Open the {% data variables.product.prodname_vscode_shortname %} Settings by selecting *File -> Preferences -> Settings*.
     1. Navigate to *Extensions* and select *Foundry Toolkit*.
     1. Select the *"Enable to run fine-tuning and inference on Azure Container Apps"* option.
 
       ![Foundry Toolkit Settings](./images/finetune/settings.png)
 
-    1. Reload VS Code for the changes to take effect.
+    1. Reload {% data variables.product.prodname_vscode_shortname %} for the changes to take effect.
 
 ### Scaffold a fine-tune project
 
@@ -47,7 +47,7 @@ Foundry Toolkit for VS Code now supports provisioning an Azure Container App to 
       ![Panel: Generate Project](./images/finetune/panel-generate-project.png)
 
 > [!NOTE]
-> The project currently works either locally or remotely within the Foundry Toolkit for VS Code. If you choose *"Fine-tune locally"* during project creation, it will run exclusively in WSL without cloud resources. Otherwise, the project will be restricted to run in the remote Azure Container App environment.
+> The project currently works either locally or remotely within the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}. If you choose *"Fine-tune locally"* during project creation, it will run exclusively in WSL without cloud resources. Otherwise, the project will be restricted to run in the remote Azure Container App environment.
 
 ### Provision Azure Resources
 
@@ -109,7 +109,7 @@ To view and query your logs, select the "*Console*" button and navigate to the L
 
 #### View streaming logs in VSCode
 
-After initiating the fine-tuning job, you can also view logs on Azure by selecting the "*Show Streaming Logs in VS Code*" button in the VSCode notification.
+After initiating the fine-tuning job, you can also view logs on Azure by selecting the "*Show Streaming Logs in {% data variables.product.prodname_vscode_shortname %}*" button in the VSCode notification.
 
 Or you can run the command `Foundry Toolkit: Show the running fine-tuning job streaming logs` in the Command Palette.
 
@@ -310,8 +310,8 @@ For example:
 
 In this article, you learned how to:
 
-- Set up the Foundry Toolkit for VS Code to support fine-tuning and inference in Azure Container Apps.
-- Create a fine-tuning project in Foundry Toolkit for VS Code.
+- Set up the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} to support fine-tuning and inference in Azure Container Apps.
+- Create a fine-tuning project in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}.
 - Configure the fine-tuning workflow, including dataset selection and training parameters.
 - Run the fine-tuning workflow to adapt a pre-trained model to your specific dataset.
 - View the results of the fine-tuning process, including metrics and logs.
@@ -320,4 +320,4 @@ In this article, you learned how to:
 - Re-evaluate a model using different datasets or training parameters.
 - Handle failed jobs and adjust configurations for re-runs.
 - Understand the supported models and their requirements for fine-tuning.
-- Use the Foundry Toolkit for VS Code to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.
+- Use the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.

@@ -1,15 +1,15 @@
 ---
 ContentId: fc1e60f9-86a6-47c2-beb6-5289d21f48d1
-MetaDescription: Azure Resources for Visual Studio Code
+MetaDescription: Azure Resources for {% data variables.product.prodname_vscode %}
 DateApproved: 5/5/2025
 ---
-# Azure Resources for Visual Studio Code
+# Azure Resources for {% data variables.product.prodname_vscode %}
 
-The [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension allows you to seamlessly view and manage your Azure resources directly within VS Code. It also provides the ability to authenticate and manage your Azure accounts and tenants.
+The [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension allows you to seamlessly view and manage your Azure resources directly within {% data variables.product.prodname_vscode_shortname %}. It also provides the ability to authenticate and manage your Azure accounts and tenants.
 
 ## How to sign in to your Azure account
 
-The Azure Resources extension uses the built-in VS Code Microsoft authentication provider to authenticate with Azure.
+The Azure Resources extension uses the built-in {% data variables.product.prodname_vscode_shortname %} Microsoft authentication provider to authenticate with Azure.
 Sign in by selecting the **Sign in to Azure…** item in the Azure Resources view.
 
 ![Screenshot that shows where to sign in to your Azure account](images/extensions/signInView.png)
@@ -20,7 +20,7 @@ You can also sign in using the **Azure: Sign in** command contributed by the Azu
 
 ## How to sign out
 
-Sign out in the Accounts menu, located in the bottom left of your VS Code window.
+Sign out in the Accounts menu, located in the bottom left of your {% data variables.product.prodname_vscode_shortname %} window.
 
 ![Screenshot that shows where to sign out of an Azure account](images/extensions/signOut.png)
 

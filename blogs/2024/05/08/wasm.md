@@ -3,7 +3,7 @@ Order:
 TOCTitle: VS Code Extensions and WebAssembly
 PageTitle: VS Code Extensions and WebAssembly
 MetaDescription: Using WebAssembly for Extension Development.
-MetaSocialImage: resource-memory.png
+MetaSocialImage: resource-memory.webp
 Date: 2024-05-08
 Author: Dirk Bäumer
 ---
@@ -163,7 +163,7 @@ You might have noticed that when generating the binding, functions are reference
 
 In the above example, the `add` operation parameter passed into the `calc` function consists of three fields: the operation code, the left value, and the right value. According to the component model's canonical ABI, arguments are passed by value. It also outlines how the data is serialized, passed to WebAssembly functions, and deserialized on the other side. This process results in two operation objects: one on the JavaScript heap and another in the linear WebAssembly memory. The following diagram illustrates this:
 
-![Diagram illustrating how parameters are passed.](params-memory.png)
+![Diagram illustrating how parameters are passed.](params-memory.webp)
 
 The table below lists the available WIT types, their mapping onto JavaScript objects in the VS Code component model implementation, and the corresponding TypeScript types used.
 
@@ -348,7 +348,7 @@ context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-
 
 When you run the corresponding command, it prints `Result: 60` to the output channel. As mentioned earlier, the state of resources resides on one side of the call boundary and is accessed from the other side using handles. No data copying occurs, except for the arguments passed to methods that interact with the resources.
 
-![Diagram illustrating how resources are accessed.](resource-memory.png)
+![Diagram illustrating how resources are accessed.](resource-memory.webp)
 
 The full source code for this example is available in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-resource/src/extension.ts#L1).
 
