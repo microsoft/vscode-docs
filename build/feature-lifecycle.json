@@ -9,6 +9,10 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
+    "agent-host-dev-containers": {
+      "label": "Dev Containers in Agent Host",
+      "state": "experimental"
+    },
     "agent-merge": {
       "label": "Agent Merge",
       "state": "preview"

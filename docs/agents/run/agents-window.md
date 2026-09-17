@@ -134,13 +134,16 @@ The sessions list shows the session's status and change statistics while it work
 
 ### Run a session in a Dev Container
 
+`feature(agent-host-dev-containers)`
+
 Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+
+This option is available only in the {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`, an application setting that is off by default.
 
 Before you start, make sure that:
 
-* [Docker is installed and running](/docs/devcontainers/containers.md#installation).
-* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
-* `setting(chat.agentHost.devContainer.enabled)` is enabled.
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation), and the Docker CLI is available on `PATH`.
+* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
 
 To run a session in a Dev Container:
 
