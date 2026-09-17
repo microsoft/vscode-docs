@@ -22,7 +22,7 @@ Each agent session has its own conversation, context window, workspace, and conf
 Choose the surface that matches your workflow:
 
 * Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) for a workspace-scoped, code-first session beside the editor.
-* Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) to start and monitor sessions across workspaces, attach related projects or GitHub items, or start from an existing pull request.
+* Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) to start and monitor sessions across workspaces, attach related projects or GitHub items, or start from an existing pull request. On Windows, you can also launch the {% data variables.copilot.agents_window %} directly by right-clicking the {% data variables.product.prodname_vscode_shortname %} application icon in the taskbar and selecting **Agents Window**.
 
 The surfaces share the same underlying sessions, so you can switch between them after you start. To compare all agent interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
