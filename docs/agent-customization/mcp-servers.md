@@ -137,6 +137,8 @@ When the Dev Container is created, {% data variables.product.prodname_vscode_sho
 
 With the `setting(chat.mcp.discovery.enabled)` setting, you can select one or more tools from which to discover their MCP server configuration.
 
+Supported sources include Claude Desktop, {% data variables.copilot.copilot_cli %}, Cursor, and Windsurf. Learn more about [automatic MCP server discovery](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery), including configuration locations and remote behavior.
+
 </details>
 
 <details>

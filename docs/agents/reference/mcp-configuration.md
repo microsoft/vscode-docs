@@ -281,6 +281,25 @@ When defining MCP servers, follow these naming conventions for the server name:
 * Use a unique name for each server to avoid conflicts
 * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database"
 
+## Automatic MCP server discovery
+
+{% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from supported applications. Use `setting(chat.mcp.discovery.enabled)` to select the discovery sources.
+
+| Source | Setting property | Configuration location |
+|--------|------------------|------------------------|
+| Claude Desktop | `claude-desktop` | Windows: `%APPDATA%\Claude\claude_desktop_config.json`<br/>macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`<br/>Linux: `$XDG_CONFIG_HOME/Claude/claude_desktop_config.json`, or `~/.config/Claude/claude_desktop_config.json` if `XDG_CONFIG_HOME` is not set |
+| {% data variables.copilot.copilot_cli %} | `copilot` | `<COPILOT_HOME>/mcp-config.json`, or `~/.copilot/mcp-config.json` if `COPILOT_HOME` is not set |
+| Cursor (global) | `cursor-global` | `~/.cursor/mcp.json` |
+| Cursor (workspace) | `cursor-workspace` | `<workspace>/.cursor/mcp.json` |
+| Windsurf | `windsurf` | `~/.codeium/windsurf/mcp_config.json` |
+
+All discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
+
+For {% data variables.copilot.copilot_cli %}, setting `COPILOT_HOME` replaces the default `~/.copilot` location. {% data variables.product.prodname_vscode_shortname %} does not check both locations.
+
+> [!NOTE]
+> Agent Host sessions read the {% data variables.copilot.copilot_cli %} MCP configuration independently. The discovery setting does not change how the Agent Host receives MCP servers. Learn more about [MCP configuration behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+
 ## Commands
 
 The following table lists the MCP-related commands available in the Command Palette (`kb(workbench.action.showCommands)`).
