@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 9/16/2026
+DateApproved: 9/17/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -17,7 +17,7 @@ Use the following links to jump to the settings for a specific area:
 
 * Core AI features: [general](#general-settings), [code editing](#code-editing-settings), [chat](#chat-settings), [agents](#agent-settings), [agent sessions](#agent-sessions), and [inline chat](#inline-chat-settings).
 * Agent customization: [migration](#customization-migration-settings), [custom instructions](#custom-instructions-settings), [prompt files](#reusable-prompt-files-settings), [custom agents](#custom-agents-settings), [agent skills](#agent-skills-settings), and [agent plugins](#agent-plugins-settings).
-* Other AI features: [code review](#code-review-settings), [source control](#source-control-settings), [memory](#memory-settings), [observability](#observability-settings), [debugging](#debugging-settings), [testing](#testing-settings), [notebooks](#notebook-settings), [voice and dictation](#voice-and-dictation-settings), and [accessibility](#accessibility-settings).
+* Other AI features: [code review](#code-review-settings), [source control](#source-control-settings), [observability](#observability-settings), [debugging](#debugging-settings), [testing](#testing-settings), [notebooks](#notebook-settings), [voice and dictation](#voice-and-dictation-settings), and [accessibility](#accessibility-settings).
 
 ## General settings
 
@@ -200,12 +200,6 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
-
-## Memory settings
-
-| Setting and Description | Default |
-|------------------------|---------------|
-| `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
 
 ## Agent sessions
 
