@@ -134,19 +134,28 @@ In addition to Quick Fixes, the Ruby LSP also provides refactor options through 
 
 ![Refactor extract to variable](images/ruby/ruby_lsp_refactor.png)
 
-## Testing with the Testing view
+## Run and debug tests
 
-The Ruby LSP extension integrates with the VS Code Testing view to support test discovery and execution.
+The Ruby LSP extension integrates with the {% data variables.product.prodname_vscode_shortname %} Testing view to discover, run, debug, and measure coverage for Ruby tests.
 
-When working on a Ruby project that uses a supported test framework, tests are automatically discovered and displayed in the Testing view, where they can be run individually, by file, or as a group.
+Ruby LSP includes built-in support for Minitest and Test Unit. In Rails projects, the Ruby LSP Rails add-on provides support for `ActiveSupport::TestCase`. Other test frameworks, such as RSpec, require a compatible Ruby LSP add-on.
 
-This integration is powered by the Ruby LSP and uses the VS Code Testing API, providing a consistent testing experience alongside other languages supported by VS Code.
+To discover and run tests:
 
-For example, after opening a Ruby project with the Ruby LSP extension enabled, you can open the Testing view (`kb(workbench.view.testing)`) to explore available tests and run them directly from the editor UI.
+1. Open the Testing view (`kb(workbench.view.testing)`).
+2. Expand the test tree to discover tests in your workspace.
+3. Select the run button next to a test, test group, or file. You can also use the test CodeLens actions in the editor.
 
-For more details about supported frameworks and configuration options, see the Ruby LSP documentation:
-https://shopify.github.io/ruby-lsp/#test-explorer
+The Testing view provides the following test profiles:
 
+* **Run** runs the selected tests and displays their results in the Test Results panel.
+* **Run in Terminal** runs the selected tests in a terminal configured by Ruby LSP.
+* **Debug** starts a debugging session for the selected tests.
+* **Coverage** runs the tests with coverage enabled and displays coverage information in the editor.
+
+Ruby LSP discovers test files that follow common Ruby conventions. Test files must be in a `test`, `spec`, or `features` directory and use a supported file name, such as `*_test.rb`, `test_*.rb`, or `*_spec.rb`. Tests defined dynamically through metaprogramming might not appear until you run their test file.
+
+For framework support, discovery limitations, and customization options, see the [Ruby LSP Test Explorer documentation](https://shopify.github.io/ruby-lsp/test_explorer).
 
 ## Debugging
 
@@ -225,8 +234,6 @@ To stay up to date on the latest features/bug fixes for the Ruby LSP extension, 
 If you have any issues or feature requests, feel free to log them in the Ruby LSP's [GitHub repo](https://github.com/Shopify/ruby-lsp/issues).
 
 If you'd like to learn more about VS Code, try these topics:
-
-You can also explore how VS Code provides a unified testing experience across languages using the Testing view.
 
 * [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
