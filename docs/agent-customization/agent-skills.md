@@ -106,7 +106,7 @@ To create a skill:
     * `examples/` - Example test scenarios
 
     > [!NOTE]
-    > Make sure to reference any additional files in your `SKILL.md` for them to be picked up by the agent. Use Markdown link syntax with relative paths, such as `[test template](./test-template.js)`.
+    > Make sure to reference any additional files in your `SKILL.md` for them to be picked up by the agent. Use Markdown links or `#file:` references with paths relative to the `SKILL.md` file, such as `[test template](./test-template.js)` or `#file:./test-template.js`.
 
 ### Generate a skill with AI
 
@@ -146,7 +146,7 @@ The skill body contains the instructions, guidelines, and examples that Copilot 
 * Examples of the expected input and output
 * References to any included scripts or resources
 
-You can reference files within the skill directory using relative paths. For example, to reference a script in your skill directory, use `[test script](./test-template.js)`.
+You can reference files by using Markdown links or the `#file:` syntax. For files within the skill directory, use paths relative to the `SKILL.md` file, such as `[test script](./test-template.js)`. To reference your environment user home folder, use `~`, or start a path with `~/`, such as `#file:~/skill-resources/test-template.js`. Use Unix-style `/` path separators to keep skills portable across operating systems.
 
 ### Run a skill in a forked context
 
