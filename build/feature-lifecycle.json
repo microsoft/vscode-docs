@@ -15,7 +15,7 @@
     },
     "agent-merge": {
       "label": "Agent Merge",
-      "state": "preview"
+      "state": "experimental"
     },
     "agents-window-chat-backgrounds": {
       "label": "Agents window chat backgrounds",
