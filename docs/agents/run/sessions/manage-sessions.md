@@ -76,7 +76,7 @@ Use the chat tabs and their context menus to:
 * **Switch chats**: select a tab to show its conversation. Progress and unread indicators apply to that chat.
 * **Choose an agent or model**: use the controls in each chat. Sibling chats can use different agents or models.
 * **Track changes**: the session remains in progress while any chat is working. The session header **Changes** pill combines edits from all chats.
-* **Rename a chat**: select **Rename** from the tab's context menu. Chat titles are independent of the session title.
+* **Rename a chat**: select **Rename** from the tab's context menu, or rename it inline in the sessions list by pressing `kbstyle(F2)` or double-clicking the title row. Chat titles are independent of the session title.
 * **Close or reopen a chat**: close a tab to hide it without deleting it. Use the **Chats** dropdown to show or hide chats, or press `kb(sessions.chatCompositeBar.reopenLastClosedChat)` to reopen the most recently closed chat.
 * **Delete a chat**: select **Delete Chat** from the tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while the chat has focus. Deletion is permanent.
 
@@ -121,6 +121,20 @@ The sessions list is your central hub for managing all your chat sessions, regar
 Hover over a session to see actions for pinning or [archiving](#archive-sessions) it. Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific to the session's harness and state. For example, you can check out a pull request for a cloud session.
 
 Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
+
+### Rename sessions and chats
+
+You can rename sessions and nested chats directly from the sessions list or from the chat tab.
+
+To rename a session or nested chat from the sessions list:
+
+* Right-click the session or chat and select **Rename**.
+* Double-click the session or chat title in the list.
+* Select the session or chat and press `kbstyle(F2)`.
+
+Type the new title and press `kbstyle(Enter)` to save, or press `kbstyle(Escape)` to cancel the rename.
+
+In the {% data variables.copilot.agents_window %}, you can also rename a chat by right-clicking its tab in the chat area and selecting **Rename**.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
