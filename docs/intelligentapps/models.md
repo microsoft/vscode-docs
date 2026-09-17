@@ -3,9 +3,15 @@ ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
 DateApproved: 03/12/2026
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
-# Explore models in Foundry Toolkit
+# Explore and manage AI models in Foundry Toolkit
 
-Foundry Toolkit provides comprehensive support for a wide variety of generative AI models.
+Foundry Toolkit provides comprehensive support for exploring, deploying, and testing a wide variety of generative AI models.
+
+With Foundry Toolkit, you can:
+
+- Explore remote and local models from Microsoft Foundry, third-party providers, and local runtimes.
+- Deploy models to Microsoft Foundry, connect to provider-hosted or custom endpoints, or download supported local models.
+- Test text and image models in the [**Playground**](/docs/intelligentapps/playground.md).
 
 Within the model catalog, you can explore and utilize models from multiple hosting sources:
 
@@ -17,7 +23,7 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
 
 > [!NOTE]
-> Region availability, quota, pricing, authentication, deployment eligibility, and safety limits are service-specific. Use Microsoft Learn and Microsoft Foundry documentation as the source of truth for those requirements.
+> Region availability, quota, pricing, authentication, deployment eligibility, and safety limits are service-specific. Use Microsoft Learn and Microsoft Foundry documentation as the source of truth for those requirements. For more information, see [Azure AI Foundry model region availability](https://learn.microsoft.com/azure/ai-foundry/concepts/models-featured#region-availability) and [Azure AI Foundry quota](https://learn.microsoft.com/azure/ai-foundry/how-to/quota).
 
 ## Supported model sources
 
@@ -52,29 +58,6 @@ To find a model in the model catalog:
     - **Add Custom Models** lets you add self-hosted or externally deployed OpenAI-compatible endpoints.
 1. Alternatively, use the search box to find a specific model by name or description
 
-## Add a model
-
-Depending on your starting point, there are different flows for adding a model to work with in Foundry Toolkit.
-
-### Add a model from the catalog
-
-To add a model from the model catalog:
-
-1. Locate the model you want to add in the model catalog
-1. The flow for adding models is slightly different based on the providers:
-
-    - **Microsoft Foundry**: Deploy a model in your Microsoft Foundry project. Refer to [Deploy a model to Microsoft Foundry](#deploy-a-model-to-microsoft-foundry) for detailed instructions.
-
-    - **Custom Model** that is hosted remotely, requires an API key, and has an OpenAI chat completion compatible endpoint URL. Refer to the [Add a custom model](#add-a-custom-model) for detailed instructions.
-
-    - **Microsoft Foundry on Windows / Foundry Local**: Foundry Toolkit downloads and runs the model locally, which might take a few minutes depending on your internet speed. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
-
-    - **Ollama**: The model is downloaded from Ollama and added to Foundry Toolkit. Refer to the [Add Ollama models](#add-ollama-models) for detailed instructions.
-
-    - **ONNX**: To add an ONNX model, first convert it to the Foundry Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to Foundry Toolkit.
-
-Once a model is added, you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md). Microsoft Foundry models appear under **My Resources** > **Your project name** > **Models**. Local models appear under **My Resources** > **Local Resources** > **Models**.
-
 ## Deploy a model to Microsoft Foundry
 
 Deploy a model to Microsoft Foundry directly from Foundry Toolkit. Run the model in the cloud and access it via an endpoint.
@@ -92,7 +75,22 @@ Deploy a model to Microsoft Foundry directly from Foundry Toolkit. Run the model
 1. Confirm the deployment by reviewing the details and selecting **Deploy** to proceed.
 1. Once the deployment is complete, the model is available in **My Resources** > **Your project name** > **Models**, and you can use it in the playground or agent builder.
 
-### Add a custom model
+## Add or connect a model
+
+Depending on your starting point and model source, there are different flows for adding or connecting a model to work with in Foundry Toolkit.
+
+1. Locate the model you want to add in the model catalog.
+1. Choose the action for the model source:
+
+    - **Microsoft Foundry**: Deploy a model in your Microsoft Foundry project. For detailed instructions, see [Deploy a model to Microsoft Foundry](#deploy-a-model-to-microsoft-foundry).
+    - **Custom Model**: Connect to a remotely hosted model that uses an OpenAI compatible endpoint. For detailed instructions, see [Connect a custom model](#connect-a-custom-model).
+    - **Microsoft Foundry on Windows / Foundry Local**: Download and run the model locally, which might take a few minutes depending on your internet speed. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
+    - **Ollama**: Download the model from Ollama and add it to Foundry Toolkit. For detailed instructions, see [Add Ollama models](#add-ollama-models).
+    - **ONNX**: Convert the ONNX model to the Foundry Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md), and then add it to Foundry Toolkit.
+
+Once a model is added, you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md). Microsoft Foundry models appear under **My Resources** > **Your project name** > **Models**. Local models appear under **My Resources** > **Local Resources** > **Models**.
+
+### Connect a custom model
 
 For self-hosted or deployed models accessible from the internet with an OpenAI compatible endpoint, add it to Foundry Toolkit for use in the playground.
 
@@ -161,9 +159,9 @@ Use the actions on the model card in the model catalog:
 
 ## Manage models
 
-You can manage your models from the Foundry Toolkit sidebar:
+You can manage your models from the **My Resources** web view in Foundry Toolkit:
 
-- For Microsoft Foundry models, go to **My Resources** > **Your project name** > **Models**.
+- For Microsoft Foundry models, go to **My Resources**. Foundry models are grouped by project in the web view.
 - For local models, go to **My Resources** > **Local Resources** > **Models**.
 - Right-click a model to access options such as:
   - **Load in Playground**: Load the model in the [Playground](/docs/intelligentapps/playground.md) for testing.
