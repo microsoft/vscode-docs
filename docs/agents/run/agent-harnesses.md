@@ -56,7 +56,7 @@ Most targets share the same chat and session-management experience in {% data va
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
 
-For an eligible local folder, the {% data variables.copilot.agents_window %} workspace picker can start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Dev Container execution is available only in the {% data variables.copilot.agents_window %}. For an eligible local folder, use the workspace picker to start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Start a session
 
