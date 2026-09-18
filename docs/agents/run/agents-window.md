@@ -119,7 +119,8 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 1. Optionally, attach more context to the request:
 
     * Select **Folder** or **Repository** to attach more projects as context without adding workspace roots.
-    * For a GitHub-backed workspace, select **Issue/PR**, and then choose an item or paste its URL.
+    * Select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+    * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
