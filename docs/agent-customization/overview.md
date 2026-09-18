@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 9/16/2026
+DateApproved: 9/18/2026
 MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -36,11 +36,11 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 ## Agent Customizations editor
 
-The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate tabs and includes an editor with syntax highlighting and validation.
+The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections and includes an editor with syntax highlighting and validation.
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
-![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-customizations.png)
+![Screenshot showing the Agent Customizations editor with Copilot CLI custom agents and customization categories.](images/customization/agents-customizations.png)
 
 Follow these steps to open the Agent Customizations editor:
 
@@ -61,50 +61,111 @@ In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear
 {% /tab %}
 {% /tabs %}
 
-## Create a customization
-
-You can create customization files manually or use AI to generate them, after which you can further edit them.
-
-### Create a customization with AI
-
-You can create a customization file with AI assistance. To do this, open the Agent Customizations editor and
-enter a prompt in the **Overview** tab that describes what you want to create. The agent asks for any missing details and generates the customization in the appropriate format.
-
-For example, to create a code reviewer skill, you can enter the following prompt:
-
-```text
-Code reviewer skill that checks for code style, best practices, and potential bugs in Python and JavaScript files.
-```
-
-### Create a customization manually
-
-You can manually create a customization file by using the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). This creates the corresponding file in the appropriate location for the selected customization type. You can then edit the file in the inline editor or in a separate editor tab.
-
-Alternatively, you can use the Agent Customizations editor to create a customization file. Follow these steps:
-
-1. Open the Agent Customizations editor and select a customization type.
-
-1. Choose between creating a user or workspace customization from the **New** dropdown.
-
-1. Enter a name and choose a storage location when prompted.
-
-1. An inline editor opens where you can further edit the customization file. The editor provides syntax highlighting and validation for the customization type.
-
-For MCP servers and agent plugins, browse the corresponding marketplace from the editor, install an item, and manage the installation from the same tab.
-
-See the guide for each customization type for its file format and configuration options.
-
-### Choose a customization scope
+## Choose a customization scope
 
 Store a customization at the narrowest scope that matches how you want to use and share it:
 
 * **User**: use the customization across your workspaces. User customizations are specific to you and are not committed to the project.
 * **Workspace**: share the customization with project contributors through source control.
+* **Organization**: centrally manage supported customization types and share them across repositories. Organization customizations are configured through GitHub rather than created in the Agent Customizations editor.
 
-Some customization types support other scopes, such as organization-level instructions. Not every customization type supports every scope. See the individual guide for its supported locations.
+Scope determines where a customization is available and who can share it. Not every customization type supports every scope. The selected agent harness also determines which customization types and locations it supports. See the guide for each customization type for its supported locations.
 
 > [!NOTE]
 > For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level customizations from supported folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your {% data variables.product.prodname_vscode_shortname %} profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
+
+## Create a customization
+
+You can create customization files with AI or create them manually. Review and test every customization before you rely on it for development tasks.
+
+### Create a customization with AI
+
+1. Open the Agent Customizations editor.
+1. In the **Overview** section, enter a prompt that describes what you want to create.
+1. Answer any questions the agent asks about missing details.
+1. Review the generated customization, correct any inaccurate information, and save the file.
+
+For example, to create a code reviewer skill, you can enter the following prompt:
+
+```prompt
+Create a workspace code reviewer skill for Python and JavaScript files. Check the code against the conventions in this repository, identify correctness and maintainability issues, and report findings with file locations and suggested fixes.
+```
+
+### Create a customization manually
+
+1. Open the Agent Customizations editor and select a customization type.
+1. From the **New** dropdown, choose a user or workspace customization.
+1. Enter a name and choose a storage location when prompted.
+1. Edit the customization in the inline editor, which provides syntax highlighting and validation.
+1. Review and save the customization.
+
+You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
+
+For MCP servers and agent plugins, browse the corresponding marketplace from the editor, install an item, and manage the installation from the same section.
+
+See the guides for [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [prompt files](/docs/agent-customization/prompt-files.md), [custom agents](/docs/agent-customization/custom-agents.md), [MCP servers](/docs/agent-customization/mcp-servers.md), [hooks](/docs/agent-customization/hooks.md), and [agent plugins](/docs/agent-customization/agent-plugins.md) for their file formats and configuration options.
+
+## Manage existing customizations
+
+Use the Agent Customizations editor to find and update customizations for the selected harness:
+
+1. Open the Agent Customizations editor and select the customization type.
+1. Use the search box to find the customization.
+1. Select the customization to open its details or edit its file.
+1. Review and save your changes.
+
+The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Manage plugin-provided customizations from the **Plugins** section.
+
+## Verify a customization
+
+Test a new or updated customization with a representative task. Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, expand the **References** section in the chat response to confirm that the expected customization was included.
+
+If the result doesn't match your intent, make the customization more specific, resolve conflicting guidance, and repeat the task. For a complete project workflow, including how to review and share generated instructions, see [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md).
+
+## Troubleshoot customization issues
+
+If a customization isn't applied or causes unexpected behavior, check the following:
+
+* The intended agent harness is selected.
+* The customization is stored in a location that the harness supports.
+* Any activation conditions match the current file or task.
+* The customization file has no validation errors.
+
+If the issue continues, open the **Agent Debug Logs** view to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Logs** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
+
+## Use customizations in a monorepo
+
+In monorepo setups, you might open a subfolder of a repository in {% data variables.product.prodname_vscode_shortname %} rather than the repo root. By default, {% data variables.product.prodname_vscode_shortname %} only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
+
+When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
+
+For example, consider the following monorepo structure:
+
+```text
+my-monorepo/              # repo root (has .git folder)
+├── .github/
+│   ├── copilot-instructions.md
+│   ├── instructions/
+│   │   └── style.instructions.md
+│   ├── prompts/
+│   │   └── review.prompt.md
+│   └── agents/
+│       └── reviewer.agent.md
+├── packages/
+│   └── frontend/          # opened as workspace folder
+│       └── src/
+```
+
+If you open only `packages/frontend/` in {% data variables.product.prodname_vscode_shortname %} and enable the setting, {% data variables.product.prodname_vscode_shortname %} discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
+
+Conditions for parent repository discovery:
+
+* The workspace folder does not contain a `.git` folder (it is not itself a repository root).
+* A parent folder contains a `.git` folder.
+* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). {% data variables.product.prodname_vscode_shortname %} prompts you to trust the parent folder when the workspace is opened.
+
+> [!NOTE]
+> The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
 ## Migrate customizations
 
@@ -219,44 +280,6 @@ Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problem
 > You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the {% data variables.copilot.chat_view %}.
 
 For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework to measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
-
-## Use customizations in a monorepo
-
-In monorepo setups, you might open a subfolder of a repository in {% data variables.product.prodname_vscode_shortname %} rather than the repo root. By default, {% data variables.product.prodname_vscode_shortname %} only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
-
-When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
-
-For example, consider the following monorepo structure:
-
-```text
-my-monorepo/              # repo root (has .git folder)
-├── .github/
-│   ├── copilot-instructions.md
-│   ├── instructions/
-│   │   └── style.instructions.md
-│   ├── prompts/
-│   │   └── review.prompt.md
-│   └── agents/
-│       └── reviewer.agent.md
-├── packages/
-│   └── frontend/          # opened as workspace folder
-│       └── src/
-```
-
-If you open only `packages/frontend/` in {% data variables.product.prodname_vscode_shortname %} and enable the setting, {% data variables.product.prodname_vscode_shortname %} discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
-
-Conditions for parent repository discovery:
-
-* The workspace folder does not contain a `.git` folder (it is not itself a repository root).
-* A parent folder contains a `.git` folder.
-* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). {% data variables.product.prodname_vscode_shortname %} prompts you to trust the parent folder when the workspace is opened.
-
-> [!NOTE]
-> The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
-
-## Troubleshoot customization issues
-
-If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 
 ## Related resources
 
