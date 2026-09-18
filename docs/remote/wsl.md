@@ -123,11 +123,20 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ### Using WSL over an existing SSH connection
 
-1. Connect to the remote machine using the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-2. Run the **WSL: Connect to WSL using Distro** command from the Command Palette (`kb(workbench.action.showCommands)`).
-3. Select the target WSL distribution.
+You can connect to a WSL distribution on a remote Windows machine through Remote - SSH, without setting up an SSH server inside WSL.
 
-Alternatively, select the remote WSL in the Remote Explorer view.
+Before you begin, make sure that:
+
+* WSL and your target Linux distribution are installed on the remote Windows machine.
+* The [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) and [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) are installed locally.
+
+To connect to the remote WSL distribution:
+
+1. Use Remote - SSH to connect to the remote Windows machine, not directly to the WSL distribution.
+1. In the SSH-connected window, open the Command Palette (`kb(workbench.action.showCommands)`) and run **WSL: Connect to WSL using Distro...**.
+1. Select the target WSL distribution on the remote Windows machine.
+
+Alternatively, after connecting to the Windows machine over SSH, use the **Remote Explorer** view to connect to the target WSL distribution.
 
 ## Debugging in WSL
 
