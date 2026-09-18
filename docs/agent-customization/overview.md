@@ -82,11 +82,11 @@ You can manually create a customization file by using the **Chat: New \<customiz
 
 Alternatively, you can use the Agent Customizations editor to create a customization file. Follow these steps:
 
-1. Open the Agent Customizations editor and select a customization type
+1. Open the Agent Customizations editor and select a customization type.
 
-1. Choose between creating a user or workspace customization from the **New** dropdown
+1. Choose between creating a user or workspace customization from the **New** dropdown.
 
-1. Enter a name and choose a storage location when prompted
+1. Enter a name and choose a storage location when prompted.
 
 1. An inline editor opens where you can further edit the customization file. The editor provides syntax highlighting and validation for the customization type.
 
@@ -106,12 +106,12 @@ Some customization types support other scopes, such as organization-level instru
 > [!NOTE]
 > For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level customizations from supported folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your {% data variables.product.prodname_vscode_shortname %} profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
 
-## Migrate customizations (Experimental)
+## Migrate customizations
 
 `feature(user-customization-migration)`
 
 > [!NOTE]
-> Customization migration is experimental and available in {% data variables.product.prodname_vscode_shortname %} Insiders.
+> Customization migration is available only in {% data variables.product.prodname_vscode_shortname %} Insiders.
 
 [Agent Host](/docs/agents/concepts/agent-host.md) sessions load customizations from supported folders and don't use some {% data variables.product.prodname_vscode_shortname %}-specific formats and locations. The Agent Customizations editor provides separate migrations for each type of incompatibility.
 
@@ -199,7 +199,7 @@ Prompt files in locations configured with `setting(chat.promptFilesLocations)` a
 As your collection of customization files grows, it can be hard to tell whether they actually guide the AI the way you intend. Vague wording, contradictory rules, or overly complex instructions can degrade results. The [Chat Customizations Evaluations](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations) extension helps you catch these problems before you rely on a customization, by analyzing your files and suggesting concrete improvements.
 
 > [!NOTE]
-> The Chat Customizations Evaluations extension is currently in preview and is published separately from {% data variables.product.prodname_vscode_shortname %}. Install it from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
+> The Chat Customizations Evaluations extension is published separately from {% data variables.product.prodname_vscode_shortname %}. Install it from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
 
 The extension works with skill files (`SKILL.md`), custom agent files (`*.agent.md`), instructions files (`*.instructions.md`), and prompt files (`*.prompt.md`).
 
