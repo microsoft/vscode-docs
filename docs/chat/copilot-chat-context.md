@@ -38,14 +38,15 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
 
-### Add project and GitHub context in the {% data variables.copilot.agents_window %}
+### Add project and GitHub context
 
 When you start a session in the {% data variables.copilot.agents_window %}, the first folder or repository you select is the primary execution workspace. It determines where the agent runs and changes files.
 
-After you select the primary workspace, you can attach more context to the first request:
+You can attach project and GitHub context to a request:
 
-* Select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
-* Select **Issue/PR** to attach an issue or pull request from the GitHub repository associated with the primary workspace. You can choose an item from the picker or paste a GitHub issue or pull request URL.
+* In the {% data variables.copilot.agents_window %}, select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
+* In any chat input, select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+* Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
 You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
 
