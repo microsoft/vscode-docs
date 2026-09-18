@@ -167,12 +167,12 @@ Conditions for parent repository discovery:
 > [!NOTE]
 > The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
-## Migrate customizations (Experimental)
+## Migrate customizations
 
 `feature(user-customization-migration)`
 
 > [!NOTE]
-> Customization migration is experimental and available in {% data variables.product.prodname_vscode_shortname %} Insiders.
+> Customization migration is available only in {% data variables.product.prodname_vscode_shortname %} Insiders.
 
 [Agent Host](/docs/agents/concepts/agent-host.md) sessions load customizations from supported folders and don't use some {% data variables.product.prodname_vscode_shortname %}-specific formats and locations. The Agent Customizations editor provides separate migrations for each type of incompatibility.
 
@@ -260,7 +260,7 @@ Prompt files in locations configured with `setting(chat.promptFilesLocations)` a
 As your collection of customization files grows, it can be hard to tell whether they actually guide the AI the way you intend. Vague wording, contradictory rules, or overly complex instructions can degrade results. The [Chat Customizations Evaluations](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations) extension helps you catch these problems before you rely on a customization, by analyzing your files and suggesting concrete improvements.
 
 > [!NOTE]
-> The Chat Customizations Evaluations extension is currently in preview and is published separately from {% data variables.product.prodname_vscode_shortname %}. Install it from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
+> The Chat Customizations Evaluations extension is published separately from {% data variables.product.prodname_vscode_shortname %}. Install it from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
 
 The extension works with skill files (`SKILL.md`), custom agent files (`*.agent.md`), instructions files (`*.instructions.md`), and prompt files (`*.prompt.md`).
 
