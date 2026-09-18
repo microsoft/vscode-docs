@@ -1,179 +1,232 @@
 [
-  {
-    "name": "Setup",
-    "area": "setup",
-    "topics": [
-      ["Overview", "/docs/setup/setup-overview"],
-      ["Linux", "/docs/setup/linux"],
-      ["macOS", "/docs/setup/mac"],
-      ["Windows", "/docs/setup/windows"],
-      ["VS Code for the Web", "/docs/setup/vscode-web"],
-      ["Raspberry Pi", "/docs/setup/raspberry-pi"],
-      ["Network", "/docs/setup/network"],
-      ["Additional Components", "/docs/setup/additional-components"],
-      ["Enterprise", "/docs/setup/enterprise"],
-      ["Uninstall", "/docs/setup/uninstall"]
-    ]
-  },
-  {
-    "name": "Get Started",
-    "area": "getstarted",
-    "topics": [
-      ["VS Code Tutorial", "/docs/getstarted/getting-started"],
-      ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"],
-      ["User Interface", "/docs/getstarted/userinterface"],
-      ["Personalize VS Code", "/docs/getstarted/personalize-vscode"],
-      ["Install Extensions", "/docs/getstarted/extensions"],
-      ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
-      ["Intro Videos", "/docs/getstarted/introvideos"]
-    ]
-  },
+    {
+        "name": "Get Started",
+        "area": "getstarted",
+        "topics": [
+        ["Overview", "/docs/getstarted/overview"],
+        ["Agents Quickstart", "/docs/agents/quickstart"],
+        ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial"],
+        ["Intro Videos", "/docs/getstarted/introvideos"]
+        ]
+    },
 
-  {
-    "name": "Configure",
-    "area": "configure",
-    "topics": [
-      ["Display Language", "/docs/configure/locales"],
-      ["Layout", "/docs/configure/custom-layout"],
-      ["Keyboard Shortcuts", "/docs/configure/keybindings"],
-      ["Settings", "/docs/configure/settings"],
-      ["Settings Sync", "/docs/configure/settings-sync"],
-      ["", "", {
-        "name": "Extensions",
-        "area": "configure/extensions",
-        "noCollapse": true,
-        "topics": [
-          ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
-          ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
-        ]
-      }],
-      ["Themes", "/docs/configure/themes"],
-      ["Profiles", "/docs/configure/profiles"],
-      ["", "",   {
-        "name": "Accessibility",
-        "area": "configure/accessibility",
-        "topics": [
-          ["Overview", "/docs/configure/accessibility/accessibility"],
-          ["Voice Interactions", "/docs/configure/accessibility/voice"]
-        ]
-      }],
-      ["Command Line Interface", "/docs/configure/command-line"],
-      ["Telemetry", "/docs/configure/telemetry"]
-    ]
-  },
-  {
-    "name": "Edit code",
-    "area": "editing",
-    "topics": [
-      ["Basic Editing", "/docs/editing/codebasics"],
-      ["IntelliSense", "/docs/editing/intellisense"],
-      ["Code Navigation", "/docs/editing/editingevolved"],
-      ["Refactoring", "/docs/editing/refactoring"],
-      ["Snippets", "/docs/editing/userdefinedsnippets"],
-      ["", "", {
-        "name": "Workspaces",
-        "area": "editing/workspaces",
-        "topics": [
-          ["Overview", "/docs/editing/workspaces/workspaces"],
-          ["Multi-root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
-          ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
-        ]
-      }]
-    ]
-  },
-  {
-    "name": "Build, Debug, Test",
-    "area": "debugtest",
-    "topics": [
-      ["Tasks", "/docs/debugtest/tasks"],
-      ["Debugging", "/docs/debugtest/debugging"],
-      ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
-      ["Testing", "/docs/debugtest/testing"],
-      ["Port Forwarding", "/docs/debugtest/port-forwarding"]
-    ]
-  },
-
-  {
-    "name": "GitHub Copilot",
-    "area": "copilot",
-    "topics": [
-      ["Overview", "/docs/copilot/overview"],
-      ["Setup", "/docs/copilot/setup"],
-      ["Quickstart", "/docs/copilot/getting-started"],
-      ["", "", {
-        "name": "Chat",
-        "area": "copilot/chat",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
-          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-          ["Planning", "/docs/copilot/chat/chat-planning"],
-          ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Tools", "/docs/copilot/chat/chat-tools"],
-          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
-          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
-        ]
-      }
-      ],
-      ["", "", {
+    {
         "name": "Agents",
-        "area": "copilot/agents",
-        "noCollapse": false,
+        "area": "agentic",
         "topics": [
-          ["Overview", "/docs/copilot/agents/overview"],
-          ["Background Agents", "/docs/copilot/agents/background-agents"],
-          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
+            ["Overview", "/docs/agents/overview"],
+            ["", "", {
+                "name": "Get started",
+                "area": "agents",
+                "topics": [
+                    ["Agents Quickstart", "/docs/agents/quickstart"],
+                    ["Agents Tutorial", "/docs/agents/agents-tutorial"],
+                    ["Best Practices", "/docs/agents/best-practices"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Concepts",
+                "area": "agents/concepts",
+                "topics": [
+                    ["Agents", "/docs/agents/concepts/agents"],
+                    ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
+                    ["Language Models", "/docs/agents/concepts/language-models"],
+                    ["Context", "/docs/agents/concepts/context"],
+                    ["Tools", "/docs/agents/concepts/tools"],
+                    ["Sessions & Handoff", "/docs/agents/concepts/sessions"],
+                    ["Agent Host Architecture", "/docs/agents/concepts/agent-host"],
+                    ["Customization", "/docs/agents/concepts/customization"],
+                    ["Workspace Context", "/docs/agents/reference/workspace-context"],
+                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Run agents",
+                "area": "agents/run",
+                "topics": [
+                    ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Automations", "/docs/agents/run/automations"],
+                    ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                    ["Agent Sandboxing", "/docs/agents/run/agent-sandboxing"],
+                    ["AI Security", "/docs/agents/run/security"],
+                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Use Tools", "/docs/agents/run/tools"],
+                    ["Browser Tools", "/docs/agents/run/browser-tools"],
+                    ["Plan Work", "/docs/agents/run/planning"],
+                    ["Artifacts", "/docs/agents/run/artifacts"],
+                    ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
+                    ["Memory", "/docs/agents/run/memory"],
+                    ["Subagents", "/docs/agents/run/subagents"],
+
+                    ["", "", {
+                        "name": "Sessions",
+                        "area": "agents/run/sessions",
+                        "topics": [
+                            ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Session History", "/docs/agents/run/sessions/session-history"]
+                        ]
+                    }],
+
+                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Customize agents",
+                "area": "agent-customization",
+                "noCollapse": false,
+                "topics": [
+                    ["Create and Manage", "/docs/agent-customization/overview"],
+                    ["Instructions", "/docs/agent-customization/custom-instructions"],
+                    ["Agent Skills", "/docs/agent-customization/agent-skills"],
+                    ["Custom Agents", "/docs/agent-customization/custom-agents"],
+                    ["Language Models", "/docs/agent-customization/language-models"],
+                    ["MCP", "/docs/agent-customization/mcp-servers"],
+                    ["Hooks", "/docs/agent-customization/hooks"],
+                    ["Plugins", "/docs/agent-customization/agent-plugins"],
+                    ["Prompt Files", "/docs/agent-customization/prompt-files"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Tutorials & guides",
+                "area": "agents/guides",
+                "topics": [
+                    ["Configure AI for your project", "/docs/agents/guides/customize-copilot-guide"],
+                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Delegate Two Tasks Without Mixing Their Changes", "/docs/agents/guides/delegate-two-tasks"],
+                    ["Test Code with AI", "/docs/agents/guides/test-code-with-ai"],
+                    ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Get an Agent Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
+                    ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
+                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+                    ["Work with Jupyter Notebooks using AI", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
+                    ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
+                    ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Reference",
+                "area": "agents/reference",
+                "topics": [
+                    ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
+                    ["Settings Reference", "/docs/agents/reference/ai-settings"],
+                    ["VS Code Pet", "/docs/agents/reference/chat-pet"],
+                    ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+                    ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
+                    ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Troubleshooting",
+                "area": "agents/agent-troubleshooting",
+                "topics": [
+                    ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
+                    ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+                    ["Diagnose Prompt Caching", "/docs/agents/agent-troubleshooting/cache-explorer"],
+                    ["FAQ", "/docs/agents/agent-troubleshooting/faq"]
+                ]
+            }]
         ]
-      }
-      ],
-      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["", "", {
-        "name": "Customization",
-        "area": "copilot/customization",
-        "noCollapse": false,
+    },
+
+    {
+        "name": "Chat",
+        "area": "chat",
         "topics": [
-          ["Overview", "/docs/copilot/customization/overview"],
-          ["Instructions", "/docs/copilot/customization/custom-instructions"],
-          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
-          ["Language Models", "/docs/copilot/customization/language-models"],
-          ["MCP", "/docs/copilot/customization/mcp-servers"]
+            ["Chat Interactions", "/docs/chat/chat-overview"],
+            ["Inline & Quick Chat", "/docs/chat/inline-chat"],
+            ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]
-      }
-      ],
-      ["", "", {
-        "name": "Guides",
-        "area": "copilot/guides",
-        "noCollapse": false,
+    },
+
+    {
+        "name": "Editor",
+        "area": "core-editor",
         "topics": [
-          ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
-          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
-          ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
-          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
-          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
-          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"]
+            ["Overview", "/docs/editing/getting-started/overview"],
+            ["", "", {
+                "name": "Getting Started",
+                "area": "editing/getting-started",
+                "topics": [
+                    ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial"],
+                    ["User Interface", "/docs/editing/getting-started/userinterface"],
+                    ["Tips and Tricks", "/docs/editing/getting-started/tips-and-tricks"]
+                ]
+            }],
+            ["", "", {
+                "name": "Write code",
+                "area": "editing",
+                "topics": [
+                    ["Basic Editing", "/docs/editing/codebasics"],
+                    ["IntelliSense", "/docs/editing/intellisense"],
+                    ["Inline Suggestions", "/docs/editing/ai-powered-suggestions"],
+                    ["Smart Actions", "/docs/editing/copilot-smart-actions"],
+                    ["Code Navigation", "/docs/editing/editingevolved"],
+                    ["Refactoring", "/docs/editing/refactoring"],
+                    ["Snippets", "/docs/editing/userdefinedsnippets"],
+                    ["", "", {
+                        "name": "Workspaces",
+                        "area": "editing/workspaces",
+                        "topics": [
+                            ["Overview", "/docs/editing/workspaces/workspaces"],
+                            ["Multi-Root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
+                            ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
+                        ]
+                    }]
+                ]
+            }],
+            ["", "", {
+                "name": "Configure the editor",
+                "area": "configure",
+                "topics": [
+                    ["Display Language", "/docs/configure/locales"],
+                    ["Layout", "/docs/configure/custom-layout"],
+                    ["Keyboard Shortcuts", "/docs/configure/keybindings"],
+                    ["Settings", "/docs/configure/settings"],
+                    ["Settings Sync", "/docs/configure/settings-sync"],
+                    ["", "", {
+                        "name": "Extensions",
+                        "area": "configure/extensions",
+                        "topics": [
+                            ["Overview", "/docs/configure/extensions/extensions"],
+                            ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
+                            ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
+                        ]
+                    }],
+                    ["Themes", "/docs/configure/themes"],
+                    ["Profiles", "/docs/configure/profiles"],
+                    ["", "", {
+                        "name": "Accessibility",
+                        "area": "configure/accessibility",
+                        "topics": [
+                            ["Overview", "/docs/configure/accessibility/accessibility"],
+                            ["Voice Interactions", "/docs/configure/accessibility/voice"]
+                        ]
+                    }],
+                    ["Command Line Interface", "/docs/configure/command-line"],
+                    ["Telemetry", "/docs/configure/telemetry"]
+                ]
+            }],
+            ["", "", {
+                "name": "Reference",
+                "area": "reference",
+                "topics": [
+                    ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
+                    ["Default Settings", "/docs/reference/default-settings"],
+                    ["Substitution Variables", "/docs/reference/variables-reference"],
+                    ["Tasks Schema", "/docs/reference/tasks-appendix"]
+                ]
+            }]
         ]
-      }
-      ],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
-      ["Security", "/docs/copilot/security"],
-      ["FAQ", "/docs/copilot/faq"],
-      ["", "", {
-        "name": "Reference",
-        "area": "copilot/reference",
-        "topics": [
-          ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
-          ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
-          ["Workspace Context", "/docs/copilot/reference/workspace-context"]
-        ]
-      }
-      ]
-    ]
-  },
+    },
 
   {
     "name": "Source Control",
@@ -181,20 +234,22 @@
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
       ["Quickstart", "/docs/sourcecontrol/quickstart"],
-      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
-      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
       ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Source Control History", "/docs/sourcecontrol/history"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
       ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
       ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
   },
+
   {
     "name": "Terminal",
     "area": "terminal",
     "topics": [
-      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
+      ["Get Started", "/docs/terminal/getting-started"],
       ["Terminal Basics", "/docs/terminal/basics"],
       ["Terminal Profiles", "/docs/terminal/profiles"],
       ["Shell Integration", "/docs/terminal/shell-integration"],
@@ -204,268 +259,89 @@
   },
 
   {
-    "name": "Languages",
-    "area": "languages",
+    "name": "Debugging & Testing",
+    "area": "debugtest",
     "topics": [
-      ["Overview", "/docs/languages/overview"],
-      ["JavaScript", "/docs/languages/javascript"],
-      ["JSON", "/docs/languages/json"],
-      ["HTML", "/docs/languages/html"],
-      ["Emmet", "/docs/languages/emmet"],
-      ["CSS, SCSS and Less", "/docs/languages/css"],
-      ["TypeScript", "/docs/languages/typescript"],
-      ["Markdown", "/docs/languages/markdown"],
-      ["PowerShell", "/docs/languages/powershell"],
-      ["C++", "/docs/languages/cpp"],
-      ["Java", "/docs/languages/java"],
-      ["PHP", "/docs/languages/php"],
-      ["Python", "/docs/languages/python"],
-      ["Julia", "/docs/languages/julia"],
-      ["R", "/docs/languages/r"],
-      ["Ruby", "/docs/languages/ruby"],
-      ["Rust", "/docs/languages/rust"],
-      ["Go", "/docs/languages/go"],
-      ["T-SQL", "/docs/languages/tsql"],
-      ["C#", "/docs/languages/csharp"],
-      [".NET", "/docs/languages/dotnet"],
-      ["Polyglot", "/docs/languages/polyglot"],
-      ["Swift", "/docs/languages/swift"]
-    ]
-  },
-  {
-    "name": "Node.js / JavaScript",
-    "area": "nodejs",
-    "topics": [
-      ["Working with JavaScript", "/docs/nodejs/working-with-javascript"],
-      ["Node.js Tutorial", "/docs/nodejs/nodejs-tutorial"],
-      ["Node.js Debugging", "/docs/nodejs/nodejs-debugging"],
-      ["Deploy Node.js Apps", "/docs/nodejs/nodejs-deployment"],
-      ["Browser Debugging", "/docs/nodejs/browser-debugging"],
-      ["Angular Tutorial", "/docs/nodejs/angular-tutorial"],
-      ["React Tutorial", "/docs/nodejs/reactjs-tutorial"],
-      ["Vue Tutorial", "/docs/nodejs/vuejs-tutorial"],
-      ["Debugging Recipes", "/docs/nodejs/debugging-recipes"],
-      ["Performance Profiling", "/docs/nodejs/profiling"],
-      ["Extensions", "/docs/nodejs/extensions"]
-    ]
-  },
-  {
-    "name": "TypeScript",
-    "area": "typescript",
-    "topics": [
-      ["Tutorial", "/docs/typescript/typescript-tutorial"],
-      ["Compiling", "/docs/typescript/typescript-compiling"],
-      ["Editing", "/docs/typescript/typescript-editing"],
-      ["Refactoring", "/docs/typescript/typescript-refactoring"],
-      ["Debugging", "/docs/typescript/typescript-debugging"]
-    ]
-  },
-  {
-    "name": "Python",
-    "area": "python",
-    "topics": [
-      ["Quick Start", "/docs/python/python-quick-start"],
-      ["Tutorial", "/docs/python/python-tutorial"],
-      ["Run Python Code", "/docs/python/run"],
-      ["Editing", "/docs/python/editing"],
-      ["Linting", "/docs/python/linting"],
-      ["Formatting", "/docs/python/formatting"],
-      ["Debugging", "/docs/python/debugging"],
-      ["Environments", "/docs/python/environments"],
-      ["Testing", "/docs/python/testing"],
-      ["Python Interactive", "/docs/python/jupyter-support-py"],
-      ["Django Tutorial", "/docs/python/tutorial-django"],
-      ["FastAPI Tutorial", "/docs/python/tutorial-fastapi"],
-      ["Flask Tutorial", "/docs/python/tutorial-flask"],
-      ["Create Containers", "/docs/python/tutorial-create-containers"],
-      ["Deploy Python Apps", "/docs/python/python-on-azure"],
-      ["Python in the Web", "/docs/python/python-web"],
-      ["Settings Reference", "/docs/python/settings-reference"]
-    ]
-  },
-  {
-    "name": "Java",
-    "area": "java",
-    "topics": [
-      ["Getting Started", "/docs/java/java-tutorial"],
-      ["Navigate and Edit", "/docs/java/java-editing"],
-      ["Refactoring", "/docs/java/java-refactoring"],
-      ["Formatting and Linting", "/docs/java/java-linting"],
-      ["Project Management", "/docs/java/java-project"],
-      ["Build Tools", "/docs/java/java-build"],
-      ["Run and Debug", "/docs/java/java-debugging"],
-      ["Testing", "/docs/java/java-testing"],
-      ["Spring Boot", "/docs/java/java-spring-boot"],
-      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
-      ["Application Servers", "/docs/java/java-tomcat-jetty"],
-      ["Deploy Java Apps", "/docs/java/java-on-azure"],
-      ["GUI Applications", "/docs/java/java-gui"],
-      ["Extensions", "/docs/java/extensions"],
-      ["FAQ", "/docs/java/java-faq"]
-    ]
-  },
-  {
-    "name": "C++",
-    "area": "cpp",
-    "topics": [
-      ["Intro Videos", "/docs/cpp/introvideos-cpp"],
-      ["GCC on Linux", "/docs/cpp/config-linux"],
-      ["GCC on Windows", "/docs/cpp/config-mingw"],
-      ["GCC on Windows Subsystem for Linux", "/docs/cpp/config-wsl"],
-      ["Clang on macOS", "/docs/cpp/config-clang-mac"],
-      ["Microsoft C++ on Windows", "/docs/cpp/config-msvc"],
-      ["Build with CMake", "/docs/cpp/build-with-cmake"],
-      ["CMake Tools on Linux", "/docs/cpp/cmake-linux"],
-      ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
-      ["Editing and Navigating", "/docs/cpp/cpp-ide"],
-      ["Debugging", "/docs/cpp/cpp-debug"],
-      ["Configure Debugging", "/docs/cpp/launch-json-reference"],
-      ["Refactoring", "/docs/cpp/cpp-refactoring"],
-      ["Settings Reference", "/docs/cpp/customize-cpp-settings"],
-      ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
-      ["Configure IntelliSense for Cross-Compiling", "/docs/cpp/configure-intellisense-crosscompilation"],
-      ["FAQ", "/docs/cpp/faq-cpp"]
-    ]
-  },
-  {
-    "name": "C#",
-    "area": "csharp",
-    "topics": [
-      ["Intro Videos", "/docs/csharp/introvideos-csharp"],
-      ["Get Started", "/docs/csharp/get-started"],
-      ["Navigate and Edit", "/docs/csharp/navigate-edit"],
-      ["IntelliCode", "/docs/csharp/intellicode"],
-      ["Refactoring", "/docs/csharp/refactoring"],
-      ["Formatting and Linting", "/docs/csharp/formatting-linting"],
-      ["Project Management", "/docs/csharp/project-management"],
-      ["Build Tools", "/docs/csharp/build-tools"],
-      ["Package Management", "/docs/csharp/package-management"],
-      ["Run and Debug", "/docs/csharp/debugging"],
-      ["Testing", "/docs/csharp/testing"],
-      ["FAQ", "/docs/csharp/cs-dev-kit-faq"]
-    ]
-  },
-  {
-    "name": "Container Tools",
-    "area": "containers",
-    "topics": [
-      ["Overview", "/docs/containers/overview"],
-      ["Node.js", "/docs/containers/quickstart-node"],
-      ["Python", "/docs/containers/quickstart-python"],
-      ["ASP.NET Core", "/docs/containers/quickstart-aspnet-core"],
-      ["Debug", "/docs/containers/debug-common"],
-      ["Docker Compose", "/docs/containers/docker-compose"],
-      ["Registries", "/docs/containers/quickstart-container-registries"],
-      ["Deploy to Azure", "/docs/containers/app-service"],
-      ["Choose a Dev Environment", "/docs/containers/choosing-dev-environment"],
-      ["Customize", "/docs/containers/reference"],
-      ["Develop with Kubernetes", "/docs/containers/bridge-to-kubernetes"],
-      ["Tips and Tricks", "/docs/containers/troubleshooting"]
-    ]
-  },
-  {
-    "name": "Data Science",
-    "area": "datascience",
-    "topics": [
-      ["Overview", "/docs/datascience/overview"],
-      ["Jupyter Notebooks", "/docs/datascience/jupyter-notebooks"],
-      ["Data Science Tutorial", "/docs/datascience/data-science-tutorial"],
-      ["Python Interactive", "/docs/datascience/python-interactive"],
-      ["Data Wrangler Quick Start", "/docs/datascience/data-wrangler-quick-start"],
-      ["Data Wrangler", "/docs/datascience/data-wrangler"],
-      ["PyTorch Support", "/docs/datascience/pytorch-support"],
-      ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
-      ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
-      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
-      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
-    ]
-  },
-  {
-    "name": "Intelligent Apps",
-    "area": "intelligentapps",
-    "topics": [
-      ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
-      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
-      ["Models", "/docs/intelligentapps/models"],
-      ["Playground", "/docs/intelligentapps/playground"],
-      ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
-      ["Bulk Run", "/docs/intelligentapps/bulkrun"],
-      ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
-      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
-      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
-      ["Tracing", "/docs/intelligentapps/tracing"],
-      ["FAQ", "/docs/intelligentapps/faq"],
+      ["Debugging", "/docs/debugtest/debugging"],
+      ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
+      ["Tasks", "/docs/debugtest/tasks"],
+      ["Testing", "/docs/debugtest/testing"],
+      ["Integrated Browser", "/docs/debugtest/integrated-browser"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
       ["", "", {
-        "name": "Reference",
-        "area": "intelligentapps/reference",
+        "name": "Guides & Tutorials",
+        "area": "debugging/guides",
         "topics": [
-          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
-          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
-          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
-          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
-          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+          ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+          ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
         ]
-      }
+        }
       ]
     ]
   },
+
   {
-    "name": "Azure",
-    "area": "azure",
+    "name": "Enterprise",
+    "area": "enterprise",
     "topics": [
-      ["Overview", "/docs/azure/overview"],
-      ["Getting Started", "/docs/azure/gettingstarted"],
-      ["Resources View", "/docs/azure/resourcesextension"],
-      ["Deployment", "/docs/azure/deployment"],
-      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
-      ["Containers", "/docs/azure/containers"],
-      ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
-      ["Kubernetes", "/docs/azure/kubernetes"],
-      ["MongoDB", "/docs/azure/mongodb"],
-      ["Remote Debugging for Node.js", "/docs/azure/remote-debugging"]
+      ["Overview", "/docs/enterprise/overview"],
+      ["Enterprise Policies", "/docs/enterprise/policies"],
+      ["AI Settings", "/docs/enterprise/ai-settings"],
+      ["Extensions", "/docs/enterprise/extensions"],
+      ["Telemetry", "/docs/enterprise/telemetry"],
+      ["Updates", "/docs/enterprise/updates"]
     ]
   },
+
   {
     "name": "Remote",
     "area": "remote",
     "topics": [
       ["Overview", "/docs/remote/remote-overview"],
+      ["VS Code for the Web", "/docs/remote/vscode-web"],
       ["SSH", "/docs/remote/ssh"],
+      ["SSH Tutorial", "/docs/remote/ssh-tutorial"],
+      ["Tunnels", "/docs/remote/tunnels"],
       ["Dev Containers", "/docs/remote/dev-containers"],
-      ["Windows Subsystem for Linux", "/docs/remote/wsl"],
+      ["WSL", "/docs/remote/wsl"],
+      ["WSL Tutorial", "/docs/remote/wsl-tutorial"],
       ["GitHub Codespaces", "/docs/remote/codespaces"],
       ["VS Code Server", "/docs/remote/vscode-server"],
-      ["Tunnels", "/docs/remote/tunnels"],
-      ["SSH Tutorial", "/docs/remote/ssh-tutorial"],
-      ["WSL Tutorial", "/docs/remote/wsl-tutorial"],
+      ["Linux Prerequisites", "/docs/remote/linux"],
       ["Tips and Tricks", "/docs/remote/troubleshooting"],
       ["FAQ", "/docs/remote/faq"]
     ]
   },
+
   {
-    "name": "Dev Containers",
-    "area": "devcontainers",
+    "name": "Advanced Setup",
+    "area": "setup",
     "topics": [
-      ["Overview", "/docs/devcontainers/containers"],
-      ["Tutorial", "/docs/devcontainers/tutorial"],
-      ["Attach to Container", "/docs/devcontainers/attach-container"],
-      ["Create Dev Container", "/docs/devcontainers/create-dev-container"],
-      ["Advanced Containers", "/docs/devcontainers/containers-advanced"],
-      ["devcontainer.json", "/docs/devcontainers/devcontainerjson-reference"],
-      ["Dev Container CLI", "/docs/devcontainers/devcontainer-cli"],
-      ["Tips and Tricks", "/docs/devcontainers/tips-and-tricks"],
-      ["FAQ", "/docs/devcontainers/faq"]
+      ["GitHub Copilot Setup", "/docs/setup/copilot"],
+      ["Linux", "/docs/setup/linux"],
+      ["macOS", "/docs/setup/mac"],
+      ["Windows", "/docs/setup/windows"],
+      ["Raspberry Pi", "/docs/setup/raspberry-pi"],
+      ["Network", "/docs/setup/network"],
+      ["Portable Mode", "/docs/setup/portable"],
+      ["Additional Components", "/docs/setup/additional-components"],
+      ["Uninstall", "/docs/setup/uninstall"]
     ]
   },
+
   {
-    "name": "Reference",
-    "area": "reference",
-    "topics": [
-      ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
-      ["Default Settings", "/docs/reference/default-settings"],
-      ["Substitution Variables", "/docs/reference/variables-reference"],
-      ["Tasks Schema", "/docs/reference/tasks-appendix"]
-    ]
-  }
+    "name": "Languages & Runtimes",
+    "area": "languages",
+    "link": "/docs/languages/overview",
+    "toc": "languages/toc.json",
+    "topics": []
+  },
+
+  {
+    "name": "Extension Docs",
+    "area": "extension-docs",
+    "link": "/docs/extension-docs/overview",
+    "toc": "extension-docs/toc.json",
+    "topics": []
+  },
 ]

@@ -1,11 +1,11 @@
 ---
 ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
 DateApproved: 12/12/2021
-MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
+MetaDescription: Formatting, linting, and code analysis for Java in {% data variables.product.prodname_vscode %}
 ---
 # Java formatting and linting
 
-[Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
+[Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in {% data variables.product.prodname_vscode_shortname %}.
 
 In addition, there are also the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extensions, which provide features for live linting and code analysis.
 
@@ -62,7 +62,7 @@ Issues are highlighted directly in the editor with hovers to provide detailed ex
 <video src="images/java-linting/sonarlint.mp4" autoplay loop muted playsinline controls title="Code analysis on the fly">
 </video>
 
-Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
+Issues found in the opened file can also be reviewed through the Problems panel of {% data variables.product.prodname_vscode_shortname %}. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
 
 ### Rule documentation and remediation guidance
 
@@ -78,7 +78,7 @@ By default, SonarLint provides a wide array of rules to detect bugs and vulnerab
 <video src="images/java-linting/sonarlint-rules.mp4" autoplay loop muted playsinline controls title="Enabling more quality and security rules">
 </video>
 
-For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
+For more details about the [SonarLint for {% data variables.product.prodname_vscode_shortname %} extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
 
 ## Checkstyle
 

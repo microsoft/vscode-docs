@@ -1,22 +1,22 @@
 ---
 ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
 DateApproved: 07/14/2025
-MetaDescription: Model Conversion Quickstart in AI Toolkit.
+MetaDescription: Model Conversion Quickstart in Foundry Toolkit.
 ---
-# Convert a model with AI Toolkit for VS Code
+# Convert a model with Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}
 
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
 ## Prerequisites
 
-- VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
-- AI Toolkit extension must be installed. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the latest version of [{% data variables.product.prodname_vscode %}](/download).
+- Install the Foundry Toolkit {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Create project
 
 Creating a project in model conversion is the first step toward converting, optimizing, quantizing and evaluating machine learning models.
 
-1. Open the AI Toolkit view, and select **Models** > **Conversion** to launch model conversion
+1. Open the Foundry Toolkit view, and select **Models** > **Conversion** to launch model conversion
 
 2. Start a new project by selecting **New Model Project**
 
@@ -74,12 +74,28 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
     ![Screenshot that shows how to delete a model project. It contains a button to open mean and detele a model project.](./images/modelconversion/delete-project.png)
 
+### (Optional) Update a model project
+
+After a Foundry Toolkit update, you might see a **Need Update** notification for your model projects.
+
+![Screenshot showing that a model needs an update](./images/modelconversion/need-update.png)
+
+It means some of the workflows are updated, and you can either:
+
+- Select **Update** if you haven't manually modified the workflows.
+- Create a new model project and migrate your changes from the old model project into it or vice versa.
+- Restore Foundry Toolkit to the previous version so you can continue to use the workflows from that version.
+
+For the converted models, if they are running well, you can still use them. Or you can re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
+
+Learn more in [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md).
+
 
 ## Run workflow
 
 Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
 
-1. Select **File** > **Open Folder** in VS Code to open the model project folder.
+1. Select **File** > **Open Folder** in {% data variables.product.prodname_vscode_shortname %} to open the model project folder.
 
 2. Review the workflow configuration
 
@@ -117,28 +133,28 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
           ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run-token-3.png)
 
-    - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Quantization Dataset Split**: dataset can have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
 
     For more information about activation and weight type, see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
 
-    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
+    You can also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
 
     **Evaluation**
 
     In this section, you need to select the Execution Provider (EP) you want to use for evaluation, regardless of the platform on which the model was converted.
     - **Evaluate on**: the target device that you want to evaluate the model. Possible values are:
-      - **Qualcomm NPU**: to use this, you need a compatible Qualcomm device.
-      - **AMD NPU**: to use this, you need a device with a supported AMD NPU.
+      - **Qualcomm NPU/GPU**: to use this, you need a compatible Qualcomm device.
+      - **AMD NPU/GPU**: to use this, you need a device with a supported AMD NPU/GPU.
       - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
       - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
       - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
-      - **CPU**: any CPU could work.
+      - **CPU**: any CPU can work.
     - **Evaluation Dataset**: dataset used for evaluation.
-    - **Evaluation Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Evaluation Dataset Split**: dataset can have different splits like validation, train and test.
     - **Evaluation Dataset Size**: the number of data used to evaluate the model.
 
-    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
+    You can also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
 
 3. Run the workflow by selecting **Run**
 
@@ -153,11 +169,11 @@ Running a workflow in model conversion is the core step that transform the pre-b
     Cloud Conversion enables you to run model conversion and quantization in the cloud, when your local machine doesn’t have enough compute or storage capacity. You need an Azure subscription to use Cloud Conversion.
 
     1. Select **Run with Cloud** from the dropdown in the top right.
-        Note that the **Evalution** section is disabled because the cloud environment doesn't have target processors for inference.
+        Note that the **Evaluation** section is disabled because the cloud environment doesn't have target processors for inference.
 
         ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud-conversion-run.png)
 
-    2. AI Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
+    2. Foundry Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
 
         ![Screenshot that shows prompt for provisionning.](./images/modelconversion/provisioning.png)
 
@@ -181,13 +197,13 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
-> **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
+> **LLM model quantization**: If you want to quantize LLM models, a Nvidia GPU is required.
 >
 > If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
 ### Tips for re-evaluation
 
-After a model has been successfully converted, you could use the re-evaluate function to perform evaluation again without the model conversion.
+After a model has been successfully converted, you can use the re-evaluate function to perform evaluation again without the model conversion.
 
 Go to the History board and find the model run job. Select the three-dot menu under **Action** to **Re-evaluate** the model.
 
@@ -206,6 +222,22 @@ If your job is canceled or failed, you can select job name to adjust the workflo
 > 1. [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)
 > 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Also check `Desktop development with C++` workload during installation.
 
+### (Optional) Add a workflow
+
+You can add a local Olive JSON config to the current model project by selecting **Add Workflow**.
+
+![Screenshot showing the Add Workflow button.](./images/modelconversion/add-workflow.png)
+
+Along with the Olive JSON file, the toolkit automatically generates a `*.custom.json` file that lets you control how the workflow appears in the UI and how it is converted. To simplify customization, you can instead start from an existing workflow (see [Duplicate a workflow](#optional-duplicate-a-workflow)).
+
+### (Optional) Duplicate a workflow
+
+You can duplicate an existing workflow to customize it by selecting **Duplicate Workflow** from **Actions**.
+
+![Screenshot showing the Duplicate Workflow button.](./images/modelconversion/duplicate-workflow.png)
+
+Along with the duplicated Olive JSON file, the toolkit automatically generates a `*.custom.json` file that exposes all of the workflow's built-in parameters. If your Olive JSON is similar to an existing workflow, duplicating that workflow is a convenient way to add your own. You start from a working customization file instead of writing one from scratch.
+
 ## View results
 
 The History Board in **Conversion** is your central dashboard for tracking, reviewing, and managing all workflow runs. Each time you run a model conversion and evaluation, a new entry is created in the History Board—ensuring full traceability and reproducibility.
@@ -222,11 +254,11 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
   ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
 
 
-## Copy converted model path
+### Copy converted model path
 
 - Select **Copy model path** from the dropdown. The output converted model path like `c:/{workspace}/{model_project}/history/{workflow}/model/model.onnx` will be copied to your clipboard for your reference. For LLM models, the output folder will be copied instead.
 
-## Use sample notebook for model inference
+### Use sample notebook for model inference
 
 - Select **Inference in Sample** from the dropdown.
 - Choose the Python environment
@@ -246,15 +278,123 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 >
 > **Sample location:** Inference samples are stored alongside the run artifacts in the history folder.
 
-## Export and share with others
+### Export and share with others
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
+
+## Build with Windows ML CLI (preview)
+
+In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://github.com/microsoft/winml-cli). Olive recipes focus on EP-driven optimization workflows, while Windows ML CLI provides a streamlined cross-EP developer workflow for Windows ML. Rather than manually assembling optimization recipes, you can use Windows ML CLI to convert, analyze, optimize, validate, and benchmark models through a simplified command-line experience on Windows PCs. Beyond converting models from Hugging Face, Windows ML CLI can also analyze, optimize, validate, and benchmark existing ONNX models directly on Windows PCs.
+
+### Choose a Windows ML CLI base model
+
+When you create a new model project (or add a model to an existing one), the **Choose a Base Model** page exposes a **Recommend Process** area powered by Windows ML CLI:
+
+![Screenshot that shows the Recommend Process area with Hugging Face Hub and Local ONNX Files cards.](./images/modelconversion/winmlcli-recommend-process.png)
+
+- **Hugging Face Hub**: provide a Hugging Face model ID (for example, `microsoft/resnet-50`), and Windows ML CLI will automatically download, convert, analyze, and optimize the model.
+- **Local ONNX Files**: browse to an ONNX file on disk and let Windows ML CLI analyze and optimize it.
+
+You can also pick a curated Hugging Face model that is already validated for Windows ML CLI. Open the **Provided By** filter and select **Windows ML CLI** to see the supported list.
+
+![Screenshot that shows HuggingFace Models filtered by the Windows ML CLI provider.](./images/modelconversion/winmlcli-model-list.png)
+
+> [!NOTE]
+> Models generated through Windows ML CLI can run across all execution providers (EPs) supported by Windows ML. Supported EPs include:
+>
+> - QNN (NPU, GPU)
+> - OpenVINO (CPU, NPU, GPU)
+> - VitisAI (NPU)
+> - NVIDIA TensorRT RTX (GPU)
+> - DirectML (DML) (GPU)
+> - CPU
+
+> [!NOTE]
+> For "bring your own model" scenarios using the **Hugging Face Hub** or **Local ONNX Files** templates, Windows ML CLI currently supports classic deep learning models only. LLM support is coming soon.
+
+### Run the Build flow
+
+After the project opens, the **Run Workflows** panel shows a **Build Flow** card for each selected Windows ML CLI model.
+
+![Screenshot that shows the Build Flow card with Edit Config and Build buttons for a Hugging Face model.](./images/modelconversion/winmlcli-build-flow.png)
+
+The behavior on first entry depends on how the model was added to the project.
+
+#### Built-in models
+
+Built-in models already include validated configurations for Windows ML CLI workflows. These curated models ship with prepared Build Config files optimized for Windows ML EPs. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
+
+#### Hugging Face models added by ID
+
+Hugging Face models added by ID are automatically processed on first entry. The card transitions through these states:
+
+- **Configuring**: Windows ML CLI inspects the model on Hugging Face and generates the build config.
+- **Configured**: a configuration is ready.
+- **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+
+> [!NOTE]
+> A **Failed** configuring state usually means the model could not be automatically mapped to a supported optimization or validation workflow. This may happen when:
+>
+> - the model architecture is not yet supported,
+> - required model metadata is missing, or
+> - the ONNX graph contains unsupported operators.
+
+> [!NOTE]
+> Auto-configuration only runs on first entry for Hugging Face models added by ID, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
+
+**Step 1: Generate the build config**
+
+Windows ML CLI queries Hugging Face, auto-detects the task and model type, and generates Build Config JSON files automatically. During onboarding, Windows ML CLI generates three configuration variants:
+
+- `config-noquant.json`
+- `config-w8a16.json`
+- `config-w8a8.json`
+
+The primary difference between them is the quantization strategy:
+
+- **No Quant** — full precision model.
+- **W8A16** — 8-bit weights with 16-bit activations.
+- **W8A8** — 8-bit weights with 8-bit activations for more aggressive compression and performance optimization.
+
+**Step 2: Customize the config**
+
+You can customize the workflow before running the build pipeline. Typical customization areas include task type, compile target, and precision details. By default, **Compile** is set to `null`. You can customize **Compile** with a target EP.
+
+**Step 3: Run the build**
+
+Selecting **Build** runs all four pipeline stages in sequence:
+
+1. Export
+2. Optimize
+3. Quantize
+4. Compile
+
+The workflow reads the settings recorded in `config*.json`. After the build step, Windows ML CLI automatically generates a declarative `build_config.json` file that defines how the workflow runs end-to-end. You can inspect and customize it through **View Config**. This declarative configuration model makes it easy to integrate Windows ML CLI into CI/CD pipelines with reproducible and portable build workflows.
+
+Windows ML CLI also generates an analyze report, which you can open through **View Analyze**. The analyze results provide detailed model compatibility insights, including supported operators, partially supported operators, and unsupported operators for Windows ML EPs. During analysis, Windows ML CLI automatically inspects the ONNX graph, detects optimization patterns, and generates recommended Windows ML optimization workflows.
+
+#### Local ONNX models
+
+For Local ONNX models, the Build workflow automatically analyzes the ONNX graph and generates a recommended Windows ML optimization workflow. Because the input is already an ONNX model, Windows ML CLI skips the **Export** stage and starts directly from model optimization. By default, the **Build** configuration also skips the **Quantize** and **Compile** stages — you can customize them later.
+
+![Screenshot that shows the Build Flow card for a local ONNX model with just a Build button.](./images/modelconversion/winmlcli-local-onnx.png)
+
+### Inspect Build, Evaluation, and Performance results
+
+Each Build run produces an entry in the **Generated Flow History** table. From there you can:
+
+- Select **View Config** to open the configuration file used for the run.
+- Select **View Analysis** to open the EP compatibility analysis.
+- Select **Performance** to launch a performance run against a chosen EP and view device, latency, and throughput results directly in the table.
+- Select **Evaluation** to run a quality evaluation. Evaluation is only available for **built-in models**, which ship with a prepared evaluation dataset and metrics.
+
+![Screenshot that shows the Generated Flow History table with View Config, View Analysis, Performance, and Evaluation actions.](./images/modelconversion/winmlcli-history.png)
 
 ## What you learned
 
 In this article, you learned how to:
 
-- Create a model conversion project in AI Toolkit for VS Code.
+- Create a model conversion project in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}.
 - Configure the conversion workflow, including quantization and evaluation settings.
 - Run the conversion workflow to transform a pre-built model into an optimized ONNX model.
 - View the results of the conversion, including metrics and logs.
@@ -263,10 +403,12 @@ In this article, you learned how to:
 - Re-evaluate a model using different execution providers or datasets.
 - Handle failed jobs and adjust configurations for re-runs.
 - Understand the supported models and their requirements for conversion and quantization.
+- Build a Hugging Face or local ONNX model with the Windows ML CLI flow.
 
 ## See also
 
 - [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
 - [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
 - [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
+- [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md)
 - [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)

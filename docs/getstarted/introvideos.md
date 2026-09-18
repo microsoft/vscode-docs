@@ -1,92 +1,26 @@
 ---
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-DateApproved: 12/10/2025
-MetaDescription: Overview of Visual Studio Code's introductory videos.
+DateApproved: 9/16/2026
+MetaDescription: Watch introductory videos for {% data variables.product.prodname_vscode %} on the official {% data variables.product.prodname_vscode_shortname %} YouTube channel.
 MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---
-# Introductory Videos
+# {% data variables.product.prodname_vscode_shortname %} introduction videos
 
-Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them.
+Start your journey with {% data variables.product.prodname_vscode %} by watching our introductory videos. These videos give you an overview of {% data variables.product.prodname_vscode_shortname %}'s features and quickly get you familiar with them.
 
-If you prefer going through a step-by-step guide to discover the key features, check out the [VS Code tutorial](/docs/getstarted/getting-started.md).
+For the latest videos and tutorials, visit the official {% data variables.product.prodname_vscode_shortname %} YouTube channel. If you prefer a step-by-step written guide, check out our getting started tutorials.
 
->**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
-
-<ul class="video-list">
-	<li class="video">
-            <a href="/docs/introvideos/basics">
-			<img src="/assets/docs/getstarted/introvideos/getting-started.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-                <h2 class="title faux-h3">Getting Started</h2>
-				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>7<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/codeediting">
-			<img src="/assets/docs/getstarted/introvideos/code-editing.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Code Editing</h2>
-				<p class="description">Learn how to edit and run code in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/productivity">
-			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Productivity Tips</h2>
-				<p class="description">Become a VS Code power user with these productivity tips.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-    </li>
-	<li class="video">
-		<a href="/docs/introvideos/configure">
-			<img src="/assets/docs/getstarted/introvideos/personalize-themes.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Personalize</h2>
-				<p class="description">Personalize VS Code to make it yours with themes.</p>
-				<span class="duration"><span class="sr-only">Duration </span>2<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/extend">
-			<img src="/assets/docs/getstarted/introvideos/extensions.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Extensions</h2>
-				<p class="description">Add features, themes, and more to VS Code with extensions!</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/debugging">
-			<img src="/assets/docs/getstarted/introvideos/debugging.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Debugging</h2>
-				<p class="description">Get started with debugging in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/versioncontrol">
-			<img src="/assets/docs/getstarted/introvideos/version-control.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Version Control</h2>
-				<p class="description">Learn how to use Git version control in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-</ul>
-
-## Troubleshooting
-
-### Videos won't play on Linux
-
-You may not have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
+<div class="card-grid">
+    <a class="card" href="https://www.youtube.com/@code">
+        <i class="codicon codicon-play-circle" aria-hidden="true"></i>
+        <p>Visit the {% data variables.product.prodname_vscode_shortname %} YouTube channel</p>
+    </a>
+    <a class="card" href="/docs/agents/agents-tutorial">
+        <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
+        <p>Get started with agents in {% data variables.product.prodname_vscode_shortname %}</p>
+    </a>
+    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
+        <i class="codicon codicon-edit" aria-hidden="true"></i>
+        <p>Learn the basics of editing in {% data variables.product.prodname_vscode_shortname %}</p>
+    </a>
+</div>

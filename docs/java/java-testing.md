@@ -1,12 +1,12 @@
 ---
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 DateApproved: 2/11/2022
-MetaDescription: See how you can test your Java code in Visual Studio Code.
+MetaDescription: See how you can test your Java code in {% data variables.product.prodname_vscode %}.
 MetaSocialImage:
 ---
-# Testing Java with Visual Studio Code
+# Testing Java with {% data variables.product.prodname_vscode %}
 
-Testing Java in Visual Studio Code is enabled by the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension. It's a lightweight extension to run and debug Java test cases.
+Testing Java in {% data variables.product.prodname_vscode %} is enabled by the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension. It's a lightweight extension to run and debug Java test cases.
 
 ## Overview
 
@@ -26,7 +26,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 ## Requirements
 
 - JDK (version 1.8 or later)
-- Visual Studio Code (version 1.59.0 or later)
+- {% data variables.product.prodname_vscode %} (version 1.59.0 or later)
 - [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
@@ -138,7 +138,7 @@ The Test Runner for Java extension will generate shortcuts (the green play butto
 
 ### Testing Explorer
 
-The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of {% data variables.product.prodname_vscode %} to open it. You can also run/debug your test cases and view their test results from there.
 
 <video src="images/java-testing/test-explorer.mp4" autoplay loop muted playsinline controls title="Testing Explorer">
 </video>
@@ -199,15 +199,15 @@ The extension provides features to help you navigate between your tests and test
 
 You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
 
-### VS Code testing commands
+### {% data variables.product.prodname_vscode_shortname %} testing commands
 
 There are other testing commands (for example, **Run Tests in Current File**) that can be found by searching for 'Test:' in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Testing commands in the Command Palette](images/java-testing/command_palette.png)
 
-### VS Code testing settings
+### {% data variables.product.prodname_vscode_shortname %} testing settings
 
-There are VS Code settings specific to testing that can be found by searching for 'testing' in the Settings editor (`kb(workbench.action.openSettings)`).
+There are {% data variables.product.prodname_vscode_shortname %} settings specific to testing that can be found by searching for 'testing' in the Settings editor (`kb(workbench.action.openSettings)`).
 
 ![Testing settings in the Settings editor](images/java-testing/settings.png)
 
@@ -227,5 +227,5 @@ If you are interested in providing feedback or contributing directly to the code
 
 Read on to find out about:
 
-- [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-- [Extensions for Java](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with {% data variables.product.prodname_vscode_shortname %}.
+- [Extensions for Java](/docs/java/extensions.md) - Learn about more useful Java extensions for {% data variables.product.prodname_vscode_shortname %}.

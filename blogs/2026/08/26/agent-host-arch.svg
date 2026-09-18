@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-labelledby="architecture-title architecture-desc">
+  <title id="architecture-title">VS Code clients, the Agent Host, and agent harnesses</title>
+  <desc id="architecture-desc">
+    The VS Code Agents Window and VS Code Editor Window connect to the Agent Host over AHP. The Agent Host
+    contains Copilot and Claude SDK adapters, each of which spawns its agent runtime as a child process.
+  </desc>
+
+  <style>
+    svg {
+      --diagram-bg: #fff;
+      --diagram-surface: #f6f6f7;
+      --diagram-border: #e2e2e3;
+      --diagram-blue-fill: #edf4ff;
+      --diagram-blue-border: #b8d2fb;
+      --diagram-blue: #3b82f6;
+      --diagram-blue-text: #2563eb;
+      --diagram-text: #5f6067;
+      --diagram-muted: #909096;
+      --diagram-muted-text: #686971;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    .surface {
+      fill: var(--diagram-surface);
+      stroke: var(--diagram-border);
+      stroke-width: 2;
+    }
+    .section-label {
+      fill: var(--diagram-muted-text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      letter-spacing: 0.14em;
+      text-anchor: middle;
+    }
+    .card {
+      fill: var(--diagram-bg);
+      stroke: var(--diagram-border);
+      stroke-width: 1.5;
+    }
+    .client-card,
+    .host-shell {
+      fill: var(--diagram-blue-fill);
+      stroke: var(--diagram-blue-border);
+    }
+    .host-shell {
+      stroke-width: 1.8;
+    }
+    .connector {
+      fill: none;
+      stroke: var(--diagram-muted);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .component-label {
+      fill: var(--diagram-text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .centered-label {
+      text-anchor: middle;
+    }
+    .protocol-label {
+      fill: var(--diagram-blue-text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .endpoint-icon {
+      fill: none;
+      stroke: var(--diagram-blue);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .endpoint-icon-fill {
+      fill: var(--diagram-blue);
+    }
+  </style>
+
+  <rect class="surface" x="1" y="1" width="798" height="278" rx="14" />
+
+  <!-- Connectors are painted first and stop 10px short of every component boundary. -->
+  <g aria-hidden="true">
+    <path class="connector" d="M244 128H286M253 120l-9 8 9 8M277 120l9 8-9 8" />
+    <path class="connector" d="M244 202H286M253 194l-9 8 9 8M277 194l9 8-9 8" />
+
+  </g>
+
+  <!-- Component shapes are painted over the connector layer so boundaries remain uninterrupted. -->
+  <g>
+    <rect class="card client-card" x="20" y="96" width="220" height="64" rx="11" />
+    <rect class="card client-card" x="20" y="170" width="220" height="64" rx="11" />
+
+    <rect class="host-shell" x="290" y="54" width="220" height="200" rx="13" />
+    <rect class="card" x="310" y="96" width="180" height="64" rx="11" />
+    <rect class="card" x="310" y="170" width="180" height="64" rx="11" />
+
+    <rect class="card" x="560" y="96" width="220" height="64" rx="11" />
+    <rect class="card" x="560" y="170" width="220" height="64" rx="11" />
+  </g>
+
+  <!-- Clean ports let SDK-to-runtime connectors pass through the host process boundary. -->
+  <g aria-hidden="true">
+    <rect x="507" y="117" width="6" height="22" fill="var(--diagram-blue-fill)" />
+    <rect x="507" y="191" width="6" height="22" fill="var(--diagram-blue-fill)" />
+    <path class="connector" d="M494 128H556M503 120l-9 8 9 8M547 120l9 8-9 8" />
+    <path class="connector" d="M494 202H556M503 194l-9 8 9 8M547 194l9 8-9 8" />
+  </g>
+
+  <!-- Labels and icons are the final paint layer. -->
+  <g>
+    <text class="section-label" x="400" y="36">HOST</text>
+    <text class="section-label" x="130" y="36">CLIENTS</text>
+    <text class="section-label" x="670" y="36">HARNESSES</text>
+
+    <text class="protocol-label" x="265" y="113">AHP</text>
+    <text class="protocol-label" x="265" y="187">AHP</text>
+
+    <text class="component-label centered-label" x="130" y="134">VS Code Agents Window</text>
+
+    <text class="component-label centered-label" x="130" y="208">VS Code Editor Window</text>
+
+    <g class="endpoint-icon" aria-hidden="true">
+      <rect x="314" y="66" width="16" height="5" rx="1.25" />
+      <rect x="314" y="77" width="16" height="5" rx="1.25" />
+      <circle class="endpoint-icon-fill" cx="326" cy="68.5" r="1.1" />
+      <circle class="endpoint-icon-fill" cx="326" cy="79.5" r="1.1" />
+    </g>
+    <text class="component-label" x="342" y="82">Agent Host process</text>
+
+    <text class="component-label centered-label" x="400" y="134">Copilot SDK</text>
+    <text class="component-label centered-label" x="400" y="208">Claude SDK</text>
+
+    <text class="component-label centered-label" x="670" y="134">Copilot runtime process</text>
+    <text class="component-label centered-label" x="670" y="208">Claude runtime process</text>
+  </g>
+</svg>

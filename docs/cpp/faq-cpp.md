@@ -1,7 +1,7 @@
 ---
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
 DateApproved: 1/17/2023
-MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
+MetaDescription: Frequently asked questions about the C/C++ extension in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 ---
@@ -29,7 +29,7 @@ Or, if you install a build system extension that interfaces with our extension, 
 
 A third option for projects without build system extension support is to use a [compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
 
-**Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the **Problems** window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
+**Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the **Problems** window in {% data variables.product.prodname_vscode_shortname %}, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
 ## What is the difference between includePath and browse.path?
 
@@ -51,11 +51,11 @@ The most common reason for this is missing include paths and defines. The easies
 
 ## How do I get the new IntelliSense to work with MinGW on Windows?
 
-See [Get Started with C++ and Mingw-w64 in Visual Studio Code](/docs/cpp/config-mingw.md).
+See [Get Started with C++ and Mingw-w64 in {% data variables.product.prodname_vscode %}](/docs/cpp/config-mingw.md).
 
 ## How do I get the new IntelliSense to work with the Windows Subsystem for Linux?
 
-See [Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code](/docs/cpp/config-wsl.md).
+See [Get Started with C++ and Windows Subsystem for Linux in {% data variables.product.prodname_vscode %}](/docs/cpp/config-wsl.md).
 
 ## Why are my files corrupted on format?
 
@@ -69,13 +69,13 @@ Starting in version 0.12.3 of the extension, there is a command to reset your In
 
 The language server caches information about included header files to improve the performance of IntelliSense. When you edit C/C++ files in your workspace folder, the language server will store cache files in the `ipch` folder. By default, the `ipch` folder is stored under the user directory. Specifically, it is stored under `%LocalAppData%/Microsoft/vscode-cpptools` on Windows, `$XDG_CACHE_HOME/vscode-cpptools/` on Linux (or `$HOME/.cache/vscode-cpptools/` if `XDG_CACHE_HOME` is not defined), and `$HOME/Library/Caches/vscode-cpptools/` on macOS. By using the user directory as the default path, it will create one cache location per user for the extension. As the cache size limit is applied to a cache location, having one cache location per user will limit the disk space usage of the cache to that one folder for everyone using the default setting value.
 
-VS Code per-workspace storage folders were not used because the location provided by VS Code is not well known and we didn't want to write GB's of files where users may not see them or know where to find them.
+{% data variables.product.prodname_vscode_shortname %} per-workspace storage folders were not used because the location provided by {% data variables.product.prodname_vscode_shortname %} is not well known and we didn't want to write GB's of files where users may not see them or know where to find them.
 
 With this in mind, we knew that we would not be able to meet the needs of every different development environment, so we provided settings to allow you to customize the way that works best for your situation.
 
 ### `"C_Cpp.intelliSenseCachePath": <string>`
 
-This setting allows you to set workspace or global overrides for the cache path. For example, if you want to share a single cache location for all workspace folders, open the VS Code settings, and add a User setting for **IntelliSense Cache Path**.
+This setting allows you to set workspace or global overrides for the cache path. For example, if you want to share a single cache location for all workspace folders, open the {% data variables.product.prodname_vscode_shortname %} settings, and add a User setting for **IntelliSense Cache Path**.
 
 ### `"C_Cpp.intelliSenseCacheSize": <number>`
 

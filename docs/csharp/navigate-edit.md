@@ -1,15 +1,15 @@
 ---
 ContentId: 2061194e-c34d-4ab0-a135-088bee575314
 DateApproved: 6/6/2023
-MetaDescription: C# language features such as Go to Definition and Smart selection in Visual Studio Code
+MetaDescription: C# language features such as Go to Definition and Smart selection in {% data variables.product.prodname_vscode %}
 ---
 # Navigate and Edit
 
-The navigation and editing tools described in this overview are enabled by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension, a lightweight extension to enhance your C# development experience in Visual Studio Code.
+The navigation and editing tools described in this overview are enabled by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension, a lightweight extension to enhance your C# development experience in {% data variables.product.prodname_vscode %}.
 
 ## Code Navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate the members within the current file. Installing the C# Dev Kit extension also gives you the [Solution Explorer view](/docs/csharp/project-management.md). This view helps you add, manage, and modify your projects contained within a larger solution without switching between the command line and the editor.
+With the [Outline view](/docs/editing/getting-started/userinterface.md#outline-view), you can conveniently navigate the members within the current file. Installing the C# Dev Kit extension also gives you the [Solution Explorer view](/docs/csharp/project-management.md). This view helps you add, manage, and modify your projects contained within a larger solution without switching between the command line and the editor.
 
 ## Go To Definition
 
@@ -45,7 +45,7 @@ To better view the source code, hover over the editor gutter to collapse or expa
 
 ## Smart selection
 
-With [smart selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
+With [smart selection](/updates/v1_33.md#smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
 
 * To expand the selection, use `kb(editor.action.smartSelect.expand)`
 * To shrink the selection, use `kb(editor.action.smartSelect.shrink)`

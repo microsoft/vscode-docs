@@ -1,11 +1,11 @@
 ---
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
 DateApproved: 12/1/2023
-MetaDescription: Tools for developing and debugging with containers, using Visual Studio Code.
+MetaDescription: Tools for developing and debugging with containers, using {% data variables.product.prodname_vscode %}.
 ---
-# Containers in Visual Studio Code
+# Containers in {% data variables.product.prodname_vscode %}
 
-The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code and includes agent tools.
+The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in {% data variables.product.prodname_vscode %}.
 
 This page provides an overview of the Container Tools extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with container development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker/tutorials/docker-tutorial) first to understand key Docker concepts.
 
@@ -13,7 +13,7 @@ This page provides an overview of the Container Tools extension capabilities; us
 
 [Install Docker](https://docs.docker.com/install/) on your machine and add it to the system path.
 
-On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run VS Code.
+On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run {% data variables.product.prodname_vscode_shortname %}.
 
 To install the extension, open the Extensions view (`kb(workbench.view.extensions)`), search for `container tools` to filter results and select the Container Tools extension authored by Microsoft.
 
@@ -27,16 +27,6 @@ You can get [IntelliSense](/docs/editing/intellisense.md) by clicking `kb(editor
 
 In addition, you can use the Problems panel (`kb(workbench.actions.view.problems)`) to view common errors for `Dockerfile` and `docker-compose.yml` files.
 
-## Copilot tools for containers
-
-Container Tools includes agent tools for managing containers and images in chat.
-
-* **Ask about your containers and images**: "Show me my running containers", "List my Docker images"
-* **Get details about specific containers or images**: "What's going on with my nginx container?"
-
-![Container Tools Copilot](images/overview/chat.png)
-
-
 ## Generating Docker files
 
 You can add Docker files to your workspace by opening the Command Palette (`kb(workbench.action.showCommands)`) and using **Containers: Add Docker Files to Workspace** command. The command will generate `Dockerfile` and `.dockerignore` files and add them to your workspace. The command will also ask you if you want to add Docker Compose files as well, but this is optional.
@@ -45,7 +35,7 @@ The extension can scaffold Docker files for most popular development languages (
 
 ## Container Explorer
 
-The Container Tools extension contributes a Container Explorer view to VS Code. The Container Explorer lets you examine and manage container assets: containers, images, volumes, networks, and container registries. If you are signed in to your Microsoft account and it has access to Azure subscriptions, you can browse your Azure Container Registries as well.
+The Container Tools extension contributes a Container Explorer view to {% data variables.product.prodname_vscode_shortname %}. The Container Explorer lets you examine and manage container assets: containers, images, volumes, networks, and container registries. If you are signed in to your Microsoft account and it has access to Azure subscriptions, you can browse your Azure Container Registries as well.
 
 The right-click menu provides access to commonly used commands for each type of asset.
 
@@ -87,7 +77,7 @@ You can display the content and push, pull, or delete images from [Azure Contain
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 
-An image in an Azure Container Registry can be deployed to Azure App Service or Azure Container Apps directly from VS Code. See [Deploy to Azure](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
+An image in an Azure Container Registry can be deployed to Azure App Service or Azure Container Apps directly from {% data variables.product.prodname_vscode_shortname %}. See [Deploy to Azure](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
 ## Debugging services running inside a container
 

@@ -1,0 +1,26 @@
+# Contains versioned and unversioned variables for all of our product names
+
+# Visual Studio Code
+prodname_vscode_shortname: 'VS Code'
+prodname_vscode: 'Visual Studio Code'
+
+prodname_vs_marketplace: 'Visual Studio Marketplace'
+prodname_vs_marketplace_shortname: 'VS Marketplace'
+
+prodname_github_docs: 'GitHub Docs'
+
+# Codespaces
+prodname_codespaces: 'Codespaces'
+prodname_github_codespaces: 'GitHub Codespaces'
+
+# GitHub Copilot (product)
+prodname_copilot: 'GitHub Copilot'
+prodname_copilot_short: 'Copilot'
+
+# OpenAI Codex
+prodname_openai_codex: 'OpenAI Codex'
+
+# Anthropic Claude
+prodname_anthropic_claude: 'Anthropic Claude'
+
+prodname_github: 'GitHub'

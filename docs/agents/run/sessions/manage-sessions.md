@@ -1,0 +1,345 @@
+---
+ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
+DateApproved: 9/16/2026
+MetaDescription: Create, orchestrate, and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, archiving, and forking.
+MetaSocialImage: ../../../images/shared/github-copilot-social.png
+---
+# Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
+
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to manage session context, conversations, history, and organization across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
+
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
+
+</div>
+
+## Start an agent session
+
+Each agent session has its own conversation, context window, workspace, and configuration. Start a new session when you begin an independent task or change topics, so the agent works with focused context.
+
+Choose the surface that matches your workflow:
+
+* Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) for a workspace-scoped, code-first session beside the editor.
+* Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) to start and monitor sessions across workspaces, attach related projects or GitHub items, or start from an existing pull request.
+
+The surfaces share the same underlying sessions, so you can switch between them after you start. To compare all agent interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
+
+## Manage session context
+
+The context window control in the chat input shows how much of the model's context window the session is using. Hover over the control to see the token count, a usage breakdown by category, and the total AI credits consumed by the session.
+
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
+
+As the conversation grows, the control updates to reflect increasing context usage. The available context depends on the selected model.
+
+How context changes across turns also affects prompt caching. Stable context lets the model provider reuse tokens from earlier requests, which lowers cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check your cache hit rate.
+
+### Compact conversation context
+
+Context compaction summarizes earlier conversation history to free space in the context window. Compaction lets you continue the same session with less irrelevant history and reduces the tokens sent with subsequent requests.
+
+{% data variables.product.prodname_vscode_shortname %} automatically compacts the conversation when the context window fills. To turn off automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
+
+To compact the conversation manually:
+
+* Type `/compact` in the chat input. Optionally, add instructions for what the summary should retain, for example `/compact focus on the database schema decisions`.
+* Select the context window control, and then select **Compact Conversation**.
+
+Manual compaction is available for local, background, and Claude agent sessions. To reset the context entirely, [start a new session](#start-an-agent-session).
+
+Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
+
+## Run multiple chats in a session
+
+In an agent host session, you can run multiple chats in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. By default, chats open as tabs in one group. Arrange chats in multiple groups to view them side by side or stacked vertically.
+
+A new chat starts blank and doesn't inherit the history of the other chats. This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
+
+If you want to move context from the main chat to a new chat, you might opt to [fork the session](#fork-a-chat-session) instead. Forking preserves the conversation history.
+
+To create and manage chats in a session:
+
+1. In an active session, select **+ New Chat** in the session header, or press `kb(sessions.chatCompositeBar.addChat)`.
+
+    ![Screenshot showing a new chat tab alongside an existing chat in the {% data variables.copilot.agents_window %}.](../../images/agents-window/agents-window-new-subsession.png)
+
+    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
+
+1. To add more chats, select the trailing **+** in the tab strip.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the chat.
+
+Use the chat tabs and their context menus to:
+
+* **Switch chats**: select a tab to show its conversation. Progress and unread indicators apply to that chat.
+* **Choose an agent or model**: use the controls in each chat. Sibling chats can use different agents or models.
+* **Track changes**: the session remains in progress while any chat is working. The session header **Changes** pill combines edits from all chats.
+* **Rename a chat**: select **Rename** from the tab's context menu. Chat titles are independent of the session title.
+* **Close or reopen a chat**: close a tab to hide it without deleting it. Use the **Chats** dropdown to show or hide chats, or press `kb(sessions.chatCompositeBar.reopenLastClosedChat)` to reopen the most recently closed chat.
+* **Delete a chat**: select **Delete Chat** from the tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while the chat has focus. Deletion is permanent.
+
+To arrange chats in multiple groups:
+
+* Drag a chat tab to the center of another group to move it into that group.
+* Drag a chat tab to the left, right, top, or bottom edge of a group to create a group in that direction.
+* Run **Sessions: Split Chat Group Right**, **Sessions: Split Chat Group Down**, **Sessions: Move Chat to Previous Group**, or **Sessions: Move Chat to Next Group** from the Command Palette (`kb(workbench.action.showCommands)`) to arrange chats with the keyboard.
+* Press `kb(sessions.focusPreviousChatGroup)` or `kb(sessions.focusNextChatGroup)` to move keyboard focus between groups.
+
+When you close or move the last chat in a group, the empty group closes and the remaining groups expand to fill the available space.
+
+Visible and hidden chats, including their conversation history, are restored when you reload the window and reopen the session. Chat group assignments, active chats, and split sizes are also restored when you switch sessions or reload the window.
+
+> [!NOTE]
+> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
+
+To practice separating and monitoring independent work, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
+## Ask side questions
+
+Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens in a group beside the source chat, so both conversations remain visible. It privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.
+
+Start a side chat in one of these ways:
+
+* Type `/btw <question>` in the chat input. The side chat branches from the latest turn, including a response that is still in progress.
+* Select text in a chat response, enter a question in the **Ask Question** input, and press `kbstyle(Enter)`. The selected text and its response become context for the side chat.
+
+Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but inherited messages remain hidden from its transcript.
+
+![Screenshot showing how to start a side chat in the {% data variables.copilot.agents_window %} from selected response text.](../../images/agents-window/agents-window-side-chat.png)
+
+> [!NOTE]
+> Side chats are available only in the {% data variables.copilot.agents_window %} for Copilot and Claude sessions. They aren't available for Codex sessions or in the {% data variables.copilot.chat_view %}.
+
+## Sessions list
+
+The sessions list is your central hub for managing all your chat sessions, regardless of where you started them or where they are running. The sessions list shows your sessions with information about their status, type, and file changes.
+
+![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](../../images/chat-sessions/chat-view-sessions-list.png)
+
+Hover over a session to see actions for pinning or [archiving](#archive-sessions) it. Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific to the session's harness and state. For example, you can check out a pull request for a cloud session.
+
+Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
+
+{% tabs id="chat-surface" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
+
+In the **{% data variables.copilot.agents_window %}**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
+
+![Screenshot of the sessions list in the {% data variables.copilot.agents_window %}, showing multiple sessions with different harnesses and file change stats.](../../images/chat-sessions/agents-window-sessions-list.png)
+
+By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
+
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the {% data variables.copilot.agents_window %}, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+
+To organize the sessions list in the {% data variables.copilot.agents_window %}:
+
+1. Create a custom group from the sessions list controls.
+
+1. Drag one or more sessions onto the group. An insertion line shows where the sessions land.
+
+1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
+
+You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
+
+You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the {% data variables.copilot.agents_window %} or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
+
+{% /tab %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
+
+In the **{% data variables.copilot.chat_view %}**, the sessions list is scoped to your current workspace and groups sessions by time period, such as **Today** or **Last Week**. If you don't have a workspace open, the list shows all sessions across your workspaces.
+
+By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
+
+To hide the session list from the {% data variables.copilot.chat_view %}, right-click in an empty chat and unselect **Show Sessions** or use the `setting(chat.viewSessions.enabled)` setting.
+
+The {% data variables.copilot.chat_view %} operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode by using the toggle control in the top-right corner of the {% data variables.copilot.chat_view %}.
+
+* **Compact**: The list of sessions is embedded in the {% data variables.copilot.chat_view %}. When you select a session from the list, the {% data variables.copilot.chat_view %} switches to that session. Use the back button to return to the sessions list.
+
+* **Side-by-side**: The list of sessions is shown side-by-side with the {% data variables.copilot.chat_view %}. Select a session from the list to view its details in the {% data variables.copilot.chat_view %}. You can further configure the orientations with the `setting(chat.viewSessions.orientation)` setting.
+
+> [!NOTE]
+> Extension developers can learn how to integrate with the sessions view by using the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
+
+{% /tab %}
+{% /tabs %}
+
+### View sessions from other applications
+
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
+For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
+
+By default, sessions created in other applications are hidden. To control which sessions appear, open the sessions list filter, select **External**, and choose one of these options:
+
+* **None**: hide all external sessions.
+* **Recent**: show the two most recently updated external sessions from the last seven days.
+* **Last 24 Hours**: show external sessions updated within the last 24 hours.
+* **Last 7 Days**: show external sessions updated within the last seven days.
+* **All**: show all discovered external sessions.
+
+The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
+
+When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
+
+When you send a message in an external session, the Agent Host adopts it. The session is no longer external, so the **External** filter no longer affects its visibility.
+
+## Archive sessions
+
+To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
+
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
+
+To archive a session, hover over the session in the sessions list and select the **Archive** ({% data variables.copilot.chat_view %}) or **Mark as Done** ({% data variables.copilot.agents_window %}) option.
+
+![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
+
+To view your archived sessions, use the filter options in the sessions list and select the **Archived** ({% data variables.copilot.chat_view %}) or **Done** ({% data variables.copilot.agents_window %}) filter.
+
+## Delete sessions
+
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
+
+If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
+
+> [!CAUTION]
+> Deleting a session is irreversible. Integrate or commit worktree changes before you delete the session because uncommitted files that exist only in a removed worktree can be lost. If you only want to hide a session, [archive](#archive-sessions) it instead.
+
+## Automatically clean up merged sessions
+
+`feature(automatic-session-cleanup)`
+
+Configure automatic cleanup to keep inactive Agent Host sessions from accumulating after their pull requests merge. Both settings are disabled by default:
+
+* `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` controls how many inactive days pass before an eligible session is automatically marked as done.
+* `setting(chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays)` controls the separate grace period between automatically marking an eligible session as done and permanently deleting it.
+
+Set each setting to a positive whole number of days. The recommended value is `15`. Set a setting to `0` to disable that part of the cleanup lifecycle.
+
+A session is eligible when it isn't in progress, its last-modified time exceeds the configured threshold, it has at least one merged pull request, and none of its related pull requests are open. External sessions aren't eligible. {% data variables.product.prodname_vscode_shortname %} checks for eligible sessions when it starts and every hour while either setting is enabled.
+
+Permanent deletion applies only to sessions that {% data variables.product.prodname_vscode_shortname %} automatically marked as done. Sessions that you mark as done manually aren't deleted automatically. Restoring an automatically completed session clears its deletion eligibility.
+
+When cleanup marks a session as done or deletes it, {% data variables.product.prodname_vscode_shortname %} removes the session worktree only when the branch tracks an upstream and has no outgoing commits or uncommitted changes. If Git state is unknown or the worktree doesn't meet these conditions, the worktree is retained. Cleanup never force-removes a worktree.
+
+When a merged pull request makes a session eligible, select **Configure Automatic Cleanup** from the **Mark as Done** suggestion to open both settings without enabling them.
+
+## Fork a chat session
+
+Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
+
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+
+For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
+
+Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
+
+There are two ways to fork a chat session:
+
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. The fork opens with the full conversation history copied from the current session.
+
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
+
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the {% data variables.copilot.chat_view %}.](../../images/chat-checkpoints/chat-fork-conversation.png)
+
+> [!TIP]
+> A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
+
+## Orchestrate sessions from agent host sessions
+
+In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#process-architecture).
+
+With these tools, an agent can:
+
+* List your sessions and inspect metadata like status, workspace, and file changes.
+* Create a new session for a sub-task, or create a new chat in an existing session.
+* Read recent conversation context from another session before continuing work.
+* Send a message to another session or chat to start or steer a follow-up task.
+
+You can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
+
+```prompt
+Create a session in the vscode workspace to run the tests.
+```
+
+If multiple workspaces have the same project name, the agent reports the possible matches instead of choosing one. Session-management tools also support remote workspace URIs and preserve the project URI and working directories for multi-root workspaces.
+
+When a tool creates or targets a session, {% data variables.product.prodname_vscode_shortname %} shows an **Open Session** pill in chat so you can jump directly to it.
+
+To keep this workflow safe and predictable:
+
+* Sending a message to another session always requires your confirmation.
+* Agents cannot send messages to the same chat they are currently running in.
+* Burst sends are capped to avoid unbounded fan-out.
+* Archived sessions are excluded from listings unless explicitly requested.
+
+## Save and export chat sessions
+
+You can save chat sessions to preserve important conversations or reuse them later for similar tasks.
+
+### Export a chat session as a JSON file
+
+You can export a chat session to save it for later reference or share it with others. Exporting a chat session creates a JSON file that contains all prompts and responses from the session.
+
+To export a chat session:
+
+1. Open the chat session you want to export in the {% data variables.copilot.chat_view %}.
+
+1. Run the **Chat: Export Chat...** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Choose a location to save the JSON file.
+
+### Copy chat messages as Markdown
+
+The {% data variables.copilot.chat_view %} supports different options for copying chat messages as Markdown to the clipboard, available through the context menu when you right-click a message or the chat background.
+
+* **Copy**: Copy an individual prompt or response to the clipboard - the Markdown contains the response text, thinking steps, and tool calls.
+
+* **Copy All**: Copy the entire chat session in Markdown format, including all prompts, responses, thinking steps, and tool calls.
+
+* **Copy Final Response**: Copy just the final Markdown section of the agent's response, after the last tool call. This is useful for sharing or reusing the final output without the intermediate steps.
+
+## Monitor sessions from the application icon (Preview)
+
+The application icon can show how many unarchived sessions in the {% data variables.copilot.agents_window %} need your attention. The badge appears on the dock icon on macOS, the launcher icon on Linux, or the taskbar icon on Windows.
+
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} application icon with a badge count of one in the Windows taskbar.](../../images/agents-overview/application-icon-session-badge.png)
+
+The badge counts sessions that:
+
+* Have unread results and are no longer in progress.
+* Are waiting for your input.
+* Have failing CI checks on an open, non-draft pull request and are no longer in progress.
+
+Unread sessions that are still in progress aren't included. The count updates as sessions change state. Reading or archiving a session removes it from the count when it no longer needs your attention.
+
+Use the `setting(sessions.showApplicationBadge)` setting to control the application badge. The setting defaults to `true` in Insiders and `false` in Stable.
+
+## Session status indicator (Experimental)
+
+The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
+
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../../images/agents-overview/agent-status-indicator-v2.png)
+
+The indicator shows:
+
+* **Unread sessions badge**: shows the count of chat sessions with new messages. Select the badge to filter the sessions list to show only unread sessions.
+* **In-progress sessions badge**: shows the count of sessions with running agents. Select the badge to filter the sessions list to show only in-progress sessions.
+* **Sparkle icon**: provides quick access to chat and session management options.
+
+You can configure the status indicator's visibility by using the `setting(chat.agentsControl.enabled)` setting.
+
+## View sessions on the {% data variables.product.prodname_vscode_shortname %} welcome page
+
+The {% data variables.product.prodname_vscode_shortname %} welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+
+To configure the {% data variables.product.prodname_vscode_shortname %} welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
+
+## Related resources
+
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
+* [Agents overview](/docs/agents/overview.md)
+* [Add context to chat](/docs/chat/copilot-chat-context.md)
+* [Best practices for using AI](/docs/agents/best-practices.md)

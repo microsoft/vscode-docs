@@ -1,11 +1,11 @@
 ---
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
 DateApproved: 12/22/2021
-MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
+MetaDescription: Spring Boot extensions for Java developer using {% data variables.product.prodname_vscode %} editor.
 ---
-# Spring Boot in Visual Studio Code
+# Spring Boot in {% data variables.product.prodname_vscode %}
 
-Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
+{% data variables.product.prodname_vscode %} is an ideal lightweight development environment for Spring Boot application developers and there are several useful {% data variables.product.prodname_vscode_shortname %} extensions including:
 
 * [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
@@ -17,7 +17,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Prerequisites
 
-To develop a Spring Boot application in Visual Studio Code, you need to install the following:
+To develop a Spring Boot application in {% data variables.product.prodname_vscode %}, you need to install the following:
 
 * [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
@@ -35,7 +35,7 @@ To help get you started with Java Spring Boot development, you can use the [Java
 
 The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to search for dependencies and generate new Spring Boot projects.
 
-To install, launch VS Code and from the Extensions view (`kb(workbench.view.extensions)`), search for `vscode-spring-initializr`.
+To install, launch {% data variables.product.prodname_vscode_shortname %} and from the Extensions view (`kb(workbench.view.extensions)`), search for `vscode-spring-initializr`.
 
 Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
 
@@ -82,6 +82,6 @@ In addition to using `kb(workbench.action.debug.start)` to run your application,
 ## Next steps
 
 * [Java Spring profile template](/docs/configure/profiles.md#java-spring-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
-* To deploy your web app, see [Java Web Apps with VS Code](/docs/java/java-webapp.md).
-* To containerize a web app and deploy as a Docker container, check out [Docker in VS Code](/docs/containers/overview.md).
+* To deploy your web app, see [Java Web Apps with {% data variables.product.prodname_vscode_shortname %}](/docs/java/java-webapp.md).
+* To containerize a web app and deploy as a Docker container, check out [Docker in {% data variables.product.prodname_vscode_shortname %}](/docs/containers/overview.md).
 * To learn more about Java debugging features, see [Running and debugging Java](/docs/java/java-debugging.md).

@@ -1,17 +1,17 @@
 ---
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
-DateApproved: 12/10/2025
-MetaDescription: Additional info for using task runners in Visual Studio Code.
+DateApproved: 9/16/2026
+MetaDescription: Additional info for using task runners in {% data variables.product.prodname_vscode %}.
 ---
 # Appendix
 
-This is additional information for Visual Studio Code [tasks](/docs/debugtest/tasks.md).
+This is additional information for {% data variables.product.prodname_vscode %} [tasks](/docs/debugtest/tasks.md).
 
 ## Schema for tasks.json
 
 The following interfaces define the basic schema of the `tasks.json` file.
 
->**Note**: Some task options are contributed by VS Code extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
+>**Note**: Some task options are contributed by {% data variables.product.prodname_vscode_shortname %} extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
 ```typescript
 
@@ -44,13 +44,13 @@ interface BaseTaskConfiguration {
      * The type of a custom task. Tasks of type "shell" are executed
      * inside a shell (e.g. bash, cmd, powershell, ...)
      */
-    type: "shell" | "process";
+    type?: "shell" | "process";
 
     /**
      * The command to be executed. Can be an external program or a shell
      * command.
      */
-    command: string;
+    command?: string;
 
     /**
      * Specifies whether a global command is a background task.
@@ -136,13 +136,13 @@ interface TaskDescription {
      * The type of a custom task. Tasks of type "shell" are executed
      * inside a shell (e.g. bash, cmd, powershell, ...)
      */
-    type: "shell" | "process";
+    type?: "shell" | "process";
 
     /**
      * The command to execute. If the type is "shell" it should be the full
      * command line including any additional arguments passed to the command.
      */
-    command: string;
+    command?: string;
 
     /**
      * Whether the executed command is kept alive and runs in the background.
@@ -240,8 +240,8 @@ interface ProblemMatcher {
     base?: string;
 
     /**
-     * The owner of the produced VS Code problem. This is typically
-     * the identifier of a VS Code language service if the problems are
+     * The owner of the produced {% data variables.product.prodname_vscode_shortname %} problem. This is typically
+     * the identifier of a {% data variables.product.prodname_vscode_shortname %} language service if the problems are
      * to be merged with the one produced by the language service
      * or 'external'. Defaults to 'external' if omitted.
      */
@@ -254,7 +254,7 @@ interface ProblemMatcher {
     source?: string;
 
     /**
-     * The severity of the VS Code problem produced by this problem matcher.
+     * The severity of the {% data variables.product.prodname_vscode_shortname %} problem produced by this problem matcher.
      *
      * Valid values are:
      *   "error": to produce errors.
@@ -319,12 +319,26 @@ interface BackgroundMatcher {
     /**
      * If matched in the output the start of a background task is signaled.
      */
-    beginsPattern?: string;
+    beginsPattern?: string | WatchingPattern;
 
     /**
      * If matched in the output the end of a background task is signaled.
      */
-    endsPattern?: string;
+    endsPattern?: string | WatchingPattern;
+}
+
+interface WatchingPattern {
+
+    /**
+     * The regular expression to detect the begin or end of a background task.
+     */
+    regexp?: string;
+
+    /**
+     * The match group index of the filename. If provided, the expression
+     * is matched for that file only.
+     */
+    file?: number;
 }
 
 interface ProblemPattern {

@@ -3,7 +3,7 @@ Order: 100
 TOCTitle: Enhance productivity with AI + Remote Dev
 PageTitle: "Enhance productivity with AI + Remote Dev"
 MetaDescription: Enhance your developer productivity with AI and Remote Development.
-MetaSocialImage: ai-remote-development-social.png
+MetaSocialImage: ai-remote-development-social.webp
 Date: 2025-05-27
 Author: Brigit Murtaugh, Christof Marti, Josh Spicer, Olivia Guzzardo McVicker
 ---
@@ -18,7 +18,7 @@ Now combine those capabilities with the flexibility and power of AI in VS Code, 
 
 In this blog, we'll explore how your existing remote setups can be enhanced to "just work" with AI, along with some more customized AI + remote workflows that include custom instructions, chat participants, and agent auto-approvals.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/ErYP9LRo7e0?si=1zYHow_2ivCc0jzd" title="AI and Remote Development in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch AI and Remote Development in VS Code on YouTube (opens in new tab).](youtube-ErYP9LRo7e0.jpg)](https://www.youtube.com/watch?v=ErYP9LRo7e0)
 
 ## What is Remote Development?
 
@@ -29,7 +29,7 @@ When we describe VS Code Remote Development, we refer to five main experiences:
 * [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
 * [GitHub Codespaces](/docs/remote/codespaces.md) - Remote environments that are managed for you.
 
-![Remote architecture](architecture.png)
+![Remote architecture](architecture.webp)
 
 ## How can you use AI in a remote environment?
 
@@ -55,7 +55,7 @@ Here's an example instruction our team found helpful:
 This is a dev container that includes `python3` and `pip3` pre-installed and available on the `PATH`, along with the Python language extensions for Python development.
 ```
 
-To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/customization/overview.md) remotely that you were already using locally.
+To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/agent-customization/overview.md) remotely that you were already using locally.
 
 ## Configure AI for your dev container
 
@@ -65,19 +65,19 @@ Our team has taken steps to preconfigure custom instructions to make your life e
 
 * Create a new dev container configuration using one of our images or Features. You could do this by hand, or via the **Dev Containers: Add Dev Container Configuration Files...** command supplied by the [Dev Containers extension](https://marketplace.visualstudio.com/search?term=dev%20containers&target=VSCode&category=All%20categories&sortBy=Relevance):
 
-    ![Dev Containers: Add Dev Container Configuration Files command in VS Code Command Palette](add-dev-container-config-command.png)
+    ![Dev Containers: Add Dev Container Configuration Files command in VS Code Command Palette](add-dev-container-config-command.webp)
 
 * Follow the steps in the quick pick. For this example, we'll select the Python Template:
 
-    ![Select Python 3 dev container config in VS Code Command Palette](python-container.png)
+    ![Select Python 3 dev container config in VS Code Command Palette](python-container.webp)
 
 * Build and connect to your dev container in VS Code:
 
-    ![VS Code notification to reopen project in dev container](reopen-container-notif.png)
+    ![VS Code notification to reopen project in dev container](reopen-container-notif.webp)
 
 * The environment you've selected and are now connected to is based on [our Python Template](https://github.com/devcontainers/templates/tree/main/src/python), which [includes custom instructions via the Python Feature](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80). Try chatting with Copilot within your dev container - Copilot automatically pulls the custom instructions from the Python image!
 
-    ![AI chat using custom instructions](chat-using-instructions.png)
+    ![AI chat using custom instructions](chat-using-instructions.webp)
 
 In addition to using the custom instructions we've added to images and Features, you can add additional custom instructions to the `devcontainer.json` in your projects - we've made it so that custom instructions can merge successfully across images and Templates. You can use the `"github.copilot.chat.codeGeneration.instructions"` setting, just like what we did in the Python dev container config described above.
 
@@ -97,15 +97,15 @@ _Chat participants_ enhance your chat experience by providing domain-specific kn
 
 The Remote - SSH extension includes a Copilot chat participant. Ask `@remote-ssh` for help configuring or troubleshooting elements of your remote environment:
 
-![Using Remote - SSH participant in VS Code chat panel](remote-ssh-intro.png)
+![Using Remote - SSH participant in VS Code chat panel](remote-ssh-intro.webp)
 
 The participant is also knowledgeable about general SSH and remote development topics:
 
-![Asking Remote - SSH participant about remote auth](remote-ssh-auth.png)
+![Asking Remote - SSH participant about remote auth](remote-ssh-auth.webp)
 
 If a connection failure occurs, the **Diagnose with Copilot** feature provides a quick way to understand the problem:
 
-![Diagnose with Copilot option in notification](ssh-diagnose.png)
+![Diagnose with Copilot option in notification](ssh-diagnose.webp)
 
 Copilot will investigate the issue and provide actionable insights:
 
@@ -113,13 +113,13 @@ Copilot will investigate the issue and provide actionable insights:
 
 ## Run autonomous coding sessions safely in remote environments
 
-As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
+As part of completing the tasks for a user prompt, [agent mode](/docs/chat/chat-overview.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
-![Agent mode tool approval options dropdown](chat-tool-approval.png)
+![Agent mode tool approval options dropdown](chat-tool-approval.webp)
 
 In case you want to auto-approve _all_ tools, you can now use the experimental `chat.tools.autoApprove` setting. To give you some level of protection against inadvertent terminal commands or tool calls, you can choose to only set this in a dev container or remote machine to prevent your local dev machine from getting affected:
 
-![Auto Approve tool setting in VS Code remote settings](auto-approval.png)
+![Auto Approve tool setting in VS Code remote settings](auto-approval.webp)
 
 This will auto-approve all tools, and VS Code will not ask for confirmation when a language model wishes to run tools. This can help save time by giving more autonomy to agent mode, but bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
@@ -127,7 +127,7 @@ Note that remote environments that are part of your local machine (like dev cont
 
 ## What's Next
 
-We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/setup/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
+We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/remote/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
 
 Happy (smart and remote) coding!
 Brigit, Christof, Josh, and Olivia

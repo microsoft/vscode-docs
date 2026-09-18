@@ -1,0 +1,69 @@
+{
+  "getStarted": {
+    "title": "Get started with AI agents",
+    "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
+    "link": "/docs/agents/agents-tutorial",
+    "image": "/assets/docs/agents/getting-started/agent-mode-selection-2.png"
+  },
+  "featured": [
+    {
+      "icon": "codicon-lightbulb",
+      "title": "Optimize your AI usage",
+      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
+      "link": "/docs/agents/guides/optimize-usage"
+    },
+    {
+      "icon": "codicon-debug",
+      "title": "Test and debug with browser agents",
+      "description": "Let AI agents use the integrated browser to validate and fix issues in your application.",
+      "link": "/docs/agents/guides/browser-agent-testing-guide"
+    },
+    {
+      "icon": "codicon-settings-gear",
+      "title": "Customize AI for your project",
+      "description": "Configure custom instructions, skills, and MCP servers to tailor AI to your workflow.",
+      "link": "/docs/agent-customization/overview"
+    },
+    {
+      "icon": "codicon-tools",
+      "title": "Set up VS Code",
+      "description": "Install VS Code on Windows, macOS, or Linux and get running.",
+      "link": "/docs/getstarted/overview"
+    },
+    {
+      "icon": "codicon-mortar-board",
+      "title": "Learn VS Code basics",
+      "description": "Explore the editor, settings, extensions, and key features.",
+      "link": "/docs/editing/getting-started/editor-tutorial"
+    },
+    {
+      "icon": "codicon-organization",
+      "title": "VS Code for enterprise",
+      "description": "Learn how to configure VS Code for enterprise environments with policies, extension management, and AI customization options.",
+      "link": "/docs/enterprise/overview"
+    }
+  ],
+  "latest": [
+    {
+      "type": "release",
+      "title": "VS Code 1.138 release",
+      "description": "Run agent sessions in Dev Containers, continue Codex sessions across apps and subscriptions, and automatically clean up sessions after pull requests merge.",
+      "link": "/updates/v1_138",
+      "image": "/assets/updates/1_138/release-highlights.webp"
+    },
+    {
+      "type": "documentation",
+      "title": "Agent harness concepts",
+      "description": "Understand the core concepts and how to use different types of harnesses within VS Code.",
+      "link": "/docs/agents/concepts/agent-harnesses",
+      "image": "/assets/docs/agents/agent-harnesses/agents-window-session-target.png"
+    },
+    {
+      "type": "blog",
+      "title": "Introducing the Agent Host",
+      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
+      "link": "/blogs/2026/08/26/agent-host-architecture",
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
+    }
+  ]
+}

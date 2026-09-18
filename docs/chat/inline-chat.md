@@ -1,0 +1,99 @@
+---
+ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
+DateApproved: 9/16/2026
+MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for targeted editor changes, terminal command suggestions, and short AI interactions.
+MetaSocialImage: ../images/shared/github-copilot-social.png
+---
+# Inline chat and Quick Chat
+
+Inline chat and Quick Chat provide lightweight ways to interact with AI without opening the full {% data variables.copilot.chat_view %}. Use inline chat to generate code or make edits directly in the editor, or to get help with shell commands in the integrated terminal. Use Quick Chat for short questions and interactions.
+
+Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) instead.
+
+## Use editor inline chat
+
+When you use editor inline chat, your prompt is scoped to the code in the active editor. Inline chat might use the content from other files in your workspace as context for your prompt.
+
+To use editor inline chat:
+
+1. Open a file in the editor.
+
+1. Open editor inline chat by using the `kb(inlinechat.start)` keyboard shortcut or by selecting **Open Inline Chat** from the Chat menu in the title bar.
+
+1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
+
+    ![Screenshot showing the inline chat control.](images/copilot-chat/inline-chat-control.png)
+
+    > [!TIP]
+    > Select a block of code in the editor to scope the prompt to that code.
+
+1. {% data variables.product.prodname_vscode_shortname %} shows a diff with the code suggestion inline in the editor. Use **Keep** or **Undo** to accept or reject the changes.
+
+    ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-recursion.png)
+
+### Inline chat in active editing sessions
+
+When a file belongs to an active chat editing session, pressing `kb(inlinechat.start)` opens "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
+
+To always use regular inline chat, even for files that belong to a chat session, set `setting(inlineChat.askInChat)` to `false`.
+
+On files that don't belong to any chat session, `kb(inlinechat.start)` always opens regular inline chat, regardless of this setting.
+
+### Show a visual hint on text selection (Experimental)
+
+When you select text in the editor, {% data variables.product.prodname_vscode_shortname %} can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
+
+* `off`: no hint is shown when you select text
+* `gutter`: the hint appears in the line number area next to your selection
+* `editor`: the hint appears at the cursor position within your selection, integrated with the lightbulb for code actions
+
+![Screenshot showing the inline chat hint in the gutter when text is selected in the editor.](images/copilot-chat/inline-chat-hint-gutter.png)
+
+The hint displays an inline chat input box and actions for adding the selection to chat, explaining the code, and starting a code review of the selection.
+
+> [!NOTE]
+> This feature is experimental and works with the `setting(inlineChat.renderMode)` setting set to `hover`.
+
+## Use terminal inline chat
+
+You can bring up terminal inline chat in the [integrated terminal](/docs/terminal/basics.md) to get help with shell commands or ask terminal-related questions.
+
+To use terminal inline chat:
+
+1. Open the terminal in {% data variables.product.prodname_vscode_shortname %} by selecting the **View** > **Terminal** menu item or using the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+
+1. Start terminal inline chat by using the `kb(workbench.action.terminal.chat.start)` keyboard shortcut or running the **Terminal Inline Chat** command in the Command Palette.
+
+1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
+
+    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/copilot-chat/terminal-chat.png)
+
+1. Review the response and select the **Run** (`kb(workbench.action.terminal.chat.runCommand)`) to run the command in the terminal
+
+    Alternatively, select **Insert** (`kb(workbench.action.terminal.chat.insertCommand)`) to insert the command into the terminal and modify it before running.
+
+## Change the model for inline chat
+
+You can change the language model that is used for editor inline chat. To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload {% data variables.product.prodname_vscode_shortname %}, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+
+Learn more about [choosing the right model for your task](/docs/agents/concepts/language-models.md#choose-the-right-model).
+
+## Use Quick Chat
+
+Quick Chat provides a lightweight chat panel that opens at the top of the editor. Use it for quick questions and short interactions without opening the full {% data variables.copilot.chat_view %} or leaving your current workflow.
+
+> [!NOTE]
+> Quick Chat in the editor window differs from [quick chats in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-a-quick-chat), which are workspace-free conversations that appear in the sessions list.
+
+To open Quick Chat, press `kb(workbench.action.quickchat.toggle)` or select **Quick Chat** from the **Chat** menu in the title bar.
+
+Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat supports the same `#`-mentions and `@`-mentions as the {% data variables.copilot.chat_view %} for adding context. Select the **Open in {% data variables.copilot.chat_view %}** button to continue the conversation in the full {% data variables.copilot.chat_view %}.
+
+## Related resources
+
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
+* [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
+* [Review AI-generated code edits](/docs/agents/run/review-code-edits.md)
+* [AI language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md)

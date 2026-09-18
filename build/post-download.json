@@ -1,0 +1,30 @@
+{
+  "featured": {
+    "title": "VS Code 1.138 release",
+    "description": "Run agent sessions in Dev Containers, continue Codex sessions across apps and subscriptions, and automatically clean up sessions after pull requests merge.",
+    "link": "/updates/v1_138",
+    "image": "/assets/updates/1_138/release-highlights.webp"
+  },
+  "highlights": [
+    {
+      "type": "learn",
+      "title": "Learn VS Code",
+      "description": "Build your skills with structured training modules with hands-on exercises and real-world examples.",
+      "link": "/learn"
+    },
+    {
+      "type": "documentation",
+      "title": "Optimize your AI usage",
+      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
+      "link": "/docs/agents/guides/optimize-usage",
+      "image": "/assets/docs/agents/optimize-usage-guide/copilot-status-dashboard.png"
+    },
+    {
+      "type": "blog",
+      "title": "Introducing the Agent Host",
+      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
+      "link": "/blogs/2026/08/26/agent-host-architecture",
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
+    }
+  ]
+}

@@ -1,18 +1,31 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
-DateApproved: 12/10/2025
-MetaDescription: Visual Studio Code custom user interface layout.
+DateApproved: 9/16/2026
+MetaDescription: Customize the {% data variables.product.prodname_vscode %} layout with side bars, panels, editor groups, toolbars, and interface density.
 ---
 # Custom Layout
 
-Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suit your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
+{% data variables.product.prodname_vscode %} comes with a simple user interface and convenient default layout. At the same time, {% data variables.product.prodname_vscode_shortname %} provides options and settings to let you customize the UI layout to suit your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 > [!NOTE]
-> If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
+> If you are new to {% data variables.product.prodname_vscode_shortname %}, you may want to start with the [user interface overview](/docs/editing/getting-started/userinterface.md) or take a look at the [Tips and Tricks](/docs/editing/getting-started/tips-and-tricks.md) article.
 
 ## Workbench
+
+### Layout density
+
+`feature(modern-ui)`
+
+Use layout density to control the spacing around major parts of the editor window. First, enable `setting(workbench.experimental.modernUI)`. Then, select the **Customize Layout** control in the title bar and choose an option under **Layout Density**:
+
+* **Default**: use the standard spacing between and within panels.
+* **Compact**: remove spacing between panels and reduce the spacing within panels.
+
+Your selection applies immediately and persists when you restart {% data variables.product.prodname_vscode_shortname %}. To reset the density to **Default**, along with the other layout settings, select **Restore Defaults** in **Customize Layout**.
+
+You can also configure the density in the Settings editor with `setting(window.density.layout)`.
 
 ### Primary Side Bar
 
@@ -29,13 +42,15 @@ To change the position of the Primary Side Bar, you can:
 
 ### Secondary Side Bar
 
-By default, VS Code shows views in the Primary Side Bar located to the left of the editor region. It can be useful to see two views open at the same time. To do this, you can use the **Secondary Side Bar** to show views opposite the Primary Side Bar. The Secondary Side Bar is always positioned opposite the Primary Side Bar, regardless if you switched the position of the Primary Side Bar.
+By default, {% data variables.product.prodname_vscode_shortname %} shows views in the Primary Side Bar located to the left of the editor region. It can be useful to see two views open at the same time. To do this, you can use the **Secondary Side Bar** to show views opposite the Primary Side Bar. The Secondary Side Bar is always positioned opposite the Primary Side Bar, regardless if you switched the position of the Primary Side Bar.
 
-The following image shows the Explorer view in the Primary Side Bar and the Copilot Chat view in the Secondary Side Bar:
+When you first open a folder or multi-root workspace, the Secondary Side Bar is shown by default. In an empty window, it's hidden by default. You can configure this behavior with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
 
-![Explorer view in the Primary Side Bar and Copilot Chat view in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
+The following image shows the Explorer view in the Primary Side Bar and the Copilot {% data variables.copilot.chat_view %} in the Secondary Side Bar:
 
-To show the Secondary Side Bar, you can use the layout controls in the VS Code title bar. If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
+![Explorer view in the Primary Side Bar and Copilot {% data variables.copilot.chat_view %} in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
+
+If the Secondary Side Bar is hidden, you can show it by using the layout controls in the {% data variables.product.prodname_vscode_shortname %} title bar. If the layout controls are not visible, right-click the {% data variables.product.prodname_vscode_shortname %} title bar and select **Layout Controls**.
 
 ![Title bar buttons to toggle main UI elements, with hover on Toggle Secondary Side Bar.](images/custom-layout/toggle-secondary-side-bar.png)
 
@@ -44,9 +59,7 @@ Alternatively, you can also open the Secondary Side Bar as follows:
 * Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
 * Use the **View** > **Appearance** > **Secondary Side Bar** menu item
 
-If you want to automatically show the Secondary Side Bar when you open a new window or a workspace, you can configure this with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
-
-At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
+At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. {% data variables.product.prodname_vscode_shortname %} will remember the layout of views and panels across your sessions.
 
 ![Drag and drop views and panels between the Primary and Secondary Side Bar](images/custom-layout/drag-and-drop-views.gif)
 
@@ -69,9 +82,20 @@ When the Activity Bar is in the top or bottom position, the **Account** and **Ma
 
 ![Activity Bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
+### Activity Bar size
+
+The Activity Bar supports two sizes: the larger default size and a compact size that matches the classic Activity Bar appearance. To switch to compact mode, set `setting(workbench.activityBar.compact)` to `true`.
+
+You can also toggle between sizes by right-clicking the Activity Bar and selecting **Default** or **Compact** from the **Activity Bar Size** submenu.
+
+![Screenshot of the Activity Bar context menu showing the Activity Bar Size submenu with Default and Compact options.](images/custom-layout/activity-bar-size.png)
+
+> [!NOTE]
+> The **Activity Bar Size** submenu only appears when the Activity Bar is in its default (side) position. If the Activity Bar is moved to the top or bottom, the size option is not available.
+
 ### Customize Layout control
 
-The VS Code title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
+The {% data variables.product.prodname_vscode_shortname %} title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
 
 ![Title bar buttons to toggle main UI elements, with hover on Toggle Panel](images/custom-layout/toggle-UI-visibility.png)
 
@@ -87,11 +111,11 @@ The layout modes are:
 
 ### Window and menu style
 
-You can customize the appearance of the VS Code window and menu bar with the following settings:
+You can customize the appearance of the {% data variables.product.prodname_vscode_shortname %} window and menu bar with the following settings:
 
-* `setting(window.titleBarStyle)`: adjust the appearance of the VS Code window title bar to be native by the OS or custom. Changes require a full restart to apply.
+* `setting(window.titleBarStyle)`: adjust the appearance of the {% data variables.product.prodname_vscode_shortname %} window title bar to be native by the OS or custom. Changes require a full restart to apply.
 
-* `setting(window.title)`: configure the VS Code window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context. For example, `${activeEditorShort}` will show the file name of the currently active editor. You can combine multiple variables, for example, `${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}`.
+* `setting(window.title)`: configure the {% data variables.product.prodname_vscode_shortname %} window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context. For example, `${activeEditorShort}` will show the file name of the currently active editor. You can combine multiple variables, for example, `${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}`.
 
 * `setting(window.titleSeparator)`: the separator character that is used in the `setting(window.title)` setting.
 
@@ -145,15 +169,17 @@ When the Panel alignment is **Center**, you can quickly toggle the Panel region 
 
 You can also maximize the Panel region via the **View: Toggle Maximized Panel** command.
 
-> **Note**: Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
+> [!NOTE]
+> Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
 
 ### Drag and drop views and panels
 
-VS Code has a default layout of views and panels in the Primary Side bar and Panel region but you can drag and drop views and panels between these regions. For example, you can drag and drop the Source Control view into the Panel region or put the Problems panel into the Primary Side bar:
+{% data variables.product.prodname_vscode_shortname %} has a default layout of views and panels in the Primary Side bar and Panel region but you can drag and drop views and panels between these regions. For example, you can drag and drop the Source Control view into the Panel region or put the Problems panel into the Primary Side bar:
 
 ![The Source Control view in the Panel region and Problem panel in the Primary Side bar](images/custom-layout/non-default-layout.png)
 
->**Note**: Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
+> [!NOTE]
+> Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
 You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity Bar item and then dropping into the view:
 
@@ -161,9 +187,23 @@ You can also add views and panels to existing view or panel to create groups. Fo
 
 You are not limited to using the mouse for moving views and panels. You can also customize layouts via the keyboard with the **View: Move View** and **View: Move Focused View** commands, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
 
+## Notifications
+
+By default, {% data variables.product.prodname_vscode %} shows notification toasts and the Notification Center in the bottom-right corner of the workbench. You can change the position of notifications with the `setting(workbench.notifications.position)` setting (experimental).
+
+The available positions are:
+
+* `bottom-right` (default) - Notifications appear in the bottom-right corner. The bell icon is in the Status Bar.
+* `bottom-left` - Notifications appear in the bottom-left corner. The bell icon moves to the left side of the Status Bar.
+* `top-right` - Notifications slide in from the top-right corner, similar to OS-level notifications. The bell icon moves from the Status Bar to the title bar.
+
+You can also change the notification position directly from the Notification Center. Open the Notification Center by selecting the bell icon, and then select the position icon in the header toolbar to choose a different position.
+
+When the notification position is set to `top-right`, use the `setting(workbench.notifications.showInTitleBar)` setting to control whether the bell icon is visible in the title bar.
+
 ## Tool bars
 
-Most VS Code views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.:
+Most {% data variables.product.prodname_vscode_shortname %} views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.:
 
 ![Search view tool bar with hover over Clear Search Results action](images/custom-layout/search-view-toolbar.png)
 
@@ -171,25 +211,25 @@ Most VS Code views and panels have tool bars displayed on the top right of their
 
 If you think a tool bar is too busy and you'd like to hide less frequently used actions, you can right-click on any action and select its **Hide** command (for example **Hide 'Clear Search Results'**) or uncheck any of the actions from the dropdown. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there.
 
-To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command or recheck the hidden action. To restore all menus in VS Code, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
+To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command or recheck the hidden action. To restore all menus in {% data variables.product.prodname_vscode_shortname %}, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Search tool bar context menu with Reset menu command](images/custom-layout/reset-tool-bar-menu.png)
 
 ## Editor
 
-You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves or move them into floating windows.
+You can customize the layout of the {% data variables.product.prodname_vscode_shortname %} editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves or move them into floating windows.
 
 ### Minimap and breadcrumbs
 
 The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
 
-* **Minimap** - A [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
-* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
-* **Sticky Scroll** - Display [nested symbol scopes](/docs/getstarted/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
+* **Minimap** - A [visual overview](/docs/editing/getting-started/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
+* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/editing/getting-started/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
+* **Sticky Scroll** - Display [nested symbol scopes](/docs/editing/getting-started/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 
-By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file.
+By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/editing/getting-started/userinterface.md#side-by-side-editing) of the same file.
 
 Create a new editor group by dragging an editor to the side, or by using one of the **Split** commands in the editor tab context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
 
@@ -198,6 +238,20 @@ Create a new editor group by dragging an editor to the side, or by using one of 
 The **Split** editor commands are also available from the **View** > **Editor Layout** menu and through the Command Palette.
 
 If you'd like to go quickly between vertical and horizontal editor group layout, you can use the **Toggle Vertical/Horizontal Editor Layout** command (`kb(workbench.action.toggleEditorGroupLayout)`).
+
+### Maximize and expand an editor group
+
+When you work with multiple editor groups, you can temporarily give the active group more space. Double-click an editor tab to toggle the size of its editor group, or use the **View: Toggle Maximize Editor Group** command (`kb(workbench.action.toggleMaximizeEditorGroup)`).
+
+The **Workbench > Editor: Double Click Tab To Toggle Editor Group Sizes** (`setting(workbench.editor.doubleClickTabToToggleEditorGroupSizes)`) setting controls how the editor group is resized when you double-click a tab:
+
+* `expand`: The editor group takes as much space as possible by making all other editor groups as small as possible. This is the default.
+
+* `maximize`: All other editor groups are hidden and the current editor group is maximized to fill the entire editor area.
+
+* `off`: No editor group is resized when you double-click a tab.
+
+This setting applies only when `setting(workbench.editor.showTabs)` is set to `multiple`.
 
 ### Split in group
 
@@ -220,7 +274,7 @@ The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.spl
 
 ### Grid layout
 
-If you'd like more control over the editor group layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
+If you'd like more control over the editor group layout, you can use the [grid layout](/docs/editing/getting-started/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
@@ -228,9 +282,9 @@ If you'd like more control over the editor group layout, you can use the [grid l
 
 You can open an editor, the terminal, or specific views in a floating window. This is useful in a multi-monitor setup, where you can move the editor to another monitor or even to a different location on the same monitor.
 
-To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window.
+To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current {% data variables.product.prodname_vscode_shortname %} window.
 
-<video src="images/custom-layout/floating-windows.mp4" title="Video showing dragging an editor tab outside the VS Code window to open the file in a floating window." autoplay loop controls muted></video>
+<video src="images/custom-layout/floating-windows.mp4" title="Video showing dragging an editor tab outside the {% data variables.product.prodname_vscode_shortname %} window to open the file in a floating window." autoplay loop controls muted></video>
 
 Floating windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
 
@@ -248,7 +302,7 @@ To remove unnecessary UI elements from a floating window and make more room for 
 
 #### Pin to top
 
-You can pin a floating window to the top of the screen by selecting the **Set Always on Top** option in the floating window title bar. This can be useful to keep a terminal or preview window always visible while you work in the main VS Code window. Select it again to unpin the floating window.
+You can pin a floating window to the top of the screen by selecting the **Set Always on Top** option in the floating window title bar. This can be useful to keep a terminal or preview window always visible while you work in the main {% data variables.product.prodname_vscode_shortname %} window. Select it again to unpin the floating window.
 
 ![Floating window title bar with Always on Top option highlighted](images/custom-layout/always-on-top.png)
 
@@ -312,6 +366,6 @@ You must have more that one editor group for these commands to be available.
 
 Read on to find out about:
 
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

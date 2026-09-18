@@ -170,7 +170,7 @@ Key|Command
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search details
 `kb(workbench.action.terminal.openNativeConsole)`|Open new command prompt/terminal
 `kb(workbench.action.output.toggleOutput)`|Show Output panel
-`kb(markdown.showPreview)`|Toggle Markdown preview
+`kb(markdown.togglePreview)`|Toggle Markdown preview
 `kb(markdown.showPreviewToSide)`|Open Markdown preview to the side
 
 ## Debug

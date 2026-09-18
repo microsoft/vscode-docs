@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
-DateApproved: 12/10/2025
+DateApproved: 9/16/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn from Visual Studio Code extension guides and code samples
@@ -40,7 +40,7 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 | [Task Provider](https://code.visualstudio.com/api/extension-guides/task-provider) | [tasks.registerTaskProvider](https://code.visualstudio.com/api/references/vscode-api#tasks.registerTaskProvider)<br>[Task](https://code.visualstudio.com/api/references/vscode-api#Task)<br>[ShellExecution](https://code.visualstudio.com/api/references/vscode-api#ShellExecution)<br>[contributes.taskDefinitions](https://code.visualstudio.com/api/references/contribution-points#contributes.taskDefinitions) |
 | [Source Control](https://code.visualstudio.com/api/extension-guides/scm-provider) | [workspace.workspaceFolders](https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders)<br>[SourceControl](https://code.visualstudio.com/api/references/vscode-api#SourceControl)<br>[SourceControlResourceGroup](https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup)<br>[scm.createSourceControl](https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl)<br>[TextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider)<br>[contributes.menus](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) |
 | [Debugger Extension](https://code.visualstudio.com/api/extension-guides/debugger-extension) | [contributes.breakpoints](https://code.visualstudio.com/api/references/contribution-points#contributes.breakpoints)<br>[contributes.debuggers](https://code.visualstudio.com/api/references/contribution-points#contributes.debuggers)<br>[debug](https://code.visualstudio.com/api/references/vscode-api#debug) |
-| [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts |
+| [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts<br>markdown.codeBlockEditorProviders |
 | [Test Extension](https://code.visualstudio.com/api/extension-guides/testing) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com/api/references/vscode-api#TestItem) |
 | [Custom Data Extension](https://code.visualstudio.com/api/extension-guides/custom-data-extension) | contributes.html.customData<br>contributes.css.customData |
 <br>

@@ -3,7 +3,7 @@ Order: 98
 TOCTitle: Adding MCP in VS Code
 PageTitle: "Beyond the tools, adding MCP in VS Code"
 MetaDescription: Bring your own tools to VS Code's agent mode with MCP.
-MetaSocialImage: agent-mcp-tools.png
+MetaSocialImage: agent-mcp-tools.webp
 Date: 2025-05-14
 Author: Harald Kirschner
 ---
@@ -12,11 +12,11 @@ Author: Harald Kirschner
 
 May 14th, 2025 by [Harald Kirschner](https://github.com/digitarald)
 
-When we first introduced [agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) in VS Code, it opened new ways of interacting with your code and workspace through chat. You could ask the agent to inspect files, run builds, and even [debug tests](https://code.visualstudio.com/docs/copilot/guides/test-with-copilot). But you were limited by what the model was trained on and the contents of your workspace. So, the next step was clear: we needed a way for agents to reach beyond those boundaries and interact with real, external services in a secure, user-controlled way.
+When we first introduced [agent mode](https://code.visualstudio.com/docs/agents/overview) in VS Code, it opened new ways of interacting with your code and workspace through chat. You could ask the agent to inspect files, run builds, and even [debug tests](https://code.visualstudio.com/docs/agents/guides/test-code-with-ai). But you were limited by what the model was trained on and the contents of your workspace. So, the next step was clear: we needed a way for agents to reach beyond those boundaries and interact with real, external services in a secure, user-controlled way.
 
 Our first attempt followed the familiar VS Code pattern: extensibility through the [Tools](https://code.visualstudio.com/api/extension-guides/tools) and [Chat participants](https://code.visualstudio.com/api/extension-guides/chat) APIs. This made sense given the thousands of extensions already in the ecosystem, but the industry was moving quickly toward a new standard: the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). MCP is best understood as a protocol for connecting AI agents to a wide range of external tools and services in a consistent way, much like how HTTP standardized communication for the web. The goal is to let any client, not just VS Code, plug in powerful tool servers like databases, code search, and deployment systems, and have them “just work.”
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/VePxCcF99w4?si=vY-f4CKc0rrl5fDa&start=165" title="Agent mode tools in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Agent mode tools in VS Code on YouTube (opens in new tab).](youtube-VePxCcF99w4.jpg)](https://www.youtube.com/watch?v=VePxCcF99w4)
 
 This shift to MCP unlocked a wider ecosystem almost overnight. Now, VS Code users can take advantage of servers like [Playwright MCP Server](https://github.com/microsoft/playwright-mcp) for frontend verification, [GitHub MCP Server](https://github.com/github/github-mcp-server/) for repository insights and pull requests, or [Context7](https://github.com/upstash/context7/) for smarter API usage. The [list of servers](https://github.com/modelcontextprotocol/servers) continues to grow, and MCP has quickly become a foundation for bringing additional capabilities across AI agents.
 
@@ -26,13 +26,13 @@ VS Code's design philosophy was always focused on making powerful features easy 
 
 Getting started with MCP servers previously meant copying JSON blocks into a config file and managing command-line flags. We wanted to simplify this: with the **MCP: Add Server** command, you can set up a server from a package manager (NPM, PyPI, Docker) and have VS Code handle the rest. Websites can even offer an *'Install in VS Code'* button to streamline onboarding further, and VS Code auto-discovers configurations from other clients like Claude Desktop when possible.
 
-![Add MCP Server commands in VS Code](mcp-add-server.png)
+![Add MCP Server commands in VS Code](mcp-add-server.webp)
 
-Security was another major focus. Managing secrets for MCP servers should not mean checking passwords into source control. We added support for [input variables](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace) that prompt you once, then encrypt and store secrets securely, and for referencing existing `.env` files you already trust for local development. This makes it easier for teams to share and review configurations safely.
+Security was another major focus. Managing secrets for MCP servers should not mean checking passwords into source control. We added support for [input variables](https://code.visualstudio.com/docs/agent-customization/mcp-servers#_add-an-mcp-server-to-your-workspace) that prompt you once, then encrypt and store secrets securely, and for referencing existing `.env` files you already trust for local development. This makes it easier for teams to share and review configurations safely.
 
-![GitHub MCP Server with safely stored PAT using input variables](mcp-secure-inputs.png)
+![GitHub MCP Server with safely stored PAT using input variables](mcp-secure-inputs.webp)
 
-User control is central to the experience. With the [tool picker](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_use-mcp-tools-in-agent-mode), you decide which tools an agent can access in a given session and see clear descriptions and controls. For those developing or debugging servers, VS Code surfaces logs and makes it simple to start, stop, and restart servers. These touches make MCP not just powerful, but approachable for both end users and server developers.
+User control is central to the experience. With the [tool picker](https://code.visualstudio.com/docs/agent-customization/mcp-servers#_use-mcp-tools-in-agent-mode), you decide which tools an agent can access in a given session and see clear descriptions and controls. For those developing or debugging servers, VS Code surfaces logs and makes it simple to start, stop, and restart servers. These touches make MCP not just powerful, but approachable for both end users and server developers.
 
 ## Beyond the basics: richer MCP capabilities
 
@@ -56,7 +56,7 @@ Looking ahead, we’re actively working to land support in VS Code for upcoming 
 
 If you’re building developer tools or infrastructure, MCP is now a practical and open way to make them accessible to AI agents in VS Code and beyond. Whether you want to use servers off the shelf or create your own, the experience should be both robust and straightforward.
 
-To get started, check out [ModelContextProtocol.io](https://modelcontextprotocol.io/), [VS Code MCP Docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), or [reference servers on GitHub](https://github.com/modelcontextprotocol/servers).
+To get started, check out [ModelContextProtocol.io](https://modelcontextprotocol.io/), [VS Code MCP Docs](https://code.visualstudio.com/docs/agent-customization/mcp-servers), or [reference servers on GitHub](https://github.com/modelcontextprotocol/servers).
 
 We’re excited to see what you’ll build—and how agent workflows will evolve as the ecosystem expands.
 

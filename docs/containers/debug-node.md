@@ -1,7 +1,7 @@
 ---
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 DateApproved: 12/21/2022
-MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a container, using Visual Studio Code.
+MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a container, using {% data variables.product.prodname_vscode %}.
 ---
 # Debug Node.js within a container
 
@@ -174,7 +174,7 @@ The corresponding `uriFormat` in the debug launch configuration (in `launch.json
 
 ## Mapping container source files to the local workspace
 
-By default, the Container Tools extension assumes the application source files in the running container are located in an `/usr/src/app` folder, and the debugger then maps those files back to the root of the opened workspace, in order to translate breakpoints from the container back to Visual Studio Code.
+By default, the Container Tools extension assumes the application source files in the running container are located in an `/usr/src/app` folder, and the debugger then maps those files back to the root of the opened workspace, in order to translate breakpoints from the container back to {% data variables.product.prodname_vscode %}.
 
 If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [node](/docs/containers/debug-common.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the container, respectively.
 

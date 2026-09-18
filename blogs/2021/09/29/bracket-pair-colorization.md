@@ -32,7 +32,7 @@ ensures that the UI remains responsive and documents can still be saved to disk.
 
 CoenraadS was aware of this performance issue and spent a great amount of effort on increasing speed and accuracy in version 2 of the extension, by reusing the token and bracket parsing engine from VS Code. However, VS Code's API and extension architecture was not designed to allow for high performance bracket pair colorization when hundreds of thousands of bracket pairs are involved. Thus, even in Bracket Pair Colorizer 2, it takes some time until the colors reflect the new nesting levels after inserting `{` at the beginning of the file:
 
-![A video of VS Code showing that the extension needs more than 10 seconds to process the text change in checker.ts](./checker_ts-extension.gif)
+<video src="./checker_ts-extension.mp4" title="Video showing A video of VS Code showing that the extension needs more than 10 seconds to process the text change in checker.ts." autoplay loop controls muted></video>
 
 While we would have loved to just improve the performance of the extension (which certainly would have required introducing more advanced APIs, optimized for high-performance scenarios), the asynchronous communication between the renderer and the extension-host severely limits how fast bracket pair colorization can be when implemented as an extension. This limit cannot be overcome.
 In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering when scrolling through large files. A discussion of this can be found in [issue #128465](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
@@ -45,7 +45,7 @@ The feature can be enabled by adding the setting `"editor.bracketPairColorizatio
 
 Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs. Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
-![A video of VS Code showing that the native implementation needs less than a millisecond to process the text change in checker.ts](./checker_ts-native.gif)
+<video src="./checker_ts-native.mp4" title="Video showing A video of VS Code showing that the native implementation needs less than a millisecond to process the text change in checker.ts." autoplay loop controls muted></video>
 
 Once we decided we move it into core, we also took the opportunity to look into how to make it as fast as we can. Who wouldn’t love an algorithmic challenge?
 

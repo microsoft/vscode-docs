@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 12/10/2025
+DateApproved: 9/16/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a File Icon Theme in Visual Studio Code
@@ -136,7 +136,7 @@ A file extension match is preferred over a language match, but is weaker than a 
 
 `file name match with parent > file name match > file extension match with parent > file extension match > language match ...`
 
-The `light` and the `highContrast` section have the same file association properties as just listed. They allow to override icons for the corresponding themes.
+The `light` and the `highContrast` section have the same file association properties as just listed. They allow overriding icons for the corresponding themes.
 
 ### Font definitions
 

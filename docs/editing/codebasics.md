@@ -1,29 +1,29 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 12/10/2025
-MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
+DateApproved: 9/16/2026
+MetaDescription: Edit code efficiently in {% data variables.product.prodname_vscode %} with multiple cursors, search, formatting, folding, and automatic bracket closing.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
 # Basic editing
 
-Visual Studio Code is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
+{% data variables.product.prodname_vscode %} is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
 
 ## Keyboard shortcuts
 
-Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them.
+Being able to keep your hands on the keyboard when writing code is crucial for high productivity. {% data variables.product.prodname_vscode_shortname %} has a rich set of default keyboard shortcuts as well as allowing you to customize them.
 
 * [Keyboard Shortcuts Reference](/docs/configure/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
-* [Install a Keymap extension](/docs/configure/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Install a Keymap extension](/docs/configure/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in {% data variables.product.prodname_vscode_shortname %} by installing a Keymap extension.
 * [Customize Keyboard Shortcuts](/docs/configure/keybindings.md#keyboard-shortcuts-editor) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 
-VS Code supports multiple cursors for fast, simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
+{% data variables.product.prodname_vscode_shortname %} supports multiple cursors for fast, simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
 > [!NOTE]
 > Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
-![Multi-cursor](images/codebasics/multicursor.gif)
+<video src="images/codebasics/multicursor.mp4" title="Video showing Multi-cursor." autoplay loop controls muted></video>
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
 
@@ -32,7 +32,7 @@ VS Code supports multiple cursors for fast, simultaneous edits. You can add seco
 > `kb(editor.action.moveSelectionToNextFindMatch)`. This helps you avoid adding unwanted
 > selections when editing repeated text.
 
-![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
+<video src="images/codebasics/multicursor-word.mp4" title="Video showing Multi-cursor-next-word." autoplay loop controls muted></video>
 
 > [!TIP]
 > You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
@@ -56,13 +56,13 @@ Quickly shrink or expand the current selection. Trigger it with `kb(editor.actio
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.expand)`:
 
-![Expand selection](images/codebasics/expandselection.gif)
+<video src="images/codebasics/expandselection.mp4" title="Video showing Expand selection." autoplay loop controls muted></video>
 
 ## Column (box) selection
 
 Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
-![Column text selection](images/codebasics/column-select.gif)
+<video src="images/codebasics/column-select.mp4" title="Video showing Column text selection." autoplay loop controls muted></video>
 
 > [!NOTE]
 > This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
@@ -84,9 +84,27 @@ You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind t
 
 The user setting **Editor: Column Selection** controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the **Selection** > **Column Selection Mode** menu item. In addition, one can also disable Column Selection mode from the Status bar.
 
+## Auto-closing brackets
+
+When you type an opening bracket, {% data variables.product.prodname_vscode_shortname %} can insert the matching closing bracket based on the active language configuration. The `setting(editor.autoClosingBrackets)` setting controls this behavior:
+
+* `languageDefined`: Use the language configuration to determine when to insert a closing bracket. This value is the default.
+* `beforeWhitespace`: Insert a closing bracket only when the cursor is before whitespace.
+* `always`: Always insert a closing bracket.
+* `never`: Do not insert a closing bracket.
+
+For the `languageDefined` and `beforeWhitespace` values, if a matching unpaired closing bracket exists later in the document, {% data variables.product.prodname_vscode_shortname %} does not insert a duplicate. Set `setting(editor.autoClosingBrackets)` to `always` to insert a closing bracket even when an unpaired closing bracket already exists.
+
+> [!NOTE]
+> Bracket balancing depends on token-aware bracket information. Until tokenization is complete, or for files too large for bracket-pair analysis, the editor uses its standard auto-closing behavior. With multiple cursors, if any cursor can pair with an unpaired closing bracket, the editor suppresses auto-closing at every cursor.
+
+Auto-closing for quotes is controlled separately by the `setting(editor.autoClosingQuotes)` setting.
+
 ## Save / Auto Save
 
-By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
+By default, {% data variables.product.prodname_vscode_shortname %} requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
+
+When an editor has unsaved changes, a dot indicator is displayed in the editor tab, and the Explorer view shows a badge indicating the number of unsaved files. These changes are not yet saved to disk, but {% data variables.product.prodname_vscode_shortname %} automatically backs them up so they can be restored if the application closes unexpectedly (see [Hot Exit](#hot-exit)).
 
 However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle that turns on and off save after a delay.
 
@@ -96,7 +114,7 @@ For more control over `Auto Save`, open User or Workspace [settings](/docs/confi
   * `off` - to disable auto save.
   * `afterDelay` - to save files after a configured delay (default 1000 ms).
   * `onFocusChange` - to save files when focus moves out of the editor of the dirty file.
-  * `onWindowChange` - to save files when the focus moves out of the VS Code window.
+  * `onWindowChange` - to save files when the focus moves out of the {% data variables.product.prodname_vscode_shortname %} window.
 * `setting(files.autoSaveDelay)`: Configures the delay in milliseconds when `setting(files.autoSave)` is configured to `afterDelay`. The default is 1000 ms.
 
 If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules.
@@ -111,7 +129,7 @@ For example, to disable `Auto Save` for LaTeX files:
 
 ## Hot Exit
 
-By default, VS Code remembers unsaved changes to files when you exit. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
+By default, {% data variables.product.prodname_vscode_shortname %} remembers unsaved changes to files when you exit. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
 
 You can configure hot exit by setting `setting(files.hotExit)` to the following values:
 
@@ -127,19 +145,21 @@ If something goes wrong with hot exit, all backups are stored in the following f
 
 ## Find and replace
 
-VS Code allows you to quickly find and replace text in the currently opened file. Press `kb(actions.find)` to open the Find control in the editor and type the search string. The search results are highlighted in the editor, overview ruler, and minimap.
+{% data variables.product.prodname_vscode_shortname %} allows you to quickly find and replace text in the currently opened file. Press `kb(actions.find)` to open the Find control in the editor and type the search string. The search results are highlighted in the editor, overview ruler, and minimap.
 
-VS Code immediately starts searching as you type. To only start searching when you press `kbstyle(Enter)`, clear the `setting(editor.find.findOnType)` setting.
+{% data variables.product.prodname_vscode_shortname %} immediately starts searching as you type. To only start searching when you press `kbstyle(Enter)`, clear the `setting(editor.find.findOnType)` setting.
+
+To automatically close the Find control after a match is found and return focus to the editor, enable the `setting(editor.find.closeOnResult)` setting.
 
 If there are multiple matches in the current file, press `kb(editor.action.nextMatchFindAction)` to go to the next result or `kb(editor.action.previousMatchFindAction)` to go to the previous result while the find input box has focus.
 
-By default, VS Code saves the history of your find and replace queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` and `setting(editor.find.replaceHistory)` settings. Set the value to `never` to disable saving the history.
+By default, {% data variables.product.prodname_vscode_shortname %} saves the history of your find and replace queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` and `setting(editor.find.replaceHistory)` settings. Set the value to `never` to disable saving the history.
 
 ### Seed search string from selection
 
 When the Find control is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
 
-![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
+<video src="images/codebasics/seed-search-string-from-selection.mp4" title="Video showing Seed Search String From Selection." autoplay loop controls muted></video>
 
 This feature can be turned off by setting `setting(editor.find.seedSearchStringFromSelection)` to `"never"`.
 
@@ -147,7 +167,7 @@ This feature can be turned off by setting `setting(editor.find.seedSearchStringF
 
 By default, the find operations are run on the entire file in the editor. To limit the search to the text selection, select the **Find in Selection** icon on the Find control or press `kb(toggleFindInSelection)`.
 
-![Find In Selection](images/codebasics/find-in-selection.gif)
+<video src="images/codebasics/find-in-selection.mp4" title="Video showing Find In Selection." autoplay loop controls muted></video>
 
 If you want it to be the default behavior of the Find control, you can set `setting(editor.find.autoFindInSelection)` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
@@ -171,20 +191,20 @@ For more advanced scenarios, the Find and Replace control has the following opti
 
 You can search multiple line text by pasting the text into the Find input box and Replace input box. Pressing `kbstyle(Ctrl+Enter)` inserts a new line in the input box.
 
-![Multiple Line Support](images/codebasics/multiple-line-support.gif)
+<video src="images/codebasics/multiple-line-support.mp4" title="Video showing Multiple Line Support." autoplay loop controls muted></video>
 
 While searching long text, the default size of Find control might be too small. You can drag the left sash to enlarge the Find control or double click the left sash to maximize it or shrink it to its default size.
 
-![Resize Find control](images/codebasics/resize-find-widget.gif)
+<video src="images/codebasics/resize-find-widget.mp4" title="Video showing Resize Find control." autoplay loop controls muted></video>
 
 ## Search across files
 
-VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+{% data variables.product.prodname_vscode_shortname %} allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
 > [!TIP]
-> VS Code also supports regular expression searching in the search box.
+> {% data variables.product.prodname_vscode_shortname %} also supports regular expression searching in the search box.
 
 You can configure advanced search options by selecting the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This shows additional fields to configure the search.
 
@@ -193,7 +213,7 @@ You can configure advanced search options by selecting the ellipsis (**Toggle Se
 
 ### Advanced search options
 
-![Advanced search options](images/codebasics/searchadvanced.png)
+![Advanced search options](images/codebasics/searchadvanced-v2.png)
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use [glob pattern](/docs/editor/glob-patterns.md) syntax, for example:
 
@@ -204,11 +224,18 @@ In the two input boxes below the search box, you can enter patterns to include o
 * `[]` to **declare** a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 * `[!...]` to negate a range of characters to match (`example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
-VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/configure/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
+**Note about case sensitivity:** Glob patterns follow your operating system's file system rules. On Windows and macOS, patterns are case-insensitive (for example, `*.CS` matches `file.cs`). On Linux, patterns are case-sensitive. This is separate from the search text **Match Case** toggle, which controls whether the search text itself is case-sensitive. Learn more about [glob patterns](/docs/editor/glob-patterns.md#case-sensitivity).
+
+{% data variables.product.prodname_vscode_shortname %} excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/configure/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
 
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
+
+In the **files to include** box, you can use the **Search only in changed files** toggle button to restrict search results to files that have uncommitted source control changes. This toggle is disabled when there's no repository or no changes to search.
+
+> [!NOTE]
+> Patterns in `.gitignore` files are matched case-insensitively on Windows and macOS, and case-sensitively on Linux. Learn more about [glob pattern case sensitivity](/docs/editor/glob-patterns.md#case-sensitivity).
 
 > [!TIP]
 > From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
@@ -228,11 +255,11 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ### Case changing in regex replace
 
-VS Code supports changing the case of regex matching groups while doing Search and Replace in the editor or globally. This is done with the modifiers `\u\U\l\L`, where `\u` and `\l` will upper/lowercase a single character, and `\U` and `\L` will upper/lowercase the rest of the matching group.
+{% data variables.product.prodname_vscode_shortname %} supports changing the case of regex matching groups while doing Search and Replace in the editor or globally. This is done with the modifiers `\u\U\l\L`, where `\u` and `\l` will upper/lowercase a single character, and `\U` and `\L` will upper/lowercase the rest of the matching group.
 
 Example:
 
-![Changing case while doing find and replace](images/codebasics/case-change-replace.gif)
+<video src="images/codebasics/case-change-replace.mp4" title="Video showing Changing case while doing find and replace." autoplay loop controls muted></video>
 
 The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 
@@ -271,7 +298,7 @@ For example, the following keyboard shortcut runs the search when the Search Edi
 {
     "key": "ctrl+o",
     "command": "search.action.openNewEditor",
-    "args": { "query": "VS Code", "triggerSearch":true, "focusResults": false }
+    "args": { "query": "{% data variables.product.prodname_vscode_shortname %}", "triggerSearch":true, "focusResults": false }
 }
 ```
 
@@ -299,14 +326,14 @@ Learn more in the [IntelliSense document](/docs/editing/intellisense.md).
 
 ## Formatting
 
-VS Code has great support for source code formatting. The editor has two explicit format actions:
+{% data variables.product.prodname_vscode_shortname %} has great support for source code formatting. The editor has two explicit format actions:
 
 * **Format Document** (`kb(editor.action.formatDocument)`) - Format the entire active file.
 * **Format Selection** (`kb(editor.action.formatSelection)`) - Format the selected text.
 
 You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
 
-VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `setting(html.format.indentInnerHtml)`) which you can tune to your preference in your user or workspace [settings](/docs/configure/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+{% data variables.product.prodname_vscode_shortname %} has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `setting(html.format.indentInnerHtml)`) which you can tune to your preference in your user or workspace [settings](/docs/configure/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
 ```json
 "html.format.enable": false
@@ -321,7 +348,7 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 > [!NOTE]
 > Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
-In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
+In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within {% data variables.product.prodname_vscode_shortname %}.
 
 ## Folding
 
@@ -387,7 +414,7 @@ Manual folding ranges are especially useful for cases when there isn't programmi
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `setting(editor.insertSpaces)` and `setting(editor.tabSize)` [settings](/docs/configure/settings.md).
+{% data variables.product.prodname_vscode_shortname %} lets you control text indentation and whether you'd like to use spaces or tab stops. By default, {% data variables.product.prodname_vscode_shortname %} inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `setting(editor.insertSpaces)` and `setting(editor.tabSize)` [settings](/docs/configure/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -396,7 +423,7 @@ VS Code lets you control text indentation and whether you'd like to use spaces o
 
 ### Auto-detection
 
-VS Code analyzes your open file and determines the indentation used in the document. The auto-detected indentation overrides your default indentation settings. The detected setting is displayed on the right side of the Status Bar:
+{% data variables.product.prodname_vscode_shortname %} analyzes your open file and determines the indentation used in the document. The auto-detected indentation overrides your default indentation settings. The detected setting is displayed on the right side of the Status Bar:
 
 ![auto detect indentation](images/codebasics/indentation-detection.png)
 
@@ -405,7 +432,7 @@ You can click on the Status Bar indentation display to bring up a dropdown with 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
 > [!NOTE]
-> VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
+> {% data variables.product.prodname_vscode_shortname %} auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
 
 ```json
     "editor.detectIndentation": false,
@@ -432,9 +459,9 @@ Then choose an encoding.
 
 ## Overtype mode
 
-Prior to release 1.96, VS Code only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/configure/keybindings.md#keymap-extensions).
+Prior to release 1.96, {% data variables.product.prodname_vscode_shortname %} only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/configure/keybindings.md#keymap-extensions).
 
-As of release 1.96, VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
+As of release 1.96, {% data variables.product.prodname_vscode_shortname %} supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
 
 To switch between insert and overtype mode, run the **Toggle Overtype/Insert Mode** command in the Command Palette or press (`kb(editor.action.toggleOvertypeInsertMode)`). When you're in overtype mode, a Status Bar indicator shows `OVR`.
 
@@ -444,7 +471,7 @@ Use the `setting(editor.overtypeOnPaste)` setting to overwrite text when pasting
 
 ## Compare files
 
-VS Code supports several ways to compare the content of the current file or of any two files.
+{% data variables.product.prodname_vscode_shortname %} supports several ways to compare the content of the current file or of any two files.
 
 When you have an active file open in the editor, you have the following compare options:
 
@@ -458,24 +485,24 @@ To compare any two files:
 * To start a comparison between two empty editor windows, select **File: Compare New Untitled Text Files** from the Command Palette.
 
 > [!TIP]
-> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/configure/command-line.md#core-cli-options).
+> You can start {% data variables.product.prodname_vscode_shortname %} from the command line with the `--diff` option to compare two files. Learn more about the [{% data variables.product.prodname_vscode_shortname %} command line interface](/docs/configure/command-line.md#core-cli-options).
 
 ## Next steps
 
-You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
+You've covered the basic user interface - there is a lot more to {% data variables.product.prodname_vscode_shortname %}.  Read on to find out about:
 
-* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
-* [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of {% data variables.product.prodname_vscode_shortname %}.
+* [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through user and workspace settings.
 * [Code Navigation](/docs/editing/editingevolved.md) - Peek and Goto Definition, and more.
-* [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
-* [IntelliSense](/docs/editing/intellisense.md) - VS Code brings smart code completions.
-* [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
+* [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within {% data variables.product.prodname_vscode_shortname %}.
+* [IntelliSense](/docs/editing/intellisense.md) - {% data variables.product.prodname_vscode_shortname %} brings smart code completions.
+* [Debugging](/docs/debugtest/debugging.md) - This is where {% data variables.product.prodname_vscode_shortname %} really shines.
 
 ## Common questions
 
 ### Is it possible to globally search and replace?
 
-Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
+Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open {% data variables.product.prodname_vscode_shortname %} on a folder, the search will only run on the currently open files.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 
@@ -487,7 +514,7 @@ You can control word wrap through the `setting(editor.wordWrap)` [setting](/docs
     "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
+You can toggle word wrap for the {% data variables.product.prodname_vscode_shortname %} session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `setting(editor.rulers)` setting, which takes an array of column character positions where you'd like vertical rulers.
 

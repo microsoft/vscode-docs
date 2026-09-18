@@ -1,16 +1,16 @@
 ---
 ContentId: 7B5266AD-3D3E-491F-BD7C-B883C592D943
 DateApproved: 1/9/2023
-MetaDescription: This topic highlights some of the PyTorch features available within Visual Studio Code.
+MetaDescription: This topic highlights some of the PyTorch features available within {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# PyTorch support in Visual Studio Code
+# PyTorch support in {% data variables.product.prodname_vscode %}
 
-Along with support for [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md), Visual Studio Code offers many features of particular interest for PyTorch developers. This article covers some of those features and illustrates how they can help you in your projects. If you're unfamiliar with PyTorch development, Microsoft Learn offers a [Get started with PyTorch](https://learn.microsoft.com/training/paths/pytorch-fundamentals) learning path that covers the fundamentals of deep learning with PyTorch.
+Along with support for [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md), {% data variables.product.prodname_vscode %} offers many features of particular interest for PyTorch developers. This article covers some of those features and illustrates how they can help you in your projects. If you're unfamiliar with PyTorch development, Microsoft Learn offers a [Get started with PyTorch](https://learn.microsoft.com/training/paths/pytorch-fundamentals) learning path that covers the fundamentals of deep learning with PyTorch.
 
 ## Data Viewer support for Tensors and data slices
 
-VS Code provides a [Data Viewer](/docs/datascience/jupyter-notebooks.md#variable-explorer-and-data-viewer) that allows you to explore the variables within your code and notebooks, including PyTorch and TensorFlow `Tensor` data types. Along with that the Data Viewer has support for slicing data, allowing you to view any 2D slice of your higher dimensional data.
+{% data variables.product.prodname_vscode_shortname %} provides a [Data Viewer](/docs/datascience/jupyter-notebooks.md#variable-explorer-and-data-viewer) that allows you to explore the variables within your code and notebooks, including PyTorch and TensorFlow `Tensor` data types. Along with that the Data Viewer has support for slicing data, allowing you to view any 2D slice of your higher dimensional data.
 
 To access the Data Viewer, you can open it from the Notebook Variable Explorer by clicking the Data Viewer icon that shows up beside any Tensor variable. You'll also notice that the Variable Explorer shows the shape/dimensions of the Tensor as well.
 
@@ -28,22 +28,22 @@ Along with slicing, you can search for values of interest such as "inf's" or "Na
 
 ## TensorBoard integration
 
-[TensorBoard](https://www.tensorflow.org/tensorboard) is a data science companion dashboard that helps [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/) developers visualize datasets and model training. With TensorBoard directly integrated in VS Code, you can spot check your models predictions, view the architecture of your model, analyze your model's loss and accuracy over time, and profile your code to find out where it's the slowest.
+[TensorBoard](https://www.tensorflow.org/tensorboard) is a data science companion dashboard that helps [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/) developers visualize datasets and model training. With TensorBoard directly integrated in {% data variables.product.prodname_vscode_shortname %}, you can spot check your models predictions, view the architecture of your model, analyze your model's loss and accuracy over time, and profile your code to find out where it's the slowest.
 
-![TensorBoard integration with VS Code](images/pytorch-support/tensorboard-integration.png)
+![TensorBoard integration with {% data variables.product.prodname_vscode_shortname %}](images/pytorch-support/tensorboard-integration.png)
 
-To start a TensorBoard session, open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Python: Launch TensorBoard**. Afterwards, you'll be prompted to select the folder where your TensorBoard log files are located. By default, VS Code uses your current working directory and automatically detects your TensorBoard log files within any subdirectories. However, you can also specify your own directory. VS Code will then open a new tab with TensorBoard and manage its lifecycle as you work.
+To start a TensorBoard session, open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Python: Launch TensorBoard**. Afterwards, you'll be prompted to select the folder where your TensorBoard log files are located. By default, {% data variables.product.prodname_vscode_shortname %} uses your current working directory and automatically detects your TensorBoard log files within any subdirectories. However, you can also specify your own directory. {% data variables.product.prodname_vscode_shortname %} will then open a new tab with TensorBoard and manage its lifecycle as you work.
 
 You can also use the setting `python.tensorboard.logDirectory` to set a default TensorBoard log directory for your folder/workspace.
 
 ## PyTorch Profiler integration
 
-Along with TensorBoard, VS Code and the Python extension also integrate the PyTorch Profiler, allowing you to better analyze your PyTorch models in one place. For more information about the profiler, see the [PyTorch Profiler documentation](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/).
+Along with TensorBoard, {% data variables.product.prodname_vscode_shortname %} and the Python extension also integrate the PyTorch Profiler, allowing you to better analyze your PyTorch models in one place. For more information about the profiler, see the [PyTorch Profiler documentation](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/).
 
-![PyTorch Profiler integration with VS Code](images/pytorch-support/pytorch-profiler.png)
+![PyTorch Profiler integration with {% data variables.product.prodname_vscode_shortname %}](images/pytorch-support/pytorch-profiler.png)
 
 ## IntelliSense through the Pylance language server
 
-The Python editing experience in VS Code, enhanced with the power of Pylance, provides completions and other rich features for PyTorch. For the best experience, update PyTorch to 1.10.1 to get improved completions for submodules, such as nn, cuda, and optim.
+The Python editing experience in {% data variables.product.prodname_vscode_shortname %}, enhanced with the power of Pylance, provides completions and other rich features for PyTorch. For the best experience, update PyTorch to 1.10.1 to get improved completions for submodules, such as nn, cuda, and optim.
 
 ![Pylance support for PyTorch](images/pytorch-support/pytorch-pylance.gif)

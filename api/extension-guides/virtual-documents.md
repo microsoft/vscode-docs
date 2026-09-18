@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 54fdcc33-7ad1-40cc-bc87-ded1841d01ad
-DateApproved: 12/10/2025
+DateApproved: 9/16/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)
@@ -122,7 +122,7 @@ Document providers are first class citizens in VS Code, their contents appears i
 
 # File System API
 
-If you need more flexibility and power take a look at the [`FileSystemProvider`](/api/references/vscode-api#FileSystemProvider) API. It allows to implement a full file system, having files, folders, binary data, file-deletion, creation and more.
+If you need more flexibility and power take a look at the [`FileSystemProvider`](/api/references/vscode-api#FileSystemProvider) API. It allows you to implement a full file system, having files, folders, binary data, file-deletion, creation and more.
 
 You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md).
 

@@ -1,15 +1,15 @@
 ---
 ContentId: 4f5e169c-d91d-46b7-8c36-b695b5862313
 DateApproved: 12/142021
-MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer using Visual Studio Code.
+MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer using {% data variables.product.prodname_vscode %}.
 ---
-# Working with Application Servers in VS Code
+# Working with Application Servers in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](/docs/java/java-debugging.md#configure) if you want to attach to it.
+{% data variables.product.prodname_vscode %} is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](/docs/java/java-debugging.md#configure) if you want to attach to it.
 
-On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find third party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/), [Jetty](https://www.eclipse.org/jetty/), and [Open Liberty](https://openliberty.io/), which are helpful when working with those servers locally.
+On the other hand, we know that for certain Java workloads, server integration is very useful. With {% data variables.product.prodname_vscode %}, you can find third party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/), [Jetty](https://www.eclipse.org/jetty/), and [Open Liberty](https://openliberty.io/), which are helpful when working with those servers locally.
 
-For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
+For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in {% data variables.product.prodname_vscode %}](/docs/java/java-spring-boot.md).
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -22,7 +22,7 @@ The [Community Server Connectors](https://marketplace.visualstudio.com/items?ite
 
 ## Other Servers
 
-The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test, and debug your application from Visual Studio Code.
+The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test, and debug your application from {% data variables.product.prodname_vscode %}.
 
 The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red Hat allows you to start, stop, and deploy to a Red Hat server and runtime products like WildFly, JBoss EAP, Minishift, CDK.
 

@@ -10,10 +10,21 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
-    "lint": "eslint **/*.js",
-    "prepare": "husky install"
+    "check-release-note-toc": "node ./build/check-release-note-toc.js",
+    "check-staged-files": "node ./build/check-staged-files.js",
+    "lint": "eslint build/*.js",
+    "prepare": "husky install",
+    "replace-youtube-embeds": "node ./build/replace-youtube-embeds.js",
+    "test:replace-youtube-embeds": "node --test ./build/replace-youtube-embeds.test.js",
+    "test:data-variables": "node --test ./build/data-variables.test.js",
+    "test:tabs": "node --test ./build/tabs.test.js",
+    "generate-sidebar": "node ./build/generate-sidebar.js",
+    "serve": "npm run generate-sidebar && docsify serve .",
+    "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
+    "docsify-cli": "^5.0.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-security": "^1.7.1",
     "gulp": "~5.0.0",
     "husky": "^7.0.0",
@@ -23,6 +34,9 @@
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "npm run check-lfs"
+    ],
+    "release-notes/v1_*.md": [
+      "npm run check-release-note-toc"
     ]
   }
 }

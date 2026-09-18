@@ -49,7 +49,7 @@ Prerequisites:
 
 Once installed, Docker will recognize that you have WSL installed and prompt you to enable WSL integration. Select **Enable WSL integration** from the pop-up window.
 
-![Docker Desktop WSL integration dialog](1-docker-desktop-wsl-integration.png)
+![Docker Desktop WSL integration dialog](1-docker-desktop-wsl-integration.webp)
 
 Optional: Install the new [Windows Terminal](https://learn.microsoft.com/windows/terminal/) for the best experience, including the ability to open new PowerShell and Ubuntu terminals in the same interface.
 
@@ -57,23 +57,23 @@ Optional: Install the new [Windows Terminal](https://learn.microsoft.com/windows
 
 Let's connect VS Code to our WSL 2 engine. Open an Ubuntu terminal, navigate to the source code folder of your choice, and type `code .`. This will launch an instance of VS Code that lets you use WSL as your full-time development environment. You can also connect to WSL from the Command Palette. I'm going to open a simple [HelloNode](https://github.com/bamurtaugh/HelloNode) application:
 
-![Launch code . from Ubuntu terminal](2-ubuntu-launch.png)
+![Launch code . from Ubuntu terminal](2-ubuntu-launch.webp)
 
 Once VS Code opens, it recognizes that we have WSL installed, and recommends we install the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. I'll select **Install**:
 
-![WSL extension recommended](3-wsl-extension-recommended.png)
+![WSL extension recommended](3-wsl-extension-recommended.webp)
 
 After installing the extension, we can reload VS Code to connect to WSL 2:
 
-![Reload VS Code after installing extension](4-reload-vscode.png)
+![Reload VS Code after installing extension](4-reload-vscode.webp)
 
 Once we've reloaded, we can confirm that we're connected to Ubuntu by checking the WSL indicator in the bottom-left corner of the window:
 
-![WSL: Ubuntu bottom left indicator](5-wsl-left-indicator.png)
+![WSL: Ubuntu bottom left indicator](5-wsl-left-indicator.webp)
 
 Installing the WSL extension added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
 
-![Remote Explorer with WSL Targets](6-remote-explorer-wsl-targets.png)
+![Remote Explorer with WSL Targets](6-remote-explorer-wsl-targets.webp)
 
 ## Working with containers
 
@@ -91,25 +91,25 @@ We need to select the folder we want to open in a container. First, make sure yo
 
 I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I'll select: **Dev Containers: Reopen in Container**:
 
-![Command Palette: Dev Containers: Reopen in Container](7-reopen-container.png)
+![Command Palette: Dev Containers: Reopen in Container](7-reopen-container.webp)
 
 A list of container definitions will appear, since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I'll select **Node.js 14**:
 
-![Command Palette: Node.js 14](8-node-14.png)
+![Command Palette: Node.js 14](8-node-14.webp)
 
 A new instance of VS Code opens. VS Code starts building the image, and then starts our container:
 
-![VS Code instance starting with Dev Container](9-vscode-starting-with-container.png)
+![VS Code instance starting with Dev Container](9-vscode-starting-with-container.webp)
 
 Our application now has a .devcontainer folder in which the container configuration information is stored. To double-check we're connected to both WSL and within a container, let's open the integrated terminal and check for the `uname` and version of Node:
 
-![Check uname and node -v](10-uname-node.png)
+![Check uname and node -v](10-uname-node.webp)
 
 As we can see, our `uname` came back as Linux, so we are still connected to the WSL 2 engine, and `node -v` returned v14.4.0, so we have successfully configured our Node 14 container.
 
 Let's try running our app with **F5**:
 
-![Local host running Hello World app](11-localhost-hello-world.png)
+![Local host running Hello World app](11-localhost-hello-world.webp)
 
 Success!
 

@@ -7,7 +7,7 @@ Keywords:
 ---
 # C++ extension settings reference
 
-The C++ extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in VS Code, refer to [Configure settings](/docs/getstarted/personalize-vscode.md#configure-settings), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default VS Code Settings](/docs/reference/default-settings.md).
+The C++ extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in {% data variables.product.prodname_vscode_shortname %}, refer to [Configure settings](/docs/getstarted/personalize-vscode.md#configure-settings), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default {% data variables.product.prodname_vscode_shortname %} Settings](/docs/reference/default-settings.md).
 
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 
@@ -70,12 +70,12 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   We recommend that you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file, so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
 
 - `enableConfigurationSquiggles`:
-  Set to `true` to report errors detected in `c_cpp_properties.json` file to the C++ extension.
+  Set to `true` to report errors detected in the `c_cpp_properties.json` file to the C++ extension.
 
 ## Configuration properties
 
 - `name`:
-  A user-friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that are autoselected on those platforms. The Status Bar in VS Code shows you which configuration is active. You can also select the label in the Status Bar to change the active configuration.
+  A user-friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that are autoselected on those platforms. The Status Bar in {% data variables.product.prodname_vscode_shortname %} shows you which configuration is active. You can also select the label in the Status Bar to change the active configuration.
 
 - `compilerPath`:
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension queries the compiler to determine the system include paths and default defines to use for IntelliSense.
@@ -108,7 +108,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   The version of the C++ language standard to use for IntelliSense. For example, `c++20`, `gnu++23`, or `${default}`. Note: GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense emulates the equivalent C++ standard version.
 
 - `configurationProvider`:
-  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension. If you specified a `configurationProvider`, the configuration it provides takes precedence over your other settings in `c_cpp_properties.json`.
+  The ID of a {% data variables.product.prodname_vscode_shortname %} extension that can provide IntelliSense configuration information for source files. For example, use the {% data variables.product.prodname_vscode_shortname %} extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension. If you specified a `configurationProvider`, the configuration it provides takes precedence over your other settings in `c_cpp_properties.json`.
 
   A `configurationProvider` candidate extension must implement [vscode-cpptools-api](https://github.com/microsoft/vscode-cpptools-api).
 
@@ -143,7 +143,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 ### Browse properties
 
 - `path`:
-  A list of paths who's source files are parsed to be used in global symbol searches. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example, `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` does not.
+  A list of paths whose source files are parsed to be used in global symbol searches. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example, `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` does not.
 
 - `limitSymbolsToIncludedHeaders`:
   When `true`, the Tag Parser only parses header files that are directly or indirectly included by a source file in `${workspaceFolder}`. When `false`, the Tag Parser parses all code files found in the paths specified in the `browse.path` list.
@@ -166,9 +166,9 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 
 You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a `tasks.json` or `launch.json` script.
 
-### Default VS Code settings
+### Default {% data variables.product.prodname_vscode_shortname %} settings
 
-All default VS Code settings, such as `C_Cpp.default.includePath`, are supported in `c_cpp_properties.json`. The only exception is:
+All default {% data variables.product.prodname_vscode_shortname %} settings, such as `C_Cpp.default.includePath`, are supported in `c_cpp_properties.json`. The only exception is:
 
 ```json
 C_Cpp.default.systemIncludePath : string[]

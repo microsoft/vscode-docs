@@ -1,25 +1,27 @@
 ---
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 DateApproved: 5/4/2022
-MetaDescription: Download and learn the basics of Visual Studio Code.
+MetaDescription: Download and learn the basics of {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/opengraph/introvideos-social.png
 ---
-# Getting started with Visual Studio Code
+# Getting started with {% data variables.product.prodname_vscode %}
 
-In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
+In this tutorial, we walk you through using {% data variables.product.prodname_vscode %} powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+[![Watch Getting Started with {% data variables.product.prodname_vscode %} on YouTube (opens in new tab).](images/basics/youtube-f8_uF_IDV50.jpg)](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
-Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
+Here's the next video we recommend: [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md)
 
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+Explore more in the [{% data variables.product.prodname_vscode_shortname %} Tutorial](/docs/editing/getting-started/editor-tutorial.md) and [GitHub Copilot's Quickstart](/docs/agents/quickstart.md).
 
-## Video outline
+## Helpful shortcuts
 
-* Download and install VS Code.
+* Download and install {% data variables.product.prodname_vscode_shortname %}.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* Open the {% data variables.copilot.chat_view %}
+  * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)
 * Search view
@@ -48,22 +50,17 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * **File** > **Auto Save**
 * Run
   * **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`)
-* Programming language extensions
-  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, debugging, code formatting, refactoring, and more.
-  * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.
 * Zoom
   * Zoom out (`kb(workbench.action.zoomOut)`)
   * Zoom in (`kb(workbench.action.zoomIn)`)
-* Customize your editor with color themes.
-  * **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`)
 
 ## Next video
 
-* [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.
+* [Code Editing in {% data variables.product.prodname_vscode %}](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in {% data variables.product.prodname_vscode_shortname %}.
 * [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
-* [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
-* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.
+* [User Interface](/docs/editing/getting-started/userinterface.md) - View the documentation for {% data variables.product.prodname_vscode_shortname %}.
+* [Setup Overview](/docs/getstarted/overview.md) - Documentation for getting up and running with {% data variables.product.prodname_vscode_shortname %}, including platform specific setup.
+* [IntelliSense](/docs/editing/intellisense.md) -{% data variables.product.prodname_vscode_shortname %} brings smart code completions as you type.

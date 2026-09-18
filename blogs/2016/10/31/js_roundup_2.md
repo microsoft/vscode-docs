@@ -27,7 +27,7 @@ When you develop for the front end, you might not see the value of an integrated
 
 Prefer to debug using a different browser? You can find extensions for [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
 
-![debugger for chrome image](chrome_debugger.png)
+![debugger for chrome image](chrome_debugger.webp)
 
 ## Git Project Manager
 
@@ -45,7 +45,7 @@ To use this extension, first install it and then add the following configuration
 ]
 ```
 
-![git project manager showcase](git_project_manager.gif)
+<video src="git_project_manager.mp4" title="Video showing git project manager showcase." autoplay loop controls muted></video>
 
 ## Beautify
 

@@ -3,7 +3,7 @@ Order:
 TOCTitle: Logpoints and auto-attach
 PageTitle: Introducing Logpoints and auto-attach
 MetaDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use in Visual Studio Code
-MetaSocialImage: /assets/blogs/2018/07/12/debugger.png
+MetaSocialImage: /assets/blogs/2018/07/12/debugger.webp
 Date: 2018-07-12
 ShortDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use
 Author: Kenneth Auchenberg
@@ -16,7 +16,7 @@ Over the past few months we have been busy improving the debugging experience in
 
 Since the start of VS Code, we have shipped with an integrated debugging experience as we believe debugging should be an integral part of where you write and edit your source code  ––  your editor.
 
-![VS Code debugger](debugger.png)
+![VS Code debugger](debugger.webp)
 
 The VS Code debugging experience is powered by a generic debugger UI that communicates through the Debug Adapter Protocol (DAP) with a specific type of VS Code extension that we call a Debug Adapter (DA). The DA talks to a real debugger and translates between the DAP and the runtime specific debug protocol or API of the debugger.
 
@@ -24,7 +24,7 @@ This means that the core of VS Code is fully decoupled from the specific debugge
 
 <br />
 
-![VS Code debugging architecture](debugging_architecture.png)
+![VS Code debugging architecture](debugging_architecture.webp)
 
 <br />
 
@@ -82,7 +82,7 @@ You enable auto attach by running **Debug: Toggle Auto Attach** command from the
 
 <br />
 
-![Auto attach](auto-attach.gif)
+<video src="auto-attach.mp4" title="Video showing Auto attach." autoplay loop controls muted></video>
 
 <br />
 
@@ -96,7 +96,7 @@ We also recognized that some developers wanted a more visual way to find and run
 
 If you have a npm script that includes a debugging argument like `--inspect`, we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
 
-![NPM scripts](npm_scripts.png)
+![NPM scripts](npm_scripts.webp)
 
 ## Introducing Logpoints
 
@@ -104,7 +104,7 @@ Based on the learning that logging is an important debugging technique, we saw a
 
 A Logpoint is a breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
 
-![Logpoints](logpoints.gif)
+<video src="logpoints.mp4" title="Video showing Logpoints." autoplay loop controls muted></video>
 
 The concept for Logpoints isn't new, and over the past few years, we have seen different flavors of this concept in tools like [Visual Studio](https://codewala.net/2018/01/25/tracepoint-an-awsome-feature-of-visual-studio/), [Edge DevTools](https://learn.microsoft.com/microsoft-edge/devtools-guide-chromium/landing/) and [GDB](https://sourceware.org/gdb/onlinedocs/gdb/Tracepoints.html) under several names such as Tracepoints and [Logpoints](https://devblogs.microsoft.com/visualstudio/debug-live-apps-in-azure-with-the-snappoints-and-logpoints-preview).
 

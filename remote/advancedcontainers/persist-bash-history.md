@@ -5,7 +5,7 @@ TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
 ContentId: 68111a8d-530c-4909-916d-3e68758e5e33
 MetaDescription: Persist bash history in containers
-DateApproved: 12/10/2025
+DateApproved: 9/16/2026
 ---
 # Persist bash history
 
@@ -67,4 +67,4 @@ Finally, if you've already built the container and connected to it, run **Dev Co
 
 ### Video: How to make your bash history persist in a dev container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/12nZz-TjoZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to make your bash history persist in a dev container on YouTube (opens in new tab).](images/persist-bash-history/youtube-12nZz-TjoZg.jpg)](https://www.youtube.com/watch?v=12nZz-TjoZg)

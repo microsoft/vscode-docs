@@ -19,7 +19,7 @@ Fast forward to today. Now when you go to [https://vscode.dev](https://vscode.de
 
 No install required.
 
-[![vscode.dev running in the browser](vscode-dev.png)](/assets/blogs/2021/10/20/vscode-dev.png)
+[![vscode.dev running in the browser](vscode-dev.webp)](/assets/blogs/2021/10/20/vscode-dev.webp)
 
 With the availability of vscode.dev, we begin to finally realize our original vision of building a development tool that can run fully serverless in the browser. For a full history lesson, check out Erich Gamma's VS Code Day talk ["VS Code An Overnight Success…10 Years in the Making"](https://www.youtube.com/watch?v=hilznKQij7A&list=PLj6YeMhvp2S6uB23beQaffszlavLq3lNq).
 
@@ -27,7 +27,7 @@ So, what can you do on VS Code for the Web? Quite a bit actually…
 
 ## Local development with cloud tools
 
-[!["The Cat said No" application source code in vscode.dev](the-cat-said-no-vscode-dev.png)](/assets/blogs/2021/10/20/the-cat-said-no-vscode-dev.png)
+[!["The Cat said No" application source code in vscode.dev](the-cat-said-no-vscode-dev.webp)](/assets/blogs/2021/10/20/the-cat-said-no-vscode-dev.webp)
 
 Modern browsers that support the [File System Access API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API) (Edge and Chrome today) allow web pages to access the local file system (with your permission). This simple gateway to the local machine quickly opens some interesting scenarios for using VS Code for the Web as a zero-installation local development tool, such as:
 
@@ -38,7 +38,7 @@ Modern browsers that support the [File System Access API](https://developer.mozi
 
 And, if your browser doesn't support local file system APIs, you'll still be able to open individual files by uploading and downloading them via the browser.
 
-![Local File System Access is Unsupported message dialog](local-file-system-unsupported.png)
+![Local File System Access is Unsupported message dialog](local-file-system-unsupported.webp)
 
 **A Light(er)weight Experience**
 
@@ -60,7 +60,7 @@ Most UI customization extensions such as themes, key maps, and snippets all work
 
 Extensions that run Node.js code that use OS-specific modules, or shell out to local executables, still show in search results, but are clearly marked as unavailable.
 
-![Notification that extension is not available in Visual Studio Code for the Web](extension-not-available.png)
+![Notification that extension is not available in Visual Studio Code for the Web](extension-not-available.webp)
 
 That said, there are a growing number of extensions that have been updated to work in the browser, with more coming every day.
 
@@ -68,17 +68,17 @@ That said, there are a growing number of extensions that have been updated to wo
 
 For example, the [Luna Paint - Image Editor](https://marketplace.visualstudio.com/items?itemName=Tyriar.luna-paint) extension lets you edit raster images directly in VS Code. The extension brings rich design tools (for example, layer and blend tools) to VS Code, and of course you can save images to your local disk.
 
-[![Luna Paint - Image Editor extension running in vscode.dev](luna-paint-vscode-dev.png)](/assets/blogs/2021/10/20/luna-paint-vscode-dev.png)
+[![Luna Paint - Image Editor extension running in vscode.dev](luna-paint-vscode-dev.webp)](/assets/blogs/2021/10/20/luna-paint-vscode-dev.webp)
 
 The [GitHub Issue Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks) extension brings the Notebook experience to GitHub Issues. With that you can interleave queries, results, and even Markdown describing the purpose of the queries, together into a single editor.
 
-[![GitHub Issue Notebooks extension running in vscode.dev](github-issue-notebooks-vscode-dev.png)](/assets/blogs/2021/10/20/github-issue-notebooks-vscode-dev.png)
+[![GitHub Issue Notebooks extension running in vscode.dev](github-issue-notebooks-vscode-dev.webp)](/assets/blogs/2021/10/20/github-issue-notebooks-vscode-dev.webp)
 
 ## GitHub
 
 Many extensions for VS Code work with source code that is stored in GitHub. For example, the [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) extension lets you create guided walkthroughs of a code base and the [WikiLens](https://marketplace.visualstudio.com/items?itemName=lostintangent.wikilens) extension turns VS Code and your repository into a powerful note taking tool (with bi-directional linking). To make it easy to access your code in GitHub, VS Code for the Web comes with the [GitHub Repositories](https://code.visualstudio.com/docs/sourcecontrol/github#_github-repositories-extension), [Codespaces](https://code.visualstudio.com/docs/remote/codespaces), and [Pull Request](https://code.visualstudio.com/docs/sourcecontrol/github#_getting-started-with-github-pull-requests-and-issues) extensions built in. You can make quick edits, review PRs, and **Continue on** to a local clone or even better, to a [GitHub Codespace](https://github.com/features/codespaces), if you want more powerful language experiences or need to build, run, and test the changes prior to merging the commits.
 
-![Continue on dropdown showing Clone Repository Locally or Create New Codespace](continue-on-dropdown.png)
+![Continue on dropdown showing Clone Repository Locally or Create New Codespace](continue-on-dropdown.webp)
 
 Whoa, sounds a lot like `github.dev` doesn't it? Are they different? The same? Why two??!!
 
@@ -100,7 +100,7 @@ Like in the desktop, you can customize VS Code for the Web through a rich ecosys
 
 For example, try browsing to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl).
 
-[![Night Owl color theme in vscode.dev](night-owl-theme-vscode-dev.png)](/assets/blogs/2021/10/20/night-owl-theme-vscode-dev.png)
+[![Night Owl color theme in vscode.dev](night-owl-theme-vscode-dev.webp)](/assets/blogs/2021/10/20/night-owl-theme-vscode-dev.webp)
 
 Here you can experience the popular [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) color theme by [@sarah_edo](https://twitter.com/sarah_edo) "live", without having to go through the download and install process, just to see if you like it. No install necessary! If you are a theme author, you can even create a badge in your `README.md` to let users test drive your theme directly from the Marketplace (learn more in the [VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web#_themes) user guide).
 
@@ -108,7 +108,7 @@ Feel free to use this URL to share your favorite themes with friends. Personally
 
 As you can see, `vscode.dev` URLs are a powerful way for us to deliver new, lightweight experiences. Another example is that Live Share guest sessions will also be available in the browser through the `https://vscode.dev/liveshare` URL. The `sessionId` will be passed to the extension to make joining a seamless experience.
 
-![Live Share dialog with option to join session from the browser](join-live-share.png)
+![Live Share dialog with option to join session from the browser](join-live-share.webp)
 
 The possibilities with `vscode.dev` URLs are endless, and we've got a lot of ideas that we're excited to share with you in the coming months.
 

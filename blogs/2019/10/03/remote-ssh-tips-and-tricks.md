@@ -3,7 +3,7 @@ Order:
 TOCTitle: SSH Tips and Tricks
 PageTitle: Visual Studio Code Remote SSH Tips and Tricks
 MetaDescription: Visual Studio Code Remote-SSH Tips and Tricks
-MetaSocialImage: /assets/blogs/2019/10/03/social-remote-ssh.png
+MetaSocialImage: /assets/blogs/2019/10/03/social-remote-ssh.webp
 Date: 2019-10-03
 ShortDescription: Remote SSH Tips and Tricks with Visual Studio Code
 Author: Sana Ajani
@@ -18,11 +18,11 @@ In a previous [Remote SSH blog post](/blogs/2019/07/25/remote-ssh.md), we went o
 
 The Visual Studio Code Remote - SSH extension allows you to connect to a remote machine or VM using SSH, all from inside VS Code. If you don't already have the extension installed, you can search for "remote ssh" in the Extensions view (`kb(workbench.view.extensions)`).
 
-![Remote - SSH extension](remote-ssh-extension.png)
+![Remote - SSH extension](remote-ssh-extension.webp)
 
 After you install the extension, you'll notice an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
-![Remote extension commands](remote-extension-commands.png)
+![Remote extension commands](remote-extension-commands.webp)
 
 ## SSH configuration file
 
@@ -30,7 +30,7 @@ In the earlier Remote SSH blog post, we only connected to a single machine and d
 
 [OpenSSH](https://www.openssh.com/) supports using a [configuration file](https://linuxize.com/post/using-the-ssh-config-file) to store all your different SSH connections. To use an SSH config file, click on the remote indicator to bring up the remote commands, choose **Open Configuration File**, and select the file that follows the path "Users/{yourusername}/.ssh/config".
 
-![Open Configuration File command](open-configuration-file.png)
+![Open Configuration File command](open-configuration-file.webp)
 
 Here's an example of an SSH config file:
 
@@ -62,7 +62,7 @@ IdentityFile | The file location where you've stored your private key.
 
 You can add the information for all the hosts you have. Once you've saved the config file, you'll be able to see those hosts in the Remote Explorer, as well as any folders you have opened on that host. You can select the icon next to each host or folder and it will launch a new VS Code window (instance) and connect you to that host. In the screenshot below, I'm connected to my remote machine "python-linux-vm" and the Remote Explorer shows me the folders I have connected to in the past, as well as any forwarded ports from the remote machine.
 
-![Connected to python-linux-vm host machine](python-linux-vm.png)
+![Connected to python-linux-vm host machine](python-linux-vm.webp)
 
 ## ProxyCommand
 

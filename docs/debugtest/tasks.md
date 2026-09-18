@@ -1,15 +1,15 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 12/10/2025
-MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
+DateApproved: 9/16/2026
+MetaDescription: Expand your development workflow with task integration in {% data variables.product.prodname_vscode %}.
 ---
 # Integrate with External Tools via Tasks
 
 Lots of tools exist to automate tasks like linting, building, packaging, testing, or deploying software systems. Examples include the [TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](https://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](https://gulpjs.com/), [Jake](https://jakejs.com/), [Rake](https://ruby.github.io/rake/), and [MSBuild](https://github.com/microsoft/msbuild).
 
-![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
+![{% data variables.product.prodname_vscode_shortname %} can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life cycle, it is helpful to be able to run tools and analyze their results from within VS Code. Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace.
+These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life cycle, it is helpful to be able to run tools and analyze their results from within {% data variables.product.prodname_vscode_shortname %}. Tasks in {% data variables.product.prodname_vscode_shortname %} can be configured to run scripts and start processes so that many of these existing tools can be used from within {% data variables.product.prodname_vscode_shortname %} without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace.
 
 Extensions can also contribute tasks using a [Task Provider](/api/extension-guides/task-provider.md), and these contributed tasks can add workspace-specific configurations defined in the `tasks.json` file.
 
@@ -19,7 +19,7 @@ Extensions can also contribute tasks using a [Task Provider](/api/extension-guid
 
 Let's start with a simple "Hello World" TypeScript program that we want to compile to JavaScript.
 
-Create an empty folder "mytask", generate a `tsconfig.json` file and start VS Code from that folder.
+Create an empty folder "mytask", generate a `tsconfig.json` file and start {% data variables.product.prodname_vscode_shortname %} from that folder.
 
 ```bash
 mkdir mytask
@@ -44,7 +44,7 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task** from t
 
 The first entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. The second entry starts the TypeScript compiler in watch mode. Every save to the `HelloWorld.ts` file will regenerate the `HelloWorld.js` file.
 
-You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below makes the **tsc: build** task the default build task:
+You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and {% data variables.product.prodname_vscode_shortname %} will generate a `tasks.json` file. The one shown below makes the **tsc: build** task the default build task:
 
 ```json
 {
@@ -67,11 +67,11 @@ You can also define the TypeScript build or watch task as the default build task
 }
 ```
 
-The `tasks.json` example above does not define a new task. It annotates the **tsc: build** tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by pressing `kb(workbench.action.tasks.build)`.
+The `tasks.json` example above does not define a new task. It annotates the **tsc: build** tasks contributed by {% data variables.product.prodname_vscode_shortname %}'s TypeScript extension to be the default build task. You can now execute the TypeScript compiler by pressing `kb(workbench.action.tasks.build)`.
 
 ## Task auto-detection
 
-VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jake, and npm. We are working with the corresponding extension authors to add support for Maven and the C# `dotnet` command as well. If you develop a JavaScript application using Node.js as the runtime, you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
+{% data variables.product.prodname_vscode_shortname %} currently auto-detects tasks for the following systems: Gulp, Grunt, Jake, and npm. We are working with the corresponding extension authors to add support for Maven and the C# `dotnet` command as well. If you develop a JavaScript application using Node.js as the runtime, you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
@@ -83,7 +83,7 @@ Executing the task produces one error, shown in the **Problems** view:
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
-In addition, VS Code created a `tasks.json` file with the following content:
+In addition, {% data variables.product.prodname_vscode_shortname %} created a `tasks.json` file with the following content:
 
 ```json
 {
@@ -102,7 +102,7 @@ In addition, VS Code created a `tasks.json` file with the following content:
 }
 ```
 
-This instructs VS Code to scan the output of the **npm lint** script for problems using the ESLint stylish format.
+This instructs {% data variables.product.prodname_vscode_shortname %} to scan the output of the **npm lint** script for problems using the ESLint stylish format.
 
 For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an example of the tasks detected for the [vscode-node-debug](https://github.com/microsoft/vscode-node-debug) extension.
 
@@ -114,7 +114,7 @@ Task auto detection can be disabled using the following settings:
 
 ```json
 {
-    "typescript.tsc.autoDetect": "off",
+    "js/ts.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
     "jake.autoDetect": "off",
     "gulp.autoDetect": "off",
@@ -217,9 +217,9 @@ Shell commands need special treatment when it comes to commands and arguments th
 Besides escaping, the following values are supported:
 
 * **strong**: Uses the shell's strong quoting mechanism, which suppresses all evaluations inside the string. Under PowerShell and for shells under Linux and macOS, single quotes are used (`'`). For cmd.exe, `"` is used.
-* **weak**: Uses the shell's weak quoting mechanism, which still evaluates expression inside the string (for example, environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so VS Code uses `"` as well.
+* **weak**: Uses the shell's weak quoting mechanism, which still evaluates expression inside the string (for example, environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so {% data variables.product.prodname_vscode_shortname %} uses `"` as well.
 
-If the command itself contains spaces, VS Code will by default strong quote the command as well. As with arguments, the user can control the quoting of the command using the same literal style.
+If the command itself contains spaces, {% data variables.product.prodname_vscode_shortname %} will by default strong quote the command as well. As with arguments, the user can control the quoting of the command using the same literal style.
 
 There are more task properties to configure your workflow. You can use IntelliSense with `kb(editor.action.triggerSuggest)` to get an overview of the valid properties.
 
@@ -371,8 +371,35 @@ You can specify a task's run behaviors using the `runOptions` property:
 * **reevaluateOnRerun**: Controls how variables are evaluated when a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be reevaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 * **runOn**: Specifies when a task is run.
   * `default` - The task will only be run when executed through the **Run Task** command.
-  * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
-* **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
+  * `folderOpen`: The task will be run when the containing folder is opened. See also how you can [control automatic task execution](#control-automatic-task-execution).
+
+* **instanceLimit**: The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
+
+* **instancePolicy**: Determines what happens when a task has reached its `instanceLimit`. Can be set to:
+  * `prompt` - Prompt the user which instance to terminate (default).
+  * `silent` - Don't start a new instance (silent).
+  * `terminateNewest` - Terminate the newest running instance.
+  * `terminateOldest` - Terminate the oldest running instance.
+  * `warn` - Don't start a new instance (show warning).
+
+### Control automatic task execution
+
+The `setting(task.allowAutomaticTasks)` setting controls whether tasks with `"runOn": "folderOpen"` are allowed to run automatically when you open a workspace. Automatic tasks never run in an [untrusted workspace](/docs/editing/workspaces/workspace-trust.md), regardless of this setting.
+
+The setting accepts two values:
+
+* **off** (default): Don't run automatic tasks. If you haven't yet made a choice for the current workspace, you are prompted once to **Allow** or **Disallow** automatic tasks. If you select **Disallow** (or set the value to `off` explicitly), tasks won't run and you aren't prompted again.
+* **on**: Always run automatic tasks when opening a trusted workspace, without prompting.
+
+To configure the setting, add it to your user or workspace settings:
+
+```json
+{
+    "task.allowAutomaticTasks": "off"
+}
+```
+
+You can also change your choice at any time using the **Tasks: Manage Automatic Tasks** command from the Command Palette, and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks** for the current workspace.
 
 ## Customizing auto-detected tasks
 
@@ -429,7 +456,7 @@ Usually you would now add a problem matcher (in this case `$eslint-stylish`) or 
 
 ## Processing task output with problem matchers
 
-VS Code can process the output from a task with a problem matcher. Problem matchers scan the task output text for known warning or error strings, and report these inline in the editor and in the Problems panel. VS Code ships with several problem matchers 'in-the-box':
+{% data variables.product.prodname_vscode_shortname %} can process the output from a task with a problem matcher. Problem matchers scan the task output text for known warning or error strings, and report these inline in the editor and in the Problems panel. {% data variables.product.prodname_vscode_shortname %} ships with several problem matchers 'in-the-box':
 
 * **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 * **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -460,7 +487,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 ## Variable substitution
 
-When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md).
+When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). {% data variables.product.prodname_vscode_shortname %} supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md).
 
 >**Note:** Not all properties will accept variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
@@ -551,7 +578,7 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ### Character escaping in PowerShell
 
-When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn't know if your command contains cmdlets. Example 1 below shows a case where you'll get escaping that doesn't work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you'll need to do the manual escaping shown in example 3.
+When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because {% data variables.product.prodname_vscode_shortname %} doesn't know if your command contains cmdlets. Example 1 below shows a case where you'll get escaping that doesn't work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you'll need to do the manual escaping shown in example 3.
 
 ```json
 "tasks": [
@@ -602,11 +629,11 @@ If the task is executed in `PowerShell`, the command needs to read like this `ch
 
 ## Examples of tasks in action
 
-To highlight the power of tasks, here are a few examples of how VS Code can use tasks to integrate external tools like linters and compilers.
+To highlight the power of tasks, here are a few examples of how {% data variables.product.prodname_vscode_shortname %} can use tasks to integrate external tools like linters and compilers.
 
 ### Transpiling TypeScript to JavaScript
 
-The [TypeScript topic](/docs/typescript/typescript-compiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+The [TypeScript topic](/docs/typescript/typescript-transpiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within {% data variables.product.prodname_vscode_shortname %}.
 
 ### Transpiling Less and SCSS into CSS
 
@@ -617,7 +644,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 
 ## Defining a problem matcher
 
-VS Code ships some of the most common problem matchers 'in-the-box'.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings so you may want to create your own problem matcher.
+{% data variables.product.prodname_vscode_shortname %} ships some of the most common problem matchers 'in-the-box'.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings so you may want to create your own problem matcher.
 
 We have a `helloWorld.c` program in which the developer mistyped **printf** as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
 
@@ -625,7 +652,7 @@ We have a `helloWorld.c` program in which the developer mistyped **printf** as *
 helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 ```
 
-We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes you are familiar with regular expressions.
+We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in {% data variables.product.prodname_vscode_shortname %}.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes you are familiar with regular expressions.
 
 >**Tip:** We have found the [RegEx101 playground](https://regex101.com/), which has an ECMAScript (JavaScript) flavor, to be a great way to develop and test regular expressions.
 
@@ -689,7 +716,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
 }
 ```
 
-Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to get the list of problems gives you the following output:
+Running it inside {% data variables.product.prodname_vscode_shortname %} and pressing `kb(workbench.actions.view.problems)` to get the list of problems gives you the following output:
 
 ![GCC Problem Matcher](images/tasks/problemmatcher.png)
 
@@ -721,6 +748,18 @@ test.js
 Our problem matcher is line-based so we need to capture the file name (test.js) with a different regular expression than the actual problem location and message (1:0   error  Missing "use strict" statement).
 
 To do this, use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
+
+> **Note:** In a multi-line problem matcher, the pattern array must match every consecutive line of output, starting from the first pattern. You cannot skip intermediate lines, even if they contain no useful information.
+
+If your tool outputs three lines and you only need data from the first and third, your pattern array still needs three entries. Use `{"regexp": "^.*$"}` with no capture group assignments for lines you don't need data from:
+
+```json
+"pattern": [
+    { "regexp": "^Error:\\s+(.*)$", "message": 1 },
+    { "regexp": "^.*$" },
+    { "regexp": "^\\s+at\\s+(.*):(\\d+)$", "file": 1, "line": 2 }
+]
+```
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue that we need to resolve next. The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message, and error code:
 
@@ -812,7 +851,7 @@ Other modifiable problem matcher properties include `background`, `fileLocation`
 
 Some tools support running in the background while watching the file system for changes and then triggering an action when a file changes on disk. With `Gulp` such functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the `--watch` command line option.
 
-To provide feedback that a background task is active in VS Code and producing problem results, a problem matcher has to use additional information to detect these `state` changes in the output. Let's take the `tsc` compiler as an example. When the compiler is started in watch mode, it prints the following additional information to the console:
+To provide feedback that a background task is active in {% data variables.product.prodname_vscode_shortname %} and producing problem results, a problem matcher has to use additional information to detect these `state` changes in the output. Let's take the `tsc` compiler as an example. When the compiler is started in watch mode, it prints the following additional information to the console:
 
 ```bash
 > tsc --watch
@@ -886,16 +925,16 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 That was tasks - let's keep going...
 
 * [tasks.json Schema](/docs/reference/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
-* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
-* [Debugging](/docs/debugtest/debugging.md) - Debug your source code directly in the VS Code editor.
+* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with {% data variables.product.prodname_vscode_shortname %} and through community extensions.
+* [Debugging](/docs/debugtest/debugging.md) - Debug your source code directly in the {% data variables.product.prodname_vscode_shortname %} editor.
 
 ## Common questions
 
 ### Can a task use a different shell than the one specified for the Integrated Terminal?
 
-Yes. You can use the `"terminal.integrated.automationProfile.*"` setting to set the shell that will be used for all automation in VS Code, which includes Tasks.
+Yes. You can use the `"terminal.integrated.automationProfile.*"` setting to set the shell that will be used for all automation in {% data variables.product.prodname_vscode_shortname %}, which includes Tasks.
 
 ```json
     "terminal.integrated.automationProfile.windows": {
@@ -958,7 +997,7 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
 }
 ```
 
-For more on background tasks, go to [Background / watching tasks](/docs/debugtest/tasks.md#background-watching-tasks).
+For more on background tasks, go to [Background / watching tasks](/docs/debugtest/tasks.md#background--watching-tasks).
 
 ### Why do I get "command not found" when running a task?
 

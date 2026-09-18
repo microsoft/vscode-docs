@@ -13,11 +13,11 @@ December 07, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/Brig
 
 At its core, Visual Studio Code is a code editor, and it integrates with other environments through our [remote development experiences](https://code.visualstudio.com/docs/remote/remote-overview) to become even more powerful and flexible:
 
-![Spectrum of remote development options](tunneling-blog-remote-spectrum.png)
+![Spectrum of remote development options](tunneling-blog-remote-spectrum.webp)
 
 You may not think about it, but VS Code has a built-in [command-line interface](https://code.visualstudio.com/docs/configure/command-line) (CLI) that lets you control how you launch and manage the editor - you can open files, install extensions, and output diagnostics through command-line options:
 
-![Output of code CLI](tunneling-blog-code-help-new.png)
+![Output of code CLI](tunneling-blog-code-help-new.webp)
 
 The CLI is incredibly useful in workflows using VS Code Desktop, but there was a gap: you couldn't start a remote instance with it. So, we wanted to fix that gap by bringing local and remote closer together to make the CLI even more powerful.
 
@@ -54,7 +54,7 @@ Below are the steps to install the `code` CLI and create a secure tunnel with it
 
     The CLI is automatically included in your existing VS Code installation – no additional setup required. If you don't have VS Code installed or can't install it on your remote machine, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page:
 
-    ![CLI download section](tunneling-blog-download.png)
+    ![CLI download section](tunneling-blog-download.webp)
 
     > **Note:** If you're using the standalone install, the commands in the following section will start with `./code` rather than `code`.
 
@@ -94,11 +94,11 @@ You may also choose to create tunnels directly from the VS Code UI if you have V
 
 Open VS Code on your remote machine. In the VS Code Account menu, select the option to **Turn on Remote Tunnel Access…**, as demonstrated in the image below. You may also open the Command Palette (`kbstyle(F1)`) and run the command **Remote Tunnels: Turn on Remote Tunnel Access...**.
 
-![Turn on Remote Tunnel Access in the Account menu](tunneling-blog-access-red.png)
+![Turn on Remote Tunnel Access in the Account menu](tunneling-blog-access-red.webp)
 
 You'll be prompted to log into GitHub. Once you've logged in, a tunnel will start up on this remote machine, and you'll be able to connect to it:
 
-![Remote tunnel access is enabled toast](tunneling-blog-enabled-prompt.png)
+![Remote tunnel access is enabled toast](tunneling-blog-enabled-prompt.webp)
 
 In a client of your choice, you can open the vscode.dev link from the notification above and start coding!
 
@@ -108,11 +108,11 @@ The [Remote - Tunnels](https://aka.ms/remote-tunnels-doc) extension manages thes
 
 If you're already working in a VS Code client (desktop or web) and would like to connect to a remote tunnel, you can install and use the [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension directly. Once you install the extension, open the Command Palette (`kbstyle(F1)`) and run the command **Remote Tunnels: Connect to Tunnel**. You'll be able to connect to any remote machines with an active tunnel:
 
-![List of remote machines in Quick Pick](tunneling-blog-list.png)
+![List of remote machines in Quick Pick](tunneling-blog-list.webp)
 
 You can also view your remote machines in the Remote Explorer, which you can open through the command **Remote Explorer: Focus on Remote View**:
 
-![List of remote machines in Remote Explorer](tunneling-blog-remote-explorer.png)
+![List of remote machines in Remote Explorer](tunneling-blog-remote-explorer.webp)
 
 ### Removing a tunnel or machine
 
@@ -130,15 +130,15 @@ We heard your feedback about the names of the **Remote - WSL** and **Remote - Co
 
 We updated naming and in-product commands in these extensions to be clearer, renaming them to [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) and [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). Links such as the extension identifier in the Marketplace and documentation remain the same, so you shouldn't see breakage in your current use of these two extensions.
 
-![WSL extension in the Marketplace](tunneling-blog-wsl.png)
+![WSL extension in the Marketplace](tunneling-blog-wsl.webp)
 
-![Dev Containers extension in the Marketplace](tunneling-blog-containers.png)
+![Dev Containers extension in the Marketplace](tunneling-blog-containers.webp)
 
 ### Remote Tunnels
 
 As described above, you can use the [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to connect to a remote machine via a secure tunnel, without the requirement of SSH. We've renamed the extension to "Remote - Tunnels" from "Remote Server" as we believe this more clearly indicates its behavior (the extension is used to develop on remote machines via secure tunnels after all!).
 
-![Remote - Tunnels extension in the Marketplace](tunneling-blog-extension.png)
+![Remote - Tunnels extension in the Marketplace](tunneling-blog-extension.webp)
 
 ## Closing – thank you!
 

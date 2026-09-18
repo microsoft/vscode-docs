@@ -3,7 +3,7 @@ Order:
 TOCTitle: Hot Exit Comes to Insiders
 PageTitle: Hot Exit Comes to Insiders
 MetaDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
-MetaSocialImage: /assets/blogs/2016/11/30/opengraph_insiders.png
+MetaSocialImage: /assets/blogs/2016/11/30/opengraph_insiders.webp
 Date: 2016-11-30
 ShortDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
 Author: Daniel Imms

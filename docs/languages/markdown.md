@@ -1,11 +1,11 @@
 ---
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-DateApproved: 12/10/2025
-MetaDescription: Get the best out of Visual Studio Code for Markdown
+DateApproved: 9/16/2026
+MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for Markdown
 ---
-# Markdown and Visual Studio Code
+# Markdown and {% data variables.product.prodname_vscode %}
 
-Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
+Working with Markdown files in {% data variables.product.prodname_vscode %} is simple, straightforward, and fun. Besides {% data variables.product.prodname_vscode_shortname %}'s basic editing, there are a several Markdown-specific features that help you be more productive.
 
 >**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/configure/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
@@ -21,7 +21,7 @@ The Outline view is a great way to review your document's header structure and o
 
 ### Snippets for Markdown
 
-VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
+{% data variables.product.prodname_vscode_shortname %} includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
 >**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editing/userdefinedsnippets.md) to find out how.
 
@@ -75,11 +75,11 @@ Keep in mind that finding all headers in the current workspace can be expensive,
 
 ### Inserting images and links to files
 
-In addition to [path completion](#path-completions), VS Code also supports a few other ways to insert images and file links into your Markdown documents:
+In addition to [path completion](#path-completions), {% data variables.product.prodname_vscode_shortname %} also supports a few other ways to insert images and file links into your Markdown documents:
 
-You can **Drag and drop** a file from VS Code's Explorer or from your operating system into a Markdown editor. Start by dragging a file from VS Code's Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+You can **Drag and drop** a file from {% data variables.product.prodname_vscode_shortname %}'s Explorer or from your operating system into a Markdown editor. Start by dragging a file from {% data variables.product.prodname_vscode_shortname %}'s Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
-![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+<video src="images/Markdown/drop-link.mp4" title="Video showing Inserting a Markdown link by dragging and dropping from the explorer." autoplay loop controls muted></video>
 
 If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor. When you paste a file, a link to a file, or a URL, you can choose to insert a Markdown link or to include the link as plain text.
 
@@ -89,7 +89,7 @@ Or you can use the  **Markdown: Insert Image from Workspace** command to insert 
 
 Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
 
-By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `setting(markdown.copyFiles.destination)` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `setting(markdown.copyFiles.destination)` setting description for information about the available variables.
+By default {% data variables.product.prodname_vscode_shortname %} automatically copies dropped or pasted images outside of the workspace into your workspace. The `setting(markdown.copyFiles.destination)` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `setting(markdown.copyFiles.destination)` setting description for information about the available variables.
 
 For example, if you want every Markdown file under `/docs` in your workspace to put new media files into an `images` directory specific to the current file, you can write:
 
@@ -115,7 +115,7 @@ When a new file is pasted into `/docs/api/readme.md`, the image is now created u
 
 You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
 
-1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+1. Make sure you have [set up Copilot](/docs/setup/copilot.md) in your {% data variables.product.prodname_vscode_shortname %} environment. You can get started with Copilot for free.
 
 1. Open a Markdown file.
 1. Put the cursor on an image link.
@@ -143,7 +143,7 @@ Selection applies to the following, and follows a traditional hierarchical patte
 * Html code blocks
 * Paragraphs
 
-![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
+<video src="images/Markdown/smart-select.mp4" title="Video showing Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself." autoplay loop controls muted></video>
 
 ### Link validation
 
@@ -151,7 +151,7 @@ Link validation checks local links in your Markdown code to make sure they are v
 
 ![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
 
-Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. VS Code then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
+Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. {% data variables.product.prodname_vscode_shortname %} then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
 
 There are a few settings you can use to customize link validation:
 
@@ -176,9 +176,9 @@ Use the **Find All References** (`kb(references-view.findReferences)`) command t
 
 ### Rename headers and links
 
-Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, VS Code updates the header and automatically updates all links to that header:
+Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, {% data variables.product.prodname_vscode_shortname %} updates the header and automatically updates all links to that header:
 
-![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
+<video src="images/Markdown/rename-header.mp4" title="Video showing Renaming a Markdown header to update all links to it." autoplay loop controls muted></video>
 
 You can also use `kb(editor.action.rename)` on:
 
@@ -189,7 +189,7 @@ You can also use `kb(editor.action.rename)` on:
 
 ### Automatic link updates on file move or rename
 
-With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `setting(markdown.updateLinksOnFileMove.enabled)` setting. Valid setting values are:
+With automatic Markdown link updating, {% data variables.product.prodname_vscode_shortname %} will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `setting(markdown.updateLinksOnFileMove.enabled)` setting. Valid setting values are:
 
 * `never` (the default) — Don't try to update links automatically.
 * `prompt` — Confirm before updating links.
@@ -199,19 +199,19 @@ Automatic link updating detects renames of Markdown files, images, and directori
 
 ## Markdown preview
 
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the `.md` extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
+{% data variables.product.prodname_vscode_shortname %} supports Markdown files out of the box. You just start writing Markdown text, save the file with the `.md` extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.togglePreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.togglePreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
 
 ### Dynamic previews and preview locking
 
 By default, Markdown previews automatically update to preview the currently active Markdown file:
 
-![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
+<video src="images/Markdown/md-dynamic-preview.mp4" title="Video showing The preview automatically switching to preview the current Markdown document." autoplay loop controls muted></video>
 
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
@@ -221,9 +221,9 @@ You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** c
 
 ### Editor and preview synchronization
 
-VS Code automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
+{% data variables.product.prodname_vscode_shortname %} automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
 
-![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
+<video src="images/Markdown/preview-scroll-sync.mp4" title="Video showing Markdown Preview editor selection scroll sync." autoplay loop controls muted></video>
 
 You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/configure/settings.md).
 
@@ -233,11 +233,87 @@ The currently selected line in the editor is indicated in the Markdown preview b
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
-![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
+<video src="images/Markdown/double-click-preview-switch.mp4" title="Video showing Markdown Preview double click switches to editor." autoplay loop controls muted></video>
+
+### Markdown preview in diff view
+
+The Markdown preview can also render diffs, showing the rendered document with changes highlighted instead of the raw Markdown source.
+
+This behavior is opt-in. You can switch a single diff to the preview, or change the default editor used for Markdown diffs.
+
+#### Open a single diff in the Markdown preview
+
+To switch an open Markdown diff (for example, a file opened from the **Source Control** view) to the rendered preview:
+
+1. With the diff editor active, run **View: Reopen Editor With...** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select **Markdown Preview**.
+
+To switch back, run **View: Reopen Editor With...** again and select the default text editor.
+
+#### Set the Markdown preview as the default editor
+
+To make the Markdown preview the default editor for all `.md` files, including diffs, configure the `setting(workbench.editorAssociations)` setting:
+
+```json
+"workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+}
+```
+
+With this setting, opening a Markdown file from the Explorer or a Markdown diff from Source Control opens the rendered preview by default. You can still use **View: Reopen Editor With...** to switch an individual editor back to the text view.
+
+#### Use the Markdown preview only for diffs
+
+To render only Markdown diffs in the preview while keeping regular file opens in the text editor, use the `setting(workbench.diffEditorAssociations)` setting:
+
+```json
+"workbench.diffEditorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+}
+```
+
+`workbench.diffEditorAssociations` takes precedence over `workbench.editorAssociations` for diff views. You can combine the two settings to make the preview the default for normal file opens while keeping diffs in the text editor:
+
+```json
+"workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+},
+"workbench.diffEditorAssociations": {
+    "*.md": "default"
+}
+```
+
+#### Inline and side-by-side layouts
+
+Markdown diff previews support both side-by-side and inline layouts, like text diff editors. Switching the layout updates the default for any new Markdown diff editors you open.
+
+In a side-by-side preview, the two editors stay scroll-synced to keep matching content lined up as you scroll. Changed lines are highlighted, and changes within a line are highlighted more strongly to call out the exact word or phrase that was modified.
+
+### Mermaid diagram rendering
+
+{% data variables.product.prodname_vscode_shortname %}'s built-in Markdown preview renders [Mermaid](https://mermaid.js.org) diagrams in `mermaid` fenced code blocks.
+
+````markdown
+```mermaid
+flowchart LR
+  Sleep[Sleep] --> Wake{Awake?}
+  Wake -->|No| Sleep
+  Wake -->|Hungry| Snack[Get treat]
+  Wake -->|Not in sunbeam| Move[Move to sunbeam]
+  Wake -->|Human is typing| Keyboard[Sleep on keyboard]
+  Snack --> Sleep
+  Move --> Sleep
+  Keyboard --> Sleep
+```
+````
+
+In the rendered preview, you can pan and zoom larger diagrams to inspect them in place. By default, mouse navigation uses `kbstyle(Alt)` (`kbstyle(Option)` on macOS): hold it and drag to pan, scroll to zoom, or click the diagram to zoom in. Hold `kbstyle(Alt)`+`kbstyle(Shift)` and click to zoom out. You can also use a pinch gesture to zoom without holding `kbstyle(Alt)`.
+
+Hover over or focus the diagram to show controls for toggling pan mode, zooming in, zooming out, and resetting pan and zoom. Open the context menu for a rendered diagram and select **Copy Diagram Source** to copy its Mermaid source.
 
 ### Math formula rendering
 
-VS Code's built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
+{% data variables.product.prodname_vscode_shortname %}'s built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
 
 ![Markdown Preview rendering of math formulas with KaTeX](images/Markdown/math-formula-rendering.png)
 
@@ -286,7 +362,7 @@ For example, to load a stylesheet called `Style.css` at the root of your current
 
 ### Keep trailing whitespace in order to create line breaks
 
-To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks), Markdown requires two or more spaces at the end of a line. Depending on your user or workspace settings, VS Code might be configured to remove trailing whitespace. In order to keep trailing whitespace in Markdown files only, you can add these lines to your `settings.json`:
+To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks), Markdown requires two or more spaces at the end of a line. Depending on your user or workspace settings, {% data variables.product.prodname_vscode_shortname %} might be configured to remove trailing whitespace. In order to keep trailing whitespace in Markdown files only, you can add these lines to your `settings.json`:
 
 ```json
 {
@@ -298,7 +374,7 @@ To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks)
 
 ## Markdown preview security
 
-For security reasons, VS Code restricts the content displayed in the Markdown preview. This includes disabling script execution and only allowing resources to be loaded over `https`.
+For security reasons, {% data variables.product.prodname_vscode_shortname %} restricts the content displayed in the Markdown preview. This includes disabling script execution and only allowing resources to be loaded over `https`.
 
 When the Markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
 
@@ -338,7 +414,7 @@ Once you select a profile template, you can review the settings and extensions, 
 
 ## Markdown extensions
 
-In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
+In addition to the functionality {% data variables.product.prodname_vscode_shortname %} provides out of the box, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-markdown-curated"></div>
 
@@ -348,14 +424,14 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 Read on to find out about:
 
-* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? {% data variables.product.prodname_vscode_shortname %} has great support for CSS, SCSS, and Less editing.
 
 ## Common questions
 
 ### Is there spell checking?
 
-Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+Not installed with {% data variables.product.prodname_vscode_shortname %} but there are spell checking extensions. Check the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
-### Does VS Code support GitHub Flavored Markdown?
+### Does {% data variables.product.prodname_vscode_shortname %} support GitHub Flavored Markdown?
 
-No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification, which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
+No, {% data variables.product.prodname_vscode_shortname %} targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification, which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).

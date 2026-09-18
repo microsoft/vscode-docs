@@ -1,13 +1,13 @@
 ---
 ContentId: bf494c65-12b4-4506-ab6c-1fad76d7ccf1
 DateApproved: 11/6/2023
-MetaDescription: Configure Visual Studio Code IntelliSense in the C/C++ extension
+MetaDescription: Configure {% data variables.product.prodname_vscode %} IntelliSense in the C/C++ extension
 Keywords:
 - C++
 ---
 # Configure C/C++ IntelliSense
 
-This article is about configuring the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to provide C++ specific [IntelliSense](/docs/editing/intellisense.md) suggestions in Visual Studio Code. IntelliSense is a helpful tool built into VS Code that provides various code editing features to help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, Code Actions (light bulbs), and member lists are all generated using IntelliSense.
+This article is about configuring the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to provide C++ specific [IntelliSense](/docs/editing/intellisense.md) suggestions in {% data variables.product.prodname_vscode %}. IntelliSense is a helpful tool built into {% data variables.product.prodname_vscode_shortname %} that provides various code editing features to help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, Code Actions (light bulbs), and member lists are all generated using IntelliSense.
 
 C/C++ IntelliSense only requires a C/C++ compiler to be installed on your system. The C/C++ compiler provides C++ specific information to IntelliSense, such as the locations of system include paths and other settings. For project level configurations, reference [Project level IntelliSense configuration](#project-level-intellisense-configuration) section.
 
@@ -57,12 +57,12 @@ You can edit the `c_cpp_properties.json` file directly to customize your configu
 
 Use the `compilerPath` variable to add a compiler. This variable is the full path of the compiler you're using to build your project. For example, when using the default install path for GCC on Linux, the compiler path is `/usr/bin/gcc`.
 
-For more information about the `c_cpp_properties.json` file, review the [schema reference](/docs/cpp/c-cpp-properties-schema-reference.md).
+For more information about the `c_cpp_properties.json` file, review the [schema reference](/docs/cpp/customize-cpp-settings.md).
 
-Select the sample below based on your operating system for a `c_cpp_configuration.json` file:
+Select the sample below based on your operating system for a `c_cpp_properties.json` file:
 
 <details>
-<summary><b>> Sample c_cpp_configuration.json on Windows</b></summary>
+<summary><b>> Sample c_cpp_properties.json on Windows</b></summary>
 <br>
 
 Using the default install path for MinGW:
@@ -94,7 +94,7 @@ Using the default install path for MinGW:
 </details>
 <br>
 <details>
-<summary><b>> Sample c_cpp_configuration.json on macOS</b></summary>
+<summary><b>> Sample c_cpp_properties.json on macOS</b></summary>
 <br>
 Using the default install path for Clang:
 
@@ -123,7 +123,7 @@ Using the default install path for Clang:
 </details>
 <br>
 <details>
-<summary><b>> Sample c_cpp_configuration.json on Linux</b></summary>
+<summary><b>> Sample c_cpp_properties.json on Linux</b></summary>
 <br>
 Using the default install path for GCC:
 
@@ -165,12 +165,12 @@ Configuring IntelliSense with a compiler provides you with core IntelliSense fea
 There are multiple other ways to configure IntelliSense. You can provide these additional configurations either through:
 
 * The `c_cpp_properties.json` file and related settings
-* A custom configuration provider in the form of another VS Code extension (for example, the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions)
+* A custom configuration provider in the form of another {% data variables.product.prodname_vscode_shortname %} extension (for example, the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions)
 * A `compile_commands.json` file
 
 ### Configuration providers
 
-A custom configuration provider is another extension in VS Code that can potentially provide more accurate C++ IntelliSense configuration than the C/C++ extension. For example, for the CMake or Make build systems, where the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions can be configuration providers. To add an extension as a configuration provider, either select the extension through the configuration Quick Pick, add it to configuration UI by editing the **Configuration provider** field under **Advanced Settings**, or add the `configurationProvider` field to your `c_cpp_properties.json` file. For example, for the CMake extension, the path to add would be `ms-vscode.cmake-tools`.
+A custom configuration provider is another extension in {% data variables.product.prodname_vscode_shortname %} that can potentially provide more accurate C++ IntelliSense configuration than the C/C++ extension. For example, for the CMake or Make build systems, where the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions can be configuration providers. To add an extension as a configuration provider, either select the extension through the configuration Quick Pick, add it to configuration UI by editing the **Configuration provider** field under **Advanced Settings**, or add the `configurationProvider` field to your `c_cpp_properties.json` file. For example, for the CMake extension, the path to add would be `ms-vscode.cmake-tools`.
 
 ![C/C++ Advanced Settings Configuration provider](images/intellisense/advanced-settings.png)
 
@@ -199,7 +199,7 @@ You can select the pin icon on the right of any item in the language status bar 
 
 ## Next steps
 
-* For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
+* For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-cpp-settings.md).
 * If you have trouble configuring the settings, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
-* Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
+* Explore the [c_cpp_properties schema](/docs/cpp/customize-cpp-settings.md).
 * Review the [Overview of the C++ extension](/docs/languages/cpp.md).

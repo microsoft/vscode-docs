@@ -1,13 +1,13 @@
 ---
 ContentId: 5b5da770-b59f-4eca-94a3-78e824d16b52
 DateApproved: 1/16/2024
-MetaDescription: How to refactor C++ source files in Visual Studio Code.
+MetaDescription: How to refactor C++ source files in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 ---
 # Refactoring C++ code
 
-The C/C++ extension in Visual Studio Code has multiple refactoring features to help you improve your code's structure, readability, and maintainability without altering its runtime behavior. These include features such as Extract Method and Create Declaration and Definitions.
+The C/C++ extension in {% data variables.product.prodname_vscode %} has multiple refactoring features to help you improve your code's structure, readability, and maintainability without altering its runtime behavior. These include features such as Extract Method and Create Declaration and Definitions.
 
 ## Create declarations or definitions
 
@@ -64,7 +64,7 @@ If there is an unknown symbol in your C++ code and the C/C++ Extension identifie
 Read on to find out about:
 
 * [C++ Code Navigation](/docs/cpp/cpp-ide.md)
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Tasks](/docs/debugtest/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/debugtest/debugging.md) - find out how to use the debugger with your project
 

@@ -1,13 +1,13 @@
 ---
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
 DateApproved: 1/16/2024
-MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
+MetaDescription: How to edit and navigate C++ source files in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 ---
 # Editing and Navigating C++ Code
 
-This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
+This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in {% data variables.product.prodname_vscode %}, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
 
 ## Editing C++ code
 
@@ -33,7 +33,7 @@ When you type a member access symbol (`.` or `->`), the editor displays a list o
 
 ### Code formatting
 
-The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and vc_format. Both of these formatting options are included in the extension, with clang-format being the default.
+The C/C++ extension for {% data variables.product.prodname_vscode %} supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and vc_format. Both of these formatting options are included in the extension, with clang-format being the default.
 
 You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also trigger formatting based on user gestures such as typing, saving, and pasting with the following [settings](/docs/configure/settings.md):
 
@@ -49,8 +49,8 @@ By default, the clang-format style is set to `file`. This means that if a `.clan
 Currently, the default formatting style is `Visual Studio`, an approximation of the default code formatter in Visual Studio. It implies the following settings:
 
 ```json
-UseTab: (VS Code current setting)
-IndentWidth: (VS Code current setting)
+UseTab: ({% data variables.product.prodname_vscode_shortname %} current setting)
+IndentWidth: ({% data variables.product.prodname_vscode_shortname %} current setting)
 BreakBeforeBraces: Allman
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
@@ -71,7 +71,7 @@ By default, if an `.editorconfig` file with relevant settings is identified near
 
 ### Enhanced semantic colorization
 
-When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, and more, see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
+When IntelliSense is enabled, the {% data variables.product.prodname_vscode %} C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, and more, see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
 
 ### Quick Info
 
@@ -153,11 +153,11 @@ Read on to find out about:
 
 * [Debugging C++ Code](/docs/cpp/cpp-debug.md)
 * [Configure IntelliSense](/docs/cpp/configure-intellisense.md)
-* [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
-* [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
-* [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Basic Editing in VS Code](/docs/editing/codebasics.md)
-* [Code Navigation in VS Code](/docs/editing/editingevolved.md)
-* [Tasks in VS Code](/docs/debugtest/tasks.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for MSVC](/docs/cpp/config-msvc.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
+* [Configure {% data variables.product.prodname_vscode_shortname %} for macOS](/docs/cpp/config-clang-mac.md)
+* [Basic Editing in {% data variables.product.prodname_vscode_shortname %}](/docs/editing/codebasics.md)
+* [Code Navigation in {% data variables.product.prodname_vscode_shortname %}](/docs/editing/editingevolved.md)
+* [Tasks in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

@@ -1,21 +1,21 @@
 ---
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-DateApproved: 12/10/2025
-MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
+DateApproved: 9/16/2026
+MetaDescription: It is easy to add code snippets to {% data variables.product.prodname_vscode %} both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
-# Snippets in Visual Studio Code
+# Snippets in {% data variables.product.prodname_vscode %}
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
+In {% data variables.product.prodname_vscode %}, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
-![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
+<video src="images/userdefinedsnippets/ajax-snippet.mp4" title="Video showing ajax snippet." autoplay loop controls muted></video>
 
 ## Built-in snippets
 
-VS Code has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
+{% data variables.product.prodname_vscode_shortname %} has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
 
 ![builtin javascript snippet](images/userdefinedsnippets/builtin-javascript-snippets.png)
 
@@ -23,15 +23,15 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
-If you find an extension you want to use, install it, then restart VS Code and the new snippets will be available.
+If you find an extension you want to use, install it, then restart {% data variables.product.prodname_vscode_shortname %} and the new snippets will be available.
 
 ## Create your own snippets
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. {% data variables.product.prodname_vscode_shortname %} manages the creation and refreshing of the underlying snippets file(s) for you.
 
 ![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
@@ -68,7 +68,7 @@ Additionally, the `body` of the example above has three placeholders (listed in 
 
 ### File template snippets
 
-You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Populate File from Snippet** command in a new or existing file.
+You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Fill File with Snippet** command in a new or existing file.
 
 ## Snippet scope
 
@@ -92,7 +92,84 @@ Most user-defined snippets are scoped to a single language, and so are defined i
 
 ### Project snippet scope
 
-You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '<folder-name>'...** option in the **Snippets: Configure Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
+You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '\<folder-name\>'...** option in the **Snippets: Configure Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
+
+### File pattern scope
+
+You can further control when snippets appear by using the optional `include` and `exclude` properties to specify file patterns. These properties work with both language-specific and global snippet files, and can be combined with the `scope` property for more precise control over snippet suggestions.
+
+* `include` - A glob pattern or array of glob patterns that specifies which files the snippet should appear in.
+* `exclude` - A glob pattern or array of glob patterns that specifies which files the snippet should not appear in.
+
+Pattern matching works as follows:
+
+* **Filename-only patterns** (for example, `*.test.ts`) match based on the filename, regardless of the file's location in your project.
+* **Path-based patterns** (for example, `**/*.test.ts` or `**/dist/**`) match against the full file path.
+* If a file matches both `include` and `exclude` patterns, the `exclude` pattern takes precedence.
+* If neither property is specified, the snippet appears in all applicable files based on the `scope` property.
+
+<details>
+<summary>Examples</summary>
+
+**Example: Test snippets**
+
+This snippet only appears in TypeScript test files:
+
+```json
+{
+  "Test Block": {
+    "prefix": "test",
+    "body": [
+      "test('${1:description}', () => {",
+      "\t${0}",
+      "});"
+    ],
+    "description": "Insert a test block",
+    "scope": "typescript",
+    "include": ["**/*.test.ts", "**/*.spec.ts"]
+  }
+}
+```
+
+**Example: Excluding directories**
+
+This snippet appears in all JavaScript files except those in `dist` or `node_modules` directories:
+
+```json
+{
+  "Console Log": {
+    "prefix": "log",
+    "body": "console.log(${0});",
+    "description": "Insert console.log",
+    "scope": "javascript",
+    "exclude": ["**/dist/**", "**/node_modules/**"]
+  }
+}
+```
+
+**Example: Configuration file snippet**
+
+This snippet only appears in `travis.yml` files, using a filename-only pattern:
+
+```json
+{
+  "Travis CI Node": {
+    "prefix": "travis-node",
+    "body": [
+      "language: node_js",
+      "node_js:",
+      "  - ${1:18}"
+    ],
+    "description": "Travis CI Node.js configuration",
+    "scope": "yaml",
+    "include": ["travis.yml"]
+  }
+}
+```
+
+</details>
+
+Using `include` and `exclude` patterns helps reduce clutter in IntelliSense by showing snippets only where they are relevant.
 
 ## Snippet syntax
 
@@ -145,8 +222,11 @@ For inserting the current date and time:
 * `CURRENT_HOUR` The current hour in 24-hour clock format
 * `CURRENT_MINUTE` The current minute as two digits
 * `CURRENT_SECOND` The current second as two digits
+* `CURRENT_MILLISECOND` The current millisecond as three digits (example `078`)
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+* `CURRENT_MILLISECONDS_UNIX` The number of milliseconds since the Unix epoch
 * `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HH:MM` or `-HH:MM` (example `-07:00`).
+* `CURRENT_TIMEZONE_NAME` The IANA name of the current time zone (example `America/Los_Angeles`)
 
 For inserting random values:
 
@@ -177,7 +257,7 @@ The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hell
 Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
 
 1. A regular expression that is matched against the value of a variable, or the empty string when the variable cannot be resolved.
-2. A "format string" that allows to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
+2. A "format string" that allows you to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
 3. Options that are passed to the regular expression.
 
 The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
@@ -230,7 +310,7 @@ variable    ::= '$' var | '${' var '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' | '/snakecase' | '/kebabcase' '}'
                 | '${' int ':+' if '}'
                 | '${' int ':?' if ':' else '}'
                 | '${' int ':-' else '}' | '${' int ':' else '}'
@@ -245,7 +325,7 @@ else        ::= text
 
 ## Using TextMate snippets
 
-You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
+You can also use existing TextMate snippets (.tmSnippets) with {% data variables.product.prodname_vscode_shortname %}. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
 
 ## Assign keyboard shortcuts to snippets
 
@@ -280,15 +360,15 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Next steps
 
-* [Command Line](/docs/configure/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
-* [Extension API](/api) - Learn about other ways to extend VS Code.
-* [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
+* [Command Line](/docs/configure/command-line.md) - {% data variables.product.prodname_vscode_shortname %} has a rich command-line interface to open or diff files and install extensions.
+* [Extension API](/api) - Learn about other ways to extend {% data variables.product.prodname_vscode_shortname %}.
+* [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
-You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+You can easily package TextMate snippets files for use in {% data variables.product.prodname_vscode_shortname %}. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
 
 ### How do I have a snippet place a variable in the pasted script?
 

@@ -1,11 +1,11 @@
 ---
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
-DateApproved: 12/10/2025
-MetaDescription: Get the best out of Visual Studio Code for HTML development
+DateApproved: 9/16/2026
+MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for HTML development
 ---
-# HTML in Visual Studio Code
+# HTML in {% data variables.product.prodname_vscode %}
 
-Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
+{% data variables.product.prodname_vscode %} provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. {% data variables.product.prodname_vscode_shortname %} also includes great Emmet support.
 
 ## IntelliSense
 
@@ -30,11 +30,11 @@ You can also control which built-in code completion providers are active. Overri
 
 Tag elements are automatically closed when `>` of the opening tag is typed.
 
-![HTML Close1](images/html/auto-close1.gif)
+<video src="images/html/auto-close1.mp4" title="Video showing HTML Close1." autoplay loop controls muted></video>
 
 The matching closing tag is inserted when `/` of the closing tag is entered.
 
-![HTML Close2](images/html/auto-close2.gif)
+<video src="images/html/auto-close2.mp4" title="Video showing HTML Close2." autoplay loop controls muted></video>
 
 You can turn off autoclosing tags with the following [setting](/docs/configure/settings.md):
 
@@ -52,7 +52,7 @@ When modifying a tag, the linked editing feature automatically updates the match
 
 ## Color picker
 
-The VS Code color picker UI is now available in HTML style sections.
+The {% data variables.product.prodname_vscode_shortname %} color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
 
@@ -93,11 +93,19 @@ If you prefer to switch to indentation based folding for HTML use:
 },
 ```
 
+## Preview HTML files in the Integrated Browser
+
+You can preview HTML files in the [Integrated Browser](/docs/debugtest/integrated-browser.md) inside {% data variables.product.prodname_vscode_shortname %}.
+
+To open an HTML file in the Integrated Browser, right-click the file in the File Explorer or the editor tab and select **Open in Integrated Browser**. You can also select the **Show Preview** icon in the editor title bar when an HTML file is active.
+
+As you modify the HTML file, the preview updates in real time to reflect your changes.
+
 ## Formatting
 
 To improve the formatting of your HTML source code, you can use the **Format Document** command `kb(editor.action.formatDocument)` to format the entire file or **Format Selection** `kb(editor.action.formatSelection)` to just format the selected text.
 
-The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/configure/settings.md):
+The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the {% data variables.product.prodname_vscode_shortname %} [settings](/docs/configure/settings.md):
 
 * `setting(html.format.wrapLineLength)`: Maximum amount of characters per line.
 * `setting(html.format.unformatted)`: List of tags that shouldn't be reformatted.
@@ -118,18 +126,20 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
 * `setting(html.format.templating)`: Honor django, erb, handlebars and php templating language tags.
 * `setting(html.format.unformattedContentDelimiter)`: Keep text content together between this string.
 
->**Tip:** The formatter doesn't format the tags listed in the `setting(html.format.unformatted)` and `setting(html.format.contentUnformatted)` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+> [!TIP]
+> The formatter doesn't format the tags listed in the `setting(html.format.unformatted)` and `setting(html.format.contentUnformatted)` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
 The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
 `"html.format.enable": false` in your settings to turn off the built-in formatter.
 
 ## Emmet snippets
 
-VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
+{% data variables.product.prodname_vscode_shortname %} supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
-![Emmet HTML support built-in](images/html/emmetsnippet.gif)
+<video src="images/html/emmetsnippet.mp4" title="Video showing Emmet HTML support built-in." autoplay loop controls muted></video>
 
->**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
+> [!TIP]
+> See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
 If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `setting(emmet.includeLanguages)` [setting](/docs/configure/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
@@ -147,7 +157,7 @@ We also support [User Defined Snippets](/docs/editing/userdefinedsnippets.md).
 
 ## HTML custom data
 
-You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/microsoft/vscode-html-languageservice/blob/main/docs/customData.md). By setting `setting(html.customData)` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
+You can extend {% data variables.product.prodname_vscode_shortname %}'s HTML support through a declarative [custom data format](https://github.com/microsoft/vscode-html-languageservice/blob/main/docs/customData.md). By setting `setting(html.customData)` to a list of JSON files following the custom data format, you can enhance {% data variables.product.prodname_vscode_shortname %}'s understanding of new HTML tags, attributes and attribute values. {% data variables.product.prodname_vscode_shortname %} will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
@@ -157,18 +167,13 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 <div class="marketplace-extensions-html-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> [!TIP]
+> Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
 Read on to find out about:
 
-* [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
-* [Emmet](/docs/languages/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - {% data variables.product.prodname_vscode_shortname %} has first class support for CSS including Less and SCSS.
+* [Emmet](/docs/languages/emmet.md) - Learn about {% data variables.product.prodname_vscode_shortname %}'s powerful built-in Emmet support.
 * [Emmet official documentation](https://docs.emmet.io/) - Emmet, the essential toolkit for web-developers.
-
-## Common questions
-
-### Does VS Code have HTML preview?
-
-No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.

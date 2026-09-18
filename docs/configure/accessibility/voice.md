@@ -1,70 +1,142 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved:
-MetaDescription: Visual Studio Code voice accessibility features. Learn here about the various ways VS Code can be used with voice.
+DateApproved: 9/16/2026
+MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support
 
-The [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension enables various features by using your voice. Once installed, the extension enables you to dictate into the editor, or to verbally interact with [chat in VS Code](/docs/copilot/chat/copilot-chat.md).
+{% data variables.product.prodname_vscode %} supports spoken agent conversations with Voice Mode and built-in dictation that converts your speech to text in chat, the {% data variables.copilot.agents_window %}, editors, and terminals.
 
-![Screenshot of the VS Code Speech extension marketplace details](images/accessibility/speech-extension.png)
+## Use Voice Mode
 
-> [!NOTE]
-> Voice support in VS Code does not require you to be online. Recordings are never sent to any online service but computed local on your machine.
+`feature(voice-mode)`
 
-## Get started
+Voice Mode is a feature that lets you have a hands-free, spoken conversation with an agent while it works on your code. Unlike dictation, which only converts speech to text, Voice Mode also reads the agent's responses aloud and listens for follow-up requests.
 
-To get started with voice support in VS Code, install the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension from the marketplace.
+To start a voice conversation, enable `setting(agents.voice.enabled)`, open the chat view or the {% data variables.copilot.agents_window %}, and select the **Voice Mode** button in the chat input. You can also focus the chat input and press `kb(agentsVoice.startVoiceInChat)`.
 
-## Editor dictation
+On first use, allow microphone access and follow the introduction to select a microphone and preview the available voices. Voice Mode sends your request to the active chat or agent session and uses its selected model and attached files. You can also ask Voice Mode about running sessions or ask it to start a new session. Voice Mode announces when it routes a request to an existing session or starts a new one.
 
-You can dictate into the editor via these commands: **Voice: Start Dictation in Editor** (`kb(workbench.action.editorDictation.start)`) and **Voice: Stop Dictation in Editor** (`kb(workbench.action.editorDictation.stop)`). Once started, a little microphone icon appears where the cursor is, awaiting your voice input:
-
-![Editor Dictation Mode](images/accessibility/editor-dictate.png)
-
-Press and hold the keyboard shortcut for the voice start command (`kb(workbench.action.editorDictation.start)`) to enable **walky-talky mode**. Voice recognition is active until you release the keys, after which the request is submitted automatically.
+When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening again after the agent finishes speaking. While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
 
 > [!NOTE]
-> Dictation even works in other places where a rich editor is used, such as the SCM commit input box and the comments input field when reviewing pull requests.
+> Voice Mode is rolling out gradually and might not be available to every eligible account immediately. It requires an eligible individual {% data variables.product.prodname_copilot %} plan and is not available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. Organizations can also turn off Copilot preview features by policy.
 
-## Voice in chat
+### Configure Voice Mode
 
-You can use your voice to talk to [chat in VS Code](/docs/copilot/chat/copilot-chat.md) easily. The command **Chat: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, editor inline chat is started, otherwise the Chat view is opened. Alternatively, you can start voice chat in a specific location by using the **Chat: Inline Voice Chat**, **Chat: Quick Voice Chat**, or **Chat: Voice Chat in Chat View** commands.
+Use the controls in the chat input to mute or unmute your microphone without ending the voice session. You can also configure Voice Mode in the following ways:
 
-When voice chat is active, a microphone icon appears in the chat input field, indicating that voice input is active:
+* Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
+* Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
+* Use `setting(agents.voice.voice)` to select the voice that reads responses aloud.
+* Use `setting(agents.voice.speakResponses)` to control whether the agent reads responses aloud. If you turn off spoken responses, enable `setting(agents.voice.showTranscript)` to read them as text.
+* Run **Voice Mode: Show Introduction** from the Command Palette to reopen the introduction, where you can select a microphone and preview the available voices.
 
-![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
+Open the context menu for the **Voice Mode** button to access its settings, instructions, introduction, microphone selection, and transcript controls. For all available options, see the [Voice Mode and dictation settings](/docs/agents/reference/ai-settings.md#voice-and-dictation-settings).
+
+## Use built-in dictation
+
+`feature(built-in-dictation)`
+
+Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
+
+Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use, {% data variables.product.prodname_vscode_shortname %} downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
+
+The on-device model is available on these desktop platforms:
+
+* Windows on x64 and Arm64.
+* macOS on Apple silicon.
+* Linux on x64 and Arm64 with glibc 2.34 or later.
+* Remote workspaces, because speech recognition runs on the local {% data variables.product.prodname_vscode_shortname %} client.
+
+{% data variables.product.prodname_vscode_shortname %} asks for microphone access when you start dictation. Only one dictation session can be active at a time.
+
+When a dictation session reaches 20 minutes, {% data variables.product.prodname_vscode_shortname %} automatically stops dictation and keeps the text transcribed up to that point. The automatic stop is announced to screen reader users.
+
+### Dictate in chat or the {% data variables.copilot.agents_window %}
+
+To dictate a chat prompt, select the microphone button in the chat input or press `kb(workbench.action.chat.toggleSpeechToText)`. Select the button or press the keyboard shortcut again to stop dictation and keep the transcribed text. Dictation inserts text in the input but does not submit the request.
+
+![Screenshot showing text entered by dictation in the chat input.](images/accessibility/chat-dictation-text.png)
+
+![Screenshot showing active dictation listening for speech in the chat input.](images/accessibility/chat-dictation-listening.png)
+
+Press `kb(workbench.action.chat.cancelSpeechToText)` to cancel dictation and remove the text from the current dictation session.
+
+On first use, {% data variables.product.prodname_vscode_shortname %} shows an introduction next to the chat input. To view it again, run **Chat: Dictate: Show Introduction** from the Command Palette.
+
+### Dictate in an editor
+
+To dictate in a writable editor, run **Voice: Start Dictation in Editor** or press `kb(workbench.action.editorDictation.start)`. A microphone control appears at the cursor while dictation is active. Run **Voice: Stop Dictation in Editor** or use the microphone control to stop.
+
+Editor dictation also works in other inputs that use a rich editor, such as the Source Control commit input and pull request comment fields.
 
 > [!NOTE]
-> When using voice for chat in VS Code, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `setting(accessibility.voice.speechTimeout)` setting, or disable this functionality when you configure the setting to `0`.
+> Press and hold a dictation keyboard shortcut to use push-to-talk. Speech recognition remains active until you release the keys.
 
-Chat in VS Code also supports text-to-speech capabilities. When you enable the `setting(accessibility.voice.autoSynthesize)` setting, the chat responses are automatically read out aloud when voice was also used as input. To interrupt the synthesis, select the icon or press `kb(workbench.action.speech.stopReadAloud)`.
+### Dictate in a terminal
 
-Each chat response also shows a new speaker icon, so that you can selectively read out a response aloud.
+To dictate at a terminal prompt, run **Voice: Start Dictation in Terminal** from the Command Palette. Run **Voice: Stop Dictation in Terminal** or use the microphone control to stop and insert the final text.
 
-![Text to Speech for a Chat Response](images/accessibility/text-to-speech.png)
+Terminal dictation adapts speech for command-line input. For example, it removes ordinary punctuation, converts spoken symbol names, and adjusts initial capitalization. Set `setting(accessibility.voice.speechTimeout)` to a value greater than zero to stop dictation automatically after the specified period of silence.
 
-## Walky talky mode
+## Configure dictation
 
-When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictation.start)` or `kb(workbench.action.chat.startVoiceChat)`), either in the editor or chat, you can press and hold the keyboard shortcut to start the voice recognition. When you release the keyboard shortcut, voice recognition will stop. In addition, when used in chat, the prompt will be submitted.
+Use these settings to configure built-in dictation:
 
-## "Hey Code"
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `setting(dictation.enabled)` | Controls whether built-in dictation is available. | `true` |
+| `setting(dictation.model)` | Selects the speech recognition model. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.showTranscript)` | Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
+| `setting(dictation.experimental.llmCleanup)` | Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
+| `setting(agents.voice.language)` | Provides a language hint for dictation. Use `auto` to use the system language. | `"auto"` |
+| `setting(accessibility.voice.speechTimeout)` | Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
 
-It is possible to enable a mode where VS Code will always listen for the phrase "Hey Code" to start a voice chat session. Configure the `setting(accessibility.voice.keywordActivation)` setting accordingly to enable this. When VS Code is listening for "Hey Code", a microphone icon appears in the status bar to indicate as such:
+To choose an input device, run **Chat: Dictate: Select Microphone** from the Command Palette. The microphone selection applies to all dictation surfaces.
 
-![Screenshot of a status bar entry to signal active listening to "Hey Code"](images/accessibility/hey-code.png)
+### Add dictation instructions
 
-## Support for multiple languages
+You can provide instructions for how the language model cleans up a transcript. For example, you can specify preferred terminology or formatting. Run **Voice: Configure Dictation Instructions** from the Command Palette to create an instructions file:
 
-You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/configure/locales.md), if that language is available.
+* User instructions apply across all workspaces and are stored in `~/.copilot/dictation.md`.
+* Workspace instructions are stored in `.github/dictation.md` and apply only when the workspace is trusted.
 
-Each language for the speech extension comes as its own extension. When you start speech recognition for the first time, you will see an extension installation for each language you selected.
+Dictation instructions apply when `setting(dictation.experimental.llmCleanup)` is enabled.
+
+### Install the model from a local package
+
+If network restrictions prevent {% data variables.product.prodname_vscode_shortname %} from downloading the on-device model, download the official CPU model package separately. Then run **Chat: Install Dictation Model from Local Package...** and select the ZIP file or prepared model folder.
+
+## Understand dictation privacy
+
+The default speech recognition model processes microphone audio on your device. After the initial model download, speech recognition does not require an internet connection.
+
+When `setting(dictation.experimental.llmCleanup)` is enabled, {% data variables.product.prodname_vscode_shortname %} sends the transcript text, but not the audio, to a Copilot language model for cleanup. Turn off this setting to keep transcript processing local.
+
+Organizations can enforce these privacy choices with enterprise policies:
+
+* `DictationModel` controls whether dictation uses the on-device model or streams audio to the cloud transcription service.
+* `DictationLLMCleanup` controls whether the final transcript is sent to a Copilot language model for cleanup.
+
+To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md#control-dictation-data).
+
+## {% data variables.product.prodname_vscode_shortname %} Speech extension
+
+Built-in dictation is not available on these platforms:
+
+* {% data variables.product.prodname_vscode_shortname %} for the Web.
+* Intel-based Mac computers.
+* 32-bit and Arm32 systems.
+* Linux distributions that use musl, such as Alpine Linux.
+
+On these platforms, install the [{% data variables.product.prodname_vscode_shortname %} Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech). The extension also provides voice chat, text-to-speech for chat responses, and the "Hey Code" keyword activation feature.
 
 ## Next steps
 
 Read on to find out about:
 
-* [Other VS Code accessibility features](/docs/configure/accessibility/accessibility.md).
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Other {% data variables.product.prodname_vscode_shortname %} accessibility features](/docs/configure/accessibility/accessibility.md).
+* [{% data variables.product.prodname_vscode %} User Interface](/docs/editing/getting-started/userinterface.md) - A quick orientation to {% data variables.product.prodname_vscode_shortname %}.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

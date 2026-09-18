@@ -5,7 +5,7 @@ TOCTitle: Change default mount
 PageTitle: Change default source code mount in containers
 ContentId: 1a1e7e2a-f483-47dd-b676-b75a11e4be1f
 MetaDescription: Change default source code mount in containers
-DateApproved: 12/10/2025
+DateApproved: 9/16/2026
 ---
 # Change the default source code mount
 
@@ -28,10 +28,10 @@ If you've already built the container and connected to it, run **Dev Containers:
 
 ### Video : Work with Monorepos in a dev container by changing default mount
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o5coAL7oE0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to work with Monorepos in a dev container on YouTube (opens in new tab).](images/change-default-source-mount/youtube-o5coAL7oE0o.jpg)](https://www.youtube.com/watch?v=o5coAL7oE0o)
 
 <br><br>
 
 ### Video : Change the default location of your project in a container
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4zX2XWTmr3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch How to change the default location of your project in a dev container on YouTube (opens in new tab).](images/change-default-source-mount/youtube-4zX2XWTmr3c.jpg)](https://www.youtube.com/watch?v=4zX2XWTmr3c)

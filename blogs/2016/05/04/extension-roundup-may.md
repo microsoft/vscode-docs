@@ -22,7 +22,7 @@ If you are new to VS Code extensions, check out the [docs](/docs/configure/exten
 
 The same folks who created the very popular [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension have published [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) for the Microsoft Edge browser. They were able to reuse the same debugger using the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol). You can learn more about the details in their recent [blog post](https://blogs.windows.com/msedgedev/2016/04/27/introducing-edge-diagnostics-adapter/).
 
-![debugger for edge](debugger-for-edge.gif)
+<video src="debugger-for-edge.mp4" title="Video showing debugger for edge." autoplay loop controls muted></video>
 
 ## SVG Viewer by cssho
 
@@ -30,7 +30,7 @@ The same folks who created the very popular [Debugger for Chrome](https://market
 
 This highly rated extension lets you view Scalable Vector Graphics (SVG) right from within VS Code. [See more details in the Marketplace](https://marketplace.visualstudio.com/items?itemName=cssho.vscode-svgviewer).
 
-![SVG viewer](svg-viewer.gif)
+<video src="svg-viewer.mp4" title="Video showing SVG viewer." autoplay loop controls muted></video>
 
 ## CodeMetrics by Kiss Tamas
 
@@ -38,7 +38,7 @@ This highly rated extension lets you view Scalable Vector Graphics (SVG) right f
 
 Curious if your TypeScript source code is getting a little too clever and hard for others to maintain? This [extension](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics) computes the complexity of your code and displays a rating in a CodeLens decoration in the editor. Clicking on the rating brings up the rules used to arrive at the complexity score.
 
-![complexity CodeLens](complexity-codelens.gif)
+<video src="complexity-codelens.mp4" title="Video showing complexity CodeLens." autoplay loop controls muted></video>
 
 ## npm IntelliSense by Christian Kohler
 
@@ -46,7 +46,7 @@ Curious if your TypeScript source code is getting a little too clever and hard f
 
 Bring quick auto completion into the editor for your workspace's npm modules with this handy [extension](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense).
 
-![npm IntelliSense](auto-complete.gif)
+<video src="auto-complete.mp4" title="Video showing npm IntelliSense." autoplay loop controls muted></video>
 
 ## Let us know what extensions you're using
 

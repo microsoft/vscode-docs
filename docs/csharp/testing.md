@@ -1,11 +1,11 @@
 ---
 ContentId: 0e62b3c9-6c13-4a71-a942-63d37c8f47d1
 DateApproved: 3/12/2025
-MetaDescription: Testing C# with C# Dev Kit in Visual Studio Code
+MetaDescription: Testing C# with C# Dev Kit in {% data variables.product.prodname_vscode %}
 ---
 # Testing with C# Dev Kit
 
-Testing in C# in Visual Studio Code is enabled by the C# Dev Kit extension. It's a lightweight extension to enhance your C# development experience.
+Testing in C# in {% data variables.product.prodname_vscode %} is enabled by the C# Dev Kit extension. It's a lightweight extension to enhance your C# development experience.
 
 ## Overview
 
@@ -24,7 +24,7 @@ The C# Dev Kit extension provides the following features:
 ## Requirements
 
 - [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download)
-- Visual Studio Code (version 1.58.0 or later)
+- {% data variables.product.prodname_vscode %} (version 1.58.0 or later)
 - [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
 
 ## Project setup
@@ -88,10 +88,10 @@ Once you have written test cases, you will need to perform a build of your test 
 
 ### Test Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity Bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there. If you have not performed a build of your project, select the **Refresh Tests** button to perform a build and discover all of your tests.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity Bar of {% data variables.product.prodname_vscode %} to open it. You can also run/debug your test cases and view their test results from there. If you have not performed a build of your project, select the **Refresh Tests** button to perform a build and discover all of your tests.
 
 ### Code coverage in C# Dev Kit
-C# Dev Kit now supports code coverage via the VS Code Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
+C# Dev Kit now supports code coverage via the {% data variables.product.prodname_vscode_shortname %} Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
 
 
 Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested
@@ -105,7 +105,7 @@ To run your tests with code coverage, follow these steps:
   - 2. Select and Run Your Tests with Coverage: choose the tests you want to run and execute them with coverage.
   - 3. View coverage data: code coverage data is automatically generated and displayed alongside your test results in the Test Explorer.
 
-If you have generated a coverage report and want to view the result in VS Code:
+If you have generated a coverage report and want to view the result in {% data variables.product.prodname_vscode_shortname %}:
   - 1. Use the Command Palette: Open the Command Palette (`kb(workbench.action.showCommands)`) and search for "Test: Show Coverage" to access the coverage data.
   - 2. View code coverage highlighted in the editor:
       - Green lines: Indicate tested code.
@@ -127,14 +127,14 @@ After running/debugging the test cases the state of the related test items will 
 
 You can select the links in the stack trace to navigate to the source location.
 
-### VS Code testing commands
+### {% data variables.product.prodname_vscode_shortname %} testing commands
 
 There are testing commands (for example, **Run All Tests**) that can be found by searching for **Test:** in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Testing command in Command Palette](images/testing/testing-command.png)
 
-### VS Code testing settings
+### {% data variables.product.prodname_vscode_shortname %} testing settings
 
-There are VS Code settings specific to testing that can be found by searching for **Testing** in the Settings editor (`kb(workbench.action.openSettings)`).
+There are {% data variables.product.prodname_vscode_shortname %} settings specific to testing that can be found by searching for **Testing** in the Settings editor (`kb(workbench.action.openSettings)`).
 
 ![Testing settings](images/testing/testing-settings.png)
