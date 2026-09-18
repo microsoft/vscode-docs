@@ -21,6 +21,10 @@
       "label": "Agents window chat backgrounds",
       "state": "experimental"
     },
+    "agents-window-word-wrap": {
+      "label": "Agents window word wrap",
+      "state": "experimental"
+    },
     "assisted-permissions": {
       "label": "Assisted permissions",
       "state": "experimental"
