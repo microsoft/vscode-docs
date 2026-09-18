@@ -2,15 +2,19 @@
 {
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
-	"settings": {
-		"terminal.integrated.defaultProfile.linux": "zsh"
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"streetsidesoftware.code-spell-checker",
+				"DavidAnson.vscode-markdownlint",
+				"bierner.github-markdown-preview",
+				"github.vscode-pull-request-github"
+			]
+		}
 	},
-	"extensions": [
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker",
-		"DavidAnson.vscode-markdownlint",
-		"bierner.github-markdown-preview",
-		"github.vscode-pull-request-github"
-	],
-	"remoteUser": "vscode"
+	"remoteUser": "node"
 }
