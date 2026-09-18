@@ -333,6 +333,8 @@ Handoff continues ongoing work with a different agent configuration and carries 
 
 For example, continue a Copilot session with Claude or Codex to use provider-specific capabilities, send a well-scoped task to the Cloud target for a pull request workflow, or move from the Plan agent to an implementation agent.
 
+You can initiate a handoff only from a Local session. Local and remote Agent Host sessions don't show the **Session Target** dropdown, but they remain available as handoff destinations from a Local session.
+
 To hand off a session to another harness or execution environment:
 
 1. Open the session.
