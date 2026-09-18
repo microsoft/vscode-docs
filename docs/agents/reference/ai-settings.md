@@ -304,8 +304,9 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
 | `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
-| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/agent-customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
-| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
+| `setting(chat.useHooks)` _(Preview)_ <br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [Local hook file locations](/docs/agent-customization/hooks.md#local-hook-file-locations). Specify paths to folders, which load all `*.json` files, or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useClaudeHooks)` _(Preview)_ <br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
@@ -349,8 +350,8 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 |------------------------|---------------|
 | `setting(chat.plugins.enabled)`<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
 | `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
-| `setting(chat.plugins.enabledPlugins)`<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
-| `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Trust only marketplaces supplied by [enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `false` |
+| `setting(chat.plugins.enabledPlugins)`<br/>Plugin IDs to enable or disable. When [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces), `true` force-enables a plugin, `false` force-disables it, and omitted plugins remain under normal user enablement. | `{}` |
+| `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Restrict plugin installation to a list of approved marketplace sources. An empty list blocks all marketplaces. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `null` |
 | `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
 
 ## Debugging settings

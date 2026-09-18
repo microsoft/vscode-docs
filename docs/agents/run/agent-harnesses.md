@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 9/16/2026
-MetaDescription: Choose an agent harness in {% data variables.product.prodname_vscode %}, configure code isolation and permissions, start a session, and hand off work.
+MetaDescription: Choose an agent harness in {% data variables.product.prodname_vscode %} and configure sessions, permissions, and code isolation.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -55,6 +55,8 @@ Most targets share the same chat and session-management experience in {% data va
 | **Cloud** | On a provider's remote infrastructure | A GitHub repository and pull request | Independent tasks that don't need local editor context and benefit from team review |
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
+
+Runtime-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness. Running multiple harnesses in Agent Host does not give them a shared hook schema.
 
 Dev Container execution is available only in the {% data variables.copilot.agents_window %}. For an eligible local folder, use the workspace picker to start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
@@ -151,6 +153,12 @@ The Copilot harness is powered by the [{% data variables.copilot.copilot_sdk_sho
 ### Setup and authentication
 
 Copilot sessions use the same GitHub authentication context as chat in {% data variables.product.prodname_vscode_shortname %}. If you use a GitHub Enterprise account for Copilot, the session uses that account. For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+
+### Prefer Copilot for new editor-chat sessions
+
+Enable `setting(chat.editor.preferCopilotHarness)` _(Experimental)_ to use the {% data variables.copilot.copilot_sdk_short %} harness when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections.
+
+Enterprise admins can enforce the preference with the `ChatEditorPreferCopilotHarness` device policy, available from version 1.134. Copilot sessions on Agent Host use the shared SDK hooks implementation and load Copilot Policy Hooks. Local sessions do not load SDK Policy Hooks. See [migrate hooks between harnesses](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) and [enterprise hook configuration](/docs/enterprise/ai-settings.md#use-the-sdk-harness-for-policy-hooks).
 
 ### Permissions and approvals
 

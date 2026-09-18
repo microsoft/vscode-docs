@@ -180,7 +180,7 @@ For example:
 }
 ```
 
-A `false` rule requires approval. It does not block the command. To block a terminal tool call, use a [Preview `PreToolUse` hook](/docs/agent-customization/hooks.md#usage-scenarios) that returns `permissionDecision: "deny"`.
+A `false` rule requires approval. It does not block the command. To block a terminal tool call in the Local harness, use a [Preview `PreToolUse` hook](/docs/agents/reference/hooks-reference.md#pretooluse) that returns `permissionDecision: "deny"`.
 
 By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
 
