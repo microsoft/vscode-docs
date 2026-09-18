@@ -204,7 +204,7 @@ These policies enable organizations to meet data-handling requirements without r
 
 To disable hooks in the **Local** harness, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in {% data variables.product.prodname_vscode_shortname %}. The Local harness then ignores hook configurations and does not execute hook commands.
 
-`ChatHooks` applies only to the Local harness. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation, including Copilot Policy Hooks. See [hook harness compatibility](/docs/agent-customization/hooks.md#harness-compatibility).
+`ChatHooks` applies only to the Local harness. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation, including Copilot Policy Hooks. See [choose a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
 ### Use the SDK harness for Policy Hooks
 
@@ -214,7 +214,7 @@ To move new editor-chat sessions from Local to the SDK harness, set the `ChatEdi
 
 The preference selects Copilot when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections. Check the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) during rollout rather than assuming that every session uses Copilot.
 
-Before rollout, [validate existing hook scripts](/docs/agent-customization/hooks.md#migrate-existing-hooks), including scripts that depend on tool arguments or transcript formatting.
+Before rollout, [validate existing hook scripts](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses), including scripts that depend on tool arguments or transcript formatting.
 
 ### Deploy hooks through managed plugins
 

@@ -13,131 +13,241 @@ Keywords:
 - postToolUse
 - lifecycle
 ---
-# Hooks reference
 
-This article provides a reference for hook configuration properties and event input and output schemas in the **Local** harness in {% data variables.product.prodname_vscode_shortname %}. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation. For that runtime's configuration and payloads, see the [GitHub hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
+# Local hooks reference
 
-For information about authoring hooks and migrating between harnesses, see [Agent hooks](/docs/agent-customization/hooks.md#harness-compatibility).
+This article is the configuration and event-schema reference for hooks in the **Local** harness in {% data variables.product.prodname_vscode_shortname %}. The Local harness runs in the extension host and uses the PascalCase event names and payloads documented here.
 
-Every hook also receives a set of [common input fields](/docs/agent-customization/hooks.md#common-input-fields) and can return the [common output format](/docs/agent-customization/hooks.md#common-output-format). The fields documented in the event sections are in addition to those common fields.
+For hooks executed by a provider harness, use the corresponding provider documentation:
 
-## Hook command properties
+* For **Copilot** sessions on Agent Host, use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
+* For **Claude** sessions, use the [Claude hooks reference](https://code.claude.com/docs/en/hooks).
+* For **Codex** sessions, use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/).
 
-Each hook entry must have `type: "command"` and at least one command property:
+If Local is the selected session target, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local parser maps the configuration and then sends the Local payloads documented here.
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `type` | string | Must be `"command"` |
-| `command` | string | Default command to run (cross-platform) |
-| `windows` | string | Windows-specific command override |
-| `linux` | string | Linux-specific command override |
-| `osx` | string | macOS-specific command override |
-| `cwd` | string | Working directory (relative to repository root) |
-| `env` | object | Additional environment variables |
-| `timeout` | number | Timeout in seconds (default: 30) |
+For help choosing a runtime, creating a hook, or migrating an existing hook, see [Configure agent hooks](/docs/agent-customization/hooks.md).
 
-## PreToolUse
+## Configuration format
 
-The `PreToolUse` hook fires before the agent invokes a tool.
-
-### PreToolUse input
-
-In addition to the common fields, `PreToolUse` hooks receive:
+A Local hook file contains a `hooks` object. Each property is a supported event name and its value is an array of command entries:
 
 ```json
 {
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "./scripts/validate-tool.sh",
+        "windows": "powershell -File scripts\\validate-tool.ps1",
+        "timeout": 15
+      }
+    ]
+  }
+}
+```
+
+### Command properties
+
+In the native Local format, each command entry must have `type: "command"` and at least one command property:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | string | Must be `"command"`. |
+| `command` | string | Default cross-platform command. |
+| `windows` | string | Windows-specific command override. |
+| `linux` | string | Linux-specific command override. |
+| `osx` | string | macOS-specific command override. |
+| `cwd` | string | Working directory, relative to the repository root. |
+| `env` | object | Additional environment variables. |
+| `timeout` | number | Timeout in seconds. The default is 30 seconds. |
+
+The Local harness selects an operating system override from the extension host platform. If an override is not defined for that platform, it uses `command`. Copilot and Claude source formats use different property names and defaults before the Local parser maps them to this format.
+
+## Common input
+
+Every Local hook receives a JSON object on standard input (stdin). The object contains these common fields in addition to the fields for the event:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `timestamp` | string | ISO 8601 timestamp for when the hook fired. |
+| `cwd` | string | Optional working directory for the agent execution. |
+| `session_id` | string | Optional identifier for the current agent session. |
+| `hook_event_name` | string | Hook event name, such as `PreToolUse`. |
+| `transcript_path` | string | Optional absolute path to a file that contains the conversation transcript. |
+
+> [!NOTE]
+> The transcript file format is not a stable hook API and might change between {% data variables.product.prodname_vscode_shortname %} releases. Use documented event fields such as `tool_name`, `tool_input`, or `prompt` when possible.
+
+## Common output
+
+A Local hook can write a JSON object to standard output (stdout). All events support these top-level fields:
+
+```json
+{
+  "continue": false,
+  "stopReason": "Security policy violation",
+  "systemMessage": "Review the hook result."
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `continue` | boolean | Whether processing continues. The default is `true`. Set to `false` to stop the agent execution. |
+| `stopReason` | string | Reason shown to the user when `continue` is `false`. |
+| `systemMessage` | string | Warning message shown to the user. |
+
+Events can also support fields such as `decision` or `hookSpecificOutput`. The event sections describe those fields.
+
+### Exit codes
+
+The hook command's exit code controls how the Local harness processes its result:
+
+| Exit code | Behavior |
+|-----------|----------|
+| `0` | Treat the command as successful and process stdout. |
+| `2` | Treat stderr as a blocking error and provide it to the model. |
+| Any other value | Show a non-blocking warning to the user and continue processing. |
+
+### Choose a control mechanism
+
+Use the least disruptive output that meets the requirement:
+
+* Use exit code `2` to block the current operation and provide stderr to the model.
+* Use `continue: false` with `stopReason` to stop the entire agent execution.
+* Use `hookSpecificOutput` for event-specific control, such as denying one tool call or adding context.
+* Use `systemMessage` to show a warning without changing the event decision.
+
+When outputs conflict, the most restrictive outcome takes precedence. For example, `continue: false` stops the agent execution even if a `PreToolUse` output also permits the tool call.
+
+## `PreToolUse`
+
+The `PreToolUse` hook fires before the Local agent invokes a tool.
+
+### Input
+
+In addition to the [common input](#common-input), the hook receives:
+
+```json
+{
+  "tool_name": "<local-tool-name>",
+  "tool_input": {},
   "tool_use_id": "tool-123"
 }
 ```
 
-### PreToolUse output
+| Field | Type | Description |
+|-------|------|-------------|
+| `tool_name` | string | Name of the Local tool. |
+| `tool_input` | object | Arguments for the tool call. |
+| `tool_use_id` | string | Identifier for the tool call. |
 
-The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` object:
+Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the Local tool schema before you filter or modify a tool call.
+
+### Output
+
+Use `hookSpecificOutput` to control the tool call:
 
 ```json
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
     "permissionDecision": "deny",
-    "permissionDecisionReason": "Destructive command blocked by policy",
-    "updatedInput": { "files": ["src/safe.ts"] },
-    "additionalContext": "User has read-only access to production files"
+    "permissionDecisionReason": "Destructive command blocked by policy.",
+    "additionalContext": "Production files are read-only."
   }
 }
 ```
 
-| Field | Values | Description |
-|-------|--------|-------------|
-| `permissionDecision` | `"allow"`, `"deny"`, `"ask"` | Controls tool approval |
-| `permissionDecisionReason` | string | Reason shown to user |
-| `updatedInput` | object | Modified tool input (optional) |
-| `additionalContext` | string | Extra context for the model |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `hookEventName` | `"PreToolUse"` | Identifies the event-specific output. |
+| `permissionDecision` | `"allow"`, `"deny"`, or `"ask"` | Allows the tool call, denies it, or requires user confirmation. |
+| `permissionDecisionReason` | string | Reason shown to the user. |
+| `updatedInput` | object | Optional replacement tool input. The value must match the Local tool schema. |
+| `additionalContext` | string | Additional context for the model. |
 
-**Permission decision priority**: When multiple hooks run for the same tool invocation, the most restrictive decision wins:
+When multiple hooks return a permission decision for the same tool call, the most restrictive decision wins:
 
-1. `deny` (most restrictive): blocks tool execution
-2. `ask`: requires user confirmation
-3. `allow` (least restrictive): auto-approves execution
+1. `deny` blocks the tool call.
+1. `ask` requires user confirmation.
+1. `allow` approves the tool call.
 
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+If `updatedInput` does not match the Local tool schema, the Local harness ignores it.
 
-## PostToolUse
+## `PostToolUse`
 
-The `PostToolUse` hook fires after a tool completes successfully.
+The `PostToolUse` hook fires after a Local tool completes successfully.
 
-### PostToolUse input
+### Input
 
-In addition to the common fields, `PostToolUse` hooks receive:
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
+  "tool_name": "<local-tool-name>",
+  "tool_input": {},
   "tool_use_id": "tool-123",
-  "tool_response": "File edited successfully"
+  "tool_response": "<tool-result>"
 }
 ```
 
-### PostToolUse output
+| Field | Type | Description |
+|-------|------|-------------|
+| `tool_name` | string | Name of the Local tool. |
+| `tool_input` | object | Arguments for the tool call. |
+| `tool_use_id` | string | Identifier for the tool call. |
+| `tool_response` | string or object | Result returned by the tool. |
 
-The `PostToolUse` hook can provide additional context to the model, or block further processing:
+### Output
+
+The hook can add context or block further processing:
 
 ```json
 {
   "decision": "block",
-  "reason": "Post-processing validation failed",
+  "reason": "Post-processing validation failed.",
   "hookSpecificOutput": {
     "hookEventName": "PostToolUse",
-    "additionalContext": "The edited file has lint errors that need to be fixed"
+    "additionalContext": "The edited file has lint errors."
   }
 }
 ```
 
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Block further processing (optional) |
-| `reason` | string | Reason for blocking (shown to the model) |
-| `hookSpecificOutput.additionalContext` | string | Extra context injected into the conversation |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `decision` | `"block"` | Optional decision that blocks further processing. |
+| `reason` | string | Reason provided to the model when processing is blocked. |
+| `hookSpecificOutput.hookEventName` | `"PostToolUse"` | Identifies the event-specific output. |
+| `hookSpecificOutput.additionalContext` | string | Additional context for the model. |
 
-## UserPromptSubmit
+## `UserPromptSubmit`
 
 The `UserPromptSubmit` hook fires when the user submits a prompt.
 
-### UserPromptSubmit input
+### Input
 
-In addition to the common fields, `UserPromptSubmit` hooks receive a `prompt` field with the text the user submitted.
+In addition to the [common input](#common-input), the hook receives:
 
-The `UserPromptSubmit` hook uses the common output format only.
+```json
+{
+  "prompt": "Add input validation to the sign-up form."
+}
+```
 
-## SessionStart
+| Field | Type | Description |
+|-------|------|-------------|
+| `prompt` | string | Text submitted by the user. |
 
-The `SessionStart` hook fires when a new agent session begins.
+The hook supports the [common output](#common-output).
 
-### SessionStart input
+## `SessionStart`
 
-In addition to the common fields, `SessionStart` hooks receive:
+The `SessionStart` hook fires when the first prompt starts a Local agent session.
+
+### Input
+
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
@@ -147,34 +257,35 @@ In addition to the common fields, `SessionStart` hooks receive:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `source` | string | How the session was started. Currently always `"new"`. |
+| `source` | string | How the session started. Currently always `"new"`. |
 
-### SessionStart output
+### Output
 
-The `SessionStart` hook can inject additional context into the agent's conversation:
+The hook can add context to the conversation:
 
 ```json
 {
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
+    "additionalContext": "Project: my-app 2.1.0 | Branch: main"
   }
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `additionalContext` | string | Context added to the agent's conversation |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `hookEventName` | `"SessionStart"` | Identifies the event-specific output. |
+| `additionalContext` | string | Context added to the conversation. |
 
-## Stop
+## `Stop`
 
-The `Stop` hook fires when the current agent execution stops. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
+The `Stop` hook fires when the current Local agent execution is about to stop. The event does not indicate that the session ended or became inactive.
 
-The hook firing does not indicate stopping of a session or that the session has become inactive.
+When a custom agent runs as a subagent, its `Stop` hook is treated as `SubagentStop`.
 
-### Stop input
+### Input
 
-In addition to the common fields, `Stop` hooks receive:
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
@@ -184,37 +295,38 @@ In addition to the common fields, `Stop` hooks receive:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `stop_hook_active` | boolean | `true` when the agent is already continuing as a result of a previous stop hook. Check this value to prevent the agent from running indefinitely. |
+| `stop_hook_active` | boolean | `true` when the agent is already continuing because a previous `Stop` hook blocked it. |
 
-### Stop output
+### Output
 
-The `Stop` hook can prevent the agent from stopping:
+The hook can require the agent to continue:
 
 ```json
 {
   "hookSpecificOutput": {
     "hookEventName": "Stop",
     "decision": "block",
-    "reason": "Run the test suite before finishing"
+    "reason": "Run the test suite before finishing."
   }
 }
 ```
 
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Prevent the agent from stopping |
-| `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `hookEventName` | `"Stop"` | Identifies the event-specific output. |
+| `decision` | `"block"` | Prevents the agent execution from stopping. |
+| `reason` | string | Required when `decision` is `"block"`. Explains why the agent should continue. |
 
 > [!IMPORTANT]
-> When a `Stop` hook blocks the agent from stopping, the agent continues running and the additional turns consume [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Always check the `stop_hook_active` field to prevent the agent from running indefinitely.
+> When a `Stop` hook blocks the agent, the additional turns consume [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Check `stop_hook_active` to prevent the agent from continuing indefinitely.
 
-## SubagentStart
+## `SubagentStart`
 
-The `SubagentStart` hook fires when a subagent is spawned.
+The `SubagentStart` hook fires when the Local agent starts a subagent.
 
-### SubagentStart input
+### Input
 
-In addition to the common fields, `SubagentStart` hooks receive:
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
@@ -225,33 +337,34 @@ In addition to the common fields, `SubagentStart` hooks receive:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `agent_id` | string | Unique identifier for the subagent |
-| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
+| `agent_id` | string | Identifier for the subagent. |
+| `agent_type` | string | Agent name, such as `"Plan"` or a custom agent name. |
 
-### SubagentStart output
+### Output
 
-The `SubagentStart` hook can inject additional context into the subagent's conversation:
+The hook can add context to the subagent:
 
 ```json
 {
   "hookSpecificOutput": {
     "hookEventName": "SubagentStart",
-    "additionalContext": "This subagent should follow the project coding guidelines"
+    "additionalContext": "Follow the project coding guidelines."
   }
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `additionalContext` | string | Context added to the subagent's conversation |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `hookEventName` | `"SubagentStart"` | Identifies the event-specific output. |
+| `additionalContext` | string | Context added to the subagent conversation. |
 
-## SubagentStop
+## `SubagentStop`
 
-The `SubagentStop` hook fires when a subagent completes.
+The `SubagentStop` hook fires when a Local subagent is about to stop.
 
-### SubagentStop input
+### Input
 
-In addition to the common fields, `SubagentStop` hooks receive:
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
@@ -263,33 +376,33 @@ In addition to the common fields, `SubagentStop` hooks receive:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `agent_id` | string | Unique identifier for the subagent |
-| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
-| `stop_hook_active` | boolean | `true` when the subagent is already continuing as a result of a previous stop hook. Check this value to prevent the subagent from running indefinitely. |
+| `agent_id` | string | Identifier for the subagent. |
+| `agent_type` | string | Agent name, such as `"Plan"` or a custom agent name. |
+| `stop_hook_active` | boolean | `true` when the subagent is already continuing because a previous `SubagentStop` hook blocked it. |
 
-### SubagentStop output
+### Output
 
-The `SubagentStop` hook can prevent the subagent from stopping:
+The hook can require the subagent to continue:
 
 ```json
 {
   "decision": "block",
-  "reason": "Verify subagent results before completing"
+  "reason": "Verify the results before completing."
 }
 ```
 
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Prevent the subagent from stopping |
-| `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
+| Field | Values or type | Description |
+|-------|----------------|-------------|
+| `decision` | `"block"` | Prevents the subagent from stopping. |
+| `reason` | string | Required when `decision` is `"block"`. Explains why the subagent should continue. |
 
-## PreCompact
+## `PreCompact`
 
-The `PreCompact` hook fires before conversation context is compacted.
+The `PreCompact` hook fires before the Local harness compacts conversation context.
 
-### PreCompact input
+### Input
 
-In addition to the common fields, `PreCompact` hooks receive:
+In addition to the [common input](#common-input), the hook receives:
 
 ```json
 {
@@ -299,12 +412,12 @@ In addition to the common fields, `PreCompact` hooks receive:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `trigger` | string | How the compaction was triggered. `"auto"` when the conversation is too long for the prompt budget. |
+| `trigger` | string | How compaction started. The value is `"auto"` when the conversation exceeds the prompt budget. |
 
-The `PreCompact` hook uses the common output format only.
+The hook supports the [common output](#common-output).
 
 ## Related resources
 
-* [Agent hooks](/docs/agent-customization/hooks.md) - Configure and use hooks in {% data variables.product.prodname_vscode_shortname %}
-* [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
-* [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents
+* [Configure agent hooks](/docs/agent-customization/hooks.md)
+* [Create custom agents](/docs/agent-customization/custom-agents.md)
+* [Use subagents](/docs/agents/run/subagents.md)

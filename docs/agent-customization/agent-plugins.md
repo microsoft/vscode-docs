@@ -323,7 +323,7 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 
 Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/ai-settings.md#deploy-hooks-through-managed-plugins).
 
-Hook configuration and payloads depend on the session's harness. The event and matcher behavior described below applies to the Local harness. See [hook harness compatibility](/docs/agent-customization/hooks.md#harness-compatibility) for SDK-based Copilot sessions.
+Hook configuration and payloads depend on the session's harness. The event and matcher behavior described below applies to the Local harness. Start with [choosing a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) for Copilot, Claude, and Codex sessions.
 
 ### Hook file location
 
@@ -349,7 +349,7 @@ my-plugin/
 
 ### Hook configuration format
 
-Plugin hooks use the same base format as [workspace hooks](/docs/agent-customization/hooks.md#hook-configuration-format). {% data variables.product.prodname_vscode_shortname %} parses Claude Code hook configuration, including matcher syntax. Currently, {% data variables.product.prodname_vscode_shortname %} ignores matcher values, so hooks run on every matching event.
+For the Local harness, plugin hooks use the same base format as [workspace hooks](/docs/agent-customization/hooks.md#local-hook-configuration-formats). The Local parser accepts Claude hook configuration, including matcher syntax, but ignores matcher values. As a result, all nested commands for the event run in Local sessions.
 
 **Flat format** (same as workspace hooks):
 
@@ -386,7 +386,7 @@ Plugin hooks use the same base format as [workspace hooks](/docs/agent-customiza
 }
 ```
 
-{% data variables.product.prodname_vscode_shortname %} parses the `matcher` field for compatibility with Claude Code, but currently ignores matcher values. If you need to filter hook behavior in {% data variables.product.prodname_vscode_shortname %}, check the event input inside the hook script.
+The Local harness parses the `matcher` field for compatibility with Claude Code, but ignores matcher values. To filter Local hook behavior, check the event input inside the hook script.
 
 ### Reference plugin paths in hook commands
 
@@ -409,7 +409,7 @@ This is important because plugins are installed to a location outside your works
 
 ### Supported hook events
 
-Plugin hooks support the same lifecycle events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See [Hook lifecycle events](/docs/agent-customization/hooks.md#hook-lifecycle-events) for details on each event.
+In the Local harness, plugin hooks support the same events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See the [Local hooks reference](/docs/agents/reference/hooks-reference.md) for event schemas.
 
 ### How plugin hooks interact with other hooks
 
