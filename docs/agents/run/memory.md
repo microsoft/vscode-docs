@@ -1,7 +1,7 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 9/16/2026
-MetaDescription: Learn how agents in {% data variables.product.prodname_vscode_shortname %} use the memory tool to retain context, learn preferences, and improve across conversations.
+DateApproved: 9/17/2026
+MetaDescription: Use agent memory in {% data variables.product.prodname_vscode_shortname %} to retain preferences, repository knowledge, and task context across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 
@@ -22,12 +22,7 @@ Launch a chat prompt that asks the agent to remember a coding preference.
 
 ## Memory tool
 
-> [!NOTE]
-> The memory tool is currently in preview.
-
 The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. User, repository, and session memory are stored locally on your machine.
-
-You can turn the memory tool on or off with the `setting(chat.tools.memory.enabled)` setting.
 
 ### Memory scopes
 
@@ -37,7 +32,7 @@ Each scope serves a different purpose, depending on how long the information sho
 |---|---|---|---|---|
 | **User** | `/memories/` | Yes | Yes | Preferences, patterns, frequently used commands |
 | **Repository** | `/memories/repo/` | Yes | No (workspace-scoped) | Codebase conventions, project structure, build commands |
-| **Session** | `/memories/session/` | No (cleared when chat ends) | No | Task-specific context, in-progress plans |
+| **Session** | `/memories/session/` | No (current conversation only) | No | Task-specific context, in-progress plans |
 
 #### User memory
 
@@ -65,9 +60,9 @@ Repository memory is stored locally on your machine.
 
 #### Session memory
 
-Session memory is scoped to the current conversation and cleared when the conversation ends. Use session memory for temporary working notes or task-specific context that the agent tracks while working through a multi-step task.
+Session memory is available only in the current conversation. Use session memory for temporary working notes or task-specific context that the agent tracks while working through a multi-step task.
 
-The Plan agent uses session memory to persist its implementation plans in a `plan.md` file. This plan is available during the session and can be viewed with the **Chat: Show Memory Files** command, but is not available in subsequent sessions. Learn more about [planning with agents](/docs/agents/run/planning.md).
+The Plan agent uses session memory to persist its implementation plans in a `plan.md` file. This plan is available in the current conversation and can be viewed with the **Chat: Show Memory Files** command. Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ### Store and retrieve memories
 
@@ -93,7 +88,7 @@ Memory file references in the agent's chat responses are clickable, so you can v
 * **Chat: Clear All Memory Files**: removes all memory files across all scopes.
 
 > [!NOTE]
-> Deleting individual memory files is not yet supported. Use **Chat: Clear All Memory Files** to remove all memories, or ask the agent to update a specific memory file to remove outdated information.
+> To update or delete an individual memory file, ask the agent. Use **Chat: Clear All Memory Files** to remove all memory files.
 
 ## Related resources
 

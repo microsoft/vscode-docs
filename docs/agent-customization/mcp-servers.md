@@ -137,6 +137,8 @@ When the Dev Container is created, {% data variables.product.prodname_vscode_sho
 
 With the `setting(chat.mcp.discovery.enabled)` setting, you can select one or more tools from which to discover their MCP server configuration.
 
+Supported sources include Claude Desktop, {% data variables.copilot.copilot_cli %}, Cursor, and Windsurf. Learn more about [automatic MCP server discovery](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery), including configuration locations and remote behavior.
+
 </details>
 
 <details>
@@ -228,9 +230,16 @@ Organizations can centrally manage access to MCP servers via GitHub policies. Le
 
 `feature(mcp-autostart)`
 
-When you add an MCP server or change its configuration, {% data variables.product.prodname_vscode_shortname %} needs to (re)start the server to discover the tools it provides.
+When you submit a chat message, {% data variables.product.prodname_vscode_shortname %} can automatically start MCP servers so that their tools are available to the chat. Use the `setting(chat.mcp.autostart)` setting to control which servers {% data variables.product.prodname_vscode_shortname %} starts during this autostart pass:
 
-You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting.
+* `never`: Don't automatically start MCP servers.
+* `onlyNew`: Start servers that have never run.
+* `newAndOutdated` (default): Start servers that have never run and servers whose configuration has changed.
+
+Disabled servers and servers in an error state are excluded from the autostart pass.
+
+> [!IMPORTANT]
+> For [Agent Host](/docs/agents/concepts/agent-host.md) sessions, `setting(chat.mcp.autostart)` only controls the {% data variables.product.prodname_vscode_shortname %} MCP autostart pass. The Agent Host and Copilot SDK manage their MCP server processes independently. The Agent Host discovers MCP configuration from workspace `.mcp.json` and user `~/.copilot/mcp-config.json` files. {% data variables.product.prodname_vscode_shortname %} also forwards eligible server configurations from supported sources, including `.vscode/mcp.json`. As a result, setting `setting(chat.mcp.autostart)` to `never` doesn't prevent an Agent Host session from starting its configured MCP servers.
 
 ## MCP server trust
 

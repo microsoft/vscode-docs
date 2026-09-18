@@ -9,12 +9,20 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
+    "agent-host-dev-containers": {
+      "label": "Dev Containers in Agent Host",
+      "state": "experimental"
+    },
     "agent-merge": {
       "label": "Agent Merge",
-      "state": "preview"
+      "state": "experimental"
     },
     "agents-window-chat-backgrounds": {
       "label": "Agents window chat backgrounds",
+      "state": "experimental"
+    },
+    "agents-window-word-wrap": {
+      "label": "Agents window word wrap",
       "state": "experimental"
     },
     "assisted-permissions": {

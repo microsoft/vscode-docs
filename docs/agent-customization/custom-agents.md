@@ -133,7 +133,7 @@ The header is formatted as YAML frontmatter with the following fields:
 
 The custom agent file body contains the custom agent implementation, formatted as Markdown. This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this custom agent.
 
-You can reference other files by using Markdown links, for example to reuse instructions files.
+You can reference other files by using Markdown links or the `#file:` syntax, for example to reuse instructions files. Relative file paths resolve from the custom agent file. To reference your environment user home folder, use `~`, or start a path with `~/`, such as `#file:~/copilot/security-guidelines.md`. Use Unix-style `/` path separators to keep custom agent files portable across operating systems.
 
 To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:web/fetch`.
 

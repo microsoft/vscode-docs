@@ -97,11 +97,70 @@
     .sidebar-nav li.folder.open > ul {
       display: block !important;
     }
+    .vscode-tabs {
+      margin: 1.5em 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .vscode-tabs__list {
+      display: flex;
+      overflow-x: auto;
+      border-bottom: 1px solid #ddd;
+      background: #f8f8f8;
+    }
+    .vscode-tabs__tab {
+      flex: 0 0 auto;
+      margin: 0;
+      padding: 0.65em 1em;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: #555;
+      font: inherit;
+      cursor: pointer;
+    }
+    .vscode-tabs__tab:hover {
+      color: #222;
+      background: #eee;
+    }
+    .vscode-tabs__tab[aria-selected="true"] {
+      border-bottom-color: #42b983;
+      background: #fff;
+      color: #222;
+      font-weight: 600;
+    }
+    .vscode-tabs__tab:focus-visible {
+      outline: 2px solid #0969da;
+      outline-offset: -3px;
+    }
+    .vscode-tabs__panel {
+      padding: 1em;
+    }
+    .vscode-tabs__panel > :first-child {
+      margin-top: 0;
+    }
+    .vscode-tabs__panel > :last-child {
+      margin-bottom: 0;
+    }
+    .vscode-tabs__panel[hidden] {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div id="app">Loading...</div>
+  <script src="/build/data-variables-substitution.js"></script>
+  <script src="/build/tabs.js"></script>
+  <script src="/_data-variables.js"></script>
   <script>
+    if (
+      !globalThis.vscodeDocsDataVariables ||
+      !globalThis.vscodeDocsTabs ||
+      !globalThis.__VSCODE_DOCS_DATA_VARIABLES__
+    ) {
+      throw new Error('Local preview processors are unavailable. Start the preview with "npm run serve".');
+    }
+
     window.$docsify = {
       name: 'VS Code Docs',
       repo: 'https://github.com/microsoft/vscode-docs',
@@ -127,6 +186,16 @@
         '/.*/_navbar.md': '/_navbar.md'
       },
       plugins: [
+        function dataVariableSubstitution(hook, vm) {
+          hook.beforeEach(function (content) {
+            return globalThis.vscodeDocsDataVariables.substituteDataVariables(
+              content,
+              globalThis.__VSCODE_DOCS_DATA_VARIABLES__,
+              vm.route.file || vm.route.path
+            );
+          });
+        },
+        globalThis.vscodeDocsTabs.createDocsifyTabsPlugin(),
         function ghAlertStyling(hook) {
           hook.doneEach(function () {
             document.querySelectorAll('.alert-title[data-alert-type]').forEach(function (span) {

@@ -56,7 +56,7 @@ Most targets share the same chat and session-management experience in {% data va
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
 
-For an eligible local folder, the {% data variables.copilot.agents_window %} workspace picker can start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Dev Container execution is available only in the {% data variables.copilot.agents_window %}. For an eligible local folder, use the workspace picker to start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Start a session
 
@@ -332,6 +332,8 @@ Cloud sessions use the tools, MCP servers, and models configured by the cloud se
 Handoff continues ongoing work with a different agent configuration and carries the conversation history and context with it. A handoff can change the harness, execution environment, or agent role. Use handoff when another configuration is a better fit for the next part of the task.
 
 For example, continue a Copilot session with Claude or Codex to use provider-specific capabilities, send a well-scoped task to the Cloud target for a pull request workflow, or move from the Plan agent to an implementation agent.
+
+You can initiate a handoff only from a Local session. Local and remote Agent Host sessions don't show the **Session Target** dropdown, but they remain available as handoff destinations from a Local session.
 
 To hand off a session to another harness or execution environment:
 

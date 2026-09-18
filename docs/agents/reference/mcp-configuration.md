@@ -1,7 +1,7 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
 DateApproved: 9/16/2026
-MetaDescription: Reference for MCP server configuration format, commands, and settings in {% data variables.product.prodname_vscode %}.
+MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - mcp
@@ -281,6 +281,25 @@ When defining MCP servers, follow these naming conventions for the server name:
 * Use a unique name for each server to avoid conflicts
 * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database"
 
+## Automatic MCP server discovery
+
+{% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from supported applications. Use `setting(chat.mcp.discovery.enabled)` to select the discovery sources.
+
+| Source | Setting property | Configuration location |
+|--------|------------------|------------------------|
+| Claude Desktop | `claude-desktop` | Windows: `%APPDATA%\Claude\claude_desktop_config.json`<br/>macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`<br/>Linux: `$XDG_CONFIG_HOME/Claude/claude_desktop_config.json`, or `~/.config/Claude/claude_desktop_config.json` if `XDG_CONFIG_HOME` is not set |
+| {% data variables.copilot.copilot_cli %} | `copilot` | `<COPILOT_HOME>/mcp-config.json`, or `~/.copilot/mcp-config.json` if `COPILOT_HOME` is not set |
+| Cursor (global) | `cursor-global` | `~/.cursor/mcp.json` |
+| Cursor (workspace) | `cursor-workspace` | `<workspace>/.cursor/mcp.json` |
+| Windsurf | `windsurf` | `~/.codeium/windsurf/mcp_config.json` |
+
+All discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
+
+For {% data variables.copilot.copilot_cli %}, setting `COPILOT_HOME` replaces the default `~/.copilot` location. {% data variables.product.prodname_vscode_shortname %} does not check both locations.
+
+> [!NOTE]
+> Agent Host sessions read the {% data variables.copilot.copilot_cli %} MCP configuration independently. The discovery setting does not change how the Agent Host receives MCP servers. Learn more about [MCP configuration behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+
 ## Commands
 
 The following table lists the MCP-related commands available in the Command Palette (`kb(workbench.action.showCommands)`).
@@ -307,7 +326,7 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 |---------|-------------|
 | `setting(chat.mcp.access)` | Manage which MCP servers can be used in {% data variables.product.prodname_vscode_shortname %}. |
 | `setting(chat.mcp.discovery.enabled)` | Configure automatic discovery of MCP server configuration from other applications. |
-| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Automatically start MCP servers when configuration changes are detected. |
+| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't control servers managed by the Agent Host. |
 | `setting(chat.mcp.serverSampling)` | Configure which models are exposed to MCP servers for sampling (making requests in the background). |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)` | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
 

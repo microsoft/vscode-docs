@@ -150,6 +150,9 @@ Set `setting(chat.agent.sandbox.allowNetwork)` to `false` to apply network isola
 
 The same domain lists apply to the fetch tool and integrated browser when you turn on `setting(chat.agent.networkFilter)`.
 
+> [!NOTE]
+> Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
+
 > [!CAUTION]
 > An agent can perform actions on an allowed domain, not only read data. For example, access to `api.github.com` can permit repository changes. Allow only domains that are required for the task.
 

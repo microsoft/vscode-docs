@@ -119,7 +119,8 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 1. Optionally, attach more context to the request:
 
     * Select **Folder** or **Repository** to attach more projects as context without adding workspace roots.
-    * For a GitHub-backed workspace, select **Issue/PR**, and then choose an item or paste its URL.
+    * Select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+    * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
@@ -134,13 +135,16 @@ The sessions list shows the session's status and change statistics while it work
 
 ### Run a session in a Dev Container
 
+`feature(agent-host-dev-containers)`
+
 Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+
+This option is available only in the {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`, an application setting that is off by default.
 
 Before you start, make sure that:
 
-* [Docker is installed and running](/docs/devcontainers/containers.md#installation).
-* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
-* `setting(chat.agentHost.devContainer.enabled)` is enabled.
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation), and the Docker CLI is available on `PATH`.
+* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
 
 To run a session in a Dev Container:
 
@@ -240,16 +244,16 @@ If the active session has uncommitted changes, select **Commit Changes** in the 
 
 `feature(agent-merge)`
 
-Agent Merge monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
+Agent Merge is an experimental feature that monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
 
 * Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
 * Fix failed required CI checks.
 * Update a branch that is behind its base branch and resolve merge conflicts.
 * Merge the pull request or add it to the merge queue after the selected maintenance work is complete.
 
-To use Agent Merge:
+First, enable `setting(chat.agentMerge.enabled)`.
 
-1. Enable `setting(chat.agentMerge.enabled)`.
+To enable Agent Merge for an existing pull request:
 
 1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
@@ -261,10 +265,22 @@ To use Agent Merge:
 
 <!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
 
+To create a draft pull request and enable Agent Merge in one step:
+
+1. Open the **Changes** view for a session that doesn't have a pull request.
+
+1. Open the pull request action menu and select **Create Draft PR & Agent Merge**.
+
+1. Configure which blockers Agent Merge should address. Agent Merge creates the draft pull request and starts monitoring it, but doesn't merge it while it remains a draft.
+
+While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
+
 > [!CAUTION]
 > Agent Merge starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the Agent Merge options before you enable automatic merging.
 
 Agent Merge waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, Agent Merge turns off and requires you to enable it again.
+
+To review the changes from the most recent Agent Merge repair cycle, open the **Changes** view and select **Agent Merge Changes** from the changeset dropdown. This changeset compares the latest completed Agent Merge repair turn with the preceding completed user turn. It remains empty after your latest message until Agent Merge completes another repair turn.
 
 To stop monitoring the pull request, select **Agent Merge** in the title bar, and then select **Disable Agent Merge**.
 

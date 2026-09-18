@@ -51,6 +51,8 @@ The on-device model is available on these desktop platforms:
 
 {% data variables.product.prodname_vscode_shortname %} asks for microphone access when you start dictation. Only one dictation session can be active at a time.
 
+When a dictation session reaches 20 minutes, {% data variables.product.prodname_vscode_shortname %} automatically stops dictation and keeps the text transcribed up to that point. The automatic stop is announced to screen reader users.
+
 ### Dictate in chat or the {% data variables.copilot.agents_window %}
 
 To dictate a chat prompt, select the microphone button in the chat input or press `kb(workbench.action.chat.toggleSpeechToText)`. Select the button or press the keyboard shortcut again to stop dictation and keep the transcribed text. Dictation inserts text in the input but does not submit the request.
