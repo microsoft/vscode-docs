@@ -389,6 +389,9 @@ The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools ar
 
 Use this policy to block exceptions to the allowed domain list. Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`. You do not need to specify denied domains when the allowed domain list is empty because all domains are already blocked.
 
+> [!NOTE]
+> Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
+
 ## Configure Copilot code review
 
 Copilot code review enables AI-powered review of code changes. Organizations can control access to these features.
