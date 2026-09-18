@@ -1,228 +1,204 @@
 ---
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 DateApproved: 9/16/2026
-MetaDescription: Synchronize your user settings across all your {% data variables.product.prodname_vscode %} instances.
+MetaDescription: Synchronize settings, keyboard shortcuts, extensions, and other preferences across devices with {% data variables.product.prodname_vscode %} {% data variables.product.prodname_settings_sync %}.
 ---
-# Settings Sync
+# {% data variables.product.prodname_settings_sync %}
 
-Settings Sync lets you share your {% data variables.product.prodname_vscode %} configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+{% data variables.product.prodname_settings_sync %} keeps your {% data variables.product.prodname_vscode %} preferences consistent across devices. This article explains how to choose what to sync, resolve conflicts, restore synced data, and troubleshoot sign-in storage.
 
-> **Note**: {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> [!NOTE]
+> {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
-## Turning on Settings Sync
+## Turn on {% data variables.product.prodname_settings_sync %}
 
-You can turn on Settings Sync by using the **Backup and Sync Settings...** entry in the **Manage** gear menu or the **Accounts** menu at the bottom of the Activity Bar.
+To turn on {% data variables.product.prodname_settings_sync %}, select **Backup and Sync Settings...** from the **Manage** gear menu or the **Accounts** menu at the bottom of the Activity Bar.
 
-![Screenshot of the Manage menu, highlighting the Backup and Sync Settings command.](images/settings-sync/turn-on-sync.png)
+![Screenshot showing the Manage menu with the Backup and Sync Settings command highlighted.](images/settings-sync/turn-on-sync.png)
 
-To use Sync settings, you need to sign in and select which settings you want to sync. Currently, the Settings Sync supports the following settings:
+Select the data that you want to synchronize:
 
 * Settings
-* Keyboard shortcuts
-* User snippets
-* User tasks
-* UI State
+* Keyboard Shortcuts
+* Snippets
+* Prompts and Instructions
+* Tasks
 * Extensions
+* UI State
 * Profiles
+* MCP Servers
 
-![Screenshot of the Settings Sync configure Quick Pick to select the settings to synchronize.](images/settings-sync/sync-configure.png)
+![Screenshot showing the Settings Sync configuration picker with data categories selected.](images/settings-sync/sync-configure-2.png)
 
-When you select the **Sign in** button, you can choose between signing in with your Microsoft or GitHub account.
+Select **Sign in**, and then select a Microsoft or GitHub account.
 
-![Screenshot of the Settings Sync Quick Pick to choose an account type.](images/settings-sync/sync-accounts.png)
+![Screenshot showing the Settings Sync account picker with Microsoft and GitHub options.](images/settings-sync/sync-accounts.png)
 
-After making this selection, the browser opens so that you can sign in to your Microsoft or GitHub account. If you choose a Microsoft account, you can use either personal accounts, such as Outlook accounts, or Azure accounts, and you can also link a GitHub account to a new or existing Microsoft account.
+If you are not already signed in with the selected account, a browser opens so that you can authenticate.
 
-After signing in, Settings Sync is turned on and continues to synchronize your preferences automatically in the background.
+After you sign in, {% data variables.product.prodname_settings_sync %} automatically merges your local and cloud data and continues to synchronize changes in the background. If it cannot merge the data, you are prompted to [resolve the conflicts](#resolve-conflicts).
 
-## Merge or Replace
+## Configure synced data
 
-If you already synced from a machine and turning on sync from another machine, you will be shown with following **Merge or Replace** dialog.
+Settings with the `machine` or `machine-overridable` scope are not synchronized by default because their values are specific to a device. To choose other settings that should not synchronize, use the Settings editor or the `setting(settingsSync.ignoredSettings)` setting.
 
-![Settings Sync Merge or Replace dialog](images/settings-sync/sync-merge-replace.png)
+![Screenshot showing ignored settings in the Settings editor.](images/settings-sync/sync-ignored-settings.png)
 
-* **Merge**: Selecting this option will merge **local** settings with **remote** settings from the cloud.
-* **Replace Local**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
-* **Merge Manually...**: Selecting this option will open **Merges** view where you can merge preferences one by one.
+Keyboard shortcuts are synchronized separately for each operating system by default. To use the same keyboard shortcuts on every operating system, clear the `setting(settingsSync.keybindingsPerPlatform)` setting.
 
-![Settings Sync Merges](images/settings-sync/sync-merges-view.png)
+Installed extensions and the global enablement state of built-in and installed extensions are synchronized. To exclude an extension, use the Extensions view (`kb(workbench.view.extensions)`) or the `setting(settingsSync.ignoredExtensions)` setting.
 
-## Configuring synced data
+![Screenshot showing the context menu action for excluding an extension from synchronization.](images/settings-sync/sync-ignored-extensions.png)
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
+The following UI state is synchronized:
 
-![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
+* Display language.
+* Activity Bar entries.
+* Panel entries.
+* View layout and visibility.
+* Recently used commands.
+* 'Do not show again' notification choices.
 
-Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `setting(settingsSync.keybindingsPerPlatform)`.
+To change the data categories that you synchronize, run the **Settings Sync: Configure...** command or select **Settings Sync is On** > **Configure...** from the **Manage** gear menu.
 
-All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `setting(settingsSync.ignoredExtensions)`.
+## Resolve conflicts
 
-![Settings Sync ignored settings](images/settings-sync/sync-ignored-extensions.png)
+Conflicts can occur when you first turn on {% data variables.product.prodname_settings_sync %} on a device or when you change data while a device is offline. Synchronization pauses until you resolve the conflicts.
 
-Following UI State is synchronized currently:
+The available actions depend on whether you are turning on sync or resolving a later conflict:
 
-* Display Language
-* Activity Bar entries
-* Panel entries
-* Views layout and visibility
-* Recently used commands
-* Do not show again notifications
+* **Accept Local** or **Replace Remote** uses your local data and overwrites the data in the cloud.
+* **Accept Remote** or **Replace Local** uses the data in the cloud and overwrites your local data.
+* **Show Conflicts** opens a diff editor where you can compare the local and remote data. Edit the merge result, and then select **Complete Merge**.
 
-You can always change what is synced via the **Settings Sync: Configure** command or by opening the **Manage** gear menu, selecting **Settings Sync is On**, and then **Settings Sync: Configure**.
+## Switch accounts
 
-## Conflicts
+To synchronize your data with a different account, run the **Settings Sync: Turn Off** command, and then turn on {% data variables.product.prodname_settings_sync %} with the other account.
 
-When synchronizing settings between multiple machines, there may occasionally be conflicts. Conflicts can happen when first setting up sync between machines or when settings change while a machine is offline. When conflicts occur, you will be presented with the following options:
+## Synchronize Stable and Insiders
 
-* **Accept Local**: Selecting this option will overwrite **remote** settings in the cloud with your local settings.
-* **Accept Remote**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
-* **Show Conflicts**: Selecting this will display a diff editor similar to the Source Control diff editor, where you can preview the local and remote settings and choose to either accept local or remote or manually resolve the changes in your local settings file and then accept the local file.
+By default, the {% data variables.product.prodname_vscode_shortname %} Stable and [Insiders](/insiders) builds use separate {% data variables.product.prodname_settings_sync %} services and do not share data. To share data between the builds, select the Stable sync service when you turn on {% data variables.product.prodname_settings_sync %} in {% data variables.product.prodname_vscode_shortname %} Insiders.
 
-## Switching Accounts
+![Screenshot showing the sync service options in VS Code Insiders.](images/settings-sync/settings-sync-switch.png)
 
-If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account. The command to turn off sync is **Settings Sync: Turn off**.
+> [!NOTE]
+> Synchronizing Stable and Insiders can cause data incompatibility because Insiders is newer than Stable. If this occurs, {% data variables.product.prodname_settings_sync %} turns off automatically in Stable. Update Stable to a compatible version before you turn on sync again.
 
-## Syncing Stable versus Insiders
+## Restore synced data
 
-By default, the {% data variables.product.prodname_vscode_shortname %} Stable and [Insiders](/insiders) builds use different Settings Sync services, and therefore do not share settings. You can sync your Insiders with Stable by selecting the Stable sync service while turning on Settings Sync. This option is only available in {% data variables.product.prodname_vscode_shortname %} Insiders.
+{% data variables.product.prodname_vscode_shortname %} stores local and remote backups of your preferences. You can use these backups to restore an earlier version of your data.
 
-![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
+![Screenshot showing remote backup versions in the Settings Sync view.](images/settings-sync/sync-backup-views.png)
 
-**Note:** Since Insiders builds are newer than Stable builds, syncing them can sometimes lead to data incompatibility. In such cases, Settings sync will be disabled automatically on stable to prevent data inconsistencies. Once newer version of Stable build is released, you can upgrade your stable client and turn on sync to continue syncing.
+Run the **Settings Sync: Show Synced Data** command to view remote backups. To view local backups in the same view, open the **Views** submenu from the **Settings Sync** view overflow menu, and then select **Local Sync Activity**.
 
-## Restoring data
+![Screenshot showing the Local Sync Activity option in the Views submenu.](images/settings-sync/sync-enable-local-activity-view.png)
 
-{% data variables.product.prodname_vscode_shortname %} always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
+To access local backups on disk, run the **Settings Sync: Open Local Backups Folder** command. The folder is organized by data category and contains timestamped versions of your JSON files.
 
-![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
+> [!NOTE]
+> Local backups are deleted after 30 days. For remote backups, the latest 20 versions of each data category are retained.
 
-You can open these views using **Settings Sync: Show Synced Data** command from the Command Palette. The Local Sync activity view is hidden by default and you can enable it using **Views** submenu under **Settings Sync** view overflow actions.
+## Manage synced machines
 
-![Settings Sync enable local backup views](images/settings-sync/sync-enable-local-activity-view.png)
+{% data variables.product.prodname_vscode_shortname %} tracks the devices that synchronize your data. Run the **Settings Sync: Show Synced Data** command, and then expand **Synced Machines** to view them.
 
-Local backups folder in the disk can be accessed via the **Settings Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred.
+Each device has a default name based on its operating system and whether it runs Stable or Insiders. Use the actions for a device to rename it or turn off {% data variables.product.prodname_settings_sync %} remotely.
 
->**Note**: Local backups are automatically deleted after 30 days. For remote backups the latest 20 versions of each individual resource (settings, extensions, etc.) is retained.
-
-## Synced Machines
-
-{% data variables.product.prodname_vscode_shortname %} keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of {% data variables.product.prodname_vscode_shortname %} (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Settings Sync** context menu action on the machine entry in the view.
-
-![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
-
-You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
+![Screenshot showing devices in the Synced Machines view.](images/settings-sync/sync-machines-view.png)
 
 ## Extension authors
 
-If you are an extension author, you should make sure your extension behaves appropriately when users enable Setting Sync. For example, you probably don't want your extension to display the same dismissed notifications or welcome pages on multiple machines.
+If your extension stores user state, decide whether that state should synchronize across devices. For example, synchronizing a dismissed notification or completed welcome page prevents the extension from showing it again on another device.
 
-### Sync user global state between machines
+### Synchronize user global state
 
-If your extension needs to preserve some user state across different machines then provide the state to Settings Sync using `vscode.ExtensionContext.globalState.setKeysForSync`. Sharing state such as UI dismissed or viewed flags across machines can provide a better user experience.
+To synchronize selected keys from `vscode.ExtensionContext.globalState`, pass the keys to `vscode.ExtensionContext.globalState.setKeysForSync`.
 
-There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities.md#data-storage) topic.
+For an example, see [Extension capabilities](/api/extension-capabilities/common-capabilities.md#data-storage).
 
-## Reporting issues
+## Report issues
 
-Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
+{% data variables.product.prodname_settings_sync %} activity is recorded in the **Log (Settings Sync)** output channel. If you report a problem, include this log with the issue. For authentication problems, also include the **Account** output channel.
 
-## How do I delete my data?
+## Delete cloud data
 
-If you want to remove all your data from our servers, just turn off sync via **Settings Sync is On** menu available under **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
-
-## Next steps
-
-* [User and Workspace settings](/docs/configure/settings.md) - Learn how to configure {% data variables.product.prodname_vscode_shortname %} to your preferences through user and workspace settings.
+To remove all synced data from the service, select **Settings Sync is On** > **Turn Off** from the **Manage** gear menu. In the confirmation dialog, select the checkbox labeled **Turn off sync on all your devices and clear the data from the cloud.** Then select **Turn off**. If you turn on {% data variables.product.prodname_settings_sync %} again, it starts as a first-time setup.
 
 ## Common questions
 
-### Is {% data variables.product.prodname_vscode_shortname %} Settings Sync the same as the Settings Sync extension?
+### Is {% data variables.product.prodname_settings_sync %} the same as the Settings Sync extension?
 
-No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your {% data variables.product.prodname_vscode_shortname %} settings across different machines and is unrelated to the {% data variables.product.prodname_vscode_shortname %} Settings Sync.
+No. The [Settings Sync extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private GitHub Gist to share settings. It is unrelated to the built-in {% data variables.product.prodname_settings_sync %} feature.
 
-### What types of accounts can I use for Settings Sync sign in?
+### What accounts can I use?
 
-{% data variables.product.prodname_vscode_shortname %} Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
+{% data variables.product.prodname_settings_sync %} supports Microsoft and GitHub accounts. GitHub Enterprise Server accounts are not supported.
 
->**Note**: {% data variables.product.prodname_vscode_shortname %} Settings Sync does not support using your [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) account at this time. If this is something you would like, please let us know what kind of Microsoft Sovereign Cloud you would like to use [in this GitHub issue](https://github.com/microsoft/vscode/issues/196509).
+> [!NOTE]
+> {% data variables.product.prodname_settings_sync %} does not support [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) accounts.
 
-### Can I use a different backend or service for Settings Sync?
+### Can I use a different backend or service?
 
-Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
+No. {% data variables.product.prodname_settings_sync %} uses a dedicated service to store data and coordinate updates. Custom backends are not supported.
+
+### Can I share data between Stable and Insiders?
+
+Yes. Follow the steps in [Synchronize Stable and Insiders](#synchronize-stable-and-insiders).
 
 ## Troubleshooting keychain issues
 
->**Note**: This section applies to {% data variables.product.prodname_vscode_shortname %} version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
->
->**Note**: keychain, keyring, wallet, credential store are synonymous in this document.
+On desktop, {% data variables.product.prodname_settings_sync %} stores authentication information by using the operating system credential store. This section uses *keychain* as a general term for a keychain, keyring, wallet, or credential store.
 
-Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
+If the keychain is unavailable or misconfigured, restart {% data variables.product.prodname_vscode_shortname %} with the following options to generate a verbose log:
 
-To help diagnose the problem, you can restart {% data variables.product.prodname_vscode_shortname %} with the following flags to generate a verbose log:
-
-```
+```bash
 code --verbose --vmodule="*/components/os_crypt/*=1"
 ```
 
-### Windows & macOS
+### Windows and macOS
 
-At this time, there are no known configuration issues on Windows or macOS but, if you suspect something is wrong, you can open an [issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+Windows and macOS usually do not require additional keychain configuration. If the problem continues, [report an issue](https://github.com/microsoft/vscode/issues/new/choose) and include the verbose log.
 
 ### Linux
 
-Towards the top of the logs from the previous command, you will see something to the effect of:
+{% data variables.product.prodname_vscode_shortname %} uses Chromium to detect the desktop environment and select a keyring. Search the verbose log for `OSCrypt`, `password storage`, or `selected backend` messages to identify the selected keyring.
 
-```
-[9699:0626/093542.027629:VERBOSE1:key_storage_util_linux.cc(54)] Password storage detected desktop environment: GNOME
-[9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] Selected backend for OSCrypt: GNOME_LIBSECRET
-```
+#### GNOME or Unity
 
-We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=196-221;drc=502b6c6b6ba9f62ddc2d8a8b39d024627950edb8;bpv=1;bpt=0). Outlined below are some popular desktop environments and troubleshooting steps that may help if the keyring is misconfigured.
-
-#### GNOME or UNITY (or similar)
-
-If the error you're seeing is "Cannot create an item in a locked collection", chances are your keyring's `Login` keyring is locked. You should launch your OS's keyring ([Seahorse](https://wiki.gnome.org/Apps/Seahorse) is the commonly used GUI for seeing keyrings) and ensure the default keyring (usually referred to as `Login` keyring) is unlocked. This keyring needs to be unlocked when you log into your system.
+If the log contains `Cannot create an item in a locked collection`, unlock the default keyring, which is usually named `Login`. You can use a keyring manager such as [Seahorse](https://wiki.gnome.org/Apps/Seahorse). The keyring must be unlocked when you sign in to the operating system.
 
 #### KDE
 
-> KDE 6 is not yet fully supported by {% data variables.product.prodname_vscode %}. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with {% data variables.product.prodname_vscode_shortname %}](#other-linux-desktop-environments).
+Open [KWalletManager](https://apps.kde.org/kwalletmanager5/) and make sure that the default `kdewallet` wallet is open. If {% data variables.product.prodname_vscode_shortname %} cannot connect to KWallet, try a keyring that implements the Secret Service API, as described in the next section.
 
-It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
+#### Configure a keyring backend
 
-If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial {% data variables.product.prodname_vscode_shortname %} Flatpak in [issue #189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
+To select a keyring backend manually, start {% data variables.product.prodname_vscode_shortname %} with the `password-store` option. For example, install a keyring that implements the [Secret Service API](https://specifications.freedesktop.org/secret-service/latest/), and then run:
 
-If you're still experiencing trouble connecting to `kwallet5`, some users have reported that granting the specific D-Bus service permissions proved a viable fix:
-```sh
-flatpak override --user --talk-name=org.kde.kwalletd5 --talk-name=org.freedesktop.secrets com.visualstudio.code
+```bash
+code --password-store="gnome-libsecret"
 ```
 
-#### Other Linux desktop environments
+If the selected backend works, run **Preferences: Configure Runtime Arguments** from the Command Palette (`kb(workbench.action.showCommands)`) and add `"password-store": "gnome-libsecret"` to the `argv.json` file.
 
-First off, if your desktop environment wasn't detected, you can [open an issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+The `password-store` option supports these values:
 
-#### (recommended) Configure the keyring to use with {% data variables.product.prodname_vscode_shortname %}
+* `kwallet5` for KWallet 5.
+* `gnome-libsecret` for keyrings that implement the Secret Service API, such as GNOME Keyring, KWallet, and KeePassXC.
+* `kwallet` for older KWallet versions.
+* `basic` for basic text encryption. This option is not recommended.
 
-You can manually tell {% data variables.product.prodname_vscode_shortname %} which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch {% data variables.product.prodname_vscode_shortname %} with `code --password-store="gnome-libsecret"`.
+If the desktop environment or keyring is not detected, [report an issue](https://github.com/microsoft/vscode/issues/new/choose) and include the verbose log.
 
-If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome-libsecret"`.
+#### Configure basic text encryption
 
-Here are all the possible values of `password-store` if you would like to try using a different keyring than `gnome-keyring`:
+> [!WARNING]
+> Basic text encryption uses a key derived from a value hardcoded in Chromium. It provides obfuscation rather than secure encryption, and processes on your system might be able to decrypt the stored data.
 
-* `kwallet5`: For use with [kwalletmanager5](https://apps.kde.org/kwalletmanager5/).
-* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (for example `gnome-keyring`, `kwallet5`, `KeepassXC`).
-* _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
-* _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
+If you accept this risk, run **Preferences: Configure Runtime Arguments** from the Command Palette (`kb(workbench.action.showCommands)`) and add `"password-store": "basic"` to the `argv.json` file.
 
-> If your password store was not detected automatically, see if your setup is mentioned in issue [#187338](https://github.com/microsoft/vscode/issues/187338). If not, feel free to include your setup there or [open an issue on {% data variables.product.prodname_vscode_shortname %}](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you think your issue is not related to automatic password store detection.
+## Related resources
 
-#### (not recommended) Configure basic text encryption
-
-We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy that uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
-
-If you accept this risk, you can set `password-store` to `basic` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"basic"`.
-
-## Can I share settings between {% data variables.product.prodname_vscode_shortname %} Stable and Insiders?
-
-Yes. Please refer to the [Syncing Stable versus Insiders](#syncing-stable-versus-insiders) section for more information.
-
-Please note that this can sometimes lead to data incompatibility because Insiders builds are newer than Stable builds. In such cases, Settings Sync will be disabled automatically on Stable to prevent data inconsistencies. Once a newer version of the Stable build is released, you can upgrade your client and turn on Settings Sync to continue syncing.
+* [Configure user and workspace settings](/docs/configure/settings.md)
+* [Create and manage profiles](/docs/configure/profiles.md)
