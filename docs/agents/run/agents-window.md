@@ -43,6 +43,8 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Run `code --agents` from the command line.
 
+* On Windows, right-click the {% data variables.product.prodname_vscode_shortname %} taskbar icon and select **Agents Window** from the Tasks jump list.
+
 * Open <https://insiders.vscode.dev/agents> in a browser to use the {% data variables.copilot.agents_window %} from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
 By default, the {% data variables.copilot.agents_window %} requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens.
