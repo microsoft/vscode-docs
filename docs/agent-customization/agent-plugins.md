@@ -321,6 +321,10 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 > [!NOTE]
 > Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
 
+Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/ai-settings.md#deploy-hooks-through-managed-plugins).
+
+Hook configuration and payloads depend on the session's harness. The event and matcher behavior described below applies to the Local harness. See [hook harness compatibility](/docs/agent-customization/hooks.md#harness-compatibility) for SDK-based Copilot sessions.
+
 ### Hook file location
 
 The hook file location depends on the plugin format:
@@ -411,7 +415,7 @@ Plugin hooks support the same lifecycle events as workspace hooks: `SessionStart
 
 Plugin hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
 
-Disabling a plugin also disables its hooks. You can enable or disable plugins globally or for a specific workspace from the Extensions view.
+Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
 
 ## Discover and install plugins
 

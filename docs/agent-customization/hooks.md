@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 9/16/2026
-MetaDescription: Learn how to use hooks in {% data variables.product.prodname_vscode_shortname %} to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
+MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} and understand harness compatibility and managed deployment.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -18,17 +18,17 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
-Hooks work across agent harnesses and execution environments. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+Each hook receives structured JSON input and can return JSON output to influence agent behavior. The session's [agent harness](#harness-compatibility) determines which hook implementation runs and which configuration and event payloads it supports.
 
 For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
 This article explains how to configure and use hooks in {% data variables.product.prodname_vscode_shortname %}.
 
 > [!NOTE]
-> Agent hooks are currently in Preview. The configuration format and behavior might change in future releases.
+> The shared {% data variables.copilot.copilot_sdk_short %} hooks implementation is generally available (GA), including in Copilot sessions on Agent Host. The overall {% data variables.product.prodname_vscode_shortname %} hooks surface remains in Preview during the transition from the Local harness to the SDK harness. Validate existing scripts during migration, especially tool arguments and transcript parsing.
 
 > [!IMPORTANT]
-> Your organization might have disabled the use of hooks in {% data variables.product.prodname_vscode_shortname %}. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
+> Your organization might restrict which hooks can run in {% data variables.product.prodname_vscode_shortname %}. Contact your admin for more information. See [managed hook deployment](/docs/enterprise/ai-settings.md#deploy-hooks-through-managed-plugins) for details.
 
 ## Why use hooks?
 
@@ -43,6 +43,32 @@ Hooks provide deterministic, code-driven automation. Unlike instructions or cust
 * **Inject context**: Add project-specific information, API keys, or environment details to help the agent make better decisions.
 
 * **Control approvals**: Automatically approve safe operations while requiring confirmation for sensitive ones.
+
+## Harness compatibility
+
+Agent hooks in {% data variables.product.prodname_vscode_shortname %} and [{% data variables.product.prodname_copilot %} hooks](https://docs.github.com/en/copilot/reference/hooks-reference) follow the same lifecycle-hook model, not competing approaches. This article focuses on editor authoring, discovery, and user experience. The GitHub documentation describes Copilot runtime surfaces and their deployment models.
+
+The implementation depends on the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target), not on the language model you select:
+
+| Session target | Hook implementation | Copilot Policy Hooks |
+|----------------|---------------------|----------------------|
+| **Local** | Legacy {% data variables.product.prodname_vscode_shortname %} implementation | Does not load SDK Policy Hooks. |
+| **Copilot** on Agent Host | Shared {% data variables.copilot.copilot_sdk_short %} implementation used by {% data variables.copilot.copilot_cli_short %} | Loads Policy Hooks for the environment where the runtime runs. |
+
+[Policy Hooks](https://docs.github.com/en/copilot/reference/hooks-reference#policy-hooks) are administrator-installed, machine-wide hooks. They apply to Copilot sessions running on the SDK harness in {% data variables.product.prodname_vscode_shortname %}, but not to sessions that remain on Local. The GitHub reference distinguishes Policy Hooks from hooks supported by the {% data variables.copilot.copilot_cloud_agent %}; its CLI-only label does not exclude SDK-based Copilot sessions in {% data variables.product.prodname_vscode_shortname %}.
+
+The SDK harness shares runtime hook behavior with {% data variables.copilot.copilot_cli_short %}, but editor discovery and configuration, available events, tool names, and event payloads can differ between clients and harnesses. The configuration, event schemas, and examples below describe the Local harness. For SDK runtime configuration and payloads, use the [GitHub hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
+
+### Migrate existing hooks
+
+Before switching from Local to Copilot, test existing scripts in a Copilot session:
+
+* Confirm that the intended hooks load and run for the events your workflow uses.
+* Check tool names and argument shapes before reusing filters or validation logic.
+* Validate scripts that read chat transcripts. Do not assume that transcript formatting is identical across harnesses or stable across releases.
+* Check that hook output produces the intended behavior, such as blocking a tool call or adding context.
+
+Enterprise admins can use `ChatEditorPreferCopilotHarness`, available from version 1.134, to prefer the SDK harness for new editor-chat sessions. See [configure the harness for Policy Hooks](/docs/enterprise/ai-settings.md#use-the-sdk-harness-for-policy-hooks). To distribute approved hooks without permitting arbitrary user or workspace hooks, see [managed hook deployment](/docs/enterprise/ai-settings.md#deploy-hooks-through-managed-plugins).
 
 ## Quick start: your first hook
 

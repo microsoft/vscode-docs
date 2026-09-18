@@ -1,7 +1,7 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
 DateApproved: 9/16/2026
-MetaDescription: Reference for agent hook configuration properties and per-event input and output schemas in {% data variables.product.prodname_vscode %}, including PreToolUse, PostToolUse, SessionStart, Stop, and more.
+MetaDescription: Look up Local harness hook configuration and event schemas in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -15,7 +15,9 @@ Keywords:
 ---
 # Hooks reference
 
-This article provides a reference for agent hook configuration properties and the input and output schemas of each hook event in {% data variables.product.prodname_vscode_shortname %}. For information about configuring and using hooks, see [Agent hooks](/docs/agent-customization/hooks.md).
+This article provides a reference for hook configuration properties and event input and output schemas in the **Local** harness in {% data variables.product.prodname_vscode_shortname %}. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation. For that runtime's configuration and payloads, see the [GitHub hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
+
+For information about authoring hooks and migrating between harnesses, see [Agent hooks](/docs/agent-customization/hooks.md#harness-compatibility).
 
 Every hook also receives a set of [common input fields](/docs/agent-customization/hooks.md#common-input-fields) and can return the [common output format](/docs/agent-customization/hooks.md#common-output-format). The fields documented in the event sections are in addition to those common fields.
 
