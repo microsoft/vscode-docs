@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-debian-10
+FROM mcr.microsoft.com/devcontainers/typescript-node:24-bookworm
 
 # Install Git LFS, add a locale
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
