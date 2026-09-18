@@ -210,6 +210,8 @@ Agent sandboxing restricts file system and network access for terminal commands.
 
 Select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off. For Copilot Agent Host sessions, the toggle applies only to the current session. New sessions use the effective User or Workspace setting for their platform, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
 
+Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
+
 Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md), including platform prerequisites, file system and network restrictions, session behavior, and fallback controls.
 
 ## Related resources
