@@ -44,7 +44,7 @@
             }],
 
             ["", "", {
-                "name": "Run agents",
+                "name": "Use agents",
                 "area": "agents/run",
                 "topics": [
                     ["Chat View and Layout", "/docs/agents/run/chat-view"],
