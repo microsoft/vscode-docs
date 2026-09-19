@@ -143,12 +143,14 @@ npm run serve
 
 This starts a local server (default `http://localhost:3000`) with:
 
-* Sidebar navigation generated from `docs/toc.json` and `api/toc.json`
+* Sidebar navigation generated from the Docs, Extension API, and Learn table of contents files
+* Reusable data variables validated and rendered in article content and navigation
+* Tabbed content validated and rendered with synchronized tab selections
 * Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
 * Full-text search across all content
 
 > [!NOTE]
-> The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
+> The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
 
 ### Validate your Markdown
 
@@ -275,11 +277,11 @@ The registry is the authoritative switch. If a valid page or inline reference is
 
 ## Table of contents
 
-The table of contents (TOC) is defined in the `/docs/toc.yml` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.yml` file, it will not be included in the left rail navigation.
+The table of contents (TOC) is defined in the `/docs/toc.json` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.json` file, it will not be included in the left rail navigation.
 
-To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.yml` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
+To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.json` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
 
-The order in which the topics are listed in the `/docs/toc.yml` file determines the order in which they are displayed in the left rail navigation.
+The order in which the topics are listed in the `/docs/toc.json` file determines the order in which they are displayed in the left rail navigation.
 
 Each topic in the TOC has two attributes:
 
@@ -288,7 +290,7 @@ Each topic in the TOC has two attributes:
 
 The following example shows a `Getting Started` section that has two topics.
 
-```yaml
+```json
     {
       "name": "Getting Started",
       "area": "getstarted",
@@ -307,7 +309,7 @@ To create a subsection within a section, add a subsection entry to the `topics` 
 
 The following example shows a `Guides` subsection with two topics, within the `GitHub Copilot` section.
 
-```yaml
+```json
     {
       "name": "GitHub Copilot",
       "area": "copilot",

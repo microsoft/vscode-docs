@@ -1,6 +1,6 @@
 ---
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: Changing the color theme in {% data variables.product.prodname_vscode %}. You can use color themes provided by {% data variables.product.prodname_vscode_shortname %}, the community or create your own new themes.
 ---
 # Themes

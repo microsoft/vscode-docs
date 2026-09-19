@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 ---
 # Remote Development Tips and Tricks
 
@@ -915,6 +915,18 @@ Extensions that open workspace files in external applications may encounter erro
 Extensions that access locally attached devices will be unable to connect to them when running remotely.
 
 **Resolution:** None currently. We are investigating the best approach to solve this problem.
+
+### Extensions fail to connect to the internet when installed remotely
+
+Remote extensions can fail to connect if they use a local proxy configuration that is not valid in the remote environment.
+
+**Resolution:** Configure the remote environment to use its own proxy settings:
+
+1. While connected to the remote environment, open Settings and select the **Remote** tab.
+2. Disable **Http: Use Local Proxy Configuration** (`http.useLocalProxyConfiguration`).
+3. Ensure that the remote environment has internet access. If it requires a proxy, configure **Http: Proxy** (`http.proxy`) in the **Remote** settings, or set `HTTP_PROXY` or `HTTPS_PROXY` in the environment used to start the remote server.
+
+If you change environment variables, restart the remote server so that it picks up the changes.
 
 ## Questions and feedback
 

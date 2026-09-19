@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -68,7 +68,7 @@ File-based instructions are applied when files that the agent is working on matc
     * Conditionally apply instructions based on file type or location by using glob patterns
     * Stored in the workspace or user profile
 
-To reference specific context in your instructions, such as files or URLs, you can use Markdown links.
+To reference specific context in your instructions, such as files or URLs, use Markdown links or the `#file:` syntax. Relative file paths resolve from the instructions file. To reference your environment user home folder, use `~`, or start a path with `~/`, such as `[personal coding standards](~/copilot/coding-standards.md)`. Use Unix-style `/` path separators to keep instructions files portable across operating systems.
 
 > [!TIP]
 > **Which approach should you use?** Start with a single `.github/copilot-instructions.md` file for project-wide coding standards. Add `.instructions.md` files when you need different rules for different file types or frameworks. Use `AGENTS.md` if you work with multiple AI agents in your workspace.

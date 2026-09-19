@@ -1,6 +1,6 @@
 ---
 ContentId: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to create and use agent skills in VS Code to automate workflows, extend GitHub Copilot capabilities, and reduce repetitive tasks.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

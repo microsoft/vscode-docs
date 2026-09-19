@@ -3,7 +3,7 @@
   "version": "2026-09-09-vscode-documentary-agent-host",
   "messages": [
     "<a href=\"https://aka.ms/the-story-of-vs-code?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">🎬 Watch The Story of VS Code!</a>",
-    "<a href=\"https://code.visualstudio.com/blogs/2026/08/26/agent-host-architecture?source=vsc-website-banner\" target=\"_self\" rel=\"noopener\">Blog: Enable persistent, portable agent sessions with the Agent Host.</a>",
-    "<a href=\"https://gh.io/githubcopilotday?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Join GitHub Copilot Day live on September 10!</a>"
+    "<a href=\"https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one?source=vsc-website-banner\" target=\"_self\" rel=\"noopener\">Blog: Building the new GitHub Copilot inline suggestions model.</a>",
+    "<a href=\"https://gh.io/githubcopilotday?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Rewatch GitHub Copilot Day.</a>"
   ]
 }

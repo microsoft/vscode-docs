@@ -1,6 +1,6 @@
 ---
 ContentId: 9c8b7a6d-5e4f-4c3b-9a2d-1f0e2d3c4b05
-DateApproved: 05/21/2026
+DateApproved: 9/16/2026
 MetaDescription: Practice installing, reviewing, using, and recommending agent plugins for repeatable AI workflows in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

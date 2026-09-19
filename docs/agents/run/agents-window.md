@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -119,7 +119,8 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 1. Optionally, attach more context to the request:
 
     * Select **Folder** or **Repository** to attach more projects as context without adding workspace roots.
-    * For a GitHub-backed workspace, select **Issue/PR**, and then choose an item or paste its URL.
+    * Select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+    * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
@@ -131,6 +132,31 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
     > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The new session appears in the sessions list after you send the prompt.
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+### Run a session in a Dev Container
+
+`feature(agent-host-dev-containers)`
+
+Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+
+This option is available only in the {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`, an application setting that is off by default.
+
+Before you start, make sure that:
+
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation), and the Docker CLI is available on `PATH`.
+* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
+
+To run a session in a Dev Container:
+
+1. Select **New** at the top of the sidebar.
+
+1. In the workspace picker, expand the menu for an eligible local folder and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local**.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
 
 ### Start a session from a pull request
 
@@ -178,7 +204,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is currently available for quick chats that use the Copilot harness. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+> This option is currently available for quick chats that use the Copilot harness or Codex on the Agent Host. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 
@@ -218,16 +244,16 @@ If the active session has uncommitted changes, select **Commit Changes** in the 
 
 `feature(agent-merge)`
 
-Agent Merge monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
+Agent Merge is an experimental feature that monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
 
 * Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
 * Fix failed required CI checks.
 * Update a branch that is behind its base branch and resolve merge conflicts.
 * Merge the pull request or add it to the merge queue after the selected maintenance work is complete.
 
-To use Agent Merge:
+First, enable `setting(chat.agentMerge.enabled)`.
 
-1. Enable `setting(chat.agentMerge.enabled)`.
+To enable Agent Merge for an existing pull request:
 
 1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
@@ -239,10 +265,22 @@ To use Agent Merge:
 
 <!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
 
+To create a draft pull request and enable Agent Merge in one step:
+
+1. Open the **Changes** view for a session that doesn't have a pull request.
+
+1. Open the pull request action menu and select **Create Draft PR & Agent Merge**.
+
+1. Configure which blockers Agent Merge should address. Agent Merge creates the draft pull request and starts monitoring it, but doesn't merge it while it remains a draft.
+
+While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
+
 > [!CAUTION]
 > Agent Merge starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the Agent Merge options before you enable automatic merging.
 
 Agent Merge waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, Agent Merge turns off and requires you to enable it again.
+
+To review the changes from the most recent Agent Merge repair cycle, open the **Changes** view and select **Agent Merge Changes** from the changeset dropdown. This changeset compares the latest completed Agent Merge repair turn with the preceding completed user turn. It remains empty after your latest message until Agent Merge completes another repair turn.
 
 To stop monitoring the pull request, select **Agent Merge** in the title bar, and then select **Disable Agent Merge**.
 
@@ -254,6 +292,7 @@ The sessions list shows sessions across all your workspaces. You can group sessi
 
 Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
 
+* To keep the active session visible while you start a new session beside it, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.

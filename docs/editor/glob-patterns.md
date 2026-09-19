@@ -1,6 +1,6 @@
 ---
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-DateApproved: 02/04/2026
+DateApproved: 9/16/2026
 MetaDescription: {% data variables.product.prodname_vscode %} glob patterns reference
 ---
 # Glob Patterns Reference

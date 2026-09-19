@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create and migrate reusable prompt files in {% data variables.product.prodname_vscode_shortname %} for repeatable AI-assisted development tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -59,7 +59,21 @@ Prompt files are Markdown files with the `.prompt.md` extension. The optional YA
 
 The body contains the prompt text in Markdown format. Provide specific instructions, guidelines, or any other relevant information that you want the AI to follow.
 
-You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
+### Reference files
+
+You can reference files in the prompt body by using Markdown links or the `#file:` syntax.
+
+* For files in your workspace, use paths relative to the prompt file. For example, `[coding standards](../instructions/coding.instructions.md)` references a file in a sibling `instructions` folder.
+* For files in your environment user home folder, use `~` or start the path with `~/`. A standalone `~` references the user home folder, and a path such as `~/prompts/style-guide.md` resolves from that folder.
+
+Use Unix-style `/` path separators to keep prompt files portable across operating systems.
+
+The following example uses both reference formats to reference files in the user home folder:
+
+```markdown
+Review [my personal instructions](~/copilot/instructions.md).
+Use #file:~/templates/component.md as the component template.
+```
 
 To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `browser` tool, use `#tool:browser`.
 

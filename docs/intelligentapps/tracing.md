@@ -1,996 +1,313 @@
 ---
 ContentId: e1e49b32-272f-4aef-a73b-56920112057d
 DateApproved: 10/03/2025
-MetaDescription: Foundry Toolkit hosts a local HTTP and gRPC server to collect trace data. The collector server is OTLP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
+MetaDescription: Collect local traces and inspect hosted-agent telemetry in Foundry Toolkit to diagnose model calls, tool execution, and latency.
+MetaSocialImage: images/tracing/hosted-agent-traces.png
 ---
 
 # Tracing in Foundry Toolkit
 
-Foundry Toolkit provides tracing capabilities to help you monitor and analyze the performance of your AI applications. You can trace the execution of your AI applications, including interactions with generative AI models, to gain insights into their behavior and performance.
+A slow or incorrect agent response can involve several model calls, tools, or orchestration steps. A trace groups the recorded operations for a request. Each operation is represented by a span with timing, status, and any attributes or events supplied by the instrumentation.
 
-Foundry Toolkit hosts a local HTTP and gRPC server to collect trace data. The collector server is compatible with OTLP (OpenTelemetry Protocol) and most language model SDKs either directly support OTLP or have non-Microsoft instrumentation libraries to support it. Use Foundry Toolkit to visualize the collected instrumentation data.
+Use Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} to collect and inspect traces during local development, or to view telemetry for agents deployed to Microsoft Foundry. This article takes you through local collection first, then explains cloud tracing for deployed-agent traffic.
 
-All frameworks or SDKs that support OTLP and follow [semantic conventions for generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) are supported. The following table contains common AI SDKs tested for compatibility.
+Choose the data source that matches the question you're investigating:
 
-| | Azure AI Inference | Foundry Agent Service | Anthropic | Gemini | LangChain | OpenAI SDK <sub>3</sub> | OpenAI Agents SDK |
-|---|---|---|---|---|---|---|---|
-| **Python** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub> | ✅ ([monocle](https://github.com/monocle2ai/monocle)) | ✅ ([LangSmith](https://github.com/langchain-ai/langsmith-sdk), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub> | ✅ ([opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib), [monocle](https://github.com/monocle2ai/monocle))<sub>1</sub> | ✅ ([Logfire](https://github.com/pydantic/logfire), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub>  |
-| **TS/JS** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>| ❌ |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub> |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>|❌|
+| Approach | Use it for | Data and responsibilities |
+| --- | --- | --- |
+| [Agent Inspector](/docs/intelligentapps/agent-inspector.md) | Send a local request, inspect live response and tool events, or pause your code at a breakpoint. | The agent server supplies protocol events and development diagnostics. This doesn't require the OTLP collector or create cloud trace history. |
+| Local tracing | Compare recorded model, tool, and agent spans while developing an application. | Your application exports telemetry to the Toolkit's local collector. You configure instrumentation and manage the stored local data. |
+| Hosted-agent tracing | Investigate requests handled by an agent deployed to Foundry, then monitor behavior across requests. | Traces are stored in the project's connected Application Insights resource. Access, retention, and charges follow the Azure resource configuration. |
 
-> 1. The SDKs in brackets are non-Microsoft tools that add OTLP support because the official SDKs do not support OTLP.
-> 1. These tools do not fully follow the OpenTelemetry rules for generative AI systems.
-> 1. For OpenAI SDK, only the [Chat Completions API](https://platform.openai.com/docs/api-reference/chat) is supported. The [Responses API](https://platform.openai.com/docs/api-reference/responses) is not supported yet.
+A hosted agent runs your custom agent code in Foundry Agent Service. Foundry manages hosting, but you remain responsible for the code and its dependencies. For creation and deployment, follow [Create and deploy a hosted agent](/docs/intelligentapps/hosted-agents.md). Tracing doesn't replace those steps.
 
-## How to get started with tracing
+## Collect local traces
 
-1. Open the tracing webview by selecting **Tracing** in the tree view.
-1. Select the **Start Collector** button to start the local OTLP trace collector server.
-
-    ![Screenshot showing the Start Collector button in the Tracing webview.](./images/tracing/trace_start.png)
-
-1. Enable instrumentation with a code snippet. See the [Set up instrumentation](#set-up-instrumentation) section for code snippets for different languages and SDKs.
-
-1. Generate trace data by running your app.
-
-1. In the tracing webview, select the **Refresh** button to see new trace data.
-
-    ![Screenshot showing the Trace List in the Tracing webview.](./images/tracing/trace_list.png)
-
-## Set up instrumentation
-
-Set up tracing in your AI application to collect trace data. The following code snippets show how to set up tracing for different SDKs and languages:
-
-The process is similar for all SDKs:
-
-- Add tracing to your LLM or agent app.
-- Set up the OTLP trace exporter to use the AITK local collector.
-
-<details>
-<summary>Azure AI Inference SDK - Python</summary>
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http azure-ai-inference[opentelemetry]
-```
-
-**Setup:**
-```python
-import os
-os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
-
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-azure-ai-agents"
-})
-provider = TracerProvider(resource=resource)
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces",
-)
-processor = BatchSpanProcessor(otlp_exporter)
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-from azure.ai.inference.tracing import AIInferenceInstrumentor
-AIInferenceInstrumentor().instrument(True)
-```
-
-</details>
-
-<details>
-<summary>Azure AI Inference SDK - TypeScript/JavaScript</summary>
-
-**Installation:**
-```bash
-npm install @azure/opentelemetry-instrumentation-azure-sdk @opentelemetry/api @opentelemetry/exporter-trace-otlp-proto @opentelemetry/instrumentation @opentelemetry/resources @opentelemetry/sdk-trace-node
-```
-
-**Setup:**
-```javascript
-const { context } = require("@opentelemetry/api");
-const { resourceFromAttributes } = require("@opentelemetry/resources");
-const {
-  NodeTracerProvider,
-  SimpleSpanProcessor,
-} = require("@opentelemetry/sdk-trace-node");
-const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');
-
-const exporter = new OTLPTraceExporter({
-    url: "http://localhost:4318/v1/traces",
-});
-const provider = new NodeTracerProvider({
-    resource: resourceFromAttributes({
-        "service.name": "opentelemetry-instrumentation-azure-ai-inference",
-    }),
-    spanProcessors: [
-        new SimpleSpanProcessor(exporter)
-    ],
-});
-provider.register();
-
-const { registerInstrumentations } = require("@opentelemetry/instrumentation");
-const { createAzureSdkInstrumentation } = require("@azure/opentelemetry-instrumentation-azure-sdk");
-
-registerInstrumentations({
-  instrumentations: [createAzureSdkInstrumentation()],
-});
-```
-</details>
-
-<details>
-<summary>Foundry Agent Service - Python</summary>
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http azure-ai-inference[opentelemetry]
-```
-
-**Setup:**
-```python
-import os
-os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
-
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-azure-ai-agents"
-})
-provider = TracerProvider(resource=resource)
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces",
-)
-processor = BatchSpanProcessor(otlp_exporter)
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-from azure.ai.agents.telemetry import AIAgentsInstrumentor
-AIAgentsInstrumentor().instrument(True)
-```
-</details>
-
-<details>
-<summary>Foundry Agent Service - TypeScript/JavaScript</summary>
-
-**Installation:**
-```bash
-npm install @azure/opentelemetry-instrumentation-azure-sdk @opentelemetry/api @opentelemetry/exporter-trace-otlp-proto @opentelemetry/instrumentation @opentelemetry/resources @opentelemetry/sdk-trace-node
-```
-
-**Setup:**
-```javascript
-const { context } = require("@opentelemetry/api");
-const { resourceFromAttributes } = require("@opentelemetry/resources");
-const {
-  NodeTracerProvider,
-  SimpleSpanProcessor,
-} = require("@opentelemetry/sdk-trace-node");
-const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');
-
-const exporter = new OTLPTraceExporter({
-    url: "http://localhost:4318/v1/traces",
-});
-const provider = new NodeTracerProvider({
-    resource: resourceFromAttributes({
-        "service.name": "opentelemetry-instrumentation-azure-ai-inference",
-    }),
-    spanProcessors: [
-        new SimpleSpanProcessor(exporter)
-    ],
-});
-provider.register();
-
-const { registerInstrumentations } = require("@opentelemetry/instrumentation");
-const { createAzureSdkInstrumentation } = require("@azure/opentelemetry-instrumentation-azure-sdk");
-
-registerInstrumentations({
-  instrumentations: [createAzureSdkInstrumentation()],
-});
-```
-
-</details>
-
-<details>
-<summary>Anthropic - Python</summary>
-
-### OpenTelemetry
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http opentelemetry-instrumentation-anthropic
-```
-
-**Setup:**
-```python
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-anthropic-traceloop"
-})
-provider = TracerProvider(resource=resource)
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces",
-)
-processor = BatchSpanProcessor(otlp_exporter)
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
-AnthropicInstrumentor().instrument()
-```
-
-### Monocle
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
-```
-
-**Setup:**
-```python
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-# Import monocle_apptrace
-from monocle_apptrace import setup_monocle_telemetry
-
-# Setup Monocle telemetry with OTLP span exporter for traces
-setup_monocle_telemetry(
-    workflow_name="opentelemetry-instrumentation-anthropic",
-    span_processors=[
-        BatchSpanProcessor(
-            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-        )
-    ]
-)
-```
-</details>
-
-<details>
-<summary>Anthropic - TypeScript/JavaScript</summary>
-
-**Installation:**
-```bash
-npm install @traceloop/node-server-sdk
-```
-
-**Setup:**
-```javascript
-const { initialize } = require("@traceloop/node-server-sdk");
-const { trace } = require("@opentelemetry/api");
-
-initialize({
-    appName: "opentelemetry-instrumentation-anthropic-traceloop",
-    baseUrl: "http://localhost:4318",
-    disableBatch: true,
-});
-```
-</details>
-
-<details>
-<summary>Google Gemini - Python</summary>
-
-### OpenTelemetry
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http opentelemetry-instrumentation-google-genai
-```
-
-**Setup:**
-```python
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-google-genai"
-})
-provider = TracerProvider(resource=resource)
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces",
-)
-processor = BatchSpanProcessor(otlp_exporter)
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-from opentelemetry.instrumentation.google_genai import GoogleGenAiSdkInstrumentor
-GoogleGenAiSdkInstrumentor().instrument(enable_content_recording=True)
-```
-
-### Monocle
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
-```
-
-**Setup:**
-```python
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-# Import monocle_apptrace
-from monocle_apptrace import setup_monocle_telemetry
-
-# Setup Monocle telemetry with OTLP span exporter for traces
-setup_monocle_telemetry(
-    workflow_name="opentelemetry-instrumentation-google-genai",
-    span_processors=[
-        BatchSpanProcessor(
-            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-        )
-    ]
-)
-```
-</details>
-
-<details>
-<summary>LangChain - Python</summary>
-
-### LangSmith
-
-**Installation:**
-```bash
-pip install langsmith[otel]
-```
-
-**Setup:**
-```python
-import os
-os.environ["LANGSMITH_OTEL_ENABLED"] = "true"
-os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = "http://localhost:4318"
-```
-
-### Monocle
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
-```
-
-**Setup:**
-```python
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-# Import monocle_apptrace
-from monocle_apptrace import setup_monocle_telemetry
-
-# Setup Monocle telemetry with OTLP span exporter for traces
-setup_monocle_telemetry(
-    workflow_name="opentelemetry-instrumentation-langchain",
-    span_processors=[
-        BatchSpanProcessor(
-            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-        )
-    ]
-)
-```
-</details>
-
-<details>
-<summary>LangChain - TypeScript/JavaScript</summary>
-
-**Installation:**
-```bash
-npm install @traceloop/node-server-sdk
-```
-
-**Setup:**
-```javascript
-const { initialize } = require("@traceloop/node-server-sdk");
-initialize({
-    appName: "opentelemetry-instrumentation-langchain-traceloop",
-    baseUrl: "http://localhost:4318",
-    disableBatch: true,
-});
-```
-</details>
-
-<details>
-<summary>OpenAI - Python</summary>
-
-### OpenTelemetry
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http opentelemetry-instrumentation-openai-v2
-```
-
-**Setup:**
-```python
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
-import os
-
-os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "true"
-
-# Set up resource
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-openai"
-})
-
-# Create tracer provider
-trace.set_tracer_provider(TracerProvider(resource=resource))
-
-# Configure OTLP exporter
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces"
-)
-
-# Add span processor
-trace.get_tracer_provider().add_span_processor(
-    BatchSpanProcessor(otlp_exporter)
-)
-
-# Set up logger provider
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-# Enable OpenAI instrumentation
-OpenAIInstrumentor().instrument()
-```
-
-### Monocle
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
-```
-
-**Setup:**
-```python
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-# Import monocle_apptrace
-from monocle_apptrace import setup_monocle_telemetry
-
-# Setup Monocle telemetry with OTLP span exporter for traces
-setup_monocle_telemetry(
-    workflow_name="opentelemetry-instrumentation-openai",
-    span_processors=[
-        BatchSpanProcessor(
-            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-        )
-    ]
-)
-```
-</details>
-
-<details>
-<summary>OpenAI - TypeScript/JavaScript</summary>
-
-**Installation:**
-```bash
-npm install @traceloop/instrumentation-openai @traceloop/node-server-sdk
-```
-
-**Setup:**
-```javascript
-const { initialize } = require("@traceloop/node-server-sdk");
-initialize({
-    appName: "opentelemetry-instrumentation-openai-traceloop",
-    baseUrl: "http://localhost:4318",
-    disableBatch: true,
-});
-```
-</details>
-
-<details>
-<summary>OpenAI Agents SDK - Python</summary>
-
-### Logfire
-
-**Installation:**
-```bash
-pip install logfire
-```
-
-**Setup:**
-```python
-import logfire
-import os
-
-os.environ["OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"] = "http://localhost:4318/v1/traces"
-
-logfire.configure(
-    service_name="opentelemetry-instrumentation-openai-agents-logfire",
-    send_to_logfire=False,
-)
-logfire.instrument_openai_agents()
-```
-
-### Monocle
-
-**Installation:**
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
-```
-
-**Setup:**
-```python
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-# Import monocle_apptrace
-from monocle_apptrace import setup_monocle_telemetry
-
-# Setup Monocle telemetry with OTLP span exporter for traces
-setup_monocle_telemetry(
-    workflow_name="opentelemetry-instrumentation-openai-agents",
-    span_processors=[
-        BatchSpanProcessor(
-            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-        )
-    ]
-)
-```
-</details>
-
-## Example 1: set up tracing with the Azure AI Inference SDK using Opentelemetry
-
-The following end-to-end example uses the Azure AI Inference SDK in Python and shows how to set up the tracing provider and instrumentation.
+The local collector receives telemetry over OpenTelemetry Protocol (OTLP). It doesn't instrument an application automatically. Your framework or an instrumentation library must create spans and export them to the collector.
 
 ### Prerequisites
 
-To run this example, you need the following prerequisites:
+* {% data variables.product.prodname_vscode %} with the current public Foundry Toolkit extension. See [Install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+* An application you can run locally, with its model and tool connections already configured.
+* For the first example, a Python Agent Framework application and its selected Python environment. For other SDKs, use the [Python](#python-sdk-setup) or [JavaScript and TypeScript](#javascript-and-typescript-sdk-setup) setup below.
 
-- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
-- [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
-- [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
-- [OpenTelemetry](https://opentelemetry.io/)
-- [Python latest version](https://www.python.org/downloads)
-- [GitHub account](https://github.com/)
+The collector doesn't require an Application Insights resource. Model calls and tool execution can still use remote services and incur charges even when traces are collected locally.
 
-### Set up your development environment
+### SDK and language setup
 
-Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
+The following table summarizes local tracing setup by SDK and language. SDKs with built-in instrumentation still need an exporter. Other SDKs use a separate instrumentation package.
 
-1. Setup GitHub Personal Access Token
+| SDK or framework | Python | JavaScript and TypeScript (Node.js) |
+| --- | --- | --- |
+| Microsoft Agent Framework | [Built-in OpenTelemetry instrumentation](#set-up-instrumentation). | No dedicated Toolkit setup guidance. |
+| Azure AI Inference SDK (Preview) | [Azure SDK instrumentor](#python-sdk-setup). | [Azure SDK instrumentation](#javascript-and-typescript-sdk-setup). |
+| Foundry Projects SDK | [Client-side instrumentor (Preview)](#python-sdk-setup). | [Instrument the underlying OpenAI or Azure SDK client](#javascript-and-typescript-sdk-setup). |
+| Foundry classic Agents SDK | [Azure SDK instrumentor](#python-sdk-setup). | No dedicated Toolkit setup guidance. |
+| Anthropic | [OpenLLMetry instrumentor](#python-sdk-setup). | [Traceloop instrumentation](#javascript-and-typescript-sdk-setup). |
+| Google GenAI (Gemini) | [Google GenAI OpenTelemetry instrumentor](#python-sdk-setup). | No dedicated Toolkit setup guidance. |
+| LangChain | [OpenLLMetry instrumentor](#python-sdk-setup). | [Traceloop instrumentation](#javascript-and-typescript-sdk-setup). |
+| OpenAI SDK, including Azure OpenAI clients | [OpenLLMetry instrumentor](#python-sdk-setup). | [Traceloop instrumentation](#javascript-and-typescript-sdk-setup). |
+| OpenAI Agents SDK | [OpenLLMetry trace processor](#python-sdk-setup). | No dedicated Toolkit setup guidance. |
 
-    Use the free [GitHub Models](https://docs.github.com/en/github-models) as an example model.
+'No dedicated Toolkit setup guidance' means the Toolkit doesn't provide an SDK-specific setup path for that language. It doesn't mean the OTLP collector rejects telemetry from it. The collector accepts OTLP data, and the instrumentor determines which operations and message details are captured. The examples below use selected instrumentation options, not an exhaustive list of compatible libraries. OpenLLMetry and Traceloop instrumentation are non-Microsoft libraries.
 
-    Open [GitHub Developer Settings](https://github.com/settings/tokens) and select **Generate new token**.
+### Set up instrumentation
 
-    > [!IMPORTANT]
-    > `models:read` permissions are required for the token or it will return unauthorized. The token is sent to a Microsoft service.
+Use this procedure to collect spans from an existing Python Agent Framework application. Keep the agent and collector in the same local environment for this walkthrough.
 
-1. Create environment variable
-
-    Create an environment variable to set your token as the key for the client code using one of the following code snippets. Replace `<your-github-token-goes-here>` with your actual GitHub token.
-
-    bash:
-
-    ```bash
-    export GITHUB_TOKEN="<your-github-token-goes-here>"
-    ```
-
-    powershell:
-
-    ```powershell
-    $Env:GITHUB_TOKEN="<your-github-token-goes-here>"
-    ```
-
-    Windows command prompt:
-
-    ```cmd
-    set GITHUB_TOKEN=<your-github-token-goes-here>
-    ```
-
-1. Install Python packages
-
-    The following command installs the required Python packages for tracing with Azure AI Inference SDK:
+1. Select **Foundry Toolkit** in the Activity Bar, then **Developer Tools** > **Monitor** > **Tracing**.
+2. Select **Start Collector** before running your application.
+3. In the application's Python environment, install the gRPC exporter if it isn't already declared in your dependencies:
 
     ```bash
-    pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http azure-ai-inference[opentelemetry]
+    python -m pip install opentelemetry-exporter-otlp-proto-grpc
     ```
 
-1. Set up tracing
+4. Configure OpenTelemetry once at application startup, before constructing or running the agent:
 
-    1. Create a new local directory on your computer for the project.
+    ```python
+    import os
 
-        ```shell
-        mkdir my-tracing-app
-        ```
+    os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = "http://localhost:4317"
+    os.environ["OTEL_EXPORTER_OTLP_PROTOCOL"] = "grpc"
 
-    1. Navigate to the directory you created.
+    from agent_framework.observability import configure_otel_providers
 
-        ```shell
-        cd my-tracing-app
-        ```
-
-    1. Open {% data variables.product.prodname_vscode %} in that directory:
-
-        ```shell
-        code .
-        ```
-
-1. Create the Python file
-
-    1. In the `my-tracing-app` directory, create a Python file named `main.py`.
-
-        You'll add the code to set up tracing and interact with the Azure AI Inference SDK.
-
-    1. Add the following code to `main.py` and save the file:
-
-        ```python
-        import os
-
-        ### Set up for OpenTelemetry tracing ###
-        os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-        os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
-
-        from opentelemetry import trace, _events
-        from opentelemetry.sdk.resources import Resource
-        from opentelemetry.sdk.trace import TracerProvider
-        from opentelemetry.sdk.trace.export import BatchSpanProcessor
-        from opentelemetry.sdk._logs import LoggerProvider
-        from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-        from opentelemetry.sdk._events import EventLoggerProvider
-        from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
-
-        github_token = os.environ["GITHUB_TOKEN"]
-
-        resource = Resource(attributes={
-            "service.name": "opentelemetry-instrumentation-azure-ai-inference"
-        })
-        provider = TracerProvider(resource=resource)
-        otlp_exporter = OTLPSpanExporter(
-            endpoint="http://localhost:4318/v1/traces",
-        )
-        processor = BatchSpanProcessor(otlp_exporter)
-        provider.add_span_processor(processor)
-        trace.set_tracer_provider(provider)
-
-        logger_provider = LoggerProvider(resource=resource)
-        logger_provider.add_log_record_processor(
-            BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-        )
-        _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
-
-        from azure.ai.inference.tracing import AIInferenceInstrumentor
-        AIInferenceInstrumentor().instrument()
-        ### Set up for OpenTelemetry tracing ###
-
-        from azure.ai.inference import ChatCompletionsClient
-        from azure.ai.inference.models import UserMessage
-        from azure.ai.inference.models import TextContentItem
-        from azure.core.credentials import AzureKeyCredential
-
-        client = ChatCompletionsClient(
-            endpoint = "https://models.inference.ai.azure.com",
-            credential = AzureKeyCredential(github_token),
-            api_version = "2024-08-01-preview",
-        )
-
-        response = client.complete(
-            messages = [
-                UserMessage(content = [
-                    TextContentItem(text = "hi"),
-                ]),
-            ],
-            model = "gpt-4.1",
-            tools = [],
-            response_format = "text",
-            temperature = 1,
-            top_p = 1,
-        )
-
-        print(response.choices[0].message.content)
-        ```
-
-1. Run the code
-
-    1. Open a new terminal in {% data variables.product.prodname_vscode %}.
-
-    1. In the terminal, run the code using the command `python main.py`.
-
-1. Check the trace data in Foundry Toolkit
-
-    After you run the code and refresh the tracing webview, there's a new trace in the list.
-
-    Select the trace to open the trace details webview.
-
-    ![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list.png)
-
-    Check the complete execution flow of your app in the left span tree view.
-
-    Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
-
-    Select the **Metadata** tab to view the raw metadata.
-
-    ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details.png)
-
-## Example 2: set up tracing with the OpenAI Agents SDK using Monocle
-
-The following end-to-end example uses the OpenAI Agents SDK in Python with Monocle and shows how to set up tracing for a multi-agent travel booking system.
-
-### Prerequisites
-
-To run this example, you need the following prerequisites:
-
-- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
-- [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
-- [Okahu Trace Visualizer](https://marketplace.visualstudio.com/items?itemName=OkahuAI.okahu-ai-observability)
-- [OpenAI Agents SDK](https://github.com/openai/agents)
-- [OpenTelemetry](https://opentelemetry.io/)
-- [Monocle](https://github.com/monocle2ai/monocle)
-- [Python latest version](https://www.python.org/downloads)
-- OpenAI API key
-
-### Set up your development environment
-
-Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
-
-1. Create environment variable
-
-    Create an environment variable for your OpenAI API key using one of the following code snippets. Replace `<your-openai-api-key>` with your actual OpenAI API key.
-
-    bash:
-
-    ```bash
-    export OPENAI_API_KEY="<your-openai-api-key>"
+    configure_otel_providers(enable_sensitive_data=False)
     ```
 
-    powershell:
+    If your application or hosting library already configures OpenTelemetry providers, configure its existing exporters instead of adding a second provider setup. Signal-specific `OTEL_EXPORTER_OTLP_*_ENDPOINT` variables can override the base endpoint, so check for existing trace, log, or metric settings that point elsewhere. See [Agent Framework observability](https://learn.microsoft.com/en-us/agent-framework/agents/observability) for exporter configuration.
 
-    ```powershell
-    $Env:OPENAI_API_KEY="<your-openai-api-key>"
-    ```
+5. Run the application using its normal entry point and send a request that exercises the agent. Let the request complete and give the exporter time to send its telemetry before stopping the process.
+6. In **Tracing**, select **Refresh**, then select the new trace to inspect its spans.
 
-    Windows command prompt:
+Agent Framework instruments supported model clients, agents, and workflow operations. Other frameworks can require an instrumentation library. OTLP compatibility lets the collector receive data, while the emitted attributes and [generative AI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai) determine what the viewer can display.
 
-    ```cmd
-    set OPENAI_API_KEY=<your-openai-api-key>
-    ```
+For another SDK or language, choose the setup below instead of the Agent Framework configuration. Each example assumes your application already has its model SDK, credentials, and model configuration. Start the collector first, configure instrumentation before creating clients, then run your application and refresh the trace list.
 
-    Alternatively, create a `.env` file in your project directory:
+![Screenshot showing the running local OTLP collector with gRPC and HTTP endpoints and a populated trace list.](./images/tracing/local-trace-list.png)
 
-    ```
-    OPENAI_API_KEY=<your-openai-api-key>
-    ```
+### Collector endpoints
 
-1. Install Python packages
+Match the exporter protocol to the collector endpoint. The Toolkit listens on localhost using these defaults:
 
-    Create a `requirements.txt` file with the following content:
+| Exporter | Endpoint |
+| --- | --- |
+| OTLP gRPC | `http://localhost:4317` |
+| OTLP HTTP trace exporter | `http://localhost:4318/v1/traces` |
+| OTLP HTTP log exporter | `http://localhost:4318/v1/logs` |
 
-    ```
-    opentelemetry-sdk
-    opentelemetry-exporter-otlp-proto-http
-    monocle_apptrace
-    openai-agents
-    python-dotenv
-    ```
+Some HTTP exporters accept the base endpoint `http://localhost:4318` and append the signal path themselves. Follow your exporter's configuration rather than appending the path twice. Some instrumentation libraries send message content as log records, so exporting spans alone might not provide input and output details.
 
-    Install the packages using:
+These ports are unrelated to the agent HTTP server and debugger ports. If your application runs in a container or a remote development environment, `localhost` refers to that environment. Establish the appropriate connection to the collector rather than assuming it refers to your desktop.
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Python SDK setup
 
-1. Set up tracing
+Most Python SDKs can share the same OTLP exporter configuration. Install the shared dependencies and the additional package for your SDK from the table:
 
-    1. Create a new local directory on your computer for the project.
+```bash
+python -m pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http
+```
 
-        ```shell
-        mkdir my-agents-tracing-app
-        ```
+Add this shared setup once at application startup, followed by the instrumentation code from one table row. Don't combine it with another library's provider setup.
 
-    1. Navigate to the directory you created.
+```python
+import os
 
-        ```shell
-        cd my-agents-tracing-app
-        ```
+os.environ["TRACELOOP_TRACE_CONTENT"] = "false"
+os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "false"
+os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "false"
 
-    1. Open {% data variables.product.prodname_vscode %} in that directory:
+from opentelemetry import trace
+from opentelemetry.sdk.resources import Resource
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 
-        ```shell
-        code .
-        ```
+provider = TracerProvider(
+    resource=Resource.create({"service.name": "my-agent"})
+)
+provider.add_span_processor(BatchSpanProcessor(
+    OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+))
+trace.set_tracer_provider(provider)
+```
 
-1. Create the Python file
+In the table, install the listed package with `python -m pip install <package>`. The OpenAI, Anthropic, LangChain, and separate OpenAI Agents examples use non-Microsoft OpenLLMetry instrumentation. These are setup options, not a guarantee that every SDK version, model API, or semantic convention produces the same details.
 
-    1. In the `my-agents-tracing-app` directory, create a Python file named `main.py`.
+| SDK | Additional package | Instrumentation after the shared setup |
+| --- | --- | --- |
+| OpenAI, including Azure OpenAI clients | [`opentelemetry-instrumentation-openai`](https://github.com/traceloop/openllmetry/tree/main/packages/opentelemetry-instrumentation-openai) | `from opentelemetry.instrumentation.openai import OpenAIInstrumentor`<br>`OpenAIInstrumentor().instrument()` |
+| Anthropic | [`opentelemetry-instrumentation-anthropic`](https://github.com/traceloop/openllmetry/tree/main/packages/opentelemetry-instrumentation-anthropic) | `from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor`<br>`AnthropicInstrumentor().instrument()` |
+| LangChain | [`opentelemetry-instrumentation-langchain`](https://github.com/traceloop/openllmetry/tree/main/packages/opentelemetry-instrumentation-langchain) | `from opentelemetry.instrumentation.langchain import LangchainInstrumentor`<br>`LangchainInstrumentor().instrument()` |
+| Google GenAI | [`opentelemetry-instrumentation-google-genai`](https://pypi.org/project/opentelemetry-instrumentation-google-genai/) | `os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "NO_CONTENT"`<br>`from opentelemetry.instrumentation.google_genai import GoogleGenAiSdkInstrumentor`<br>`GoogleGenAiSdkInstrumentor().instrument()` |
+| Foundry Projects client-side tracing (Preview) | `azure-core-tracing-opentelemetry`, alongside `azure-ai-projects` | `os.environ["AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING"] = "true"`<br>`from azure.ai.projects.telemetry import AIProjectInstrumentor`<br>`AIProjectInstrumentor().instrument(enable_content_recording=False)` |
+| Foundry classic Agents SDK | `azure-core-tracing-opentelemetry`, alongside `azure-ai-agents` | `os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"`<br>`from azure.ai.agents.telemetry import AIAgentsInstrumentor`<br>`AIAgentsInstrumentor().instrument()` |
+| Azure AI Inference SDK (Preview) | `azure-core-tracing-opentelemetry`, alongside `azure-ai-inference` | `os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"`<br>`from azure.ai.inference.tracing import AIInferenceInstrumentor`<br>`AIInferenceInstrumentor().instrument()` |
 
-        You'll add the code to set up tracing with Monocle and interact with the OpenAI Agents SDK.
+For Foundry Projects, follow the [client-side tracing guidance](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-client-side) and create its OpenAI client after instrumentation. This differs from the [classic Agents SDK](https://learn.microsoft.com/en-us/azure/foundry-classic/how-to/develop/trace-agents-sdk). Don't instrument the same OpenAI calls with both `AIProjectInstrumentor` and a separate OpenAI instrumentor.
 
-    1. Add the following code to `main.py` and save the file:
+For **OpenAI Agents SDK**, install [`opentelemetry-instrumentation-openai-agents`](https://pypi.org/project/opentelemetry-instrumentation-openai-agents/) and add the following after the shared setup:
 
-        ```python
-        import os
+```python
+from agents import set_trace_processors
+from opentelemetry.instrumentation.openai_agents import OpenAIAgentsInstrumentor
 
-        from dotenv import load_dotenv
+set_trace_processors([])
+OpenAIAgentsInstrumentor().instrument()
+```
 
-        # Load environment variables from .env file
-        load_dotenv()
+This local-tracing example replaces the SDK's existing trace processors before adding the OpenTelemetry processor. Without that replacement, the SDK can also export traces to its default backend. If you need existing processors, review the [OpenAI Agents tracing destinations](https://openai.github.io/openai-agents-python/tracing/) before changing them. Keep SDK tracing enabled so the OpenTelemetry processor receives events.
 
-        from opentelemetry.sdk.trace.export import BatchSpanProcessor
-        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+After a short-lived application finishes its requests, call `provider.force_flush()` before exiting to send buffered spans. For help adapting these snippets to an existing application, use the Toolkit's [Tracing Code Gen tool](/docs/intelligentapps/copilot-tools.md#tracing-code-gen-tool).
 
-        # Import monocle_apptrace
-        from monocle_apptrace import setup_monocle_telemetry
+<details>
+<summary>Add an OTLP log exporter when your instrumentation emits message events</summary>
 
-        # Setup Monocle telemetry with OTLP span exporter for traces
-        setup_monocle_telemetry(
-            workflow_name="opentelemetry-instrumentation-openai-agents",
-            span_processors=[
-                BatchSpanProcessor(
-                    OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
-                )
-            ]
-        )
+Some instrumentors emit message content as OpenTelemetry log records rather than span attributes. If you choose to record that content in a controlled development test, add this setup once alongside the trace provider:
 
-        from agents import Agent, Runner, function_tool
+```python
+from opentelemetry import _logs
+from opentelemetry.sdk._logs import LoggerProvider
+from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
 
-        # Define tool functions
-        @function_tool
-        def book_flight(from_airport: str, to_airport: str) -> str:
-            """Book a flight between airports."""
-            return f"Successfully booked a flight from {from_airport} to {to_airport} for 100 USD."
+logger_provider = LoggerProvider(resource=provider.resource)
+logger_provider.add_log_record_processor(BatchLogRecordProcessor(
+    OTLPLogExporter(endpoint="http://localhost:4318/v1/logs")
+))
+_logs.set_logger_provider(logger_provider)
+```
 
-        @function_tool
-        def book_hotel(hotel_name: str, city: str) -> str:
-            """Book a hotel reservation."""
-            return f"Successfully booked a stay at {hotel_name} in {city} for 50 USD."
+Call `logger_provider.force_flush()` before exiting a short-lived application. A log exporter doesn't turn on content capture by itself. Follow your instrumentor's content settings and the [data-handling guidance](#data-access-retention-and-cost).
 
-        @function_tool
-        def get_weather(city: str) -> str:
-            """Get weather information for a city."""
-            return f"The weather in {city} is sunny and 75°F."
+</details>
 
-        # Create specialized agents
-        flight_agent = Agent(
-            name="Flight Agent",
-            instructions="You are a flight booking specialist. Use the book_flight tool to book flights.",
-            tools=[book_flight],
-        )
+### JavaScript and TypeScript SDK setup
 
-        hotel_agent = Agent(
-            name="Hotel Agent",
-            instructions="You are a hotel booking specialist. Use the book_hotel tool to book hotels.",
-            tools=[book_hotel],
-        )
+For Node.js applications, share one trace provider and register the instrumentation for the SDK you use. The following example uses CommonJS and the OpenTelemetry JavaScript 2.x provider configuration. TypeScript applications compiled to CommonJS can use the same initialization order.
 
-        weather_agent = Agent(
-            name="Weather Agent",
-            instructions="You are a weather information specialist. Use the get_weather tool to provide weather information.",
-            tools=[get_weather],
-        )
+Install the shared dependencies, plus the OpenAI instrumentor for this example:
 
-        # Create a coordinator agent with tools
-        coordinator = Agent(
-            name="Travel Coordinator",
-            instructions="You are a travel coordinator. Delegate flight bookings to the Flight Agent, hotel bookings to the Hotel Agent, and weather queries to the Weather Agent.",
-            tools=[
-                flight_agent.as_tool(
-                    tool_name="flight_expert",
-                    tool_description="Handles flight booking questions and requests.",
-                ),
-                hotel_agent.as_tool(
-                    tool_name="hotel_expert",
-                    tool_description="Handles hotel booking questions and requests.",
-                ),
-                weather_agent.as_tool(
-                    tool_name="weather_expert",
-                    tool_description="Handles weather information questions and requests.",
-                ),
-            ],
-        )
+```bash
+npm install @opentelemetry/api @opentelemetry/sdk-trace-node @opentelemetry/sdk-trace-base @opentelemetry/exporter-trace-otlp-proto @opentelemetry/instrumentation @traceloop/instrumentation-openai
+```
 
-        # Run the multi-agent workflow
-        if __name__ == "__main__":
-            import asyncio
+Create `tracing.cjs`:
 
-            result = asyncio.run(
-                Runner.run(
-                    coordinator,
-                    "Book me a flight today from SEA to SFO, then book the best hotel there and tell me the weather.",
-                )
-            )
-            print(result.final_output)
-        ```
+```javascript
+const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
+const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');
+const { registerInstrumentations } = require('@opentelemetry/instrumentation');
+const { OpenAIInstrumentation } = require('@traceloop/instrumentation-openai');
 
-1. Run the code
+const provider = new NodeTracerProvider({
+  spanProcessors: [
+    new BatchSpanProcessor(new OTLPTraceExporter({
+      url: 'http://localhost:4318/v1/traces'
+    }))
+  ]
+});
+provider.register();
 
-    1. Open a new terminal in {% data variables.product.prodname_vscode %}.
+registerInstrumentations({
+  instrumentations: [new OpenAIInstrumentation({ traceContent: false })]
+});
 
-    1. In the terminal, run the code using the command `python main.py`.
+module.exports = provider;
+```
 
-1. Check the trace data in Foundry Toolkit
+Load it before importing or requiring your model SDK, for example with `node --require ./tracing.cjs app.cjs` for a CommonJS application. For another SDK, replace the OpenAI package, import, and registration entry with the matching row:
 
-    After you run the code and refresh the tracing webview, there's a new trace in the list.
+| SDK | Instrumentation package | Import and registration entry |
+| --- | --- | --- |
+| OpenAI, including Azure OpenAI clients | [`@traceloop/instrumentation-openai`](https://github.com/traceloop/openllmetry-js/tree/main/packages/instrumentation-openai) | `const { OpenAIInstrumentation } = require('@traceloop/instrumentation-openai');`<br>`new OpenAIInstrumentation({ traceContent: false })` |
+| Anthropic | [`@traceloop/instrumentation-anthropic`](https://github.com/traceloop/openllmetry-js/tree/main/packages/instrumentation-anthropic) | `const { AnthropicInstrumentation } = require('@traceloop/instrumentation-anthropic');`<br>`new AnthropicInstrumentation({ traceContent: false })` |
+| LangChain | [`@traceloop/instrumentation-langchain`](https://github.com/traceloop/openllmetry-js/tree/main/packages/instrumentation-langchain) | `const { LangChainInstrumentation } = require('@traceloop/instrumentation-langchain');`<br>`new LangChainInstrumentation({ traceContent: false })` |
+| Azure SDK operations, including Azure AI Inference | [`@azure/opentelemetry-instrumentation-azure-sdk`](https://learn.microsoft.com/en-us/javascript/api/overview/azure/opentelemetry-instrumentation-azure-sdk-readme) | `const { createAzureSdkInstrumentation } = require('@azure/opentelemetry-instrumentation-azure-sdk');`<br>`createAzureSdkInstrumentation()` |
 
-    Select the trace to open the trace details webview.
+The Traceloop packages are non-Microsoft instrumentation. For a Foundry Projects application, instrument the client that actually makes the model request: Azure SDK instrumentation doesn't replace OpenAI instrumentation for calls made through an OpenAI client.
 
-    ![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list_openai_agents_monocle.png)
+For native ECMAScript modules, follow [OpenTelemetry's ESM setup](https://github.com/open-telemetry/opentelemetry-js/blob/main/doc/esm-support.md). Loading instrumentation after the target SDK can leave calls uninstrumented. At shutdown, await `provider.shutdown()` after requests complete so buffered spans are exported.
 
-    Check the complete execution flow of your app in the left span tree view, including agent invocations, tool calls, and agent delegations.
+> [!IMPORTANT]
+> The examples turn off message-content capture for the listed GenAI instrumentors. This isn't a general redaction guarantee. Review other exporters, SDK logging, span attributes, and custom instrumentation before sharing data. Package and API support can change, so check the linked instrumentor documentation rather than assuming every SDK operation produces a trace.
 
-    Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
+## Inspect and manage local traces
 
-    Select the **Metadata** tab to view the raw metadata.
+Use the span tree to follow the request from agent orchestration to model and tool operations. Select a slow or failed span, then inspect its duration, status, and metadata.
 
-    ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details_openai_agents_monocle.png)
+* **Input + Output** shows recorded messages when the instrumentation supplies them.
+* **Metadata** shows the span attributes for further diagnosis.
 
-## What you learned
+The examples keep sensitive content capture off. If a trace has timing data but no messages, that can be the expected result. For a controlled Agent Framework development test, you can set `enable_sensitive_data=True` in its existing configuration to record supported prompt, response, and tool content. Restore it to `False` when that test is complete. Other instrumentors use their own content settings, as described in their linked documentation.
 
-In this article, you learned how to:
+> [!CAUTION]
+> Content recording can capture personal data, secrets, tool arguments, and results. Use non-sensitive test data and minimize or redact content before it enters telemetry. Don't turn on content recording in production solely to fill an empty input and output view.
 
-- Set up tracing in your AI application using the Azure AI Inference SDK and OpenTelemetry.
-- Configure the OTLP trace exporter to send trace data to the local collector server.
-- Run your application to generate trace data and view traces in the Foundry Toolkit webview.
-- Use the tracing feature with multiple SDKs and languages, including Python and TypeScript/JavaScript, and non-Microsoft tools via OTLP.
-- Instrument various AI frameworks (Anthropic, Gemini, LangChain, OpenAI, and more) using provided code snippets.
-- Use the tracing webview UI, including the **Start Collector** and **Refresh** buttons, to manage trace data.
-- Set up your development environment, including environment variables and package installation, to enable tracing.
-- Analyze the execution flow of your app using the span tree and details view, including generative AI message flow and metadata.
+![Screenshot showing a local trace with a workflow span tree and the selected span's Metadata tab, with request, trace, and conversation identifiers redacted.](./images/tracing/local-trace-details.png)
+
+Collected traces persist in a local SQLite database named `traces.db`, in the `tracing` subdirectory of `.aitk` under your user home folder. Closing the viewer doesn't delete them. Select **Stop Collector** to stop local telemetry collection. Your agent and its model calls continue running. To remove local records, select the traces in the list and select **Delete**.
+
+Local storage is separate from Application Insights. Deleting local traces doesn't remove cloud telemetry, and clearing a conversation in Inspector doesn't delete either store.
+
+## View hosted-agent traces
+
+After deployment, use cloud traces to investigate the agent running in Foundry rather than your local process. The Toolkit queries the Application Insights resource connected to your Foundry project. It doesn't upload your local trace database.
+
+Before starting, prepare:
+
+* A deployed agent that you can invoke in your Foundry project.
+* An Application Insights resource connected to the project, or permission to connect or create one.
+* Permission to query the telemetry. Access to the agent alone isn't sufficient. See the [tracing prerequisites](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup#prerequisites) for Application Insights, Log Analytics, and protected-table access.
+
+### Connect Application Insights and inspect a request
+
+1. In the Foundry Toolkit sidebar, open **My Resources** > **Agents**. Select the **Hosted Agent** tab, then select the agent's name.
+2. Select the agent's **Traces** tab. If the project has no connected resource, select **Enable App Insights**.
+3. In **App Insights Settings**, select an existing **Application Insights Resource Name**, or choose to create a new resource and complete the required resource and workspace fields. Select **Submit** and wait for confirmation.
+
+    This changes the project's shared Application Insights connection, not a local workspace preference. Creating resources and collecting telemetry can incur Azure charges. Confirm the intended project and resource before submitting.
+
+4. Return to **Playground** and send a test request to the deployed agent.
+5. Allow time for ingestion, then open **Traces** again. Use the time range, **Search by conversation ID**, **Status**, or **Duration** filters to locate the request.
+
+    ![Screenshot showing the hosted-agent Traces tab with time, conversation, status, and duration filters and a list of completed requests, with resource and request identifiers redacted.](./images/tracing/hosted-agent-traces.png)
+
+6. Select a trace, then select a span to review **Metadata** and **Input + Output**, when content is available.
+
+To inspect the operations associated with a conversation, select its **Conversation ID** in the trace list. The conversation view shows an operation tree and metadata.
+
+![Screenshot showing a hosted-agent conversation view with agent, model, and tool operations alongside metadata, with resource and conversation identifiers redacted.](./images/tracing/hosted-agent-conversation.png)
+
+Connecting Application Insights enables Foundry's server-side tracing. Visibility into your own model calls, tool calls, and custom code also depends on the hosting library and framework instrumentation. Follow [Set up tracing in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup) for service-side collection and additional client instrumentation.
+
+The Toolkit's trace-detail query currently covers the last seven days. This is a query window, not a retention setting. For older data, use the Foundry portal or Azure Monitor, subject to the connected workspace's retention configuration.
+
+## Data, access, retention, and cost
+
+Decide where telemetry should go before enabling content capture or connecting a cloud resource. The same request can generate local spans, cloud telemetry, and data sent to model or tool providers.
+
+* **Local traces:** The Toolkit stores records on your computer. Protect access to the local database and any copied data. Stopping the collector doesn't stop other exporters configured in your application.
+* **Cloud traces:** Application Insights and its Log Analytics workspace control access, retention, and telemetry charges. The Toolkit's filters don't change those policies.
+* **Model and tool calls:** Local collection doesn't prevent requests from leaving your computer. Review the data handling of every connected service, including non-Microsoft tools.
+
+Use [Foundry tracing security and privacy guidance](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup#security-and-privacy) to minimize sensitive data, and its [data retention and cost guidance](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup#data-retention-and-cost) for cloud responsibilities. For production identity, network isolation, and downstream access, follow [Hosted-agent security and data handling](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents#security-and-data-handling) rather than treating local credentials as the deployed agent's permissions.
+
+## Troubleshooting
+
+| Issue | What to check |
+| --- | --- |
+| **Tracing** isn't available in the sidebar. | Confirm the current Foundry Toolkit extension is installed and enabled in the environment where you run it. Local tracing requires its native SQLite component to load. |
+| The collector doesn't start. | Check for another process using port 4317 or 4318 and review the Toolkit output. Avoid running competing collectors on the same ports. |
+| A local request succeeds but no trace appears. | Confirm instrumentation runs before the request, the collector is running, and the exporter uses the correct protocol and endpoint. Check for signal-specific endpoint overrides, exporter errors, and buffered telemetry, then select **Refresh**. |
+| Spans appear without input or output messages. | Check content-recording settings and the instrumentation's supported attributes. Some libraries also require a log exporter. Missing content doesn't necessarily mean collection failed. |
+| Cloud traces are empty. | Confirm the intended project and Application Insights connection, generate new traffic, expand the time range, and allow for ingestion delay. |
+| Cloud trace queries fail with an authorization error. | Check read access to Application Insights and Log Analytics, including any protected tables, using the linked service prerequisites. |
+| An older trace has no detail in the Toolkit. | The detail query covers seven days. Query older retained records in Foundry or Azure Monitor. |
+
+## Related resources
+
+* [Agent tracing concepts](https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept)
+* [Agent development lifecycle](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle)

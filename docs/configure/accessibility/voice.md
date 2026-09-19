@@ -1,6 +1,6 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved: 9/2/2026
+DateApproved: 9/16/2026
 MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support
@@ -50,6 +50,8 @@ The on-device model is available on these desktop platforms:
 * Remote workspaces, because speech recognition runs on the local {% data variables.product.prodname_vscode_shortname %} client.
 
 {% data variables.product.prodname_vscode_shortname %} asks for microphone access when you start dictation. Only one dictation session can be active at a time.
+
+When a dictation session reaches 20 minutes, {% data variables.product.prodname_vscode_shortname %} automatically stops dictation and keeps the text transcribed up to that point. The automatic stop is announced to screen reader users.
 
 ### Dictate in chat or the {% data variables.copilot.agents_window %}
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 9e9b38c9-a3a0-4264-8b55-325f0a10d28e
-DateApproved: 07/08/2026
+DateApproved: 9/16/2026
 MetaDescription: Get started with Foundry Toolkit in Visual Studio Code, connect your project resources, and prepare for model and agent workflows.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

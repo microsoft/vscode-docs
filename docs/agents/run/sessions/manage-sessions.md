@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Create, orchestrate, and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -207,6 +207,25 @@ If multiple Copilot sessions share the same worktree, such as after you fork a s
 > [!CAUTION]
 > Deleting a session is irreversible. Integrate or commit worktree changes before you delete the session because uncommitted files that exist only in a removed worktree can be lost. If you only want to hide a session, [archive](#archive-sessions) it instead.
 
+## Automatically clean up merged sessions
+
+`feature(automatic-session-cleanup)`
+
+Configure automatic cleanup to keep inactive Agent Host sessions from accumulating after their pull requests merge. Both settings are disabled by default:
+
+* `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` controls how many inactive days pass before an eligible session is automatically marked as done.
+* `setting(chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays)` controls the separate grace period between automatically marking an eligible session as done and permanently deleting it.
+
+Set each setting to a positive whole number of days. The recommended value is `15`. Set a setting to `0` to disable that part of the cleanup lifecycle.
+
+A session is eligible when it isn't in progress, its last-modified time exceeds the configured threshold, it has at least one merged pull request, and none of its related pull requests are open. External sessions aren't eligible. {% data variables.product.prodname_vscode_shortname %} checks for eligible sessions when it starts and every hour while either setting is enabled.
+
+Permanent deletion applies only to sessions that {% data variables.product.prodname_vscode_shortname %} automatically marked as done. Sessions that you mark as done manually aren't deleted automatically. Restoring an automatically completed session clears its deletion eligibility.
+
+When cleanup marks a session as done or deletes it, {% data variables.product.prodname_vscode_shortname %} removes the session worktree only when the branch tracks an upstream and has no outgoing commits or uncommitted changes. If Git state is unknown or the worktree doesn't meet these conditions, the worktree is retained. Cleanup never force-removes a worktree.
+
+When a merged pull request makes a session eligible, select **Configure Automatic Cleanup** from the **Mark as Done** suggestion to open both settings without enabling them.
+
 ## Fork a chat session
 
 Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
@@ -281,6 +300,22 @@ The {% data variables.copilot.chat_view %} supports different options for copyin
 * **Copy All**: Copy the entire chat session in Markdown format, including all prompts, responses, thinking steps, and tool calls.
 
 * **Copy Final Response**: Copy just the final Markdown section of the agent's response, after the last tool call. This is useful for sharing or reusing the final output without the intermediate steps.
+
+## Monitor sessions from the application icon (Preview)
+
+The application icon can show how many unarchived sessions in the {% data variables.copilot.agents_window %} need your attention. The badge appears on the dock icon on macOS, the launcher icon on Linux, or the taskbar icon on Windows.
+
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} application icon with a badge count of one in the Windows taskbar.](../../images/agents-overview/application-icon-session-badge.png)
+
+The badge counts sessions that:
+
+* Have unread results and are no longer in progress.
+* Are waiting for your input.
+* Have failing CI checks on an open, non-draft pull request and are no longer in progress.
+
+Unread sessions that are still in progress aren't included. The count updates as sessions change state. Reading or archiving a session removes it from the count when it no longer needs your attention.
+
+Use the `setting(sessions.showApplicationBadge)` setting to control the application badge. The setting defaults to `true` in Insiders and `false` in Stable.
 
 ## Session status indicator (Experimental)
 

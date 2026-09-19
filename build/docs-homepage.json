@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.137 release",
-      "description": "Watch The Story of VS Code, schedule agent tasks, use Voice Mode, continue quick chats in a workspace, review GitHub issues and pull requests, and help name the VS Code pet.",
-      "link": "/updates/v1_137",
-      "image": "/assets/updates/1_137/release-highlights.webp"
+      "title": "VS Code 1.138 release",
+      "description": "Run agent sessions in Dev Containers, continue Codex sessions across apps and subscriptions, and automatically clean up sessions after pull requests merge.",
+      "link": "/updates/v1_138",
+      "image": "/assets/updates/1_138/release-highlights.webp"
     },
     {
       "type": "documentation",

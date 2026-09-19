@@ -55,12 +55,17 @@ Do not modify any files in this phase.
    If you conclude that **no documentation update is needed**, say so and ask the user to confirm before closing out.
 7. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
 
-## Phase 2 — Implement (after approval)
+## Phase 2 — Confirm the Branch & Implement (after approval)
 
 Once the user approves the plan:
 
-1. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
-2. Add `TODO` comments where screenshots need to be captured by a human.
-3. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
-4. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
-5. Summarize the changes you made and call out any remaining `TODO`s for the user.
+1. **Confirm the branch before editing.** Use the user-question tool to ask whether to create a new branch from `main` before implementing the documentation updates. Offer these choices:
+   * `Yes, create a new branch from main (Recommended)`
+   * `No, continue on the current branch`
+
+   Do not modify documentation files until the user answers. If the user chooses a new branch, ask for a branch name unless they already supplied one, then create the branch from `main` before editing. If uncommitted changes prevent safe branch creation, stop and explain the conflict instead of stashing or reverting changes. If the user chooses the current branch, continue without changing branches.
+2. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
+3. Add `TODO` comments where screenshots need to be captured by a human.
+4. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
+5. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
+6. Summarize the changes you made and call out any remaining `TODO`s for the user.

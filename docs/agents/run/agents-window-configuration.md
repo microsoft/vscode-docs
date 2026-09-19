@@ -1,6 +1,6 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Configure AI providers, accounts, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -30,6 +30,18 @@ The {% data variables.copilot.agents_window %} shares all of your {% data variab
 To override a setting for the {% data variables.copilot.agents_window %} only, edit your settings file and scope the value under the {% data variables.copilot.agents_window %} section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the {% data variables.copilot.agents_window %} to see which scope a setting applies to.
 
 ![Screenshot showing the Settings editor open in the {% data variables.copilot.agents_window %}, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
+
+### Configure word wrap for code editors
+
+`feature(agents-window-word-wrap)`
+
+Control how code editors in the {% data variables.copilot.agents_window %} wrap long lines with `setting(sessions.editor.wordWrap)`. This setting has the following values:
+
+* `inherit` (default): Follow the `setting(editor.wordWrap)` setting.
+* `on`: Wrap lines at the editor viewport width.
+* `off`: Never wrap lines.
+
+This setting doesn't affect diff editors in the **Changes** view. To configure word wrapping in those editors, see [Configure word wrap in diff editors](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors).
 
 ## Adjust the window layout
 

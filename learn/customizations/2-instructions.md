@@ -1,6 +1,6 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
-DateApproved: 04/17/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to create and use custom instructions in VS Code to guide GitHub Copilot behavior, enforce coding standards, and get consistent chat results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

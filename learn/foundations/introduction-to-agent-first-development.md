@@ -1,6 +1,6 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c001
-DateApproved: 03/30/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how harness, model, context, tools, and prompt work together for effective agent-first development in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

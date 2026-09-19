@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 9/9/2026
+DateApproved: 9/16/2026
 MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -54,6 +54,20 @@ By default, the {% data variables.copilot.agents_window %} shows these views in 
 * **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
 
 The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
+
+### Configure word wrap in diff editors
+
+`feature(agents-window-word-wrap)`
+
+Control how diff editors in the **Changes** view wrap long lines with `setting(sessions.diffEditor.wordWrap)`. This setting has the following values:
+
+* `inherit` (default): Follow the `setting(editor.wordWrap)` setting.
+* `on`: Wrap lines at the editor viewport width.
+* `off`: Never wrap lines.
+
+This setting only affects diff editors and doesn't affect code editors in the {% data variables.copilot.agents_window %}. To configure word wrapping in code editors, see [Configure word wrap for code editors](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors).
+
+You can also toggle word wrapping from the editor by selecting **More Actions** (**...**) > **Word Wrap**.
 
 To review and integrate the changes:
 

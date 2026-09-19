@@ -1,6 +1,6 @@
 ---
 ContentId: 63378e8d-67e5-4a11-8480-aee7b7e5078f
-DateApproved: 07/08/2026
+DateApproved: 9/16/2026
 MetaDescription: Learn how to shortlist, filter, deploy, and compare models in Model Catalog using Foundry Toolkit and GitHub Copilot.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
