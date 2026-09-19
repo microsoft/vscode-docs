@@ -7,34 +7,34 @@
   },
   "featured": [
     {
-      "icon": "codicon-lightbulb",
-      "title": "Optimize your AI usage",
-      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
-      "link": "/docs/agents/guides/optimize-usage"
+      "icon": "codicon-tools",
+      "title": "Set up VS Code",
+      "description": "Install VS Code, open your code, and choose a guided path for your first task.",
+      "link": "/docs/getstarted/overview"
     },
     {
-      "icon": "codicon-debug",
-      "title": "Test and debug with browser agents",
-      "description": "Let AI agents use the integrated browser to validate and fix issues in your application.",
-      "link": "/docs/agents/guides/browser-agent-testing-guide"
+      "icon": "codicon-mortar-board",
+      "title": "Learn VS Code basics",
+      "description": "Explore the editor, settings, extensions, source control, running, and debugging.",
+      "link": "/docs/editing/getting-started/editor-tutorial"
+    },
+    {
+      "icon": "codicon-hubot",
+      "title": "Complete a task with an AI agent",
+      "description": "Build and validate a small web app with an AI agent, then review the generated changes.",
+      "link": "/docs/agents/quickstart"
+    },
+    {
+      "icon": "codicon-code",
+      "title": "Add language support",
+      "description": "Set up editing, running, and debugging for Python, JavaScript, C++, and more.",
+      "link": "/docs/languages/overview"
     },
     {
       "icon": "codicon-settings-gear",
       "title": "Customize AI for your project",
       "description": "Configure custom instructions, skills, and MCP servers to tailor AI to your workflow.",
       "link": "/docs/agent-customization/overview"
-    },
-    {
-      "icon": "codicon-tools",
-      "title": "Set up VS Code",
-      "description": "Install VS Code on Windows, macOS, or Linux and get running.",
-      "link": "/docs/getstarted/overview"
-    },
-    {
-      "icon": "codicon-mortar-board",
-      "title": "Learn VS Code basics",
-      "description": "Explore the editor, settings, extensions, and key features.",
-      "link": "/docs/editing/getting-started/editor-tutorial"
     },
     {
       "icon": "codicon-organization",
