@@ -25,7 +25,7 @@ Follow a hands-on tutorial to build your first app with AI in {% data variables.
 ## Prerequisites
 
 * {% data variables.product.prodname_vscode %} installed on your machine. Follow these steps to [set up {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md).
-* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up {% data variables.copilot.copilot_free_short %} to get a monthly allowance of inline suggestions and AI credits.
+* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/setup/copilot.md). You can set up {% data variables.copilot.copilot_free_short %} to get a monthly allowance of inline suggestions and AI credits.
 
 ## Ghost text suggestions
 

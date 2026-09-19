@@ -203,7 +203,7 @@ Use the following links to jump to the settings for a specific area:
 
 ## Agent sessions
 
-The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-list) to manage local and remote agent sessions, switch between tasks, and track their progress.
 
 ### Session experience
 
