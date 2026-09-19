@@ -646,6 +646,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/tools-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/ai-settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

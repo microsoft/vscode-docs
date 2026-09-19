@@ -118,6 +118,7 @@
                 "area": "agents/reference",
                 "topics": [
                     ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
+                    ["Tools and Context", "/docs/agents/reference/tools-reference"],
                     ["Settings Reference", "/docs/agents/reference/ai-settings"],
                     ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
