@@ -44,36 +44,49 @@
             }],
 
             ["", "", {
-                "name": "Use agents",
+                "name": "Use Agents",
                 "area": "agents/run",
                 "topics": [
                     ["Chat View and Layout", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
-                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                    ["Chat Interaction Controls", "/docs/chat/chat-overview"],
 
                     ["", "", {
-                        "name": "Sessions",
-                        "area": "agents/run/sessions",
+                        "name": "Plan and Run Tasks",
+                        "area": "agents/run/tasks",
                         "topics": [
-                            ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
-                            ["Session History", "/docs/agents/run/sessions/session-history"]
+                            ["Plan Work", "/docs/agents/run/planning"],
+                            ["Use Tools", "/docs/agents/run/tools"],
+                            ["Browser Tools", "/docs/agents/run/browser-tools"],
+                            ["Subagents", "/docs/agents/run/subagents"],
+                            ["Automations", "/docs/agents/run/automations"]
                         ]
                     }],
 
-                    ["Chat Interaction Controls", "/docs/chat/chat-overview"],
-                    ["Plan Work", "/docs/agents/run/planning"],
-                    ["Use Tools", "/docs/agents/run/tools"],
-                    ["Browser Tools", "/docs/agents/run/browser-tools"],
-                    ["Memory", "/docs/agents/run/memory"],
-                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
-                    ["Artifacts", "/docs/agents/run/artifacts"],
-                    ["Agent Sandboxing", "/docs/agents/run/agent-sandboxing"],
-                    ["AI Security", "/docs/agents/run/security"],
-                    ["Subagents", "/docs/agents/run/subagents"],
-                    ["Automations", "/docs/agents/run/automations"],
-                    ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"]
+                    ["", "", {
+                        "name": "Sessions and Results",
+                        "area": "agents/run/sessions",
+                        "topics": [
+                            ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Session History", "/docs/agents/run/sessions/session-history"],
+                            ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
+                            ["Memory", "/docs/agents/run/memory"],
+                            ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                            ["Artifacts", "/docs/agents/run/artifacts"]
+                        ]
+                    }],
+
+                    ["", "", {
+                        "name": "Permissions and Security",
+                        "area": "agents/run/security",
+                        "topics": [
+                            ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                            ["Agent Sandboxing", "/docs/agents/run/agent-sandboxing"],
+                            ["AI Security", "/docs/agents/run/security"]
+                        ]
+                    }]
                 ]
             }],
 
