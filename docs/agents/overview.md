@@ -57,7 +57,7 @@ Choose a workflow based on the task, from help with a single line to a coordinat
 | Get code suggestions while you type | Use [inline suggestions](/docs/editing/ai-powered-suggestions.md) for completions and suggested next edits. |
 | Complete a common development task | Use [smart actions](/docs/editing/copilot-smart-actions.md) for tasks such as generating a commit message or explaining selected code. |
 
-You use chat both to ask questions and to direct agents. Within a session, roles such as **Agent** and **Plan** shape whether the agent implements a change or prepares an approach for you to review.
+You use chat both to ask questions and to direct agents. You can ask **Agent** to propose an approach before editing, or select **Plan**, where available, for a dedicated planning workflow.
 
 ## How you work with an agent
 
