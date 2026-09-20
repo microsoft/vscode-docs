@@ -63,7 +63,7 @@
       "title": "Introducing the Agent Host",
       "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
       "link": "/blogs/2026/08/26/agent-host-architecture",
-      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.webp"
     }
   ]
 }
