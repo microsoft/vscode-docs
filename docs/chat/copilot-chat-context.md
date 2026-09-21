@@ -21,7 +21,7 @@ Type the `#` symbol in the chat input field to see a list of available context i
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
+For tool names and context references, see the [Tools and context reference](/docs/agents/reference/tools-reference.md).
 
 ### Add files as context
 

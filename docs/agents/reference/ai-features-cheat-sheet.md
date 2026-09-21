@@ -1,355 +1,185 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 9/16/2026
-MetaDescription: Find AI features in {% data variables.product.prodname_vscode_shortname %}, including agents, editing, inline suggestions, and enterprise controls.
+MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# AI features in {% data variables.product.prodname_vscode_shortname %} cheat sheet
+# AI features cheat sheet
 
-{% data variables.product.prodname_vscode %} provides AI-powered autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
+Find the AI feature in {% data variables.product.prodname_vscode %} that fits your task, from a focused edit to work you delegate to an agent. Use this reference for common tasks, useful controls, and shortcuts.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+New to agents? [Complete your first task with an agent](/docs/agents/quickstart.md). Available features depend on your [agent harness](/docs/agents/run/agent-harnesses.md), model, account, and organization policies.
 
-## Essential keyboard shortcuts
+<a name="access-ai-in-vs-code"></a>
+<a name="editor-ai-features"></a>
+<a name="scaffold-a-new-project"></a>
+<a name="source-control-and-issues"></a>
+<a name="python-and-notebook-support"></a>
+<a name="search-and-settings"></a>
 
-* `kb(workbench.panel.chat)` - Open the {% data variables.copilot.chat_view %}
-* `kb(agentsVoice.startVoiceInChat)` - Start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) in the {% data variables.copilot.chat_view %} `feature(voice-mode)`
-* `kb(workbench.action.chat.startVoiceChat)` - Dictate a chat prompt in the {% data variables.copilot.chat_view %}
-* `kb(workbench.action.chat.newChat)` - Start a new chat session in {% data variables.copilot.chat_view %}
-* `kb(workbench.action.chat.openAgent)` - Switch to using agents in {% data variables.copilot.chat_view %}
-* `kb(inlineChat.start)` - Start inline chat in the editor or terminal
-* `kb(workbench.action.chat.startVoiceChat)` (hold) - Dictate a chat prompt with push-to-talk
-* `kb(editor.action.inlineSuggest.commit)` - Accept inline suggestion or navigate to the next edit suggestion
-* `kb(editor.action.inlineSuggest.hide)` - Dismiss inline suggestion
+## Choose a feature
 
-## Access AI in {% data variables.product.prodname_vscode_shortname %}
+| I want to... | Use | Start with... |
+|---|---|---|
+| Understand unfamiliar code | [Chat](/docs/chat/chat-overview.md) | Ask "Trace how a request reaches the database." |
+| Plan a complex change | [Plan agent](/docs/agents/run/planning.md) | Select **Plan** and describe the change to research before implementation. |
+| Build a feature, fix a bug, or create a project | [Agents](#use-agents) | Select **Agent**, describe the outcome, and specify how to verify it. |
+| Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
+| Get help while typing and editing | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Accept ghost text to complete code, or use next edit suggestions to navigate to and apply a related edit. |
+| Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
+| Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) | Choose the **Cloud** session target and a repository. |
+| Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
+| Repeat routine work on a schedule | [Automations](/docs/agents/run/automations.md) `feature(automations)` | Save a prompt and schedule in the {% data variables.copilot.agents_window %}. |
+| Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
+| Explore data or edit a notebook | [AI for notebooks](/docs/agents/guides/notebooks-with-ai.md) | In a **Local** agent session, ask the agent to create, edit, and run notebook cells. |
+| Find code or settings without exact keywords | [Semantic search](/docs/editing/copilot-smart-actions.md#semantic-search-results-preview) (Preview) and [AI settings search](/docs/editing/copilot-smart-actions.md#search-settings-with-ai) | Search by meaning in the Search view, or describe a setting in the Settings editor. |
 
-* Start a chat conversation using natural language
-    * {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`): keep an ongoing chat conversation in the Secondary Side Bar
-    * Inline chat in the editor or terminal (`kb(inlineChat.start)`): ask questions while you're in the flow
-    * Quick Chat (`kb(workbench.action.quickchat.toggle)`): ask quick questions without leaving your current task
-
-* AI in the [editor](/docs/editing/ai-powered-suggestions.md)
-    * Inline suggestions: get suggestions as you type, press `kb(editor.action.inlineSuggest.commit)` to accept a suggestion
-    * Edit context menu actions: access common AI actions like explaining or fixing code, generating tests, or reviewing a text selection
-    * Code actions: get editor code actions (lightbulb) to fix linting and compiler errors
-
-* Task-specific [smart actions](/docs/editing/copilot-smart-actions.md) across {% data variables.product.prodname_vscode_shortname %}
-    * Generate commit messages and pull request titles and descriptions
-    * Fix testing errors
-    * Semantic file search suggestions
-
-## Chat experience in {% data variables.product.prodname_vscode_shortname %}
-
-Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about [using chat](/docs/chat/chat-overview.md).
-
-| Action | Description |
-|--------|-------------|
-| `kb(workbench.action.chat.open)` | Open the [{% data variables.copilot.chat_view %}](/docs/chat/chat-overview.md) in the Secondary Side Bar. |
-| `kb(inlinechat.start)` | Start [inline chat](/docs/chat/inline-chat.md) to open chat in the editor or terminal. |
-| `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/chat/chat-overview.md) without interrupting your workflow. |
-| `kb(workbench.action.chat.newChat)` | Start a new chat session in the {% data variables.copilot.chat_view %}. |
-| `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [agents](/docs/agent-customization/custom-agents.md) in the {% data variables.copilot.chat_view %}. |
-| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/agent-customization/language-models.md) for chat. |
-| Context window control | Visual indicator in the chat input box showing [context window usage](/docs/agents/run/sessions/manage-sessions.md#manage-session-context). Hover for total token count and a breakdown by category. |
-| `Add Context...` | Attach different types of [context to your chat prompt](/docs/chat/copilot-chat-context.md). |
-| `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/agent-customization/overview.md). |
-| `#`-mention | Reference common tools or chat variables to [provide context](/docs/chat/copilot-chat-context.md) within your prompt. |
-| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request) and revert changes. |
-| History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
-| Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
-| Voice Mode | Have a spoken conversation with an agent and hear its responses aloud. Learn how to [use Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode). `feature(voice-mode)` |
-| [KaTeX](https://katex.org) | Render mathematical equations in chat responses. Enable with `setting(chat.math.enabled)`. Right-click on a math expression to copy the source expression. |
-| [Mermaid](https://mermaid.js.org) | Render Mermaid diagrams in chat responses. Enable with `setting(mermaid-chat.enabled)`. Right-click on a diagram to copy the source code. |
-
-> **Tips**
->
-> * Use `#`-mentions to add more context to your chat prompt.
-> * Be specific, keep it simple, and ask follow-up questions to get the best results.
-> * Choose a built-in agent or custom agent that fits your specific task.
-
-## Add context to your prompt
-
-Get more relevant responses by providing [context to your chat prompt](/docs/chat/copilot-chat-context.md). Choose from different context types, such as files, symbols, editor selections, source control commits, test failures, and more.
-
-| Action | Description |
-|--------|-------------|
-| **Add Context** | Open a Quick Pick to select relevant context for your chat prompt. Choose from different context types, such as workspace files, symbols, current editor selection, terminal selection, and more. |
-| Drag & drop files | Drag & drop a file from the Explorer or Search view, or drag an editor tab onto the {% data variables.copilot.chat_view %}. |
-| Drag & drop folders | Drag & drop a folder onto the {% data variables.copilot.chat_view %} to attach the files within it. |
-| Drag & drop problem | Drag & drop an item from the Problems panel. |
-| `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
-| `#`-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
-
-## Chat tools
-
-Use [tools](/docs/agents/run/tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
-
-{% data variables.product.prodname_vscode_shortname %} provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Group related tools into reusable [tool sets](/docs/agent-customization/tool-sets.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
-
-The following table lists the {% data variables.product.prodname_vscode_shortname %} built-in tools:
-
-| Chat variable/Tool | Description |
-|--------|-------------|
-| `#agent` (tool set) | Delegate tasks to other [agents](/docs/agents/run/subagents.md). |
-| `#agent/runSubagent` | Run a task in an isolated [subagent context](/docs/agents/run/subagents.md). Helps to improve the context management of the main agent thread. |
-| `#browser` (tool set) | Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
-| `#edit` (tool set) | Enable modifications in the workspace. |
-| `#edit/createDirectory` | Create a new directory in the workspace. |
-| `#edit/createFile` | Create a new file in the workspace. |
-| `#edit/editFiles` | Apply edits to files in the workspace. |
-| `#edit/editNotebook` | Make edits to a notebook. |
-| `#execute` (tool set) | Execute code and applications on your machine. |
-| `#execute/createAndRunTask` | Create and run a new [task](/docs/debugtest/tasks.md) in the workspace. |
-| `#execute/getTerminalOutput` | Get the output from running a terminal command in the workspace. |
-| `#execute/runInTerminal` | Run a shell command in the integrated terminal. |
-| `#execute/runNotebookCell` | Run a notebook cell. |
-| `#execute/testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
-| `#githubRepo` | Semantic search a GitHub repository for relevant source code snippets. Specify a repository using `owner/repo`. |
-| `#githubTextSearch` | Text search a GitHub repository or organization for files containing specific keywords or code patterns. |
-| `#newWorkspace` | Create a new workspace. |
-| `#read` (tool set) | Read files in your workspace. |
-| `#read/getNotebookSummary` | Get the list of notebook cells and their details. |
-| `#read/problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
-| `#read/readFile` | Read the content of a file in the workspace. |
-| `#read/readNotebookCellOutput` | Read the output from a notebook cell execution. |
-| `#read/terminalLastCommand` | Get the last run terminal command and its output. |
-| `#read/terminalSelection` | Get the current terminal selection. |
-| `#search` (tool set) | Enable searching for files in the current workspace. |
-| `#search/changes` | List of source control changes. |
-| `#search/codebase` | Perform a code search in the current workspace to automatically find relevant context for the chat prompt. |
-| `#search/fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
-| `#search/listDirectory` | List files in a directory in the workspace. |
-| `#search/textSearch` | Find text in files. |
-| `#search/usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
-| `#selection` | Get the current editor selection (only available when text is selected). |
-| `#todos` | Track implementation and progress of a chat request with a todo list. |
-| `#vscode/askQuestions` | Enables the agent to ask clarifying questions using the interactive questions carousel. |
-| `#vscode/extensions` | Search for and ask about {% data variables.product.prodname_vscode_shortname %} extensions. For example, "how to get started with Python #extensions?" |
-| `#vscode/getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
-| `#vscode/installExtension` | Install a {% data variables.product.prodname_vscode_shortname %} extension. |
-| `#vscode/runCommand` | Run a {% data variables.product.prodname_vscode_shortname %} command. For example, "Enable zen mode #runCommand." |
-| `#vscode/VSCodeAPI` | Ask about {% data variables.product.prodname_vscode_shortname %} functionality and extension development. |
-| `#web` (tool set) | Access web content. |
-| `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
-
-In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing agent sessions](/docs/agents/run/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
-
-## Slash commands
-
-Slash commands are shortcuts to specific functionality within chat. The available commands depend on the current chat surface, session type, agent, and enabled features. Enter `/` in the chat input to see the commands that are available in the current session.
-
-| Slash command | Description |
-|---------------|-------------|
-| `/doc` | Generate code documentation comments from editor inline chat. |
-| `/explain` | Explain a code block, file, or programming concept. |
-| `/fix` | Ask to fix a code block or resolve compiler or linting errors. |
-| `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
-| `/setupTests` _(Experimental)_ | Get help setting up a testing framework for your code. Get a recommendation for a relevant testing framework, setup and configuration steps, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
-| `/clear` | Start a new chat and archive or mark the current chat as done. |
-| `/help` | List the agents and slash commands available in a local Ask chat. |
-| `/rename <name>` | Rename the current local chat. |
-| `/compact` | Compact the conversation context in a supported agent session. Useful when a conversation grows too long for the model's context window. |
-| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
-| `/debug` | Show the Chat Debug view from the {% data variables.copilot.chat_view %} to [inspect chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). This command isn't available in the {% data variables.copilot.agents_window %}. |
-| `/troubleshoot` | In a local or {% data variables.copilot.copilot_cli_short %} session, ask the AI to analyze [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md). Optionally, include `#session` to select another session. |
-| `/models` | Open the model picker. |
-| `/tools` | Configure tools for a local chat session. |
-| `/new` | Scaffold a new {% data variables.product.prodname_vscode_shortname %} workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
-| `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
-| `/init` | In a local agent session, generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
-| `/plan` | Create a detailed implementation plan for a complex coding task in a supported agent session. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
-| `@vscode /search` | Generate a query for the Search view. Use natural language to describe what you want to search for. |
-| `/agents` | Configure your [custom agents](/docs/agent-customization/custom-agents.md). |
-| `/hooks` | Configure your [hooks](/docs/agent-customization/hooks.md). |
-| `/instructions` | Configure your [custom instructions](/docs/agent-customization/custom-instructions.md). |
-| `/prompts` | Configure your [reusable prompt files](/docs/agent-customization/prompt-files.md). |
-| `/skills` | Configure your [agent skills](/docs/agent-customization/agent-skills.md). |
-| `/create-prompt` | In a local agent session, generate a [prompt file](/docs/agent-customization/prompt-files.md). |
-| `/create-instructions` | In a local agent session, generate an [instructions file](/docs/agent-customization/custom-instructions.md). |
-| `/create-skill` | In a local agent session, generate an [agent skill](/docs/agent-customization/agent-skills.md). |
-| `/create-agent` | In a local agent session, generate a [custom agent](/docs/agent-customization/custom-agents.md). |
-| `/create-hook` | In a local agent session, generate a [hook](/docs/agent-customization/hooks.md) configuration. |
-| `/yolo`<br/>`/autoApprove` | Set the current supported local or {% data variables.copilot.copilot_cli_short %} session to [bypass approvals](/docs/agents/run/approvals.md). |
-| `/disableYolo`<br/>`/disableAutoApprove` | Restore the default permission level for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
-| `/autopilot` | Enable Autopilot for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
-| `/exitAutopilot` | Exit Autopilot and restore the default permission level for the current supported local or {% data variables.copilot.copilot_cli_short %} session. |
-| `/<skill name>` | Run an [agent skill](/docs/agent-customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
-| `/<prompt name>` | Run a [reusable prompt](/docs/agent-customization/prompt-files.md) in chat. |
-
-## Chat participants
-
-Use chat participants to handle domain-specific requests in chat. Chat participants are prefixed with `@` and can be used to ask questions about specific topics. {% data variables.product.prodname_vscode_shortname %} provides built-in chat participants, such as `@github`, `@terminal`, and `@vscode`, and extensions can provide additional participants.
-
-| Chat participant | Description |
-|------------------|-------------|
-| `@github` | Use the `@github` participant to ask questions about GitHub repositories, issues, pull requests, and more. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged PRs from @dancing-mona` |
-| `@terminal` | Use the `@terminal` participant to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
-| `@vscode` | Use the `@vscode` participant to ask questions about {% data variables.product.prodname_vscode_shortname %} features, settings, and the {% data variables.product.prodname_vscode_shortname %} extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
+<a name="chat-experience-in-vs-code"></a>
+<a name="planning"></a>
 
 ## Use agents
 
-When using [agents](/docs/agents/concepts/agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) to work beside your code, or the **{% data variables.copilot.agents_window %}** to focus on assigning higher-level tasks and reviewing outcomes.
 
-| Action | Description |
-|--------|-------------|
-| `kb(workbench.action.chat.openAgent)` | Switch to using agents in the {% data variables.copilot.chat_view %} |
-| Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/run/approvals.md#permission-levels) for the current session: **Manual permissions**, **Allow all**, or **Assisted permissions** `feature(assisted-permissions)` for supported Agent Host sessions. Controls how tool approvals are handled. On the Agent Host, **Autopilot** is selected as an agent mode instead of a permission level. |
-| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/run/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
-| MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |
-| [Provider harnesses](/docs/agents/concepts/agent-harnesses.md) | Use Claude (Preview) or OpenAI Codex with your Copilot subscription. |
-| Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |
+For a complex change, **plan**, **implement**, **verify**, then **review**:
 
-> **Tips**
->
-> * Add extra tools when using agents to extend its capabilities.
-> * Configure custom agents to define how the agent should operate, for example to implement a read-only planning mode.
-> * Define custom instructions to guide agents on how to generate and structure code.
-> * Try third-party agents like Claude Code or OpenAI Codex for alternative agentic coding experiences.
+* **Plan:** Ask the Plan agent to research the change and identify risks. Review the approach before handing it to an implementation agent.
+* **Implement:** Describe the intended behavior and constraints. The agent searches your code, edits files, and uses tools.
+* **Verify:** Ask the agent to run relevant tests or exercise the app. Inspect what it actually checked.
+* **Review:** Review the diff and validation results before committing or merging.
 
-## Planning
+For example, give the agent a concrete browser check:
 
-Use the [plan agent](/docs/agents/run/planning.md) in {% data variables.product.prodname_vscode_shortname %} chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+```prompt
+Open the app and test the sign-up flow with a missing email address.
+Verify that it shows a validation error and does not submit the form.
+Report what you tested and any problems you found.
+```
 
-| Action | Description |
-|--------|-------------|
-| Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
-| Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
-| [Memory](/docs/agents/run/memory.md) | Agents save and recall persistent notes across conversations. Use the **Chat: Show Memory Files** command to view stored memories. |
+To organize larger tasks:
 
-## Customize your chat experience
+* Use [separate sessions and worktrees](/docs/agents/guides/delegate-two-tasks.md) for independent tasks that should not share code changes.
+* Use [subagents](/docs/agents/run/subagents.md) to delegate a focused part of a task in a separate context.
+* [Hand off a session](/docs/agents/run/agent-harnesses.md#hand-off-a-session) when you want to continue work with another supported session target.
 
-Customize your chat experience to generate responses that match your coding style, tools, and developer workflow. There are several ways to customize your chat experience in {% data variables.product.prodname_vscode_shortname %}:
+<a name="add-context-to-your-prompt"></a>
 
-* [Custom instructions](/docs/agent-customization/custom-instructions.md): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should operate (_how_ a task should be done).
+## Get better results
 
-* [Reusable prompt files](/docs/agent-customization/prompt-files.md): Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done).
+| Need | What to use |
+|---|---|
+| Ground a request in specific code or a failure | [Add context](/docs/chat/copilot-chat-context.md) with **Add Context**, `#`-mentions, or dragged files. Attach relevant code, errors, test output, or GitHub issues. |
+| Explore the codebase without finding every file yourself | Let the agent gather [workspace context](/docs/agents/reference/workspace-context.md) with search and language tools. |
+| Balance reasoning, speed, and cost | Use the [model picker](/docs/agent-customization/language-models.md), or **Auto** when available. Changing the model does not change the agent harness. |
+| Work with another agent provider | [Choose a harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}. Check its tools, authentication options, and setup requirements. |
+| Use your own model provider or a local model | Configure [bring your own key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Inline suggestions and semantic search still require the {% data variables.product.prodname_copilot %} service. |
+| Retain useful knowledge across conversations | Ask the agent to remember it with [memory](/docs/agents/run/memory.md). Use **Chat: Show Memory Files** to inspect stored notes. |
+| Manage a long conversation or its cost | Check [context usage](/docs/agents/run/sessions/manage-sessions.md#manage-session-context), compact the conversation, or start a new chat for an unrelated task. See [usage guidance](/docs/agents/guides/optimize-usage.md). |
 
-* [Custom agents](/docs/agent-customization/custom-agents.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the agent, without having to configure tools and instructions for every request.
+<a name="review-code-experimental"></a>
 
-Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the {% data variables.copilot.chat_view %}, or run **Chat: Open Customizations** from the Command Palette.
+## Stay in control
 
-> **Tips**
->
-> * Define language-specific instructions to get more accurate generated code for each language.
-> * Store your instructions in your workspace to easily share them with your team.
-> * Define reusable prompt files for common tasks to save time and help team members get started quickly.
+| I need to... | Action |
+|---|---|
+| Decide which actions need confirmation | Choose a session [permission level](/docs/agents/run/approvals.md#permission-levels) and review tool requests. **Allow all** bypasses confirmations and should not be treated as a prerequisite for using agents. |
+| Redirect work in progress | [Steer, queue a follow-up, or stop the request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running). Stopping does not undo completed actions. |
+| Inspect or undo agent changes | [Review the diff, provide feedback, or restore a checkpoint](/docs/agents/run/review-code-edits.md). Validate the result before integrating it. |
+| Restrict terminal access to files and the network | Use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) (Preview on macOS, Linux, and WSL2, Experimental on Windows). A Git worktree separates code changes, but is not a security boundary. |
+| Ask AI to review my code | Use [code review smart actions](/docs/editing/copilot-smart-actions.md#review-code). This generates review feedback, not a replacement for your review of agent changes. |
 
-## Editor AI features
+> [!IMPORTANT]
+> Agents can save edits directly to the session's folder or worktree. **Manual permissions** does not ask for confirmation for every file edit. Review the [security baseline](/docs/agents/run/security.md#recommended-security-baseline) before working on an existing project.
 
-As you're coding in the editor, you can use AI to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help while staying in the flow of coding. For example, ask the AI to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/editing/ai-powered-suggestions.md) and [Inline Chat](/docs/chat/inline-chat.md).
+<a name="customize-your-chat-experience"></a>
 
-| Action | Description |
-|--------|-------------|
-| Inline suggestions | Start typing in the editor and get [inline suggestions](/docs/editing/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
-| Code comments | Provide an inline suggestions prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
-| `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
-| `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
-| Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Generate Code**. |
-| Code Actions (lightbulb) | Select the Code Action (lightbulb) in the editor for fixing linting or compiler errors in your code. |
+## Customize your workflow
 
-> **Tips**
->
-> * Use meaningful method or function names to get better inline suggestions quicker.
-> * Select a code block to scope your Inline Chat prompt or attach relevant context by attaching files or symbols.
-> * Use the editor context menu options to access common AI-powered actions directly from the editor.
+| I want to... | Use |
+|---|---|
+| Apply project conventions without repeating them | [Instructions](/docs/agent-customization/custom-instructions.md) for coding standards, architecture, and test commands. |
+| Package a workflow with supporting scripts or examples | [Agent skills](/docs/agent-customization/agent-skills.md), loaded when relevant or invoked by name. |
+| Run a saved prompt on demand | [Prompt files](/docs/agent-customization/prompt-files.md), invoked as slash commands. |
+| Define a specialized role and tool selection | [Custom agents](/docs/agent-customization/custom-agents.md), such as a read-only reviewer. |
+| Connect a database, issue tracker, or other external system | [MCP servers](/docs/agent-customization/mcp-servers.md) that provide tools. |
+| Run a command at a specific agent lifecycle event | [Hooks](/docs/agent-customization/hooks.md), rather than relying on the model to follow an instruction. |
+| Install a packaged set of customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md). |
 
-## Source control and issues
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to create and manage these options for your selected harness.
 
-Use AI to analyze the changes in your commits and pull requests and provide suggestions for commit messages and pull request descriptions.
-
-| Action | Description |
-|--------|-------------|
-| `#changes` | Add the current source control changes as context in your chat prompt. |
-| Commit as context | Add a commit from the source control history as context in your chat prompt. |
-| Commit message | Generate a commit message for the current changes in a source control commit. |
-| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/merge-conflicts.md). |
-| Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
-| `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
-
-## Review code (experimental)
-
-Use AI to do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
-
-| Action | Description |
-|--------|-------------|
-| **Review Selection** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review** from the editor context menu for a quick review pass. |
-| **Code Review** | Select the **Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
-
-## Search and settings
-
-Get semantically relevant search results in the Search view or help with searching for settings in the Settings editor.
-
-| Action | Description |
-|--------|-------------|
-| Settings search | Include semantic search results in the Settings editor (`setting(workbench.settings.showAISearchToggle)`). |
-| Semantic search _(Preview)_ | Include semantic search results in the Search view (`setting(search.searchView.semanticSearchBehavior)`). |
-
-## Generate tests
-
-{% data variables.product.prodname_vscode_shortname %} can generate tests for functions and methods in your codebase by using slash commands in chat. Slash commands are a shorthand notation for common tasks that you can use in chat prompts. Type `/` followed by the command name to use a slash command.
-
-| Action | Description |
-|--------|-------------|
-| `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
-| `/setupTests` _(Experimental)_ | Get help setting up a testing framework for your code. Get a recommendation for a relevant testing framework, setup and configuration steps, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
-| **Fix Test Failure** | From the Test Explorer or a failed test in the editor, ask Copilot to fix a specific test failure. |
-| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](/updates/v1_93.md#generate-tests-based-on-test-coverage-experimental). |
-
-> **Tips**
->
-> * Provide details about the testing frameworks or libraries to use.
+<a name="generate-tests"></a>
 
 ## Debug and fix problems
 
-Use AI to help fix coding problems and to get help with configuring and starting debugging sessions in {% data variables.product.prodname_vscode_shortname %}.
+| Task | Starting point |
+|---|---|
+| Generate tests | Select code and use **Generate Code** > **Generate Tests**, or ask an agent to add and run tests with your project's framework. |
+| Diagnose a failing test | Select **Fix Test Failure** in the Test Explorer, or attach the failure output to chat. |
+| Fix a compiler or linting error | Use the editor Code Action (lightbulb), or attach the problem to chat. |
+| Configure a debugging session | Ask for a debug configuration, or use `copilot-debug` (Preview) before a terminal run command, such as `copilot-debug python foo.py`. |
 
-| Action | Description |
-|--------|-------------|
-| `/fix` | Ask the AI for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
-| **Fix Test Failure** | From the Test Explorer or a failed test in the editor, ask Copilot to fix a specific test failure. |
-| `copilot-debug` command _(Preview)_ | Prefix a run command in the terminal to generate a debug configuration and start debugging it. For example, `copilot-debug python foo.py`. |
+Combine the task, constraint, and verification in one request:
 
-> **Tips**
->
-> * Provide additional information about the type of fix you need, such as optimizing the memory consumption or performance.
-> * Watch for AI Code Actions in the editor that indicate suggestions for fixing problems in your code.
+```prompt
+Find the cause of the failing authentication test.
+Fix the implementation without changing the expected behavior.
+Run the relevant tests and summarize the change and results.
+```
 
-## Scaffold a new project
+See [smart actions for tests and errors](/docs/editing/copilot-smart-actions.md#fix-testing-errors) and [debugging](/docs/debugtest/debugging.md).
 
-AI can help you create a new project by generating a scaffold of the project structure, or generate a notebook based on your requirements.
+<a name="terminal"></a>
 
-| Action | Description |
-|--------|-------------|
-| Agent | Use [agents](/docs/agents/concepts/agents.md) and a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
-| `/new` | Use the `/new` command in the {% data variables.copilot.chat_view %} to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
-| `/newNotebook` | Use the `/newNotebook` command in the {% data variables.copilot.chat_view %} to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
+## Essential keyboard shortcuts
 
-## Terminal
+| Action | Shortcut |
+|---|---|
+| Open the {% data variables.copilot.chat_view %} | `kb(workbench.action.chat.open)` |
+| Start a new chat | `kb(workbench.action.chat.newChat)` |
+| Open editor inline chat | `kb(inlineChat.start)` |
+| Open [terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat) | `kb(workbench.action.terminal.chat.start)` |
+| Open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | `kb(workbench.action.quickchat.toggle)` |
+| Accept an inline suggestion | `kb(editor.action.inlineSuggest.commit)` |
+| Dismiss an inline suggestion | `kb(editor.action.inlineSuggest.hide)` |
 
-Get help about shell commands and how to resolve errors when running commands in the terminal.
+For spoken interaction, see [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) `feature(voice-mode)` and [built-in dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) `feature(built-in-dictation)`.
 
-| Action | Description |
-|--------|-------------|
-| `kb(inlinechat.start)` | Start terminal inline chat to use natural language for asking about shell commands and the terminal.<br/>Example: `how many cores on this machine?` |
-| `@terminal` | Use the `@terminal` participant in the {% data variables.copilot.chat_view %} to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
-| `@terminal /explain` | Use the `/explain` command in the {% data variables.copilot.chat_view %} to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
+## Chat reference
 
-## Python and notebook support
+### Chat tools
 
-You can use chat to help you with Python programming tasks in the Native Python REPL and in Jupyter notebooks.
+Agents choose tools automatically. You do not need to name every tool in your prompt. Type `#` to browse available tools and context items, or reference a tool to direct the agent to a capability. See the [Tools and context reference](/docs/agents/reference/tools-reference.md) for individual names.
 
-| Action | Description |
-|--------|-------------|
-| <i class="codicon codicon-sparkle"></i> Generate<br/>`kb(inlinechat.start)` | Start Inline Chat in a notebook to generate a codeblock or Markdown block. |
-| `#` | Attach variables from the Jupyter kernel in your chat prompt to get more relevant responses. |
-| Native REPL + `kb(inlinechat.start)` | Start Inline Chat in the Native Python REPL and run the generated commands. |
-| `kb(workbench.action.chat.open)` | Open the **{% data variables.copilot.chat_view %}** and use agents to make notebook edits. |
-| `/newNotebook` | Use the `/newNotebook` command in the {% data variables.copilot.chat_view %} to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
+### Slash commands
+
+Type `/` to see commands available in the current session. Availability depends on the chat surface, harness, role, and enabled features.
+
+| Command | Purpose |
+|---|---|
+| `/plan` | Research and propose an implementation plan. |
+| `/explain`, `/fix`, `/tests` | Explain code, suggest a fix, or generate tests. |
+| `/doc` | Generate documentation comments from editor inline chat. |
+| `/setupTests` (Experimental) | Get help choosing and setting up a test framework. |
+| `/new`, `/newNotebook` | Scaffold a workspace, file, or notebook. |
+| `/compact`, `/fork` | Compact context, or branch the conversation with its history. |
+| `/clear` | Start a new chat and archive or mark the current chat as done. |
+| `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
+| `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
+| `/init` | Generate or update workspace instructions in a local agent session. |
+| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. |
+| `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
+| `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
+| `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |
+| `/sandbox-policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} Agent Host session. |
+| `/<name>` | Invoke an agent skill or reusable prompt by name. |
+
+For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
+
+### Chat participants
+
+In chat surfaces that support participants, type `@` to choose a specialist. Use `@github` for repositories, issues, and pull requests, `@terminal` for shell questions, or `@vscode` for editor features and settings. For example, `@vscode /search` generates a Search view query.
 
 ## Next steps
 
-* [Tutorial: Get started with AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agents-tutorial.md)
+* [Apply AI best practices to your project](/docs/agents/best-practices.md).
+* [Look up AI settings](/docs/agents/reference/ai-settings.md).

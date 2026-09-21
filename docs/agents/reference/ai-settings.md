@@ -203,7 +203,7 @@ Use the following links to jump to the settings for a specific area:
 
 ## Agent sessions
 
-The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-list) to manage local and remote agent sessions, switch between tasks, and track their progress.
 
 ### Session experience
 
@@ -223,6 +223,8 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentSessions.preferredLightBackgroundImageLayout)` _(Experimental)_<br/>Control the [chat background image layout](/docs/chat/chat-overview.md#customize-the-agents-window-chat-background) in the {% data variables.copilot.agents_window %} when using a light color theme. | `"repeat"` |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(sessions.editor.wordWrap)` _(Experimental)_<br/>Control [how code editors in the {% data variables.copilot.agents_window %} wrap long lines](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors). Values are `off`, `on`, and `inherit`. | `"inherit"` |
+| `setting(sessions.diffEditor.wordWrap)` _(Experimental)_<br/>Control [how diff editors in the **Changes** view wrap long lines](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors). Values are `off`, `on`, and `inherit`. | `"inherit"` |
 | `setting(sessions.useWorktree)` _(Insiders)_<br/>Control whether **New Worktree** is selected when no previous code-isolation choice has been saved. After you start a session, the saved choice applies across workspaces instead. | `true` |
 | `setting(chat.automations.enabled)` `feature(automations)`<br/>Show [Automations](/docs/agents/run/automations.md) in the {% data variables.copilot.agents_window %} and run scheduled agent tasks. When disabled, automation entry points are hidden and scheduled tasks aren't dispatched. | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |

@@ -133,7 +133,7 @@ Local sessions provide these built-in agent roles:
 
 * **Ask**: asks questions and provides guidance without making changes to the code.
 * **Agent**: autonomously plans and performs complex coding tasks, edits files, runs commands, and iterates on results.
-* **Plan**: researches a task and creates a structured implementation plan before code changes. Learn more about [planning with agents](/docs/agents/run/planning.md).
+* **Plan**: researches a task and creates a structured implementation plan before code changes. Learn more about [planning in a Local session](/docs/agents/run/planning.md#plan-in-a-local-session).
 
 You can switch roles during a session from the agent picker.
 
@@ -345,7 +345,7 @@ To hand off a session to another harness or execution environment:
 
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the selected target. The tools, permissions, and models might change because each harness, execution environment, or agent role provides different capabilities.
 
-To hand off a completed plan, select **Start Implementation**, and then choose an available implementation agent. Learn more about [planning with agents](/docs/agents/run/planning.md).
+To implement a plan from the built-in **Plan** agent in a Local session, select **Start Implementation**. This switches to **Agent** in the current conversation and submits the implementation request. To continue in another supported session, open the dropdown next to **Start Implementation** and select an available **Continue in** destination. For the different controls in Local and {% data variables.product.prodname_copilot_short %} sessions, see [planning with agents](/docs/agents/run/planning.md).
 
 > [!TIP]
 > In {% data variables.copilot.copilot_cli_short %}, enter `/delegate` to continue the work with a {% data variables.copilot.copilot_cloud_agent_short %}.

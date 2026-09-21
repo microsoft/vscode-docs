@@ -1,35 +1,22 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 DateApproved: 9/16/2026
-MetaDescription: Get started with {% data variables.product.prodname_vscode %} on Windows, macOS, or Linux, and choose whether to code with AI agents or without AI.
+MetaDescription: Install {% data variables.product.prodname_vscode %}, open a project, and choose a guided path to learn editor basics or complete a task with an AI agent.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Get started with {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_vscode %} is a free, open-source code editor for Windows, macOS, and Linux. Write code yourself with a powerful editor, or describe a task in natural language and let an AI agent plan, edit, and verify the work. Combine both approaches to fit how you like to work.
+Use this guide to install {% data variables.product.prodname_vscode %}, open your code, and choose a hands-on path for your first task. You can learn the editor and write code yourself, use an AI agent, or combine both approaches.
 
-{% data variables.product.prodname_vscode_shortname %} runs on your desktop or a [remote machine](/docs/remote/remote-overview.md), or you can access it instantly from your browser with [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md).
-
-{% data variables.product.prodname_vscode_shortname %} ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
-
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Get started with {% data variables.product.prodname_vscode_shortname %}">
-Complete your first coding task with an AI agent in {% data variables.product.prodname_vscode_shortname %}.
-
-* [Start quickstart](/docs/agents/quickstart.md)
-
-</div>
-
-Prefer to write code yourself first? Start with the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) instead.
+AI features are optional. You don't need an account to use the core editor.
 
 ## Get started in three steps
 
-New to {% data variables.product.prodname_vscode_shortname %}? These three steps take you from a fresh install to your first project.
+1. **Install {% data variables.product.prodname_vscode_shortname %}.** Download the installer for your platform and follow the [installation steps](#install-vs-code).
 
-1. **Install {% data variables.product.prodname_vscode_shortname %}.** Download the installer for your platform and follow the [install steps](#install-vs-code) below.
+1. **Open your code.** Open an existing folder, clone a repository, or create a folder for a new project.
 
-1. **Open your code.** Open an existing folder, [clone a repository from GitHub](/docs/sourcecontrol/github.md#cloning-a-repository), or create a new file to start working.
-
-1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started/editor-tutorial.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional, and you can [use {% data variables.product.prodname_vscode_shortname %} without signing in](#can-i-use-vs-code-without-signing-in).
+1. **Complete your first task.** Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) to learn the basics, or use the [agents quickstart](/docs/agents/quickstart.md) to build an app from a natural-language prompt.
 
 ## Install {% data variables.product.prodname_vscode_shortname %}
 
@@ -38,7 +25,7 @@ New to {% data variables.product.prodname_vscode_shortname %}? These three steps
 
 1. Download the [User Setup installer](https://code.visualstudio.com/download) (`.exe`).
 1. Run the installer and follow the prompts.
-1. {% data variables.product.prodname_vscode_shortname %} is ready to use. The installer adds `code` to your PATH so you can open a folder from the terminal with `code .`.
+1. Open {% data variables.product.prodname_vscode_shortname %}. The installer adds `code` to your PATH, so you can also open a folder from the terminal with `code .`.
 
 For System Setup, ZIP archive, or other options, see the [full Windows setup guide](/docs/setup/windows.md).
 
@@ -54,123 +41,130 @@ To use the `code` command in the terminal, open the Command Palette (`kb(workben
 {% /tab %}
 {% tab label="Linux" %}
 
-Choose your distribution below for installation instructions. Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
+Choose your distribution for installation instructions. Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
 
-* **Debian / Ubuntu**
-     1. Download the `.deb` package from the [{% data variables.product.prodname_vscode_shortname %} download page](/download)
-     1. Install it with `sudo apt install ./<file>.deb`
+* **Debian or Ubuntu**
+     1. Download the `.deb` package from the [{% data variables.product.prodname_vscode_shortname %} download page](/download).
+     1. Install it with `sudo apt install ./<file>.deb`.
 
-* **Fedora / RHEL**
-     1. Download the `.rpm` package from the [{% data variables.product.prodname_vscode_shortname %} download page](/download)
-     1. Install it with `sudo dnf install ./<file>.rpm`
+* **Fedora or RHEL**
+     1. Download the `.rpm` package from the [{% data variables.product.prodname_vscode_shortname %} download page](/download).
+     1. Install it with `sudo dnf install ./<file>.rpm`.
 
 {% /tab %}
 {% /tabs %}
 
-Review the [system requirements](/docs/supporting/requirements.md) for details.
+Review the [system requirements](/docs/supporting/requirements.md) before you install {% data variables.product.prodname_vscode_shortname %} on an older or managed device.
+
+## Open your code
+
+In {% data variables.product.prodname_vscode_shortname %}, a folder that contains your project files is called a *workspace*. Opening a folder gives the editor, terminal, source control, debugger, and AI agents access to the same project context.
+
+1. Open {% data variables.product.prodname_vscode_shortname %} and select **File** > **Open Folder...**.
+
+1. Select an existing project folder. To start a new project, create a folder in the dialog and then open it.
+
+1. If the Workspace Trust dialog appears, review the folder contents and choose whether you trust its authors.
+
+    Only trust code from sources you know. You can safely browse unfamiliar code in Restricted Mode. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+
+When the folder name and files appear in the Explorer view, you're ready to start working. You can also [clone a GitHub repository](/docs/sourcecontrol/github.md#cloning-a-repository) directly from {% data variables.product.prodname_vscode_shortname %}.
+
+## Choose your first task
+
+Choose a guided path based on how you want to start. Both paths introduce the workspace and core {% data variables.product.prodname_vscode_shortname %} features.
+
+<div class="card-grid">
+    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
+        <i class="codicon codicon-tools" aria-hidden="true"></i>
+        <div>
+            <p><strong>Learn the editor basics</strong></p>
+            <p>Create and edit files, use extensions and source control, and run and debug code.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agents/quickstart">
+        <i class="codicon codicon-hubot" aria-hidden="true"></i>
+        <div>
+            <p><strong>Complete a task with an AI agent</strong></p>
+            <p>Build and validate a small web app, then review the generated changes.</p>
+        </div>
+    </a>
+</div>
+
+If you're new to code editors, start with the editor tutorial. You can enable AI features at any time.
 
 ## Enable AI features
 
-{% data variables.product.prodname_vscode_shortname %} has built-in support for AI features like inline suggestions and AI agents that help you with coding tasks. Sign in with GitHub and use your GitHub Copilot subscription to get access to a variety of large language models and other AI features in {% data variables.product.prodname_vscode_shortname %}.
+We recommend {% data variables.product.prodname_copilot %} for getting started with AI in {% data variables.product.prodname_vscode_shortname %}. It provides inline suggestions and access to multiple language models, and is the option used in the agents quickstart. You can also [use AI without a Copilot subscription](#use-ai-without-a-copilot-subscription).
 
-Follow these steps to get started with Copilot in {% data variables.product.prodname_vscode_shortname %}:
+To get started with {% data variables.product.prodname_copilot_short %}:
 
-1. Select **Sign In** from the {% data variables.product.prodname_vscode_shortname %} title bar or hover over the Copilot icon in the Status Bar and select **Enable AI features**.
+1. Select **Sign In** from the {% data variables.product.prodname_vscode_shortname %} title bar, or hover over the Copilot icon in the Status Bar and select **Enable AI features**.
 
     ![Screenshot showing a new {% data variables.product.prodname_vscode_shortname %} window, highlighting the Copilot icon in the Status Bar and the Sign In button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/overview/vscode-enable-ai-features.png)
 
 1. Choose a sign-in method and follow the prompts.
 
-    * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
+    * If your account has a Copilot subscription, {% data variables.product.prodname_vscode_shortname %} uses that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits.
+    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free), which includes a monthly allowance of inline suggestions and AI credits.
 
-1. Start using Copilot in {% data variables.product.prodname_vscode_shortname %}!
+### Use AI without a Copilot subscription
 
-> [!TIP]
-> You can also use AI features in {% data variables.product.prodname_vscode_shortname %} without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+You don't need a {% data variables.product.prodname_copilot %} subscription to use AI in {% data variables.product.prodname_vscode_shortname %}. You can bring your own models or use another provider's agent:
+
+* **API key:** [Connect a supported model provider with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+* **Provider subscription:** Use [Claude with your Claude subscription (Experimental)](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in), or [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
+* **Local model:** [Run a model on your own machine, such as Ollama](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), including offline.
+
+Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
 
 ### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
 
-Yes. You don't need an account to install {% data variables.product.prodname_vscode_shortname %} or use its core editor features.
+Yes. You don't need an account to use the editor, terminal, debugger, source control, extensions, or other core features.
 
-Signing in with GitHub connects {% data variables.product.prodname_vscode_shortname %} to your GitHub Copilot plan and gives you access to the AI features, models, and usage allowances included with that plan. Without GitHub sign-in, you can use chat with a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Features that depend on the GitHub Copilot service, such as inline suggestions, semantic search, and embeddings, aren't available through bring-your-own-key models.
+AI doesn't always require GitHub sign-in either. You can use API-key or local models without a GitHub account. Claude and Codex also offer [ways to use your provider account instead](#use-ai-without-a-copilot-subscription). Running these agents in the {% data variables.copilot.agents_window %} without GitHub sign-in is experimental. Follow the linked setup instructions for your chosen option.
 
-You can also skip AI features and use {% data variables.product.prodname_vscode_shortname %} as a code editor. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
+To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 
-## What you can do with {% data variables.product.prodname_vscode_shortname %}
+## Explore the main parts of {% data variables.product.prodname_vscode_shortname %}
 
-{% data variables.product.prodname_vscode_shortname %} adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task.
+The {% data variables.product.prodname_vscode_shortname %} interface brings your project files, editing tools, terminal, source control, and AI chat into one workspace.
 
-* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+![Screenshot showing the Explorer, editor, integrated browser, terminal, and Chat view in {% data variables.product.prodname_vscode_shortname %}.](images/overview/vscode-overview.png)
 
-    ![Screenshot of the {% data variables.copilot.agents_window %} with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
+* **Explorer and editor:** Browse project files and edit code with IntelliSense, refactoring, and multi-cursor support.
 
-* **Write, test, and debug code.** Edit with IntelliSense, refactoring, and multi-cursor support, then find and fix problems with the built-in [debugger](/docs/debugtest/debugging.md) and [testing](/docs/debugtest/testing.md) tools. Track your work with integrated [source control](/docs/sourcecontrol/overview.md), and add [language support](/docs/languages/overview.md) for the stack you use.
+* **Run, debug, and test:** Run your application, set breakpoints, inspect program state, and run tests without leaving the editor.
 
-    ![Screenshot of {% data variables.product.prodname_vscode_shortname %} with the Debugger quick pick to select the target environment.](images/overview/debugger-nodejs.png)
+* **Source Control:** Review changes and work with Git repositories through the built-in source control interface.
 
-* **Extend and customize.** Install [extensions](/docs/configure/extensions/extensions.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) to add languages, tools, and data sources. Tailor the agent experience to your specific project needs with [custom instructions, custom agents, and your choice of language model](/docs/agent-customization/overview.md).
+* **Extensions and settings:** Add support for your programming languages and tools, then personalize the interface and editor behavior.
 
-    ![Screenshot of the Extensions view with the search bar and a list of extensions.](images/overview/extensions-search-python.png)
+* **AI chat and agents:** Ask coding questions or delegate a task to an agent that can edit files, run commands, and verify its work.
 
-## Explore {% data variables.product.prodname_vscode_shortname %}
-
-Pick a path based on what you want to do next.
+## Next steps
 
 <div class="card-grid">
-    <a class="card" href="/docs/agents/quickstart">
-        <i class="codicon codicon-hubot" aria-hidden="true"></i>
-        <div>
-            <p><strong>Agentic coding</strong></p>
-            <p>Complete your first coding task with an AI agent.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/editing/getting-started/editor-tutorial">
-        <i class="codicon codicon-tools" aria-hidden="true"></i>
-        <div>
-            <p><strong>Editing and debugging</strong></p>
-            <p>Learn the editor, debugging, and productivity basics.</p>
-        </div>
-    </a>
     <a class="card" href="/docs/languages/overview">
         <i class="codicon codicon-code" aria-hidden="true"></i>
         <div>
-            <p><strong>Languages</strong></p>
-            <p>Set up support for Python, JavaScript, C++, and more.</p>
+            <p><strong>Add language support</strong></p>
+            <p>Set up editing, running, and debugging for your programming language.</p>
         </div>
     </a>
-</div>
-
-### More ways to use {% data variables.product.prodname_vscode_shortname %}
-
-<div class="card-grid">
-    <a class="card" href="/docs/configure/extensions/extensions">
-        <i class="codicon codicon-extensions" aria-hidden="true"></i>
-        <div>
-            <p><strong>Extensions and MCP</strong></p>
-            <p>Add tools, languages, and data sources to {% data variables.product.prodname_vscode_shortname %}.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/overview">
+    <a class="card" href="/docs/getstarted/personalize-vscode">
         <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
         <div>
-            <p><strong>Customize AI</strong></p>
-            <p>Custom instructions, custom agents, and language models.</p>
+            <p><strong>Personalize your setup</strong></p>
+            <p>Configure settings, keyboard shortcuts, themes, and display language.</p>
         </div>
     </a>
     <a class="card" href="/docs/sourcecontrol/overview">
         <i class="codicon codicon-source-control" aria-hidden="true"></i>
         <div>
-            <p><strong>Source control</strong></p>
+            <p><strong>Use source control</strong></p>
             <p>Track changes and collaborate with built-in Git support.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/remote/remote-overview">
-        <i class="codicon codicon-remote" aria-hidden="true"></i>
-        <div>
-            <p><strong>Remote and web</strong></p>
-            <p>Work in containers, WSL, SSH, or the browser.</p>
         </div>
     </a>
 </div>
@@ -180,47 +174,22 @@ Pick a path based on what you want to do next.
 <details>
 <summary>How do I create and run a new project?</summary>
 
-{% data variables.product.prodname_vscode_shortname %} doesn't include a traditional **File** > **New Project** dialog or preinstalled project templates. Add [additional components](/docs/setup/additional-components.md) and scaffolders based on your development workflow. Scaffolding tools like [Yeoman](https://yeoman.io/) and packages from the [npm](https://www.npmjs.com/) package manager provide templates and tools to create projects.
+{% data variables.product.prodname_vscode_shortname %} doesn't include a **File** > **New Project** dialog or preinstalled project templates. Install the [components for your development workflow](/docs/setup/additional-components.md), and then use the tools for your programming language or framework to create and run a project.
 
 </details>
 
 <details>
-<summary>What are the system requirements for {% data variables.product.prodname_vscode_shortname %}?</summary>
+<summary>Should I use Stable or Insiders?</summary>
 
-Review the [system requirements](/docs/supporting/requirements.md) for supported platforms and hardware.
-
-</details>
-
-<details>
-<summary>How big is {% data variables.product.prodname_vscode_shortname %}?</summary>
-
-{% data variables.product.prodname_vscode_shortname %} is a small download, less than 200 MB, and has a disk footprint of less than 500 MB.
+Stable releases ship weekly and update automatically. Install the [Insiders build](/insiders) to preview upcoming features in a nightly build that runs side by side with Stable.
 
 </details>
 
 <details>
-<summary>How do I know which version I'm running?</summary>
+<summary>Can I use {% data variables.product.prodname_vscode_shortname %} in a browser or on a remote machine?</summary>
 
-On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About {% data variables.product.prodname_vscode %}**. The **About** dialog shows the version number and the commit ID. For Insiders builds, multiple builds can share the same version number, so use the commit ID to uniquely identify your build.
-
-</details>
-
-<details>
-<summary>Why is {% data variables.product.prodname_vscode_shortname %} saying my installation is unsupported?</summary>
-
-{% data variables.product.prodname_vscode_shortname %} has detected that some installation files have been modified, perhaps by an extension. Reinstalling {% data variables.product.prodname_vscode_shortname %} will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt-unsupported) for more details.
+Yes. Use [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md) in a browser, or connect your desktop editor to a [remote machine](/docs/remote/remote-overview.md).
 
 </details>
 
-<details>
-<summary>How can I do a 'clean' uninstall of {% data variables.product.prodname_vscode_shortname %}?</summary>
-
-To remove all user data after [uninstalling](/docs/setup/uninstall.md) {% data variables.product.prodname_vscode_shortname %}, delete the user data folders `Code` and `.vscode`. This returns {% data variables.product.prodname_vscode_shortname %} to the state before installation and can reset all settings without uninstalling {% data variables.product.prodname_vscode_shortname %}.
-
-The folder locations vary depending on your platform:
-
-* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode`.
-* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode`.
-* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode`.
-
-</details>
+For installation and update troubleshooting, see the [{% data variables.product.prodname_vscode_shortname %} FAQ](/docs/supporting/faq.md).

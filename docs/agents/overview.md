@@ -1,7 +1,7 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 9/16/2026
-MetaDescription: Choose an AI experience and starting configuration in {% data variables.product.prodname_vscode %}, then learn how agents, sessions, and tools work.
+MetaDescription: Explore AI in {% data variables.product.prodname_vscode %}, from code suggestions to agents that plan, edit, and test changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - GitHub Copilot
@@ -15,7 +15,9 @@ Keywords:
 - "{% data variables.copilot.copilot_cloud_agent_short %}"
 - copilot cli
 - third-party agents
+- language models
 - MCP
+- plugins
 - enterprise
 - overview
 - getting started
@@ -27,149 +29,96 @@ Keywords:
 - agent harness
 ---
 
-# Build with agents in {% data variables.product.prodname_vscode_shortname %}
+# Build with AI in {% data variables.product.prodname_vscode_shortname %}
 
-Agentic coding uses AI agents to complete software development tasks with varying levels of autonomy. Give an agent a high-level goal, and it can gather context, plan the work, edit files, run commands, and iterate on the result. You guide the agent, review its actions, and decide which changes to commit or integrate.
+Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar code, fix bugs, and build features. Get suggestions while you type, ask questions in a conversation, or give an AI agent a task that spans files and tools. You can work alongside the agent in your editor or delegate a task and review the result.
 
-This article introduces the agentic coding capabilities in {% data variables.product.prodname_vscode %} and the key components that work together. Follow the links to explore each concept in depth, or get hands-on with the [agents quickstart](/docs/agents/quickstart.md) or [agents tutorial](/docs/agents/agents-tutorial.md).
+Choose from multiple AI models and agent providers, bring your own model API key, and extend agents with tools and plugins. {% data variables.product.prodname_vscode_shortname %} brings these options into the same editor, so you can adapt your AI workflow to your task and your team's requirements. You don't need to configure every option before trying your first task.
 
-<!-- <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in {% data variables.product.prodname_vscode_shortname %}." controls muted></video> -->
-
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Choose a short quickstart or a guided tutorial to complete your first coding task with an agent.
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Try your first agent task">
+Build and validate a small app in the {% data variables.copilot.chat_view %}, then review the result.
 
 * [Start the agents quickstart](/docs/agents/quickstart.md)
-* [Follow the agents tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
-## Choose the right AI experience
+The quickstart uses {% data variables.product.prodname_copilot %}. See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements, or compare [other agent providers and sign-in options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
-Start with the experience that matches the scope of your task. You can move to an agent when the work requires more autonomy or spans multiple steps.
+## What you can do with AI
 
-| Your goal | Use |
-|-----------|-----|
-| Get code suggestions as you type | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) |
-| Get answers, explore a codebase, or brainstorm an approach | [Chat](/docs/chat/chat-overview.md) |
-| Make a focused edit in the editor or terminal | [Inline chat](/docs/chat/inline-chat.md) |
-| Run a built-in, task-specific action | [Smart actions](/docs/editing/copilot-smart-actions.md) |
-| Implement or validate a multi-step change across files | The **Agent** role |
-| Research a complex change and review the approach before implementation | The [**Plan** role](/docs/agents/run/planning.md) |
+Choose a workflow based on the task, from help with a single line to a coordinated change across your project.
 
-## Choose a starting configuration
+| Your goal | How AI helps |
+|-----------|--------------|
+| Implement a feature, fix a bug, or refactor across files | [Work with an agent](#how-you-work-with-an-agent) to find relevant code, make changes, and run tests. |
+| Understand a codebase or explore an approach | [Ask questions in chat](/docs/chat/chat-overview.md) to get explanations grounded in your code and discuss alternatives. |
+| Research a complex change before editing | [Plan with an agent](/docs/agents/run/planning.md) and review the proposed approach before implementation. |
+| Make a focused edit without leaving your code | Use [inline chat](/docs/chat/inline-chat.md) to describe the change in the editor. |
+| Get code suggestions while you type | Use [inline suggestions](/docs/editing/ai-powered-suggestions.md) for completions and suggested next edits. |
+| Complete a common development task | Use [smart actions](/docs/editing/copilot-smart-actions.md) for tasks such as generating a commit message or explaining selected code. |
 
-For your first local agent task, open your project in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and use the following configuration. These selections keep the agent beside your code and let you review its actions while you learn the workflow.
+You use chat both to ask questions and to direct agents. You can ask **Agent** to propose an approach before editing, or select **Plan**, where available, for a dedicated planning workflow.
 
-| Control | Start with | Choose another option when |
-|---------|------------|----------------------------|
-| **Interface** | Use the {% data variables.copilot.chat_view %} when your project is already open. | Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) to manage work across projects or run multiple sessions. |
-| **Session Target** | Use **Copilot** for a general coding task. | Use **Claude**, **Codex**, or **Cloud** for provider-specific or remote workflows. |
-| **Agent** | Use **Agent** to implement a task. | Use **Plan** to review an approach before implementation. |
-| **Language model** | Use **Auto** when it is available. | Select a model when you need specific speed, reasoning, context-window, or cost characteristics. |
-| **Permissions** | With the **Copilot** target, use **Manual permissions** so actions that aren't covered by your approval settings require confirmation. | Other targets provide their own permission options. Use **Assisted permissions** or **Allow all** only after you understand the [security implications](/docs/agents/run/security.md). |
-| **Code isolation** | The {% data variables.copilot.chat_view %} uses your current workspace. In the {% data variables.copilot.agents_window %}, use **Folder** when the agent needs current or uncommitted files. | Use **New Worktree** to keep changes separate from your active workspace. Worktree sessions use **Allow all**, and a worktree isn't a security boundary. |
+## How you work with an agent
 
-You don't need to configure other options for your first task. Follow the [agents quickstart](/docs/agents/quickstart.md) to build and validate a small app.
+An agent uses a language model to reason about your request and [tools](/docs/agents/concepts/tools.md) to act on your development environment. It gathers [context](/docs/agents/concepts/context.md), such as code, error messages, and test results, rather than relying only on the words in your prompt.
 
-Learn more about [choosing a session target, permissions, and code isolation](/docs/agents/run/agent-harnesses.md).
+For example, ask an agent to fix a failing test while preserving the intended behavior:
 
-## What you can do with agents
+1. The agent finds the test and reads the related code to understand the failure.
+1. It edits the implementation or tests based on the task and your constraints.
+1. It runs the tests, inspects the results, and revises its changes if needed.
+1. You review the diff and validation results, verify the behavior yourself, and decide which changes to keep.
 
-Agents combine language-model reasoning with tools that act on your development environment. This makes them useful for tasks that involve multiple steps or files, such as:
+This repeated reasoning, action, and validation is the **agent loop**. You can provide more context, redirect the work, or stop the agent along the way. Learn more about [how agents work](/docs/agents/concepts/agents.md).
 
-* Planning and implementing features across multiple files.
-* Exploring, refactoring, or migrating a codebase.
-* Diagnosing errors, running tests, and applying fixes.
-* Running and validating web apps with [browser tools](/docs/agents/run/browser-tools.md).
-* Working on independent tasks in parallel or in the background.
-
-Agents are the most autonomous of several AI experiences in {% data variables.product.prodname_vscode_shortname %}. For lighter-weight help, you can also use [chat](/docs/chat/chat-overview.md), [inline chat](/docs/chat/inline-chat.md), [inline suggestions](/docs/editing/ai-powered-suggestions.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+The conversation and work for a task belong to a **session**. Sessions keep related context and changes together so you can return to a task or manage independent tasks separately. Learn about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Ways to work with agents
 
-Agent sessions are available through several interfaces in {% data variables.product.prodname_vscode_shortname %}, the terminal, and the browser. Each interface presents the session in the environment where you are working.
+Start with the interface that fits how you want to work. You can continue supported sessions between the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, rather than choosing one interface for every task.
 
-{% tabs id="agent-surface" %}
-{% tab label="{% data variables.copilot.chat_view %}" %}
+### Work alongside your code
 
-The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) is a code-first interface for working with an agent alongside the editors in your current workspace.
+Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) when you're working in an open project. Keep the conversation beside your editor, inspect changes as they happen, and use the debugger, terminal, and tests as part of the same workflow. This is the starting point for the agents quickstart.
 
 ![Screenshot showing the {% data variables.copilot.chat_view %} with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
-{% /tab %}
-{% tab label="{% data variables.copilot.agents_window %}" %}
+### Delegate and manage tasks
 
-The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) is a dedicated, agent-first interface for assigning high-level tasks and managing multiple sessions across workspaces.
+Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
 
 ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 
-{% /tab %}
-{% tab label="Browser" %}
+### Other ways to access agents
 
-From [GitHub](https://github.com/copilot), assign issues to cloud agents, track progress, and review the resulting pull requests. Use [vscode.dev/agents](https://vscode.dev/agents) to connect to agents on your development machine from a browser.
+For terminal-based work, explore [{% data variables.copilot.copilot_cli %}](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal). For work away from your current editor, explore [cloud agents that return pull requests](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) or [remote sessions and browser access](/docs/agents/run/remote-agent-sessions.md). The [{% data variables.copilot.github_copilot_app %}](https://github.com/features/copilot) provides a dedicated desktop experience outside {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot showing the GitHub website with the Copilot tab open, displaying a list of issues assigned to Copilot.](images/agents-overview/hero-vscode-dev-agents-dark.png)
+## Choose your models, agents, and tools
 
-{% /tab %}
-{% tab label="{% data variables.copilot.copilot_cli_short %}" %}
+Start with the quickstart's recommended setup, then adjust individual choices to fit your task and project:
 
-Use [{% data variables.copilot.copilot_cli %}](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the integrated terminal or an external terminal.
+* **Models**: choose a [language model](/docs/agents/concepts/language-models.md) based on the reasoning capabilities, speed, and cost your task requires.
+* **Agent harnesses**: use a supported [agent harness](/docs/agents/run/agent-harnesses.md), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}, for its tools and workflows. The harness connects a model to tools and manages the session, so changing harnesses is different from switching models.
+* **Model access**: use models from your {% data variables.product.prodname_copilot %} plan, [bring your own API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), or connect a supported local model. These options let you use an existing model provider account or keep model processing local.
+* **Tools and customization**: share your coding standards and test commands through [project instructions](/docs/agents/guides/customize-copilot-guide.md). Connect external systems through [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md), package recurring tasks as [agent skills](/docs/agent-customization/agent-skills.md), or install [plugins](/docs/agent-customization/agent-plugins.md) that bundle tools and workflows. Compare the options in [agent customization concepts](/docs/agents/concepts/customization.md).
 
-![Screenshot showing the {% data variables.copilot.copilot_cli_short %} running in the {% data variables.product.prodname_vscode_shortname %} integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
+Available models, tools, and customizations depend on the selected harness, your account, and your organization's policies.
 
-{% /tab %}
-{% tab label="GitHub Copilot App" %}
-
-Use the [{% data variables.copilot.github_copilot_app %}](https://github.com/features/copilot) to manage AI coding tasks in a dedicated desktop experience outside {% data variables.product.prodname_vscode_shortname %}.
-
-![Screenshot showing the {% data variables.copilot.github_copilot_app %} with the sessions list, conversation, and chat input.](images/agents-overview/hero-copilot-app-dark.png)
-
-{% /tab %}
-{% /tabs %}
-
-### Access and continue sessions across interfaces and devices
-
-Agent sessions aren't tied to a single interface. You can switch between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, or connect from a browser on another device through a dev tunnel.
-
-You can also use the {% data variables.copilot.agents_window %} to start or manage sessions on another machine over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
-
-{% data variables.product.prodname_vscode_shortname %} can also discover supported sessions created by other interfaces and harnesses, including {% data variables.copilot.copilot_cli_short %}, Claude Code, and Codex. Learn more about [managing and handing off sessions](/docs/agents/concepts/sessions.md).
-
-## Where and how agents run
-
-The agent harness determines which provider-specific capabilities and tools are available. {% data variables.product.prodname_vscode_shortname %} supports the built-in Local harness and provider-specific harnesses such as Copilot, Claude, and Codex. You can also choose from supported language models or [bring your own model](/docs/agent-customization/language-models.md), including a model that runs locally.
-
-The execution environment determines where the agent runs tools and changes code:
-
-* **Your machine**: work directly in a folder or use a Git worktree to isolate changes.
-* **Cloud infrastructure**: work on a GitHub repository in the background and return the result as a pull request.
-* **A remote machine**: run the agent next to code and tools on a remote host.
-
-Tool execution and model hosting are separate. For example, an agent can run tools on your machine while sending model requests to a hosted provider. To keep model processing local too, [configure a supported local model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
-
-Choose a harness and execution environment when you start a session. You can [hand off the session](/docs/agents/run/agent-harnesses.md#hand-off-a-session) when another target is a better fit for the next part of the task. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md).
-
-## How agentic coding works
-
-Agentic coding relies on three concepts:
-
-* **Agent loop**: the [agent](/docs/agents/concepts/agents.md#agent-loop) uses a [language model](/docs/agents/concepts/language-models.md) to reason over [context](/docs/agents/concepts/context.md) and call [tools](/docs/agents/concepts/tools.md). It repeats this loop until it completes the task, needs your input, or you stop it.
-* **Session**: a [session](/docs/agents/concepts/sessions.md) holds the conversation, workspace, changes, and execution state for a task so that you can pause, resume, and hand off the work.
-* **Harness and execution environment**: the [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the agent loop. The execution environment determines where tools run and where the agent changes code.
-
-You can further shape the agent with [customizations](/docs/agents/concepts/customization.md).
+Where tools run and where the model is hosted are separate choices. An agent can edit files on your machine while sending model requests to a hosted provider.
 
 ## Stay in control
 
-Agents can read and edit files, run terminal commands, and call external services. Set a permission level to control which tool calls require your approval. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) when you need operating system-level file system and network restrictions. Review generated code and validate the result before you commit or integrate the changes. Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-safety.md).
+AI can produce incorrect code or misunderstand your intent. You remain responsible for deciding which changes reach your codebase.
 
-Organizations can centrally control which AI features, models, and tools are available. Administrators can restrict agent capabilities and enforce requirements for their teams. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
+* **Review before integrating.** Agents can save edits directly to the session folder or worktree. [Review the diff and validate the result](/docs/agents/run/review-code-edits.md) before you commit or merge changes.
+* **Control actions and redirect work.** Use [permissions and approvals](/docs/agents/run/approvals.md) to decide which actions require confirmation. You can [steer or stop a request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running), but stopping doesn't undo completed actions or changes to external services.
+* **Understand isolation.** A Git worktree keeps code changes separate, but isn't a security boundary. For file system and network restrictions on agent-run terminal commands, review the [platform-specific sandboxing options](/docs/agents/run/agent-sandboxing.md).
 
-> [!NOTE]
-> Make sure agents are enabled with `setting(chat.agent.enabled)`. If your organization has disabled agents, contact your GitHub organization administrator.
+Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). Your organization might also restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/ai-settings.md).
 
 ## Next steps
 
-* [Complete your first task with an agent](/docs/agents/quickstart.md).
-* [Apply the agent workflow to your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project).
-* [Learn how agents, models, context, tools, and sessions work](/docs/agents/concepts/agents.md).
+* [Complete your first task with an agent](/docs/agents/quickstart.md): build and validate a small app with a recommended starting configuration.
+* [Follow the agents tutorial](/docs/agents/agents-tutorial.md): build a portfolio page and learn the agent, editor, browser, and source control workflows.
+* [Apply the workflow to your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project): choose a bounded task in an existing codebase and review the result.

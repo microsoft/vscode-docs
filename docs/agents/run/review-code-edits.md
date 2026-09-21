@@ -67,7 +67,7 @@ Control how diff editors in the **Changes** view wrap long lines with `setting(s
 
 This setting only affects diff editors and doesn't affect code editors in the {% data variables.copilot.agents_window %}. To configure word wrapping in code editors, see [Configure word wrap for code editors](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors).
 
-You can also toggle word wrapping from the editor by selecting **More Actions** (**...**) > **Word Wrap**.
+To change this setting from a diff editor, select **More Actions** (**...**) > **Word Wrap**. This action updates `setting(sessions.diffEditor.wordWrap)` independently of the code editor setting.
 
 To review and integrate the changes:
 
