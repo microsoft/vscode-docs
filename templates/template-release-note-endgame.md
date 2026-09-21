@@ -15,7 +15,7 @@ ProductEdition: Stable
 Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev), [Instagram](https://www.instagram.com/vscode.ig) | [View online](https://code.visualstudio.com/updates)
 %ENDIF % -->
 <!-- %IF IN_WEB %
-<p class="release-metadata"><span>Released <release Month day, year></span><span class="release-channel">Stable</span></p>
+<p class="release-metadata"><span>Released <release Month day, year></span> <span class="release-channel">Stable</span></p>
 %ENDIF % -->
 <!-- %IF IN_PRODUCT %
 _Release date: <release Month day, year>_
