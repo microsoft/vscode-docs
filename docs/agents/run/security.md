@@ -41,11 +41,11 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
-1. **Review MCP servers before trusting them.** Verify that MCP servers come from a trustworthy source and review their configuration before starting them.
+1. **Review MCP servers before trusting them.** Review repository MCP configuration before you trust a workspace. For servers from other sources, verify that they come from a trustworthy source before starting them.
 
 ## Trust boundaries
 
-{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Each boundary, for the workspace, extension publisher, MCP server, and network domain, requires your explicit consent before it is trusted, and you can revoke trust at any time. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
+{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust decisions cover the workspace, extension publishers, MCP servers, and network domains, and you can revoke trust at any time. Related boundaries can share a decision. For example, MCP servers in `.vscode/mcp.json` and workspace-root `.mcp.json` inherit Workspace Trust. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
 ## How {% data variables.product.prodname_vscode_shortname %} protects your environment
 
