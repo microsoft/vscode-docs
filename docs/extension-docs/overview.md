@@ -5,28 +5,51 @@ MetaDescription: Overview of {% data variables.product.prodname_vscode %} extens
 ---
 # Extension Docs
 
-{% data variables.product.prodname_vscode %} has a rich ecosystem of extensions that enable specialized workflows. This section covers documentation for key extension areas.
+Extensions add specialized tools and workflows to {% data variables.product.prodname_vscode %}. Choose an area to explore its features, setup guides, tutorials, and reference documentation.
 
-## Container Tools
+## Choose a workflow
 
-Use the [Docker extension](/docs/containers/overview) to build, manage, and deploy containerized applications. Get started with containers for [Node.js](/docs/containers/quickstart-node), [Python](/docs/containers/quickstart-python), or [ASP.NET Core](/docs/containers/quickstart-aspnet-core), and work with [Docker Compose](/docs/containers/docker-compose) and [Kubernetes](/docs/containers/bridge-to-kubernetes).
-
-## Data Science
-
-Work with [Jupyter Notebooks](/docs/datascience/jupyter-notebooks) directly in {% data variables.product.prodname_vscode_shortname %}, explore data with [Data Wrangler](/docs/datascience/data-wrangler), and build machine learning models with [PyTorch](/docs/datascience/pytorch-support) and [Azure Machine Learning](/docs/datascience/azure-machine-learning).
-
-## Intelligent Apps
-
-Build AI-powered applications with the [Foundry Toolkit](/docs/intelligentapps/overview). Create [agents](/docs/intelligentapps/create-agents), work with [models](/docs/intelligentapps/models), use the [Playground](/docs/intelligentapps/playground), and inspect agent behavior with the [Agent Inspector](/docs/intelligentapps/agent-inspector).
-
-## Azure
-
-Deploy and manage cloud resources with [Azure extensions](/docs/azure/overview). Use the [Resources View](/docs/azure/resourcesextension), deploy applications to [Azure App Service](/docs/azure/deployment), and work with [Azure Kubernetes Service](/docs/azure/aksextensions) and [MongoDB](/docs/azure/mongodb).
-
-## Remote
-
-Develop on remote machines, containers, and WSL with [Remote Development](/docs/remote/remote-overview). Connect via [SSH](/docs/remote/ssh), use [GitHub Codespaces](/docs/remote/codespaces), or work with [{% data variables.product.prodname_vscode_shortname %} Server](/docs/remote/vscode-server) and [Tunnels](/docs/remote/tunnels).
-
-## Dev Containers
-
-Use [Dev Containers](/docs/devcontainers/containers) to define consistent development environments. Follow the [tutorial](/docs/devcontainers/tutorial) to get started, [create custom dev containers](/docs/devcontainers/create-dev-container), and configure them with [devcontainer.json](/docs/devcontainers/devcontainerjson-reference).
+<div class="card-grid">
+    <a class="card" href="/docs/containers/overview">
+        <i class="codicon codicon-package" aria-hidden="true"></i>
+        <div>
+            <p><strong>Container Tools</strong></p>
+            <p>Build, manage, debug, and deploy containerized applications with Docker and Kubernetes.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/devcontainers/containers">
+        <i class="codicon codicon-server-environment" aria-hidden="true"></i>
+        <div>
+            <p><strong>Dev Containers</strong></p>
+            <p>Use a container as a complete, reproducible development environment for your project.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/remote/remote-overview">
+        <i class="codicon codicon-remote-explorer" aria-hidden="true"></i>
+        <div>
+            <p><strong>Remote Development</strong></p>
+            <p>Work on remote machines, in WSL, or in cloud-hosted environments such as GitHub Codespaces.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/azure/overview">
+        <i class="codicon codicon-cloud" aria-hidden="true"></i>
+        <div>
+            <p><strong>Azure</strong></p>
+            <p>Create, deploy, and manage applications and cloud resources from {% data variables.product.prodname_vscode_shortname %}.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/datascience/overview">
+        <i class="codicon codicon-graph-scatter" aria-hidden="true"></i>
+        <div>
+            <p><strong>Data Science</strong></p>
+            <p>Explore data, run Jupyter notebooks, and build machine learning models.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/intelligentapps/overview">
+        <i class="codicon codicon-sparkle" aria-hidden="true"></i>
+        <div>
+            <p><strong>Intelligent Apps</strong></p>
+            <p>Build AI applications and agents with models, playgrounds, and evaluation tools in Foundry Toolkit.</p>
+        </div>
+    </a>
+</div>
