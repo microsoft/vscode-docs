@@ -452,10 +452,12 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 | `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
 | `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
 
-For each field, the resolved value is determined by the precedence order: policy, then environment variable, then user setting, then default. A managed value always wins.
+Managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values. Remove conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
 
 > [!NOTE]
 > Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
+
+For chat sessions that use the Local harness, if an enterprise-managed OTel configuration enables export after Copilot Chat starts, {% data variables.product.prodname_vscode_shortname %} automatically attempts to restart the extension hosts for the current window once. The restart can interrupt work in other extensions. If the restart is blocked or doesn't apply the configuration, {% data variables.product.prodname_vscode_shortname %} offers **Reload Window**. Later policy changes and policy removal also require a manual reload.
 
 The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload {% data variables.product.prodname_vscode_shortname %} to apply it.
 
