@@ -3,8 +3,8 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 9/16/2026
 
-VSCodeCommitHash: 60ac69b364809ee6976d6dc3ed74cc7628f637da
-VSCodeVersion: 1.138.0
+VSCodeCommitHash: c0f6c8cd52aeceb78b91631bce1b37d161a93d3f
+VSCodeVersion: 1.139.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in {% data variables.product.prodname_vscode %} enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
