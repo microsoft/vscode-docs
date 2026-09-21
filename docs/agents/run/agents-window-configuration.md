@@ -41,6 +41,8 @@ Control how code editors in the {% data variables.copilot.agents_window %} wrap 
 * `on`: Wrap lines at the editor viewport width.
 * `off`: Never wrap lines.
 
+To change this setting from a code editor, select **More Actions** (**...**) > **Word Wrap**. To temporarily override word wrapping for the current file, use `kb(editor.action.toggleWordWrap)`. This keyboard shortcut doesn't change `setting(sessions.editor.wordWrap)`.
+
 This setting doesn't affect diff editors in the **Changes** view. To configure word wrapping in those editors, see [Configure word wrap in diff editors](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors).
 
 ## Adjust the window layout
