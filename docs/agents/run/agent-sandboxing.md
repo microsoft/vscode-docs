@@ -115,6 +115,19 @@ For a local Agent Host, the applicable Workspace setting takes precedence over t
 
 If a managed setting requires sandboxing without a bypass, the toggle is disabled. If the managed setting permits a bypass, the session starts with sandboxing on and you can turn it off for that session. Learn more about [managed agent sandboxing](/docs/enterprise/ai-settings.md#configure-agent-sandboxing).
 
+## Inspect the effective sandbox policy
+
+Use `/sandbox-policy` in a {% data variables.product.prodname_copilot_short %} Agent Host session to check which sandbox restrictions apply or investigate why a terminal command is blocked.
+
+1. Enter `/sandbox-policy` in the chat input and submit it.
+1. Select **Open Sandbox Policy** in the response to open the report in a Markdown preview.
+
+The report shows whether sandboxing is enabled, the operating system's sandbox implementation, and the effective file system and network policy. You can also run the command when sandboxing is off. In that case, the report indicates that sandbox restrictions are not active.
+
+The command does not start a model turn or change your sandbox settings.
+
+Each report is a snapshot. After changing sandbox settings, start a new session and run `/sandbox-policy` again to inspect the updated policy. Earlier links continue to open their original policy snapshots.
+
 ## Configure file system access
 
 With the default file system configuration, sandboxed terminal commands:

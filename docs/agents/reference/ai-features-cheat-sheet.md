@@ -170,6 +170,7 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
 | `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |
+| `/sandbox-policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} Agent Host session. |
 | `/<name>` | Invoke an agent skill or reusable prompt by name. |
 
 For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
