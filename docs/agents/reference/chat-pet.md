@@ -1,7 +1,7 @@
 ---
 ContentId: 587745a8-bc1a-4a6c-9570-93c10066cbe2
-DateApproved: 9/16/2026
-MetaDescription: Explore VS Code pet interactions and reactions, enter the naming contest, and review the official contest rules.
+DateApproved: 9/22/2026
+MetaDescription: Explore VS Code pet interactions and reactions, and review the official naming contest rules.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 
@@ -16,7 +16,7 @@ The {% data variables.product.prodname_vscode %} pet sits above the chat input b
 To learn how to show, hide, and control the pet, see [Personalize chat](/docs/chat/chat-overview.md#use-the-vs-code-pet).
 
 > [!NOTE]
-> The naming contest runs from September 10 through September 17, 2026. [Submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY) and review the [contest terms and conditions](#contest-terms-and-conditions).
+> The naming contest closed on September 17, 2026. Thank you to everyone who submitted a name. We'll announce the winner and the pet's new name soon. You can still review the [contest terms and conditions](#contest-terms-and-conditions).
 
 ## Chat activity reactions
 
@@ -69,7 +69,7 @@ Open the pet's context menu to access these actions:
 
 ## Contest terms and conditions
 
-The Microsoft Name Our VS Code Pet Contest runs from September 10 through September 17, 2026. To enter, [submit a name for the new VS Code pet](https://forms.cloud.microsoft/r/4iFTRDnvaY).
+The Microsoft Name Our VS Code Pet Contest ran from September 10 through September 17, 2026. The contest is now closed.
 
 <details>
 <summary><b>Read the official contest rules</b></summary>
