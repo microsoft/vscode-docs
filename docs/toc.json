@@ -111,17 +111,19 @@
                 "name": "Tutorials & guides",
                 "area": "agents/guides",
                 "topics": [
-                    ["Configure AI for your project", "/docs/agents/guides/customize-copilot-guide"],
-                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
-                    ["Delegate Two Tasks Without Mixing Their Changes", "/docs/agents/guides/delegate-two-tasks"],
-                    ["Test Code with AI", "/docs/agents/guides/test-code-with-ai"],
-                    ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
-                    ["Get an Agent Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
+                    ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
+                    ["Add a Feature", "/docs/agents/guides/add-a-feature"],
+                    ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
+                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
+                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
+                    ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
+                    ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
                     ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-                    ["Work with Jupyter Notebooks using AI", "/docs/agents/guides/notebooks-with-ai"],
-                    ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
-                    ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
+                    ["Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
                 ]
             }],
@@ -289,7 +291,7 @@
         "area": "debugging/guides",
         "topics": [
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-          ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
         ]
         }
       ]

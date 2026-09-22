@@ -12,6 +12,8 @@ You can ask an agent to propose an approach in an ordinary conversation. For a d
 
 This article walks you through creating a plan with {% data variables.product.prodname_copilot_short %}, reviewing and refining it, and choosing whether to implement it or save it for later. It also covers the different controls for [planning in a Local session](#plan-in-a-local-session).
 
+For an end-to-end example, follow the guide to [add a feature to an existing project](/docs/agents/guides/add-a-feature.md), from defining requirements to reviewing the tested change.
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
 Use {% data variables.product.prodname_copilot_short %} to create and review an implementation plan before changing code.
 
