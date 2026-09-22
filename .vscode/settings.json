@@ -32,4 +32,5 @@
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
     ],
+    "json.maxItemsComputed": 2000,
 }
