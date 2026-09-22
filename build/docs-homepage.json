@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.138 release",
-      "description": "Run agent sessions in Dev Containers, continue Codex sessions across apps and subscriptions, and automatically clean up sessions after pull requests merge.",
-      "link": "/updates/v1_138",
-      "image": "/assets/updates/1_138/release-highlights.webp"
+      "title": "VS Code 1.139 release",
+      "description": "Run agents in remote Dev Containers, manage sessions with faster, more compact lists, and edit with word wrap indicators and smarter bracket auto-closing.",
+      "link": "/updates/v1_139",
+      "image": "/assets/updates/1_139/release-highlights.webp"
     },
     {
       "type": "documentation",
