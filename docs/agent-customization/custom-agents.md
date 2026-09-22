@@ -170,7 +170,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
-| `hooks` (Preview)  | Optional hook commands scoped to this agent. Hooks defined here only run when this agent is active, either invoked by the user or as a subagent. Uses the same format as [hook configuration files](/docs/agent-customization/hooks.md#hook-configuration-format). Requires `setting(chat.useCustomAgentHooks)` to be enabled. |
+| `hooks` (Preview)  | Optional Local hook commands scoped to this agent. Hooks defined here only run in the Local harness when this agent is active, either invoked by the user or as a subagent. Requires `setting(chat.useHooks)` and a trusted workspace. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-local). |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -264,19 +264,19 @@ Implement changes following existing code patterns. Make minimal, focused edits.
 <details>
 <summary>Agent with scoped hooks example (Preview)</summary>
 
-The following example shows a custom agent that defines hooks in its frontmatter. The `PostToolUse` hook runs a formatter after file edits and only runs when this agent is active. Enable `setting(chat.useCustomAgentHooks)` to use this feature.
+The following example shows a custom agent that defines hooks in its frontmatter. The `PostToolUse` hook runs after every successful tool call and only runs when this agent is active in the Local harness. Local hooks must be enabled with `setting(chat.useHooks)`, and the workspace must be trusted.
 
 ```markdown
 ---
-name: "Strict Formatter"
-description: "Agent that auto-formats code after every edit"
+name: Strict Formatter
+description: Agent that formats code after every successful tool call
 hooks:
   PostToolUse:
     - type: command
       command: "./scripts/format-changed-files.sh"
 ---
 
-You are a code editing agent. After making changes, files are automatically formatted.
+You are a code editing agent. Follow the project's formatting requirements.
 ```
 
 Learn more about hooks in [Agent hooks](/docs/agent-customization/hooks.md).
