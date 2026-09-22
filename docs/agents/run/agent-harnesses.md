@@ -49,7 +49,7 @@ Most targets share the same chat and session-management experience in {% data va
 | Session target | Where tools run | Code access | Choose it for |
 |----------------|-----------------|-------------|---------------|
 | **Local** | In the {% data variables.product.prodname_vscode_shortname %} extension host on your machine | Current workspace | Interactive work that needs {% data variables.product.prodname_vscode_shortname %} tools, extension tools, or any model configured in {% data variables.product.prodname_vscode_shortname %} |
-| **Copilot** | In the Agent Host on your machine or in a Dev Container | Current folder, an isolated Git worktree, or a Dev Container workspace | General coding tasks, background sessions, and Copilot-specific capabilities |
+| **Copilot** | In the Agent Host on your machine, on a remote host, or in a Dev Container | Current folder, an isolated Git worktree, or a Dev Container workspace | General coding tasks, background sessions, and Copilot-specific capabilities |
 | **Claude** | On your machine | Current folder or an isolated Git worktree | Claude-specific agent capabilities, slash commands, and permission modes |
 | **Codex** | On your machine | Current folder or an isolated Git worktree | Codex-specific capabilities for interactive or background work |
 | **Cloud** | On a provider's remote infrastructure | A GitHub repository and pull request | Independent tasks that don't need local editor context and benefit from team review |
@@ -58,7 +58,7 @@ Most targets share the same chat and session-management experience in {% data va
 
 Runtime-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness. Running multiple harnesses in Agent Host does not give them a shared hook schema.
 
-Dev Container execution is available only in the {% data variables.copilot.agents_window %}. For an eligible local folder, use the workspace picker to start an Agent Host session in the folder's Dev Container. This selects the execution environment; use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Dev Container execution is available only in the desktop {% data variables.copilot.agents_window %}. Use the workspace picker to start an Agent Host session in a local project's Dev Container or one on an SSH, Tunnel, or WSL host. This selects the execution environment. Use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn about requirements and how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Start a session
 

@@ -137,22 +137,26 @@ The sessions list shows the session's status and change statistics while it work
 
 `feature(agent-host-dev-containers)`
 
-Run an Agent Host session in a Dev Container to give the agent access to the tools, dependencies, and environment defined by the project.
+Run an Agent Host session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
-This option is available only in the {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`, an application setting that is off by default.
+This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.
+
+> [!NOTE]
+> Dev Container sessions are rolling out gradually. If the setting isn't enabled for you yet, you can enable it manually.
 
 Before you start, make sure that:
 
-* [Docker is installed and running](/docs/devcontainers/containers.md#installation), and the Docker CLI is available on `PATH`.
-* The local folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation) on the machine that contains the project folder, and the Docker CLI is available on that machine's `PATH`. For a remote folder, Docker must run on the remote host.
+* The project folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
+* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
 
 To run a session in a Dev Container:
 
 1. Select **New** at the top of the sidebar.
 
-1. In the workspace picker, expand the menu for an eligible local folder and select **Use Dev Container**.
+1. In the workspace picker, expand the menu for an eligible local folder or a folder on a configured SSH, Tunnel, or WSL host, and select **Use Dev Container**.
 
-    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local**.
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local** for a local folder or **Use Remote Host** for a remote folder.
 
 1. Choose an available agent harness, configure the session, and enter your prompt.
 
