@@ -282,7 +282,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"chatAndAgent"` |
+| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"off"` |
 
 ## Customization migration settings
 

@@ -1,7 +1,7 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
 DateApproved: 9/16/2026
-MetaDescription: Manage Git branches and worktrees in {% data variables.product.prodname_vscode %} to develop in parallel, compare changes, and move work between checkouts.
+MetaDescription: Create and switch Git branches, stash changes, and manage worktrees in {% data variables.product.prodname_vscode %}.
 Keywords:
 - source control
 - scm
@@ -10,20 +10,17 @@ Keywords:
 ---
 # Git branches and worktrees in {% data variables.product.prodname_vscode_shortname %}
 
-Git branches enable you to work on different features or experiments simultaneously without affecting your main codebase. {% data variables.product.prodname_vscode_shortname %} provides tools for branch management, Git worktrees for parallel development, and stash management for temporary changes.
+Create and switch branches, set aside unfinished changes, and work on multiple branches in separate folders with the Git tools in {% data variables.product.prodname_vscode_shortname %}.
 
-This article covers working with branches, worktrees, and stashes in {% data variables.product.prodname_vscode_shortname %} to manage parallel development work.
+Choose the workflow for your task:
+
+* [Use branches](#working-with-branches) to keep separate lines of development and switch between them in one folder.
+* [Use a stash](#manage-stashes) to set aside uncommitted changes without creating a commit.
+* [Use worktrees](#working-with-git-worktrees) to keep multiple branches checked out in separate folders at the same time.
 
 ## Working with branches
 
-Branches are lightweight, movable pointers to specific commits in your Git history. They enable you to diverge from the main line of development and work on features independently.
-
-For example, suppose you're working on a web application and need to add user authentication while also fixing a bug in the payment system. You can create two branches:
-
-* `feature/user-authentication` - contains your login and signup functionality
-* `bugfix/payment-validation` - contains fixes for payment processing errors
-
-Each branch maintains its own set of changes without affecting the other. You can switch between branches to work on different tasks, and later merge the completed branches back into your main branch.
+Branches are lightweight, movable pointers to specific commits in your Git history. Create a branch to develop a feature independently, then merge it into a target branch when the work is ready.
 
 ### View current branch
 
@@ -53,20 +50,25 @@ To switch to a different branch:
 
 ### Create new branches
 
-Create a new branch to start working on a feature or experiment:
+To create a branch from your current commit (`HEAD`):
 
-1. Select the branch name in the Status Bar or run **Git: Create Branch** from the Command Palette.
+1. Run **Git: Create Branch...** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Enter a name for your new branch. Use descriptive names like `feature/user-authentication` or `bugfix/login-error`.
 
-    > [!TIP]
-    > {% data variables.product.prodname_vscode_shortname %} can generate random branch names for you. Configure this with the `setting(git.branchRandomName.enable)` and `setting(git.branchRandomName.dictionary)` settings.
+To start from a different branch or tag:
 
-1. Choose the source branch (usually `main` or `develop`) from which to create the new branch.
+1. Run **Git: Create Branch From...** from the Command Palette.
 
-![Screenshot showing the create branch dialog with branch name input and source branch selection.](images/branches-worktrees/scm-create-branch.png)
+1. Select the source branch or tag, such as `main` or `origin/main`.
 
-{% data variables.product.prodname_vscode_shortname %} switches to the new branch after creation.
+1. Enter the new branch name.
+
+Both commands switch to the new branch after creation. You can also select the branch name in the Status Bar and choose **Create new branch...** or **Create new branch from...**.
+
+![Screenshot showing the branch picker with Create new branch and Create new branch from actions.](images/branches-worktrees/scm-create-branch.png)
+
+{% data variables.product.prodname_vscode_shortname %} can generate random branch names. Configure this with the `setting(git.branchRandomName.enable)` and `setting(git.branchRandomName.dictionary)` settings.
 
 > [!TIP]
 > If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create branches directly from GitHub issues, which gets you started working in a new local branch and automatically prefills the pull request for you.
@@ -94,7 +96,7 @@ You can also delete a remote branch by using the matching **Delete Remote Branch
 When your feature is complete, merge it back into the main branch:
 
 1. Switch to the target branch (usually `main` or `develop`).
-1. Run **Git: Merge Branch** from the Command Palette.
+1. Run **Git: Merge...** from the Command Palette.
 1. Select the branch to merge.
 
 To publish a branch to your remote repository, use the **Publish Branch** action.
@@ -103,7 +105,7 @@ To publish a branch to your remote repository, use the **Publish Branch** action
 
 ## Manage stashes
 
-A Git stash temporarily stores uncommitted changes and returns your working directory to a clean state. Use a stash when you need to switch branches or handle another task without creating a commit for unfinished work.
+A Git stash temporarily stores selected uncommitted changes. Use a stash when you need to switch branches or handle another task without creating a commit for unfinished work.
 
 You can invoke stash commands from the Command Palette or from the **More Actions** (...) menu in the Source Control view.
 
@@ -121,7 +123,7 @@ To stash your current changes:
 
 1. Enter an optional message that describes the stashed work.
 
-Git stores the changes and restores your working directory to the state of the current commit.
+Git stores the selected changes and removes them from the working directory. Changes outside the chosen scope remain: for example, **Git: Stash** leaves untracked files in place, and **Git: Stash Staged** leaves unstaged changes.
 
 ### View and restore stashed changes
 
@@ -144,7 +146,7 @@ Run **Git: Drop Stash...** to permanently delete a selected stash, or run **Git:
 
 ## Working with Git worktrees
 
-{% data variables.product.prodname_vscode_shortname %} has built-in support for [Git worktrees](https://git-scm.com/docs/git-worktree), making it easy to manage and work with multiple branches at the same time.
+Use [Git worktrees](https://git-scm.com/docs/git-worktree) to work on another branch without changing the files or unfinished work in your current folder.
 
 ### Understanding worktrees
 
@@ -160,14 +162,14 @@ The following table shows how the Git concepts relate:
 
 Worktrees share the repository history, but they don't share working files or uncommitted changes. Git also prevents the same local branch from being checked out in more than one worktree at a time.
 
-For example, your primary worktree might have `main` checked out while a linked worktree contains the `feature/theme-toggle` branch. Changes in the feature worktree don't appear in the primary worktree until you merge or migrate them.
+For example, your primary worktree might have `main` checked out while a linked worktree contains the `feature/theme-toggle` branch. To bring work back to `main`, merge the feature branch's commits or [migrate its uncommitted changes](#compare-and-migrate-changes-from-a-worktree).
 
 Worktrees are especially useful to:
 
 * Develop multiple features in separate folders.
 * Run different versions of an application side by side.
 * Compare implementations across branches.
-* Keep changes from parallel [agent sessions](/docs/agents/concepts/agent-harnesses.md#code-isolation) separate.
+* Keep changes from parallel [agent sessions](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) separate.
 
 ### Create a worktree
 
@@ -187,23 +189,6 @@ To create a new worktree in {% data variables.product.prodname_vscode_shortname 
 
 The new worktree appears as a separate entry in the **Source Control Repositories** view.
 
-### Include files when creating a worktree
-
-When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. This behavior also applies when {% data variables.product.prodname_vscode_shortname %} creates a worktree for an agent session.
-
-Use the `setting(git.worktreeIncludeFiles)` setting to configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders to copy into a new worktree. A file is copied only when it matches one of the patterns and is also listed in `.gitignore`.
-
-A common use is to copy the `node_modules` folder into each new worktree. This way, you can start working right away without having to reinstall dependencies. For example, configure the setting as follows to also copy a local `.env` file:
-
-```json
-"git.worktreeIncludeFiles": [
-    ".env",
-    "node_modules/**"
-]
-```
-
-For agent worktrees, only include files that the agent can safely access.
-
 ### Switch between worktrees
 
 {% data variables.product.prodname_vscode_shortname %} can display multiple repositories (including worktrees) simultaneously:
@@ -220,7 +205,53 @@ There are multiple ways to open a worktree:
 
 * Right-click the worktree in the Source Control Repositories view and select **Open Worktree in New Window** or **Open Worktree in Current Window**.
 
-* Run the **Git: Open Worktree in Current Window** or **Git: Open Worktree in New Window** command in the Command Palette and select the desired worktree.
+### Compare and migrate changes from a worktree
+
+Use **Compare with Workspace** to review a changed worktree file against the primary worktree. Use **Git: Migrate Worktree Changes...** to move uncommitted changes, including untracked files, into the primary worktree. Migration doesn't merge commits. To bring in committed changes, [merge the worktree's branch](#merge-and-publish-branches) instead.
+
+1. In a window with the primary repository open, make sure both it and the worktree appear in the **Source Control Repositories** view. If needed, [turn on worktree detection](#automatically-detect-worktrees).
+
+1. Select the worktree, then right-click a changed file in the Source Control view and select **Compare with Workspace**.
+
+    ![Screenshot showing the compare with workspace option in the worktree context menu and side-by-side diff view.](images/branches-worktrees/worktree-compare-changes.png)
+
+1. Run **Git: Migrate Worktree Changes...** from the Command Palette. If prompted, select the primary repository as the destination and the worktree to migrate from.
+
+1. Review the confirmation and select **Proceed**. After a successful migration, the changes are in the primary worktree and are removed from the source worktree.
+
+If migration reports overlapping local changes, commit or stash those changes in the destination before retrying. If there are merge conflicts, resolve them before committing.
+
+### Remove a worktree
+
+Remove a linked worktree when you no longer need its working directory:
+
+1. Review the worktree's changes in the Source Control view. Commit, stash, or copy out any changes and local files you want to keep.
+
+1. Open the primary repository's folder in {% data variables.product.prodname_vscode_shortname %}, rather than the worktree you want to remove.
+
+1. Run **Git: Delete Worktree...** from the Command Palette. Select the repository if prompted, then select the worktree to delete. Check the displayed folder path before selecting it.
+
+Deleting a worktree removes its working directory, not its branch. Commits on that branch remain in the shared repository history. Deleting the branch is a [separate action](#rename-and-delete-branches).
+
+> [!CAUTION]
+> Removing a worktree also removes ignored files in its folder, even when Git reports no changes. If the worktree contains modified or untracked files, {% data variables.product.prodname_vscode_shortname %} offers **Force Delete**. Cancel and preserve those files unless you intend to discard them. **Force Delete** removes the worktree and its uncommitted changes.
+
+### Include files when creating a worktree
+
+When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. This behavior also applies when {% data variables.product.prodname_vscode_shortname %} creates a worktree for an agent session.
+
+Use the `setting(git.worktreeIncludeFiles)` setting (Experimental) to configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders to copy into a new worktree. A file is copied only when it matches one of the patterns and is also listed in `.gitignore`.
+
+A common use is to copy the `node_modules` folder into each new worktree. This way, you can start working right away without having to reinstall dependencies. For example, configure the setting as follows to also copy a local `.env` file:
+
+```json
+"git.worktreeIncludeFiles": [
+    ".env",
+    "node_modules/**"
+]
+```
+
+For agent worktrees, only include files that the agent can safely access.
 
 ### Automatically detect worktrees
 
@@ -228,20 +259,8 @@ By default, {% data variables.product.prodname_vscode_shortname %} lists the wor
 
 To avoid scanning a large number of worktrees, {% data variables.product.prodname_vscode_shortname %} limits the number of detected worktrees. Use the `setting(git.detectWorktreesLimit)` setting to change this limit. The default value is 50.
 
-### Compare and migrate changes from a worktree
-
-When you make changes in a worktree, you can compare those changes with your main workspace and bring worktree changes back into your main repository.
-
-1. In the Source Control view, right-click a changed file in the worktree and select **Compare with Workspace** to see the differences side-by-side.
-
-    ![Screenshot showing the compare with workspace option in the worktree context menu and side-by-side diff view.](images/branches-worktrees/worktree-compare-changes.png)
-
-1. After reviewing, use the **Migrate Worktree Changes** command from the Command Palette to merge all changes from a worktree into your current workspace.
-
 ## Next steps
 
-* [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about committing changes within branches
-* [Source Control History](/docs/sourcecontrol/history.md) - Inspect branch and commit history
-* [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
-* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Work with remote branches and collaboration
-* [Collaborate on GitHub](/docs/sourcecontrol/github.md) - Use GitHub pull requests with your branch workflow
+* [Inspect branch and commit history](/docs/sourcecontrol/history.md).
+* [Stage and commit changes](/docs/sourcecontrol/staging-commits.md).
+* [Publish and synchronize branches with a remote](/docs/sourcecontrol/repos-remotes.md).

@@ -1,6 +1,6 @@
 ---
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
-MetaDescription: Find answers about Git clients, source control providers, SSH authentication, and GitHub Enterprise support in {% data variables.product.prodname_vscode %}.
+MetaDescription: Check Git, SSH, and {% data variables.product.prodname_github %} Enterprise support in {% data variables.product.prodname_vscode %}.
 DateApproved: 9/16/2026
 Keywords:
 - source control
@@ -10,7 +10,7 @@ Keywords:
 ---
 # Source control FAQ
 
-This article answers common support and compatibility questions about source control in {% data variables.product.prodname_vscode %}. For task instructions, start with the [source control overview](/docs/sourcecontrol/overview.md). For errors and unexpected behavior, see [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md).
+This article answers support and compatibility questions about source control in {% data variables.product.prodname_vscode %}. To perform a Git task, use the [task guides](#common-tasks). For errors and unexpected behavior, see [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md). If you're setting up Git for the first time, start with the [quickstart](/docs/sourcecontrol/quickstart.md).
 
 ## Git clients and providers
 
@@ -48,10 +48,16 @@ The [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio
 
 ## Common tasks
 
-Use the focused source control articles for common tasks:
+Use these focused guides for Git tasks and workflow questions:
 
-* [Stage, commit, amend, or undo changes](/docs/sourcecontrol/staging-commits.md)
-* [Create, rename, or delete branches](/docs/sourcecontrol/branches-worktrees.md)
-* [Configure remotes and synchronize changes](/docs/sourcecontrol/repos-remotes.md)
-* [Resolve merge conflicts](/docs/sourcecontrol/merge-conflicts.md)
-* [Inspect commit and file history](/docs/sourcecontrol/history.md)
+| Task or question | Guide |
+|------------------|-------|
+| Choose which changes to commit | [Stage changes](/docs/sourcecontrol/staging-commits.md#staging-changes) |
+| Undo the last commit or reverse a shared commit | [Undo a local commit](/docs/sourcecontrol/staging-commits.md#undo-the-last-commit) or [undo a pushed commit](/docs/sourcecontrol/staging-commits.md#undo-a-pushed-commit) |
+| Remove uncommitted edits | [Discard changes](/docs/sourcecontrol/staging-commits.md#discard-changes) |
+| Understand why a file is both staged and unstaged | [Why a file appears in both lists](/docs/sourcecontrol/staging-commits.md#why-a-file-appears-in-both-lists) |
+| Create, rename, or delete a branch | [Work with branches](/docs/sourcecontrol/branches-worktrees.md#working-with-branches) |
+| Download or upload commits without doing both | [Choose between fetch, pull, push, and sync](/docs/sourcecontrol/repos-remotes.md#push-pull-and-sync) |
+| Finish or stop a merge or rebase | [Complete the operation](/docs/sourcecontrol/merge-conflicts.md#complete-the-merge-operation) or [cancel an operation](/docs/sourcecontrol/merge-conflicts.md#cancel-an-operation) |
+| Understand why an ignored file still appears | [Troubleshoot ignored files](/docs/sourcecontrol/troubleshooting.md#ignored-files-still-appear-in-source-control) |
+| Inspect commits and branches | [View branch and commit history](/docs/sourcecontrol/history.md#view-branch-and-commit-history) |
