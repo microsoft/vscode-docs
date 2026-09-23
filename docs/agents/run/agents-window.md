@@ -238,7 +238,7 @@ For complete instructions about feedback, revisions, checkpoints, and integratin
 
 ### Validate changes
 
-Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. Select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
+Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. On desktop, opening a regular `.html` file in the active session opens it in the integrated browser by default. HTML diffs continue to open in the diff editor so you can review changes. You can also select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
 
 To run a workspace task, select **Tasks** > **Add Task**, and then provide its name, command, run options, and save location. Run configured tasks from the **Tasks** dropdown. To run an ad hoc command in the active session's folder or worktree, select **Open Terminal** in the title bar.
 
