@@ -187,6 +187,15 @@ To start a session from a pull request:
 > [!NOTE]
 > Pull requests from forks are not supported and don't appear in the pull request picker.
 
+### Remove a pull request from a session
+
+When a pull request is no longer relevant to a session, remove its artifact from the session:
+
+* If the session has one pull request, right-click the pull request pill above the chat input, and then select **Remove Pull Request Artifact from Session**.
+* If the session has multiple pull requests, select the pull requests pill to open the dropdown, and then select **Remove Pull Request Artifact from Session** for the pull request you want to remove.
+
+Removing a pull request artifact only disassociates the artifact from the current session. It doesn't close the pull request on GitHub. If the session has a separate association with the same pull request, such as when you start a session from that pull request, that association remains unchanged.
+
 ## Start a quick chat
 
 Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat to ask a question or start a task that doesn't belong to a specific project. Quick chats appear in the **Chats** section at the top of the sessions list, separate from your workspace-scoped sessions.
