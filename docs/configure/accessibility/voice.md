@@ -24,7 +24,9 @@ When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening a
 
 ### Configure Voice Mode
 
-Use the controls in the chat input to mute or unmute your microphone without ending the voice session. You can also configure Voice Mode in the following ways:
+While Voice Mode is connected, use the controls in the chat input to mute or unmute your microphone without ending the voice session. You can also focus the chat input and press `kb(agentsVoice.toggleMute)`, or run **Voice Mode: Toggle Mute Microphone** from the Command Palette.
+
+You can also configure Voice Mode in the following ways:
 
 * Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
 * Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
