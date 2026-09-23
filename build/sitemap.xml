@@ -111,6 +111,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/introvideos</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/setup/mac</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -187,6 +192,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/configure/extensions/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -596,6 +606,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/explore-a-codebase</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/add-a-feature</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/refactor-safely</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/context-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -642,6 +667,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/tools-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2081,6 +2111,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/UpdateModelProject</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/learn</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2257,11 +2292,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/containers/tutorial-django-push-to-registry</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/editing/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

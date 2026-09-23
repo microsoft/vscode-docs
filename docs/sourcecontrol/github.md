@@ -1,7 +1,7 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 DateApproved: 9/16/2026
-MetaDescription: Use GitHub in {% data variables.product.prodname_vscode %} to clone repositories, manage pull requests and issues, or edit remote repositories without cloning.
+MetaDescription: Manage {% data variables.product.prodname_github %} pull requests and issues in {% data variables.product.prodname_vscode %}.
 Keywords:
 - source control
 - scm
@@ -12,10 +12,10 @@ Keywords:
 
 {% data variables.product.prodname_vscode %} provides several ways to work with repositories, pull requests, and issues on [GitHub](https://github.com). Basic GitHub authentication and Git operations are built into {% data variables.product.prodname_vscode_shortname %}. Extensions add pull request, issue, and virtual repository workflows.
 
-This article helps you choose the right GitHub integration and use it without leaving {% data variables.product.prodname_vscode_shortname %}.
+Choose an integration below, or go directly to [creating a pull request](#creating-pull-requests), [reviewing a pull request](#reviewing), or [working on an issue](#working-on-issues).
 
 > [!TIP]
-> If you're new to source control or want to learn more about {% data variables.product.prodname_vscode_shortname %}'s basic Git support, you can start with the [Source Control](/docs/sourcecontrol/overview.md) topic.
+> New to Git in the editor? Complete the [source control quickstart](/docs/sourcecontrol/quickstart.md) before starting a collaboration workflow.
 
 ## Choose a GitHub workflow
 
@@ -23,22 +23,17 @@ Choose an integration based on what you want to do:
 
 | Goal | Capability | Requirement |
 |------|------------|-------------|
-| Clone, fetch, pull, and push a repository | Built-in Git support | Install [Git](https://git-scm.com/download) and sign in to GitHub when prompted. |
-| Create and review pull requests or manage issues | [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension | Install the extension and sign in to GitHub. |
-| Browse and edit a repository without cloning it | [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension | Install the extension and sign in to GitHub. |
+| [Clone, fetch, pull, and push](/docs/sourcecontrol/repos-remotes.md) | Built-in Git support | Install [Git](https://git-scm.com/download) and sign in when prompted. |
+| [Create and review pull requests](#pull-requests) or [manage issues](#issues) | [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension | Install the extension and sign in. |
+| [Browse and edit without cloning](#github-repositories-extension) | [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension | Install the extension and sign in. Terminal, build, and debugging workflows require a different environment. |
 
 The GitHub Pull Requests and Issues and GitHub Repositories extensions are separate. Install only the extension that supports your workflow.
 
 ## Prerequisites
 
-For local GitHub repositories, install [Git version 2.0.0 or later](https://git-scm.com/download) and create a [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
+For a local checkout, install [Git](https://git-scm.com/download) and [configure your commit identity](/docs/sourcecontrol/quickstart.md#prerequisites). To publish changes, create pull requests, or manage issues, you also need a [hosting account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
-When you commit changes, Git uses your configured username and email. Set these values with:
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-```
+Signing in does not grant write permission to every repository. If you can't push to the project, [create a fork](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo), work in your fork, and open a pull request to the original project.
 
 ## Sign in to GitHub for Git operations
 
@@ -83,88 +78,70 @@ Learn more about [cloning repositories and working with remotes](/docs/sourcecon
 > [!NOTE]
 > If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. Learn more about the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension).
 
-## Editor integration
-
-### Hovers
-
-When you have a repository open and a user is @-mentioned (for example, in a code comment), you can hover over that username and see a GitHub-style hover with the user's details.
-
-![Screenshot showing a user hover for a @-mentioned user in a code comment.](images/github/user-hover.png)
-
-There is a similar hover for #-mentioned issue numbers, full GitHub issue URLs, and repository specified issues.
-
-![Screenshot showing a hover for a #-mentioned issue number in a code comment.](images/github/issue-hover.png)
-
-### Suggestions
-
-User suggestions are triggered by typing the "@" character and issue suggestions are triggered by typing the "#" character. Suggestions are available in the editor and in the Source Control commit message input box.
-
-![Screenshot showing GitHub user and issue suggestions in the editor.](images/github/user-issue-suggest.gif)
-
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) setting. The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
-
-You can also configure which file types show these suggestions by using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
-
-```jsonc
-// Languages that the '#' character should not be used to trigger issue completion suggestions.
-"githubIssues.ignoreCompletionTrigger": [
-  "python"
-]
-```
-
 ## Pull requests
 
-From the **Pull Requests** view you can view, manage, and create pull requests.
+Use the GitHub Pull Requests and Issues extension's **Pull Requests** view to create or review a proposed change.
 
 ![Screenshot showing the Pull Request view.](images/github/pull-request-view.png)
 
-The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`setting(githubPullRequests.queries)`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
-
-```json
-"githubPullRequests.queries": [
-    {
-        "label": "Assigned To Me",
-        "query": "is:open assignee:${user}"
-    },
-```
-
 ### Creating pull requests
 
-Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
+1. Open your local repository, [create a branch](/docs/sourcecontrol/branches-worktrees.md#create-new-branches), and [commit your changes](/docs/sourcecontrol/staging-commits.md#commit-your-changes).
 
-![Screenshot showing the Create Pull Request button in the Pull Request view.](images/github/create-pull-request-button.png)
+1. Run **GitHub Pull Requests: Create Pull Request** from the Command Palette (`kb(workbench.action.showCommands)`), or select **Create Pull Request** in the **Pull Requests** view.
 
-A new **Create** view will be displayed where you can select the base repository and base branch you'd like your pull request to target as well as fill in the title and description. If your repository has a pull request template, this will automatically be used for the description.
+1. In the **Create** view, select the base repository and branch that should receive your changes. Enter a title and description. If the repository has a pull request template, the extension fills in that template.
 
-Use the buttons in the action bar at the top to add **Assignees**, **Reviewers**, **Labels** and a **Milestone**.
+    ![Screenshot showing the base repository, branch, title, and description in the Create Pull Request view.](images/github/create-pull-request-view.png)
 
-![Screenshot showing the Create Pull Request view.](images/github/create-pull-request-view.png)
+1. Select **Create**. If your branch isn't published, choose a remote you can push to, such as your fork, when prompted.
 
-The **Create** button menu provides alternative options, such as **Create Draft** and **Auto-Merge**.
+The extension opens the pull request in **Review Mode**. Verify the destination branch and changed files before requesting review.
 
-Once you select **Create**, if you have not already pushed your branch to a GitHub remote, the extension will ask if you'd like to publish the branch and provides a dropdown to select the specific remote.
-
-The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
-
-> [!TIP]
-> Use AI to generate a pull request title and description based on the included commits. Select the sparkle icon <i class="codicon codicon-sparkle"></i> next to the pull request title field. This action uses the fast, lightweight utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. Learn more about [configuring models for utility tasks](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks).
+Use the action bar to add **Assignees**, **Reviewers**, **Labels**, or a **Milestone**. For unfinished work, use **Create Draft** from the **Create** button menu. Other options, such as **Auto-Merge**, depend on repository support and your permissions.
 
 ### Reviewing
 
-Pull requests can be reviewed from the **Pull Requests** view. You can assign reviewers and labels, add comments, approve, close, and merge all from the pull request **Description**.
+1. Select a pull request in the **Pull Requests** view to open its **Description**.
 
-![Screenshot showing a pull request description in the editor.](images/github/pull-request-description-editor.png)
+    ![Screenshot showing a pull request description with review actions.](images/github/pull-request-description-editor.png)
 
-From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch {% data variables.product.prodname_vscode_shortname %} to open the fork and branch of the pull request (visible in the Status Bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+1. To inspect and test the code locally, first commit or [stash your current changes](/docs/sourcecontrol/branches-worktrees.md#manage-stashes), then select **Checkout**.
 
-![Screenshot showing files and commits in the Changes in Pull Request view.](images/github/changes-view.png)
+    The extension checks out the pull request branch and enters **Review Mode**. The **Changes in Pull Request** view lists the changed files and commits.
 
-The diff editors from this view use the local file, so file navigation, IntelliSense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
+    ![Screenshot showing files and commits in the Changes in Pull Request view.](images/github/changes-view.png)
 
-When you are done reviewing the pull request changes you can merge the PR or select **Exit Review Mode** to go back to the previous branch you were working on.
+1. Select a file to inspect its diff and add comments. Use **Open File** to open the working file. Local navigation, IntelliSense, and editing are available in this checked-out workflow.
 
-> [!TIP]
-> You can also [use AI to perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Code Review** button in the GitHub Pull Request view.
+1. Submit your comments or review from the pull request **Description**. Approval and merge actions depend on your permissions and the repository's rules.
+
+1. When finished, select **Exit Review Mode** to return to your previous branch. Preserve any local edits before switching.
+
+### Customize the pull request list
+
+Configure `setting(githubPullRequests.queries)` to choose which pull requests the view shows. Queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+
+For example, add this setting to your [settings JSON file](/docs/configure/settings.md#settings-json-file):
+
+```json
+{
+  "githubPullRequests.queries": [
+    {
+      "label": "Assigned To Me",
+      "query": "is:open assignee:${user}"
+    }
+  ]
+}
+```
+
+### Use AI assistance for pull requests
+
+AI assistance is optional. To generate a pull request title and description, select the sparkle icon <i class="codicon codicon-sparkle"></i> next to the title field, then review the generated text.
+
+This action uses the utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. See [utility model setup and requirements](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks).
+
+You can also [review proposed changes with AI](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before creating the pull request. Review the feature requirements in that guide and select **Code Review** in the GitHub Pull Request view.
 
 ## Issues
 
@@ -210,9 +187,39 @@ You can configure the name of the branch using the **GitHub Issues: Issue Branch
 
 Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`).
 
+## Editor integration
+
+The GitHub Pull Requests and Issues extension also provides user and issue information while you edit.
+
+### Hovers
+
+Hover over an `@`-mentioned username to see the user's details, or over an issue reference to see its details.
+
+![Screenshot showing a hover for a #-mentioned issue number in a code comment.](images/github/issue-hover.png)
+
+### Suggestions
+
+Type `@` for user suggestions or `#` for issue suggestions in the editor or commit message input box.
+
+![Screenshot showing user and issue suggestions in the editor.](images/github/user-issue-suggest.gif)
+
+Use `setting(githubIssues.queries)` to choose which issues appear. Queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+
+To exclude languages from these suggestions, configure `setting(githubIssues.ignoreCompletionTrigger)` for issues or `setting(githubIssues.ignoreUserCompletionTrigger)` for users. Both accept [language identifiers](/docs/languages/identifiers.md). For example:
+
+```json
+{
+  "githubIssues.ignoreCompletionTrigger": [
+    "python"
+  ]
+}
+```
+
 ## GitHub Repositories extension
 
 The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension lets you browse, search, edit, and commit to a remote GitHub repository without cloning it locally. Use this workflow to review source code or make a small change to a file.
+
+This is a virtual workspace, not a local checkout. To run terminal commands, build, or debug the project, [continue in a local clone or another development environment](#continue-working-on).
 
 ![Screenshot showing a remote repository opened with the GitHub Repositories extension.](images/github/github-repositories-extension.png)
 
@@ -290,7 +297,6 @@ In the event that your pending changes are not automatically applied to your tar
 
 ## Next steps
 
-* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Clone, publish, and synchronize repositories
-* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Manage branches for pull request workflows
-* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits and file history
-* [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Learn about AI features in {% data variables.product.prodname_vscode_shortname %}
+* [Resolve merge conflicts](/docs/sourcecontrol/merge-conflicts.md) when branches contain competing changes.
+* [Troubleshoot authentication and push failures](/docs/sourcecontrol/troubleshooting.md) when remote operations fail.
+* [Manage branches and worktrees](/docs/sourcecontrol/branches-worktrees.md) for parallel pull request work.

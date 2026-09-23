@@ -65,10 +65,13 @@ To install an MCP server from the MCP server gallery:
 
 ### Configure the `mcp.json` file
 
-You can manually configure MCP servers by editing the `mcp.json` file. There are two locations for this file:
+You can manually configure MCP servers in the following locations:
 
-* **Workspace**: create or open `.vscode/mcp.json` in your project. Include this file in source control to share MCP server configurations with your team.
+* **Workspace, {% data variables.product.prodname_vscode_shortname %} format**: create or open `.vscode/mcp.json` in your project. This format defines servers in a top-level `servers` object.
+* **Workspace, portable format**: create `.mcp.json` at the root of your project. This format defines servers in a top-level `mcpServers` object and works across compatible tools.
 * **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md) folder. Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
+
+Include workspace configuration in source control to share MCP servers with your team.
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
@@ -243,16 +246,17 @@ Disabled servers and servers in an error state are excluded from the autostart p
 
 ## MCP server trust
 
-When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. {% data variables.product.prodname_vscode_shortname %} shows a dialog to confirm that you trust the server when you start a server for the first time. In the dialog, select the link to the MCP server to review its configuration.
+Workspace MCP servers inherit [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). When you trust a workspace, servers in `.vscode/mcp.json` and workspace-root `.mcp.json` can start without a separate MCP server trust prompt, including after their configuration changes. In restricted mode, workspace MCP configuration is blocked and these servers don't start.
+
+Review workspace MCP configuration before you trust a repository because local MCP servers can run code on your machine.
+
+MCP servers from other sources can use a separate trust decision. For these servers, {% data variables.product.prodname_vscode_shortname %} shows a dialog when a server first starts or its configuration changes. In the dialog, select the link to the MCP server to review its configuration.
 
 ![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
 
 If you don't trust the MCP server, it will not be started, and chat requests will continue without using the tools provided by the server.
 
-You can reset trust for your MCP servers by running the **MCP: Reset Trust** command from the Command Palette.
-
-> [!WARNING]
-> If you start the MCP server directly from the `mcp.json` file, you will not be prompted to trust the server configuration.
+To reset separate MCP server trust decisions, run the **MCP: Reset Trust** command from the Command Palette. This command doesn't change Workspace Trust.
 
 ## Synchronize MCP configuration across devices
 

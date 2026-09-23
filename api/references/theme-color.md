@@ -60,6 +60,40 @@ The theme colors for VS Code window border.
 
 The window border colors are only supported on macOS and Linux (not Windows) and only when the custom title bar is enabled (`"window.titleBarStyle": "custom"`).
 
+## Modern UI colors
+
+These colors customize workbench surfaces and controls when the modern UI is enabled.
+
+- `surface.background`: Background color of framed container surfaces ("cards"), such as the floating workbench panels in the modern layout.
+- `surface.foreground`: Foreground color of framed container surfaces ("cards"), such as the floating workbench panels in the modern layout.
+- `surface.border`: Border color of framed container surfaces ("cards"), such as the floating workbench panels in the modern layout.
+- `editor.border`: Border color of the editor surface in the modern layout.
+- `modernPanel.border`: Border color of the panel surface when the modern UI is enabled.
+- `modernSash.gripForeground`: Color of the grip handles marking the resizable boundaries between workbench parts when the modern UI is enabled.
+- `modernTab.activeBackground`: Background color of active tabs when the modern tab style is enabled.
+- `modernTab.activeForeground`: Foreground color of active tabs when the modern tab style is enabled.
+- `modernTab.hoverBackground`: Background color of tabs when hovering and the modern tab style is enabled.
+- `modernTab.hoverForeground`: Foreground color of tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.activeBackground`: Background color of active editor tabs when the modern tab style is enabled.
+- `modernEditorTab.activeActionBackground`: Opaque background color of tab actions on active editor tabs when the modern tab style is enabled.
+- `modernEditorTab.activeForeground`: Foreground color of active editor tabs when the modern tab style is enabled.
+- `modernEditorTab.inactiveBackground`: Background color of inactive editor tabs when the modern tab style is enabled.
+- `modernEditorTab.hoverBackground`: Background color of editor tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.hoverActionBackground`: Opaque background color of tab actions on editor tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.hoverForeground`: Foreground color of editor tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.activeHoverBackground`: Background color of active editor tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.activeHoverActionBackground`: Opaque background color of tab actions on active editor tabs when hovering and the modern tab style is enabled.
+- `modernEditorTab.selectedActionBackground`: Opaque background color of tab actions on selected editor tabs when the modern tab style is enabled.
+- `modernActivityBar.background`: Background color of the Activity Bar in the default side position when the modern UI is enabled.
+- `modernActivityBar.inactiveBackground`: Background color of the Activity Bar in an inactive window when it is in the default side position and the modern UI is enabled.
+- `modernActivityBarItem.activeBackground`: Background color of active Activity Bar items in the default side position when the modern UI is enabled.
+- `modernActivityBarItem.activeForeground`: Foreground color of active Activity Bar items in the default side position when the modern UI is enabled.
+- `modernActivityBarItem.hoverBackground`: Background color of Activity Bar items in the default side position when hovering and the modern UI is enabled.
+- `modernActivityBarItem.hoverForeground`: Foreground color of Activity Bar items in the default side position when hovering and the modern UI is enabled.
+- `modernActivityBar.border`: Border color of the Activity Bar in the default side position when the modern UI is enabled.
+- `modernUI.shellBackground`: Background color of the shell visible around floating workbench surfaces when the modern UI is enabled.
+- `modernUI.inactiveShellBackground`: Background color of the shell visible around floating workbench surfaces when the window is inactive and the modern UI is enabled.
+
 ## Text colors
 
 Colors inside a text document, such as the welcome page.
@@ -674,6 +708,41 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.checkpointSeparator`: Chat checkpoint separator color.
 - `chat.thinkingShimmer`: Shimmer highlight for thinking/working labels.
 - `chatManagement.sashBorder`: The color of the Chat Management editor splitview sash border.
+
+## Agent sessions colors
+
+- `agents.background`: Background color of the agent sessions window shell and gradient base.
+- `agentsPanel.background`: Background color of the card panels (chat, files, terminal) in the agent sessions window.
+- `agentsPanel.foreground`: Foreground color of the card panels (chat, files, terminal) in the agent sessions window.
+- `agentsPanel.border`: Border color of the card panels (chat, files, terminal) in the agent sessions window.
+- `agentsCard.border`: Border color of the floating content card (sessions grid and custom view grid) in the agent sessions window.
+- `agentsBottomPanel.border`: Border color of the bottom panel in the agent sessions window.
+- `agentsGradient.tintColor`: Tint color used in the background gradient of the agent sessions window shell.
+- `agentFeedbackEditorWidget.background`: Background color of the agent feedback widget shown in the editor.
+- `agentFeedbackEditorWidget.border`: Border color of the agent feedback widget shown in the editor.
+- `agentFeedbackInputWidget.border`: Border color of the agent feedback input widget shown in the editor.
+- `agentsUpdateButton.downloadingBackground`: Background color of the update button to show download progress in the agent sessions window.
+- `agentsUpdateButton.downloadedBackground`: Background color of the update button when download is complete in the agent sessions window.
+- `agentsChatInput.background`: Background color of the chat input field in the agent sessions window.
+- `agentsChatInput.foreground`: Foreground color of the chat input field in the agent sessions window.
+- `agentsChatInput.border`: Border color of the chat input field in the agent sessions window.
+- `agentsChatInput.focusBorder`: Border color of the chat input field when focused in the agent sessions window.
+- `agentsChatInput.placeholderForeground`: Placeholder text color in the chat input field in the agent sessions window.
+- `agentsNewSessionButton.background`: Background color of the New Session button in the agent sessions sidebar.
+- `agentsNewSessionButton.foreground`: Foreground color of the New Session button in the agent sessions sidebar.
+- `agentsNewSessionButton.border`: Border color of the New Session button in the agent sessions sidebar.
+- `agentsNewSessionButton.hoverBackground`: Background color of the New Session button when hovered in the agent sessions sidebar.
+- `agentsBadge.background`: Background color of badges in the agent sessions window.
+- `agentsBadge.foreground`: Foreground color of badges in the agent sessions window.
+- `agentsUnreadBadge.background`: Background color of the unread sessions count badge on the sidebar toggle.
+- `agentsUnreadBadge.foreground`: Foreground color of the unread sessions count badge on the sidebar toggle.
+- `activeSessionView.background`: Background color of an active session view in the agent sessions window.
+- `inactiveSessionView.background`: Background color of an inactive session view in the agent sessions window.
+- `activeSessionView.foreground`: Foreground color of an active session view in the agent sessions window.
+- `inactiveSessionView.foreground`: Foreground color of an inactive session view in the agent sessions window.
+- `agentsMobileDiff.addedForeground`: Foreground color used for added files and lines in the mobile changes list and diff overlay in the agent sessions window.
+- `agentsMobileDiff.modifiedForeground`: Foreground color used for modified files in the mobile changes list in the agent sessions window.
+- `agentsMobileDiff.deletedForeground`: Foreground color used for deleted files and removed lines in the mobile changes list and diff overlay in the agent sessions window.
 
 ## Inline Chat colors
 

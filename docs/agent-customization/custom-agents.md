@@ -16,62 +16,108 @@ Keywords:
 ---
 # Custom agents in {% data variables.product.prodname_vscode_shortname %}
 
-Custom agents enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create agents for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
+Custom agents combine instructions, tools, and an optional language model into a reusable configuration for a specific role, such as planning or code review. Switch to a custom agent instead of repeating the same instructions and selecting tools for every conversation.
 
-You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
-
-You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
-
-This article describes how to create and manage custom agents in {% data variables.product.prodname_vscode_shortname %}.
+This article shows you how to create, use, and manage custom agents in {% data variables.product.prodname_vscode_shortname %}, configure their files, and connect them with handoffs.
 
 > [!TIP]
 > **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare custom agents with prompt files, agent skills, and the other options.
 
 ## What are custom agents?
 
-The [built-in agent roles](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat in {% data variables.product.prodname_vscode_shortname %}. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agent roles](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat. Custom agents provide your own role-specific configurations, defined in `.agent.md` Markdown files.
 
-Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
+Store an agent in your workspace to share it with project contributors, or at the user level to reuse it across workspaces. The [supported file locations](#custom-agent-file-locations) depend on the harness and file format.
 
-Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
-
-You can reuse your custom agents with [Copilot and cloud harnesses](/docs/agents/run/agent-harnesses.md), enabling you to run autonomous tasks with the same specialized configurations.
+You can reuse agent definitions with [different agent harnesses](/docs/agents/run/agent-harnesses.md). The available tools and management controls depend on the selected harness.
 
 ## Why use custom agents?
 
-Different tasks require different capabilities. A planning agent might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation agent would need full editing capabilities. Custom agents let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.
+Use a custom agent when a recurring task needs its own instructions and tool selection. For example:
 
-Custom agents also let you provide specialized instructions that define how the AI should operate. For instance, a planning agent could instruct the AI to collect project context and generate a detailed implementation plan, while a code review agent might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that agent.
+* Give a planning agent read-only tools to research a change before implementation.
+* Give a code review agent your team's review criteria.
+* Give an implementation agent editing tools and instructions to follow existing project patterns.
 
 > [!NOTE]
 > Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent).
 
-## Handoffs
+## Create a custom agent
 
-Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to create an agent in your workspace or at the user level.
 
-Handoffs are useful for orchestrating multi-step workflows that give developers control for reviewing and approving each step before moving to the next one. For example:
+Use the **Session Target** control to select the [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target) you intend to use, then open the editor from either surface:
 
-* **Planning → Implementation**: Generate a plan in planning agent, then hand off to implementation agent to start coding.
-* **Implementation → Review**: Complete implementation, then switch to a code review agent to check for quality and security issues.
-* **Write Failing Tests → Write Passing Tests**: Generate failing tests that are easier to review than big implementations, then hand off to make those tests pass by implementing the required code changes.
+* **{% data variables.copilot.agents_window %}**: Select **Agents** in the **Customizations** panel in the left sidebar.
+* **{% data variables.copilot.chat_view %}**: Select **Configure Chat** (gear icon), and then select **Agents**.
 
-To define handoffs in your agent file, add them to the frontmatter. Each handoff specifies the target agent, the button label, and an optional prompt to send:
+The editor shows customizations for the selected harness. You can [generate a custom agent with AI](#generate-a-custom-agent-with-ai), or follow these steps to create the file manually:
 
-```markdown
----
-description: Generate an implementation plan
-tools: ['search', 'web']
-handoffs:
-  - label: Start Implementation
-    agent: implementation
-    prompt: Now implement the plan outlined above.
-    send: false
-    model: GPT-5.2 (copilot)
----
+1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
+
+    ![Screenshot showing the Agent Customizations editor and the dropdown to create a new custom agent.](images/customization/create-custom-agent.png)
+
+    Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+
+1. Provide the details in the newly created `.agent.md` file, and then save it.
+
+    * Fill in the YAML frontmatter to configure the agent's name, description, tools, and other options.
+    * Add instructions for the agent in the body of the file. Use the [examples](#examples) as a starting point.
+
+You can modify existing custom agents by opening them in the Agent Customizations editor.
+
+> [!TIP]
+> In the {% data variables.copilot.chat_view %}, with **Copilot** selected, type `/agents` in the chat input to open the **Agents** section of the Agent Customizations editor. With **Local** selected, `/agents` opens the agent picker, where you can select **Configure Custom Agents** to open the editor.
+
+### Generate a custom agent with AI
+
+Start from the **Overview** page of the Agent Customizations editor to generate a custom agent from a description:
+
+1. Open the Agent Customizations editor and select **Overview**.
+1. Enter a prompt that describes the agent's role and whether it should be available in the workspace or across your workspaces.
+1. Answer any clarifying questions about the role or workflow.
+1. Review the generated `.agent.md` file, including its tools, instructions, and frontmatter. Correct any inaccurate information and save the file.
+
+For example, enter the following prompt:
+
+```prompt
+Create a workspace custom agent for code reviews. Review changes for correctness, maintainability, and consistency with this repository's conventions. Report findings without editing files.
 ```
 
-When users see the handoff button and select it, they switch to the target agent with the prompt pre-filled. If `send: true`, the prompt automatically submits to start the next workflow step.
+You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
+
+With **Local** selected, you can also use these shortcuts:
+
+* Type `/create-agent` in Agent mode chat and describe the role you want.
+* Select **Generate Agent** from the dropdown in the **Agents** section of the Agent Customizations editor.
+
+These shortcuts aren't available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions, such as **Copilot**. Use the **Overview** workflow instead.
+
+## Use a custom agent
+
+1. In the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, select the intended harness from the **Session Target** control.
+1. Open the **Agent** dropdown and select your custom agent.
+1. Enter a prompt for its role. For example, ask a planning agent to outline the changes needed for a new feature.
+1. Review the response and any tool calls to check that the agent follows the intended instructions and uses appropriate tools.
+
+If the agent doesn't appear, check that its file is in a [supported location](#custom-agent-file-locations) for the selected harness and that its [visibility configuration](#customize-the-agents-dropdown-list) permits user invocation.
+
+## Customize the agents dropdown list
+
+To keep a custom agent available as a [subagent](/docs/agents/run/subagents.md) without listing it in the **Agent** dropdown, set `user-invocable: false` in its YAML frontmatter:
+
+```yaml
+user-invocable: false
+```
+
+This property controls picker visibility in both **Local** and **Copilot**. To show the agent again, set it to `true` or remove the property. Subagent invocation is controlled separately by `disable-model-invocation`.
+
+Editing this property changes the agent definition, not a personal visibility preference. If you share the file in a repository, the change applies to everyone who uses that definition. It doesn't delete the agent file.
+
+> [!NOTE]
+> The Agent Customizations editor doesn't provide an eye-icon show or hide control for custom agents in either **Local** or **Copilot**. For agents contributed by an extension, manage the contributing extension instead. See [How do I remove a custom agent?](#how-do-i-remove-a-custom-agent).
 
 ## Custom agent file locations
 
@@ -81,7 +127,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
 | Workspace (Claude format) | `.claude/agents` folder |
-| User profile | `~/.copilot/agents` or `~/.claude/agents` |
+| User | `~/.copilot/agents` or `~/.claude/agents` |
 
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
@@ -96,7 +142,7 @@ To create a user-level custom agent, use the Agent Customizations editor or the 
 
 ## Custom agent file structure
 
-Custom agent files are Markdown files and use the `.agent.md` extension and have the following structure.
+Custom agent files use the `.agent.md` extension. An optional YAML header configures the agent, and the Markdown body provides its instructions.
 
 > [!NOTE]
 > {% data variables.product.prodname_vscode_shortname %} detects any `.md` files in the `.github/agents` folder of your workspace as custom agents.
@@ -113,9 +159,9 @@ The header is formatted as YAML frontmatter with the following fields:
 | `tools`           | A list of tool or [tool set](/docs/agent-customization/tool-sets.md) names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools with agents](/docs/agents/run/tools.md). |
 | `agents`          | A list of agent names that are available as [subagents](/docs/agents/run/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/agents/run/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
-| `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/run/subagents.md) or programmatically. |
+| `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/run/subagents.md) or programmatically. See [Customize the agents dropdown list](#customize-the-agents-dropdown-list). |
 | `disable-model-invocation` | Optional boolean flag to prevent the agent from being invoked as a subagent by other agents (default is `false`). |
-| `infer`           | **Deprecated.** Use `user-invocable` and `disable-model-invocation` instead. Previously, `infer: true` (the default) made the agent both visible in the picker and available as a subagent. `infer: false` hid it from both. The new fields give you independent control: use `user-invocable: false` to hide from the picker while still allowing subagent invocation, or `disable-model-invocation: true` to prevent subagent invocation while keeping it in the picker. |
+| `infer`           | **Deprecated.** Use `user-invocable` and `disable-model-invocation` instead to control picker visibility and subagent invocation independently. |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
 | `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
@@ -131,7 +177,7 @@ The header is formatted as YAML frontmatter with the following fields:
 
 ### Body
 
-The custom agent file body contains the custom agent implementation, formatted as Markdown. This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this custom agent.
+The Markdown body contains the instructions the agent follows, such as its task, guidelines, and expected output.
 
 You can reference other files by using Markdown links or the `#file:` syntax, for example to reuse instructions files. Relative file paths resolve from the custom agent file. To reference your environment user home folder, use `~`, or start a path with `~/`, such as `#file:~/copilot/security-guidelines.md`. Use Unix-style `/` path separators to keep custom agent files portable across operating systems.
 
@@ -239,7 +285,7 @@ Learn more about hooks in [Agent hooks](/docs/agent-customization/hooks.md).
 
 ### Claude agent format
 
-Agent files in the `.claude/agents` folder use plain `.md` files and support Claude-specific frontmatter properties:
+Agent files in the `.claude/agents` folder use plain `.md` files, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). They support Claude-specific frontmatter properties:
 
 | Field | Description |
 |-------|-------------|
@@ -250,52 +296,36 @@ Agent files in the `.claude/agents` folder use plain `.md` files and support Cla
 
 {% data variables.product.prodname_vscode_shortname %} maps Claude-specific tool names to the corresponding {% data variables.product.prodname_vscode_shortname %} tools. Both the {% data variables.product.prodname_vscode_shortname %} `.agent.md` format (with YAML arrays for tools) and the Claude format (with comma-separated strings) are supported.
 
-> [!NOTE]
-> {% data variables.product.prodname_vscode_shortname %} also detects `.md` files in the `.claude/agents` folder, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). This enables you to use the same agent definitions across {% data variables.product.prodname_vscode_shortname %} and Claude Code.
+## Handoffs
 
-## Create a custom agent
+Handoffs connect agents into a workflow with suggested next steps. After a chat response completes, handoff buttons let you switch to another agent with the conversation context and a pre-filled prompt.
 
-You can create a custom agent file in your workspace or user profile.
+Use handoffs to review one stage of a task before starting the next. For example:
 
-> [!TIP]
-> Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
+* **Planning to implementation**: Review a plan, then hand off to an implementation agent to start coding.
+* **Implementation to review**: Complete implementation, then switch to a code review agent.
+* **Failing tests to passing tests**: Review generated tests, then hand off to an agent that implements the changes needed to pass them.
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
+To define handoffs, add them to the agent's frontmatter. Each handoff specifies the target agent, the button label, and an optional prompt:
 
-1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
+```markdown
+---
+description: Generate an implementation plan
+tools: ['search', 'web']
+handoffs:
+  - label: Start Implementation
+    agent: implementation
+    prompt: Now implement the plan outlined above.
+    send: false
+    model: GPT-5.2 (copilot)
+---
+```
 
-    ![Screenshot of the Agent Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](images/customization/create-custom-agent.png)
-
-    Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
-
-1. Provide the details for the custom agent in the newly created `.agent.md` file.
-
-    * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
-    * Add instructions for the custom agent in the body of the file.
-
-You can modify existing custom agents by opening them in the Agent Customizations editor.
-
-### Generate a custom agent with AI
-
-You can use AI to generate a custom agent based on a description of the role. Type `/create-agent` in Agent mode chat and describe the persona you want (for example, "a security review agent"). The agent asks clarifying questions and generates an `.agent.md` file with appropriate tools, instructions, and frontmatter.
-
-You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
-
-You can also generate a custom agent from the Agent Customizations editor by selecting **Generate Agent** from the dropdown.
-
-## Customize the agents dropdown list
-
-If you have multiple custom agents, you can customize which ones appear in the agents dropdown. To show or hide specific custom agents:
-
-1. Select **Configure Custom Agents** from the agents dropdown.
-
-1. Hover over a custom agent in the list, and then select the eye icon to show or hide it from the agents dropdown.
+When you select a handoff button, you switch to the target agent with the prompt pre-filled. If `send: true`, the prompt submits automatically.
 
 ## Tool list priority
 
-When you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
+With **Local**, when you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. Agent Host sessions don't load prompt files. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
 
 ## Share custom agents across teams
 
@@ -317,16 +347,18 @@ If you have existing `.chatmode.md` files, rename them to `.agent.md` and place 
 
 ### How do I remove a custom agent?
 
-To completely remove a custom agent from {% data variables.product.prodname_vscode_shortname %}:
+To remove a custom agent you maintain, use either of these methods:
 
-* Delete the corresponding `.agent.md` file from your workspace or user profile.
-* Select **Configure Custom Agents** from the agents dropdown, hover over the custom agent in the list, and select the trash icon.
+* Delete its file from the workspace or [user-level location](#custom-agent-file-locations).
+* Select **Configure Custom Agents** from the agents dropdown to open the Agent Customizations editor, hover over the custom agent, and select the trash icon.
 
-To remove a custom agent that was contributed by an extension, you need to uninstall the extension that provides it. If you don't want to uninstall the extension, you can hide the custom agent from the agents dropdown instead. Follow the steps in [Customize the agents dropdown list](#customize-the-agents-dropdown-list).
+Deleting a shared workspace agent also removes it for others when they receive the repository change. To keep the definition but remove it from the picker, see [Customize the agents dropdown list](#customize-the-agents-dropdown-list).
+
+You can't delete extension-provided agents from the Agent Customizations editor. Disable or uninstall the contributing extension to remove its agents. This also affects the extension's other features.
 
 ### How do I know where a custom agent comes from?
 
-Custom agents can come from different sources: built-in agents, user-defined agents in your profile, workspace-defined agents in your current workspace, organization-defined agents, or extension-contributed agents.
+The agents dropdown includes built-in roles and custom agents from user-level files, your workspace, organizations, extensions, and plugins.
 
 To identify the source of a custom agent:
 
@@ -344,5 +376,4 @@ Custom agents can restrict which tools are available, which gives you control ov
 
 * [Planning with agents](/docs/agents/run/planning.md)
 * [Customize AI with custom instructions](/docs/agent-customization/custom-instructions.md)
-* [Create reusable prompt files](/docs/agent-customization/prompt-files.md)
 * [Use tools with agents](/docs/agents/run/tools.md)
