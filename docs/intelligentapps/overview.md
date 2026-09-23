@@ -27,17 +27,17 @@ Foundry Toolkit offers seamless integration with popular AI models from provider
 
 ## Who is Foundry Toolkit for?
 
-Foundry Toolkit is for anyone building AI-powered apps in VS Code. Use it to discover and evaluate models, run models locally, build and test agents, connect tools and knowledge, and deploy AI resources to Microsoft Foundry.
+Foundry Toolkit is for anyone building AI-powered apps in {% data variables.product.prodname_vscode_shortname %}. Use it to discover and evaluate models, run models locally, build and test agents, connect tools and knowledge, and deploy AI resources to Microsoft Foundry.
 
 ## Install and setup
 
 ### Quick installation
 
-Install the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/) before installing or first running Foundry Toolkit for Visual Studio Code.
+Install the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/) before installing or first running Foundry Toolkit for {% data variables.product.prodname_vscode %}.
 
 The fastest way to get started is by installing the extension through the Visual Studio Marketplace:
 
-> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install Foundry Toolkit for VS Code</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}</a>
 
 After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
 
@@ -69,7 +69,7 @@ You can verify prerequisite installation status with the `Foundry Toolkit: Valid
 
 Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed on the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The extension has three main sections: My Resources, Developer Tools, and Help and Feedback.
 
-If you plan to use Microsoft Foundry cloud resources, sign in when prompted and select a Foundry project from **My Resources**. To set up a Microsoft Foundry project in Visual Studio Code, see [Set up a Microsoft Foundry project in Visual Studio Code](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/set-up-foundry-project-visual-studio-code).
+If you plan to use Microsoft Foundry cloud resources, sign in when prompted and select a Foundry project from **My Resources**. To set up a Microsoft Foundry project in {% data variables.product.prodname_vscode_shortname %}, see [Set up a Microsoft Foundry project in {% data variables.product.prodname_vscode_shortname %}](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/set-up-foundry-project-visual-studio-code).
 
 ![Screenshot showing the Foundry Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 
