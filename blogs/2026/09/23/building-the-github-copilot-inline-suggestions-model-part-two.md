@@ -2,7 +2,7 @@
 Order: 139
 TOCTitle: "New Inline Suggestions Model (part 2)"
 PageTitle: "Building the new GitHub Copilot Inline Suggestions Model: Part Two"
-MetaDescription: Explore how GitHub Copilot unified completion, next edit, and long-distance suggestions into one model for a faster, more cohesive coding experience.
+MetaDescription: See how GitHub Copilot added completions to its unified inline suggestions model, refined ghost text and editor behavior, and improved user satisfaction.
 MetaSocialImage: building_github_copilot_inline_suggestions.png
 Date: 2026-09-23
 Author: Julia Gong, Shengjie Ma, Ben Liggett, Ulugbek Abdullaev
@@ -33,7 +33,7 @@ Case in point, in our final 3-in-1 model candidate, we found that while the prop
 
 To train the 3-in-1 model, we applied what we learned while developing the 2-in-1 model. As the goal was to add completion behavior to the 2-in-1 model, the distribution of the training data needed to change. We gathered ghost text completions data through a variety of techniques, including **distilling ghost text from the original completions model** and filtering them for quality using an LLM judge. We leveraged the original training recipes from the 2-in-1 model while adding this new ghost text data.
 
-We also took care when **rebalancing the distribution of the multi-edit data** inherited from the 2-in-1 model recipe, since models that showed too little ghost text or were too eager to jump away from the user’s cursor had been shown in previous experiments to result in more disruptions to the user flow and thus higher dismissal rates. This naturally gave rise to a **dedicated subset of multi-edit data** where the **first patch was a ghost text completion at the user’s cursor**. During RL, as mentioned earlier in [part one](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_patch-ordering), we also kept the grader design that encouraged the model's edit sequences to begin with the most immediate continuation of the developer's work, then move outward to related follow-up changes, which made edits least intrusive and kept more logical flow and continuity.
+We also had to carefully **rebalance the distribution of the multi-edit data** inherited from the 2-in-1 model recipe. Models that showed too little ghost text or were too eager to jump away from the user's cursor often resulted in more disruptions to the user flow and thus higher dismissal rates. This naturally gave rise to a **dedicated subset of multi-edit data** where the **first patch was a ghost text completion at the user’s cursor**. During RL, as mentioned earlier in [part one](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_patch-ordering), we also kept the grader design that encouraged the model's edit sequences to begin with the most immediate continuation of the developer's work, then move outward to related follow-up changes, which made edits least intrusive and kept more logical flow and continuity.
 
 Early model candidates produced ghost text more often and more suggestions overall as a result. We measured these results offline with three [benchmarks](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_offline-benchmarks) discussed in part one: STests, Output View Kind, and [Pseudo-Online Evaluation](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_the-pseudo-online-evaluation-benchmark). We also noticed that the HumanEval benchmark results improved because of having stronger completions capabilities.
 
@@ -131,7 +131,7 @@ We are excited for you to try this unified system that treats inline editing as 
 
 ## What’s next?
 
-We hope you enjoyed this two-part deep dive into training the inline suggestions models (and in case you missed it, you can find part one here: [Building the new GitHub Copilot Inline Suggestions Model: Part One](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one)). Please also stay tuned for a more detailed technical report!
+We hope you enjoyed this two-part deep dive into training the new unified inline suggestions models (and in case you missed it, you can find part one here: [Building the new GitHub Copilot Inline Suggestions Model: Part One](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one)). Please also stay tuned for a more detailed technical report!
 
 We are also working on expanding this model’s capabilities to make the code editing experience even more seamless and intuitive. This includes personalized model eagerness, which builds on our work in model quality by tailoring how proactively the model suggests edits to user preferences.
 
