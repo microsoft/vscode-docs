@@ -1,7 +1,7 @@
 ---
 Order: 138
-TOCTitle: "Inline Suggestions Model: Part One"
-PageTitle: "Building the GitHub Copilot Inline Suggestions Model: Part One"
+TOCTitle: "New Inline Suggestions Model: Part One"
+PageTitle: "Building the new GitHub Copilot Inline Suggestions Model: Part One"
 MetaDescription: Explore how GitHub Copilot unified completion, next edit, and long-distance suggestions into one model for a faster, more cohesive coding experience.
 MetaSocialImage: building_github_copilot_inline_suggestions.png
 Date: 2026-09-16
@@ -15,7 +15,7 @@ September 16, 2026 by [Julia Gong](https://linkedin.com/in/juliagong), [Ben Ligg
 
 _Completion-style ghost text, next edit suggestions near the cursor, and edits farther away were previously powered by separate models. We built one model for all three, and learned that the best results come from training, evaluation, and editor design evolving together._
 
-At GitHub Copilot, our mission is to support all development workflows, from AI-assisted coding using inline suggestions to agent-first software engineering in the VS Code Agents window. Inline suggestions are used and loved by millions of developers, and we continue to push the quality bar on it and all GitHub Copilot experiences.
+At GitHub Copilot, our mission is to support all development workflows, from AI-assisted coding using inline suggestions to agent-first software engineering in the VS Code Agents window. Inline suggestions are used and loved by millions of developers worldwide, with over **61 billion successful model requests in the last 90 days**, and we continue to push the quality bar on it and all GitHub Copilot experiences.
 
 Writing code is rarely linear. The next useful change might be a few characters at the cursor, a nearby rewrite, or a related edit elsewhere in the codebase. Inline suggestions accommodate these different workflows through completion-style ghost text, nearby next edit suggestions, and long-distance edits.
 
