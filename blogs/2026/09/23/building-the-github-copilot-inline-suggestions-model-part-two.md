@@ -75,7 +75,7 @@ We evaluated five client-side optimizations as a joint configuration that result
    +dolphin
    ```
 
-   If we used the raw patch, we would show a side-by-side “diff” view kind to the user, where cuttlefish is replaced by axolotol, blobfish, cuttlefish, and dolphin. However, if parsed, this could be optimized so that the user first sees this insertion ghost text:
+   If we used the raw patch, we would show a side-by-side "diff" view kind to the user, where cuttlefish is replaced by axolotol, blobfish, cuttlefish, and dolphin. However, if parsed, this could be optimized so that the user first sees this insertion ghost text:
 
    ```diff
    aquarium.py:2
