@@ -194,9 +194,11 @@ Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictati
 | `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
 | `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
 
-To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. Developers can continue using dictation, but the final transcript does not receive language-model cleanup.
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. Developers can continue using dictation on supported desktop platforms. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, this policy makes dictation unavailable.
 
-These policies enable organizations to meet data-handling requirements without removing speech-to-text workflows. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
+To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. The final transcript does not receive language-model cleanup.
+
+These policies help organizations meet data-handling requirements. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
 ## Enable or disable hooks
 

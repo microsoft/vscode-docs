@@ -38,9 +38,9 @@ Open the context menu for the **Voice Mode** button to access its settings, inst
 
 `feature(built-in-dictation)`
 
-Dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service.
+On desktop, dictation uses an on-device speech recognition model by default, so you can dictate without sending audio to an online service. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, dictation streams audio to the Microsoft AI voice service for cloud transcription. Web dictation requires a network connection and GitHub sign-in.
 
-Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use, {% data variables.product.prodname_vscode_shortname %} downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
+Built-in dictation is available when AI features are enabled and is turned on by default with the `setting(dictation.enabled)` setting. On first use on a supported desktop platform, {% data variables.product.prodname_vscode_shortname %} downloads the default `nemotron-3.5-asr-streaming-0.6b` speech recognition model. After the download completes, speech recognition works locally and offline.
 
 The on-device model is available on these desktop platforms:
 
@@ -87,7 +87,7 @@ Use these settings to configure built-in dictation:
 | Setting | Description | Default |
 |---------|-------------|---------|
 | `setting(dictation.enabled)` | Controls whether built-in dictation is available. | `true` |
-| `setting(dictation.model)` | Selects the speech recognition model. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.model)` | Selects the speech recognition model. | Desktop: `"nemotron-3.5-asr-streaming-0.6b"`<br>Web: `"mai"` |
 | `setting(dictation.showTranscript)` | Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` | Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
 | `setting(agents.voice.language)` | Provides a language hint for dictation. Use `auto` to use the system language. | `"auto"` |
@@ -110,22 +110,23 @@ If network restrictions prevent {% data variables.product.prodname_vscode_shortn
 
 ## Understand dictation privacy
 
-The default speech recognition model processes microphone audio on your device. After the initial model download, speech recognition does not require an internet connection.
+On desktop, the default speech recognition model processes microphone audio on your device. After the initial model download, speech recognition does not require an internet connection.
 
-When `setting(dictation.experimental.llmCleanup)` is enabled, {% data variables.product.prodname_vscode_shortname %} sends the transcript text, but not the audio, to a Copilot language model for cleanup. Turn off this setting to keep transcript processing local.
+In {% data variables.product.prodname_vscode_shortname %} for the Web, dictation streams microphone audio to the Microsoft AI voice service for cloud transcription. The on-device model is not available in the web client.
+
+When `setting(dictation.experimental.llmCleanup)` is enabled, {% data variables.product.prodname_vscode_shortname %} separately sends the transcript text to a Copilot language model for cleanup. Turn off this setting to prevent the transcript text from being sent for cleanup. This setting does not control the audio that web dictation sends for cloud transcription.
 
 Organizations can enforce these privacy choices with enterprise policies:
 
-* `DictationModel` controls whether dictation uses the on-device model or streams audio to the cloud transcription service.
+* `DictationModel` controls whether dictation uses the on-device model or streams audio to the cloud transcription service. On the web, a policy that requires the on-device model makes dictation unavailable.
 * `DictationLLMCleanup` controls whether the final transcript is sent to a Copilot language model for cleanup.
 
-To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md#control-dictation-data).
+To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. This configuration makes dictation unavailable in {% data variables.product.prodname_vscode_shortname %} for the Web. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md#control-dictation-data).
 
 ## {% data variables.product.prodname_vscode_shortname %} Speech extension
 
-Built-in dictation is not available on these platforms:
+Built-in dictation is not available on these desktop platforms:
 
-* {% data variables.product.prodname_vscode_shortname %} for the Web.
 * Intel-based Mac computers.
 * 32-bit and Arm32 systems.
 * Linux distributions that use musl, such as Alpine Linux.
