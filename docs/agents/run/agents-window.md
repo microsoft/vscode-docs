@@ -246,6 +246,32 @@ To run a workspace task, select **Tasks** > **Add Task**, and then provide its n
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
 
+### Create a pull request
+
+For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+
+1. Open the **Changes** view, and then select **Create PR**.
+
+    The form opens while {% data variables.product.prodname_vscode_shortname %} generates a title and description. You can edit these fields without waiting for generation to finish.
+
+1. Review the repository, source branch, base branch, title, and description.
+
+1. To keep the pull request in draft until it is ready for review, select **Create as Draft**.
+
+1. Under **After creation**, choose one of these mutually exclusive options:
+
+    * **Merge Manually**: you decide when to merge the pull request.
+    * **Auto-Merge**: GitHub merges the pull request when required checks and approvals pass. Choose **Squash**, **Merge Commit**, or **Rebase** as the merge method. GitHub auto-merge doesn't fix failed checks or address review feedback, and isn't available for draft pull requests.
+    * **Agent Merge**: Agent Merge monitors the pull request and can ask the agent to address reviews, fix CI failures, or resolve conflicts and behind branches. You can also choose whether Agent Merge leaves the pull request open, merges it if the agent makes no changes, or merges it when it is ready.
+
+1. Select **Create PR**.
+
+    Any uncommitted changes are committed and the branch is pushed before the pull request is created.
+
+The form remembers your draft, merge, Agent Merge, and submission choices for future pull requests. It doesn't remember titles or descriptions.
+
+To have the agent create the pull request instead, open the **Pull Request Actions** menu and select **Send Create PR Message**. This action sends the title, description, draft status, and manual or GitHub auto-merge choice to the session chat instead of creating the pull request programmatically. Agent Merge options aren't included in the message.
+
 ### Finish a pull request with Agent Merge
 
 `feature(agent-merge)`
@@ -261,7 +287,7 @@ First, enable `setting(chat.agentMerge.enabled)`.
 
 To enable Agent Merge for an existing pull request:
 
-1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+1. Open a session that is associated with a pull request. To create one, use the [Create PR form](#create-a-pull-request) or follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
 1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
 
@@ -270,14 +296,6 @@ To enable Agent Merge for an existing pull request:
     You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
 
 <!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
-
-To create a draft pull request and enable Agent Merge in one step:
-
-1. Open the **Changes** view for a session that doesn't have a pull request.
-
-1. Open the pull request action menu and select **Create Draft PR & Agent Merge**.
-
-1. Configure which blockers Agent Merge should address. Agent Merge creates the draft pull request and starts monitoring it, but doesn't merge it while it remains a draft.
 
 While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
 
