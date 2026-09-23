@@ -267,7 +267,7 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
         * Choose whether Agent Merge leaves the pull request open, merges it if the agent makes no changes, or merges it when it is ready.
 
     > [!NOTE]
-    > GitHub auto-merge does not fix failed checks or address review feedback. Clear **Create as Draft** before you select **Auto-Merge**.
+    > If you select **Auto-Merge**, make sure **Create as Draft** is cleared because GitHub auto-merge cannot merge draft pull requests. GitHub auto-merge does not fix failed checks or address review feedback.
 
 1. Select **Create PR**.
 
