@@ -110,7 +110,7 @@ The tool bar in the playground provides quick access to various actions and feat
 - **History**: View, rename, delete, and switch to a chat history.
 - **Automatic Naming**: Names of chat sessions are automatically generated based on the user prompt.
 - **Compare**: Compare responses from different models side by side.
-- **Open Code in VS Code**: View generated code for the selected model and prompt in VS Code.
+- **Open Code in VS Code**: View generated code for the selected model and prompt in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Compare model responses
 ![Screenshot showing side by side comparison of responses from different models in the Foundry Toolkit playground.](./images/playground/compare.png)
@@ -140,5 +140,5 @@ In this article, you learned how to:
 - View model responses, copy or regenerate responses, and render code snippets, images, markdown, and LaTeX.
 - Track token count when the selected model returns token usage.
 - Use the Model Preferences panel to select models, set system prompts, and adjust inference parameters.
-- Use the tool bar to create new playground sessions, view and manage chat history, automatically name sessions, compare models, and open generated code in VS Code.
+- Use the tool bar to create new playground sessions, view and manage chat history, automatically name sessions, compare models, and open generated code in {% data variables.product.prodname_vscode_shortname %}.
 - Manage chat history, including viewing, renaming, deleting, and switching between sessions.
