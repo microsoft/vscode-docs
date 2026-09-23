@@ -260,14 +260,14 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
 
 1. Under **After creation**, choose one of these mutually exclusive options:
 
-    * With **Merge Manually**, you decide when to merge the pull request.
-    * With **Auto-Merge**, GitHub merges the pull request when required checks and approvals pass. Select **Squash**, **Merge Commit**, or **Rebase** as the merge method.
-    * With **Agent Merge**, Agent Merge monitors the pull request and can ask the agent to address blockers.
-        * Choose whether to address reviews, fix CI failures, resolve merge conflicts, or update branches that are behind their base branch.
-        * Choose whether Agent Merge leaves the pull request open, merges it if the agent makes no changes, or merges it when it is ready.
-
-    > [!NOTE]
-    > If you select **Auto-Merge**, make sure **Create as Draft** is cleared because GitHub auto-merge cannot merge draft pull requests. GitHub auto-merge does not fix failed checks or address review feedback.
+    * **Merge Manually**: choose when to merge the pull request.
+    * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
+        * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
+        * **Draft pull requests**: clear **Create as Draft** before you select **Auto-Merge**.
+        * **Failed checks and review feedback**: address these blockers yourself because GitHub auto-merge does not fix them.
+    * **Agent Merge**: have Agent Merge monitor the pull request and ask the agent to address blockers.
+        * **Blockers**: choose whether to address reviews, fix CI failures, resolve merge conflicts, or update branches that are behind their base branch.
+        * **Merge Pull Request**: choose whether Agent Merge leaves the pull request open, merges it if the agent makes no changes, or merges it when it is ready.
 
 1. Select **Create PR**.
 
