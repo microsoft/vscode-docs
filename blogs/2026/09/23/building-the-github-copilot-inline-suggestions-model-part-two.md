@@ -119,7 +119,7 @@ This iteration extended far beyond the model itself. Over the same period, the V
 This is the reward of building the product as an end-to-end system: **the model and the surrounding experience evolved together, with learnings from each continually shaping the other**. The acceleration we see in the end-to-end system getting better at learning and improving is just as, if not more, exciting than any individual milestone itself.
 
 ![The learning loop between the model and the full end-to-end experience.](learning_loop.jpg)
-_Figure 3. The learning loop between the model and the full end-to-end experience is a two-way street, and evaluation and reflection at every step benefits all components of the experience._
+_Figure 2. The learning loop between the model and the full end-to-end experience is a two-way street, and evaluation and reflection at every step benefits all components of the experience._
 
 ## Online results
 
