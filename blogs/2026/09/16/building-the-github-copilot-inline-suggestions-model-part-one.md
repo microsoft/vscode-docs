@@ -1,6 +1,6 @@
 ---
 Order: 138
-TOCTitle: "New Inline Suggestions Model: Part One"
+TOCTitle: "New Inline Suggestions Model (part 1)"
 PageTitle: "Building the new GitHub Copilot Inline Suggestions Model: Part One"
 MetaDescription: Explore how GitHub Copilot unified completion, next edit, and long-distance suggestions into one model for a faster, more cohesive coding experience.
 MetaSocialImage: building_github_copilot_inline_suggestions.png
