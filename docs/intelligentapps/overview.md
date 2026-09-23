@@ -7,14 +7,14 @@ MetaDescription: Build, test, and deploy AI applications with Foundry Toolkit fo
 
 Foundry Toolkit for {% data variables.product.prodname_vscode %} helps developers and AI engineers build, test, and deploy AI apps with generative AI models. You can use it locally or in the cloud to manage your full AI app workflow in one place.
 
-Foundry Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, Foundry Toolkit streamlines your AI development workflow within {% data variables.product.prodname_vscode_shortname %}.
+Foundry Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, and Google, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, Foundry Toolkit streamlines your AI development workflow within {% data variables.product.prodname_vscode_shortname %}.
 
 ## Key features
 
 | Feature | Description | Screenshot |
 |---------|-------------|------------|
 | [Create agents](/docs/intelligentapps/create-agents.md) | Use different techniques to create Prompt Agents utilizing tools and vectors or Hosted Agents with custom code. | ![Screenshot showing the Create Agents interface with various starting points for creating a new agent](./images/overview/create-agent.png) |
-| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the Foundry Toolkit Model Catalog interface with various AI model options](./images/overview/model-catalog.png) |
+| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the Foundry Toolkit Model Catalog interface with various AI model options](./images/overview/model-catalog.png) |
 | [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the Foundry Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/model-playground.png) |
 | [Agent Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent Builder interface for creating and managing AI agents](./images/overview/agent-builder.png) |
 | [Agent Inspector](/docs/intelligentapps/agent-inspector) | Debug, visualize, and iterate on AI agents directly within {% data variables.product.prodname_vscode_shortname %}. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector.png) |
@@ -27,38 +27,17 @@ Foundry Toolkit offers seamless integration with popular AI models from provider
 
 ## Who is Foundry Toolkit for?
 
-Foundry Toolkit is designed for anyone working with generative AI, from beginners to experts:
-
-### Developers
-* **App developers** building AI-powered applications who need to integrate language models
-* **Full-stack developers** looking to add intelligent features to web and desktop applications
-* **Mobile developers** prototyping AI functionality before production deployment
-
-### AI engineers & data scientists
-* **AI engineers** fine-tuning models for specific domains and deploying to production
-* **Data scientists** evaluating model performance and comparing different approaches
-* **ML engineers** converting and optimizing models for efficient local deployment
-
-### Researchers and educators
-* **AI researchers** experimenting with different models and prompt engineering techniques
-* **Educators** teaching AI concepts and demonstrating model capabilities
-* **Students** learning about generative AI and hands-on model interaction
-
-### Key use cases
-* Explore and evaluate models from providers like Anthropic, OpenAI, and GitHub
-* Run models locally using ONNX and Ollama for privacy and cost control
-* Build and test agents with prompt generation and MCP tool integrations
-* Convert and optimize models for deployment across different hardware configurations
+Foundry Toolkit is for anyone building AI-powered apps in {% data variables.product.prodname_vscode_shortname %}. Use it to discover and evaluate models, run models locally, build and test agents, connect tools and knowledge, and deploy AI resources to Microsoft Foundry.
 
 ## Install and setup
 
 ### Quick installation
 
-> The [.NET Runtime should be installed](https://learn.microsoft.com/en-us/dotnet/core/install/) as Foundry Toolkit depends on it
+Install the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/) before installing or first running Foundry Toolkit for {% data variables.product.prodname_vscode %}.
 
 The fastest way to get started is by installing the extension through the Visual Studio Marketplace:
 
-> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}</a>
 
 After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
 
@@ -69,7 +48,7 @@ You can also install Foundry Toolkit extension manually from the {% data variabl
 > [!TIP]
    Alternatively, select the Extensions icon in the Activity Bar.
 
-* Search for **Foundry Toolkit for {% data variables.product.prodname_vscode %}** and select **Install** from search results.
+* Search for **Foundry Toolkit** and select **Install** from search results.
 
    ![Screenshot showing the Foundry Toolkit extension in the {% data variables.product.prodname_vscode_shortname %} Marketplace with the install button](./images/overview/install.png)
 
@@ -78,39 +57,30 @@ You can also install Foundry Toolkit extension manually from the {% data variabl
 
 * After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
 
-### Verifying and Installing Foundry Toolkit Pre-Requisites (Local Models)
+### Verify and install local model prerequisites
 
-Foundry Toolkit provides local LLM running capabilities via [Foundry Local,](https://www.foundrylocal.ai/) complete the Foundry local setup by running the `Foundry Toolkit: Install environment prerequisites` command to leverage these capabilities.
+Foundry Toolkit provides local LLM running capabilities via [Foundry Local](https://www.foundrylocal.ai/). To use these capabilities, complete the Foundry Local setup by running the `Foundry Toolkit: Install environment prerequisites` command.
 
-You can verify pre-requisites installation status with the `Foundry Toolkit: Validate environment prerequisites` Command:
+You can verify prerequisite installation status with the `Foundry Toolkit: Validate environment prerequisites` command:
 
 ![Screenshot showing the Foundry Toolkit Validate environment prerequisites status report"](./images/overview/validate-prerequisites.png)
 
 ## Explore Foundry Toolkit
 
-Foundry Toolkit includes the Foundry sidebar directly, so you manage your Microsoft Foundry resources and Foundry Toolkit features in one place.
-
-> [!NOTE]
-> The Foundry sidebar retires on June 1, 2026. All Foundry sidebar features are now available in the Foundry Toolkit sidebar.
-
 Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed on the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The extension has three main sections: My Resources, Developer Tools, and Help and Feedback.
+
+If you plan to use Microsoft Foundry cloud resources, sign in when prompted and select a Foundry project from **My Resources**. To set up a Microsoft Foundry project in {% data variables.product.prodname_vscode_shortname %}, see [Set up a Microsoft Foundry project in {% data variables.product.prodname_vscode_shortname %}](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/set-up-foundry-project-visual-studio-code).
 
 ![Screenshot showing the Foundry Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 
-- **My Resources**: This section contains the resources you have access to in Foundry Toolkit. The **My Resources** section is the main view for interacting with your Azure AI resources. It contains the following subsections:
-  - **Local Resources**: This section contains the AI resources you have on your local machine, such as local models, agents, and tools.
-  - **Your Foundry Project** This section shows the Microsoft Foundry project connected to Foundry Toolkit. Use your Foundry project to manage and deploy AI resources, such as deployed models, prompt agents, hosted agents, connections, tools, vector stores, and classic agents.
-    - **Models** View models deployed in your project, including endpoint info like the target URI and authentication key.
-    - **Prompt Agents** View Prompt Agents (including previous versions) deployed in your project to test via the playground, view conversations, and set up evaluations.
-    - **Workflows** - View and create new declarative, predefined sequences of actions that orchestrate agents and business logic in a visual builder.
-    - **Hosted Agents (Preview)** - View Hosted Agents deployed in your project.
-    - **Tools** - Browse, discover, and configure Model Context Protocol (MCP) servers from Microsoft Foundry, or create a custom MCP server.
-    - **Knowledge** - View and add new vector stores and other data sources used by your agents.
-    - **Classic** - View agents and threads created in "classic" Foundry.
-  - **Connected Resources**: This section contains the resources that are connected to Foundry Toolkit from providers such as GitHub models.
+- **My Resources**: This section contains the local resources and Microsoft Foundry resources you have access to in Foundry Toolkit. It contains the following subsections:
+  - **Your Foundry project**: Manage project resources such as models, agents, tools, knowledge, and evaluations.
+  - **Recent**: Open recently used resources.
+  - **Local Resources**: Manage local models, agents, and tools.
+  - **Classic**: Access classic Foundry resources.
 - **Developer Tools**: This section contains the tools you can use to build and deploy your AI applications. The **Developer Tools** view is where you can find the tools available to deploy and then work with your deployed models and agents. It contains the following subsections:
   - **Discover**: This section contains tools to help you discover and manage AI models and tools. It contains the following subsections:
-    - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
+    - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
     - **Tool Catalog**: Browse and manage the tools available in Foundry Toolkit.
 - **Build**: This section is where you can find the tools available to deploy and then work with your deployed agents in Foundry Toolkit. It contains the following subsections:
   - **Create Agent**:  Create and deploy agents easily.
@@ -123,8 +93,10 @@ Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed o
 - **Monitor**: This section is where you monitor and analyze the performance of your AI applications. It contains the following subsections:
   - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
   - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
-  - **Model Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
-- **Help and Feedback**: This section contains links to the Foundry Toolkit documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
+  - **Model Profiling (Windows ML) (Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
+- **Help and Feedback**: This section contains links to Foundry Toolkit assistance, documentation, feedback, and support. It contains the following subsections:
+  - **Ask Copilot**: Ask GitHub Copilot questions about Foundry Toolkit.
+  - **Get Started**: Open getting started resources.
   - **View Documentation**: The link to the Foundry Toolkit documentation.
   - **What's New**: The link to the Foundry Toolkit release notes.
   - **Report Issues**: The link to the Foundry Toolkit GitHub repository issues page.
