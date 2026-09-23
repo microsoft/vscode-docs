@@ -255,6 +255,39 @@ To run a workspace task, select **Tasks** > **Add Task**, and then provide its n
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
 
+### Create a pull request
+
+For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+
+1. Open the **Changes** view, and then select **Create PR**.
+
+    The form opens while {% data variables.product.prodname_vscode_shortname %} generates a title and description. You can edit these fields without waiting for generation to finish.
+
+1. Review the repository, source branch, base branch, title, and description.
+
+1. To keep the pull request in draft until it is ready for review, select **Create as Draft**.
+
+1. Under **After creation**, choose one of these mutually exclusive options:
+
+    * **Merge Manually**: merge the pull request yourself when it is ready.
+    * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
+        * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
+    * **Agent Merge**: have Agent Merge monitor the pull request and ask the agent to address blockers.
+        * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
+        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if Agent Merge makes no changes, and **When Ready** merges it after required checks and approvals pass.
+
+    GitHub auto-merge is unavailable when **Create as Draft** is selected. It also does not fix failed checks or address review feedback.
+
+1. Select **Create PR**.
+
+    Any uncommitted changes are committed and the branch is pushed before the pull request is created.
+
+The form remembers the draft setting, merge options, Agent Merge options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
+
+To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**.
+
+This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. Agent Merge options are not included in the message.
+
 ### Finish a pull request with Agent Merge
 
 `feature(agent-merge)`
@@ -270,7 +303,7 @@ First, enable `setting(chat.agentMerge.enabled)`.
 
 To enable Agent Merge for an existing pull request:
 
-1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+1. Open a session that is associated with a pull request. To create one, use the [Create PR form](#create-a-pull-request) or follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
 1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
 
@@ -279,14 +312,6 @@ To enable Agent Merge for an existing pull request:
     You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
 
 <!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
-
-To create a draft pull request and enable Agent Merge in one step:
-
-1. Open the **Changes** view for a session that doesn't have a pull request.
-
-1. Open the pull request action menu and select **Create Draft PR & Agent Merge**.
-
-1. Configure which blockers Agent Merge should address. Agent Merge creates the draft pull request and starts monitoring it, but doesn't merge it while it remains a draft.
 
 While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
 
