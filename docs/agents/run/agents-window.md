@@ -260,14 +260,14 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
 
 1. Under **After creation**, choose one of these mutually exclusive options:
 
-    * **Merge Manually**: choose when to merge the pull request.
+    * **Merge Manually**: merge the pull request yourself when it is ready.
     * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
         * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
         * **Draft pull requests**: clear **Create as Draft** before you select **Auto-Merge**.
         * **Failed checks and review feedback**: address these blockers yourself because GitHub auto-merge does not fix them.
     * **Agent Merge**: have Agent Merge monitor the pull request and ask the agent to address blockers.
-        * **Blockers**: choose whether to address reviews, fix CI failures, resolve merge conflicts, or update branches that are behind their base branch.
-        * **Merge Pull Request**: choose whether Agent Merge leaves the pull request open, merges it if the agent makes no changes, or merges it when it is ready.
+        * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
+        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if Agent Merge makes no changes, and **When Ready** merges it after required checks and approvals pass.
 
 1. Select **Create PR**.
 
@@ -275,7 +275,7 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
 
 The form remembers whether you chose to create a draft, your merge options, your Agent Merge options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
 
-To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**. This action sends the title, description, draft status, and either the **Merge Manually** choice or the **Auto-Merge** choice and merge method to the session chat. It does not create the pull request programmatically or include Agent Merge options in the message.
+To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**. This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request programmatically or include Agent Merge options in the message.
 
 ### Finish a pull request with Agent Merge
 
