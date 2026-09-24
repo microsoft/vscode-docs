@@ -1,7 +1,7 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
 DateApproved: 9/16/2026
-MetaDescription: Quickly get started with Git source control in {% data variables.product.prodname_vscode %}. Initialize a repository, stage changes, and commit code in minutes.
+MetaDescription: Make a first Git commit in {% data variables.product.prodname_vscode %} with a practice project, then optionally publish it online.
 Keywords:
 - source control
 - scm
@@ -10,150 +10,116 @@ Keywords:
 ---
 # Quickstart: use source control in {% data variables.product.prodname_vscode_shortname %}
 
-Get up and running with Git in {% data variables.product.prodname_vscode %} in minutes. This guide covers the essentials of setting up a repository, saving your changes, and syncing your code.
+Create a small practice repository, save a file in Git history, and verify your first commit in {% data variables.product.prodname_vscode %}. You don't need a hosting account or an existing project. Publishing your work online is an optional final step.
+
+<a name="option-a-clone-a-repository-locally"></a>
+
+If you want to work on an existing project instead, [clone a repository](/docs/sourcecontrol/repos-remotes.md#clone-repositories), then follow [staging and committing changes](/docs/sourcecontrol/staging-commits.md). Choose a repository you can push to, or [fork it first](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) if you plan to contribute changes.
 
 ## Prerequisites
 
-1. **Install Git**: make sure Git is installed on your computer. [Download Git](https://git-scm.com/downloads)
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download) and [Git](https://git-scm.com/downloads).
 
-1. **Open {% data variables.product.prodname_vscode_shortname %}**: make sure you have the latest version of [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download) installed.
+1. In {% data variables.product.prodname_vscode_shortname %}, select **Terminal** > **New Terminal**, then check that Git is available:
+
+    ```bash
+    git --version
+    ```
+
+    You should see a Git version number. If the command isn't found, restart {% data variables.product.prodname_vscode_shortname %} after installing Git. If it still fails, see [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md).
+
+1. Configure the author name and email for your commits. Replace the placeholders with your details:
+
+    ```bash
+    git config --global user.name "<your-name>"
+    git config --global user.email "<your-email>"
+    ```
+
+    Skip this step if your identity is already configured. These values identify the author in Git history, not your sign-in credentials. The `--global` option sets the default for your repositories. If you publish commits, their author information is also shared.
+
+<a name="option-b-initialize-a-repository-in-a-local-folder"></a>
 
 ## Step 1: Open a project
 
-You can start with an existing Git repository or a local project folder.
+1. Create an empty folder named `git-practice` outside any existing Git repository.
 
-### Option A: Clone a repository locally
+1. Open the folder in {% data variables.product.prodname_vscode_shortname %} with **File** > **Open Folder...**.
 
-Clone a repository if you want to work on code that is already hosted on GitHub, Azure DevOps, or another Git provider. If you have previously cloned the repository, you can open the folder directly in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vscode_shortname %} will detect the Git repository automatically.
+    If prompted, confirm that you trust this folder you created. Only trust other projects when you know their source. Learn about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-To clone a repository in {% data variables.product.prodname_vscode_shortname %}:
+1. Open the **Source Control** view (`kb(workbench.view.scm)`) and select **Initialize Repository**.
 
-1. Open the Source Control view (`kb(workbench.view.scm)`) and select **Clone Repository**
+    ![Screenshot showing the Initialize Repository button in the Source Control view.](images/quickstart/initialize-repository.png)
 
-    ![Screenshot of the Source Control view with the Clone Repository button highlighted.](images/quickstart/clone-repository-url.png)
+    If the button isn't visible, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Git: Initialize Repository**.
 
-    Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`) and enter `Git: Clone`.
-
-1. Enter the repository URL (for example, `https://github.com/microsoft/PowerToys`)
-
-    If you're cloning from GitHub, you can also select **Clone from GitHub** and sign in to your GitHub account to see a list of your repositories.
-
-1. Select a parent folder on your computer to save the project
-
-1. Select **Open** when prompted to open the cloned repository in {% data variables.product.prodname_vscode_shortname %}
-
-1. Confirm whether you trust the repository in the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog
-
-    > [!CAUTION]
-    > Only trust repositories from sources you know. Untrusted code can potentially harm your computer.
-
-### Option B: Initialize a repository in a local folder
-
-To start a new project with Git, you can initialize a repository in an existing local folder. This option creates a new Git repository in your folder to track changes.
-
-1. Open your project folder in {% data variables.product.prodname_vscode_shortname %} (**File** > **Open Folder...**).
-
-1. Open the Source Control view (`kb(workbench.view.scm)`) and select **Initialize Repository**
-
-    ![Screenshot of the Source Control view with the Initialize Repository button highlighted.](images/quickstart/initialize-repository.png)
-
-    Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`) and enter `Git: Initialize Repository`.
+Your folder is now a local Git repository. It has no commits yet, and nothing has been uploaded.
 
 ## Step 2: Make changes and review
 
-Git tracks changes to files in your project. The Source Control view in {% data variables.product.prodname_vscode_shortname %} is your hub for managing these changes without using the command line.
+1. In the Explorer view (`kb(workbench.view.explorer)`), create a file named `README.md`.
 
-Let's make a simple code change and use the Source Control view and diff editor to review it.
+1. Add the following content and save the file (`kb(workbench.action.files.save)`):
 
-1. Edit an existing file in your project, and save it.
+    ```markdown
+    # Git practice
 
-    If you initialized a new repository, move on to the next step.
+    My first Git repository.
+    ```
 
-1. Open the Source Control view (`kb(workbench.view.scm)`).
+1. Open the **Source Control** view. `README.md` appears under **Changes**, marked **U** for untracked. Git can see the new file, but it isn't part of a commit.
 
-    Notice that the changed file(s) are listed under **Changes** with a "U" (untracked) or "M" (modified) icon next to them. The source control icon in the Activity Bar also shows a badge with the number of affected files.
+1. Select `README.md` under **Changes** to review its contents.
 
-    ![Screenshot of the Source Control view showing a modified and new file under Changes.](images/quickstart/git-modified-files.png)
+    For a new file, all its contents are new. For files already tracked by Git, this view shows the edits that aren't staged yet.
 
-1. To review the changes to a file, select it in the Source Control view to open a diff editor.
+<!-- TODO: Capture the git-practice repository with README.md under Changes and its new contents open for review. -->
 
-    A diff editor shows the differences between the current version of the file and the last committed version. If the window is wide enough, the diff editor displays a side-by-side comparison, otherwise the changes are shown inline.
-
-    ![Screenshot of the Diff Editor showing side-by-side changes between file versions.](images/quickstart/diff-editor.png)
-
-    > [!TIP]
-    > If you have a Copilot subscription, select the Code Review button in the Source Control view to perform an AI-powered code review of your changes before committing them.
-    >
-    > ![Screenshot of the Code Review button in the Source Control view.](images/quickstart/ai-code-review-button.png)
+Saving writes the file to disk. It does not create a Git commit.
 
 ## Step 3: Stage and commit
 
-Git uses a two-step process to save changes: Stage (prepare) and Commit (save). In the Source Control view, changes are first listed under **Changes** and after staging them, they move to **Staged Changes** where they are ready to be committed.
+Staging selects the version of a file to include in the next commit. Committing records those staged changes in local Git history.
 
-1. To stage your changes, do one of the following:
+1. Hover over `README.md` in **Changes** and select **+** (**Stage Changes**).
 
-    * Hover over a file in the **Changes** list and select **+** (plus) to stage it
+    The file moves to **Staged Changes**. Select it there to review the content that will be committed.
 
-        ![Screenshot of the Source Control view with the Stage Changes button highlighted.](images/quickstart/stage-changes-button.png)
+1. Enter `Add practice README` in the commit message input box at the top of the Source Control view.
 
-    * Right-click a file in the **Changes** list and select **Stage Changes**
+1. Select **Commit**.
 
-    * Hover over the **Changes** header and select the **+** (plus) button to stage all changes at once
+    `README.md` is no longer listed as changed. Its contents are still in your folder and are now recorded in Git history.
 
-1. (Optional) You can unstage changes or discard changes if needed:
+1. Expand **Source Control Graph** in the Source Control view and find the `Add practice README` commit.
 
-    * To unstage a file, hover over it in the **Staged Changes** list and select the **-** (minus) button
+    Select the commit to inspect the file it contains. This confirms that your first commit succeeded.
 
-    * To discard changes to a file, right-click it in the **Changes** list and select **Discard Changes**
+<!-- TODO: Capture the git-practice repository after the first commit, showing Add practice README in the Source Control Graph and no pending file changes. -->
 
-1. To commit your staged changes you can provide a commit message.
+> [!NOTE]
+> To remove a file from staging without losing edits, select **-** (**Unstage Changes**) beside it in **Staged Changes**. This is different from **Discard Changes**, which removes edits. See [undo and discard options](/docs/sourcecontrol/staging-commits.md#undo-or-discard-changes) before removing work.
 
-    1. Enter a commit message in the text box at the top of the Source Control view.
-
-        You can also use AI to generate a commit message based on your staged changes by selecting the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box.
-
-    1. Select **Commit** to commit your changes to your Git history
-
-        ![Screenshot of the Commit button in the Source Control view.](images/quickstart/commit-button.png)
-
-        After committing, the staged changes are cleared from the Source Control view and saved in your local Git history.
-
-        > [!NOTE]
-        > Only staged changes are included in a commit. If you have unstaged changes, they remain listed under **Changes** for future commits.
-
-1. To view your commit history, select the **Source Control Graph** in the Source Control view.
-
-    ![Screenshot of the Source Control Graph in the Source Control view.](images/quickstart/source-control-graph.png)
+You can stop here and continue using Git locally. To practice again, add a line to `README.md`, save it, review the **M** (modified) entry, then stage and commit the change.
 
 ## Step 4: Sync with the server
 
-If your repository is connected to a remote server (for example, GitHub or Azure DevOps), you can sync your local commits with the remote repository.
+This step is optional and requires a {% data variables.product.prodname_github %} account. Publishing creates a repository in your account and uploads your local commits.
 
-1. Open the Source Control view (`kb(workbench.view.scm)`)
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **Publish to GitHub**.
 
-1. Select **Sync Changes** to pull the latest changes from the remote and push your local commits
+1. Sign in when prompted and return to {% data variables.product.prodname_vscode_shortname %}.
 
-    ![Screenshot of the Sync Changes button in the Source Control view.](images/quickstart/sync-changes.png)
+1. Enter an available repository name, such as `git-practice`, and choose a **private** repository for this exercise.
 
-    Alternatively, the Status Bar shows sync status and enables you to sync changes by selecting the sync icon (rotating arrows).
+1. When publishing finishes, open the repository on {% data variables.product.prodname_github %}. Verify that it contains `README.md` and your commit.
 
-1. Select it to pull new changes from the server and push your commits.
+After publishing, future commits are still local until you push them. In the Source Control view, select **More Actions** (**...**) > **Push** to upload commits. **Sync Changes** does more: it pulls remote changes before pushing your commits.
 
-1. To pull or push individually, select the ellipsis menu (...) in the Source Control view and choose **Pull** or **Push**.
-
-    ![Screenshot of the Pull and Push commands in the Source Control view ellipsis menu.](images/quickstart/pull-push-commands.png)
-
-> [!TIP]
-> If you started with a local folder (Option B) and want to save it to GitHub, use the **Publish to GitHub** button in the Source Control view.
+If a push fails, don't repeatedly sync or force-push. Use [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md) to identify the cause.
 
 ## Next steps
 
-Now that you know the basics, explore more features:
-
-* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and parallel development.
-* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories.
-* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and line authorship.
-* [Resolve Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Learn how to handle conflicts when merging branches.
-* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about Pull Requests and Issues.
-* [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues.
-* [Source Control Overview](/docs/sourcecontrol/overview.md) - Full reference for source control features.
+* [Stage selected changes](/docs/sourcecontrol/staging-commits.md#stage-specific-lines-or-code-blocks) to make focused commits.
+* [Create a branch](/docs/sourcecontrol/branches-worktrees.md#create-new-branches) to work on a separate feature.
+* [Fetch, pull, and push](/docs/sourcecontrol/repos-remotes.md#push-pull-and-sync) when collaborating with others.

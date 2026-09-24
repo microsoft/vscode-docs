@@ -37,7 +37,7 @@ Agents can read files, edit code, run terminal commands, and call external servi
 * **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Agent Host sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
 * **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
-* **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
+* **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} uses trust decisions for workspaces, extensions, MCP servers, and network domains. Workspace MCP servers inherit Workspace Trust.
 
 For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
@@ -45,14 +45,14 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 ## Trust boundaries
 
-{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Each trust boundary requires explicit consent before it is considered trusted:
+{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust must be granted before a boundary is considered trusted. A single trust decision can cover related boundaries, such as a workspace and its MCP server configuration.
 
 * **Workspace**: controls whether {% data variables.product.prodname_vscode_shortname %} enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
-* **MCP server**: controls whether an MCP server can start and provide tools. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
+* **MCP server**: controls whether an MCP server can start and provide tools. Servers configured in `.vscode/mcp.json` or workspace-root `.mcp.json` inherit Workspace Trust. Servers from other sources can require a [separate MCP server trust decision](/docs/agent-customization/mcp-servers.md#mcp-server-trust) and prompt again after configuration changes.
 * **Network domain**: controls whether the agent can fetch content from a URL. {% data variables.product.prodname_vscode_shortname %} prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools and sandboxed terminal commands can access.
 
-You can revoke trust at any time through dedicated commands in the Command Palette. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
+You can revoke trust at any time through dedicated commands in the Command Palette. Changing Workspace Trust controls whether workspace MCP servers can run. For servers with a separate trust decision, run **MCP: Reset Trust**. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
 ## Agent sandboxing
 

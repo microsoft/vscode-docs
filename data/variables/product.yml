@@ -3,6 +3,7 @@
 # Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
+prodname_settings_sync: 'Settings Sync'
 
 prodname_vs_marketplace: 'Visual Studio Marketplace'
 prodname_vs_marketplace_shortname: 'VS Marketplace'

@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, navigate a conversation, and personalize the chat display. For an overview of agents, session configuration, and the available interfaces, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, navigate a conversation, and personalize the chat display. For an introduction to AI workflows, agents, and the available interfaces, see [Build with AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -224,6 +224,6 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 * [Create and manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 
-* [Choose agents and configure permissions](/docs/agents/overview.md)
+* [Choose a session target and configure permissions](/docs/agents/run/agent-harnesses.md)
 
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)

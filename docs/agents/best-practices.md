@@ -51,6 +51,8 @@ When you're ready to use an agent in your own project, start with one bounded ta
 
 Checkpoints restore affected workspace files and chat history, but they don't reverse completed terminal commands, deployments, or changes to external services. Use Git and the external service's recovery controls for those effects.
 
+For step-by-step guides in an existing project, [explore a codebase](/docs/agents/guides/explore-a-codebase.md), [add a feature](/docs/agents/guides/add-a-feature.md), or [refactor without changing behavior](/docs/agents/guides/refactor-safely.md).
+
 ## Write effective prompts
 
 The quality of AI responses depends on the clarity and specificity of your prompt. These techniques help you get better results.

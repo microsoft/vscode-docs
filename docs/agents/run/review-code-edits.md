@@ -55,6 +55,20 @@ By default, the {% data variables.copilot.agents_window %} shows these views in 
 
 The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
 
+### Configure word wrap in diff editors
+
+`feature(agents-window-word-wrap)`
+
+Control how diff editors in the **Changes** view wrap long lines with `setting(sessions.diffEditor.wordWrap)`. This setting has the following values:
+
+* `inherit` (default): Follow the `setting(editor.wordWrap)` setting.
+* `on`: Wrap lines at the editor viewport width.
+* `off`: Never wrap lines.
+
+This setting only affects diff editors and doesn't affect code editors in the {% data variables.copilot.agents_window %}. To configure word wrapping in code editors, see [Configure word wrap for code editors](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors).
+
+To change this setting from a diff editor, select **More Actions** (**...**) > **Word Wrap**. This action updates `setting(sessions.diffEditor.wordWrap)` independently of the code editor setting.
+
 To review and integrate the changes:
 
 1. Select a file in the **Changes** view to open a diff view of the agent's edits.
@@ -80,6 +94,21 @@ To review and integrate the changes:
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
 When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
+
+### Add pull request review comments
+
+`feature(agents-window-pr-comments)`
+
+For an Agent Host session associated with an open GitHub pull request, you can add a review comment to the pull request directly from the **Changes** view. This is different from agent feedback, which asks the agent to revise its changes.
+
+1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
+1. Open a changed file from the **Changes** view and select a range of code.
+1. Select **Add Feedback** and enter your comment.
+1. Select **Add PR Comment** to add the review comment to the pull request. If the session is associated with multiple pull requests, the action identifies the target as `owner/repository#number`.
+
+The selected range must contain only lines that are part of the pull request diff. If the range isn't eligible, {% data variables.product.prodname_vscode_shortname %} reports that a pull request comment can't be added to the line.
+
+**Add PR Comment** adds the comment to GitHub and doesn't send it to the agent. To ask the agent to change the code instead, add the comment as feedback and select **Submit Feedback**.
 
 ### Review changes in the single-pane layout (Experimental)
 

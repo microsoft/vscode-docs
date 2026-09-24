@@ -134,6 +134,29 @@ In addition to Quick Fixes, the Ruby LSP also provides refactor options through 
 
 ![Refactor extract to variable](images/ruby/ruby_lsp_refactor.png)
 
+## Run and debug tests
+
+The Ruby LSP extension integrates with the {% data variables.product.prodname_vscode_shortname %} Testing view to discover, run, debug, and measure coverage for Ruby tests.
+
+Ruby LSP includes built-in support for Minitest and Test Unit. In Rails projects, the Ruby LSP Rails add-on provides support for `ActiveSupport::TestCase`. Other test frameworks, such as RSpec, require a compatible Ruby LSP add-on.
+
+To discover and run tests:
+
+1. Open the Testing view (`kb(workbench.view.testing)`).
+2. Expand the test tree to discover tests in your workspace.
+3. Select the run button next to a test, test group, or file. You can also use the test CodeLens actions in the editor.
+
+The Testing view provides the following test profiles:
+
+* **Run** runs the selected tests and displays their results in the Test Results panel.
+* **Run in Terminal** runs the selected tests in a terminal configured by Ruby LSP.
+* **Debug** starts a debugging session for the selected tests.
+* **Coverage** runs the tests with coverage enabled and displays coverage information in the editor.
+
+Ruby LSP discovers test files that follow common Ruby conventions. Test files must be in a `test`, `spec`, or `features` directory and use a supported file name, such as `*_test.rb`, `test_*.rb`, or `*_spec.rb`. Tests defined dynamically through metaprogramming might not appear until you run their test file.
+
+For framework support, discovery limitations, and customization options, see the [Ruby LSP Test Explorer documentation](https://shopify.github.io/ruby-lsp/test_explorer).
+
 ## Debugging
 
 The Ruby LSP extension supports debugging using the debug gem (Ruby's official debugger). Alternatively, developers can
