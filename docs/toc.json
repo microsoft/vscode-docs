@@ -4,8 +4,8 @@
         "area": "getstarted",
         "topics": [
         ["Overview", "/docs/getstarted/overview"],
-        ["Agents Quickstart", "/docs/agents/quickstart"],
-        ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial"],
+        ["Agents Quickstart", "/docs/agents/quickstart", { "secondary": true }],
+        ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial", { "secondary": true }],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
     },
@@ -159,7 +159,7 @@
         "name": "Chat",
         "area": "chat",
         "topics": [
-            ["Chat Interaction Controls", "/docs/chat/chat-overview"],
+            ["Chat Interaction Controls", "/docs/chat/chat-overview", { "secondary": true }],
             ["Inline & Quick Chat", "/docs/chat/inline-chat"],
             ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]
@@ -290,8 +290,8 @@
         "name": "Guides & Tutorials",
         "area": "debugging/guides",
         "topics": [
-          ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
+          ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
+          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }],
         ]
         }
       ]
@@ -335,7 +335,7 @@
     "name": "Advanced Setup",
     "area": "setup",
     "topics": [
-      ["GitHub Copilot Setup", "/docs/setup/copilot"],
+      ["GitHub Copilot Setup", "/docs/setup/copilot", { "secondary": true }],
       ["Linux", "/docs/setup/linux"],
       ["macOS", "/docs/setup/mac"],
       ["Windows", "/docs/setup/windows"],
