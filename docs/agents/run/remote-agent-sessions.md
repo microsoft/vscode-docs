@@ -1,7 +1,7 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
 DateApproved: 9/16/2026
-MetaDescription: Connect to remote machines via SSH or dev tunnels to run agent sessions, or use the browser-based {% data variables.copilot.agents_window %} to manage sessions from any device.
+MetaDescription: Run agent sessions over SSH or tunnels and in remote Dev Containers, or manage sessions in the browser-based {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Run and manage remote agent sessions
@@ -50,6 +50,14 @@ To start a session on a remote machine via dev tunnel:
 
 > [!IMPORTANT]
 > Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/run/security.md).
+
+## Run a session in a remote Dev Container
+
+`feature(agent-host-dev-containers)`
+
+Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the host. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL hosts in the desktop {% data variables.copilot.agents_window %}.
+
+Docker must be installed and running on the remote host. For prerequisites and setup steps, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Use the {% data variables.copilot.agents_window %} in the browser
 

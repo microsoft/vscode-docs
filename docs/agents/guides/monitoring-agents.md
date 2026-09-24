@@ -250,7 +250,7 @@ Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot 
 
 ### Environment variables
 
-Environment variables always take precedence over {% data variables.product.prodname_vscode_shortname %} settings. When your organization mandates OTel configuration through [Copilot managed settings](#manage-otel-configuration-for-your-organization), those managed values take precedence over both environment variables and user settings.
+Environment variables always take precedence over {% data variables.product.prodname_vscode_shortname %} settings. When your organization mandates OTel configuration through [Copilot managed settings](#manage-otel-configuration-for-your-organization), those managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values.
 
 | Variable | Default | Description |
 |---|---|---|
@@ -282,8 +282,10 @@ Enterprises can mandate OTel export configuration centrally through Copilot mana
 
 Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/ai-settings.md#configure-telemetry-export-with-opentelemetry).
 
+For chat sessions that use the Local harness, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
+
 > [!NOTE]
-> When a managed telemetry value is configured, it takes precedence over both environment variables and user settings. The resolved value follows the order: policy, then environment variable, then user setting, then default.
+> When a managed telemetry value is configured, it overrides user settings. Remove conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
 
 ## Trace structure for background and Claude agents
 

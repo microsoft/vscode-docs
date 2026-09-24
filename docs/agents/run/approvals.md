@@ -180,7 +180,7 @@ For example:
 }
 ```
 
-A `false` rule requires approval. It does not block the command. To block a terminal tool call, use a [Preview `PreToolUse` hook](/docs/agent-customization/hooks.md#usage-scenarios) that returns `permissionDecision: "deny"`.
+A `false` rule requires approval. It does not block the command. To block a terminal tool call in the Local harness, use a [Preview `PreToolUse` hook](/docs/agents/reference/hooks-reference.md#pretooluse) that returns `permissionDecision: "deny"`.
 
 By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
 
@@ -209,6 +209,8 @@ Related settings:
 Agent sandboxing restricts file system and network access for terminal commands. It is independent of the selected permission level, so an enabled sandbox continues to restrict terminal commands with **Allow all** and **Autopilot**.
 
 Select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off. For Copilot Agent Host sessions, the toggle applies only to the current session. New sessions use the effective User or Workspace setting for their platform, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
+
+Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
 
 Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md), including platform prerequisites, file system and network restrictions, session behavior, and fallback controls.
 

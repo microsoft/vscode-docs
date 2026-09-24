@@ -210,6 +210,25 @@ The `type` command will receive `{"text": "Hello World"}` as its first argument,
 
 For more information on commands that take arguments, refer to [Built-in Commands](/api/references/commands.md).
 
+### Run a specific document formatter
+
+If you have multiple formatter extensions installed, you can create a keyboard shortcut that runs a specific formatter directly without changing your default formatter. Set the command to `editor.action.formatDocument.multiple` and pass the formatter extension identifier in the `formatter` argument:
+
+```json
+{
+  "key": "ctrl+alt+f",
+  "command": "editor.action.formatDocument.multiple",
+  "args": {
+    "formatter": "esbenp.prettier-vscode"
+  },
+  "when": "editorTextFocus && !editorReadonly"
+}
+```
+
+Replace `esbenp.prettier-vscode` with the extension identifier of your formatter. The identifier match is case-insensitive.
+
+Unlike the `setting(editor.defaultFormatter)` setting, this keyboard shortcut selects the formatter only when you run the shortcut. If you omit the `formatter` argument, the command opens the formatter picker. If the specified formatter isn't available for the active document, the command doesn't format the document.
+
 ## Running multiple commands
 
 A keyboard shortcut can be configured to run multiple commands sequentially by using the command `runCommands`.

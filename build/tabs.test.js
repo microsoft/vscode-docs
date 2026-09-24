@@ -144,6 +144,6 @@ test('validates every current tab group after resolving data variables', functio
     }
   );
 
-  assert.equal(groupCount, 10);
-  assert.equal(tabCount, 24);
+  assert.equal(groupCount, 14);
+  assert.equal(tabCount, 34);
 });

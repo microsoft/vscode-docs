@@ -15,7 +15,7 @@ For instructions about starting and working with sessions, see [Use the {% data 
 The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
 
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use an Anthropic API key or Claude Code OAuth token.
+* **Claude**: use a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
 * **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
@@ -30,6 +30,20 @@ The {% data variables.copilot.agents_window %} shares all of your {% data variab
 To override a setting for the {% data variables.copilot.agents_window %} only, edit your settings file and scope the value under the {% data variables.copilot.agents_window %} section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the {% data variables.copilot.agents_window %} to see which scope a setting applies to.
 
 ![Screenshot showing the Settings editor open in the {% data variables.copilot.agents_window %}, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
+
+### Configure word wrap for code editors
+
+`feature(agents-window-word-wrap)`
+
+Control how code editors in the {% data variables.copilot.agents_window %} wrap long lines with `setting(sessions.editor.wordWrap)`. This setting has the following values:
+
+* `inherit` (default): Follow the `setting(editor.wordWrap)` setting.
+* `on`: Wrap lines at the editor viewport width.
+* `off`: Never wrap lines.
+
+To change this setting from a code editor, select **More Actions** (**...**) > **Word Wrap**. To temporarily override word wrapping for the current file, use `kb(editor.action.toggleWordWrap)`. This keyboard shortcut doesn't change `setting(sessions.editor.wordWrap)`.
+
+This setting doesn't affect diff editors in the **Changes** view. To configure word wrapping in those editors, see [Configure word wrap in diff editors](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors).
 
 ## Adjust the window layout
 

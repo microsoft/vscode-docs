@@ -1,27 +1,25 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 9/16/2026
-MetaDescription: Configure debugging in {% data variables.product.prodname_vscode %} with launch.json attributes, variable substitution, and compound configurations.
+DateApproved: 9/22/2026
+MetaDescription: Create and customize launch.json configurations in {% data variables.product.prodname_vscode %} for launching, attaching, and multi-target debugging.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
-# {% data variables.product.prodname_vscode %} debug configuration
+# Configure debugging in {% data variables.product.prodname_vscode %}
 
-For complex debugging scenarios or applications, you need to create a `launch.json` file to specify the debugger configuration. For example, to specify the application entry point, attach to a running application, or to set environment variables.
+Create a debug configuration when your application needs more setup than running the active file. A configuration can specify the application entry point, arguments, environment variables, startup tasks, or a process to attach to.
 
-To learn more about debugging in {% data variables.product.prodname_vscode_shortname %}, see [Debugging in {% data variables.product.prodname_vscode %}](/docs/debugtest/debugging.md).
-
-> [!TIP]
-> Copilot in {% data variables.product.prodname_vscode_shortname %} can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
+This article shows how to create, run, customize, and troubleshoot reusable debug configurations. For an introduction to breakpoints, stepping, and data inspection, see [Debug code in {% data variables.product.prodname_vscode %}](/docs/debugtest/debugging.md).
 
 ## Launch configurations
 
-For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations. Use the `kb(workbench.action.debug.start)` key and {% data variables.product.prodname_vscode_shortname %} will try to run your currently active file.
+{% data variables.product.prodname_vscode_shortname %} stores debug configurations in a `launch.json` file. For a project-specific configuration, place the file in the `.vscode` folder at the root of your workspace.
 
-However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
+You can also define configurations in:
 
-{% data variables.product.prodname_vscode_shortname %} stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
+* The `setting(launch)` user setting, which makes configurations available across workspaces.
+* [Workspace folder settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations) in a multi-root workspace.
 
-The following snippet describes a sample configuration for debugging a Node.js application:
+The following `launch.json` example starts a Node.js application:
 
 ```json
 {
@@ -34,125 +32,124 @@ The following snippet describes a sample configuration for debugging a Node.js a
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\app.js"
+            "program": "${workspaceFolder}/app.js"
         }
     ]
 }
 ```
 
-{% data variables.product.prodname_vscode_shortname %} also supports [compound launch configurations](#compound-launch-configurations) for starting multiple configurations at the same time.
+Each object in the `configurations` array appears in the configuration dropdown in the **Run and Debug** view. You can add multiple configurations for different entry points, environments, or debugging modes.
 
 > [!NOTE]
-> You can debug a simple application even if you don't have a folder open in {% data variables.product.prodname_vscode_shortname %}, but it is not possible to manage launch configurations and set up advanced debugging.
+> You can debug a supported active file without opening a folder. To create and manage a workspace `launch.json` file, open a folder or workspace.
 
 ## Create a debug configuration file
 
-To create an initial `launch.json` file:
+To create a `launch.json` file:
 
-1. Select **create a launch.json file** in the Run and Debug view.
+1. Open the **Run and Debug** view (`kb(workbench.view.debug)`) from the Activity Bar.
 
-    ![launch configuration](images/debugging/launch-configuration.png)
+1. Select **create a launch.json file**.
 
-1. {% data variables.product.prodname_vscode_shortname %} tries to detect your debug environment. If it's unable to do so, you can choose it manually:
+1. Select the debugger for your application.
 
-    ![debug environment selector](images/debugging/debug-environments.png)
+    {% data variables.product.prodname_vscode_shortname %} creates a starter configuration based on the selected debugger and opens `.vscode/launch.json`.
 
-    Based on the selected debug environment, {% data variables.product.prodname_vscode_shortname %} creates a starter configuration in the `launch.json` file.
+1. Update the generated configuration for your application.
 
-1. In the Explorer view (`kb(workbench.view.explorer)`), notice that {% data variables.product.prodname_vscode_shortname %} created a `.vscode` folder and added the `launch.json` file to your workspace.
-
-    ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
-
-You can now edit the `launch.json` file to add more configurations or modify existing ones.
-
-### Add a configuration to launch.json
-
-To add a new configuration to an existing `launch.json`, use one of the following techniques:
-
-* Press the **Add Configuration** button and then select a snippet to add a predefined configuration.
-* Use IntelliSense if your cursor is located inside the configurations array.
-* Choose the **Run** > **Add Configuration** menu option.
-
-![launch json suggestions](images/debugging/add-config.gif)
+<!-- TODO: Capture an updated screenshot showing the create a launch.json file action and debugger picker in the current Run and Debug view. -->
 
 ### Generate a launch configuration with AI
 
-With Copilot in {% data variables.product.prodname_vscode_shortname %}, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
+Copilot can inspect your project and suggest a launch configuration:
 
-1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
+1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`.
 
-1. Enter a prompt that describes the application and how you start it. For example, _generate a debug configuration for an Express app that starts with `npm run dev` #codebase_.
+1. Describe the application and how you normally start it. For example:
 
-    This can be useful if your workspace has files with different languages.
+    ```prompt
+    Create a debug configuration for this Express app. Start it with npm run dev.
+    ```
 
-    > [!NOTE]
-    > The `#codebase` chat variable gives Copilot the context of your project, which helps it generate a more accurate response.
+    Agents search the workspace for relevant context when needed. Add `#codebase` to the prompt when you want to explicitly request semantic search across the workspace.
 
-1. Apply the suggested configuration, and then start debugging.
+1. Review the suggested properties, apply the configuration to `launch.json`, and start debugging.
+
+> [!IMPORTANT]
+> Verify generated commands, arguments, and environment variables before running the configuration.
+
+### Add a configuration to launch.json
+
+To add another configuration to an existing `launch.json`, use one of these methods:
+
+* Select **Add Configuration** in the editor, and then select a debugger snippet.
+* Place the cursor inside the `configurations` array and use IntelliSense (`kb(editor.action.triggerSuggest)`).
+* Select the **Run** > **Add Configuration** menu item.
 
 ## Start a debugging session with a launch configuration
 
-To start a debug session with a launch configuration:
+To start a saved configuration:
 
-1. Select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view.
+1. Open the **Run and Debug** view.
 
-    The list of available configurations matches those in the `launch.json` file.
+1. Select a configuration from the configuration dropdown.
 
-    ![Screenshot that shows the launch configuration dropdown.](images/debugging/launch-configuration-dropdown.png)
+1. Start debugging with `kb(workbench.action.debug.start)`, or select **Start Debugging**.
 
-1. Start your debug session with `kb(workbench.action.debug.start)` or select **Start Debugging** (play icon) in **Run and Debug** view.
+You can also run **Debug: Select and Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`) and then select a configuration.
 
-Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
+<!-- TODO: Capture an updated screenshot showing the configuration dropdown with multiple launch and attach configurations. -->
 
 ## Launch versus attach configurations
 
-In {% data variables.product.prodname_vscode_shortname %}, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+The `request` property determines how the debugger connects to your application.
 
-If you come from a browser Developer Tools background, you might not be used to "launching from your tool," since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
+| Request | Behavior | Use when |
+|---------|----------|----------|
+| `launch` | Starts the application and attaches the debugger to the new process. | You want {% data variables.product.prodname_vscode_shortname %} to manage application startup. |
+| `attach` | Connects the debugger to an application or process that is already running in debug mode. | Another tool starts the application, or you need to connect to a long-running or remote process. |
 
-The best way to explain the difference between launch and attach is to think of a launch configuration as a recipe for how to start your app in debug mode _before_ {% data variables.product.prodname_vscode_shortname %} attaches to it, while an attach configuration is a recipe for how to connect {% data variables.product.prodname_vscode_shortname %}'s debugger to an app or process that's _already_ running.
+Debugger extensions define the properties required for each request type. Use IntelliSense in `launch.json` or consult the debugger extension documentation for supported options.
 
-{% data variables.product.prodname_vscode_shortname %} debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and {% data variables.product.prodname_vscode_shortname %}'s `launch.json` validation and suggestions should help with that.
+## Customize a launch configuration
 
-## Launch.json attributes
+### Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute. The attributes available in launch configurations vary from debugger to debugger.
+Every launch configuration has these properties:
 
-![launch json suggestions](images/debugging/launch-json-suggestions.png)
+* `type`: the debugger to use. For example, the built-in Node.js debugger uses `node`. Debugger extensions contribute other values.
+* `request`: the connection mode. Most debuggers support `launch`, `attach`, or both.
+* `name`: the label shown in the configuration dropdown.
 
-An attribute that is available for one debugger doesn't automatically work for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
+These properties are available for all launch configurations:
 
-The following attributes are mandatory for every launch configuration:
+* `presentation`: control the `order`, `group`, and `hidden` state in the configuration dropdown and quick pick. You can also set `presentation` inside a [platform-specific section](#platform-specific-properties).
+* `preLaunchTask`: run a task before the debug session starts. Set the value to a task label from `.vscode/tasks.json`, or use `${defaultBuildTask}`.
+* `postDebugTask`: run a task after the debug session ends.
+* `internalConsoleOptions`: control when the Debug Console opens.
+* `serverReadyAction`: perform an action when the application reports that a server is ready. For details, see [Automatically open a URI when debugging a server program](#automatically-open-a-uri-when-debugging-a-server-program).
 
-* `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type: `node` for the built-in Node debugger, for example, or `php` and `go` for the PHP and Go extensions.
-* `request` - the request type of this launch configuration. Currently, `setting(launch)` and `attach` are supported.
-* `name` - the reader-friendly name to appear in the Debug launch configuration dropdown.
+Debugger-specific properties often include:
 
-Here are some optional attributes available to all launch configurations:
+* `program`: the executable or file to run.
+* `args`: arguments passed to the application.
+* `env` or `envFile`: environment variables for the application.
+* `cwd`: the working directory.
+* `port`: the port to use when attaching.
+* `stopOnEntry`: pause when the application starts.
+* `console`: the console to use, such as `internalConsole`, `integratedTerminal`, or `externalTerminal`.
 
-* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick. You can also set `presentation` inside [platform-specific sections](#platform-specific-properties) (`windows`, `linux`, `osx`) to control visibility per operating system.
-* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
-* `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder).
-* `internalConsoleOptions` - this attribute controls the visibility of the Debug console panel during a debugging session.
-* `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
-* `serverReadyAction` - if you want to open a URL in a web browser whenever the program under debugging outputs a specific message to the debug console or integrated terminal. For details see section [Automatically open a URI when debugging a server program](#automatically-open-a-uri-when-debugging-a-server-program) below.
-
-Many debuggers support some of the following attributes:
-
-* `program` - executable or file to run when launching the debugger
-* `args` - arguments passed to the program to debug
-* `env` - environment variables (the value `null` can be used to "undefine" a variable)
-* `envFile` - path to dotenv file with environment variables
-* `cwd` - current working directory for finding dependencies and other files
-* `port` - port when attaching to a running process
-* `stopOnEntry` - break immediately when the program launches
-* `console` - what kind of console to use, for example, `internalConsole`, `integratedTerminal`, or `externalTerminal`
+The supported properties and values vary by debugger. After setting `type`, use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the schema for that debugger. Hover over red squiggles to view validation errors.
 
 ## Variable substitution
 
-{% data variables.product.prodname_vscode_shortname %} makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
+Use variables in `launch.json` to avoid hard-coded paths and values. For example:
 
-You can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
+* `${workspaceFolder}`: the path of the workspace folder.
+* `${file}`: the file in the active editor.
+* `${env:Name}`: the value of the `Name` environment variable.
+
+The following configuration passes a workspace-relative path as one argument:
 
 ```json
 {
@@ -168,59 +165,13 @@ You can see a full list of predefined variables in the [Variables Reference](/do
 }
 ```
 
-In an array attribute such as `args`, each array element is passed as one argument after variable substitution. If `${workspaceFolder}` contains spaces, or the rest of the path contains spaces, the resolved path in the preceding example remains one argument.
+Each element in an array such as `args` remains one argument after variable substitution, even when the resolved value contains spaces. Do not add escaped quotes around a variable only to handle spaces.
 
-JSON string delimiters are syntax and are not part of the value. Don't add escaped quotes around a variable only to handle spaces. Individual debugger extensions define how their configuration attributes are passed, so add embedded quotes only if the debugger or target program requires them.
+For the full list of variables, see the [Variables reference](/docs/reference/variables-reference.md).
 
 ## Platform-specific properties
 
-{% data variables.product.prodname_vscode_shortname %} supports defining debugging configuration settings (for example, arguments to be passed to the program) that depend on the operating system where the debugger is running. To do so, put a platform-specific literal in the `launch.json` file and specify the corresponding properties inside that literal.
-
-The following example shows how to pass `"args"` to the program differently on Windows:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
-            "args": ["myFolder/path/app.js"],
-            "windows": {
-                "args": ["myFolder\\path\\app.js"]
-            }
-        }
-    ]
-}
-```
-
-Valid operating system properties are `"windows"` for Windows, `"linux"` for Linux, and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
-
-The `type` property cannot be placed inside a platform-specific section because `type` indirectly determines the platform in remote debugging scenarios, which would result in a cyclic dependency.
-
-In the following example, debugging the program always **stops on entry**, except on macOS:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
-            "stopOnEntry": true,
-            "osx": {
-                "stopOnEntry": false
-            }
-        }
-    ]
-}
-```
-
-You can also use platform-specific sections to control `presentation` properties. In the following example, the configuration is hidden from the Debug dropdown on macOS:
+Use `windows`, `linux`, or `osx` sections to override properties for a specific operating system:
 
 ```json
 {
@@ -231,67 +182,46 @@ You can also use platform-specific sections to control `presentation` properties
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/app.js",
-            "osx": {
-                "presentation": {
-                    "hidden": true
-                }
+            "args": ["scripts/start.js"],
+            "windows": {
+                "args": ["scripts\\start.js"]
             }
         }
     ]
 }
 ```
 
+Properties in an operating system section override properties at the configuration level. The `type` property cannot be platform-specific because it determines which debugger runs the configuration, including in remote debugging scenarios.
+
+You can also put `presentation` in an operating system section to control where the configuration appears on each platform.
+
 ## Global launch configuration
 
-You can define launch configurations that are available across all your workspaces. To specify a global launch configuration, add a launch configuration object in your `setting(launch)` user setting. This `launch` configuration is then shared across your workspaces. For example:
+To reuse a launch configuration across workspaces, add it to the `setting(launch)` user setting:
 
 ```json
 "launch": {
     "version": "0.2.0",
-    "configurations": [{
-        "type": "node",
-        "request": "launch",
-        "name": "Launch Program",
-        "program": "${file}"
-    }]
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Active File",
+            "program": "${file}"
+        }
+    ]
 }
 ```
 
-## Redirect input/output to/from the debug target
+Use a workspace `launch.json` file when a configuration depends on project files, tasks, or shared environment details. Workspace configurations can be versioned with the project and used by other contributors.
 
-Redirecting input/output is debugger or runtime specific, so {% data variables.product.prodname_vscode_shortname %} does not have a built-in solution that works for all debuggers.
-
-Here are two approaches you might want to consider:
-
-* Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Ensure that you pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
-
-* If the debugger extension you are using can run the debug target in {% data variables.product.prodname_vscode_shortname %}'s Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
-
-    Here's an example `launch.json` configuration:
-
-    ```json
-    {
-        "name": "launch program that reads a file from stdin",
-        "type": "node",
-        "request": "launch",
-        "program": "program.js",
-        "console": "integratedTerminal",
-        "args": [
-            "<",
-            "in.txt"
-        ]
-    }
-    ```
-
-    This approach requires that the `<` syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
+## Advanced debugging scenarios
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a _compound_ launch configuration. You can define compound launch configurations in the `compounds` property in the `launch.json` file.
+A compound starts two or more launch configurations together. Use one for applications with multiple processes, such as a client and a server.
 
-Use the `configurations` attribute to list the names of two or more launch configurations that should be launched in parallel.
-
-Optionally, specify a `preLaunchTask` task that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session stops all of the compound sessions.
+Add a `compounds` array alongside the `configurations` array in `launch.json`:
 
 ```json
 {
@@ -312,7 +242,7 @@ Optionally, specify a `preLaunchTask` task that is run before the individual deb
     ],
     "compounds": [
         {
-            "name": "Server/Client",
+            "name": "Server and Client",
             "configurations": ["Server", "Client"],
             "preLaunchTask": "${defaultBuildTask}",
             "stopAll": true
@@ -321,79 +251,76 @@ Optionally, specify a `preLaunchTask` task that is run before the individual deb
 }
 ```
 
-Compound launch configurations are also displayed in the launch configuration dropdown menu.
+The compound appears in the configuration dropdown. When you start it, {% data variables.product.prodname_vscode_shortname %} runs the optional `preLaunchTask` and starts the listed configurations in parallel. If `stopAll` is `true`, manually stopping one session stops all sessions in the compound.
 
-## Automatically open a URI when debugging a server program
+### Automatically open a URI when debugging a server program
 
-Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. {% data variables.product.prodname_vscode_shortname %} has a built-in feature "**serverReadyAction**" to automate this task.
-
-Here is an example of a simple [Node.js Express](https://expressjs.com) application:
-
-```javascript
-var express = require('express');
-var app = express();
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
-```
-
-This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console, and typically, the developer would now type `http://localhost:3000` into their browser application.
-
-The **serverReadyAction** feature makes it possible to add a structured property `serverReadyAction` to any launch config and select an "action" to be performed:
+Use `serverReadyAction` to open or debug a URI after a server reports that it is ready. The action matches program output with a regular expression and uses a capture group to construct the URI:
 
 ```json
 {
-  "type": "node",
-  "request": "launch",
-  "name": "Launch Program",
-  "program": "${workspaceFolder}/app.js",
-
-  "serverReadyAction": {
-    "pattern": "listening on port ([0-9]+)",
-    "uriFormat": "http://localhost:%s",
-    "action": "openExternally"
-  }
+    "type": "node",
+    "request": "launch",
+    "name": "Launch Server",
+    "program": "${workspaceFolder}/app.js",
+    "serverReadyAction": {
+        "pattern": "listening on port ([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "openExternally"
+    }
 }
 ```
 
-Here the `pattern` property describes the regular expression for matching the program's output string that announces the port. The pattern for the port number is put into parenthesis so that it is available as a regular expression capture group. In this example, we are extracting only the port number, but it is also possible to extract a full URI.
+In this example:
 
-The `uriFormat` property describes how the port number is turned into a URI. The first `%s` is substituted by the first capture group of the matching pattern.
+* `pattern` matches output such as `listening on port 3000` and captures the port number.
+* `uriFormat` replaces the first `%s` with the captured value.
+* `action` opens the resulting URI in the system's default application.
 
-The resulting URI is then opened outside of {% data variables.product.prodname_vscode_shortname %} ("externally") with the standard application configured for the URI's scheme.
+The default pattern matches common messages that contain an HTTP or HTTPS URI or port number. The default `uriFormat` is `http://localhost:%s`.
 
-### Trigger debugging via Microsoft Edge or Chrome
+#### Trigger debugging via Microsoft Edge or Chrome
 
-Alternatively, the `action` can be set to `debugWithEdge` or `debugWithChrome`. In this mode, a `webRoot` property can be added that is passed to the Chrome or Microsoft Edge debug session.
+Set `action` to `debugWithEdge` or `debugWithChrome` to start a browser debugging session. You can also set `webRoot`, which defaults to `${workspaceFolder}`.
 
-To simplify things a bit, most properties are optional and we use the following fallback values:
+#### Triggering an arbitrary launch config
 
-* **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"` which matches the commonly used messages "listening on port 3000" or "Now listening on: https://localhost:5001".
-* **uriFormat**: `"http://localhost:%s"`
-* **webRoot**: `"${workspaceFolder}"`
+Set `action` to `startDebugging` to start another launch configuration after the pattern matches. Use `name` to reference a configuration in the same file or workspace folder. For configurations that require more control, use the `config` property to define the configuration inline.
 
-### Triggering an arbitrary launch config
+<video src="images/debugging/server-ready.mp4" title="Video showing a server-ready action opening an application after the debug target starts." autoplay loop controls muted></video>
 
-In some cases, you might need to configure more options for the browser debug session, or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+### Redirect input/output to/from the debug target
 
-The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
+Input and output behavior depends on the debugger and runtime. There is no redirection syntax that works for every debug configuration.
 
-Here the **serverReadyAction** feature in action:
+Use one of these approaches:
 
-<video src="images/debugging/server-ready.mp4" title="Server ready feature in action" autoplay loop controls muted></video>
+* Set the debugger-specific `console` property to `integratedTerminal` or `externalTerminal` when the application needs interactive standard input.
+* Start the application manually in a terminal with the required shell redirection and debug options. Then run an `attach` configuration to connect the debugger to that process.
+
+Passing shell operators such as `<` or `>` in `args` usually passes them as literal application arguments. It redirects input or output only when the debugger explicitly runs the target through a shell.
+
+## Troubleshoot launch configurations
+
+### No configurations appear
+
+Check that:
+
+* A folder or workspace is open.
+* `.vscode/launch.json` contains a valid `configurations` array.
+* The debugger extension for the configuration's `type` is installed and active.
+* The configuration does not set `presentation.hidden` to `true`.
+
+### A configuration has red squiggles
+
+Hover over the highlighted property to view the validation message. Confirm that the property is supported for the selected `type` and `request`. Properties from one debugger do not automatically work with another debugger.
+
+### A configuration does not start the expected application
+
+Verify the `program`, `cwd`, `args`, environment variables, and any `preLaunchTask`. For an attach configuration, confirm that the target process is already running in debug mode and that connection details such as the port match.
 
 ## Next steps
 
-* [Tasks](/docs/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
-* [Variables Reference](/docs/reference/variables-reference.md) - Describes the variables available in {% data variables.product.prodname_vscode_shortname %}.
-
-## Common questions
-
-### I do not see any launch configurations in the Run and Debug view dropdown. What is wrong?
-
-The most common problem is that you did not set up `launch.json` or there is a syntax error in that file. Alternatively, you might need to open a folder, since no-folder debugging does not support launch configurations.
+* [Debug code in {% data variables.product.prodname_vscode %}](/docs/debugtest/debugging.md) - Work with breakpoints, step controls, variables, and the Debug Console.
+* [Integrate tasks with debugging](/docs/debugtest/tasks.md) - Configure build or preparation tasks for a debug workflow.
+* [Variables reference](/docs/reference/variables-reference.md) - Review variables available in `launch.json` and `tasks.json`.

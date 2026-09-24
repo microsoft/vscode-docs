@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 9/16/2026
-MetaDescription: Learn how to use hooks in {% data variables.product.prodname_vscode_shortname %} to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
+MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for Local, Copilot, Claude, and Codex agent sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,131 +14,148 @@ Keywords:
 - postToolUse
 ---
 
-# Agent hooks in {% data variables.product.prodname_vscode %} (Preview)
+# Configure agent hooks in {% data variables.product.prodname_vscode %} (Preview)
 
-Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
+Hooks run custom actions at specific points in an agent's lifecycle. Use hooks to automate workflows, validate operations, create audit trails, or enforce policies independently of the language model.
 
-Hooks work across agent harnesses and execution environments. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+The selected [agent harness](/docs/agents/concepts/agent-harnesses.md) determines which hook implementation runs. Before you create or reuse a hook, identify the session target and use the configuration and event schema for that harness.
 
-For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
-
-This article explains how to configure and use hooks in {% data variables.product.prodname_vscode_shortname %}.
+This article helps you choose the correct hook implementation, manage hooks from {% data variables.product.prodname_vscode_shortname %}, and configure hooks for the Local harness.
 
 > [!NOTE]
-> Agent hooks are currently in Preview. The configuration format and behavior might change in future releases.
+> The {% data variables.product.prodname_vscode_shortname %} hooks experience is in Preview. Individual provider implementations might have a different lifecycle status. For example, hooks in the {% data variables.copilot.copilot_sdk_short %} are generally available.
 
 > [!IMPORTANT]
-> Your organization might have disabled the use of hooks in {% data variables.product.prodname_vscode_shortname %}. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
+> Your organization might restrict which hooks can run. Contact your administrator for more information. Administrators can learn how to [manage hooks in enterprise environments](/docs/enterprise/ai-settings.md#enable-or-disable-hooks).
 
-## Why use hooks?
+## Choose the hook implementation for your session
 
-Hooks provide deterministic, code-driven automation. Unlike instructions or custom prompts that guide agent behavior, hooks execute your code at specific lifecycle points with guaranteed outcomes. Some common use cases for hooks include:
+The **Session Target** control selects the agent harness. The harness owns the hook lifecycle and payloads.
 
-* **Enforce security policies**: Block dangerous commands like `rm -rf` or `DROP TABLE` before they execute, regardless of how the agent was prompted.
+The Agent Host is the process that hosts the Copilot, Claude, and Codex harnesses. The Local harness runs in the extension host. The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} are clients that display and control sessions on either host.
 
-* **Automate code quality**: Run formatters, linters, or tests automatically after file modifications.
+| Session target | Where the harness runs | Hook implementation | Configuration and event reference |
+|----------------|------------------------|---------------------|-----------------------------------|
+| **Local** | Extension host | {% data variables.product.prodname_vscode_shortname %} Local hooks | Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). |
+| **Copilot** | Agent Host | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
+| **Claude** | Agent Host | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
+| **Codex** | Agent Host or the Codex extension | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
+| **Cloud** | Provider infrastructure | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
 
-* **Create audit trails**: Log every tool invocation, command execution, or file change for compliance and debugging.
+Some harnesses discover the same hook files, such as `.github/hooks/*.json` or `.claude/settings.json`. This file compatibility does not make their behavior identical. Supported events, event names, matchers, command properties, tool names, payloads, and output decisions can differ.
 
-* **Inject context**: Add project-specific information, API keys, or environment details to help the agent make better decisions.
+Copilot sessions on Agent Host use the same SDK hook implementation as {% data variables.copilot.copilot_cli_short %}. Use the {% data variables.copilot.copilot_cli_short %} sections of the GitHub reference for runtime configuration and payloads, but verify that the event is available in the selected {% data variables.product.prodname_vscode_shortname %} version.
 
-* **Control approvals**: Automatically approve safe operations while requiring confirmation for sensitive ones.
+### Migrate hooks between harnesses
 
-## Quick start: your first hook
+Before you switch the session target for an existing workflow:
 
-The following example creates a hook that runs Prettier after the agent uses a tool, such as editing a file. Create a `.github/hooks/format.json` file in your workspace:
+* Confirm that the destination harness discovers the hook file.
+* Compare the supported events and command properties.
+* Check tool names and input shapes before you reuse filters or validation logic.
+* Validate scripts that read chat transcripts. Transcript formats are not a stable cross-harness API.
+* Test output decisions, such as blocking a tool call or adding context.
+* Confirm where the hook command runs and which files and environment variables it can access.
+
+Do not validate a migration by changing only the language model. Select the destination harness from the **Session Target** control and start a test session.
+
+## Create and manage hooks
+
+Select the session target before you open the hooks interface. This ensures that {% data variables.product.prodname_vscode_shortname %} shows the customizations for the intended harness.
+
+To view and manage hooks:
+
+1. Open the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
+1. Select the target from the **Session Target** control.
+
+1. Open the Agent Customizations editor:
+
+    * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) and then select **Hooks**.
+    * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
+    * Enter `/hooks` in the chat input.
+
+1. Review the hook sources for the selected target. Select a hook to open its configuration.
+
+You can also run **Chat: Configure Hooks** from the Command Palette (`kb(workbench.action.showCommands)`) to manage Local hook files.
+
+To generate a hook with AI, enter `/create-hook <description>` in chat or run **Chat: Generate Hook** from the Command Palette. The generated hook uses `.github/hooks/`. Review the result against the destination harness reference before you use it.
+
+For Claude and Codex, use the provider documentation for additional configuration and management options.
+
+## Configure hooks for the Local harness
+
+The rest of this article describes the Local hook implementation that runs in the extension host. These events, settings, payloads, and output decisions do not automatically apply to Copilot, Claude, or Codex sessions on Agent Host.
+
+### Create your first Local hook
+
+The following hook records the name of every tool before the Local agent invokes it. Create `.github/hooks/audit.json` in your workspace:
 
 ```json
 {
   "hooks": {
-    "PostToolUse": [
+    "PreToolUse": [
       {
         "type": "command",
-        "command": "npx prettier --write ."
+        "command": "node .github/hooks/log-tool-use.cjs"
       }
     ]
   }
 }
 ```
 
-After you save this file, {% data variables.product.prodname_vscode_shortname %} automatically loads the hook. The next time the agent edits a file, Prettier formats your workspace. You can check that the hook executed by looking at the agent debug logs (run the **Developer: Show Agent Debug Logs** command).
+Create `.github/hooks/log-tool-use.cjs`:
 
-This hook runs a single command and ignores its input. To build hooks that react to _what_ the agent did, such as formatting only the file that changed, see [How hooks work](#how-hooks-work) and [Usage scenarios](#usage-scenarios).
+```javascript
+const fs = require('node:fs');
 
-## How hooks work
+let input = '';
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', chunk => input += chunk);
+process.stdin.on('end', () => {
+  const event = JSON.parse(input);
+  fs.appendFileSync(
+    '.github/hooks/tool-use.log',
+    `${event.timestamp} ${event.tool_name}\n`
+  );
+});
+```
 
-When a hook event fires, {% data variables.product.prodname_vscode_shortname %} runs your command and passes information about the event as a JSON object on standard input (stdin). Your command can write a JSON object to standard output (stdout) to pass context back to the agent or to control what happens next, such as blocking a tool call.
+Start a Local agent session and ask the agent to perform a task that uses tools. The hook adds each tool name to `.github/hooks/tool-use.log`. Add this log file to `.gitignore` if you don't want to commit it.
 
-A hook has three parts:
+This example also helps you discover the exact Local tool names to use in validation hooks. Tool names and arguments differ between harnesses.
 
-* **An event** that determines when the hook runs (see [Hook lifecycle events](#hook-lifecycle-events)).
-* **A command** that {% data variables.product.prodname_vscode_shortname %} runs when the event fires.
-* **Optional JSON input and output** that lets the command read event details and influence the agent.
+### Local hook file locations
 
-Basic hooks, like the quick start example, ignore the input and just run a command. More advanced hooks read the JSON from stdin to make decisions. For the full set of input and output fields, see [Hook input and output](#hook-input-and-output).
+The Local harness discovers hooks from these built-in locations:
 
-## Hook lifecycle events
+| Scope | File location | Notes |
+|-------|---------------|-------|
+| Workspace | `.github/hooks/*.json` | Native {% data variables.product.prodname_vscode_shortname %} or Copilot-compatible hook files. |
+| Workspace, Claude format | `.claude/settings.json`, `.claude/settings.local.json` | Requires `setting(chat.useClaudeHooks)`, which is off by default. |
+| User | `~/.copilot/hooks/*.json` | Available across Local sessions. |
+| User, Claude format | `~/.claude/settings.json` | Requires `setting(chat.useClaudeHooks)`. |
+| Custom agent | `hooks` in `.agent.md` frontmatter | Runs only for that custom agent in the Local harness. |
+| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format | See [hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins). |
 
-{% data variables.product.prodname_vscode_shortname %} supports eight hook events that fire at specific points during an agent session:
+The `setting(chat.useHooks)` setting controls Local hook execution and is on by default. Workspace hook files are subject to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-| Hook Event | When It Fires | Common Use Cases |
-|------------|---------------|------------------|
-| [`SessionStart`](/docs/agents/reference/hooks-reference.md#sessionstart) | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
-| [`UserPromptSubmit`](/docs/agents/reference/hooks-reference.md#userpromptsubmit) | User submits a prompt | Audit user requests, inject system context |
-| [`PreToolUse`](/docs/agents/reference/hooks-reference.md#pretooluse) | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
-| [`PostToolUse`](/docs/agents/reference/hooks-reference.md#posttooluse) | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
-| [`PreCompact`](/docs/agents/reference/hooks-reference.md#precompact) | Before conversation context is compacted | Export important context, save state before truncation |
-| [`SubagentStart`](/docs/agents/reference/hooks-reference.md#subagentstart) | Subagent is spawned | Track nested agent usage, initialize subagent resources |
-| [`SubagentStop`](/docs/agents/reference/hooks-reference.md#subagentstop) | Subagent completes | Aggregate results, cleanup subagent resources |
-| [`Stop`](/docs/agents/reference/hooks-reference.md#stop) | Agent session ends | Generate reports, cleanup resources, send notifications |
+Use `setting(chat.hookFilesLocations)` to add or disable Local hook locations. The setting's default value is empty because the built-in locations are registered separately. Specify a folder to load all its `*.json` files, or specify an individual `.json` file. Paths can be relative to the workspace or start with `~`.
 
-For the full input and output schema of each event, see the [Hooks reference](/docs/agents/reference/hooks-reference.md).
-
-## Configure hooks
-
-Hooks are configured in JSON files stored in your workspace or user directory.
-
-### Hook file locations
-
-{% data variables.product.prodname_vscode_shortname %} searches for hook configuration files in these locations:
+```jsonc
+"chat.hookFilesLocations": {
+  "custom/hooks": true,              // Load all JSON hook files in this folder.
+  "~/my-hooks/security.json": true,  // Load one hook file.
+  ".claude/settings.json": false     // Disable a built-in location.
+}
+```
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
 
-| Scope | Default file location |
-|-------|-----------------------|
-| Workspace | `.github/hooks/*.json` |
-| Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
-| User | `~/.copilot/hooks`, `~/.claude/settings.json` |
-| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
-| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format (see [Hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins)) |
+### Local hook configuration formats
 
-Workspace hooks take precedence over user hooks for the same event type.
-
-Use the `setting(chat.hookFilesLocations)` setting to customize which files are loaded. Specify folders (all `*.json` files in the folder are loaded) or individual `.json` files, using relative or tilde (`~`) paths. The default value includes these locations:
-
-```json
-"chat.hookFilesLocations": {
-  ".github/hooks": true,
-  ".claude/settings.local.json": true,
-  ".claude/settings.json": true,
-  "~/.claude/settings.json": true
-}
-```
-
-To customize, add an entry for a new location, or set a path to `false` to disable a location (including the defaults):
-
-```jsonc
-"chat.hookFilesLocations": {
-  "custom/hooks": true,              // load all *.json files in a folder
-  "~/my-hooks/security.json": true,  // load a specific file
-  ".claude/settings.json": false     // stop loading Claude Code hooks
-}
-```
-
-### Hook configuration format
-
-Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. {% data variables.product.prodname_vscode_shortname %} uses the same hook format as Claude Code and {% data variables.copilot.copilot_cli_short %} for compatibility:
+For new Local hooks, use a JSON file with PascalCase event names and command properties:
 
 ```json
 {
@@ -147,6 +164,7 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
       {
         "type": "command",
         "command": "./scripts/validate-tool.sh",
+        "windows": "powershell -File scripts\\validate-tool.ps1",
         "timeout": 15
       }
     ],
@@ -160,264 +178,76 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
 }
 ```
 
-### Hook command properties
+The Local parser also accepts other hook file formats:
 
-Each hook entry must specify `type: "command"` and a command to run. You can also configure a working directory (`cwd`), environment variables (`env`), a `timeout`, and OS-specific overrides (`windows`, `linux`, `osx`). For the full list of properties, see the [Hook command properties reference](/docs/agents/reference/hooks-reference.md#hook-command-properties).
+| Source format | How Local recognizes it | Local behavior to review |
+|---------------|-------------------------|--------------------------|
+| Native {% data variables.product.prodname_vscode_shortname %} | PascalCase events without a numeric `version` property | Uses `command`, `windows`, `linux`, `osx`, and `timeout`. |
+| Copilot | Numeric `version` property and lower camel case events | Maps Copilot event and command property names to the Local format. Runtime payloads still use the Local schema. |
+| Claude | A `settings.json` or `settings.local.json` file in a `.claude` folder | Requires `setting(chat.useClaudeHooks)`. Local parses nested commands but ignores matcher values, so every command for the event runs. |
 
-> [!NOTE]
-> OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
-
-### OS-specific commands
-
-Specify different commands for each operating system:
-
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/format.sh",
-        "windows": "powershell -File scripts\\format.ps1",
-        "linux": "./scripts/format-linux.sh",
-        "osx": "./scripts/format-mac.sh"
-      }
-    ]
-  }
-}
-```
-
-The execution service selects the appropriate command based on your OS. If no OS-specific command is defined, it falls back to the `command` property.
-
-### Agent-scoped hooks
+For the complete Local command properties, input fields, output fields, and exit-code behavior, see the [Local hooks reference](/docs/agents/reference/hooks-reference.md).
 
 > [!NOTE]
-> Agent-scoped hooks are currently in preview.
+> An operating system override is selected from the extension host platform. In Remote Development windows, this platform might differ from the operating system that displays the {% data variables.product.prodname_vscode_shortname %} UI.
 
-You can define hooks directly in a [custom agent's](/docs/agent-customization/custom-agents.md) YAML frontmatter. Agent-scoped hooks only run when that custom agent is active, either selected by the user or invoked as a subagent. Agent-scoped hooks run in addition to any workspace or user-level hooks configured for the same event.
+### Local hook lifecycle events
 
-To enable agent-scoped hooks, set `setting(chat.useCustomAgentHooks)` to `true`.
+The Local harness supports these events:
 
-Add a `hooks` field to the agent frontmatter with the same structure as hook configuration files: event names mapped to arrays of hook command objects.
+| Event | When it fires | Common uses |
+|-------|---------------|-------------|
+| [`SessionStart`](/docs/agents/reference/hooks-reference.md#sessionstart) | The first prompt starts a session. | Initialize resources or add project context. |
+| [`UserPromptSubmit`](/docs/agents/reference/hooks-reference.md#userpromptsubmit) | The user submits a prompt. | Audit requests or add context. |
+| [`PreToolUse`](/docs/agents/reference/hooks-reference.md#pretooluse) | Before the agent invokes a tool. | Block an operation, request approval, or change tool input. |
+| [`PostToolUse`](/docs/agents/reference/hooks-reference.md#posttooluse) | After a tool completes successfully. | Validate results, run a formatter, or add context. |
+| [`PreCompact`](/docs/agents/reference/hooks-reference.md#precompact) | Before conversation context is compacted. | Save state that should survive compaction. |
+| [`SubagentStart`](/docs/agents/reference/hooks-reference.md#subagentstart) | A subagent starts. | Track nested agent use or add subagent context. |
+| [`SubagentStop`](/docs/agents/reference/hooks-reference.md#subagentstop) | A subagent is about to stop. | Validate subagent results or require more work. |
+| [`Stop`](/docs/agents/reference/hooks-reference.md#stop) | The current agent execution is about to stop. | Validate completion or require another action. |
+
+When an event fires, the Local harness passes a JSON object to the command through standard input (stdin). The command can write JSON to standard output (stdout) to add context or control the next action. The event does not necessarily correspond to the end of the entire session.
+
+### Agent-scoped hooks for Local
+
+> [!NOTE]
+> Agent-scoped hooks are in Preview and are supported only by the Local harness.
+
+Add a `hooks` map to a [custom agent](/docs/agent-customization/custom-agents.md) to run commands only while that agent is active. Agent-scoped hooks run in addition to applicable user, workspace, and plugin hooks.
 
 ```markdown
 ---
-name: "Strict Formatter"
-description: "Agent that auto-formats code after every edit"
+name: Strict Formatter
+description: Format code after the agent uses a tool
 hooks:
   PostToolUse:
     - type: command
       command: "./scripts/format-changed-files.sh"
 ---
 
-You are a code editing agent. After making changes, files are automatically formatted.
+Follow the project's formatting requirements.
 ```
 
-### Create and edit hooks
+When the custom agent runs as a subagent, its `Stop` hook is treated as `SubagentStop`. Agent-scoped hooks require `setting(chat.useHooks)` and a trusted workspace.
 
-You have multiple options for creating and editing hooks. You can create hook configuration files manually in one of the [supported locations](#hook-file-locations), use commands to create a new hook, or generate a hook with AI.
-
-* **Manually manage hook files**:
-
-    1. Create or edit a `.json` file in a supported location (for example, `.github/hooks/security.json`) and add your hook configuration.
-    1. Save the file and it is automatically loaded by {% data variables.product.prodname_vscode_shortname %}.
-
-* **Use commands to manage hooks**
-
-    1. Run the **Chat: Configure Hooks** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-        You can also type `/hooks` in the chat input and press `kbstyle(Enter)` to open the configure hooks menu.
-
-    1. Follow the prompts to select an event type, choose a file location, and configure the command.
-
-    1. The command creates a new hook file and opens it in the editor for you to customize. Save the file to load the hook.
-
-* **Use the Agent Customizations editor**:
-
-    1. Open the Agent Customizations editor by running the **Chat: Open Customizations** command.
-
-        Alternatively, select **Open Customizations** (gear icon) at the top of the {% data variables.copilot.chat_view %}.
-
-    1. Select the **Hooks** tab to view and manage your hooks.
-
-    1. Select **Configure Hooks** from the dropdown button.
-
-    1. Follow the prompts to select an event type, choose a file location, and configure the command.
-
-    1. The command creates a new hook file and opens it in the editor for you to customize. Save the file to load the hook.
-
-* **Generate a hook with AI**:
-
-    1. Type `/create-hook` in chat and describe the automation you want (for example, `/create-hook run ESLint after every file edit`).
-
-        Alternatively, run the **Chat: Generate Hook** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Generate Hook** in the Agent Customizations editor.
-
-    1. The agent asks clarifying questions and generates a hook configuration file with the appropriate event type, command, and settings.
-
-## Hook input and output
-
-Hooks communicate with {% data variables.product.prodname_vscode_shortname %} through stdin (input) and stdout (output) using JSON.
-
-### Common input fields
-
-Every hook receives a JSON object via stdin with these common fields:
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `timestamp` | string | ISO 8601 timestamp when the hook fired |
-| `cwd` | string | (Optional) Working directory for the agent session |
-| `session_id` | string | (Optional) Unique identifier for the current agent session |
-| `hook_event_name` | string | Name of the hook event (for example, `PreToolUse`) |
-| `transcript_path` | string | (Optional) Absolute path to a file containing the session conversation transcript |
-
-> [!NOTE]
-> `transcript_path` is provided for convenience — for example, logging, auditing, or lightweight checks such as whether a file was read during the session. The transcript file format is not a stable hook API and may change in future {% data variables.product.prodname_vscode_shortname %} releases. Prefer the documented hook input fields (`tool_name`, `tool_input`, `prompt`, and so on) whenever possible.
-
-### Common output format
-
-Hooks can return JSON via stdout to influence agent behavior. All hooks support these output fields:
-
-```json
-{
-  "continue": true,
-  "stopReason": "Security policy violation",
-  "systemMessage": "Unit tests failed"
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `continue` | boolean | Set to `false` to stop processing (default: `true`) |
-| `stopReason` | string | Reason for stopping, when `continue` is `false` (shown to the user) |
-| `systemMessage` | string | Warning message displayed to the user |
-
-### Exit codes
-
-The hook's exit code determines how {% data variables.product.prodname_vscode_shortname %} handles the result:
-
-| Exit Code | Behavior |
-|-----------|----------|
-| `0` | Success: parse stdout as JSON |
-| `2` | Blocking error: stop processing and show error to model |
-| Other | Non-blocking warning: show warning to user, continue processing |
-
-### Choosing how to return data
-
-Hooks have several ways to control agent behavior: exit codes, top-level output fields (`continue`, `stopReason`), and hook-specific output fields (`hookSpecificOutput`). Use them in combination as follows:
-
-* **Exit code 2** is the simplest way to block an operation. The hook's stderr is shown to the model as context. No JSON output is needed.
-* **`continue: false`** in the JSON output stops the entire agent session. Use `stopReason` to tell the user why. This is more drastic than blocking a single tool call.
-* **`hookSpecificOutput`** provides fine-grained control specific to each hook event. For example, `PreToolUse` hooks use `permissionDecision` to allow, deny, or prompt for a single tool call without stopping the session.
-* **`systemMessage`** displays a warning to the user in the chat, regardless of other decisions.
-
-When multiple control mechanisms are used together, the most restrictive wins. For example, if a hook returns `continue: false` and `permissionDecision: "allow"`, the session still stops.
-
-### Per-event input and output
-
-Each hook event provides its own input fields and supports event-specific output. For the full input and output schema of every event, including `PreToolUse`, `PostToolUse`, `SessionStart`, `Stop`, and more, see the [Hooks reference](/docs/agents/reference/hooks-reference.md).
-
-## Usage scenarios
-
-The following examples demonstrate common hook patterns.
+### Local hook examples
 
 <details>
-<summary>Block dangerous terminal commands</summary>
+<summary>Request approval for a specific tool</summary>
 
-Create a `PreToolUse` hook that prevents destructive commands:
+First, use the audit hook in the [quick start](#create-your-first-local-hook) or the agent debug logs to identify the exact Local tool name and input schema.
 
-**.github/hooks/security.json**:
+Create `.github/hooks/approval.json`:
+
 ```json
 {
   "hooks": {
     "PreToolUse": [
       {
         "type": "command",
-        "command": "./scripts/block-dangerous.sh",
-        "timeoutSec": 5
-      }
-    ]
-  }
-}
-```
-
-**scripts/block-dangerous.sh**:
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-TOOL_INPUT=$(echo "$INPUT" | jq -r '.tool_input')
-
-if [ "$TOOL_NAME" = "runTerminalCommand" ]; then
-  COMMAND=$(echo "$TOOL_INPUT" | jq -r '.command // empty')
-
-  if echo "$COMMAND" | grep -qE '(rm\s+-rf|DROP\s+TABLE|DELETE\s+FROM)'; then
-    echo '{"hookSpecificOutput":{"permissionDecision":"deny","permissionDecisionReason":"Destructive command blocked by security policy"}}'
-    exit 0
-  fi
-fi
-
-echo '{"continue":true}'
-```
-
-</details>
-
-<details>
-<summary>Auto-format code after edits</summary>
-
-Run Prettier automatically after any file modification:
-
-**.github/hooks/formatting.json**:
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/format-changed-files.sh",
-        "windows": "powershell -File scripts\\format-changed-files.ps1",
-        "timeout": 30
-      }
-    ]
-  }
-}
-```
-
-**scripts/format-changed-files.sh**:
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-if [ "$TOOL_NAME" = "editFiles" ] || [ "$TOOL_NAME" = "createFile" ]; then
-  FILES=$(echo "$INPUT" | jq -r '.tool_input.files[]? // .tool_input.path // empty')
-
-  for FILE in $FILES; do
-    if [ -f "$FILE" ]; then
-      npx prettier --write "$FILE" 2>/dev/null
-    fi
-  done
-fi
-
-echo '{"continue":true}'
-```
-
-</details>
-
-<details>
-<summary>Log tool usage for auditing</summary>
-
-Create an audit trail of all tool invocations:
-
-**.github/hooks/audit.json**:
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/log-tool-use.sh",
+        "command": "node .github/hooks/require-approval.cjs",
         "env": {
-          "AUDIT_LOG": ".github/hooks/audit.log"
+          "SENSITIVE_TOOL_NAME": "<tool-name>"
         }
       }
     ]
@@ -425,161 +255,94 @@ Create an audit trail of all tool invocations:
 }
 ```
 
-**scripts/log-tool-use.sh**:
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TIMESTAMP=$(echo "$INPUT" | jq -r '.timestamp')
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-SESSION_ID=$(echo "$INPUT" | jq -r '.sessionId')
+Create `.github/hooks/require-approval.cjs`:
 
-echo "[$TIMESTAMP] Session: $SESSION_ID, Tool: $TOOL_NAME" >> "${AUDIT_LOG:-audit.log}"
-echo '{"continue":true}'
-```
-
-</details>
-
-<details>
-<summary>Require approval for specific tools</summary>
-
-Force manual confirmation for tools that modify infrastructure:
-
-**.github/hooks/approval.json**:
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/require-approval.sh"
+```javascript
+let input = '';
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', chunk => input += chunk);
+process.stdin.on('end', () => {
+  const event = JSON.parse(input);
+  const decision = event.tool_name === process.env.SENSITIVE_TOOL_NAME
+    ? {
+        hookSpecificOutput: {
+          hookEventName: 'PreToolUse',
+          permissionDecision: 'ask',
+          permissionDecisionReason: 'This tool requires manual approval.'
+        }
       }
-    ]
-  }
-}
+    : { continue: true };
+
+  process.stdout.write(JSON.stringify(decision));
+});
 ```
 
-**scripts/require-approval.sh**:
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-# Tools that should always require approval
-SENSITIVE_TOOLS="runTerminalCommand|deleteFile|pushToGitHub"
-
-if echo "$TOOL_NAME" | grep -qE "^($SENSITIVE_TOOLS)$"; then
-  echo '{"hookSpecificOutput":{"permissionDecision":"ask","permissionDecisionReason":"This operation requires manual approval"}}'
-else
-  echo '{"hookSpecificOutput":{"permissionDecision":"allow"}}'
-fi
-```
+Replace `<tool-name>` with the exact Local tool name. Do not copy a tool name from another harness.
 
 </details>
 
 <details>
-<summary>Inject project context at session start</summary>
+<summary>Add project context when a session starts</summary>
 
-Provide project-specific information when a session begins:
+Create `.github/hooks/context.json`:
 
-**.github/hooks/context.json**:
 ```json
 {
   "hooks": {
     "SessionStart": [
       {
         "type": "command",
-        "command": "./scripts/inject-context.sh"
+        "command": "node .github/hooks/project-context.cjs"
       }
     ]
   }
 }
 ```
 
-**scripts/inject-context.sh**:
-```bash
-#!/bin/bash
-PROJECT_INFO=$(cat package.json 2>/dev/null | jq -r '.name + " v" + .version' || echo "Unknown project")
-BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
+Create `.github/hooks/project-context.cjs`:
 
-cat <<EOF
-{
-  "hookSpecificOutput": {
-    "hookEventName": "SessionStart",
-    "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+```javascript
+const packageJson = require('../../package.json');
+
+process.stdout.write(JSON.stringify({
+  hookSpecificOutput: {
+    hookEventName: 'SessionStart',
+    additionalContext: `Project: ${packageJson.name} ${packageJson.version}`
   }
-}
-EOF
+}));
 ```
 
 </details>
 
-## Safety
+## Troubleshoot hooks
 
-If the agent has access to edit scripts run by hooks, then it has the ability to modify those scripts during its own run, and execute the code it writes. We recommend using the `chat.tools.edits.autoApprove` to disallow the agent from editing hook scripts without manual approval.
+First, confirm that the session target matches the hook reference you followed. A hook that appears in the Agent Customizations editor might still use different events or payloads when you switch harnesses.
 
-## Troubleshooting
+For Local hooks:
 
-### View hook diagnostics
+* Run **Chat: Configure Hooks** to check which files the Local harness discovers.
+* Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect event names, tool schemas, hook input, and hook output.
+* Open the **Output** panel and select the **GitHub Copilot Chat Hooks** channel to review command output and errors.
+* Verify that `setting(chat.useHooks)` is enabled and the workspace is trusted.
+* If you use a Claude-format file, enable `setting(chat.useClaudeHooks)` and remember that Local ignores matcher values.
+* Increase `timeout` only after you confirm that the command is making progress.
 
-To see which hooks are loaded and check for configuration errors:
-
-1. Select **View Logs** to view all logs.
-
-1. Look for "Load Hooks" to see loaded hooks and which locations they were loaded from.
-
-### View hook output
-
-To review hook output and errors:
-
-1. Open the **Output** panel.
-
-1. Select **{% data variables.copilot.copilot_chat %} Hooks** from the channel list.
-
-> [!TIP]
-> You can also run the **Developer: Show Agent Debug Logs** command to view hook input and output in the agent debug logs.
-
-### Common issues
-
-**Hook not executing**: Verify the hook file is in `.github/hooks/` and has a `.json` extension. Check that the `type` property is set to `"command"`.
-
-**Permission denied errors**: Ensure your hook scripts have execute permissions (`chmod +x script.sh`).
-
-**Timeout errors**: Increase the `timeout` value or optimize your hook script. The default is 30 seconds.
-
-**JSON parse errors**: Verify your hook script outputs valid JSON to stdout. Use `jq` or a JSON library to construct output.
-
-## Frequently asked questions
-
-### How does {% data variables.product.prodname_vscode_shortname %} handle Claude Code hook configurations?
-
-{% data variables.product.prodname_vscode_shortname %} reads hook configurations from `.claude/settings.json`, `.claude/settings.local.json`, and `~/.claude/settings.json` by default. {% data variables.product.prodname_vscode_shortname %} parses Claude Code's hook configuration format, including matcher syntax. Currently, {% data variables.product.prodname_vscode_shortname %} ignores matcher values, so hooks run on all tool invocations regardless of the matcher.
-
-If you are adapting a Claude Code hook for {% data variables.product.prodname_vscode_shortname %}, be aware of the following differences:
-
-* **Tool input property names**: Claude Code uses snake_case for tool input properties (for example, `tool_input.file_path`), while {% data variables.product.prodname_vscode_shortname %} tools use camelCase (for example, `tool_input.filePath`). Update your hook scripts to read the correct property names.
-* **Tool names**: Claude Code and {% data variables.product.prodname_vscode_shortname %} use different tool names. For example, Claude Code uses `Write` and `Edit` for file operations, while {% data variables.product.prodname_vscode_shortname %} uses tool names like `create_file` and `replace_string_in_file`. Check the tool name in the `tool_name` input field and update your hook logic accordingly.
-* **Matchers are ignored**: Hook matchers like `"Edit|Write"` are parsed but not applied. All hooks run on every matching event, regardless of the tool name in the matcher.
-
-### How does {% data variables.product.prodname_vscode_shortname %} handle {% data variables.copilot.copilot_cli_short %} hook configurations?
-
-{% data variables.product.prodname_vscode_shortname %} parses {% data variables.copilot.copilot_cli_short %} hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by {% data variables.product.prodname_vscode_shortname %} (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
+For Agent Host harnesses, use the provider's hook reference and diagnostics. The Local settings `setting(chat.useHooks)`, `setting(chat.hookFilesLocations)`, and `setting(chat.useClaudeHooks)` do not configure Copilot, Claude, or Codex hook execution.
 
 ## Security considerations
 
 > [!CAUTION]
-> Hooks execute shell commands with the same permissions as {% data variables.product.prodname_vscode_shortname %}. Review hook configurations carefully, especially when using hooks from untrusted sources.
+> Hooks execute code with the permissions of their harness process. Review every hook and referenced script before you run it, especially in a shared repository or plugin.
 
-* **Review hook scripts**: Inspect all hook scripts before enabling them, especially in shared repositories.
-
-* **Limit hook permissions**: Use the principle of least privilege. Hooks should only have access to what they need.
-
-* **Validate input**: Hook scripts receive input from the agent. Validate and sanitize all input to prevent injection attacks.
-
-* **Secure credentials**: Never hardcode secrets in hook scripts. Use environment variables or secure credential storage.
+* Treat hook configuration and scripts as executable code.
+* Require approval before an agent edits a script that a later hook can execute.
+* Validate all JSON input before you use values in a shell command.
+* Give hook commands only the file, process, and network access they need.
+* Store credentials in approved secret storage. Do not place secrets in hook configuration, scripts, output, or agent context.
+* Review the trust and policy model for the selected harness. These controls are not portable across runtimes.
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/run/tools.md) - Learn about tool approval and execution
-* [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
-* [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents
-* [Security considerations](/docs/agents/run/security.md) - Best practices for AI security in {% data variables.product.prodname_vscode_shortname %}
+* [Local hooks reference](/docs/agents/reference/hooks-reference.md)
+* [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Security considerations for AI agents](/docs/agents/run/security.md)

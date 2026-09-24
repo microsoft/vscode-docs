@@ -25,7 +25,7 @@ An agent is an AI system that uses a language model and [tools](/docs/agents/con
 
 You choose the goal, control which actions require approval, and review the resulting changes. This article explains how the agent loop works and introduces the sessions, planning, subagents, memory, and customizations that support agentic work.
 
-For an overview of what you can do with agents in {% data variables.product.prodname_vscode_shortname %} and where to work with them, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+For an overview of AI workflows in {% data variables.product.prodname_vscode_shortname %} and where to work with agents, see [Build with AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Complete a short quickstart to create and validate an app with an agent in {% data variables.product.prodname_vscode_shortname %}.

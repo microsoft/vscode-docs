@@ -1,7 +1,7 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
 DateApproved: 9/16/2026
-MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including agents, dictation privacy, MCP, and tool approvals.
+MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including hooks, plugins, MCP, and tool approvals.
 ---
 
 # Manage AI settings in enterprise environments
@@ -117,9 +117,11 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
 | `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
-| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
+| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
 | `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
+| `allowManagedHooksOnly` | `ChatAllowManagedHooksOnly` | Policy only | Allow hooks only from managed sources and plugins force-enabled by policy. See [managed hook deployment](#deploy-hooks-through-managed-plugins). |
+| `strictPluginOnlyCustomization` | `ChatStrictPluginOnlyCustomization` | Policy only | Block standalone user and workspace skills, agents, hooks, instructions, and MCP servers while retaining eligible plugin customizations. |
 | `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
 | `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
 | `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
@@ -192,17 +194,73 @@ Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictati
 | `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
 | `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
 
-To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. Developers can continue using dictation, but the final transcript does not receive language-model cleanup.
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. Developers can continue using dictation on supported desktop platforms. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, this policy makes dictation unavailable.
 
-These policies enable organizations to meet data-handling requirements without removing speech-to-text workflows. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
+To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. The final transcript does not receive language-model cleanup.
+
+These policies help organizations meet data-handling requirements. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
 ## Enable or disable hooks
 
 [Hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
 
-To disable hooks entirely, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in {% data variables.product.prodname_vscode_shortname %}.
+To disable hooks in the **Local** harness, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in {% data variables.product.prodname_vscode_shortname %}. The Local harness then ignores hook configurations and does not execute hook commands.
 
-When this policy is applied, hook configurations are ignored and no hook commands are executed during agent sessions.
+`ChatHooks` applies only to the Local harness. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation, including Copilot Policy Hooks. See [choose a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
+
+### Use the SDK harness for Policy Hooks
+
+Copilot Policy Hooks apply to sessions on the SDK harness, not to sessions that remain on Local. The SDK hooks implementation is generally available (GA), while the {% data variables.product.prodname_vscode_shortname %} hooks surface remains in Preview during the transition.
+
+To move new editor-chat sessions from Local to the SDK harness, set the `ChatEditorPreferCopilotHarness` [device policy](/docs/enterprise/policies.md) to `true`. This policy is available from {% data variables.product.prodname_vscode_shortname %} version 1.134 and controls `setting(chat.editor.preferCopilotHarness)` _(Experimental)_.
+
+The preference selects Copilot when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections. Check the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) during rollout rather than assuming that every session uses Copilot.
+
+Before rollout, [validate existing hook scripts](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses), including scripts that depend on tool arguments or transcript formatting.
+
+### Deploy hooks through managed plugins
+
+Use [agent plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins) to distribute reviewed hook scripts to developers while restricting hooks from other sources. Package the hook configuration and scripts in a plugin, publish it in your approved marketplace, and ensure the plugin is installed on the target devices.
+
+Use these source restrictions instead of turning off hook execution or plugin integration.
+
+Deliver the following configuration through a [Copilot managed-settings channel](#deploy-copilot-managed-settings), not through user settings or workspace plugin recommendations. Replace `<your-org>/<plugin-marketplace>` with your marketplace repository. The example assumes that the marketplace contains a plugin named `security-hooks`.
+
+```json
+{
+    "allowManagedHooksOnly": true,
+    "enabledPlugins": {
+        "security-hooks@company-marketplace": true
+    },
+    "extraKnownMarketplaces": {
+        "company-marketplace": {
+            "source": {
+                "source": "github",
+                "repo": "<your-org>/<plugin-marketplace>"
+            }
+        }
+    },
+    "strictKnownMarketplaces": [
+        {
+            "source": "github",
+            "repo": "<your-org>/<plugin-marketplace>"
+        }
+    ]
+}
+```
+
+The controls serve different purposes:
+
+* `allowManagedHooksOnly: true` allows hooks only from managed sources and plugins force-enabled by policy. Standalone user and workspace hooks, and hooks from plugins that are only user-enabled, are excluded. This setting does not itself enable or install a plugin.
+* `enabledPlugins["security-hooks@company-marketplace"]: true` force-enables the plugin. A value of `false` force-disables it. An omitted plugin remains under normal user enablement, but its hooks are excluded when `allowManagedHooksOnly` is `true`.
+* `extraKnownMarketplaces` makes the company marketplace available. It is not a source restriction by itself.
+* `strictKnownMarketplaces` restricts plugin installation to the listed sources. It does not retroactively disable already-installed plugins. Pair source restrictions with plugin enablement and managed-hooks-only controls.
+
+`allowManagedHooksOnly` is available from version 1.132. If you also need to block standalone skills, agents, instructions, and MCP servers, set `strictPluginOnlyCustomization` to `true`, also available from version 1.132. This setting accepts a Boolean, not a list of customization types. Omit it when you want to restrict hooks without blocking those other standalone customizations.
+
+Machine-wide [Policy Hooks](https://docs.github.com/en/copilot/reference/hooks-reference#policy-hooks) are a separate managed hook source, not hooks installed by this plugin example. They require the SDK harness in {% data variables.product.prodname_vscode_shortname %}. Plugin distribution does not give Local sessions access to SDK Policy Hooks.
+
+Use **Developer: Policy Diagnostics** to [verify the applied managed settings](#verify-applied-managed-settings). In a test session on the intended harness, confirm that the approved plugin's hook runs and produces the expected decision, and that user, workspace, and non-managed plugin hooks do not run.
 
 ## Enable or disable extension language tools
 
@@ -224,9 +282,11 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 The following policies are available:
 
-* To allowlist the plugin IDs that developers can use, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in {% data variables.product.prodname_vscode_shortname %}. The organization explicitly enables or disables each plugin in the list.
+* To force-enable or force-disable specific plugins, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in {% data variables.product.prodname_vscode_shortname %}. Keys use the `plugin@marketplace` form. Set a value to `true` to force-enable the plugin or `false` to force-disable it. Omitted plugins remain under normal user enablement. This policy is not an allowlist.
 * To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. This policy has no user-facing setting and can only be configured through policy.
-* To trust only the marketplaces supplied by policy, set the `ChatStrictMarketplaces` policy to `true`. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. When this policy is enabled, marketplaces that developers add through `setting(chat.plugins.marketplaces)` are not trusted.
+* To restrict plugin installation to approved marketplace sources, set the `ChatStrictMarketplaces` policy to a list of source objects. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. An empty list blocks installation from all marketplaces. The restriction does not retroactively disable already-installed plugins.
+
+For an example that combines plugin activation, marketplace restrictions, and hook-source controls, see [Deploy hooks through managed plugins](#deploy-hooks-through-managed-plugins).
 
 Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
 
@@ -389,6 +449,9 @@ The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools ar
 
 Use this policy to block exceptions to the allowed domain list. Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`. You do not need to specify denied domains when the allowed domain list is empty because all domains are already blocked.
 
+> [!NOTE]
+> Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
+
 ## Configure Copilot code review
 
 Copilot code review enables AI-powered review of code changes. Organizations can control access to these features.
@@ -449,10 +512,12 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 | `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
 | `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
 
-For each field, the resolved value is determined by the precedence order: policy, then environment variable, then user setting, then default. A managed value always wins.
+Managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values. Remove conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
 
 > [!NOTE]
 > Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
+
+For chat sessions that use the Local harness, if an enterprise-managed OTel configuration enables export after Copilot Chat starts, {% data variables.product.prodname_vscode_shortname %} automatically attempts to restart the extension hosts for the current window once. The restart can interrupt work in other extensions. If the restart is blocked or doesn't apply the configuration, {% data variables.product.prodname_vscode_shortname %} offers **Reload Window**. Later policy changes and policy removal also require a manual reload.
 
 The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload {% data variables.product.prodname_vscode_shortname %} to apply it.
 
