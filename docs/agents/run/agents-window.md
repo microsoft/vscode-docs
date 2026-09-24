@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 9/16/2026
+DateApproved: 9/24/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -150,7 +150,7 @@ Before you start, make sure that:
 
 * [Docker is installed and running](/docs/devcontainers/containers.md#installation) on the machine that contains the project folder, and the Docker CLI is available on that machine's `PATH`. For a remote folder, Docker must run on the remote host.
 * The project folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
-* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
+* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}, and the source host advertises Dev Container support. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
 
 To run a session in a Dev Container:
 
@@ -163,6 +163,8 @@ To run a session in a Dev Container:
 1. Choose an available agent harness, configure the session, and enter your prompt.
 
 Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
+The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
 
 ### Start a session from a pull request
 
