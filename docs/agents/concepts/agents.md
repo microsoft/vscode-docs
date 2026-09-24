@@ -82,7 +82,7 @@ Sessions are independent, can run in parallel, and are shared across the [{% dat
 
 An agent harness is the runtime that coordinates the agent loop. It manages the session, connects the language model to tools, and provides provider-specific capabilities. {% data variables.product.prodname_vscode_shortname %} supports harnesses such as Copilot, Claude, and Codex.
 
-The execution environment is where the harness runs tools and changes code. Depending on the harness and task, this can be your machine, cloud infrastructure, or a remote machine. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md).
+The execution environment is where the harness runs workspace tools and changes code. Depending on the available harness, this can be your machine, a connected host, a Dev Container on either host, or cloud infrastructure. A Dev Container provides the project's configured tools and dependencies without changing the harness. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
 
 ## Capabilities that extend agent work
 

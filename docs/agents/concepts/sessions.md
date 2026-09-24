@@ -1,7 +1,7 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
 DateApproved: 9/16/2026
-MetaDescription: Understand agent sessions in {% data variables.product.prodname_vscode_shortname %}, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
+MetaDescription: Understand agent sessions in {% data variables.product.prodname_vscode_shortname %}, how they run across environments, and how handoff works.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -25,6 +25,8 @@ To create and organize sessions, see [Manage agent sessions](/docs/agents/run/se
 A session holds one conversation with an agent, including your prompts, the agent's responses, the tool calls it makes, and the [context](/docs/agents/concepts/context.md) it accumulates along the way. Each session is independent and has its own [context window](/docs/agents/concepts/language-models.md#context-window), so work in one session doesn't leak into another.
 
 The session is the main way you organize agent work. You give a session a task, follow its progress, and review its results as a self-contained thread.
+
+The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) determines where it works on code. An Agent Host session can use a workspace on your machine, a connected host, or inside a Dev Container on either host, depending on the available harness. A container changes the development environment, not how the session organizes the conversation and task.
 
 ## Chats within a session
 

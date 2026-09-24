@@ -109,7 +109,9 @@ Agent sandboxing applies to shell subprocesses, including terminal commands from
 
 Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files) to control these operations.
 
-For full environment isolation, pair sandboxing with a [dev container](/docs/devcontainers/containers.md). Dev containers provide a complete boundary around the entire development environment, including all tools, file access, and network access.
+A [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) runs the Agent Host and workspace tools inside the project's container, on your machine or a supported connected host. This is different from a Git worktree, which separates code changes, and terminal sandboxing, which restricts command access.
+
+A Dev Container does not automatically block all access to the host or network. Its boundary depends on the container configuration, including mounted host folders, permissions, and networking. Review that configuration and continue to use the applicable approval and security controls.
 
 Agent sandboxing continues to evolve to cover more tools and scenarios.
 
