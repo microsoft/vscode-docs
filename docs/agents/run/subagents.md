@@ -192,8 +192,8 @@ Read-only subagent chats show a lock icon and don't accept input. They persist a
 
 By default, chat editors use a rich presentation that opens each subagent in its own editor instead of showing its full activity inline in the parent chat. Disable the `setting(chat.subagents.useRichRendering)` setting to show subagent activity inline.
 
-> [!NOTE]
-> Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
+> [!TIP]
+> AI credit usage for subagents is hidden by default. To show [AI credit usage](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) in the subagent response pill, hover details, and accessible label, enable the `setting(chat.subagents.showCreditUsage)` setting.
 
 You control how much detail to reveal without cluttering your main conversation with intermediate steps.
 
