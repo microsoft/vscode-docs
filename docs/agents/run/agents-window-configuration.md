@@ -15,7 +15,7 @@ For instructions about starting and working with sessions, see [Use the {% data 
 The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
 
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use an Anthropic API key or Claude Code OAuth token.
+* **Claude**: use a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
 * **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
