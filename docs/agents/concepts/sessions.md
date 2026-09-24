@@ -16,13 +16,13 @@ Keywords:
 
 # Understand agent sessions and handoff
 
-A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
+A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It brings together the conversation, workspace, and code changes for a task and can contain multiple chats when the harness supports them. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 
 To create and organize sessions, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
 ## What is a session?
 
-A session holds one conversation with an agent, including your prompts, the agent's responses, the tool calls it makes, and the [context](/docs/agents/concepts/context.md) it accumulates along the way. Each session is independent and has its own [context window](/docs/agents/concepts/language-models.md#context-window), so work in one session doesn't leak into another.
+A session contains one or more chats. Each chat records your prompts, the agent's responses, the tool calls it makes, and the [context](/docs/agents/concepts/context.md) it accumulates along the way. Its conversation history contributes to the language model's [context window](/docs/agents/concepts/language-models.md#context-window) and isn't automatically shared with other chats or sessions.
 
 The session is the main way you organize agent work. You give a session a task, follow its progress, and review its results as a self-contained thread.
 
@@ -33,6 +33,10 @@ The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#r
 A session can contain more than one chat. Each chat is an independent conversation with its own history, title, status, and agent or model selection, but all chats in a session share the same workspace and code isolation. A new chat starts blank and doesn't inherit the conversation history of the other chats in the session.
 
 Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. This capability runs on the [Agent Host](/docs/agents/concepts/agent-host.md) and is available for harnesses that support it, such as Copilot and Claude. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+
+For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.
+
+Both chats can edit the same files. When you need separate working directories, use separate sessions with [worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation), where available.
 
 ## Work with multiple sessions
 
