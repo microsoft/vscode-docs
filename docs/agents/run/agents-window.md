@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 9/16/2026
+DateApproved: 9/24/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -27,7 +27,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
   * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
   * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for Agent Host sessions.
 
@@ -43,6 +43,8 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Run `code --agents` from the command line.
 
+* On Windows, right-click the {% data variables.product.prodname_vscode_shortname %} taskbar icon and select **Agents Window** from the Tasks jump list.
+
 * Open <https://insiders.vscode.dev/agents> in a browser to use the {% data variables.copilot.agents_window %} from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
 By default, the {% data variables.copilot.agents_window %} requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens.
@@ -54,7 +56,7 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 On desktop, you can open the {% data variables.copilot.agents_window %} without signing in to GitHub when at least one of these options is available:
 
-* Claude configured with Anthropic credentials.
+* Claude configured with an API key or another supported Claude BYOK option.
 * Codex signed in to ChatGPT.
 * A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available to Agent Host sessions.
 
@@ -124,7 +126,7 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
-1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. The available options depend on the workspace. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
+1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
 
@@ -148,7 +150,7 @@ Before you start, make sure that:
 
 * [Docker is installed and running](/docs/devcontainers/containers.md#installation) on the machine that contains the project folder, and the Docker CLI is available on that machine's `PATH`. For a remote folder, Docker must run on the remote host.
 * The project folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
-* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
+* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}, and the source host advertises Dev Container support. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
 
 To run a session in a Dev Container:
 
@@ -161,6 +163,8 @@ To run a session in a Dev Container:
 1. Choose an available agent harness, configure the session, and enter your prompt.
 
 Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
+The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
 
 ### Start a session from a pull request
 
@@ -184,6 +188,15 @@ To start a session from a pull request:
 
 > [!NOTE]
 > Pull requests from forks are not supported and don't appear in the pull request picker.
+
+### Remove a pull request from a session
+
+When a pull request is no longer relevant to a session, remove its artifact from the session:
+
+* If the session has one pull request, right-click the pull request pill above the chat input, and then select **Remove Pull Request Artifact from Session**.
+* If the session has multiple pull requests, select the pull requests pill to open the dropdown, and then select **Remove Pull Request Artifact from Session** for the pull request you want to remove.
+
+Removing a pull request artifact only disassociates the artifact from the current session. It doesn't close the pull request on GitHub. If the session has a separate association with the same pull request, such as when you start a session from that pull request, that association remains unchanged.
 
 ## Start a quick chat
 
@@ -236,13 +249,46 @@ For complete instructions about feedback, revisions, checkpoints, and integratin
 
 ### Validate changes
 
-Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. Select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
+Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. On desktop, opening a regular `.html` file in the active session opens it in the integrated browser by default. HTML diffs continue to open in the diff editor so you can review changes. You can also select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
 
 To run a workspace task, select **Tasks** > **Add Task**, and then provide its name, command, run options, and save location. Run configured tasks from the **Tasks** dropdown. To run an ad hoc command in the active session's folder or worktree, select **Open Terminal** in the title bar.
 
 ### Commit changes
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
+
+### Create a pull request
+
+For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+
+1. Open the **Changes** view, and then select **Create PR**.
+
+    The form opens while {% data variables.product.prodname_vscode_shortname %} generates a title and description. You can edit these fields without waiting for generation to finish.
+
+1. Review the repository, source branch, base branch, title, and description.
+
+1. To keep the pull request in draft until it is ready for review, select **Create as Draft**.
+
+1. Under **After creation**, choose one of these mutually exclusive options:
+
+    * **Merge Manually**: merge the pull request yourself when it is ready.
+    * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
+        * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
+    * **Agent Merge**: have Agent Merge monitor the pull request and ask the agent to address blockers.
+        * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
+        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if Agent Merge makes no changes, and **When Ready** merges it after required checks and approvals pass.
+
+    GitHub auto-merge is unavailable when **Create as Draft** is selected. It also does not fix failed checks or address review feedback.
+
+1. Select **Create PR**.
+
+    Any uncommitted changes are committed and the branch is pushed before the pull request is created.
+
+The form remembers the draft setting, merge options, Agent Merge options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
+
+To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**.
+
+This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. Agent Merge options are not included in the message.
 
 ### Finish a pull request with Agent Merge
 
@@ -259,7 +305,7 @@ First, enable `setting(chat.agentMerge.enabled)`.
 
 To enable Agent Merge for an existing pull request:
 
-1. Open a session that is associated with a pull request. To create one, follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+1. Open a session that is associated with a pull request. To create one, use the [Create PR form](#create-a-pull-request) or follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
 1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
 
@@ -268,14 +314,6 @@ To enable Agent Merge for an existing pull request:
     You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
 
 <!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
-
-To create a draft pull request and enable Agent Merge in one step:
-
-1. Open the **Changes** view for a session that doesn't have a pull request.
-
-1. Open the pull request action menu and select **Create Draft PR & Agent Merge**.
-
-1. Configure which blockers Agent Merge should address. Agent Merge creates the draft pull request and starts monitoring it, but doesn't merge it while it remains a draft.
 
 While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
 

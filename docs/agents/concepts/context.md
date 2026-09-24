@@ -26,7 +26,7 @@ A prompt with relevant files, clear instructions, and focused history produces b
 
 You don't need to identify every relevant file before you start. During the [agent loop](/docs/agents/concepts/agents.md#agent-loop), the agent can search your workspace, read files, run commands, and add the results to the context for its next step. Explicit references are useful when you already know which information the agent should consider.
 
-Conversation history is scoped to its session and isn't automatically available in a different session. Information carries across sessions only through persistent sources, such as [custom instructions](/docs/agent-customization/custom-instructions.md) or [agent memory](/docs/agents/concepts/agents.md#memory).
+Conversation history is scoped to a chat and isn't automatically shared with other chats or sessions. Context can be passed explicitly, such as in a delegated task or a [handoff](/docs/agents/concepts/sessions.md#hand-off-a-session). Persistent sources, such as [custom instructions](/docs/agent-customization/custom-instructions.md) or [agent memory](/docs/agents/concepts/agents.md#memory), can also provide information across conversations.
 
 ## How {% data variables.product.prodname_vscode_shortname %} assembles context
 
@@ -37,7 +37,7 @@ Each time the agent sends a request to the language model, {% data variables.pro
 * **System instructions**: built-in guidelines that define the agent's behavior.
 * **Customizations**: AI customizations you set up, including custom agents, skills, and custom instructions.
 * **User message**: the current request or follow-up message you send to the agent.
-* **Conversation history**: the messages exchanged so far in the current session.
+* **Conversation history**: the messages exchanged so far in the current chat.
 * **Implicit context**: the file you're editing, your current selection, visible errors, and git state.
 * **Explicit references**: files, editor context, web content, and other sources you reference with `#`-mentions.
 * **Tool outputs**: results from file reads, terminal commands, codebase search results, and other tool calls during agent sessions.
@@ -79,6 +79,14 @@ The context window is the maximum amount of information a language model can pro
 When a conversation approaches the limit, {% data variables.product.prodname_vscode_shortname %} automatically compacts older parts of the conversation into a summary. Compaction makes room for new information, but details from earlier messages might be summarized or omitted. You can also enter `/compact` in the chat input to compact the conversation manually.
 
 Start a new session when you switch to an unrelated task. If an instruction should apply across requests or sessions, store it in [custom instructions](/docs/agent-customization/custom-instructions.md) instead of relying on conversation history. Learn more about [managing conversation context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context).
+
+## Context isolation with subagents
+
+An agent can delegate a focused task to a [subagent](/docs/agents/concepts/agents.md#subagents) that works in its own context and returns a result. This keeps intermediate work separate from the main conversation. Compaction, by contrast, summarizes content already in that conversation.
+
+Context isolation is not code isolation. It doesn't by itself create a separate worktree or sandbox. An agent's access to files and tools depends on the [execution environment](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) and [permission controls](/docs/agents/concepts/trust-and-safety.md).
+
+Learn how to [delegate work to subagents](/docs/agents/run/subagents.md).
 
 ## Working effectively with context
 
