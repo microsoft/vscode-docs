@@ -234,16 +234,16 @@ Claude support is enabled by default. Turn it on or off with `setting(github.cop
 Claude supports two authentication and billing options:
 
 * **GitHub Copilot subscription**: sign in to GitHub to use Copilot-routed models. Usage is billed through your Copilot subscription.
-* **Anthropic credentials**: use an Anthropic API key or Claude Code OAuth token. Usage is billed by Anthropic.
+* **Bring your own key (BYOK)**: use a Claude API key or another supported Claude BYOK option. Usage is billed by your configured provider.
 
-When both authentication methods are available, the model picker groups models by **Anthropic** and **Copilot**. The model you select determines the provider and billing method for the next turn. You can switch between Anthropic-native and Copilot-routed models in an existing Claude session.
+When both options are available, the model picker groups models by **Anthropic** and **Copilot**. The model you select determines the provider and billing method for the next turn. You can switch between BYOK-backed and Copilot-routed models in an existing Claude session.
 
 <a name="use-claude-without-github-sign-in"></a>
 <a name="use-claude-without-github-sign-in-experimental"></a>
 
-To use Claude without signing in to GitHub _(Experimental)_, set `ANTHROPIC_API_KEY` in your environment or in the `env` object in `~/.claude/settings.json`. Alternatively, set `CLAUDE_CODE_OAUTH_TOKEN` to a token created with `claude setup-token`. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
+To use Claude without signing in to GitHub _(Experimental)_, configure a Claude API key or another supported Claude BYOK option. For an Anthropic API key, set `ANTHROPIC_API_KEY` in your environment or in the `env` object in `~/.claude/settings.json`. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the {% data variables.copilot.agents_window %} while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the {% data variables.copilot.agents_window %} while signed out of GitHub. The model picker only shows models from your Claude BYOK configuration until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
 
 ### Permissions and approvals
 

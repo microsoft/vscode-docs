@@ -113,8 +113,8 @@ To get started with {% data variables.product.prodname_copilot_short %}:
 
 You don't need a {% data variables.product.prodname_copilot %} subscription to use AI in {% data variables.product.prodname_vscode_shortname %}. You can bring your own models or use another provider's agent:
 
-* **API key:** [Connect a supported model provider with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
-* **Provider subscription:** Use [Claude with your Claude subscription (Experimental)](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in), or [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
+* **Bring your own key (BYOK):** [Connect a supported model provider](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) or [use Claude with an API key or another supported BYOK option (Experimental)](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in).
+* **Provider subscription:** Use [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
 * **Local model:** [Run a model on your own machine, such as Ollama](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), including offline.
 
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
@@ -123,7 +123,7 @@ Setup, available features, and usage charges depend on the provider and integrat
 
 Yes. You don't need an account to use the editor, terminal, debugger, source control, extensions, or other core features.
 
-AI doesn't always require GitHub sign-in either. You can use API-key or local models without a GitHub account. Claude and Codex also offer [ways to use your provider account instead](#use-ai-without-a-copilot-subscription). Running these agents in the {% data variables.copilot.agents_window %} without GitHub sign-in is experimental. Follow the linked setup instructions for your chosen option.
+AI doesn't always require GitHub sign-in either. You can use API-key or local models without a GitHub account. You can also [use Claude with a supported BYOK configuration or Codex with a ChatGPT account](#use-ai-without-a-copilot-subscription). Running these agents in the {% data variables.copilot.agents_window %} without GitHub sign-in is experimental. Follow the linked setup instructions for your chosen option.
 
 To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 

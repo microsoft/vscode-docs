@@ -27,7 +27,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
   * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
   * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for Agent Host sessions.
 
@@ -56,7 +56,7 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 On desktop, you can open the {% data variables.copilot.agents_window %} without signing in to GitHub when at least one of these options is available:
 
-* Claude configured with Anthropic credentials.
+* Claude configured with an API key or another supported Claude BYOK option.
 * Codex signed in to ChatGPT.
 * A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available to Agent Host sessions.
 
