@@ -2,7 +2,7 @@
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
 DateApproved: 9/16/2026
 FeatureStatus: agent-artifacts
-MetaDescription: Use the artifacts panel in {% data variables.product.prodname_vscode %} to view screenshots, plans, documents, and other resources produced during an agent session.
+MetaDescription: View and manage artifacts, references, screenshots, plans, and other agent session resources in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Use artifacts in agent sessions
@@ -23,6 +23,12 @@ Launch a chat prompt that asks the agent to save a screenshot as an artifact.
 </div>
 
 ![Screenshot of the artifacts panel in the {% data variables.copilot.chat_view %}, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
+
+## Artifacts and references
+
+Agent sessions can surface both artifacts and references next to the chat input. Artifacts represent notable results or resources the session works on, while references provide supporting information that the session only consults.
+
+For GitHub issues and pull requests, an item is an artifact when the session works on it, even if the item existed before the session started. An issue or pull request that the session only uses for information is a reference.
 
 ## Artifact sources
 
@@ -60,6 +66,14 @@ When artifacts are available, the artifacts panel appears alongside the conversa
 * Artifacts from the agent replace the previous agent list each time the agent updates them.
 * Each subagent's artifacts are shown in a separate group. You can clear a specific subagent's artifacts independently.
 * Rules-based artifacts update automatically as the conversation progresses. If you change the rule settings, the artifacts panel reflects the updated rules.
+
+## Remove an artifact or reference
+
+To remove an individual recorded item, hover over or focus the item next to the chat input, and then select its remove action. If a group contains multiple items, first select the group to open the list. The removal persists when you reload or reopen the session.
+
+Removing an item deletes only its record from the current session. It doesn't delete a file or website, revert file changes, or modify an issue or pull request.
+
+Not every displayed item is removable. The remove action is available only when the session provider supports removal and the recorded item has a stable ID. An issue or pull request association that {% data variables.product.prodname_vscode_shortname %} discovers independently might remain visible or reappear after you remove a recorded item. Derived file changes and independently discovered associations can't be removed with this action.
 
 ## Ask the agent to create artifacts
 
