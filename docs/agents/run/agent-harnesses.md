@@ -102,7 +102,11 @@ Code isolation controls where the agent applies file changes. The permission lev
 
 For a walkthrough that uses separate worktrees for two independent coding tasks, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
-When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace.
+When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. The base branch provides the initial contents of the new worktree and does not change the branch in your active workspace.
+
+If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
+
+Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace.
 
 In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(sessions.useWorktree)` controls whether **New Worktree** is selected when you create your first workspace session. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers your isolation choice across workspaces and uses it instead of this setting.
 
