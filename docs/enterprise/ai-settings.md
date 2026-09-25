@@ -116,6 +116,8 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
 | `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
 | `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
+| `sandbox.enabled` | None | Agent Host runtime | Set to `true` to require sandboxing in Agent Host sessions. This runtime-owned key does not map to a {% data variables.product.prodname_vscode_shortname %} policy or setting. |
+| `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to let developers turn off sandboxing for an individual session. If omitted or `false`, required sandboxing cannot be bypassed. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
@@ -411,6 +413,8 @@ The following policies control whether a sandboxed command can relax these restr
 
 * Set `ChatAgentSandboxAllowNetwork` to `false` to apply the configured network domain rules to sandboxed commands.
 * Set `ChatAgentSandboxAllowUnsandboxedCommands` to `false` to prevent commands from running outside the sandbox after user confirmation.
+
+Copilot managed settings also support the runtime-owned `sandbox.enabled` and `sandbox.allowBypass` keys. They do not map to {% data variables.product.prodname_vscode_shortname %} policies or settings. Set `sandbox.enabled` to `true` to require sandboxing in Agent Host sessions. Set `sandbox.allowBypass` to `true` as well to let developers turn it off for an individual session. See [Available managed settings](#available-managed-settings) for details.
 
 ## Configure agent network filtering
 
