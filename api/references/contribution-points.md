@@ -1057,11 +1057,28 @@ Currently extension writers can contribute to:
 - `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
-> **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
-
-> **Note 2:** Commands of menu items contributed to `editor/lineNumber/context` are also passed the line number. Additionally these items can reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators to test it against an array-valued context key managed by the extension.
-
 In addition to a title, a contributed command can specify the icon which VS Code will show when the invoking menu item is represented as a button, for example on a title menu bar.
+
+### Menu command arguments
+
+When you invoke an extension command from a menu, {% data variables.product.prodname_vscode_shortname %} passes context from that menu to the handler registered with `vscode.commands.registerCommand`. The arguments depend on the menu location:
+
+| Menu location | Arguments passed to the handler, in order |
+| --- | --- |
+| `editor/context` | The `Uri` of the document in which you opened the context menu. |
+| `explorer/context` | The `Uri` of the file or folder on which you opened the context menu, followed by an array of selected resource URIs. If the target is part of a multiple selection, the array contains that selection. Otherwise, it contains only the target resource. |
+| `editor/title` | The editor's resource `Uri`, followed by an editor context object containing `groupId`. |
+| `editor/title/context` | The target editor's resource `Uri`, followed by an editor context object containing `groupId` and `editorIndex`. |
+
+The editor context identifies an editor group and, for a tab context menu, the editor's index in that group. A `groupId` is an internal group identifier, not a `ViewColumn`. Prefer the resource URI when your command operates on a document. For editors without a resource URI, the context object is the first argument.
+
+If you open the Explorer context menu on empty space, the first argument is the workspace folder URI when there is only one workspace folder, or an empty object otherwise. The selected resources array is empty. Check that the argument is a URI before using it as a resource.
+
+Commands contributed to `editor/lineNumber/context` receive an object with `uri` and `lineNumber` properties. The `uri` is the document URI and `lineNumber` is the one-based line number. These menu items can also reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators with an array-valued context key managed by the extension.
+
+Other menus supply context specific to their feature. For example, `view/item/context` in an extension's [Tree View](/api/extension-guides/tree-view.md#view-actions) passes the tree element supplied by its `TreeDataProvider`. If the target belongs to a multiple selection, a second argument contains the selected elements. Otherwise, the second argument is `undefined`. For Source Control menu arguments, see [Source Control menus](/api/extension-guides/scm-provider.md#menus).
+
+These menu arguments are not automatically supplied when you invoke the same command from the Command Palette or a keyboard shortcut. See [Command handler arguments](/api/extension-guides/command.md#command-handler-arguments) for the other invocation methods and an example that handles a missing resource.
 
 ### menu example
 
