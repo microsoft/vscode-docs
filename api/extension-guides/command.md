@@ -141,6 +141,44 @@ export function activate(context: vscode.ExtensionContext) {
 
 The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it programmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
 
+### Command handler arguments
+
+The arguments passed to a handler registered with `registerCommand` depend on how you invoke the command:
+
+| Invocation | Arguments passed to the handler |
+| --- | --- |
+| `vscode.commands.executeCommand(commandId, ...args)` | The arguments after the command ID, in the same order. |
+| Command URI | The elements of the JSON array in the URI query, as described in [Command URIs](#command-uris). |
+| Command Palette | No arguments for a command contributed by your extension. An active editor or Explorer selection does not add arguments. |
+| Keyboard shortcut | The keybinding's `args` value as a single argument, if specified. An array in `args` is passed as one array, not as separate arguments. See [Command arguments](/docs/configure/keybindings.md#command-arguments). |
+| Menu item | Context supplied by the menu, such as a document URI or selected resources. See [Menu command arguments](/api/references/contribution-points.md#menu-command-arguments). |
+
+A `when` clause controls whether a menu item is visible. It does not pass its context keys to the command handler.
+
+If you expose a command in both a resource menu and the Command Palette, handle calls without a resource argument. Use the URI passed by the menu when one is available: the target of a context menu can differ from the active editor. For example, this command logs the menu's resource URI, or falls back to the active text editor when no URI is supplied:
+
+```ts
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.commands.registerCommand('myExtension.logResource', (resource?: unknown) => {
+      const uri = resource instanceof vscode.Uri
+        ? resource
+        : vscode.window.activeTextEditor?.document.uri;
+
+      if (!uri) {
+        return;
+      }
+
+      console.log(uri.toString());
+    })
+  );
+}
+```
+
+[`vscode.commands.registerTextEditorCommand`](/api/references/vscode-api#commands.registerTextEditorCommand) has a different callback signature: it supplies the active `TextEditor` and a `TextEditorEdit` before the command arguments. It only runs when a text editor is active.
+
 ### Creating a user facing command
 
 `vscode.commands.registerCommand` only binds a command ID to a handler function. To expose this command in the Command Palette so it is discoverable by users, you also need a corresponding command `contribution` in your extension's `package.json`:
