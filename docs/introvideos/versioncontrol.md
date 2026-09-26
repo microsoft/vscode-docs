@@ -37,7 +37,8 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * Create a branch
   * **Git: Create Branch**
 * Diff editor
-  * **Inline View** button
+  * Select **More Actions** (**...**) > **Diff View** in the diff editor toolbar, then choose **Inline**, **Side by Side**, or **Automatic**.
+  * See [Choose a diff layout](/docs/sourcecontrol/staging-commits.md#choose-a-diff-layout) for details.
 * Stage changes
   * **Stage Changes** ➕ button
 * Switch branches
