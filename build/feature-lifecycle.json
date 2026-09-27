@@ -85,6 +85,10 @@
       "label": "Rubber Duck",
       "state": "experimental"
     },
+    "subagent-auto-model-selection": {
+      "label": "Auto model selection for subagents",
+      "state": "experimental"
+    },
     "terminal-block-detected-file-writes": {
       "label": "Block detected terminal file writes",
       "state": "experimental"

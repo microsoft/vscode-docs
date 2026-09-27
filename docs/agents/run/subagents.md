@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
 DateApproved: 9/16/2026
-MetaDescription: Use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate focused tasks, compare models, and review results without crowding the main chat context.
+MetaDescription: Delegate focused tasks to context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} and review results in the main chat.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
@@ -133,10 +133,11 @@ Include the `agent` tool set in the coordinator's `tools` property. The [coordin
 
 ### Select the model for a subagent
 
-By default, Local subagents select a model in this order:
+Local subagents select a model in this order:
 
 1. An explicit model parameter supplied by the main agent to the `runSubagent` tool.
 1. The selected custom agent's [`model`](/docs/agent-customization/custom-agents.md#header-optional) property, which accepts a model name or a prioritized list of models.
+1. Auto, when `setting(chat.subagents.defaultToAuto)` is enabled and the [conditions for using Auto](#use-auto-for-subagents) apply.
 1. The model running the main conversation.
 
 To request a model, include it in your prompt. Replace `<model name>` with a model available in your session:
@@ -147,9 +148,13 @@ Use a subagent with <model name> to review the error handling in this module.
 
 Explicit and agent-configured model selections are checked against the main model's cost tier. If a selection exceeds that tier, the subagent doesn't run and reports which models are available.
 
-#### Use Auto for subagents (Experimental)
+#### Use Auto for subagents
+
+`feature(subagent-auto-model-selection)`
 
 Enable `setting(chat.subagents.defaultToAuto)` to use Auto instead of the main model when neither the tool call nor the agent specifies a model. The setting defaults to `false` and doesn't override an inherited custom agent's model configuration.
+
+If Auto is unavailable, the subagent uses the main conversation's model.
 
 Subagents of a [bring your own key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) continue to use that model unless you specify a different one. Auto routing through this setting is not constrained by the main model's fixed cost tier.
 
