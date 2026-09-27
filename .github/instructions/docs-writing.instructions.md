@@ -116,6 +116,16 @@ Existence in source code is not proof of availability. Verify how the functional
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+- To let readers try a feature directly from a documentation article, use a feature tryout command link inside the `TRYOUTS` conditional:
+
+    ```md
+    [Try <feature>](command:workbench.action.onboarding.tryFeature?%5B%22<tryout-id>%22%5D)
+    ```
+
+    - Verify that the tryout ID is registered, stable, publicly available, and supported in the product.
+    - Include only the tryout ID in the Markdown. The installed product owns the commands, arguments, samples, setup actions, and availability checks.
+    - Use descriptive, action-oriented link text that identifies the feature readers can try.
+
 * Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
 
 ## Images
