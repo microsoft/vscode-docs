@@ -275,13 +275,17 @@ The **Codex** harness uses provider-native subagents to run independent tasks an
 
 ## What you see in chat
 
+The presentation depends on both the harness and the interface. Interactive [peer chats](/docs/agents/concepts/sessions.md#chats-within-a-session) are conversations you prompt independently. Subagent chats show work that an agent delegates.
+
 ### Chat view
 
 In a Local session in the {% data variables.copilot.chat_view %}, a running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
 
+For Agent Host sessions, the editor's **Sessions** view shows interactive peer chats, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats in supported sessions, use the [{% data variables.copilot.agents_window %}](#agents-window).
+
 ### Agents window
 
-In supported sessions in the {% data variables.copilot.agents_window %}, subagents appear as read-only peer chats. Select the indicator in the parent chat to open the subagent. The indicator shows its model, elapsed time, and active tool call.
+In supported sessions in the {% data variables.copilot.agents_window %}, subagents appear as read-only chats within the session. Select the indicator in the parent chat to open the subagent. The indicator shows its model, elapsed time, and active tool call.
 
 Subagent chats are hidden from the tab strip by default. You can also open one from the **Chats** dropdown, the running-subagents indicator, or **Open Subagent** in the chat where the delegation occurred.
 
