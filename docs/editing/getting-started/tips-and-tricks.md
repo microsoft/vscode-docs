@@ -268,6 +268,18 @@ Font ligatures
 
 ![font ligatures](../images/tips-and-tricks/font-ligatures-annotated.png)
 
+Align full-width characters
+
+In CJK and mixed-script documents, full-width characters might not align with two cells in a monospace character grid. Set `setting(editor.fullwidthCharacterWidth)` to `twoCells` to center each recognized full-width character in exactly two character cells:
+
+```json
+"editor.fullwidthCharacterWidth": "twoCells"
+```
+
+The default value, `font`, uses the character width defined by the font. The `twoCells` value only applies when {% data variables.product.prodname_vscode_shortname %} detects that the editor font is monospace. It applies to individual full-width characters, but doesn't resize a multi-codepoint sequence, such as an emoji sequence, as a single unit.
+
+Affected lines use DOM rendering instead of GPU rendering. The `twoCells` value can therefore increase line-rendering cost, especially in CJK-heavy files.
+
 Auto Save
 
 ```json

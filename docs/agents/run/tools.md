@@ -148,7 +148,12 @@ To remove an extension from the tool list, right-click its tool group and select
 
 ## Edit tool parameters
 
-For a tool call that requires approval, you can review and edit its input parameters before it runs:
+For a tool call that requires approval, you can expand the confirmation dialog to review its input parameters. Parameter editing depends on the session and confirmation type:
+
+* In Agent Host sessions, generic and terminal tool confirmations are read-only.
+* Confirmations from the Local harness and extension-contributed tools can support parameter editing.
+
+To edit parameters in a supported confirmation:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 

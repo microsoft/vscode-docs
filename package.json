@@ -18,6 +18,7 @@
     "test:replace-youtube-embeds": "node --test ./build/replace-youtube-embeds.test.js",
     "test:data-variables": "node --test ./build/data-variables.test.js",
     "test:tabs": "node --test ./build/tabs.test.js",
+    "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && docsify serve .",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"

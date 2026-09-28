@@ -23,6 +23,18 @@ There are several ways to open the integrated browser:
 
 You can open multiple browser instances simultaneously, each in its own editor tab. When a browser tab is already open, the **View** > **Browser** menu item and the title bar globe button open the [tab management](#tab-management) Quick Pick instead of creating a new browser tab.
 
+### Open local files
+
+In {% data variables.product.prodname_vscode_shortname %}, open local HTML pages (`.html` and `.htm`) and saved web archives (`.mhtml` and `.mht`) directly in the integrated browser. File extension matching is case-insensitive.
+
+Open a supported file in one of these ways:
+
+* In the Explorer, right-click the file and select **Open in Integrated Browser**.
+* Right-click the file's editor tab and select **Open in Integrated Browser**.
+* With the file open in the editor, select the **Open in Integrated Browser** (globe) button in the editor toolbar.
+
+These actions require a local `file://` URL and aren't available for remote or virtual workspace resources.
+
 ## Use an external browser
 
 By default, localhost links, such as `localhost`, `127.0.0.1`, and `[::1]`, and all-interfaces links, such as `0.0.0.0` and `[::]`, open in the integrated browser when you select them in the terminal, chat, or other parts of {% data variables.product.prodname_vscode_shortname %}.

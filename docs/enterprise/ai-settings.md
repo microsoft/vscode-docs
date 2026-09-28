@@ -116,6 +116,8 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
 | `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
 | `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
+| `sandbox.enabled` | None | Agent Host runtime | Set to `true` to require sandboxing in Agent Host sessions. This runtime-owned key does not map to a {% data variables.product.prodname_vscode_shortname %} policy or setting. |
+| `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to let developers turn off sandboxing for an individual session. If omitted or `false`, required sandboxing cannot be bypassed. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
@@ -194,9 +196,11 @@ Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictati
 | `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
 | `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
 
-To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. Developers can continue using dictation, but the final transcript does not receive language-model cleanup.
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. Developers can continue using dictation on supported desktop platforms. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, this policy makes dictation unavailable.
 
-These policies enable organizations to meet data-handling requirements without removing speech-to-text workflows. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
+To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. The final transcript does not receive language-model cleanup.
+
+These policies help organizations meet data-handling requirements. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
 ## Enable or disable hooks
 
@@ -409,6 +413,8 @@ The following policies control whether a sandboxed command can relax these restr
 
 * Set `ChatAgentSandboxAllowNetwork` to `false` to apply the configured network domain rules to sandboxed commands.
 * Set `ChatAgentSandboxAllowUnsandboxedCommands` to `false` to prevent commands from running outside the sandbox after user confirmation.
+
+Copilot managed settings also support the runtime-owned `sandbox.enabled` and `sandbox.allowBypass` keys. They do not map to {% data variables.product.prodname_vscode_shortname %} policies or settings. Set `sandbox.enabled` to `true` to require sandboxing in Agent Host sessions. Set `sandbox.allowBypass` to `true` as well to let developers turn it off for an individual session. See [Available managed settings](#available-managed-settings) for details.
 
 ## Configure agent network filtering
 

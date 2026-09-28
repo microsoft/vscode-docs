@@ -19,11 +19,11 @@ Use the agreed framing to guide the plan, scope, structure, terminology, prerequ
 
 ## Public availability and product truth
 
-Document functionality only when it is available to the intended audience in a public product channel. Public Preview, Experimental, and Insiders functionality can be documented when its lifecycle and channel are identified clearly.
+On branches other than `vnext`, document only functionality that is available to the intended audience in the Stable release. On the `vnext` branch, which contains documentation for the upcoming release, you can also document functionality that is confirmed for that release. Public Preview and Experimental functionality can be documented only when it meets this branch-based availability requirement and its lifecycle is identified clearly. Do not document Insiders-only functionality unless you are working on `vnext` and the functionality is confirmed for the upcoming release.
 
 Do not document functionality that is limited to internal builds or dogfooding. This includes hidden settings or commands, registrations with metadata such as `included: false`, implementation that exists only in source code, and internal feature flags that users can set manually but that the product does not expose or support publicly.
 
-Existence in source code is not proof of public availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is present in the public release channel for the intended audience. When reviewing existing content, flag or remove coverage of functionality that is not public.
+Existence in source code is not proof of availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is available in Stable or confirmed for the upcoming release when working on `vnext`. When reviewing existing content, flag or remove coverage that does not meet these availability requirements.
 
 ## General Style tips
 
@@ -116,6 +116,16 @@ Existence in source code is not proof of public availability. Verify how the fun
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+- To let readers try a feature directly from a documentation article, use a feature tryout command link inside the `TRYOUTS` conditional:
+
+    ```md
+    [Try <feature>](command:workbench.action.onboarding.tryFeature?%5B%22<tryout-id>%22%5D)
+    ```
+
+    - Verify that the tryout ID is registered, stable, publicly available, and supported in the product.
+    - Include only the tryout ID in the Markdown. The installed product owns the commands, arguments, samples, setup actions, and availability checks.
+    - Use descriptive, action-oriented link text that identifies the feature readers can try.
+
 * Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
 
 ## Images

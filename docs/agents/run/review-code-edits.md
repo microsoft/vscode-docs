@@ -95,6 +95,21 @@ To review and integrate the changes:
 
 When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
 
+### Add pull request review comments
+
+`feature(agents-window-pr-comments)`
+
+For an Agent Host session associated with an open GitHub pull request, you can add a review comment to the pull request directly from the **Changes** view. This is different from agent feedback, which asks the agent to revise its changes.
+
+1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
+1. Open a changed file from the **Changes** view and select a range of code.
+1. Select **Add Feedback** and enter your comment.
+1. Select **Add PR Comment** to add the review comment to the pull request. If the session is associated with multiple pull requests, the action identifies the target as `owner/repository#number`.
+
+The selected range must contain only lines that are part of the pull request diff. If the range isn't eligible, {% data variables.product.prodname_vscode_shortname %} reports that a pull request comment can't be added to the line.
+
+**Add PR Comment** adds the comment to GitHub and doesn't send it to the agent. To ask the agent to change the code instead, add the comment as feedback and select **Submit Feedback**.
+
 ### Review changes in the single-pane layout (Experimental)
 
 When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.

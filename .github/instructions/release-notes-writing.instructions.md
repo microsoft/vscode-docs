@@ -89,6 +89,15 @@ Apply these specific guidelines to all release notes. For other text, follow the
 - Links to other documentation articles should be absolute, not relative. Start absolute links with `https://code.visualstudio.com/docs/` and don't include the `.md` suffix.
 - Avoid raw URLs in the text. Instead, use descriptive link text that indicates the content of the linked article.
 - Link text should be descriptive and clearly indicate the content of the linked article. Don't use "click here" or "this link" or "here".
+- To let readers try a feature directly from the release notes, use a Markdown command link:
+
+    ```md
+    [Try <feature>](command:workbench.action.onboarding.tryFeature?%5B%22<tryout-id>%22%5D)
+    ```
+
+    - Verify that the tryout ID is registered, stable, publicly available, and supported in the product.
+    - Include only the tryout ID in the Markdown. The installed product owns the commands, arguments, samples, setup actions, and availability checks.
+    - Use descriptive, action-oriented link text that identifies the feature readers can try.
 
 ### Media files (images and videos)
 

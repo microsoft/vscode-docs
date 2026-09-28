@@ -126,6 +126,14 @@ To temporarily disable all inline suggestions in the editor, select the Copilot 
 
 Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline Suggestions** commands in the Command Palette.
 
+## Use inline suggestions on metered connections
+
+When {% data variables.product.prodname_vscode_shortname %} treats your network connection as metered, {% data variables.product.prodname_copilot %} does not start new automatic ghost text or next edit suggestion requests. Requests already in progress continue.
+
+You can still request a suggestion explicitly. Run the **Trigger Inline Suggestion** command from the Command Palette.
+
+This behavior applies only to the built-in {% data variables.product.prodname_copilot_short %} provider. It does not change how local-only or third-party completion providers behave.
+
 ## Change the AI model for suggestions
 
 Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/agent-customization/language-models.md) in {% data variables.product.prodname_vscode_shortname %}.
