@@ -163,7 +163,7 @@ Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexe
 
 ### Can my organization control AI features and agent access?
 
-Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
+Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/manage-ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
 
 ### Are agents usage-limited?
 

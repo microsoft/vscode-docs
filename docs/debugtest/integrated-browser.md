@@ -364,7 +364,7 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 
 ### Enterprise policies for browser tools
 
-Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
+Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/manage-ai-settings.md) and [agent network filtering](/docs/enterprise/manage-ai-settings.md#configure-agent-network-filtering).
 
 ## Configure the integrated browser
 

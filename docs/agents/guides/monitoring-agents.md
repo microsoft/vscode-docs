@@ -280,7 +280,7 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 Enterprises can mandate OTel export configuration centrally through Copilot managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
 
-Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/ai-settings.md#configure-telemetry-export-with-opentelemetry).
+Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/manage-ai-settings.md#configure-telemetry-export-with-opentelemetry).
 
 For chat sessions that use the Local harness, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 
@@ -457,7 +457,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 ## Related content
 
 * [AI settings reference](/docs/agents/reference/ai-settings.md)
-* [Manage AI settings in enterprise environments](/docs/enterprise/ai-settings.md)
+* [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md)
 * [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)

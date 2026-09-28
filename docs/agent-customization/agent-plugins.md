@@ -321,7 +321,7 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 > [!NOTE]
 > Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
 
-Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/ai-settings.md#deploy-hooks-through-managed-plugins).
+Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/manage-ai-settings.md#deploy-hooks-through-managed-plugins).
 
 Hook configuration and payloads depend on the session's harness. The event and matcher behavior described below applies to the Local harness. Start with [choosing a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) for Copilot, Claude, and Codex sessions.
 
@@ -516,7 +516,7 @@ Marketplace plugins can also reference external package sources such as npm or P
 ```
 
 > [!NOTE]
-> Enterprise admins can centrally control which plugins and marketplaces are available to developers. For more information, see [Manage agent plugins and marketplaces](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces).
+> Enterprise admins can centrally control which plugins and marketplaces are available to developers. For more information, see [Manage agent plugins and marketplaces](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces).
 
 ## Use local plugins
 

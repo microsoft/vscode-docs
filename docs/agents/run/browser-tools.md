@@ -210,7 +210,7 @@ Browser tools provide interactive validation during an agent session. Keep repea
 * Administrators can turn off browser tools with the `BrowserChatTools` policy.
 * Administrators can use agent network filtering to restrict the domains that agent tools can reach.
 
-Learn more about [approvals and permissions](/docs/agents/run/approvals.md), [browser session storage](/docs/debugtest/integrated-browser.md#session-storage), and [enterprise controls for AI](/docs/enterprise/ai-settings.md).
+Learn more about [approvals and permissions](/docs/agents/run/approvals.md), [browser session storage](/docs/debugtest/integrated-browser.md#session-storage), and [enterprise controls for AI](/docs/enterprise/manage-ai-settings.md).
 
 ## Troubleshoot browser tools
 

@@ -1,7 +1,7 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
 DateApproved: 9/16/2026
-MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %}, including hooks, plugins, MCP, and tool approvals.
+MetaDescription: Manage enterprise AI policies in {% data variables.product.prodname_vscode_shortname %} for sandboxing, tool approvals, and customizations.
 ---
 
 # Manage AI settings in enterprise environments
@@ -33,7 +33,7 @@ All three channels use the same managed setting keys and values. For the list of
 > [!NOTE]
 > Precedence is enforced starting in {% data variables.product.prodname_vscode_shortname %} version 1.128.
 
-{% data variables.product.prodname_vscode_shortname %} resolves managed settings per key. When multiple channels provide the same key, the value from the highest-precedence channel wins. Keys that the higher-precedence channel does not provide are filled in from lower-precedence channels.
+For most managed settings, {% data variables.product.prodname_vscode_shortname %} resolves values per key. When multiple channels provide the same key, the value from the highest-precedence channel wins. Keys that the higher-precedence channel does not provide are filled in from lower-precedence channels.
 
 The precedence order is:
 
@@ -42,6 +42,13 @@ The precedence order is:
 1. File-based
 
 For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. {% data variables.product.prodname_vscode_shortname %} applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
+
+Sandbox controls preserve restrictions from every managed channel instead:
+
+* `sandbox.enabled`: `true` from any channel requires sandboxing, even if another channel supplies `false`.
+* `sandbox.allowBypass` and `sandbox.userPolicy.network.allowOutbound`: `false` from any channel takes precedence over `true` from another channel.
+
+After resolving these managed values, the runtime also accounts for developer preferences. See [Configure agent sandboxing](#configure-agent-sandboxing).
 
 ### Precedence with {% data variables.product.prodname_vscode_shortname %} device policies
 
@@ -105,29 +112,6 @@ The file uses the Copilot managed settings shape. The following example configur
 When developers sign in with a GitHub account, {% data variables.product.prodname_vscode_shortname %} resolves managed settings that your GitHub enterprise or organization admin configures in `copilot/managed-settings.json`. Because these settings travel with the account, they apply across the developer's devices without local device management.
 
 Server-managed settings are configured on the GitHub side. For more information, see [Manage Copilot for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) in the GitHub documentation.
-
-### Available managed settings
-
-The following managed settings are available. Most keys map to a {% data variables.product.prodname_vscode_shortname %} policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
-
-| Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
-|---------------------|----------------|---------|-------------|
-| `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
-| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
-| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
-| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
-| `sandbox.enabled` | None | Agent Host runtime | Set to `true` to require sandboxing in Agent Host sessions. This runtime-owned key does not map to a {% data variables.product.prodname_vscode_shortname %} policy or setting. |
-| `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to let developers turn off sandboxing for an individual session. If omitted or `false`, required sandboxing cannot be bypassed. |
-| `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
-| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
-| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
-| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
-| `allowManagedHooksOnly` | `ChatAllowManagedHooksOnly` | Policy only | Allow hooks only from managed sources and plugins force-enabled by policy. See [managed hook deployment](#deploy-hooks-through-managed-plugins). |
-| `strictPluginOnlyCustomization` | `ChatStrictPluginOnlyCustomization` | Policy only | Block standalone user and workspace skills, agents, hooks, instructions, and MCP servers while retaining eligible plugin customizations. |
-| `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
-| `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
-| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
-| `telemetry.*` | `CopilotOtel*` | `setting(chat.agentHost.otel.*)` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
 
 ### Configure Agent Host permissions
 
@@ -401,24 +385,78 @@ The `ChatToolsTerminalEnableAutoApprove` policy specifically controls the rule-b
 
 To disable terminal auto-approval entirely, set the policy to `false`. This configures the `setting(chat.tools.terminal.enableAutoApprove)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
-### Configure agent sandboxing
+## Configure agent sandboxing
 
-Organizations should recommend that developers use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
+Use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) to restrict the files and network resources that agent-executed commands can access. Enforcing this boundary lets developers run commands within an approved scope, including when they use auto-approval or Autopilot. Sandboxing does not restrict built-in file tools or replace approval controls for other tools.
 
-The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
+Choose the management mechanism for the sessions you need to govern:
 
-Set the policy to `on` to run agent-executed terminal commands inside a sandbox environment with restricted permissions. Set the policy to `off` to disable the sandbox.
+| Goal | Mechanism | Scope |
+|---|---|---|
+| Require sandboxing and control bypass and outbound access in {% data variables.product.prodname_copilot_short %} Agent Host sessions. | [Copilot managed sandbox settings](#deploy-copilot-managed-sandbox-settings) | Runtime-enforced restrictions on supported platforms, including Windows. These controls do not apply to every agent provider. |
+| Configure shared terminal sandbox settings through existing device management. | [{% data variables.product.prodname_vscode_shortname %} policies](#configure-vs-code-sandbox-policies) | The `ChatAgentSandboxEnabled` policy controls the shared macOS and Linux enablement setting. There is no equivalent device policy for the Windows enablement setting. |
 
-The following policies control whether a sandboxed command can relax these restrictions:
+Check the [platform prerequisites and lifecycle status](/docs/agents/run/agent-sandboxing.md#check-platform-availability) before deployment. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell's sandbox support is Experimental.
 
-* Set `ChatAgentSandboxAllowNetwork` to `false` to apply the configured network domain rules to sandboxed commands.
-* Set `ChatAgentSandboxAllowUnsandboxedCommands` to `false` to prevent commands from running outside the sandbox after user confirmation.
+### Deploy Copilot managed sandbox settings
 
-Copilot managed settings also support the runtime-owned `sandbox.enabled` and `sandbox.allowBypass` keys. They do not map to {% data variables.product.prodname_vscode_shortname %} policies or settings. Set `sandbox.enabled` to `true` to require sandboxing in Agent Host sessions. Set `sandbox.allowBypass` to `true` as well to let developers turn it off for an individual session. See [Available managed settings](#available-managed-settings) for details.
+Deploy the following configuration through a [Copilot managed settings channel](#deploy-copilot-managed-settings). For file-based delivery, add this `sandbox` object to the [managed settings file](#deliver-managed-settings-from-a-file), preserving other organization settings. Use the nested JSON shape, not {% data variables.product.prodname_vscode_shortname %} setting names.
+
+```json
+{
+    "sandbox": {
+        "enabled": true,
+        "allowBypass": false,
+        "userPolicy": {
+            "network": {
+                "allowOutbound": false
+            }
+        }
+    }
+}
+```
+
+This example requires sandboxing in {% data variables.product.prodname_copilot_short %} Agent Host sessions, prevents bypass, and blocks outbound network access from sandboxed commands. It does not block network access by other agent tools. Configure those tools [separately](#configure-agent-network-filtering).
+
+These runtime-owned controls do not map directly to {% data variables.product.prodname_vscode_shortname %} device policies. After [resolving values across managed channels](#precedence-across-channels), they combine with developer preferences as follows:
+
+| Managed control | Enforced restriction | Developer choice |
+|---|---|---|
+| `sandbox.enabled` | `true` requires sandboxing. The platform enablement setting shows **On** and is locked. The session toggle is also locked unless a permitted bypass is explicitly approved. | `false` or an omitted value does not force sandboxing off. Developers can turn it on locally. |
+| `sandbox.allowBypass` | `false` prevents bypass. When `sandbox.enabled` is `true`, omitting bypass permission also prevents bypass. | `true` permits an approval request, not an automatic bypass. A local `setting(chat.agent.sandbox.allowUnsandboxedCommands)` value of `false` still prevents bypass. |
+| `sandbox.userPolicy.network.allowOutbound` | `false` blocks outbound access and locks `setting(chat.agent.sandbox.allowNetwork)` to `false`. | `true` or an omitted value leaves developers free to block outbound access locally. |
+
+Permitting bypass does not let developers directly switch off a required sandbox. A supported **Allow in this Session** approval must succeed first. See the [developer guidance for organization-managed sandboxing](/docs/agents/run/agent-sandboxing.md#when-your-organization-manages-sandboxing).
+
+These managed values do not overwrite saved user preferences. When you remove a restriction, the corresponding setting becomes editable and shows the developer's saved value. A new restriction also applies when a developer resumes an existing session and revokes any incompatible session-scoped bypass.
+
+### Configure {% data variables.product.prodname_vscode_shortname %} sandbox policies
+
+Use your existing [device policy deployment mechanism](/docs/enterprise/policies.md) to configure these policies:
+
+| Policy | Configuration |
+|---|---|
+| `ChatAgentSandboxEnabled` | Set to `on` to enforce `setting(chat.agent.sandbox.enabled)` on macOS and Linux, including WSL2. Set to `off` to disable that setting. This policy does not control `setting(chat.agent.sandbox.enabledWindows)`. |
+| `ChatAgentSandboxAllowNetwork` | Set to `false` to restrict network access. Local sessions on macOS and Linux then use the configured domain rules. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox instead block outbound access without domain filtering. |
+| `ChatAgentSandboxAllowUnsandboxedCommands` | Set to `false` to prevent commands from running outside the sandbox after user confirmation. |
+
+> [!IMPORTANT]
+> In Local sessions, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` can permit an approved retry inside the sandbox with unrestricted network access. This is separate from running outside the sandbox and has no enterprise policy. Do not treat these device policies as an enforceable prohibition on all network exceptions.
+
+### Verify sandbox restrictions
+
+1. After changing managed sandbox settings, fully quit and reopen {% data variables.product.prodname_vscode_shortname %}, then start or resume a {% data variables.product.prodname_copilot_short %} Agent Host session.
+1. Run **Developer: Policy Diagnostics** to [verify the delivered managed values and their sources](#verify-applied-managed-settings).
+1. Check the sandbox settings in the Settings editor. Enforced values show an organization-managed indicator. Managed restrictions do not overwrite saved preferences, and the editor does not display every runtime-composed file system rule.
+1. In a {% data variables.product.prodname_copilot_short %} Agent Host session, [inspect the effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) to confirm the session's actual state and file system and network restrictions.
+
+If a sandbox configuration update conflicts with managed policy, the session continues with the last configuration that the runtime successfully applied. The rejected update does not take effect, and {% data variables.product.prodname_vscode_shortname %} does not retry with weaker restrictions. Inspect the effective session policy rather than assuming a requested change was applied.
 
 ## Configure agent network filtering
 
-Network filtering restricts which domains the fetch tool and integrated browser can access during chat sessions. When agent sandboxing is enabled, the same domain rules also apply to agent-executed terminal commands.
+Network filtering restricts which domains the fetch tool and integrated browser can access during chat sessions. For terminal commands, domain filtering is available in Local sessions and the Agent Host custom terminal tool on macOS and Linux when sandbox network isolation is enabled.
+
+The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox do not use domain allowlists or denylists. Their sandbox network control permits or blocks outbound access as a whole. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 ### Enable network filtering
 
@@ -428,7 +466,7 @@ When the policy is set to `true`, network access by agent tools is restricted ac
 
 When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
 
-To deny network access by default for the fetch tool, integrated browser, and sandboxed terminal commands, configure these policies:
+For Local sessions on macOS and Linux, configure these policies to deny network access by default for the fetch tool, integrated browser, and sandboxed terminal commands:
 
 | Policy | Value |
 |--------|-------|
@@ -439,13 +477,13 @@ To deny network access by default for the fetch tool, integrated browser, and sa
 | `ChatAgentSandboxAllowUnsandboxedCommands` | `false` |
 
 > [!IMPORTANT]
-> The `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` setting defaults to `true`. It enables a sandboxed terminal command to retry with unrestricted network access after user confirmation. This setting does not currently have an enterprise policy, so administrators cannot enforce its value through {% data variables.product.prodname_vscode_shortname %} policy.
+> In Local sessions, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` defaults to `true` and can permit an approved network exception. See the [device policy limitations](#configure-vs-code-sandbox-policies).
 
 ### Configure allowed domains
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in {% data variables.product.prodname_vscode_shortname %}.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. An empty list blocks all domains when network filtering or agent sandboxing is enabled.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. An empty list blocks all domains for tools with network filtering enabled and for terminal commands that use sandbox domain filtering.
 
 ### Configure denied domains
 
@@ -539,6 +577,30 @@ Agents can run on different infrastructure depending on the agent type, and each
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
 
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
+## Available managed settings
+
+The following managed settings are available. Most keys map to a {% data variables.product.prodname_vscode_shortname %} policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
+
+| Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
+|---------------------|----------------|---------|-------------|
+| `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
+| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
+| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
+| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
+| `sandbox.enabled` | None | Agent Host runtime | Set to `true` to [require sandboxing](#configure-agent-sandboxing) in {% data variables.product.prodname_copilot_short %} Agent Host sessions. A value of `false` does not force sandboxing off. |
+| `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to permit approved, session-scoped sandbox bypasses. If omitted or `false`, required sandboxing cannot be bypassed. |
+| `sandbox.userPolicy.network.allowOutbound` | None | Agent Host runtime | Set to `false` to block outbound network access from sandboxed commands. A value of `true` does not override a developer's more restrictive local setting. |
+| `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
+| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
+| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
+| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
+| `allowManagedHooksOnly` | `ChatAllowManagedHooksOnly` | Policy only | Allow hooks only from managed sources and plugins force-enabled by policy. See [managed hook deployment](#deploy-hooks-through-managed-plugins). |
+| `strictPluginOnlyCustomization` | `ChatStrictPluginOnlyCustomization` | Policy only | Block standalone user and workspace skills, agents, hooks, instructions, and MCP servers while retaining eligible plugin customizations. |
+| `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
+| `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
+| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
+| `telemetry.*` | `CopilotOtel*` | `chat.agentHost.otel.*` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
 
 ## Related resources
 

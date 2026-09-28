@@ -115,7 +115,7 @@ AI can produce incorrect code or misunderstand your intent. You remain responsib
 * **Control actions and redirect work.** Use [permissions and approvals](/docs/agents/run/approvals.md) to decide which actions require confirmation. You can [steer or stop a request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running), but stopping doesn't undo completed actions or changes to external services.
 * **Understand isolation.** A Git worktree keeps code changes separate, but isn't a security boundary. For file system and network restrictions on agent-run terminal commands, review the [platform-specific sandboxing options](/docs/agents/run/agent-sandboxing.md).
 
-Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). Your organization might also restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/ai-settings.md).
+Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). Your organization might also restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/manage-ai-settings.md).
 
 ## Next steps
 

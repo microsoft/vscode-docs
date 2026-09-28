@@ -14,7 +14,7 @@ MetaDescription: Learn how to configure and manage {% data variables.product.pro
 
 Policies are available to control:
 
-* [AI and Copilot features](/docs/enterprise/ai-settings.md) - Agent mode, MCP servers, and tool approvals
+* [AI and Copilot features](/docs/enterprise/manage-ai-settings.md) - Agent mode, MCP servers, and tool approvals
 * [Extensions](/docs/enterprise/extensions.md) - Allowed extensions and private marketplace
 * [Telemetry](/docs/enterprise/telemetry.md) - Data collection levels and feedback mechanisms
 * [Automatic updates](/docs/enterprise/updates.md) - Control when and how {% data variables.product.prodname_vscode_shortname %} updates

@@ -162,7 +162,7 @@ Copilot sessions use the same GitHub authentication context as chat in {% data v
 
 Enable `setting(chat.editor.preferCopilotHarness)` _(Experimental)_ to use the {% data variables.copilot.copilot_sdk_short %} harness when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections.
 
-Enterprise admins can enforce the preference with the `ChatEditorPreferCopilotHarness` device policy, available from version 1.134. Copilot sessions on Agent Host use the shared SDK hooks implementation and load Copilot Policy Hooks. Local sessions do not load SDK Policy Hooks. See [migrate hooks between harnesses](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) and [enterprise hook configuration](/docs/enterprise/ai-settings.md#use-the-sdk-harness-for-policy-hooks).
+Enterprise admins can enforce the preference with the `ChatEditorPreferCopilotHarness` device policy, available from version 1.134. Copilot sessions on Agent Host use the shared SDK hooks implementation and load Copilot Policy Hooks. Local sessions do not load SDK Policy Hooks. See [migrate hooks between harnesses](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) and [enterprise hook configuration](/docs/enterprise/manage-ai-settings.md#use-the-sdk-harness-for-policy-hooks).
 
 ### Permissions and approvals
 

@@ -304,7 +304,7 @@
     "topics": [
       ["Overview", "/docs/enterprise/overview"],
       ["Enterprise Policies", "/docs/enterprise/policies"],
-      ["AI Settings", "/docs/enterprise/ai-settings"],
+      ["Manage AI Settings", "/docs/enterprise/manage-ai-settings"],
       ["Extensions", "/docs/enterprise/extensions"],
       ["Telemetry", "/docs/enterprise/telemetry"],
       ["Updates", "/docs/enterprise/updates"]

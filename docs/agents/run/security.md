@@ -18,7 +18,7 @@ Keywords:
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 > [!NOTE]
-> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
+> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/manage-ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
 Learn about trust boundaries, agent sandboxing, and the reasoning behind {% data variables.product.prodname_vscode_shortname %}'s security model.
@@ -206,7 +206,7 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 
 ## Enterprise policies
 
-Organizations can implement [centralized security controls](/docs/enterprise/ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
+Organizations can implement [centralized security controls](/docs/enterprise/manage-ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
 
 * **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
@@ -215,7 +215,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 
-Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
+Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
 
 ## Related resources
 
