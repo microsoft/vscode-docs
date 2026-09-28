@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 9/24/2026
+DateApproved: 9/30/2026
 MetaDescription: Run agent sessions over SSH or tunnels and in remote Dev Containers, or manage sessions in the browser-based {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

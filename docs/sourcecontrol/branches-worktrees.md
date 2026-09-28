@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Create and switch Git branches, stash changes, and manage worktrees in {% data variables.product.prodname_vscode %}.
 Keywords:
 - source control

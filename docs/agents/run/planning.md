@@ -1,6 +1,6 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 9/17/2026
+DateApproved: 9/30/2026
 MetaDescription: Create and review implementation plans with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

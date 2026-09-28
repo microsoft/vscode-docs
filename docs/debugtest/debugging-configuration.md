@@ -1,6 +1,6 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 9/22/2026
+DateApproved: 9/30/2026
 MetaDescription: Create and customize launch.json configurations in {% data variables.product.prodname_vscode %} for launching, attaching, and multi-target debugging.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

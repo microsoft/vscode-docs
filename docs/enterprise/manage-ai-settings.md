@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Manage enterprise AI policies in {% data variables.product.prodname_vscode_shortname %} for sandboxing, tool approvals, and customizations.
 ---
 

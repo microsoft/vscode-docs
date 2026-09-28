@@ -1,6 +1,6 @@
 ---
 ContentId: 6257086f-4936-4f53-bfa1-fec1cfd4dfb5
-DateApproved: 9/20/2026
+DateApproved: 9/30/2026
 MetaDescription: Look up tools, tool sets, and context references for AI chat in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/chat-tools/agent-mode-select-tools.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Explore AI in {% data variables.product.prodname_vscode %}, from code suggestions to agents that plan, edit, and test changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
