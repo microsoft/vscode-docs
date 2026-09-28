@@ -34,7 +34,7 @@
                     ["How Models Work", "/docs/agents/concepts/language-models"],
                     ["Context", "/docs/agents/concepts/context"],
                     ["Tools", "/docs/agents/concepts/tools"],
-                    ["Sessions & Handoff", "/docs/agents/concepts/sessions"],
+                    ["Sessions and Chats", "/docs/agents/concepts/sessions"],
                     ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"],
                     ["Agent Customization", "/docs/agents/concepts/customization"],
                     ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],

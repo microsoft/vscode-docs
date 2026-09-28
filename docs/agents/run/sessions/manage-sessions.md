@@ -65,7 +65,7 @@ To create and manage chats in a session:
 
     ![Screenshot showing a new chat tab alongside an existing chat in the {% data variables.copilot.agents_window %}.](../../images/agents-window/agents-window-new-subsession.png)
 
-    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
+    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. The new chat also appears beneath its owning session in the sessions list, where you can manage it independently.
 
 1. To add more chats, select the trailing **+** in the tab strip.
 
@@ -199,6 +199,20 @@ To archive a session, hover over the session in the sessions list and select the
 ![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
 
 To view your archived sessions, use the filter options in the sessions list and select the **Archived** ({% data variables.copilot.chat_view %}) or **Done** ({% data variables.copilot.agents_window %}) filter.
+
+### Mark an individual chat as done
+
+In the {% data variables.copilot.agents_window %}, you can mark an additional chat within an Agent Host session as done without affecting the main chat, other chats, or the owning session:
+
+1. Expand the owning session in the sessions list.
+
+1. Right-click the chat, and then select **Mark as Done**.
+
+Marking a chat as done hides it from the active sessions list and closes its tab, but does not delete it. The chat remains done after you reload the window, and its title and transcript are preserved.
+
+To find a done chat, select the **Done** filter in the global sessions list. Alternatively, right-click the owning session and select **Show Done Chats** to show its done chats beneath it. Right-click the done chat and select **Restore**. The chat becomes active and usable again, with its title and transcript intact, so you can continue sending messages.
+
+You can't mark the main chat, side chats, or subagent chats as done independently.
 
 ## Delete sessions
 
