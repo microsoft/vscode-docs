@@ -316,7 +316,7 @@ Disabling a plugin stops its MCP servers. Tools provided by the stopped servers 
 
 ## Hooks in plugins
 
-Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
+Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin-wide hooks work alongside your workspace and user-level hooks. When a plugin is enabled, these hooks fire in addition to any other hooks configured for the same event.
 
 > [!NOTE]
 > Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
@@ -390,9 +390,16 @@ The Local harness parses the `matcher` field for compatibility with Claude Code,
 
 ### Reference plugin paths in hook commands
 
-For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in hook commands to reference scripts and files within the plugin directory. {% data variables.product.prodname_vscode_shortname %} expands this token to the plugin's absolute path at runtime and also sets a `CLAUDE_PLUGIN_ROOT` environment variable for the hook process. Inside your script, access this as `$CLAUDE_PLUGIN_ROOT` (or `%CLAUDE_PLUGIN_ROOT%` on Windows).
+Use a plugin-root token in Local hook commands to reference bundled scripts and files without hardcoding the plugin's installation path.
 
-This is important because plugins are installed to a location outside your workspace, so you cannot use relative paths.
+| Plugin format | Token | Environment variable |
+|---------------|-------|----------------------|
+| Claude | `${CLAUDE_PLUGIN_ROOT}` | `CLAUDE_PLUGIN_ROOT` |
+| Legacy OpenPlugin | `${PLUGIN_ROOT}` | `PLUGIN_ROOT` |
+
+{% data variables.product.prodname_vscode_shortname %} expands the token to the plugin's absolute path in hook commands and `env` values. This includes the `command`, `bash`, `powershell`, and platform-specific command fields. Expanded command paths are shell-quoted, so plugin paths can contain spaces.
+
+The hook process also receives the matching root environment variable. For example, a Node.js script can read `process.env.CLAUDE_PLUGIN_ROOT`. These references resolve to the new root when the plugin is discovered at a different location.
 
 ```json
 {
@@ -407,13 +414,32 @@ This is important because plugins are installed to a location outside your works
 }
 ```
 
+The same expansion applies to hooks in the frontmatter of plugin-provided custom agents. For example, a Claude-format plugin can contribute `agents/reviewer.md` that invokes its bundled `scripts/validate-tool.js` script:
+
+```markdown
+---
+name: Code reviewer
+description: Review code with plugin-provided validation.
+hooks:
+  PreToolUse:
+    - type: command
+      command: "node ${CLAUDE_PLUGIN_ROOT}/scripts/validate-tool.js"
+---
+
+Review code for correctness and maintainability.
+```
+
+For legacy OpenPlugin plugins, use `${PLUGIN_ROOT}` in place of `${CLAUDE_PLUGIN_ROOT}`.
+
+These [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-local) are in Preview and require the Local harness, `setting(chat.useHooks)`, and a trusted workspace. They run only while the contributing custom agent is active, including when it runs as a subagent.
+
 ### Supported hook events
 
 In the Local harness, plugin hooks support the same events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See the [Local hooks reference](/docs/agents/reference/hooks-reference.md) for event schemas.
 
 ### How plugin hooks interact with other hooks
 
-Plugin hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
+Plugin-wide hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
 
 Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
 

@@ -230,6 +230,8 @@ Follow the project's formatting requirements.
 
 When the custom agent runs as a subagent, its `Stop` hook is treated as `SubagentStop`. Agent-scoped hooks require `setting(chat.useHooks)` and a trusted workspace.
 
+For custom agents contributed by Claude-format or legacy OpenPlugin plugins, use [plugin-root tokens](/docs/agent-customization/agent-plugins.md#reference-plugin-paths-in-hook-commands) to reference bundled scripts without hardcoding installation paths.
+
 ### Local hook examples
 
 <details>
