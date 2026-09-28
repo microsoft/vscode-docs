@@ -166,6 +166,10 @@ Dev Container sessions work directly in the container workspace and can't be com
 
 The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
 
+When no session in the container is actively working, waiting for input, or holding an unsent draft, {% data variables.product.prodname_vscode_shortname %} stops the container after five minutes. Approval prompts count as waiting for input and keep the container running. Continuing a session restarts the container and reconnects it without losing the conversation history.
+
+Use `setting(chat.agentHost.devContainer.idleTimeout)` to change the inactivity period. The default is `300` seconds. Set the value to `0` to turn off automatic idle shutdown. Marking sessions as done or deleting them can still remove the container.
+
 ### Start a session from a pull request
 
 For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.

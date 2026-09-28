@@ -192,6 +192,8 @@ To keep the sessions list organized, archive or mark sessions as done when they'
 
 When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 
+For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), marking a session as done removes the container without waiting for the idle shutdown period, but only when no other session or unsent draft uses it. Restoring the session starts a replacement container and preserves the conversation history.
+
 To archive a session, hover over the session in the sessions list and select the **Archive** ({% data variables.copilot.chat_view %}) or **Mark as Done** ({% data variables.copilot.agents_window %}) option.
 
 ![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
@@ -203,6 +205,8 @@ To view your archived sessions, use the filter options in the sessions list and 
 To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
 
 If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
+
+For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), deleting the session removes the container only when no other session or unsent draft uses it. This cleanup also applies when automatic idle shutdown is turned off.
 
 > [!CAUTION]
 > Deleting a session is irreversible. Integrate or commit worktree changes before you delete the session because uncommitted files that exist only in a removed worktree can be lost. If you only want to hide a session, [archive](#archive-sessions) it instead.
