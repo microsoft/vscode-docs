@@ -2,117 +2,196 @@
 Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
-PageTitle: Troubleshoot {% data variables.product.prodname_vscode %} Integrated Terminal launch failures
-DateApproved: 02/04/2026
-MetaDescription: Troubleshoot {% data variables.product.prodname_vscode %} Integrated Terminal launch failures
+PageTitle: Troubleshoot {% data variables.product.prodname_vscode %} terminal launch failures and unexpected exits
+DateApproved: 09/28/2026
+MetaDescription: Diagnose terminal launch failures and unexpected exits in {% data variables.product.prodname_vscode %}. Check shell profiles, working directories, and logs.
+MetaSocialImage: ../terminal/images/basics/integrated-terminal.png
 ---
 
-# Troubleshoot Terminal launch failures
+<a name="troubleshoot-terminal-launch-failures"></a>
+<a id="_troubleshoot-terminal-launch-failures"></a>
 
-To start, we'd like to say we're sorry that you're here reading this document instead of having a good time using the Integrated Terminal in {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_vscode_shortname %} team works hard to make the terminal experience as seamless as possible but in some cases, there are issues with shell or terminal configurations that the {% data variables.product.prodname_vscode_shortname %} editor can't work around.
+# Troubleshoot terminal launch failures and unexpected exits
 
-After having worked with hundreds of developers to diagnose their terminal launch failures, the {% data variables.product.prodname_vscode_shortname %} team put together this article with the advice and troubleshooting tips that have helped people in the past. We hope you can find an answer here for your shell or terminal issue and can get back to work quickly.
+If your integrated terminal does not start or closes unexpectedly, use the error message to choose a troubleshooting path. This article helps you check the shell, its startup configuration, and the environment, then collect logs if the problem persists.
 
-## Integrated Terminal user guide
+The **Open Help** action in {% data variables.product.prodname_vscode %} leads to this page for both launch failures and some later shell exits. Arriving here does not necessarily mean that the terminal failed to start.
 
-If you are new to using the {% data variables.product.prodname_vscode_shortname %} Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/terminal/basics.md) user guide. There you can read how to [configure](/docs/terminal/profiles.md) the terminal, and review answers to [common questions](/docs/terminal/basics.md#common-questions).
+## Identify the failure
 
-Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support {% data variables.product.prodname_vscode_shortname %}; macOS, Linux, and Windows.
+Copy the complete error message, including the executable, directory, and code. Use the message and what happened before it, rather than the code alone.
 
-> **Note**: If you're on Windows, you might want to review the [common issues on Windows](#common-issues-on-windows) section first.
+| Error or symptom | Start here |
+| --- | --- |
+| `Path to shell executable ... does not exist` or the path is not a file. | [Check the shell profile](#check-settings-and-the-working-directory) and select an installed shell. |
+| `Starting directory (cwd) ... does not exist` or is not a directory. | [Check the working directory](#check-settings-and-the-working-directory) named in the error. |
+| `The terminal process ... failed to launch (exit code: ...)`. | The shell failed during startup or exited very early. [Test the shell directly](#test-the-shell-outside-the-editor), then isolate startup customization. |
+| `The terminal process ... terminated with exit code: ...`. | The shell exited and might have started successfully. See [Terminal exited after starting](#terminal-exited-after-starting). |
+| `A native exception occurred during launch`. | On Windows, see [native process creation failures](#a-native-exception-occurred). On other hosts, test the shell directly and [capture trace logs](#enable-trace-logging). |
+| A terminal repeatedly restarts or closes before you can read its output. | [Isolate shell integration](#isolate-shell-integration) in a new terminal and capture trace logs. |
+| WSL exits with code `1`. | [Check the WSL distribution](#wsl-exits-with-code-1). |
+
+> [!NOTE]
+> In a remote window, first identify where the failing shell runs. Check the executable, directory, settings, and shell startup files on that host. A working local shell does not rule out a problem in WSL, an SSH host, or a container.
+
+<a name="launch-failures"></a>
+<a id="_launch-failures"></a>
 
 ## Troubleshooting steps
 
-To troubleshoot Integrated Terminal launch failures in {% data variables.product.prodname_vscode %}, follow these steps to diagnose issues:
+Change one thing at a time and record the previous value so you can restore it after testing. Create a new terminal after changing launch settings.
 
-1. **Check your user settings.** Review these `terminal.integrated` [settings](/docs/configure/settings.md) that could affect the launch:
+### Try an installed shell
 
-   * `terminal.integrated.defaultProfile.{platform}` - The default shell profile that the terminal uses.
-   * `terminal.integrated.profiles.{platform}` - The defined shell profiles. Sets the shell path and arguments.
-   * `terminal.integrated.cwd` - The current working directory (cwd) for the shell process.
-   * `terminal.integrated.env.{platform}` - Environment variables that are added to the shell process.
-   * `terminal.integrated.inheritEnv` - Whether new shells should inherit their environment from {% data variables.product.prodname_vscode_shortname %}.
-   * `terminal.integrated.automationProfile.{platform}` - Shell profile for automation-related terminal usage like tasks and debug.
-   * `terminal.integrated.splitCwd` - Controls the current working directory a split terminal starts with.
-   * `terminal.integrated.windowsEnableConpty` - Whether to use ConPTY for Windows terminal process communication.
+1. Open the dropdown next to **New Terminal** in the terminal panel and select another installed shell.
+2. If that shell works, compare its profile with the failing one. Use **Terminal: Select Default Profile** if you want to change the default for new terminals.
+3. Check that {% data variables.product.prodname_vscode_shortname %}, your shell, and your operating system are up to date and meet the [supported platform requirements](/docs/supporting/requirements.md).
 
-   You can review settings in the Settings editor (**File** > **Preferences** > **Settings**) and search for specific settings by the setting ID.
+For profile configuration, see [Terminal profiles](/docs/terminal/profiles.md).
 
-   ![Search for Integrated terminal settings](images/troubleshoot-terminal-launch/search-for-settings.png)
+### Check settings and the working directory
 
-   A quick way to check if you have changed settings that you might not be aware of, is to use the `@modified` filter in the Settings editor.
+Open **Preferences: Open Settings (UI)** from the Command Palette (`kb(workbench.action.showCommands)`) and search for `@modified terminal.integrated`. Review the relevant User, Workspace, and Remote settings. Use **Preferences: Open User Settings (JSON)** to inspect profile definitions.
 
-   ![Filter for modified settings](images/troubleshoot-terminal-launch/search-for-modified-settings.png)
+| Setting | What to check |
+| --- | --- |
+| `terminal.integrated.defaultProfile.<platform>` | The selected profile refers to an installed shell. |
+| `terminal.integrated.profiles.<platform>` | The executable path exists, and its arguments are valid for that shell. |
+| `terminal.integrated.cwd` | The starting directory exists, is a directory, and is accessible to your account. |
+| `terminal.integrated.splitCwd` | A split terminal is not trying to reuse a directory that was moved or deleted. |
+| `terminal.integrated.env.<platform>` | Overrides do not remove required environment variables or point `PATH` at an outdated installation. |
+| `terminal.integrated.inheritEnv` | The shell receives the environment your setup requires. |
+| `terminal.integrated.automationProfile.<platform>` | Tasks and debugging use the intended shell and arguments. |
 
-   Most Integrated Terminal settings need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor, or with the **Preferences: Open User Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Replace `<platform>` with `windows`, `linux`, or `osx`. For remote terminals, use the platform of the remote host.
 
-   ![A user's settings.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
+The directory in the error is the one to investigate. It can come from the workspace, a terminal setting, a task, or an extension, not only `terminal.integrated.cwd`. If a task fails but a terminal opened from the panel works, inspect the task's `options.cwd`, `options.shell`, and environment in [tasks configuration](/docs/debugtest/tasks.md). For debugger or extension terminals, check that component's launch configuration.
 
-2. **Test your shell directly.** Try running your designated integrated terminal shell outside {% data variables.product.prodname_vscode_shortname %} from an external terminal or command prompt. Some terminal launch failures might be due to your shell installation and are not specific to {% data variables.product.prodname_vscode_shortname %}. The exit codes displayed come from the shell and you might be able to diagnose shell issues by searching on the internet for the specific shell and exit code.
+If the message refers to an untrusted workspace, review [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). Only trust a workspace when you trust its contents.
 
-3. **Use the most recent version of {% data variables.product.prodname_vscode_shortname %}.** Each {% data variables.product.prodname_vscode_shortname %} weekly release has many updates and fixes and might include integrated terminal improvements. You can check your {% data variables.product.prodname_vscode_shortname %} version via **Help** > **About** (on macOS **Code** > **About {% data variables.product.prodname_vscode %}**). To find the latest version of {% data variables.product.prodname_vscode_shortname %}, go to the {% data variables.product.prodname_vscode_shortname %} [release notes](/updates). You might also want to check that you have installed the latest version of your shell.
+### Test the shell outside the editor
 
-4. **Use the most recent version of your shell.** If your shell is installed separate from your platform, try installing the latest available version of the shell. The same advice applies if you are on an older build of your operating system. For example, some older versions of Windows 10 did not work well with the {% data variables.product.prodname_vscode_shortname %} terminal.
+Run the same shell executable with the same arguments from an external terminal on the same host. If it also fails there, investigate the shell or operating system error first. If it works outside the editor, continue with startup customization and shell integration.
 
-5. **Enable trace logging.** You can enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
+### Test without startup customization
 
-## Additional troubleshooting steps
+Shell startup files can contain commands that fail or exit the shell. From an external terminal, try the appropriate command to reduce startup customization:
 
-If none of these steps helped solve the issue, you can also try:
+| Shell | Command |
+| --- | --- |
+| PowerShell 7 | `pwsh -NoProfile` |
+| Windows PowerShell | `powershell.exe -NoProfile` |
+| Bash | `bash --noprofile --norc` |
+| Zsh | `zsh -f` |
+| Windows Command Prompt | `cmd.exe /d` |
 
-* Ask about it on [Stack Overflow](https://stackoverflow.com/), often launch issues are related to environment setup and not a problem with {% data variables.product.prodname_vscode_shortname %}.
-* If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
-* If you believe it to be a bug with {% data variables.product.prodname_vscode_shortname %}, report the issue using the issue reporter (**Help** > **Report Issue**). The issue reporter autofills relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
-* If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) moves you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
-* If your terminal is set to run as administrator only, and you are not launching {% data variables.product.prodname_vscode_shortname %} as administrator, the terminal is not able to open. You can either change the default terminal or edit the properties of the terminal exe to not run as administrator.
+If this works, inspect your usual startup files for the failing command. Back them up before making changes rather than deleting them.
+
+To repeat the test inside {% data variables.product.prodname_vscode_shortname %}, [create a temporary terminal profile](/docs/terminal/profiles.md#configuring-profiles) with the same executable and options in its `args` array. Select it from the terminal dropdown, then remove the diagnostic profile when you finish.
+
+### Isolate shell integration
+
+[Automatic shell integration](/docs/terminal/shell-integration.md#automatic-script-injection) changes startup arguments or environment variables for supported shells.
+
+1. Record the current value of `terminal.integrated.shellIntegration.enabled`, then temporarily set it to `false` in the settings that apply to the failing terminal.
+2. Create a new terminal. The change does not affect a shell that is already running.
+3. If the terminal now works, compare your profile arguments and startup files with the shell integration documentation. Include this result in an issue report if you cannot resolve the conflict.
+4. Restore the previous value after testing. Disabling integration removes features such as command tracking and working directory detection.
+
+If you [manually installed shell integration](/docs/terminal/shell-integration.md#manual-installation) in a startup file, this setting does not remove that code. Back up the file and temporarily skip that integration command when isolating it.
 
 ## Exit codes
 
-The exit codes displayed in the terminal launch failure notification are returned from the shell process and are not generated by {% data variables.product.prodname_vscode_shortname %}. There are many available shells that can be used in the terminal and hundreds of possible exit codes.
+A process exit code reports how the shell or program ended. A native process-creation error, such as Windows error `5` or `267`, instead reports a failure to create the process. These codes have different meanings, even when their numbers match.
 
-* Try searching on the internet for your specific shell and exit code (for example, "PowerShell 4294901760") and you might find specific suggestions or known issues related to your terminal launch failure.
-* Try searching in your shell's issue repository. For example, if you are having trouble with WSL, you might find a workaround searching for your error code in the open or resolved issues at [https://github.com/microsoft/WSL/issues](https://github.com/microsoft/WSL/issues).
+Search using the complete message, shell name, and operating system. An exit code alone is not a diagnosis.
+
+### Terminal exited after starting
+
+A shell can start successfully and later exit with a non-zero status. For example, an explicit `exit` command or a script that terminates the shell can produce an exit notification. This is different from a command failing while the shell remains open.
+
+Check the last terminal output and the command that preceded the exit. If the shell exits only during startup, use the startup customization and integration tests above. If you did not expect the shell to close, capture logs rather than hiding the notification.
 
 ## Common issues on Windows
 
 ### Make sure compatibility mode is disabled
 
-When you upgrade to Windows 10, some apps might have compatibility mode turned on automatically. If compatibility mode is enabled for {% data variables.product.prodname_vscode_shortname %}, the terminal breaks because it does some low-level things to enable the emulation it uses. You can check and disable compatibility mode by right-clicking on the {% data variables.product.prodname_vscode_shortname %} executable, select **Properties**, and then uncheck the **Run this program in compatibility mode** option in the **Compatibility** tab.
+Compatibility mode can interfere with terminal process creation. Open **Properties** for the {% data variables.product.prodname_vscode_shortname %} executable, select the **Compatibility** tab, and clear **Run this program in compatibility mode** if it is selected.
 
-### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
+<a name="the-terminal-exited-with-code-1-on-windows-10-with-wsl-as-the-default-shell"></a>
+<a id="_the-terminal-exited-with-code-1-on-windows-10-with-wsl-as-the-default-shell"></a>
 
-This error can happen if Windows Subsystem for Linux (WSL) is not set up with a valid default Linux distribution.
+### WSL exits with code 1
 
-**Note:** 'docker-desktop-data' is not a valid distribution.
+Code `1` is not unique to a missing default distribution. Check WSL outside the editor from PowerShell or Command Prompt:
 
-* Open PowerShell and enter `wslconfig.exe /l` to confirm WSL is installed correctly and list the currently available Linux distributions within your system. Confirm a valid distribution has **(default)** next to it.
-* To change the default distribution, enter `wslconfig.exe /setdefault "distributionNameAsShownInList"`
+```powershell
+wsl --status
+wsl --list --verbose
+```
+
+Use an installed Linux distribution intended for interactive use, not a Docker-managed distribution such as `docker-desktop-data`. Test it with `wsl --distribution "<distribution-name>"`, replacing the placeholder with its listed name.
+
+If WSL selects the wrong default, use `wsl --set-default "<distribution-name>"`. If your terminal profile explicitly specifies a distribution with `-d`, update that profile instead. See the [WSL command reference](https://learn.microsoft.com/windows/wsl/basic-commands) for details.
 
 ### A native exception occurred
 
-Typically this error occurs due to anti-virus software intercepting and blocking the winpty/conpty components from creating the terminal process. To work around this error, you can exclude the following file from your anti-virus scanning:
+Read the detail after `A native exception occurred during launch`. It does not identify antivirus software as the cause.
 
-```
-{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
-{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
-{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty.node
-{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty_console_list.node
-```
+| Error detail | What to check |
+| --- | --- |
+| `Cannot launch conpty` | Check the supported Windows version and the ConPTY setting described below, then capture the Pty Host log. |
+| `error code: 5` or access denied. | Check permissions for the shell executable and starting directory, and any security software block notifications. |
+| `error code: 267` or invalid starting directory. | Check the actual directory named in the error, including task or extension overrides. |
+| `error code: 1260` or a software restriction policy. | Review Windows Event Viewer with your administrator. Do not bypass the policy. |
 
-Reporting this issue to the Anti-virus team can also help stamp out the issue all together.
+Current releases use ConPTY on supported Windows versions. [WinPTY support was removed in version 1.109](https://code.visualstudio.com/updates/v1_109#_removal-of-winpty-support), so older instructions to switch to WinPTY no longer apply.
+
+`terminal.integrated.windowsUseConptyDll` selects the ConPTY library shipped with {% data variables.product.prodname_vscode_shortname %} instead of the one supplied by Windows. It defaults to `true`. If you changed it, test with the default in a new terminal. If it is already `true`, enabling it again is not a diagnostic step. Setting it to `false` selects Windows' ConPTY library, not WinPTY.
+
+If security software reports a block, share the exact detection with your administrator or security software vendor. Do not disable protection or add broad exclusions as a general workaround. If the shell executable is configured to always run as administrator, use a shell that can run with your normal account or ask your administrator to review that requirement.
 
 ### Terminal exits with code 259
 
-Exit code **259** can mean `STILL_ACTIVE` when the terminal is trying to start a new process such as PowerShell.exe. You can try killing unused programs and processes on your machine in case one of them is keeping a terminal shell process active and unable to relaunch.
-
-Anti-virus software running on your machine might also interfere with starting your terminal shell.
+This code alone does not identify which component failed. Test the same shell outside {% data variables.product.prodname_vscode_shortname %} and capture the complete message and Pty Host log. Avoid terminating unrelated processes based only on the code.
 
 ### Terminal exits with code 3221225786 (or similar)
 
-This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
+The specific code `3221225786` is `0xC000013A`, or `STATUS_CONTROL_C_EXIT`. Windows defines it as [application termination by Ctrl+C](https://learn.microsoft.com/openspecs/windows_protocols/ms-erref/596a1078-e883-4972-9bbc-49e60bebca55). It is not, by itself, proof of a launch failure or a legacy console configuration problem.
 
-![Use legacy mode checkbox](images/troubleshoot-terminal-launch/legacy-console-mode.png)
+Check whether the process was interrupted or closed. Other, similar-looking codes can have different meanings, so record the exact value if you report the issue.
+
+## Enable trace logging
+
+Capture logs from a fresh reproduction, before changing more settings:
+
+1. Run **Developer: Set Log Level...** from the Command Palette and set the log level to **Trace**.
+2. Reproduce the failure by creating a terminal.
+3. Run **Developer: Open Log...** and select **Terminal** for frontend logs. Repeat for **Pty Host**, which records shell process creation and communication. For a remote terminal, include the relevant remote log when available.
+4. Save the relevant log content, then restore the previous log level.
+
+> [!IMPORTANT]
+> Logs can contain file paths, environment details, commands, and terminal output. Review them and remove secrets and sensitive information before sharing.
+
+For additional capture options, see [terminal trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging).
+
+## Additional troubleshooting steps
+
+If the problem persists, use **Help** > **Report Issue** and include:
+
+* The complete error message and the last terminal output.
+* Your {% data variables.product.prodname_vscode_shortname %} version, operating system version, and shell executable and version.
+* Whether the terminal runs locally, in WSL, over SSH, or in a container.
+* Whether it was created from the terminal panel, a task, a debugger, or an extension.
+* Whether the same shell works outside the editor, without startup customization, or with automatic shell integration disabled.
+* Relevant profile settings and redacted Terminal and Pty Host logs.
+
+If only an extension-created terminal fails, select that extension in the issue reporter. For more reporting guidance, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues).
+
+<a name="integrated-terminal-user-guide"></a>
+<a id="_integrated-terminal-user-guide"></a>
 
 ## Next steps
 
-* [Integrated Terminal user guide](/docs/terminal/basics.md) - Learn more about general terminal use and configuration.
+* [Terminal basics](/docs/terminal/basics.md): Learn how to create and manage terminals.
+* [Remote development troubleshooting](/docs/remote/troubleshooting.md): Diagnose connection and remote environment problems.
