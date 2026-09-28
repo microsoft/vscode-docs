@@ -24,7 +24,7 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ. For GitHub Copilot, the models featured in the picker also vary between [Copilot Free and paid plans](https://docs.github.com/en/copilot/get-started/plans).
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
