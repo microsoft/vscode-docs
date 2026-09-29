@@ -312,15 +312,27 @@ With these tools, an agent can:
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
 
-Choose the relationship and workspace based on the delegated task:
+Choose the session relationship first, and then choose the workspace and code isolation:
 
-* Use `currentSession` to create a chat in the current session. The chat can reuse the current workspace and checkout, which avoids creating another worktree for research or related work.
-* Use `independent` to create a separate session. The session can start with **No Workspace** and doesn't inherit the source session's folder. Keep planning or research tasks without a workspace, or choose a trusted folder or worktree when the task needs isolated code changes.
+* **Related work**: Use `currentSession` to create a peer chat in the current session. The peer chat shares the current workspace and checkout, so use this option for related research, planning, or other work that doesn't need isolated file changes.
+* **Unrelated work or a separate deliverable**: Use `independent` to create a separate session. Omit the workspace when the task doesn't need repository files. If it does, choose a trusted folder or worktree. Request a new worktree when file changes must be isolated from your current checkout.
 
-You can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
+In your prompt, state both the session relationship and the workspace choice. For related, read-only work that needs the current repository context:
 
 ```prompt
-Create a session in the vscode workspace to run the tests.
+Create a peer chat in this session that reuses the current workspace and checkout to review the authentication flow. Do not modify files.
+```
+
+For unrelated work that doesn't need repository files:
+
+```prompt
+Create an independent session with no workspace to research licensing options for a separate project.
+```
+
+When the task needs repository files, you can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
+
+```prompt
+Create an independent session in the vscode workspace with a new worktree to implement and test the authentication change.
 ```
 
 If multiple workspaces have the same project name, the agent reports the possible matches instead of choosing one. Session-management tools also support remote workspace URIs and preserve the project URI and working directories for multi-root workspaces.
