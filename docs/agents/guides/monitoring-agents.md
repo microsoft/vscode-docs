@@ -1,7 +1,7 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 9/16/2026
-MetaDescription: Learn how to monitor GitHub Copilot agent interactions in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, and events.
+DateApproved: 9/30/2026
+MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - monitoring
@@ -216,6 +216,21 @@ Add custom resource attributes with `OTEL_RESOURCE_ATTRIBUTES` to filter by team
 export OTEL_RESOURCE_ATTRIBUTES="team.id=platform,department=engineering"
 ```
 
+### Identity capture
+
+For Local harness sessions, identity capture can attribute agent activity to an individual developer and machine. When enabled, telemetry includes:
+
+* `user.name` on agent invocation spans, including subagent and inline chat spans.
+* `process.user.name` and `host.name` as resource attributes.
+
+Enable identity capture with `setting(github.copilot.chat.otel.captureIdentity)` or `COPILOT_OTEL_CAPTURE_IDENTITY=true`. This control is independent of [content capture](#content-capture).
+
+> [!CAUTION]
+> Identity attributes can identify a developer and their machine. Enable identity capture only when your organization has an appropriate purpose, access controls, and retention policy for this data.
+
+> [!NOTE]
+> Identity capture currently applies only to the Local harness. Agent Host telemetry doesn't include these identity attributes.
+
 ### Content capture
 
 By default, no prompt content, responses, or tool arguments are captured. Only metadata like model names, token counts, and durations are included.
@@ -244,6 +259,7 @@ Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot 
 | `setting(github.copilot.chat.otel.exporterType)` | string | `"otlp-http"` | `otlp-http`, `otlp-grpc`, `console`, or `file` |
 | `setting(github.copilot.chat.otel.otlpEndpoint)` | string | `"http://localhost:4318"` | OTLP collector endpoint |
 | `setting(github.copilot.chat.otel.captureContent)` | boolean | `false` | Capture full prompt and response content |
+| `setting(github.copilot.chat.otel.captureIdentity)` | boolean | `false` | Capture the authenticated account name, operating system username, and machine hostname for Local harness sessions |
 | `setting(github.copilot.chat.otel.maxAttributeSizeChars)` | integer | `0` | Maximum characters per content attribute (prompts, tool args, tool results). `0` disables truncation. Set a positive value to match your backend's per-attribute size limit. |
 | `setting(github.copilot.chat.otel.outfile)` | string | `""` | File path for JSON-lines output |
 | `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` | boolean | `false` | Persist OTel spans to a local SQLite database for the **Chat: Export Agent Traces DB** command. Implicitly enables OTel. |
@@ -262,6 +278,7 @@ Environment variables always take precedence over {% data variables.product.prod
 | `OTEL_SERVICE_NAME` | `copilot-chat` | Service name in resource attributes |
 | `OTEL_RESOURCE_ATTRIBUTES` | | Extra resource attributes (`key1=val1,key2=val2`) |
 | `COPILOT_OTEL_CAPTURE_CONTENT` | `false` | Capture full prompt and response content |
+| `COPILOT_OTEL_CAPTURE_IDENTITY` | `false` | Capture developer and machine identity for Local harness sessions |
 | `COPILOT_OTEL_MAX_ATTRIBUTE_SIZE_CHARS` | `0` | Override the max character size for content attributes. `0` disables truncation. Takes precedence over the `maxAttributeSizeChars` setting. |
 | `COPILOT_OTEL_LOG_LEVEL` | `info` | Minimum log level: `trace`, `debug`, `info`, `warn`, or `error`. |
 | `COPILOT_OTEL_FILE_EXPORTER_PATH` | | Write all signals to this file as JSON lines. |
@@ -280,12 +297,12 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 Enterprises can mandate OTel export configuration centrally through Copilot managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
 
-Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/ai-settings.md#configure-telemetry-export-with-opentelemetry).
+Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. The complete block comes from the highest-priority channel that supplies one; omitted fields aren't filled from lower-priority channels. For the full list of managed telemetry keys, delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/manage-ai-settings.md#configure-telemetry-export-with-opentelemetry).
 
 For chat sessions that use the Local harness, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 
 > [!NOTE]
-> When a managed telemetry value is configured, it overrides user settings. Remove conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
+> When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
 
 ## Trace structure for background and Claude agents
 
@@ -457,7 +474,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 ## Related content
 
 * [AI settings reference](/docs/agents/reference/ai-settings.md)
-* [Manage AI settings in enterprise environments](/docs/enterprise/ai-settings.md)
+* [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md)
 * [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)

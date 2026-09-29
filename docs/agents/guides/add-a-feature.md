@@ -1,6 +1,6 @@
 ---
 ContentId: 8fbfb21b-d9ec-439a-8f3e-e96d5ab7ffad
-DateApproved: 9/22/2026
+DateApproved: 9/30/2026
 MetaDescription: Add a feature to an existing project with an agent in {% data variables.product.prodname_vscode_shortname %}, from a reviewed plan to a tested change.
 MetaSocialImage: ../images/agents-overview/hero-vscode-dev-agents-dark.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Review, stage, and commit changes in {% data variables.product.prodname_vscode_shortname %}, and choose safe ways to undo or discard work.
 Keywords:
 - source control

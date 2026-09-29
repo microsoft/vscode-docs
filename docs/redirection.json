@@ -1,4 +1,5 @@
 [
+    { "from": "/docs/enterprise/ai-settings", "to": "/docs/enterprise/manage-ai-settings", "status": 301 },
     { "from": "/docs/agent-native/overview", "to": "/docs/agents/overview", "status": 301 },
     { "from": "/docs/agents/concepts/overview", "to": "/docs/agents/concepts/agents", "status": 301 },
     { "from": "/docs/copilot/core-concepts", "to": "/docs/agents/concepts/agents", "status": 301 },

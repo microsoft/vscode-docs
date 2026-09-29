@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Learn how to configure and manage {% data variables.product.prodname_vscode %} in enterprise environments, including policies, extensions, AI settings, and network configuration.
 ---
 
@@ -14,7 +14,7 @@ MetaDescription: Learn how to configure and manage {% data variables.product.pro
 
 Policies are available to control:
 
-* [AI and Copilot features](/docs/enterprise/ai-settings.md) - Agent mode, MCP servers, and tool approvals
+* [AI and Copilot features](/docs/enterprise/manage-ai-settings.md) - Agent mode, MCP servers, and tool approvals
 * [Extensions](/docs/enterprise/extensions.md) - Allowed extensions and private marketplace
 * [Telemetry](/docs/enterprise/telemetry.md) - Data collection levels and feedback mechanisms
 * [Automatic updates](/docs/enterprise/updates.md) - Control when and how {% data variables.product.prodname_vscode_shortname %} updates

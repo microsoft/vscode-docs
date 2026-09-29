@@ -1,6 +1,6 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Inspect Git commits, compare revisions, and find file history and line authorship in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host runs local, remote, and Dev Container sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

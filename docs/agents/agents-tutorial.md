@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -55,7 +55,7 @@ Use the {% data variables.copilot.agents_window %} to run and monitor agent sess
 
 </div>
 
-The {% data variables.copilot.agents_window %} (preview) is a dedicated window in {% data variables.product.prodname_vscode_shortname %} that is optimized for working with agents across all your projects without needing to open a separate {% data variables.product.prodname_vscode_shortname %} window for each one.
+The {% data variables.copilot.agents_window %} is a dedicated window in {% data variables.product.prodname_vscode_shortname %} that is optimized for working with agents across all your projects without needing to open a separate {% data variables.product.prodname_vscode_shortname %} window for each one.
 
 In this part, you open your folder in the {% data variables.copilot.agents_window %} and task an agent to build your portfolio page.
 

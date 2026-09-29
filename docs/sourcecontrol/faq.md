@@ -1,7 +1,7 @@
 ---
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Check Git, SSH, and {% data variables.product.prodname_github %} Enterprise support in {% data variables.product.prodname_vscode %}.
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 Keywords:
 - source control
 - scm

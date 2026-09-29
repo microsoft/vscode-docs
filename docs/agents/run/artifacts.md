@@ -1,6 +1,6 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 FeatureStatus: agent-artifacts
 MetaDescription: View and manage artifacts, references, screenshots, plans, and other agent session resources in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png

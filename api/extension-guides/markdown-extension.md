@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 1664249a-ba7a-4a53-b3f0-9d757cff7d27
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Extend Visual Studio Code Markdown features with preview styles, scripts, markdown-it plugins, and interactive code block editors.

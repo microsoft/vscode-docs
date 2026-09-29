@@ -1,6 +1,6 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Look up Local harness hook configuration and event schemas in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
