@@ -216,6 +216,10 @@ The filter applies to the sessions lists in both the {% data variables.copilot.c
 
 When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
 
+When you open an external Codex session, only one application can write to the chat at a time. If the chat is still open in ChatGPT or Codex CLI, {% data variables.product.prodname_vscode_shortname %} keeps the transcript, draft, and attachments available, but disables sending, queueing, and resending. The **This chat is open in another app** banner appears above the chat input.
+
+To continue the chat in {% data variables.product.prodname_vscode_shortname %}, fully quit the other application, and then select **Retry** in the banner. Retrying checks whether the chat is available without sending the draft or adding a transcript entry. After the banner disappears, send the draft yourself.
+
 When you send a message in an external session, the Agent Host adopts it. The session is no longer external, so the **External** filter no longer affects its visibility.
 
 ## Archive sessions
