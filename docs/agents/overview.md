@@ -42,7 +42,9 @@ Build and validate a small app in the {% data variables.copilot.chat_view %}, th
 
 </div>
 
-The quickstart uses {% data variables.product.prodname_copilot %}. See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements, or compare [other agent providers and sign-in options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+The quickstart uses the [{% data variables.product.prodname_copilot %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness). It shares its agent runtime with {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} and supports reusable project guidance, such as Agent Skills, across these experiences.
+
+See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements, or compare [other agent providers and sign-in options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
 ## What you can do with AI
 

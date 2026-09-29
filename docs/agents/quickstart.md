@@ -18,7 +18,7 @@ Follow a hands-on tutorial to build and refine an app with agents in {% data var
 ## Prerequisites
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
-* [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md). This quickstart uses the Copilot harness. To use Claude, Codex, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
+* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md). This quickstart uses the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness), which connects the model to the tools that build and test your app. To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
 
 > [!NOTE]
 > Requests in this quickstart use AI credits from your Copilot plan. {% data variables.copilot.copilot_free_short %} includes a monthly allowance. Open the Copilot status dashboard from the Status Bar to monitor your monthly usage. Learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
