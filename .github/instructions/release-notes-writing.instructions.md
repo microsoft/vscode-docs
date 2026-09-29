@@ -114,6 +114,7 @@ Apply these specific guidelines to all release notes. For other text, follow the
 ### Content Guidelines
 - Check for sensitive content and ensure that all language is inclusive and respectful.
 - The audience is developers who use VS Code, so the tone should be professional but approachable, and the content should be technically accurate and relevant to their needs.
+- Don't use reusable data variables (`{% data variables.<group>.<name> %}`) in release notes. Use the literal rendered text instead because the in-product release notes renderer can't resolve these variables. This overrides the reusable-variable guidance in the general documentation writing guidelines.
 - Avoid marketing language or hype. Focus on clear, factual descriptions of features and changes.
 - Every feature entry should make the user benefit obvious. Prefer concrete examples over vague claims like "improved support" or "more efficient". When possible, use a before/after comparison to show the change.
 - When multiple features in a release relate to the same theme (for example, several agent improvements), group them and lead with the most impactful one so the section reads as a coherent story.
