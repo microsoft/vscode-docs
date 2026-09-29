@@ -21,7 +21,7 @@ Follow the guidelines in this order of priority:
 1. [Release notes writing instructions](../../instructions/release-notes-writing.instructions.md)
 2. [Visual Studio Code documentation writing guidelines](../../instructions/docs-writing.instructions.md)
 
-Before writing or retaining an entry, verify that the functionality is available in the public release channel covered by the notes. Public Insiders, Preview, and Experimental functionality qualifies when labeled clearly. Exclude and report internal dogfood, hidden settings or commands, source-only implementation, and manually settable internal feature flags.
+Before writing or retaining an entry, verify that the functionality is available in the public release channel covered by the notes. Public Insiders, Preview, and Experimental functionality qualifies when labeled clearly. Exclude and report internal dogfood, hidden settings or commands, source-only implementation, and manually settable internal feature flags. An internal setting can be referenced only under the narrow exception in the release notes writing instructions: the user must explicitly request the specific reference and then confirm it before you add it.
 
 ## Insiders Release Notes
 

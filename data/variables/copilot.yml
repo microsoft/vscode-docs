@@ -54,3 +54,7 @@ agents_window: 'Agents window'
 
 ## Chat view
 chat_view: 'Chat view'
+
+## Agent merge
+agent_merge: 'agent merge'
+agent_merge_caps: 'Agent merge'

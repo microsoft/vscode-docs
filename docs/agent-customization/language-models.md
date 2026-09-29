@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -70,7 +70,15 @@ The model picker label updates to show the selected effort level, for example "C
 
 With auto model selection, {% data variables.product.prodname_vscode_shortname %} evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
-To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
+To use auto model selection, select **Auto** from the model picker in chat. Then use **Optimize for** to choose the tier that matches your priorities:
+
+* **Efficiency** favors lower AI credit consumption.
+* **Balance** balances capability and credit consumption.
+* **Intelligence** favors more capable models for complex tasks.
+
+Your organization can set a starting tier for new chats. The managed tier appears as **Default** in the **Optimize for** menu, but you can still choose a different tier. An explicit choice is preserved when the managed default changes or is removed.
+
+You can see which model is used for generating a response by hovering over the chat response.
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 

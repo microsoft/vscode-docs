@@ -1,6 +1,6 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Make a first Git commit in {% data variables.product.prodname_vscode %} with a practice project, then optionally publish it online.
 Keywords:
 - source control

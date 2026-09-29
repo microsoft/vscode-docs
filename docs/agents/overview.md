@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Explore AI in {% data variables.product.prodname_vscode %}, from code suggestions to agents that plan, edit, and test changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -42,7 +42,9 @@ Build and validate a small app in the {% data variables.copilot.chat_view %}, th
 
 </div>
 
-The quickstart uses {% data variables.product.prodname_copilot %}. See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements, or compare [other agent providers and sign-in options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+The quickstart uses the [{% data variables.product.prodname_copilot %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness). It shares its agent runtime with {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} and supports reusable project guidance, such as Agent Skills, across these experiences.
+
+See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements, or compare [other agent providers and sign-in options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
 ## What you can do with AI
 
@@ -86,7 +88,7 @@ Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) 
 
 ### Delegate and manage tasks
 
-Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
+Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
 
 ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 
@@ -115,7 +117,7 @@ AI can produce incorrect code or misunderstand your intent. You remain responsib
 * **Control actions and redirect work.** Use [permissions and approvals](/docs/agents/run/approvals.md) to decide which actions require confirmation. You can [steer or stop a request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running), but stopping doesn't undo completed actions or changes to external services.
 * **Understand isolation.** A Git worktree keeps code changes separate, but isn't a security boundary. For file system and network restrictions on agent-run terminal commands, review the [platform-specific sandboxing options](/docs/agents/run/agent-sandboxing.md).
 
-Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). Your organization might also restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/ai-settings.md).
+Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). Your organization might also restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/manage-ai-settings.md).
 
 ## Next steps
 

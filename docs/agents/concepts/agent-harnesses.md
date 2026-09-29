@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Understand agent harnesses, execution environments, and code isolation in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -48,6 +48,12 @@ Several choices determine how an agent works. They work together, but they are n
 | **Agent role** | Which instructions, tools, and behavior apply to a task. Examples include Agent, Plan, Ask, and custom agents. | A role shapes the task behavior within a harness. Changing the role does not replace the harness. |
 | **Execution environment** | Where workspace tools run and code changes are made, such as your machine, a connected host, a Dev Container, or cloud infrastructure. | The harness coordinates work in the selected environment. The environment is not the harness. |
 | **Session target** | Which harness or cloud target {% data variables.product.prodname_vscode_shortname %} uses for a session. | The **Session Target** UI control lists harnesses and the Cloud target. For Agent Host sessions, the workspace picker selects the host or Dev Container separately from the harness. |
+
+### Harness, runtime, and host
+
+The [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) uses the {% data variables.copilot.copilot_sdk %} to access the shared {% data variables.product.prodname_copilot_short %} agent runtime. The runtime also powers {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. The SDK provides the runtime integration, not a language model or a user interface.
+
+In {% data variables.product.prodname_vscode_shortname %}, the [Agent Host](/docs/agents/concepts/agent-host.md) runs the harness and owns its sessions. The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} display and control those sessions. The host can also run other supported harnesses, so its session-hosting capabilities aren't exclusive to {% data variables.product.prodname_copilot_short %}.
 
 ## Understand what the harness choice changes
 

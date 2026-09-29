@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

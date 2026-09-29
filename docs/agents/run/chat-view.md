@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -55,6 +55,12 @@ The {% data variables.copilot.chat_view %} keeps the agent next to your code, so
 ![Screenshot showing the {% data variables.copilot.chat_view %} with the sessions list, conversation, and chat input.](../images/agents-overview/chat-view-expanded.png)
 
 The {% data variables.copilot.chat_view %} operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+
+### Switch chats within a session
+
+A supported Agent Host session can contain a main chat and additional peer chats. In the **Sessions** view, expand the main chat row and select a peer to open its conversation in the {% data variables.copilot.chat_view %}.
+
+You can continue peer chats created in the {% data variables.copilot.agents_window %} without starting a new session. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 ## Start a session
 

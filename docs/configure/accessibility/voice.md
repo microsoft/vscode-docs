@@ -1,6 +1,6 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support
@@ -123,7 +123,7 @@ Organizations can enforce these privacy choices with enterprise policies:
 * `DictationModel` controls whether dictation uses the on-device model or streams audio to the cloud transcription service. On the web, a policy that requires the on-device model makes dictation unavailable.
 * `DictationLLMCleanup` controls whether the final transcript is sent to a Copilot language model for cleanup.
 
-To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. This configuration makes dictation unavailable in {% data variables.product.prodname_vscode_shortname %} for the Web. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md#control-dictation-data).
+To keep both audio and transcript processing on the device, administrators must require the on-device model and turn off language-model cleanup. This configuration makes dictation unavailable in {% data variables.product.prodname_vscode_shortname %} for the Web. Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md#control-dictation-data).
 
 ## {% data variables.product.prodname_vscode_shortname %} Speech extension
 

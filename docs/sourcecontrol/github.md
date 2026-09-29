@@ -1,6 +1,6 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Manage {% data variables.product.prodname_github %} pull requests and issues in {% data variables.product.prodname_vscode %}.
 Keywords:
 - source control

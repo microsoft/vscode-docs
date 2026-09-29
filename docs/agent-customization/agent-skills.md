@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 ---
 # Use Agent Skills in {% data variables.product.prodname_vscode_shortname %}
 
-Agent Skills are folders of instructions, scripts, and resources that AI agents can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.product.prodname_openai_codex %} [through Agent Host](/docs/agents/run/agent-harnesses.md#codex) (Experimental).
+Agent Skills are folders of instructions, scripts, and resources that AI agents can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.product.prodname_openai_codex %} [through Agent Host](/docs/agents/run/agent-harnesses.md#codex) (Experimental).
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable across skills-compatible agents, but supported locations and optional features vary by agent. Unless otherwise noted, the configuration options and controls on this page apply to {% data variables.product.prodname_copilot_short %}.
 
@@ -37,10 +37,12 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | Feature | Agent Skills | Custom Instructions |
 | ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
-| **Portability** | Works across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.product.prodname_openai_codex %} through Agent Host (Experimental) | {% data variables.product.prodname_vscode_shortname %} and GitHub.com only |
+| **Portability** | Works across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.product.prodname_openai_codex %} through Agent Host (Experimental) | Reusable across experiences that support the selected [instruction format](/docs/agent-customization/custom-instructions.md#choose-a-format) |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
 | **Scope** | Task-specific, loaded on-demand | Always applied (or via glob patterns) |
-| **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | {% data variables.product.prodname_vscode_shortname %}-specific |
+| **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | Multiple formats, such as `AGENTS.md` and `.github/copilot-instructions.md` |
+
+For example, you can share a repository's `.github/copilot-instructions.md` between {% data variables.product.prodname_vscode_shortname %} and [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions). Check the supported file locations and activation rules for each experience.
 
 Use Agent Skills when you want to:
 
@@ -365,6 +367,7 @@ Agent Skills is an open standard that enables portability across different AI ag
 
 * **GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}**: Available in chat and agent mode
 * **{% data variables.copilot.copilot_cli %}**: Accessible when working in the terminal
+* **{% data variables.copilot.github_copilot_app %}**: Available in the dedicated desktop experience.
 * **{% data variables.copilot.copilot_cloud_agent %}**: Used during automated coding tasks
 * **{% data variables.product.prodname_openai_codex %} through Agent Host (Experimental)**: Discovers workspace skills in `.github/skills/` after you [set up the integration](/docs/agents/run/agent-harnesses.md#codex).
 

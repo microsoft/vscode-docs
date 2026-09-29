@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -70,10 +70,11 @@ You can manually configure MCP servers in the following locations:
 * **Workspace, {% data variables.product.prodname_vscode_shortname %} format**: create or open `.vscode/mcp.json` in your project. This format defines servers in a top-level `servers` object.
 * **Workspace, portable format**: create `.mcp.json` at the root of your project. This format defines servers in a top-level `mcpServers` object and works across compatible tools.
 * **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md) folder. Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
+* **User, portable format**: create `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is not set. This format defines servers in a top-level `mcpServers` object and works across compatible Copilot tools.
 
 Include workspace configuration in source control to share MCP servers with your team.
 
-You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
+You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow. Choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers.
 
 For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
@@ -227,7 +228,7 @@ The enable/disable state is stored separately from the server configuration in `
 
 ## Centrally manage access to MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/manage-ai-settings.md#configure-mcp-server-access).
 
 ## Automatically start MCP servers
 

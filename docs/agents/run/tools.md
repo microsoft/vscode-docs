@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -192,6 +192,8 @@ In the chat conversation, the agent displays the commands it ran. You can view t
 Use `setting(chat.tools.terminal.outputLocation)` (experimental) to show terminal command output inline in chat or directly in the integrated terminal.
 
 </details>
+
+Terminal output previews reflow to fit the available chat width by default. Turn off `setting(chat.tools.terminal.outputReflow)` to preserve the terminal's column width and use horizontal scrolling for long lines. This setting changes only the preview in chat, not the terminal that runs the command.
 
 #### Continue terminal commands in background
 

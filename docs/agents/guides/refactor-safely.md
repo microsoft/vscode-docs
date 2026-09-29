@@ -1,6 +1,6 @@
 ---
 ContentId: b8e2024a-7618-4a7c-a2ee-8618b4530f89
-DateApproved: 9/22/2026
+DateApproved: 9/30/2026
 MetaDescription: Refactor code with an agent in {% data variables.product.prodname_vscode_shortname %} while preserving behavior through focused changes and regression checks.
 MetaSocialImage: ../images/agents-overview/hero-vscode-dev-agents-dark.png
 Keywords:

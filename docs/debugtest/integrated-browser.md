@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -364,7 +364,7 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 
 ### Enterprise policies for browser tools
 
-Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
+Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/manage-ai-settings.md) and [agent network filtering](/docs/enterprise/manage-ai-settings.md#configure-agent-network-filtering).
 
 ## Configure the integrated browser
 

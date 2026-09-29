@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: Choose an agent harness in {% data variables.product.prodname_vscode %} and configure sessions, permissions, and code isolation.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -60,6 +60,22 @@ Runtime-specific customizations, including [hooks](/docs/agent-customization/hoo
 
 Dev Container execution is available only in the desktop {% data variables.copilot.agents_window %}. Use the workspace picker to start an Agent Host session in a local project's Dev Container or one on an SSH, Tunnel, or WSL host. This selects the execution environment. Use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn about requirements and how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
+<a name="use-the-copilot-harness"></a>
+
+## Work with the {% data variables.product.prodname_copilot_short %} harness
+
+Use the {% data variables.product.prodname_copilot_short %} harness to work on coding tasks in {% data variables.product.prodname_vscode_shortname %} and reuse supported project customizations across {% data variables.product.prodname_copilot_short %} experiences. It uses the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk) to access the agent runtime also used by {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. You don't need to install the SDK separately to use the harness in {% data variables.product.prodname_vscode_shortname %}.
+
+* **Reuse project guidance**: share coding conventions through [custom instructions](/docs/agent-customization/custom-instructions.md) and recurring workflows through [Agent Skills](/docs/agent-customization/agent-skills.md). For example, use the same repository skill to run your project's test workflow in {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
+* **Reuse supported hooks (Preview)**: {% data variables.product.prodname_copilot_short %} sessions use the [same SDK hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) as {% data variables.copilot.copilot_cli_short %}. Check the supported events and tool payloads before reusing a hook.
+* **Continue work in the terminal**: [run {% data variables.copilot.copilot_cli %} in the integrated terminal](#use-copilot-cli-from-the-terminal) and find its session in the sessions list. To continue an existing {% data variables.product.prodname_copilot_short %} session in the terminal, select **Resume in Terminal** from its context menu.
+
+In {% data variables.product.prodname_vscode_shortname %}, the harness runs in the [Agent Host](/docs/agents/concepts/agent-host.md) on your machine, on a connected host, or in a Dev Container. The host owns the session independently of the window that displays it, so you can return to the session from another window while the host remains running.
+
+Tools, models, permissions, and supported customizations can differ between experiences. A shared runtime does not mean that all sessions or personal settings synchronize between products. See [{% data variables.product.prodname_copilot_short %} setup and capabilities](#copilot) for authentication, permissions, and limitations.
+
+For help finding and continuing existing sessions, see the [FAQ about working across {% data variables.product.prodname_copilot_short %} experiences](/docs/agents/agent-troubleshooting/faq.md#working-across-copilot-experiences).
+
 ## Start a session
 
 You can select a session target when you start a session in the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}. When you change the target for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new target.
@@ -114,7 +130,7 @@ In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(ses
 
 Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
 
-Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to specify ignored files and folders that {% data variables.product.prodname_vscode_shortname %} should copy into new worktrees. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
+Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large ignored folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes an agent makes through the symlink affect the folder in the original checkout.
 
 Worktree sessions use **Allow all** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
@@ -150,9 +166,7 @@ You can switch roles during a session from the agent picker.
 <details>
 <summary>Copilot</summary>
 
-<a name="use-the-copilot-harness"></a>
-
-The Copilot harness is powered by the [{% data variables.copilot.copilot_sdk_short %}](https://www.npmjs.com/package/@github/copilot-sdk) and runs locally on your machine in the [Agent Host](/docs/agents/concepts/agent-host.md). The Agent Host owns the session independently of the window that displays it, letting you pick up your session from the sessions list in another window or even in the browser.
+For a summary of the shared runtime and supported workflows, see [Work with the {% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness).
 
 ### Setup and authentication
 
@@ -162,7 +176,7 @@ Copilot sessions use the same GitHub authentication context as chat in {% data v
 
 Enable `setting(chat.editor.preferCopilotHarness)` _(Experimental)_ to use the {% data variables.copilot.copilot_sdk_short %} harness when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections.
 
-Enterprise admins can enforce the preference with the `ChatEditorPreferCopilotHarness` device policy, available from version 1.134. Copilot sessions on Agent Host use the shared SDK hooks implementation and load Copilot Policy Hooks. Local sessions do not load SDK Policy Hooks. See [migrate hooks between harnesses](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) and [enterprise hook configuration](/docs/enterprise/ai-settings.md#use-the-sdk-harness-for-policy-hooks).
+Enterprise admins can enforce the preference with the `ChatEditorPreferCopilotHarness` device policy, available from version 1.134. Copilot sessions on Agent Host use the shared SDK hooks implementation and load Copilot Policy Hooks. Local sessions do not load SDK Policy Hooks. See [migrate hooks between harnesses](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) and [enterprise hook configuration](/docs/enterprise/manage-ai-settings.md#use-the-sdk-harness-for-policy-hooks).
 
 ### Permissions and approvals
 

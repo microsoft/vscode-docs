@@ -1,6 +1,6 @@
 ---
 ContentId: b7c8d9e0-f1a2-3b4c-5d6e-7f8a9b0c1d2e
-DateApproved: 9/16/2026
+DateApproved: 9/30/2026
 MetaDescription: "A hands-on demo of GitHub Copilot customization features: custom agents, skills, instructions, prompt files, and hooks working together in a real project."
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
