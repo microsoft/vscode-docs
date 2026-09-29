@@ -253,6 +253,18 @@ A common use is to copy the `node_modules` folder into each new worktree. This w
 
 For agent worktrees, only include files that the agent can safely access.
 
+### Symlink ignored folders when creating a worktree
+
+To reuse a large ignored folder without copying it into every worktree, use the `setting(git.worktreeSymlinkFolders)` setting (Experimental). Configure `.gitignore`-style patterns for folders that Git ignores in the current checkout. When {% data variables.product.prodname_vscode_shortname %} creates a new worktree, including for an agent session, it symlinks matching folders that contain no tracked files. For example, to share installed dependencies:
+
+```json
+"git.worktreeSymlinkFolders": [
+    "node_modules/"
+]
+```
+
+Unlike `setting(git.worktreeIncludeFiles)`, which copies files into each worktree, a symlink shares the original folder. Changes made through the symlink, including installing or removing dependencies, affect the folder in the current checkout and any other worktrees linked to it. Copy the folder instead if each worktree needs its own contents. For agent worktrees, only symlink folders that the agent can safely access and change.
+
 ### Automatically detect worktrees
 
 By default, {% data variables.product.prodname_vscode_shortname %} lists the worktrees that you create from the **Source Control Repositories** view. To also automatically detect worktrees that already exist in your repository, enable the `setting(git.detectWorktrees)` setting. When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} scans the repository for worktrees and shows them in the **Source Control Repositories** view.
