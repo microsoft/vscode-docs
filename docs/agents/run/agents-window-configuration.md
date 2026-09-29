@@ -45,6 +45,20 @@ To change this setting from a code editor, select **More Actions** (**...**) > *
 
 This setting doesn't affect diff editors in the **Changes** view. To configure word wrapping in those editors, see [Configure word wrap in diff editors](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors).
 
+## Configure the new-session experience
+
+### Personalize the welcome heading (Experimental)
+
+Enable `setting(sessions.chat.experimental.welcomePhrases)` to show a rotating welcome phrase above the new-session composer in the {% data variables.copilot.agents_window %}. To personalize the phrase, use the **Set Welcome Name** action or set `setting(sessions.chat.experimental.welcomeName)`. The name syncs across devices.
+
+Clear the welcome name to use the first name from your GitHub profile when available, or a generic phrase when your profile doesn't include a name. When screen reader optimized mode is active, the heading is announced once when the composer appears. Turn off `setting(accessibility.verbosity.newSessionWelcome)` to omit the announcement.
+
+### Group the composer controls (Experimental)
+
+Enable `setting(sessions.chat.experimental.newSessionComposerLayout)` to group the workspace, branch, worktree, and harness controls above the new-session chat input. This layout requires `setting(sessions.chat.unifiedWorkspacePicker.enabled)`.
+
+With the unified workspace picker enabled, use `kb(sessions.focusNewSessionWorkspacePicker)` to focus the workspace picker or `kb(sessions.focusNewSessionHarnessPicker)` to focus the harness picker. These commands don't require the experimental composer layout. To assign a keybinding, use the **Configure Keybinding** action in the picker's context menu.
+
 ## Adjust the window layout
 
 ### Use the single-pane editor panel (Experimental)

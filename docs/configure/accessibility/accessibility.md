@@ -227,6 +227,8 @@ They are played when the primary cursor changes its line or the first time a mar
 
 The command **Help: List Signal Sounds** lists all available sounds, lets you hear each as you move through the list, and allows for configuring their enabled/disabled status.
 
+The **Confetti** signal provides an audio cue when chat thumbs-up feedback displays confetti or when you mark a session as done in the {% data variables.copilot.agents_window %}. Configure it with `setting(accessibility.signals.confetti)`.
+
 Aria announcements also inform screen reader and braille users that certain markers have been hit. The command **Help: List Signal Announcements** informs the user of which are available and allows for configuring their enabled/disabled status.
 
 ## Hover accessibility

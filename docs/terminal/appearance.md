@@ -1,7 +1,7 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 DateApproved: 9/30/2026
-MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal allows customizing its appearance in various ways.
+MetaDescription: Customize integrated terminal fonts, colors, cursor, rendering, tabs, and other appearance settings in {% data variables.product.prodname_vscode %}.
 ---
 # Terminal Appearance
 
@@ -21,6 +21,7 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.lineHeight)`: Configures additional vertical spacing between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
+- `setting(terminal.integrated.fontRendering)` _(Experimental)_: On macOS high-DPI displays, set this to `grayscale` to make terminal text appear sharper. Use `inherit` to keep the system font-rendering behavior.
 - `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts

@@ -1,7 +1,7 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
 DateApproved: 9/30/2026
-MetaDescription: Manage enterprise AI policies in {% data variables.product.prodname_vscode_shortname %} for sandboxing, tool approvals, and customizations.
+MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %} for version requirements, model defaults, security, and OpenTelemetry.
 ---
 
 # Manage AI settings in enterprise environments
@@ -42,6 +42,8 @@ The precedence order is:
 1. File-based
 
 For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. {% data variables.product.prodname_vscode_shortname %} applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
+
+The `telemetry` block is resolved atomically instead of per key. {% data variables.product.prodname_vscode_shortname %} uses the complete block from the highest-precedence channel that supplies one and doesn't fill omitted fields from lower-precedence channels. For example, if native MDM supplies `telemetry.enabled` but omits `telemetry.endpoint`, a server-managed endpoint isn't applied.
 
 Sandbox controls preserve restrictions from every managed channel instead:
 
@@ -148,6 +150,18 @@ This policy is fail-closed: if the user is not signed in, is signed in with a no
 
 IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
+## Require a minimum version for AI features
+
+An organization can require a minimum {% data variables.product.prodname_vscode_shortname %} version before developers use AI features. This helps ensure that managed devices receive security or governance improvements, such as newer sandboxing protections, without blocking unrelated editor work.
+
+When the installed version doesn't meet the requirement:
+
+* Chat shows the required and installed versions and provides the appropriate update action.
+* The editor window shows a banner even when Chat is closed. Other editor features remain available.
+* The {% data variables.copilot.agents_window %} shows a blocking notice with an **Open Editor Window** action.
+
+The update action reflects the current installation state, such as **Check for Updates**, **Download Update**, **Install Update**, or **Restart to Update**. If built-in updates are disabled by policy, the notice directs the developer to contact an administrator. AI features become available after the installed version meets the requirement.
+
 ## Set a default chat model
 
 Organizations can set a default model that applies to every new conversation, so developers start from an approved model without configuring it themselves.
@@ -161,6 +175,18 @@ The value accepts one of the following:
 * A full model ID.
 
 New conversations start at the configured model across the chat panel and the {% data variables.copilot.agents_window %}. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+
+### Set a default Auto tier
+
+When the default model is **Auto**, set the `autoTier` Copilot managed setting to choose how new chats initially optimize model routing:
+
+* `efficiency` favors lower AI credit consumption.
+* `balance` balances capability and credit consumption.
+* `intelligence` favors more capable models for complex tasks.
+
+The managed tier applies to new chats in the Local harness and the Copilot Agent Host on the same machine. It appears as **Default** in the model picker's **Optimize for** menu.
+
+The tier is a starting point rather than a restriction. Developers can select another tier, and {% data variables.product.prodname_vscode_shortname %} preserves explicit and restored choices when the managed tier changes or is removed.
 
 ## Enable or disable the use of agents
 
@@ -541,7 +567,7 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 Organizations can mandate where Copilot sends [OpenTelemetry](https://opentelemetry.io/) (OTel) data, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
 
-Deliver these settings through the `telemetry` block in [Copilot managed settings](#deploy-copilot-managed-settings). Each field maps to a {% data variables.product.prodname_vscode_shortname %} policy and a `chat.agentHost.otel.*` setting:
+Deliver these settings through the `telemetry` block in [Copilot managed settings](#deploy-copilot-managed-settings). Each field maps to a {% data variables.product.prodname_vscode_shortname %} policy and, where applicable, a product setting:
 
 | Managed setting key | Setting | Description |
 |---------------------|---------|-------------|
@@ -550,11 +576,19 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 | `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP wire protocol. Use `http/json` or `http/protobuf`; both select the `otlp-http` exporter. `grpc` is accepted for forward compatibility but currently falls back to the HTTP default. |
 | `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
 | `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
+| `telemetry.capture.identity` | `setting(github.copilot.chat.otel.captureIdentity)` | Whether Local harness telemetry captures developer and machine identity. Maps to the `CopilotOtelCaptureIdentity` policy. |
 | `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
 | `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
 | `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
 
-Managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values. Remove conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
+Identity capture is off by default and independent of content capture. When enabled, Local harness sessions add `user.name` to agent invocation spans, including subagent and inline chat spans, and add `process.user.name` and `host.name` as resource attributes.
+
+The managed identity value takes precedence over `COPILOT_OTEL_CAPTURE_IDENTITY` and user settings. When a managed value denies identity capture, later exports omit identity without requiring a reload, including identity attributes that were configured explicitly as resource attributes.
+
+For other telemetry fields, managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values, except that managed `telemetry.resourceAttributes` take precedence over `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
+
+> [!NOTE]
+> Identity capture currently applies only to the Local harness. It doesn't add identity attributes to Agent Host telemetry.
 
 > [!NOTE]
 > Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
@@ -592,6 +626,7 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to permit approved, session-scoped sandbox bypasses. If omitted or `false`, required sandboxing cannot be bypassed. |
 | `sandbox.userPolicy.network.allowOutbound` | None | Agent Host runtime | Set to `false` to block outbound network access from sandboxed commands. A value of `true` does not override a developer's more restrictive local setting. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
+| `autoTier` | None | Copilot runtime | Default Auto model tier for new Local and Copilot Agent Host chats. Accepted values are `efficiency`, `balance`, and `intelligence`. |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
 | `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
@@ -600,7 +635,7 @@ The following managed settings are available. Most keys map to a {% data variabl
 | `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
 | `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
 | `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
-| `telemetry.*` | `CopilotOtel*` | `chat.agentHost.otel.*` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
+| `telemetry.*` | `CopilotOtel*` | `chat.agentHost.otel.*`, `setting(github.copilot.chat.otel.captureIdentity)` | OpenTelemetry export and identity-capture configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
 
 ## Related resources
 

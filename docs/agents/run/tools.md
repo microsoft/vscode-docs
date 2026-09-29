@@ -193,6 +193,8 @@ Use `setting(chat.tools.terminal.outputLocation)` (experimental) to show termina
 
 </details>
 
+Terminal output previews reflow to fit the available chat width by default. Turn off `setting(chat.tools.terminal.outputReflow)` to preserve the terminal's column width and use horizontal scrolling for long lines. This setting changes only the preview in chat, not the terminal that runs the command.
+
 #### Continue terminal commands in background
 
 When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.

@@ -171,18 +171,26 @@ Conditions for parent repository discovery:
 
 `feature(user-customization-migration)`
 
-> [!NOTE]
-> Customization migration is available only in {% data variables.product.prodname_vscode_shortname %} Insiders.
-
 [Agent Host](/docs/agents/concepts/agent-host.md) sessions load customizations from supported folders and don't use some {% data variables.product.prodname_vscode_shortname %}-specific formats and locations. The Agent Customizations editor provides separate migrations for each type of incompatibility.
 
 | Migration | Use it for | Setting and default |
 |-----------|------------|---------------------|
+| **Migrate MCP Servers** | Move compatible MCP servers to portable workspace or user configuration files. | No separate setting |
 | **Migrate Prompt Files** | Convert workspace and user prompt files to agent skills. | `setting(chat.customizations.promptMigration.enabled)`: `true` |
 | **Migrate User Data Customizations** | Move custom agents and instructions from {% data variables.product.prodname_vscode_shortname %} profile user data. | `setting(chat.customizations.userDataMigration.enabled)`: `false` |
 | **Migrate Location Settings** | Move custom agents, instructions, and skills from locations configured for the Local agent. | `setting(chat.customizations.locationsMigration.enabled)`: `false` |
 
-A migration card appears only when you select an Agent Host, the corresponding setting is enabled, and {% data variables.product.prodname_vscode_shortname %} finds customizations to migrate.
+A migration card appears only when you select an Agent Host and {% data variables.product.prodname_vscode_shortname %} finds customizations to migrate. For migrations with an enablement setting, that setting must also be enabled.
+
+### Migrate MCP servers
+
+Migrate MCP servers from {% data variables.product.prodname_vscode_shortname %}-specific configuration to a portable workspace `.mcp.json` file or user `$COPILOT_HOME/mcp-config.json` file. In the Agent Customizations editor, select an Agent Host and then select **Migrate MCP Servers**.
+
+Before migration, the editor checks each server against the active harness. It separates servers into **Migratable** and **Not migratable** groups and labels servers that are partially supported or unsupported. Select a server to review its compatibility details, open its source configuration, or choose **Edit Configuration** to resolve an issue.
+
+Compatibility details identify configuration that the target harness can't preserve. For example, an explicit working directory, SSE transport, or server version metadata might require editing before migration. Unsupported servers remain in their source configuration and aren't migrated.
+
+When you migrate a compatible server, its enabled or disabled state is preserved. Review the destination file before deleting or changing the original configuration because the files don't stay synchronized.
 
 ### Migrate prompt files to skills
 

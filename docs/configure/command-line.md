@@ -1,7 +1,7 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 DateApproved: 9/30/2026
-MetaDescription: {% data variables.product.prodname_vscode %} command-line interface (switches).
+MetaDescription: Launch and configure {% data variables.product.prodname_vscode %} from the command line, and open files, settings, or agent session drafts with URLs.
 ---
 # Command Line Interface (CLI)
 
@@ -226,6 +226,27 @@ vscode://settings/setting.name
 
 vscode://settings/editor.wordWrap
 ```
+
+### Prepare a new agent session draft
+
+Use an `agents/new` URL to open the {% data variables.copilot.agents_window %} with a prompt and workspace ready for review:
+
+```text
+vscode://agents/new?prompt=<url-encoded-prompt>&workspace=<url-encoded-folder-uri>
+```
+
+Both query parameters are optional:
+
+* `prompt` adds decoded text to the **New Session** composer.
+* `workspace` selects the folder URI for the session. If you omit this parameter, the draft uses **No Workspace**.
+
+URL-encode each query parameter value. For example, this URL prepares a draft chat without a workspace:
+
+```text
+vscode://agents/new?prompt=Explain%20how%20this%20project%20runs%20its%20tests.%20Do%20not%20run%20anything%20yet.
+```
+
+Opening the URL doesn't submit the prompt. Review or edit the draft, and then send it when you're ready. If the new-session composer already contains a draft, {% data variables.product.prodname_vscode_shortname %} preserves it instead of replacing it with the URL contents.
 
 You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
 

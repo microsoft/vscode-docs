@@ -63,7 +63,10 @@ A new chat starts blank and doesn't inherit the history of the other chats. To r
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-In the {% data variables.copilot.agents_window %}, create peer chats and arrange conversations in tabs or split groups.
+In the {% data variables.copilot.agents_window %}, create peer chats and use `setting(sessions.showChatTabs)` to choose how conversations appear:
+
+* **Multiple**: Show each open chat as a tab. You can arrange tabs in split groups to monitor conversations side by side.
+* **Single**: Show the active chat as the session view. Selecting another peer chat replaces the unpinned chat pane. A chat that you explicitly open to the side stays visible, and closing the last peer chat pane doesn't reopen the main chat.
 
 To create a peer chat:
 
@@ -77,7 +80,7 @@ To create a peer chat:
 
 The action requires a harness that supports multiple chats. It isn't available for quick chats or archived sessions.
 
-Use the chat tabs and their context menus to:
+In the **Multiple** presentation, use the chat tabs and their context menus to:
 
 * **Switch chats**: select a tab to show its conversation. Progress and unread indicators apply to that chat.
 * **Choose an agent or model**: use the controls in each chat. Sibling chats can use different agents or models.
@@ -305,6 +308,11 @@ With these tools, an agent can:
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
 
+Choose the relationship and workspace based on the delegated task:
+
+* Use `currentSession` to create a chat in the current session. The chat can reuse the current workspace and checkout, which avoids creating another worktree for research or related work.
+* Use `independent` to create a separate session. The session can start with **No Workspace** and doesn't inherit the source session's folder. Keep planning or research tasks without a workspace, or choose a trusted folder or worktree when the task needs isolated code changes.
+
 You can refer to a workspace by its project name instead of providing an absolute path or workspace URI. For example:
 
 ```prompt
@@ -321,6 +329,10 @@ To keep this workflow safe and predictable:
 * Agents cannot send messages to the same chat they are currently running in.
 * Burst sends are capped to avoid unbounded fan-out.
 * Archived sessions are excluded from listings unless explicitly requested.
+
+`setting(chat.agentHost.agentOrchestrationLimits)` controls the process-wide limits for sessions and chats that agents create, messages they send, and recursive session creation. The default `on` value enforces limits that support coordination-heavy workflows. Set it to `off` to remove the limits. Changes apply without restarting the Agent Host, and reaching a limit doesn't interrupt work that is already running.
+
+Removing orchestration limits doesn't change confirmation requirements or input validation. The safety guidance in this section continues to apply.
 
 ## Save and export chat sessions
 

@@ -158,6 +158,11 @@ Use these settings to adjust the chat transcript:
 | Code block font and layout | Set the font family, size, weight, and line height with `setting(chat.editor.fontFamily)`, `setting(chat.editor.fontSize)`, `setting(chat.editor.fontWeight)`, and `setting(chat.editor.lineHeight)`. Control line wrapping with `setting(chat.editor.wordWrap)`. |
 | Sticky prompts | Use `setting(chat.stickyScroll.enabled)` to pin the current prompt to the top of the transcript while you scroll. |
 | Request timestamps | Use `setting(chat.verbose)` to show or hide request and completion timestamps. Hover over a completion timestamp to view the elapsed response time. |
+| Persistent progress (Experimental) | Use `setting(chat.experimental.persistentProgress)` to keep a progress indicator visible until an agent response finishes. Choose a colored or monochrome **Draw** animation, or turn the indicator off. |
+
+With persistent progress, reasoning appears in separate collapsible previews and tool calls remain visible while they run. `setting(chat.experimental.persistentProgressVerbosity)` controls completed tool-call details. **Compact** replaces completed groups with expandable summaries when response text resumes or the response finishes. **Verbose** keeps the full details visible.
+
+Persistent progress defaults to **Draw** in Insiders and **Off** in Stable. Experiments can change either default during rollout, but an explicit setting always takes precedence.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 
