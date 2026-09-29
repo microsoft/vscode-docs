@@ -278,9 +278,9 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
     * **Merge Manually**: merge the pull request yourself when it is ready.
     * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
         * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
-    * **Agent Merge**: have Agent Merge monitor the pull request and ask the agent to address blockers.
+    * **{% data variables.copilot.agent_merge_caps %}**: have {% data variables.copilot.agent_merge %} monitor the pull request and ask the agent to address blockers.
         * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
-        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if Agent Merge makes no changes, and **When Ready** merges it after required checks and approvals pass.
+        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if {% data variables.copilot.agent_merge %} makes no changes, and **When Ready** merges it after required checks and approvals pass.
 
     GitHub auto-merge is unavailable when **Create as Draft** is selected. It also does not fix failed checks or address review feedback.
 
@@ -288,17 +288,17 @@ For an Agent Host session without a pull request, use the **Create PR** form to 
 
     Any uncommitted changes are committed and the branch is pushed before the pull request is created.
 
-The form remembers the draft setting, merge options, Agent Merge options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
+The form remembers the draft setting, merge options, {% data variables.copilot.agent_merge %} options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
 
 To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**.
 
-This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. Agent Merge options are not included in the message.
+This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. {% data variables.copilot.agent_merge_caps %} options are not included in the message.
 
-### Finish a pull request with Agent Merge
+### Finish a pull request with {% data variables.copilot.agent_merge %}
 
 `feature(agent-merge)`
 
-Agent Merge is an experimental feature that monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, Agent Merge can:
+{% data variables.copilot.agent_merge_caps %} is an experimental feature that monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, {% data variables.copilot.agent_merge %} can:
 
 * Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
 * Fix failed required CI checks.
@@ -307,28 +307,28 @@ Agent Merge is an experimental feature that monitors the pull request associated
 
 First, enable `setting(chat.agentMerge.enabled)`.
 
-To enable Agent Merge for an existing pull request:
+To enable {% data variables.copilot.agent_merge %} for an existing pull request:
 
 1. Open a session that is associated with a pull request. To create one, use the [Create PR form](#create-a-pull-request) or follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
 
-1. Select **Agent Merge** in the title bar, and then select **Enable Agent Merge**.
+1. Select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Enable {% data variables.copilot.agent_merge %}**.
 
-1. From the **Agent Merge** menu, configure which blockers the agent should address and whether to merge the pull request when it is ready.
+1. From the **{% data variables.copilot.agent_merge_caps %}** menu, configure which blockers the agent should address and whether to merge the pull request when it is ready.
 
-    You can also run **Configure Agent Merge for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [Agent Merge settings](/docs/agents/reference/ai-settings.md#agent-sessions).
+    You can also run **Configure {% data variables.copilot.agent_merge %} for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [{% data variables.copilot.agent_merge %} settings](/docs/agents/reference/ai-settings.md#agent-sessions).
 
-<!-- TODO: Add a screenshot of the Agent Merge menu in the Agents window title bar. -->
+<!-- TODO: Add a screenshot of the {% data variables.copilot.agent_merge_caps %} menu in the Agents window title bar. -->
 
-While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While Agent Merge addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
+While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While {% data variables.copilot.agent_merge %} addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
 
 > [!CAUTION]
-> Agent Merge starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the Agent Merge options before you enable automatic merging.
+> {% data variables.copilot.agent_merge_caps %} starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the {% data variables.copilot.agent_merge %} options before you enable automatic merging.
 
-Agent Merge waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, Agent Merge turns off and requires you to enable it again.
+{% data variables.copilot.agent_merge_caps %} waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, {% data variables.copilot.agent_merge %} turns off and requires you to enable it again.
 
-To review the changes from the most recent Agent Merge repair cycle, open the **Changes** view and select **Agent Merge Changes** from the changeset dropdown. This changeset compares the latest completed Agent Merge repair turn with the preceding completed user turn. It remains empty after your latest message until Agent Merge completes another repair turn.
+To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %} Changes** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
 
-To stop monitoring the pull request, select **Agent Merge** in the title bar, and then select **Disable Agent Merge**.
+To stop monitoring the pull request, select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Disable {% data variables.copilot.agent_merge %}**.
 
 ## Work with multiple sessions
 
