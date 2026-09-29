@@ -4,7 +4,7 @@ DateApproved: 9/30/2026
 MetaDescription: Configure AI providers, accounts, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Configure the {% data variables.copilot.agents_window %} (Preview)
+# Configure the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} uses the AI providers and accounts configured in {% data variables.product.prodname_vscode_shortname %}. It shares settings and the default profile with the main {% data variables.product.prodname_vscode_shortname %} window. This article describes the shared account options and the window-specific layout, editor, setting, and extension configuration.
 

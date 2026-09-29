@@ -88,7 +88,7 @@ Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) 
 
 ### Delegate and manage tasks
 
-Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
+Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
 
 ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 

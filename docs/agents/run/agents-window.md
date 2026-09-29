@@ -4,16 +4,13 @@ DateApproved: 9/30/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Use the {% data variables.copilot.agents_window %} (Preview)
+# Use the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} is a dedicated, agent-first {% data variables.product.prodname_vscode %} window for assigning high-level tasks and tracking agent sessions across workspaces.
 
 In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, review, and finish agent sessions across your projects. To compare it with the {% data variables.copilot.chat_view %} and other interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For conversation controls shared across chat surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
-
-> [!NOTE]
-> The {% data variables.copilot.agents_window %} is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing {% data variables.copilot.agents_window %} issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.

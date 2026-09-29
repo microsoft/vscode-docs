@@ -26,7 +26,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 | Build a feature, fix a bug, or create a project | [Agents](#use-agents) | Select **Agent**, describe the outcome, and specify how to verify it. |
 | Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
 | Get help while typing and editing | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Accept ghost text to complete code, or use next edit suggestions to navigate to and apply a related edit. |
-| Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
+| Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
 | Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) | Choose the **Cloud** session target and a repository. |
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule | [Automations](/docs/agents/run/automations.md) `feature(automations)` | Save a prompt and schedule in the {% data variables.copilot.agents_window %}. |
