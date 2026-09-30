@@ -124,9 +124,31 @@ Existence in source code is not proof of availability. Verify how the functional
 
     - Verify that the tryout ID is registered, stable, publicly available, and supported in the product.
     - Include only the tryout ID in the Markdown. The installed product owns the commands, arguments, samples, setup actions, and availability checks.
-    - Use descriptive, action-oriented link text that identifies the feature readers can try.
+    - Use descriptive, action-oriented link text that identifies the feature readers can try. The link text becomes the version-aware button label, with ` (Insiders)` appended when Insiders is selected.
 
 * Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
+
+## Action cards
+
+Use an action card to highlight one or more article, external, or product actions:
+
+```md
+{% action-card title="Try Smart Diff" display="both" %}
+Launch the guided Smart Diff tryout.
+
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://tryout/editor.smart-diff)
+{% /action-card %}
+```
+
+* `title` is required and must be plain text.
+* `display` is optional and accepts `inline` (the default), `sidebar`, or `both`.
+* The first non-list line is an optional plain-text description.
+* Add one or more actions as `* [label](url)` list items. Use the same syntax for documentation links, external URLs, and product protocol URLs.
+* Any `vscode://`, `vscode-insiders://`, or supported `vscode.dev/redirect` URL receives the shared Stable/Insiders selector. Other custom URI schemes remain unchanged and do not receive the selector.
+* When Insiders is selected, version-aware action labels append ` (Insiders)`, including labels that do not contain the product name.
+* For a registered tryout, use `vscode://tryout/<tryout-id>`. The selector changes this to `vscode-insiders://tryout/<tryout-id>` when the reader chooses Insiders.
+* Sidebar cards are associated with the preceding H2. Cards before the first H2 are always visible; section cards appear while that section is active.
+* Sidebar cards are hidden on mobile. Use `inline` or `both` when the action must be available on small screens.
 
 ## Images
 
