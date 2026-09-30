@@ -111,6 +111,7 @@
                 "name": "Tutorials & guides",
                 "area": "agents/guides",
                 "topics": [
+                    ["Find a Guide", "/docs/agents/guides/overview"],
                     ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                     ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],

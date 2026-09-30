@@ -606,6 +606,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/explore-a-codebase</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
