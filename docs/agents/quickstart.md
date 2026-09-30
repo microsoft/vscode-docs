@@ -201,6 +201,6 @@ When you no longer need the app, run these steps to clean up your local resource
 
 ## Next steps
 
-* [Apply this workflow to your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project).
+* [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project).
 * [Build a complete app with agents](/docs/agents/agents-tutorial.md).
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).

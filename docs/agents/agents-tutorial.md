@@ -241,4 +241,4 @@ To go deeper with agentic coding in {% data variables.product.prodname_vscode %}
 
 * [Learn how agents work in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
 
-* [Customize agent behavior for recurring project needs](/docs/agent-customization/overview.md)
+* [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project)

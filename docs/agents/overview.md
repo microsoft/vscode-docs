@@ -123,4 +123,4 @@ Before using agents on an existing project, review the [recommended security bas
 
 * [Complete your first task with an agent](/docs/agents/quickstart.md): build and validate a small app with a recommended starting configuration.
 * [Follow the agents tutorial](/docs/agents/agents-tutorial.md): build a portfolio page and learn the agent, editor, browser, and source control workflows.
-* [Apply the workflow to your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project): choose a bounded task in an existing codebase and review the result.
+* [Find a guide for your task](/docs/agents/guides/overview.md): explore a codebase, add a feature, test changes, or improve your workflow.
