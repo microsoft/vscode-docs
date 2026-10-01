@@ -9,7 +9,7 @@ MetaDescription: Get the best out of {% data variables.product.prodname_vscode %
 
 ![Working with JavaScript in {% data variables.product.prodname_vscode %}](images/javascript/overview.png)
 
-Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that {% data variables.product.prodname_vscode_shortname %} ships with. Extensions from the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these features work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that {% data variables.product.prodname_vscode_shortname %} ships with. Extensions from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these features work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
 ## IntelliSense
 
@@ -350,7 +350,7 @@ Click on the reference count to quickly browse a list of references:
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
 > [!TIP]
-> This list is dynamically queried from the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
+> This list is dynamically queried from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
 
 ## Type checking
 

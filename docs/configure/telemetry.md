@@ -128,7 +128,7 @@ You can find more information about how the Visual Studio family approaches GDPR
 
 Beyond crash reporting and telemetry, {% data variables.product.prodname_vscode_shortname %} uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
 
-Please note, that turning off these features does not put {% data variables.product.prodname_vscode_shortname %} into offline mode. For example, if you search for extensions in the **Extensions** view, {% data variables.product.prodname_vscode_shortname %} still searches the online {% data variables.product.prodname_vscode_shortname %} Marketplace. The settings ensure that {% data variables.product.prodname_vscode_shortname %} does not talk to online services without you requesting it.
+Please note, that turning off these features does not put {% data variables.product.prodname_vscode_shortname %} into offline mode. For example, if you search for extensions in the **Extensions** view, {% data variables.product.prodname_vscode_shortname %} still searches the online {% data variables.product.prodname_vs_marketplace %}. The settings ensure that {% data variables.product.prodname_vscode_shortname %} does not talk to online services without you requesting it.
 
 From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 

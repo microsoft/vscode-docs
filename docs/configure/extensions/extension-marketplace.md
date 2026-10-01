@@ -5,7 +5,7 @@ MetaDescription: Find, install, update, and manage {% data variables.product.pro
 ---
 # Extension Marketplace
 
-Extensions add languages, debuggers, and tools to {% data variables.product.prodname_vscode %} to support your development workflow. Learn how to find, install, and manage extensions from the [{% data variables.product.prodname_vscode %} Marketplace](https://marketplace.visualstudio.com/VSCode).
+Extensions add languages, debuggers, and tools to {% data variables.product.prodname_vscode %} to support your development workflow. Learn how to find, install, and manage extensions from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/VSCode).
 
 ## Browse for extensions
 
@@ -13,7 +13,7 @@ You can browse and install extensions from within {% data variables.product.prod
 
 ![Screenshot showing the Extensions icon in the Activity Bar.](images/extension-marketplace/extensions-view-icon.png)
 
-The Extensions view shows a list of the most popular {% data variables.product.prodname_vscode_shortname %} extensions on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/VSCode).
+The Extensions view shows a list of the most popular {% data variables.product.prodname_vscode_shortname %} extensions on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/VSCode).
 
 ![Screenshot showing popular extensions listed in the Extensions view.](images/extension-marketplace/extensions-popular.png)
 
@@ -63,7 +63,7 @@ For example, install the popular [TODO Highlight](https://marketplace.visualstud
 
 ![Screenshot showing the TODO Highlight extension highlighting TODO comments in the editor.](images/extension-marketplace/todo-highlighting.png)
 
-In the Extensions view (`kb(workbench.view.extensions)`), type 'todo' in the search box to filter the Marketplace offerings to extensions with 'todo' in the title or metadata. The **TODO Highlight** extension appears in the list.
+In the Extensions view (`kb(workbench.view.extensions)`), type 'todo' in the search box to filter the {% data variables.product.prodname_vs_marketplace_shortname %} offerings to extensions with 'todo' in the title or metadata. The **TODO Highlight** extension appears in the list.
 
 ![Screenshot showing search results for todo in the Extensions view.](images/extension-marketplace/search-for-todo-extension.png)
 
@@ -71,7 +71,7 @@ An extension is uniquely identified by its publisher and extension IDs. Selectin
 
 ![Screenshot showing the TODO Highlight extension details page with the extension ID highlighted.](images/extension-marketplace/todo-highlight-details.png)
 
-Select the **Install** button, and {% data variables.product.prodname_vscode_shortname %} downloads and installs the extension from the Marketplace. After the installation completes, the **Install** button is replaced with a **Manage** gear button.
+Select the **Install** button, and {% data variables.product.prodname_vscode_shortname %} downloads and installs the extension from the {% data variables.product.prodname_vs_marketplace_shortname %}. After the installation completes, the **Install** button is replaced with a **Manage** gear button.
 
 ![Screenshot showing the Manage gear button after an extension installs.](images/extension-marketplace/manage-button.png)
 
@@ -89,7 +89,7 @@ If an extension doesn't provide the functionality you want, you can always **Uni
 
 ![Screenshot showing the Uninstall option for the TODO Highlight extension.](images/extension-marketplace/todo-highlight-uninstall.png)
 
-This walkthrough shows one example of how to install and use an extension. The {% data variables.product.prodname_vscode_shortname %} Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Options range from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
+This walkthrough shows one example of how to install and use an extension. The {% data variables.product.prodname_vs_marketplace %} has thousands of extensions supporting hundreds of programming languages and tasks. Options range from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
 ### Install a pre-release extension version
 
@@ -282,7 +282,7 @@ An extension is identified using its publisher identifier and extension identifi
 
 ## Configuring extensions
 
-{% data variables.product.prodname_vscode_shortname %} extensions might have very different configurations and requirements. Some extensions contribute [settings](/docs/configure/settings.md) to {% data variables.product.prodname_vscode_shortname %}, which can be modified in the Settings editor. Other extensions might have their own configuration files. Extensions might also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/VSCode) by selecting the extension name in the details page. Many extensions are open source and have a link to their repository on their Marketplace page.
+{% data variables.product.prodname_vscode_shortname %} extensions might have very different configurations and requirements. Some extensions contribute [settings](/docs/configure/settings.md) to {% data variables.product.prodname_vscode_shortname %}, which can be modified in the Settings editor. Other extensions might have their own configuration files. Extensions might also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/VSCode) by selecting the extension name in the details page. Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
@@ -332,7 +332,7 @@ You can still use the **Show Recommended Extensions** command to see recommendat
 
 ### Can I trust extensions from the Marketplace?
 
-The {% data variables.product.prodname_vs_marketplace} employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it. See [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md) to learn how {% data variables.product.prodname_vscode_shortname %} confirms that you trust an extension's publisher before installing it and how to protect yourself from malicious extensions.
+The {% data variables.product.prodname_vs_marketplace %} employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it. See [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md) to learn how {% data variables.product.prodname_vscode_shortname %} confirms that you trust an extension's publisher before installing it and how to protect yourself from malicious extensions.
 
 ### Can I host extensions internally for my organization?
 

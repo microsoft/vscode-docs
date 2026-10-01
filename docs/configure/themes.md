@@ -35,9 +35,9 @@ The active color theme is stored in your user [settings](/docs/configure/setting
 
 There are several out-of-the-box color themes in {% data variables.product.prodname_vscode_shortname %} for you to try. Many more themes have been uploaded to the {% data variables.product.prodname_vscode_shortname %} [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) by the community.
 
-You can select Color Themes from the {% data variables.product.prodname_vscode_shortname %} Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
+You can select Color Themes from the {% data variables.product.prodname_vs_marketplace %} directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
 
-![Screenshot of Color Theme picker, highlighting the option to browse themes from the {% data variables.product.prodname_vscode_shortname %} Marketplace.](images/themes/additional-color-themes.png)
+![Screenshot of Color Theme picker, highlighting the option to browse themes from the {% data variables.product.prodname_vs_marketplace %}.](images/themes/additional-color-themes.png)
 
 Alternately, you can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box by using the `@category:"themes"` filter.
 
@@ -222,7 +222,7 @@ By default, the **Seti** File Icon Theme is used and those are the icons you see
 
 {% data variables.product.prodname_vscode_shortname %} ships with two file icon themes: **Minimal** and **Seti**. To install more File Icon Themes, select the **Install Additional File Icon Themes** item in the File Icon Theme picker, which opens the Extensions view, filtered by icon themes.
 
-You can also browse the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
+You can also browse the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
 The active File Icon Theme is persisted in your user [settings](/docs/configure/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
@@ -261,7 +261,7 @@ To select a different Product Icon Theme:
 
 1. Select the theme you want and press `kbstyle(Enter)`.
 
-By default, {% data variables.product.prodname_vscode_shortname %} comes with one Product Icon Theme, **Default**. You can select more Product Icon Themes from the {% data variables.product.prodname_vscode_shortname %} Marketplace directly from the Product Icon Theme picker by selecting **Browse Additional Product Icon Themes...**.
+By default, {% data variables.product.prodname_vscode_shortname %} comes with one Product Icon Theme, **Default**. You can select more Product Icon Themes from the {% data variables.product.prodname_vs_marketplace %} directly from the Product Icon Theme picker by selecting **Browse Additional Product Icon Themes...**.
 
 ## Next steps
 
