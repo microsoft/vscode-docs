@@ -6,26 +6,29 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Quickstart: Complete your first task with an agent
 
-In this quickstart, you use the **{% data variables.copilot.chat_view %}** and an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself. You can follow the same exercise in the **{% data variables.copilot.agents_window %}** if you prefer an agent-first interface.
+In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself.
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Build a complete app with agents">
+{% action-card title="Build a complete app with agents" display="sidebar" %}
 Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agents tutorial](/docs/agents/agents-tutorial.md)
 
-</div>
+{% /action-card %}
 
 ## Prerequisites
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
-* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md). This quickstart uses the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness), which connects the model to the tools that build and test your app. To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
+
+* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
+
+    This quickstart uses the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness), which connects the model to the tools that build and test your app. To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
 
 > [!NOTE]
 > Requests in this quickstart use AI credits from your Copilot plan. {% data variables.copilot.copilot_free_short %} includes a monthly allowance. Open the Copilot status dashboard from the Status Bar to monitor your monthly usage. Learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
 
-## Create a project folder
+## 1. Create a project folder
 
-You will create a project folder for the quickstart app on your computer. You will open this folder in {% data variables.product.prodname_vscode_shortname %} to work with the agent.
+Start by creating an empty folder for the quickstart app. In the next section, you open this folder in {% data variables.product.prodname_vscode_shortname %} and ask an agent to build the app.
 
 Run the following command in your terminal to create the folder:
 
@@ -33,20 +36,17 @@ Run the following command in your terminal to create the folder:
 mkdir agent-quickstart
 ```
 
-> [!IMPORTANT]
-> Use the empty folder you created for this quickstart. Before you run an agent against an existing codebase, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).
+## 2. Build the app
 
-## Build the app
+{% data variables.product.prodname_vscode_shortname %} lets you work with agents in different ways:
 
-Start in the **{% data variables.copilot.chat_view %}** to keep the agent beside your code. You can choose the **{% data variables.copilot.agents_window %}** tab to complete the same task in a dedicated agent-first interface.
+* **{% data variables.copilot.chat_view %}**: work with an agent alongside your code in the editor, focused on the current project.
+* **{% data variables.copilot.agents_window %}**: assign (high-level) tasks to agents and switch between projects without reloading the window.
 
-> [!IMPORTANT]
-> The agent saves edits directly in the folder you select. **Manual permissions** asks about actions that aren't covered by your approval settings, but it doesn't require confirmation for every file edit. Use the empty quickstart folder, review the diff before you rely on the result, and learn how to [require approval for sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files) before you use an agent on an existing project.
+Choose the approach that works best for you and follow the steps in the corresponding tab below.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
-
-The **{% data variables.copilot.chat_view %}** lets you work with agents alongside your editor within a specific project. This approach is useful for coding tasks where agents assist you in real-time while you develop your code.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **File** > **Open Folder** from the menu, and then open the `agent-quickstart` folder.
 
@@ -54,13 +54,21 @@ The **{% data variables.copilot.chat_view %}** lets you work with agents alongsi
 
     ![Screenshot of trusting the folder in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/editor-trust-folder.png)
 
-1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
+1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select `+` to start a new chat.
 
     ![Screenshot of opening a new chat in the Copilot {% data variables.copilot.chat_view %}.](images/agents-quickstart/editor-new-chat.png)
 
-1. Select the **Copilot** session target and the **Agent** role. Keep **Manual permissions** selected and use **Auto** for the language model if it is available. You don't need to configure other options for this task.
+    If you already had an active chat, starting a new chat does not close the previous one. The previous chat remains accessible via the sessions list.
 
-    ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual permissions.](images/agents-quickstart/agent-session-editor-select-harness-role.png)
+1. Configure the following settings for the chat session. Keep the default values for any other options.
+
+    | Field name | Value | Short description |
+    |------------|-------|-------------------|
+    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
+    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
+
+    ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual permissions.](images/agents-quickstart/agent-session-editor-select-harness-role-2.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -71,29 +79,40 @@ The **{% data variables.copilot.chat_view %}** lets you work with agents alongsi
 1. Follow the agent's progress and review each approval request before you accept it.
 
     The agent creates the `index.html` file and saves updates as it progresses. Approval prompts appear for actions that aren't covered by your approval settings.
+
+    > [!TIP]
+    > At any time you can stop the agent by selecting the **Stop** button in the chat input or steer it in another direction by sending a new prompt.
+
+1. If the agent asks to open the `index.html` file in the integrated browser, select **Allow in this Session**. You can interact with the app directly in the integrated browser in {% data variables.product.prodname_vscode_shortname %}.
+
+    ![Screenshot of interacting with the app in the integrated browser.](images/agents-quickstart/editor-integrated-browser-interaction.png)
 
 {% /tab %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-The **{% data variables.copilot.agents_window %}** is a dedicated window for assigning high-level tasks to agents across your projects.
+The {% data variables.copilot.agents_window %} is a dedicated window for interacting with agents across different projects.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
+1. To open the {% data variables.copilot.agents_window %}, select **Open in Agents** in the title bar of {% data variables.product.prodname_vscode_shortname %} or run **Chat: Open {% data variables.copilot.agents_window %}** from the Command Palette (`kb(workbench.action.showCommands)`).
 
     ![Screenshot of opening the {% data variables.copilot.agents_window %} in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/open-agents-window.png)
 
-    You can also run **Chat: Open {% data variables.copilot.agents_window %}** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select **New** at the top of the left sidebar to start a new agent session.
 
-1. Select **New** at the top of the left sidebar.
+    ![Screenshot of starting a new agent session in the redesigned new-session input.](images/agents-quickstart/agent-session-new.png)
 
-1. Select **Folder**, and then select the `agent-quickstart` folder you created. This folder becomes the primary execution workspace for the session.
-
-    ![Screenshot of selecting the agent-quickstart folder as the primary workspace in the redesigned new-session input.](images/agents-quickstart/agent-session-select-folder-2.png)
+1. Because the {% data variables.copilot.agents_window %} can operate across different projects, select the `agent-quickstart` folder you created earlier from the dropdown.
 
     If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Trust**.
 
-1. Select the **Copilot** session target and the **Agent** role. Keep **Manual permissions** selected and use **Auto** for the language model if it is available. You don't need to configure other options for this task.
+1. Configure the following settings for the session. Keep the default values for any other options.
 
-    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role-2.png)
+    | Field name | Value | Short description |
+    |------------|-------|-------------------|
+    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
+    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
+
+    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -105,23 +124,30 @@ The **{% data variables.copilot.agents_window %}** is a dedicated window for ass
 
     The agent creates the `index.html` file and saves updates as it progresses. Approval prompts appear for actions that aren't covered by your approval settings.
 
+    > [!TIP]
+    > At any time you can stop the agent by selecting the **Stop** button in the chat input or steer it in another direction by sending a new prompt.
+
+1. If the agent asks to open the `index.html` file in the integrated browser, select **Allow in this Session**. You can interact with the app directly in the integrated browser in {% data variables.product.prodname_vscode_shortname %}.
+
+    ![Screenshot of interacting with the app in the integrated browser.](images/agents-quickstart/agent-integrated-browser-interaction.png)
+
 {% /tab %}
 {% /tabs %}
 
-## Review and validate the result
+## 3. Review and validate the result
 
 It's important to review the generated code and outcome carefully. You can let the agent validate key scenarios and edge cases for you by running the app in the integrated browser and observing its behavior.
 
-Notice that the agent might have launched the integrated browser to validate that the app runs correctly as part of creating the task list web app in the previous steps.
+The agent might already have launched the integrated browser to validate that the app runs correctly as part of creating the task list web app in the previous steps.
 
 In the following steps you'll ask the agent to validate the basic functionality of the task list web app.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-1. Select `index.html` in the agent response to review the generated code and its diff.
+1. The {% data variables.copilot.chat_view %} indicates it changed one file and shows diff stats. Select it to review the generated code and its diff.
 
-1. Now, enter the following prompt to have the agent open the app in the integrated browser and validate its functionality.
+1. Enter the following prompt to have the agent open the app in the integrated browser and validate its functionality.
 
     ```prompt
     Open index.html in the integrated browser and validate the app.
@@ -130,7 +156,7 @@ In the following steps you'll ask the agent to validate the basic functionality 
     fix the issue and repeat the complete flow.
     ```
 
-1. Notice how the agent interacts with the integrated browser and validates the user scenarios.
+1. Notice how the agent interacts with the integrated browser and autonomously validates different user scenarios.
 
     ![Screenshot of the integrated browser validating the app.](images/agents-quickstart/editor-integrated-browser-validation.png)
 
@@ -152,14 +178,14 @@ In the following steps you'll ask the agent to validate the basic functionality 
     fix the issue and repeat the complete flow.
     ```
 
-1. Notice how the agent interacts with the integrated browser and validates the user scenarios.
+1. Notice how the agent interacts with the integrated browser and autonomously validates different user scenarios.
 
     ![Screenshot of the integrated browser validating the app.](images/agents-quickstart/integrated-browser-validation.png)
 
 {% /tab %}
 {% /tabs %}
 
-## Verify the result yourself
+## 4. Verify the result yourself
 
 The agent's validation report helps you find problems, but it doesn't replace your own review. In the integrated browser:
 
@@ -173,8 +199,12 @@ You have completed your first task with an agent. The agent interpreted your goa
 
 ## Stop, revise, or undo the work
 
+If you're not satisfied with the agent's actions or the results, you have several options:
+
 * **Stop or redirect the current request**: while a request is running, use the **Send** dropdown to choose **Steer with Message** or **Stop and Send**. Stopping doesn't undo actions that already completed.
+
 * **Revise the result**: send a follow-up prompt. In a diff, you can select code and provide focused feedback when the interface offers that action.
+
 * **Undo file changes from a request**: hover over an earlier request and select **Restore Checkpoint**. This restores affected workspace files and chat history. It doesn't reverse terminal commands, network requests, deployments, or changes to external services. Learn more about [reviewing and reverting agent changes](/docs/agents/run/review-code-edits.md).
 
 If a follow-up doesn't resolve the problem, use [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md) to choose your next recovery action.
@@ -182,6 +212,7 @@ If a follow-up doesn't resolve the problem, use [Get an agent back on track](/do
 ## If your screen looks different
 
 * If the **Copilot** target or **Agent** role isn't available, verify your sign-in and review the [agent harness setup requirements](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target). Your organization's policies might restrict specific agents, models, or tools.
+
 * If you reach an AI credits limit, review [what remains available and when allowances reset](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
 
 ## Optional: Continue in the other surface
