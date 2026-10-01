@@ -17,7 +17,9 @@ Keywords:
 
 # Choose and use an agent harness
 
-{% data variables.product.prodname_vscode %} supports the Local, GitHub Copilot, Anthropic Claude, and OpenAI Codex agent harnesses. It also provides a Cloud target for running an available cloud agent remotely. An agent harness coordinates an agent session, including tool calls, context, and code changes. Use the **Session Target** control to choose a harness and where it runs. This article helps you choose a target, configure the available options, start a session, and hand off ongoing work.
+Choose the harness that supports the tools, project customizations, and execution environment your task needs. For example, use an editor extension's tools during an interactive task, or delegate an independent change to a cloud agent that returns a pull request.
+
+An agent harness coordinates tool calls, context, and code changes. {% data variables.product.prodname_vscode %} supports the {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_anthropic_claude %}, and {% data variables.product.prodname_openai_codex %} harnesses, plus a Cloud target for available cloud agents. Use the **Session Target** control to choose a harness and where it runs.
 
 For the relationship between harnesses, language models, agent roles, and execution environments, see [Agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
@@ -37,11 +39,13 @@ Use **New Worktree** when you want changes separate from your active workspace a
 
 ## Choose a session target
 
-If you're unsure which target to choose, use these guidelines:
+Keep your current harness if it already provides the workflow you need. To change reasoning, speed, or model cost, [choose a different model](/docs/agent-customization/language-models.md#change-the-model-for-chat) within that harness when the model is available. Changing the model does not switch harnesses or convert your project customizations to another format.
+
+When you need a different workflow, use these guidelines:
 
 * Choose **Copilot** for general coding tasks that use Copilot-provided models and capabilities. The [agents quickstart](/docs/agents/quickstart.md) uses this option.
 * Choose **Local** when the task needs {% data variables.product.prodname_vscode_shortname %} built-in tools, extension-provided tools, or a model configured in {% data variables.product.prodname_vscode_shortname %}.
-* Choose **Claude** or **Codex** when the task benefits from that provider's workflow, tools, or permission options.
+* Choose **Claude** or **Codex** when you already use that provider's agent workflow and want its supported project configuration and permission options while working in {% data variables.product.prodname_vscode_shortname %}. Check [Claude setup and capabilities](#claude-preview) or [Codex setup and capabilities](#codex) before switching.
 * Choose **Cloud** for a well-scoped task that can run independently against a GitHub repository and return a pull request.
 
 Most targets share the same chat and session-management experience in {% data variables.product.prodname_vscode_shortname %}. Your choice primarily affects where the agent runs, which tools and models it can use, and how it applies code changes.
@@ -50,8 +54,8 @@ Most targets share the same chat and session-management experience in {% data va
 |----------------|-----------------|-------------|---------------|
 | **Local** | In the {% data variables.product.prodname_vscode_shortname %} extension host on your machine | Current workspace | Interactive work that needs {% data variables.product.prodname_vscode_shortname %} tools, extension tools, or any model configured in {% data variables.product.prodname_vscode_shortname %} |
 | **Copilot** | In the Agent Host on your machine, on a remote host, or in a Dev Container | Current folder, an isolated Git worktree, or a Dev Container workspace | General coding tasks, background sessions, and Copilot-specific capabilities |
-| **Claude** | On your machine | Current folder or an isolated Git worktree | Claude-specific agent capabilities, slash commands, and permission modes |
-| **Codex** | On your machine | Current folder or an isolated Git worktree | Codex-specific capabilities for interactive or background work |
+| **Claude** | On your machine | Current folder or an isolated Git worktree | Use a familiar Claude agent workflow and its permission modes while reviewing changes in {% data variables.product.prodname_vscode_shortname %} |
+| **Codex** | On your machine | Current folder or an isolated Git worktree | Use a familiar Codex workflow for interactive or background coding tasks in {% data variables.product.prodname_vscode_shortname %} |
 | **Cloud** | On a provider's remote infrastructure | A GitHub repository and pull request | Independent tasks that don't need local editor context and benefit from team review |
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.

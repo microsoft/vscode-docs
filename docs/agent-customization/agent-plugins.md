@@ -17,7 +17,11 @@ Keywords:
 ---
 # Agent plugins in {% data variables.product.prodname_vscode_shortname %}
 
-Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations become available in the relevant agent interfaces.
+Agent plugins bundle related customizations into one installable setup. Use a plugin to adopt a shared workflow instead of assembling its skills, agents, and tool integrations individually. For example, a testing plugin can package a test-running skill, review agent, and reporting integration that are intended to work together.
+
+If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-options-at-a-glance). Choose a bundle when its components support a workflow you want to adopt together.
+
+You can discover and install plugins from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations become available in the relevant agent interfaces.
 
 Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
 {% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, [hooks](/docs/agent-customization/hooks.md), and [automation templates](#automations-in-plugins). In an Agent Plugins package, most of these capabilities come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.

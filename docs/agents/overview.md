@@ -31,9 +31,11 @@ Keywords:
 
 # Build with AI in {% data variables.product.prodname_vscode_shortname %}
 
-Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar code, fix bugs, and build features. Get suggestions while you type, ask questions in a conversation, or give an AI agent a task that spans files and tools. You can work alongside the agent in your editor or delegate a task and review the result.
+Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar code, fix bugs, and build features. For a task that spans files and tools, an agent can find relevant code, make changes, and run checks without you directing each search, edit, and test run. You describe the outcome, review the changes, and verify the result.
 
-Choose from multiple AI models and agent providers, bring your own model API key, and extend agents with tools and plugins. {% data variables.product.prodname_vscode_shortname %} brings these options into the same editor, so you can adapt your AI workflow to your task and your team's requirements. You don't need to configure every option before trying your first task.
+Work with an agent in the same workspace as your editor, terminal, tests, and debugger. You can inspect its changes and investigate failures without moving code and command output to a separate chat application. For a question or focused edit, use chat, inline chat, or suggestions without delegating an entire task.
+
+Choose from multiple AI models and agent providers, bring your own model API key, and extend agents with tools and plugins to fit your team's requirements. You don't need to configure every option before trying your first task.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Try your first agent task">
 Build and validate a small app in the {% data variables.copilot.chat_view %}, then review the result.
