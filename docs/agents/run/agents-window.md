@@ -6,9 +6,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %}
 
-The {% data variables.copilot.agents_window %} is a dedicated, agent-first {% data variables.product.prodname_vscode %} window for assigning high-level tasks and tracking agent sessions across workspaces.
+When you delegate tasks across several projects, use the {% data variables.copilot.agents_window %} to track progress and review results in one place instead of switching between project windows. This dedicated {% data variables.product.prodname_vscode %} window keeps the focus on assigning work and reviewing outcomes.
 
-In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, review, and finish agent sessions across your projects. To compare it with the {% data variables.copilot.chat_view %} and other interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For conversation controls shared across chat surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
+If your task needs frequent editing, debugging, or testing in one project, use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) beside your editor instead. This article shows how to start, monitor, review, and finish sessions in the {% data variables.copilot.agents_window %}. For conversation controls shared by both interfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
 

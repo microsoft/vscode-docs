@@ -14,7 +14,9 @@ keywords:
 ---
 # Use tools with agents
 
-Tools extend agents in {% data variables.product.prodname_vscode %} with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. {% data variables.product.prodname_vscode_shortname %} supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
+Tools let an agent inspect your project and check results instead of only suggesting code or commands for you to apply. For example, it can read the implementation behind a failing test, make a change, and run the test to check whether the change works.
+
+Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. Add an [MCP server](/docs/agent-customization/mcp-servers.md) or extension when the task needs a capability the available tools don't provide.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -253,7 +255,7 @@ You can still configure the agent to use these shells with the terminal profile 
 Yes. You can create tools in two ways:
 
 * **Develop a {% data variables.product.prodname_vscode_shortname %} extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
-* **Create an MCP server** that provides tools. See the [MCP developer guide](/docs/agents/guides/mcp-developer-guide.md)
+* **Create an MCP server** that provides tools. See the [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool).
 
 </details>
 

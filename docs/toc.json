@@ -20,6 +20,7 @@
                 "area": "agents",
                 "topics": [
                     ["Agents Quickstart", "/docs/agents/quickstart"],
+                    ["Find a Guide", "/docs/agents/guides/overview"],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Agents Tutorial", "/docs/agents/agents-tutorial"],
                     ["Best Practices", "/docs/agents/best-practices"]
@@ -111,7 +112,6 @@
                 "name": "Tutorials & guides",
                 "area": "agents/guides",
                 "topics": [
-                    ["Find a Guide", "/docs/agents/guides/overview"],
                     ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                     ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],

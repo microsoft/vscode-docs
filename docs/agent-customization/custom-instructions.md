@@ -311,6 +311,17 @@ Applicable instruction sources are additive. Do not depend on a file order or pr
 
 Keep shared requirements consistent across user, repository, and organization instructions. Remove duplicate guidance and resolve contradictions at their source.
 
+For example, suppose organization instructions require an approved HTTP client, repository instructions identify the project's wrapper for that client, and personal instructions request a different library. A targeted instruction for API files might add another conflicting rule. Don't add a new instruction or assume that one source overrides the others.
+
+1. Start a new chat with the intended harness and ask for a small change that matches the targeted instruction.
+1. Use the Agent Customizations editor and Agent Debug Logs to check which instruction sources are discovered and whether they contain errors.
+1. Expand **References** in the response to confirm which instructions were included for the request.
+1. Compare the generated code, tool activity, and validation results with the repository requirement.
+1. Resolve the contradiction in the source files. Remove or narrow the personal rule, and align the repository and targeted instructions with the reviewed organization requirement.
+1. Repeat the same task in another new chat and compare the observed result.
+
+For more diagnostic steps, see [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md) and [inspect the instructions sent in the model request](/docs/agents/agent-troubleshooting/chat-debug-view.md#instructions-or-a-prompt-file-are-not-applied).
+
 ## Tips for writing effective instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.

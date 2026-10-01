@@ -39,7 +39,7 @@ For common tasks, you can use slash commands as shortcuts for frequently used pr
 
 You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
+Each session has controls that shape how the agent responds: **Session Target**, **Agent**, **Language model**, and **Permissions**. Learn how to [configure an agent session](/docs/agents/run/agent-harnesses.md#understand-the-session-controls).
 
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
@@ -107,6 +107,8 @@ To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `fal
 
 After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
 
+For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
+
 For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
@@ -143,6 +145,8 @@ Use the following keyboard shortcuts to navigate between prompts in a chat sessi
 * `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
 * `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
 * `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
+
+To inspect a chat response character by character or line by line with a keyboard or screen reader, run **Open Accessible View** (`kb(editor.action.accessibleView)`). Learn more about the [Accessible View](/docs/configure/accessibility/accessibility.md#accessible-view).
 
 ## Personalize chat
 

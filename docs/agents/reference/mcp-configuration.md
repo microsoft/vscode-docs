@@ -336,4 +336,4 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Dev Guide](/docs/agents/guides/mcp-developer-guide.md)
+* [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool)
