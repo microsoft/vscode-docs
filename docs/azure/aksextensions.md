@@ -168,7 +168,7 @@ Congratulations! You now know how to navigate through this {% data variables.pro
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vs_marketplace %} has hundreds of extensions for Azure and the cloud.
 * [Azure Kubernetes Service Diagnostics (preview) overview](https://learn.microsoft.com/azure/aks/concepts-diagnostics)
 * [Azure Service Operator](https://azure.github.io/azure-service-operator/#azure-service-operator-v2) - Learn about Azure Service Operator.
 * [AKS Periscope](https://github.com/azure/aks-periscope)

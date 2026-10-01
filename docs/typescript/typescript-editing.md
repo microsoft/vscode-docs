@@ -177,7 +177,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vscode_shortname %} marketplace.
+For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vs_marketplace %}.
 
 ## Syntax highlighting and semantic highlighting
 

@@ -117,7 +117,7 @@ For more details about what you can do with Live Share, visit the [how-to-guide]
 
 #### Get started with Live Share
 
-To get started with using Live Share in {% data variables.product.prodname_vscode_shortname %}, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
+To get started with using Live Share in {% data variables.product.prodname_vscode_shortname %}, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the {% data variables.product.prodname_vs_marketplace %}.
 
 > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 

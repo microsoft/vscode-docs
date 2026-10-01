@@ -191,7 +191,7 @@ If you find IntelliSense has stopped working, the language service may not be ru
 > [!TIP]
 > For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
-A particular language extension may not support all the {% data variables.product.prodname_vscode_shortname %} IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
+A particular language extension may not support all the {% data variables.product.prodname_vscode_shortname %} IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
 ## Next steps
 

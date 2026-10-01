@@ -23,7 +23,7 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
