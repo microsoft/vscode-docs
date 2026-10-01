@@ -142,6 +142,11 @@ Use the Agent Customizations editor to find and update customizations for the se
 
 The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Manage plugin-provided customizations from the **Plugins** section.
 
+`feature(user-customization-migration)`
+
+> [!IMPORTANT]
+> If the Agent Customizations editor shows **Migrations**, Copilot cannot use one or more customizations in their current location or format. Select **Migrations** to review the required work, and follow [Migrate Copilot customizations in VS Code](/docs/agent-customization/migrate-customizations.md) for detailed steps.
+
 ## Verify a customization
 
 Test a new or updated customization with a representative task. Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, expand the **References** section in the chat response to confirm that the expected customization was included.
@@ -192,21 +197,6 @@ Conditions for parent repository discovery:
 
 > [!NOTE]
 > The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
-
-## Migrate customizations
-
-`feature(user-customization-migration)`
-
-The Copilot harness uses shared Copilot folders and formats instead of some {% data variables.product.prodname_vscode_shortname %}-specific customization sources. When {% data variables.product.prodname_vscode_shortname %} detects an affected customization, select **Migrations** in the Agent Customizations editor to review the required work.
-
-The migration experience can:
-
-* Move compatible MCP server configurations.
-* Convert prompt files to skills.
-* Move user agents and instructions out of profile user data.
-* Move agents, instructions, and skills out of locations configured only for the Local agent.
-
-For detailed steps and guidance for customizations that require manual review, see [Migrate agent customizations to the Copilot harness](/docs/agent-customization/migrate-customizations.md).
 
 ## Evaluate and improve customization files (Preview)
 
