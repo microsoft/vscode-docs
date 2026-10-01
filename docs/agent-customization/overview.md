@@ -171,7 +171,7 @@ Conditions for parent repository discovery:
 
 `feature(user-customization-migration)`
 
-Agent Host sessions use harness-supported folders and formats instead of some {% data variables.product.prodname_vscode_shortname %}-specific customization sources. When {% data variables.product.prodname_vscode_shortname %} detects an affected customization, select **Migrations** in the Agent Customizations editor to review the required work.
+The Copilot harness uses shared Copilot folders and formats instead of some {% data variables.product.prodname_vscode_shortname %}-specific customization sources. When {% data variables.product.prodname_vscode_shortname %} detects an affected customization, select **Migrations** in the Agent Customizations editor to review the required work.
 
 The migration experience can:
 
@@ -180,7 +180,7 @@ The migration experience can:
 * Move user agents and instructions out of profile user data.
 * Move agents, instructions, and skills out of locations configured only for the Local agent.
 
-For detailed steps and guidance for customizations that require manual review, see [Migrate agent customizations for Agent Host](/docs/agent-customization/migrate-customizations.md).
+For detailed steps and guidance for customizations that require manual review, see [Migrate agent customizations to the Copilot harness](/docs/agent-customization/migrate-customizations.md).
 
 ## Evaluate and improve customization files (Preview)
 
