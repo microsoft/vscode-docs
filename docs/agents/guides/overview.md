@@ -8,7 +8,9 @@ MetaSocialImage: ../images/agents-overview/chat-view-expanded.png
 
 Choose a tutorial to learn with a sample project, or follow a guide to apply an agent workflow to your own codebase in {% data variables.product.prodname_vscode_shortname %}.
 
-## New to agents
+## Choose where to start
+
+If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). If you already know {% data variables.product.prodname_vscode_shortname %}, use one of these sample projects to learn the agent workflow:
 
 <div class="card-grid">
     <a class="card" href="/docs/agents/quickstart">
@@ -29,12 +31,30 @@ Choose a tutorial to learn with a sample project, or follow a guide to apply an 
     </a>
 </div>
 
-Already use agents? Jump to a task:
+Already use agents? Skip the sample projects and follow the [experienced-agent fast track](#experienced-agent-fast-track). If you want AI help without delegating changes, [choose a lighter-weight AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
+
+Or jump to a task:
 
 * [Work on a project](#work-on-a-project).
 * [Test and validate](#test-and-validate).
 * [Customize and coordinate agents](#customize-and-coordinate-agents).
 * [Improve results and recover](#improve-results-and-recover).
+
+## Experienced-agent fast track
+
+Use your own repository and keep the default harness and session settings for your first task. Adjust them only when your provider, environment, or project requires a different setup.
+
+1. [Open your repository as a workspace](/docs/getstarted/overview.md#open-your-code) so that files, source control, terminals, tests, and agents share the same project context.
+
+1. Map your existing workflow to [{% data variables.product.prodname_vscode_shortname %} sessions](/docs/agents/concepts/sessions.md), then [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls). If provider or local, remote, and cloud execution constraints matter, [choose a session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target).
+
+1. Start with a bounded task in your own repository. [Explore the codebase](/docs/agents/guides/explore-a-codebase.md) without making changes, or [add a feature](/docs/agents/guides/add-a-feature.md) with your existing development environment and tests.
+
+1. [Review and validate the code edits](/docs/agents/run/review-code-edits.md) before you integrate them.
+
+After one real-project task, [adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md) and [compare quality, reliability, and AI credit usage](/docs/agents/guides/optimize-usage.md). If you move between supported applications, learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
+
+On a managed device, your organization might control which agents and providers are available. Developers can review the [agent availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat), and administrators can [manage AI settings](/docs/enterprise/manage-ai-settings.md). For keyboard, screen reader, and low-vision workflows, use the [Accessible View and other accessibility features](/docs/configure/accessibility/accessibility.md#accessible-view).
 
 ## Work on a project
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 9/30/2026
-MetaDescription: This tutorial gives you an overview of the key features of {% data variables.product.prodname_vscode %} to help you get started quickly.
+MetaDescription: Learn the {% data variables.product.prodname_vscode %} interface, AI agents, extensions, settings, source control, and debugging.
 ---
 # Tutorial: Get started with {% data variables.product.prodname_vscode %}
 
@@ -161,9 +161,16 @@ Let's use agents to build a recipe list web app from a single prompt.
 
 1. Open the {% data variables.copilot.chat_view %} by pressing `kb(workbench.action.chat.open)`.
 
-1. Select **Agent** from the dropdown in the {% data variables.copilot.chat_view %}. Agents enable the AI to autonomously create and edit files, run terminal commands, and more.
+1. Select **New Chat** (`+`) to start a new chat.
 
-    ![Screenshot that shows the Agent mode selector in the {% data variables.copilot.chat_view %}.](../images/getting-started/chat-agent-mode.png)
+1. Configure the following session controls. Keep the default values for any other options.
+
+    | Control | Value | Short description |
+    |---------|-------|-------------------|
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session on your machine. |
+    | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
+    | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
 1. Enter the following prompt in the chat input box:
 
@@ -176,11 +183,18 @@ Let's use agents to build a recipe list web app from a single prompt.
 
 1. Press `kbstyle(Enter)` to send the prompt.
 
-    The agent starts generating the app. Notice how it creates multiple files, shows you the proposed changes, and might request approval to run terminal commands.
+    The agent starts generating the app. The **Copilot** session target applies and saves edits directly to your project files and might request approval to run terminal commands or use other tools.
+
+    <!-- TODO: Replace the outdated agent-generating-app.png screenshot with one showing the Copilot Session Target, Agent, Auto, Manual permissions, and the direct-save review flow without Keep or Undo controls. -->
 
     ![Screenshot that shows the agent generating the recipe list app in the {% data variables.copilot.chat_view %}.](../images/getting-started/agent-generating-app.png)
 
-1. Review the generated files and select **Keep** in the {% data variables.copilot.chat_view %} to accept all changes.
+    > [!TIP]
+    > If the agent heads in the wrong direction, [steer or stop the request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running). Stopping doesn't undo completed actions. To undo workspace file changes from a request, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
+
+1. Select the changed-files summary in the {% data variables.copilot.chat_view %}, or open the Source Control view, and inspect the diff for each generated file.
+
+    For keyboard and screen reader access to the diffs, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility). Learn more about [reviewing and reverting agent changes](/docs/agents/run/review-code-edits.md).
 
 In the next step, you install an extension to host the app in an integrated browser.
 
@@ -214,7 +228,7 @@ Let's install an extension that helps with the recipe list app you just built.
 
     The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
 
-Explore more AI features in {% data variables.product.prodname_vscode_shortname %} with the [Copilot Quickstart](/docs/agents/quickstart.md).
+To practice a focused prompt, review, validation, and recovery workflow, follow the [agents quickstart](/docs/agents/quickstart.md).
 
 ## Configure {% data variables.product.prodname_vscode_shortname %} settings
 
@@ -316,7 +330,11 @@ There are many more debugging features in {% data variables.product.prodname_vsc
 
 Congratulations! You've completed the tutorial and explored some of the key features of {% data variables.product.prodname_vscode %}. Now that you've learned the basics of {% data variables.product.prodname_vscode %}, get more info about how to:
 
-* [Build your first app with AI](/docs/agents/agents-tutorial.md)
+* [Apply the agent workflow to a bounded task in your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project)
+
+* [Explore an unfamiliar codebase without changing files](/docs/agents/guides/explore-a-codebase.md)
+
+* [Learn the agent-first and code-first workflows across the {% data variables.copilot.agents_window %} and editor](/docs/agents/agents-tutorial.md)
 
 * [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 

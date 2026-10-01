@@ -1,12 +1,17 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 DateApproved: 9/30/2026
-MetaDescription: Learn how to configure and manage {% data variables.product.prodname_vscode %} in enterprise environments, including policies, extensions, AI settings, and network configuration.
+MetaDescription: Configure enterprise policies, extensions, AI access, and network settings for development teams in {% data variables.product.prodname_vscode %}.
 ---
 
 # {% data variables.product.prodname_vscode_shortname %} for enterprise
 
 {% data variables.product.prodname_vscode %} can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure {% data variables.product.prodname_vscode_shortname %} to achieve consistency and compliance across your organization.
+
+For an AI rollout, start with [managing AI settings](/docs/enterprise/manage-ai-settings.md). Choose the controls your organization needs, test them with a representative development workflow, and tell developers which capabilities are available and how to request access.
+
+> [!NOTE]
+> If you're a developer using a managed device, start with the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). If a setting is managed by your organization, contact your administrator rather than trying to override the policy.
 
 ## Enterprise policies
 

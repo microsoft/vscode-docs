@@ -62,11 +62,12 @@ Choose the approach that works best for you and follow the steps in the correspo
 
 1. Configure the following settings for the chat session. Keep the default values for any other options.
 
-    | Field name | Value | Short description |
-    |------------|-------|-------------------|
-    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
-    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. |
-    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
+    | Control | Value | Short description |
+    |---------|-------|-------------------|
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
+    | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
+    | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
     ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual permissions.](images/agents-quickstart/agent-session-editor-select-harness-role-2.png)
 
@@ -106,11 +107,12 @@ The {% data variables.copilot.agents_window %} is a dedicated window for interac
 
 1. Configure the following settings for the session. Keep the default values for any other options.
 
-    | Field name | Value | Short description |
-    |------------|-------|-------------------|
-    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
-    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. |
-    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
+    | Control | Value | Short description |
+    |---------|-------|-------------------|
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
+    | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
+    | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
     ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role.png)
 
@@ -185,6 +187,8 @@ In the following steps you'll ask the agent to validate the basic functionality 
 {% /tab %}
 {% /tabs %}
 
+For keyboard and screen reader access to the generated diffs, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
+
 ## 4. Verify the result yourself
 
 The agent's validation report helps you find problems, but it doesn't replace your own review. In the integrated browser:
@@ -232,6 +236,7 @@ When you no longer need the app, run these steps to clean up your local resource
 
 ## Next steps
 
-* [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project).
-* [Build a complete app with agents](/docs/agents/agents-tutorial.md).
+* [Apply the workflow to a bounded task in your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project).
+* [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md).
+* [Build a complete app and learn the editor, browser, and source control workflows](/docs/agents/agents-tutorial.md).
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).

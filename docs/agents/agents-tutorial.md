@@ -65,7 +65,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
-1. If you're prompted to sign in, select a sign-in method and continue. You can use your GitHub Copilot plan or other model provider subscription to authenticate.
+1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
 ### Start an agent session
 
@@ -87,13 +87,14 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
 1. Configure the following settings for the session. Keep the default values for any other options.
 
-    | Field name | Value | Short description |
-    |------------|-------|-------------------|
-    | Agent harness | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. Use another harness if you want to run the session in a different environment. |
-    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. Optionally, you can choose a specific model if needed. |
-    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
+    | Control | Value | Short description |
+    |---------|-------|-------------------|
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
+    | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
+    | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
-    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/getting-started/agent-session-select-harness-role.png)
+    ![Screenshot showing the Copilot Session Target, Agent, and Manual permissions in the redesigned new-session input.](images/getting-started/agent-session-select-harness-role.png)
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -104,6 +105,11 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 1. The agent analyzes your request, plans the work, and then starts creating and editing files. If it encounters errors, it self-corrects or asks for clarification and approval.
 
     ![Screenshot of the agent generating the portfolio page files in the {% data variables.copilot.agents_window %}.](images/getting-started/agent-generating-files.png)
+
+    The **Copilot** agent harness applies and saves edits directly to your project folder. Review the resulting diffs before you commit the changes.
+
+    > [!TIP]
+    > If the agent heads in the wrong direction, [steer or stop the request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running). Stopping doesn't undo completed actions. To undo workspace file changes from a request, [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
 
 ### Preview and iterate on the design
 
@@ -145,6 +151,7 @@ Before you commit the agent's work, review the code changes that the agent appli
 
     ![Screenshot of the Changes panel in the {% data variables.copilot.agents_window %}, showing the list of files changed by the agent.](images/getting-started/changes-panel.png)
 
+    For keyboard and screen reader access to the diffs, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
 
 1. Open the diff from the `index.html` file and select a block of text to open the inline feedback flow. Enter your feedback and then select **Submit**.
 
@@ -233,6 +240,8 @@ Apply the same prompt, review, and validation workflow to a bounded task in an e
 {% /action-card %}
 
 To go deeper with agentic coding in {% data variables.product.prodname_vscode %}, get more info about how to:
+
+* [Explore an unfamiliar codebase without changing files](/docs/agents/guides/explore-a-codebase.md)
 
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline)
 
