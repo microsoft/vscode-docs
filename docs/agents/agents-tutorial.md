@@ -6,35 +6,36 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, you learn how to build with AI agents in {% data variables.product.prodname_vscode %}. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
+In this tutorial, you build a personal portfolio page with AI agents in {% data variables.product.prodname_vscode %}. You describe what you want in natural language, and an agent creates and edits files. You then review and test the result. The app uses HTML, CSS, and JavaScript, so you don't need to install any runtimes or build tools.
 
-You start in the **{% data variables.copilot.agents_window %}**, a dedicated surface for an agent-first workflow. Then you switch to the **{% data variables.copilot.chat_view %}**, where an agent assists you while you work in the editor. Along the way, you pick up the {% data variables.product.prodname_vscode_shortname %} basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
+You start in the **{% data variables.copilot.agents_window %}** to create the app, then continue the same session in the **{% data variables.copilot.chat_view %}** to refine it alongside your code. Along the way, you learn to open a project folder, preview your app in the integrated browser, and review and commit changes with Git.
 
-You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
-
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn {% data variables.product.prodname_vscode_shortname %} editor features">
+{% action-card title="Learn {% data variables.product.prodname_vscode_shortname %} editor features" display="inline" %}
 Get familiar with the {% data variables.product.prodname_vscode_shortname %} user interface, editing features, and key productivity tools.
 
 * [Start the {% data variables.product.prodname_vscode_shortname %} editing tutorial](/docs/editing/getting-started/editor-tutorial.md)
 
-</div>
+{% /action-card %}
 
 ## Prerequisites
 
-* [Download and install {% data variables.product.prodname_vscode %}](/download)
+* [Download and install {% data variables.product.prodname_vscode %}](/download).
 
 * [Enable AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features)
 
+    If you use GitHub Copilot, learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
+
 * [Install Git](https://git-scm.com/)
 
-> [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+## 1. Create a project folder
 
-## Create a project folder
-
-Agents work in the context of a folder, also known as a *workspace*. You start by creating a folder for your project. You don't need to open the folder in {% data variables.product.prodname_vscode_shortname %} yet. In the next step, you open it in the {% data variables.copilot.agents_window %}, which lets you work across multiple workspaces without opening a separate window for each one.
+Agents work in the context of a folder, also referred to as a *workspace* in {% data variables.product.prodname_vscode_shortname %}. You start by creating a folder for your project. Start by creating an empty folder for the tutorial app and enabling Git version control to track your changes.
 
 1. On your computer, create a new folder named `myportfolio`.
+
+    ```bash
+    mkdir myportfolio
+    ```
 
 1. Put the folder under Git version control to track changes. Open a terminal and run the following commands:
 
@@ -43,17 +44,14 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
     git init
     ```
 
-    > [!TIP]
-    > You can also initialize a repository from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}.
+## 2. Build features with the {% data variables.copilot.agents_window %}
 
-## Build features with the {% data variables.copilot.agents_window %}
-
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the {% data variables.copilot.agents_window %}">
+{% action-card title="Explore the {% data variables.copilot.agents_window %}" display="sidebar" %}
 Use the {% data variables.copilot.agents_window %} to run and monitor agent sessions across your projects from a single place in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Learn about the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md)
 
-</div>
+{% /action-card %}
 
 The {% data variables.copilot.agents_window %} is a dedicated window in {% data variables.product.prodname_vscode_shortname %} that is optimized for working with agents across all your projects without needing to open a separate {% data variables.product.prodname_vscode_shortname %} window for each one.
 
@@ -67,36 +65,35 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
-1. If you're prompted to sign in, select a sign-in method and continue.
-
-    The {% data variables.copilot.agents_window %} needs access to your GitHub Copilot subscription to run agent sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you're signed in here too.
+1. If you're prompted to sign in, select a sign-in method and continue. You can use your GitHub Copilot plan or other model provider subscription to authenticate.
 
 ### Start an agent session
 
-1. Select **New** at the top of the left sidebar to start a new session.
+1. Select **New** at the top of the left sidebar to start a new agent session.
 
-    ![Screenshot of the New button in the {% data variables.copilot.agents_window %} sidebar.](images/getting-started/agents-new-session.png)
+    ![Screenshot of starting a new agent session in the redesigned new-session input.](images/agents-quickstart/agent-session-new.png)
 
-    The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions. In the bottom left, you can configure customizations to modify the agent's behavior to match your coding practices.
+    The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions and their workspace context.
 
-1. Select **Folder**, and then select the `myportfolio` folder on your machine. This folder becomes the primary execution workspace for the session.
+    > [!TIP]
+    > If you want to ask a general question, you can also start a chat session that is not tied to a specific workspace.
 
-    ![Screenshot of selecting the myportfolio folder as the primary workspace in the redesigned new-session input.](images/getting-started/workspace-dropdown-2.png)
+1. Because the {% data variables.copilot.agents_window %} can operate across different projects, select the `myportfolio` folder you created earlier from the dropdown. This folder becomes the primary execution workspace for the session.
 
-    If you're prompted to trust the folder, select **Yes, I trust the authors**.
+    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Trust**.
 
     > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+    > When you download code from the internet, review the code before trusting it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-1. Select the **Copilot** agent harness to run your agent session locally on your machine using the {% data variables.copilot.copilot_sdk %}.
+1. Configure the following settings for the session. Keep the default values for any other options.
 
-    {% data variables.product.prodname_vscode_shortname %} supports multiple [agent harnesses](/docs/agents/concepts/agent-harnesses.md), such as Claude and Codex. The harness coordinates the model, tools, and session in the selected execution environment.
+    | Field name | Value | Short description |
+    |------------|-------|-------------------|
+    | Agent harness | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. Use another harness if you want to run the session in a different environment. |
+    | Language model | **Auto** | Automatically selects a model based on task complexity and availability. Optionally, you can choose a specific model if needed. |
+    | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
-1. Review the other session configuration options:
-
-    * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
-    * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
-    * **Manual permissions**: the permission level that uses the configured approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
+    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/getting-started/agent-session-select-harness-role.png)
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -167,14 +164,14 @@ Before you commit the agent's work, review the code changes that the agent appli
 
     After committing the changes, the branch changes and uncommitted changes are now empty because there are no pending changes. The change stats are also cleared from the session entry in the session list.
 
-## Continue working with agents in the editor
+## 3. Continue working with agents in the editor
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the {% data variables.copilot.chat_view %}">
+{% action-card title="Explore the {% data variables.copilot.chat_view %}" display="sidebar" %}
 You can use the {% data variables.copilot.chat_view %} alongside your editor to let agents assist you with coding tasks in your active workspace.
 
 * [Learn about the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)
 
-</div>
+{% /action-card %}
 
 For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot session in the {% data variables.copilot.chat_view %}.
 
@@ -228,12 +225,12 @@ Congratulations! You built a portfolio page with Copilot by using both an agent-
 
 ## Next steps
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Use agents in your own project">
+{% action-card title="Use agents in your own project" display="sidebar" %}
 Apply the same prompt, review, and validation workflow to a bounded task in an existing project.
 
 * [Apply the workflow to your project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project)
 
-</div>
+{% /action-card %}
 
 To go deeper with agentic coding in {% data variables.product.prodname_vscode %}, get more info about how to:
 

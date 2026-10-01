@@ -108,7 +108,7 @@ The {% data variables.copilot.agents_window %} is a dedicated window for interac
 
     | Field name | Value | Short description |
     |------------|-------|-------------------|
-    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
+    | Session target | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
     | Language model | **Auto** | Automatically selects a model based on task complexity and availability. |
     | Permissions | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
