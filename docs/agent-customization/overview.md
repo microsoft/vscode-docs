@@ -171,97 +171,16 @@ Conditions for parent repository discovery:
 
 `feature(user-customization-migration)`
 
-[Agent Host](/docs/agents/concepts/agent-host.md) sessions load customizations from supported folders and don't use some {% data variables.product.prodname_vscode_shortname %}-specific formats and locations. The Agent Customizations editor provides separate migrations for each type of incompatibility.
+Agent Host sessions use harness-supported folders and formats instead of some {% data variables.product.prodname_vscode_shortname %}-specific customization sources. When {% data variables.product.prodname_vscode_shortname %} detects an affected customization, select **Migrations** in the Agent Customizations editor to review the required work.
 
-| Migration | Use it for | Setting and default |
-|-----------|------------|---------------------|
-| **Migrate MCP Servers** | Move compatible MCP servers to portable workspace or user configuration files. | No separate setting |
-| **Migrate Prompt Files** | Convert workspace and user prompt files to agent skills. | `setting(chat.customizations.promptMigration.enabled)`: `true` |
-| **Migrate User Data Customizations** | Move custom agents and instructions from {% data variables.product.prodname_vscode_shortname %} profile user data. | `setting(chat.customizations.userDataMigration.enabled)`: `false` |
-| **Migrate Location Settings** | Move custom agents, instructions, and skills from locations configured for the Local agent. | `setting(chat.customizations.locationsMigration.enabled)`: `false` |
+The migration experience can:
 
-A migration card appears only when you select an Agent Host and {% data variables.product.prodname_vscode_shortname %} finds customizations to migrate. For migrations with an enablement setting, that setting must also be enabled.
+* Move compatible MCP server configurations.
+* Convert prompt files to skills.
+* Move user agents and instructions out of profile user data.
+* Move agents, instructions, and skills out of locations configured only for the Local agent.
 
-### Migrate MCP servers
-
-Migrate MCP servers from {% data variables.product.prodname_vscode_shortname %}-specific configuration to a portable workspace `.mcp.json` file or user `$COPILOT_HOME/mcp-config.json` file. In the Agent Customizations editor, select an Agent Host and then select **Migrate MCP Servers**.
-
-Before migration, the editor checks each server against the active harness. It separates servers into **Migratable** and **Not migratable** groups and labels servers that are partially supported or unsupported. Select a server to review its compatibility details, open its source configuration, or choose **Edit Configuration** to resolve an issue.
-
-Compatibility details identify configuration that the target harness can't preserve. For example, an explicit working directory, SSE transport, or server version metadata might require editing before migration. Unsupported servers remain in their source configuration and aren't migrated.
-
-When you migrate a compatible server, its enabled or disabled state is preserved. Review the destination file before deleting or changing the original configuration because the files don't stay synchronized.
-
-### Migrate prompt files to skills
-
-> [!IMPORTANT]
-> Prompt files are deprecated for Agent Host sessions and aren't loaded by Agent Host. They continue to work with the Local agent for now, but the Local agent will be removed in a future release. Convert prompt files to [agent skills](/docs/agent-customization/agent-skills.md) to keep them available.
-
-Prompt file migration is enabled by default. It converts both workspace and user prompt files to skills.
-
-To migrate prompt files:
-
-1. In the {% data variables.copilot.chat_view %}, select the Agent Host that should use the skills.
-
-1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
-
-1. On the **Overview** tab, find **Migrate Prompt Files** and select **Convert to Skills...**.
-
-1. Select the prompt files to convert. You can open a file to review it before migration.
-
-1. Select **Convert to Skills**.
-
-1. In the confirmation dialog, choose whether to delete the original prompt files, and then select **Convert to Skills**.
-
-Review any migrated skills that used prompt file frontmatter properties that aren't supported by skills. If you keep the original prompt files, the prompts and migrated skills don't stay synchronized.
-
-### Migrate user customizations
-
-Agents that run through Agent Host don't read custom agents and instructions stored in your {% data variables.product.prodname_vscode_shortname %} profile user data. The migration flow copies these customizations to the user folders for the selected Agent Host without changing their names, types, or contents.
-
-The migrated files don't roam across devices through [Settings Sync](/docs/configure/settings-sync.md). If you keep the original files in your profile user data, the original and migrated copies don't stay synchronized.
-
-To migrate user customizations:
-
-1. Enable the `setting(chat.customizations.userDataMigration.enabled)` setting.
-
-1. In the {% data variables.copilot.chat_view %}, select the Agent Host that should use the customizations.
-
-1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
-
-1. On the **Overview** tab, find **Migrate User Data Customizations** and select **Migrate...**.
-
-1. Select the agents and instructions to migrate. You can open a file to review it before migration.
-
-1. Select **Migrate**.
-
-1. In the confirmation dialog, choose whether to delete the original files from your profile user data, and then select **Migrate**.
-
-### Migrate customizations from configured locations
-
-The `setting(chat.agentFilesLocations)`, `setting(chat.modeFilesLocations)`, `setting(chat.instructionsFilesLocations)`, and `setting(chat.agentSkillsLocations)` settings configure additional locations for the Local agent. These settings are deprecated because Agent Host sessions don't use them.
-
-To migrate customizations from these locations:
-
-1. Enable the `setting(chat.customizations.locationsMigration.enabled)` setting.
-
-1. In the {% data variables.copilot.chat_view %}, select the Agent Host that should use the customizations.
-
-1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
-
-1. On the **Overview** tab, find **Migrate Location Settings** and select **Migrate...**.
-
-1. Select the custom agents, instructions, and skills to migrate. You can open a file to review it before migration.
-
-1. Choose whether to clear the unused location settings after migration. This option is selected by default.
-
-1. Select **Migrate**.
-
-1. In the confirmation dialog, choose whether to delete the original files, and then select **Migrate**.
-
-Clearing a location setting and deleting its original files are separate choices. If you keep the original files, the original and migrated copies don't stay synchronized.
-
-Prompt files in locations configured with `setting(chat.promptFilesLocations)` aren't included in this migration. Use [prompt file migration](#migrate-prompt-files-to-skills) to convert them to skills.
+For detailed steps and guidance for customizations that require manual review, see [Migrate agent customizations for Agent Host](/docs/agent-customization/migrate-customizations.md).
 
 ## Evaluate and improve customization files (Preview)
 

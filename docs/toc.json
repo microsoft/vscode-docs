@@ -96,6 +96,7 @@
                 "noCollapse": false,
                 "topics": [
                     ["Create and Manage", "/docs/agent-customization/overview"],
+                    ["Migrate Customizations", "/docs/agent-customization/migrate-customizations"],
                     ["Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Agent Skills", "/docs/agent-customization/agent-skills"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],
