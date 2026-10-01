@@ -121,7 +121,7 @@ The following settings add file locations for the Local agent, but Agent Host ha
 * `setting(chat.instructionsFilesLocations)`
 * `setting(chat.agentSkillsLocations)`
 
-Location migration moves detected custom agents, instructions, and skills to folders supported by the selected harness.
+Location migration moves detected custom agents, legacy chat modes, instructions, and skills to folders supported by the selected harness. Legacy `*.chatmode.md` files become `*.agent.md` files in the destination agent folder.
 
 To migrate custom locations:
 
@@ -140,19 +140,20 @@ Prompt files from `setting(chat.promptFilesLocations)` are handled by [prompt fi
 
 Not every compatibility problem has an automatic conversion. When {% data variables.product.prodname_vscode_shortname %} cannot migrate an item safely, keep the original and review the following areas.
 
-### Legacy chat modes
-
-Custom agents were previously named custom chat modes. Rename existing `*.chatmode.md` files to `*.agent.md`, and move them to a [supported custom agent location](/docs/agent-customization/custom-agents.md#custom-agent-file-locations).
-
 ### Custom agent tools and properties
 
 A custom agent can move to a supported folder and still reference tools or tool sets that the selected harness does not provide. Open the agent file and review:
 
 * Tool names and namespaces in the `tools` property.
-* References to {% data variables.product.prodname_vscode_shortname %} user tool sets.
 * Agent-scoped hooks and other harness-specific frontmatter.
 
-Unavailable tools are ignored. Replace unsupported tool-set references with concrete tools that the destination harness provides, and test the agent with a representative task. See [Create custom agents](/docs/agent-customization/custom-agents.md) and [Use tools with agents](/docs/agents/run/tools.md).
+Unavailable tools are ignored. Replace unsupported tool references with tools that the destination harness provides, and test the agent with a representative task. See [Create custom agents](/docs/agent-customization/custom-agents.md) and [Use tools with agents](/docs/agents/run/tools.md).
+
+### Tool sets
+
+{% data variables.product.prodname_vscode_shortname %} user tool-set files are not migrated to Agent Host. If a custom agent references a tool set, replace the reference with concrete tools that the destination harness provides.
+
+See [Create and use tool sets](/docs/agent-customization/tool-sets.md) to review your existing tool sets.
 
 ### Hooks
 
