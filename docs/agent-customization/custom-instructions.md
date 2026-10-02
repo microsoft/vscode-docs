@@ -136,10 +136,10 @@ The supported location depends on the session type and selected harness.
 | Local agent workspace | `.github/instructions` or `.claude/rules` |
 | Local agent user | {% data variables.product.prodname_vscode_shortname %} profile storage |
 
-Use the Agent Customizations editor to create user instructions in a location supported by the selected harness. To move profile-based instructions to Agent Host user folders, use [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
+Use the Agent Customizations editor to create user instructions in a location supported by the selected harness. To move profile-based instructions to Agent Host user folders, use [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 > [!NOTE]
-> The `setting(chat.instructionsFilesLocations)` setting is deprecated and only used by the Local agent. If you configured other instruction locations with this setting, [migrate the customizations to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
+> The `setting(chat.instructionsFilesLocations)` setting is deprecated and only used by the Local agent. If you configured other instruction locations with this setting, [migrate the customizations to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 {% data variables.product.prodname_vscode_shortname %} searches these folders recursively, which enables you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 

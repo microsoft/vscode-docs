@@ -301,17 +301,15 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.customizations.promptMigration.enabled)` _(Experimental)_<br/>Show the migration that converts prompt files to [agent skills](/docs/agent-customization/agent-skills.md) for Agent Host sessions. | `true` |
-| `setting(chat.customizations.userDataMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents and instructions from profile user data to locations supported by the selected Agent Host. | `false` |
-| `setting(chat.customizations.locationsMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents, instructions, and skills from Local agent location settings to locations supported by the selected Agent Host. | `false` |
+| `setting(chat.customizations.migration.enabled)` _(Experimental)_<br/>Show migration actions, hints, compatibility badges, and compatibility details for customizations that the selected Agent Host harness can't use in their current location or format. | `true` |
 
-Learn how to [migrate agent customizations](/docs/agent-customization/overview.md#migrate-customizations-experimental).
+Learn how to [migrate agent customizations](/docs/agent-customization/migrate-customizations.md).
 
 ## Custom instructions settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
+| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
 | `setting(chat.includeApplyingInstructions)`<br/>Automatically add instruction files with a matching `applyTo` pattern to chat requests. | `true` |
 | `setting(chat.includeReferencedInstructions)`<br/>Automatically add instruction files referenced via Markdown links to chat requests. | `false` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
@@ -330,14 +328,14 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/overview.md#migrate-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
 | `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
 
 ## Custom agents settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
+| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
 | `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
@@ -346,7 +344,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
-| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
+| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
 | `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
 ## Observability settings
