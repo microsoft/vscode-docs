@@ -420,7 +420,7 @@ Choose the management mechanism for the sessions you need to govern:
 | Goal | Mechanism | Scope |
 |---|---|---|
 | Require sandboxing and control bypass and outbound access in {% data variables.product.prodname_copilot_short %} Agent Host sessions. | [Copilot managed sandbox settings](#deploy-copilot-managed-sandbox-settings) | Runtime-enforced restrictions on supported platforms, including Windows. These controls do not apply to every agent provider. |
-| Configure shared terminal sandbox settings through existing device management. | [{% data variables.product.prodname_vscode_shortname %} policies](#configure-vs-code-sandbox-policies) | The `ChatAgentSandboxEnabled` policy controls the shared macOS and Linux enablement setting. There is no equivalent device policy for the Windows enablement setting. |
+| Maintain existing Local sandbox configuration during migration. | [Deprecated {% data variables.product.prodname_vscode_shortname %} policies](#configure-vs-code-sandbox-policies) | Local behavior is unchanged. These policies are outside the supported Agent Host policy contract; use {% data variables.product.prodname_copilot_short %} managed settings for mandatory Agent Host restrictions. |
 
 Check the [platform prerequisites and lifecycle status](/docs/agents/run/agent-sandboxing.md#check-platform-availability) before deployment. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell's sandbox support is Experimental.
 
@@ -458,13 +458,14 @@ These managed values do not overwrite saved user preferences. When you remove a 
 
 ### Configure {% data variables.product.prodname_vscode_shortname %} sandbox policies
 
-Use your existing [device policy deployment mechanism](/docs/enterprise/policies.md) to configure these policies:
+These legacy device policies and their {% data variables.product.prodname_vscode_shortname %} sandbox settings are deprecated. For {% data variables.product.prodname_copilot_short %} Agent Host, migrate to [{% data variables.product.prodname_copilot_short %} managed sandbox settings](#deploy-copilot-managed-sandbox-settings). Keep existing [device policies](/docs/enterprise/policies.md) where needed for Local sessions; their Local behavior is unchanged.
 
 | Policy | Configuration |
 |---|---|
-| `ChatAgentSandboxEnabled` | Set to `on` to enforce `setting(chat.agent.sandbox.enabled)` on macOS and Linux, including WSL2. Set to `off` to disable that setting. This policy does not control `setting(chat.agent.sandbox.enabledWindows)`. |
-| `ChatAgentSandboxAllowNetwork` | Set to `false` to restrict network access. Local sessions on macOS and Linux then use the configured domain rules. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox instead block outbound access without domain filtering. |
-| `ChatAgentSandboxAllowUnsandboxedCommands` | Set to `false` to prevent commands from running outside the sandbox after user confirmation. |
+| `ChatAgentSandboxEnabled` | Set to `on` to require sandboxing in Local sessions. In {% data variables.product.prodname_copilot_short %} Agent Host, it supplies an overridable default, not a mandatory requirement. Use managed `sandbox.enabled` for Agent Host enforcement. |
+| `ChatAgentSandboxAllowNetwork` | Controls outbound network access for Local sandboxed terminal commands. Use managed `sandbox.userPolicy.network.allowOutbound` for {% data variables.product.prodname_copilot_short %} Agent Host restrictions. |
+| `ChatAgentSandboxAllowUnsandboxedCommands` | Set to `false` to prevent Local commands from running outside the sandbox after user confirmation. Use managed `sandbox.allowBypass` for {% data variables.product.prodname_copilot_short %} Agent Host bypass controls. |
+| `ChatAgentSandboxAllowAutoApprove` | Controls automatic approval of sandboxed Local terminal commands. Configure {% data variables.product.prodname_copilot_short %} Agent Host restrictions through managed sandbox and permission settings instead. |
 
 > [!IMPORTANT]
 > In Local sessions, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` can permit an approved retry inside the sandbox with unrestricted network access. This is separate from running outside the sandbox and has no enterprise policy. Do not treat these device policies as an enforceable prohibition on all network exceptions.
@@ -576,26 +577,26 @@ Deliver these settings through the `telemetry` block in [Copilot managed setting
 | `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP wire protocol. Use `http/json` or `http/protobuf`; both select the `otlp-http` exporter. `grpc` is accepted for forward compatibility but currently falls back to the HTTP default. |
 | `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
 | `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
-| `telemetry.capture.identity` | `setting(github.copilot.chat.otel.captureIdentity)` | Whether Local harness telemetry captures developer and machine identity. Maps to the `CopilotOtelCaptureIdentity` policy. |
+| `telemetry.capture.identity` | `setting(github.copilot.chat.otel.captureIdentity)` | Whether Local harness and {% data variables.product.prodname_vscode_shortname %}-owned Agent Host telemetry capture developer and machine identity. Maps to the `CopilotOtelCaptureIdentity` policy. |
 | `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
 | `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
 | `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
 
-Identity capture is off by default and independent of content capture. When enabled, Local harness sessions add `user.name` to agent invocation spans, including subagent and inline chat spans, and add `process.user.name` and `host.name` as resource attributes.
+Identity capture is off by default and independent of content capture. When enabled, Local harness sessions add `user.name` to agent invocation spans, including subagent and inline chat spans, and add `process.user.name` and `host.name` as resource attributes. {% data variables.product.prodname_vscode_shortname %}'s Agent Host adds the operating system username and hostname as `process.user.name` and `host.name` in host-generated telemetry.
 
-The managed identity value takes precedence over `COPILOT_OTEL_CAPTURE_IDENTITY` and user settings. When a managed value denies identity capture, later exports omit identity without requiring a reload, including identity attributes that were configured explicitly as resource attributes.
+The managed identity value takes precedence over `COPILOT_OTEL_CAPTURE_IDENTITY` and user settings. In the Local harness, when a managed value denies identity capture, later exports omit identity without requiring a reload, including identity attributes that were configured explicitly as resource attributes.
 
 For other telemetry fields, managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values, except that managed `telemetry.resourceAttributes` take precedence over `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
 
 > [!NOTE]
-> Identity capture currently applies only to the Local harness. It doesn't add identity attributes to Agent Host telemetry.
+> {% data variables.product.prodname_vscode_shortname %} supplies operating system identity for host-generated telemetry. When supported by the bundled {% data variables.product.prodname_copilot_short %} runtime, runtime spans can also include the signed-in {% data variables.product.prodname_github %} username as `user.name`. This host-side control applies to {% data variables.product.prodname_vscode_shortname %}'s Agent Host telemetry pipeline, not a runtime's direct exports.
 
 > [!NOTE]
 > Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
 
 For chat sessions that use the Local harness, if an enterprise-managed OTel configuration enables export after Copilot Chat starts, {% data variables.product.prodname_vscode_shortname %} automatically attempts to restart the extension hosts for the current window once. The restart can interrupt work in other extensions. If the restart is blocked or doesn't apply the configuration, {% data variables.product.prodname_vscode_shortname %} offers **Reload Window**. Later policy changes and policy removal also require a manual reload.
 
-The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload {% data variables.product.prodname_vscode_shortname %} to apply it.
+The Agent Host computes its telemetry configuration when it starts. On desktop, {% data variables.product.prodname_vscode_shortname %} automatically restarts the Agent Host after enterprise-managed telemetry changes are resolved. Reload {% data variables.product.prodname_vscode_shortname %} to apply personal telemetry changes.
 
 ## Security considerations
 
