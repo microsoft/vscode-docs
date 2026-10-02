@@ -70,6 +70,9 @@ On Windows, install the update that applies to your Windows version:
 
 ## Turn on agent sandboxing
 
+> [!NOTE]
+> Legacy {% data variables.product.prodname_vscode_shortname %} sandbox settings and device policies are deprecated. For {% data variables.product.prodname_copilot_short %} Agent Host sessions, use the [session sandbox controls](#control-sandboxing-for-an-agent-host-session). Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing. Existing Local behavior is unchanged.
+
 Sandboxing is off by default. To turn it on for sessions running on your machine:
 
 1. Check the [prerequisites](#check-platform-availability) for the operating system where the commands run.
@@ -216,6 +219,8 @@ For a {% data variables.product.prodname_copilot_short %} Agent Host session, se
 ### When your organization manages sandboxing
 
 Organization-managed settings can require sandboxing, prevent bypass, or block outbound network access. Enforced settings are locked and show an organization-managed indicator. You can choose more restrictive local settings where a control remains editable.
+
+In {% data variables.product.prodname_copilot_short %} Agent Host, this requirement must come from the `sandbox.enabled` managed setting. The deprecated `ChatAgentSandboxEnabled` device policy supplies an overridable default; it does not prevent a per-session **Off** selection.
 
 If your organization requires sandboxing, the **Sandboxing for terminal** toggle stays on and locked. Even when policy permits a bypass, you cannot directly switch it off. When a command is blocked and bypass is permitted by both managed policy and your local settings, the agent can request approval to run outside the sandbox.
 
