@@ -35,7 +35,9 @@ Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar 
 
 Work with an agent in the same workspace as your editor, terminal, tests, and debugger. You can inspect its changes and investigate failures without moving code and command output to a separate chat application. For a question or focused edit, use chat, inline chat, or suggestions without delegating an entire task.
 
-Choose from multiple AI models and agent providers, bring your own model API key, and extend agents with tools and plugins to fit your team's requirements. You don't need to configure every option before trying your first task.
+Choose from multiple [agent harnesses](/docs/agents/concepts/agent-harnesses.md), including {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, and {% data variables.product.prodname_openai_codex %}, or delegate independent tasks to [cloud agents](/docs/agents/run/agent-harnesses.md#start-a-cloud-session). {% data variables.product.prodname_vscode_shortname %} provides a shared chat, session-management, and change-review experience while each harness provides its own tools and workflows. You can also bring your own model API key and extend agents with tools and plugins to fit your team's requirements.
+
+When you use the {% data variables.product.prodname_copilot_short %} harness, you get a consistent agent experience across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}. These experiences share the {% data variables.product.prodname_copilot_short %} agent runtime, so you can reuse supported project guidance, such as Agent Skills, across them.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Try your first agent task">
 Build and validate a small app in the {% data variables.copilot.chat_view %}, then review the result.
@@ -46,9 +48,7 @@ Build and validate a small app in the {% data variables.copilot.chat_view %}, th
 
 If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). If you already use agents, skip the sample project and follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track). For AI help without delegating a task, [choose between suggestions, focused edits, questions, and agents](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
-The quickstart uses the [{% data variables.product.prodname_copilot %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness). It shares its agent runtime with {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} and supports reusable project guidance, such as Agent Skills, across these experiences.
-
-See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements. If provider, sign-in, or execution location affects your setup, [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls) and [choose an agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target).
+The quickstart uses the [{% data variables.product.prodname_copilot %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness). See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements. If provider, sign-in, or execution location affects your setup, [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls) and [choose an agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target).
 
 ## What you can do with AI
 
