@@ -46,6 +46,19 @@ Relevant customizations can reduce back-and-forth and rework by giving the agent
 
 ## Customization options at a glance
 
+Start from an observed problem instead of adding customization by default. Define a representative task and its expected outcome. If the result already meets your needs, stop. Otherwise, try the smallest change that addresses the repeated problem.
+
+| Observed behavior | Smallest change to try |
+|-------------------|------------------------|
+| The agent misses a one-time requirement or relevant file | Add the requirement or [context](/docs/chat/copilot-chat-context.md) to the current request |
+| The agent repeatedly misses a project-wide command, convention, or architecture decision | Add or refine project instructions |
+| The problem only affects certain files, languages, or tasks | Add targeted instructions |
+| Your team repeatedly explains the same multi-step process | Create an agent skill |
+| A recurring role needs focused instructions or a restricted tool set | Create a custom agent |
+| The agent needs to interact with an external system | Add an MCP server |
+| An action must run at a lifecycle point independently of the model | Configure a hook |
+| Your team wants to install and maintain a packaged set of customizations | Use an agent plugin |
+
 Ask the following questions when choosing a customization:
 
 * Should it apply automatically, or only when you request it?
@@ -98,6 +111,8 @@ Where you define a customization determines who can use it and where it applies.
 * **Organization**: managed centrally and shared across repositories, where supported.
 
 Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and team workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
+
+Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
 
 Not every customization type supports every scope or agent harness. See the individual customization guide for supported locations and environments.
 

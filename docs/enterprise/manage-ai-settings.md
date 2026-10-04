@@ -10,9 +10,14 @@ MetaDescription: Manage enterprise AI settings in {% data variables.product.prod
 
 This article covers the AI-related settings that IT admins can manage through [enterprise policies](/docs/enterprise/policies.md).
 
+> [!NOTE]
+> If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved. Include the affected feature, the message you see, and the development task it prevents.
+
 Users can control the functionality and behavior of AI features through {% data variables.product.prodname_vscode_shortname %} settings. Organizations can enforce specific configurations by deploying enterprise policies via device management solutions. These policies override user-configured settings on managed devices.
 
 Learn how to [deploy policies for {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/policies.md) to your organization's devices.
+
+Before a broad rollout, test the proposed configuration with a representative project and account. Confirm that developers can complete approved tasks, review changes, and run the required checks while the intended restrictions remain in place. Publish the supported workflows and an access-request process alongside the configuration.
 
 ## Deploy Copilot managed settings
 

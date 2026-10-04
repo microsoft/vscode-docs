@@ -50,7 +50,7 @@ You can also install Foundry Toolkit extension manually from the {% data variabl
 
 * Search for **Foundry Toolkit** and select **Install** from search results.
 
-   ![Screenshot showing the Foundry Toolkit extension in the {% data variables.product.prodname_vscode_shortname %} Marketplace with the install button](./images/overview/install.png)
+   ![Screenshot showing the Foundry Toolkit extension in the {% data variables.product.prodname_vs_marketplace %} with the install button](./images/overview/install.png)
 
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.

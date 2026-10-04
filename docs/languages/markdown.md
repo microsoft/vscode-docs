@@ -430,7 +430,7 @@ Read on to find out about:
 
 ### Is there spell checking?
 
-Not installed with {% data variables.product.prodname_vscode_shortname %} but there are spell checking extensions. Check the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+Not installed with {% data variables.product.prodname_vscode_shortname %} but there are spell checking extensions. Check the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
 ### Does {% data variables.product.prodname_vscode_shortname %} support GitHub Flavored Markdown?
 

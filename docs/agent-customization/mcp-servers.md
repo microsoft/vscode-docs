@@ -16,7 +16,11 @@ Keywords:
 ---
 # Add and manage MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In {% data variables.product.prodname_vscode %}, MCP servers provide [tools](/docs/agents/run/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+Add an MCP server when a coding task needs information or actions that your agent's existing tools don't provide. For example, a server can let the agent query a database or update an issue in an external service instead of asking you to perform those steps manually.
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In {% data variables.product.prodname_vscode %}, servers expose these capabilities as [tools](/docs/agents/run/tools.md). MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+
+If the tools already available meet your needs, you don't need an additional server. Adding one means configuring access and deciding whether to [trust the server](#mcp-server-trust).
 
 For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -27,7 +31,7 @@ This article covers how to add, configure, and manage MCP servers. To learn how 
 
 ## Quickstart: use an MCP server in chat
 
-Follow these steps to install an MCP server and use its tools in chat. This example uses the [Playwright](https://github.com/microsoft/playwright-mcp) MCP server to interact with web pages through a browser.
+This walkthrough demonstrates adding an external tool provider with the [Playwright](https://github.com/microsoft/playwright-mcp) MCP server. If your goal is browser interaction rather than learning MCP setup, check the [built-in browser tools](/docs/agents/run/browser-tools.md) first. They don't require an MCP server.
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp playwright` in the search field.
 

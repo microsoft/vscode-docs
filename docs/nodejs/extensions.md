@@ -47,7 +47,7 @@ Publisher - [SonarSource](https://marketplace.visualstudio.com/publishers/SonarS
 
 SonarLint helps you find and fix bugs and security issues as you code. The extension runs in the background and, just like a spell checker, highlights coding issues. SonarLint not only tells you what the issue is but also provides in-context guidance on why an issue is harmful and how to fix it, with related examples. The extension supports [200+ JS/TS rules](https://rules.sonarsource.com/javascript) and includes several [Quick Fixes](https://rules.sonarsource.com/javascript/quickfix) to automatically handle your coding issues.
 
-Search for 'SonarLint' in the {% data variables.product.prodname_vscode_shortname %} Marketplace and install. No configuration is required. You can start with a default profile that fits most users and customize it based on your specific needs.
+Search for 'SonarLint' in the {% data variables.product.prodname_vs_marketplace %} and install. No configuration is required. You can start with a default profile that fits most users and customize it based on your specific needs.
 
 ![SonarLint animation](images/extensions/sonarlint.gif)
 

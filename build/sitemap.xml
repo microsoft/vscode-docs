@@ -666,11 +666,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/mcp-developer-guide</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2246,11 +2241,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/code-review-with-copilot</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/monitoring-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2332,11 +2322,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/extension-docs/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/copilot-quickstart</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

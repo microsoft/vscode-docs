@@ -10,7 +10,7 @@ MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
 > [!NOTE]
-> There is also another popular Rust extension in the {% data variables.product.prodname_vscode_shortname %} Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended {% data variables.product.prodname_vscode_shortname %} Rust extension by rust-lang.org.
+> There is also another popular Rust extension in the {% data variables.product.prodname_vs_marketplace %} (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended {% data variables.product.prodname_vscode_shortname %} Rust extension by rust-lang.org.
 
 ## Installation
 
@@ -238,7 +238,7 @@ To start debugging, you will first need to install one of two language extension
 * [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *on Windows*
 * [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *on macOS/Linux*
 
-If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the {% data variables.product.prodname_vscode_shortname %} Marketplace when you try to start a debug session.
+If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the {% data variables.product.prodname_vs_marketplace %} when you try to start a debug session.
 
 ![rust-analyzer notification to install a debugging extension](images/rust/install-debugging-extensions.png)
 

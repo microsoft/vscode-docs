@@ -19,7 +19,7 @@ Keywords:
 
 AI agents can produce better results when they understand how your codebase is structured, which commands to run, and which conventions to follow. Configure this information once as repository customizations instead of repeating it in every prompt.
 
-This guide helps you configure the {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %} harness in {% data variables.product.prodname_vscode %}. Start with project instructions, verify the result, and share the configuration with your team. Then add more focused customizations where they help. The workflow is shared, with tabs for harness-specific formats and behavior.
+This guide helps you configure the {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %} harness in {% data variables.product.prodname_vscode %}. Start with an observed project problem and a representative task. Make the smallest useful customization, confirm that it applies, repeat the task, and compare the results before you share the configuration. The workflow is shared, with tabs for harness-specific formats and behavior.
 
 To understand how the customization types differ and work together, see [Agent customization](/docs/agents/concepts/customization.md).
 
@@ -37,9 +37,22 @@ Choose the tabs for your **harness**, not your language model. For example, a Cl
 > [!NOTE]
 > The **Local** harness also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
 
+## Establish a baseline
+
+Choose one project-specific problem that occurs repeatedly, such as using the wrong test command, placing files in the wrong directory, or selecting a library that your project doesn't use. A one-time requirement belongs in the current request rather than in shared project configuration.
+
+Define a small representative task with a clear success criterion. Record the current result or use evidence from a recent task:
+
+* Which files the agent creates or changes.
+* Which project patterns and libraries it follows.
+* Which commands and tests it runs, including failures or skipped checks.
+* Which corrections you have to provide.
+
+If the result already meets your success criterion, stop. You don't need a customization for that behavior. For a coding task, see the [add a feature guide](/docs/agents/guides/add-a-feature.md) for guidance on establishing baseline tests and verifying the outcome.
+
 ## Step 1: Create project instructions
 
-Start with a project instructions file for information that applies across your codebase. Each harness has its own discovery rules, so use its expected file name and location.
+Start with a project instructions file for information that applies across your codebase. Focus the initial change on the observed problem and decisions the agent can't reliably infer from the repository. Each harness has its own discovery rules, so use its expected file name and location.
 
 1. Open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for the selected harness. In the {% data variables.copilot.chat_view %}, run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -86,6 +99,7 @@ Analyze this codebase and create or update AGENTS.md at the repository root with
 
 Treat generated instructions as a starting point. Check that they contain accurate, project-specific information:
 
+* **Observed problem**: include only the guidance needed to improve the baseline behavior.
 * **Architecture**: describe important directories, component boundaries, and where to add different types of code.
 * **Commands**: include the correct build, test, lint, and formatting commands.
 * **Technology choices**: identify preferred frameworks, libraries, and patterns.
@@ -114,29 +128,31 @@ Learn more about writing effective [custom instructions](/docs/agent-customizati
 
 <a name="step-3-verify-the-improvement"></a>
 
-## Step 3: Verify the configuration
+## Step 3: Verify the improvement
 
-Test the configuration with a representative task from your repository. Choose a task where project knowledge affects the result, such as adding a component, changing an API endpoint, or fixing a test.
+Confirm that the instructions apply, and then repeat the representative task from your baseline. Keep the harness, model, tools, task, and relevant context the same where practical so that the customization is the main change.
 
 1. In the Agent Customizations editor, select **Instructions** for your harness and confirm that the project instructions file is listed. This checks discovery, not whether the agent follows every instruction.
-1. Start a new chat with the same harness and repository so the test doesn't rely on guidance from the creation conversation.
-1. Ask the agent to complete a small task with a clear success criterion. For example, ask it to add a unit test that follows the repository's existing test patterns.
-1. Check that it places files in the correct directories and follows your documented patterns.
-1. Check that it uses the preferred libraries and runs the documented validation commands. Review the changes and command results, not only the agent's summary.
+1. Start a new chat with the same harness and repository so the comparison doesn't rely on guidance from the creation conversation.
+1. Expand **References** in the response and confirm that the expected instructions were included.
+1. Repeat the representative task with the same success criterion.
+1. Compare the result with the baseline. Review file placement, project patterns, libraries, tool activity, commands, tests, and errors rather than relying on the agent's summary.
 
-If the file is missing or isn't applied, check its location, the selected harness, and the session's working folder before adding more instructions. See [Troubleshoot customization issues](/docs/agent-customization/overview.md#troubleshoot-customization-issues) for diagnostic steps.
+If the file is missing, invalid, or included but not followed, use the [agent customization troubleshooting guide](/docs/agents/agent-troubleshooting/troubleshooting.md) to identify the failure before adding more instructions.
 
-If the file is discovered but the result misses a convention, clarify the relevant rule and repeat the task in a new chat. Instructions guide the model, but don't guarantee that it follows every rule.
+If the instructions are included but the result still misses the success criterion, clarify one relevant rule and repeat the task in another new chat. Stop when the task meets the criterion. More instructions consume context and can introduce conflicts without improving the result.
+
+For a broader controlled comparison that includes quality, reliability, credits, tokens, duration, and tool calls, use the [usage optimization loop](/docs/agents/guides/optimize-usage.md#inspect-token-usage-and-caching).
 
 ## Step 4: Share the configuration
 
 Commit the project instructions file and share it through your repository's normal pull request or review process. Contributors who obtain the updated files and use a compatible harness can reuse the guidance without recreating it.
 
-Review the instructions like other development configuration. Update them when the architecture, commands, dependencies, or team practices change.
+Review the instructions like other development configuration. Use your existing ownership and review process to make responsibility for the file clear. Update it when the architecture, commands, dependencies, or team practices change, and remove stale or duplicate rules.
 
 If your team uses multiple harnesses, keep shared guidance consistent and avoid contradictory copies. A file supported by one harness isn't automatically supported by every other harness.
 
-At this point, your repository has a useful baseline customization. The remaining steps are optional. Add them when different parts of the codebase need distinct guidance or when your team repeatedly performs the same workflow.
+If the representative task now meets the success criterion, stop. Your repository has a useful baseline customization. The remaining steps are optional. Add them when different parts of the codebase need distinct guidance or when your team repeatedly performs the same workflow.
 
 <a name="step-5-add-targeted-instructions"></a>
 

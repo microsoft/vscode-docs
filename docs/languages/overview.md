@@ -7,7 +7,7 @@ MetaDescription: In {% data variables.product.prodname_vscode %} we have support
 
 ## Hundreds of programming languages supported
 
-In {% data variables.product.prodname_vscode %}, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+In {% data variables.product.prodname_vscode %}, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode/Languages).
 
 Here are eight of the most popular language extensions:
 

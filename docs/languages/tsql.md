@@ -5,7 +5,7 @@ MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor
 ---
 # Transact-SQL in {% data variables.product.prodname_vscode %}
 
-Turn {% data variables.product.prodname_vscode %} into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the {% data variables.product.prodname_vscode_shortname %} Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
+Turn {% data variables.product.prodname_vscode %} into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the {% data variables.product.prodname_vs_marketplace %}. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
 
 Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and save results as JSON or CSV files. While typing T-SQL code, you get rich T-SQL language features like T-SQL IntelliSense (code completion), syntax highlighting, linting, code navigation and code snippets.
 
@@ -13,7 +13,7 @@ Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and
 
 ## Install T-SQL support
 
-Add T-SQL language support to {% data variables.product.prodname_vscode_shortname %} by installing the [mssql] extension from the {% data variables.product.prodname_vscode_shortname %} marketplace as follows:
+Add T-SQL language support to {% data variables.product.prodname_vscode_shortname %} by installing the [mssql] extension from the {% data variables.product.prodname_vs_marketplace %} as follows:
 
 1. Open the **Extensions** view from {% data variables.product.prodname_vscode_shortname %} Side Bar (`kb(workbench.view.extensions)`).
 2. Type "mssql" in the search bar, click **Install**, and reload {% data variables.product.prodname_vscode_shortname %} when prompted.
