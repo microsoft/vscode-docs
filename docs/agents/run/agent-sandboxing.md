@@ -71,7 +71,7 @@ On Windows, install the update that applies to your Windows version:
 ## Turn on agent sandboxing
 
 > [!NOTE]
-> Legacy {% data variables.product.prodname_vscode_shortname %} sandbox settings and device policies are deprecated. For {% data variables.product.prodname_copilot_short %} Agent Host sessions, use the [session sandbox controls](#control-sandboxing-for-an-agent-host-session). Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing. Existing Local behavior is unchanged.
+> Legacy {% data variables.product.prodname_vscode_shortname %} sandbox settings and device policies are deprecated and apply to Local sessions. For {% data variables.product.prodname_copilot_short %} Agent Host sessions, use the [session sandbox controls](#control-sandboxing-for-an-agent-host-session). Existing Local behavior is unchanged.
 
 Sandboxing is off by default. To turn it on for sessions running on your machine:
 
@@ -233,7 +233,7 @@ You can turn sandboxing back on for the session. The toggle then locks again, an
 
 New managed restrictions take precedence over saved session state. For example, a managed bypass denial revokes a previously approved session bypass when you resume the session. Removing a managed restriction exposes saved user preferences again, but does not automatically restore a session's previously invalidated **Off** selection.
 
-If a required setting is locked or you need access that policy denies, contact your administrator. For deployment details, see [managed agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
+If a required setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 
 ## Related resources
 

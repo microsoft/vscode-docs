@@ -232,7 +232,7 @@ The enable/disable state is stored separately from the server configuration in `
 
 ## Centrally manage access to MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/manage-ai-settings.md#configure-mcp-server-access).
+Organizations can centrally manage access to MCP servers with {% data variables.product.prodname_vscode_shortname %} device policies or {% data variables.product.prodname_copilot_short %} enterprise-managed settings. Learn more about [enterprise management of MCP servers](/docs/enterprise/manage-ai-settings.md#configure-mcp-server-access).
 
 ## Automatically start MCP servers
 
