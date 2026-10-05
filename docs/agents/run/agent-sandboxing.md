@@ -1,6 +1,6 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure agent terminal sandboxing in {% data variables.product.prodname_vscode_shortname %} with file system, network, and platform-specific controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:

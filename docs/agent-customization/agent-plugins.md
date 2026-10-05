@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Discover and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including skills, tools, hooks, and automation templates.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn the {% data variables.product.prodname_vscode %} interface, AI agents, extensions, settings, source control, and debugging.
 ---
 # Tutorial: Get started with {% data variables.product.prodname_vscode %}

@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for Local, Copilot, Claude, and Codex agent sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

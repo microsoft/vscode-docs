@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

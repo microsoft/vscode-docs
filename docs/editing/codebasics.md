@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Edit code efficiently in {% data variables.product.prodname_vscode %} with multiple cursors, search, formatting, folding, and automatic bracket closing.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---

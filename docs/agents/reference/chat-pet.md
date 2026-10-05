@@ -1,6 +1,6 @@
 ---
 ContentId: 587745a8-bc1a-4a6c-9570-93c10066cbe2
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Explore VS Code pet interactions and reactions, and review the official naming contest rules.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 7d3859cb-6d6d-4e44-9d22-f12a84219354
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Preview inline and contextual documentation action cards with article, external, and product protocol links.
 MetaSocialImage: ../images/codebasics/code-basics-social.png
 ---

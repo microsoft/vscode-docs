@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Create and migrate reusable prompt files in {% data variables.product.prodname_vscode_shortname %} for repeatable AI-assisted development tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
