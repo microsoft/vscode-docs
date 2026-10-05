@@ -139,6 +139,21 @@ When the Dev Container is created, {% data variables.product.prodname_vscode_sho
 </details>
 
 <details>
+<summary>Install an MCP server from the Customization Marketplace (Experimental)</summary>
+
+The Customization Marketplace provides an alternative way to find MCP servers from configured sources:
+
+1. Turn on the `setting(chat.customizations.marketplace.enabled)` setting.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`), and then select **Discover**.
+1. From the source menu, select **GitHub Feed**, and then search for a server by name or add `@type:mcp` to your search.
+1. Select a server and review its source, product image, publisher details, and installation requirements.
+1. Select **Install**.
+
+Some servers don't support automatic installation. Follow the publisher's setup instructions when they are provided.
+
+</details>
+
+<details>
 <summary>Automatically discover MCP servers</summary>
 
 {% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.

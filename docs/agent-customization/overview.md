@@ -61,6 +61,32 @@ In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear
 {% /tab %}
 {% /tabs %}
 
+### Discover marketplace customizations (Experimental)
+
+The Customization Marketplace provides a unified **Discover** page for finding skills, MCP servers, plugins, and other agent customizations from configured sources. To use the marketplace, turn on the `setting(chat.customizations.marketplace.enabled)` setting.
+
+The GitHub Feed source is available by default when the marketplace is enabled. Use the `setting(chat.customizations.marketplace.sources.publicFeed.enabled)` setting to show or hide this source.
+
+To find and install a customization:
+
+1. Open the Agent Customizations editor and select **Discover**.
+1. Use the source menu to browse all sources or select a specific source, such as **GitHub Feed**.
+1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
+1. Select an item and review its publisher, source, installation details, and any setup requirements.
+1. Select **Install** and choose a destination when prompted.
+
+Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
+
+<!-- TODO: Add a screenshot showing Discover with GitHub Feed selected and source or publisher images visible. -->
+
+Marketplace items show a source or publisher image in **Discover** and, when available, on the installed item and its details page. Use this information together with the item details to verify the source before installation.
+
+{% data variables.product.prodname_vscode_shortname %} associates marketplace state with the exact installed target, not only its display name. A local customization and a Marketplace-installed customization with the same name remain separate:
+
+* **Installed** indicates that the recorded target is available.
+* **Missing files** indicates that files from a Marketplace-installed skill are no longer present. Select **Repair** to restore only the missing files. Repair preserves files that you edited or added.
+* Deleting a Marketplace-installed customization removes its exact installation. It doesn't remove an unrelated local customization with the same name.
+
 ## Choose a customization scope
 
 Store a customization at the narrowest scope that matches how you want to use and share it:
@@ -101,7 +127,7 @@ Create a workspace code reviewer skill for Python and JavaScript files. Check th
 
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
-For MCP servers and agent plugins, browse the corresponding marketplace from the editor, install an item, and manage the installation from the same section.
+For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources, install an item, and manage the installation from the corresponding section.
 
 See the guides for [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [prompt files](/docs/agent-customization/prompt-files.md), [custom agents](/docs/agent-customization/custom-agents.md), [MCP servers](/docs/agent-customization/mcp-servers.md), [hooks](/docs/agent-customization/hooks.md), and [agent plugins](/docs/agent-customization/agent-plugins.md) for their file formats and configuration options.
 
