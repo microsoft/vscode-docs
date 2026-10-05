@@ -49,9 +49,27 @@ This setting doesn't affect diff editors in the **Changes** view. To configure w
 
 ### Personalize the welcome heading (Experimental)
 
-Enable `setting(sessions.chat.experimental.welcomePhrases)` to show a rotating welcome phrase above the new-session composer in the {% data variables.copilot.agents_window %}. To personalize the phrase, use the **Set Welcome Name** action or set `setting(sessions.chat.experimental.welcomeName)`. The name syncs across devices.
+Enable `setting(sessions.chat.experimental.welcomePhrases)` to show a rotating welcome phrase above the new-session composer in the {% data variables.copilot.agents_window %}.
 
-Clear the welcome name to use the first name from your GitHub profile when available, or a generic phrase when your profile doesn't include a name. When screen reader optimized mode is active, the heading is announced once when the composer appears. Turn off `setting(accessibility.verbosity.newSessionWelcome)` to omit the announcement.
+To personalize the heading, select the pencil icon (**Customize Welcome Message...**), and then choose one of the following options:
+
+* **Name**: Set the name used in welcome phrases. Clear the name to use the first name from your GitHub profile when available, or omit the name when your profile doesn't include one. You can also set the name with `setting(sessions.chat.experimental.welcomeName)`. The name syncs across devices.
+* **Phrases**: Open `setting(sessions.chat.experimental.welcomeMessages)` to add custom phrases or replace the default phrases.
+
+The following example adds two custom phrases to the default phrases:
+
+```json
+"sessions.chat.experimental.welcomeMessages": {
+    "mode": "append",
+    "phrases": ["Ready, {name}?", "Let's ship it"]
+}
+```
+
+Set `mode` to `append` to use your phrases and the default phrases, or set it to `replace` to use only your phrases. Use `{name}` anywhere in a phrase to insert the configured or GitHub profile name. If no name is available, {% data variables.product.prodname_vscode_shortname %} removes the placeholder and its adjoining separator.
+
+To hide the heading, right-click it and select **Hide Welcome Message**. This action turns off `setting(sessions.chat.experimental.welcomePhrases)`. Re-enable the setting to show the heading again.
+
+When screen reader optimized mode is active, the heading is announced once when the composer appears. Turn off `setting(accessibility.verbosity.newSessionWelcome)` to omit the announcement.
 
 ### Group the composer controls (Experimental)
 

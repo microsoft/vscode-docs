@@ -223,6 +223,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
 | `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
 | `setting(sessions.chat.experimental.welcomeName)` _(Experimental)_<br/>Set the name in new-session welcome messages. Leave empty to use the first name from the signed-in GitHub profile when available. | `""` |
+| `setting(sessions.chat.experimental.welcomeMessages)` _(Experimental)_<br/>Add custom welcome phrases to the defaults with `append`, or use only custom phrases with `replace`. Use `{name}` to position the welcome name in a phrase. | `{"mode": "append", "phrases": []}` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
