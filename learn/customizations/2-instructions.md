@@ -1,13 +1,13 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
-DateApproved: 04/17/2026
+DateApproved: 9/30/2026
 MetaDescription: Learn how to create and use custom instructions in VS Code to guide GitHub Copilot behavior, enforce coding standards, and get consistent chat results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
 # Introduction to custom instructions
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dk2biPguo_E?si=O15sDX8Jf18pXZFr" title="Custom Instructions: How I Really Made Copilot Listen!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Custom Instructions: How I Really Made Copilot Listen! on YouTube (opens in new tab).](images/2-instructions/youtube-dk2biPguo_E.jpg)](https://www.youtube.com/watch?v=dk2biPguo_E)
 
 You’ve probably been lied to about custom instructions.
 

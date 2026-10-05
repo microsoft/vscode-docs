@@ -3,7 +3,7 @@ Order:
 TOCTitle: Using Azure Pipelines
 PageTitle: Visual Studio Code using Azure Pipelines
 MetaDescription: Visual Studio Code using Azure Pipelines
-MetaSocialImage: /assets/blogs/2018/09/12/social_pipelines.png
+MetaSocialImage: /assets/blogs/2018/09/12/social_pipelines.webp
 Date: 2018-09-12
 ShortDescription: Improved Engineering with Azure Pipelines
 Author: João Moreno
@@ -24,7 +24,7 @@ Up until very recently, we relied on the OSS community's default choices for pub
 
 Earlier this year, we were reached out by the Azure Pipelines (then Visual Studio Team Services) team to try out something new. This announcement marks our move to a more streamlined continuous integration solution. Our builds now run simultaneously across all platforms, [check it out](https://aka.ms/vscode-builds):
 
-![VSCode Project Build Page](build.png)
+![VSCode Project Build Page](build.webp)
 
 There's a lot of cool stuff which needed to happen in order for us to make the move. Let's break it down:
 
@@ -39,11 +39,11 @@ Putting all of this together, we're finally able to focus on a single CI solutio
 
 Azure Pipelines also provides GitHub integration which gives us build result indicators across our GitHub project page, namely in pull requests.
 
-![Pull Request Integration](pr.png)
+![Pull Request Integration](pr.webp)
 
 We've also built a chat bot which hooks up to [Azure Pipeline's REST API](https://learn.microsoft.com/rest/api/azure/devops/build) and provides notifications to our internal chat when builds break.
 
-![Chat Bot Automation](slack.png)
+![Chat Bot Automation](slack.webp)
 
 ## Going forward
 

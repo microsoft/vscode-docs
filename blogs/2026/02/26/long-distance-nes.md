@@ -3,7 +3,7 @@ Order: 127
 TOCTitle: Long Distance NES
 PageTitle: "Building Long-Distance Next Edit Suggestions"
 MetaDescription: Learn how we extended next edit suggestions to work across your entire file, reducing friction and improving productivity in GitHub Copilot.
-MetaSocialImage: long-distance-nes-hero.png
+MetaSocialImage: long-distance-nes-hero.webp
 Date: 2026-02-26
 Author: Vikram Duvvur, Gaurav Mittal, Benjamin Simmonds
 ---
@@ -16,7 +16,7 @@ Last February, we released [next edit suggestions (NES)](/docs/editing/ai-powere
 
 That's what we set out to solve with long-distance next edit suggestions: extending NES to predict and suggest edits anywhere in your file, not just near your current cursor position.
 
-![A far away NES edit](jump.gif)
+<video src="jump.mp4" title="Video showing A far away NES edit." autoplay loop controls muted></video>
 
 <!-- This post tells the story of how we built it: the modeling challenges, the UX decisions, and an unexpected lesson about teaching a model *restraint*. -->
 
@@ -40,7 +40,7 @@ We designed a structured three-step evaluation process:
 2. Construct representative cursor-jump examples
 3. Measure both jump and no-jump accuracy
 
-![Diagram of the three-step evaluation flow, showing the progression from real editing workflows to structured evaluation dataset to spatial intent metrics.](evaluation_flow.png)
+![Diagram of the three-step evaluation flow, showing the progression from real editing workflows to structured evaluation dataset to spatial intent metrics.](evaluation_flow.webp)
 
 <!--
 ```mermaid
@@ -79,7 +79,7 @@ Ultimately, the structured grid search produced our best-performing supervised m
 
 A better model isn't enough if you never notice or trust the suggestions it produces. With standard NES, suggestions appear close to your cursor and within your immediate view, making them naturally discoverable. With long-distance NES, the most relevant edit may not be in your immediate vicinity. So, the UX has to solve a harder problem: surfacing distant edits without disrupting your flow.
 
-![Video of a far away jump suggestion, showing how the widget adapts to a gradually reducing window size.](rename_NES.gif)
+<video src="rename_NES.mp4" title="Video showing a far away jump suggestion, showing how the widget adapts to a gradually reducing window size." autoplay loop controls muted></video>
 
 This comes down to balancing three concerns: keeping suggestions compact, making them readable, and minimizing how much of your code they obscure.
 

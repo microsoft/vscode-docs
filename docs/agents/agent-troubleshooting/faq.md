@@ -1,14 +1,27 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 8/19/2026
-MetaDescription: Frequently asked questions for using GitHub Copilot in {% data variables.product.prodname_vscode %}.
+DateApproved: 9/30/2026
+MetaDescription: Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot frequently asked questions
 
-This article answers frequently asked questions about using GitHub Copilot in {% data variables.product.prodname_vscode %}.
+Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
 
 ## GitHub Copilot subscription
+
+### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
+
+Yes. You don't need an account to use the core editor features in {% data variables.product.prodname_vscode_shortname %}.
+
+To use AI features, choose one of these access methods:
+
+* Sign in with the GitHub account that has your GitHub Copilot plan. This provides the models, features, and usage allowances included with the plan.
+* Configure a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for supported chat features without GitHub sign-in.
+
+Some features, including inline suggestions, semantic search, and embeddings, require the GitHub Copilot service and aren't available through bring-your-own-key models.
+
+If you don't want to use AI, you can continue using {% data variables.product.prodname_vscode_shortname %} without signing in. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 
 ### How can I get a Copilot subscription?
 
@@ -16,7 +29,7 @@ There are different ways to get access to GitHub Copilot:
 
 | Type of User                   | Description |
 |--------------------------------|-------------|
-| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly allowance of inline suggestions and AI credits.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
+| Individual                     | <ul><li>Set up {% data variables.copilot.copilot_free %} to explore basic functionality at no cost with a monthly allowance of inline suggestions and AI credits.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
 | Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
 
 ### What's the advantage of signing in with a GitHub account?
@@ -26,7 +39,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Higher monthly AI credits allowance](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
 * [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
-* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
+* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
 * [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
@@ -46,7 +59,7 @@ Visit the GitHub Copilot documentation for more information about [monitoring us
 
 Your inline suggestions allowance and AI credits allowance reset every month. If you've only reached the AI credits limit, you can still use inline suggestions. Similarly, if you've reached the limit for inline suggestions, you can still use chat.
 
-For users on Copilot Free, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from {% data variables.product.prodname_vscode_shortname %}. Alternatively, you can wait until the next month to continue using Copilot for free.
+For users on {% data variables.copilot.copilot_free_short %}, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from {% data variables.product.prodname_vscode_shortname %}. Alternatively, you can wait until the next month to continue using Copilot for free.
 
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
 
@@ -54,15 +67,15 @@ For tips on reducing credit consumption, see [optimize AI credit usage](/docs/ag
 
 ### My Copilot subscription is not detected in {% data variables.product.prodname_vscode_shortname %}
 
-To use chat in {% data variables.product.prodname_vscode %}, you must be signed into {% data variables.product.prodname_vscode %} with a GitHub account that has access to GitHub Copilot.
+To use your Copilot plan in chat, you must be signed into {% data variables.product.prodname_vscode %} with the GitHub account that has access to the plan.
 
-- If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/setup/copilot.md#use-a-different-github-account-with-copilot) for more information.
+* If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/setup/copilot.md#use-a-different-github-account-with-copilot) for more information.
 
-- Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
+* Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
 
-- If you're using a Copilot plan for a managed user account on GHE.com, you'll need to update some settings before you sign in. See [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+* If you're using a Copilot plan for a managed user account on GHE.com, you need to update some settings before you sign in. See [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-### How can I switch accounts for Copilot
+### How can I switch accounts for Copilot?
 
 If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in {% data variables.product.prodname_vscode_shortname %}, and sign in with another account.
 
@@ -81,13 +94,15 @@ Alternatively, use the **Learn How to Hide AI Features** action from the Chat me
 
 ### Network and firewall configuration for Copilot
 
-- If you or your organization employs security measures like a firewall or proxy server, it may be beneficial to include certain domain URLs in an "allowlist" and open specific ports and protocols. Learn more about troubleshooting [firewall settings for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot).
+* Configure your firewall or proxy to permit the domains, ports, and protocols required by GitHub Copilot. See [Troubleshoot firewall settings for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot).
 
-- If you're working on company equipment and connecting to a corporate network, you may be connecting to the Internet via a VPN or an HTTP proxy server. In some cases, these types of network setups may prevent GitHub Copilot from connecting to GitHub's server. Learn more about [troubleshooting network errors for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot).
+* If you use a corporate VPN or HTTP proxy, check whether Copilot can reach GitHub without connection or certificate errors. See [Troubleshoot network errors for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot).
+
+To identify a failing connection, [collect network diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#collect-network-diagnostics).
 
 ### My request is rate-limited
 
-This error suggests that you have exceeded the rate limit for Copilot requests. GitHub uses rate limits to ensure everyone has fair access to the Copilot service and to protect against abuse.
+This error means that the service is temporarily limiting requests. A rate limit can occur even when your monthly AI credits allowance is not exhausted. Wait a few minutes and retry the request.
 
 See [Rate limits for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/rate-limits-for-github-copilot) for more information about rate limits and what to do if you are rate limited.
 
@@ -113,25 +128,30 @@ Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copi
 
 ### Inline suggestions are not working in the editor
 
-- Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language
-- Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
-- Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
-- Verify that you have not reached the inline suggestions limit for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* Verify that [GitHub Copilot is not turned off](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language.
+* Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code).
+* Verify that your [network settings](#network-and-firewall-configuration-for-copilot) permit connectivity to GitHub Copilot.
+* Verify that you have not reached the inline suggestions limit for the month with the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
-## Chat
+If these checks pass, [view the GitHub Copilot logs](/docs/agents/agent-troubleshooting/troubleshooting.md#view-logs-for-github-copilot).
+
+## Chat and agents
 
 ### Chat features aren't working for me
 
-Verify the following requirements to ensure Chat features work in {% data variables.product.prodname_vscode %}:
+Check the following requirements:
 
-- Make sure you are on the latest version of {% data variables.product.prodname_vscode %} (run **Code: Check for Updates**).
-- Make sure you have the latest version of [{% data variables.copilot.copilot_chat %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
-- Your GitHub account that is signed into {% data variables.product.prodname_vscode_shortname %} must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
-- Verify that you have not reached your AI credits limit for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* Run **Code: Check for Updates** to update {% data variables.product.prodname_vscode %}.
+* If you use a Copilot plan, verify that {% data variables.product.prodname_vscode_shortname %} is signed in with the GitHub account that has the active plan.
+* If you use a bring-your-own-key model, verify the model provider configuration. Some chat features still require the GitHub Copilot service.
+* Check the Copilot status dashboard for an exhausted AI credits allowance. If the request reports a temporary rate limit, wait a few minutes and retry it.
+* Check your [network and firewall configuration](#network-and-firewall-configuration-for-copilot).
+
+If these checks pass, follow the [symptom-based troubleshooting steps](/docs/agents/agent-troubleshooting/troubleshooting.md#choose-a-troubleshooting-path).
 
 ### Agents are not available in chat
 
-Verify that agents are enabled in your {% data variables.product.prodname_vscode_shortname %} settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agents enabled.
+Verify that agents are turned on with the `setting(chat.agent.enabled)` setting. Your organization can manage this setting with a policy. If the setting is unavailable or managed, contact your administrator.
 
 ### What can agents do in {% data variables.product.prodname_vscode_shortname %}?
 
@@ -139,11 +159,11 @@ Agents handle complete coding tasks autonomously. They plan multi-step implement
 
 ### Does Copilot work with large codebases and monorepos?
 
-Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
+Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#semantic-index-sources) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
 
 ### Can my organization control AI features and agent access?
 
-Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
+Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/manage-ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
 
 ### Are agents usage-limited?
 
@@ -167,36 +187,38 @@ You can change the default visibility directly from the {% data variables.copilo
 
 You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the {% data variables.copilot.chat_view %} from opening automatically.
 
+## Working across {% data variables.product.prodname_copilot_short %} experiences
+
+### Can I continue a {% data variables.copilot.copilot_cli_short %} or {% data variables.copilot.github_copilot_app_short %} session in {% data variables.product.prodname_vscode_shortname %}?
+
+Yes, use **External** > **All** in the sessions list filter to show [supported local sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. The Agent Host then adopts the session, and the **External** filter no longer affects its visibility.
+
+### Why can't I see a {% data variables.product.prodname_copilot_short %} session I already started?
+
+Sessions from other applications are hidden until you change the [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) from **None**. {% data variables.product.prodname_copilot_short %} discovers repository-associated sessions updated within the last seven days. **Recent** shows the two most recently updated external sessions, whereas **All** shows all discovered sessions, not every past session.
+
+### Can I continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal?
+
+Yes, open a {% data variables.product.prodname_copilot_short %} session's context menu and select **Resume in Terminal** to continue it with {% data variables.copilot.copilot_cli %}. Learn about [using {% data variables.copilot.copilot_cli_short %} in the integrated terminal](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal).
+
+### Does switching between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} start a new session?
+
+No, opening the same supported Agent Host session in either interface keeps its conversation, harness, workspace, and worktree. [Switching surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces) does not create, fork, or hand off a session.
+
+### Is picking up a session the same as syncing its history?
+
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
+
 ## Troubleshooting and feedback
 
 ### How can I provide feedback on Copilot?
 
-We track issues and feature requests for GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} in the [microsoft/vscode](https://github.com/microsoft/vscode) GitHub repository. You can create issues in this repository or use the following feedback mechanisms in {% data variables.product.prodname_vscode_shortname %}:
+Use the feedback action associated with an inline suggestion or next edit suggestion. For chat and agent issues, use the {% data variables.product.prodname_vscode_shortname %} Issue Reporter.
 
-- **Ghost text suggestions**
-
-    Use the **Send Copilot Completion Feedback** action when hovering over a ghost text suggestion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
-
-    ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](../images/faq/code-completions-feedback.png)
-
-- **{% data variables.copilot.next_edit_suggestions_caps %}**
-
-    Select the **Feedback** action in the {% data variables.copilot.next edit suggestions %} menu in the editor gutter. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
-
-    ![Screenshot that shows {% data variables.copilot.next edit suggestions %} menu in the editor gutter.](../images/faq/nes-feedback.png)
-
-- **General issues**
-
-    Open the {% data variables.product.prodname_vscode_shortname %} Issue reporter (**Help menu** > **Report Issue**), select the **{% data variables.product.prodname_vscode_shortname %} Extension** source, and then select the **{% data variables.copilot.copilot_chat %}** extension. Provide a clear and detailed description of the issue, including steps to reproduce it.
-
-    ![Screenshot that shows {% data variables.product.prodname_vscode_shortname %} Issue Reporter with {% data variables.copilot.copilot_chat %} selected.](../images/faq/issue-reporter.png)
-
-When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
-
-It can be helpful to include information from the Copilot logs if you're reporting an issue. Learn how to [view logs and collect diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md).
+See [Report an unresolved issue](/docs/agents/agent-troubleshooting/troubleshooting.md#report-an-unresolved-issue) for the reporting steps, evidence checklist, and precautions for sharing diagnostic data. Follow the [Copilot issue-reporting guidelines](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make the report actionable.
 
 ## Additional resources
 
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
-- [Security considerations for AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)
-- [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation
+* [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+* [Security considerations for AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)
+* [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

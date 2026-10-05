@@ -1,6 +1,6 @@
 ---
 ContentId: 63378e8d-67e5-4a11-8480-aee7b7e5078f
-DateApproved: 07/08/2026
+DateApproved: 9/30/2026
 MetaDescription: Learn how to shortlist, filter, deploy, and compare models in Model Catalog using Foundry Toolkit and GitHub Copilot.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 # Exploring Models with Model Catalog
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/92tKoJOTays" title="Chapter 2 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Chapter 2 Video on YouTube (opens in new tab).](images/2-exploring-models/youtube-92tKoJOTays.jpg)](https://www.youtube.com/watch?v=92tKoJOTays)
 
 When building AI applications, one of the hardest parts is not implementation, it is picking the right model. You can have strong prompts and a clean workflow, but if the model is mismatched, quality and speed both take a hit.
 

@@ -1,18 +1,18 @@
 ---
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 DateApproved: 12/10/2021
-MetaDescription: Maven and Gradle support for Java in Visual Studio Code
+MetaDescription: Maven and Gradle support for Java in {% data variables.product.prodname_vscode %}
 MetaSocialImage:
 ---
-# Java build tools in VS Code
+# Java build tools in {% data variables.product.prodname_vscode_shortname %}
 
-This document is an overview of how to work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extensions as well as other tools.
+This document is an overview of how to work with your Java build tools in {% data variables.product.prodname_vscode %}. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extensions as well as other tools.
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Maven
 
-[Maven](https://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins. We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes Maven support and other important Java development features.
+[Maven](https://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for {% data variables.product.prodname_vscode %} provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins. We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes Maven support and other important Java development features.
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
@@ -51,7 +51,7 @@ You can also add dependencies through the project view, which calls the same Mav
 <video src="images/java-build/maven-add-dependency-2.mp4" autoplay loop muted playsinline controls title="Add dependency through project view">
 </video>
 
-Furthermore, VS Code also supports showing dependencies in a tree view, which allows you to inspect all dependencies in your project at a single place and check for potential issues.
+Furthermore, {% data variables.product.prodname_vscode_shortname %} also supports showing dependencies in a tree view, which allows you to inspect all dependencies in your project at a single place and check for potential issues.
 
 <video src="images/java-build/maven-dependency-tree.mp4" autoplay loop muted playsinline controls title="Inspect Maven dependency tree">
 </video>
@@ -110,15 +110,15 @@ There are several ways to create a Maven project:
 
 ## Gradle
 
-VS Code supports Gradle Java projects (excluding Android) through the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. This extension offers several components to enhance your Gradle Java project experience:
+{% data variables.product.prodname_vscode_shortname %} supports Gradle Java projects (excluding Android) through the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. This extension offers several components to enhance your Gradle Java project experience:
 - **Gradle Build Server:** The [Gradle Build Server](https://github.com/microsoft/build-server-for-gradle) is used to import Gradle projects and delegate build tasks to the Gradle daemon, ensuring consistent project output as if running Gradle tasks from the command line.
-- **Visual Interface:** Allows you to view and manage Gradle tasks and project dependencies, and run Gradle tasks directly within VS Code.
+- **Visual Interface:** Allows you to view and manage Gradle tasks and project dependencies, and run Gradle tasks directly within {% data variables.product.prodname_vscode_shortname %}.
 - **Gradle Language Server:** Provides an improved authoring experience for Gradle build files, including syntax highlighting, error reporting, and auto-completion.
 
 ### Gradle Build Server
 By default, if you have installed the Gradle for Java extension, the Gradle Build Server is used to import Gradle projects. You can toggle the Gradle Build Server on or off by setting `java.gradle.buildServer.enabled`.
 
-You can view the Gradle build output in the Build Server for Gradle (Build) output channel and trace the interactions between VS Code and the Gradle Build Server in the Build Server for Gradle (Log) output channel.
+You can view the Gradle build output in the Build Server for Gradle (Build) output channel and trace the interactions between {% data variables.product.prodname_vscode_shortname %} and the Gradle Build Server in the Build Server for Gradle (Log) output channel.
 
 ### Delegate tests to Gradle
 The extension supports delegating the test execution to Gradle. You can configure the test profile you want to use in the Testing Explorer.
@@ -189,7 +189,7 @@ In addition to Maven, there's also a [Bazel extension](https://marketplace.visua
 
 Read on to find out more about:
 
-* [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-* [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+* [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in {% data variables.product.prodname_vscode_shortname %}.
+* [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with {% data variables.product.prodname_vscode_shortname %}.
+* [Java testing](/docs/java/java-testing.md) - Use {% data variables.product.prodname_vscode_shortname %} for your JUnit and TestNG cases.
+* [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for {% data variables.product.prodname_vscode_shortname %}.

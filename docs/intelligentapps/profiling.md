@@ -11,8 +11,8 @@ In this article, you learn how to start profiling and how to inspect the resourc
 
 ## Prerequisites
 
-- Install the latest version of [Visual Studio Code](/download).
-- Install the Foundry Toolkit VS Code extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the latest version of [{% data variables.product.prodname_vscode %}](/download).
+- Install the Foundry Toolkit {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Profile on app startup
 
@@ -24,8 +24,8 @@ This option is ideal for testing a run-once app. In this case, you start profili
 The tool starts profiling a newly started app. This means that for profiling a Python notebook, if the kernel is already running, you need to restart the kernel to begin profiling for it. Just starting a new notebook does not automatically start profiling.
 
 > [!IMPORTANT]
-> To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
-> ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/the-next-session-admin.png)
+> To receive Windows ML events, the tool needs to be run in admin mode. If {% data variables.product.prodname_vscode_shortname %} is not started in admin mode, a notification shows up and guides you to restart {% data variables.product.prodname_vscode_shortname %}. You need to close all other {% data variables.product.prodname_vscode_shortname %} instances to make the restart in admin mode work.
+> ![Screenshot that shows a notification to restart {% data variables.product.prodname_vscode_shortname %} in admin mode](./images/profiling/the-next-session-admin.png)
 
 
 ## Profile a running app
@@ -74,9 +74,9 @@ To see op level data when running on the Intel (OpenVINO) EP, do the following:
 1. Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
 1. In Foundry Toolkit settings, set `Model Lab Intel Unified Telemetry Path` to `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1\bin`
 
-Intel Unified Telemetry requires administrator privileges to run. If VS Code is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress. Don't close this window until the process has completed.
+Intel Unified Telemetry requires administrator privileges to run. If {% data variables.product.prodname_vscode_shortname %} is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress. Don't close this window until the process has completed.
 
-If VS Code is already running as administrator, you won't be prompted and no additional window will open.
+If {% data variables.product.prodname_vscode_shortname %} is already running as administrator, you won't be prompted and no additional window will open.
 
 
 ## Profile an ONNX GenAI model
@@ -102,8 +102,8 @@ In the main window, the plot on the top shows usage of CPU, GPU, NPU, and memory
 In the main window, the plot on the bottom shows Windows ML events. Its timeline is synchronized with the Resource Usage view, so you can easily determine how resources are used when certain events occur.
 
 > [!IMPORTANT]
-> To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
-> ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
+> To receive Windows ML events, the tool needs to be run in admin mode. If {% data variables.product.prodname_vscode_shortname %} is not started in admin mode, a notification shows up and guides you to restart {% data variables.product.prodname_vscode_shortname %}. You need to close all other {% data variables.product.prodname_vscode_shortname %} instances to make the restart in admin mode work.
+> ![Screenshot that shows a notification to restart {% data variables.product.prodname_vscode_shortname %} in admin mode](./images/profiling/events-view-admin.png)
 
 Currently, only the following event types are shown:
 

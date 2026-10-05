@@ -23,13 +23,13 @@ This was a team effort as fundamental architectural changes as well as code modi
 
 For a long time, Electron has allowed direct use of [Node.js](https://nodejs.org) APIs in HTML and JavaScript. The code snippet below provides a simple example of a web page that not only prints "Hello World" to the user but also writes to a file on the local disk:
 
-![HTML and Node.js code on a web page in Electron](html-node-web-page.png)
+![HTML and Node.js code on a web page in Electron](html-node-web-page.webp)
 
 The Electron process that is responsible for presenting the web page to the user is called the **renderer** process. Enabling sandbox mode for the renderer process reduces its capabilities for improved security and to align more with the web model: while HTML and JavaScript are still allowed, usage of Node.js is not. Components in the renderer process that require access to system resources will have to delegate to another process that is not sandboxed.
 
 The code below no longer depends on Node.js but uses a `vscode` global variable that provides the functionality to update settings. The implementation of the method involves sending a message to another process that has access to Node.js. As such, it is also no longer executing synchronously but asynchronously:
 
-![Removing Node.js by providing an asynchronous alternative in Electron](removing-node-web-page.png)
+![Removing Node.js by providing an asynchronous alternative in Electron](removing-node-web-page.webp)
 
 How we came to have the `vscode` global in the renderer process and how it is implemented is detailed in the [Timeline](#our-technology-timeline) sections below.
 
@@ -41,7 +41,7 @@ A change as large as removing all our Node.js dependencies from the renderer pro
 
 The diagram below shows our process architecture before the sandbox effort started. As you can see, most processes are Node.js child processes (in green) forked from the renderer process. Most of the (inter-process communication) IPC is implemented via Node.js sockets and the renderer process is a major client of Node.js APIs – for example to read and write files.
 
-![VS Code process model before sandboxing in 2020](process-model-before-sandbox.png)
+![VS Code process model before sandboxing in 2020](process-model-before-sandbox.webp)
 
 We quickly decided that we wanted to work on process sandboxing without having to ship a separate VS Code application that is sandboxed. We wanted to incrementally make the VS Code renderer process sandbox-ready and then flip the switch at the end. Over the past years, we have shipped monthly stable releases of VS Code with changes that contribute to the sandbox goal without fully enabling it. Imagine flying an airplane that is being fundamentally rebuild while it is in the air. And in our case, users have mostly been unaware of the changes to VS Code.
 
@@ -55,11 +55,11 @@ For the most part, the order of topics follows the actual timeline. To keep each
 
 When we started to consider sandboxing in early 2020, we had already shipped a version of VS Code that was able to run in web browsers. You can run [vscode.dev](https://vscode.dev) in your browser and see [Visual Studio Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web) in action. While creating a web version of VS Code, we had learned how to remove Node.js dependencies from the workbench – the main VS Code user interface window.
 
-![VS Code for Web running in the browser](vscode-web.png)
+![VS Code for Web running in the browser](vscode-web.webp)
 
 Removing dependencies to Node.js meant finding alternatives. For example, our dependency on the Node.js `Buffer` type was replaced with a [VSBuffer](https://github.com/microsoft/vscode/blob/main/src/vs/base/common/buffer.ts) equivalent that would fall back to `Uint8Array` in browser environments. We were also able to package some Node.js modules ([oniguruma](https://github.com/microsoft/vscode-oniguruma), [iconv-lite](https://github.com/microsoft/vscode-iconv-lite-umd)) to run in web environments.
 
-![VSBuffer utility class supporting both Node.js and web environments](vsbuffer-class.png)
+![VSBuffer utility class supporting both Node.js and web environments](vsbuffer-class.webp)
 
 But even before VS Code for the Web became a reality, we had enabled support for [remote development](https://code.visualstudio.com/docs/remote/remote-overview), which allows source code to be edited on a remote host, such as through an SSH connection (and later even powered [GitHub Codespaces](https://github.com/features/codespaces)). For remote development, we had to implement a solution where the UI facing pieces of VS Code run locally, while the actual file operations run on a remote machine. This model applies to a sandboxed workbench as well, where privileged operations must run in a different process. In both cases, the renderer process communicates via IPC to a privileged host to perform the operations.
 
@@ -69,11 +69,11 @@ When a renderer process cannot use Node.js, work must be delegated to another pr
 
 Electron provides the ability to inject [preload scripts](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload) into the renderer process that execute before the main script executes. These scripts have access to Electron's own [IPC mechanism](https://www.electronjs.org/docs/latest/tutorial/ipc). Preload scripts can enrich the API available to the main script of the renderer through the [context bridge](https://www.electronjs.org/docs/latest/api/context-bridge) API. While the preload script can use Electron's IPC directly, the main script cannot. As such, [we expose certain methods](https://github.com/microsoft/vscode/blob/main/src/vs/base/parts/sandbox/electron-browser/preload.js) via context bridge to the main script. In the example that we used in the beginning, here is how a method for updating settings could be exposed from a preload script into the main script:
 
-![Exposing a method from preload script to the main script in Electron](expose-methond-preload-script.png)
+![Exposing a method from preload script to the main script in Electron](expose-methond-preload-script.webp)
 
 Preload scripts are our fundamental building block for splitting privileged code from unprivileged. For example, writing to a file on disk means an IPC message with the new contents will travel from the main script to the preload script and from there into the main process that has access to Node.js.
 
-![IPC flow when preload scripts are involved in Electron](ipc-preload-scripts.png)
+![IPC flow when preload scripts are involved in Electron](ipc-preload-scripts.webp)
 
 ## Fast inter-process communication via message port
 
@@ -94,7 +94,7 @@ Passing message ports across process boundaries is [complex](https://www.electro
 * The preload script forwards P2 into the renderer main script.
 * The main script receives P2 and can use it to send messages directly.
 
-![Message ports exchange between shared and renderer process in VS Code](messageport-exchange.png)
+![Message ports exchange between shared and renderer process in VS Code](messageport-exchange.webp)
 
 ## Changing the origin of the renderer
 
@@ -120,7 +120,7 @@ Now that we had a way to run VS Code with sandbox enabled, we wanted to invest i
 
 In the screenshot below, a warning marker appears in the editor indicating that a file from the **browser** target environment depends on an API from Node.js. The warning will cause our build to fail and prevent accidentally pushing this code to a release.
 
-![A warning in VS Code informing about a target environment violation](target-environment-warning.png)
+![A warning in VS Code informing about a target environment violation](target-environment-warning.webp)
 
 Our Process Explorer and Issue Reporter utilities were among the first to conform to the **electron-sandbox** target requirements. We were able to run these windows fully sandboxed well before the workbench window finished adoption.
 
@@ -145,7 +145,7 @@ Integrated terminals and file watching moved to be child processes of the shared
 
 The diagram below shows our process architecture in late 2022, once we had enabled the sandbox in the renderer process. All Node.js processes have moved to be either a child of the shared process or a utility process from the main process. Message ports are used for efficient direct process-to-process communication without burdening the main process.
 
-![VS Code process model after sandboxing in late 2022](process-model-after-sandboxing.png)
+![VS Code process model after sandboxing in late 2022](process-model-after-sandboxing.webp)
 
 ## Adjusting Chromium's code caching
 

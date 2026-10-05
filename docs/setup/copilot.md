@@ -1,44 +1,59 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 8/19/2026
-MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
+DateApproved: 9/30/2026
+MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Set up GitHub Copilot in VS Code
+# Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
-This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account.
+This guide walks you through setting up GitHub Copilot in {% data variables.product.prodname_vscode %}. To use Copilot in {% data variables.product.prodname_vscode_shortname %}, you need access to GitHub Copilot with your GitHub account.
+
+This article covers the GitHub Copilot setup path. To use Claude, Codex, or your own model credentials for supported agent workflows, compare the [agent harness authentication and billing options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target). Some agent workflows without GitHub sign-in are experimental.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Complete your first coding task with an AI agent in VS Code.
+Complete your first coding task with an AI agent in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
-Follow these steps to get started with Copilot in VS Code:
+## Before you start
+
+Review these account, usage, and data-handling details before you send project content to an AI model:
+
+* **Account access**: the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in {% data variables.copilot.copilot_free_short %}.
+* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use a Claude bring-your-own-key (BYOK) configuration, a ChatGPT subscription, or your own model credentials, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+* **Monitor usage**: open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar to view the percentage of your monthly allowance that you used. Learn [how to monitor usage and what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#how-can-i-monitor-my-copilot-usage).
+* **Data handling**: review the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. {% data variables.product.prodname_vscode_shortname %} [telemetry settings](/docs/configure/telemetry.md) are separate from AI-provider data handling.
+
+To use chat with your own model instead, [bring your own language model key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). This path doesn't require a Copilot plan, but some features, including inline suggestions, semantic search, and embeddings, still require the GitHub Copilot service.
+
+## Set up GitHub Copilot
+
+Follow these steps to get started with Copilot in {% data variables.product.prodname_vscode_shortname %}:
 
 1. Hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
 1. Choose a sign-in method and follow the prompts.
 
-    * If you already have a Copilot subscription for your account, VS Code will use that subscription.
+    * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
-1. Start using Copilot in VS Code!
+1. Start using Copilot in {% data variables.product.prodname_vscode_shortname %}!
 
     Learn the basics with the [agents quickstart](/docs/agents/quickstart.md).
 
-1. Type `/init` in a chat session to set up your project for AI.
-
-    The `/init` command analyzes your codebase and creates [custom instructions](/docs/agent-customization/custom-instructions.md) to help the AI generate code that matches your coding practices.
-
 > [!IMPORTANT]
-> Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+> Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+
+## Prepare a project for AI (optional)
+
+After you sign in, enter `/init` in a chat session to create starter [custom instructions](/docs/agent-customization/custom-instructions.md) for a project. The command analyzes the codebase and records coding practices that help AI-generated code match the project.
 
 ## Use Copilot with a GHE account
 
-If your Copilot subscription is associated with a GitHub Enterprise (GHE) account, you can sign in to Copilot in VS Code with your GHE credentials.
+If your Copilot subscription is associated with a GitHub Enterprise (GHE) account, you can sign in to Copilot in {% data variables.product.prodname_vscode_shortname %} with your GHE credentials.
 
 1. If you haven't already, hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
@@ -48,11 +63,11 @@ If you need to switch between a GitHub.com account and a GHE account, see [Use a
 
 ## Use a different GitHub account with Copilot
 
-If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in VS Code, and sign in with another account.
+If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in {% data variables.product.prodname_vscode_shortname %}, and sign in with another account.
 
 1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with.
 
-    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/copilot/vscode-accounts-menu-signout.png)
+    ![Accounts menu in {% data variables.product.prodname_vscode_shortname %}, showing the option to sign out of the current GitHub account.](images/copilot/vscode-accounts-menu-signout.png)
 
 1. Sign in to your GitHub account using any of the following methods:
 
@@ -62,13 +77,13 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
     * Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
 
-        ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/copilot/vscode-accounts-menu.png)
+        ![Accounts menu in {% data variables.product.prodname_vscode_shortname %}, showing the option to sign in with GitHub to use GitHub Copilot.](images/copilot/vscode-accounts-menu.png)
 
     * Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Use a different GitHub account per workspace or profile
 
-You can use different GitHub accounts for Copilot per VS Code workspace or profile. This is useful if you use Copilot with different accounts for work and personal projects, or if you want to use different accounts for different extensions that use GitHub authentication.
+You can use different GitHub accounts for Copilot per {% data variables.product.prodname_vscode_shortname %} workspace or profile. This is useful if you use Copilot with different accounts for work and personal projects, or if you want to use different accounts for different extensions that use GitHub authentication.
 
 Follow these steps to configure which GitHub account to use for Copilot. This configuration is saved per workspace and per profile.
 
@@ -95,14 +110,14 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
 
     1. Re-sign in to your GitHub Enterprise account if you're not already signed in
 
-## Remove AI features from VS Code
+## Remove AI features from {% data variables.product.prodname_vscode_shortname %}
 
-You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+You can disable the built-in AI features in {% data variables.product.prodname_vscode_shortname %} with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in {% data variables.product.prodname_vscode_shortname %}. This disables and hides features like chat or inline suggestions in {% data variables.product.prodname_vscode_shortname %} and disables the Copilot extensions. You can configure the setting at the workspace or user level.
 
 Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
 
 > [!NOTE]
-> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of {% data variables.product.prodname_vscode_shortname %}.
 
 ## Disable AI features for a workspace
 
@@ -110,4 +125,4 @@ To disable AI features for a specific workspace, configure the `setting(chat.dis
 
 ## Next steps
 
-* Continue with the [Quickstart for using AI](/docs/agents/quickstart.md) to discover the key features for AI-powered development in VS Code.
+* Continue with the [Quickstart for using AI](/docs/agents/quickstart.md) to discover the key features for AI-powered development in {% data variables.product.prodname_vscode_shortname %}.

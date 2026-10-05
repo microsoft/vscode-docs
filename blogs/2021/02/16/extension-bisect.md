@@ -25,7 +25,7 @@ For fun, and to make it easier to demonstrate extension bisect, we have created 
 
 Today, finding a "bad" extension can be easy or hard.  Open the Extensions view (`kb(workbench.view.extensions)`), [disable an extension](/docs/configure/extensions/extension-marketplace.md#disable-an-extension), reload the window (**Developer: Reload Window**), and check to see if the problem still exists. If the problem is gone, that extension is "bad" and you are done. Otherwise, re-enable the extension and repeat the process with the next extension.
 
-![Disabling an extension step by step](./disable_manually.png)
+![Disabling an extension step by step](./disable_manually.webp)
 
 If you are lucky, the first extension is the "bad" one; if you are unlucky, it's the last extension. Using computer science language, this means with `N` extensions, you have a worst-case of repeating the process `O(N)` (order N), and an average-case of `O(N/2)`. Because this algorithm is operated by a human (you), even small values of `N` are laborious. This is where the **extension bisect** utility comes in handy. It is much better in the worst and average cases because it disables extensions by halves.
 
@@ -37,7 +37,7 @@ Let's use a sample: I have 24 extensions installed and the 8th extension is "bad
 
 The video below shows starting extension bisect via the **Help: Start Extension Bisect** command and then selecting either **Good now** or **This is bad** until the "bad" extension is identified. Once identified, you have the option to report an issue for that extension.
 
-![The extension bisect process](bisect.gif)
+<video src="bisect.mp4" title="Video showing The extension bisect process." autoplay loop controls muted></video>
 
 Here's step by step how the "bad" extension was found:
 

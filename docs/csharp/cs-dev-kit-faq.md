@@ -11,7 +11,7 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 ### What is C# Dev Kit?
 
-[C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is an extension created to enhance your C# development experience in Visual Studio Code. It aims to bring a more expansive, productive, and reliable C# experience to VS Code. C# Dev Kit does not replace the [existing C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) but adds on top of the great language service features it provides. Developers can choose to continue using the updated version of the existing C# extension or enhance their experience by adding C# Dev Kit.
+[C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is an extension created to enhance your C# development experience in {% data variables.product.prodname_vscode %}. It aims to bring a more expansive, productive, and reliable C# experience to {% data variables.product.prodname_vscode_shortname %}. C# Dev Kit does not replace the [existing C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) but adds on top of the great language service features it provides. Developers can choose to continue using the updated version of the existing C# extension or enhance their experience by adding C# Dev Kit.
 
 ### What project types are currently supported?
 
@@ -36,7 +36,7 @@ There are a few reasons why C# Dev Kit doesn't activate when you attempt to edit
 
 1. **version 2.0+ of the C# extension is not installed**. C# Dev Kit requires version 2.0 or higher of the C# extension. Check to make sure you have the C# extension installed and that you have a version 2.0 or higher.
 1. **workspace prefers C# extension**. C# Dev Kit does not support .NET Framework projects and if you have set the `dotnet.preferCSharpExtension` setting to true, C# Dev Kit will be disabled for that workspace. If the project is not a .NET Framework project, make sure to disable this setting.
-1. **using a readonly OS**. C# Dev Kit requires write access to its own extension folder and to the VS Code-provided folder for extensions to write arbitrary state within the operating system, so if you are using an OS that is completely readonly, C# Dev Kit will not work.
+1. **using a readonly OS**. C# Dev Kit requires write access to its own extension folder and to the {% data variables.product.prodname_vscode_shortname %}-provided folder for extensions to write arbitrary state within the operating system, so if you are using an OS that is completely readonly, C# Dev Kit will not work.
 
 If you have checked these and the C# Dev Kit commands are still not found, please report an issue and provide the information in the Output window for C# Dev Kit.
 
@@ -50,13 +50,13 @@ For personal, academic, and open-source projects, C# Dev Kit can be used at no c
 
 ### Where do I submit feedback and suggestions?
 
-Users can report an issue or a suggestion through VS Code's **Help > Report Issue**. Select whether it is a bug, feature request, or performance issue, file on **An extension**, and select **C# Dev Kit** from the list of extensions.
+Users can report an issue or a suggestion through {% data variables.product.prodname_vscode_shortname %}'s **Help > Report Issue**. Select whether it is a bug, feature request, or performance issue, file on **An extension**, and select **C# Dev Kit** from the list of extensions.
 
 ![Help > Report Issue image](images/faq/help-report-issue.png)
 
 ### Is C# Dev Kit open source? Why not?
 
-No. C# Dev Kit is closed source but depends upon the C# for VS Code extension, which is open source, and both communicate with open-source components such as [Roslyn](https://github.com/dotnet/roslyn) and [Razor](https://github.com/dotnet/razor). One of our goals with C# Dev Kit is to provide an improved productivity experience for C# developers who use VS Code.  To achieve this, C# Dev Kit includes some proprietary, closed-source features that are shared with our other tools. To make these experiences available to VS Code users, we needed to introduce C# Dev Kit as a closed source extension.
+No. C# Dev Kit is closed source but depends upon the C# for {% data variables.product.prodname_vscode_shortname %} extension, which is open source, and both communicate with open-source components such as [Roslyn](https://github.com/dotnet/roslyn) and [Razor](https://github.com/dotnet/razor). One of our goals with C# Dev Kit is to provide an improved productivity experience for C# developers who use {% data variables.product.prodname_vscode_shortname %}.  To achieve this, C# Dev Kit includes some proprietary, closed-source features that are shared with our other tools. To make these experiences available to {% data variables.product.prodname_vscode_shortname %} users, we needed to introduce C# Dev Kit as a closed source extension.
 
 ### How can I contribute?
 
@@ -70,7 +70,7 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 Note that, depending on your network speed, installing the .NET Core runtime might take some time. By default, the installation terminates unsuccessfully if it takes longer than 4.5 minutes to finish. If you believe this is too little (or too much) time to allow for the download, you can change the timeout value by setting `dotnetAcquisitionExtension.installTimeoutValue` to a custom value.
 
-[Learn more about configuring VS Code settings](/docs/configure/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
+[Learn more about configuring {% data variables.product.prodname_vscode_shortname %} settings](/docs/configure/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
 
 ```json
 {
@@ -134,7 +134,7 @@ To resolve this issue, you have two options.
 
 You can [update your project](https://learn.microsoft.com/dotnet/core/porting) to an SDK-style project to access all available C# Dev Kit features.
 
-Alternatively, you can delegate project and solution load to the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), using the **Prefer CSharp Extension** workspace setting in the Settings editor. Keep in mind that some C# Dev Kit features will not be available with this setting. To access this setting, go to the Settings editor and select the **Workspace** tab. Then, search for "Prefer CSharp" in the search bar and check the box next to the **Prefer CSharp Extension** setting. If you're trying to load a .NET Framework project, C# Dev Kit will automatically display a notification asking you to either update your project to an SDK-style project or have the C# extension load your project or solution by selecting **Use C# Extension** from the notification. This option will automatically select the **Prefer CSharp Extension** setting. Note that you'll need to reload VS Code for this setting to take effect.
+Alternatively, you can delegate project and solution load to the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), using the **Prefer CSharp Extension** workspace setting in the Settings editor. Keep in mind that some C# Dev Kit features will not be available with this setting. To access this setting, go to the Settings editor and select the **Workspace** tab. Then, search for "Prefer CSharp" in the search bar and check the box next to the **Prefer CSharp Extension** setting. If you're trying to load a .NET Framework project, C# Dev Kit will automatically display a notification asking you to either update your project to an SDK-style project or have the C# extension load your project or solution by selecting **Use C# Extension** from the notification. This option will automatically select the **Prefer CSharp Extension** setting. Note that you'll need to reload {% data variables.product.prodname_vscode_shortname %} for this setting to take effect.
 
 ### I clicked on the "Create .NET Project" button and nothing happened
 
@@ -142,15 +142,15 @@ This usually occurs when there is an extension version mismatch. C# Dev Kit requ
 
 ### The Project System reports that it ran into a problem
 
-When an internal Project System error occurs, you'll generally see a notification like this pop up in a corner of VS Code:
+When an internal Project System error occurs, you'll generally see a notification like this pop up in a corner of {% data variables.product.prodname_vscode_shortname %}:
 
 ![Failed to Restore Solution](images/faq/failed-to-restore-solution.png)
 
-Select the **Open log** button to open a view showing a stack trace of where the problem occurred. Select and copy all the text in the log. Report the issue through VS Code and make sure to include the copied text from the log.
+Select the **Open log** button to open a view showing a stack trace of where the problem occurred. Select and copy all the text in the log. Report the issue through {% data variables.product.prodname_vscode_shortname %} and make sure to include the copied text from the log.
 
 ### When I open my solution, I get the notification "Failed to restore solution"
 
-Select **Show error**. This opens the Output panel for NuGet. Read through the error to determine why the package restore was unable to complete. If you are unable to resolve the problem, report the issue through VS Code.
+Select **Show error**. This opens the Output panel for NuGet. Read through the error to determine why the package restore was unable to complete. If you are unable to resolve the problem, report the issue through {% data variables.product.prodname_vscode_shortname %}.
 
 ### The Solution Explorer displays "A compatible .NET SDK was not found"
 
@@ -186,7 +186,7 @@ If your tests are still not appearing, consider the following additional checks:
 
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 
-Make sure that your tests are targeting NET Core. C# Dev Kit does not support .NET Framework projects, although .NET Framework projects may load and appear to work. The debugger in VS Code does not support .NET Framework.
+Make sure that your tests are targeting NET Core. C# Dev Kit does not support .NET Framework projects, although .NET Framework projects may load and appear to work. The debugger in {% data variables.product.prodname_vscode_shortname %} does not support .NET Framework.
 
 ### I just added new tests to my test project, and they are not appearing in the Test Explorer panel?
 
@@ -201,7 +201,7 @@ If you are encountering issues with Test Explorer, you can enable diagnostic log
 1. Increase Test Explorer verbosity:
     Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
 2. Check the Output Window:
-    Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
+    Open the Output window in {% data variables.product.prodname_vscode %}, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
 3. Collect the following information:
    When reporting an issue, ensure you include:
    - The diagnostic logs from the Output window.
@@ -243,7 +243,7 @@ Make sure that you have a project or solution open. If you have multiple solutio
 
 ![Set Dotnet Server to Trace](images/faq/dotnet-server-trace.png)
 
-Once you've made this change, reload the window by opening the Command Palette (`kb(workbench.action.showCommands)`), then typing "Reload Window" and pressing `kbstyle(Enter)`. After reloading the window, check the project log in the Output panel (`kb(workbench.action.output.toggleOutput)`) and selecting **Projects** from the drop-down. This will show any errors related to your project not being fully loaded. Copy all the text in the Output panel and report the issue through VS Code, making sure to include the copied text.
+Once you've made this change, reload the window by opening the Command Palette (`kb(workbench.action.showCommands)`), then typing "Reload Window" and pressing `kbstyle(Enter)`. After reloading the window, check the project log in the Output panel (`kb(workbench.action.output.toggleOutput)`) and selecting **Projects** from the drop-down. This will show any errors related to your project not being fully loaded. Copy all the text in the Output panel and report the issue through {% data variables.product.prodname_vscode_shortname %}, making sure to include the copied text.
 
 ### C# extension fails to launch the server
 
@@ -281,13 +281,13 @@ To improve performance, the extension sometimes defers generating or loading thi
 
 If your project has loaded correctly, verify that a `project.razor.vscode.bin` file exists in the `obj\Debug\<tfm>` folder on your file system. Since it is a binary file, it isn't straight forward to verify the contents of the file directly, but in general most Razor projects should result in a file that is at least 150KB in size. If the file is only a few kilobytes it means that tag helpers and/or components are probably not being discovered correctly.
 
-To force the file to regenerate, close any open `.razor` or `.cshtml` files, reload the VS Code window, and once the project has loaded correctly, open any `.razor` or `.cshtml` file to trigger the regeneration process.
+To force the file to regenerate, close any open `.razor` or `.cshtml` files, reload the {% data variables.product.prodname_vscode_shortname %} window, and once the project has loaded correctly, open any `.razor` or `.cshtml` file to trigger the regeneration process.
 
 ### Target framework errors are mentioned in Razor files
 
 The Razor language server generally does not have a concept of a "solution", but instead loads projects based on the presence of a `project.razor.vscode.bin` file in the projects `obj\Debug\<tfm>` folder. Sometimes, old files from target frameworks that are no longer in use can cause confusion, making the Razor server think a project is multi-targeted or that some components are still referenced when they're not.
 
-To resolve this issue, clear out old folders from within the `obj` folder or clear all of them. Then, reload the VS Code window and open a `.razor` file. This should ensure that new JSON files are generated, and the old ones are removed.
+To resolve this issue, clear out old folders from within the `obj` folder or clear all of them. Then, reload the {% data variables.product.prodname_vscode_shortname %} window and open a `.razor` file. This should ensure that new JSON files are generated, and the old ones are removed.
 
 ## IntelliCode
 

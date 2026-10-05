@@ -1,7 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 8/19/2026
-MetaDescription: Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host architecture, AHP, multi-client sessions, agent runtimes, remote execution, and client-provided tools.
+DateApproved: 9/30/2026
+MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host runs local, remote, and Dev Container sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
@@ -14,7 +14,7 @@ Keywords:
 - multi-client
 ---
 
-# {% data variables.product.prodname_vscode_shortname %} Agent Host architecture
+# Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host
 
 {% data variables.product.prodname_vscode_shortname %} runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
 
@@ -41,7 +41,7 @@ The Agent Host can run as a local utility process or as a standalone server on a
 
 The first-party agent adapters run inside the Agent Host process. An adapter translates between its agent runtime and the common AHP session model.
 
-The Agent Host lives next to the workspace. When the host runs remotely, file edits and commands run on the remote machine.
+The Agent Host lives next to the workspace. It can run on your machine, inside a Dev Container, or on a remote machine. File edits and commands run in the environment that contains the host.
 
 ## Agent Host Protocol
 
@@ -59,9 +59,17 @@ Connected clients can also contribute tools. For example, {% data variables.prod
 
 ## Local and remote hosts
 
-For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The {% data variables.copilot.agents_window %} reaches it through SSH or a dev tunnel.
+The desktop {% data variables.copilot.agents_window %} can connect to an Agent Host on the same machine or on a connected SSH, Tunnel, or WSL host. The [browser-based {% data variables.copilot.agents_window %}](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) connects to your development machine through a dev tunnel. The browser is a client, not the host that runs the session.
 
-![Screenshot showing a {% data variables.product.prodname_vscode_shortname %} client connected to a local Agent Host and multiple remote Agent Hosts over dev tunnels and SSH.](../images/concepts/agent-host-deployment.svg)
+![Screenshot showing desktop and browser clients connecting to Agent Hosts. The desktop client can use a host workspace or a Dev Container, while the browser connects to a development machine through a dev tunnel.](../images/concepts/agent-host-deployment.svg)
+
+Clients display and control sessions. The Agent Host owns them. Desktop and browser clients can connect to the same tunnel host.
+
+`feature(agent-host-dev-containers)`
+
+For a Dev Container session, the Agent Host runs inside the project's container. The container can run on your machine or on a supported SSH, Tunnel, or WSL host, while the desktop {% data variables.copilot.agents_window %} remains on your machine. Workspace file edits and commands use the tools and dependencies inside the container, rather than those installed directly on the source host.
+
+Dev Container execution is an environment choice, not a different harness. See the [session execution options diagram](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) for how local, connected-host, container, and cloud execution relate. For setup steps, see [Run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 Like [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
 
@@ -77,8 +85,9 @@ There are some differences in behavior for agent sessions that run on the extens
 |----------|------------|
 | Reviewing changes | Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Extension-host sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md). |
 | Customizations | The Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your {% data variables.product.prodname_vscode_shortname %} profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md). |
+| Hooks | Agent Host does not define one shared hook schema for every agent. The selected Copilot, Claude, or Codex harness executes its provider hook implementation. Extension-host sessions use the Local hook implementation and Local settings. Learn how to [choose the hook implementation for a session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). |
 | Autopilot | On the Agent Host, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is an agent mode. On the extension host, it's a permission level. |
-| Assisted permissions | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only on the Agent Host. |
+| Assisted permissions `feature(assisted-permissions)` | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only for supported Agent Host sessions and is off by default in Stable. |
 | Session capabilities | Shared multi-window sessions, multiple chats per session, quick chats, and remote hosting are available only on the Agent Host. |
 | Extension-provided tools | Tools from extensions are only available in chats in an editor window where the extension is running. |
 | MCP configuration | The Agent Host reads harness-agnostic MCP config from `.mcp.json` (workspace) and `~/.copilot/mcp-config.json` (user). It doesn't read `.vscode/mcp.json` directly, but {% data variables.product.prodname_vscode_shortname %} forwards servers you configure in {% data variables.product.prodname_vscode_shortname %} to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). Learn more about [configuring MCP servers](/docs/agent-customization/mcp-servers.md). |

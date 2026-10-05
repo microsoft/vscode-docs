@@ -1,6 +1,6 @@
 ---
 ContentId: 1e2d3c4b-5a6f-4d7e-8c9b-0a1b2c3d4e06
-DateApproved: 05/21/2026
+DateApproved: 9/30/2026
 MetaDescription: Start Claude and Codex agent sessions in VS Code and choose local or cloud workflows for coding tasks.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -15,7 +15,7 @@ Keywords:
 # Using third-party agents in VS Code
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OWYQ8Mn7KqE" title="Third Party Agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Third Party Agents on YouTube (opens in new tab).](images/4-using-third-party-agents-in-vs-code/youtube-OWYQ8Mn7KqE.jpg)](https://www.youtube.com/watch?v=OWYQ8Mn7KqE)
 
 Third-party agents let you use provider-specific agent experiences inside VS Code. In this guide, you will choose between local and cloud sessions, start a Claude or Codex session, and pick a permission mode that matches the task.
 

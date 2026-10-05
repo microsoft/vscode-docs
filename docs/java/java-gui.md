@@ -1,11 +1,11 @@
 ---
 ContentId: 517db620-d166-4f72-99c1-fa046710dffe
 DateApproved: 10/11/2022
-MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in Visual Studio Code
+MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in {% data variables.product.prodname_vscode %}
 ---
-# Working with GUI applications in VS Code
+# Working with GUI applications in {% data variables.product.prodname_vscode_shortname %}
 
-You can develop Java GUI applications in Visual Studio Code easily. To achieve that, you need to install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes all the required extensions to develop Java GUI applications.
+You can develop Java GUI applications in {% data variables.product.prodname_vscode %} easily. To achieve that, you need to install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes all the required extensions to develop Java GUI applications.
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
@@ -15,10 +15,10 @@ If you run into any issues when using the features below, you can contact us by 
 
 ### Create a new JavaFX project
 
-You can create a new JavaFX application with just a few steps in VS Code:
+You can create a new JavaFX application with just a few steps in {% data variables.product.prodname_vscode_shortname %}:
 
 - Step 1: Install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
-- Step 2: In Visual Studio Code, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Java: Create Java Project**.
+- Step 2: In {% data variables.product.prodname_vscode %}, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Java: Create Java Project**.
 - Step 3: Select the option **JavaFX** in the list, follow the wizard, which will help you scaffold a new JavaFX project via Maven Archetype.
 
 ![create JavaFX project](images/java-gui/create-javafx.png)
@@ -45,9 +45,9 @@ By default, the types from the Abstract Window Toolkit (AWT) are hidden. You may
 <video src="images/java-gui/enable-awt.mp4" autoplay loop muted playsinline controls title="Develop AWT application">
 </video>
 
-> Note: This action will update a setting, `java.completion.filteredTypes` at the workspace level in `.vscode\settings.json`, so please make sure a workspace is opened in VS Code.
+> Note: This action will update a setting, `java.completion.filteredTypes` at the workspace level in `.vscode\settings.json`, so please make sure a workspace is opened in {% data variables.product.prodname_vscode_shortname %}.
 
-You can use the sample code below to run a simple Java AWT application in VS Code.
+You can use the sample code below to run a simple Java AWT application in {% data variables.product.prodname_vscode_shortname %}.
 
 ```java
 import java.awt.*;

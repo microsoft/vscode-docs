@@ -1,7 +1,7 @@
 ---
 ContentId: f9ffec31-9253-4f71-a4eb-79ea7b3a8f55
 DateApproved: 12/21/2021
-MetaDescription: How to configure and troubleshoot debugging of Python apps running in a container, using Visual Studio Code.
+MetaDescription: How to configure and troubleshoot debugging of Python apps running in a container, using {% data variables.product.prodname_vscode %}.
 ---
 # Debug Python within a container
 
@@ -9,7 +9,7 @@ When adding Docker files to a Python project, tasks and launch configurations ar
 
 ## Configuring the container entry point
 
-You can configure the entry point of the container by setting properties in `tasks.json`. VS Code automatically configures the container entry point when you first use the **Containers: Add Docker Files to Workspace...** command.
+You can configure the entry point of the container by setting properties in `tasks.json`. {% data variables.product.prodname_vscode_shortname %} automatically configures the container entry point when you first use the **Containers: Add Docker Files to Workspace...** command.
 
 ### Example: Configuring the entry point for a Python module
 
@@ -254,7 +254,7 @@ When you select **Containers: Add Docker Files to Workspace** for Django or Flas
     - dockerfile: The path to the Dockerfile to execute
     - tag: The name of the image to be built, with its version tag
 
-1. Overall, a VS Code setup for building and debugging your Flask application can be:
+1. Overall, a {% data variables.product.prodname_vscode_shortname %} setup for building and debugging your Flask application can be:
 
     - `launch.json`
 

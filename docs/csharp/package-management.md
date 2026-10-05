@@ -1,13 +1,13 @@
 ---
 ContentId: 6e7d5ecf-d7aa-44b5-abc0-2257a2075906
 DateApproved: 12/13/2024
-MetaDescription: C# package management with NuGet in Visual Studio Code
+MetaDescription: C# package management with NuGet in {% data variables.product.prodname_vscode %}
 ---
-# NuGet in Visual Studio Code
+# NuGet in {% data variables.product.prodname_vscode %}
 
 NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project.
 
-In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
+In {% data variables.product.prodname_vscode %}, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
@@ -86,12 +86,12 @@ For a .NET project, a package restore happens automatically when you create a pr
 
 ![Automatic NuGet package restore](images/package-management/automatic-nuget-package-restore.png)
 
-For projects that use `<PackageReference>`, you can see the package references in the **Solution Explorer** section of Visual Studio Code.
+For projects that use `<PackageReference>`, you can see the package references in the **Solution Explorer** section of {% data variables.product.prodname_vscode %}.
 
 ![Package references in the Solution Explorer](images/package-management/package-references-solution-explorer.png)
 
 Packages that don't install properly when a restore happens or when you run a build, will show error icons in **Solution Explorer**.
 
-**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code.
+**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in {% data variables.product.prodname_vscode %}.
 
 For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).

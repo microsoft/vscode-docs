@@ -1,13 +1,13 @@
 ---
 ContentId: 99a5d36e-ce14-4040-b1cf-7345b7fa2c7d
 DateApproved: 10/9/2025
-MetaDescription: Get started with Microsoft Fabric extensions for Visual Studio Code to develop data engineering and analytics solutions
+MetaDescription: Get started with Microsoft Fabric extensions for {% data variables.product.prodname_vscode %} to develop data engineering and analytics solutions
 MetaSocialImage: images/datascience/fabric-social.png
 ---
 
-# Data science in Microsoft Fabric using Visual Studio Code
+# Data science in Microsoft Fabric using {% data variables.product.prodname_vscode %}
 
-You can build and develop data science and data engineering solutions for [Microsoft Fabric](https://learn.microsoft.com/fabric/) within VS Code. [Microsoft Fabric](https://marketplace.visualstudio.com/items?itemName=fabric.vscode-fabric) extensions for VS Code provide an integrated development experience for working with Fabric artifacts, lakehouses, notebooks, and user data functions.
+You can build and develop data science and data engineering solutions for [Microsoft Fabric](https://learn.microsoft.com/fabric/) within {% data variables.product.prodname_vscode_shortname %}. [Microsoft Fabric](https://marketplace.visualstudio.com/items?itemName=fabric.vscode-fabric) extensions for {% data variables.product.prodname_vscode_shortname %} provide an integrated development experience for working with Fabric artifacts, lakehouses, notebooks, and user data functions.
 
 ## What is Microsoft Fabric?
 
@@ -17,23 +17,23 @@ You can build and develop data science and data engineering solutions for [Micro
 
 ## Prerequisites
 
-Before you get started with Microsoft Fabric extensions for VS Code, you need:
+Before you get started with Microsoft Fabric extensions for {% data variables.product.prodname_vscode_shortname %}, you need:
 
-* **Visual Studio Code**: Install latest [VS Code](https://code.visualstudio.com/) version.
+* **{% data variables.product.prodname_vscode %}**: Install latest [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/) version.
 * **Microsoft Fabric account**: You need access to a Microsoft Fabric workspace. You can [sign up for a free trial](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) to get started.
-* **Python**: Install [Python 3.8 or later](https://python.org/downloads/) to work with [Notebooks](https://learn.microsoft.com/fabric/data-engineering/author-notebook-with-vs-code), [User data functions](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code) in VS Code.
+* **Python**: Install [Python 3.8 or later](https://python.org/downloads/) to work with [Notebooks](https://learn.microsoft.com/fabric/data-engineering/author-notebook-with-vs-code), [User data functions](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code) in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Installation and setup
 
-You can find and install the extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) or directly in VS Code. Select the **Extensions** view (`kb(workbench.view.extensions)`) and search for **Microsoft Fabric**.
+You can find and install the extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) or directly in {% data variables.product.prodname_vscode_shortname %}. Select the **Extensions** view (`kb(workbench.view.extensions)`) and search for **Microsoft Fabric**.
 
 ### Which extensions to use
 
 | Extension                  | Best For | Key Features | Recommended for you if… |Documentation|
 |-----------------------------|-----------------------------|-----------------------------|--------------------------| --------------------------|
-| **Microsoft Fabric extension**   | General workspace management, item management and working with item definitions | - Manage Fabric items (Lakehouses, Notebooks, Pipelines)<br>- Microsoft account sign-in & tenant switching<br>- Unified or grouped item views<br>- Edit Fabric notebooks with IntelliSense<br>- Command Palette integration (`Fabric:` commands) | You want a single extension to manage workspaces, notebooks, and items in Fabric directly from VS Code. | [What is Fabric VS code extension](https://learn.microsoft.com/fabric/data-engineering/set-up-fabric-vs-code-extension)|
-| **Fabric User data functions** | Developers building custom transformations & workflows | - Author serverless functions in Fabric<br>- Local debugging with breakpoints<br>- Manage data source connections<br>- Install/manage Python libraries<br>- Deploy functions directly to Fabric workspace | You build automation or data transformation logic and need debugging + deployment from VS Code. | [Develop User data function in VS code](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code)|
-| **Fabric Data Engineering** | Data engineers working with large-scale data & Spark | - Explore Lakehouses (tables, raw files)<br>- Develop/debug Spark notebooks<br>- Build/test Spark job definitions<br>- Sync notebooks between local VS Code & Fabric<br>- Preview schemas & sample data | You work with Spark, Lakehouses, or large-scale data pipelines and want to explore, develop, and debug locally. | [Develop Fabric notebooks in VS Code](https://learn.microsoft.com/fabric/data-engineering/setup-vs-code-extension) |
+| **Microsoft Fabric extension**   | General workspace management, item management and working with item definitions | - Manage Fabric items (Lakehouses, Notebooks, Pipelines)<br>- Microsoft account sign-in & tenant switching<br>- Unified or grouped item views<br>- Edit Fabric notebooks with IntelliSense<br>- Command Palette integration (`Fabric:` commands) | You want a single extension to manage workspaces, notebooks, and items in Fabric directly from {% data variables.product.prodname_vscode_shortname %}. | [What is Fabric VS code extension](https://learn.microsoft.com/fabric/data-engineering/set-up-fabric-vs-code-extension)|
+| **Fabric User data functions** | Developers building custom transformations & workflows | - Author serverless functions in Fabric<br>- Local debugging with breakpoints<br>- Manage data source connections<br>- Install/manage Python libraries<br>- Deploy functions directly to Fabric workspace | You build automation or data transformation logic and need debugging + deployment from {% data variables.product.prodname_vscode_shortname %}. | [Develop User data function in VS code](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code)|
+| **Fabric Data Engineering** | Data engineers working with large-scale data & Spark | - Explore Lakehouses (tables, raw files)<br>- Develop/debug Spark notebooks<br>- Build/test Spark job definitions<br>- Sync notebooks between local {% data variables.product.prodname_vscode_shortname %} & Fabric<br>- Preview schemas & sample data | You work with Spark, Lakehouses, or large-scale data pipelines and want to explore, develop, and debug locally. | [Develop Fabric notebooks in {% data variables.product.prodname_vscode_shortname %}](https://learn.microsoft.com/fabric/data-engineering/setup-vs-code-extension) |
 
 ## Getting started
 
@@ -46,7 +46,7 @@ Once you have the extensions installed and signed in, you can start working with
 The Fabric extensions provide a seamless way to work with both remote and local Fabric items.
 
 * In the Fabric extension, the **Fabric Workspaces** section lists all items from your remote workspace, organized by type (Lakehouses, Notebooks, Pipelines, and more).
-* In the Fabric extension, the **Local folder** section shows a Fabric item(s) folder opened in VS Code. It reflects the structure of your fabric item definition for each type that is opened in VS Code. This enables you to develop locally and publish your changes to current or new workspace.
+* In the Fabric extension, the **Local folder** section shows a Fabric item(s) folder opened in {% data variables.product.prodname_vscode_shortname %}. It reflects the structure of your fabric item definition for each type that is opened in {% data variables.product.prodname_vscode_shortname %}. This enables you to develop locally and publish your changes to current or new workspace.
 
 ![Screenshot that shows how to view your workspaces and items?](images/microsoft-fabric/view-workspaces-and-items.png)
 
@@ -212,7 +212,7 @@ Microsoft Fabric supports Git integration that enables version control and colla
 
 ## Next steps
 
-Now that you have Microsoft Fabric extensions set up in VS Code, explore these resources to deepen your knowledge:
+Now that you have Microsoft Fabric extensions set up in {% data variables.product.prodname_vscode_shortname %}, explore these resources to deepen your knowledge:
 
 * [Learn about Microsoft Fabric for Data Science](https://learn.microsoft.com/en-us/fabric/data-science/tutorial-data-science-introduction).
 * [Set up your Fabric trial capacity](https://learn.microsoft.com/fabric/fundamentals/fabric-trial)

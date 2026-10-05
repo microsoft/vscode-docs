@@ -1,9 +1,9 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 8/19/2026
+DateApproved: 9/30/2026
 
-MetaDescription: Visual Studio Code when clause context reference.
+MetaDescription: Use when-clause contexts in {% data variables.product.prodname_vscode_shortname %} to control keybindings, commands, menus, and views.
 ---
 # when clause contexts
 
@@ -157,6 +157,7 @@ Context name | True when
 `isLinux` | True when the OS is Linux.
 `isMac` | True when the OS is macOS.
 `isWindows` | True when the OS is Windows.
+`isChromeOS` | True when accessing the editor from a web browser on ChromeOS.
 `isWeb` | True when accessing the editor from the Web.
 **List contexts** |
 `listFocus` | A list has focus.

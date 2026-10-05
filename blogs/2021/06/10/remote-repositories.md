@@ -14,7 +14,7 @@ June 10, 2021 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMu
 
 We're excited to present the new [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension for Visual Studio Code! This is a new experience that we've been building in partnership with our friends at GitHub to enable working with source code repositories quickly and safely inside VS Code.
 
-[![Remote Repositories extension](remote-repositories-banner.png)](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
+[![Remote Repositories extension](remote-repositories-banner.webp)](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
 
 ## A quicker way to open source code repositories
 
@@ -36,25 +36,25 @@ Currently, Remote Repositories supports GitHub repos, with support for Azure Rep
 
 After installing the Remote Repositories extension, we get instant access to its **Open Remote Repository** command by clicking on the remote indicator in the lower left of VS Code (along with commands from any other [Remote Development extensions](https://code.visualstudio.com/docs/remote/remote-overview) you have installed):
 
-![Remote indicator in VS Code](remote-indicator.png)
+![Remote indicator in VS Code](remote-indicator.webp)
 
 If you haven't logged into GitHub from VS Code before, you'll be prompted to authenticate your GitHub account. Once logged in, search for a repo or PR, select the one you want, and you'll be ready to go.
 
 In the short video below, we search for and select the VS Code repo, VS Code reloads, and the repo's contents loads as if we cloned it locally:
 
-![Gif of using Open Remote Repository command, search for "microsoft/vscode," repo loads, open readme](remote-repositories1.gif)
+<video src="remote-repositories1.mp4" title="Video showing Gif of using Open Remote Repository command, search for &quot;microsoft/vscode,&quot; repo loads, open readme." autoplay loop controls muted></video>
 
 You're able to explore and contribute to the repo without ever having to leave VS Code. You feel like you're working on local code, using the familiar VS Code interface, and can use features like the VS Code Explorer, search, timeline view, quick open, and of course source control.
 
 You're now connected to what's known as a virtual workspace (more information on virtual workspaces [below](#virtual-file-systems-and-workspaces)); the remote indicator reads "GitHub." When you hover over the remote indicator, you are notified that some features are not available while in a virtual workspace:
 
-![Hover over remote indicator for limited virtual workspace message](remote-indicator-hover.png)
+![Hover over remote indicator for limited virtual workspace message](remote-indicator-hover.webp)
 
 A virtual workspace is a special setup, and some features, like extensions, are disabled or have limited functionality. You can easily find out which extensions are disabled by clicking on the **Some features** link shown when hovering over the remote indicator.
 
 Clicking the link shows which extensions are disabled and which ones have limited functionality. The limited functionality can be seen when hovering over the extension.
 
-![VS Code Extensions view with limited and disabled extensions](extension-limits.png)
+![VS Code Extensions view with limited and disabled extensions](extension-limits.webp)
 
 If you would like to manually enable an extension in a virtual workspace, you can use the `extensions.supportVirtualWorkspaces` setting in your user `settings.json` file.
 
@@ -74,11 +74,11 @@ Remote Repositories helps you stay on the latest version of your repos every tim
 
 Any time you open a new repo, you open the latest version. And whenever Remote Repositories detects there are new changes from GitHub, it will list how many commits you need to pull down in the Status bar:
 
-![VS Code Status bar showing "GitHub" in remote indicator and 1 pending change](one-change-status-bar.png)
+![VS Code Status bar showing "GitHub" in remote indicator and 1 pending change](one-change-status-bar.webp)
 
 and highlights the modified files in the Explorer:
 
-![VS Code Explorer listing files and README has 1 change](readme-one-change-explorer.png)
+![VS Code Explorer listing files and README has 1 change](readme-one-change-explorer.webp)
 
 When you commit changes, they'll automatically show up on GitHub – you don't need to push your changes or publish any new branches you create.
 
@@ -88,7 +88,7 @@ Remote Repositories works well with the [GitHub Pull Requests and Issues extensi
 
 You can make a change to your code, create a new branch and a pull request (PR) based on that change, and then check out the PR, all in a few clicks.
 
-![Gif using GitHub Pull Request extension to create branch and PR, and check out that PR](remote-repositories3.gif)
+<video src="remote-repositories3.mp4" title="Video showing Gif using GitHub Pull Request extension to create branch and PR, and check out that PR." autoplay loop controls muted></video>
 
 You can learn more about the GitHub Pull Requests and Issues extension in our [Working with GitHub](https://code.visualstudio.com/docs/sourcecontrol/github) article.
 
@@ -102,15 +102,15 @@ Let's explore how to push changes to a branch.
 
 In the Status bar, select your current branch to open the list of branches, for example "main":
 
-![VS Code Status bar on Main branch](main-branch.png)
+![VS Code Status bar on Main branch](main-branch.webp)
 
 Select **+ Create New Branch...** and type a name for your branch:
 
-![VS Code Command Palette with options to create new branch](remote-branch.png)
+![VS Code Command Palette with options to create new branch](remote-branch.webp)
 
 You can then switch to that new branch:
 
-![Remote Repositories prompt to switch to new branch](switch-branch.png)
+![Remote Repositories prompt to switch to new branch](switch-branch.webp)
 
 The new branch will not include any changes from your previous branch.
 
@@ -136,7 +136,7 @@ To move to more advanced workflows, Remote Repositories provides a way for you t
 
 Click the remote indicator in the lower left, then select **Continue Working on...**.
 
-![VS Code Command Palette with "Continue Working on..." command](continue-working.png)
+![VS Code Command Palette with "Continue Working on..." command](continue-working.webp)
 
 You'll be presented with three options:
 
@@ -144,7 +144,7 @@ You'll be presented with three options:
 * **Clone Repository in Container Volume**: Clone the current repo in a Docker [container volume](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) using the Dev Containers extension (you'll need the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and Docker installed). VS Code will reload and connect using Dev Containers, and the remote indicator will now read **Dev Container: {image name}**.
 * **Open in Codespaces**: Continue your work in a [GitHub Codespace](https://github.com/features/codespaces). When you select this option, a browser will open and direct you to your list of Codespaces for this repository.
 
-![VS Code Command Palette with options to continue locally, in a volume, or in Codespaces](continue-options.png)
+![VS Code Command Palette with options to continue locally, in a volume, or in Codespaces](continue-options.webp)
 
 Now that we've explored how to use Remote Repositories in VS Code, we'd like to describe some of the technical details powering the experience, and how you can ensure your extension will work in a Remote Repository session.
 

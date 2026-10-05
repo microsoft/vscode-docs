@@ -1,13 +1,13 @@
 ---
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 DateApproved: 12/14/2023
-MetaDescription: Debug an app running in a container, using Visual Studio Code.
+MetaDescription: Debug an app running in a container, using {% data variables.product.prodname_vscode %}.
 ---
 # Debug containerized apps
 
 The Container Tools extension provides more support for debugging applications within containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
 
-The Container Tools extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
+The Container Tools extension provides a `docker` debug configuration provider that manages how {% data variables.product.prodname_vscode_shortname %} will launch an application and/or attach a debugger to the application in a running container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
 The Container Tools extension currently supports debugging [Node.js](#nodejs), [Python](#python), and [.NET](#net) applications within containers.
 
@@ -123,7 +123,7 @@ Example `launch.json` configuration for debugging a .NET application using `Dock
 
 ### node object properties
 
-> These properties are the same as those described in the [VS Code documentation](/docs/nodejs/nodejs-debugging.md#launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
+> These properties are the same as those described in the [{% data variables.product.prodname_vscode_shortname %} documentation](/docs/nodejs/nodejs-debugging.md#launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
 
 | Property | Description | Default |
 | --- | --- | --- |
@@ -134,7 +134,7 @@ Example `launch.json` configuration for debugging a .NET application using `Dock
 | `autoAttachChildProcesses` | Optional. Track all subprocesses of debuggee and automatically attach to those that are launched in debug mode. |
 | `timeout` | Optional. When restarting a session, give up after this number of milliseconds. |
 | `stopOnEntry` | Optional. Break immediately when the program launches. |
-| `localRoot` | Optional. VS Code's root directory. | The root workspace folder. |
+| `localRoot` | Optional. {% data variables.product.prodname_vscode_shortname %}'s root directory. | The root workspace folder. |
 | `remoteRoot` | Optional. Node's root directory within the container. | `/usr/src/app` |
 | `smartStep` | Optional. Try to automatically step over code that doesn't map to source files. |
 | `skipFiles` | Optional. Automatically skip files covered by these glob patterns. |
@@ -154,7 +154,7 @@ Example `launch.json` configuration for debugging a .NET application using `Dock
 
 ### netCore object properties
 
-> Properties passed in the `netCore` object are generally passed on to the .NET debug adaptor, even if not specifically listed below. The complete list of debugger properties is in the [OmniSharp VS Code extension documentation](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md).
+> Properties passed in the `netCore` object are generally passed on to the .NET debug adaptor, even if not specifically listed below. The complete list of debugger properties is in the [OmniSharp {% data variables.product.prodname_vscode_shortname %} extension documentation](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md).
 
 | Property | Description |
 | --- | --- |

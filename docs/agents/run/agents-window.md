@@ -1,19 +1,16 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 8/19/2026
-MetaDescription: Operate the {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.agents_window %} to select sessions, review workspace files and changes, validate results, and commit agent work.
+DateApproved: 9/30/2026
+MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Use the {% data variables.copilot.agents_window %} (Preview)
+# Use the {% data variables.copilot.agents_window %}
 
-The {% data variables.copilot.agents_window %} is a dedicated {% data variables.product.prodname_vscode_shortname %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for agent-first workflows.
+When you delegate tasks across several projects, use the {% data variables.copilot.agents_window %} to track progress and review results in one place instead of switching between project windows. This dedicated {% data variables.product.prodname_vscode %} window keeps the focus on assigning work and reviewing outcomes.
 
-In this article, you learn how to open the {% data variables.copilot.agents_window %} and start, monitor, and review agent sessions across your projects.
+If your task needs frequent editing, debugging, or testing in one project, use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) beside your editor instead. This article shows how to start, monitor, review, and finish sessions in the {% data variables.copilot.agents_window %}. For conversation controls shared by both interfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
-
-> [!NOTE]
-> The {% data variables.copilot.agents_window %} is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing {% data variables.copilot.agents_window %} issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -22,21 +19,14 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 </div>
 
-## Why use the {% data variables.copilot.agents_window %}?
-
-* **Orchestrate work across projects from one place**: manage sessions for all your workspaces without opening each one in a separate window, so you can assign and track work across projects at the same time.
-* **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
-* **Switch freely between surfaces**: move to the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
-
-For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
-
 ## Prerequisites
 
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
   * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for Agent Host sessions.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -44,11 +34,13 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar
 
-* Run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`)
+* Run the **Chat: Open {% data variables.copilot.agents_window %}** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
 * Select **Try out the new {% data variables.copilot.agents_window %}** link from the {% data variables.product.prodname_vscode_shortname %} welcome page
 
 * Run `code --agents` from the command line.
+
+* On Windows, right-click the {% data variables.product.prodname_vscode_shortname %} taskbar icon and select **Agents Window** from the Tasks jump list.
 
 * Open <https://insiders.vscode.dev/agents> in a browser to use the {% data variables.copilot.agents_window %} from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
@@ -59,15 +51,21 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 ### Open without GitHub sign-in (Experimental)
 
-On desktop, you can open the Agents window without signing in to GitHub if Claude is configured with Anthropic credentials or Codex is signed in to ChatGPT. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
+On desktop, you can open the {% data variables.copilot.agents_window %} without signing in to GitHub when at least one of these options is available:
 
-To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the Agents window, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
+* Claude configured with an API key or another supported Claude BYOK option.
+* Codex signed in to ChatGPT.
+* A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available to Agent Host sessions.
 
-While you're signed out of GitHub, the model picker only shows models from providers with available credentials. Sign in to GitHub from the account menu to add Copilot-backed models. If both Copilot and ChatGPT provide a model with the same name, the model picker identifies the provider.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
+
+To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the {% data variables.copilot.agents_window %}, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
+
+While you're signed out of GitHub, the model picker only shows models from providers with available credentials or keys. Sign in to GitHub from the account menu to add Copilot-backed models. If multiple providers offer a model with the same name, the model picker identifies the provider.
 
 When {% data variables.product.prodname_vscode_shortname %} discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
 
-If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
+If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the {% data variables.copilot.agents_window %} shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
 ## {% data variables.copilot.agents_window %} interface overview
 
@@ -75,7 +73,7 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 
 1. **Sessions list**: view and manage sessions across workspaces. By default, sessions are grouped by workspace. Select a session to [make it active](#understand-the-active-session).
 
-1. **Customizations panel**: access agent customizations for your workflow and preferences
+1. **Customizations panel**: access agent customizations for your workflow and preferences, and open [Automations](#schedule-recurring-tasks) when enabled.
 
 1. **Chat area**: view and interact with the active agent chat conversation
 
@@ -107,34 +105,99 @@ The following parts of the window update when the active session changes:
 
 ## Start an agent session
 
-The {% data variables.copilot.agents_window %} lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
+Start a session for a local folder, GitHub repository, or [remote workspace](/docs/agents/run/remote-agent-sessions.md). You can attach other projects, issues, and pull requests as context before you send the first prompt. For work that doesn't belong to a project, start a [quick chat](#start-a-quick-chat).
 
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 
-1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`.
+1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`. To start directly in a specific workspace, hover over the workspace in the sessions list and select **+** (New Session).
 
-    To directly start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
+1. Select **Folder** or **Repository** to choose the primary execution workspace for the session. The first folder or repository you select determines where the agent runs and changes files.
 
-1. Use the workspace dropdown to select a local folder, GitHub repository, or remote workspace via SSH or a dev tunnel.
+    To connect through SSH or a dev tunnel, select **Remote Setup**. If the workspace isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you continue.
 
-    If the folder or repository isn't trusted, {% data variables.product.prodname_vscode_shortname %} prompts you to trust it before starting the session. The {% data variables.copilot.agents_window %} and main {% data variables.product.prodname_vscode_shortname %} window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+1. Optionally, attach more context to the request:
 
-1. Choose an available [agent harness](/docs/agents/concepts/agent-harnesses.md) from the dropdown, such as Copilot, Claude, or Codex.
+    * Select **Folder** or **Repository** to attach more projects as context without adding workspace roots.
+    * Select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+    * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
-    The available harnesses depend on whether you selected a folder or repository. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
+    ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
-1. Optionally, configure the agent, language model, permission level, and isolation mode.
+1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
-
-    The agent starts working on your request and responds in the chat area. The **Files** and **Changes** views update as the agent makes changes in the session's workspace.
 
     > [!TIP]
     > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The new session appears in the sessions list after you send the prompt.
 
-After you start a session, its row in the sessions list shows its status and change statistics. You can make another session active while the agent works, then select the session again to check its progress or respond to a request for input.
+The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+### Run a session in a Dev Container
+
+`feature(agent-host-dev-containers)`
+
+Run an Agent Host session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
+
+This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.
+
+> [!NOTE]
+> Dev Container sessions are rolling out gradually. If the setting isn't enabled for you yet, you can enable it manually.
+
+Before you start, make sure that:
+
+* [Docker is installed and running](/docs/devcontainers/containers.md#installation) on the machine that contains the project folder, and the Docker CLI is available on that machine's `PATH`. For a remote folder, Docker must run on the remote host.
+* The project folder contains a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
+* For a remote folder, its SSH, Tunnel, or WSL connection is configured in the {% data variables.copilot.agents_window %}, and the source host advertises Dev Container support. Learn about [connecting to remote hosts](/docs/agents/run/remote-agent-sessions.md).
+
+To run a session in a Dev Container:
+
+1. Select **New** at the top of the sidebar.
+
+1. In the workspace picker, expand the menu for an eligible local folder or a folder on a configured SSH, Tunnel, or WSL host, and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local** for a local folder or **Use Remote Host** for a remote folder.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
+The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
+
+When no session in the container is actively working, waiting for input, or holding an unsent draft, {% data variables.product.prodname_vscode_shortname %} stops the container after five minutes. Approval prompts count as waiting for input and keep the container running. Continuing a session restarts the container and reconnects it without losing the conversation history.
+
+Use `setting(chat.agentHost.devContainer.idleTimeout)` to change the inactivity period. The default is `300` seconds. Set the value to `0` to turn off automatic idle shutdown. Marking sessions as done or deleting them can still remove the container.
+
+### Start a session from a pull request
+
+For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
+
+To start a session from a pull request:
+
+1. In the sessions list, group sessions by workspace.
+
+1. Hover over the workspace for the pull request, expand the **+** (New Session) action, and select **New Session from Pull Request**.
+
+    ![Screenshot showing the New Session from Pull Request action and pull request picker in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-new-session-from-pull-request.png)
+
+1. Select a pull request from the list.
+
+    The new session opens with the pull request title. Use the chat to ask questions about the pull request or enter a prompt to make more changes. The **Changes** view shows the pull request changes.
+
+1. Review and validate the changes, then select **Commit Changes** and **Sync Changes** in the title bar.
+
+    **Sync Changes** updates the pull request branch on GitHub, so the existing pull request includes your commits.
+
+> [!NOTE]
+> Pull requests from forks are not supported and don't appear in the pull request picker.
+
+### Remove a pull request from a session
+
+When a pull request is no longer relevant to a session, remove its artifact from the session:
+
+* If the session has one pull request, right-click the pull request pill above the chat input, and then select **Remove Pull Request Artifact from Session**.
+* If the session has multiple pull requests, select the pull requests pill to open the dropdown, and then select **Remove Pull Request Artifact from Session** for the pull request you want to remove.
+
+Removing a pull request artifact only disassociates the artifact from the current session. It doesn't close the pull request on GitHub. If the session has a separate association with the same pull request, such as when you start a session from that pull request, that association remains unchanged.
 
 ## Start a quick chat
 
@@ -150,68 +213,119 @@ To start a new quick chat in the {% data variables.copilot.agents_window %}:
 
 1. Enter a prompt in the input box to submit it to the agent. The agent responds in the chat area.
 
+To use speech instead of typing, start [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) from the chat input. Voice Mode works with the active chat or agent session in the {% data variables.copilot.agents_window %}. `feature(voice-mode)`
+
 By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide empty default groups, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
+
+### Continue a quick chat in a workspace
+
+If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
+
+> [!NOTE]
+> This option is currently available for quick chats that use the Copilot harness or Codex on the Agent Host. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+
+To continue a quick chat in a workspace:
+
+1. Ask the agent to continue the task in a specific local workspace.
+
+1. When prompted, confirm the folder and choose whether the agent should make changes directly in the folder or use an isolated Git worktree.
+
+1. Review and approve the **Set Workspace** tool confirmation.
+
+    If the folder isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you proceed.
+
+1. Wait for workspace setup to finish. The quick chat becomes a workspace session and moves from the **Chats** group to the selected workspace in the sessions list. The agent then continues the original request.
 
 ## Review and finish an agent session
 
-When the agent finishes a task, select the session active to inspect, validate, or commit its changes.
+When an agent finishes a task, make the session active to inspect its workspace and access its validation and Git actions.
 
 ### Inspect workspace files and changes
 
-1. Select the session in the sessions list to make it active.
-
-1. Select **Files** to browse the session's workspace folder or worktree and open a file.
-
-1. Select **Changes** to see the files that changed in the active session.
-
-1. Use the dropdown in the **Changes** view to choose the branch changes, uncommitted changes, all changes, or changes from the last agent turn.
-
-1. Select a changed file to review its diff. Select a block of text in the diff to leave range-based feedback for the agent. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
+Select **Files** to browse the active session's workspace folder or worktree. Select **Changes** to review branch changes, uncommitted changes, all changes, or changes from the last agent turn. Open a changed file to inspect its diff or leave range-based feedback for the agent.
 
 ![Screenshot showing the Changes panel in the {% data variables.copilot.agents_window %}, with the Files and Changes views visible.](../images/agents-window/agents-window-changes.png)
 
-### Validate changes locally
+For complete instructions about feedback, revisions, checkpoints, and integrating changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
-In addition to reviewing individual code changes, validate the agent's work in the active session before you commit or merge it.
+### Validate changes
 
-#### Use the integrated browser
+Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. On desktop, opening a regular `.html` file in the active session opens it in the integrated browser by default. HTML diffs continue to open in the diff editor so you can review changes. You can also select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
 
-If your application involves browser-based behavior, use the [integrated browser](/docs/debugtest/integrated-browser.md) in the {% data variables.copilot.agents_window %}. Select a `localhost` link from the chat or terminal to open it in the integrated browser. You can also right-click a file in the **Files** view and select **Open in Integrated Browser**.
-
-Browser tabs belong to the session in which you open them. Each session keeps its own tabs and page state when you switch sessions. If an agent opens a tab while its session isn't active, select the tab label in the chat tool call to open it.
-
-![Screenshot showing the integrated browser open in the {% data variables.copilot.agents_window %}, displaying a localhost page that was opened from a link in the chat session.](../images/agents-window/agents-window-integrated-browser.png)
-
-You can also run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Use the browser layout controls to show it as a modal window or embed it alongside other views.
-
-#### Create and run tasks
-
-The {% data variables.copilot.agents_window %} supports running tasks and commands in the context of the active session. For example, run a build or tests to ensure that the agent's changes don't break your project, or start a development server to verify the changes in a running application.
-
-To configure a task in the {% data variables.copilot.agents_window %}:
-
-1. Select the session in the sessions list to make it active.
-
-1. Select the **Tasks** dropdown in the title bar, and then select **Add Task**.
-
-    ![Screenshot showing the Add Task dialog in the {% data variables.copilot.agents_window %}, where you can configure a task to run in the context of the current session.](../images/agents-window/agents-window-add-task.png)
-
-1. Provide the task details:
-
-    * **Name**: a descriptive name for the task.
-    * **Command**: the command to run when the task is executed, such as `npm run build` or `pytest`.
-    * **Run Options**: automatically run the task when the session worktree is created.
-    * **Save In**: save the task configuration in the workspace or your user profile.
-
-1. Select **Add Task**.
-
-After you configure the task, select it from the **Tasks** dropdown to run it in the context of the active session.
-
-To run terminal commands, select the **Open Terminal** icon in the title bar. The terminal opens with its current working directory set to the active session's folder or worktree.
+To run a workspace task, select **Tasks** > **Add Task**, and then provide its name, command, run options, and save location. Run configured tasks from the **Tasks** dropdown. To run an ad hoc command in the active session's folder or worktree, select **Open Terminal** in the title bar.
 
 ### Commit changes
 
 If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
+
+### Create a pull request
+
+For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+
+1. Open the **Changes** view, and then select **Create PR**.
+
+    The form opens while {% data variables.product.prodname_vscode_shortname %} generates a title and description. You can edit these fields without waiting for generation to finish.
+
+1. Review the repository, source branch, base branch, title, and description.
+
+1. To keep the pull request in draft until it is ready for review, select **Create as Draft**.
+
+1. Under **After creation**, choose one of these mutually exclusive options:
+
+    * **Merge Manually**: merge the pull request yourself when it is ready.
+    * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
+        * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
+    * **{% data variables.copilot.agent_merge_caps %}**: have {% data variables.copilot.agent_merge %} monitor the pull request and ask the agent to address blockers.
+        * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
+        * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if {% data variables.copilot.agent_merge %} makes no changes, and **When Ready** merges it after required checks and approvals pass.
+
+    GitHub auto-merge is unavailable when **Create as Draft** is selected. It also does not fix failed checks or address review feedback.
+
+1. Select **Create PR**.
+
+    Any uncommitted changes are committed and the branch is pushed before the pull request is created.
+
+The form remembers the draft setting, merge options, {% data variables.copilot.agent_merge %} options, and your last action (**Create PR** or **Send Create PR Message**). It does not remember titles or descriptions.
+
+To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**.
+
+This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. {% data variables.copilot.agent_merge_caps %} options are not included in the message.
+
+### Finish a pull request with {% data variables.copilot.agent_merge %}
+
+`feature(agent-merge)`
+
+{% data variables.copilot.agent_merge_caps %} is an experimental feature that monitors the pull request associated with an agent session and asks the agent to address blockers until the pull request is ready to merge. Depending on how you configure it, {% data variables.copilot.agent_merge %} can:
+
+* Address unresolved review threads, changes-requested reviews, and new comments from repository maintainers or the Copilot pull request reviewer.
+* Fix failed required CI checks.
+* Update a branch that is behind its base branch and resolve merge conflicts.
+* Merge the pull request or add it to the merge queue after the selected maintenance work is complete.
+
+First, enable `setting(chat.agentMerge.enabled)`.
+
+To enable {% data variables.copilot.agent_merge %} for an existing pull request:
+
+1. Open a session that is associated with a pull request. To create one, use the [Create PR form](#create-a-pull-request) or follow the steps in [Start a session from a pull request](#start-a-session-from-a-pull-request).
+
+1. Select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Enable {% data variables.copilot.agent_merge %}**.
+
+1. From the **{% data variables.copilot.agent_merge_caps %}** menu, configure which blockers the agent should address and whether to merge the pull request when it is ready.
+
+    You can also run **Configure {% data variables.copilot.agent_merge %} for Active Session** from the Command Palette (`kb(workbench.action.showCommands)`). For a complete list of options, see the [{% data variables.copilot.agent_merge %} settings](/docs/agents/reference/ai-settings.md#agent-sessions).
+
+<!-- TODO: Add a screenshot of the {% data variables.copilot.agent_merge_caps %} menu in the Agents window title bar. -->
+
+While the pull request is a draft, **Mark Ready** is available from the **Changes** view. While {% data variables.copilot.agent_merge %} addresses blockers, select **Mark Ready** from the action menu to make the pull request ready for review. When required checks and actionable review feedback are clear, **Mark Ready** becomes the primary action.
+
+> [!CAUTION]
+> {% data variables.copilot.agent_merge_caps %} starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review the {% data variables.copilot.agent_merge %} options before you enable automatic merging.
+
+{% data variables.copilot.agent_merge_caps %} waits while required checks are pending and checks that the pull request is ready immediately before it merges or adds it to the merge queue. If the session starts tracking a different branch or pull request, {% data variables.copilot.agent_merge %} turns off and requires you to enable it again.
+
+To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %} Changes** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
+
+To stop monitoring the pull request, select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Disable {% data variables.copilot.agent_merge %}**.
 
 ## Work with multiple sessions
 
@@ -221,97 +335,45 @@ The sessions list shows sessions across all your workspaces. You can group sessi
 
 Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
 
+* To keep the active session visible while you start a new session beside it, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.
 
 <video src="../images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the {% data variables.copilot.agents_window %}." autoplay loop controls muted></video>
 
-Only one session view is active at a time. Select anywhere in a session view to make it active. The **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions then apply to that session.
-
-By default, selecting a session in the sessions list replaces the active view. Pin a session view from its toolbar to prevent it from being replaced.
+Only one session view is active at a time. Select a view to make it active and direct the **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions to that session. Selecting another session replaces an unpinned active view.
 
 When multiple sessions are open, use keyboard shortcuts to move between and manage them:
 
 * Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
 * Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
 
-These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
+These commands are also in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ### Work with multiple chats in a session
 
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Arrange peer chats, side chats, and read-only subagent chats in horizontal or vertical groups to work with multiple conversations at the same time. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+In supported Agent Host sessions, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
-## Customize and configure the {% data variables.copilot.agents_window %}
+The main chat and interactive peer chats are also available in the editor's [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#switch-chats-within-a-session), where you select them from the **Sessions** view rather than the {% data variables.copilot.agents_window %} chat tabs.
 
-The {% data variables.copilot.agents_window %} shares your GitHub account, {% data variables.product.prodname_vscode_shortname %} settings, and default profile with the main {% data variables.product.prodname_vscode_shortname %} window. Configure the following options when you want to adjust the agent-first experience.
+For what chats share, how to create them, and the controls in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
-### Customize agents for your project and workflow
+## Schedule recurring tasks
 
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+`feature(automations)`
 
-### Adjust the window layout
+Automations run recurring agent tasks from a saved prompt and schedule. Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. You can run a task on demand or schedule it to run hourly, daily, or weekly.
 
-#### Use the single-pane editor panel (Experimental)
+Learn how to [create an automation and review its results](/docs/agents/run/automations.md).
 
-The experimental single-pane layout replaces the separate editor and side panel with one docked pane. A shared tab bar spans the editor and the **Changes** or **Files** detail view. Files and diffs open in the docked editor next to the chat instead of in a modal window.
+## Configure the {% data variables.copilot.agents_window %}
 
-To use the single-pane layout, enable `setting(sessions.layout.singlePaneDetailPanel)` and reload the window. The setting is read when the {% data variables.copilot.agents_window %} starts.
-
-<!-- TODO: Add a screenshot of the single-pane editor panel showing the shared tab bar, editor, and detail panel. -->
-
-In the shared tab bar, select **New Tab** (`+`) to open **Changes**, **Files**, **Browser**, or **Search**. Use **Hide Editor**, **Toggle Details**, and **Maximize Editor Area** or **Restore Editor Area** to adjust the layout. **Toggle Details** is available only for tabs that support a detail panel.
-
-Each session restores its side-pane width, open editors, active editor, and per-file collapsed state when you switch sessions or reload the window.
-
-#### Automatically collapse the sessions sidebar (Experimental)
-
-When you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the {% data variables.copilot.agents_window %} hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The {% data variables.copilot.agents_window %} preserves a sidebar that you closed manually and suspends auto-collapse while multiple sessions are open side by side.
-
-### View and edit Markdown files
-
-The {% data variables.copilot.agents_window %} supports rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
-
-* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
-* When disabled, `.md` files open with **Markdown Preview**.
-
-In **Markdown Editor (Experimental)**, switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit content directly. In **Locked** mode, the document remains rendered and read-only.
-
-When you edit a Markdown file, the editor shows Git change markers in the margin. Green indicates added content, blue indicates modified content, and red indicates deleted content. The markers reflect the current Git changes and disappear when you undo or revert the corresponding changes.
-
-### Switch to another GitHub account
-
-To use a different GitHub account in the {% data variables.copilot.agents_window %}, select the account icon in the top right corner of the window and choose **Sign out**. After signing out, select **Sign in** to authenticate with a different GitHub account.
-
-### Configure settings for the {% data variables.copilot.agents_window %}
-
-The {% data variables.copilot.agents_window %} shares all of your {% data variables.product.prodname_vscode_shortname %} settings, so the configuration you've already invested in carries over automatically. When you want different behavior in the {% data variables.copilot.agents_window %} than in the editor window, you can override specific settings just for the {% data variables.copilot.agents_window %} without affecting your main {% data variables.product.prodname_vscode_shortname %} setup.
-
-To override a setting for the {% data variables.copilot.agents_window %} only, edit your settings file and scope the value under the {% data variables.copilot.agents_window %} section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the {% data variables.copilot.agents_window %} to see which scope a setting applies to.
-
-![Screenshot showing the Settings editor open in the {% data variables.copilot.agents_window %}, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
-
-### Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
-
-The {% data variables.copilot.agents_window %} can run {% data variables.product.prodname_vscode_shortname %} extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
-
-For other extensions, you can opt them in by ID with the `setting(extensions.supportAgentsWindow)` setting:
-
-```json
-"extensions.supportAgentsWindow": {
-    "myextension.id": true
-}
-```
-
-Keep the following in mind when enabling extensions:
-
-* Any extension you enable this way must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile.
-
-* Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
+You can personalize chat, adjust the window layout, configure settings and extensions, and choose how Markdown files open. See [Configure the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md) for all window-specific options.
 
 ## Limitations
 
-* The {% data variables.copilot.agents_window %} supports Copilot, cloud, Claude, and Codex sessions that run on the Agent Host. Use the Local harness and Codex sessions that run through the OpenAI extension from the main {% data variables.product.prodname_vscode_shortname %} window.
+* Agent Host Codex sessions can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 
@@ -323,7 +385,6 @@ Keep the following in mind when enabling extensions:
 
 ## Next steps
 
-* [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) - send and steer requests, add context, and navigate conversations.
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md) - organize, fork, archive, and export sessions.
 * [Review AI-generated code edits](/docs/agents/run/review-code-edits.md) - inspect, revise, and integrate agent changes.
-* [Remote agent sessions](/docs/agents/run/remote-agent-sessions.md) - SSH, dev tunnels, and browser-based access.

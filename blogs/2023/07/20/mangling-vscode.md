@@ -20,7 +20,7 @@ The VS Code team is passionate about performance, be that optimizing hot code pa
 
 Unfortunately, these changes have almost always been increases. Although we put a lot of thought into what features we build into VS Code, over the years adding new functionality has necessarily grown the amount of code we ship. For instance, one of VS Code's core JavaScript files (`workbench.js`) is now around four times the size it was eight years ago. Now when you consider that eight years ago VS Code lacked features many would consider essential today—such as editor tabs or the built-in terminal—that increase is not perhaps as awful as it sounds, but it's not nothing either.
 
-![The size of 'workbench.js' has slowly increased over the past eight years](code-size-before.png)
+![The size of 'workbench.js' has slowly increased over the past eight years](code-size-before.webp)
 
 That 4x size increase is also after a lot of ongoing performance engineering work. Again this work largely happens because we keep track of our code size and really hate seeing it increase. We've already done many easy code size optimizations, including running our code through [esbuild](https://esbuild.github.io/) to minify it. Finding further savings has become increasingly challenging over the years. Many potential savings are also not worth the risks they introduce, or the extra engineering effort required to implement and maintain them. This means that we've had to watch the size of our JavaScript slowly tick upwards.
 
@@ -159,9 +159,9 @@ The export mangling work shipped last iteration, further reducing the size of `w
 
 This chart shows the size of `workbench.js` over time. Notice the two drops on the right side. The first big drop in VS Code 1.74 is the result of mangling private properties. The second smaller drop in 1.80 is from mangling exports.
 
-![Zoomed in chart showing the drops from mangling](code-size-after-zoomed.png)
+![Zoomed in chart showing the drops from mangling](code-size-after-zoomed.webp)
 
-![The size of 'workbench.js' over all VS Code releases, including the mangling work](code-size-after.png)
+![The size of 'workbench.js' over all VS Code releases, including the mangling work](code-size-after.webp)
 
 Our mangling implementation can doubtless be improved since our minified sources still contain plenty of long names. We may investigate these further if doing so seems worthwhile and if we can come up with a safe approach. Ideally, some day much of this work won't be necessary at all. Native private properties are already mangled automatically and our build tools will hopefully become better at optimizing code across our entire codebase. You can review our current [mangling implementation](https://github.com/microsoft/vscode/blob/48cd8e0c1b142a46f0956b593d8331145634658e/build/lib/mangle/index.ts).
 

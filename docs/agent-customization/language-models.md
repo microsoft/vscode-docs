@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 8/19/2026
+DateApproved: 9/30/2026
 MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -37,7 +37,7 @@ You can further extend the list of available models by [using your own language 
 > For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Configure thinking effort
 
@@ -70,7 +70,15 @@ The model picker label updates to show the selected effort level, for example "C
 
 With auto model selection, {% data variables.product.prodname_vscode_shortname %} evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
-To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
+To use auto model selection, select **Auto** from the model picker in chat. Then use **Optimize for** to choose the tier that matches your priorities:
+
+* **Efficiency** favors lower AI credit consumption.
+* **Balance** balances capability and credit consumption.
+* **Intelligence** favors more capable models for complex tasks.
+
+Your organization can set a starting tier for new chats. The managed tier appears as **Default** in the **Optimize for** menu, but you can still choose a different tier. An explicit choice is preserved when the managed default changes or is removed.
+
+You can see which model is used for generating a response by hovering over the chat response.
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
@@ -78,7 +86,7 @@ To use auto model selection, select **Auto** from the model picker in chat. You 
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/getting-started/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
@@ -118,7 +126,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions `feature(agent-host-byok-models)`.
 
 You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 
@@ -134,7 +142,7 @@ You can also use these models to [override the models used for utility tasks in 
 * [Custom endpoint](#add-a-custom-endpoint-model): You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Add a model from a built in provider
 
@@ -361,20 +369,20 @@ To change the language model that is used for generating inline suggestions in t
 > [!NOTE]
 > The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
 >
-> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Change the model for utility tasks
 
-In addition to the main chat model, {% data variables.product.prodname_vscode_shortname %} uses lightweight models in the background for utility tasks such as generating titles, creating commit messages, and detecting intent. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
+In addition to the main chat model, {% data variables.product.prodname_vscode_shortname %} uses lightweight models in the background for utility tasks such as generating titles, creating commit messages and pull request descriptions, and detecting intent. The model you select for a chat or agent session does not control these utility tasks. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
 
 There are two settings for utility models, depending on the type of task:
 
 * `setting(chat.utilityModel)`: Override the model used for general utility flows, such as generating titles and summaries, settings search, and Git review.
-* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
+* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, pull request titles and descriptions, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
-If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation, commit message creation, and pull request description creation.
 
 #### Configure the default utility model for BYOK models
 
@@ -428,9 +436,9 @@ Each model in the `models` array supports the following properties:
 
 ## Frequently asked questions
 
-### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
+### How do I enable bring your own model key for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Can I use locally hosted models with Copilot in {% data variables.product.prodname_vscode_shortname %}?
 

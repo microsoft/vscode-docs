@@ -1,6 +1,6 @@
 ---
 ContentId: f5ce0269-bdf5-4f52-8765-dc9e25edad0f
-DateApproved: 07/08/2026
+DateApproved: 9/30/2026
 MetaDescription: Build a social media content agent with Agent Builder, connect MCP tools, and improve quality with structured evaluations.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 # Building a Social Media Content Agent with Agent Builder
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NPGMgljY2Gs" title="Chapter 3 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Chapter 3 Video on YouTube (opens in new tab).](images/3-building-social-media-agent/youtube-NPGMgljY2Gs.jpg)](https://www.youtube.com/watch?v=NPGMgljY2Gs)
 
 This chapter walks through building a practical social media content agent using Agent Builder in Foundry Toolkit. The goal is not just to generate text, but to create an assistant that asks the right follow-up questions, uses trusted context, and returns output a team can actually review and ship.
 

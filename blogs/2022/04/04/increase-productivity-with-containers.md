@@ -23,7 +23,7 @@ But what does the path look like to get us there? Let's examine the journey to i
 
 Let's begin where all developers start (and where a lot still are): local development. If you've ever uttered the phrase, "But it works on my computer!", then chances are that you were in the local development phase. This means that everything for your development environment exists locally on your machine.
 
-![A shrug emoji saying "It works on my machine"](it-works-on-my-machine.png)
+![A shrug emoji saying "It works on my machine"](it-works-on-my-machine.webp)
 
 Let's paint a picture of what local development looks like in the real world. Have you ever joined a new project, ready to get to work and start coding, but were instead handed pages of onboarding notes in order to get your environment up and running. You spend hours and hours waiting for install commands to finish and being bounced from colleague to colleague to troubleshoot build failures. It can be days before you can successfully run the project.
 
@@ -31,7 +31,7 @@ Then once you get over that onboarding hump, your team needs to update one of th
 
 And **THEN**, you need to make sure all the updates work in production too...
 
-![A meme showing a dog saying "This is fine" while sitting in a room on fire](this-is-fine-meme.png)
+![A meme showing a dog saying "This is fine" while sitting in a room on fire](this-is-fine-meme.webp)
 
 Clearly, it is problematic when everything exists solely on a developer's machine. Your machine may differ wildly from your teammate's, whether that be from installed versions of dependencies, or from running an entirely different OS. This can lead to a never-ending cycle of configuration nightmares. Even if you get everything in sync with your coworkers, you lose any confidence that you won't run into more issues when you go to deploy your code.
 
@@ -53,7 +53,7 @@ The idea behind container-based development is to introduce containers at the ve
 
 This brings us to the concept of a development container: a container that runs a full-featured development environment. A dev container houses its own app and dependencies, such as the required tools, libraries, and runtimes. In the diagram below, you can see that these dependencies exist in the containers and not on the host machine, which means that you can seamlessly switch between tech stacks in no time at all.
 
-![A diagram showing containers with different tech stacks](container-diagram.png)
+![A diagram showing containers with different tech stacks](container-diagram.webp)
 
 To provide a way to create and connect to dev containers, VS Code released the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in 2019. This extension enhances local development by using the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
 
@@ -75,7 +75,7 @@ Running containers in the cloud is not a new concept; in fact, [one study](https
 
 VS Code's entry into this space comes from powering [GitHub Codespaces](https://github.com/features/codespaces). Within minutes, you can create and configure a dev container hosted in the cloud that is ready whenever you need it. You can then connect via VS Code (in either the browser or desktop) to a development environment that is managed completely for you, no longer relying on your laptop's resources to handle the demand.
 
-![A diagram showing the infrastructure and workflow of Codespaces](codespaces-diagram.png)
+![A diagram showing the infrastructure and workflow of Codespaces](codespaces-diagram.webp)
 
 The same dev containers used in the Dev Containers extension can be used in GitHub Codespaces, providing a seamless transition to the cloud.
 

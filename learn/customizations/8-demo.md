@@ -1,13 +1,13 @@
 ---
 ContentId: b7c8d9e0-f1a2-3b4c-5d6e-7f8a9b0c1d2e
-DateApproved: 04/17/2026
+DateApproved: 9/30/2026
 MetaDescription: "A hands-on demo of GitHub Copilot customization features: custom agents, skills, instructions, prompt files, and hooks working together in a real project."
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
 # Customization features in practice
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Bb45ZoKfJf0?si=SgI3qnVLwYpLUxZV" title="Customization Features in Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Customization Features in Practice on YouTube (opens in new tab).](images/8-demo/youtube-Bb45ZoKfJf0.jpg)](https://www.youtube.com/watch?v=Bb45ZoKfJf0)
 
 You may have seen quite a few videos about customization features in VS Code.
 

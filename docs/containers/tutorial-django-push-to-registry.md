@@ -1,7 +1,7 @@
 ---
 ContentId: 4eb2543d-84a7-4e11-b835-0d238ce7ed7a
 DateApproved: 1/17/2023
-MetaDescription: How to push a Django image to a container registry using the VS Code Container Tools extension
+MetaDescription: How to push a Django image to a container registry using the {% data variables.product.prodname_vscode_shortname %} Container Tools extension
 MetaSocialImage: ../python/images/tutorial/python-social.png
 ---
 # Push Django images to a registry
@@ -12,9 +12,9 @@ In this tutorial, you take a container image of a Python Django app you built lo
 
 Create a container registry to push images to. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
-Make sure that the registry endpoint you created is visible under **Registries** in the **Container Explorer** of VS Code:
+Make sure that the registry endpoint you created is visible under **Registries** in the **Container Explorer** of {% data variables.product.prodname_vscode_shortname %}:
 
-![Container Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
+![Container Explorer in {% data variables.product.prodname_vscode_shortname %} showing registries](images/quickstarts/python-django-registries.png)
 
 ## Settings for Django apps
 
@@ -51,6 +51,6 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
     ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png)
 
-  > **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
+  > **Tip**: The first time you push an image, you will see that {% data variables.product.prodname_vscode_shortname %} uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
 
 Now that you've pushed your image to a registry, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01).

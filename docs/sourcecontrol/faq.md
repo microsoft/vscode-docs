@@ -1,7 +1,7 @@
 ---
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
-MetaDescription: Find answers about Git clients, source control providers, SSH authentication, and GitHub Enterprise support in Visual Studio Code.
-DateApproved: 8/19/2026
+MetaDescription: Check Git, SSH, and {% data variables.product.prodname_github %} Enterprise support in {% data variables.product.prodname_vscode %}.
+DateApproved: 9/30/2026
 Keywords:
 - source control
 - scm
@@ -10,27 +10,27 @@ Keywords:
 ---
 # Source control FAQ
 
-This article answers common support and compatibility questions about source control in Visual Studio Code. For task instructions, start with the [source control overview](/docs/sourcecontrol/overview.md). For errors and unexpected behavior, see [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md).
+This article answers support and compatibility questions about source control in {% data variables.product.prodname_vscode %}. To perform a Git task, use the [task guides](#common-tasks). For errors and unexpected behavior, see [source control troubleshooting](/docs/sourcecontrol/troubleshooting.md). If you're setting up Git for the first time, start with the [quickstart](/docs/sourcecontrol/quickstart.md).
 
 ## Git clients and providers
 
-### Can VS Code use GitHub Desktop for Git operations?
+### Can {% data variables.product.prodname_vscode_shortname %} use GitHub Desktop for Git operations?
 
-No. VS Code uses the [official Git distribution](https://git-scm.com/) for its built-in Git integration. Installing GitHub Desktop doesn't replace this requirement.
+No. {% data variables.product.prodname_vscode_shortname %} uses the [official Git distribution](https://git-scm.com/) for its built-in Git integration. Installing GitHub Desktop doesn't replace this requirement.
 
 ### Can I use Team Foundation Version Control?
 
-Install the [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) to add Team Foundation Version Control support to VS Code.
+Install the [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) to add Team Foundation Version Control support to {% data variables.product.prodname_vscode_shortname %}.
 
 ### Can I use another source control provider?
 
-Yes. Git support is built into VS Code, and extensions can contribute support for other source control systems. Search the Extensions view (`kb(workbench.view.extensions)`) for `@category:"scm providers"`.
+Yes. Git support is built into {% data variables.product.prodname_vscode_shortname %}, and extensions can contribute support for other source control systems. Search the Extensions view (`kb(workbench.view.extensions)`) for `@category:"scm providers"`.
 
 ## Authentication
 
-### Can I use SSH authentication with VS Code?
+### Can I use SSH authentication with {% data variables.product.prodname_vscode_shortname %}?
 
-Yes. VS Code uses the SSH configuration from your Git installation. If an SSH key has a passphrase, configure an SSH agent so Git can request or reuse the passphrase.
+Yes. {% data variables.product.prodname_vscode_shortname %} uses the SSH configuration from your Git installation. If an SSH key has a passphrase, configure an SSH agent so Git can request or reuse the passphrase.
 
 For platform-specific configuration, see [GitHub's SSH documentation](https://docs.github.com/authentication/connecting-to-github-with-ssh).
 
@@ -42,16 +42,22 @@ Use [Git Credential Manager](https://github.com/GitCredentialManager/git-credent
 
 ### Is GitHub Enterprise Server supported?
 
-Yes. VS Code supports authentication with GitHub Enterprise Server. Open a local checkout of a GitHub Enterprise Server repository and follow the sign-in prompt.
+Yes. {% data variables.product.prodname_vscode_shortname %} supports authentication with GitHub Enterprise Server. Open a local checkout of a GitHub Enterprise Server repository and follow the sign-in prompt.
 
 The [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) also supports GitHub Enterprise Server. Configure the extension for your server before you manage pull requests or issues.
 
 ## Common tasks
 
-Use the focused source control articles for common tasks:
+Use these focused guides for Git tasks and workflow questions:
 
-* [Stage, commit, amend, or undo changes](/docs/sourcecontrol/staging-commits.md)
-* [Create, rename, or delete branches](/docs/sourcecontrol/branches-worktrees.md)
-* [Configure remotes and synchronize changes](/docs/sourcecontrol/repos-remotes.md)
-* [Resolve merge conflicts](/docs/sourcecontrol/merge-conflicts.md)
-* [Inspect commit and file history](/docs/sourcecontrol/history.md)
+| Task or question | Guide |
+|------------------|-------|
+| Choose which changes to commit | [Stage changes](/docs/sourcecontrol/staging-commits.md#staging-changes) |
+| Undo the last commit or reverse a shared commit | [Undo a local commit](/docs/sourcecontrol/staging-commits.md#undo-the-last-commit) or [undo a pushed commit](/docs/sourcecontrol/staging-commits.md#undo-a-pushed-commit) |
+| Remove uncommitted edits | [Discard changes](/docs/sourcecontrol/staging-commits.md#discard-changes) |
+| Understand why a file is both staged and unstaged | [Why a file appears in both lists](/docs/sourcecontrol/staging-commits.md#why-a-file-appears-in-both-lists) |
+| Create, rename, or delete a branch | [Work with branches](/docs/sourcecontrol/branches-worktrees.md#working-with-branches) |
+| Download or upload commits without doing both | [Choose between fetch, pull, push, and sync](/docs/sourcecontrol/repos-remotes.md#push-pull-and-sync) |
+| Finish or stop a merge or rebase | [Complete the operation](/docs/sourcecontrol/merge-conflicts.md#complete-the-merge-operation) or [cancel an operation](/docs/sourcecontrol/merge-conflicts.md#cancel-an-operation) |
+| Understand why an ignored file still appears | [Troubleshoot ignored files](/docs/sourcecontrol/troubleshooting.md#ignored-files-still-appear-in-source-control) |
+| Inspect commits and branches | [View branch and commit history](/docs/sourcecontrol/history.md#view-branch-and-commit-history) |

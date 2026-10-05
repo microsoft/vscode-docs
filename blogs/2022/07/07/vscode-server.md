@@ -21,7 +21,7 @@ We can do this because VS Code is, by design, a multi-process application. Conce
 
 Today we are releasing a private preview of the backend service that makes this all possible, the "VS Code Server," along with a CLI that makes it easy to install, update, manage, and connect to the service. You can install the server wherever you like (a local development machine, a VM in the cloud, etc.) and access it securely through the browser using VS Code for the Web (also known as [vscode.dev](http://vscode.dev/)), without the hassle of setting up SSH or https (although you can do that if you want as well 😊).
 
-![Terminal starting the VS Code Server, and vscode.dev connected to it](help-and-start.png)
+![Terminal starting the VS Code Server, and vscode.dev connected to it](help-and-start.webp)
 
 ## Getting started
 

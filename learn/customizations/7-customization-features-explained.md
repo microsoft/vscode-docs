@@ -1,12 +1,12 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
-DateApproved: 04/17/2026
+DateApproved: 9/30/2026
 MetaDescription: Understand the differences between custom instructions, agent skills, hooks, custom agents, and prompt files in GitHub Copilot using interactive learning with Copilot.
 ---
 
 # Understanding VS Code customization features together
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oyMMotLlcgQ?si=899IQZ3GAgGhtkze" title="Instructions vs Skills vs Hooks & More Explained By Copilot Itself" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Instructions vs Skills vs Hooks & More Explained By Copilot Itself on YouTube (opens in new tab).](images/7-customization-features-explained/youtube-oyMMotLlcgQ.jpg)](https://www.youtube.com/watch?v=oyMMotLlcgQ)
 
 There are quite a few customization options in VS Code.
 

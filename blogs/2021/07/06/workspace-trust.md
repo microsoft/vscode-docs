@@ -12,7 +12,7 @@ July 6, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 Can I trust myself? This is the existential question facing many Visual Studio Code users since the [1.57 update](https://code.visualstudio.com/updates/v1_57).
 
-![Social image of two versions of Spider-Man pointing at each other](trust-social-image.png)
+![Social image of two versions of Spider-Man pointing at each other](trust-social-image.webp)
 
 While we can't answer that question for you, we can tell you more about why we've introduced the concept of Workspace Trust.
 
@@ -32,7 +32,7 @@ Our goal with the [Workspace Trust](https://code.visualstudio.com/docs/editor/wo
 
 ## Hey, it's just an editor, right?
 
-![Twitter comment complaining about Workspace Trust](social-image-complaint.png)
+![Twitter comment complaining about Workspace Trust](social-image-complaint.webp)
 
 Yes, VS Code is an editor. However, like most modern editors, it is capable of running code from the workspace on your behalf to provide a richer development experience.
 
@@ -48,11 +48,11 @@ Now, it is unlikely you would be subject to all these attacks at the same time. 
 
 For example, the Jupyter extension warned users that embedded JavaScript can run when you open the visualizers in a Notebook:
 
-![Jupyter Notebook security warning](jupyter-notebook-warning.png)
+![Jupyter Notebook security warning](jupyter-notebook-warning.webp)
 
 The ESLint vulnerability was a [doozy](https://github.com/microsoft/vscode-eslint/issues/1012) because it runs when the workspace loads (this was our first modal dialog).
 
-![ESLint extension security warning](eslint-warning.png)
+![ESLint extension security warning](eslint-warning.webp)
 
 This, it turns out, is a losing battle. Users are interrupted with multiple (and slightly different) permission prompts that don't apply to the entire workspace. *I trust you, you, you, you, not you, and you, but only on Tuesdays*. For us, it's a constant game of [Whack-a-Mole](https://idioms.thefreedictionary.com/whack-a-mole), plugging each vulnerability as it is exposed with yet another prompt.
 
@@ -62,7 +62,7 @@ So, one of the patterns we follow when building VS Code is to look at what exper
 
 Now that you understand some of the various ways code can be run without you knowing, hopefully you have a better idea why we are asking this question up front.
 
-![Do you trust the authors notification](do-you-trust-question.png)
+![Do you trust the authors notification](do-you-trust-question.webp)
 
 We specifically ask if you trust the authors of this workspace because VS Code can't tell if the code is malicious or not (*hey, we just know 1's and 0's*), where it came from, if you intend to contribute to the project, etc.
 
@@ -80,13 +80,13 @@ We didn't start with this design. We looked at the [ESLint modal dialog saga](ht
 
 We introduced a "passive" trust notification where you could tell us if you trusted the workspace. We cycled through various UI treatments to signal that the workspace was not trusted, including augmenting the Settings gear icon and introducing a new security icon.
 
-![Several early versions of a security icons and badges](trust-security-icons.png)
+![Several early versions of a security icons and badges](trust-security-icons.webp)
 
 > If you use the [Insiders](https://code.visualstudio.com/insiders) builds, you will get the latest iterations on new experiences in VS Code like we're talking about with Workspace Trust. Insiders ships daily and we use it to build VS Code.
 
 The idea being a user (you!) could decide, **on your terms**, when to grant or deny trust of the workspace. When the tool or an extension really needed access, only then would we then put up a notification asking if you trusted the workspace:
 
-![Workspace Trust required prompt](workspace-trust-required-prompt.png)
+![Workspace Trust required prompt](workspace-trust-required-prompt.webp)
 
 Now, I'm sure many of you will agree, VS Code suffers from a bit of what we call "Notification Fatigue" (*I promise we are working on it* 😊). In our testing, we saw that people simply ignored the notification. Users did not see the notification on the gear or even the new security icons. Usage data showed a very low rate of granting trust through the passive notification. In user studies, we watched people spend all their time thinking they had broken something, and then spend time troubleshooting, trying to get back to their expected state.
 
@@ -98,7 +98,7 @@ The decision to trust a folder has a fundamental impact on the capabilities of V
 
 From our own dogfooding as well as through interviews with other developers, we found that people generally have a primary folder where they put all their sources and consider it trustworthy. We therefore added the ability to trust the **parent** folder directly from the dialog. You can trust it and all the sub folders with one click and then you won't see the trust prompt again.
 
-![Trust parent folder checkbox](trust-parent-folder-checkbox.png)
+![Trust parent folder checkbox](trust-parent-folder-checkbox.webp)
 
 ## Workspace Trust editor
 
@@ -108,11 +108,11 @@ And because you can customize the behavior, there are many ways to get to the Tr
 
 From the Workspace Trust editor, you can trust the current folder, the parent folder (and all sub folders), as well as any folder on the machine.
 
-![Workspace Trust editor with annotations](workspace-trust-editor-annotated.png)
+![Workspace Trust editor with annotations](workspace-trust-editor-annotated.webp)
 
 You can also quickly jump to all the Workspace Trust settings to fine-tune the experience.
 
-![Workspace Trust settings via @tag:workspaceTrust](workspace-trust-settings.png)
+![Workspace Trust settings via @tag:workspaceTrust](workspace-trust-settings.webp)
 
 ## How we use Workspace Trust
 
@@ -124,13 +124,13 @@ I've got a separate folder called `~/scratch` (short for "scratchpad", you can m
 
 To smooth my workflow, I have the `"security.workspace.trust.startupPrompt"` setting set to `"never"`.
 
-![Workspace Trust Startup Prompt setting as never](workspace-trust-startup-prompt-setting.png)
+![Workspace Trust Startup Prompt setting as never](workspace-trust-startup-prompt-setting.webp)
 
 With this setting, I am not prompted by the modal dialog and the workspace opens directly in Restricted Mode. I've already decided that the `~src/scratch` folder is untrusted, so there is no need to prompt me every time I open a subfolder. If I decide that I do trust the code I'm reading or writing, I can enable it on the folder with two quick clicks (the Restricted Mode notification across the top of VS Code, then the Trust button).
 
 On my Windows machine, things are a little more interesting. I generally work in Ubuntu images running on the Windows Subsystem for Linux (WSL), using the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). I trust the `~/src` folders on Linux and I trust the `d:\src` folder on the Windows side.
 
-![Trust Folders & Workspaces list with WSL trusted folders](trust-folders-and-workspaces-list.png)
+![Trust Folders & Workspaces list with WSL trusted folders](trust-folders-and-workspaces-list.webp)
 
 A few people on the team go one step further and turn off the Restricted Mode banner across the top as well (`"security.workspace.trust.banner": "never"`), leaving just the Status bar notification. For me this goes too far, the banner across the top keeps me honest and helps remind me to be vigilant when I am pulling from the internet.
 

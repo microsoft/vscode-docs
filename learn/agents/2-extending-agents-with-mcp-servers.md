@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e1d9c-4b8f-4a3d-8e0c-2f5d6b7c8a02
-DateApproved: 05/21/2026
+DateApproved: 9/30/2026
 MetaDescription: Install, use, configure, and sandbox an MCP server to give VS Code agents focused external capabilities.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 # Extending agents with MCP servers
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sf4qD7SS2NA" title="Extending Agents With MCP Servers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Extending Agents With MCP Servers on YouTube (opens in new tab).](images/2-extending-agents-with-mcp-servers/youtube-Sf4qD7SS2NA.jpg)](https://www.youtube.com/watch?v=Sf4qD7SS2NA)
 
 MCP servers connect agents to external tools and data sources. In this guide, you will install an MCP server, use one of its tools in chat, choose the right configuration scope, and decide when to sandbox the server.
 

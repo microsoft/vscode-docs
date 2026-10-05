@@ -22,7 +22,7 @@ In this blog post, we explain the data format and how users and extension author
 
 VS Code provides information about HTML/CSS entities in auto-completion and hovers information:
 
-![HTML and CSS Language Features](html-css-language-features.png)
+![HTML and CSS Language Features](html-css-language-features.webp)
 
 With the Custom Data Format, users can easily define new HTML/CSS entities and get auto-completions, hover information, and other language features.
 
@@ -56,7 +56,7 @@ Then define a `html.customData` value in your user or workspace [settings](/docs
 
 You then get language features for the defined entities:
 
-![Custom Data helloworld](custom-data-helloworld.png)
+![Custom Data helloworld](custom-data-helloworld.webp)
 
 You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/main/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
 
@@ -72,7 +72,7 @@ Today, many web frameworks are built on top of HTML. For example, the [Mavo](htt
 
 By downloading the [Mavo extension](https://marketplace.visualstudio.com/items?itemName=octref.vscode-mavo), users get auto-completion and hover information for all Mavo attributes in HTML files:
 
-![Mavo demo](mavo-demo.gif)
+<video src="mavo-demo.mp4" title="Video showing Mavo demo." autoplay loop controls muted></video>
 
 The extension's source code is at the [vscode-mavo](https://github.com/octref/vscode-mavo) repository. We hope the project serves as a starting point for implementing web framework or language support in VS Code. You can find more information about the `contributes.html.customData` and `contributes.css.customData` Contribution Points at [vscode-custom-data](https://github.com/microsoft/vscode-custom-data).
 
@@ -101,7 +101,7 @@ We have published this set of data to [NPM](https://www.npmjs.com/package/vscode
 
 The VS Code team is committed to providing a good editing experience for web languages. Through the Custom Data Format, we stay close to the latest HTML and CSS language features and offer a simple interface for users and extension authors to customize their HTML and CSS editing experience.
 
-![Simple interface](simple-interface.png)
+![Simple interface](simple-interface.webp)
 
 You can read more about the Custom Data Format in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository, where you can open issues and feature requests.
 

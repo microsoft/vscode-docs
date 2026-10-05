@@ -1,7 +1,7 @@
 ---
 ContentId: 01210769-05be-4854-9482-13e342850ad7
 DateApproved: 10/18/2022
-MetaDescription: How to deploy Java applications to Azure with Visual Studio Code
+MetaDescription: How to deploy Java applications to Azure with {% data variables.product.prodname_vscode %}
 ---
 # Deploy Java Web Apps
 
@@ -15,7 +15,7 @@ The extension pack supports the following development workflows:
 
 ![Azure Tools extension](images/azure/azure-tools.png)
 
-If you are interested in a specific Azure service, you can also directly search for it on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode) to see if there's an available extension.
+If you are interested in a specific Azure service, you can also directly search for it on the [{% data variables.product.prodname_vscode %} Marketplace](https://marketplace.visualstudio.com/VSCode) to see if there's an available extension.
 
 ## Deployment tutorials
 
@@ -25,4 +25,4 @@ The following tutorials below walk you through the details.  You can also check 
 | --- | --- | --- |
 | [Deploy Java web apps <br> to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app to the cloud | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 | [Deploy Spring Boot apps <br> to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a Spring Boot application<br> to Azure Spring Apps | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud)
-| [Create an Azure Functions project <br> using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code <br> using Azure Functions | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+| [Create an Azure Functions project <br> using {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code <br> using Azure Functions | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)

@@ -1,6 +1,6 @@
 ---
 ContentId: 48bcead9-78df-4695-9d8e-e17a8a598a7a
-DateApproved: 07/08/2026
+DateApproved: 9/30/2026
 MetaDescription: Scaffold, debug, and deploy a hosted agent with GitHub Copilot CLI, Agent Inspector, and Microsoft Foundry.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 # Building a Hosted Agent with GitHub Copilot and Microsoft Foundry
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pxG-9Lh_a44" title="Chapter 4 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Chapter 4 Video on YouTube (opens in new tab).](images/4-building-hosted-agent/youtube-pxG-9Lh_a44.jpg)](https://www.youtube.com/watch?v=pxG-9Lh_a44)
 
 Low-code agents are great for proving behavior quickly, but most teams eventually need stronger control over code, deployment, and integration. In this chapter, we move into a code-first workflow and build a hosted agent that can be developed locally, debugged with tooling, and deployed into Microsoft Foundry.
 

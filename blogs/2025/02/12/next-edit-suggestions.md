@@ -3,7 +3,7 @@ Order:
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
-MetaSocialImage: nes-gutter-cover.png
+MetaSocialImage: nes-gutter-cover.webp
 Date: 2025-02-12
 Author: Brigit Murtaugh, Burke Holland
 Keywords: [nes]
@@ -27,7 +27,7 @@ GitHub Copilot code completions - which are also called _ghost text_ - are reall
 
 We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronym.
 
-<video src="nes-video.mp4" title="Copilot NES video" controls poster="nes-video-cover.png"></video>
+<video src="nes-video.mp4" title="Copilot NES video" controls poster="nes-video-cover.webp"></video>
 
 ### Getting started with NES
 
@@ -39,11 +39,11 @@ When you're presented with an edit suggestion, navigate to it with the `kbstyle(
 
 An arrow in the gutter indicates that there is an edit suggestion available. Hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 
-![NES gutter menu expanded](gutter-menu-highlighted-updated.png)
+![NES gutter menu expanded](gutter-menu-highlighted-updated.webp)
 
 Scrolled all the way past that edit suggestion? The arrow hints you at the location of the next edit suggestion, pointing up or down based on where you are in the file:
 
-![NES with arrow directions changing](nes-arrow-directions.gif)
+<video src="nes-arrow-directions.mp4" title="Video showing NES with arrow directions changing." autoplay loop controls muted></video>
 
 Suggestions can span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
@@ -62,29 +62,29 @@ Copilot NES is your AI companion as you make changes that can cascade throughout
 
 NES helps with small mistakes like typos - maybe you were coding quickly and in the zone, and you wrote `conts` instead of `const`:
 
-<video src="nes-typo.mp4" title="NES fixing a typo" controls poster="nes-typo-cover.png"></video>
+<video src="nes-typo.mp4" title="NES fixing a typo" controls poster="nes-typo-cover.webp"></video>
 
 NES can also help with more challenging mistakes in logic, like an inverted ternary expression:
 
-<video src="nes-fib-logic.mp4" title="NES fixing a fibonacci logic mistake" controls poster="nes-fib-logic-cover.png"></video>
+<video src="nes-fib-logic.mp4" title="NES fixing a fibonacci logic mistake" controls poster="nes-fib-logic-cover.webp"></video>
 
 Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
 
-<video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="nes-de-morgan-cover.png"></video>
+<video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="nes-de-morgan-cover.webp"></video>
 
 **Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` leads to a suggestion to add a `z` variable to the class definition and to the distance calculation:
 
-<video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="nes-point-cover.png"></video>
+<video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="nes-point-cover.webp"></video>
 
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This could be a small change, like calling a new method parameter in the actual method.
 
 It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest cleaning up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
 
-<video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="nes-extension-and-package-cover.png"></video>
+<video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="nes-extension-and-package-cover.webp"></video>
 
 **Refactoring:** If you use a new name or naming pattern, Copilot NES suggests updating subsequent code similarly:
 
-<video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="nes-gutter-cover.png"></video>
+<video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="nes-gutter-cover.webp"></video>
 
 Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios, as we expand the NES experience.
 

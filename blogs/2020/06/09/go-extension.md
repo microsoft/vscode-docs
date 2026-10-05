@@ -14,7 +14,7 @@ From the beginning, we have worked with developer communities to build Visual St
 
 For many of our 11 million users, VS Code is their primary code editor, as is the case for 41% of developers that are working with Go (according to the [Go developer survey](https://blog.golang.org/survey2019-results)). We are proud of the work that we have done on the [Go extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.go), which is the result of an extensive development effort together with the Go community by virtue of both code contributions and integration with over a dozen independently maintained tools.
 
-![Go extension](go-extension.png)
+![Go extension](go-extension.webp)
 
 Last year, we worked with the Go team to enable support for a new language server for the Go language, [gopls](https://golang.org/s/gopls), and improving support for the [Delve](https://github.com/go-delve/delve/issues/1515) debugger. Using the new language server improves the [experience](https://www.youtube.com/watch?v=EFJfdWzBHwE) of Go developers working with VS Code. It offers an integrated solution for various components of the core developer experience (code completion, jump to definition, hover tooltips, etc.) through a tool that is maintained by the Go project itself and is kept up to date with support for new language features such as Go modules.
 

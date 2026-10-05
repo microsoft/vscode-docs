@@ -1,13 +1,13 @@
 ---
 ContentId: a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d
-DateApproved: 04/17/2026
+DateApproved: 9/30/2026
 MetaDescription: Learn how to use hooks in VS Code to automate workflows, enforce standards, and trigger actions based on lifecycle events in GitHub Copilot.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
 # Introduction to hooks
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZsyiRa91XZg?si=tI_1D0AgRBSEMrel" title="Hooks: The Underestimated Feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Hooks: The Underestimated Feature on YouTube (opens in new tab).](images/5-hooks/youtube-ZsyiRa91XZg.jpg)](https://www.youtube.com/watch?v=ZsyiRa91XZg)
 
 It seems like nobody talks enough about hooks.
 

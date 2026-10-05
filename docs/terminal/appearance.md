@@ -1,11 +1,11 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-DateApproved: 8/19/2026
-MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
+DateApproved: 9/30/2026
+MetaDescription: Customize integrated terminal fonts, colors, cursor, rendering, tabs, and other appearance settings in {% data variables.product.prodname_vscode %}.
 ---
 # Terminal Appearance
 
-The look of Visual Studio Code's terminal can be customized extensively.
+The look of {% data variables.product.prodname_vscode %}'s terminal can be customized extensively.
 
 ![An example of a custom UI, using Powerline and Nerd Font symbols in the prompt and a custom workbench theme](images/appearance/terminal_appearance.png)
 
@@ -21,11 +21,12 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.lineHeight)`: Configures additional vertical spacing between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
+- `setting(terminal.integrated.fontRendering)` _(Experimental)_: On macOS high-DPI displays, set this to `grayscale` to make terminal text appear sharper. Use `inherit` to keep the system font-rendering behavior.
 - `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts
 
-[Powerline](https://powerline.readthedocs.io) fonts are special patched fonts that contain additional characters that can be used in the terminal. VS Code's terminal [renders some of the Powerline symbols without needing to configure a font](#custom-glyphs), but if more glyphs are desired, configure a Powerline font with the font family setting. Powerline fonts typically end in `" for Powerline"`, the following setting is an example of how to configure a DejaVu Sans Mono that has been patched:
+[Powerline](https://powerline.readthedocs.io) fonts are special patched fonts that contain additional characters that can be used in the terminal. {% data variables.product.prodname_vscode_shortname %}'s terminal [renders some of the Powerline symbols without needing to configure a font](#custom-glyphs), but if more glyphs are desired, configure a Powerline font with the font family setting. Powerline fonts typically end in `" for Powerline"`, the following setting is an example of how to configure a DejaVu Sans Mono that has been patched:
 
 ```json
 "editor.fontFamily": "'DejaVu Sans Mono for Powerline'"
@@ -140,7 +141,7 @@ When ligatures are enabled, it's also possible to set a detailed list of font fe
 
 ### Fallback ligatures
 
-When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
+When a font supports ligatures but {% data variables.product.prodname_vscode_shortname %} does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
 
 By default, the fallback ligatures are a list of common ligatures used in coding. Fine-tune the list by configuring the `setting(terminal.integrated.fontLigatures.fallbackLigatures)` setting. For example:
 
@@ -198,7 +199,7 @@ This feature can be disabled by setting `setting(terminal.integrated.rescaleOver
 
 ## Customizing your prompt
 
-Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside VS Code, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
+Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside {% data variables.product.prodname_vscode_shortname %}, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
 
 Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmyposh.dev/) show things like git status and work with most shells, so they're a good choice when starting out.
 

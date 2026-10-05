@@ -6,7 +6,7 @@ argument-hint: 'Feature to document, or a link to the relevant issue/PR.'
 
 # Document a Feature
 
-Help document a new or updated VS Code feature in the project documentation (the `docs/` folder). This skill works in two phases: it first **researches the feature and proposes a documentation plan**, then implements the changes **only after you approve**. It is acceptable to conclude that no documentation update is needed.
+Help document a new or updated VS Code feature in the project documentation (the `docs/` folder) and keep its required navigation metadata current. This skill works in two phases: it first **researches the feature and proposes a documentation plan**, then implements the changes **only after you approve**. It is acceptable to conclude that no documentation update is needed.
 
 ## When to Use
 
@@ -24,7 +24,8 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 
 ## Guardrails
 
-* **Docs only.** Limit changes to the `docs/` folder. Do **not** update release notes or API docs (`api/`) unless the user explicitly asks.
+* **Docs and sitemap only.** Limit content changes to the `docs/` folder. When you add an article or change an article URL, update `build/sitemap.xml` in the same change. Do **not** update release notes or API docs (`api/`) unless the user explicitly asks.
+* **Public functionality only.** Do not add or retain documentation for internal builds, dogfood-only functionality, hidden settings or commands, source-only implementation, or manually settable internal feature flags.
 * **Never edit `enterprise/policies.md`.** This file is generated from the enterprise policy definitions in the VS Code source. Edit `enterprise/policies-template.md` instead, which is used to regenerate `policies.md`.
 * **Screenshots are human work.** When a screenshot needs to be added or updated, insert a `TODO` comment in the doc for a human to capture and insert it later — do not fabricate image references.
 * **Style compliance.** All writing must follow the [docs-writing style guide](../../instructions/docs-writing.instructions.md).
@@ -34,7 +35,7 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 Do not modify any files in this phase.
 
 1. **Understand the feature.** Read the feature description, issue, or PR provided. If the description is ambiguous or lacks detail, ask clarifying questions before continuing.
-2. **User-facing features.** Check that the features are already available for users and not just for internal dogfooding only. Only document user-facing features.
+2. **Establish the content framing.** Identify the primary persona, reader intent, and article purpose by following the [content-framing guidance](../../instructions/docs-writing.instructions.md#content-framing). Infer them from the existing content, documentation journey, source material, and writer's request. If any part of the framing remains ambiguous and different interpretations would change the content, ask the writer to confirm before planning edits.
 3. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
    | Area being documented | Primary source repo |
@@ -43,20 +44,35 @@ Do not modify any files in this phase.
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
    | Enterprise policies | `microsoft/vscode` (policy definitions) |
 
-4. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
-5. **Present the plan.** Summarize:
-   * Which `docs/` files you propose to create or change, and a short description of each edit.
+4. **Verify public availability.** Check every feature, setting, and command against the public product channel intended for the article. Public Preview, Experimental, and Insiders functionality qualifies when labeled clearly. Source-code existence or manual configurability is not enough. Inspect registration metadata, product quality gates, feature flags, and the relevant public release. Treat metadata such as `included: false` as internal unless product evidence shows otherwise. If functionality is not public, do not document it. During an audit or review, propose removing existing coverage.
+5. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section. Include `docs/toc.json` and `build/sitemap.xml` in the plan when you add an article or change an article URL.
+6. **Present the plan.** Summarize:
+   * The primary persona, reader intent, and article purpose.
+   * Which `docs/` files and required navigation metadata you propose to create or change, and a short description of each edit.
    * Any `TODO` screenshot placeholders that will be needed.
    * Open questions or assumptions.
 
    If you conclude that **no documentation update is needed**, say so and ask the user to confirm before closing out.
-6. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
+7. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
 
-## Phase 2 — Implement (after approval)
+## Phase 2 — Confirm the Branch & Implement (after approval)
 
 Once the user approves the plan:
 
-1. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md).
-2. Add `TODO` comments where screenshots need to be captured by a human.
-3. Respect the guardrails above (docs only; no release notes/API docs unless asked; never edit generated `policies.md`).
-4. Summarize the changes you made and call out any remaining `TODO`s for the user.
+1. **Confirm the branch before editing.** Use the user-question tool to ask whether to create a new branch from `main` before implementing the documentation updates. Offer these choices:
+   * `Yes, create a new branch from main (Recommended)`
+   * `No, continue on the current branch`
+
+   Do not modify documentation files until the user answers. If the user chooses a new branch, ask for a branch name unless they already supplied one, then create the branch from `main` before editing. If uncommitted changes prevent safe branch creation, stop and explain the conflict instead of stashing or reverting changes. If the user chooses the current branch, continue without changing branches.
+2. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
+3. Add `TODO` comments where screenshots need to be captured by a human.
+4. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
+5. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
+6. Summarize the changes you made and call out any remaining `TODO`s for the user.
+
+## Orchestrate your documentation updates
+
+- Act as a reviewer and coordinator
+- Delegate work to GPT-5.6 Sol subagents, in parallel when feasible.
+- The subagents should not themselves run validation on their work, that's your job! You own the plan; delegate work in parallel when reasonable.
+- Monitor the progress of subagents and integrate their contributions into the final documentation.

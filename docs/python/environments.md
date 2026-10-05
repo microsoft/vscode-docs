@@ -1,12 +1,12 @@
 ---
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 DateApproved: 02/04/2026
-MetaDescription: Configuring Python Environments in Visual Studio Code
+MetaDescription: Configuring Python Environments in {% data variables.product.prodname_vscode %}
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Python environments in VS Code
+# Python environments in {% data variables.product.prodname_vscode_shortname %}
 
-The Python Environments extension brings environment and package management into Visual Studio Code's UI. The extension provides a unified interface for creating environments, installing packages, and switching interpreters, regardless whether you're using `venv`, `uv`, `conda`, `pyenv`, `poetry`, or `pipenv`.
+The Python Environments extension brings environment and package management into {% data variables.product.prodname_vscode %}'s UI. The extension provides a unified interface for creating environments, installing packages, and switching interpreters, regardless whether you're using `venv`, `uv`, `conda`, `pyenv`, `poetry`, or `pipenv`.
 
 Core features:
 
@@ -102,7 +102,7 @@ To quickly open search path settings:
 1. Open the Command Palette
 2. Run **Python Environments: Configure Search Settings**
 
-![Screenshot showing the VS Code Settings editor filtered to the Python Environments extension, displaying the python-envs Workspace Search Paths setting with a glob pattern entry.](images/environments/workspaceSearchPathsConfiguration.png)
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} Settings editor filtered to the Python Environments extension, displaying the python-envs Workspace Search Paths setting with a glob pattern entry.](images/environments/workspaceSearchPathsConfiguration.png)
 
 _Add custom glob patterns to search additional locations._
 
@@ -162,7 +162,7 @@ For advanced troubleshooting, run the Python Environment Tool (PET) directly to 
    * **Find All Environments**: runs `pet find --verbose` to list all discovered environments with detailed output
    * **Resolve Environment...**: enter a path to a Python executable to debug why a specific environment isn't being detected
 
-![Screenshot showing the VS Code terminal with verbose output from the Python Environment Tool, displaying a breakdown of search times by locator, environment counts by type, and discovered managers.](images/environments/PETVerbose.png)
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} terminal with verbose output from the Python Environment Tool, displaying a breakdown of search times by locator, environment counts by type, and discovered managers.](images/environments/PETVerbose.png)
 
 _PET verbose output shows exactly what environments are discovered and why._
 
@@ -232,7 +232,7 @@ When `alwaysUseUv` is enabled (the default), uv manages all virtual environments
 | pipenv  | —            | —             |
 
 > [!NOTE]
-> Only **venv** and **conda** support creating environments from VS Code. Other managers (pyenv, poetry, pipenv) discover existing environments but don't create new ones through the extension. Use their respective CLI tools to create environments, and then the extension will discover them automatically.
+> Only **venv** and **conda** support creating environments from {% data variables.product.prodname_vscode_shortname %}. Other managers (pyenv, poetry, pipenv) discover existing environments but don't create new ones through the extension. Use their respective CLI tools to create environments, and then the extension will discover them automatically.
 
 ### Delete environments
 
@@ -366,7 +366,7 @@ For detailed guidance on templates, multi-root workspaces, common scenarios, and
 
 ## Package management
 
-Install and uninstall Python packages directly from VS Code without opening a terminal.
+Install and uninstall Python packages directly from {% data variables.product.prodname_vscode_shortname %} without opening a terminal.
 
 ### Install packages
 
@@ -378,7 +378,7 @@ Or run **Python Envs: Manage Packages** from the Command Palette.
 
 ![Screenshot showing the Manage Packages dialog with a search box at the top and a scrollable list of packages with checkboxes, indicating installed packages and the total number selected for installation.](images/environments/ManagePackages.png)
 
-_Search and install packages directly from VS Code._
+_Search and install packages directly from {% data variables.product.prodname_vscode_shortname %}._
 
 **Installing from a requirements file**: You can also install packages from `requirements.txt`, `pyproject.toml`, or `environment.yml`. When prompted, select the file, and the extension installs all listed dependencies.
 
@@ -454,7 +454,7 @@ This ensures that opening a workspace does not add auto-generated entries to you
 
 ### Terminal settings
 
-When you open a terminal in VS Code, the extension automatically activates your selected Python environment so that `python`, `pip`, and related commands use the correct interpreter.
+When you open a terminal in {% data variables.product.prodname_vscode_shortname %}, the extension automatically activates your selected Python environment so that `python`, `pip`, and related commands use the correct interpreter.
 
 | Setting | Default | Description |
 |---------|---------|-------------|
@@ -552,7 +552,7 @@ Jupyter notebooks do not use the Python Environments API for environment discove
 
 ## Next steps
 
-* [Python tutorial](/docs/python/python-tutorial.md) - Get started with Python in VS Code.
+* [Python tutorial](/docs/python/python-tutorial.md) - Get started with Python in {% data variables.product.prodname_vscode_shortname %}.
 * [Debugging](/docs/python/debugging.md) - Learn to debug your Python code.
 * [Testing](/docs/python/testing.md) - Configure and run tests for your Python projects.
 * [Settings reference](/docs/python/settings-reference.md) - Explore all Python extension settings.

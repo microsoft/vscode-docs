@@ -5,6 +5,26 @@ applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 
 These are our documentation writing style guidelines.
 
+## Content framing
+
+Before you plan or edit content, establish:
+
+* **Primary persona:** The specific reader the content serves, including their role, experience level, and relevant context. Account for secondary personas when they have distinct needs, but optimize the content for one primary persona.
+* **Reader intent:** What the reader came to understand, decide, or accomplish.
+* **Article purpose:** How the article helps the reader fulfill that intent and the outcome they should reach.
+
+Infer this framing from the existing article, its location in the documentation journey, source material, and the writer's request. If the primary persona, reader intent, or article purpose remains ambiguous and different interpretations would change the content, ask the writer to confirm before making edits. Do not rely on a broad audience such as "VS Code users" when a more specific persona is needed to make content decisions.
+
+Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
+
+## Public availability and product truth
+
+On branches other than `vnext`, document only functionality that is available to the intended audience in the Stable release. On the `vnext` branch, which contains documentation for the upcoming release, you can also document functionality that is confirmed for that release. Public Preview and Experimental functionality can be documented only when it meets this branch-based availability requirement and its lifecycle is identified clearly. Do not document Insiders-only functionality unless you are working on `vnext` and the functionality is confirmed for the upcoming release.
+
+Do not document functionality that is limited to internal builds or dogfooding. This includes hidden settings or commands, registrations with metadata such as `included: false`, implementation that exists only in source code, and internal feature flags that users can set manually but that the product does not expose or support publicly.
+
+Existence in source code is not proof of availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is available in Stable or confirmed for the upcoming release when working on `vnext`. When reviewing existing content, flag or remove coverage that does not meet these availability requirements.
+
 ## General Style tips
 
 * Get to the point fast.
@@ -73,6 +93,12 @@ These are our documentation writing style guidelines.
 ## Reusable variables
 
 * When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
+* Use existing reusable data variables for product names in new and updated content, including frontmatter. Don't hardcode product names such as VS Code or GitHub Copilot when a matching variable exists.
+* Preserve existing reusable data variables when editing content, including frontmatter. Never replace a product-name variable with its rendered product name, such as replacing `{% data variables.product.prodname_vscode %}` with `Visual Studio Code`.
+
+## Feature lifecycle markers
+
+* When you add or update a `feature(<id>)` marker, verify that the feature ID exists in [`build/feature-lifecycle.json`](../../build/feature-lifecycle.json). Don't infer or guess the feature ID.
 
 ## Alerts
 
@@ -90,6 +116,39 @@ These are our documentation writing style guidelines.
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
+- To let readers try a feature directly from a documentation article, use a feature tryout command link inside the `TRYOUTS` conditional:
+
+    ```md
+    [Try <feature>](command:workbench.action.onboarding.tryFeature?%5B%22<tryout-id>%22%5D)
+    ```
+
+    - Verify that the tryout ID is registered, stable, publicly available, and supported in the product.
+    - Include only the tryout ID in the Markdown. The installed product owns the commands, arguments, samples, setup actions, and availability checks.
+    - Use descriptive, action-oriented link text that identifies the feature readers can try. The link text becomes the version-aware button label, with ` (Insiders)` appended when Insiders is selected.
+
+* Keep Related resources sections to two or three links that are the most useful next steps for the article's primary persona and reader intent. Don't repeat links already prominently surfaced in the article unless the repetition provides a clear navigation benefit.
+
+## Action cards
+
+Use an action card to highlight one or more article, external, or product actions:
+
+```md
+{% action-card title="Try Smart Diff" display="both" %}
+Launch the guided Smart Diff tryout.
+
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://tryout/editor.smart-diff)
+{% /action-card %}
+```
+
+* `title` is required and must be plain text.
+* `display` is optional and accepts `inline` (the default), `sidebar`, or `both`.
+* The first non-list line is an optional plain-text description.
+* Add one or more actions as `* [label](url)` list items. Use the same syntax for documentation links, external URLs, and product protocol URLs.
+* Any `vscode://`, `vscode-insiders://`, or supported `vscode.dev/redirect` URL receives the shared Stable/Insiders selector. Other custom URI schemes remain unchanged and do not receive the selector.
+* When Insiders is selected, version-aware action labels append ` (Insiders)`, including labels that do not contain the product name.
+* For a registered tryout, use `vscode://tryout/<tryout-id>`. The selector changes this to `vscode-insiders://tryout/<tryout-id>` when the reader chooses Insiders.
+* Sidebar cards are associated with the preceding H2. Cards before the first H2 are always visible; section cards appear while that section is active.
+* Sidebar cards are hidden on mobile. Use `inline` or `both` when the action must be available on small screens.
 
 ## Images
 
@@ -100,7 +159,10 @@ These are our documentation writing style guidelines.
 
 * Use videos only when they add value.
 * Videos have a descriptive and meaningful title that starts with "Video showing" or "Video of" and ends with ".".
-* For embedded videos, you MUST use `youtube-nocookie.com` instead of `youtube.com`.
+* Do not embed YouTube videos with an `iframe`. Use linked-image Markdown with a locally stored thumbnail. The site automatically opens external Markdown links in a new tab.
+* Store blog post thumbnails alongside the Markdown file. For other content, store them in `images/<article-name>/`.
+* The thumbnail alt text is the link's accessible name. It must identify the video and announce that the link opens in a new tab, for example `[![Watch <video description> on YouTube (opens in new tab).](<thumbnail-path>)](<youtube-url>)`.
+* To migrate existing YouTube iframe embeds, run `npm run replace-youtube-embeds -- --write <file-or-directory>`. Omit `--write` to preview the migration.
 
 ## Lists
 
@@ -124,7 +186,7 @@ These are our documentation writing style guidelines.
 * Avoid latin abbreviations like "e.g.". Use "for example" instead.
 * Use the verb "to enable" instead "to allow" unless you're referring to permissions.
 * Follow the terms and capitalization guidelines in #fetch [VS Code docs wiki](https://github.com/microsoft/vscode-docs/wiki/VS-Code-glossary)
-* Don't use the following terms: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to", "harness".
+* Don't use the following terms: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to".
 
 ## Metadata
 

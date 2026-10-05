@@ -1,6 +1,6 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
-DateApproved: 8/19/2026
+DateApproved: 9/30/2026
 MetaDescription: Use browser tools with AI agents in {% data variables.product.prodname_vscode_shortname %} to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -210,7 +210,7 @@ Browser tools provide interactive validation during an agent session. Keep repea
 * Administrators can turn off browser tools with the `BrowserChatTools` policy.
 * Administrators can use agent network filtering to restrict the domains that agent tools can reach.
 
-Learn more about [approvals and permissions](/docs/agents/run/approvals.md), [browser session storage](/docs/debugtest/integrated-browser.md#session-storage), and [enterprise controls for AI](/docs/enterprise/ai-settings.md).
+Learn more about [approvals and permissions](/docs/agents/run/approvals.md), [browser session storage](/docs/debugtest/integrated-browser.md#session-storage), and [enterprise controls for AI](/docs/enterprise/manage-ai-settings.md).
 
 ## Troubleshoot browser tools
 
@@ -246,5 +246,5 @@ Agent network filtering or an organization policy might block the domain. Check 
 
 * Follow the [build and validate a web app with browser tools tutorial](/docs/agents/guides/browser-agent-testing-guide.md).
 * Learn about the [integrated browser](/docs/debugtest/integrated-browser.md).
-* Explore [testing with AI](/docs/agents/guides/test-with-copilot.md).
+* Explore [testing with AI](/docs/agents/guides/test-code-with-ai.md).
 * Learn [how tools work in the agent loop](/docs/agents/concepts/tools.md).

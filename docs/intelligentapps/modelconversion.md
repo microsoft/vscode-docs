@@ -3,14 +3,14 @@ ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
 DateApproved: 07/14/2025
 MetaDescription: Model Conversion Quickstart in Foundry Toolkit.
 ---
-# Convert a model with Foundry Toolkit for VS Code
+# Convert a model with Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}
 
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
 ## Prerequisites
 
-- Install the latest version of [Visual Studio Code](/download).
-- Install the Foundry Toolkit VS Code extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the latest version of [{% data variables.product.prodname_vscode %}](/download).
+- Install the Foundry Toolkit {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Create project
 
@@ -95,7 +95,7 @@ Learn more in [How to update a model project](/docs/intelligentapps/reference/Up
 
 Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
 
-1. Select **File** > **Open Folder** in VS Code to open the model project folder.
+1. Select **File** > **Open Folder** in {% data variables.product.prodname_vscode_shortname %} to open the model project folder.
 
 2. Review the workflow configuration
 
@@ -197,7 +197,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
-> **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
+> **LLM model quantization**: If you want to quantize LLM models, a Nvidia GPU is required.
 >
 > If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
@@ -394,7 +394,7 @@ Each Build run produces an entry in the **Generated Flow History** table. From t
 
 In this article, you learned how to:
 
-- Create a model conversion project in Foundry Toolkit for VS Code.
+- Create a model conversion project in Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}.
 - Configure the conversion workflow, including quantization and evaluation settings.
 - Run the conversion workflow to transform a pre-built model into an optimized ONNX model.
 - View the results of the conversion, including metrics and logs.

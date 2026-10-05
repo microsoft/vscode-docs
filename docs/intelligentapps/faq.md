@@ -39,7 +39,7 @@ Here are some examples about how to find your endpoint and authentication header
 
 If you enter the wrong endpoint or authentication header, you may encounter errors with inferencing.
 
-1. Open the VS Code `setting.json` file:
+1. Open the {% data variables.product.prodname_vscode_shortname %} `setting.json` file:
 
     - Select `Edit settings.json` in the authentication failure notification
 
@@ -124,14 +124,14 @@ We host the project templates in the `microsoft/windows-ai-studio-templates` Git
 
 See [this issue](https://github.com/microsoft/vscode-ai-toolkit/issues/70#issuecomment-2126089884) for a workaround. The detailed steps are:
 
-1. Sign out GitHub account from VS Code
-1. Reload VS Code and Foundry Toolkit and you will be asked to sign in GitHub again
+1. Sign out GitHub account from {% data variables.product.prodname_vscode_shortname %}
+1. Reload {% data variables.product.prodname_vscode_shortname %} and Foundry Toolkit and you will be asked to sign in GitHub again
 1. **Important:** In the browser's authorize page, make sure to authorize the app to access the Microsoft org
 
     ![Authorize Access](./images/faq/faq-github-api-forbidden.png)
 
 ### Cannot list, load, or download ONNX model
 
-Check the Foundry Toolkit log in the VS Code Output panel. If you see *Agent* errors or *Failed to get downloaded models*, then close all VS Code instances and reopen VS Code.
+Check the Foundry Toolkit log in the {% data variables.product.prodname_vscode_shortname %} Output panel. If you see *Agent* errors or *Failed to get downloaded models*, then close all {% data variables.product.prodname_vscode_shortname %} instances and reopen {% data variables.product.prodname_vscode_shortname %}.
 
 (*This issue is caused by the underlying ONNX agent unexpectedly closing and the above step is to restart the agent.*)

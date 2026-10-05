@@ -1,7 +1,7 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 8/19/2026
-MetaDescription: Reference for MCP server configuration format, commands, and settings in {% data variables.product.prodname_vscode %}.
+DateApproved: 9/30/2026
+MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - mcp
@@ -20,10 +20,12 @@ This article provides a reference for the MCP server configuration file format, 
 
 ## Configuration file
 
-MCP server configuration is stored in the `mcp.json` JSON file. This file can be in your workspace (`.vscode/mcp.json`) or in your [user profile](/docs/configure/profiles.md). {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for the configuration file.
+MCP server configuration uses one of the following file formats:
 
-> [!NOTE]
-> {% data variables.product.prodname_vscode_shortname %} forwards the servers you configure to the [Agent Host](/docs/agents/concepts/agent-host.md), except servers that require interactive input (for example, `${input:...}` variables). The Agent Host doesn't read `.vscode/mcp.json` directly; for portable configuration, use a workspace `.mcp.json` or user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+* The {% data variables.product.prodname_vscode_shortname %} format is stored in `.vscode/mcp.json` in your workspace or in your [user profile](/docs/configure/profiles.md). It defines servers in a top-level `servers` object. {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for this format.
+* The portable format is stored in `.mcp.json` at the root of your workspace or in `~/.copilot/mcp-config.json` for your user. It defines servers in a top-level `mcpServers` object.
+
+The [Agent Host](/docs/agents/concepts/agent-host.md) reads the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards servers from `.vscode/mcp.json` to the Agent Host, except servers that require interactive input, such as `${input:...}` variables. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 ### Configuration structure
 
@@ -281,6 +283,25 @@ When defining MCP servers, follow these naming conventions for the server name:
 * Use a unique name for each server to avoid conflicts
 * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database"
 
+## Automatic MCP server discovery
+
+{% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from supported applications. Use `setting(chat.mcp.discovery.enabled)` to select the discovery sources.
+
+| Source | Setting property | Configuration location |
+|--------|------------------|------------------------|
+| Claude Desktop | `claude-desktop` | Windows: `%APPDATA%\Claude\claude_desktop_config.json`<br/>macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`<br/>Linux: `$XDG_CONFIG_HOME/Claude/claude_desktop_config.json`, or `~/.config/Claude/claude_desktop_config.json` if `XDG_CONFIG_HOME` is not set |
+| {% data variables.copilot.copilot_cli %} | `copilot` | `<COPILOT_HOME>/mcp-config.json`, or `~/.copilot/mcp-config.json` if `COPILOT_HOME` is not set |
+| Cursor (global) | `cursor-global` | `~/.cursor/mcp.json` |
+| Cursor (workspace) | `cursor-workspace` | `<workspace>/.cursor/mcp.json` |
+| Windsurf | `windsurf` | `~/.codeium/windsurf/mcp_config.json` |
+
+All discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
+
+For {% data variables.copilot.copilot_cli %}, setting `COPILOT_HOME` replaces the default `~/.copilot` location. {% data variables.product.prodname_vscode_shortname %} does not check both locations.
+
+> [!NOTE]
+> Agent Host sessions read the {% data variables.copilot.copilot_cli %} MCP configuration independently. The discovery setting does not change how the Agent Host receives MCP servers. Learn more about [MCP configuration behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+
 ## Commands
 
 The following table lists the MCP-related commands available in the Command Palette (`kb(workbench.action.showCommands)`).
@@ -296,7 +317,7 @@ The following table lists the MCP-related commands available in the Command Pale
 | **MCP: Open User Configuration** | Open the `mcp.json` file in your user profile. |
 | **MCP: Open Workspace Folder MCP Configuration** | Open the `.vscode/mcp.json` file in your workspace. |
 | **MCP: Reset Cached Tools** | Clear the cached list of tools for MCP servers. Use this when a server's tools have changed. |
-| **MCP: Reset Trust** | Reset trust decisions for MCP servers, requiring re-confirmation on next start. |
+| **MCP: Reset Trust** | Reset separate trust decisions for MCP servers from non-workspace sources. Workspace MCP servers inherit Workspace Trust and are unaffected. |
 | **MCP: Show Installed Servers** | Show a list of all installed MCP servers. |
 
 ## Settings
@@ -307,12 +328,12 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 |---------|-------------|
 | `setting(chat.mcp.access)` | Manage which MCP servers can be used in {% data variables.product.prodname_vscode_shortname %}. |
 | `setting(chat.mcp.discovery.enabled)` | Configure automatic discovery of MCP server configuration from other applications. |
-| `setting(chat.mcp.autostart)` (Experimental) | Automatically start MCP servers when configuration changes are detected. |
+| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't control servers managed by the Agent Host. |
 | `setting(chat.mcp.serverSampling)` | Configure which models are exposed to MCP servers for sampling (making requests in the background). |
-| `setting(chat.mcp.apps.enabled)` (Experimental) | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
+| `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)` | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
 
 ## Related resources
 
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Dev Guide](/docs/agents/guides/mcp-developer-guide.md)
+* [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool)

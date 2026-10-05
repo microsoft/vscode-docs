@@ -29,7 +29,7 @@ Marketplace - [Sapphire Theme](https://marketplace.visualstudio.com/items?itemNa
 
 Author - [Daniel Imms](https://marketplace.visualstudio.com/search?term=publisher%3A%22Daniel%20Imms%22&target=VSCode&category=All%20categories&sortBy=Relevance)
 
-![sapphire color theme](themes-sapphire.gif)
+<video src="themes-sapphire.mp4" title="Video showing sapphire color theme." autoplay loop controls muted></video>
 
 ### Nord
 
@@ -37,7 +37,7 @@ Marketplace - [Nord](https://marketplace.visualstudio.com/items?itemName=arctici
 
 Author - [arcticicestudio](https://marketplace.visualstudio.com/search?term=publisher%3A%22arcticicestudio%22&target=VSCode&category=All%20categories&sortBy=Relevance)
 
-![nord color theme](themes-nord.gif)
+<video src="themes-nord.mp4" title="Video showing nord color theme." autoplay loop controls muted></video>
 
 ### Ayu
 
@@ -45,7 +45,7 @@ Marketplace - [Ayu](https://marketplace.visualstudio.com/items?itemName=teabyii.
 
 Author - [teabyii](https://marketplace.visualstudio.com/search?term=publisher%3A%22teabyii%22&target=VSCode&category=All%20categories&sortBy=Relevance)
 
-![ayu color theme](themes-ayu.gif)
+<video src="themes-ayu.mp4" title="Video showing ayu color theme." autoplay loop controls muted></video>
 
 ## File Icon Themes
 
@@ -61,7 +61,7 @@ Just as with Color Themes, there are many popular File Icon Themes in the [Marke
 
 There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures, where two characters are combined into a single expressive character. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You must have a font installed that supports font ligatures, such as [Fira Code](https://github.com/tonsky/FiraCode).
 
-![font ligatures](font-ligatures-annotated.png)
+![font ligatures](font-ligatures-annotated.webp)
 
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)

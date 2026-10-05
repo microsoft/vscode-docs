@@ -1,12 +1,12 @@
 ---
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c002
-DateApproved: 03/30/2026
+DateApproved: 9/30/2026
 MetaDescription: Manage approvals, autonomy, and context budget for coding agents in VS Code, including scoped approvals and compaction.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Your first agent session
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WcN74XvZGes?si=OCbyVFSsIskUnHga" title="Video for approvals, autonomy, and context budget." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video for approvals, autonomy, and context budget on YouTube (opens in new tab).](images/approvals-autonomy-and-context-budget/youtube-WcN74XvZGes.jpg)](https://www.youtube.com/watch?v=WcN74XvZGes)
 
 Every action an agent takes on your machine, running a command, writing a file, or launching a server, happens through its tools. By default, terminal commands require explicit approval before they run. This guide covers how approvals work, how to set the right autonomy level for a session, and how to monitor context budget as work builds up.
 

@@ -3,7 +3,7 @@ Order: 109
 TOCTitle: "Open Source AI Editor: Second Milestone"
 PageTitle: "Open Source AI Editor: Second Milestone"
 MetaDescription: Ghost text suggestions are now open source as part of the Copilot Chat extension - the second milestone in making VS Code an open source AI editor.
-MetaSocialImage: copilot-oct-pr.png
+MetaSocialImage: copilot-oct-pr.webp
 Date: 2025-11-06
 Author: The VS Code team
 ---
@@ -16,7 +16,7 @@ In [May](https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor), we 
 
 While chat was a significant step forward, an important part of our AI functionality still remained: the inline suggestions that appear as you type. Today, we're reaching that next milestone in our journey: **inline suggestions are now open source**.
 
-![PR to OSS suggestions](copilot-oct-pr.png)
+![PR to OSS suggestions](copilot-oct-pr.webp)
 
 ## One extension, same user experience
 
@@ -34,7 +34,7 @@ We've also [simplified our terminology](https://github.com/microsoft/vscode-docs
 
 With inline suggestions available in the [vscode-copilot-chat repository](https://github.com/microsoft/vscode-copilot-chat/tree/main/src/extension/completions-core), you can explore and contribute to how they work:
 
-![Flow diagram displaying how inline suggestions work](inline-suggestions-chart.png)
+![Flow diagram displaying how inline suggestions work](inline-suggestions-chart.webp)
 
 1. **["Typing-as-suggested" detection](https://github.com/microsoft/vscode-copilot-chat/blob/main/src/extension/completions-core/vscode-node/lib/src/ghostText/current.ts)** - As you type, the extension first checks if you're following a previous suggestion and can continue showing it without making a new request
 2. **[Caching](https://github.com/microsoft/vscode-copilot-chat/blob/main/src/extension/completions-core/vscode-node/lib/src/ghostText/completionsCache.ts)** - If not typing as suggested, the extension checks if cached suggestions can be reused to improve performance
@@ -55,7 +55,7 @@ Along with consolidating into a single extension, this refactoring has led to te
 
 As with all changes, despite our best efforts, there is a chance that we missed something! If you encounter any issues with the unified extension experience, you can temporarily revert to the previous two-extension behavior by unchecking the unification setting:
 
-![VS Code setting for extension unification](unify-setting.png)
+![VS Code setting for extension unification](unify-setting.webp)
 
 ## What's next?
 
@@ -63,7 +63,7 @@ The next phase of our OSS journey is to refactor some AI features and components
 
 We'll continue actively improving our inline suggestions experiences - as always, you can follow along on [our iteration plans](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22iteration-plan%22) for the latest:
 
-![Inline suggestions section of the October 2025 VS Code iteration plan](iteration-plan-oct.png)
+![Inline suggestions section of the October 2025 VS Code iteration plan](iteration-plan-oct.webp)
 
 We welcome your feedback and [contributions](https://github.com/microsoft/vscode-copilot-chat/blob/main/CONTRIBUTING.md). Feel free to [open pull requests](https://github.com/microsoft/vscode-copilot-chat/pulls) and [file issues](https://github.com/microsoft/vscode/issues).
 

@@ -3,7 +3,7 @@ Order:
 TOCTitle: Improving CI Build Times
 PageTitle: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
 MetaDescription: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
-MetaSocialImage: /assets/blogs/2020/02/18/hero.png
+MetaSocialImage: /assets/blogs/2020/02/18/hero.webp
 Date: 2020-02-18
 ShortDescription: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
 Author: Ethan Dennis, João Moreno
@@ -103,7 +103,7 @@ Once these changes were implemented, we saw drastic reductions in total build ti
 | Linux Arm    | 22 min     | 21 min    | 5%           |
 | Linux Alpine | 23 min     | 26 min    | -13%         |
 
-![VS Code before and after build times](chart.png)
+![VS Code before and after build times](chart.webp)
 
 The Linux Arm and Linux Alpine targets only build the [VS Code remote server components](https://code.visualstudio.com/docs/remote/remote-overview), so their original build times were good enough. But since they share some common tasks with the standard VS Code client platforms, we decided to have them depend on the common build agent. This resulted in slightly increased build times due to the increased overhead in one case.
 

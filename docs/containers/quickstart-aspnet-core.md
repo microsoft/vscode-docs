@@ -1,7 +1,7 @@
 ---
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 DateApproved: 12/13/2022
-MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
+MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using {% data variables.product.prodname_vscode %}.
 ---
 # ASP.NET Core in a container
 
@@ -13,9 +13,9 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker and the VS Code Container Tools extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
+- Docker and the {% data variables.product.prodname_vscode_shortname %} Container Tools extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
 - For .NET development, install [.NET SDK](https://dotnet.microsoft.com/download).
-- Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
+- Microsoft [C# for {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
 ## Create a .NET Web API project
 
@@ -28,7 +28,7 @@ In this guide you will learn how to:
 
 ## Add Docker files to the project
 
-1. Open the project folder in VS Code.
+1. Open the project folder in {% data variables.product.prodname_vscode_shortname %}.
 1. Wait for the C# extension to prompt you to add required assets for build and debug, and choose **Yes**. You can also open the Command Palette (`kb(workbench.action.showCommands)`) and use the **.NET: Generate Assets for Build and Debug** command.
 1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Containers: Add Docker Files to Workspace...** command:
 
@@ -41,7 +41,7 @@ In this guide you will learn how to:
 1. Change the port for application endpoint to `5000`.
 1. `Dockerfile` and `.dockerignore` files are added to the workspace.
 
-   The extension will also create a set of **VS Code tasks** for building and running the container (in both debug- and release configuration, four tasks in total), and a **debugging configuration** for launching the container in debug mode.
+   The extension will also create a set of **{% data variables.product.prodname_vscode_shortname %} tasks** for building and running the container (in both debug- and release configuration, four tasks in total), and a **debugging configuration** for launching the container in debug mode.
 
 ## Build the application
 
@@ -101,7 +101,7 @@ You can use the Container Tools extension to author Docker files. The extension 
     ]
    ```
 
-   > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, VS Code will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
+   > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, {% data variables.product.prodname_vscode_shortname %} will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
    >
    > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Container Explorer and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
    >
@@ -120,7 +120,7 @@ You can use the Container Tools extension to author Docker files. The extension 
 
 ## Debug in container
 
-When Docker files were added to the application, the Container Tools extension also added a **VS Code debugger configuration** for debugging the service when it is running inside a container. The extension will automatically detect the protocol and port that the service is using and point the browser to the service, but we need to tell it what URL path to use.
+When Docker files were added to the application, the Container Tools extension also added a **{% data variables.product.prodname_vscode_shortname %} debugger configuration** for debugging the service when it is running inside a container. The extension will automatically detect the protocol and port that the service is using and point the browser to the service, but we need to tell it what URL path to use.
 
 1. Set a breakpoint at the beginning of the code for the `Get()` method of the `Controllers/WeatherForecastController.cs` file.
 1. Open `.vscode/launch.json` file and find `Containers: .NET Core Launch` debug configuration.

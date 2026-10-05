@@ -1,19 +1,19 @@
 ---
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
 DateApproved: 1/4/2022
-MetaDescription: Popular Java extensions for Visual Studio Code
+MetaDescription: Popular Java extensions for {% data variables.product.prodname_vscode %}
 ---
-# Java extensions for Visual Studio Code
+# Java extensions for {% data variables.product.prodname_vscode %}
 
-Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience.
+Thanks to the great Java community around {% data variables.product.prodname_vscode %}, you can use a wide range of extensions to enhance your Java development experience.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/configure/extensions/extension-marketplace.md).
+> **Tip:** To learn how to install and manage your extensions, refer to the general [{% data variables.product.prodname_vscode_shortname %} extension documentation](/docs/configure/extensions/extension-marketplace.md).
 
 In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
 
 ## Fundamental Java development
 
-If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java applications, Java project management, etc.), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
+If you are looking for core Java development experience on {% data variables.product.prodname_vscode %} (including Java code auto-completion, running / debugging / testing Java applications, Java project management, etc.), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
 
 1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -44,13 +44,13 @@ More Spring Boot related information can be found at the [Spring Boot](/docs/jav
 
 ## Gradle for Java
 
-Visual Studio Code offers support Gradle support via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. To learn more how to use this extension, visit the [Gradle section](/docs/java/java-build.md#gradle) on Build Tools page.
+{% data variables.product.prodname_vscode %} offers support Gradle support via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. To learn more how to use this extension, visit the [Gradle section](/docs/java/java-build.md#gradle) on Build Tools page.
 
 ## Application Servers (Tomcat / Jetty / etc.)
 
 [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat and Jetty.
 
-To learn more about how to work with Java application servers on Visual Studio Code, refer to the [Application Server](/docs/java/java-tomcat-jetty.md) page.
+To learn more about how to work with Java application servers on {% data variables.product.prodname_vscode %}, refer to the [Application Server](/docs/java/java-tomcat-jetty.md) page.
 
 ## MicroProfile / Quarkus
 
@@ -66,20 +66,20 @@ There are some extensions from the community for developers who might be used to
 * [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
 * [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 
-Keymap extensions apply keyboard shortcuts from other IDEs or editors on to VS Code so you don't have to retrain your fingers to new keyboard shortcuts.
+Keymap extensions apply keyboard shortcuts from other IDEs or editors on to {% data variables.product.prodname_vscode_shortname %} so you don't have to retrain your fingers to new keyboard shortcuts.
 
 ## Remote development and container support
 
 We'd also like to recommend a couple of other extensions that are useful for remote and container development scenarios.
 
-* The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
+* The [Remote Development](/docs/remote/remote-overview.md) extensions let you use {% data variables.product.prodname_vscode_shortname %} to access a container, a remote machine, or the Windows Subsystem for Linux.
 * You can use the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to build docker images and work with image registries.
 * [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
 
-## Azure on Visual Studio Code
+## Azure on {% data variables.product.prodname_vscode %}
 
-The Azure extensions for Visual Studio Code provide seamless integration with Azure and the cloud. There are a few Azure extensions we'd like to recommend.
+The Azure extensions for {% data variables.product.prodname_vscode %} provide seamless integration with Azure and the cloud. There are a few Azure extensions we'd like to recommend.
 
 ### Team development
 
@@ -87,18 +87,18 @@ The Azure extensions for Visual Studio Code provide seamless integration with Az
 
 ### Internet of Things
 
-* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://learn.microsoft.com/azure/?product=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
+* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for {% data variables.product.prodname_vscode_shortname %} makes it easy to develop and connect your [IoT applications to Azure](https://learn.microsoft.com/azure/?product=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
 
 ### General tools
 
 * The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides a rich set of extensions that makes it easy to discover and interact with Azure services to power your applications.
-* The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
+* The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in {% data variables.product.prodname_vscode_shortname %}.
 
 Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
 
 ## Search for other Java extensions
 
-If the extensions above do not meet your requirement, you can also search for other Java related extensions within Visual Studio Code. Here are the steps:
+If the extensions above do not meet your requirement, you can also search for other Java related extensions within {% data variables.product.prodname_vscode %}. Here are the steps:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".

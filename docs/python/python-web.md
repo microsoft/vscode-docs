@@ -14,9 +14,9 @@ The following prerequisites are needed to use the extension:
 * You need to have the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension installed.
 * You need to authenticate with GitHub.
 * You need to use a browser that supports [cross-origin isolation](https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/). The extension has been tested with the Microsoft Edge and Google Chrome browsers.
-* You need to use the insider version of [VS Code for the Web](/docs/remote/vscode-web.md) (for example `https://insiders.vscode.dev/`)
+* You need to use the insider version of [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md) (for example `https://insiders.vscode.dev/`)
 * Your source code must be hosted either on your local file system or a GitHub repository that is accessed through the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension.
-* When starting [VS Code for the Web](/docs/remote/vscode-web.md), you need to add the following query parameter to the end of the URL: `?vscode-coi=`.
+* When starting [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md), you need to add the following query parameter to the end of the URL: `?vscode-coi=`.
 
 ## Run Hello World
 
@@ -32,7 +32,7 @@ The extension comes with an integrated Python REPL. To activate it, run the comm
 
 ## Debugging
 
-There is support for debugging Python files on the Web and it uses the same UI as VS Code Desktop [debugging](/docs/python/debugging.md). The features currently supported are:
+There is support for debugging Python files on the Web and it uses the same UI as {% data variables.product.prodname_vscode_shortname %} Desktop [debugging](/docs/python/debugging.md). The features currently supported are:
 
 * Set breakpoints
 * Step into and out of functions

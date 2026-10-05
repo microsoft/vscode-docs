@@ -3,7 +3,7 @@ Order: 126
 TOCTitle: Multi-Agent Development
 PageTitle: "Your Home for Multi-Agent Development"
 MetaDescription: VS Code has become the unified interface for all your coding agents. Manage local, background, and cloud agents in one place, use Claude and Codex agents alongside Copilot, and benefit from open standards like MCP and Agent Skills.
-MetaSocialImage: your-agent-ux.png
+MetaSocialImage: your-agent-ux.webp
 Date: 2026-02-05
 Author: VS Code Team
 ---
@@ -24,7 +24,7 @@ The Agent Sessions view gives you one place to see all your agent sessions—loc
 
 Kick off a cloud agent for a well-defined refactor, then jump into a local session for something more exploratory. Monitor a background task or let it run as you work on something else.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BsAHunfVwNs?si=6m4vsMuc2Wb0YRpb" title="Video showing the unified agent experience." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch Video showing the unified agent experience on YouTube (opens in new tab).](youtube-BsAHunfVwNs.jpg)](https://www.youtube.com/watch?v=BsAHunfVwNs)
 
 The above demo illustrates how developers are constantly tackling multiple things at once: planning improvements, building features, reviewing results, debugging errors. For each moment, you need to pick the right tool: local when needing to steer, background or cloud when wanting isolated changes, parallel subagents when needing multiple processes.
 
@@ -45,11 +45,11 @@ With 1.109, you can run Claude and Codex agents: locally, or in the cloud, all u
 
 Codex has been available as a local agent [for a few months](https://code.visualstudio.com/blogs/2025/11/03/unified-agent-experience). Claude is new. It uses the official Claude Agent harness by Anthropic, so you get the same prompts, tools, and overall architecture as other Claude implementations.
 
-![Screenshot of the Sessions Type picker in VS Code, showing the Claude and Codex agent options.](local-agents.png)
+![Screenshot of the Sessions Type picker in VS Code, showing the Claude and Codex agent options.](local-agents.webp)
 
 GitHub also [just announced Claude and Codex agent support](https://github.blog/changelog/2026-02-04-claude-and-codex-are-now-available-in-public-preview-on-github/). Copilot Pro+ and Enterprise subscribers can use them in VS Code as cloud agents today.
 
-![Screenshot of the Partner Agents picker in VS Code, showing options for Claude and Codex.](cloud-agents.png)
+![Screenshot of the Partner Agents picker in VS Code, showing options for Claude and Codex.](cloud-agents.webp)
 
 > [!NOTE]
 > Enable or disable support for Claude agent sessions with the `setting(github.copilot.chat.claudeAgent.enabled)` setting.
