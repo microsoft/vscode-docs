@@ -261,14 +261,38 @@ For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in
 > [!CAUTION]
 > Deleting a session is irreversible. Integrate or commit worktree changes before you delete the session because uncommitted files that exist only in a removed worktree can be lost. If you only want to hide a session, [archive](#archive-sessions) it instead.
 
-## Automatically clean up merged sessions
+## Clean up session worktrees
+
+Worktree-isolated agent sessions can accumulate and use significant disk space. Run **Chat: Open Worktree Cleanup** to review inactive session worktrees and remove the ones you no longer need.
+
+<!-- TODO: Add a screenshot showing the worktree cleanup editor with the storage summary, inactivity filter, and selectable sessions. -->
+
+In the cleanup editor:
+
+1. Choose how long sessions must be inactive. You can filter for sessions that have been inactive for 7, 15, 30, 60, or 90 days.
+
+1. Review the estimated size of each worktree. Eligible worktrees are selected by default. Clear any worktrees that you want to keep.
+
+1. Confirm the cleanup for the selected worktrees.
+
+Cleanup marks each selected session as done and schedules its worktree for removal. Before removing a worktree, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch. If the changes can't be preserved or the worktree can't be removed, the worktree remains. The session and its branch history are preserved, so restoring the session re-creates the worktree.
+
+The cleanup editor excludes sessions that are active, running, waiting for input, pinned, done, archived, untitled, in an error state, or more recent than the selected inactivity period. It also excludes worktrees whose size can't be measured.
+
+### Get storage cleanup suggestions (Experimental)
+
+Set `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` to receive a suggestion in the {% data variables.copilot.agents_window %} when inactive worktrees use at least 5 GiB or 20 worktrees are eligible for cleanup. Selecting the suggestion opens the worktree cleanup editor.
+
+Dismissing the suggestion hides it for the current window. To turn off future suggestions, select **Don't Show Again** in the suggestion or run **Chat: Disable Session Storage Cleanup Suggestions**.
+
+### Automatically clean up merged sessions
 
 `feature(automatic-session-cleanup)`
 
 Configure automatic cleanup to keep inactive Agent Host sessions from accumulating after their pull requests merge. Both settings are disabled by default:
 
 * `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` controls how many inactive days pass before an eligible session is automatically marked as done.
-* `setting(chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays)` controls the separate grace period between automatically marking an eligible session as done and permanently deleting it.
+* `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` controls the separate grace period between automatically marking an eligible session as done and permanently deleting it.
 
 Set each setting to a positive whole number of days. The recommended value is `15`. Set a setting to `0` to disable that part of the cleanup lifecycle.
 
