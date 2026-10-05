@@ -214,6 +214,7 @@ For the full sandbox configuration schema, see the [Sandbox configuration](/docs
 
 | Method | Description | |
 |--------|-------------|---|
+| **Agent Customizations editor** | Open the **MCP Servers** section, select the ellipsis (**...**) next to a server, and choose an action. | |
 | **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png) |
 | **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
 | **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png) |
@@ -281,7 +282,9 @@ When {% data variables.product.prodname_vscode_shortname %} encounters an issue 
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
-Select the error notification in the {% data variables.copilot.chat_view %}, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
+To view the logs from the Agent Customizations editor, open **MCP Servers**, select the server's ellipsis (**...**) menu, and then select **Show Output**. The editor closes and the Output view opens with the server's output channel selected.
+
+You can also select the error notification in the {% data variables.copilot.chat_view %} and then select **Show Output**. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
