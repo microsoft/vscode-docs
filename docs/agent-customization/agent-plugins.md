@@ -451,6 +451,31 @@ Disabling a plugin also disables its hooks. Unless enterprise policy controls th
 
 You can browse and install plugins from marketplaces or directly from a Git repository.
 
+### Manage plugins with slash commands
+
+In a Copilot session that runs on the Agent Host, enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin list` | List installed plugins and their status. |
+| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
+| `/plugin update <plugin>` | Update an installed plugin. |
+| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
+| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
+| `/plugin uninstall <plugin>` | Remove an installed plugin. |
+| `/plugin marketplace list` | List included and registered marketplaces. |
+| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
+| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
+| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
+| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
+
+Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
+
+Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
+
+> [!NOTE]
+> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+
 ### Install a plugin from a marketplace
 
 {% tabs id="plugin-marketplace" %}
