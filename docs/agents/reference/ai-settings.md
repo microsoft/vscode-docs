@@ -175,20 +175,36 @@ Use the following links to jump to the settings for a specific area:
 
 ### Sandboxing and network access
 
+Agent Host sandbox settings are resolved on the execution host. For a connected remote Agent Host, defaults, paths, and platform behavior refer to that remote host.
+
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on macOS, Linux, and WSL2. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.enabledWindows)` _(Experimental)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on Windows. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.allowNetwork)` _(Preview)_<br/>Permit unrestricted network access while preserving file system restrictions. When `false`, the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and Windows terminal sandbox block outbound access. Local sessions and the Agent Host custom terminal tool on macOS and Linux use [domain filtering](/docs/agents/run/agent-sandboxing.md#configure-network-access). | `true` |
-| `setting(chat.agent.sandbox.allowUnsandboxedCommands)` _(Preview)_<br/>Allow a terminal command to run outside the sandbox after user confirmation if sandbox restrictions block it. | `true` |
-| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Preview)_<br/>Allow a blocked terminal command to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Preview)_<br/>Automatically approve terminal commands that run inside the sandbox. | `true` |
-| `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Windows. Supports `allowRead`, `allowWrite`, and `denyRead` properties. | `{}` |
+| `setting(chat.agent.sandbox.enabled)`<br/>Control [Agent Host sandboxing](/docs/agents/run/agent-sandboxing.md) on all platforms. Possible values are `off` and `on`. | `off` |
+| `setting(chat.agent.sandbox.network.allowNetwork)`<br/>Permit external network access for sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.network.allowLocalNetwork)`<br/>Permit sandboxed Agent Host processes to access local network resources. | `false` |
+| `setting(chat.agent.sandbox.allowUnsandboxedCommands)`<br/>Allow the Agent Host to request confirmation to run a command outside the sandbox when sandbox restrictions block it. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.userConfiguredPaths)`<br/>Configure additional execution-host paths with `readwritePaths`, `readonlyPaths`, and `deniedPaths` arrays. Denied access takes precedence over read-only access, which takes precedence over read-write access. The working directory is granted automatically. | `{ "readwritePaths": [], "readonlyPaths": [], "deniedPaths": [] }` |
+| `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)`<br/>Grant access to directories, configuration, and caches for developer tools. These locations can include credentials such as package registry tokens. | `true` |
+| `setting(chat.agent.sandbox.mcpServers)`<br/>Apply sandboxing to MCP servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.lspServers)`<br/>Apply sandboxing to language servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategit)`<br/>Provide Git authentication to sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategh)`<br/>Provide GitHub CLI authentication to sandboxed Agent Host processes. | `true` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `false` |
-| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for terminal commands that use [sandbox domain filtering](/docs/agents/run/agent-sandboxing.md#domain-filtering-on-macos-and-linux). Does not filter the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or Windows terminal sandbox. An empty list blocks all domains for tools using the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
-| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for terminal commands that use [sandbox domain filtering](/docs/agents/run/agent-sandboxing.md#domain-filtering-on-macos-and-linux). Does not filter the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or Windows terminal sandbox. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. An empty list blocks all domains for tools that use the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+
+#### Legacy Local and custom terminal sandbox settings
+
+The following settings support legacy Local or custom terminal behavior. They do not configure the standard {% data variables.product.prodname_copilot_short %} Agent Host sandbox.
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
+| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local only)_<br/>Allow a blocked Local terminal command to retry inside the legacy sandbox with unrestricted network access after user confirmation. | `true` |
+| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local only)_<br/>Automatically approve Local terminal commands that run inside the legacy sandbox. This setting does not apply to Agent Host. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure legacy Linux file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure legacy macOS file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure legacy Windows file system access with `allowRead`, `allowWrite`, and `denyRead`. Agent Host ignores this setting. | `{}` |
 
 ### Planning, models, and agent providers
 
