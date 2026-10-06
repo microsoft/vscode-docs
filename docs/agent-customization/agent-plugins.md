@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Discover and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including skills, tools, hooks, and automation templates.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -451,6 +451,31 @@ Disabling a plugin also disables its hooks. Unless enterprise policy controls th
 
 You can browse and install plugins from marketplaces or directly from a Git repository.
 
+### Manage plugins with slash commands
+
+In a Copilot session that runs on the Agent Host, enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin list` | List installed plugins and their status. |
+| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
+| `/plugin update <plugin>` | Update an installed plugin. |
+| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
+| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
+| `/plugin uninstall <plugin>` | Remove an installed plugin. |
+| `/plugin marketplace list` | List included and registered marketplaces. |
+| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
+| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
+| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
+| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
+
+Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
+
+Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
+
+> [!NOTE]
+> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+
 ### Install a plugin from a marketplace
 
 {% tabs id="plugin-marketplace" %}
@@ -474,11 +499,14 @@ You can browse and install plugins from marketplaces or directly from a Git repo
 
 1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the {% data variables.copilot.chat_view %}, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
 
-1. Select the **Plugins** tab and select **Browse Marketplace** to browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
+1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces):
+
+    * To use the unified **Discover** experience (Experimental), enable `setting(chat.customizations.marketplace.enabled)` and select **Discover**.
+    * Otherwise, select the **Plugins** tab and then select **Browse Marketplace**.
 
 1. Select **Install** to install a plugin.
 
-  The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
+    The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
 
 {% /tab %}
 {% /tabs %}
@@ -529,12 +557,16 @@ By default, {% data variables.product.prodname_vscode_shortname %} discovers plu
 
 Marketplaces are Git repositories that contain plugin definitions. You can reference them in several formats:
 
-* **Shorthand**: `owner/repo` for public GitHub repositories. For example, `anthropics/claude-code`.
+* **Shorthand**: `owner/repo` for public GitHub repositories. For example, `anthropics/claude-code`. Append `#<ref>` to select a branch, tag, or full 40-character commit SHA.
 * **HTTPS git remote**: a full URL ending in `.git`. For example, `https://github.com/anthropics/claude-code.git`.
 * **SCP-style git remote**: SSH-style references. For example, `git@github.com:anthropics/claude-code.git`.
 * **file URI**: a `file:///` path to a marketplace repository already cloned on disk.
 
+For reproducible installations, use a full 40-character commit SHA, such as `owner/repo#<commit-sha>`. {% data variables.product.prodname_vscode_shortname %} installs plugins from that exact revision. Branch and tag references use the revision they resolve to when the marketplace is fetched.
+
 Private repositories are also supported. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
+
+When a marketplace index declares a plugin at a relative path, {% data variables.product.prodname_vscode_shortname %} verifies the repository, resolved revision, and path before installation. Sources with a missing revision, an invalid path, or an ambiguous path match are rejected.
 
 Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
@@ -635,13 +667,11 @@ For details about the portable format, see the [Agent Plugins specification](htt
 * Bump the `version` field in `plugin.json` (and in the `marketplace.json` plugin entry, if applicable) before pushing changes.
 * Run **Extensions: Check for Extension Updates** from the Command Palette to trigger an update check.
 
-### Installation fails with 'destination path already exists'
+### Plugin installation fails after retry
 
-This can happen when a previous install left cached data. Delete the cached plugin directory and retry:
+Retry the installation. {% data variables.product.prodname_vscode_shortname %} validates marketplace repository caches and replaces incomplete or invalid caches automatically.
 
-* **macOS**: `~/Library/Application Support/Code/agentPlugins/github.com/{org}/{repo}`
-* **Linux**: `~/.config/Code/agentPlugins/github.com/{org}/{repo}`
-* **Windows**: `%APPDATA%\Code\agentPlugins\github.com\{org}\{repo}`
+If installation still fails, review the error for an invalid repository, revision, or plugin path. If the source is valid and retry continues to fail, run **Help: Report Issue**. Don't delete or modify the internal plugin cache manually.
 
 ## Related resources
 

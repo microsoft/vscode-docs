@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -139,6 +139,21 @@ When the Dev Container is created, {% data variables.product.prodname_vscode_sho
 </details>
 
 <details>
+<summary>Install an MCP server from the Customization Marketplace (Experimental)</summary>
+
+The Customization Marketplace provides an alternative way to find MCP servers from configured sources:
+
+1. Turn on the `setting(chat.customizations.marketplace.enabled)` setting.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`), and then select **Discover**.
+1. From the source menu, select **GitHub Feed**, and then search for a server by name or add `@type:mcp` to your search.
+1. Select a server and review its source, product image, publisher details, and installation requirements.
+1. Select **Install**.
+
+Some servers don't support automatic installation. Follow the publisher's setup instructions when they are provided.
+
+</details>
+
+<details>
 <summary>Automatically discover MCP servers</summary>
 
 {% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
@@ -175,6 +190,9 @@ Beyond tools, MCP servers can provide other capabilities:
 ## Sandbox MCP servers
 
 On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
+
+> [!NOTE]
+> This per-server sandbox is separate from automatic sandboxing for MCP servers launched by the Agent Host. When Agent Host sandboxing is on, `setting(chat.agent.sandbox.mcpServers)` applies by default and has its own configuration and scope. Learn more about [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a top-level `sandbox` object with specific file system and network rules.
 
@@ -214,6 +232,7 @@ For the full sandbox configuration schema, see the [Sandbox configuration](/docs
 
 | Method | Description | |
 |--------|-------------|---|
+| **Agent Customizations editor** | Open the **MCP Servers** section, select the ellipsis (**...**) next to a server, and choose an action. | |
 | **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png) |
 | **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
 | **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png) |
@@ -281,7 +300,9 @@ When {% data variables.product.prodname_vscode_shortname %} encounters an issue 
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
-Select the error notification in the {% data variables.copilot.chat_view %}, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
+To view the logs from the Agent Customizations editor, open **MCP Servers**, select the server's ellipsis (**...**) menu, and then select **Show Output**. The editor closes and the Output view opens with the server's output channel selected.
+
+You can also select the error notification in the {% data variables.copilot.chat_view %} and then select **Show Output**. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 

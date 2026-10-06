@@ -1,6 +1,6 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Clone, publish, and manage Git remotes in {% data variables.product.prodname_vscode_shortname %}, and choose when to fetch, pull, push, or sync.
 Keywords:
 - source control

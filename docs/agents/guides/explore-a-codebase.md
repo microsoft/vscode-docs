@@ -1,6 +1,6 @@
 ---
 ContentId: 87225324-0ae8-4dd8-bce1-bb38ec4f29b1
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Explore a codebase with an agent in {% data variables.product.prodname_vscode_shortname %}, trace a behavior, and verify explanations against source code.
 MetaSocialImage: ../images/agents-overview/hero-vscode-dev-agents-dark.png
 Keywords:

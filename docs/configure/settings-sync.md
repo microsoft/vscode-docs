@@ -1,6 +1,6 @@
 ---
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Sync settings and preferences across devices with {% data variables.product.prodname_vscode %} {% data variables.product.prodname_settings_sync %}.
 ---
 # {% data variables.product.prodname_settings_sync %}

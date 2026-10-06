@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -121,6 +121,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that the agent can make. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(chat.subagents.allowInvocationsFromSubagents)`<br/>Enable subagents to invoke other subagents, up to a maximum nesting depth of five. | `false` |
+| `setting(chat.subagents.defaultToAuto)` `feature(subagent-auto-model-selection)`<br/>Use [Auto as the default model for local subagents](/docs/agents/run/subagents.md#use-auto-for-subagents) when neither the tool call nor the selected agent specifies a model. Explicit model selections take precedence. | `false` |
 | `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
 | `setting(github.copilot.chat.searchSubagent.subagentSemanticSearchEnabled)` _(Experimental)_<br/>Enable the semantic search tool for the Search subagent. This only affects the Search subagent and does not disable semantic search elsewhere. | `true` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
@@ -175,20 +176,36 @@ Use the following links to jump to the settings for a specific area:
 
 ### Sandboxing and network access
 
+Agent Host sandbox settings are resolved on the execution host. For a connected remote Agent Host, defaults, paths, and platform behavior refer to that remote host.
+
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on macOS, Linux, and WSL2. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.enabledWindows)` _(Experimental)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on Windows. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.allowNetwork)` _(Preview)_<br/>Permit unrestricted network access while preserving file system restrictions. When `false`, the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and Windows terminal sandbox block outbound access. Local sessions and the Agent Host custom terminal tool on macOS and Linux use [domain filtering](/docs/agents/run/agent-sandboxing.md#configure-network-access). | `true` |
-| `setting(chat.agent.sandbox.allowUnsandboxedCommands)` _(Preview)_<br/>Allow a terminal command to run outside the sandbox after user confirmation if sandbox restrictions block it. | `true` |
-| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Preview)_<br/>Allow a blocked terminal command to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Preview)_<br/>Automatically approve terminal commands that run inside the sandbox. | `true` |
-| `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Windows. Supports `allowRead`, `allowWrite`, and `denyRead` properties. | `{}` |
+| `setting(chat.agent.sandbox.enabled)`<br/>Control [Agent Host sandboxing](/docs/agents/run/agent-sandboxing.md) on all platforms. Possible values are `off` and `on`. | `off` |
+| `setting(chat.agent.sandbox.network.allowNetwork)`<br/>Permit external network access for sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.network.allowLocalNetwork)`<br/>Permit sandboxed Agent Host processes to access local network resources. | `false` |
+| `setting(chat.agent.sandbox.allowUnsandboxedCommands)`<br/>Allow the Agent Host to request confirmation to run a command outside the sandbox when sandbox restrictions block it. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.userConfiguredPaths)`<br/>Configure additional execution-host paths with `readwritePaths`, `readonlyPaths`, and `deniedPaths` arrays. Denied access takes precedence over read-only access, which takes precedence over read-write access. The working directory is granted automatically. | `{ "readwritePaths": [], "readonlyPaths": [], "deniedPaths": [] }` |
+| `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)`<br/>Grant access to directories, configuration, and caches for developer tools. These locations can include credentials such as package registry tokens. | `true` |
+| `setting(chat.agent.sandbox.mcpServers)`<br/>Apply sandboxing to MCP servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.lspServers)`<br/>Apply sandboxing to language servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategit)`<br/>Provide Git authentication to sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategh)`<br/>Provide GitHub CLI authentication to sandboxed Agent Host processes. | `true` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `false` |
-| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for terminal commands that use [sandbox domain filtering](/docs/agents/run/agent-sandboxing.md#domain-filtering-on-macos-and-linux). Does not filter the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or Windows terminal sandbox. An empty list blocks all domains for tools using the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
-| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for terminal commands that use [sandbox domain filtering](/docs/agents/run/agent-sandboxing.md#domain-filtering-on-macos-and-linux). Does not filter the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or Windows terminal sandbox. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. An empty list blocks all domains for tools that use the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+
+#### Legacy Local and custom terminal sandbox settings
+
+The following settings support legacy Local or custom terminal behavior. They do not configure the standard {% data variables.product.prodname_copilot_short %} Agent Host sandbox.
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
+| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local only)_<br/>Allow a blocked Local terminal command to retry inside the legacy sandbox with unrestricted network access after user confirmation. | `true` |
+| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local only)_<br/>Automatically approve Local terminal commands that run inside the legacy sandbox. This setting does not apply to Agent Host. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure legacy Linux file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure legacy macOS file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure legacy Windows file system access with `allowRead`, `allowWrite`, and `denyRead`. Agent Host ignores this setting. | `{}` |
 
 ### Planning, models, and agent providers
 
@@ -216,13 +233,15 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
 | `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |
+| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false`<br/>Experiments can override this default. |
 | `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of inactive days before an eligible session with a merged pull request is [automatically marked as done](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). Set to `0` to disable automatic cleanup. The recommended value is `15`. | `0` |
-| `setting(chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
+| `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
 | `setting(sessions.showChatTabs)` _(Preview)_<br/>Show each chat as a tab with `multiple`, or show only the active chat as the session view with `single`. | `"multiple"` |
 | `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable)<br/>Experiments can override these defaults. |
 | `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
 | `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
 | `setting(sessions.chat.experimental.welcomeName)` _(Experimental)_<br/>Set the name in new-session welcome messages. Leave empty to use the first name from the signed-in GitHub profile when available. | `""` |
+| `setting(sessions.chat.experimental.welcomeMessages)` _(Experimental)_<br/>Add custom welcome phrases to the defaults with `append`, or use only custom phrases with `replace`. Use `{name}` to position the welcome name in a phrase. | `{"mode": "append", "phrases": []}` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |

@@ -1,5 +1,5 @@
 ---
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, testing) for Swift.
 ---
 # Swift in {% data variables.product.prodname_vscode %}

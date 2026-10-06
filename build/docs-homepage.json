@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.140 release",
-      "description": "Get familiar Copilot agent behavior, delegate work to remote hosts, and reuse dependencies across worktrees.",
-      "link": "/updates/v1_140",
-      "image": "/assets/updates/1_140/release-highlights.webp"
+      "title": "VS Code 1.141 release",
+      "description": "Use cross-platform terminal sandboxing, arrange sessions in a grid, and continue Copilot and Codex conversations.",
+      "link": "/updates/v1_141",
+      "image": "/assets/updates/1_141/release-highlights.webp"
     },
     {
       "type": "documentation",
