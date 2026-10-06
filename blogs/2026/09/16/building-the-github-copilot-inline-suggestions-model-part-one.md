@@ -288,7 +288,7 @@ Unifying NES and long-distance edits hinged on **reformulating the output as a s
 
 ## Online results
 
-We flighted 2-in-1 model candidates against the production baseline of the three standalone models (completions, NES, and cursor jump). The final shipping candidate was observed to have **no statistically significant regressions in any key metrics** (acceptance rate, dismissal rate, shown rate, recurring engagement, and accumulated retained characters). In addition, we saw a **decrease of 10% in the time it took for suggestions to be shown** to the user, along with a **reduction of 61% in output tokens**. These were mostly due to the more efficient output and input formats and more streamlined client logic.
+We flighted 2-in-1 model candidates against the production baseline of the three standalone models (completions, NES, and cursor jump). The final shipping candidate was observed to have **no statistically significant regressions in any key metrics** (acceptance rate, dismissal rate, shown rate, recurring engagement, and accumulated retained characters). In addition, we saw a **decrease of 7% in the time it took for suggestions to be shown** to the user, along with a **reduction of 59% in output tokens**. These were mostly due to the more efficient output and input formats and more streamlined client logic.
 
 ## Try it out
 
