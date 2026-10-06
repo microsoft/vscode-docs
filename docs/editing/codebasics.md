@@ -80,6 +80,23 @@ Key|Command|Command ID
 
 You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
 
+### Paste a column selection
+
+When you copy a column selection and paste it at a single cursor, the default `spread` value of `setting(editor.multiCursorPaste)` inserts each copied row on a successive line at the same visible column. To preserve the column, the editor pads shorter destination lines or copied rows with ordinary spaces as needed.
+
+In this example, the copied rows are `A`, `B`, and `C`, and `|` represents the cursor:
+
+```text
+Before          After
+abc|            abcA
+x               x  B
+123456          123C456
+```
+
+Set `setting(editor.multiCursorPaste)` to `full` to paste the copied text as normal multiline text at one destination.
+
+When you paste at multiple cursors, rows are distributed in document order if the number of copied rows matches the number of cursors. Otherwise, the full copied text is pasted at each cursor.
+
 ### Column Selection mode
 
 The user setting **Editor: Column Selection** controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the **Selection** > **Column Selection Mode** menu item. In addition, one can also disable Column Selection mode from the Status bar.
