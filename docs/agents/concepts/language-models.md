@@ -1,7 +1,7 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 DateApproved: 10/7/2026
-MetaDescription: Understand language models, providers, and harness-specific model choices in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Understand language models, model access, and model selection in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -11,35 +11,20 @@ Keywords:
 - context window
 - nondeterministic
 - model selection
-- model providers
 - BYOK
 ---
 
 # Understand language models
 
-{% data variables.product.prodname_vscode %} uses large language models (LLMs) to power its AI features. For chat and agent tasks, supported ways to access models include:
+{% data variables.product.prodname_vscode %} uses large language models (LLMs) to power its AI features. You have flexibility in which models you use and how you access them:
 
-* **Models through {% data variables.product.prodname_copilot %}**: access [models developed by organizations such as Anthropic, Google, and OpenAI](https://docs.github.com/en/copilot/reference/ai-models/supported-models), subject to your plan and organization policies.
-* **Other accounts**: use a supported account, such as ChatGPT for Codex or an existing Claude configuration. Availability depends on your plan and the selected harness.
-* **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in {% data variables.product.prodname_vscode_shortname %} without a {% data variables.product.prodname_copilot %} plan.
+* **Models from your GitHub Copilot plan**: choose from multiple models by different providers, such as Anthropic, Google, and OpenAI, included with your plan.
+* **Other accounts**: use a [supported account for the selected harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), such as a ChatGPT account for Codex. Model availability, usage limits, and billing depend on that account's plan and the harness.
+* **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in {% data variables.product.prodname_vscode_shortname %} without a GitHub Copilot plan.
 
-This article explains how model access and harnesses affect model availability, how language models work, and how to choose a model for your task.
+This article explains how language models work, their characteristics, and how to think about model selection.
 
 ![Screenshot of the Language Models editor, showing the list of available models.](../images/language-models/language-models-editor.png)
-
-## Model providers and harnesses
-
-An [agent harness](/docs/agents/concepts/agent-harnesses.md) connects the model to tools and coordinates the task. Each harness supports specific models and ways to access them.
-
-A **model source** is the account, subscription, or configured model provider through which you access a model. It determines the credentials and billing that apply. Some sources offer free access, while others require a paid plan or charge for usage. In the Language Models editor, **model providers** are the integrations that make models available for configuration.
-
-The **model developer** is the organization that created the model, which can differ from the service you use to access it. For example, you can access Claude-family models developed by Anthropic through {% data variables.product.prodname_copilot %}.
-
-{% data variables.product.prodname_copilot %} can supply compatible models within the Copilot, Claude, Codex, and Local harnesses when the harness is available and your account has access to those models. Signing in doesn't by itself make every harness available.
-
-For example, the Claude harness uses Claude-family models accessed through {% data variables.product.prodname_copilot %} or an existing Claude configuration. Selecting a Claude model in the Copilot harness doesn't change the harness. Changing the model source can change authentication and billing without switching harnesses.
-
-The models you can select also depend on your account access, organization policies, model visibility settings, and the capabilities required by the current chat mode. For example, models used by an agent must support tool calling. To configure providers and select a model, see [AI language models](/docs/agent-customization/language-models.md).
 
 ## How language models work
 

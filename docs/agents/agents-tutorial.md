@@ -4,15 +4,11 @@ DateApproved: 10/7/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-<a name="tutorial-agentic-coding-in-vs-code"></a>
+# Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 
-# Tutorial: Build an app with an AI agent
-
-In this tutorial, you use the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) to build a personal portfolio page in {% data variables.product.prodname_vscode %}. You describe what you want in natural language, and {% data variables.product.prodname_copilot_short %} creates and edits files. You then review and test the result. The app uses HTML, CSS, and JavaScript, so you don't need to install any runtimes or build tools.
+In this tutorial, you build a personal portfolio page with AI agents in {% data variables.product.prodname_vscode %}. You describe what you want in natural language, and an agent creates and edits files. You then review and test the result. The app uses HTML, CSS, and JavaScript, so you don't need to install any runtimes or build tools.
 
 You start in the **{% data variables.copilot.agents_window %}** to create the app, then continue the same session in the **{% data variables.copilot.chat_view %}** to refine it alongside your code. Along the way, you learn to open a project folder, preview your app in the integrated browser, and review and commit changes with Git.
-
-{% data variables.product.prodname_copilot_short %} is the starting point for day-to-day coding, whether you stay in one editor window or continue elsewhere. Choose another harness when you need its specific tools or workflows. Learn how to [compare {% data variables.product.prodname_copilot_short %} and Local](/docs/agents/run/agent-harnesses.md#compare-copilot-and-local) and [choose among the available harnesses](/docs/agents/run/agent-harnesses.md#choose-a-session-target).
 
 {% action-card title="Learn {% data variables.product.prodname_vscode_shortname %} editor features" display="inline" %}
 Get familiar with the {% data variables.product.prodname_vscode_shortname %} user interface, editing features, and key productivity tools.
@@ -69,7 +65,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
-1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** harness. For other supported ways to access models, see [Choose a model for your harness](/docs/agents/run/agent-harnesses.md#choose-a-model-for-your-harness).
+1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
 ### Start an agent session
 
@@ -93,7 +89,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     | Control | Value | Short description |
     |---------|-------|-------------------|
-    | **Session Target** | **Copilot** | Chooses {% data variables.product.prodname_copilot_short %}'s tools and coding workflow for the session. |
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
     | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
@@ -117,7 +113,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
 ### Preview and iterate on the design
 
-Use the {% data variables.copilot.agents_window %} to assign a task, review the agent's changes, and test the result. With the integrated browser, you can preview the agent's work without leaving {% data variables.product.prodname_vscode_shortname %}.
+The {% data variables.copilot.agents_window %} is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code changes. With the integrated browser, you can preview the agent's work without having to leave {% data variables.product.prodname_vscode_shortname %}.
 
 To preview the generated portfolio in the integrated browser:
 
@@ -234,8 +230,6 @@ The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar,
 
 Congratulations! You built a portfolio page with Copilot by using both an agent-first and code-first approach. You continued the same session across the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and used the integrated browser to preview and validate the result.
 
-You can also pick up work from other {% data variables.product.prodname_copilot_short %} applications: [open and continue supported local sessions from {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}, or [resume a {% data variables.product.prodname_copilot_short %} session in the terminal](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal).
-
 ## Next steps
 
 {% action-card title="Use agents in your own project" display="sidebar" %}
@@ -245,10 +239,12 @@ Apply the same prompt, review, and validation workflow to a bounded task in an e
 
 {% /action-card %}
 
-Continue using {% data variables.product.prodname_copilot_short %} in your own projects:
+To go deeper with agentic coding in {% data variables.product.prodname_vscode %}, get more info about how to:
 
-* [Explore {% data variables.product.prodname_copilot_short %}'s capabilities and setup options](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness)
+* [Explore an unfamiliar codebase without changing files](/docs/agents/guides/explore-a-codebase.md)
 
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline)
+
+* [Learn how agents work in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
 
 * [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project)

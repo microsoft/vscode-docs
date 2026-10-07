@@ -1,7 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
 DateApproved: 10/7/2026
-MetaDescription: Learn how the {% data variables.product.prodname_vscode_shortname %} Agent Host supports harness sessions across execution environments.
+MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host runs local, remote, and Dev Container sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
@@ -16,23 +16,22 @@ Keywords:
 
 # Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host
 
-{% data variables.product.prodname_vscode_shortname %} runs supported provider harnesses, including {% data variables.product.prodname_copilot_short %}, Claude, and Codex, in a dedicated process called the Agent Host. {% data variables.product.prodname_vscode_shortname %} communicates with the host through the Agent Host Protocol (AHP). The host owns these sessions independently of the clients that display and control them. The Local harness continues to run in the extension host.
+{% data variables.product.prodname_vscode_shortname %} runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
+
+> [!NOTE]
+> The Agent Host and AHP are under active development, and new capabilities continue to roll out.
 
 ## Why a dedicated Agent Host?
 
 A dedicated Agent Host process for agents provides the following capabilities:
 
-* **Shared sessions**: the editor and the {% data variables.copilot.agents_window %} can display and control the same live session, with updates synchronized between them.
-* **Remote execution**: the host can run next to the workspace on another machine while desktop or browser clients connect from elsewhere. The session remains available while the remote machine and host service are available.
-* **Independent execution**: an agent session can continue after you close its project folder or originating editor window, while {% data variables.product.prodname_vscode_shortname %} remains running.
-* **Multiple agent implementations**: supported provider harnesses share a session experience while preserving their provider-specific capabilities, customizations, and workflows.
+* **Shared sessions**: multiple clients can observe and control the same session, staying in sync.
+* **Remote execution**: the host can run next to the workspace on another machine while clients connect from elsewhere.
+* **Independent execution**: an agent session can continue when no editor or other client is connected.
+* **Multiple agent implementations**: different agent runtimes plug into one host-facing interface and present common session concepts to clients.
 * **Dedicated process**: agents run in their own process, where they won't be blocked by busy extensions.
 
-Continuing sessions from other {% data variables.product.prodname_copilot_short %} applications is separate from live synchronization between Agent Host clients. You can [continue supported local repository-associated sessions from {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} in {% data variables.product.prodname_vscode_shortname %}, or resume a {% data variables.product.prodname_copilot_short %} session in the CLI](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
-
-The Local and Agent Host architectures coexist. Local harness sessions run in the extension host and already support background and parallel sessions. The {% data variables.product.prodname_copilot_short %} harness uses its dedicated runtime through the Agent Host. Changing your preferred harness affects new sessions and does not migrate existing Local sessions.
-
-The extension host remains important for extensibility. Extensions can contribute chat customizations such as tools, MCP servers, and custom agents. By default, tools from extensions are only available in chats in an editor window where the extension is running.
+Earlier versions ran agent logic in the extension host, alongside the Copilot Chat extension. The extension host remains important for extensibility, but it is designed around the lifecycle and APIs of extensions, and long-running autonomous work has different needs. Extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process. By default, tools from extensions are only available in chats in an editor window where the extension is running.
 
 ![Screenshot showing {% data variables.product.prodname_vscode_shortname %} communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
 
@@ -40,7 +39,7 @@ The extension host remains important for extensibility. Extensions can contribut
 
 The Agent Host can run as a local utility process or as a standalone server on a remote machine. {% data variables.product.prodname_vscode_shortname %} uses a message port for local IPC and AHP JSON-RPC over WebSocket for remote connections.
 
-The first-party agent adapters run inside the Agent Host process. An adapter translates between its agent runtime and the common AHP session model. The underlying runtime does not have to run in the same process as the adapter. The {% data variables.copilot.copilot_sdk %} manages the {% data variables.product.prodname_copilot_short %} runtime as a child process, while the {% data variables.product.prodname_anthropic_claude %} SDK integration uses a different process model.
+The first-party agent adapters run inside the Agent Host process. An adapter translates between its agent runtime and the common AHP session model.
 
 The Agent Host lives next to the workspace. It can run on your machine, inside a Dev Container, or on a remote machine. File edits and commands run in the environment that contains the host.
 
@@ -54,15 +53,13 @@ The host is the source of truth. Each client subscribes to URI-addressed channel
 
 The defining Agent Host principle is that the agent can run without a client. A client is a viewer and controller that can come and go. The host therefore includes the baseline capabilities needed to manage sessions and work with the workspace.
 
-Agent Host sessions are not tied to the lifetime of the window for their workspace. You can close the project folder or originating editor window and reopen the session from another window. While {% data variables.product.prodname_vscode_shortname %} and the Agent Host remain running, an active turn can continue without its original client. Quitting local {% data variables.product.prodname_vscode_shortname %} ends locally hosted execution.
+Agent sessions are not tied to the lifetime of the window for their workspace. You can close the window and reopen the session later from another window. While the Agent Host remains running, an active turn can continue without a connected client.
 
 Connected clients can also contribute tools. For example, {% data variables.product.prodname_vscode_shortname %} can advertise tools that are provided by the client (like the browser tools) or by installed extensions. The Agent Host adds those definitions to the active session and routes a tool call back to the client that contributed it.
 
 ## Local and remote hosts
 
 The desktop {% data variables.copilot.agents_window %} can connect to an Agent Host on the same machine or on a connected SSH, Tunnel, or WSL host. The [browser-based {% data variables.copilot.agents_window %}](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) connects to your development machine through a dev tunnel. The browser is a client, not the host that runs the session.
-
-Remote sessions remain available to desktop and browser clients while the remote machine and Agent Host service are available.
 
 ![Screenshot showing desktop and browser clients connecting to Agent Hosts. The desktop client can use a host workspace or a Dev Container, while the browser connects to a development machine through a dev tunnel.](../images/concepts/agent-host-deployment.svg)
 
@@ -80,16 +77,16 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 
 ## Behavior on the extension host
 
-Local harness sessions run in the extension host. Existing Local sessions continue to run there, even if you choose a different preferred harness for new sessions.
+Agent sessions that don't run on the Agent Host run in the extension host. Existing extension-host sessions continue to run there.
 
-There are some differences in behavior for Local harness sessions:
+There are some differences in behavior for agent sessions that run on the extension host:
 
 | Behavior | Difference |
 |----------|------------|
-| Reviewing changes | Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Local sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md). |
+| Reviewing changes | Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Extension-host sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md). |
 | Customizations | The Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your {% data variables.product.prodname_vscode_shortname %} profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md). |
-| Hooks | Agent Host does not define one shared hook schema for every agent. The selected Copilot, Claude, or Codex harness executes its provider hook implementation. Local sessions use the Local hook implementation and Local settings. Learn how to [choose the hook implementation for a session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). |
-| Autopilot | For harnesses that support [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works), Agent Host exposes it as an agent mode. In Local sessions, it's a permission level. |
+| Hooks | Agent Host does not define one shared hook schema for every agent. The selected Copilot, Claude, or Codex harness executes its provider hook implementation. Extension-host sessions use the Local hook implementation and Local settings. Learn how to [choose the hook implementation for a session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). |
+| Autopilot | On the Agent Host, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is an agent mode. On the extension host, it's a permission level. |
 | Assisted permissions `feature(assisted-permissions)` | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only for supported Agent Host sessions and is off by default in Stable. |
 | Session capabilities | Shared multi-window sessions, multiple chats per session, quick chats, and remote hosting are available only on the Agent Host. |
 | Extension-provided tools | Tools from extensions are only available in chats in an editor window where the extension is running. |

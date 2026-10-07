@@ -8,9 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Find the AI feature in {% data variables.product.prodname_vscode %} that fits your task, from a focused edit to work you delegate to an agent. Use this reference for common tasks, useful controls, and shortcuts.
 
-New to agents? [Complete your first task with an agent](/docs/agents/quickstart.md). For day-to-day work on your machine, start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) for questions, planning, code changes, and tests. Choose another harness when you need its specific tools or workflow.
-
-A harness determines its supported tools and workflow, and the model sources it can use. Choosing a model is separate and doesn't switch harnesses. Learn how to [choose a model for your harness](/docs/agents/run/agent-harnesses.md#choose-a-model-for-your-harness) and [compare {% data variables.product.prodname_copilot_short %} and Local](/docs/agents/run/agent-harnesses.md#compare-copilot-and-local). Available features depend on your harness, model, account, and organization policies.
+New to agents? [Complete your first task with an agent](/docs/agents/quickstart.md). Available features depend on your [agent harness](/docs/agents/run/agent-harnesses.md), model, account, and organization policies.
 
 <a name="access-ai-in-vs-code"></a>
 <a name="editor-ai-features"></a>
@@ -33,7 +31,7 @@ A harness determines its supported tools and workflow, and the model sources it 
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule | [Automations](/docs/agents/run/automations.md) `feature(automations)` | Save a prompt and schedule in the {% data variables.copilot.agents_window %}. |
 | Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
-| Explore data or edit a notebook | [AI for notebooks](/docs/agents/guides/notebooks-with-ai.md) | In a [Local harness session](/docs/agents/run/agent-harnesses.md#compare-copilot-and-local), ask the agent to create, edit, and run notebook cells. |
+| Explore data or edit a notebook | [AI for notebooks](/docs/agents/guides/notebooks-with-ai.md) | In a **Local** agent session, ask the agent to create, edit, and run notebook cells. |
 | Find code or settings without exact keywords | [Semantic search](/docs/editing/copilot-smart-actions.md#semantic-search-results-preview) (Preview) and [AI settings search](/docs/editing/copilot-smart-actions.md#search-settings-with-ai) | Search by meaning in the Search view, or describe a setting in the Settings editor. |
 
 <a name="chat-experience-in-vs-code"></a>
@@ -42,14 +40,6 @@ A harness determines its supported tools and workflow, and the model sources it 
 ## Use agents
 
 Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) to work beside your code, or the **{% data variables.copilot.agents_window %}** to focus on assigning higher-level tasks and reviewing outcomes.
-
-Move between surfaces as your work changes:
-
-* Open the same live session from the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}, including in another {% data variables.product.prodname_vscode_shortname %} window.
-* In the {% data variables.copilot.agents_window %}, select the **External** filter to open and continue supported sessions created by {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %} on the same machine.
-* Select **Resume in Terminal** to continue a supported session in {% data variables.copilot.copilot_cli_short %}.
-
-For sessions started in {% data variables.product.prodname_vscode_shortname %} that run on your machine, keep {% data variables.product.prodname_vscode_shortname %} running. Closing a project folder doesn't stop the session, but quitting {% data variables.product.prodname_vscode_shortname %} does.
 
 For a complex change, **plan**, **implement**, **verify**, then **review**:
 
@@ -80,8 +70,8 @@ To organize larger tasks:
 |---|---|
 | Ground a request in specific code or a failure | [Add context](/docs/chat/copilot-chat-context.md) with **Add Context**, `#`-mentions, or dragged files. Attach relevant code, errors, test output, or GitHub issues. |
 | Explore the codebase without finding every file yourself | Let the agent gather [workspace context](/docs/agents/reference/workspace-context.md) with search and language tools. |
-| Balance reasoning, speed, and cost | Use the [model picker](/docs/agent-customization/language-models.md), or **Auto** when available. [Choose a model that your harness supports](/docs/agents/run/agent-harnesses.md#choose-a-model-for-your-harness). Changing the model does not change the harness. |
-| Choose a harness for a task | Start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) for everyday work. Choose {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or Local for harness-specific tools and workflows. [Compare {% data variables.product.prodname_copilot_short %} and Local](/docs/agents/run/agent-harnesses.md#compare-copilot-and-local). |
+| Balance reasoning, speed, and cost | Use the [model picker](/docs/agent-customization/language-models.md), or **Auto** when available. Changing the model does not change the agent harness. |
+| Work with another agent provider | [Choose a harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}. Check its tools, authentication options, and setup requirements. |
 | Use your own model provider or a local model | Configure [bring your own key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Inline suggestions and semantic search still require the {% data variables.product.prodname_copilot %} service. |
 | Retain useful knowledge across conversations | Ask the agent to remember it with [memory](/docs/agents/run/memory.md). Use **Chat: Show Memory Files** to inspect stored notes. |
 | Manage a long conversation or its cost | Check [context usage](/docs/agents/run/sessions/manage-sessions.md#manage-session-context), compact the conversation, or start a new chat for an unrelated task. See [usage guidance](/docs/agents/guides/optimize-usage.md). |
@@ -175,12 +165,12 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/clear` | Start a new chat and archive or mark the current chat as done. |
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
-| `/init` | Generate or update workspace instructions in a **Local** harness session. |
+| `/init` | Generate or update workspace instructions in a local agent session. |
 | `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. |
-| `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a **Local** harness session. |
-| `/troubleshoot` | Analyze agent debug logs in a {% data variables.copilot.copilot_cli_short %} session or a **Local** harness session. |
+| `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
+| `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |
-| `/sandbox-policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} harness session. |
+| `/sandbox-policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} Agent Host session. |
 | `/<name>` | Invoke an agent skill or reusable prompt by name. |
 
 For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
