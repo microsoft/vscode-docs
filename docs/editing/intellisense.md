@@ -49,7 +49,7 @@ The JavaScript code in the following screenshot illustrates IntelliSense complet
 {% data variables.product.prodname_vscode_shortname %} IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 | Icon | Name | Symbol type |
-| ---- | ---- | ----------- |
+| :--: | ---- | ----------- |
 | <i class="codicon codicon-symbol-method" style="color:#b180d7"></i> | Methods and Functions | `method`, `function`, `constructor`  |
 | <i class="codicon codicon-symbol-variable" style="color:#75beff"></i> | Variables | `variable` |
 | <i class="codicon codicon-symbol-field" style="color:#75beff"></i> | Fields | `field` |
