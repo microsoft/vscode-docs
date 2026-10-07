@@ -1027,7 +1027,6 @@ Currently extension writers can contribute to:
 - `debug/variables/context` - Debug Variables view context menu
 - `editor/context` - editor context menu
 - `editor/context/copy` - **Copy as** submenu in the editor context menu
-- `editor/inlineCompletions/actions` - actions shown when hovering on an inline completion
 - `editor/lineNumber/context` - editor line number context menu
 - `editor/title` - editor title menu bar
 - `editor/title/context` - editor title context menu
