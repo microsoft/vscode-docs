@@ -216,6 +216,7 @@ Plugins blocked by policy remain visible in the Extensions view but appear disab
 
 For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, use {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
 
+<!--
 #### Configure MCP server access
 
 Use the following policies to govern [MCP servers](/docs/agent-customization/mcp-servers.md) in {% data variables.product.prodname_vscode_shortname %}:
@@ -226,6 +227,7 @@ Use the following policies to govern [MCP servers](/docs/agent-customization/mcp
 * `ChatDeniedMcpServers` defines servers that developers cannot install or run. Deny entries take precedence over allow entries.
 
 `ChatAllowManagedMcpServersOnly` bridges the two management solutions. It tells {% data variables.product.prodname_vscode_shortname %} to accept grants only from the allowlist delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings. Configure that allowlist by following the [GitHub MCP allowlist guidance](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
+-->
 
 #### Configure agent tool approvals
 
