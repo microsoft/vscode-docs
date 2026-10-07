@@ -1,10 +1,11 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
 DateApproved: 10/7/2026
-MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
+MetaDescription: Configure model providers, choose chat and inline models, and use API keys in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - language models
+- model providers
 - BYOK
 - bring your own key
 - copilot
@@ -14,9 +15,13 @@ Keywords:
 ---
 # AI language models in {% data variables.product.prodname_vscode_shortname %}
 
-{% data variables.product.prodname_vscode %} gives you access to multiple built-in language models, each optimized for different tasks. You can switch models for chat, inline suggestions, and utility tasks, and you can add more models by bringing your own API key.
+{% data variables.product.prodname_vscode %} lets you choose models for chat and agent tasks through {% data variables.product.prodname_copilot %} and other supported accounts or configured model providers. Depending on how you access a model, you might need a subscription, API key, or usage-based billing.
 
-For background on how language models work, their characteristics, and how to choose the right model, see [Language models concepts](/docs/agents/concepts/language-models.md).
+Choose a harness for its tools and workflows, then select a compatible model. {% data variables.product.prodname_copilot %} can supply models within the Copilot, Claude, Codex, and Local harnesses when the harness is available and your account has access to compatible models. Signing in doesn't by itself make every harness available.
+
+Model settings for inline suggestions and utility tasks are separate from chat model selection. Their supported models and access requirements can differ, and BYOK doesn't apply to every AI feature.
+
+For background on model access, model developers, and harnesses, see [Language models concepts](/docs/agents/concepts/language-models.md#model-providers-and-harnesses).
 
 ## Change the model for chat
 
@@ -24,7 +29,11 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
+The picker shows compatible, selectable models for the current [harness](/docs/agents/concepts/agent-harnesses.md) and chat mode. The list also depends on your configured accounts, model access, organization policies, and [model visibility settings](#manage-language-models).
+
+For example, the Claude harness uses Claude-family models, accessed through {% data variables.product.prodname_copilot %} or an existing Claude configuration. Selecting a Claude model in the Copilot harness doesn't switch harnesses. Selecting a different model source can change authentication and billing while keeping the same harness.
+
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -209,7 +218,7 @@ To add a model provider extension:
 
 1. Follow the extension's setup instructions to configure model access.
 
-1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload {% data variables.product.prodname_vscode_shortname %}.
+1. Review the extension's models in the Language Models editor. Models appear in the chat model picker when they are visible, allowed by your account and organization policies, and compatible with the selected harness and chat mode. Models used by an agent must support tool calling. If the models aren't listed in the Language Models editor after setup, reload {% data variables.product.prodname_vscode_shortname %}.
 
 ### Add a custom endpoint model
 
