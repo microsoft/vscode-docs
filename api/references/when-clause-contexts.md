@@ -192,6 +192,10 @@ Context name | True when
 `findWidgetVisible` | Editor Find widget is visible.
 `suggestWidgetVisible` | Suggestion widget (IntelliSense) is visible.
 `suggestWidgetMultipleSuggestions` | Multiple suggestions are displayed.
+`hasOtherSuggestions` | True when alternative suggestions are available to cycle through.
+`hasSnippetCompletions` | True when snippet completions matching the current prefix are available (used with tab completion).
+`inlineSuggestionVisible` | True when an inline suggestion (ghost text) is visible.
+`inlineSuggestionHasIndentation` | True when the inline suggestion starts with whitespace indentation.
 `renameInputVisible` | Rename input text box is visible.
 `referenceSearchVisible` | Peek References peek window is open.
 `inReferenceSearchEditor` | The Peek References peek window editor has focus.
