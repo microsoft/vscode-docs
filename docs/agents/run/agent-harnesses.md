@@ -65,7 +65,7 @@ To decide whether another harness better fits your workflow, use these guideline
 
 **Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
 
-Runtime-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness. Running multiple harnesses in Agent Host does not give them a shared hook schema.
+Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness. Running multiple harnesses in Agent Host does not give them a shared hook schema.
 
 Dev Container execution is available only in the desktop {% data variables.copilot.agents_window %}. Use the workspace picker to start an Agent Host session in a local project's Dev Container or one on an SSH, Tunnel, or WSL host. This selects the execution environment. Use the **Session Target** control separately to choose the harness. Dev Container sessions work directly in the container workspace and don't support **New Worktree**. Learn about requirements and how to [run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
@@ -73,16 +73,16 @@ Dev Container execution is available only in the desktop {% data variables.copil
 
 ## Work with the {% data variables.product.prodname_copilot_short %} harness
 
-Use the {% data variables.product.prodname_copilot_short %} harness to ask questions, plan changes, edit code, and run tests. The harness is built on the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk), which connects {% data variables.product.prodname_vscode_shortname %} to the shared agent runtime also used by {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. This shared foundation provides consistent core agent capabilities across {% data variables.product.prodname_copilot_short %} experiences while each experience retains its interface-specific features. You don't need to install the SDK separately.
+Use the {% data variables.product.prodname_copilot_short %} harness to ask questions, plan changes, edit code, and run tests. The harness is built on the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk), which helps provide more consistent harness behavior and core capabilities across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}. You don't need to install the SDK separately.
 
-* **Keep work going across interfaces**: the [Agent Host](/docs/agents/concepts/agent-host.md) runs the harness in a dedicated process, separate from the extension host and the window that displays the session. Busy extensions don't block the agent runtime, and a task can continue after you close its project folder. Open the same live session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. {% data variables.product.prodname_vscode_shortname %} can also [discover and continue supported sessions created in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). To continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal, use [**Resume in Terminal**](#use-copilot-cli-from-the-terminal).
+* **Keep work going across interfaces**: the [Agent Host](/docs/agents/concepts/agent-host.md) runs the harness in a dedicated process, separate from the extension host and the window that displays the session. Busy extensions don't block the agent process, and a task can continue after you close its project folder. Open the same live session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. {% data variables.product.prodname_vscode_shortname %} can also [discover and continue supported sessions created in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). To continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal, use [**Resume in Terminal**](#use-copilot-cli-from-the-terminal).
 * **Run where your code lives**: run the Agent Host on your machine, on a connected host, or in a Dev Container. File edits and commands run in the environment that contains the host.
 * **Reuse project guidance**: share coding conventions through [custom instructions](/docs/agent-customization/custom-instructions.md) and recurring workflows through [Agent Skills](/docs/agent-customization/agent-skills.md). For example, use the same repository skill to run your project's test workflow in {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
 * **Reuse supported hooks (Preview)**: {% data variables.product.prodname_copilot_short %} sessions use the [same SDK hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) as {% data variables.copilot.copilot_cli_short %}. Check the supported events and tool payloads before reusing a hook.
 
 For local sessions managed by desktop {% data variables.product.prodname_vscode_shortname %}, keep the application running. Closing a project folder is different from quitting the application. Client-side tools also require the window that provides them to stay connected.
 
-Tools, models, permissions, and customizations can differ between experiences. A shared runtime does not mean that all sessions or personal settings synchronize between products.
+Tools, models, permissions, and customizations can differ between experiences. Using the {% data variables.copilot.copilot_sdk %} across products does not mean that all sessions or personal settings synchronize between them.
 
 For more information, see [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-copilot), [reviewing changes](/docs/agents/run/review-code-edits.md), and [{% data variables.product.prodname_copilot_short %} setup and limitations](#copilot).
 
@@ -155,7 +155,7 @@ Expand a target to review its setup and capabilities.
 <details>
 <summary>Copilot</summary>
 
-For a summary of the shared runtime and supported workflows, see [Work with the {% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness).
+For a summary of the {% data variables.copilot.copilot_sdk %} and supported workflows, see [Work with the {% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness).
 
 ### Setup and authentication
 
@@ -338,7 +338,7 @@ The session runs remotely and appears in the sessions list. Sessions that you cr
 
 You can also select a GitHub repository when you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to the Cloud target. In a Copilot session, enter `/delegate` to continue the task in the cloud.
 
-Cloud sessions use the tools, MCP servers, and models configured by the cloud service. They can't access {% data variables.product.prodname_vscode_shortname %} built-in tools or local runtime context.
+Cloud sessions use the tools, MCP servers, and models configured by the cloud service. They can't access {% data variables.product.prodname_vscode_shortname %} built-in tools or local development context.
 
 </details>
 
