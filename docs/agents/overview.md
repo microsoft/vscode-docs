@@ -35,9 +35,7 @@ Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar 
 
 Work with an agent in the same workspace as your editor, terminal, tests, and debugger. You can inspect its changes and investigate failures without moving code and command output to a separate chat application. For a question or focused edit, use chat, inline chat, or suggestions without delegating an entire task.
 
-Choose from multiple [agent harnesses](/docs/agents/concepts/agent-harnesses.md), including {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, and {% data variables.product.prodname_openai_codex %}, or delegate independent tasks to [cloud agents](/docs/agents/run/agent-harnesses.md#start-a-cloud-session). {% data variables.product.prodname_vscode_shortname %} provides a shared chat, session-management, and change-review experience while each harness provides its own tools and workflows. You can also bring your own model API key and extend agents with tools and plugins to fit your team's requirements.
-
-When you use the {% data variables.product.prodname_copilot_short %} harness, you get a consistent agent experience across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}. These experiences share the {% data variables.product.prodname_copilot_short %} agent runtime, so you can reuse supported project guidance, such as Agent Skills, across them.
+For day-to-day work on your machine, start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness), from exploring a codebase and planning changes to implementing and testing them. Choose another harness when you need its specific tools or workflows. With {% data variables.product.prodname_copilot_short %}, you can also [continue supported sessions across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}](#other-ways-to-access-agents), so you can use the interface that suits your task without starting the conversation over.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Try your first agent task">
 Build and validate a small app in the {% data variables.copilot.chat_view %}, then review the result.
@@ -84,7 +82,9 @@ The conversation and work for a task belong to a **session**. Sessions keep rela
 
 ## Ways to work with agents
 
-Start with the interface that fits how you want to work. You can continue supported sessions between the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, rather than choosing one interface for every task.
+Start with the interface that fits how you want to work. The {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} can show the same live session, including when you open it in another {% data variables.product.prodname_vscode_shortname %} window.
+
+For sessions started in {% data variables.product.prodname_vscode_shortname %} that run on your machine, keep {% data variables.product.prodname_vscode_shortname %} running while the agent works. Closing a project folder doesn't stop the session, but quitting {% data variables.product.prodname_vscode_shortname %} does.
 
 ### Work alongside your code
 
@@ -102,18 +102,20 @@ Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-win
 
 ### Other ways to access agents
 
-For terminal-based work, explore [{% data variables.copilot.copilot_cli %}](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal). For work away from your current editor, explore [cloud agents that return pull requests](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) or [remote sessions and browser access](/docs/agents/run/remote-agent-sessions.md). You can also [view supported sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). The [{% data variables.copilot.github_copilot_app %}](https://github.com/features/copilot) provides a dedicated desktop experience outside {% data variables.product.prodname_vscode_shortname %}.
+For terminal-based work, explore [{% data variables.copilot.copilot_cli %}](https://github.com/features/copilot/cli). In the {% data variables.copilot.agents_window %}, the **External** filter shows supported sessions created by {% data variables.copilot.copilot_cli_short %} and the [{% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app) on the same machine. Open one to continue it in {% data variables.product.prodname_vscode_shortname %}, or select **Resume in Terminal** to continue a supported session in {% data variables.copilot.copilot_cli_short %}. Learn more about [viewing sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
+
+For work away from your current editor, explore [cloud agents that return pull requests](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) or [remote sessions and browser access](/docs/agents/run/remote-agent-sessions.md).
 
 ## Choose your models, agents, and tools
 
 Start with the quickstart's recommended setup, then adjust individual choices to fit your task and project:
 
-* **Models**: choose a [language model](/docs/agents/concepts/language-models.md) based on the reasoning capabilities, speed, and cost your task requires.
-* **Agent harnesses**: use a supported [agent harness](/docs/agents/run/agent-harnesses.md), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}, for its tools and workflows. The harness connects a model to tools and manages the session, so changing harnesses is different from switching models.
+* **Agent harnesses**: a harness determines the supported tools and workflows. Start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) for everyday questions, planning, coding, and testing. Choose {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or Local when you need harness-specific tools or workflows. [Compare {% data variables.product.prodname_copilot_short %} and Local](/docs/agents/run/agent-harnesses.md#compare-copilot-and-local).
+* **Models**: choose a [language model](/docs/agents/concepts/language-models.md) based on the reasoning capabilities, speed, and cost your task requires. The model must be compatible with the harness, and changing the model doesn't change the harness.
 * **Model access**: use models from your {% data variables.product.prodname_copilot %} plan, [bring your own API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), or connect a supported local model. These options let you use an existing model provider account or keep model processing local.
 * **Tools and customization**: share your coding standards and test commands through [project instructions](/docs/agents/guides/customize-copilot-guide.md). Connect external systems through [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md), package recurring tasks as [agent skills](/docs/agent-customization/agent-skills.md), or install [plugins](/docs/agent-customization/agent-plugins.md) that bundle tools and workflows. Compare the options in [agent customization concepts](/docs/agents/concepts/customization.md).
 
-Available models, tools, and customizations depend on the selected harness, your account, and your organization's policies.
+Available models, tools, and customizations depend on the selected harness, your account, and your organization's policies. Learn how to [choose a model for your harness](/docs/agents/run/agent-harnesses.md#choose-a-model-for-your-harness).
 
 Where tools run and where the model is hosted are separate choices. An agent can edit files on your machine while sending model requests to a hosted provider.
 

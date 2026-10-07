@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Quickstart: Complete your first task with an agent
 
-In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself.
+In this quickstart, you use the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself.
 
 {% action-card title="Build a complete app with agents" display="sidebar" %}
 Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -21,7 +21,7 @@ Follow a hands-on tutorial to build and refine an app with agents in {% data var
 
 * [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
 
-    This quickstart uses the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness), which connects the model to the tools that build and test your app. To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or a model with your own API key instead, [choose and configure another harness](/docs/agents/run/agent-harnesses.md).
+    Start with **Copilot** for day-to-day coding. Its harness connects the model to the tools that build and test your app. If your task needs another harness's specific tools or workflows, [compare the available harnesses](/docs/agents/run/agent-harnesses.md#choose-a-session-target). Changing how you [access a model](/docs/agents/run/agent-harnesses.md#choose-a-model-for-your-harness) doesn't by itself change the harness.
 
 > [!NOTE]
 > Requests in this quickstart use AI credits from your Copilot plan. {% data variables.copilot.copilot_free_short %} includes a monthly allowance. Open the Copilot status dashboard from the Status Bar to monitor your monthly usage. Learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
@@ -43,7 +43,7 @@ mkdir agent-quickstart
 * **{% data variables.copilot.chat_view %}**: work with an agent alongside your code in the editor, focused on the current project.
 * **{% data variables.copilot.agents_window %}**: assign (high-level) tasks to agents and switch between projects without reloading the window.
 
-Choose the approach that works best for you and follow the steps in the corresponding tab below.
+Choose the approach that works best for you and follow the steps in the corresponding tab below. Both use {% data variables.product.prodname_copilot_short %} to build and test the same app. You can complete the quickstart entirely in either interface.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -64,7 +64,7 @@ Choose the approach that works best for you and follow the steps in the correspo
 
     | Control | Value | Short description |
     |---------|-------|-------------------|
-    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the Copilot SDK on your machine. |
+    | **Session Target** | **Copilot** | Chooses {% data variables.product.prodname_copilot_short %}'s tools and coding workflow for the session. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
     | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
@@ -109,7 +109,7 @@ The {% data variables.copilot.agents_window %} is a dedicated window for interac
 
     | Control | Value | Short description |
     |---------|-------|-------------------|
-    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
+    | **Session Target** | **Copilot** | Chooses {% data variables.product.prodname_copilot_short %}'s tools and coding workflow for the session. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
     | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
@@ -219,13 +219,17 @@ If a follow-up doesn't resolve the problem, use [Get an agent back on track](/do
 
 * If you reach an AI credits limit, review [what remains available and when allowances reset](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
 
-## Optional: Continue in the other surface
+<a name="optional-continue-in-the-other-surface"></a>
 
-The {% data variables.copilot.agents_window %} and {% data variables.copilot.chat_view %} share the same agent sessions, so you can switch between them without losing the conversation.
+## Continue your work across interfaces
+
+When another interface suits your next task, continue the same {% data variables.product.prodname_copilot_short %} session without starting the conversation over. The {% data variables.copilot.agents_window %} and {% data variables.copilot.chat_view %} show the same live session:
 
 * From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 
 * From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
+
+You can also [open and continue supported local sessions from {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}. To continue a {% data variables.product.prodname_copilot_short %} session in the terminal, use [**Resume in Terminal**](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal).
 
 ## Clean up resources
 
