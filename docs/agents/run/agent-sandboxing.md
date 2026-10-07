@@ -248,7 +248,7 @@ Domain allow and deny controls remain public for compatible terminal implementat
 
 Managed sandbox enforcement is in Preview. Your organization can require sandboxing, prevent bypass, or restrict network access. Enforced controls are locked, but you can select a more restrictive value where a control remains editable.
 
-If a setting is locked or you need access that policy denies, contact your administrator. For deployment details, see [managed agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
+If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 
 ## Related resources
 
