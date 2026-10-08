@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -169,23 +169,6 @@ With persistent progress, reasoning appears in separate collapsible previews and
 Persistent progress defaults to **Draw** in Insiders and **Off** in Stable. Experiments can change either default during rollout, but an explicit setting always takes precedence.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
-
-### Use the VS Code pet
-
-`feature(chat-pet)`
-
-The interactive VS Code pet sits above the chat input box and reacts to chat activity and your interactions. Type `/vscode-pet` in the chat input to show or hide it. In the new-session view of the {% data variables.copilot.agents_window %}, you can also right-click outside the input box and select the **Pet (/vscode-pet)** item.
-
-Interact with the pet in the following ways:
-
-* Select the pet to trigger a reaction. With the keyboard, press `kbstyle(Tab)` to focus it, and then press `kbstyle(Enter)` or `kbstyle(Space)`.
-* Drag the pet around chat and release it to drop it. You can also flick it to throw it.
-* When the pet has keyboard focus, press `kbstyle(Left)` or `kbstyle(Right)` to make it hop. Hold `kbstyle(Shift)` with an arrow key to throw it toward a wall.
-* Right-click the pet to open its context menu and view achievements, send it on the run, resize it, or switch between Stable and Insiders colors. With the keyboard, focus the pet and press `kbstyle(Shift+F10)`.
-
-Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
-
-For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
 
 ### Customize the {% data variables.copilot.agents_window %} chat background
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Resolve Git conflicts in {% data variables.product.prodname_vscode_shortname %}, review the result, and complete or cancel the operation.
 Keywords:
 - source control

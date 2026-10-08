@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Bring your Copilot workflow to VS Code",
-    "description": "Get familiar Copilot agent behavior, delegate work to remote hosts, and reuse dependencies across worktrees.",
-    "link": "/updates/v1_140",
-    "image": "/assets/updates/1_140/release-highlights.webp"
+    "title": "Control agent access with terminal sandboxing",
+    "description": "Limit file and network access across platforms, arrange sessions in a grid, and reclaim storage from inactive worktrees.",
+    "link": "/updates/v1_141",
+    "image": "/assets/updates/1_141/release-highlights.webp"
   },
   "highlights": [
     {

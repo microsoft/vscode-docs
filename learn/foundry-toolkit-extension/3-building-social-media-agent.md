@@ -1,6 +1,6 @@
 ---
 ContentId: f5ce0269-bdf5-4f52-8765-dc9e25edad0f
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Build a social media content agent with Agent Builder, connect MCP tools, and improve quality with structured evaluations.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

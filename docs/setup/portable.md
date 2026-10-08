@@ -1,6 +1,6 @@
 ---
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: {% data variables.product.prodname_vscode %} supports a Portable mode that enables moving your installation and related data to a different location.
 ---
 # Portable mode

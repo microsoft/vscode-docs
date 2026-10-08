@@ -1,653 +1,316 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 9/30/2026
-MetaDescription: Manage enterprise AI settings in {% data variables.product.prodname_vscode_shortname %} for version requirements, model defaults, security, and OpenTelemetry.
+DateApproved: 10/7/2026
+MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
 # Manage AI settings in enterprise environments
 
-{% data variables.product.prodname_vscode_shortname %} provides AI-powered development capabilities through GitHub Copilot, including agent mode, MCP servers, and chat tools. Organizations can centrally manage these features to control AI behavior, enforce security policies, and maintain compliance across their development teams.
+Organizations can govern AI features in {% data variables.product.prodname_vscode_shortname %} through three management solutions: {% data variables.product.prodname_copilot_short %} enterprise-managed settings, {% data variables.product.prodname_vscode_shortname %} device policies, and GitHub organization or enterprise settings.
 
-This article covers the AI-related settings that IT admins can manage through [enterprise policies](/docs/enterprise/policies.md).
-
-> [!NOTE]
-> If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved. Include the affected feature, the message you see, and the development task it prevents.
-
-Users can control the functionality and behavior of AI features through {% data variables.product.prodname_vscode_shortname %} settings. Organizations can enforce specific configurations by deploying enterprise policies via device management solutions. These policies override user-configured settings on managed devices.
-
-Learn how to [deploy policies for {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/policies.md) to your organization's devices.
-
-Before a broad rollout, test the proposed configuration with a representative project and account. Confirm that developers can complete approved tasks, review changes, and run the required checks while the intended restrictions remain in place. Publish the supported workflows and an access-request process alongside the configuration.
-
-## Deploy Copilot managed settings
-
-Copilot managed settings are a centrally-managed governance layer that applies the same configuration across {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %}. Most managed settings map to a {% data variables.product.prodname_vscode_shortname %} enterprise policy and override the corresponding user setting on managed devices. Runtime-owned settings, such as granular Agent Host permissions, are enforced directly by the Copilot runtime.
-
-Managed settings differ from the [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
-
-{% data variables.product.prodname_vscode_shortname %} reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
-
-* **Native MDM** - deliver settings through the Windows Registry or macOS managed preferences with an MDM solution such as Microsoft Intune.
-* **Server-managed** - resolve settings from the developer's signed-in GitHub account, configured by your GitHub enterprise or organization admin.
-* **File-based** - place a `managed-settings.json` file on disk, for use with configuration-management tools such as Chef, Puppet, or Ansible.
-
-All three channels use the same managed setting keys and values. For the list of available keys and the {% data variables.product.prodname_vscode_shortname %} settings they map to, see [Available managed settings](#available-managed-settings).
-
-### Precedence across channels
+These solutions control different layers of the AI experience. An organization might use all three, but should configure an overlapping control in only one system.
 
 > [!NOTE]
-> Precedence is enforced starting in {% data variables.product.prodname_vscode_shortname %} version 1.128.
+> If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved.
 
-For most managed settings, {% data variables.product.prodname_vscode_shortname %} resolves values per key. When multiple channels provide the same key, the value from the highest-precedence channel wins. Keys that the higher-precedence channel does not provide are filled in from lower-precedence channels.
+## Understand the three management solutions
 
-The precedence order is:
+Before you choose a solution, understand where each one is configured and what it controls.
 
-1. Native MDM
-1. Server-managed
-1. File-based
+### {% data variables.product.prodname_copilot_short %} enterprise-managed settings
 
-For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. {% data variables.product.prodname_vscode_shortname %} applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
+Use enterprise-managed settings for {% data variables.product.prodname_copilot_short %} guardrails that should apply across supported clients, such as {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli_short %}.
 
-The `telemetry` block is resolved atomically instead of per key. {% data variables.product.prodname_vscode_shortname %} uses the complete block from the highest-precedence channel that supplies one and doesn't fill omitted fields from lower-precedence channels. For example, if native MDM supplies `telemetry.enabled` but omits `telemetry.endpoint`, a server-managed endpoint isn't applied.
+Administrators define these settings with the GitHub-supported server-managed, MDM-managed, or file-based delivery methods. Even when you use an MDM solution, enterprise-managed settings use the {% data variables.product.prodname_copilot_short %} configuration format and delivery path, not the {% data variables.product.prodname_vscode_shortname %} device-policy namespace.
 
-Sandbox controls preserve restrictions from every managed channel instead:
+For server-managed deployments, administrators can override supported settings for specific enterprise teams. GitHub applies the matching values based on each person's enterprise team membership. See [Override enterprise-managed settings for teams](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/override-settings-for-teams).
 
-* `sandbox.enabled`: `true` from any channel requires sandboxing, even if another channel supplies `false`.
-* `sandbox.allowBypass` and `sandbox.userPolicy.network.allowOutbound`: `false` from any channel takes precedence over `true` from another channel.
+Refer to the [enterprise-managed settings setup guide](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started) and [settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for supported keys, client coverage, configuration schemas, and precedence.
 
-After resolving these managed values, the runtime also accounts for developer preferences. See [Configure agent sandboxing](#configure-agent-sandboxing).
+### {% data variables.product.prodname_vscode_shortname %} device policies
 
-### Precedence with {% data variables.product.prodname_vscode_shortname %} device policies
+Use device policies for editor-specific controls on managed {% data variables.product.prodname_vscode_shortname %} installations.
 
-Copilot managed settings and [{% data variables.product.prodname_vscode_shortname %} enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. A managed setting maps to a {% data variables.product.prodname_vscode_shortname %} policy. If both systems provide the same policy, the Copilot managed setting takes precedence. The values are not merged.
+Administrators deploy these policies through platform management tools, such as Group Policy, Microsoft Intune, or macOS configuration profiles. The policies apply to the managed device and override the corresponding user settings in {% data variables.product.prodname_vscode_shortname %}.
 
-For example, if the `ChatAllowedMcpServers` policy is configured through both the {% data variables.product.prodname_vscode_shortname %} ADMX policy and the `allowedMcpServers` Copilot managed setting, {% data variables.product.prodname_vscode_shortname %} uses the managed setting value. If `allowedMcpServers` is not configured through managed settings, the ADMX policy value remains in effect.
+Refer to the [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md) for policy names, accepted values, supported platforms, and minimum versions.
 
-> [!IMPORTANT]
-> Configure each policy through one management system when possible. If you need a device-specific value to override a server-managed baseline, deliver that key through the Copilot native MDM channel under `GitHubCopilot`. Do not configure the same policy under `Microsoft\VSCode` and expect the values to be combined.
+### GitHub organization and enterprise settings
 
-### Deliver managed settings through native MDM
+Use GitHub organization and enterprise settings for account-level and service-side controls, such as {% data variables.product.prodname_copilot_short %} access, model availability, content exclusions, and organization-provided customizations.
 
-On Windows and macOS, {% data variables.product.prodname_vscode_shortname %} reads Copilot managed settings from OS-level managed preferences. Deliver them through your MDM solution, the same way you deliver other device policies.
+Administrators configure these controls on GitHub. They follow the signed-in GitHub account and its organization or enterprise membership rather than the {% data variables.product.prodname_vscode_shortname %} device-policy channel.
 
-| Operating system | Location |
-|------------------|----------|
-| Windows | Registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\GitHubCopilot` |
-| macOS | Managed preferences for the `com.github.copilot` preference domain |
+Refer to [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) for configuration and reference information about these controls.
 
-> [!IMPORTANT]
-> These keys are specific to Copilot managed settings and are separate from the {% data variables.product.prodname_vscode_shortname %} enterprise policy keys under `Software\Policies\Microsoft\VSCode`. Native MDM delivery of Copilot managed settings is available on Windows and macOS only. On Linux, use the file-based channel.
+## Choose a management solution
 
-Scalar settings use their dot-separated key directly (for example, `permissions.disableBypassPermissionsMode`). Structured settings (for example, `enabledPlugins`) are provided as a JSON string value.
+The solutions are not mutually exclusive. Choose the solution for each control based on the scope you need.
 
-### Deliver managed settings from a file
+| Requirement | Management solution | Configuration location | Scope |
+|-------------|---------------------|------------------------|-------|
+| Apply consistent {% data variables.product.prodname_copilot_short %} guardrails across supported clients. | {% data variables.product.prodname_copilot_short %} enterprise-managed settings | GitHub-supported server, MDM, or file delivery | Supported {% data variables.product.prodname_copilot_short %} clients and keys |
+| Control a {% data variables.product.prodname_vscode_shortname %}-specific editor feature on managed devices. | {% data variables.product.prodname_vscode_shortname %} device policies | Operating system or device management | Managed {% data variables.product.prodname_vscode_shortname %} installations |
+| Control {% data variables.product.prodname_copilot_short %} access or GitHub-hosted organization and enterprise behavior. | GitHub organization or enterprise settings | GitHub organization or enterprise administration | Signed-in accounts and GitHub-hosted services |
 
-{% data variables.product.prodname_vscode_shortname %} can read Copilot managed settings from a `managed-settings.json` file on disk. Use this option when your organization manages devices with configuration-management tools, such as Chef, Puppet, or Ansible, and does not use Mobile Device Management (MDM).
+Some controls are available through more than one solution. Review the [order of precedence](#understand-precedence) before you combine them.
 
-Place `managed-settings.json` in the well-known location for each operating system:
+Before a broad rollout, test the proposed configuration with a representative project, device, and account. Confirm that developers can complete approved tasks while the intended restrictions remain in place.
 
-| Operating system | Path |
-|------------------|------|
-| macOS | `/Library/Application Support/GitHubCopilot/managed-settings.json` |
-| Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
-| Linux | `/etc/github-copilot/managed-settings.json` |
+## Understand precedence
 
-The file uses the Copilot managed settings shape. The following example configures permissions for Copilot sessions that use Agent Host:
+### Across managed-settings delivery methods
 
-```json
-{
-    "permissions": {
-        "disableBypassPermissionsMode": "disable",
-        "allow": [
-            "Read(/src/**)",
-            "Shell(git status)"
-        ],
-        "ask": [
-            "Write(/src/**)",
-            "Shell(git push *)"
-        ],
-        "deny": [
-            "Read(~/.config/secret.txt)",
-            "Write(/.github/workflows/**)"
-        ]
-    }
-}
-```
+When the same managed setting is available from multiple sources, {% data variables.product.prodname_vscode_shortname %} applies them in this order:
 
-### Deliver managed settings from the server
+1. MDM-managed settings.
+1. Server-managed settings.
+1. File-based settings.
+1. User settings.
 
-When developers sign in with a GitHub account, {% data variables.product.prodname_vscode_shortname %} resolves managed settings that your GitHub enterprise or organization admin configures in `copilot/managed-settings.json`. Because these settings travel with the account, they apply across the developer's devices without local device management.
+For most keys, the value from the highest-precedence source wins. Some keys, including `permissions.deny`, `permissions.ask`, and `permissions.allow`, combine restrictions from multiple sources in the most restrictive direction. See [Precedence of deployment methods](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/deploy-managed-settings#precedence-of-deployment-methods) for the complete and current rules.
 
-Server-managed settings are configured on the GitHub side. For more information, see [Manage Copilot for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) in the GitHub documentation.
+### With {% data variables.product.prodname_vscode_shortname %} device policies
 
-### Configure Agent Host permissions
+Some enterprise-managed settings map to a {% data variables.product.prodname_vscode_shortname %} device policy. When an administrator configures both systems:
 
-Use `permissions.allow`, `permissions.ask`, and `permissions.deny` to control file, shell, and network operations. These settings apply only to users who receive Copilot enterprise managed settings and to Copilot sessions that use Agent Host.
+* If the systems configure different controls, both controls apply.
+* If both systems configure the same control, the enterprise-managed setting takes precedence. The values are not merged.
+* If enterprise-managed settings do not provide that control, the {% data variables.product.prodname_vscode_shortname %} device policy remains in effect.
 
-Permission rules use the following precedence:
+Configure an overlapping control through one management solution when possible. Run **Developer: Policy Diagnostics** to inspect the effective value and its source.
 
-* `deny` blocks a matching operation with no approval option.
-* `ask` requires fresh human approval, even when another setting would automatically approve the operation.
-* `allow` lets a matching operation proceed without a prompt.
+## Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings
 
-The rules support `Shell`, `Read`, `Edit` or `Write`, and `Domain` selectors. For paths, `/` represents the workspace root, `~/` represents the user's home directory, and `**` includes nested directories.
+Configure and administer enterprise-managed settings by following the GitHub documentation:
 
-For the complete selector grammar, matching behavior, and configuration examples, see the [GitHub Copilot enterprise managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#permissions).
+* [Get started with enterprise-managed settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started) explains delivery, configuration files, team overrides, validation, and troubleshooting.
+* [Enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) lists supported keys, values, combination behavior, and client coverage.
+
+Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
 ### Verify applied managed settings
 
-You can verify the applied values with the **Developer: Policy Diagnostics** command. The report shows the effective policy value and its source. For managed settings, it also shows how each key resolves across the native MDM, server-managed, and file-based channels. The report shows only the effective {% data variables.product.prodname_vscode_shortname %} policy value, not a device policy value that another source replaced. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+Run **Developer: Policy Diagnostics** in {% data variables.product.prodname_vscode_shortname %} to inspect effective policy values and their sources. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
-## Restrict AI features to approved GitHub organizations
+If the diagnostics show a server-managed source with an unexpected value, check `copilot/managed-settings.json`, `copilot/team-mappings.json`, the mapped file under `copilot/teams/`, and the user's enterprise team memberships. GitHub resolves team overrides before it delivers the server-managed settings to {% data variables.product.prodname_vscode_shortname %}.
 
-Organizations can require developers to be signed in to a GitHub account that belongs to an approved organization before AI features in {% data variables.product.prodname_vscode_shortname %} are activated. This enables enterprises to ensure that account-level policies set by their GitHub organization (for example, Copilot content exclusions or model availability) are in effect before chat, agents, or inline suggestions become available.
+For GitHub-side validation errors or delivery troubleshooting, follow [Validate server-managed settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started#validate-server-managed-settings).
 
-To enable this restriction, set the `ChatApprovedAccountOrganizations` policy to a JSON array of GitHub organization logins. For example, `["contoso", "contoso-research"]`. Use the wildcard value `["*"]` to allow any signed-in GitHub account.
+### Meet minimum version requirements
 
-When the policy is set, AI features are gated until both of the following are true:
-
-* The user is signed in to a GitHub account that is a member of one of the approved organizations.
-* Account-level policy data has resolved.
-
-When the policy is not set, AI features are not restricted by this gate.
-
-This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
-
-IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
-
-## Require a minimum version for AI features
-
-An organization can require a minimum {% data variables.product.prodname_vscode_shortname %} version before developers use AI features. This helps ensure that managed devices receive security or governance improvements, such as newer sandboxing protections, without blocking unrelated editor work.
-
-When the installed version doesn't meet the requirement:
+The managed-settings service can require a minimum {% data variables.product.prodname_vscode_shortname %} version before AI features are available. When the installed version does not meet the requirement:
 
 * Chat shows the required and installed versions and provides the appropriate update action.
 * The editor window shows a banner even when Chat is closed. Other editor features remain available.
 * The {% data variables.copilot.agents_window %} shows a blocking notice with an **Open Editor Window** action.
 
-The update action reflects the current installation state, such as **Check for Updates**, **Download Update**, **Install Update**, or **Restart to Update**. If built-in updates are disabled by policy, the notice directs the developer to contact an administrator. AI features become available after the installed version meets the requirement.
+If built-in updates are disabled by policy, the notice directs the developer to contact an administrator. AI features become available after the installed version meets the requirement.
 
-## Set a default chat model
+### Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}
 
-Organizations can set a default model that applies to every new conversation, so developers start from an approved model without configuring it themselves.
+Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and Agent Host. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts Agent Host automatically after it resolves a managed telemetry change.
 
-To set the default model, set the `ChatDefaultModel` policy. This configures the `setting(chat.defaultModel)` setting in {% data variables.product.prodname_vscode_shortname %}. You can also deliver it through Copilot managed settings with the `model` key.
+Identity capture is off by default and independent of content capture. Review both controls before deployment, and remove conflicting OpenTelemetry environment variables from managed devices. For the configuration schema and supported clients, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry).
 
-The value accepts one of the following:
+## Use {% data variables.product.prodname_vscode_shortname %} device policies
 
-* `auto` - let Copilot pick the model.
-* A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
-* A full model ID.
+The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) for accepted values and minimum versions.
 
-New conversations start at the configured model across the chat panel and the {% data variables.copilot.agents_window %}. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+Jump to:
 
-### Set a default Auto tier
+* [Control access and feature availability](#control-access-and-feature-availability)
+* [Configure models and data handling](#configure-models-and-data-handling)
+* [Govern agents and tools](#govern-agents-and-tools)
+* [Configure security and observability](#configure-security-and-observability)
 
-When the default model is **Auto**, set the `autoTier` Copilot managed setting to choose how new chats initially optimize model routing:
+### Control access and feature availability
 
-* `efficiency` favors lower AI credit consumption.
-* `balance` balances capability and credit consumption.
-* `intelligence` favors more capable models for complex tasks.
+#### Restrict AI features to approved GitHub organizations
 
-The managed tier applies to new chats in the Local harness and the Copilot Agent Host on the same machine. It appears as **Default** in the model picker's **Optimize for** menu.
+Set the `ChatApprovedAccountOrganizations` policy to require developers to sign in with a GitHub account that belongs to an approved organization before AI features are activated.
 
-The tier is a starting point rather than a restriction. Developers can select another tier, and {% data variables.product.prodname_vscode_shortname %} preserves explicit and restored choices when the managed tier changes or is removed.
+Provide a JSON array of GitHub organization logins, such as `["contoso", "contoso-research"]`. Use `["*"]` to allow any signed-in GitHub account.
 
-## Enable or disable the use of agents
+The policy is fail-closed. AI features remain disabled until account policy data resolves and the signed-in account belongs to an approved organization. Run **Developer: Policy Diagnostics** to inspect the **Account Policy Gate** state.
 
-[Agents](/docs/agents/overview.md) enable the AI to autonomously perform tasks like editing files, running terminal commands, and using tools. Agents enable developers to provide a high-level requirement and have the AI assistant analyze, plan, and execute the necessary steps to achieve that goal.
+#### Enable or disable the use of agents
 
-To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
+Set the `ChatAgentMode` policy to `false` to disable [agents](/docs/agents/overview.md). This policy controls `setting(chat.agent.enabled)`.
 
-The **Agent** option will not be available in the agents dropdown in the {% data variables.copilot.chat_view %} when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+When the policy is disabled, the **Agent** option is not available in the agents dropdown. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits.
 
-## Control dictation data
+#### Enable or disable extension language tools
 
-Built-in [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) converts speech to text in chat, editors, and terminals. Organizations can use enterprise policies to control whether dictation audio and transcripts leave the developer's device.
+Use the following policies to control extension, browser, and plugin tools:
+
+* Set `ChatAgentExtensionTools` to `false` to disable tools contributed by extensions.
+* Set `BrowserChatTools` to `false` to disable browser tools.
+* Set `ChatPluginsEnabled` to `false` to disable agent plugin integration.
+
+#### Configure {% data variables.product.prodname_copilot_short %} code review
+
+Use `CopilotReviewSelection` to control code review for selected code. Use `CopilotReviewAgent` to control access to the code review agent for pull requests and changed files.
+
+#### Configure next edit suggestions
+
+Set `CopilotNextEditSuggestions` to `false` to disable next edit suggestions.
+
+#### Enable or disable Claude Agent
+
+Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data variables.product.prodname_vscode_shortname %}.
+
+### Configure models and data handling
+
+#### Set a default chat model
+
+Set the `ChatDefaultModel` policy to choose the default model for new conversations. This policy controls `setting(chat.defaultModel)` and accepts `auto`, a model family name, or a full model ID.
+
+Developers can select another model for an individual conversation. Reopened conversations keep their saved model.
+
+#### Control dictation data
+
+Use the following policies to control whether [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) audio and transcripts leave the developer's device.
 
 | Policy | Setting | Behavior |
 |--------|---------|----------|
 | `DictationEnabled` | `setting(dictation.enabled)` | Controls whether built-in dictation is available. |
-| `DictationModel` | `setting(dictation.model)` | Selects the on-device model or the `mai` cloud transcription service. |
-| `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a Copilot language model for punctuation and formatting cleanup. |
+| `DictationModel` | `setting(dictation.model)` | Selects an on-device model or the `mai` cloud transcription service. |
+| `DictationLLMCleanup` | `setting(dictation.experimental.llmCleanup)` | Controls whether final transcripts are sent to a language model for cleanup. |
 
-To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. Developers can continue using dictation on supported desktop platforms. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, this policy makes dictation unavailable.
+To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr-streaming-0.6b`. In {% data variables.product.prodname_vscode_shortname %} for the Web, where on-device transcription is not supported, this policy makes dictation unavailable.
 
-To also prevent transcript text from being sent to a Copilot model, set `DictationLLMCleanup` to `false`. The final transcript does not receive language-model cleanup.
+To prevent transcript text from being sent to a language model, set `DictationLLMCleanup` to `false`. For more information, see [Dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
-These policies help organizations meet data-handling requirements. For more information about local and cloud processing, see [dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
+### Govern agents and tools
 
-## Enable or disable hooks
+#### Enable or disable hooks
 
-[Hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
+Set the `ChatHooks` policy to `false` to disable [hooks](/docs/agent-customization/hooks.md) in the **Local** harness. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host.
 
-To disable hooks in the **Local** harness, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in {% data variables.product.prodname_vscode_shortname %}. The Local harness then ignores hook configurations and does not execute hook commands.
+##### Use the SDK harness for Policy Hooks
 
-`ChatHooks` applies only to the Local harness. Copilot sessions on Agent Host use the shared {% data variables.copilot.copilot_sdk_short %} hooks implementation, including Copilot Policy Hooks. See [choose a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
+{% data variables.product.prodname_copilot_short %} Policy Hooks apply to sessions on the SDK harness, not to sessions that remain on Local.
 
-### Use the SDK harness for Policy Hooks
+Set the `ChatEditorPreferCopilotHarness` policy to `true` to prefer the SDK harness for new editor chat sessions. This policy controls `setting(chat.editor.preferCopilotHarness)` _(Experimental)_.
 
-Copilot Policy Hooks apply to sessions on the SDK harness, not to sessions that remain on Local. The SDK hooks implementation is generally available (GA), while the {% data variables.product.prodname_vscode_shortname %} hooks surface remains in Preview during the transition.
+The preference does not migrate existing sessions or change explicit or remembered Claude and Codex selections. Check the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) during rollout.
 
-To move new editor-chat sessions from Local to the SDK harness, set the `ChatEditorPreferCopilotHarness` [device policy](/docs/enterprise/policies.md) to `true`. This policy is available from {% data variables.product.prodname_vscode_shortname %} version 1.134 and controls `setting(chat.editor.preferCopilotHarness)` _(Experimental)_.
+<a id="deploy-hooks-through-managed-plugins"></a>
 
-The preference selects Copilot when Local would otherwise be selected for a new editor-chat session. It does not migrate existing sessions or change explicit or remembered Claude and Codex selections. Check the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) during rollout rather than assuming that every session uses Copilot.
+##### Restrict hook sources
 
-Before rollout, [validate existing hook scripts](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses), including scripts that depend on tool arguments or transcript formatting.
+Set `ChatAllowManagedHooksOnly` to allow hooks only from enterprise-managed sources and plugins that policy force-enables. Set `ChatStrictPluginOnlyCustomization` when you also need to block standalone user and workspace skills, agents, instructions, and MCP servers.
 
-### Deploy hooks through managed plugins
+Plugin distribution is a separate decision. To force-enable plugins or govern marketplaces across supported {% data variables.product.prodname_copilot_short %} clients, use the plugin controls in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#enabledplugins).
 
-Use [agent plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins) to distribute reviewed hook scripts to developers while restricting hooks from other sources. Package the hook configuration and scripts in a plugin, publish it in your approved marketplace, and ensure the plugin is installed on the target devices.
+#### Manage agent plugins and marketplaces
 
-Use these source restrictions instead of turning off hook execution or plugin integration.
+Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) in {% data variables.product.prodname_vscode_shortname %}:
 
-Deliver the following configuration through a [Copilot managed-settings channel](#deploy-copilot-managed-settings), not through user settings or workspace plugin recommendations. Replace `<your-org>/<plugin-marketplace>` with your marketplace repository. The example assumes that the marketplace contains a plugin named `security-hooks`.
+* `ChatEnabledPlugins` force-enables or force-disables named plugins.
+* `ChatExtraMarketplaces` adds plugin marketplaces.
+* `ChatStrictMarketplaces` restricts plugin installation to approved marketplace sources. An empty list blocks installation from all marketplaces.
 
-```json
-{
-    "allowManagedHooksOnly": true,
-    "enabledPlugins": {
-        "security-hooks@company-marketplace": true
-    },
-    "extraKnownMarketplaces": {
-        "company-marketplace": {
-            "source": {
-                "source": "github",
-                "repo": "<your-org>/<plugin-marketplace>"
-            }
-        }
-    },
-    "strictKnownMarketplaces": [
-        {
-            "source": "github",
-            "repo": "<your-org>/<plugin-marketplace>"
-        }
-    ]
-}
-```
+Plugins blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces managed by policy are identified in the marketplace picker.
 
-The controls serve different purposes:
+For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, use {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
 
-* `allowManagedHooksOnly: true` allows hooks only from managed sources and plugins force-enabled by policy. Standalone user and workspace hooks, and hooks from plugins that are only user-enabled, are excluded. This setting does not itself enable or install a plugin.
-* `enabledPlugins["security-hooks@company-marketplace"]: true` force-enables the plugin. A value of `false` force-disables it. An omitted plugin remains under normal user enablement, but its hooks are excluded when `allowManagedHooksOnly` is `true`.
-* `extraKnownMarketplaces` makes the company marketplace available. It is not a source restriction by itself.
-* `strictKnownMarketplaces` restricts plugin installation to the listed sources. It does not retroactively disable already-installed plugins. Pair source restrictions with plugin enablement and managed-hooks-only controls.
+<!--
+#### Configure MCP server access
 
-`allowManagedHooksOnly` is available from version 1.132. If you also need to block standalone skills, agents, instructions, and MCP servers, set `strictPluginOnlyCustomization` to `true`, also available from version 1.132. This setting accepts a Boolean, not a list of customization types. Omit it when you want to restrict hooks without blocking those other standalone customizations.
+Use the following policies to govern [MCP servers](/docs/agent-customization/mcp-servers.md) in {% data variables.product.prodname_vscode_shortname %}:
 
-Machine-wide [Policy Hooks](https://docs.github.com/en/copilot/reference/hooks-reference#policy-hooks) are a separate managed hook source, not hooks installed by this plugin example. They require the SDK harness in {% data variables.product.prodname_vscode_shortname %}. Plugin distribution does not give Local sessions access to SDK Policy Hooks.
+* `ChatMCP` controls whether developers can run servers from any source, only from the configured registry, or not at all.
+* `McpGalleryServiceUrl` configures a private MCP server registry.
+* `ChatAllowedMcpServers` defines servers that developers can install or run.
+* `ChatDeniedMcpServers` defines servers that developers cannot install or run. Deny entries take precedence over allow entries.
 
-Use **Developer: Policy Diagnostics** to [verify the applied managed settings](#verify-applied-managed-settings). In a test session on the intended harness, confirm that the approved plugin's hook runs and produces the expected decision, and that user, workspace, and non-managed plugin hooks do not run.
+`ChatAllowManagedMcpServersOnly` bridges the two management solutions. It tells {% data variables.product.prodname_vscode_shortname %} to accept grants only from the allowlist delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings. Configure that allowlist by following the [GitHub MCP allowlist guidance](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
+-->
 
-## Enable or disable extension language tools
+#### Configure agent tool approvals
 
-[Agent tools](/docs/agents/run/tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+Use {% data variables.product.prodname_vscode_shortname %} device policies to control approval behavior for agent tools.
 
-Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
+##### Disable global auto-approval
 
-To prevent developers from using extension-contributed tools while still allowing built-in tools and MCP tools, set the `ChatAgentExtensionTools` policy to `false`. This configures the `setting(chat.extensionTools.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-Chat agents can also use browser tools to open and interact with web pages in the Integrated Browser. To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy to `false`. This configures the `setting(chat.plugins.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-## Manage agent plugins and marketplaces
-
-[Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
-
-{% data variables.product.prodname_vscode_shortname %} reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for {% data variables.copilot.copilot_cli_short %}](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
-
-The following policies are available:
-
-* To force-enable or force-disable specific plugins, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in {% data variables.product.prodname_vscode_shortname %}. Keys use the `plugin@marketplace` form. Set a value to `true` to force-enable the plugin or `false` to force-disable it. Omitted plugins remain under normal user enablement. This policy is not an allowlist.
-* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. This policy has no user-facing setting and can only be configured through policy.
-* To restrict plugin installation to approved marketplace sources, set the `ChatStrictMarketplaces` policy to a list of source objects. This configures the `setting(chat.plugins.strictMarketplaces)` setting in {% data variables.product.prodname_vscode_shortname %}. An empty list blocks installation from all marketplaces. The restriction does not retroactively disable already-installed plugins.
-
-For an example that combines plugin activation, marketplace restrictions, and hook-source controls, see [Deploy hooks through managed plugins](#deploy-hooks-through-managed-plugins).
-
-Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
-
-IT admins can verify the applied plugin policies with the **Developer: Policy Diagnostics** command, which includes a **Managed Settings** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
-
-## Configure MCP server access
-
-[Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and {% data variables.product.prodname_vscode_shortname %} policies.
-
-### Restrict MCP server sources
-
-The `ChatMCP` policy controls which sources MCP servers can be installed from. This configures the `setting(chat.mcp.access)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-The following values are supported:
-
-| Value      | Description                                                      |
-|------------|------------------------------------------------------------------|
-| `all`      | Developers can run MCP servers from any source                   |
-| `registry` | Developers can only run MCP servers from the configured registry |
-| `none`     | MCP server support is disabled                                   |
-
-### Configure a custom MCP registry
-
-You can host a private MCP server registry for your organization and configure {% data variables.product.prodname_vscode_shortname %} to use it through the `McpGalleryServiceUrl` policy. This enables you to:
-
-* Provide a curated list of approved MCP servers
-* Host internal MCP servers for your organization
-* Block access to the public GitHub MCP registry
-
-When configured, developers see MCP servers from your custom registry in the Extensions view when they enter `@mcp` in the search field.
-
-Organizations with {% data variables.copilot.copilot_enterprise %} or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
-
-### Allow or deny individual MCP servers
-
-Use Copilot managed settings or the corresponding {% data variables.product.prodname_vscode_shortname %} enterprise policies to control individual MCP servers:
-
-| Managed setting | {% data variables.product.prodname_vscode_shortname %} policy | Minimum {% data variables.product.prodname_vscode_shortname %} version | Behavior |
-|-----------------|----------------|-------------------------|----------|
-| `allowedMcpServers` | `ChatAllowedMcpServers` | 1.130 | When set, only matching servers can be installed or run. Other servers are blocked. |
-| `deniedMcpServers` | `ChatDeniedMcpServers` | 1.130 | Matching servers are always blocked. A deny entry takes precedence over an allow entry. |
-| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | 1.132 | When set to `true`, only the enterprise-managed allowlist can grant access to an MCP server. |
-
-Match servers by configured name, remote URL, or local command invocation. URL entries support `*` wildcards. Command entries must include the exact command and arguments.
-
-The following `managed-settings.json` example allows an internal server by name and another by URL, while blocking a specific local command:
-
-```json
-{
-    "allowedMcpServers": [
-        {
-            "serverName": "contoso-tools"
-        },
-        {
-            "serverUrl": "https://mcp.contoso.com/*"
-        }
-    ],
-    "deniedMcpServers": [
-        {
-            "serverCommand": [
-                "/usr/local/bin/legacy-mcp",
-                "--stdio"
-            ]
-        }
-    ],
-    "allowManagedMcpServersOnly": true
-}
-```
+Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval.
 
 > [!CAUTION]
-> An MCP allowlist or denylist from Copilot managed settings replaces the same policy delivered through the {% data variables.product.prodname_vscode_shortname %} ADMX template or configuration profile. It does not form a union or intersection with the device policy value. Review [precedence with {% data variables.product.prodname_vscode_shortname %} device policies](#precedence-with-vs-code-device-policies) before you deploy both systems.
+> Global auto-approval bypasses security prompts for tool invocations. Disable it unless your threat model explicitly supports this behavior.
 
-## Configure agent tool approvals
+##### Require manual approval for specific tools
 
-Agent tools can perform actions that modify files, run commands, or access external services. {% data variables.product.prodname_vscode_shortname %} includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
+Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific tools.
 
-Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in {% data variables.product.prodname_vscode_shortname %}.
+##### Configure terminal auto-approval
 
-> [!WARNING]
-> Fine-grained `permissions.allow`, `permissions.ask`, and `permissions.deny` managed settings are supported only in GitHub Copilot CLI. Support in {% data variables.product.prodname_vscode_shortname %} is coming soon. For configuration details, see [Enterprise managed settings for GitHub Copilot](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#permissions).
+Set `ChatToolsTerminalEnableAutoApprove` to `false` to require approval for terminal commands.
 
-### Disable global auto-approval
+Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
-The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
+### Configure security and observability
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in {% data variables.product.prodname_vscode_shortname %} and also hides the **Assisted permissions** `feature(assisted-permissions)` and **Allow all** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the {% data variables.copilot.chat_view %}.
+#### Configure agent sandboxing
 
-> [!CAUTION]
-> Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
+{% data variables.product.prodname_vscode_shortname %} sandbox device policies are deprecated and apply to Local sessions. They do not enforce sandboxing for {% data variables.product.prodname_copilot_short %} sessions that use Agent Host.
 
-### Require manual approval for specific tools
+<a id="deploy-copilot-managed-sandbox-settings"></a>
 
-The `ChatToolsEligibleForAutoApproval` policy controls which tools can be auto-approved. Tools set to `false` always require manual approval and cannot be auto-approved by users.
+The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. For Agent Host sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-an-agent-host-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy).
 
-Configure this policy with a JSON object that lists tool names and their approval eligibility. This configures the `setting(chat.tools.eligibleForAutoApproval)` setting in {% data variables.product.prodname_vscode_shortname %}.
+The following deprecated policies preserve Local-session behavior:
 
-The following JSON snippet shows an example configuration that requires manual approval for task execution, URL fetching, and terminal commands:
+| Policy | Local-session behavior |
+|--------|------------------------|
+| `ChatAgentSandboxEnabled` | Requires or disables sandboxing for supported terminal commands. |
+| `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
+| `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
+| `ChatAgentSandboxAllowAutoApprove` | Controls automatic approval of sandboxed terminal commands. |
 
-```json
-{
-    "runTask": false,
-    "fetch": false,
-    "runInTerminal": false
-}
-```
+#### Configure agent network filtering
 
-### Configure terminal auto-approval
+Set `ChatAgentNetworkFilter` to `true` to restrict network access according to the allowed and denied domain policies.
 
-The `ChatToolsTerminalEnableAutoApprove` policy specifically controls the rule-based auto-approval system for terminal commands. When enabled, {% data variables.product.prodname_vscode_shortname %} applies a set of rules to automatically approve safe commands while prompting for potentially dangerous ones.
+Use `ChatAgentAllowedNetworkDomains` for permitted domain patterns and `ChatAgentDeniedNetworkDomains` for blocked patterns. Denied domains take precedence.
 
-To disable terminal auto-approval entirely, set the policy to `false`. This configures the `setting(chat.tools.terminal.enableAutoApprove)` setting in {% data variables.product.prodname_vscode_shortname %}.
+Network filtering applies to the fetch tool and Integrated Browser. Terminal coverage depends on the session target, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
-## Configure agent sandboxing
+Restart {% data variables.product.prodname_vscode_shortname %} after you change network filtering settings so new Integrated Browser sessions use the updated policy.
 
-Use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) to restrict the files and network resources that agent-executed commands can access. Enforcing this boundary lets developers run commands within an approved scope, including when they use auto-approval or Autopilot. Sandboxing does not restrict built-in file tools or replace approval controls for other tools.
+#### Configure telemetry export with OpenTelemetry
 
-Choose the management mechanism for the sessions you need to govern:
+Use the `CopilotOtel*` policies to control [OpenTelemetry](https://opentelemetry.io/) export for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. These policies cover export enablement, the collector endpoint and protocol, content and identity capture, the service name, resource attributes, and exporter headers.
 
-| Goal | Mechanism | Scope |
-|---|---|---|
-| Require sandboxing and control bypass and outbound access in {% data variables.product.prodname_copilot_short %} Agent Host sessions. | [Copilot managed sandbox settings](#deploy-copilot-managed-sandbox-settings) | Runtime-enforced restrictions on supported platforms, including Windows. These controls do not apply to every agent provider. |
-| Configure shared terminal sandbox settings through existing device management. | [{% data variables.product.prodname_vscode_shortname %} policies](#configure-vs-code-sandbox-policies) | The `ChatAgentSandboxEnabled` policy controls the shared macOS and Linux enablement setting. There is no equivalent device policy for the Windows enablement setting. |
+For the complete list of policies and the settings they control, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
 
-Check the [platform prerequisites and lifecycle status](/docs/agents/run/agent-sandboxing.md#check-platform-availability) before deployment. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell's sandbox support is Experimental.
+## Use GitHub organization and enterprise settings
 
-### Deploy Copilot managed sandbox settings
+GitHub-hosted controls apply through the signed-in account and GitHub services. They are not {% data variables.product.prodname_vscode_shortname %} device policies.
 
-Deploy the following configuration through a [Copilot managed settings channel](#deploy-copilot-managed-settings). For file-based delivery, add this `sandbox` object to the [managed settings file](#deliver-managed-settings-from-a-file), preserving other organization settings. Use the nested JSON shape, not {% data variables.product.prodname_vscode_shortname %} setting names.
+Use GitHub organization and enterprise settings to manage {% data variables.product.prodname_copilot_short %} access, available models and features, content exclusions, and other service-side policies. See [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise).
 
-```json
-{
-    "sandbox": {
-        "enabled": true,
-        "allowBypass": false,
-        "userPolicy": {
-            "network": {
-                "allowOutbound": false
-            }
-        }
-    }
-}
-```
+### Configure organization-level custom instructions
 
-This example requires sandboxing in {% data variables.product.prodname_copilot_short %} Agent Host sessions, prevents bypass, and blocks outbound network access from sandboxed commands. It does not block network access by other agent tools. Configure those tools [separately](#configure-agent-network-filtering).
+Organization administrators create custom instructions on GitHub. When `setting(github.copilot.chat.organizationInstructions.enabled)` is `true`, supported {% data variables.product.prodname_copilot_short %} sessions in {% data variables.product.prodname_vscode_shortname %} include organization instructions that the signed-in account can access.
 
-These runtime-owned controls do not map directly to {% data variables.product.prodname_vscode_shortname %} device policies. After [resolving values across managed channels](#precedence-across-channels), they combine with developer preferences as follows:
+Learn how to [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
 
-| Managed control | Enforced restriction | Developer choice |
-|---|---|---|
-| `sandbox.enabled` | `true` requires sandboxing. The platform enablement setting shows **On** and is locked. The session toggle is also locked unless a permitted bypass is explicitly approved. | `false` or an omitted value does not force sandboxing off. Developers can turn it on locally. |
-| `sandbox.allowBypass` | `false` prevents bypass. When `sandbox.enabled` is `true`, omitting bypass permission also prevents bypass. | `true` permits an approval request, not an automatic bypass. A local `setting(chat.agent.sandbox.allowUnsandboxedCommands)` value of `false` still prevents bypass. |
-| `sandbox.userPolicy.network.allowOutbound` | `false` blocks outbound access and locks `setting(chat.agent.sandbox.allowNetwork)` to `false`. | `true` or an omitted value leaves developers free to block outbound access locally. |
+### Configure organization-level custom agents
 
-Permitting bypass does not let developers directly switch off a required sandbox. A supported **Allow in this Session** approval must succeed first. See the [developer guidance for organization-managed sandboxing](/docs/agents/run/agent-sandboxing.md#when-your-organization-manages-sandboxing).
+Organization administrators create custom agents on GitHub. When `setting(github.copilot.chat.organizationCustomAgents.enabled)` is `true`, organization and enterprise agents that the signed-in account can access appear in the agents dropdown.
 
-These managed values do not overwrite saved user preferences. When you remove a restriction, the corresponding setting becomes editable and shows the developer's saved value. A new restriction also applies when a developer resumes an existing session and revokes any incompatible session-scoped bypass.
-
-### Configure {% data variables.product.prodname_vscode_shortname %} sandbox policies
-
-Use your existing [device policy deployment mechanism](/docs/enterprise/policies.md) to configure these policies:
-
-| Policy | Configuration |
-|---|---|
-| `ChatAgentSandboxEnabled` | Set to `on` to enforce `setting(chat.agent.sandbox.enabled)` on macOS and Linux, including WSL2. Set to `off` to disable that setting. This policy does not control `setting(chat.agent.sandbox.enabledWindows)`. |
-| `ChatAgentSandboxAllowNetwork` | Set to `false` to restrict network access. Local sessions on macOS and Linux then use the configured domain rules. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox instead block outbound access without domain filtering. |
-| `ChatAgentSandboxAllowUnsandboxedCommands` | Set to `false` to prevent commands from running outside the sandbox after user confirmation. |
-
-> [!IMPORTANT]
-> In Local sessions, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` can permit an approved retry inside the sandbox with unrestricted network access. This is separate from running outside the sandbox and has no enterprise policy. Do not treat these device policies as an enforceable prohibition on all network exceptions.
-
-### Verify sandbox restrictions
-
-1. After changing managed sandbox settings, fully quit and reopen {% data variables.product.prodname_vscode_shortname %}, then start or resume a {% data variables.product.prodname_copilot_short %} Agent Host session.
-1. Run **Developer: Policy Diagnostics** to [verify the delivered managed values and their sources](#verify-applied-managed-settings).
-1. Check the sandbox settings in the Settings editor. Enforced values show an organization-managed indicator. Managed restrictions do not overwrite saved preferences, and the editor does not display every runtime-composed file system rule.
-1. In a {% data variables.product.prodname_copilot_short %} Agent Host session, [inspect the effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) to confirm the session's actual state and file system and network restrictions.
-
-If a sandbox configuration update conflicts with managed policy, the session continues with the last configuration that the runtime successfully applied. The rejected update does not take effect, and {% data variables.product.prodname_vscode_shortname %} does not retry with weaker restrictions. Inspect the effective session policy rather than assuming a requested change was applied.
-
-## Configure agent network filtering
-
-Network filtering restricts which domains the fetch tool and integrated browser can access during chat sessions. For terminal commands, domain filtering is available in Local sessions and the Agent Host custom terminal tool on macOS and Linux when sandbox network isolation is enabled.
-
-The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox do not use domain allowlists or denylists. Their sandbox network control permits or blocks outbound access as a whole. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
-
-### Enable network filtering
-
-The `ChatAgentNetworkFilter` policy enables network domain filtering for agent tools. This configures the `setting(chat.agent.networkFilter)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-When the policy is set to `true`, network access by agent tools is restricted according to the allowed and denied domain lists. When set to `false` (the default), no network filtering is applied.
-
-When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
-
-For Local sessions on macOS and Linux, configure these policies to deny network access by default for the fetch tool, integrated browser, and sandboxed terminal commands:
-
-| Policy | Value |
-|--------|-------|
-| `ChatAgentNetworkFilter` | `true` |
-| `ChatAgentSandboxEnabled` | `on` |
-| `ChatAgentAllowedNetworkDomains` | Empty list |
-| `ChatAgentSandboxAllowNetwork` | `false` |
-| `ChatAgentSandboxAllowUnsandboxedCommands` | `false` |
-
-> [!IMPORTANT]
-> In Local sessions, `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` defaults to `true` and can permit an approved network exception. See the [device policy limitations](#configure-vs-code-sandbox-policies).
-
-### Configure allowed domains
-
-The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. An empty list blocks all domains for tools with network filtering enabled and for terminal commands that use sandbox domain filtering.
-
-### Configure denied domains
-
-The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-Use this policy to block exceptions to the allowed domain list. Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`. You do not need to specify denied domains when the allowed domain list is empty because all domains are already blocked.
-
-> [!NOTE]
-> Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
-
-## Configure Copilot code review
-
-Copilot code review enables AI-powered review of code changes. Organizations can control access to these features.
-
-The `CopilotReviewSelection` policy controls whether developers can request code review for selected code in the editor. This configures the `setting(github.copilot.chat.reviewSelection.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-The `CopilotReviewAgent` policy controls access to the Copilot code review agent for reviewing pull requests and changed files. This configures the `setting(github.copilot.chat.reviewAgent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-## Configure next edit suggestions
-
-Next edit suggestions (NES) propose a next edit based on recent changes, helping developers apply repetitive or related modifications more quickly.
-
-To disable next edit suggestions, set the `CopilotNextEditSuggestions` policy to `false`. This configures the `setting(github.copilot.nextEditSuggestions.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-## Enable or disable Claude Agent
-
-Claude Agent sessions let developers start and resume agentic coding sessions powered by Anthropic's Claude Agent SDK directly in the editor, using their existing Copilot subscription.
-
-To disable Claude Agent sessions, set the `Claude3PIntegration` policy to `false`. This configures the `setting(github.copilot.chat.claudeAgent.enabled)` setting in {% data variables.product.prodname_vscode_shortname %}.
-
-## Configure organization-level AI customizations
-
-GitHub Copilot supports defining custom instructions and custom agents at the GitHub organization level. These customizations are automatically available to all organization members when they work in {% data variables.product.prodname_vscode_shortname %} on repositories owned by the organization.
-
-### Organization-level custom instructions
-
-Organization administrators can define custom instructions that apply to all repositories in their organization. These instructions ensure consistent AI behavior across teams, such as enforcing coding standards, security guidelines, or documentation requirements.
-
-When developers have `setting(github.copilot.chat.organizationInstructions.enabled)` set to `true`, {% data variables.product.prodname_vscode_shortname %} automatically detects and applies organization-level instructions to all chat requests. The instructions appear in the **Chat Instructions** menu alongside personal and workspace instructions.
-
-Learn how to [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
-
-### Organization-level custom agents
-
-Organizations can also define custom agents that are shared across all repositories. These agents provide specialized AI personas with specific tools and instructions tailored to your organization's workflows.
-
-When developers have `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` set to `true`, organization-level agents appear in the Agents dropdown alongside built-in and personal agents.
-
-Learn how to [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
-
-> [!NOTE]
-> Organization-level customizations are managed through GitHub organization settings, not {% data variables.product.prodname_vscode_shortname %} enterprise policies. Individual developers control whether to use these customizations through their {% data variables.product.prodname_vscode_shortname %} settings.
-
-## Configure telemetry export with OpenTelemetry
-
-Organizations can mandate where Copilot sends [OpenTelemetry](https://opentelemetry.io/) (OTel) data, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
-
-Deliver these settings through the `telemetry` block in [Copilot managed settings](#deploy-copilot-managed-settings). Each field maps to a {% data variables.product.prodname_vscode_shortname %} policy and, where applicable, a product setting:
-
-| Managed setting key | Setting | Description |
-|---------------------|---------|-------------|
-| `telemetry.enabled` | `setting(chat.agentHost.otel.enabled)` | Enable or disable Copilot OpenTelemetry export. When managed, users cannot override the value. |
-| `telemetry.endpoint` | `setting(chat.agentHost.otel.otlpEndpoint)` | OTLP collector endpoint that receives the telemetry. |
-| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP wire protocol. Use `http/json` or `http/protobuf`; both select the `otlp-http` exporter. `grpc` is accepted for forward compatibility but currently falls back to the HTTP default. |
-| `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
-| `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
-| `telemetry.capture.identity` | `setting(github.copilot.chat.otel.captureIdentity)` | Whether Local harness telemetry captures developer and machine identity. Maps to the `CopilotOtelCaptureIdentity` policy. |
-| `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
-| `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
-| `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
-
-Identity capture is off by default and independent of content capture. When enabled, Local harness sessions add `user.name` to agent invocation spans, including subagent and inline chat spans, and add `process.user.name` and `host.name` as resource attributes.
-
-The managed identity value takes precedence over `COPILOT_OTEL_CAPTURE_IDENTITY` and user settings. When a managed value denies identity capture, later exports omit identity without requiring a reload, including identity attributes that were configured explicitly as resource attributes.
-
-For other telemetry fields, managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values, except that managed `telemetry.resourceAttributes` take precedence over `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect.
-
-> [!NOTE]
-> Identity capture currently applies only to the Local harness. It doesn't add identity attributes to Agent Host telemetry.
-
-> [!NOTE]
-> Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
-
-For chat sessions that use the Local harness, if an enterprise-managed OTel configuration enables export after Copilot Chat starts, {% data variables.product.prodname_vscode_shortname %} automatically attempts to restart the extension hosts for the current window once. The restart can interrupt work in other extensions. If the restart is blocked or doesn't apply the configuration, {% data variables.product.prodname_vscode_shortname %} offers **Reload Window**. Later policy changes and policy removal also require a manual reload.
-
-The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload {% data variables.product.prodname_vscode_shortname %} to apply it.
+Learn how to [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ## Security considerations
 
-AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/run/security.md) for a comprehensive overview of AI security considerations and best practices.
+AI-powered development features can perform actions with user-level permissions. Review [AI security considerations](/docs/agents/run/security.md) before enabling agents or auto-approval.
 
-For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers use [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
-
-### Agent deployment options and data residency
-
-Agents can run on different infrastructure depending on the agent type, and each option has different data residency and access control characteristics:
-
-* **Local agents and the Copilot agent** run on the developer's machine and process data locally.
-* **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
-
-For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
-
-## Available managed settings
-
-The following managed settings are available. Most keys map to a {% data variables.product.prodname_vscode_shortname %} policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
-
-| Managed setting key | {% data variables.product.prodname_vscode_shortname %} policy | Setting | Description |
-|---------------------|----------------|---------|-------------|
-| `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
-| `permissions.allow` | None | Agent Host runtime | Operations that proceed without an approval prompt in Copilot sessions that use Agent Host. |
-| `permissions.ask` | None | Agent Host runtime | Operations that always require fresh human approval in Copilot sessions that use Agent Host. |
-| `permissions.deny` | None | Agent Host runtime | Operations that are blocked in Copilot sessions that use Agent Host. |
-| `sandbox.enabled` | None | Agent Host runtime | Set to `true` to [require sandboxing](#configure-agent-sandboxing) in {% data variables.product.prodname_copilot_short %} Agent Host sessions. A value of `false` does not force sandboxing off. |
-| `sandbox.allowBypass` | None | Agent Host runtime | Set to `true` alongside `sandbox.enabled` to permit approved, session-scoped sandbox bypasses. If omitted or `false`, required sandboxing cannot be bypassed. |
-| `sandbox.userPolicy.network.allowOutbound` | None | Agent Host runtime | Set to `false` to block outbound network access from sandboxed commands. A value of `true` does not override a developer's more restrictive local setting. |
-| `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
-| `autoTier` | None | Copilot runtime | Default Auto model tier for new Local and Copilot Agent Host chats. Accepted values are `efficiency`, `balance`, and `intelligence`. |
-| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Force-enable or force-disable named plugins. Omitted plugins remain under normal user enablement. |
-| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces and optional per-marketplace automatic updates. |
-| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Allowlist of trusted plugin marketplace sources. |
-| `allowManagedHooksOnly` | `ChatAllowManagedHooksOnly` | Policy only | Allow hooks only from managed sources and plugins force-enabled by policy. See [managed hook deployment](#deploy-hooks-through-managed-plugins). |
-| `strictPluginOnlyCustomization` | `ChatStrictPluginOnlyCustomization` | Policy only | Block standalone user and workspace skills, agents, hooks, instructions, and MCP servers while retaining eligible plugin customizations. |
-| `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
-| `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
-| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
-| `telemetry.*` | `CopilotOtel*` | `chat.agentHost.otel.*`, `setting(github.copilot.chat.otel.captureIdentity)` | OpenTelemetry export and identity-capture configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
+For {% data variables.product.prodname_copilot_short %} security, privacy, compliance, and transparency information, see the [{% data variables.product.prodname_copilot_short %} Trust Center FAQ](https://copilot.github.trust.page/faq).
 
 ## Related resources
 
-* [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools with agents](/docs/agents/run/tools.md) - Learn how tools work in {% data variables.product.prodname_vscode_shortname %} chat
-* [MCP servers in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
-* [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
-* [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows
-* [AI security considerations](/docs/agents/run/security.md) - Security best practices for AI features
-* [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information
+* [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md)
+* [Get started with {% data variables.product.prodname_copilot_short %} enterprise-managed settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started)
+* [{% data variables.product.prodname_copilot_short %} enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings)

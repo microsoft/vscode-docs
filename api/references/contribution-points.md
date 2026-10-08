@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -1026,6 +1026,7 @@ Currently extension writers can contribute to:
 - `debug/toolBar` - Debug view toolbar
 - `debug/variables/context` - Debug Variables view context menu
 - `editor/context` - editor context menu
+- `editor/context/copy` - **Copy as** submenu in the editor context menu
 - `editor/lineNumber/context` - editor line number context menu
 - `editor/title` - editor title menu bar
 - `editor/title/context` - editor title context menu
@@ -1066,6 +1067,7 @@ When you invoke an extension command from a menu, {% data variables.product.prod
 | Menu location | Arguments passed to the handler, in order |
 | --- | --- |
 | `editor/context` | The `Uri` of the document in which you opened the context menu. |
+| `editor/context/copy` | The `Uri` of the document in which you opened the context menu. |
 | `explorer/context` | The `Uri` of the file or folder on which you opened the context menu, followed by an array of selected resource URIs. If the target is part of a multiple selection, the array contains that selection. Otherwise, it contains only the target resource. |
 | `editor/title` | The editor's resource `Uri`, followed by an editor context object containing `groupId`. |
 | `editor/title/context` | The target editor's resource `Uri`, followed by an editor context object containing `groupId` and `editorIndex`. |

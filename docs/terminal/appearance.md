@@ -1,6 +1,6 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Customize integrated terminal fonts, colors, cursor, rendering, tabs, and other appearance settings in {% data variables.product.prodname_vscode %}.
 ---
 # Terminal Appearance

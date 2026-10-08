@@ -1,6 +1,6 @@
 ---
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about TypeScript editing with {% data variables.product.prodname_vscode %}.
 ---
 # Editing TypeScript

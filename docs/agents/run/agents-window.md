@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -331,25 +331,28 @@ To stop monitoring the pull request, select **{% data variables.copilot.agent_me
 
 The sessions list shows sessions across all your workspaces. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
-### Open multiple sessions side by side
+### Arrange sessions in a grid
 
-Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
+Arrange parallel sessions in a two-dimensional grid to monitor progress and compare results. To open another session in the grid:
 
-* To keep the active session visible while you start a new session beside it, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
+* To keep the active session visible while you start a new session, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.
 
-<video src="../images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the {% data variables.copilot.agents_window %}." autoplay loop controls muted></video>
+Drag a session to the top, bottom, left, or right edge of another session to create a horizontal or vertical split. A placement preview shows where the session appears.
 
-Only one session view is active at a time. Select a view to make it active and direct the **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions to that session. Selecting another session replaces an unpinned active view.
+<video src="../images/agents-window/sessions-grid.mp4" title="Video showing agent sessions arranged in a grid in the {% data variables.copilot.agents_window %}." autoplay loop controls muted></video>
 
-When multiple sessions are open, use keyboard shortcuts to move between and manage them:
+Only one session pane is active at a time. Select a pane to make it active and direct the **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions to that session. Selecting another session in the list replaces an unpinned active view.
 
-* Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
-* Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
+Open the **Session Layout** submenu from a session header or its overflow menu. From there, you can select **Arrange Sessions in a Balanced Grid**, focus a session in a direction, move the active session, or increase or decrease its width or height. The default directional focus shortcuts are `kb(sessions.focusSessionLeft)`, `kb(sessions.focusSessionRight)`, `kb(sessions.focusSessionAbove)`, and `kb(sessions.focusSessionBelow)`.
 
-These commands are also in the Command Palette (`kb(workbench.action.showCommands)`).
+Use **Maximize** in the session header to expand the active session, and use **Restore** to return to the grid. These actions are separate from the **Session Layout** submenu.
+
+Press `kb(sessions.closeAllSessions)` while a session has focus to close all visible panes and return to the new-session view. This action does not delete or archive the sessions.
+
+The {% data variables.copilot.agents_window %} restores conversations, drafts, pane geometry, the active session, and the maximized state after a reload. At narrow or phone width, only the active session is shown. The grid returns when you widen the window.
 
 ### Work with multiple chats in a session
 

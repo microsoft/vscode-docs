@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -295,9 +295,9 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 ## Manage OTel configuration for your organization
 
-Enterprises can mandate OTel export configuration centrally through Copilot managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
 
-Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. The complete block comes from the highest-priority channel that supplies one; omitted fields aren't filled from lower-priority channels. For the full list of managed telemetry keys, delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/manage-ai-settings.md#configure-telemetry-export-with-opentelemetry).
+For delivery methods, configuration fields, client support, and precedence, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry). For the behavior specific to {% data variables.product.prodname_vscode_shortname %}, see [Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
 
 For chat sessions that use the Local harness, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 

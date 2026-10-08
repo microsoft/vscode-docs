@@ -1,6 +1,6 @@
 ---
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: How to change the display language (locale) of {% data variables.product.prodname_vscode %}.
 ---
 # Display Language

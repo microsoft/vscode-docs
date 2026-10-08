@@ -1,6 +1,6 @@
 ---
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal has several advanced features.
 ---
 # Terminal Advanced

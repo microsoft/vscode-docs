@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -122,6 +122,24 @@ You can use AI to generate a skill based on a description of the capability. Typ
 You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
 
 You can also generate a skill from the Agent Customizations editor by selecting **Generate Skill** from the dropdown.
+
+### Install a skill from the Customization Marketplace (Experimental)
+
+Use the Customization Marketplace to find and install complete skill packages from configured sources:
+
+1. Turn on the `setting(chat.customizations.marketplace.enabled)` setting.
+1. Open the Agent Customizations editor and select **Discover**.
+1. From the source menu, select **GitHub Feed**, and then search for a skill by name or add `@type:skill` to your search.
+1. Select a skill and review its publisher, source, and included files.
+1. Select **Install**, and then choose the user or workspace skills directory where you want to store the skill.
+
+{% data variables.product.prodname_vscode_shortname %} doesn't overwrite an existing skill at the selected destination. If another supported location contains a skill with the same name, both skills appear on the **Skills** page. The source or publisher image identifies the Marketplace installation, and **Copy Relative Path** shows its exact location.
+
+Marketplace ownership applies to the exact installed skill directory. Deleting a Marketplace-installed skill from the **Skills** page uninstalls only that skill and doesn't remove a same-name local skill in another location.
+
+If files from a Marketplace-installed skill are missing, **Discover** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
+
+For more information about browsing sources and installation states, see [Discover marketplace customizations](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
 
 ## SKILL.md file format
 

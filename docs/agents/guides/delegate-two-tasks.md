@@ -1,6 +1,6 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

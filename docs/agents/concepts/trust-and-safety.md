@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 9/30/2026
+DateApproved: 10/7/2026
 MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -56,12 +56,9 @@ You can revoke trust at any time through dedicated commands in the Command Palet
 
 ## Agent sandboxing
 
-> [!NOTE]
-> The Local terminal sandbox is in Preview on macOS, Linux, and WSL2, and Experimental on Windows. Sandboxing for the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell is Experimental on all supported platforms.
-
 Agent sandboxing uses operating system-level isolation to restrict what terminal commands can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing enforces configured file system and network boundaries.
 
-Sandboxing applies to terminal commands and their child processes in Local and {% data variables.product.prodname_copilot_short %} Agent Host sessions. Turning on sandboxing does not block outbound network access by default. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+In Local sessions, sandboxing applies to terminal commands and their child processes. In {% data variables.product.prodname_copilot_short %} Agent Host sessions, it primarily confines shell execution and child processes. It can also sandbox MCP servers and language servers that the Agent Host launches when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain outside this sandbox and use separate permission checks. Turning on sandboxing does not block outbound network access by default. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 By default, {% data variables.product.prodname_vscode_shortname %} automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
 
@@ -84,9 +81,9 @@ Sandboxing addresses these challenges by enforcing boundaries at the OS level. T
 Sandboxing enforces two types of isolation:
 
 * **File system isolation** limits read and write access to configured paths. It protects sensitive locations, such as SSH keys and shell configuration, and applies to child processes such as package managers and build scripts.
-* **Network isolation** blocks outbound connections or, where supported, limits them to configured domains. Local sessions and the Agent Host custom terminal tool support domain filtering on macOS and Linux. The {% data variables.product.prodname_copilot_short %} Agent Host built-in shell and the Windows terminal sandbox instead permit or block outbound access as a whole.
+* **Network isolation** blocks outbound connections or, where supported, limits them to configured domains. Domain-filtering capabilities vary by terminal implementation and platform.
 
-Both boundaries are applied at the operating system level and inherited by child processes. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
+Terminal and child-process boundaries use operating system protections. Other supported operations can use checks inside the Agent Host process. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
 
 ### OS-level enforcement
 
@@ -96,13 +93,15 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 |----------|-----------|---------------|
 | macOS | Apple's sandboxing framework ("Seatbelt"), built into the operating system. Enforces fine-grained file system and network restrictions at the kernel level. | None. Works out of the box. |
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
-| Windows | Microsoft MXC process containers apply file system and network policies to the command process. | Install the applicable Windows security update. Windows support is Experimental. |
+| Windows | Microsoft MXC process containers apply file system and network policies to the command process. | Install the applicable Windows security update. |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
 ### What sandboxing does not cover
 
-Agent sandboxing applies to shell subprocesses, including terminal commands from {% data variables.product.prodname_vscode_shortname %} agent sessions and Copilot agent-host sessions. It does not cover built-in file tools. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly, rather than running through the sandbox.
+Agent sandboxing is an added layer for the processes it covers. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. The sandbox does not protect credentials that you explicitly inject. Developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass also weaken its isolation.
+
+Built-in and other non-process tools are not covered by the process sandbox. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly.
 
 > [!TIP]
 > The `setting(chat.agent.networkFilter)` setting provides network domain filtering for the fetch tool and integrated browser, independently of terminal sandboxing. It does not add domain filtering to the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or the Windows terminal sandbox. See [sandbox network capabilities](/docs/agents/run/agent-sandboxing.md#configure-network-access).
