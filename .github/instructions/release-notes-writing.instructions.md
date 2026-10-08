@@ -79,6 +79,13 @@ You are a technical writer assistant tasked with generating release notes for al
 
 Apply these specific guidelines to all release notes. For other text, follow the general [writing guidelines](../instructions/docs-writing.instructions.md).
 
+### Insiders changelog conciseness
+
+- Treat Insiders release notes as a changelog, not as feature documentation.
+- Use one short sentence per entry whenever possible. Include only the user-visible change and essential configuration or lifecycle information.
+- Add a second sentence only when a constraint, fallback, or compatibility detail is necessary to use the feature correctly.
+- Omit implementation details, testing instructions, background context, and restatements of the issue title.
+
 ### Headings
 
 - Always use sentence case for headings, so only the first word is capitalized.
