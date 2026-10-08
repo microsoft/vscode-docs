@@ -1,6 +1,7 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
 DateApproved: 9/30/2026
+FeatureStatus: user-customization-migration
 MetaDescription: Move existing agent customizations to folders and formats supported by the Copilot harness in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -22,18 +23,18 @@ When {% data variables.product.prodname_vscode_shortname %} shows a customizatio
 
 This article explains why migration is needed, how to complete each migration that {% data variables.product.prodname_vscode_shortname %} supports, and what to review manually.
 
-`feature(user-customization-migration)`
-
 > [!NOTE]
 > This article covers migration to the Copilot harness. For Claude or Codex sessions, use the locations and formats in the provider documentation.
 
 ## Open the migration list
 
+A notice appears in chat when a workspace requires customization migrations. Select **Review Migrations** to open the list of migrations. To directy open the list of migrations:
+
 1. In the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, select **Copilot** as the **Session Target**.
 1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Select **Migrations**.
 
-If chat shows a customization migration notice, select **Review Migrations** to open the same list. The migration tree groups the detected work by workspace and user scope.
+The migration tree groups the detected work by workspace and user scope.
 
 Choose how to handle the migration:
 
@@ -56,7 +57,7 @@ You only need to migrate each item once. Keep the original until you verify the 
 
 Earlier versions of {% data variables.product.prodname_vscode_shortname %} stored some user customizations in profile user data and supported additional locations through `chat.*FilesLocations` settings. The Local agent reads those {% data variables.product.prodname_vscode_shortname %}-specific sources.
 
-Copilot runs on Agent Host and uses the shared Copilot runtime that also powers {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. It reads customizations from Copilot folders and portable formats.
+The Copilot harness runs on Agent Host and uses the shared Copilot runtime that also powers {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. It reads customizations from Copilot folders and portable formats.
 
 Moving customizations to those locations has these benefits:
 
@@ -188,7 +189,7 @@ To migrate custom locations:
 
 Prompt files from `setting(chat.promptFilesLocations)` are handled by [prompt file migration](#convert-prompt-files-to-skills), not location migration.
 
-This migration applies only to the deprecated {% data variables.product.prodname_vscode_shortname %} `chat.*FilesLocations` settings. {% data variables.copilot.copilot_cli %} separately supports additional instruction directories through `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`; {% data variables.product.prodname_vscode_shortname %} does not migrate or clear that environment variable.
+This migration applies only to the deprecated {% data variables.product.prodname_vscode_shortname %} `chat.*FilesLocations` settings. {% data variables.copilot.copilot_cli %} separately supports additional instruction directories through `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`. {% data variables.product.prodname_vscode_shortname %} does not migrate or clear that environment variable.
 
 ## Customizations without automatic migration
 
