@@ -1,7 +1,7 @@
 ---
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 DateApproved: 10/7/2026
-MetaDescription: Expand your development workflow with task integration in {% data variables.product.prodname_vscode %}.
+MetaDescription: Create and manage profiles to customize and switch between {% data variables.product.prodname_vscode %} settings, extensions, and UI layouts.
 ---
 # Profiles in {% data variables.product.prodname_vscode %}
 
