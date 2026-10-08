@@ -18,7 +18,7 @@ Keywords:
 
 # Choose and use an agent harness
 
-Start with the [{% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness) for day-to-day coding and agent tasks. Choose another harness when you need its specific tools or workflows, or delegate an independent change to a cloud agent that returns a pull request.
+Start with the [{% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness) for day-to-day coding and agent tasks. It runs in your local environment and can continue independently of an editor window. Choose another harness when you need its specific tools or workflows, or delegate an independent change to a cloud agent that returns a pull request.
 
 An agent harness coordinates tool calls, context, and code changes. {% data variables.product.prodname_vscode %} supports the {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_anthropic_claude %}, and {% data variables.product.prodname_openai_codex %} harnesses, plus a Cloud target for available cloud agents.
 
@@ -63,7 +63,7 @@ To decide whether another harness better fits your workflow, use these guideline
 | **Cloud** | On a provider's remote infrastructure | A GitHub repository and pull request | Independent tasks that don't need local editor context and benefit from team review |
 | **Local** | In the {% data variables.product.prodname_vscode_shortname %} extension host for the current workspace | Current workspace | The {% data variables.product.prodname_vscode_shortname %} extension-host workflow in the current workspace |
 
-**Local** is the name of one harness. Copilot, Claude, and Codex can also run locally. **Cloud** is an execution target that groups the cloud agents available to you.
+**Local** is the name of one of the harnesses and doesn't mean it is the only way to run agents locally. Copilot, Claude, and Codex also run on your machine. **Cloud** is an execution target that runs on provider-managed infrastructure, not a background mode for a harness running on your machine or a connected host.
 
 Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness. Running multiple harnesses in Agent Host does not give them a shared hook schema.
 
