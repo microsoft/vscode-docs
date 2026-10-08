@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 10/7/2026
-MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for Local, Copilot, Claude, and Codex agent sessions.
+MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for Copilot, Claude, Codex, and Local agent sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -36,11 +36,11 @@ The Agent Host is the process that hosts the Copilot, Claude, and Codex harnesse
 
 | Session target | Where the harness runs | Hook implementation | Configuration and event reference |
 |----------------|------------------------|---------------------|-----------------------------------|
-| **Local** | Extension host | {% data variables.product.prodname_vscode_shortname %} Local hooks | Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). |
 | **Copilot** | Agent Host | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
 | **Claude** | Agent Host | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
 | **Codex** | Agent Host or the Codex extension | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
 | **Cloud** | Provider infrastructure | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
+| **Local** | Extension host | {% data variables.product.prodname_vscode_shortname %} Local hooks | Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). |
 
 Some harnesses discover the same hook files, such as `.github/hooks/*.json` or `.claude/settings.json`. This file compatibility does not make their behavior identical. Supported events, event names, matchers, command properties, tool names, payloads, and output decisions can differ.
 
