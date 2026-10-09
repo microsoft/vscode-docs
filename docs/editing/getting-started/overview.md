@@ -1,6 +1,6 @@
 ---
 PageTitle: Core editor features
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Explore core {% data variables.product.prodname_vscode %} capabilities for editing, debugging, testing, source control, terminal workflows, and editor customization.
 ---
 # Core editor features

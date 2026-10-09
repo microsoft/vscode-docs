@@ -12,7 +12,7 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 ## Choose a formatter
 
-Search the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) for the formatter extension of your choice.
+Search the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) for the formatter extension of your choice.
 
 Microsoft publishes the following formatting extensions:
 

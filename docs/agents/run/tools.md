@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -14,7 +14,9 @@ keywords:
 ---
 # Use tools with agents
 
-Tools extend agents in {% data variables.product.prodname_vscode %} with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. {% data variables.product.prodname_vscode_shortname %} supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
+Tools let an agent inspect your project and check results instead of only suggesting code or commands for you to apply. For example, it can read the implementation behind a failing test, make a change, and run the test to check whether the change works.
+
+Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. Add an [MCP server](/docs/agent-customization/mcp-servers.md) or extension when the task needs a capability the available tools don't provide.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -76,22 +78,9 @@ To group related tools and reuse them across prompts, prompt files, and custom a
 
 ## Select tools for a request
 
-The Local and Copilot harnesses use different controls to select client-side tools.
+The Copilot and Local harnesses use different controls to select client-side tools.
 
 {% tabs id="select-tools-by-harness" %}
-{% tab label="Local harness" %}
-
-Select tools for an individual request from the {% data variables.copilot.chat_view %}:
-
-1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
-
-1. Select **Configure Tools**.
-
-    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
-
-1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
-
-{% /tab %}
 {% tab label="Copilot harness" %}
 
 Manage tools for the Copilot harness from the Agent Customizations editor:
@@ -106,6 +95,19 @@ Manage tools for the Copilot harness from the Agent Customizations editor:
 1. Select the **Tools** tab.
 
 1. Select or deselect tools to control which ones are available to the Copilot harness. These choices persist in the active [user profile](/docs/configure/profiles.md).
+
+{% /tab %}
+{% tab label="Local harness" %}
+
+Select tools for an individual request from the {% data variables.copilot.chat_view %}:
+
+1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+
+1. Select **Configure Tools**.
+
+    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+
+1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
 
 {% /tab %}
 {% /tabs %}
@@ -148,7 +150,12 @@ To remove an extension from the tool list, right-click its tool group and select
 
 ## Edit tool parameters
 
-For a tool call that requires approval, you can review and edit its input parameters before it runs:
+For a tool call that requires approval, you can expand the confirmation dialog to review its input parameters. Parameter editing depends on the session and confirmation type:
+
+* In Agent Host sessions, generic and terminal tool confirmations are read-only.
+* Confirmations from the Local harness and extension-contributed tools can support parameter editing.
+
+To edit parameters in a supported confirmation:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 
@@ -188,6 +195,8 @@ Use `setting(chat.tools.terminal.outputLocation)` (experimental) to show termina
 
 </details>
 
+Terminal output previews reflow to fit the available chat width by default. Turn off `setting(chat.tools.terminal.outputReflow)` to preserve the terminal's column width and use horizontal scrolling for long lines. This setting changes only the preview in chat, not the terminal that runs the command.
+
 #### Continue terminal commands in background
 
 When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
@@ -200,6 +209,10 @@ The agent can also choose to run commands directly in the background, without us
 
 > [!TIP]
 > To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
+
+## Built-in tools and context reference
+
+For individual names, descriptions, and availability, see the [Tools and context reference](/docs/agents/reference/tools-reference.md). The reference groups tools by purpose and lists context items separately.
 
 ## Frequently asked questions
 
@@ -242,12 +255,12 @@ You can still configure the agent to use these shells with the terminal profile 
 Yes. You can create tools in two ways:
 
 * **Develop a {% data variables.product.prodname_vscode_shortname %} extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
-* **Create an MCP server** that provides tools. See the [MCP developer guide](/docs/agents/guides/mcp-developer-guide.md)
+* **Create an MCP server** that provides tools. See the [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool).
 
 </details>
 
 ## Related resources
 
-* [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
+* [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md)
 * [Create and use tool sets](/docs/agent-customization/tool-sets.md)
 * [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

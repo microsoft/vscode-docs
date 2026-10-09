@@ -1,6 +1,6 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure accessibility in {% data variables.product.prodname_vscode %} with screen reader mode, keyboard navigation, visual aids, and audio cues.
 ---
 # Accessibility
@@ -226,6 +226,8 @@ Accessibility signals indicate if the current line has certain markers such as: 
 They are played when the primary cursor changes its line or the first time a marker is added to the current line. Accessibility Signal sounds and announcements may be enabled automatically when a screen reader is attached and can be controlled by the settings `accessibility.signals.*`.
 
 The command **Help: List Signal Sounds** lists all available sounds, lets you hear each as you move through the list, and allows for configuring their enabled/disabled status.
+
+The **Confetti** signal provides an audio cue when chat thumbs-up feedback displays confetti or when you mark a session as done in the {% data variables.copilot.agents_window %}. Configure it with `setting(accessibility.signals.confetti)`.
 
 Aria announcements also inform screen reader and braille users that certain markers have been hit. The command **Help: List Signal Announcements** informs the user of which are available and allows for configuring their enabled/disabled status.
 

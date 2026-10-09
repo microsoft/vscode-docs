@@ -1,6 +1,6 @@
 ---
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} as a Python IDE (code completion, debugging, linting).
 ---
 # Python in {% data variables.product.prodname_vscode %}
@@ -13,7 +13,7 @@ This article provides only an overview of the different capabilities of the Pyth
 
 ## Install Python and the Python extension
 
-The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the {% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the {% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 >**Note**: To help get you started with Python development, you can use the [Python profile template](/docs/configure/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
 

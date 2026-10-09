@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -21,7 +21,7 @@ Type the `#` symbol in the chat input field to see a list of available context i
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
+For tool names and context references, see the [Tools and context reference](/docs/agents/reference/tools-reference.md).
 
 ### Add files as context
 

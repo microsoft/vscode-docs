@@ -1,6 +1,6 @@
 ---
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Resources for educators and students to get started with {% data variables.product.prodname_vscode %}.
 ---
 # {% data variables.product.prodname_vscode_shortname %} for Educators and Students
@@ -117,7 +117,7 @@ For more details about what you can do with Live Share, visit the [how-to-guide]
 
 #### Get started with Live Share
 
-To get started with using Live Share in {% data variables.product.prodname_vscode_shortname %}, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
+To get started with using Live Share in {% data variables.product.prodname_vscode_shortname %}, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the {% data variables.product.prodname_vs_marketplace %}.
 
 > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 

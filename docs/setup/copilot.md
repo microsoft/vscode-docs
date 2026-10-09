@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -22,7 +22,7 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 Review these account, usage, and data-handling details before you send project content to an AI model:
 
 * **Account access**: the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in {% data variables.copilot.copilot_free_short %}.
-* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use Anthropic credentials, a ChatGPT subscription, or your own API key, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use a Claude bring-your-own-key (BYOK) configuration, a ChatGPT subscription, or your own model credentials, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 * **Monitor usage**: open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar to view the percentage of your monthly allowance that you used. Learn [how to monitor usage and what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#how-can-i-monitor-my-copilot-usage).
 * **Data handling**: review the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. {% data variables.product.prodname_vscode_shortname %} [telemetry settings](/docs/configure/telemetry.md) are separate from AI-provider data handling.
 

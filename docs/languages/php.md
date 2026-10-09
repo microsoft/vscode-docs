@@ -1,6 +1,6 @@
 ---
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in {% data variables.product.prodname_vscode %}
@@ -55,7 +55,7 @@ or
 
 ## PHP extensions
 
-There are many PHP language extensions available on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within {% data variables.product.prodname_vscode_shortname %} in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions dropdown list by typing 'php'.
+There are many PHP language extensions available on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within {% data variables.product.prodname_vscode_shortname %} in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions dropdown list by typing 'php'.
 
 ![Searching for PHP in the Extensions view](images/php/category-php.png)
 

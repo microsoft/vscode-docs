@@ -1,6 +1,6 @@
 ---
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for Markdown
 ---
 # Markdown and {% data variables.product.prodname_vscode %}
@@ -430,7 +430,7 @@ Read on to find out about:
 
 ### Is there spell checking?
 
-Not installed with {% data variables.product.prodname_vscode_shortname %} but there are spell checking extensions. Check the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+Not installed with {% data variables.product.prodname_vscode_shortname %} but there are spell checking extensions. Check the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
 ### Does {% data variables.product.prodname_vscode_shortname %} support GitHub Flavored Markdown?
 

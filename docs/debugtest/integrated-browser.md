@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -22,6 +22,18 @@ There are several ways to open the integrated browser:
 * Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
 You can open multiple browser instances simultaneously, each in its own editor tab. When a browser tab is already open, the **View** > **Browser** menu item and the title bar globe button open the [tab management](#tab-management) Quick Pick instead of creating a new browser tab.
+
+### Open local files
+
+In {% data variables.product.prodname_vscode_shortname %}, open local HTML pages (`.html` and `.htm`) and saved web archives (`.mhtml` and `.mht`) directly in the integrated browser. File extension matching is case-insensitive.
+
+Open a supported file in one of these ways:
+
+* In the Explorer, right-click the file and select **Open in Integrated Browser**.
+* Right-click the file's editor tab and select **Open in Integrated Browser**.
+* With the file open in the editor, select the **Open in Integrated Browser** (globe) button in the editor toolbar.
+
+These actions require a local `file://` URL and aren't available for remote or virtual workspace resources.
 
 ## Use an external browser
 
@@ -352,7 +364,7 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 
 ### Enterprise policies for browser tools
 
-Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/ai-settings.md) and [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
+Organizations can centrally turn off browser tools or restrict which domains agent tools can reach. Learn about [enterprise controls for AI](/docs/enterprise/manage-ai-settings.md) and [agent network filtering](/docs/enterprise/manage-ai-settings.md#configure-agent-network-filtering).
 
 ## Configure the integrated browser
 

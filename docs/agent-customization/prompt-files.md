@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Create and migrate reusable prompt files in {% data variables.product.prodname_vscode_shortname %} for repeatable AI-assisted development tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -25,7 +25,7 @@ Use prompt files to:
 You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!IMPORTANT]
-> Prompt files are deprecated for [Agent Host](/docs/agents/concepts/agent-host.md) sessions and aren't loaded by Agent Host. They continue to work with the Local agent for now, but the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/overview.md#migrate-prompt-files-to-skills) to convert existing prompts to agent skills. This experimental migration is enabled by default.
+> Prompt files are deprecated for [Agent Host](/docs/agents/concepts/agent-host.md) sessions and aren't loaded by Agent Host. They continue to work with the Local agent for now, but the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert existing prompts to agent skills.
 
 ## Prompt file locations
 

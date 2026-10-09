@@ -1,13 +1,13 @@
 ---
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: In {% data variables.product.prodname_vscode %} we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
 
 ## Hundreds of programming languages supported
 
-In {% data variables.product.prodname_vscode %}, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+In {% data variables.product.prodname_vscode %}, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode/Languages).
 
 Here are eight of the most popular language extensions:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -46,7 +46,7 @@ New sessions use the level configured by `setting(chat.permissions.default)`.
 
 `feature(assisted-permissions)`
 
-Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assisted permissions** in supported Agent Host permission pickers. An organization can also hide this option by [disabling global auto-approval](/docs/enterprise/ai-settings.md#disable-global-auto-approval).
+Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assisted permissions** in supported Agent Host permission pickers. An organization can also hide this option by [disabling global auto-approval](/docs/enterprise/manage-ai-settings.md#disable-global-auto-approval).
 
 | Permission level | Description |
 |---|---|
@@ -116,7 +116,7 @@ Expand a source to configure approvals for individual tools, or select the top-l
 
 Set a tool to `false` in `setting(chat.tools.eligibleForAutoApproval)` to always require manual approval. The confirmation dialog then does not offer an auto-approval option for that tool.
 
-Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/enterprise/ai-settings.md).
+Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/enterprise/manage-ai-settings.md).
 
 ### Reset tool confirmations
 
@@ -180,7 +180,7 @@ For example:
 }
 ```
 
-A `false` rule requires approval. It does not block the command. To block a terminal tool call, use a [Preview `PreToolUse` hook](/docs/agent-customization/hooks.md#usage-scenarios) that returns `permissionDecision: "deny"`.
+A `false` rule requires approval. It does not block the command. To block a terminal tool call in the Local harness, use a [Preview `PreToolUse` hook](/docs/agents/reference/hooks-reference.md#pretooluse) that returns `permissionDecision: "deny"`.
 
 By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
 

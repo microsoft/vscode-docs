@@ -1,10 +1,10 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure AI providers, accounts, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Configure the {% data variables.copilot.agents_window %} (Preview)
+# Configure the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} uses the AI providers and accounts configured in {% data variables.product.prodname_vscode_shortname %}. It shares settings and the default profile with the main {% data variables.product.prodname_vscode_shortname %} window. This article describes the shared account options and the window-specific layout, editor, setting, and extension configuration.
 
@@ -15,7 +15,7 @@ For instructions about starting and working with sessions, see [Use the {% data 
 The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
 
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use an Anthropic API key or Claude Code OAuth token.
+* **Claude**: use a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
 * **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
@@ -41,7 +41,41 @@ Control how code editors in the {% data variables.copilot.agents_window %} wrap 
 * `on`: Wrap lines at the editor viewport width.
 * `off`: Never wrap lines.
 
+To change this setting from a code editor, select **More Actions** (**...**) > **Word Wrap**. To temporarily override word wrapping for the current file, use `kb(editor.action.toggleWordWrap)`. This keyboard shortcut doesn't change `setting(sessions.editor.wordWrap)`.
+
 This setting doesn't affect diff editors in the **Changes** view. To configure word wrapping in those editors, see [Configure word wrap in diff editors](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors).
+
+## Configure the new-session experience
+
+### Personalize the welcome heading (Experimental)
+
+Enable `setting(sessions.chat.experimental.welcomePhrases)` to show a rotating welcome phrase above the new-session composer in the {% data variables.copilot.agents_window %}.
+
+To personalize the heading, select the pencil icon (**Customize Welcome Message...**), and then choose one of the following options:
+
+* **Name**: Set the name used in welcome phrases. Clear the name to use the first name from your GitHub profile when available, or omit the name when your profile doesn't include one. You can also set the name with `setting(sessions.chat.experimental.welcomeName)`. The name syncs across devices.
+* **Phrases**: Open `setting(sessions.chat.experimental.welcomeMessages)` to add custom phrases or replace the default phrases.
+
+The following example adds two custom phrases to the default phrases:
+
+```json
+"sessions.chat.experimental.welcomeMessages": {
+    "mode": "append",
+    "phrases": ["Ready, {name}?", "Let's ship it"]
+}
+```
+
+Set `mode` to `append` to use your phrases and the default phrases, or set it to `replace` to use only your phrases. Use `{name}` anywhere in a phrase to insert the configured or GitHub profile name. If no name is available, {% data variables.product.prodname_vscode_shortname %} removes the placeholder and its adjoining separator.
+
+To hide the heading, right-click it and select **Hide Welcome Message**. This action turns off `setting(sessions.chat.experimental.welcomePhrases)`. Re-enable the setting to show the heading again.
+
+When screen reader optimized mode is active, the heading is announced once when the composer appears. Turn off `setting(accessibility.verbosity.newSessionWelcome)` to omit the announcement.
+
+### Group the composer controls (Experimental)
+
+Enable `setting(sessions.chat.experimental.newSessionComposerLayout)` to group the workspace, branch, worktree, and harness controls above the new-session chat input. This layout requires `setting(sessions.chat.unifiedWorkspacePicker.enabled)`.
+
+With the unified workspace picker enabled, use `kb(sessions.focusNewSessionWorkspacePicker)` to focus the workspace picker or `kb(sessions.focusNewSessionHarnessPicker)` to focus the harness picker. These commands don't require the experimental composer layout. To assign a keybinding, use the **Configure Keybinding** action in the picker's context menu.
 
 ## Adjust the window layout
 

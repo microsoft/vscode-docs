@@ -1,6 +1,6 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about working with the Julia programming language in {% data variables.product.prodname_vscode %}.
 ---
 # Julia in {% data variables.product.prodname_vscode %}
@@ -17,7 +17,7 @@ Most of these features work out of the box, while some may require basic configu
 
 1. Install Julia for your platform: [https://julialang.org/install](https://julialang.org/install).
 2. Install {% data variables.product.prodname_vscode_shortname %} for your platform: [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
-3. Open the Julia extension on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
+3. Open the Julia extension on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
     1. Start {% data variables.product.prodname_vscode_shortname %}.
     2. Inside {% data variables.product.prodname_vscode_shortname %}, go to the Extensions view by clicking **View** on the top menu bar and then selecting **Extensions**.
     3. In the Extensions view, search for the term "julia" in the Marketplace search box, then select the Julia extension (julialang.language-julia) and select the **Install** button.
@@ -25,7 +25,7 @@ Most of these features work out of the box, while some may require basic configu
 
 If you run into any issues installing the Julia {% data variables.product.prodname_vscode_shortname %} extension, check out [install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension), which should help clarify any issues.
 
-![Julia in the {% data variables.product.prodname_vscode_shortname %} Marketplace](images/julia/julia-extension-marketplace.png)
+![Julia in the {% data variables.product.prodname_vs_marketplace %}](images/julia/julia-extension-marketplace.png)
 
 ## Running code
 

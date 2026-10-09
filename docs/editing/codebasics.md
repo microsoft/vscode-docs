@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Edit code efficiently in {% data variables.product.prodname_vscode %} with multiple cursors, search, formatting, folding, and automatic bracket closing.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -79,6 +79,23 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
 You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
+
+### Paste a column selection
+
+When you copy a column selection and paste it at a single cursor, the default `spread` value of `setting(editor.multiCursorPaste)` inserts each copied row on a successive line at the same visible column. To preserve the column, the editor pads shorter destination lines or copied rows with ordinary spaces as needed.
+
+In this example, the copied rows are `A`, `B`, and `C`, and `|` represents the cursor:
+
+```text
+Before          After
+abc|            abcA
+x               x  B
+123456          123C456
+```
+
+Set `setting(editor.multiCursorPaste)` to `full` to paste the copied text as normal multiline text at one destination.
+
+When you paste at multiple cursors, rows are distributed in document order if the number of copied rows matches the number of cursors. Otherwise, the full copied text is pasted at each cursor.
 
 ### Column Selection mode
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -20,11 +20,15 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Review agent changes
 
-In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so review them in a diff before you commit or integrate them. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
+Agents can change workspace files through editing tools, terminal commands, scripts, and [MCP tools](/docs/agent-customization/mcp-servers.md). An editor-maintained pending-edit state might not represent every change made through these paths, so the review workflow differs between Agent Host and the Local harness.
 
-Older extension-host sessions save edits and then mark them as pending so you can keep or undo them. Expand **Review extension-host changes** below for that workflow.
+In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so inspect the diff and Source Control changes before you commit or integrate them. You can [restore a checkpoint](#restore-a-checkpoint) to recover affected workspace files and chat history, but it doesn't reverse completed commands or external effects. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
+
+The **Local** harness runs in the {% data variables.product.prodname_vscode_shortname %} extension host and marks supported file edits as pending so you can keep or undo them individually. The Agent Host **Changes** view doesn't provide the same per-edit Keep and Undo workflow. Expand **Review extension-host changes** below for Local's controls.
 
 Review agent changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
+
+For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility), which presents changes in a unified patch format.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -53,7 +57,7 @@ By default, the {% data variables.copilot.agents_window %} shows these views in 
 * **Files**: a file explorer for the session workspace.
 * **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
 
-The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
+The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. Files changed only through terminal commands or scripts might not appear in tool-specific change tracking. Review the session's folder or worktree in Source Control as well, including untracked files, before committing or integrating changes.
 
 ### Configure word wrap in diff editors
 
@@ -67,7 +71,7 @@ Control how diff editors in the **Changes** view wrap long lines with `setting(s
 
 This setting only affects diff editors and doesn't affect code editors in the {% data variables.copilot.agents_window %}. To configure word wrapping in code editors, see [Configure word wrap for code editors](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors).
 
-You can also toggle word wrapping from the editor by selecting **More Actions** (**...**) > **Word Wrap**.
+To change this setting from a diff editor, select **More Actions** (**...**) > **Word Wrap**. This action updates `setting(sessions.diffEditor.wordWrap)` independently of the code editor setting.
 
 To review and integrate the changes:
 
@@ -94,6 +98,21 @@ To review and integrate the changes:
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
 When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
+
+### Add pull request review comments
+
+`feature(agents-window-pr-comments)`
+
+For an Agent Host session associated with an open GitHub pull request, you can add a review comment to the pull request directly from the **Changes** view. This is different from agent feedback, which asks the agent to revise its changes.
+
+1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
+1. Open a changed file from the **Changes** view and select a range of code.
+1. Select **Add Feedback** and enter your comment.
+1. Select **Add PR Comment** to add the review comment to the pull request. If the session is associated with multiple pull requests, the action identifies the target as `owner/repository#number`.
+
+The selected range must contain only lines that are part of the pull request diff. If the range isn't eligible, {% data variables.product.prodname_vscode_shortname %} reports that a pull request comment can't be added to the line.
+
+**Add PR Comment** adds the comment to GitHub and doesn't send it to the agent. To ask the agent to change the code instead, add the comment as feedback and select **Submit Feedback**.
 
 ### Review changes in the single-pane layout (Experimental)
 

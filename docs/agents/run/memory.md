@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 9/17/2026
+DateApproved: 10/7/2026
 MetaDescription: Use agent memory in {% data variables.product.prodname_vscode_shortname %} to retain preferences, repository knowledge, and task context across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -34,6 +34,21 @@ Each scope serves a different purpose, depending on how long the information sho
 | **Repository** | `/memories/repo/` | Yes | No (workspace-scoped) | Codebase conventions, project structure, build commands |
 | **Session** | `/memories/session/` | No (current conversation only) | No | Task-specific context, in-progress plans |
 
+#### Memory or shared project guidance
+
+All memory scopes on this page are stored locally. Use memory for personal preferences, temporary task context, or emerging project knowledge that your team hasn't reviewed. Repository memory is associated with the current workspace, but it isn't a shared project file.
+
+Put reviewed architecture decisions, commands, conventions, and workflows that contributors depend on in source-controlled project documentation or [custom instructions](/docs/agent-customization/custom-instructions.md). This makes the guidance available for your team's normal review and maintenance process.
+
+When repository memory becomes stable and useful to the team:
+
+1. Verify the information against the repository's code and configuration.
+1. Move it to the appropriate project document or instructions file.
+1. Review the change through your repository's normal process.
+1. Update or remove the local memory to avoid stale or conflicting copies.
+
+For a workflow that creates, verifies, and shares project instructions, see [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md).
+
 #### User memory
 
 User memory persists across all workspaces and conversations. The first 200 lines are automatically loaded into the agent's context at the start of every session. Use user memory for general preferences and insights that apply regardless of which project you're working in.
@@ -41,10 +56,10 @@ User memory persists across all workspaces and conversations. The first 200 line
 For example, ask the agent to remember a coding preference:
 
 ```prompt
-Remember that I prefer tabs over spaces and always use single quotes in JavaScript
+Remember that I prefer a short summary before detailed code examples
 ```
 
-In a later conversation, even in a different workspace, the agent recalls this preference and applies it to generated code.
+In a later conversation, even in a different workspace, the agent recalls this preference and applies it to the response.
 
 #### Repository memory
 
@@ -53,7 +68,7 @@ Repository memory is scoped to the current workspace and persists across convers
 For example:
 
 ```prompt
-Remember that this project uses the repository pattern for data access and all API endpoints require authentication
+Remember that the legacy API routes in this workspace use the repository pattern for data access
 ```
 
 Repository memory is stored locally on your machine.
@@ -69,7 +84,7 @@ The Plan agent uses session memory to persist its implementation plans in a `pla
 To store a memory, ask the agent to remember something in natural language. The agent determines the appropriate scope and creates or updates the corresponding memory file.
 
 ```prompt
-Remember that our team uses conventional commits for all commit messages
+Remember that I prefer concise commit message subjects
 ```
 
 To retrieve a memory, ask about it in a new conversation. The agent checks its memory files and recalls the relevant information.

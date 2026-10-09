@@ -1,5 +1,5 @@
 ---
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, testing) for Swift.
 ---
 # Swift in {% data variables.product.prodname_vscode %}
@@ -27,7 +27,7 @@ The Swift extension is designed to support the following projects:
    [Getting Started Guide on Swift.org](https://www.swift.org/getting-started/).
 2. Download and install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/Download).
 3. Install the Swift extension from the
-   [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
+   [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
    or directly from within the {% data variables.product.prodname_vscode_shortname %} extensions pane.
 
 ![Installing the swift-vscode extension from the extensions pane](images/swift/installation.png)

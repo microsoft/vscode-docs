@@ -13,12 +13,20 @@
       "label": "Dev Containers in Agent Host",
       "state": "experimental"
     },
+    "agent-host-shell-initialization": {
+      "label": "Shell initialization for Copilot Agent Host sessions",
+      "state": "experimental"
+    },
     "agent-merge": {
       "label": "Agent Merge",
       "state": "experimental"
     },
     "agents-window-chat-backgrounds": {
       "label": "Agents window chat backgrounds",
+      "state": "experimental"
+    },
+    "agents-window-pr-comments": {
+      "label": "Pull request comments in the Agents window",
       "state": "experimental"
     },
     "agents-window-word-wrap": {
@@ -75,6 +83,10 @@
     },
     "rubber-duck": {
       "label": "Rubber Duck",
+      "state": "experimental"
+    },
+    "subagent-auto-model-selection": {
+      "label": "Auto model selection for subagents",
       "state": "experimental"
     },
     "terminal-block-detected-file-writes": {

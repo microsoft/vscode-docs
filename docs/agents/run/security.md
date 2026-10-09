@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -18,7 +18,7 @@ Keywords:
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 > [!NOTE]
-> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
+> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/manage-ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
 Learn about trust boundaries, agent sandboxing, and the reasoning behind {% data variables.product.prodname_vscode_shortname %}'s security model.
@@ -33,7 +33,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Use agent sandboxing.** On a supported platform, turn on agent sandboxing to restrict file system and network access for agent-executed terminal commands. Learn more about [configuring agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+1. **Use agent sandboxing and configure network access.** On a supported platform, turn on agent sandboxing to restrict file system access for agent-executed shell commands and child processes. Outbound network access remains enabled by default because `setting(chat.agent.sandbox.network.allowNetwork)` defaults to `true`. Configure network access separately when you need to restrict it. Learn more about [configuring agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
@@ -41,11 +41,11 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
-1. **Review MCP servers before trusting them.** Verify that MCP servers come from a trustworthy source and review their configuration before starting them.
+1. **Review MCP servers before trusting them.** Review repository MCP configuration before you trust a workspace. For servers from other sources, verify that they come from a trustworthy source before starting them.
 
 ## Trust boundaries
 
-{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Each boundary, for the workspace, extension publisher, MCP server, and network domain, requires your explicit consent before it is trusted, and you can revoke trust at any time. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
+{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust decisions cover the workspace, extension publishers, MCP servers, and network domains, and you can revoke trust at any time. Related boundaries can share a decision. For example, MCP servers in `.vscode/mcp.json` and workspace-root `.mcp.json` inherit Workspace Trust. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
 ## How {% data variables.product.prodname_vscode_shortname %} protects your environment
 
@@ -91,12 +91,14 @@ Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-
 
 ### Agent sandboxing
 
-Agent sandboxing uses OS-level isolation to restrict what agent-executed terminal commands can access on your machine. It is in Preview on macOS, Linux, and WSL2, and Experimental on Windows. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+Agent sandboxing uses OS-level isolation to confine shell execution and child processes. For Agent Host sessions, it can also sandbox MCP servers and language servers that the Agent Host launches when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain governed by separate permission checks.
 
-The sandbox applies to Copilot Agent Host sessions and is independent of the selected permission level. For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+Agent Host sandboxing is available on supported Windows, macOS, and Linux hosts and is independent of the selected permission level.
+
+Sandboxing is an added layer. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. Credentials you explicitly inject, developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass all weaken its isolation. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md). For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 > [!IMPORTANT]
-> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run {% data variables.product.prodname_vscode_shortname %} in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Use agent sandboxing as one layer of protection against malicious shell commands instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax. A [dev container](/docs/devcontainers/containers.md) can provide an additional configured boundary.
 
 ### MCP server sandboxing
 
@@ -117,11 +119,11 @@ All development tasks operate with the same permissions as the user.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
 
-* **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Use [agent sandboxing](#agent-sandboxing-preview) to restrict network access to only the domains the agent needs.
+* **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
 
@@ -157,7 +159,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/run/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 
 Learn more about [managing auto approvals](/docs/agents/run/approvals.md#tool-approval).
 
@@ -192,7 +194,7 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 * **Tool output chaining**: Output from one tool becomes input for another, creating opportunities for malicious content to propagate through the system and influence subsequent operations.
 * **External data processing**: When the AI processes untrusted content from files, web requests, or external tools, malicious instructions embedded in that content can be interpreted as legitimate commands.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
 
 </details>
 
@@ -206,7 +208,7 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 
 ## Enterprise policies
 
-Organizations can implement [centralized security controls](/docs/enterprise/ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
+Organizations can implement [centralized security controls](/docs/enterprise/manage-ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
 
 * **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
@@ -215,7 +217,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 
-Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
+Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
 
 ## Related resources
 

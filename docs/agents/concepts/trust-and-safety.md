@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -37,7 +37,7 @@ Agents can read files, edit code, run terminal commands, and call external servi
 * **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Agent Host sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
 * **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
-* **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
+* **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} uses trust decisions for workspaces, extensions, MCP servers, and network domains. Workspace MCP servers inherit Workspace Trust.
 
 For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
@@ -45,23 +45,20 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 ## Trust boundaries
 
-{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Each trust boundary requires explicit consent before it is considered trusted:
+{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust must be granted before a boundary is considered trusted. A single trust decision can cover related boundaries, such as a workspace and its MCP server configuration.
 
 * **Workspace**: controls whether {% data variables.product.prodname_vscode_shortname %} enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
-* **MCP server**: controls whether an MCP server can start and provide tools. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
-* **Network domain**: controls whether the agent can fetch content from a URL. {% data variables.product.prodname_vscode_shortname %} prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools and sandboxed terminal commands can access.
+* **MCP server**: controls whether an MCP server can start and provide tools. Servers configured in `.vscode/mcp.json` or workspace-root `.mcp.json` inherit Workspace Trust. Servers from other sources can require a [separate MCP server trust decision](/docs/agent-customization/mcp-servers.md#mcp-server-trust) and prompt again after configuration changes.
+* **Network domain**: controls whether the agent can fetch content from a URL. {% data variables.product.prodname_vscode_shortname %} prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict domains for the fetch tool and integrated browser. [Sandbox network controls](/docs/agents/run/agent-sandboxing.md#configure-network-access) apply separately to terminal commands.
 
-You can revoke trust at any time through dedicated commands in the Command Palette. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
+You can revoke trust at any time through dedicated commands in the Command Palette. Changing Workspace Trust controls whether workspace MCP servers can run. For servers with a separate trust decision, run **MCP: Reset Trust**. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
 ## Agent sandboxing
 
-> [!NOTE]
-> Agent sandboxing is in Preview on macOS, Linux, and WSL2, and Experimental on Windows.
+Agent sandboxing uses operating system-level isolation to restrict what terminal commands can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing enforces configured file system and network boundaries.
 
-Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
-
-{% data variables.product.prodname_vscode_shortname %} applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot Agent Host sessions. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+In Local sessions, sandboxing applies to terminal commands and their child processes. In {% data variables.product.prodname_copilot_short %} Agent Host sessions, it primarily confines shell execution and child processes. It can also sandbox MCP servers and language servers that the Agent Host launches when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain outside this sandbox and use separate permission checks. Turning on sandboxing does not block outbound network access by default. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 By default, {% data variables.product.prodname_vscode_shortname %} automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
 
@@ -75,7 +72,7 @@ Approval-based security requires you to confirm each terminal command or tool ca
 
 * **Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to trick the agent into running harmful commands. If you approve without careful review, it might result in unintended actions and security risks.
 
-* **Unintended actions on external services.** Even without malicious intent, an agent with network access can perform actions on your behalf that are difficult to reverse. For example, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Network isolation ensures the agent can only reach domains you explicitly permit, reducing the risk of unintended side effects on external services.
+* **Unintended actions on external services.** Even without malicious intent, an agent with network access can perform actions on your behalf that are difficult to reverse. For example, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Blocking outbound connections, or limiting them to required domains where domain filtering is supported, reduces this risk for sandboxed commands.
 
 Sandboxing addresses these challenges by enforcing boundaries at the OS level. The sandbox prevents auto-approved commands from accessing files or network resources outside the permitted scope. If additional permissions are required, {% data variables.product.prodname_vscode_shortname %} prompts you to run the command outside the sandbox. You can configure {% data variables.product.prodname_vscode_shortname %} to try the command inside the sandbox before showing that elevation prompt.
 
@@ -84,9 +81,9 @@ Sandboxing addresses these challenges by enforcing boundaries at the OS level. T
 Sandboxing enforces two types of isolation:
 
 * **File system isolation** limits read and write access to configured paths. It protects sensitive locations, such as SSH keys and shell configuration, and applies to child processes such as package managers and build scripts.
-* **Network isolation** limits outbound connections to configured domains. It reduces the risk of data exfiltration and unintended actions on external services.
+* **Network isolation** blocks outbound connections or, where supported, limits them to configured domains. Domain-filtering capabilities vary by terminal implementation and platform.
 
-Both boundaries are applied at the operating system level and inherited by child processes. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
+Terminal and child-process boundaries use operating system protections. Other supported operations can use checks inside the Agent Host process. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
 
 ### OS-level enforcement
 
@@ -96,20 +93,24 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 |----------|-----------|---------------|
 | macOS | Apple's sandboxing framework ("Seatbelt"), built into the operating system. Enforces fine-grained file system and network restrictions at the kernel level. | None. Works out of the box. |
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
-| Windows | Microsoft MXC process containers apply file system and network policies to the command process. | Install the applicable Windows security update. Windows support is Experimental. |
+| Windows | Microsoft MXC process containers apply file system and network policies to the command process. | Install the applicable Windows security update. |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
 ### What sandboxing does not cover
 
-Agent sandboxing applies to shell subprocesses, including terminal commands from {% data variables.product.prodname_vscode_shortname %} agent sessions and Copilot agent-host sessions. It does not cover built-in file tools. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly, rather than running through the sandbox.
+Agent sandboxing is an added layer for the processes it covers. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. The sandbox does not protect credentials that you explicitly inject. Developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass also weaken its isolation.
+
+Built-in and other non-process tools are not covered by the process sandbox. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly.
 
 > [!TIP]
-> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
+> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for the fetch tool and integrated browser, independently of terminal sandboxing. It does not add domain filtering to the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or the Windows terminal sandbox. See [sandbox network capabilities](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files) to control these operations.
 
-For full environment isolation, pair sandboxing with a [dev container](/docs/devcontainers/containers.md). Dev containers provide a complete boundary around the entire development environment, including all tools, file access, and network access.
+A [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) runs the Agent Host and workspace tools inside the project's container, on your machine or a supported connected host. This is different from a Git worktree, which separates code changes, and terminal sandboxing, which restricts command access.
+
+A Dev Container does not automatically block all access to the host or network. Its boundary depends on the container configuration, including mounted host folders, permissions, and networking. Review that configuration and continue to use the applicable approval and security controls.
 
 Agent sandboxing continues to evolve to cover more tools and scenarios.
 

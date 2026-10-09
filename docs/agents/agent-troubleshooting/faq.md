@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 9/9/2026
+DateApproved: 10/7/2026
 MetaDescription: Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -163,7 +163,7 @@ Yes. {% data variables.product.prodname_vscode_shortname %} automatically indexe
 
 ### Can my organization control AI features and agent access?
 
-Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
+Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/manage-ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
 
 ### Are agents usage-limited?
 
@@ -186,6 +186,28 @@ You can change the default visibility directly from the {% data variables.copilo
 1. Select **Show View by Default** to enable or disable the automatic opening of the {% data variables.copilot.chat_view %}.
 
 You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the {% data variables.copilot.chat_view %} from opening automatically.
+
+## Working across {% data variables.product.prodname_copilot_short %} experiences
+
+### Can I continue a {% data variables.copilot.copilot_cli_short %} or {% data variables.copilot.github_copilot_app_short %} session in {% data variables.product.prodname_vscode_shortname %}?
+
+Yes, use **External** > **All** in the sessions list filter to show [supported local sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. The Agent Host then adopts the session, and the **External** filter no longer affects its visibility.
+
+### Why can't I see a {% data variables.product.prodname_copilot_short %} session I already started?
+
+Sessions from other applications are hidden until you change the [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) from **None**. {% data variables.product.prodname_copilot_short %} discovers repository-associated sessions updated within the last seven days. **Recent** shows the two most recently updated external sessions, whereas **All** shows all discovered sessions, not every past session.
+
+### Can I continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal?
+
+Yes, open a {% data variables.product.prodname_copilot_short %} session's context menu and select **Resume in Terminal** to continue it with {% data variables.copilot.copilot_cli %}. Learn about [using {% data variables.copilot.copilot_cli_short %} in the integrated terminal](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal).
+
+### Does switching between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} start a new session?
+
+No, opening the same supported Agent Host session in either interface keeps its conversation, harness, workspace, and worktree. [Switching surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces) does not create, fork, or hand off a session.
+
+### Is picking up a session the same as syncing its history?
+
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
 
 ## Troubleshooting and feedback
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Get the best out of editing TypeScript with {% data variables.product.prodname_vscode %}.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
@@ -133,7 +133,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
+For more specialized code formatting styles, try installing one of the formatting extensions from the {% data variables.product.prodname_vs_marketplace %}.
 
 ## Refactoring
 

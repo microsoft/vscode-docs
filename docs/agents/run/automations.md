@@ -1,6 +1,6 @@
 ---
 ContentId: 76a5b461-bcbd-474f-9638-d4533c51a4e3
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 FeatureStatus: automations
 MetaDescription: Create, share, schedule, and manage agent automations in the {% data variables.copilot.agents_window %}, including reusable templates.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png

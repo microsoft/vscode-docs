@@ -1,6 +1,6 @@
 ---
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Setting up additional components to use with {% data variables.product.prodname_vscode %}.
 ---
 # Additional components and tools
@@ -23,7 +23,7 @@ You'll find the components above mentioned often in our documentation and walkth
 
 You can extend the {% data variables.product.prodname_vscode_shortname %} editor itself through [extensions](/docs/configure/extensions/extension-marketplace.md). The {% data variables.product.prodname_vscode_shortname %} community has built thousands of useful extensions available on the {% data variables.product.prodname_vscode_shortname %} [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-The following list shows some of the popular extensions in the {% data variables.product.prodname_vscode_shortname %} Marketplace. Select an extension tile to view the extension details.
+The following list shows some of the popular extensions in the {% data variables.product.prodname_vs_marketplace %}. Select an extension tile to view the extension details.
 
 <div class="marketplace-extensions-top"></div>
 

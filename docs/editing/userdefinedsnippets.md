@@ -1,6 +1,6 @@
 ---
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: It is easy to add code snippets to {% data variables.product.prodname_vscode %} both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in {% data variables.product.prodname_vscode %}
@@ -23,7 +23,7 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 

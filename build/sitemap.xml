@@ -111,6 +111,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/introvideos</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/setup/mac</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -151,7 +156,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/enterprise/ai-settings</loc>
+        <loc>https://code.visualstudio.com/docs/enterprise/manage-ai-settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -187,6 +192,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/configure/extensions/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editing/getting-started/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -506,6 +516,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/migrate-customizations</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/custom-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -596,6 +611,26 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/explore-a-codebase</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/add-a-feature</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/refactor-safely</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/context-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -636,12 +671,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/mcp-developer-guide</loc>
+        <loc>https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet</loc>
+        <loc>https://code.visualstudio.com/docs/agents/reference/tools-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2081,6 +2116,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/UpdateModelProject</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/learn</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2206,11 +2246,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/code-review-with-copilot</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/monitoring-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2261,11 +2296,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/cpp/build-with-cmake</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2297,11 +2327,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/extension-docs/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/copilot-quickstart</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2357,6 +2382,66 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/supporting/oss-extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/agents/1-using-tools-with-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/agents/2-extending-agents-with-mcp-servers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/agents/3-agent-plugins</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/agents/4-using-third-party-agents-in-vs-code</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/foundry-toolkit-extension/1-get-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/foundry-toolkit-extension/2-exploring-models</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/foundry-toolkit-extension/3-building-social-media-agent</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/foundry-toolkit-extension/4-building-hosted-agent</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/java-spring-boot/1-build-and-run</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/java-spring-boot/2-debug-and-inspect</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/java-spring-boot/3-expose-tools-with-mcp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/java-spring-boot/4-test-with-playwright</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

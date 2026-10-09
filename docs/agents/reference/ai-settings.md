@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 9/17/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -65,6 +65,8 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
+| `setting(chat.experimental.persistentProgress)` _(Experimental)_<br/>Keep a [progress indicator visible until an agent response finishes](/docs/chat/chat-overview.md#customize-the-chat-display). Values are `off`, `draw`, `drawMonochrome`, and `drawMonochromeNoIcon`. | `"draw"` (Insiders)<br/>`"off"` (Stable)<br/>Experiments can override these defaults. |
+| `setting(chat.experimental.persistentProgressVerbosity)` _(Experimental)_<br/>Control completed tool-call details while persistent progress is active. `compact` replaces completed groups with expandable summaries, and `verbose` keeps full tool-call details visible. | `"compact"` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
@@ -119,6 +121,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that the agent can make. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(chat.subagents.allowInvocationsFromSubagents)`<br/>Enable subagents to invoke other subagents, up to a maximum nesting depth of five. | `false` |
+| `setting(chat.subagents.defaultToAuto)` `feature(subagent-auto-model-selection)`<br/>Use [Auto as the default model for local subagents](/docs/agents/run/subagents.md#use-auto-for-subagents) when neither the tool call nor the selected agent specifies a model. Explicit model selections take precedence. | `false` |
 | `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
 | `setting(github.copilot.chat.searchSubagent.subagentSemanticSearchEnabled)` _(Experimental)_<br/>Enable the semantic search tool for the Search subagent. This only affects the Search subagent and does not disable semantic search elsewhere. | `true` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
@@ -143,6 +146,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.tools.terminal.outputLocation)` _(Experimental)_<br/>Configure where terminal command output appears: inline in chat or in the integrated terminal. | `"chat"` |
+| `setting(chat.tools.terminal.outputReflow)`<br/>Reflow [terminal output previews](/docs/agents/run/tools.md#run-terminal-commands) to fit the chat width. Turn this off to preserve the terminal's column width and scroll horizontally. | `true` |
 | `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
 | `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the {% data variables.copilot.chat_view %} as context. | `true` |
 | `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
@@ -172,20 +176,36 @@ Use the following links to jump to the settings for a specific area:
 
 ### Sandboxing and network access
 
+Agent Host sandbox settings are resolved on the execution host. For a connected remote Agent Host, defaults, paths, and platform behavior refer to that remote host.
+
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on macOS, Linux, and WSL2. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.enabledWindows)` _(Experimental)_<br/>Control [agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md) on Windows. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.allowNetwork)` _(Preview)_<br/>Allow sandboxed terminal commands unrestricted network access while preserving file system restrictions. | `true` |
-| `setting(chat.agent.sandbox.allowUnsandboxedCommands)` _(Preview)_<br/>Allow a terminal command to run outside the sandbox after user confirmation if sandbox restrictions block it. | `true` |
-| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Preview)_<br/>Allow a blocked terminal command to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Preview)_<br/>Automatically approve terminal commands that run inside the sandbox. | `true` |
-| `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Windows. Supports `allowRead`, `allowWrite`, and `denyRead` properties. | `{}` |
+| `setting(chat.agent.sandbox.enabled)`<br/>Control [Agent Host sandboxing](/docs/agents/run/agent-sandboxing.md) on all platforms. Possible values are `off` and `on`. | `off` |
+| `setting(chat.agent.sandbox.network.allowNetwork)`<br/>Permit external network access for sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.network.allowLocalNetwork)`<br/>Permit sandboxed Agent Host processes to access local network resources. | `false` |
+| `setting(chat.agent.sandbox.allowUnsandboxedCommands)`<br/>Allow the Agent Host to request confirmation to run a command outside the sandbox when sandbox restrictions block it. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.userConfiguredPaths)`<br/>Configure additional execution-host paths with `readwritePaths`, `readonlyPaths`, and `deniedPaths` arrays. Denied access takes precedence over read-only access, which takes precedence over read-write access. The working directory is granted automatically. | `{ "readwritePaths": [], "readonlyPaths": [], "deniedPaths": [] }` |
+| `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)`<br/>Grant access to directories, configuration, and caches for developer tools. These locations can include credentials such as package registry tokens. | `true` |
+| `setting(chat.agent.sandbox.mcpServers)`<br/>Apply sandboxing to MCP servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.lspServers)`<br/>Apply sandboxing to language servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategit)`<br/>Provide Git authentication to sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategh)`<br/>Provide GitHub CLI authentication to sandboxed Agent Host processes. | `true` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `false` |
-| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `[]` |
-| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `[]` |
+| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. An empty list blocks all domains for tools that use the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
+
+#### Legacy Local and custom terminal sandbox settings
+
+The following settings support legacy Local or custom terminal behavior. They do not configure the standard {% data variables.product.prodname_copilot_short %} Agent Host sandbox.
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
+| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local only)_<br/>Allow a blocked Local terminal command to retry inside the legacy sandbox with unrestricted network access after user confirmation. | `true` |
+| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local only)_<br/>Automatically approve Local terminal commands that run inside the legacy sandbox. This setting does not apply to Agent Host. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure legacy Linux file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure legacy macOS file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure legacy Windows file system access with `allowRead`, `allowWrite`, and `denyRead`. Agent Host ignores this setting. | `{}` |
 
 ### Planning, models, and agent providers
 
@@ -203,7 +223,7 @@ Use the following links to jump to the settings for a specific area:
 
 ## Agent sessions
 
-The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-list) to manage local and remote agent sessions, switch between tasks, and track their progress.
 
 ### Session experience
 
@@ -213,8 +233,15 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
 | `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |
+| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false`<br/>Experiments can override this default. |
 | `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of inactive days before an eligible session with a merged pull request is [automatically marked as done](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). Set to `0` to disable automatic cleanup. The recommended value is `15`. | `0` |
-| `setting(chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
+| `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
+| `setting(sessions.showChatTabs)` _(Preview)_<br/>Show each chat as a tab with `multiple`, or show only the active chat as the session view with `single`. | `"multiple"` |
+| `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable)<br/>Experiments can override these defaults. |
+| `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
+| `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
+| `setting(sessions.chat.experimental.welcomeName)` _(Experimental)_<br/>Set the name in new-session welcome messages. Leave empty to use the first name from the signed-in GitHub profile when available. | `""` |
+| `setting(sessions.chat.experimental.welcomeMessages)` _(Experimental)_<br/>Add custom welcome phrases to the defaults with `append`, or use only custom phrases with `replace`. Use `{name}` to position the welcome name in a phrase. | `{"mode": "append", "phrases": []}` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
@@ -223,6 +250,9 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentSessions.preferredLightBackgroundImageLayout)` _(Experimental)_<br/>Control the [chat background image layout](/docs/chat/chat-overview.md#customize-the-agents-window-chat-background) in the {% data variables.copilot.agents_window %} when using a light color theme. | `"repeat"` |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(sessions.editor.wordWrap)` _(Experimental)_<br/>Control [how code editors in the {% data variables.copilot.agents_window %} wrap long lines](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors). Values are `off`, `on`, and `inherit`. | `"inherit"` |
+| `setting(sessions.diffEditor.wordWrap)` _(Experimental)_<br/>Control [how diff editors in the **Changes** view wrap long lines](/docs/agents/run/review-code-edits.md#configure-word-wrap-in-diff-editors). Values are `off`, `on`, and `inherit`. | `"inherit"` |
+| `setting(chat.experimental.agentsWindowPRComments)` `feature(agents-window-pr-comments)`<br/>Show **Add PR Comment** when you [add range comments while reviewing agent changes](/docs/agents/run/review-code-edits.md#add-pull-request-review-comments). | `false` |
 | `setting(sessions.useWorktree)` _(Insiders)_<br/>Control whether **New Worktree** is selected when no previous code-isolation choice has been saved. After you start a session, the saved choice applies across workspaces instead. | `true` |
 | `setting(chat.automations.enabled)` `feature(automations)`<br/>Show [Automations](/docs/agents/run/automations.md) in the {% data variables.copilot.agents_window %} and run scheduled agent tasks. When disabled, automation entry points are hidden and scheduled tasks aren't dispatched. | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
@@ -238,21 +268,25 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in Agent Host sessions. Changes are synchronized to the running Agent Host. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. The agent host process must be restarted to take effect. | `true` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Enabling takes effect without restarting the Agent Host. Disabling takes effect after the next Agent Host restart. | `false` |
-| `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and [run Agent Host sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
+| `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and folders on SSH, Tunnel, or WSL hosts, and [run Agent Host sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
+| `setting(chat.agentHost.agentOrchestrationLimits)` _(Experimental)_<br/>Control process-wide limits on sessions and chats created, messages sent, and recursive session creation by Agent Host session tools. Set to `off` to remove the limits without changing confirmation or validation requirements. | `"on"` |
+| `setting(chat.remoteAgentHostsEnabled)` _(Experimental)_<br/>Allow connections to [remote agent hosts](/docs/agents/run/remote-agent-sessions.md). | `true` |
+| `setting(chat.remoteSessions.tools.enabled)` _(Experimental)_<br/>Provide built-in tools for agents to discover remote hosts, create and inspect remote sessions, and send messages between sessions. Requires remote agent hosts. Turning this off doesn't disconnect hosts or stop remote sessions that are already running. | `false` |
+| `setting(chat.agentHost.shellTool.initScript.enabled)` `feature(agent-host-shell-initialization)`<br/>Load `~/.bashrc` on macOS and Linux or your PowerShell profiles on Windows before each SDK shell command in local Copilot Agent Host sessions. With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, also activate the selected workspace environment. This does not apply to remote sessions or the Agent Host custom terminal tool. | `false` |
 | `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the {% data variables.copilot.chat_view %} on the Agent Host instead of the OpenAI extension. Only one Codex implementation appears per window. Requires `setting(chat.agentHost.codexAgent.enabled)` and prompts for a restart when changed. | `false` |
 
-### Agent Merge
+### {% data variables.copilot.agent_merge_caps %}
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [Agent Merge](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. Agent Merge monitors a session's pull request and can ask the agent to address selected blockers. | `false` |
+| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [{% data variables.copilot.agent_merge %}](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. {% data variables.copilot.agent_merge_caps %} monitors a session's pull request and can ask the agent to address selected blockers. | `false` |
 | `setting(chat.agentMerge.addressReviews)` _(Experimental)_<br/>Address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer. | `true` |
 | `setting(chat.agentMerge.fixCI)` _(Experimental)_<br/>Ask the agent to fix failed required CI checks. | `true` |
 | `setting(chat.agentMerge.resolveConflicts)` _(Experimental)_<br/>Ask the agent to update branches that are behind and resolve merge conflicts. | `true` |
-| `setting(chat.agentMerge.mergePullRequest)` _(Experimental)_<br/>Control whether Agent Merge merges or enqueues the pull request when it is ready. `always` merges after any selected maintenance work, `ifUnchanged` merges only until an agent repair turn changes the pull request, and `never` turns off automatic merging. | `"never"` |
+| `setting(chat.agentMerge.mergePullRequest)` _(Experimental)_<br/>Control whether {% data variables.copilot.agent_merge %} merges or enqueues the pull request when it is ready. `always` merges after any selected maintenance work, `ifUnchanged` merges only until an agent repair turn changes the pull request, and `never` turns off automatic merging. | `"never"` |
 | `setting(chat.agentMerge.mergeMethod)` _(Experimental)_<br/>Select the merge method. `auto` uses the first repository-compatible method in this order: squash, merge commit, or rebase. You can also require `squash`, `merge`, or `rebase`. | `"auto"` |
-| `setting(chat.agentMerge.replyAttribution)` _(Experimental)_<br/>Include an automated-reply attribution in review-thread replies posted by Agent Merge. | `true` |
+| `setting(chat.agentMerge.replyAttribution)` _(Experimental)_<br/>Include an automated-reply attribution in review-thread replies posted by {% data variables.copilot.agent_merge %}. | `true` |
 
 ## Inline chat settings
 
@@ -280,23 +314,21 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"chatAndAgent"` |
+| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"off"` |
 
 ## Customization migration settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.customizations.promptMigration.enabled)` _(Experimental)_<br/>Show the migration that converts prompt files to [agent skills](/docs/agent-customization/agent-skills.md) for Agent Host sessions. | `true` |
-| `setting(chat.customizations.userDataMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents and instructions from profile user data to locations supported by the selected Agent Host. | `false` |
-| `setting(chat.customizations.locationsMigration.enabled)` _(Experimental)_<br/>Show the migration that copies custom agents, instructions, and skills from Local agent location settings to locations supported by the selected Agent Host. | `false` |
+| `setting(chat.customizations.migration.enabled)` _(Experimental)_<br/>Show migration actions, hints, compatibility badges, and compatibility details for customizations that the selected Agent Host harness can't use in their current location or format. | `true` |
 
-Learn how to [migrate agent customizations](/docs/agent-customization/overview.md#migrate-customizations-experimental).
+Learn how to [migrate agent customizations](/docs/agent-customization/migrate-customizations.md).
 
 ## Custom instructions settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
+| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
 | `setting(chat.includeApplyingInstructions)`<br/>Automatically add instruction files with a matching `applyTo` pattern to chat requests. | `true` |
 | `setting(chat.includeReferencedInstructions)`<br/>Automatically add instruction files referenced via Markdown links to chat requests. | `false` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
@@ -304,8 +336,9 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
 | `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
-| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/agent-customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
-| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
+| `setting(chat.useHooks)` _(Preview)_ <br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [Local hook file locations](/docs/agent-customization/hooks.md#local-hook-file-locations). Specify paths to folders, which load all `*.json` files, or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useClaudeHooks)` _(Preview)_ <br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
@@ -314,14 +347,14 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/overview.md#migrate-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
 | `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
 
 ## Custom agents settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
+| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
 | `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
@@ -330,7 +363,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
-| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
+| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
 | `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
 ## Observability settings
@@ -342,6 +375,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 | `setting(github.copilot.chat.otel.otlpEndpoint)` <br/>OTLP collector endpoint URL. | `"http://localhost:4318"` |
 | `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
 | `setting(github.copilot.chat.otel.captureContent)` <br/>Capture full prompt and response content in OTel spans. May include sensitive information. | `false` |
+| `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local harness sessions. This is independent of content capture and may include sensitive information. | `false` |
 
 ## Agent plugins settings
 
@@ -349,8 +383,8 @@ Learn how to [migrate agent customizations](/docs/agent-customization/overview.m
 |------------------------|---------------|
 | `setting(chat.plugins.enabled)`<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
 | `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
-| `setting(chat.plugins.enabledPlugins)`<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
-| `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Trust only marketplaces supplied by [enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `false` |
+| `setting(chat.plugins.enabledPlugins)`<br/>Plugin IDs to enable or disable. When [centrally managed through enterprise policy](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces), `true` force-enables a plugin, `false` force-disables it, and omitted plugins remain under normal user enablement. | `{}` |
+| `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Restrict plugin installation to a list of approved marketplace sources. An empty list blocks all marketplaces. Can be [centrally managed through enterprise policy](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces). | `null` |
 | `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
 
 ## Debugging settings
@@ -407,12 +441,14 @@ Learn how to [use Voice Mode and built-in dictation](/docs/configure/accessibili
 | `setting(accessibility.signals.chatResponseReceived)`<br/>Plays a sound / audio cue when the response has been received. | `{ "sound": "auto" }` |
 | `setting(accessibility.signals.chatEditModifiedFile)`<br/>Plays a sound / audio cue when the file has been modified by chat edits. | `{ "sound": "auto" }` |
 | `setting(accessibility.signals.chatUserActionRequired)`<br/>Plays a sound / audio cue when the user needs to take an action in chat. | `{ "sound": "auto", "announcement": "auto" }` |
+| `setting(accessibility.signals.confetti)`<br/>Plays a joyful sound when chat feedback or marking a session as done displays confetti. | `{ "sound": "auto" }` |
 | `setting(accessibility.signals.lineHasInlineSuggestion)`<br/>Plays a sound / audio cue when the cursor is on a line that has an inline suggestion. | `{ "sound": "auto" }` |
 | `setting(accessibility.signals.nextEditSuggestion)`<br/>Plays a sound / audio cue when a next edit suggestion is available. | `{ "sound": "auto", "announcement": "auto" }` |
 | `setting(accessibility.verboseChatProgressUpdates)`<br/>Provide verbose updates about chat activity. | `true` |
 | `setting(accessibility.verbosity.inlineChat)`<br/>Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused. | `true` |
 | `setting(accessibility.verbosity.inlineCompletions)`<br/>Provide information about how to access the inline suggestions hover and Accessible View. | `true` |
 | `setting(accessibility.verbosity.panelChat)`<br/>Provide information about how to access the chat help menu when the chat input is focused. | `true` |
+| `setting(accessibility.verbosity.newSessionWelcome)`<br/>Announce the welcome heading when a new-session composer appears in the {% data variables.copilot.agents_window %}. | `true` |
 | `setting(accessibility.voice.keywordActivation)`<br/>Controls whether the keyword phrase 'Hey Code' is recognized to start a voice chat session. | `"off"` |
 | `setting(accessibility.voice.autoSynthesize)`<br/>Controls whether a textual response should automatically be read out aloud when speech was used as input. | `"off"` |
 | `setting(accessibility.voice.speechTimeout)`<br/>Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |

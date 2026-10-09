@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -20,10 +20,12 @@ This article provides a reference for the MCP server configuration file format, 
 
 ## Configuration file
 
-MCP server configuration is stored in the `mcp.json` JSON file. This file can be in your workspace (`.vscode/mcp.json`) or in your [user profile](/docs/configure/profiles.md). {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for the configuration file.
+MCP server configuration uses one of the following file formats:
 
-> [!NOTE]
-> {% data variables.product.prodname_vscode_shortname %} forwards the servers you configure to the [Agent Host](/docs/agents/concepts/agent-host.md), except servers that require interactive input (for example, `${input:...}` variables). The Agent Host doesn't read `.vscode/mcp.json` directly; for portable configuration, use a workspace `.mcp.json` or user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+* The {% data variables.product.prodname_vscode_shortname %} format is stored in `.vscode/mcp.json` in your workspace or in your [user profile](/docs/configure/profiles.md). It defines servers in a top-level `servers` object. {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for this format.
+* The portable format is stored in `.mcp.json` at the root of your workspace or in `~/.copilot/mcp-config.json` for your user. It defines servers in a top-level `mcpServers` object.
+
+The [Agent Host](/docs/agents/concepts/agent-host.md) reads the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards servers from `.vscode/mcp.json` to the Agent Host, except servers that require interactive input, such as `${input:...}` variables. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 ### Configuration structure
 
@@ -315,7 +317,7 @@ The following table lists the MCP-related commands available in the Command Pale
 | **MCP: Open User Configuration** | Open the `mcp.json` file in your user profile. |
 | **MCP: Open Workspace Folder MCP Configuration** | Open the `.vscode/mcp.json` file in your workspace. |
 | **MCP: Reset Cached Tools** | Clear the cached list of tools for MCP servers. Use this when a server's tools have changed. |
-| **MCP: Reset Trust** | Reset trust decisions for MCP servers, requiring re-confirmation on next start. |
+| **MCP: Reset Trust** | Reset separate trust decisions for MCP servers from non-workspace sources. Workspace MCP servers inherit Workspace Trust and are unaffected. |
 | **MCP: Show Installed Servers** | Show a list of all installed MCP servers. |
 
 ## Settings
@@ -334,4 +336,4 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Dev Guide](/docs/agents/guides/mcp-developer-guide.md)
+* [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool)

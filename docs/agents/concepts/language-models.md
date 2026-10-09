@@ -1,7 +1,7 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 9/16/2026
-MetaDescription: Understand how large language models power AI features in {% data variables.product.prodname_vscode_shortname %}, including model characteristics, context windows, and model selection.
+DateApproved: 10/7/2026
+MetaDescription: Understand language models in {% data variables.product.prodname_vscode_shortname %}, including model access, characteristics, context windows, and selection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -19,6 +19,7 @@ Keywords:
 {% data variables.product.prodname_vscode %} uses large language models (LLMs) to power its AI features. You have flexibility in which models you use and how you access them:
 
 * **Models from your GitHub Copilot plan**: choose from multiple models by different providers, such as Anthropic, Google, and OpenAI, included with your plan.
+* **Other accounts**: use an [account supported by the selected harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), such as a ChatGPT account for Codex. Model availability, usage limits, and billing depend on that account's plan and the harness.
 * **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in {% data variables.product.prodname_vscode_shortname %} without a GitHub Copilot plan.
 
 This article explains how language models work, their characteristics, and how to think about model selection.

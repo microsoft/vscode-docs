@@ -39,12 +39,15 @@ jobs:
       targetFolder: $(Pipeline.Workspace)/vscode-website/vscode-docs
     displayName: Copy vscode-docs into vscode-website
 
-  - task: NodeTool@0
-    displayName: Install Node via .nvmrc
+  - powershell: |
+      $nodeVersion = (Get-Content "$(Pipeline.Workspace)/vscode-website/.nvmrc" -Raw).Trim()
+      Write-Host "##vso[task.setvariable variable=NODE_VERSION]$nodeVersion"
+    displayName: Read Node version from .nvmrc
+
+  - task: UseNode@1
+    displayName: Install Node
     inputs:
-      versionSource: 'fromFile'
-      versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
-      checkLatest: true
+      version: $(NODE_VERSION)
 
   - script: npm config list
     displayName: List npm properties

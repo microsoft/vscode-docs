@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 9/16/2026
+DateApproved: 10/7/2026
 MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, including ghost text completions and next edit suggestions.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
@@ -25,7 +25,7 @@ Follow a hands-on tutorial to build your first app with AI in {% data variables.
 ## Prerequisites
 
 * {% data variables.product.prodname_vscode %} installed on your machine. Follow these steps to [set up {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md).
-* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up {% data variables.copilot.copilot_free_short %} to get a monthly allowance of inline suggestions and AI credits.
+* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/setup/copilot.md). You can set up {% data variables.copilot.copilot_free_short %} to get a monthly allowance of inline suggestions and AI credits.
 
 ## Ghost text suggestions
 
@@ -125,6 +125,14 @@ Alternatively, modify the `setting(github.copilot.enable)` setting in the Settin
 To temporarily disable all inline suggestions in the editor, select the Copilot menu in the Status Bar, and then select the **Snooze** button to increment the snooze time by five minutes. To resume inline suggestions, select the **Cancel Snooze** button in the Copilot menu.
 
 Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline Suggestions** commands in the Command Palette.
+
+## Use inline suggestions on metered connections
+
+When {% data variables.product.prodname_vscode_shortname %} treats your network connection as metered, {% data variables.product.prodname_copilot %} does not start new automatic ghost text or next edit suggestion requests. Requests already in progress continue.
+
+You can still request a suggestion explicitly. Run the **Trigger Inline Suggestion** command from the Command Palette.
+
+This behavior applies only to the built-in {% data variables.product.prodname_copilot_short %} provider. It does not change how local-only or third-party completion providers behave.
 
 ## Change the AI model for suggestions
 
