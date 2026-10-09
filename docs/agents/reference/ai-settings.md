@@ -136,7 +136,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)`<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
-| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't control servers managed by the Agent Host. | `newAndOutdated` |
+| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot session from starting servers it manages independently. See [MCP autostart behavior](/docs/agent-customization/mcp-servers.md#automatically-start-mcp-servers). | `newAndOutdated` |
 
 ### Agent tools
 
@@ -163,8 +163,8 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/agents/run/security.md). | `false` |
-| `setting(chat.assistedPermissions.enabled)` `feature(assisted-permissions)`<br/>Show [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) in supported Agent Host permission pickers. An LLM judge evaluates the risk of each tool call and asks for your approval when it does not approve a call. | `true` (Insiders)<br/>`false` (Stable) |
-| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Manual permissions), `autoApprove` (Allow all), `autopilot` (Autopilot). You can still change the permission level per session. On the Agent Host, Autopilot is selected as an agent mode instead. If enterprise policy disables auto-approval, new sessions use Manual permissions. | `"default"` |
+| `setting(chat.assistedPermissions.enabled)` `feature(assisted-permissions)`<br/>Show [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) in supported permission pickers. This option isn't available in Local sessions. An LLM judge evaluates the risk of each tool call and asks for your approval when it does not approve a call. | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Manual permissions), `autoApprove` (Allow all), `autopilot` (Autopilot). You can still change the permission level per session. In Copilot sessions, select Autopilot as an agent mode instead; in Local sessions, it's a permission level. If enterprise policy disables auto-approval, new sessions use Manual permissions. | `"default"` |
 | `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/run/approvals.md#advanced-autopilot-preview), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
 | `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/run/approvals.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
@@ -176,36 +176,38 @@ Use the following links to jump to the settings for a specific area:
 
 ### Sandboxing and network access
 
-Agent Host sandbox settings are resolved on the execution host. For a connected remote Agent Host, defaults, paths, and platform behavior refer to that remote host.
+The sandbox settings below apply to Copilot sessions that use the default tools. Defaults, paths, and platform behavior refer to the machine where commands run, including for remote sessions. Local sessions and custom terminal tools have [separate compatibility settings](#local-and-custom-terminal-sandbox-settings).
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.sandbox.enabled)`<br/>Control [Agent Host sandboxing](/docs/agents/run/agent-sandboxing.md) on all platforms. Possible values are `off` and `on`. | `off` |
-| `setting(chat.agent.sandbox.network.allowNetwork)`<br/>Permit external network access for sandboxed Agent Host processes. | `true` |
-| `setting(chat.agent.sandbox.network.allowLocalNetwork)`<br/>Permit sandboxed Agent Host processes to access local network resources. | `false` |
-| `setting(chat.agent.sandbox.allowUnsandboxedCommands)`<br/>Allow the Agent Host to request confirmation to run a command outside the sandbox when sandbox restrictions block it. | `true` |
+| `setting(chat.agent.sandbox.enabled)`<br/>Control [sandboxing](/docs/agents/run/agent-sandboxing.md) on all platforms. Possible values are `off` and `on`. | `off` |
+| `setting(chat.agent.sandbox.network.allowNetwork)`<br/>Permit external network access for sandboxed processes. | `true` |
+| `setting(chat.agent.sandbox.network.allowLocalNetwork)`<br/>Permit sandboxed processes to access local network resources. | `false` |
+| `setting(chat.agent.sandbox.allowUnsandboxedCommands)`<br/>Allow the agent to request confirmation to run a command outside the sandbox when sandbox restrictions block it. | `true` |
 | `setting(chat.agent.sandbox.fileSystem.userConfiguredPaths)`<br/>Configure additional execution-host paths with `readwritePaths`, `readonlyPaths`, and `deniedPaths` arrays. Denied access takes precedence over read-only access, which takes precedence over read-write access. The working directory is granted automatically. | `{ "readwritePaths": [], "readonlyPaths": [], "deniedPaths": [] }` |
 | `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)`<br/>Grant access to directories, configuration, and caches for developer tools. These locations can include credentials such as package registry tokens. | `true` |
-| `setting(chat.agent.sandbox.mcpServers)`<br/>Apply sandboxing to MCP servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
-| `setting(chat.agent.sandbox.lspServers)`<br/>Apply sandboxing to language servers that the Agent Host launches or manages when Agent Host sandboxing is enabled. | `true` |
-| `setting(chat.agent.sandbox.credentials.authenticategit)`<br/>Provide Git authentication to sandboxed Agent Host processes. | `true` |
-| `setting(chat.agent.sandbox.credentials.authenticategh)`<br/>Provide GitHub CLI authentication to sandboxed Agent Host processes. | `true` |
+| `setting(chat.agent.sandbox.mcpServers)`<br/>Apply sandboxing to MCP servers launched or managed for the session when sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.lspServers)`<br/>Apply sandboxing to language servers launched or managed for the session when sandboxing is enabled. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategit)`<br/>Provide Git authentication to sandboxed processes. | `true` |
+| `setting(chat.agent.sandbox.credentials.authenticategh)`<br/>Provide GitHub CLI authentication to sandboxed processes. | `true` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. Restart {% data variables.product.prodname_vscode_shortname %} after you change this setting to ensure new integrated browser sessions use the updated network policy. | `false` |
 | `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. An empty list blocks all domains for tools that use the filter. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
 | `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for the fetch tool and integrated browser when `setting(chat.agent.networkFilter)` is enabled, and for compatible terminal sandbox implementations. Terminal filtering capabilities vary by implementation and platform. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting so new integrated browser sessions use the updated policy. | `[]` |
 
-#### Legacy Local and custom terminal sandbox settings
+<a name="legacy-local-and-custom-terminal-sandbox-settings"></a>
 
-The following settings support legacy Local or custom terminal behavior. They do not configure the standard {% data variables.product.prodname_copilot_short %} Agent Host sandbox.
+#### Local and custom terminal sandbox settings
+
+The following settings configure the Local sandbox or custom terminal behavior. They do not configure sandboxing for {% data variables.product.prodname_copilot_short %}'s default tools.
 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
-| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local only)_<br/>Allow a blocked Local terminal command to retry inside the legacy sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local only)_<br/>Automatically approve Local terminal commands that run inside the legacy sandbox. This setting does not apply to Agent Host. | `true` |
-| `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure legacy Linux file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure legacy macOS file system access with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. Agent Host ignores this setting. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure legacy Windows file system access with `allowRead`, `allowWrite`, and `denyRead`. Agent Host ignores this setting. | `{}` |
+| `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local only)_<br/>Allow a blocked terminal command in a Local session to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
+| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local only)_<br/>Automatically approve terminal commands that run inside the Local sandbox. | `true` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure Local sandbox file system access on Linux with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure Local sandbox file system access on macOS with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure Local sandbox file system access on Windows with `allowRead`, `allowWrite`, and `denyRead`. | `{}` |
 
 ### Planning, models, and agent providers
 
@@ -265,14 +267,14 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
-| `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in Agent Host sessions. Changes are synchronized to the running Agent Host. | `false` |
-| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. The agent host process must be restarted to take effect. | `true` |
-| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Enabling takes effect without restarting the Agent Host. Disabling takes effect after the next Agent Host restart. | `false` |
-| `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and folders on SSH, Tunnel, or WSL hosts, and [run Agent Host sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
-| `setting(chat.agentHost.agentOrchestrationLimits)` _(Experimental)_<br/>Control process-wide limits on sessions and chats created, messages sent, and recursive session creation by Agent Host session tools. Set to `off` to remove the limits without changing confirmation or validation requirements. | `"on"` |
+| `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Make extension-provided [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) models available to the Agent Host. Changes are synchronized to the running process. | `false` |
+| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Restart the Agent Host process for the change to take effect. | `true` |
+| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
+| `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and folders on SSH, Tunnel, or WSL hosts, and [run sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
+| `setting(chat.agentHost.agentOrchestrationLimits)` _(Experimental)_<br/>Control process-wide limits within an Agent Host on sessions and chats created, messages sent, and recursive session creation by session coordination tools. Set to `off` to remove the limits without changing confirmation or validation requirements. | `"on"` |
 | `setting(chat.remoteAgentHostsEnabled)` _(Experimental)_<br/>Allow connections to [remote agent hosts](/docs/agents/run/remote-agent-sessions.md). | `true` |
 | `setting(chat.remoteSessions.tools.enabled)` _(Experimental)_<br/>Provide built-in tools for agents to discover remote hosts, create and inspect remote sessions, and send messages between sessions. Requires remote agent hosts. Turning this off doesn't disconnect hosts or stop remote sessions that are already running. | `false` |
-| `setting(chat.agentHost.shellTool.initScript.enabled)` `feature(agent-host-shell-initialization)`<br/>Load `~/.bashrc` on macOS and Linux or your PowerShell profiles on Windows before each SDK shell command in local Copilot Agent Host sessions. With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, also activate the selected workspace environment. This does not apply to remote sessions or the Agent Host custom terminal tool. | `false` |
+| `setting(chat.agentHost.shellTool.initScript.enabled)` `feature(agent-host-shell-initialization)`<br/>Load `~/.bashrc` on macOS and Linux or your PowerShell profiles on Windows before each SDK shell command in local Copilot sessions. With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, also activate the selected workspace environment. This does not apply to remote sessions or the Agent Host custom terminal tool. | `false` |
 | `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the {% data variables.copilot.chat_view %} on the Agent Host instead of the OpenAI extension. Only one Codex implementation appears per window. Requires `setting(chat.agentHost.codexAgent.enabled)` and prompts for a restart when changed. | `false` |
 
@@ -320,7 +322,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.customizations.migration.enabled)` _(Experimental)_<br/>Show migration actions, hints, compatibility badges, and compatibility details for customizations that the selected Agent Host harness can't use in their current location or format. | `true` |
+| `setting(chat.customizations.migration.enabled)` _(Experimental)_<br/>Show migration actions, hints, compatibility badges, and compatibility details for customizations that the selected harness can't use in their current location or format. | `true` |
 
 Learn how to [migrate agent customizations](/docs/agent-customization/migrate-customizations.md).
 
@@ -328,7 +330,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
+| `setting(chat.instructionsFilesLocations)` _(Deprecated)_<br/>Configure custom instruction locations for the Local harness. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move instructions to supported locations. | `{ ".github/instructions": true, ".claude/rules": true, "~/.copilot/instructions": true, "~/.claude/rules": true }` |
 | `setting(chat.includeApplyingInstructions)`<br/>Automatically add instruction files with a matching `applyTo` pattern to chat requests. | `true` |
 | `setting(chat.includeReferencedInstructions)`<br/>Automatically add instruction files referenced via Markdown links to chat requests. | `false` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
@@ -347,14 +349,14 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local harness. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
 | `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
 
 ## Custom agents settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
+| `setting(chat.agentFilesLocations)` _(Deprecated)_<br/>Configure custom agent locations for the Local harness. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move agents to supported locations. | `{ ".github/agents": true, ".claude/agents": true, "~/.copilot/agents": true }` |
 | `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
@@ -363,7 +365,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
-| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
+| `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local harness. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
 | `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
 ## Observability settings
@@ -375,7 +377,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.otel.otlpEndpoint)` <br/>OTLP collector endpoint URL. | `"http://localhost:4318"` |
 | `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
 | `setting(github.copilot.chat.otel.captureContent)` <br/>Capture full prompt and response content in OTel spans. May include sensitive information. | `false` |
-| `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local harness sessions. This is independent of content capture and may include sensitive information. | `false` |
+| `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local sessions. This is independent of content capture and may include sensitive information. | `false` |
 
 ## Agent plugins settings
 

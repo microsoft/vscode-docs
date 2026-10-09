@@ -30,9 +30,11 @@ For account, connectivity, or feature-availability problems, start with [Trouble
 
 Prepare logging before you reproduce the issue:
 
-* For local chat sessions in the main {% data variables.product.prodname_vscode_shortname %} window, enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting and reload the window before you use `/troubleshoot`.
-* For sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md), enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect.
+* Enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect. It captures events for sessions managed by the [Agent Host](/docs/agents/concepts/agent-host.md), whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 * Reproduce the issue and note the affected session. Capture is not retroactive.
+
+> [!NOTE]
+> **For Local sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 > [!CAUTION]
 > Debug views and exported logs can contain prompts, source code, file paths, tool inputs and outputs, and other sensitive data. Review this content before sharing it, and never include credentials or secrets.
@@ -73,7 +75,7 @@ Custom instructions and prompt files enter a request in different ways:
 
 1. Open the [chat customization diagnostics view](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics) to check whether an instructions file was discovered and whether it has errors.
 1. For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on.
-1. For a prompt file, verify that you invoked it manually. Agents that run on the Agent Host do not use prompt files. For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
+1. For a prompt file, verify that the session uses the Local agent and that you invoked the file manually. Prompt files are supported only in Local agent sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
 1. Check **Discovery** events in the Agent Debug Logs to see whether a customization was loaded, skipped, or rejected.
 1. In the Chat Debug view, inspect the **System prompt** for custom instructions and the **User prompt** for an invoked prompt file.
 1. Correct the discovery or applicability issue, repeat the request, and verify the corresponding prompt content again.
@@ -144,7 +146,7 @@ Alternatively, enter `/troubleshoot` followed by a question. For example:
 /troubleshoot Which customizations were loaded, and did any fail?
 ```
 
-For a session in the {% data variables.copilot.agents_window %}, enter `/troubleshoot #session`, select the local or remote session, and then add your question.
+For a session in the {% data variables.copilot.agents_window %}, enter `/troubleshoot #session`, select the session, and then add your question.
 
 ### Export and import sessions
 

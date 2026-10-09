@@ -109,7 +109,7 @@ If built-in updates are disabled by policy, the notice directs the developer to 
 
 ### Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}
 
-Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and Agent Host. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts Agent Host automatically after it resolves a managed telemetry change.
+Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the Agent Host automatically after it resolves a managed telemetry change.
 
 Identity capture is off by default and independent of content capture. Review both controls before deployment, and remove conflicting OpenTelemetry environment variables from managed devices. For the configuration schema and supported clients, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry).
 
@@ -186,15 +186,18 @@ To prevent transcript text from being sent to a language model, set `DictationLL
 
 #### Enable or disable hooks
 
-Set the `ChatHooks` policy to `false` to disable [hooks](/docs/agent-customization/hooks.md) in the **Local** harness. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host.
+Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} sessions, use [Policy Hooks](#use-the-sdk-harness-for-policy-hooks) and the [managed hook-source controls](#restrict-hook-sources) below.
 
-##### Use the SDK harness for Policy Hooks
+> [!NOTE]
+> **For Local sessions:** Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} sessions.
 
-{% data variables.product.prodname_copilot_short %} Policy Hooks apply to sessions on the SDK harness, not to sessions that remain on Local.
+<a name="use-the-sdk-harness-for-policy-hooks"></a>
 
-Set the `ChatEditorPreferCopilotHarness` policy to `true` to prefer the SDK harness for new editor chat sessions. This policy controls `setting(chat.editor.preferCopilotHarness)` _(Experimental)_.
+##### Verify Policy Hook coverage
 
-The preference does not migrate existing sessions or change explicit or remembered Claude and Codex selections. Check the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) during rollout.
+{% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** as the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
+
+Local sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
 <a id="deploy-hooks-through-managed-plugins"></a>
 
@@ -254,13 +257,16 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
 #### Configure agent sandboxing
 
-{% data variables.product.prodname_vscode_shortname %} sandbox device policies are deprecated and apply to Local sessions. They do not enforce sandboxing for {% data variables.product.prodname_copilot_short %} sessions that use Agent Host.
+For {% data variables.product.prodname_copilot_short %} sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) on the machine where commands run.
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
-The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. For Agent Host sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-an-agent-host-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy).
+Check client support before attempting centralized enforcement. The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. Don't assume that a control supported by another client applies here.
 
-The following deprecated policies preserve Local-session behavior:
+<details>
+<summary>Sandbox device policies for Local sessions</summary>
+
+The following {% data variables.product.prodname_vscode_shortname %} device policies are deprecated and apply to Local sessions. They do not enforce sandboxing for Copilot sessions.
 
 | Policy | Local-session behavior |
 |--------|------------------------|
@@ -268,6 +274,8 @@ The following deprecated policies preserve Local-session behavior:
 | `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
 | `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
 | `ChatAgentSandboxAllowAutoApprove` | Controls automatic approval of sandboxed terminal commands. |
+
+</details>
 
 #### Configure agent network filtering
 
