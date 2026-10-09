@@ -2381,11 +2381,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editing/getting-started/action-card-samples</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/learn/agents/1-using-tools-with-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
