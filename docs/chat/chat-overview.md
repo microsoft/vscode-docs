@@ -57,7 +57,7 @@ For example, enter the following message to run your tests:
 The command runs immediately in the session's default shell, without sending the message to the agent or asking for approval. It uses the session folder or worktree as the working directory. The command output and exit status appear in the chat transcript.
 
 > [!NOTE]
-> The `!` command is only available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions.
+> The `!` command isn't available in Local sessions, cloud sessions, or extension-based agent integrations. Use the [integrated terminal](/docs/terminal/getting-started.md) to run commands yourself instead.
 
 ## Send messages while a request is running
 

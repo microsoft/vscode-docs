@@ -183,6 +183,11 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
+Copilot sessions use the [built-in shell tool](/docs/agents/run/agent-harnesses.md#copilot) by default. Workspace commands run in the session's environment, and you review the results in chat. The integrated-terminal controls below apply to Local sessions and configurations that use the integrated terminal tool.
+
+<details>
+<summary>Integrated-terminal controls</summary>
+
 When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within {% data variables.product.prodname_vscode_shortname %}.
 
 In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
@@ -207,6 +212,8 @@ While a command is running, a **Continue in Background** button appears next to 
 The agent can also specify a timeout when running terminal commands. When the timeout is reached, the agent stops waiting for the command and returns the output collected so far. Use the `setting(chat.tools.terminal.enforceTimeoutFromModel)` setting to control whether to enforce the timeout value that the agent specifies.
 
 The agent can also choose to run commands directly in the background, without user interaction. Background terminals that you have not revealed are automatically cleaned up when their command finishes, which prevents stale terminals from accumulating over a long session. To reveal a background terminal and keep it open after the command completes, select the **Show** link in the chat tool invocation header. The terminal output remains visible in the chat conversation even after a terminal is cleaned up.
+
+</details>
 
 > [!TIP]
 > To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/run/approvals.md).

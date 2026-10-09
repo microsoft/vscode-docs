@@ -63,7 +63,7 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 ### Switch chats within a session
 
-A supported Agent Host session can contain a main chat and additional peer chats. In the **Sessions** view, expand the main chat row and select a peer to open its conversation in the {% data variables.copilot.chat_view %}.
+With a harness that supports multiple chats, such as Copilot or Claude, a session can contain a main chat and additional peer chats. In the **Sessions** view, expand the main chat row and select a peer to open its conversation in the {% data variables.copilot.chat_view %}.
 
 You can continue peer chats created in the {% data variables.copilot.agents_window %} without starting a new session. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
