@@ -1,7 +1,7 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
 DateApproved: 10/7/2026
-MetaDescription: Create and migrate reusable prompt files in {% data variables.product.prodname_vscode_shortname %} for repeatable AI-assisted development tasks.
+MetaDescription: Use prompt files in {% data variables.product.prodname_vscode_shortname %} for reusable Local agent workflows, or migrate them to agent skills.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - prompt files
@@ -13,19 +13,18 @@ Keywords:
 ---
 # Use prompt files in {% data variables.product.prodname_vscode_shortname %}
 
-Prompt files, also known as slash commands, let you simplify prompting for common tasks by encoding them as standalone Markdown files that you can invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
+Prompt files, also known as slash commands, are supported only in Local agent sessions. They simplify prompting for common tasks by encoding them as standalone Markdown files that you invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
+
+For reusable workflows in sessions that use another harness, create an [agent skill](/docs/agent-customization/agent-skills.md). You can also [convert existing prompt files to skills](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
 Use prompt files to:
 
 * Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
-You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
-
-> [!IMPORTANT]
-> Prompt files are deprecated for [Agent Host](/docs/agents/concepts/agent-host.md) sessions and aren't loaded by Agent Host. They continue to work with the Local agent for now, but the Local agent will be removed in a future release. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert existing prompts to agent skills.
+With **Local** selected, use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage prompt files. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Prompt file locations
 

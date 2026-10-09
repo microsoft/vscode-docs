@@ -80,7 +80,7 @@ Include workspace configuration in source control to share MCP servers with your
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow. Choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers.
 
-For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+For Copilot sessions, use workspace `.mcp.json` or user `~/.copilot/mcp-config.json` files for configuration that the agent reads directly and can share with compatible Copilot tools. {% data variables.product.prodname_vscode_shortname %} also forwards eligible configurations from other supported sources, including `.vscode/mcp.json`, except configurations that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly.
 
 > [!IMPORTANT]
 > Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
@@ -192,7 +192,7 @@ Beyond tools, MCP servers can provide other capabilities:
 On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
 
 > [!NOTE]
-> This per-server sandbox is separate from automatic sandboxing for MCP servers launched by the Agent Host. When Agent Host sandboxing is on, `setting(chat.agent.sandbox.mcpServers)` applies by default and has its own configuration and scope. Learn more about [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+> This per-server sandbox is separate from sandboxing for Copilot sessions. When the [Copilot sandbox](/docs/agents/run/agent-sandboxing.md) is on, `setting(chat.agent.sandbox.mcpServers)` applies by default to the servers it manages and has its own configuration and scope.
 
 To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a top-level `sandbox` object with specific file system and network rules.
 
@@ -266,7 +266,7 @@ When you submit a chat message, {% data variables.product.prodname_vscode_shortn
 Disabled servers and servers in an error state are excluded from the autostart pass.
 
 > [!IMPORTANT]
-> For [Agent Host](/docs/agents/concepts/agent-host.md) sessions, `setting(chat.mcp.autostart)` only controls the {% data variables.product.prodname_vscode_shortname %} MCP autostart pass. The Agent Host and Copilot SDK manage their MCP server processes independently. The Agent Host discovers MCP configuration from workspace `.mcp.json` and user `~/.copilot/mcp-config.json` files. {% data variables.product.prodname_vscode_shortname %} also forwards eligible server configurations from supported sources, including `.vscode/mcp.json`. As a result, setting `setting(chat.mcp.autostart)` to `never` doesn't prevent an Agent Host session from starting its configured MCP servers.
+> Setting `setting(chat.mcp.autostart)` to `never` doesn't prevent a Copilot session from starting its configured MCP servers. This setting controls only the editor's MCP autostart pass. The [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs the session, manages its servers independently. For configuration locations and forwarding restrictions, see [Configure the `mcp.json` file](#configure-the-mcpjson-file).
 
 ## MCP server trust
 
