@@ -235,7 +235,7 @@ Use {% data variables.product.prodname_vscode_shortname %} device policies to co
 
 ##### Disable global auto-approval
 
-Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval.
+Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval. While this policy is set, tool confirmations offer only one-time approval, and tool approvals that developers saved earlier aren't applied.
 
 > [!CAUTION]
 > Global auto-approval bypasses security prompts for tool invocations. Disable it unless your threat model explicitly supports this behavior.
