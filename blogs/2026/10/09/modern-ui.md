@@ -55,7 +55,7 @@ We used it as a proving ground: a place to see how those decisions worked togeth
 
 ![The Agents window showing the Sessions and Customizations sidebar, new-session composer, and Files panel.](./vscode-agents-window.png)
 
-*The [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window) organizes the interface around agent sessions and reviewing their work.*
+*The [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window) organizes the interface around agent sessions and reviewing their work. The screenshot shows an early implementation of the updated design system.*
 
 The editor window brings a different set of demands, including dense file navigation, multiple editor groups, and long-established workflows. Bringing the design system into that environment helps us refine it further. The learning goes both ways.
 
