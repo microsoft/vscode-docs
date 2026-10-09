@@ -20,13 +20,14 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Review agent changes
 
-Agents can change workspace files through editing tools, terminal commands, scripts, and [MCP tools](/docs/agent-customization/mcp-servers.md). An editor-maintained pending-edit state might not represent every change made through these paths, so the review workflow differs between Agent Host and the Local harness.
+The agent applies and saves edits directly in the session's folder or isolated Git worktree. Review the diffs and Source Control changes before you commit or integrate them.
 
-In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so inspect the diff and Source Control changes before you commit or integrate them. You can [restore a checkpoint](#restore-a-checkpoint) to recover affected workspace files and chat history, but it doesn't reverse completed commands or external effects. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
+Agents can change files through editing tools, terminal commands, scripts, and [MCP tools](/docs/agent-customization/mcp-servers.md). Review the resulting files, including changes that might not appear in a tool-specific list of edits. These changes don't wait in a pending review state.
 
-The **Local** harness runs in the {% data variables.product.prodname_vscode_shortname %} extension host and marks supported file edits as pending so you can keep or undo them individually. The Agent Host **Changes** view doesn't provide the same per-edit Keep and Undo workflow. Expand **Review extension-host changes** below for Local's controls.
+You can [restore a checkpoint](#restore-a-checkpoint) to recover affected workspace files and chat history, but it doesn't reverse completed commands or external effects. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
 
-Review agent changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
+> [!NOTE]
+> **For Local sessions:** Supported file edits are marked as pending so you can keep or undo them individually. This also applies to existing extension-host sessions. See [Review Local session changes](#review-local-session-changes) for those controls. The {% data variables.copilot.agents_window %} **Changes** view doesn't provide the same per-edit **Keep** and **Undo** workflow.
 
 For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility), which presents changes in a unified patch format.
 
@@ -103,7 +104,7 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 `feature(agents-window-pr-comments)`
 
-For an Agent Host session associated with an open GitHub pull request, you can add a review comment to the pull request directly from the **Changes** view. This is different from agent feedback, which asks the agent to revise its changes.
+For a **Copilot** or **Claude** session, or a **Codex** session using the [experimental integration](/docs/agents/run/agent-harnesses.md#codex), you can add a review comment to its open GitHub pull request directly from the **Changes** view in the {% data variables.copilot.agents_window %}. This is different from agent feedback, which asks the agent to revise its changes.
 
 1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
 1. Open a changed file from the **Changes** view and select a range of code.
@@ -201,10 +202,12 @@ Hover over a request and select **Fork Conversation** to create an independent s
 > [!NOTE]
 > Checkpoints are temporary and don't replace Git version control. Use Git for permanent version history and collaboration.
 
-<details>
-<summary>Review extension-host changes</summary>
+<a name="review-local-session-changes"></a>
 
-If [Agent Host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+<details>
+<summary>Review Local session changes</summary>
+
+The following controls apply when you select **Local** as the session target or continue an existing extension-host session in the {% data variables.copilot.chat_view %}. These sessions track supported file edits as pending changes that you can keep or undo individually.
 
 After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
