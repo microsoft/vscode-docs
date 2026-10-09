@@ -192,8 +192,8 @@ Context name | True when
 `findWidgetVisible` | Editor Find widget is visible.
 `suggestWidgetVisible` | Suggestion widget (IntelliSense) is visible.
 `suggestWidgetMultipleSuggestions` | Multiple suggestions are displayed.
-`hasOtherSuggestions` | True when alternative suggestions are available to cycle through.
-`hasSnippetCompletions` | True when snippet completions matching the current prefix are available (used with tab completion).
+`hasOtherSuggestions` | An accepted tab completion has alternative suggestions that you can cycle through.
+`hasSnippetCompletions` | A matching snippet completion is available when `editor.tabCompletion` is set to `onlySnippets`.
 `inlineSuggestionVisible` | True when an inline suggestion (ghost text) is visible.
 `inlineSuggestionHasIndentation` | True when the inline suggestion starts with whitespace indentation.
 `renameInputVisible` | Rename input text box is visible.
