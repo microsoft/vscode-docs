@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 10/7/2026
-MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
+MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %}
@@ -24,9 +24,9 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
-  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
-  * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for Agent Host sessions.
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) to use Claude without GitHub sign-in (Experimental).
+  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) to use Codex without GitHub sign-in (Experimental).
+  * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for use in the {% data variables.copilot.agents_window %}.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -55,9 +55,9 @@ On desktop, you can open the {% data variables.copilot.agents_window %} without 
 
 * Claude configured with an API key or another supported Claude BYOK option.
 * Codex signed in to ChatGPT.
-* A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available to Agent Host sessions.
+* A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available in the {% data variables.copilot.agents_window %}.
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
 
 To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the {% data variables.copilot.agents_window %}, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
@@ -132,16 +132,15 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-### Run a session in a Dev Container
+<a name="run-a-session-in-a-dev-container"></a>
+
+### Run a session in a Dev Container (Experimental)
 
 `feature(agent-host-dev-containers)`
 
-Run an Agent Host session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
+Run a session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
 This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.
-
-> [!NOTE]
-> Dev Container sessions are rolling out gradually. If the setting isn't enabled for you yet, you can enable it manually.
 
 Before you start, make sure that:
 
@@ -222,7 +221,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is currently available for quick chats that use the Copilot harness or Codex on the Agent Host. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+> This option is available for Copilot and Codex quick chats. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 
@@ -260,7 +259,7 @@ If the active session has uncommitted changes, select **Commit Changes** in the 
 
 ### Create a pull request
 
-For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+If the session doesn't already have a pull request, use the **Create PR** form to review the details and choose what happens after creation:
 
 1. Open the **Changes** view, and then select **Create PR**.
 
@@ -356,7 +355,7 @@ The {% data variables.copilot.agents_window %} restores conversations, drafts, p
 
 ### Work with multiple chats in a session
 
-In supported Agent Host sessions, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
+With a harness that supports multiple chats, such as Copilot or Claude, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
 The main chat and interactive peer chats are also available in the editor's [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#switch-chats-within-a-session), where you select them from the **Sessions** view rather than the {% data variables.copilot.agents_window %} chat tabs.
 
@@ -376,7 +375,7 @@ You can personalize chat, adjust the window layout, configure settings and exten
 
 ## Limitations
 
-* Agent Host Codex sessions can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
+* Codex sessions that use the [experimental direct integration](/docs/agents/run/agent-harnesses.md#codex) can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 

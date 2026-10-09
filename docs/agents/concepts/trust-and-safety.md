@@ -34,7 +34,7 @@ Understand the control mechanisms and safety considerations for using AI in {% d
 Agents can read files, edit code, run terminal commands, and call external services. {% data variables.product.prodname_vscode_shortname %}'s trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
 * **Review before integrating.** Agents can save edits directly in the session folder or worktree. Inspect the changes in a diff before you commit, merge, or create a pull request. For supported sessions, [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) restore affected workspace files and chat to an earlier point.
-* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Agent Host sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
+* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Copilot sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
 * **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
 * **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} uses trust decisions for workspaces, extensions, MCP servers, and network domains. Workspace MCP servers inherit Workspace Trust.
@@ -56,11 +56,14 @@ You can revoke trust at any time through dedicated commands in the Command Palet
 
 ## Agent sandboxing
 
-Agent sandboxing uses operating system-level isolation to restrict what terminal commands can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing enforces configured file system and network boundaries.
+Agent sandboxing uses operating system-level isolation to restrict what terminal commands can access on the machine where they run. Instead of relying solely on approval prompts before each action, sandboxing enforces configured file system and network boundaries.
 
-In Local sessions, sandboxing applies to terminal commands and their child processes. In {% data variables.product.prodname_copilot_short %} Agent Host sessions, it primarily confines shell execution and child processes. It can also sandbox MCP servers and language servers that the Agent Host launches when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain outside this sandbox and use separate permission checks. Turning on sandboxing does not block outbound network access by default. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+In {% data variables.product.prodname_copilot_short %} sessions that use the default tools, sandboxing confines shell execution and child processes. It can also sandbox MCP servers and language servers started or managed for the session when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain outside this sandbox and use separate permission checks. Turning on sandboxing does not block outbound network access by default. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
-By default, {% data variables.product.prodname_vscode_shortname %} automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
+Sandboxing and approval are separate controls. A sandbox restricts the resources a process can access, while the session's permission settings determine whether an action requires confirmation.
+
+> [!NOTE]
+> **For Local sessions:** Sandboxing applies to terminal commands and their child processes. Its approval behavior and configuration differ from Copilot's default tools. See [Local sandbox compatibility](/docs/agents/run/agent-sandboxing.md#local-sessions-and-custom-terminal-tools).
 
 ### Why sandboxing matters
 
@@ -83,7 +86,7 @@ Sandboxing enforces two types of isolation:
 * **File system isolation** limits read and write access to configured paths. It protects sensitive locations, such as SSH keys and shell configuration, and applies to child processes such as package managers and build scripts.
 * **Network isolation** blocks outbound connections or, where supported, limits them to configured domains. Domain-filtering capabilities vary by terminal implementation and platform.
 
-Terminal and child-process boundaries use operating system protections. Other supported operations can use checks inside the Agent Host process. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
+Terminal and child-process boundaries use operating system protections. Other supported operations can use checks inside the process that runs the agent. You can configure file system and network access separately. For default behavior and configuration steps, see [Sandbox agent terminal commands](/docs/agents/run/agent-sandboxing.md).
 
 ### OS-level enforcement
 
@@ -104,11 +107,11 @@ Agent sandboxing is an added layer for the processes it covers. It is not a virt
 Built-in and other non-process tools are not covered by the process sandbox. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly.
 
 > [!TIP]
-> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for the fetch tool and integrated browser, independently of terminal sandboxing. It does not add domain filtering to the {% data variables.product.prodname_copilot_short %} Agent Host built-in shell or the Windows terminal sandbox. See [sandbox network capabilities](/docs/agents/run/agent-sandboxing.md#configure-network-access).
+> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for the fetch tool and integrated browser, independently of terminal sandboxing. It does not add domain filtering to {% data variables.product.prodname_copilot_short %}'s built-in shell or the Windows terminal sandbox. See [sandbox network capabilities](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files) to control these operations.
 
-A [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) runs the Agent Host and workspace tools inside the project's container, on your machine or a supported connected host. This is different from a Git worktree, which separates code changes, and terminal sandboxing, which restricts command access.
+A [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) runs the agent and its workspace tools inside the project's container, on your machine or a supported connected host. This is different from a Git worktree, which separates code changes, and terminal sandboxing, which restricts command access.
 
 A Dev Container does not automatically block all access to the host or network. Its boundary depends on the container configuration, including mounted host folders, permissions, and networking. Review that configuration and continue to use the applicable approval and security controls.
 

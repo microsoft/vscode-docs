@@ -1,7 +1,7 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
 DateApproved: 10/7/2026
-MetaDescription: Configure and verify {% data variables.product.prodname_copilot_short %} Agent Host sandboxing with file system and network access controls.
+MetaDescription: Restrict file system and network access for {% data variables.product.prodname_copilot_short %} agent commands and verify each session's sandbox policy.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -14,13 +14,16 @@ keywords:
 - permissions
 - network
 ---
-# Sandbox {% data variables.product.prodname_copilot_short %} Agent Host sessions
+# Sandbox {% data variables.product.prodname_copilot_short %} agent sessions
 
-{% data variables.product.prodname_copilot_short %} [Agent Host sessions](/docs/agents/concepts/agent-host.md) can run terminal commands and start language or tool servers on your local machine or a connected remote host. Agent sandboxing confines these processes to the file system and network access that you configure on the execution host.
+{% data variables.product.prodname_copilot_short %} sessions can run terminal commands and start language or tool servers on your machine or a connected remote machine. Agent sandboxing confines these processes to the file system and network access that you configure on the machine where they run.
 
 Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, and inspect the effective policy for a session.
 
-The settings and behavior below apply to the Agent Host's default {% data variables.copilot.copilot_sdk_short %} tool implementation, not the Local chat harness or the custom terminal tool override.
+The settings and behavior below apply to Copilot sessions that use the default {% data variables.copilot.copilot_sdk_short %} tools.
+
+> [!NOTE]
+> **For Local sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local sessions and custom terminal tools](#local-sessions-and-custom-terminal-tools) for compatibility details.
 
 ## Understand the sandbox boundary
 
@@ -31,11 +34,11 @@ Sandboxing and approvals provide separate layers of protection:
 | [Approvals](/docs/agents/run/approvals.md) | Determine whether an action runs automatically or requires your confirmation. |
 | Sandboxing | Restricts the file system and network resources that supported agent operations can access. |
 
-Sandboxing applies to terminal commands and their child processes. When configured, it also applies to MCP and language servers that the Agent Host launches or manages. Built-in tools that don't start operating system processes use their own permission checks.
+Sandboxing applies to terminal commands and their child processes. When configured, it also applies to MCP and language servers started or managed for the session. Built-in tools that don't start operating system processes use their own permission checks.
 
 Sandboxing is not a virtual machine or user-account boundary, and it does not replace endpoint security. A sandboxed process still runs on the execution host under your account. Network access, extra paths, credentials, developer tool access, and permission to run outside the sandbox all weaken isolation. Grant only the access that a task requires.
 
-Depending on the operation and platform, restrictions use operating system protections or checks within the agent host process. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [MCP server sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) outside the Agent Host is a separate feature with its own configuration and platform support.
+Depending on the operation and platform, restrictions use operating system protections or checks within the process that runs the agent. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [Per-server MCP sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is a separate feature with its own configuration and platform support.
 
 For the security model and threats that sandboxing helps mitigate, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
@@ -44,7 +47,7 @@ For the security model and threats that sandboxing helps mitigate, see [Trust an
 
 ## Check platform availability
 
-Agent Host sandboxing has the following platform prerequisites. Check the operating system where the agent runs. For a remote Agent Host, install dependencies and operating system updates on the remote host, not the client machine.
+Check the operating system where commands run against the following prerequisites. For remote sessions, install dependencies and operating system updates on the remote machine, not the machine where you connect to the session.
 
 | Platform | Prerequisite |
 |---|---|
@@ -72,20 +75,22 @@ On Windows, install the update that applies to your Windows version:
 * Windows 11 26H1: [KB5124012](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124012-windows-11-26h1-security-update).
 
 > [!NOTE]
-> Windows support is Experimental. The separate MCP server sandboxing feature outside the Agent Host is not available on Windows.
+> Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
 
-## Turn on sandboxing on the execution host
+<a name="turn-on-sandboxing-on-the-execution-host"></a>
 
-The `setting(chat.agent.sandbox.enabled)` setting controls Agent Host sandboxing on all platforms. It accepts `off` or `on` and defaults to `off`.
+## Turn on sandboxing where commands run
 
-For a local Agent Host, the execution host is your local machine. For a connected remote Agent Host, its platform determines the sandbox implementation and prerequisites. Settings are resolved on that host, and all configured paths refer to its file system, not the client machine.
+The `setting(chat.agent.sandbox.enabled)` setting controls sandboxing on all supported platforms. It accepts `off` or `on` and defaults to `off`.
+
+Configure sandboxing on the machine where the session runs commands. For a remote session, the remote machine's platform determines the sandbox implementation and prerequisites. Settings are resolved on that machine, and all configured paths refer to its file system.
 
 > [!NOTE]
-> Legacy sandbox device policies are deprecated for Agent Host enforcement. Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing.
+> Sandbox device policies don't enforce these controls for Copilot sessions. Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing.
 
 1. Meet the [platform prerequisites](#check-platform-availability) on the execution host.
 1. Set `setting(chat.agent.sandbox.enabled)` to `on` in the settings for that host.
-1. Start a new Agent Host session.
+1. Start a new Copilot session.
 1. [Inspect the effective sandbox policy](#inspect-the-effective-sandbox-policy) to verify the session's restrictions.
 
 To enable sandboxing in your settings JSON:
@@ -96,25 +101,31 @@ To enable sandboxing in your settings JSON:
 }
 ```
 
-If an operating system dependency is unavailable, the Agent Host does not silently run the command without the sandbox. Follow the notification to install the missing dependency.
+If an operating system dependency is unavailable, the command does not silently run without the sandbox. Follow the notification to install the missing dependency.
+
+<a name="control-sandboxing-for-an-agent-host-session"></a>
 
 ### Control sandboxing for the current session
 
-In an Agent Host session, open **Permissions** and select **Sandboxing for terminal** to change sandboxing for that session. This control does not update User or Workspace settings, change other sessions, or set the default for new sessions.
+Open **Permissions** and select **Sandboxing for terminal** to change sandboxing for the current session. This control does not update User or Workspace settings, change other sessions, or set the default for new sessions.
 
 A new session inherits the effective configuration of its execution host. An explicit session selection persists when you restore the session unless an organization-managed restriction overrides it.
 
 Sandboxing is independent of the selected [permission level](/docs/agents/run/approvals.md#permission-levels). For example, the sandbox continues to restrict processes when you select **Allow all**.
 
-### Configure sandboxing for an Agent Host session
+<a name="configure-sandboxing-for-an-agent-host-session"></a>
 
-{% data variables.product.prodname_copilot_short %} Agent Host sessions are available in both the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and an editor window. They use the {% data variables.copilot.copilot_sdk_short %} built-in shell by default. You do not need to change terminal implementations to use sandboxing.
+### Use sandboxing across windows and machines
 
-For a remote Agent Host, use the [session toggle](#control-sandboxing-for-the-current-session) to change the current session's sandbox state. Defaults for new sessions come from the connected host's sandbox configuration, not from the client machine's settings.
+{% data variables.product.prodname_copilot_short %} sessions are available in both the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and an editor window. They use the {% data variables.copilot.copilot_sdk_short %} built-in shell by default. You do not need to change terminal implementations to use sandboxing.
 
-## Agent Host sandbox settings
+For a remote session, use the [session toggle](#control-sandboxing-for-the-current-session) to change the current session's sandbox state. Defaults for new sessions come from the remote machine's sandbox configuration, not from the machine where you connect to the session.
 
-The following settings configure the Agent Host sandbox. Shared setting names do not imply that other chat harnesses use the same behavior.
+<a name="agent-host-sandbox-settings"></a>
+
+## Sandbox settings
+
+The following settings configure sandboxing for Copilot sessions that use the default tools. Shared setting names do not imply that other harnesses use the same behavior.
 
 | Setting | Default | Purpose |
 |---|---|---|
@@ -133,7 +144,7 @@ The following settings configure the Agent Host sandbox. Shared setting names do
 
 ## Inspect the effective sandbox policy
 
-The `/sandbox policy` slash command is available only in Agent Host sessions. Run it to verify whether sandboxing is active or investigate why a process is blocked.
+In a Copilot session, run `/sandbox policy` to verify whether sandboxing is active or investigate why a process is blocked. This command isn't available in Local sessions.
 
 * Enter `/sandbox policy` in the chat input and submit it. The report opens automatically in the editor as a Markdown preview. Select **Open Sandbox Policy** in the response to reopen it.
 
@@ -153,7 +164,7 @@ The sandbox automatically grants read and write access to the current working di
 | `readonlyPaths` | Read access without write access. |
 | `deniedPaths` | No access. |
 
-For a path listed in more than one property, `deniedPaths` takes precedence over `readonlyPaths`, which takes precedence over `readwritePaths`. Paths refer to the machine where the agent runs, including for remote Agent Host sessions.
+For a path listed in more than one property, `deniedPaths` takes precedence over `readonlyPaths`, which takes precedence over `readwritePaths`. Paths refer to the machine where the agent runs commands, including for remote sessions.
 
 The following example grants read and write access to a build output folder, read access to shared source, and prevents access to sensitive data:
 
@@ -175,14 +186,16 @@ Use `/sandbox policy` to inspect the effective permissions, including runtime de
 
 ## Configure managed servers and credentials
 
-When sandboxing is on, these settings determine whether processes managed by the Agent Host run with specific sandbox access:
+When sandboxing is on, these settings control the servers and credentials available to the session:
 
-* `setting(chat.agent.sandbox.mcpServers)` defaults to `true` and applies sandboxing to MCP servers launched or managed by the Agent Host.
-* `setting(chat.agent.sandbox.lspServers)` defaults to `true` and applies sandboxing to language servers launched or managed by the Agent Host.
+* `setting(chat.agent.sandbox.mcpServers)` defaults to `true` and applies sandboxing to MCP servers started or managed for the session.
+* `setting(chat.agent.sandbox.lspServers)` defaults to `true` and applies sandboxing to language servers started or managed for the session.
 * `setting(chat.agent.sandbox.credentials.authenticategit)` defaults to `true` and provides Git authentication to sandboxed processes.
 * `setting(chat.agent.sandbox.credentials.authenticategh)` defaults to `true` and provides GitHub CLI authentication to sandboxed processes.
 
-Turning off MCP or language server sandboxing leaves those Agent Host-managed server processes outside the sandbox. Servers that you start independently are also outside the Agent Host's management. Turn off credential access that a task does not need. A process with credentials can act with the permissions of the associated account.
+These server controls apply to processes managed by the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs the session. They don't cover servers you start independently. Turning off MCP or language server sandboxing leaves the corresponding managed server processes outside the sandbox.
+
+Turn off credential access that a task does not need. A process with credentials can act with the permissions of the associated account.
 
 ## Configure network access
 
@@ -190,9 +203,9 @@ File system and network isolation are separate controls:
 
 * `setting(chat.agent.sandbox.network.allowNetwork)` defaults to `true` and permits outbound network access. Set it to `false` to block outbound access, including for the integrated browser.
 * `setting(chat.agent.sandbox.network.allowLocalNetwork)` defaults to `false` and controls access to hosts on the local network.
-* `setting(chat.agent.sandbox.network.allowedDomains)` and `setting(chat.agent.sandbox.network.deniedDomains)` restrict destinations when outbound access is enabled. The Agent Host forwards these hostname restrictions to the sandbox runtime.
+* `setting(chat.agent.sandbox.network.allowedDomains)` and `setting(chat.agent.sandbox.network.deniedDomains)` restrict destinations when outbound access is enabled.
 
-Allow local network access only when the task must connect to a service on the execution host or private network. Use `/sandbox policy` to inspect the effective network policy for the current Agent Host session.
+Allow local network access only when the task must connect to a service on the execution host or private network. Use `/sandbox policy` to inspect the effective network policy for the current session.
 
 To enable outbound access subject to domain filtering:
 
@@ -222,7 +235,7 @@ If a command is blocked, check the applicable [file system](#configure-file-syst
 
 If a command cannot run inside the sandbox, the agent can ask for confirmation to run it outside the sandbox. The `setting(chat.agent.sandbox.allowUnsandboxedCommands)` setting controls this fallback:
 
-* `true` (default): the agent can request permission to run outside the sandbox. For Agent Host sessions, a supported prompt can offer approval for one operation or for the current session. Approve only if you trust the command to run without the sandbox's file system and network restrictions.
+* `true` (default): the agent can request permission to run outside the sandbox. Where offered, you can approve one operation or the current session. Approve only if you trust the command to run without the sandbox's file system and network restrictions.
 * `false`: **Allow Outside Sandbox** is not offered, and requests to run outside the sandbox fail instead of prompting for approval. Commands that comply with the sandbox policy can still run.
 
 The agent requests approval when a sandboxed command fails or sandbox restrictions would block it. Rejecting the confirmation prevents the command from running outside the sandbox.
@@ -232,17 +245,19 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 > [!CAUTION]
 > Approval to run outside the sandbox removes file system and network restrictions for that operation. If you approve a session-wide bypass, subsequent terminal commands in that session also run without those restrictions until you turn sandboxing back on.
 
-## Legacy Local and custom terminal behavior
+<a name="legacy-local-and-custom-terminal-behavior"></a>
 
-Legacy Local sessions and custom terminal implementations don't use all Agent Host settings in the same way. The following compatibility settings don't configure the standard Agent Host sandbox:
+## Local sessions and custom terminal tools
+
+Local sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot sandbox described in this article:
 
 * The removed `chat.agent.sandbox.enabledWindows` setting is replaced by the unified `setting(chat.agent.sandbox.enabled)` setting on Windows.
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
-* `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated Local terminal setting. It can offer a network-enabled retry inside the legacy sandbox and does not apply to Agent Host.
-* `setting(chat.agent.sandbox.allowAutoApprove)` controls legacy Local terminal approval behavior. It is not an Agent Host sandbox setting.
-* `setting(chat.agent.sandbox.fileSystem.mac)`, `setting(chat.agent.sandbox.fileSystem.linux)`, and `setting(chat.agent.sandbox.fileSystem.windows)` are deprecated platform-specific settings. Agent Host ignores them.
+* `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to Copilot's default tools.
+* `setting(chat.agent.sandbox.allowAutoApprove)` controls terminal approval behavior for Local sessions. It does not configure the Copilot sandbox.
+* `setting(chat.agent.sandbox.fileSystem.mac)`, `setting(chat.agent.sandbox.fileSystem.linux)`, and `setting(chat.agent.sandbox.fileSystem.windows)` are deprecated platform-specific settings. Copilot's default tools ignore them.
 
-Domain allow and deny controls remain public for compatible terminal implementations. Their capabilities differ by implementation and platform, so don't use legacy behavior to infer the effective Agent Host policy.
+Domain allow and deny controls are available for compatible terminal tools. Their capabilities differ by implementation and platform. For Copilot sessions, use [the effective sandbox policy report](#inspect-the-effective-sandbox-policy) rather than inferring restrictions from another tool's behavior.
 
 ## When your organization manages sandboxing
 
