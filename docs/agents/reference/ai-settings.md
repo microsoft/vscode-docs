@@ -364,7 +364,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 |------------------------|---------------|
 | `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
 | `setting(chat.agentSkillsLocations)` _(Deprecated)_<br/>Configure agent skill locations for the Local agent. This setting and the Local agent will be removed in a future release. Use [customization migration](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to move skills to supported locations. | `{ ".agents/skills": true, ".github/skills": true, ".claude/skills": true, "~/.agents/skills": true, "~/.copilot/skills": true, "~/.claude/skills": true }` |
-| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
+| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context) in a separate subagent context. | `false` |
 
 ## Observability settings
 
@@ -391,7 +391,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) in extension host chat sessions. This setting writes debug events to disk for the Agent Debug Logs panel and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command. Reload the window after changing this setting. | `false` |
+| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) in extension host chat sessions. This setting writes debug events to disk for the Agent Debug Logs panel and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#analyze-debug-events-with-chat) slash command. Reload the window after changing this setting. | `false` |
 | `setting(chat.agentHost.agentDebugLog.enabled)` _(Experimental)_<br/>Enable agent debug logging for Agent Host sessions and show their debug events in the Agent Debug Logs panel. Only sessions that run while this setting is enabled are captured. | `false` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
 
