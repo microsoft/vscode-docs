@@ -327,7 +327,7 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 
 Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/manage-ai-settings.md#deploy-hooks-through-managed-plugins).
 
-Hook configuration and payloads depend on the session's harness. The event and matcher behavior described below applies to the Local harness. Start with [choosing a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) for Copilot, Claude, and Codex sessions.
+Hook configuration and payloads depend on the session's harness. Start with [choosing a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) to find its supported events and configuration. For Local sessions, expand **Configure plugin hooks for Local sessions** below.
 
 ### Hook file location
 
@@ -350,6 +350,11 @@ my-plugin/
   scripts/
     format.sh            # Hook script referenced by hooks.json
 ```
+
+<details>
+<summary>Configure plugin hooks for Local sessions</summary>
+
+The following configuration, event, and matcher behavior applies to the Local harness.
 
 ### Hook configuration format
 
@@ -447,13 +452,15 @@ Plugin-wide hooks run alongside workspace-level and user-level hooks. When multi
 
 Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
 
+</details>
+
 ## Discover and install plugins
 
 You can browse and install plugins from marketplaces or directly from a Git repository.
 
 ### Manage plugins with slash commands
 
-In a Copilot session that runs on the Agent Host, enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
+In a Copilot session, enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
 
 | Command | Purpose |
 |---------|---------|

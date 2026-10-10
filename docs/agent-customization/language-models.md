@@ -1,7 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
 DateApproved: 10/7/2026
-MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
+MetaDescription: Configure chat and inline models in {% data variables.product.prodname_vscode_shortname %}, adjust thinking effort, and use your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - language models
@@ -126,7 +126,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions `feature(agent-host-byok-models)`.
+> To use supported BYOK models in Copilot sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`.
 
 You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 

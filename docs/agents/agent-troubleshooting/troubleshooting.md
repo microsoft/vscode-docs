@@ -50,7 +50,7 @@ Use the result to choose the next action:
 * **The file is missing**: Verify its file name, location, and the settings that control instruction discovery.
 * **The file has an error**: Fix the reported frontmatter or content error, and then reopen the diagnostics view.
 * **The file is loaded but not applied**: For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on. Also check the **References** section of the chat response to see which instructions were used.
-* **A prompt file is missing from the request**: Invoke the prompt file manually in chat. Prompt files do not use `applyTo`, and agents that run on the Agent Host do not use prompt files.
+* **A prompt file is missing from the request**: Prompt files are supported only in Local agent sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 For file locations, applicability rules, and settings, see [Use custom instructions](/docs/agent-customization/custom-instructions.md). To verify the exact instructions sent to the model, use the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
 
@@ -67,15 +67,17 @@ Use the following tools when the basic checks pass but an agent behaves unexpect
 
 Prepare the session before you reproduce the issue:
 
-* For local chat sessions in the main {% data variables.product.prodname_vscode_shortname %} window, enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting and reload the window before you use `/troubleshoot`.
-* For sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md), enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect. Capture is not retroactive.
+* Enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect. It captures events for sessions managed by the [Agent Host](/docs/agents/concepts/agent-host.md), whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Capture is not retroactive.
 * Reproduce the issue, and then select that session when you open the logs or use `/troubleshoot`.
 
-To analyze an Agent Host session with chat:
+> [!NOTE]
+> **For Local sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+
+To analyze a session with chat:
 
 1. Open the {% data variables.copilot.agents_window %}.
 1. Enter `/troubleshoot #session` in the chat input.
-1. Select the local or remote session that contains the issue.
+1. Select the session that contains the issue.
 1. Add a focused question, such as `which tool failed and what error did it return?`, and send the request.
 
 For detailed procedures and scenario-based guidance, see [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md).

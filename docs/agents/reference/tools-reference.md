@@ -88,7 +88,7 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 | `#todos` | Track task progress with a todo list. |
 | `#vscode/askQuestions` | Ask clarifying questions with interactive controls. |
 
-For tools that coordinate work across Agent Host sessions, see [session orchestration](/docs/agents/run/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+To coordinate work across sessions, see [Coordinate work across sessions](/docs/agents/run/sessions/manage-sessions.md#coordinate-work-across-sessions).
 
 ### Configure projects and the editor
 

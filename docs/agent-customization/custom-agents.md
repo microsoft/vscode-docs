@@ -69,7 +69,7 @@ The editor shows customizations for the selected harness. You can [generate a cu
 You can modify existing custom agents by opening them in the Agent Customizations editor.
 
 > [!TIP]
-> In the {% data variables.copilot.chat_view %}, with **Copilot** selected, type `/agents` in the chat input to open the **Agents** section of the Agent Customizations editor. With **Local** selected, `/agents` opens the agent picker, where you can select **Configure Custom Agents** to open the editor.
+> In the {% data variables.copilot.chat_view %}, with **Copilot** selected, type `/agents` in the chat input to open the **Agents** section of the Agent Customizations editor. With **Local** selected, `/agents` instead opens the agent picker, where you can select **Configure Custom Agents** to open the editor.
 
 ### Generate a custom agent with AI
 
@@ -88,12 +88,10 @@ Create a workspace custom agent for code reviews. Review changes for correctness
 
 You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
 
-With **Local** selected, you can also use these shortcuts:
+Use the **Overview** workflow for the selected harness. With **Local** selected, you can instead use these shortcuts:
 
 * Type `/create-agent` in Agent mode chat and describe the role you want.
 * Select **Generate Agent** from the dropdown in the **Agents** section of the Agent Customizations editor.
-
-These shortcuts aren't available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions, such as **Copilot**. Use the **Overview** workflow instead.
 
 ## Use a custom agent
 
@@ -121,21 +119,22 @@ Editing this property changes the agent definition, not a personal visibility pr
 
 ## Custom agent file locations
 
-You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the supported file locations for custom agents based on their scope.
+You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces. Select the intended harness before you create an agent so the Agent Customizations editor stores it in a supported location.
 
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
 | Workspace (Claude format) | `.claude/agents` folder |
-| User | `~/.copilot/agents` or `~/.claude/agents` |
+| User ({% data variables.product.prodname_copilot_short %}) | `~/.copilot/agents` folder |
+| User ({% data variables.product.prodname_anthropic_claude %}) | `~/.claude/agents` folder |
 
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from the selected host's folder, such as `~/.copilot/agents` or `~/.claude/agents`, and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents, use the [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
+> User-level agents must be available in the supported folder on the machine where the selected harness runs. Harness user folders, such as `~/.copilot/agents` and `~/.claude/agents`, are separate from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing profile-based custom agents to these folders, use [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 > [!NOTE]
-> The `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings are deprecated and only used by the Local agent. If you configured other agent locations with these settings, [migrate the customizations to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+> **For Local sessions:** User-level custom agents are stored in {% data variables.product.prodname_vscode_shortname %} profile storage. The deprecated `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings add other locations for Local only. To reuse those custom agents with Copilot, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
@@ -325,7 +324,7 @@ When you select a handoff button, you switch to the target agent with the prompt
 
 ## Tool list priority
 
-With **Local**, when you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. Agent Host sessions don't load prompt files. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
+In a Local session, when you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. Other harnesses don't load prompt files. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
 
 ## Share custom agents across teams
 

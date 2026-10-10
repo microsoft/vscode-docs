@@ -1,7 +1,7 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
 DateApproved: 10/7/2026
-MetaDescription: Configure AI providers, accounts, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
+MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Configure the {% data variables.copilot.agents_window %}
@@ -12,16 +12,16 @@ For instructions about starting and working with sessions, see [Use the {% data 
 
 ## Manage AI providers and accounts
 
-The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
+The {% data variables.copilot.agents_window %} uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
 
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
+* **Claude**: configure a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
-* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available in the desktop {% data variables.copilot.agents_window %}. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
 For complete authentication, billing, and capability information, see [Configure a harness or Cloud target](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
 
-Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in. This signed-out experience is experimental and requires `setting(chat.agentHost.allowSignedOutWhenUsable)`. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
+Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in when you enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. This option is experimental. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
 ## Configure settings for the {% data variables.copilot.agents_window %}
 

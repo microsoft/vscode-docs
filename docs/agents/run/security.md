@@ -73,7 +73,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Manual permissions** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: In a Copilot session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local sessions, Autopilot is a permission level instead.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -81,7 +81,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Local sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
@@ -91,9 +91,9 @@ Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-
 
 ### Agent sandboxing
 
-Agent sandboxing uses OS-level isolation to confine shell execution and child processes. For Agent Host sessions, it can also sandbox MCP servers and language servers that the Agent Host launches when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain governed by separate permission checks.
+In Copilot sessions that use the default tools, agent sandboxing uses OS-level isolation to confine shell execution and child processes. It can also sandbox MCP servers and language servers started or managed for the session when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain governed by separate permission checks.
 
-Agent Host sandboxing is available on supported Windows, macOS, and Linux hosts and is independent of the selected permission level.
+This sandboxing is available on supported Windows, macOS, and Linux machines and is independent of the selected permission level. For remote sessions, check prerequisites and configure restrictions on the machine where commands run. Local sessions and custom terminal tools have [different sandbox behavior](/docs/agents/run/agent-sandboxing.md#local-sessions-and-custom-terminal-tools).
 
 Sandboxing is an added layer. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. Credentials you explicitly inject, developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass all weaken its isolation. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md). For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 

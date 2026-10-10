@@ -32,19 +32,19 @@ This article helps you choose the correct hook implementation, manage hooks from
 
 The **Session Target** control selects the agent harness. The harness owns the hook lifecycle and payloads.
 
-The Agent Host is the process that hosts the Copilot, Claude, and Codex harnesses. The Local harness runs in the extension host. The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} are clients that display and control sessions on either host.
+| Session target | Hook implementation | Configuration and event reference |
+|----------------|---------------------|-----------------------------------|
+| **Copilot** | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
+| **Claude** | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
+| **Codex** | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
+| **Cloud** | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
 
-| Session target | Where the harness runs | Hook implementation | Configuration and event reference |
-|----------------|------------------------|---------------------|-----------------------------------|
-| **Copilot** | Agent Host | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
-| **Claude** | Agent Host | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
-| **Codex** | Agent Host or the Codex extension | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
-| **Cloud** | Provider infrastructure | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
-| **Local** | Extension host | {% data variables.product.prodname_vscode_shortname %} Local hooks | Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). |
+> [!NOTE]
+> **For Local sessions:** Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). These hooks have their own events, settings, and payloads.
 
 Some harnesses discover the same hook files, such as `.github/hooks/*.json` or `.claude/settings.json`. This file compatibility does not make their behavior identical. Supported events, event names, matchers, command properties, tool names, payloads, and output decisions can differ.
 
-Copilot sessions on Agent Host use the same SDK hook implementation as {% data variables.copilot.copilot_cli_short %}. Use the {% data variables.copilot.copilot_cli_short %} sections of the GitHub reference for runtime configuration and payloads, but verify that the event is available in the selected {% data variables.product.prodname_vscode_shortname %} version.
+Copilot sessions use the same SDK hook implementation as {% data variables.copilot.copilot_cli_short %}. Use the {% data variables.copilot.copilot_cli_short %} sections of the GitHub reference for runtime configuration and payloads, but verify that the event is available in the selected {% data variables.product.prodname_vscode_shortname %} version.
 
 ### Migrate hooks between harnesses
 
@@ -85,7 +85,7 @@ For Claude and Codex, use the provider documentation for additional configuratio
 
 ## Configure hooks for the Local harness
 
-The rest of this article describes the Local hook implementation that runs in the extension host. These events, settings, payloads, and output decisions do not automatically apply to Copilot, Claude, or Codex sessions on Agent Host.
+The following sections describe Local hook events, settings, payloads, and output decisions. These do not automatically apply to other session targets.
 
 ### Create your first Local hook
 
@@ -329,7 +329,7 @@ For Local hooks:
 * If you use a Claude-format file, enable `setting(chat.useClaudeHooks)` and remember that Local ignores matcher values.
 * Increase `timeout` only after you confirm that the command is making progress.
 
-For Agent Host harnesses, use the provider's hook reference and diagnostics. The Local settings `setting(chat.useHooks)`, `setting(chat.hookFilesLocations)`, and `setting(chat.useClaudeHooks)` do not configure Copilot, Claude, or Codex hook execution.
+For other harnesses, use the provider's hook reference and diagnostics. The Local settings `setting(chat.useHooks)`, `setting(chat.hookFilesLocations)`, and `setting(chat.useClaudeHooks)` configure only Local hook execution.
 
 ## Security considerations
 
