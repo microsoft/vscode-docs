@@ -20,7 +20,7 @@ keywords:
 
 Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, and inspect the effective policy for a session.
 
-The settings and behavior below apply to Copilot sessions that use the default {% data variables.copilot.copilot_sdk_short %} tools.
+The settings and behavior below apply to Copilot sessions that use the default tools in the shared runtime.
 
 > [!NOTE]
 > **For Local sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local sessions and custom terminal tools](#local-sessions-and-custom-terminal-tools) for compatibility details.
@@ -117,7 +117,7 @@ Sandboxing is independent of the selected [permission level](/docs/agents/run/ap
 
 ### Use sandboxing across windows and machines
 
-{% data variables.product.prodname_copilot_short %} sessions are available in both the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and an editor window. They use the {% data variables.copilot.copilot_sdk_short %} built-in shell by default. You do not need to change terminal implementations to use sandboxing.
+{% data variables.product.prodname_copilot_short %} sessions are available in both the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and an editor window. They use the built-in shell from the shared runtime by default. You do not need to change terminal implementations to use sandboxing.
 
 For a remote session, use the [session toggle](#control-sandboxing-for-the-current-session) to change the current session's sandbox state. Defaults for new sessions come from the remote machine's sandbox configuration, not from the machine where you connect to the session.
 

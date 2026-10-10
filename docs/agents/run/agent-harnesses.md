@@ -74,7 +74,7 @@ Dev Container execution is available only in the desktop {% data variables.copil
 
 ## Work with the {% data variables.product.prodname_copilot_short %} harness
 
-Use the {% data variables.product.prodname_copilot_short %} harness to ask questions, plan changes, edit code, and run tests. The harness is built on the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk), which helps provide more consistent harness behavior and core capabilities across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}. You don't need to install the SDK separately.
+Use the {% data variables.product.prodname_copilot_short %} harness to ask questions, plan changes, edit code, and run tests. The harness uses a shared runtime for core capabilities and more consistent behavior across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
 
 * **Keep work going across interfaces**: open the same live session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. A task can continue after you close its project folder. {% data variables.product.prodname_vscode_shortname %} can also [discover and continue supported sessions created in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). To continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal, use [**Resume in Terminal**](#use-copilot-cli-from-the-terminal).
 * **Run where your code lives**: work with a project on your machine, on a connected remote machine, or inside a Dev Container. Workspace file edits and commands use the selected environment.
@@ -83,7 +83,7 @@ Use the {% data variables.product.prodname_copilot_short %} harness to ask quest
 
 For sessions running on your machine and managed by desktop {% data variables.product.prodname_vscode_shortname %}, keep the application running. Closing a project folder is different from quitting the application. Tools provided by a window also require that window to stay connected.
 
-Tools, models, permissions, and customizations can differ between experiences. Using the {% data variables.copilot.copilot_sdk %} across products does not mean that all sessions or personal settings synchronize between them.
+Tools, models, permissions, and customizations can differ between experiences. Using a shared runtime across products does not mean that all sessions or personal settings synchronize between them.
 
 For more information, see [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-copilot), [reviewing changes](/docs/agents/run/review-code-edits.md), and [{% data variables.product.prodname_copilot_short %} setup and limitations](#copilot).
 
@@ -156,7 +156,7 @@ Expand a target to review its setup and capabilities.
 <details>
 <summary>Copilot</summary>
 
-For a summary of the {% data variables.copilot.copilot_sdk %} and supported workflows, see [Work with the {% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness).
+For a summary of the {% data variables.product.prodname_copilot_short %} harness and supported workflows, see [Work with the {% data variables.product.prodname_copilot_short %} harness](#use-the-copilot-harness).
 
 ### Setup and authentication
 

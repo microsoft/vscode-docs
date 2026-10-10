@@ -89,7 +89,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     | Control | Value | Short description |
     |---------|-------|-------------------|
-    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session on your machine. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
     | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
