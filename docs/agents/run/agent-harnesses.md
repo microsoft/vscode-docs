@@ -86,6 +86,21 @@ Tools, models, permissions, and customizations can differ between experiences. U
 
 For more information, see [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-copilot), [reviewing changes](/docs/agents/run/review-code-edits.md), and [{% data variables.product.prodname_copilot_short %} setup and limitations](#copilot).
 
+## Use canvases with the Copilot harness
+
+`feature(canvases)`
+
+Canvases are interactive visual surfaces shared by you and the agent. For example, you can inspect a diagram that the agent updates or adjust controls whose values flow back to the agent.
+
+Before you create a new supported Copilot session, turn on `setting(chat.canvases.enabled)`. A canvas can come from a supported canvas extension or skill. For example, when the `/create-canvas` skill is available, you can ask the agent to use it to create a project canvas.
+
+When the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas, and supported interactions flow back to the agent. You can close and reopen a live canvas when the canvas supports it.
+
+> [!NOTE]
+> Canvases are available only on desktop in supported local Copilot Agent Host sessions. They aren't supported for Claude, Codex, extension-host Local sessions, remote Agent Host sessions, browser or web clients, or auxiliary-window hosting.
+
+<!-- TODO: Add a screenshot showing a canvas beside its owning Copilot chat in the regular editor window. -->
+
 ## Start a session
 
 You can select a session target when you start a session in the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}. When you change the target for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new target.

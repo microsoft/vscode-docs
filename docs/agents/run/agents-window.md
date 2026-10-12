@@ -85,6 +85,8 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 
 By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
 
+Supported {% data variables.product.prodname_copilot_short %} canvases `feature(canvases)` open in the editor area. You can reopen a dismissed live canvas from the editor group's **Add Tab (+)** menu. Learn more about [using canvases with the Copilot harness](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
+
 ## Understand the active session
 
 The {% data variables.copilot.agents_window %} picks up your agent sessions across your workspaces. The **active session** is the session that currently has focus. Its conversation and project context determine what you see and which workspace your actions apply to.

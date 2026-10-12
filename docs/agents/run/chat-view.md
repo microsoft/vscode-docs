@@ -77,6 +77,8 @@ Type a prompt and press `kb(workbench.action.chat.submit)`. For shared request, 
 
 Because the {% data variables.copilot.chat_view %} runs in the main {% data variables.product.prodname_vscode_shortname %} window, you can inspect agent edits in the editor, follow terminal activity, debug the application, and run tasks or tests without switching surfaces. The agent also has access to supported extensions and can [work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md). When you connect to a [remote workspace](/docs/remote/remote-overview.md), the session uses the same remote project context and tools.
 
+For supported {% data variables.product.prodname_copilot_short %} sessions, an agent-opened canvas `feature(canvases)` appears in an editor tab beside the chat and remains associated with the conversation. Learn more about [using canvases with the Copilot harness](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
+
 The **Copilot** session target applies and saves edits directly to the selected folder or worktree. Select a changed file in the response to inspect its diff, or set `setting(chat.checkpoints.showFileChanges)` to show a changed-files summary after each request. For revisions, checkpoints, target-specific review workflows, and integrating changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Next steps

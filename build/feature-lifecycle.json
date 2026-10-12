@@ -49,6 +49,11 @@
       "label": "Built-in dictation",
       "state": "experimental"
     },
+    "canvases": {
+      "label": "Canvases",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/340946"
+    },
     "chat-pet": {
       "label": "VS Code pet",
       "state": "experimental"
