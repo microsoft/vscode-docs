@@ -97,14 +97,14 @@ When you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the {% d
 
 ## View and edit Markdown files
 
-The {% data variables.copilot.agents_window %} supports rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+`feature(markdown-editor)`
 
-* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
+The {% data variables.copilot.agents_window %} supports Markdown Preview and the Markdown Editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
+* When enabled, `.md` files open with **Markdown Editor**.
 * When disabled, `.md` files open with **Markdown Preview**.
 
-In **Markdown Editor (Experimental)**, switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit content directly. In **Locked** mode, the document remains rendered and read-only.
-
-When you edit a Markdown file, the editor shows Git change markers in the margin. Green indicates added content, blue indicates modified content, and red indicates deleted content. The markers reflect the current Git changes and disappear when you undo or revert the corresponding changes.
+This setting changes the default only in the {% data variables.copilot.agents_window %}. Learn how to open and use the editor in any window in [Markdown Editor](/docs/languages/markdown.md#markdown-editor).
 
 ## Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
 

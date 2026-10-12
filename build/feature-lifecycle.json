@@ -65,6 +65,10 @@
       "label": "Integrated browser remote connections",
       "state": "preview"
     },
+    "markdown-editor": {
+      "label": "Markdown Editor",
+      "state": "experimental"
+    },
     "mcp-autostart": {
       "label": "Automatically start MCP servers",
       "state": "experimental"
