@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 9/30/2026
+DateApproved: 10/14/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Move existing agent customizations to folders and formats supported by the Copilot harness in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png

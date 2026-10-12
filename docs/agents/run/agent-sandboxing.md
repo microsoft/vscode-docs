@@ -1,6 +1,6 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Configure and verify {% data variables.product.prodname_copilot_short %} Agent Host sandboxing with file system and network access controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
