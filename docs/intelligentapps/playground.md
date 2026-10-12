@@ -16,7 +16,7 @@ To access the playground:
 - Select **Try in Playground** from a model card in the model catalog
 - Select a model from the list of deployed Models to open it in the playground
 
-![Screenshot of model list](./images/playground/foundry-model-support.png)
+![Screenshot of model list](./images/playground/foundry-models-support.png)
 
 To test a model in the playground, follow these steps:
 

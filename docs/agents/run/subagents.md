@@ -44,6 +44,27 @@ Your [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target
 > Provider documentation also covers CLI workflows. Commands and configuration options can differ in {% data variables.product.prodname_vscode_shortname %}. Use the [harness guide](/docs/agents/run/agent-harnesses.md) for integration-specific setup and limitations.
 
 {% tabs id="subagents-by-harness" %}
+{% tab label="{% data variables.product.prodname_copilot_short %}" %}
+
+<a id="copilot"></a>
+
+The **{% data variables.product.prodname_copilot_short %}** harness uses the {% data variables.copilot.copilot_sdk_short %} to manage delegation to built-in or custom subagents. Request a subagent in your prompt, or let the main agent decide when to delegate. For native agent behavior and configuration, see [built-in and custom agents in {% data variables.product.prodname_copilot_short %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents).
+
+{% /tab %}
+{% tab label="Claude" %}
+
+<a id="claude"></a>
+
+The **Claude** harness manages its own subagents, with separate context and configurable instructions and tools. Request delegation in your prompt, or let the agent choose an appropriate subagent. See [Claude subagents](https://code.claude.com/docs/en/sub-agents) for native configuration and behavior.
+
+{% /tab %}
+{% tab label="Codex" %}
+
+<a id="codex"></a>
+
+The **Codex** harness uses provider-native subagents to run independent tasks and collect their results. Ask Codex to delegate in your prompt, and see [Codex subagents](https://developers.openai.com/codex/multi-agent) for native configuration and behavior. For availability and setup, including the Experimental Agent Host integration, see [Use the Codex harness](/docs/agents/run/agent-harnesses.md#codex).
+
+{% /tab %}
 {% tab label="Local" %}
 
 <a id="local"></a>
@@ -248,27 +269,6 @@ For Local sessions, check these common causes:
 | A custom agent isn't available. | Check its exact, case-sensitive name, `disable-model-invocation`, and the coordinator's `agents` list. `user-invocable: false` only hides it from the picker. |
 | A requested model doesn't run. | Use one of the models listed in the error, or remove the explicit preference. See [model selection](#select-the-model-for-a-subagent). |
 | A subagent can't delegate further. | Check the [nested subagent setting](#nested-subagents), the depth limit, and whether its tools include `agent`. |
-
-{% /tab %}
-{% tab label="{% data variables.product.prodname_copilot_short %}" %}
-
-<a id="copilot"></a>
-
-The **{% data variables.product.prodname_copilot_short %}** harness uses the {% data variables.copilot.copilot_sdk_short %} to manage delegation to built-in or custom subagents. Request a subagent in your prompt, or let the main agent decide when to delegate. For native agent behavior and configuration, see [built-in and custom agents in {% data variables.product.prodname_copilot_short %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents).
-
-{% /tab %}
-{% tab label="Claude" %}
-
-<a id="claude"></a>
-
-The **Claude** harness manages its own subagents, with separate context and configurable instructions and tools. Request delegation in your prompt, or let the agent choose an appropriate subagent. See [Claude subagents](https://code.claude.com/docs/en/sub-agents) for native configuration and behavior.
-
-{% /tab %}
-{% tab label="Codex" %}
-
-<a id="codex"></a>
-
-The **Codex** harness uses provider-native subagents to run independent tasks and collect their results. Ask Codex to delegate in your prompt, and see [Codex subagents](https://developers.openai.com/codex/multi-agent) for native configuration and behavior. For availability and setup, including the Experimental Agent Host integration, see [Use the Codex harness](/docs/agents/run/agent-harnesses.md#codex).
 
 {% /tab %}
 {% /tabs %}

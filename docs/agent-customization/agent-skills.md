@@ -76,7 +76,7 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 > If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence. Discovery makes skills available to the model but does not guarantee that it invokes a skill for every relevant prompt.
 
 > [!NOTE]
-> The `setting(chat.agentSkillsLocations)` setting is deprecated and only used by the Local agent. If you configured other skill locations with this setting, [migrate the skills to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
+> The `setting(chat.agentSkillsLocations)` setting is deprecated and only used by the Local agent. If you configured other skill locations with this setting, [migrate the skills to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

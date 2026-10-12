@@ -63,10 +63,14 @@ The [1.109 release notes](./examples/v1_109.md) are a concrete example of an Ins
 
 1. Ignore issues that are marked as duplicate or not planned.
 
-1. For each issue in the JSON result, run a subagent to update the release notes and TOC with a concise technically accurate summary of the issue. Get more details from the associated PRs if needed. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
+1. For each issue in the JSON result, run a subagent to update the release notes and TOC with a concise, technically accurate summary of the issue. Use associated PRs to verify details, but do not include implementation details in the entry. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
 
 ### Phrasing guidelines for Insiders entries
 
+- Treat each entry as a changelog item. Use one short sentence whenever possible.
+- State only the user-visible change and essential configuration or lifecycle information.
+- Add a second sentence only when a constraint, fallback, or compatibility detail is necessary to use the feature correctly.
+- Omit background context, implementation details, testing instructions, and information already clear from the issue link.
 - When describing new capabilities, prefer the format "Add support for ..." over "... now supports ...". For example, write "Add support for sorting sessions by date" rather than "The sessions view now supports sorting by date".
 - Avoid using the word "now" in entries. State what changed directly instead. For example, write "Branch names are generated based on the user's prompt" rather than "Branch names are now generated based on the user's prompt".
 
