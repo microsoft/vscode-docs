@@ -68,7 +68,7 @@ For this walkthrough, use **two separate sessions**, each with **New Worktree** 
 > [!CAUTION]
 > Worktrees isolate working files, not the agent's access to your machine or external services. {% data variables.product.prodname_copilot_short %} worktree sessions use **Allow all**, which skips tool approval prompts. Use a trusted repository and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. If you require manual approvals, use folder sessions one at a time instead.
 
-For details about the available choices, see [choose code isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
+For details about the available choices, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
 ## 3. Prepare and delegate
 

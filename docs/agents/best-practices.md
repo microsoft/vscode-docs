@@ -206,7 +206,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/run/subagents.md) so the findings don't clutter your main context.
 
-* **Choose the right session target and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) for day-to-day work in a folder or isolated worktree. Choose Local for the extension-host workflow in your current workspace, or Cloud for independent work on provider-managed infrastructure that returns a pull request.
+* **Choose the right session target and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) for day-to-day work in a folder or isolated worktree. Choose Local for the extension-host workflow in your current workspace, or Cloud for independent work on provider-managed infrastructure that returns a pull request.
 
 * **Scale with parallel sessions.** Run multiple sessions in separate folders or worktrees to save time and keep contexts separate. You can switch among sessions that run on your machine, a connected host, in a Dev Container, or on provider-managed cloud infrastructure from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) in {% data variables.product.prodname_vscode_shortname %}.
 

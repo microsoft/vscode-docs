@@ -38,7 +38,7 @@ For a quick lookup or a small edit, a direct request is usually enough. Delegati
 
 ## Subagents by harness
 
-Your [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target) determines how subagents run and which configuration options they support. Select the harness when you [start a session](/docs/agents/run/agent-harnesses.md#start-a-session).
+Your [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) determines how subagents run and which configuration options they support. [Select a harness](/docs/agents/run/agent-harnesses.md#select-a-harness) before you submit the first prompt.
 
 > [!NOTE]
 > Provider documentation also covers CLI workflows. Commands and configuration options can differ in {% data variables.product.prodname_vscode_shortname %}. Use the [harness guide](/docs/agents/run/agent-harnesses.md) for integration-specific setup and limitations.
@@ -78,7 +78,7 @@ The **Local** harness uses the {% data variables.product.prodname_vscode_shortna
 
 Try a read-only research task in a Local session:
 
-1. Open your project, then [start a session](/docs/agents/run/agent-harnesses.md#start-a-session) in the {% data variables.copilot.chat_view %} with the **Local** harness and **Agent** role.
+1. Open your project, then [select the **Local** harness](/docs/agents/run/agent-harnesses.md#select-a-harness) and **Agent** role for a new session in the {% data variables.copilot.chat_view %}.
 1. Select **Configure Tools** and make sure **Run Subagent** (`agent/runSubagent`) is selected. Learn more about [selecting tools](/docs/agents/run/tools.md#select-tools-for-a-request).
 1. Enter a prompt that explicitly requests a subagent:
 

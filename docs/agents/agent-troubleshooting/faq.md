@@ -199,7 +199,7 @@ Sessions from other applications are hidden until you change the [**External** f
 
 ### Can I continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal?
 
-Yes, open a {% data variables.product.prodname_copilot_short %} session's context menu and select **Resume in Terminal** to continue it with {% data variables.copilot.copilot_cli %}. Learn about [using {% data variables.copilot.copilot_cli_short %} in the integrated terminal](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal).
+Yes, open a {% data variables.product.prodname_copilot_short %} session's context menu and select **Resume in Terminal** to continue it with {% data variables.copilot.copilot_cli %}. Learn about [using {% data variables.copilot.copilot_cli_short %} in the integrated terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
 
 ### Does switching between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} start a new session?
 
@@ -207,7 +207,7 @@ No. When a session supports both interfaces, opening it in either one keeps the 
 
 ### Is picking up a session the same as syncing its history?
 
-No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions).
 
 ## Troubleshooting and feedback
 

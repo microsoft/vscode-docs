@@ -18,7 +18,7 @@ Keywords:
 
 The Agent Host is a dedicated process that runs agent harnesses and manages their sessions. Separating session execution from an individual window lets you work with the same session across interfaces and run agents close to your code and development tools.
 
-This article explains the process boundaries, execution environments, session lifetime, and client dependencies for integrations that use the Agent Host. You don't need this architecture background to use agents. For task-focused guidance, see [choose an agent harness](/docs/agents/run/agent-harnesses.md) and [manage sessions](/docs/agents/run/sessions/manage-sessions.md).
+This article explains the process boundaries, execution environments, session lifetime, and client dependencies for integrations that use the Agent Host. You don't need this architecture background to use agents. To identify the harness a session uses or compare Local and Copilot, see [Choose an agent harness](/docs/agents/run/agent-harnesses.md). For session-management tasks, see [Manage sessions](/docs/agents/run/sessions/manage-sessions.md).
 
 <a name="why-a-dedicated-agent-host"></a>
 
@@ -98,7 +98,9 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 
 ## Local and existing extension-host sessions
 
-The **Local** harness and existing extension-host sessions run in the extension host rather than the Agent Host. Their behavior is documented as an exception in the relevant task guides:
+The **Local** harness and existing extension-host sessions run in the extension host rather than the Agent Host. These sessions are tied to their editor window: closing that window stops the agent's ongoing work. Agent Host sessions can continue independently of an editor window while their host remains running.
+
+Other differences are documented in the relevant task guides:
 
 | Task | Guidance |
 |------|----------|

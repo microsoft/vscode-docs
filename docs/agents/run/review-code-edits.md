@@ -126,6 +126,32 @@ The Changes editor restores each file's expanded or collapsed state when you swi
 {% /tab %}
 {% /tabs %}
 
+### Get a second opinion with Rubber Duck
+
+`feature(rubber-duck)`
+
+In a [Copilot session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+
+For non-trivial work, Copilot might consult Rubber Duck automatically at key points, such as:
+
+* After creating a plan, before implementation.
+* During a complex implementation.
+* After writing tests.
+* After repeated failures or unexpected results.
+
+For smaller tasks, Copilot typically skips this review. To request a review at any time, ask Copilot in natural language:
+
+```prompt
+Get a second opinion on the changes made so far.
+```
+
+You can also enter `/rubber-duck <question>` in the chat input. For example, enter `/rubber-duck What edge cases are missing?`.
+
+> [!NOTE]
+> Rubber Duck is available only when the main session uses a Claude or GPT model and a suitable complementary model is available. The additional model pass adds latency and model usage.
+
+Learn more about the [Rubber Duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in the GitHub documentation.
+
 ## Integrate worktree changes
 
 A worktree session keeps the agent's branch and working files separate from your primary worktree. After you review and validate the result, choose how to continue:

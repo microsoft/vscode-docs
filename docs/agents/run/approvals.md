@@ -40,7 +40,7 @@ Learn why {% data variables.product.prodname_vscode_shortname %} uses permission
 
 Permission levels control how the agent handles approvals for the current chat session. Select a level from the permissions dropdown in the chat input. You can change it at any time.
 
-The levels below describe Copilot sessions. For Claude and Codex, see the permission controls for the [selected harness](/docs/agents/run/agent-harnesses.md#configure-an-agent-harness).
+The levels below describe Copilot sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
 New sessions use the level configured by `setting(chat.permissions.default)`.
 
@@ -81,6 +81,28 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 > [!NOTE]
 > Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
+
+### Claude permission modes
+
+[Claude sessions](/docs/agents/run/agent-harnesses.md#claude-preview) support these permission modes:
+
+* **Edit automatically**: apply changes without asking for approval.
+* **Request approval**: ask before applying changes.
+* **Plan**: outline the approach before implementation.
+
+> [!CAUTION]
+> The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Use it only in an isolated sandbox environment without internet access.
+
+### Codex approval presets
+
+The [direct Codex integration](/docs/agents/run/agent-harnesses.md#codex) provides these approval presets. For the extension-based integration, use the OpenAI Codex extension's documentation.
+
+* **Default Permissions**: read and edit workspace files and run routine local commands. Codex asks before using the internet or accessing resources outside the workspace.
+* **Auto-Review**: use the same workspace access as **Default Permissions**, but send approval requests to an automatic reviewer instead of prompting you.
+* **Full Access**: edit files outside the workspace and use the internet without asking.
+
+> [!CAUTION]
+> **Full Access** gives Codex unrestricted disk and network access. Use it only when you intend to give the agent full access to your machine.
 
 ### Allow all tools globally
 

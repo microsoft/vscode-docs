@@ -61,7 +61,7 @@ With a harness that supports multiple chats, such as Copilot or Claude, use them
 A new chat starts blank and doesn't inherit the history of the other chats. To retain the source conversation's history, [fork the conversation](#fork-a-chat-session) instead. Learn more about [choosing a chat, a fork, or a new session](/docs/agents/concepts/sessions.md#choose-a-new-chat-a-fork-or-a-new-session).
 
 > [!NOTE]
-> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
+> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) when tasks must not modify the same files.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
@@ -225,6 +225,16 @@ To continue the chat in {% data variables.product.prodname_vscode_shortname %}, 
 
 After you send a message from {% data variables.product.prodname_vscode_shortname %} in an external session, the session is no longer external. The **External** filter no longer controls whether the session appears in the sessions list.
 
+### Use Copilot CLI from the terminal
+
+To start a {% data variables.copilot.copilot_cli %} session from {% data variables.product.prodname_vscode_shortname %}, use one of these options:
+
+* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
+* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Enter `copilot` in an integrated terminal.
+
+{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
+
 ## Archive sessions
 
 To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
@@ -311,7 +321,7 @@ When a merged pull request makes a session eligible, select **Configure Automati
 
 Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions whose harness doesn't support multiple chats, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
 
-For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
 For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -332,7 +342,7 @@ There are two ways to fork a chat session:
 
 ## Coordinate work across sessions
 
-In [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude sessions, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available with the [experimental direct Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+In [Copilot](/docs/agents/run/agent-harnesses.md#copilot) and Claude sessions, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available with the [experimental direct Codex integration](/docs/agents/run/agent-harnesses.md#codex).
 
 With these tools, an agent can:
 

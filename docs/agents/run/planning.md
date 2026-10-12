@@ -66,6 +66,12 @@ Do not change project files. Wait for my approval before implementing.
 
 This request guides the agent's behavior but does not change the session's permissions. Select Plan mode or use `/plan` when you want to start the dedicated workflow explicitly.
 
+### Research before planning (Preview)
+
+When you need a detailed Markdown report with citations before choosing an approach, use the built-in research agent in a [Copilot session](/docs/agents/run/agent-harnesses.md#copilot). In {% data variables.product.prodname_vscode_shortname %} Insiders, enter `/research <topic>` to gather findings from your codebase, relevant GitHub repositories, and the web.
+
+For research that feeds directly into an implementation plan, use the [Plan agent](#how-to-plan-a-task). For focused research that returns results to the current conversation, use [subagents](/docs/agents/run/subagents.md).
+
 ## Review and refine the plan
 
 When {% data variables.product.prodname_copilot_short %} presents a **Review Plan** card, read the full plan before starting implementation:
@@ -133,7 +139,7 @@ By default, this agent researches your project without editing project files. Af
 |------|--------|
 | Read the full plan | Run **Chat: Show Memory Files** from the Command Palette (`kb(workbench.action.showCommands)`) and select the session's `plan.md`. The plan is stored in [session memory](/docs/agents/run/memory.md#session-memory) at `/memories/session/plan.md`, not as a project file. |
 | Implement in the current conversation | Select **Start Implementation**. This switches to Agent and submits the implementation request immediately. |
-| Hand off to another destination | Open the dropdown next to **Start Implementation** and select an available **Continue in** destination. The dropdown appears only when supported destinations are available. Learn more about [session handoffs](/docs/agents/run/agent-harnesses.md#hand-off-a-session). |
+| Hand off to another destination | Open the dropdown next to **Start Implementation** and select an available **Continue in** destination. The dropdown appears only when supported destinations are available. Learn more about [continuing with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness). |
 | Save an editable copy | Select **Open in Editor**. This switches to Agent and asks it to create an untitled copy of the plan, which you can save in your project. Unlike **Open Full Plan**, it creates a copy rather than opening the existing plan file. |
 
 > [!CAUTION]

@@ -22,7 +22,7 @@ An agent harness is the software layer that runs an agent session. It turns a la
 
 The model provides the reasoning and decides what to say or which tool to request. The harness makes those decisions operate as a stateful workflow by preparing model requests, coordinating tool calls and approvals, returning results to the model, and tracking the conversation and changes.
 
-This article explains what a harness does and how it differs from model access, a language model, an agent role, a session target, and an execution environment. To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
+This article explains what a harness does and how it differs from model access, a language model, an agent role, a session target, and an execution environment. To compare harnesses and review their setup requirements, see [Choose an agent harness](/docs/agents/run/agent-harnesses.md).
 
 ![Diagram showing an agent harness coordinating the user interface, language model, tools, and conversation state. The model requests actions, while the harness prepares context, applies permissions, coordinates tools, and tracks state.](../images/concepts/agent-harness-relationships.svg)
 
@@ -60,7 +60,9 @@ Model access and harness choice are separate. A {% data variables.product.prodna
 
 ### Harness and host
 
-The harness determines agent behavior. The Agent Host is the process that runs supported harnesses and manages their sessions, while the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} display and control them. For process boundaries and client dependencies, see the optional [Agent Host architecture reference](/docs/agents/concepts/agent-host.md).
+The harness determines agent behavior. The {% data variables.product.prodname_copilot_short %} harness uses the {% data variables.copilot.copilot_sdk_short %} and runs in the Agent Host, while the Local harness runs in the editor's extension host. The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} are interfaces that display and control supported sessions, not harnesses themselves.
+
+To identify your session's harness and compare options, see [Select a harness](/docs/agents/run/agent-harnesses.md#select-a-harness) and [Compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses). For process boundaries, session lifetime, and client-dependent tools, see the optional [Agent Host architecture reference](/docs/agents/concepts/agent-host.md#process-architecture).
 
 ## Understand what the harness choice changes
 
@@ -109,10 +111,10 @@ For sessions that offer folder and worktree options, code isolation controls whi
 
 A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) for operating system-level file system and network restrictions.
 
-For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. Local sessions can change the session target and carry conversation history and context to the new target. Learn how to [choose a session target and code isolation](/docs/agents/run/agent-harnesses.md).
+For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. Local sessions can change the session target and carry conversation history and context to the new target. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Related resources
 
-* [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Complete your first task with an agent](/docs/agents/quickstart.md)
 * [Sessions and handoff](/docs/agents/concepts/sessions.md)

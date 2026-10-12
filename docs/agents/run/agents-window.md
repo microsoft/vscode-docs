@@ -123,7 +123,7 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
-1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
+1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [choose where the agent makes changes](#choose-where-an-agent-makes-changes).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
 
@@ -131,6 +131,37 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
     > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The new session appears in the sessions list after you send the prompt.
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+### Choose where an agent makes changes
+
+For a workspace session in the {% data variables.copilot.agents_window %}, choose whether the agent edits your current folder or works in a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees). Use a worktree to keep an agent's changes separate from your active workspace, especially when you run tasks in parallel.
+
+Code isolation controls where the agent applies file changes. The permission level controls which actions require your approval. A worktree keeps changes out of your active workspace, but it does not restrict commands, network access, or access to files outside the worktree.
+
+| Choice | Choose it for | Considerations |
+|--------|---------------|----------------|
+| **New Worktree** | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
+| **Folder** | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
+
+For a walkthrough with separate worktrees for two independent tasks, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
+When you [start a session](#start-an-agent-session), select **New Worktree** and choose the base branch. The base branch provides the initial contents of the new worktree and does not change the branch in your active workspace.
+
+If you leave **New Worktree** unselected, the agent works directly in the selected folder. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
+
+Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace. **Local** sessions also always apply changes in the active workspace.
+
+In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(sessions.useWorktree)` controls whether **New Worktree** is selected when you create your first workspace session. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers your isolation choice across workspaces and uses it instead of this setting.
+
+![Screenshot showing the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
+
+Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
+
+Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large ignored folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes an agent makes through the symlink affect the folder in the original checkout.
+
+Worktree sessions use **Allow all** and don't offer manual approval prompts. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+
+Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
 
 <a name="run-a-session-in-a-dev-container"></a>
 
@@ -168,7 +199,7 @@ Use `setting(chat.agentHost.devContainer.idleTimeout)` to change the inactivity 
 
 ### Start a session from a pull request
 
-For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
+For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](#choose-where-an-agent-makes-changes) that tracks the pull request branch.
 
 To start a session from a pull request:
 
@@ -221,7 +252,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is available for Copilot and Codex quick chats. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+> This option is available for Copilot and Codex quick chats. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](#choose-where-an-agent-makes-changes) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 

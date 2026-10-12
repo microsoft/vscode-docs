@@ -19,7 +19,7 @@ The {% data variables.copilot.agents_window %} uses the accounts and model crede
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
 * **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available in the desktop {% data variables.copilot.agents_window %}. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
-For complete authentication, billing, and capability information, see [Configure a harness or Cloud target](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+For account requirements, billing options, and integration setup, see [Agent harness requirements and setup](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
 Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in when you enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. This option is experimental. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
@@ -126,6 +126,6 @@ Add a decorative chat background, use the interactive VS Code pet, or adjust how
 
 ## Next steps
 
-* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare providers, execution environments, permissions, and isolation.
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare options, select a harness, and review its setup requirements.
 * [Use the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) - start, monitor, review, and finish agent sessions across workspaces.
 * [AI settings reference](/docs/agents/reference/ai-settings.md) - review settings for agents and chat.

@@ -96,7 +96,7 @@ For Copilot sessions, manage tools from the Agent Customizations editor. Your se
 
 Limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
-To define a reusable tool selection for a workflow, specify tools in a [custom agent](/docs/agent-customization/custom-agents.md). For other harnesses, use their supported [tool and permission controls](/docs/agents/run/agent-harnesses.md#configure-an-agent-harness).
+To define a reusable tool selection for a workflow, specify tools in a [custom agent](/docs/agent-customization/custom-agents.md). For other harnesses, check their [setup requirements and configuration options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
 ### Manage tool availability for Copilot
 
@@ -183,7 +183,7 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
-Copilot sessions use the [built-in shell tool](/docs/agents/run/agent-harnesses.md#copilot) by default. Workspace commands run in the session's environment, and you review the results in chat. The integrated-terminal controls below apply to Local sessions and configurations that use the integrated terminal tool.
+Copilot sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local sessions and configurations that use the integrated terminal tool.
 
 <details>
 <summary>Integrated-terminal controls</summary>
@@ -217,6 +217,16 @@ The agent can also choose to run commands directly in the background, without us
 
 > [!TIP]
 > To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
+
+#### Configure shell initialization
+
+`feature(agent-host-shell-initialization)`
+
+Keep agent shell commands aligned with your development environment by loading your shell profile. In [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot) running on your machine that use the SDK built-in shell tool, enable `setting(chat.agentHost.shellTool.initScript.enabled)` to load `~/.bashrc` on macOS and Linux or your PowerShell profiles on Windows before each command.
+
+With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, the selected workspace environment is also activated.
+
+This setting does not apply to remote sessions or the custom terminal tool override.
 
 ## Built-in tools and context reference
 

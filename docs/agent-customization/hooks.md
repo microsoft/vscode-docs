@@ -346,5 +346,5 @@ For other harnesses, use the provider's hook reference and diagnostics. The Loca
 ## Related resources
 
 * [Local hooks reference](/docs/agents/reference/hooks-reference.md)
-* [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Security considerations for AI agents](/docs/agents/run/security.md)
