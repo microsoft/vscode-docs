@@ -53,6 +53,11 @@
       "label": "VS Code pet",
       "state": "experimental"
     },
+    "cloud-automations": {
+      "label": "Cloud automations",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"

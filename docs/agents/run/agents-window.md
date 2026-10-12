@@ -366,9 +366,11 @@ For what chats share, how to create them, and the controls in each interface, se
 
 `feature(automations)`
 
-Automations run recurring agent tasks from a saved prompt and schedule. Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+Automations run recurring agent tasks from a saved prompt and schedule. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub and continue when you close {% data variables.product.prodname_vscode_shortname %} or turn off your computer.
 
-Learn how to [create an automation and review its results](/docs/agents/run/automations.md).
+Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. For cloud execution, also enable `setting(chat.automations.cloud.enabled)`. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+
+Learn how to [choose where an automation runs, create an automation, and review its results](/docs/agents/run/automations.md).
 
 ## Configure the {% data variables.copilot.agents_window %}
 
