@@ -51,7 +51,7 @@
     },
     "canvases": {
       "label": "Canvases",
-      "state": "experimental",
+      "state": "preview",
       "trackingUrl": "https://github.com/microsoft/vscode/issues/340946"
     },
     "chat-pet": {
