@@ -73,12 +73,13 @@ Your harness choice is separate from where the session changes code. In the {% d
 
 ### Identify your current harness
 
-The target picker is not available in every running session. To identify the current harness, open the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list). The list includes the session type, and each session in the {% data variables.copilot.agents_window %} shows its harness.
+To identify the current harness for a chat session, use one of the following methods:
 
-<!-- TODO: Add a screenshot that identifies the current harness in the sessions list. -->
+* In the editor window, the active harness is shown as a prefix in the chat title.
 
-<a name="configure-an-agent-harness"></a>
-<a name="configure-a-harness-or-cloud-target"></a>
+* In the {% data variables.copilot.agents_window %}, the chat input box shows the active harness as the watermark.
+
+* In the {% data variables.copilot.agents_window %}, hover over the session entry in the sessions list to see a tooltip showing the harness.
 
 ## Requirements and setup
 
