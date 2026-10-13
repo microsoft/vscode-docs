@@ -74,16 +74,14 @@ Research how Next.js handles routing. Use #web tools and summarize the relevant 
 
 The `#` menu also contains context items, such as files, folders, and editor selections. Context items provide information for the request, while tools give the agent capabilities to gather information or take actions. Learn more about [adding context to chat prompts](/docs/chat/chat-overview.md#add-context-to-your-prompts).
 
-To group related tools and reuse them across prompts, prompt files, and custom agents, [create a tool set](/docs/agent-customization/tool-sets.md).
+> [!NOTE]
+> **For Local harness sessions:** To group related tools and reuse them across prompts, prompt files, and custom agents, [create a tool set](/docs/agent-customization/tool-sets.md).
 
-## Select tools for a request
+<a name="select-tools-for-a-request"></a>
 
-The Copilot and Local harnesses use different controls to select client-side tools.
+## Manage available tools
 
-{% tabs id="select-tools-by-harness" %}
-{% tab label="Copilot harness" %}
-
-Manage tools for the Copilot harness from the Agent Customizations editor:
+For Copilot harness sessions, manage tools from the Agent Customizations editor. Your selection persists in the active [user profile](/docs/configure/profiles.md), rather than applying to only one request:
 
 1. In the chat input, select the **Copilot** harness.
 
@@ -94,29 +92,15 @@ Manage tools for the Copilot harness from the Agent Customizations editor:
 
 1. Select the **Tools** tab.
 
-1. Select or deselect tools to control which ones are available to the Copilot harness. These choices persist in the active [user profile](/docs/configure/profiles.md).
+1. Select or deselect tools to control which ones are available to the agent.
 
-{% /tab %}
-{% tab label="Local harness" %}
+Limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
-Select tools for an individual request from the {% data variables.copilot.chat_view %}:
+To define a reusable tool selection for a workflow, specify tools in a [custom agent](/docs/agent-customization/custom-agents.md). For other harnesses, check their [setup requirements and configuration options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
-1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+<a name="manage-tool-availability-for-copilot"></a>
 
-1. Select **Configure Tools**.
-
-    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
-
-1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
-
-{% /tab %}
-{% /tabs %}
-
-For either session type, limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
-
-When you customize chat with [prompt files](/docs/agent-customization/prompt-files.md) or [custom agents](/docs/agent-customization/custom-agents.md), you can specify which tools are available for a workflow. Learn more about the [tool list priority order](/docs/agent-customization/custom-agents.md#tool-list-priority).
-
-### Manage tool availability for Copilot
+### Manage tool availability for the Copilot harness
 
 All client-side tools are available to the Copilot harness by default. In the **Tools** tab, tools are organized into collapsible groups. You can:
 
@@ -131,7 +115,9 @@ The **Copilot** group lists the harness's built-in tools. These tools run in the
 
 Tool availability is separate from tool approval. Enabling a tool makes it available to the agent, but doesn't bypass the configured [approval and permission controls](/docs/agents/run/approvals.md).
 
-### Add extension tools for Copilot
+<a name="add-extension-tools-for-copilot"></a>
+
+### Add extension tools for the Copilot harness
 
 In the main {% data variables.product.prodname_vscode_shortname %} window, you can find extensions that contribute language model tools:
 
@@ -148,20 +134,39 @@ To remove an extension from the tool list, right-click its tool group and select
 > [!CAUTION]
 > Uninstalling a tool extension removes the entire extension, including contributions that aren't tools.
 
+<details>
+<summary>Select tools for a Local harness request</summary>
+
+For Local harness sessions, select tools for an individual request from the {% data variables.copilot.chat_view %}:
+
+1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+
+1. Select **Configure Tools**.
+
+    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+
+1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
+
+You can also specify tools in a [prompt file](/docs/agent-customization/prompt-files.md) or [custom agent](/docs/agent-customization/custom-agents.md). Learn more about the [tool list priority order](/docs/agent-customization/custom-agents.md#tool-list-priority).
+
+</details>
+
 ## Edit tool parameters
 
-For a tool call that requires approval, you can expand the confirmation dialog to review its input parameters. Parameter editing depends on the session and confirmation type:
+For a tool call that requires approval, expand the confirmation dialog to review its input parameters. Generic and terminal tool confirmations are read-only. If a call needs different parameters, reject it and tell the agent what to change.
 
-* In Agent Host sessions, generic and terminal tool confirmations are read-only.
-* Confirmations from the Local harness and extension-contributed tools can support parameter editing.
+<details>
+<summary>Edit parameters in Local harness and extension tool confirmations</summary>
 
-To edit parameters in a supported confirmation:
+Confirmations from the Local harness and extension-contributed tools can support parameter editing. When the confirmation provides editable fields:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 
 1. Edit any tool input parameters as needed.
 
 1. Select **Allow** to run the tool with the modified parameters.
+
+</details>
 
 ## Common built-in tool workflows
 
@@ -181,6 +186,11 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 ### Run terminal commands
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
+
+Copilot harness sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local harness sessions and configurations that use the integrated terminal tool.
+
+<details>
+<summary>Integrated-terminal controls</summary>
 
 When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within {% data variables.product.prodname_vscode_shortname %}.
 
@@ -207,8 +217,20 @@ The agent can also specify a timeout when running terminal commands. When the ti
 
 The agent can also choose to run commands directly in the background, without user interaction. Background terminals that you have not revealed are automatically cleaned up when their command finishes, which prevents stale terminals from accumulating over a long session. To reveal a background terminal and keep it open after the command completes, select the **Show** link in the chat tool invocation header. The terminal output remains visible in the chat conversation even after a terminal is cleaned up.
 
+</details>
+
 > [!TIP]
 > To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
+
+#### Configure shell initialization
+
+`feature(agent-host-shell-initialization)`
+
+Keep agent shell commands aligned with your development environment by loading your shell profile. In [Copilot harness sessions](/docs/agents/run/agent-harnesses.md#copilot) running on your machine that use the SDK built-in shell tool, enable `setting(chat.agentHost.shellTool.initScript.enabled)` to load `~/.bashrc` on macOS and Linux or your PowerShell profiles on Windows before each command.
+
+With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, the selected workspace environment is also activated.
+
+This setting does not apply to remote sessions or the custom terminal tool override.
 
 ## Built-in tools and context reference
 
@@ -219,9 +241,7 @@ For individual names, descriptions, and availability, see the [Tools and context
 <details>
 <summary>How do I know which tools are available?</summary>
 
-Type `#` in the chat input field to browse available tools, tool sets, and context items. You can also use the tools picker in chat to view and manage the enabled tools.
-
-For Copilot sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools.
+Type `#` in the chat input field to browse available tools, tool sets, and context items. For Copilot harness sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools. For Local harness sessions, use **Configure Tools** in the chat input.
 
 </details>
 

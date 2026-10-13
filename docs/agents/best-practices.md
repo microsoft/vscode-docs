@@ -43,7 +43,7 @@ When you're ready to use an agent in your own project, start with one bounded ta
     existing tests for this area, and summarize the behavior you verified.
     ```
 
-1. Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md), the **Copilot** session target, the **Agent** role, and **Manual permissions** for an interactive first task.
+1. In the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md), select **Copilot** from the **Session Target** UI control, select the **Agent** role, and keep **Manual permissions** for an interactive first task.
 
 1. Review each approval request. When the agent finishes, inspect every changed file and run the relevant tests yourself.
 
@@ -135,7 +135,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use chat for questions or use a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent sessions that use the Copilot, Claude, or Codex harness in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target) for remote execution.
 1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).
@@ -158,15 +158,15 @@ For more information, see [GitHub Copilot security](/docs/agents/run/security.md
 
 When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
 
-* **Use Copilot for day-to-day coding.** Copilot runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
+* **Use the Copilot harness for day-to-day coding.** The Copilot harness runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
 
 * **Use Claude or Codex for provider-specific capabilities.** These harnesses also run tools on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
 
-* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#cloud-target) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
-* **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+* **Run parallel sessions for independent tasks.** Start multiple sessions with the Copilot, Claude, or Codex harness, or use cloud sessions, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
-* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
+* **Hand off when another harness or Cloud better fits the next step.** [Continue with another harness or the Cloud target](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) while preserving the conversation history and context.
 
 For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
 
@@ -206,7 +206,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/run/subagents.md) so the findings don't clutter your main context.
 
-* **Choose the right session target and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) for day-to-day work in a folder or isolated worktree. Choose Local for the extension-host workflow in your current workspace, or Cloud for independent work on provider-managed infrastructure that returns a pull request.
+* **Choose the right harness and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) for day-to-day work in a folder or isolated worktree. Choose the Local harness for the extension-host workflow in your current workspace, or the Cloud target for independent work on provider-managed infrastructure that returns a pull request.
 
 * **Scale with parallel sessions.** Run multiple sessions in separate folders or worktrees to save time and keep contexts separate. You can switch among sessions that run on your machine, a connected host, in a Dev Container, or on provider-managed cloud infrastructure from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) in {% data variables.product.prodname_vscode_shortname %}.
 

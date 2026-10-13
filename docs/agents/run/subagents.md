@@ -17,7 +17,7 @@ Keywords:
 
 Use subagents to research a topic, compare approaches, or review code without filling your main conversation with intermediate work. A subagent works in its own context and returns a focused result to the main agent. Learn more about [subagent concepts](/docs/agents/concepts/agents.md#subagents).
 
-This article shows how to delegate a task and follow its progress in {% data variables.product.prodname_vscode_shortname %}. Select the [tab for your harness](#subagents-by-harness) for its instructions, then learn how to [follow subagent progress](#what-you-see-in-chat) with the shared chat controls.
+This article shows how to delegate a task and follow its progress in {% data variables.product.prodname_vscode_shortname %}. Use the [guidance for your harness](#subagents-by-harness), then learn how to [follow subagent progress](#what-you-see-in-chat) with the shared chat controls.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try a subagent">
 Launch a chat prompt that delegates research to a subagent before implementation.
@@ -38,7 +38,7 @@ For a quick lookup or a small edit, a direct request is usually enough. Delegati
 
 ## Subagents by harness
 
-Your [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target) determines how subagents run and which configuration options they support. Select the harness when you [start a session](/docs/agents/run/agent-harnesses.md#start-a-session).
+Your [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) determines how subagents run and which configuration options they support. [Select a harness](/docs/agents/run/agent-harnesses.md#select-a-harness) before you submit the first prompt.
 
 > [!NOTE]
 > Provider documentation also covers CLI workflows. Commands and configuration options can differ in {% data variables.product.prodname_vscode_shortname %}. Use the [harness guide](/docs/agents/run/agent-harnesses.md) for integration-specific setup and limitations.
@@ -48,7 +48,7 @@ Your [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target
 
 <a id="copilot"></a>
 
-The **{% data variables.product.prodname_copilot_short %}** harness uses the {% data variables.copilot.copilot_sdk_short %} to manage delegation to built-in or custom subagents. Request a subagent in your prompt, or let the main agent decide when to delegate. For native agent behavior and configuration, see [built-in and custom agents in {% data variables.product.prodname_copilot_short %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents).
+The **{% data variables.product.prodname_copilot_short %}** harness manages delegation to built-in or custom subagents. Request a subagent in your prompt, or let the main agent decide when to delegate. For native agent behavior and configuration, see [built-in and custom agents in {% data variables.product.prodname_copilot_short %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents).
 
 {% /tab %}
 {% tab label="Claude" %}
@@ -62,21 +62,24 @@ The **Claude** harness manages its own subagents, with separate context and conf
 
 <a id="codex"></a>
 
-The **Codex** harness uses provider-native subagents to run independent tasks and collect their results. Ask Codex to delegate in your prompt, and see [Codex subagents](https://developers.openai.com/codex/multi-agent) for native configuration and behavior. For availability and setup, including the Experimental Agent Host integration, see [Use the Codex harness](/docs/agents/run/agent-harnesses.md#codex).
+The **Codex** harness uses provider-native subagents to run independent tasks and collect their results. Ask Codex to delegate in your prompt, and see [Codex subagents](https://developers.openai.com/codex/multi-agent) for native configuration and behavior. For availability and integration-specific setup, see [Use the Codex harness](/docs/agents/run/agent-harnesses.md#codex).
 
 {% /tab %}
-{% tab label="Local" %}
+{% /tabs %}
 
 <a id="local"></a>
+
+<details>
+<summary>Subagents in Local harness sessions</summary>
 
 The **Local** harness uses the {% data variables.product.prodname_vscode_shortname %} `runSubagent` tool. The following instructions cover tool selection, custom-agent configuration, model selection, and nested subagents for this harness.
 
 ### Invoke a subagent
 
-Try a read-only research task in a Local session:
+Try a read-only research task in a Local harness session:
 
-1. Open your project, then [start a session](/docs/agents/run/agent-harnesses.md#start-a-session) in the {% data variables.copilot.chat_view %} with the **Local** harness and **Agent** role.
-1. Select **Configure Tools** and make sure **Run Subagent** (`agent/runSubagent`) is selected. Learn more about [selecting tools](/docs/agents/run/tools.md#select-tools-for-a-request).
+1. Open your project, then [select the **Local** harness](/docs/agents/run/agent-harnesses.md#select-a-harness) and **Agent** role for a new session in the {% data variables.copilot.chat_view %}.
+1. Select **Configure Tools** and make sure **Run Subagent** (`agent/runSubagent`) is selected. Learn more about [selecting tools](/docs/agents/run/tools.md#use-tools-in-a-request).
 1. Enter a prompt that explicitly requests a subagent:
 
     ```prompt
@@ -106,7 +109,7 @@ For a reusable Local workflow, add the `agent` tool set to a [prompt file's](/do
 
 ### Run a custom agent as a subagent
 
-In Local sessions, a subagent inherits the main agent's instructions and selected tools unless you specify a [custom agent](/docs/agent-customization/custom-agents.md). A custom agent provides task-specific instructions and can override the tools and [model](#select-the-model-for-a-subagent).
+In Local harness sessions, a subagent inherits the main agent's instructions and selected tools unless you specify a [custom agent](/docs/agent-customization/custom-agents.md). A custom agent provides task-specific instructions and can override the tools and [model](#select-the-model-for-a-subagent).
 
 For example, create `.github/agents/codebase-researcher.agent.md` in your workspace with this content. See [Create a custom agent](/docs/agent-customization/custom-agents.md#create-a-custom-agent) for other ways to create the file.
 
@@ -207,7 +210,7 @@ Summarize the purpose of each file without changing it.
 
 ### Orchestration patterns
 
-For repeatable multi-step work in a Local session, use a coordinator agent to assign focused tasks to workers and combine their results.
+For repeatable multi-step work in a Local harness session, use a coordinator agent to assign focused tasks to workers and combine their results.
 
 #### Coordinator and worker pattern
 
@@ -243,7 +246,7 @@ For each feature request:
 4. Address the findings, then summarize the changes and remaining risks.
 ```
 
-Save all three files. In a Local session, select **Feature Builder** from the agents dropdown and describe the feature to implement. The workers have read-only tools, while the coordinator has edit tools.
+Save all three files. In a Local harness session, select **Feature Builder** from the agents dropdown and describe the feature to implement. The workers have read-only tools, while the coordinator has edit tools.
 
 If another review is needed, the coordinator starts a new invocation and supplies the updated context. The earlier reviewer invocation doesn't retain a conversation for follow-up messages.
 
@@ -261,7 +264,7 @@ Separate contexts can surface different issues, but don't guarantee unbiased or 
 
 ### Troubleshooting
 
-For Local sessions, check these common causes:
+For Local harness sessions, check these common causes:
 
 | Symptom | What to check |
 | --- | --- |
@@ -270,8 +273,7 @@ For Local sessions, check these common causes:
 | A requested model doesn't run. | Use one of the models listed in the error, or remove the explicit preference. See [model selection](#select-the-model-for-a-subagent). |
 | A subagent can't delegate further. | Check the [nested subagent setting](#nested-subagents), the depth limit, and whether its tools include `agent`. |
 
-{% /tab %}
-{% /tabs %}
+</details>
 
 ## What you see in chat
 
@@ -279,13 +281,14 @@ The presentation depends on both the harness and the interface. Interactive [pee
 
 ### Chat view
 
-In a Local session in the {% data variables.copilot.chat_view %}, a running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
+The editor's **Sessions** view shows interactive peer chats, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats, use the [{% data variables.copilot.agents_window %}](#agents-window).
 
-For Agent Host sessions, the editor's **Sessions** view shows interactive peer chats, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats in supported sessions, use the [{% data variables.copilot.agents_window %}](#agents-window).
+> [!NOTE]
+> **For Local harness sessions:** A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
 
 ### Agents window
 
-In supported sessions in the {% data variables.copilot.agents_window %}, subagents appear as read-only chats within the session. Select the indicator in the parent chat to open the subagent. The indicator shows its model, elapsed time, and active tool call.
+In the {% data variables.copilot.agents_window %}, subagents appear as read-only chats within the session. Select the indicator in the parent chat to open the subagent. The indicator shows its model, elapsed time, and active tool call.
 
 Subagent chats are hidden from the tab strip by default. You can also open one from the **Chats** dropdown, the running-subagents indicator, or **Open Subagent** in the chat where the delegation occurred.
 

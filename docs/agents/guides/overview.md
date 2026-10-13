@@ -46,7 +46,7 @@ Use your own repository and keep the default harness and session settings for yo
 
 1. [Open your repository as a workspace](/docs/getstarted/overview.md#open-your-code) so that files, source control, terminals, tests, and agents share the same project context.
 
-1. Map your existing workflow to [{% data variables.product.prodname_vscode_shortname %} sessions](/docs/agents/concepts/sessions.md), then [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls). If provider or local, remote, and cloud execution constraints matter, [choose a session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target).
+1. Map your existing workflow to [{% data variables.product.prodname_vscode_shortname %} sessions](/docs/agents/concepts/sessions.md), then [choose a harness or the Cloud target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider and execution requirements.
 
 1. Start with a bounded task in your own repository. [Explore the codebase](/docs/agents/guides/explore-a-codebase.md) without making changes, or [add a feature](/docs/agents/guides/add-a-feature.md) with your existing development environment and tests.
 

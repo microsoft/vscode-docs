@@ -29,7 +29,7 @@ A session contains one or more chats. Each chat records your prompts, the agent'
 
 Use a session to organize related conversations, follow their progress, and review their combined results.
 
-The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) determines where it works on code. An Agent Host session can use a workspace on your machine, a connected host, or inside a Dev Container on either host, depending on the available harness. A container changes the development environment, not how the session organizes the conversation and task.
+The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) determines where it works on code. Depending on the harness, a session can use a workspace on your machine or a connected host. It can also work inside a Dev Container in either location. A container changes the development environment, not how the session organizes the conversation and task.
 
 ## Chats within a session
 
@@ -37,11 +37,11 @@ A session can contain more than one chat. Each chat is an independent conversati
 
 The session has a main chat. Additional interactive conversations are called **peer chats**. You can prompt each peer chat independently. This differs from a [subagent](/docs/agents/run/subagents.md), which an agent starts to perform delegated work.
 
-Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. This capability runs on the [Agent Host](/docs/agents/concepts/agent-host.md) and is available for harnesses that support it, such as Copilot and Claude. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. Multiple chats in one session are available with Copilot and Claude. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.
 
-Both chats can edit the same files. When you need separate working directories, use separate sessions with [worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation), where available.
+Both chats can edit the same files. When you need separate working directories, use separate sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes), where available.
 
 ## Choose a new chat, a fork, or a new session
 
@@ -58,19 +58,22 @@ If the task needs another folder or a new Git worktree, you don't have to start 
 A fork can open as another chat in the same session or as a new session, depending on the harness. Forking a conversation isn't the same as creating a Git branch or a separate worktree. For example, a fork of a Copilot worktree session continues to use the original worktree.
 
 > [!IMPORTANT]
-> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Use separate sessions with [worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation), where available, when changes must stay separate.
+> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Use separate sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes), where available, when changes must stay separate.
 
 Sessions can run in parallel and keep running when you switch between them. To return an existing conversation and affected workspace files to an earlier point instead of branching the conversation, see [Restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
 
 ## Sessions across surfaces
 
-You can continue a supported Agent Host session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) or the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). Switching windows doesn't create a session, fork the conversation, or change its harness, workspace, or worktree.
+You can access and continue the same live **Copilot** or **Claude** session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). To use **Codex** in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). Switching between these interfaces doesn't create a session, fork the conversation, or change its harness, workspace, or worktree.
 
-Both interfaces provide access to the session's main chat and interactive peer chats, but their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Both interfaces provide access to the session's main chat and, for harnesses that support them, interactive peer chats. Their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
-{% data variables.product.prodname_vscode_shortname %} can also discover supported local sessions created in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex. A discovered session is external until you send a message from {% data variables.product.prodname_vscode_shortname %}. The Agent Host then adopts the session, and the external-session filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
+> [!NOTE]
+> **For Local harness sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
 
-On the [Agent Host](/docs/agents/concepts/agent-host.md), an agent can also coordinate work across sessions. It can list sessions, create new sessions or chats, read another session's recent context, and send follow-up messages between sessions.
+{% data variables.product.prodname_vscode_shortname %} can also discover supported local sessions created in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex. A discovered session is external until you send a message from {% data variables.product.prodname_vscode_shortname %}. After you send a message, the **External** filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
+
+With Copilot or Claude, or with Codex through the [experimental integration](/docs/agents/run/agent-harnesses.md#codex), an agent can also coordinate work across sessions. It can list sessions, create new sessions or chats, read another session's recent context, and send follow-up messages between sessions.
 
 ## Hand off a session
 
@@ -78,17 +81,19 @@ Handoff continues ongoing work with a different agent configuration and carries 
 
 Common handoffs include:
 
-* **Harness to harness**: continue a Copilot session with Claude or Codex to use provider-specific capabilities.
 * **Plan to implementation**: use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent.
-* **Continue in the cloud**: hand off a well-scoped task to the [Cloud target](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution and a pull request workflow.
+* **Continue in the cloud**: in a Copilot harness session, enter `/delegate` to continue a well-scoped task with a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target) for remote execution and a pull request workflow.
 
-Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#hand-off-a-session).
+> [!NOTE]
+> **For Local harness sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, Codex, or Cloud. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
+
+Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Remote and synced sessions
 
 A session doesn't have to run on your local machine, and it doesn't have to stay on one device:
 
-* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot sessions](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
+* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot harness session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot harness sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-harness-sessions).
 * **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/run/sessions/session-history.md).
 * **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
 

@@ -39,8 +39,7 @@
                     ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"],
                     ["Agent Customization", "/docs/agents/concepts/customization"],
                     ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
-                    ["Workspace Context", "/docs/agents/reference/workspace-context"],
-                    ["Agent Host Architecture", "/docs/agents/concepts/agent-host"]
+                    ["Workspace Context", "/docs/agents/reference/workspace-context"]
                 ]
             }],
 
@@ -140,7 +139,8 @@
                     ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                     ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
-                    ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
+                    ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"],
+                    ["Agent Host Architecture", "/docs/agents/concepts/agent-host"]
                 ]
             }],
 

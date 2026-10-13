@@ -1,12 +1,12 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 10/14/2026
-MetaDescription: Sync, share, and query Copilot session history in {% data variables.product.prodname_vscode %} with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
+MetaDescription: Sync, share, and query Copilot harness session history in {% data variables.product.prodname_vscode %} with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Sync and query session history
 
-{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent_short %}, code review, and the GitHub Copilot Desktop app.
+{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your Copilot harness sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent_short %}, code review, and the GitHub Copilot Desktop app.
 
 Synced sessions are private unless you explicitly share them.
 

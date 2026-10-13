@@ -39,7 +39,7 @@ For common tasks, you can use slash commands as shortcuts for frequently used pr
 
 You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-Each session has controls that shape how the agent responds: **Session Target**, **Agent**, **Language model**, and **Permissions**. Learn how to [configure an agent session](/docs/agents/run/agent-harnesses.md#understand-the-session-controls).
+Each session has controls that shape how the agent responds: **Session Target**, **Agent**, **Language model**, and **Permissions**. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [select one for a session](/docs/agents/run/agent-harnesses.md#select-a-harness).
 
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
@@ -57,7 +57,7 @@ For example, enter the following message to run your tests:
 The command runs immediately in the session's default shell, without sending the message to the agent or asking for approval. It uses the session folder or worktree as the working directory. The command output and exit status appear in the chat transcript.
 
 > [!NOTE]
-> The `!` command is only available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions.
+> The `!` command isn't available in Local harness sessions, cloud sessions, or extension-based agent integrations. Use the [integrated terminal](/docs/terminal/getting-started.md) to run commands yourself instead.
 
 ## Send messages while a request is running
 
@@ -216,6 +216,6 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 * [Create and manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 
-* [Choose a session target and configure permissions](/docs/agents/run/agent-harnesses.md)
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md)
 
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
