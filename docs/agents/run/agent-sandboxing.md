@@ -20,10 +20,10 @@ keywords:
 
 Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, and inspect the effective policy for a session.
 
-The settings and behavior below apply to Copilot sessions that use the default tools in the shared runtime.
+The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
 
 > [!NOTE]
-> **For Local sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local sessions and custom terminal tools](#local-sessions-and-custom-terminal-tools) for compatibility details.
+> **For Local harness sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local harness sessions and custom terminal tools](#local-harness-sessions-and-custom-terminal-tools) for compatibility details.
 
 ## Understand the sandbox boundary
 
@@ -86,11 +86,11 @@ The `setting(chat.agent.sandbox.enabled)` setting controls sandboxing on all sup
 Configure sandboxing on the machine where the session runs commands. For a remote session, the remote machine's platform determines the sandbox implementation and prerequisites. Settings are resolved on that machine, and all configured paths refer to its file system.
 
 > [!NOTE]
-> Sandbox device policies don't enforce these controls for Copilot sessions. Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing.
+> Sandbox device policies don't enforce these controls for Copilot harness sessions. Administrators should use [{% data variables.product.prodname_copilot_short %} managed settings](/docs/enterprise/manage-ai-settings.md#deploy-copilot-managed-sandbox-settings) to require sandboxing.
 
 1. Meet the [platform prerequisites](#check-platform-availability) on the execution host.
 1. Set `setting(chat.agent.sandbox.enabled)` to `on` in the settings for that host.
-1. Start a new Copilot session.
+1. Start a new Copilot harness session.
 1. [Inspect the effective sandbox policy](#inspect-the-effective-sandbox-policy) to verify the session's restrictions.
 
 To enable sandboxing in your settings JSON:
@@ -125,7 +125,7 @@ For a remote session, use the [session toggle](#control-sandboxing-for-the-curre
 
 ## Sandbox settings
 
-The following settings configure sandboxing for Copilot sessions that use the default tools. Shared setting names do not imply that other harnesses use the same behavior.
+The following settings configure sandboxing for Copilot harness sessions that use the default tools. Shared setting names do not imply that other harnesses use the same behavior.
 
 | Setting | Default | Purpose |
 |---|---|---|
@@ -144,7 +144,7 @@ The following settings configure sandboxing for Copilot sessions that use the de
 
 ## Inspect the effective sandbox policy
 
-In a Copilot session, run `/sandbox policy` to verify whether sandboxing is active or investigate why a process is blocked. This command isn't available in Local sessions.
+In a Copilot harness session, run `/sandbox policy` to verify whether sandboxing is active or investigate why a process is blocked. This command isn't available in Local harness sessions.
 
 * Enter `/sandbox policy` in the chat input and submit it. The report opens automatically in the editor as a Markdown preview. Select **Open Sandbox Policy** in the response to reopen it.
 
@@ -247,17 +247,19 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 
 <a name="legacy-local-and-custom-terminal-behavior"></a>
 
-## Local sessions and custom terminal tools
+<a name="local-sessions-and-custom-terminal-tools"></a>
 
-Local sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot sandbox described in this article:
+## Local harness sessions and custom terminal tools
+
+Local harness sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
 
 * The removed `chat.agent.sandbox.enabledWindows` setting is replaced by the unified `setting(chat.agent.sandbox.enabled)` setting on Windows.
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
-* `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to Copilot's default tools.
-* `setting(chat.agent.sandbox.allowAutoApprove)` controls terminal approval behavior for Local sessions. It does not configure the Copilot sandbox.
-* `setting(chat.agent.sandbox.fileSystem.mac)`, `setting(chat.agent.sandbox.fileSystem.linux)`, and `setting(chat.agent.sandbox.fileSystem.windows)` are deprecated platform-specific settings. Copilot's default tools ignore them.
+* `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local harness terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to the Copilot harness's default tools.
+* `setting(chat.agent.sandbox.allowAutoApprove)` controls terminal approval behavior for Local harness sessions. It does not configure the Copilot harness sandbox.
+* `setting(chat.agent.sandbox.fileSystem.mac)`, `setting(chat.agent.sandbox.fileSystem.linux)`, and `setting(chat.agent.sandbox.fileSystem.windows)` are deprecated platform-specific settings. The Copilot harness's default tools ignore them.
 
-Domain allow and deny controls are available for compatible terminal tools. Their capabilities differ by implementation and platform. For Copilot sessions, use [the effective sandbox policy report](#inspect-the-effective-sandbox-policy) rather than inferring restrictions from another tool's behavior.
+Domain allow and deny controls are available for compatible terminal tools. Their capabilities differ by implementation and platform. For Copilot harness sessions, use [the effective sandbox policy report](#inspect-the-effective-sandbox-policy) rather than inferring restrictions from another tool's behavior.
 
 ## When your organization manages sandboxing
 

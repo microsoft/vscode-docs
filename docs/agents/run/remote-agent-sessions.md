@@ -143,9 +143,11 @@ The hosts bar in the browser-based {% data variables.copilot.agents_window %} sh
 
 You can connect and disconnect from machines directly through the hosts bar. If a machine goes offline while you have an active session, the session shows a disconnected state. When the machine comes back online, the session reconnects automatically.
 
-## Remote control Copilot sessions
+<a name="remote-control-copilot-sessions"></a>
 
-To monitor and steer an existing [Copilot session](/docs/agents/run/agent-harnesses.md#copilot) from GitHub.com or the GitHub Mobile app, enter `/remote on` in the session. This provides another way to access a running session without selecting the Cloud target or starting a new session on a remote host.
+## Remote control Copilot harness sessions
+
+To monitor and steer an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from GitHub.com or the GitHub Mobile app, enter `/remote on` in the session. This provides another way to access a running session without selecting the Cloud target or starting a new session on a remote host.
 
 Session history, tool activity, status, approvals, and questions stay synchronized. Remote control requires GitHub authentication and a workspace that maps to a GitHub repository.
 

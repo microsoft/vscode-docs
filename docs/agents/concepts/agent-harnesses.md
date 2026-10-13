@@ -82,11 +82,11 @@ The harness choice does not by itself determine where the language model runs or
 | Session target choice | Harness | Execution environment |
 |-----------------------|---------|-----------------------|
 | **Copilot** | The {% data variables.product.prodname_copilot_short %} harness, which uses the shared runtime. | Your machine, a connected host, or a Dev Container. |
-| **Claude or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine, or a connected host or Dev Container where the integration supports it. Check the [harness setup and capabilities](/docs/agents/run/agent-harnesses.md#configure-an-agent-harness). |
+| **Claude or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine, or a connected host or Dev Container where the integration supports it. Check the [harness setup and capabilities](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
 | **Cloud** | The provider harness for the cloud agent that you select, such as Copilot, Claude, or Codex. | The provider's cloud infrastructure, working against a GitHub repository and returning the result through a pull request. |
 
 > [!NOTE]
-> **For Local sessions:** The Local harness works in the current workspace through the editor's extension host. **Local** is a session-target name, not the only way to run agents on your machine. See [Local setup and capabilities](/docs/agents/run/agent-harnesses.md#local).
+> **For Local harness sessions:** The Local harness works in the current workspace through the editor's extension host. **Local** is a session-target name, not the only way to run agents on your machine. See [Local setup and capabilities](/docs/agents/run/agent-harnesses.md#local).
 
 Cloud is an execution target that groups available cloud agents, not a single provider harness. After you select Cloud, you choose an available cloud agent.
 
@@ -111,7 +111,7 @@ For sessions that offer folder and worktree options, code isolation controls whi
 
 A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) for operating system-level file system and network restrictions.
 
-For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. Local sessions can change the session target and carry conversation history and context to the new target. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. Local harness sessions can change the session target and carry conversation history and context to the new target. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Related resources
 

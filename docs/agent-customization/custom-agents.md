@@ -46,7 +46,7 @@ Use a custom agent when a recurring task needs its own instructions and tool sel
 
 Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to create an agent in your workspace or at the user level.
 
-Use the **Session Target** control to select the [agent harness](/docs/agents/run/agent-harnesses.md#choose-a-session-target) you intend to use, then open the editor from either surface:
+Use the **Session Target** control to select the [agent harness](/docs/agents/run/agent-harnesses.md#choose-an-agent-harness) you intend to use, then open the editor from either surface:
 
 * **{% data variables.copilot.agents_window %}**: Select **Agents** in the **Customizations** panel in the left sidebar.
 * **{% data variables.copilot.chat_view %}**: Select **Configure Chat** (gear icon), and then select **Agents**.
@@ -134,7 +134,7 @@ To create a user-level custom agent, use the Agent Customizations editor or the 
 > User-level agents must be available in the supported folder on the machine where the selected harness runs. Harness user folders, such as `~/.copilot/agents` and `~/.claude/agents`, are separate from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing profile-based custom agents to these folders, use [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 > [!NOTE]
-> **For Local sessions:** User-level custom agents are stored in {% data variables.product.prodname_vscode_shortname %} profile storage. The deprecated `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings add other locations for Local only. To reuse those custom agents with Copilot, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+> **For Local harness sessions:** User-level custom agents are stored in {% data variables.product.prodname_vscode_shortname %} profile storage. The deprecated `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings add other locations for the Local harness only. To reuse those custom agents with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
@@ -169,7 +169,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
-| `hooks` (Preview)  | Optional Local hook commands scoped to this agent. Hooks defined here only run in the Local harness when this agent is active, either invoked by the user or as a subagent. Requires `setting(chat.useHooks)` and a trusted workspace. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-local). |
+| `hooks` (Preview)  | Optional Local hook commands scoped to this agent. Hooks defined here only run in the Local harness when this agent is active, either invoked by the user or as a subagent. Requires `setting(chat.useHooks)` and a trusted workspace. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-the-local-harness). |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -324,7 +324,7 @@ When you select a handoff button, you switch to the target agent with the prompt
 
 ## Tool list priority
 
-In a Local session, when you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. Other harnesses don't load prompt files. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
+In a Local harness session, when you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. Other harnesses don't load prompt files. For the full priority order, see [Tool list priority](/docs/agent-customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
 
 ## Share custom agents across teams
 

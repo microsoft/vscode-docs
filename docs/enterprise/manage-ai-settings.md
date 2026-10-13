@@ -186,7 +186,7 @@ To prevent transcript text from being sent to a language model, set `DictationLL
 
 #### Enable or disable hooks
 
-Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} sessions, use [Policy Hooks](#use-the-sdk-harness-for-policy-hooks) and the [managed hook-source controls](#restrict-hook-sources) below.
+Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
 
 > [!NOTE]
 > **For Local sessions:** Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} sessions.
@@ -195,7 +195,7 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 
 ##### Verify Policy Hook coverage
 
-{% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** as the [session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
+{% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** as the [session target](/docs/agents/run/agent-harnesses.md#choose-an-agent-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
 
 Local sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 

@@ -50,7 +50,7 @@ Use the result to choose the next action:
 * **The file is missing**: Verify its file name, location, and the settings that control instruction discovery.
 * **The file has an error**: Fix the reported frontmatter or content error, and then reopen the diagnostics view.
 * **The file is loaded but not applied**: For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on. Also check the **References** section of the chat response to see which instructions were used.
-* **A prompt file is missing from the request**: Prompt files are supported only in Local agent sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
+* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 For file locations, applicability rules, and settings, see [Use custom instructions](/docs/agent-customization/custom-instructions.md). To verify the exact instructions sent to the model, use the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
 
@@ -71,7 +71,7 @@ Prepare the session before you reproduce the issue:
 * Reproduce the issue, and then select that session when you open the logs or use `/troubleshoot`.
 
 > [!NOTE]
-> **For Local sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 To analyze a session with chat:
 

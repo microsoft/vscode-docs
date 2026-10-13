@@ -26,16 +26,16 @@ To understand how the customization types differ and work together, see [Agent c
 ## Prerequisites
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
-* Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#configure-an-agent-harness).
+* Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 * Open the repository root that you want to configure.
-* [Start a session](/docs/agents/run/agent-harnesses.md#start-a-session) and select **{% data variables.product.prodname_copilot_short %}**, **Claude**, or **Codex** from the **Session Target** control. Use the same harness when creating and testing its customizations.
+* [Start a session](/docs/agents/run/agent-harnesses.md#select-a-harness) and select **{% data variables.product.prodname_copilot_short %}**, **Claude**, or **Codex** from the **Session Target** control. Use the same harness when creating and testing its customizations.
 
 For this walkthrough, work in the current folder. If you're using the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected so new sessions can access your uncommitted customization files.
 
 Choose the tabs for your **harness**, not your language model. For example, a Claude model in a {% data variables.product.prodname_copilot_short %} session still uses the {% data variables.product.prodname_copilot_short %} harness.
 
 > [!NOTE]
-> The **Local** harness also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
+> The **Local** harness also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local harness-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
 
 ## Establish a baseline
 

@@ -39,7 +39,7 @@ Start with **Copilot** for day-to-day coding and agent tasks. Choose another tar
 
 For Agent Host sessions managed by desktop {% data variables.product.prodname_vscode_shortname %} on your machine, keep the application running. Closing an editor window is different from quitting the application. Tools provided by a window also require that window to stay connected.
 
-Changing the model or agent role does not change the harness. For example, selecting a Claude model in a Copilot session still uses the Copilot harness. Opening the same session in another supported interface also keeps its harness.
+Changing the model or agent role does not change the harness. For example, selecting a Claude model in a Copilot harness session still uses the Copilot harness. Opening the same session in another supported interface also keeps its harness.
 
 **Local** is a target name, not a synonym for running on your machine. Copilot, Claude, and Codex can also run on your machine.
 
@@ -65,7 +65,7 @@ The control only lists targets whose [requirements](#requirements-and-setup) are
 
 <a name="choose-a-built-in-agent-role"></a>
 
-After selecting a harness, choose an available agent role separately. For example, Local sessions provide **Ask** for questions without code changes, **Agent** for autonomous implementation, and **Plan** for researching and planning changes. Switching roles from the agent picker does not change the harness.
+After selecting a harness, choose an available agent role separately. For example, Local harness sessions provide **Ask** for questions without code changes, **Agent** for autonomous implementation, and **Plan** for researching and planning changes. Switching roles from the agent picker does not change the harness.
 
 <a name="choose-code-isolation"></a>
 
@@ -86,23 +86,23 @@ Check the accounts, extensions, and settings needed for your chosen target. If a
 
 ### Copilot
 
-For GitHub sign-in and account requirements, follow the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md). Copilot sessions use the same GitHub authentication context as chat in {% data variables.product.prodname_vscode_shortname %}, including your GitHub Enterprise account when configured.
+For GitHub sign-in and account requirements, follow the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md). Copilot harness sessions use the same GitHub authentication context as chat in {% data variables.product.prodname_vscode_shortname %}, including your GitHub Enterprise account when configured.
 
 For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-Before reusing a Local session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-copilot) and [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). Copilot sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
+Before reusing a Local harness session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) and [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). Copilot harness sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
 
 <a name="prefer-copilot-for-new-editor-chat-sessions"></a>
 
-For enterprise SDK Policy Hooks requirements, see [enterprise hook configuration](/docs/enterprise/manage-ai-settings.md#use-the-sdk-harness-for-policy-hooks).
+For enterprise SDK Policy Hooks requirements, see [enterprise hook configuration](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks).
 
 ### Local
 
-Local sessions use the models configured in {% data variables.product.prodname_vscode_shortname %}. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) to use Copilot-provided models, or [configure your own model credentials](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for a supported model.
+Local harness sessions use the models configured in {% data variables.product.prodname_vscode_shortname %}. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) to use Copilot-provided models, or [configure your own model credentials](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for a supported model.
 
-Select **Local** in the {% data variables.copilot.chat_view %} and keep the editor window open while the agent works. Local sessions use different [customization settings](/docs/agent-customization/custom-instructions.md) from Copilot sessions.
+Select **Local** in the {% data variables.copilot.chat_view %} and keep the editor window open while the agent works. Local harness sessions use different [customization settings](/docs/agent-customization/custom-instructions.md) from Copilot harness sessions.
 
-SDK Policy Hooks are not loaded in Local sessions. Check [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) before reusing hooks from another harness.
+SDK Policy Hooks are not loaded in Local harness sessions. Check [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses) before reusing hooks from another harness.
 
 <a name="claude-preview"></a>
 <a name="third-party-agents"></a>
@@ -175,13 +175,15 @@ Configure tools, MCP servers, and models in the cloud service. Cloud sessions ca
 
 A handoff continues an ongoing task with a different harness or execution environment and carries the conversation history and context with it. The tools, permissions, and models might change because the new configuration provides different capabilities.
 
-In a Copilot session, enter `/delegate` to continue a well-scoped task with a cloud agent.
+In a Copilot harness session, enter `/delegate` to continue a well-scoped task with a cloud agent.
 
-### Hand off from a Local session
+<a name="hand-off-from-a-local-session"></a>
 
-Local sessions support changing the session target after work starts. Copilot and Claude sessions, and Codex sessions that use the [experimental Agent Host integration](#codex), can receive these handoffs but do not show a **Session Target** dropdown after the session starts.
+### Hand off from a Local harness session
 
-To hand off a Local session:
+Local harness sessions support changing the session target after work starts. Sessions that use the Copilot or Claude harness, and Codex sessions that use the [experimental Agent Host integration](#codex), can receive these handoffs but do not show a **Session Target** dropdown after the session starts.
+
+To hand off a Local harness session:
 
 1. Open the session.
 
@@ -199,5 +201,5 @@ Changing a harness is different from starting another conversation or opening th
 <a name="remote-control-copilot-sessions"></a>
 
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md), including [continuing in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
-* [Remote control for Copilot sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions)
+* [Remote control for Copilot harness sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-harness-sessions)
 * [Approvals and permissions](/docs/agents/run/approvals.md)

@@ -34,7 +34,7 @@ Prepare logging before you reproduce the issue:
 * Reproduce the issue and note the affected session. Capture is not retroactive.
 
 > [!NOTE]
-> **For Local sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 > [!CAUTION]
 > Debug views and exported logs can contain prompts, source code, file paths, tool inputs and outputs, and other sensitive data. Review this content before sharing it, and never include credentials or secrets.
@@ -75,7 +75,7 @@ Custom instructions and prompt files enter a request in different ways:
 
 1. Open the [chat customization diagnostics view](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics) to check whether an instructions file was discovered and whether it has errors.
 1. For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on.
-1. For a prompt file, verify that the session uses the Local agent and that you invoked the file manually. Prompt files are supported only in Local agent sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
+1. For a prompt file, verify that the session uses the Local harness and that you invoked the file manually. Prompt files are supported only in Local harness sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
 1. Check **Discovery** events in the Agent Debug Logs to see whether a customization was loaded, skipped, or rejected.
 1. In the Chat Debug view, inspect the **System prompt** for custom instructions and the **User prompt** for an invoked prompt file.
 1. Correct the discovery or applicability issue, repeat the request, and verify the corresponding prompt content again.

@@ -27,7 +27,7 @@ Agents can change files through editing tools, terminal commands, scripts, and [
 You can [restore a checkpoint](#restore-a-checkpoint) to recover affected workspace files and chat history, but it doesn't reverse completed commands or external effects. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
 
 > [!NOTE]
-> **For Local sessions:** Supported file edits are marked as pending so you can keep or undo them individually. This also applies to existing extension-host sessions. See [Review Local session changes](#review-local-session-changes) for those controls. The {% data variables.copilot.agents_window %} **Changes** view doesn't provide the same per-edit **Keep** and **Undo** workflow.
+> **For Local harness sessions:** Supported file edits are marked as pending so you can keep or undo them individually. This also applies to existing extension-host sessions. See [Review Local harness session changes](#review-local-harness-session-changes) for those controls. The {% data variables.copilot.agents_window %} **Changes** view doesn't provide the same per-edit **Keep** and **Undo** workflow.
 
 For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility), which presents changes in a unified patch format.
 
@@ -130,7 +130,7 @@ The Changes editor restores each file's expanded or collapsed state when you swi
 
 `feature(rubber-duck)`
 
-In a [Copilot session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+In a [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
 
 For non-trivial work, Copilot might consult Rubber Duck automatically at key points, such as:
 
@@ -230,8 +230,7 @@ Hover over a request and select **Fork Conversation** to create an independent s
 
 <a name="review-local-session-changes"></a>
 
-<details>
-<summary>Review Local session changes</summary>
+### Review Local harness session changes
 
 The following controls apply when you select **Local** as the session target or continue an existing extension-host session in the {% data variables.copilot.chat_view %}. These sessions track supported file edits as pending changes that you can keep or undo individually.
 
@@ -255,18 +254,16 @@ To review pending edits:
 
 You can also accept or reject all pending edits from the {% data variables.copilot.chat_view %}. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
 
-### Source Control integration
+#### Source Control integration
 
 If you stage your changes in the Source Control view, any pending edits are automatically accepted. If you discard your changes, any pending edits are also discarded.
 
-### Auto-accept edits
+#### Auto-accept edits
 
 Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
 
 > [!IMPORTANT]
 > If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
-
-</details>
 
 ## Edit sensitive files
 

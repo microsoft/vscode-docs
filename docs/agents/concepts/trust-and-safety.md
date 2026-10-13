@@ -34,7 +34,7 @@ Understand the control mechanisms and safety considerations for using AI in {% d
 Agents can read files, edit code, run terminal commands, and call external services. {% data variables.product.prodname_vscode_shortname %}'s trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
 * **Review before integrating.** Agents can save edits directly in the session folder or worktree. Inspect the changes in a diff before you commit, merge, or create a pull request. For supported sessions, [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) restore affected workspace files and chat to an earlier point.
-* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Copilot sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
+* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Copilot harness sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#edit-sensitive-files) when an edit must require confirmation before it is applied.
 * **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
 * **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} uses trust decisions for workspaces, extensions, MCP servers, and network domains. Workspace MCP servers inherit Workspace Trust.
@@ -63,7 +63,7 @@ In {% data variables.product.prodname_copilot_short %} sessions that use the def
 Sandboxing and approval are separate controls. A sandbox restricts the resources a process can access, while the session's permission settings determine whether an action requires confirmation.
 
 > [!NOTE]
-> **For Local sessions:** Sandboxing applies to terminal commands and their child processes. Its approval behavior and configuration differ from Copilot's default tools. See [Local sandbox compatibility](/docs/agents/run/agent-sandboxing.md#local-sessions-and-custom-terminal-tools).
+> **For Local harness sessions:** Sandboxing applies to terminal commands and their child processes. Its approval behavior and configuration differ from the Copilot harness's default tools. See [Local harness sandbox compatibility](/docs/agents/run/agent-sandboxing.md#local-harness-sessions-and-custom-terminal-tools).
 
 ### Why sandboxing matters
 

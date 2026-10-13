@@ -27,7 +27,7 @@ Choose the surface that matches your workflow:
 You can switch between these surfaces after you start a session. To compare all agent interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 > [!NOTE]
-> **For Local sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+> **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
 
 ## Manage session context
 
@@ -143,7 +143,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 ![Screenshot showing how to start a side chat in the {% data variables.copilot.agents_window %} from selected response text.](../../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
-> Side chats are available only in the {% data variables.copilot.agents_window %} for Copilot and Claude sessions. They aren't available for Codex sessions or in the {% data variables.copilot.chat_view %}.
+> Side chats are available only in the {% data variables.copilot.agents_window %} for sessions that use the Copilot or Claude harness. They aren't available for Codex sessions or in the {% data variables.copilot.chat_view %}.
 
 ## Sessions list
 
@@ -205,7 +205,7 @@ For sessions whose harness supports multiple chats, expand the main chat row to 
 
 {% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
-For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
+For Copilot harness sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
 
 By default, sessions created in other applications are hidden. To control which sessions appear, open the sessions list filter, select **External**, and choose one of these options:
 
@@ -233,7 +233,7 @@ To start a {% data variables.copilot.copilot_cli %} session from {% data variabl
 * Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
 * Enter `copilot` in an integrated terminal.
 
-{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
+{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
 
 ## Archive sessions
 
@@ -265,9 +265,9 @@ You can't mark the main chat, side chats, or subagent chats as done independentl
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot harness sessions](/docs/agents/run/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
 
-If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
+If multiple Copilot harness sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
 For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), deleting the session removes the container only when no other session or unsent draft uses it. This cleanup also applies when automatic idle shutdown is turned off.
 
@@ -302,7 +302,7 @@ Dismissing the suggestion hides it for the current window. To turn off future su
 
 `feature(automatic-session-cleanup)`
 
-Configure automatic cleanup to keep inactive Copilot and Claude sessions, and sessions using the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex), from accumulating after their pull requests merge. Both settings are disabled by default:
+Configure automatic cleanup to keep inactive sessions that use the Copilot or Claude harness, and sessions using the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex), from accumulating after their pull requests merge. Both settings are disabled by default:
 
 * `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` controls how many inactive days pass before an eligible session is automatically marked as done.
 * `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` controls the separate grace period between automatically marking an eligible session as done and permanently deleting it.
@@ -323,7 +323,7 @@ Forking a chat session branches off the conversation and inherits the conversati
 
 For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
-For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
+For Copilot harness sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
 Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
 

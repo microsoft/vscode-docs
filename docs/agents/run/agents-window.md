@@ -24,8 +24,8 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) to use Claude without GitHub sign-in (Experimental).
-  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) to use Codex without GitHub sign-in (Experimental).
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#claude) to use Claude without GitHub sign-in (Experimental).
+  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#codex) to use Codex without GitHub sign-in (Experimental).
   * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for use in the {% data variables.copilot.agents_window %}.
 
 ## Open the {% data variables.copilot.agents_window %}
@@ -89,7 +89,7 @@ By default, the **Changes** and **Files** views appear in a separate side panel.
 
 The {% data variables.copilot.agents_window %} picks up your agent sessions across your workspaces. The **active session** is the session that currently has focus. Its conversation and project context determine what you see and which workspace your actions apply to.
 
-Select a session in the sessions list to open it and make it active. When you [open multiple sessions side by side](#open-multiple-sessions-side-by-side), select anywhere in a session view to make that session active. The active session is highlighted in the sessions list.
+Select a session in the sessions list to open it and make it active. When you [open multiple sessions side by side](#work-with-multiple-sessions), select anywhere in a session view to make that session active. The active session is highlighted in the sessions list.
 
 The following parts of the window update when the active session changes:
 
@@ -163,9 +163,7 @@ Worktree sessions use **Allow all** and don't offer manual approval prompts. Fol
 
 Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
 
-<a name="run-a-session-in-a-dev-container"></a>
-
-### Run a session in a Dev Container (Experimental)
+### Run a session in a Dev Container
 
 `feature(agent-host-dev-containers)`
 
@@ -252,7 +250,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is available for Copilot and Codex quick chats. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](#choose-where-an-agent-makes-changes) requires a local Git repository with at least one commit.
+> This option is available for quick chats that use the Copilot or Codex harness. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](#choose-where-an-agent-makes-changes) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 
@@ -410,9 +408,9 @@ You can personalize chat, adjust the window layout, configure settings and exten
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 
-* The agents dropdown currently doesn't have the plan agent. You can use the `/plan` command in a Copilot or Claude agent session. In Copilot sessions, the plan agent is also automatically invoked when you ask it to create a plan.
+* The agents dropdown currently doesn't have the plan agent. You can use the `/plan` command in a Copilot or Claude agent session. In Copilot harness sessions, the plan agent is also automatically invoked when you ask it to create a plan.
 
-* Running multiple chats in a single session is currently supported for Copilot and Claude sessions.
+* Running multiple chats in a single session is currently supported for sessions that use the Copilot or Claude harness.
 
 * Multi-root sessions are not yet supported in the {% data variables.copilot.agents_window %}. You can ask the agent to work across projects in a single session.
 

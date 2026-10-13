@@ -10,7 +10,7 @@ Planning helps you clarify requirements, compare approaches, and identify risks 
 
 You can ask an agent to propose an approach in an ordinary conversation. For a dedicated planning workflow, use **Plan** mode in a **{% data variables.product.prodname_copilot_short %}** session. The agent researches your project, asks clarifying questions, and creates a plan for you to review before implementation.
 
-This article walks you through creating a plan with {% data variables.product.prodname_copilot_short %}, reviewing and refining it, and choosing whether to implement it or save it for later. It also covers the different controls for [planning in a Local session](#plan-in-a-local-session).
+This article walks you through creating a plan with {% data variables.product.prodname_copilot_short %}, reviewing and refining it, and choosing whether to implement it or save it for later. It also covers the different controls for [planning in a Local harness session](#plan-in-a-local-harness-session).
 
 For an end-to-end example, follow the guide to [add a feature to an existing project](/docs/agents/guides/add-a-feature.md), from defining requirements to reviewing the tested change.
 
@@ -68,7 +68,7 @@ This request guides the agent's behavior but does not change the session's permi
 
 ### Research before planning (Preview)
 
-When you need a detailed Markdown report with citations before choosing an approach, use the built-in research agent in a [Copilot session](/docs/agents/run/agent-harnesses.md#copilot). In {% data variables.product.prodname_vscode_shortname %} Insiders, enter `/research <topic>` to gather findings from your codebase, relevant GitHub repositories, and the web.
+When you need a detailed Markdown report with citations before choosing an approach, use the built-in research agent in a [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot). In {% data variables.product.prodname_vscode_shortname %} Insiders, enter `/research <topic>` to gather findings from your codebase, relevant GitHub repositories, and the web.
 
 For research that feeds directly into an implementation plan, use the [Plan agent](#how-to-plan-a-task). For focused research that returns results to the current conversation, use [subagents](/docs/agents/run/subagents.md).
 
@@ -129,7 +129,9 @@ For model-selection guidance, see [Optimize AI credit usage](/docs/agents/guides
 
 For a repeatable planning workflow, define a [custom agent](/docs/agent-customization/custom-agents.md) with instructions such as architectural guidelines or required planning deliverables.
 
-## Plan in a Local session
+<a name="plan-in-a-local-session"></a>
+
+## Plan in a Local harness session
 
 The **Local** session target provides a built-in Plan agent with different controls from {% data variables.product.prodname_copilot_short %} Plan mode. Select **Local** from the **Session Target** control, then select **Plan** from the agents dropdown or enter `/plan` followed by your task.
 
@@ -143,11 +145,11 @@ By default, this agent researches your project without editing project files. Af
 | Save an editable copy | Select **Open in Editor**. This switches to Agent and asks it to create an untitled copy of the plan, which you can save in your project. Unlike **Open Full Plan**, it creates a copy rather than opening the existing plan file. |
 
 > [!CAUTION]
-> In a Local session, **Start with Autopilot** (Preview) starts implementation with automatic tool approval and continues autonomously. This includes approval for file edits, terminal commands, and external tool calls. Your organization can restrict this option.
+> In a Local harness session, **Start with Autopilot** (Preview) starts implementation with automatic tool approval and continues autonomously. This includes approval for file edits, terminal commands, and external tool calls. Your organization can restrict this option.
 
 ### Local planning settings
 
-These options apply to the built-in Plan agent in Local sessions, not to {% data variables.product.prodname_copilot_short %} Plan mode:
+These options apply to the built-in Plan agent in Local harness sessions, not to {% data variables.product.prodname_copilot_short %} Plan mode:
 
 * **Choose default models.** Use `setting(chat.planAgent.defaultModel)` for planning. The experimental `setting(github.copilot.chat.implementAgent.model)` setting selects the model used by **Start Implementation** in the current conversation.
 

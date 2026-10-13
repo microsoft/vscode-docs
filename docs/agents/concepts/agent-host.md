@@ -80,7 +80,7 @@ An active turn can continue after its project window closes while the Agent Host
 
 For remote sessions, keep the remote machine and the process serving the session running. Reconnecting to a session does not mean that active work continued while its host process was stopped or its machine was shut down.
 
-Connected clients can contribute tools, such as browser tools or tools from installed extensions. The Agent Host adds those definitions to the session and routes each tool call back to the contributing client. These tools require that client to remain connected. Learn how to [manage tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-copilot).
+Connected clients can contribute tools, such as browser tools or tools from installed extensions. The Agent Host adds those definitions to the session and routes each tool call back to the contributing client. These tools require that client to remain connected. Learn how to [manage tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness).
 
 ## Agent Host Protocol
 
@@ -111,7 +111,7 @@ The process boundary also affects how you review edits, configure the agent, and
 
 | Task | Guidance |
 |------|----------|
-| Review saved edits | [Review Local session changes](/docs/agents/run/review-code-edits.md#review-local-session-changes). |
+| Review saved edits | [Review Local harness session changes](/docs/agents/run/review-code-edits.md#review-local-harness-session-changes). |
 | Configure instructions and custom agents | [Choose customization scope and locations](/docs/agent-customization/overview.md#choose-a-customization-scope) or [move existing customizations](/docs/agent-customization/migrate-customizations.md). |
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |

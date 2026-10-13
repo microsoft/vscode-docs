@@ -67,7 +67,7 @@ You can access and continue the same live **Copilot** or **Claude** session in t
 Both interfaces provide access to the session's main chat and, for harnesses that support them, interactive peer chats. Their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 > [!NOTE]
-> **For Local sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
+> **For Local harness sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
 
 {% data variables.product.prodname_vscode_shortname %} can also discover supported local sessions created in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex. A discovered session is external until you send a message from {% data variables.product.prodname_vscode_shortname %}. After you send a message, the **External** filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
 
@@ -80,18 +80,18 @@ Handoff continues ongoing work with a different agent configuration and carries 
 Common handoffs include:
 
 * **Plan to implementation**: use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent.
-* **Continue in the cloud**: in a Copilot session, enter `/delegate` to continue a well-scoped task with a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution and a pull request workflow.
+* **Continue in the cloud**: in a Copilot harness session, enter `/delegate` to continue a well-scoped task with a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target) for remote execution and a pull request workflow.
 
 > [!NOTE]
-> **For Local sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, Codex, or Cloud. This dropdown is available only when starting the handoff from Local. The destination session uses the selected harness's tools, permissions, and models.
+> **For Local harness sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, Codex, or Cloud. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
 
-Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#hand-off-a-session).
+Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Remote and synced sessions
 
 A session doesn't have to run on your local machine, and it doesn't have to stay on one device:
 
-* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions).
+* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot harness session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot harness sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-harness-sessions).
 * **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/run/sessions/session-history.md).
 * **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
 

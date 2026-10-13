@@ -135,7 +135,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use chat for questions or use a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) for remote execution.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target) for remote execution.
 1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).
@@ -158,15 +158,15 @@ For more information, see [GitHub Copilot security](/docs/agents/run/security.md
 
 When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
 
-* **Use Copilot for day-to-day coding.** Copilot runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
+* **Use the Copilot harness for day-to-day coding.** The Copilot harness runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
 
 * **Use Claude or Codex for provider-specific capabilities.** These harnesses also run tools on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
 
-* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+* **Use the Cloud target for team collaboration.** [Cloud sessions](/docs/agents/run/agent-harnesses.md#cloud-target) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
 * **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
-* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
+* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) while preserving the conversation history and context.
 
 For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
 

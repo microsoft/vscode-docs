@@ -142,7 +142,7 @@ In addition to the [common input](#common-input), the hook receives:
 | `tool_input` | object | Arguments for the tool call. |
 | `tool_use_id` | string | Identifier for the tool call. |
 
-Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the tool schema for the Local session before you filter or modify a tool call.
+Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the tool schema for the Local harness session before you filter or modify a tool call.
 
 ### Output
 
@@ -164,7 +164,7 @@ Use `hookSpecificOutput` to control the tool call:
 | `hookEventName` | `"PreToolUse"` | Identifies the event-specific output. |
 | `permissionDecision` | `"allow"`, `"deny"`, or `"ask"` | Allows the tool call, denies it, or requires user confirmation. |
 | `permissionDecisionReason` | string | Reason shown to the user. |
-| `updatedInput` | object | Optional replacement tool input. The value must match the tool schema for the Local session. |
+| `updatedInput` | object | Optional replacement tool input. The value must match the tool schema for the Local harness session. |
 | `additionalContext` | string | Additional context for the model. |
 
 When multiple hooks return a permission decision for the same tool call, the most restrictive decision wins:
@@ -173,7 +173,7 @@ When multiple hooks return a permission decision for the same tool call, the mos
 1. `ask` requires user confirmation.
 1. `allow` approves the tool call.
 
-If `updatedInput` does not match the tool schema for the Local session, the harness ignores it.
+If `updatedInput` does not match the tool schema for the Local harness session, the harness ignores it.
 
 ## `PostToolUse`
 

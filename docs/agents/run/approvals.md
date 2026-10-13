@@ -40,7 +40,7 @@ Learn why {% data variables.product.prodname_vscode_shortname %} uses permission
 
 Permission levels control how the agent handles approvals for the current chat session. Select a level from the permissions dropdown in the chat input. You can change it at any time.
 
-The levels below describe Copilot sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
+The levels below describe Copilot harness sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
 New sessions use the level configured by `setting(chat.permissions.default)`.
 
@@ -48,7 +48,7 @@ To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions 
 
 `feature(assisted-permissions)`
 
-Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local sessions. An organization can also hide it by [disabling global auto-approval](/docs/enterprise/manage-ai-settings.md#disable-global-auto-approval).
+Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions. An organization can also hide it by [disabling global auto-approval](/docs/enterprise/manage-ai-settings.md#disable-global-auto-approval).
 
 | Permission level | Description |
 |---|---|
@@ -73,7 +73,7 @@ Sandboxing is independent of the permission level. **Allow all** and **Autopilot
 * Responds automatically to questions that would otherwise block progress.
 
 > [!NOTE]
-> **For Local sessions:** **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
+> **For Local harness sessions:** **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
 
 ### Advanced autopilot (Preview)
 
@@ -84,7 +84,7 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 ### Claude permission modes
 
-[Claude sessions](/docs/agents/run/agent-harnesses.md#claude-preview) support these permission modes:
+[Claude sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
 
 * **Edit automatically**: apply changes without asking for approval.
 * **Request approval**: ask before applying changes.
@@ -233,7 +233,7 @@ Related settings:
 
 Agent sandboxing restricts file system and network access for terminal commands. It is independent of the selected permission level, so an enabled sandbox continues to restrict terminal commands with **Allow all** and **Autopilot**.
 
-In a Copilot session, select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off for that session. New sessions use the effective sandbox configuration on the machine where commands run, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
+In a Copilot harness session, select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off for that session. New sessions use the effective sandbox configuration on the machine where commands run, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
 
