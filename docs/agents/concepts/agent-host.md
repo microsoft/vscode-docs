@@ -98,9 +98,16 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 
 ## Local and existing extension-host sessions
 
-The **Local** harness and existing extension-host sessions run in the extension host rather than the Agent Host. These sessions are tied to their editor window: closing that window stops the agent's ongoing work. Agent Host sessions can continue independently of an editor window while their host remains running.
+Not every agent session uses the Agent Host. Sessions use the extension host in these cases:
 
-Other differences are documented in the relevant task guides:
+* You select the **Local** harness when you create a session.
+* You continue a session that was created with the earlier extension-host architecture, before Agent Host-backed sessions were available.
+
+Extension-host sessions are closely integrated with the current editor window and its extensions. This integration comes with a tradeoff: the window owns the session, so closing the window stops ongoing work, and you can't continue the session from another interface.
+
+Agent Host sessions are owned by a dedicated process instead of an individual editor window. They can continue after you close the window and can be reopened from supported interfaces while the host remains running. Running agents in a separate process also prevents a busy extension host from blocking them. However, tools contributed by an editor window, such as tools from installed extensions, remain available only while that window is connected.
+
+The process boundary also affects how you review edits, configure the agent, and continue sessions. For task-specific differences, see the following guides:
 
 | Task | Guidance |
 |------|----------|
