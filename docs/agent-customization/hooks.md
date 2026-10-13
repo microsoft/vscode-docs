@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 10/7/2026
-MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for Copilot, Claude, Codex, and Local agent sessions.
+MetaDescription: Configure agent hooks in {% data variables.product.prodname_vscode_shortname %} for the Copilot, Claude, Codex, and Local harnesses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -18,7 +18,7 @@ Keywords:
 
 Hooks run custom actions at specific points in an agent's lifecycle. Use hooks to automate workflows, validate operations, create audit trails, or enforce policies independently of the language model.
 
-The selected [agent harness](/docs/agents/concepts/agent-harnesses.md) determines which hook implementation runs. Before you create or reuse a hook, identify the session target and use the configuration and event schema for that harness.
+The selected [agent harness](/docs/agents/concepts/agent-harnesses.md) determines which hook implementation runs. Before you create or reuse a hook, identify the harness and use its configuration and event schema.
 
 This article helps you choose the correct hook implementation, manage hooks from {% data variables.product.prodname_vscode_shortname %}, and configure hooks for the Local harness.
 
@@ -30,25 +30,25 @@ This article helps you choose the correct hook implementation, manage hooks from
 
 ## Choose the hook implementation for your session
 
-The **Session Target** control selects the agent harness. The harness owns the hook lifecycle and payloads.
+The **Session Target** UI control selects the agent harness. The harness owns the hook lifecycle and payloads.
 
-The Agent Host is the process that hosts the Copilot, Claude, and Codex harnesses. The Local harness runs in the extension host. The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} are clients that display and control sessions on either host.
+| **Session Target** choice | Hook implementation | Configuration and event reference |
+|----------------|---------------------|-----------------------------------|
+| **Copilot** | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
+| **Claude** | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
+| **Codex** | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
+| **Cloud** | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
 
-| Session target | Where the harness runs | Hook implementation | Configuration and event reference |
-|----------------|------------------------|---------------------|-----------------------------------|
-| **Copilot** | Agent Host | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
-| **Claude** | Agent Host | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
-| **Codex** | Agent Host or the Codex extension | Codex runtime | Use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/). |
-| **Cloud** | Provider infrastructure | Selected cloud agent | Use the provider documentation. For {% data variables.copilot.copilot_cloud_agent %}, see the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
-| **Local** | Extension host | {% data variables.product.prodname_vscode_shortname %} Local hooks | Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). |
+> [!NOTE]
+> **For Local harness sessions:** Use the [Local configuration](#configure-hooks-for-the-local-harness) in this article and the [Local hooks reference](/docs/agents/reference/hooks-reference.md). These hooks have their own events, settings, and payloads.
 
 Some harnesses discover the same hook files, such as `.github/hooks/*.json` or `.claude/settings.json`. This file compatibility does not make their behavior identical. Supported events, event names, matchers, command properties, tool names, payloads, and output decisions can differ.
 
-Copilot sessions on Agent Host use the same SDK hook implementation as {% data variables.copilot.copilot_cli_short %}. Use the {% data variables.copilot.copilot_cli_short %} sections of the GitHub reference for runtime configuration and payloads, but verify that the event is available in the selected {% data variables.product.prodname_vscode_shortname %} version.
+Copilot harness sessions use the same SDK hook implementation as {% data variables.copilot.copilot_cli_short %}. Use the {% data variables.copilot.copilot_cli_short %} sections of the GitHub reference for runtime configuration and payloads, but verify that the event is available in the selected {% data variables.product.prodname_vscode_shortname %} version.
 
 ### Migrate hooks between harnesses
 
-Before you switch the session target for an existing workflow:
+Before you switch harnesses for an existing workflow:
 
 * Confirm that the destination harness discovers the hook file.
 * Compare the supported events and command properties.
@@ -57,17 +57,17 @@ Before you switch the session target for an existing workflow:
 * Test output decisions, such as blocking a tool call or adding context.
 * Confirm where the hook command runs and which files and environment variables it can access.
 
-Do not validate a migration by changing only the language model. Select the destination harness from the **Session Target** control and start a test session.
+Do not validate a migration by changing only the language model. Select the destination harness from the **Session Target** UI control and start a test session.
 
 ## Create and manage hooks
 
-Select the session target before you open the hooks interface. This ensures that {% data variables.product.prodname_vscode_shortname %} shows the customizations for the intended harness.
+Select the harness before you open the hooks interface. This ensures that {% data variables.product.prodname_vscode_shortname %} shows the customizations for that harness.
 
 To view and manage hooks:
 
 1. Open the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
-1. Select the target from the **Session Target** control.
+1. Select the harness or Cloud target from the **Session Target** UI control.
 
 1. Open the Agent Customizations editor:
 
@@ -75,7 +75,7 @@ To view and manage hooks:
     * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
     * Enter `/hooks` in the chat input.
 
-1. Review the hook sources for the selected target. Select a hook to open its configuration.
+1. Review the hook sources for the selected harness or Cloud target. Select a hook to open its configuration.
 
 You can also run **Chat: Configure Hooks** from the Command Palette (`kb(workbench.action.showCommands)`) to manage Local hook files.
 
@@ -85,11 +85,11 @@ For Claude and Codex, use the provider documentation for additional configuratio
 
 ## Configure hooks for the Local harness
 
-The rest of this article describes the Local hook implementation that runs in the extension host. These events, settings, payloads, and output decisions do not automatically apply to Copilot, Claude, or Codex sessions on Agent Host.
+The following sections describe Local hook events, settings, payloads, and output decisions. These do not automatically apply to other harnesses.
 
 ### Create your first Local hook
 
-The following hook records the name of every tool before the Local agent invokes it. Create `.github/hooks/audit.json` in your workspace:
+The following hook records the name of every tool before the Local harness invokes it. Create `.github/hooks/audit.json` in your workspace:
 
 ```json
 {
@@ -121,7 +121,7 @@ process.stdin.on('end', () => {
 });
 ```
 
-Start a Local agent session and ask the agent to perform a task that uses tools. The hook adds each tool name to `.github/hooks/tool-use.log`. Add this log file to `.gitignore` if you don't want to commit it.
+Start a Local harness session and ask the agent to perform a task that uses tools. The hook adds each tool name to `.github/hooks/tool-use.log`. Add this log file to `.gitignore` if you don't want to commit it.
 
 This example also helps you discover the exact Local tool names to use in validation hooks. Tool names and arguments differ between harnesses.
 
@@ -133,7 +133,7 @@ The Local harness discovers hooks from these built-in locations:
 |-------|---------------|-------|
 | Workspace | `.github/hooks/*.json` | Native {% data variables.product.prodname_vscode_shortname %} or Copilot-compatible hook files. |
 | Workspace, Claude format | `.claude/settings.json`, `.claude/settings.local.json` | Requires `setting(chat.useClaudeHooks)`, which is off by default. |
-| User | `~/.copilot/hooks/*.json` | Available across Local sessions. |
+| User | `~/.copilot/hooks/*.json` | Available across Local harness sessions. |
 | User, Claude format | `~/.claude/settings.json` | Requires `setting(chat.useClaudeHooks)`. |
 | Custom agent | `hooks` in `.agent.md` frontmatter | Runs only for that custom agent in the Local harness. |
 | Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format | See [hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins). |
@@ -208,7 +208,9 @@ The Local harness supports these events:
 
 When an event fires, the Local harness passes a JSON object to the command through standard input (stdin). The command can write JSON to standard output (stdout) to add context or control the next action. The event does not necessarily correspond to the end of the entire session.
 
-### Agent-scoped hooks for Local
+<a name="agent-scoped-hooks-for-local"></a>
+
+### Agent-scoped hooks for the Local harness
 
 > [!NOTE]
 > Agent-scoped hooks are in Preview and are supported only by the Local harness.
@@ -318,7 +320,7 @@ process.stdout.write(JSON.stringify({
 
 ## Troubleshoot hooks
 
-First, confirm that the session target matches the hook reference you followed. A hook that appears in the Agent Customizations editor might still use different events or payloads when you switch harnesses.
+First, confirm that the selected harness matches the hook reference you followed. A hook that appears in the Agent Customizations editor might still use different events or payloads when you switch harnesses.
 
 For Local hooks:
 
@@ -329,7 +331,7 @@ For Local hooks:
 * If you use a Claude-format file, enable `setting(chat.useClaudeHooks)` and remember that Local ignores matcher values.
 * Increase `timeout` only after you confirm that the command is making progress.
 
-For Agent Host harnesses, use the provider's hook reference and diagnostics. The Local settings `setting(chat.useHooks)`, `setting(chat.hookFilesLocations)`, and `setting(chat.useClaudeHooks)` do not configure Copilot, Claude, or Codex hook execution.
+For other harnesses, use the provider's hook reference and diagnostics. The Local settings `setting(chat.useHooks)`, `setting(chat.hookFilesLocations)`, and `setting(chat.useClaudeHooks)` configure only Local hook execution.
 
 ## Security considerations
 
@@ -346,5 +348,5 @@ For Agent Host harnesses, use the provider's hook reference and diagnostics. The
 ## Related resources
 
 * [Local hooks reference](/docs/agents/reference/hooks-reference.md)
-* [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Security considerations for AI agents](/docs/agents/run/security.md)

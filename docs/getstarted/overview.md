@@ -123,7 +123,7 @@ You don't need a {% data variables.product.prodname_copilot %} subscription to u
 
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
 
-For agent workflows, [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls) and [choose a session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
+For agent workflows, [choose a harness or the Cloud target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
 
 ### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
 

@@ -229,7 +229,7 @@ Enable identity capture with `setting(github.copilot.chat.otel.captureIdentity)`
 > Identity attributes can identify a developer and their machine. Enable identity capture only when your organization has an appropriate purpose, access controls, and retention policy for this data.
 
 > [!NOTE]
-> Identity capture currently applies only to the Local harness. Agent Host telemetry doesn't include these identity attributes.
+> Identity capture currently applies only to Local harness sessions. Telemetry from the [Agent Host](/docs/agents/concepts/agent-host.md) process doesn't include these identity attributes.
 
 ### Content capture
 
@@ -295,24 +295,28 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 ## Manage OTel configuration for your organization
 
-Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the Agent Host process.
 
 For delivery methods, configuration fields, client support, and precedence, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry). For the behavior specific to {% data variables.product.prodname_vscode_shortname %}, see [Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
 
-For chat sessions that use the Local harness, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
+For Local harness sessions, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 
 > [!NOTE]
 > When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
 
-## Trace structure for background and Claude agents
+<a name="trace-structure-for-background-and-claude-agents"></a>
 
-When OTel is enabled, all agent types are automatically instrumented. The same settings that enable foreground agent traces also enable Copilot and Claude agent traces.
+## Trace structure by harness
 
-### Copilot
+When OTel is enabled, the Copilot and Claude integrations described in this section are automatically instrumented. The same settings used for Local harness session traces also enable traces for these integrations.
 
-The {% data variables.copilot.copilot_sdk_short %} runs in the same {% data variables.product.prodname_vscode_shortname %} process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the SDK's native spans (service `github-copilot`). Both appear in the same trace in your collector.
+<a name="copilot"></a>
 
-Copilot sessions also show the full SDK hierarchy in the **Agent Debug Log** panel in {% data variables.product.prodname_vscode_shortname %}, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the SDK's internal tracing is always active for the panel.
+### Copilot harness
+
+The shared runtime for Copilot harness sessions runs in the same {% data variables.product.prodname_vscode_shortname %} process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the runtime's native spans (service `github-copilot`). Both appear in the same trace in your collector.
+
+Copilot harness sessions also show the full runtime trace hierarchy in the **Agent Debug Logs** panel in {% data variables.product.prodname_vscode_shortname %}, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the runtime's internal tracing is always active for the panel.
 
 When OTel export is disabled, the debug panel automatically captures full prompt and response content. When OTel export is enabled, the `setting(github.copilot.chat.otel.captureContent)` setting controls content capture for both the debug panel and OTLP export.
 
@@ -335,7 +339,7 @@ In your trace viewer, filter by `service.name` to see traces from specific agent
 | `service.name` | Source |
 |---|---|
 | `copilot-chat` | Foreground agent, CLI wrapper, and Claude agent spans (extension-emitted) |
-| `github-copilot` | {% data variables.copilot.copilot_sdk_short %} native spans and CLI terminal sessions |
+| `github-copilot` | Shared Copilot runtime spans and CLI terminal sessions |
 | `claude-code` | Claude Code subprocess SDK telemetry (when `CLAUDE_CODE_ENABLE_TELEMETRY` is forwarded) |
 
 Within the `copilot-chat` service, distinguish agent types by `gen_ai.agent.name`:

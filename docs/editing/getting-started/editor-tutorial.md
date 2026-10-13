@@ -183,7 +183,7 @@ Let's use agents to build a recipe list web app from a single prompt.
 
 1. Press `kbstyle(Enter)` to send the prompt.
 
-    The agent starts generating the app. The **Copilot** session target applies and saves edits directly to your project files and might request approval to run terminal commands or use other tools.
+    The agent starts generating the app. The Copilot harness applies and saves edits directly to your project files and might request approval to run terminal commands or use other tools.
 
     <!-- TODO: Replace the outdated agent-generating-app.png screenshot with one showing the Copilot Session Target, Agent, Auto, Manual permissions, and the direct-save review flow without Keep or Undo controls. -->
 
