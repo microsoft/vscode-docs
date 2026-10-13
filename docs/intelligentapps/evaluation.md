@@ -102,8 +102,6 @@ The empty grid shows where to import cases or add rows before generating respons
 6. Select the rows to score. From **Run Evaluation**, select **Run Evaluation Only** to score the current responses, or **Run Evaluation with Response** to rerun the selected rows before scoring.
 7. Inspect the scores and explanations, including individual failures rather than only aggregate values.
 
-<!-- TODO: Human capture of a populated local-prompt Evaluation grid with safe example inputs, generated responses, manual feedback, and evaluator scores. -->
-
 Mock custom-tool responses are not evidence that an external service ran. When testing live MCP tools, check the calls and returned data. Use the [tool setup guide](/docs/intelligentapps/tool-catalog.md) for runtime and authentication requirements.
 
 ### Compare saved local versions
@@ -169,8 +167,6 @@ For a saved Foundry prompt agent:
 
 ![Screenshot showing a Foundry prompt agent's Evaluation tab with Scaffold Evaluation Code and a Foundry evaluation guidance link.](./images/evaluation/foundry-evaluation-setup.png)
 
-<!-- TODO: Human capture of a generated evaluation project's Testing view with collected tests and safe example data. -->
-
 The project includes a `test_<agent>.py` test file, `data.jsonl`, `requirements.txt`, `.env`, pytest configuration, and workspace test settings. Custom evaluator selections also provide code you can adapt. Tests invoke the configured agent and score its responses. Running pytest locally does not move a Foundry agent to your computer.
 
 > [!NOTE]
@@ -185,8 +181,6 @@ Use **Testing** to inspect pass and fail output. Detailed local evaluation files
 In the **Testing** sidebar, expand **Foundry Toolkit** > **View Evaluation Results**. Choose local results or remote results for Foundry agents defined in the workspace's pytest evaluation configurations. For the project-wide evaluation list, use **My Resources** > **Evaluations** instead. Open a result in **Data Viewer** to inspect the recorded inputs, responses, and scores. Downloaded remote results remain copies of service-owned data, not new local evaluation runs.
 
 Optionally, select **Analyze Evaluation Results** in the Toolkit's Testing view and choose a result file. This fills {% data variables.product.prodname_copilot %} Chat with a draft request. Review it and select **Send** to start the analysis. Review the suggested changes against the failed cases rather than accepting them as evidence that the agent is fixed.
-
-<!-- TODO: Human capture of Testing > Foundry Toolkit > View Evaluation Results with local and remote branches, and Data Viewer with safe completed evaluation data. Use a prepared evaluation workspace and existing results rather than creating a cloud run for the capture. -->
 
 ## Run and review evaluations in Foundry
 
@@ -241,8 +235,6 @@ The Toolkit configures an hourly trace-evaluation schedule. **Sample rate** is a
 
 > [!NOTE]
 > Recurring evaluation is a Preview service capability. Check the current monitoring guidance for availability and limitations. Evaluation-model consumption and telemetry storage can incur ongoing charges. Access, retention, and billing follow the connected Azure resources.
-
-<!-- TODO: Human capture of Continuous Evaluation settings for an agent with connected Application Insights and existing traces. Show the Auto Run, evaluator, Select Model, and Sample rate controls in an unsubmitted dialog. Do not submit settings or create a schedule for the capture. -->
 
 ## Use the results to improve the application
 
