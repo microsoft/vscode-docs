@@ -47,6 +47,8 @@ Both chats can edit the same files. When you need separate working directories, 
 
 Continue in the same chat when you're working on the same task and its conversation history is still relevant. When you need a separate conversation, choose based on whether you want to retain that history and share the same workspace.
 
+If the task needs another folder or a new Git worktree, you don't have to start a new conversation. In supported single-chat sessions in the {% data variables.copilot.agents_window %}, you can [move the existing chat](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) and continue with its conversation history intact.
+
 | Choose | When to use it | Conversation history | Workspace and code changes |
 |--------|----------------|----------------------|----------------------------|
 | [New chat in the same session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) | Work on a related task with a fresh conversation, such as writing tests for the feature another chat is implementing. | Starts without the other chats' history. | Shares the session's workspace and worktree. |

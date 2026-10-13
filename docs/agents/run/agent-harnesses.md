@@ -149,6 +149,8 @@ When you [start a session in the {% data variables.copilot.agents_window %}](/do
 
 If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
 
+If you start a supported single-chat session with **Folder** isolation, you can later [ask the agent to continue in a new worktree](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) without losing the conversation history. Use this option to investigate a task first, then isolate its implementation.
+
 Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace.
 
 In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(sessions.useWorktree)` controls whether **New Worktree** is selected when you create your first workspace session. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers your isolation choice across workspaces and uses it instead of this setting.

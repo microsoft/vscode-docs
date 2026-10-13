@@ -238,6 +238,8 @@ To continue a quick chat in a workspace:
 
 1. Wait for workspace setup to finish. The quick chat becomes a workspace session and moves from the **Chats** group to the selected workspace in the sessions list. The agent then continues the original request.
 
+If the chat already has a workspace, see [Move a chat to another folder or worktree](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) to continue the same task in a different location without starting a new conversation.
+
 ## Review and finish an agent session
 
 When an agent finishes a task, make the session active to inspect its workspace and access its validation and Git actions.
