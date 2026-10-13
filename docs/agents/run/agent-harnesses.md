@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 10/14/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
+MetaDescription: Compare agent harnesses and built-in roles in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -65,7 +65,16 @@ The control only lists targets whose [requirements](#requirements-and-setup) are
 
 <a name="choose-a-built-in-agent-role"></a>
 
-After selecting a harness, choose an available agent role separately. For example, Local harness sessions provide **Ask** for questions without code changes, **Agent** for autonomous implementation, and **Plan** for researching and planning changes. Switching roles from the agent picker does not change the harness.
+### Choose a built-in agent role
+
+After selecting a harness, choose an available built-in agent role from the agent picker. The available roles depend on the harness:
+
+| Harness | Built-in roles |
+|---------|----------------|
+| **Copilot** | **Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands. **Agent** implements changes and validates the result. |
+| **Local** | **Ask** answers questions without changing your code. **Agent** implements changes and validates the result. **Plan** researches a task and creates an implementation plan for you to review. |
+
+Switching roles doesn't change the harness. Copilot harness options such as [Plan](/docs/agents/run/planning.md) and [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) are modes with their own workflows, not additional built-in agent roles.
 
 <a name="choose-code-isolation"></a>
 
