@@ -238,7 +238,7 @@ Use {% data variables.product.prodname_vscode_shortname %} device policies to co
 
 ##### Disable global auto-approval
 
-Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval.
+Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval. While this policy is set, tool confirmations offer only one-time approval, and tool approvals that developers saved earlier aren't applied.
 
 > [!CAUTION]
 > Global auto-approval bypasses security prompts for tool invocations. Disable it unless your threat model explicitly supports this behavior.
@@ -261,7 +261,7 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, use th
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
-Check client support before attempting centralized enforcement. The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. Don't assume that a control supported by another client applies here.
+The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. For Agent Host sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy).
 
 <details>
 <summary>Sandbox device policies for Local harness sessions</summary>

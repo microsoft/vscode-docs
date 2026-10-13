@@ -228,7 +228,7 @@ You can find all testing-related settings in the Settings editor (`kb(workbench.
 
 ## Next steps
 
-* Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
+* Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), [C#](/docs/csharp/testing.md), or [Ruby](/docs/languages/ruby.md#run-and-debug-tests)
 
 * Learn more about [Copilot and AI-assisted testing in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md)
 

@@ -13,7 +13,7 @@ Blobby, the {% data variables.product.prodname_vscode %} pet, sits above the cha
 
 ![Screenshot showing the VS Code pet entering and leaving the chat input in Stable blue and Insiders green.](../images/chat-pet/toggle.png)
 
-To learn how to show, hide, and control the pet, see [Personalize chat](/docs/chat/chat-overview.md#use-the-vs-code-pet).
+To learn how to show, hide, and control the pet, see [Personalize chat](/docs/chat/chat-overview.md#personalize-chat).
 
 ## Chat activity reactions
 
