@@ -24,7 +24,7 @@ When {% data variables.product.prodname_vscode_shortname %} shows a customizatio
 This article explains why migration is needed, how to complete each migration that {% data variables.product.prodname_vscode_shortname %} supports, and what to review manually.
 
 > [!NOTE]
-> This article covers migration to the Copilot harness. For Claude or Codex sessions, use the locations and formats in the provider documentation.
+> This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
 
 ## Open the migration list
 

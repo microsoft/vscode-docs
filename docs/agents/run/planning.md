@@ -25,11 +25,11 @@ Use {% data variables.product.prodname_copilot_short %} to create and review an 
 
 Open your project folder in {% data variables.product.prodname_vscode_shortname %} and [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) before you begin.
 
-The following steps use the **{% data variables.product.prodname_copilot_short %}** session target. Learn more about [choosing an agent harness](/docs/agents/run/agent-harnesses.md).
+The following steps use the {% data variables.product.prodname_copilot_short %} harness. Learn more about [choosing an agent harness](/docs/agents/run/agent-harnesses.md).
 
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)` and select **New Chat** (`+`).
 
-1. Choose **{% data variables.product.prodname_copilot_short %}** from the **Session Target** control.
+1. Choose **{% data variables.product.prodname_copilot_short %}** from the **Session Target** UI control.
 
 1. Enter `/plan` followed by the outcome you want, any constraints, and how you will verify success. For example:
 
@@ -133,7 +133,7 @@ For a repeatable planning workflow, define a [custom agent](/docs/agent-customiz
 
 ## Plan in a Local harness session
 
-The **Local** session target provides a built-in Plan agent with different controls from {% data variables.product.prodname_copilot_short %} Plan mode. Select **Local** from the **Session Target** control, then select **Plan** from the agents dropdown or enter `/plan` followed by your task.
+The Local harness provides a built-in Plan agent with different controls from {% data variables.product.prodname_copilot_short %} Plan mode. Select **Local** from the **Session Target** UI control, then select **Plan** from the agents dropdown or enter `/plan` followed by your task.
 
 By default, this agent researches your project without editing project files. After it creates a plan, use these actions:
 

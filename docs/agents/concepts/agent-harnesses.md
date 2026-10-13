@@ -22,7 +22,7 @@ An agent harness is the software layer that runs an agent session. It turns a la
 
 The model provides the reasoning and decides what to say or which tool to request. The harness makes those decisions operate as a stateful workflow by preparing model requests, coordinating tool calls and approvals, returning results to the model, and tracking the conversation and changes.
 
-This article explains what a harness does and how it differs from model access, a language model, an agent role, a session target, and an execution environment. To compare harnesses and review their setup requirements, see [Choose an agent harness](/docs/agents/run/agent-harnesses.md).
+This article explains what a harness does and how it differs from model access, a language model, an agent role, and an execution environment. It also explains how the **Session Target** UI control presents harnesses and the Cloud target. To compare harnesses and review their setup requirements, see [Choose an agent harness](/docs/agents/run/agent-harnesses.md).
 
 ![Diagram showing an agent harness coordinating the user interface, language model, tools, and conversation state. The model requests actions, while the harness prepares context, applies permissions, coordinates tools, and tracks state.](../images/concepts/agent-harness-relationships.svg)
 
@@ -50,7 +50,7 @@ Several choices determine how an agent works. They work together, but they are n
 | **Language model** | How the agent reasons and generates responses. | A harness can offer multiple models, and the same model might be available through more than one harness. The model can run in a different location from the harness. |
 | **Agent role** | Which instructions, tools, and behavior apply to a task. Examples include Agent, Plan, Ask, and custom agents. | A role shapes the task behavior within a harness. Changing the role does not replace the harness. |
 | **Execution environment** | Where workspace tools run and code changes are made, such as your machine, a connected host, a Dev Container, or cloud infrastructure. | The harness coordinates work in the selected environment. The environment is not the harness. |
-| **Session target** | Which harness or cloud target {% data variables.product.prodname_vscode_shortname %} uses for a session. | The **Session Target** UI control lists harnesses and the Cloud target. In the {% data variables.copilot.agents_window %}, use the workspace picker to select a machine or Dev Container separately from the harness. |
+| **Session Target** UI control | Which harness or the Cloud target {% data variables.product.prodname_vscode_shortname %} uses for a session. | This UI control lists harnesses and the Cloud target. In the {% data variables.copilot.agents_window %}, use the workspace picker to select a machine or Dev Container separately from the harness. |
 
 ### Model access
 
@@ -73,13 +73,15 @@ The selected harness defines the agent implementation. Depending on the harness 
 * **Agent workflows**: which provider-specific commands, customizations, and session features are available.
 * **Permissions**: which approval modes and tool permission settings the harness supports.
 
-The harness choice does not by itself determine where the language model runs or whether code changes go into a folder or worktree. Those choices depend on the models, execution environments, and isolation options that the session target supports.
+The harness choice does not by itself determine where the language model runs or whether code changes go into a folder or worktree. Those choices depend on the models, execution environments, and isolation options that the harness supports.
 
-## Map session targets to harnesses
+<a name="map-session-targets-to-harnesses"></a>
 
-{% data variables.product.prodname_vscode_shortname %} provides common chat and session-management surfaces across session targets. Available controls and workflows depend on the selected target. The **Session Target** control includes both harnesses and the Cloud execution target:
+## Map Session Target choices to harnesses
 
-| Session target choice | Harness | Execution environment |
+{% data variables.product.prodname_vscode_shortname %} provides common chat and session-management surfaces across harnesses. Available controls and workflows depend on the selected harness. The **Session Target** UI control includes both harnesses and the Cloud execution target:
+
+| **Session Target** choice | Harness | Execution environment |
 |-----------------------|---------|-----------------------|
 | **Copilot** | The {% data variables.product.prodname_copilot_short %} harness, which uses the shared runtime. | Your machine, a connected host, or a Dev Container. |
 | **Claude or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine, or a connected host or Dev Container where the integration supports it. Check the [harness setup and capabilities](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
@@ -111,7 +113,7 @@ For sessions that offer folder and worktree options, code isolation controls whi
 
 A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) for operating system-level file system and network restrictions.
 
-For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. Local harness sessions can change the session target and carry conversation history and context to the new target. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. From a Local harness session, you can select another harness or Cloud from the **Session Target** UI control and carry conversation history and context to the new session. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Related resources
 

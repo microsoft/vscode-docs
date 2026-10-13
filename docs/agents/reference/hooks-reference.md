@@ -24,7 +24,7 @@ For hooks executed by a provider harness, use the corresponding provider documen
 * For **Claude** sessions, use the [Claude hooks reference](https://code.claude.com/docs/en/hooks).
 * For **Codex** sessions, use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/).
 
-If Local is the selected session target, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local parser maps the configuration and then sends the Local payloads documented here.
+If you select **Local** from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness maps the configuration and then sends the payloads documented here.
 
 For help choosing a harness, creating a hook, or migrating an existing hook, see [Configure agent hooks](/docs/agent-customization/hooks.md).
 

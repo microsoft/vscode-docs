@@ -46,7 +46,7 @@ Use a custom agent when a recurring task needs its own instructions and tool sel
 
 Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to create an agent in your workspace or at the user level.
 
-Use the **Session Target** control to select the [agent harness](/docs/agents/run/agent-harnesses.md#choose-an-agent-harness) you intend to use, then open the editor from either surface:
+Use the **Session Target** UI control to [select the agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use, then open the editor from either surface:
 
 * **{% data variables.copilot.agents_window %}**: Select **Agents** in the **Customizations** panel in the left sidebar.
 * **{% data variables.copilot.chat_view %}**: Select **Configure Chat** (gear icon), and then select **Agents**.
@@ -95,7 +95,7 @@ Use the **Overview** workflow for the selected harness. With **Local** selected,
 
 ## Use a custom agent
 
-1. In the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, select the intended harness from the **Session Target** control.
+1. In the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, select the intended harness from the **Session Target** UI control.
 1. Open the **Agent** dropdown and select your custom agent.
 1. Enter a prompt for its role. For example, ask a planning agent to outline the changes needed for a new feature.
 1. Review the response and any tool calls to check that the agent follows the intended instructions and uses appropriate tools.

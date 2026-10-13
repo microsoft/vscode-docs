@@ -186,18 +186,18 @@ To prevent transcript text from being sent to a language model, set `DictationLL
 
 #### Enable or disable hooks
 
-Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
+Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} harness sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
 
 > [!NOTE]
-> **For Local sessions:** Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} sessions.
+> **For Local harness sessions:** Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} harness sessions.
 
 <a name="use-the-sdk-harness-for-policy-hooks"></a>
 
 ##### Verify Policy Hook coverage
 
-{% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** as the [session target](/docs/agents/run/agent-harnesses.md#choose-an-agent-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
+{% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot harness sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
 
-Local sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
+Local harness sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
 <a id="deploy-hooks-through-managed-plugins"></a>
 
@@ -257,16 +257,16 @@ Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
 #### Configure agent sandboxing
 
-For {% data variables.product.prodname_copilot_short %} sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) on the machine where commands run.
+For {% data variables.product.prodname_copilot_short %} harness sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) on the machine where commands run.
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
 Check client support before attempting centralized enforcement. The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. Don't assume that a control supported by another client applies here.
 
 <details>
-<summary>Sandbox device policies for Local sessions</summary>
+<summary>Sandbox device policies for Local harness sessions</summary>
 
-The following {% data variables.product.prodname_vscode_shortname %} device policies are deprecated and apply to Local sessions. They do not enforce sandboxing for Copilot sessions.
+The following {% data variables.product.prodname_vscode_shortname %} device policies are deprecated and apply to Local harness sessions. They do not enforce sandboxing for Copilot harness sessions.
 
 | Policy | Local-session behavior |
 |--------|------------------------|
@@ -283,7 +283,7 @@ Set `ChatAgentNetworkFilter` to `true` to restrict network access according to t
 
 Use `ChatAgentAllowedNetworkDomains` for permitted domain patterns and `ChatAgentDeniedNetworkDomains` for blocked patterns. Denied domains take precedence.
 
-Network filtering applies to the fetch tool and Integrated Browser. Terminal coverage depends on the session target, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
+Network filtering applies to the fetch tool and Integrated Browser. Terminal coverage depends on the selected harness, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change network filtering settings so new Integrated Browser sessions use the updated policy.
 

@@ -84,7 +84,7 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 ### Claude permission modes
 
-[Claude sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
+[Claude harness sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
 
 * **Edit automatically**: apply changes without asking for approval.
 * **Request approval**: ask before applying changes.

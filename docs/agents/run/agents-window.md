@@ -404,7 +404,7 @@ You can personalize chat, adjust the window layout, configure settings and exten
 
 ## Limitations
 
-* Codex sessions that use the [experimental direct integration](/docs/agents/run/agent-harnesses.md#codex) can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
+* Sessions that use the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex) can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. Local harness sessions and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 

@@ -13,11 +13,11 @@ The available review controls depend primarily on the agent harness:
 | Session | How changes are tracked | Review workflow |
 |---------|-------------------------|-----------------|
 | Copilot, Claude, and Codex harness sessions | Edits are saved directly in the session's folder or isolated Git worktree. They don't wait in a pending review state. | Inspect diffs in the {% data variables.copilot.chat_view %}, {% data variables.copilot.agents_window %}, or Source Control. Use checkpoints or Git to revert unwanted changes. |
-| Local harness and existing extension-host sessions | Edits are saved directly. Supported edits are also marked as pending. | Inspect each pending edit in the editor. Use **Keep** to acknowledge it or **Undo** to revert it. |
+| Local harness sessions and existing extension-host sessions | Edits are saved directly. Supported edits are also marked as pending. | Inspect each pending edit in the editor. Use **Keep** to acknowledge it or **Undo** to revert it. |
 | Cloud sessions | Changes are committed to a branch and returned through a pull request. | Review the pull request on GitHub or check out the branch locally. |
 
 > [!NOTE]
-> The change-review experience for agent sessions is [under active development](https://github.com/microsoft/vscode/issues/339363#issuecomment-6134276862). The user interface and available controls might change in upcoming releases.
+> The change-review experience for Copilot harness sessions is [under active development](https://github.com/microsoft/vscode/issues/339363#issuecomment-6134276862). The user interface and available controls might change in upcoming releases.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -82,7 +82,7 @@ Depending on the agent harness and isolation mode, you can apply or merge change
 
 `feature(agents-window-pr-comments)`
 
-For a **Copilot** or **Claude** session, or a **Codex** session using the [experimental integration](/docs/agents/run/agent-harnesses.md#codex), you can add a review comment to its open GitHub pull request directly from the **Changes** view in the {% data variables.copilot.agents_window %}. This is different from agent feedback, which asks the agent to revise its changes.
+For a session that uses the Copilot or Claude harness, or the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex), you can add a review comment to its open GitHub pull request directly from the **Changes** view in the {% data variables.copilot.agents_window %}. This is different from agent feedback, which asks the agent to revise its changes.
 
 1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
 
@@ -128,7 +128,7 @@ The Changes editor restores each file's expanded or collapsed state when you swi
 
 ## Review Local harness session changes
 
-The following controls apply when you select **Local** as the session target or continue an existing extension-host session in the {% data variables.copilot.chat_view %}. These sessions track supported file edits as pending changes that you can keep or undo individually.
+The following controls apply when you select **Local** from the **Session Target** UI control or continue an existing extension-host session in the {% data variables.copilot.chat_view %}. These sessions track supported file edits as pending changes that you can keep or undo individually.
 
 After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
@@ -177,16 +177,16 @@ Before you integrate agent changes:
 
 `feature(rubber-duck)`
 
-In a [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. Copilot summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+In a [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. The Copilot harness summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
 
-For non-trivial work, Copilot might consult Rubber Duck automatically at key points, such as:
+For non-trivial work, the Copilot harness might consult Rubber Duck automatically at key points, such as:
 
 * After creating a plan, before implementation.
 * During a complex implementation.
 * After writing tests.
 * After repeated failures or unexpected results.
 
-For smaller tasks, Copilot typically skips this review. To request a review at any time, ask Copilot in natural language:
+For smaller tasks, the Copilot harness typically skips this review. To request a review at any time, ask the agent in natural language:
 
 ```prompt
 Get a second opinion on the changes made so far.
@@ -286,7 +286,7 @@ Before you apply or merge changes:
 1. Select the integration action and resolve any merge conflicts.
 1. Test the integrated result before you archive or delete the session.
 
-The available actions and labels depend on the session harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
+The available actions and labels depend on the selected harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
 For a walkthrough of reviewing two results separately, integrating them one at a time, and testing the combined change, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 

@@ -143,7 +143,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 ![Screenshot showing how to start a side chat in the {% data variables.copilot.agents_window %} from selected response text.](../../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
-> Side chats are available only in the {% data variables.copilot.agents_window %} for sessions that use the Copilot or Claude harness. They aren't available for Codex sessions or in the {% data variables.copilot.chat_view %}.
+> Side chats are available only in the {% data variables.copilot.agents_window %} for sessions that use the Copilot or Claude harness. They aren't available for sessions from the OpenAI Codex extension or in the {% data variables.copilot.chat_view %}.
 
 ## Sessions list
 
@@ -342,7 +342,7 @@ There are two ways to fork a chat session:
 
 ## Coordinate work across sessions
 
-In [Copilot](/docs/agents/run/agent-harnesses.md#copilot) and Claude sessions, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available with the [experimental direct Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+In sessions that use the [Copilot](/docs/agents/run/agent-harnesses.md#copilot) or Claude harness, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available with the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
 
 With these tools, an agent can:
 

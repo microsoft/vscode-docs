@@ -28,7 +28,7 @@ To understand how the customization types differ and work together, see [Agent c
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
 * Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 * Open the repository root that you want to configure.
-* [Start a session](/docs/agents/run/agent-harnesses.md#select-a-harness) and select **{% data variables.product.prodname_copilot_short %}**, **Claude**, or **Codex** from the **Session Target** control. Use the same harness when creating and testing its customizations.
+* [Start a session](/docs/agents/run/agent-harnesses.md#select-a-harness) and select **{% data variables.product.prodname_copilot_short %}**, **Claude**, or **Codex** from the **Session Target** UI control. Use the same harness when creating and testing its customizations.
 
 For this walkthrough, work in the current folder. If you're using the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected so new sessions can access your uncommitted customization files.
 
@@ -198,7 +198,7 @@ Learn more about [Claude path-specific rules](https://code.claude.com/docs/en/me
 
 Use an `AGENTS.md` file in the directory that needs its own guidance, such as `packages/frontend/AGENTS.md`. Codex discovers instructions from the repository root down to the session's working directory. This is directory-based guidance, not an `applyTo` or `paths` glob.
 
-To test the nested instructions, start a new Codex session with that subdirectory as its working folder. Opening a file in the editor doesn't change the session's working directory.
+To test the nested instructions, start a new Codex harness session with that subdirectory as its working folder. Opening a file in the editor doesn't change the session's working directory.
 
 Learn more about [Codex instruction discovery](https://developers.openai.com/codex/guides/agents-md).
 

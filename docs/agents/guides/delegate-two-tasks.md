@@ -22,7 +22,7 @@ In this guide, you choose two changes in your own repository, run them in separa
 To follow this guide, you need:
 
 * {% data variables.product.prodname_vscode %} with [AI features set up](/docs/setup/copilot.md).
-* Access to the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and the **{% data variables.product.prodname_copilot_short %}** session target.
+* Access to the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and the {% data variables.product.prodname_copilot_short %} harness.
 * A local Git repository with at least one commit, a working development environment, and existing tests.
 * Experience completing a single agent-assisted task. If you're new to agents, start with the [agents quickstart](/docs/agents/quickstart.md).
 
@@ -119,7 +119,7 @@ Start both tasks from the same known-good commit so that you can review each res
     Finish with the changed files, validation commands and results, any manual checks still needed, and unresolved concerns.
     ```
 
-1. Select **New** again to create a separate session for the same project. Choose the same session target and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
+1. Select **New** again to create a separate session for the same project. Choose the same harness and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
 
 1. Fill in a second copy of the template from task B's brief and submit it to the new session. Use task B's outcome, scope, and validation commands, not task A's. Keep the same base commit.
 

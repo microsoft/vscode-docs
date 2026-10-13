@@ -18,7 +18,7 @@ Keywords:
 
 Hooks run custom actions at specific points in an agent's lifecycle. Use hooks to automate workflows, validate operations, create audit trails, or enforce policies independently of the language model.
 
-The selected [agent harness](/docs/agents/concepts/agent-harnesses.md) determines which hook implementation runs. Before you create or reuse a hook, identify the session target and use the configuration and event schema for that harness.
+The selected [agent harness](/docs/agents/concepts/agent-harnesses.md) determines which hook implementation runs. Before you create or reuse a hook, identify the harness and use its configuration and event schema.
 
 This article helps you choose the correct hook implementation, manage hooks from {% data variables.product.prodname_vscode_shortname %}, and configure hooks for the Local harness.
 
@@ -30,9 +30,9 @@ This article helps you choose the correct hook implementation, manage hooks from
 
 ## Choose the hook implementation for your session
 
-The **Session Target** control selects the agent harness. The harness owns the hook lifecycle and payloads.
+The **Session Target** UI control selects the agent harness. The harness owns the hook lifecycle and payloads.
 
-| Session target | Hook implementation | Configuration and event reference |
+| **Session Target** choice | Hook implementation | Configuration and event reference |
 |----------------|---------------------|-----------------------------------|
 | **Copilot** | Shared {% data variables.copilot.copilot_sdk_short %} implementation | Use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference). |
 | **Claude** | Claude Agent SDK | Use the [Claude hooks reference](https://code.claude.com/docs/en/hooks). |
@@ -48,7 +48,7 @@ Copilot harness sessions use the same SDK hook implementation as {% data variabl
 
 ### Migrate hooks between harnesses
 
-Before you switch the session target for an existing workflow:
+Before you switch harnesses for an existing workflow:
 
 * Confirm that the destination harness discovers the hook file.
 * Compare the supported events and command properties.
@@ -57,17 +57,17 @@ Before you switch the session target for an existing workflow:
 * Test output decisions, such as blocking a tool call or adding context.
 * Confirm where the hook command runs and which files and environment variables it can access.
 
-Do not validate a migration by changing only the language model. Select the destination harness from the **Session Target** control and start a test session.
+Do not validate a migration by changing only the language model. Select the destination harness from the **Session Target** UI control and start a test session.
 
 ## Create and manage hooks
 
-Select the session target before you open the hooks interface. This ensures that {% data variables.product.prodname_vscode_shortname %} shows the customizations for the intended harness.
+Select the harness before you open the hooks interface. This ensures that {% data variables.product.prodname_vscode_shortname %} shows the customizations for that harness.
 
 To view and manage hooks:
 
 1. Open the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
-1. Select the target from the **Session Target** control.
+1. Select the harness or Cloud target from the **Session Target** UI control.
 
 1. Open the Agent Customizations editor:
 
@@ -75,7 +75,7 @@ To view and manage hooks:
     * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
     * Enter `/hooks` in the chat input.
 
-1. Review the hook sources for the selected target. Select a hook to open its configuration.
+1. Review the hook sources for the selected harness or Cloud target. Select a hook to open its configuration.
 
 You can also run **Chat: Configure Hooks** from the Command Palette (`kb(workbench.action.showCommands)`) to manage Local hook files.
 
@@ -85,7 +85,7 @@ For Claude and Codex, use the provider documentation for additional configuratio
 
 ## Configure hooks for the Local harness
 
-The following sections describe Local hook events, settings, payloads, and output decisions. These do not automatically apply to other session targets.
+The following sections describe Local hook events, settings, payloads, and output decisions. These do not automatically apply to other harnesses.
 
 ### Create your first Local hook
 
@@ -320,7 +320,7 @@ process.stdout.write(JSON.stringify({
 
 ## Troubleshoot hooks
 
-First, confirm that the session target matches the hook reference you followed. A hook that appears in the Agent Customizations editor might still use different events or payloads when you switch harnesses.
+First, confirm that the selected harness matches the hook reference you followed. A hook that appears in the Agent Customizations editor might still use different events or payloads when you switch harnesses.
 
 For Local hooks:
 

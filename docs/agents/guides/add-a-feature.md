@@ -46,7 +46,7 @@ Check that these assumptions match your API before using the prompts. For exampl
 ## 2. Establish the baseline
 
 1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and start a new chat.
-1. Select the **{% data variables.product.prodname_copilot_short %}** session target and the **Agent** role. Keep **Manual permissions** selected.
+1. Select **{% data variables.product.prodname_copilot_short %}** from the **Session Target** UI control and select the **Agent** role. Keep **Manual permissions** selected.
 1. Ask the agent to inspect the implementation and testing conventions without editing:
 
     ```prompt

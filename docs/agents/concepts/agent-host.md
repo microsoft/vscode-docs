@@ -68,7 +68,7 @@ Dev Container execution is an environment choice, not a different harness. See t
 
 Like [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
 
-The **Cloud** session target is a separate choice that uses provider-managed infrastructure. Connecting to an Agent Host on another machine does not turn the session into a cloud-agent session.
+The **Cloud** target is a separate choice that uses provider-managed infrastructure. Connecting to an Agent Host on another machine does not turn the session into a cloud-agent session.
 
 <a name="self-contained-with-optional-client-tools"></a>
 

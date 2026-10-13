@@ -27,7 +27,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 | Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
 | Get help while typing and editing | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Accept ghost text to complete code, or use next edit suggestions to navigate to and apply a related edit. |
 | Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
-| Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#cloud-target) | Choose the **Cloud** session target and a repository. |
+| Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#cloud-target) | Select **Cloud** from the **Session Target** UI control and choose a repository. |
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule | [Automations](/docs/agents/run/automations.md) `feature(automations)` | Save a prompt and schedule in the {% data variables.copilot.agents_window %}. |
 | Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
@@ -60,7 +60,7 @@ To organize larger tasks:
 
 * Use [separate sessions and worktrees](/docs/agents/guides/delegate-two-tasks.md) for independent tasks that should not share code changes.
 * Use [subagents](/docs/agents/run/subagents.md) to delegate a focused part of a task in a separate context.
-* [Hand off a session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) when you want to continue work with another supported session target.
+* [Hand off a session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) when you want to continue work with another supported harness or the Cloud target.
 
 <a name="add-context-to-your-prompt"></a>
 
