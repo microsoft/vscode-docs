@@ -1,7 +1,7 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
 DateApproved: 10/14/2026
-MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
+MetaDescription: Add, edit, secure, and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - mcp
@@ -71,21 +71,44 @@ To install an MCP server from the MCP server gallery:
 
 You can manually configure MCP servers in the following locations:
 
-* **Workspace, {% data variables.product.prodname_vscode_shortname %} format**: create or open `.vscode/mcp.json` in your project. This format defines servers in a top-level `servers` object.
-* **Workspace, portable format**: create `.mcp.json` at the root of your project. This format defines servers in a top-level `mcpServers` object and works across compatible tools.
-* **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md) folder. Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
-* **User, portable format**: create `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is not set. This format defines servers in a top-level `mcpServers` object and works across compatible Copilot tools.
+| Scope | File and format | When to use |
+|-------|-----------------|-------------|
+| Workspace | `.mcp.json` at the workspace root, with servers in a top-level `mcpServers` object | Preferred for configurations that you share with your team and compatible tools. Copilot harness sessions read this file directly. |
+| Workspace | `.vscode/mcp.json`, with servers in a top-level `servers` object | Use for {% data variables.product.prodname_vscode_shortname %}-specific capabilities such as input variables, development mode, and per-server sandboxing. |
+| User | `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is not set, with servers in a top-level `mcpServers` object | Preferred for personal configurations that you use across workspaces and compatible Copilot tools. |
+| User profile | `mcp.json` in your [user profile](/docs/configure/profiles.md), with servers in a top-level `servers` object | Use for profile-specific {% data variables.product.prodname_vscode_shortname %} configurations. Run **MCP: Open User Configuration** to open the file. |
 
 Include workspace configuration in source control to share MCP servers with your team.
 
-You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow. Choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers.
+You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow. Choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers. The Experimental `setting(chat.mcp.workspaceRootConfig.enabled)` setting controls whether the workspace-root `.mcp.json` destination appears.
 
-For Copilot harness sessions, use workspace `.mcp.json` or user `~/.copilot/mcp-config.json` files for configuration that the agent reads directly and can share with compatible Copilot tools. {% data variables.product.prodname_vscode_shortname %} also forwards eligible configurations from other supported sources, including `.vscode/mcp.json`, except configurations that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly.
+For Copilot harness sessions, use workspace `.mcp.json` or user `$COPILOT_HOME/mcp-config.json` files, with `~/.copilot/mcp-config.json` as the fallback user location. The agent reads these files directly, and compatible Copilot tools can share them. {% data variables.product.prodname_vscode_shortname %} also forwards eligible configurations from other supported sources, including `.vscode/mcp.json`, except configurations that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly.
 
 > [!IMPORTANT]
 > Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
 
-The following example shows an `mcp.json` file that configures a remote MCP server and a local MCP server:
+The following examples configure a remote MCP server and a local MCP server in each format:
+
+{% tabs id="mcp-configuration-formats" %}
+{% tab label="Portable" %}
+
+```json
+{
+    "mcpServers": {
+        "github": {
+            "type": "http",
+            "url": "https://api.githubcopilot.com/mcp"
+        },
+        "playwright": {
+            "command": "npx",
+            "args": ["-y", "@microsoft/mcp-server-playwright"]
+        }
+    }
+}
+```
+
+{% /tab %}
+{% tab label="{% data variables.product.prodname_vscode_shortname %}" %}
 
 ```json
 {
@@ -101,6 +124,9 @@ The following example shows an `mcp.json` file that configures a remote MCP serv
     }
 }
 ```
+
+{% /tab %}
+{% /tabs %}
 
 {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
@@ -189,14 +215,14 @@ Beyond tools, MCP servers can provide other capabilities:
 
 ## Sandbox MCP servers
 
-On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
+On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandbox rules can deny file access, grant write access, and grant access to specific network domains.
 
 > [!NOTE]
 > This per-server sandbox is separate from sandboxing for Copilot harness sessions. When the [Copilot harness sandbox](/docs/agents/run/agent-sandboxing.md) is on, `setting(chat.agent.sandbox.mcpServers)` applies by default to the servers it manages and has its own configuration and scope.
 
-To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a top-level `sandbox` object with specific file system and network rules.
+To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. Add a `sandbox` object to the server to grant file system or network access and define server-specific restrictions. You can also add a top-level `sandbox` object with deny rules that apply to all sandboxed servers in the file.
 
-The following example shows how to enable sandboxing for a local MCP server and restrict its access to only write to files in the workspace and access a specific API domain:
+The following example grants one server write access to the workspace and access to a specific API domain. The top-level rule prevents all sandboxed servers in the file from reading the `.ssh` directory:
 
 ```json
 {
@@ -205,15 +231,20 @@ The following example shows how to enable sandboxing for a local MCP server and 
             "type": "stdio",
             "command": "npx",
             "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com"]
+                }
+            }
         }
     },
     "sandbox": {
         "filesystem": {
-            "allowWrite": ["${workspaceFolder}"]
-        },
-        "network": {
-            "allowedDomains": ["api.example.com"]
+            "denyRead": ["${userHome}/.ssh"]
         }
     }
 }
@@ -232,10 +263,38 @@ For the full sandbox configuration schema, see the [Sandbox configuration](/docs
 
 | Method | Description | |
 |--------|-------------|---|
-| **Agent Customizations editor** | Open the **MCP Servers** section, select the ellipsis (**...**) next to a server, and choose an action. | |
+| **Agent Customizations editor** | Open the **MCP Servers** section and select a server to view or edit its configuration. Use the ellipsis (**...**) menu for server actions. | |
 | **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png) |
-| **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
+| **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder MCP Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
 | **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png) |
+
+### Edit an MCP server configuration
+
+The Agent Customizations editor provides a form for MCP servers in workspace-root `.mcp.json` files and the Copilot user configuration at `$COPILOT_HOME/mcp-config.json`, with `~/.copilot/mcp-config.json` as the fallback location.
+
+To edit a server:
+
+1. Start a Copilot harness session by sending a request in the {% data variables.copilot.chat_view %}.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select **MCP Servers**, and then select the server that you want to edit.
+1. Change the server type or edit the available fields:
+    * For a standard I/O (stdio) server, edit the command, arguments, and environment variables.
+    * For a remote server, edit the URL and headers.
+1. Select **Save**. If a changed value isn't supported by the destination file, Save is unavailable and the form explains what to change.
+
+Select **Discard Changes** to restore the saved values. Saving updates only the properties you changed and preserves other file content and properties that the form doesn't show, such as `tools`. Select **Other Properties** to open the server entry in the JSON file.
+
+The available fields depend on the configuration source:
+
+| Configuration source | Form support |
+|----------------------|--------------|
+| Workspace-root `.mcp.json` | Supports stdio and HTTP servers. SSE, working directory, environment files, and {% data variables.product.prodname_vscode_shortname %} input variables aren't supported. |
+| `$COPILOT_HOME/mcp-config.json` or `~/.copilot/mcp-config.json` | Supports stdio, HTTP, and SSE servers, including the working directory for stdio servers. Environment files and {% data variables.product.prodname_vscode_shortname %} input variables aren't supported. |
+| Workspace `.vscode/mcp.json` or user-profile `mcp.json` | Shows read-only JSON in the Agent Customizations editor. Open the source file to edit the configuration. |
+
+For arguments, enter either space-separated values or a JSON array of strings. With focus in the form, press `Alt+F1` (`Option+F1` on macOS) to open Accessibility Help.
+
+![Screenshot showing the MCP server configuration form for a workspace-root .mcp.json server](images/mcp-servers/mcp-server-configuration-form.png)
 
 ## Enable or disable MCP servers
 

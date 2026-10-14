@@ -23,11 +23,25 @@ This article provides a reference for the MCP server configuration file format, 
 MCP server configuration uses one of the following file formats:
 
 * The {% data variables.product.prodname_vscode_shortname %} format is stored in `.vscode/mcp.json` in your workspace or in your [user profile](/docs/configure/profiles.md). It defines servers in a top-level `servers` object. {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for this format.
-* The portable {% data variables.product.prodname_copilot_short %} format is stored in `.mcp.json` at the root of your workspace or in `~/.copilot/mcp-config.json` for your user. It defines servers in a top-level `mcpServers` object.
+* The portable {% data variables.product.prodname_copilot_short %} format is stored in `.mcp.json` at the root of your workspace or in `$COPILOT_HOME/mcp-config.json` for your user, with `~/.copilot/mcp-config.json` as the fallback location. It defines servers in a top-level `mcpServers` object.
 
 Copilot harness sessions read the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards servers from `.vscode/mcp.json` to the session, except servers that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly. For setup steps and compatibility requirements, see [configure MCP servers](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file).
 
 For other providers, use the provider's MCP configuration documentation. Their configuration locations and schemas can differ from the two formats described here.
+
+The formats and locations differ in the capabilities they support:
+
+| Capability | Workspace or profile `mcp.json` | Workspace-root `.mcp.json` | Copilot user `mcp-config.json` |
+|------------|---------------------------------|----------------------------|--------------------------------|
+| Top-level server object | `servers` | `mcpServers` | `mcpServers` |
+| Agent Customizations editor | Read-only JSON | Configuration form | Configuration form |
+| Server transports | stdio, HTTP, and SSE | stdio and HTTP | stdio, HTTP, and SSE |
+| Working directory | Yes | No | Yes |
+| Environment file | Yes | No | No |
+| {% data variables.product.prodname_vscode_shortname %} input variables | Yes | No | No |
+| Development mode and per-server sandboxing | Yes | No | No |
+
+The configuration form preserves properties that it doesn't display. Select **Other Properties** in the form to open the complete server entry in JSON.
 
 ### Configuration structure
 
@@ -57,6 +71,7 @@ Use this configuration for servers that communicate through standard input and o
 | `envFile` | No | Path to an environment file to load more variables | `"${workspaceFolder}/.env"` |
 | `dev` | No | Development mode settings to watch for file changes and debug the server. See [Development mode](#development-mode). | `{"watch": "src/**/*.ts"}` |
 | `sandboxEnabled` | No | Run the server in a sandboxed environment. Only supported on macOS and Linux. | `true` |
+| `sandbox` | No | File system and network permissions for this server. Root-level sandbox deny rules also apply. | `{"filesystem": {"allowWrite": ["${workspaceFolder}"]}}` |
 
 > [!NOTE]
 > When using Docker with stdio servers, don't use the detach option (`-d`). The server must run in the foreground to communicate with {% data variables.product.prodname_vscode_shortname %}.
@@ -84,29 +99,31 @@ This example shows the minimal configuration for a basic, local MCP server using
 
 ### Sandbox configuration
 
-You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers can only access the file system paths and network domains that you explicitly permit. Sandboxing is available on macOS and Linux only.
+You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandbox rules can deny file access, grant write access, and grant access to specific network domains. Sandboxing is available on macOS and Linux only.
 
-To enable sandboxing for a server, set `\"sandboxEnabled\": true` in its configuration. Then, define a top-level `sandbox` object to specify the file system and network access rules. The `sandbox` object is a sibling of `servers` and `inputs`, and its rules apply to all sandboxed servers. When a sandboxed server needs access that the current rules don't permit, check the server output for error messages and update the `sandbox` configuration accordingly.
+To enable sandboxing for a server, set `"sandboxEnabled": true` in its configuration. Add a `sandbox` object to the server to define its file system and network permissions. You can also add a top-level `sandbox` object as a sibling of `servers` and `inputs` to define deny rules that apply to all sandboxed servers in the file.
+
+Allow rules are supported only in a server's `sandbox` object. Top-level `allowWrite` and `allowedDomains` rules are ignored.
 
 > [!NOTE]
 > When sandboxing is enabled, tool confirmations are auto-approved because the server runs in a controlled environment.
 
-The `sandbox` object supports the following properties:
+The server-level and top-level `sandbox` objects support the following properties:
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `filesystem.allowWrite` | string[] | File paths that the server is allowed to write to. |
-| `filesystem.denyRead` | string[] | File paths that the server is not allowed to read. |
-| `filesystem.denyWrite` | string[] | File paths that the server is not allowed to write to. |
-| `network.allowedDomains` | string[] | Domains that the server is allowed to access. Wildcards are supported, for example `*.example.com`. |
-| `network.deniedDomains` | string[] | Domains that the server is not allowed to access. |
+| Property | Type | Supported scope | Description |
+|----------|------|-----------------|-------------|
+| `filesystem.allowWrite` | string[] | Server only | File paths that the server is allowed to write to. |
+| `filesystem.denyRead` | string[] | Server and top level | File paths that the server is not allowed to read. |
+| `filesystem.denyWrite` | string[] | Server and top level | File paths that the server is not allowed to write to. |
+| `network.allowedDomains` | string[] | Server only | Domains that the server is allowed to access. Wildcards are supported, for example `*.example.com`. |
+| `network.deniedDomains` | string[] | Server and top level | Domains that the server is not allowed to access. |
 
 You can use [predefined variables](/docs/reference/variables-reference.md), such as `${workspaceFolder}`, in file system path values.
 
 <details>
 <summary>Example sandbox configuration</summary>
 
-This example enables sandboxing and grants write access to the workspace, denies read access to the `.ssh` directory, and allows network access to specific domains:
+This example grants one server write access to the workspace and network access to specific domains. The top-level rule denies all sandboxed servers in the file access to the `.ssh` directory:
 
 ```json
 {
@@ -115,16 +132,20 @@ This example enables sandboxing and grants write access to the workspace, denies
             "type": "stdio",
             "command": "npx",
             "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com", "*.cdn.example.com"]
+                }
+            }
         }
     },
     "sandbox": {
         "filesystem": {
-            "allowWrite": ["${workspaceFolder}"],
             "denyRead": ["${userHome}/.ssh"]
-        },
-        "network": {
-            "allowedDomains": ["api.example.com", "*.cdn.example.com"]
         }
     }
 }
@@ -299,7 +320,7 @@ When defining MCP servers, follow these naming conventions for the server name:
 | Cursor (workspace) | `cursor-workspace` | `<workspace>/.cursor/mcp.json` |
 | Windsurf | `windsurf` | `~/.codeium/windsurf/mcp_config.json` |
 
-All discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
+{% data variables.copilot.copilot_cli %} discovery is on by default. All other discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
 
 For {% data variables.copilot.copilot_cli %}, setting `COPILOT_HOME` replaces the default `~/.copilot` location. {% data variables.product.prodname_vscode_shortname %} does not check both locations.
 
@@ -332,9 +353,11 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 |---------|-------------|
 | `setting(chat.mcp.access)` | Manage which MCP servers can be used in {% data variables.product.prodname_vscode_shortname %}. |
 | `setting(chat.mcp.discovery.enabled)` | Configure automatic discovery of MCP server configuration from other applications. |
+| `setting(chat.mcp.workspaceRootConfig.enabled)` | (Experimental) Control whether **MCP: Add Server** offers the workspace-root `.mcp.json` destination. Existing `.mcp.json` files remain available when this setting is off. |
 | `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agent-customization/mcp-servers.md#automatically-start-mcp-servers). |
 | `setting(chat.mcp.serverSampling)` | Configure which models are exposed to MCP servers for sampling (making requests in the background). |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)` | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
+| `setting(accessibility.verbosity.mcpServerConfiguration)` | Control whether the MCP server configuration form announces information about opening Accessibility Help. |
 
 ## Related resources
 

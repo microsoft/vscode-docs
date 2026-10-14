@@ -36,7 +36,7 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 ## Agent Customizations editor
 
-The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections and includes an editor with syntax highlighting and validation.
+The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections. Depending on the customization type and source, it provides a configuration form, an inline file editor with syntax highlighting and validation, or a read-only details view.
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
@@ -137,8 +137,8 @@ Use the Agent Customizations editor to find and update customizations for the se
 
 1. Open the Agent Customizations editor and select the customization type.
 1. Use the search box to find the customization.
-1. Select the customization to open its details or edit its file.
-1. Review and save your changes.
+1. Select the customization to open its details.
+1. If the customization is editable, update its form or file and save your changes. For a read-only customization, use the available action to open the source file.
 
 The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Manage plugin-provided customizations from the **Plugins** section.
 
