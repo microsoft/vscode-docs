@@ -89,6 +89,23 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
+### Enforce runtime policies with Copilot Agent Host
+
+Some managed sandbox and permission settings require the Copilot Agent Host for enforcement. {% data variables.product.prodname_vscode_shortname %} automatically uses the Copilot harness for full chat sessions when either condition applies:
+
+* Managed `sandbox.enabled` is `true`.
+* The managed `permissions` object contains at least one key. An empty `permissions` object does not require the Agent Host.
+
+When one of these conditions becomes effective, {% data variables.product.prodname_vscode_shortname %} automatically moves an open Local harness session to the Copilot harness. The new session preserves the conversation history and unsent input, including attachments and selections, without submitting the input. After the Copilot session opens, the original Local session is [archived](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) as read-only. Opening another unarchived Local session starts the same process.
+
+While the policy applies:
+
+* Claude and Codex sessions do not appear in the sessions list. These sessions are not migrated, archived, or deleted.
+* Local-backed terminal chat is unavailable.
+* Inline Chat and next edit suggestions remain available.
+
+The `ChatToolsAutoApprove` device policy does not trigger this routing by itself.
+
 ### Keep Local harness as default
 
 Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness as the default for new agent sessions and prevent automatic selection of the Copilot harness.
@@ -103,7 +120,7 @@ Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed
 }
 ```
 
-This control suppresses automatic routing to the Copilot harness, including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
+This control suppresses [automatic routing to the Copilot harness](#enforce-runtime-policies-with-copilot-agent-host), including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Those managed rules continue to be enforced in Copilot harness sessions. Review the security impact before you use this temporary control.
