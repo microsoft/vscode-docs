@@ -1,24 +1,32 @@
+---
+Order: 140
+TOCTitle: Modernizing the VS Code UI
+PageTitle: Modernizing the VS Code UI
+MetaDescription: See how developer feedback is shaping the modern VS Code interface, from layout density and editor tabs to themes and responsiveness.
+MetaSocialImage: classic-to-modern.png
+Date: 2026-10-15
+Author: Lee Murray
+---
+
 # Modernizing the VS Code UI
 
-VS Code's interface has evolved since the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), with tabs, themes, and new ways to organize your work arriving over time. Because these changes affect a tool you use every day, we've learned to balance new capabilities with the familiar workflows and muscle memory that make the editor feel like yours.
+October 15, 2026 by [Lee Murray](https://github.com/mrleemurray)
 
-The current modernization continues that approach. It began with the 2026 color themes, expanded through the Agents window, and is now shaping the editor itself. This post traces that journey and shows how your feedback is guiding what changes next.
+VS Code's interface has evolved since the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), with tabs, themes, and new ways to organize your work arriving over time. These changes have improved the developer experience by adding capabilities and making existing workflows clearer, while preserving the familiar workflows, muscle memory, and screen space you rely on every day.
+
+We're now bringing that same approach to a broader modernization of the VS Code interface, available today as the Modern UI preview. The journey began with the 2026 color themes, expanded through the Agents window, and is now shaping the editor itself. In this post, we'll share how the modernization evolved and how your feedback continues to shape it.
 
 ## An interface that's always evolving
 
 Some interface changes have been small refinements. Others have introduced new ways to organize your work. Even features that now feel like part of the original editor arrived gradually.
 
-![VS Code in 2015, with the Activity Bar, a single editor title, and the blue status bar before editor tabs were introduced.](./vscode-ui-2015-themes.png)
+![Timeline showing major VS Code interface milestones from 2015 to 2026.](./vscode-ui-timeline.svg)
 
-*2015: The early editor, shown in a still from the [September 2015 color-theme demo](https://code.visualstudio.com/updates/v0_8_0#_additional-themes). The release expanded the choice of themes, giving you more control over how your editor looked.*
+*The timeline highlights the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), [editor tabs in 2016](https://code.visualstudio.com/updates/June_2016#_tabs), the [Dark Modern and Light Modern themes in 2023](https://code.visualstudio.com/updates/v1_78#_new-default-color-themes), and the Modern UI preview in 2026.*
 
-![VS Code in 2016, showing the Explorer, Open Editors list, and tabs across two editor groups.](./vscode-ui-2016-tabs.png)
+![The Classic UI and Modern UI shown with the same workspace and content.](./classic-to-modern.png)
 
-*2016: [Editor tabs and the Open Editors view](https://code.visualstudio.com/updates/June_2016#_tabs) gave you a visible, familiar way to navigate files and organize editor groups.*
-
-![The Dark Modern and Light Modern themes introduced as defaults in VS Code in 2023.](./vscode-ui-2023-themes.png)
-
-*2023: [Dark Modern and Light Modern](https://code.visualstudio.com/updates/v1_78#_new-default-color-themes) became the default themes, giving you more control over the workbench's appearance while keeping its familiar structure.*
+*The previous workbench design, which we refer to as Classic UI, and the Modern UI preview.*
 
 We continued refining each feature after it was introduced, guided by feedback across different themes, layouts, and workflows. The current modernization follows the same approach.
 
@@ -32,13 +40,15 @@ We began the modernization journey by rethinking color with [Dark 2026 and Light
 
 Color gave us a starting point, but creating a more cohesive interface required shared rules for spacing, typography, surfaces, and controls. The opportunity to develop those rules came with a new kind of VS Code window.
 
-## From the Agents window to the editor
+## One VS Code, different ways of working
 
-The [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window) became available in Stable as a Preview earlier in 2026. It was designed for starting, monitoring, and reviewing agent sessions across projects, rather than the editor window's focus on editing, navigating, running, and debugging code in a workspace.
+We're aligning the Agents and editor windows around the same approach to typography, spacing, colors, tabs, and controls. Moving between them should feel like changing how you're working, not switching to a different product. That doesn't mean making the layouts identical or making everyone's VS Code look the same. Each window remains optimized for its purpose, and you can still choose a theme, adjust density, and arrange your workspace to suit your screen and workflow.
 
-Building that new window gave us a blank canvas for exploring the design system. A layout organized around agent sessions gave us room to work through spacing, typography, surfaces, and controls together, rather than changing one part of an established editor layout at a time.
+The [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window) became available in Stable as a Preview earlier in 2026. It brings the full agent workflow into one place, from starting sessions and following progress to reviewing results. It represents a new way of working in VS Code, centered on delegating tasks and reviewing work as it progresses. Supporting that shift called for a fresh approach to the interface, so session state and next actions remain easy to scan without crowding the prompt and review areas.
 
-We used it as a proving ground: a place to see how those decisions worked together when managing sessions, following progress, and reviewing changes. That helped us develop a shared visual language we could refine across VS Code, not a separate identity for the Agents window.
+The existing workbench was designed around direct interaction with files and had evolved component by component. Spacing, typography, surfaces, and controls didn't always follow a shared system, which made it harder to adapt the interface to this new workflow or carry improvements across windows. The Agents window gave us a place to develop that shared design system.
+
+We worked through those design decisions together and tested how they supported managing sessions, following progress, and reviewing changes. The result was a shared visual language we could refine across VS Code, not a separate identity for the Agents window.
 
 ![The Agents window showing the Sessions and Customizations sidebar, new-session composer, and Files panel.](./vscode-agents-window.png)
 
@@ -46,7 +56,9 @@ We used it as a proving ground: a place to see how those decisions worked togeth
 
 Once those decisions worked together in the Agents window, the next question was whether the same system could support the editor. The editor brings different demands, including dense file navigation, multiple editor groups, and long-established workflows.
 
-Bringing the shared system into that environment became the Modern UI effort. As the [workbench](https://code.visualstudio.com/docs/editing/getting-started/userinterface) had grown, related parts such as the Activity Bar, side bars, editor groups, panel, tabs, and status bar had developed different approaches to common design problems. The initial work focused on:
+Bringing the shared system into that environment became the Modern UI effort. Rather than redesigning file editing itself, we started with the shared workbench shell: the foundational areas and controls people see and use across workflows. These elements define how the interface is organized and how people move through it. Starting there let us improve consistency while preserving dense navigation, multiple editor groups, and long-established patterns.
+
+As the [workbench](https://code.visualstudio.com/docs/editing/getting-started/userinterface) had grown, related parts such as the Activity Bar, side bars, editor groups, panel, tabs, and status bar had developed different approaches to common design problems. The initial work focused on:
 
 * Separating major areas of the workbench clearly without making them feel disconnected.
 * Making controls for resizing and moving panels easier to discover.
@@ -64,7 +76,7 @@ Shared design tokens provide named values for spacing, sizes, and colors instead
 
 *Now: a shared design system creates a stronger family resemblance while each window remains optimized for its purpose. Both windows use Dark 2026 and are the same size.*
 
-We're aligning the Agents and editor windows around the same approach to typography, spacing, colors, tabs, and controls. Moving between them should feel like changing how you're working, not switching to a different product. That doesn't mean making the layouts identical or making everyone's VS Code look the same. Each window remains optimized for its purpose, and you can still choose a theme, adjust density, and arrange your workspace to suit your screen and workflow.
+Modern UI first appeared as an experimental setting in Stable and was enabled by default in Insiders, where we could iterate with early adopters. We then ran a controlled experiment in Stable, enabling Modern UI for a subset of users so we could learn from a broader range of environments and workflows. After that rollout, we enabled Modern UI by default while keeping the option to return to Classic UI during the transition.
 
 ## What we heard
 
@@ -128,15 +140,15 @@ You don't have to change any settings to use these refinements. The following op
 
 Settings with `experimental` in their name can change or be removed as the design stabilizes. The other settings are supported customization controls, not required migration steps.
 
-### More color control for theme users and authors
+## What Modern UI means for theme authors
 
-The color work that started this journey came back into focus as Modern UI reached more people. The existing color API didn't expose enough of the new surfaces, borders, resize controls, tabs, and window states. We have been adding [new registered color IDs](https://github.com/microsoft/vscode/pull/335056) to cover those areas.
+Existing themes remain compatible with both Modern UI and Classic UI. The new Modern UI color IDs fall back to established workbench colors, so themes that don't define them keep their existing palette.
 
-Most theme users don't need to do anything because the new colors have defaults. If you customize workbench colors directly, you can override the new IDs in `workbench.colorCustomizations`. If you author a theme, you can use them to shape Modern UI without changing how your theme renders in the previous interface.
+Theme authors can opt into the [new IDs](https://github.com/microsoft/vscode/pull/335056) for finer control over surfaces, borders, tabs, the Activity Bar, and window states. The IDs are experimental, so test any overrides in both Modern UI and Classic UI, and across light, dark, and high-contrast themes.
 
 The [Modern UI theming guide](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/modernUI/README.md) documents the complete token list, defaults, precedence rules, high-contrast behavior, and examples. The existing [Color Theme guide](https://code.visualstudio.com/api/extension-guides/color-theme) explains how to package and publish a theme extension.
 
-### Keeping the interface responsive
+## Keeping Modern UI responsive
 
 Visual consistency can't come at the cost of responsiveness. Some feedback reports called out rendering performance, so we investigated with browser traces and repeatable benchmarks.
 
