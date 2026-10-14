@@ -14,7 +14,7 @@ Foundry Toolkit provides different optimization paths depending on what you need
 | Goal | Workflow and result | Responsibilities and trade-offs |
 | --- | --- | --- |
 | Draft or refine prompt-agent instructions | Use **Generate** or **Improve** in Agent Builder to revise instructions, then **Deploy** to save a Foundry prompt-agent version. | You review the text and test representative cases. This does not run an evaluation-driven optimization job. |
-| Improve a deployed code-based agent | Use **Optimize (Preview)** to generate and score candidates that can change instructions, skills, function-tool descriptions, or model selection. | You maintain the agent workspace, benchmark, and tool connections, and review changes before deploying a candidate. Cloud execution and model calls incur usage. |
+| Improve a deployed code-based agent | Use **Optimize** to generate and score candidates that can change instructions, skills, function-tool descriptions, or model selection. | You maintain the agent workspace, benchmark, and tool connections, and review changes before deploying a candidate. Cloud execution and model calls incur usage. |
 | Prepare a model for local Windows hardware | Use [Model Conversion](/docs/intelligentapps/modelconversion.md) to convert, quantize, analyze, and optimize a model for supported CPU, GPU, or NPU targets. | You maintain model artifacts and validate their quality and hardware compatibility. This changes the model artifacts rather than a Foundry agent configuration. |
 
 ## Improve prompt-agent instructions
@@ -36,7 +36,7 @@ This workflow only applies the generated instructions. It does not produce score
 
 ![Screenshot showing a Foundry prompt agent in Agent Builder with instructions, the Improve action, and the Deploy control, with agent identifiers redacted.](./images/optimizations/improve-instructions.png)
 
-## Optimize a hosted agent (Preview)
+## Optimize a hosted agent
 
 Hosted-agent optimization evaluates the deployed agent against a dataset, generates alternative configurations, scores each candidate against the same criteria, and recommends the strongest result. The optimizer runs in Microsoft Foundry, while Foundry Toolkit provides the starting workflow, run details, candidate comparison, and deployment actions.
 
@@ -50,17 +50,17 @@ Prepare the following before you start:
 * The Azure CLI and Azure Developer CLI installed and authenticated. Run `az login` and `azd auth login` before starting the workflow.
 * Compatible evaluation and optimization model deployments in the same Foundry project. The evaluation model must support chat completion. Choose the optimization model from the service's supported list.
 * Permission to use and deploy the project's hosted agents and models. Review the [hosted-agent permissions](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agent-permissions).
-* A subscription with customer access to the agent optimizer Preview. Contact your Microsoft representative to request allow-list access.
+* An Azure subscription with access to the agent optimizer.
 
 An existing `azure.yaml` or `azure.yml` is not required to start the setup. Copilot can propose initializing the AZD project and preparing deployment configuration when it is missing. Review that configuration before deployment.
 
-Hosted-agent optimization is available only in supported regions and has specific model requirements. Review the current [agent optimizer availability and model constraints](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-optimizer-overview#limitations-and-availability) before choosing deployments. For complete setup requirements, see the [hosted-agent optimization quickstart](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-optimize-hosted-agent).
+Hosted-agent optimization is available only in supported regions and has specific model requirements. Review the current [agent optimizer availability and model constraints](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-optimizer-overview#limitations-and-availability) before choosing deployments. For current access and setup requirements, see the [hosted-agent optimization quickstart](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-optimize-hosted-agent).
 
 ### Start an optimization run
 
 1. Select **Foundry Toolkit** in the Activity Bar. Under **Developer Tools** > **Build**, select **Hosted Agent Playground**.
 2. In **Hosted Agent**, select the deployed Responses agent.
-3. Select **Optimize (Preview)**, and then select **New Optimization**.
+3. Select **Optimize**, and then select **New Optimization**.
 4. Select the workspace that contains the matching agent source.
 5. In Copilot Chat, review the prepared prompt and select **Send**. Then answer the questions about:
 
@@ -72,9 +72,7 @@ Hosted-agent optimization is available only in supported regions and has specifi
 6. Review the proposed code and commands before they run. Depending on the workspace, Copilot might propose initializing the AZD agent project, adding optimizer integration, generating `eval.yaml` and evaluation data, or deploying the baseline agent.
 7. Confirm that the selected dataset and criteria represent the behavior you want to improve, and then start the optimization.
 
-The optimization runs in the selected Foundry project. You can leave the run page and return to **Optimize (Preview)** to monitor its status.
-
-![Screenshot showing the hosted-agent Optimize Preview tab with the New Optimization action and an empty optimization run list.](./images/optimizations/optimization-entry.png)
+The optimization runs in the selected Foundry project. You can leave the run page and return to **Optimize** to monitor its status.
 
 ### Review candidates
 
