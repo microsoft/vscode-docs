@@ -175,6 +175,39 @@ When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is en
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
+### File nesting
+
+Instead of hiding derived or companion files, you can nest them underneath a parent file in the Explorer view. File nesting visually groups related files based on their names and collapses them into a "root" file, which reduces clutter in the Explorer while keeping files easily accessible.
+
+![File nesting in the File Explorer](../images/userinterface/file-nesting.png)
+
+You can configure file nesting with the following settings:
+
+* `setting(explorer.fileNesting.enabled)`: Controls whether file nesting is enabled. It can be set globally or for a specific workspace.
+* `setting(explorer.fileNesting.expand)`: Controls whether nested files are expanded by default.
+* `setting(explorer.fileNesting.patterns)`: Configures the nesting rules that determine how files are grouped.
+
+The default configuration provides nesting intelligence for TypeScript and JavaScript projects (for example, nesting `.js` and `.d.ts` files under a matching `.ts` file). You can customize `setting(explorer.fileNesting.patterns)` to fit your project's structure:
+
+```json
+"explorer.fileNesting.enabled": true,
+"explorer.fileNesting.expand": false,
+"explorer.fileNesting.patterns": {
+  "*.ts": "${capture}.js, ${capture}.d.ts, ${capture}.js.map",
+  "*.js": "${capture}.js.map",
+  "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+}
+```
+
+Nesting patterns support the following tokens:
+
+* `${capture}`: Matches whatever string was matched by the `*` wildcard in the pattern key.
+* `${basename}`: Matches the parent file's basename (the filename without extension).
+* `${extname}`: Matches the parent file's extension.
+* `${dirname}`: Matches the parent file's directory name.
+
+When a nest is collapsed, file operations like copy, cut, drag and drop, and delete apply to the entire nested group as a single unit. When the nest is expanded, selections and operations apply to individual files.
+
 ### Multi-selection
 
 You can select multiple files in the Explorer view and Open Editors section to run actions (delete, drag and drop, or open to the side) on multiple items. Hold `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) and select individual files, or hold `kbstyle(Shift)` to select a range of files. If you select two items, you can now also use the context menu **Compare Selected** command to quickly diff two files.
