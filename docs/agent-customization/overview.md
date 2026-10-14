@@ -127,7 +127,9 @@ Create a workspace code reviewer skill for Python and JavaScript files. Check th
 
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
-For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources, install an item, and manage the installation from the corresponding section.
+To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps and configuration options, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md#add-a-server-from-the-agent-customizations-editor).
+
+For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources and install an item. Manage the installation from the corresponding section.
 
 See the guides for [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [prompt files](/docs/agent-customization/prompt-files.md), [custom agents](/docs/agent-customization/custom-agents.md), [MCP servers](/docs/agent-customization/mcp-servers.md), [hooks](/docs/agent-customization/hooks.md), and [agent plugins](/docs/agent-customization/agent-plugins.md) for their file formats and configuration options.
 

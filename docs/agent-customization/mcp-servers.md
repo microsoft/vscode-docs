@@ -52,6 +52,23 @@ This walkthrough demonstrates adding an external tool provider with the [Playwri
 
 ## Add an MCP server
 
+### Add a server from the Agent Customizations editor
+
+Use the Agent Customizations editor to add a server through a guided flow:
+
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`), and then select **MCP Servers**.
+1. In the **User** or **Workspace** group, select **Add Server** (plus icon).
+1. Choose how to add the server:
+    * Select **Command (stdio)** to run a local MCP server, and then enter the command and optional arguments.
+    * Select **HTTP** to connect to a remote HTTP or Server-Sent Events (SSE) server, and then enter the server URL.
+    * Select **Add from another application** to configure automatic discovery from another supported application.
+    * Select **Browse MCP Servers** to find a server in the MCP server gallery.
+1. For a manually configured server, enter a unique server ID and choose the configuration target and file when prompted. The available targets depend on your current agent session, workspace, and remote environment.
+
+The same guided flow is available through the **MCP: Add Server** command.
+
+### Install from the MCP server gallery
+
 To install an MCP server from the MCP server gallery:
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp` in the search field. This shows the list of available MCP servers in the gallery.
@@ -80,7 +97,7 @@ You can manually configure MCP servers in the following locations:
 
 Include workspace configuration in source control to share MCP servers with your team.
 
-You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow. Choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers. The Experimental `setting(chat.mcp.workspaceRootConfig.enabled)` setting controls whether the workspace-root `.mcp.json` destination appears.
+When the guided flow asks for a configuration file, choose **.mcp.json** to save a portable configuration at the workspace root, or **Copilot Global** to save it in `$COPILOT_HOME/mcp-config.json` with `~/.copilot/mcp-config.json` as the fallback location. The flow also lists the deprecated `.vscode/mcp.json` and {% data variables.product.prodname_vscode_shortname %} user-profile destinations for compatibility. Prefer the portable destinations for new servers. The Experimental `setting(chat.mcp.workspaceRootConfig.enabled)` setting controls whether the workspace-root `.mcp.json` destination appears.
 
 For Copilot harness sessions, use workspace `.mcp.json` or user `$COPILOT_HOME/mcp-config.json` files, with `~/.copilot/mcp-config.json` as the fallback user location. The agent reads these files directly, and compatible Copilot tools can share them. {% data variables.product.prodname_vscode_shortname %} also forwards eligible configurations from other supported sources, including `.vscode/mcp.json`, except configurations that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly.
 
@@ -203,60 +220,6 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 
 </details>
 
-## Other MCP capabilities
-
-Beyond tools, MCP servers can provide other capabilities:
-
-| Capability | Description | How to use |
-|------------|-------------|------------|
-| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the {% data variables.copilot.chat_view %}, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
-| **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
-| **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
-
-## Sandbox MCP servers
-
-On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandbox rules can deny file access, grant write access, and grant access to specific network domains.
-
-> [!NOTE]
-> This per-server sandbox is separate from sandboxing for Copilot harness sessions. When the [Copilot harness sandbox](/docs/agents/run/agent-sandboxing.md) is on, `setting(chat.agent.sandbox.mcpServers)` applies by default to the servers it manages and has its own configuration and scope.
-
-To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. Add a `sandbox` object to the server to grant file system or network access and define server-specific restrictions. You can also add a top-level `sandbox` object with deny rules that apply to all sandboxed servers in the file.
-
-The following example grants one server write access to the workspace and access to a specific API domain. The top-level rule prevents all sandboxed servers in the file from reading the `.ssh` directory:
-
-```json
-{
-    "servers": {
-        "myServer": {
-            "type": "stdio",
-            "command": "npx",
-            "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true,
-            "sandbox": {
-                "filesystem": {
-                    "allowWrite": ["${workspaceFolder}"]
-                },
-                "network": {
-                    "allowedDomains": ["api.example.com"]
-                }
-            }
-        }
-    },
-    "sandbox": {
-        "filesystem": {
-            "denyRead": ["${userHome}/.ssh"]
-        }
-    }
-}
-```
-
-When sandboxing is enabled, tool calls from the server are auto-approved because they run in a controlled environment.
-
-For the full sandbox configuration schema, see the [Sandbox configuration](/docs/agents/reference/mcp-configuration.md#sandbox-configuration) reference.
-
-> [!NOTE]
-> Sandboxing is currently not available on Windows.
-
 ## Manage MCP servers
 
 {% data variables.product.prodname_vscode_shortname %} provides several options to manage your MCP servers, such as starting or stopping a server, viewing logs, uninstalling, or clearing cached tools.
@@ -308,6 +271,74 @@ To enable or disable an MCP server:
 
 The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
 
+## Other MCP capabilities
+
+Beyond tools, MCP servers can provide other capabilities:
+
+| Capability | Description | How to use |
+|------------|-------------|------------|
+| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the {% data variables.copilot.chat_view %}, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
+| **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
+| **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
+
+## MCP server trust
+
+Workspace MCP servers inherit [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). When you trust a workspace, servers in `.vscode/mcp.json` and workspace-root `.mcp.json` can start without a separate MCP server trust prompt, including after their configuration changes. In restricted mode, workspace MCP configuration is blocked and these servers don't start.
+
+Review workspace MCP configuration before you trust a repository because local MCP servers can run code on your machine.
+
+MCP servers from other sources can use a separate trust decision. For these servers, {% data variables.product.prodname_vscode_shortname %} shows a dialog when a server first starts or its configuration changes. In the dialog, select the link to the MCP server to review its configuration.
+
+![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
+
+If you don't trust the MCP server, it will not be started, and chat requests will continue without using the tools provided by the server.
+
+To reset separate MCP server trust decisions, run the **MCP: Reset Trust** command from the Command Palette. This command doesn't change Workspace Trust.
+
+## Sandbox MCP servers
+
+On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandbox rules can deny file access, grant write access, and grant access to specific network domains.
+
+> [!NOTE]
+> This per-server sandbox is separate from sandboxing for Copilot harness sessions. When the [Copilot harness sandbox](/docs/agents/run/agent-sandboxing.md) is on, `setting(chat.agent.sandbox.mcpServers)` applies by default to the servers it manages and has its own configuration and scope.
+
+To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. Add a `sandbox` object to the server to grant file system or network access and define server-specific restrictions. You can also add a top-level `sandbox` object with deny rules that apply to all sandboxed servers in the file.
+
+The following example grants one server write access to the workspace and access to a specific API domain. The top-level rule prevents all sandboxed servers in the file from reading the `.ssh` directory:
+
+```json
+{
+    "servers": {
+        "myServer": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "@example/mcp-server"],
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com"]
+                }
+            }
+        }
+    },
+    "sandbox": {
+        "filesystem": {
+            "denyRead": ["${userHome}/.ssh"]
+        }
+    }
+}
+```
+
+When sandboxing is enabled, tool calls from the server are auto-approved because they run in a controlled environment.
+
+For the full sandbox configuration schema, see the [Sandbox configuration](/docs/agents/reference/mcp-configuration.md#sandbox-configuration) reference.
+
+> [!NOTE]
+> Sandboxing is currently not available on Windows.
+
 ## Centrally manage access to MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
 Organizations can centrally manage access to MCP servers with {% data variables.product.prodname_copilot_short %} enterprise-managed settings. Learn more about [enterprise management of MCP servers](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
@@ -326,20 +357,6 @@ Disabled servers and servers in an error state are excluded from the autostart p
 
 > [!IMPORTANT]
 > Setting `setting(chat.mcp.autostart)` to `never` doesn't prevent a Copilot harness session from starting its configured MCP servers. This setting controls only the editor's MCP autostart pass. The [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs the session, manages its servers independently. For configuration locations and forwarding restrictions, see [Configure the `mcp.json` file](#configure-the-mcpjson-file).
-
-## MCP server trust
-
-Workspace MCP servers inherit [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). When you trust a workspace, servers in `.vscode/mcp.json` and workspace-root `.mcp.json` can start without a separate MCP server trust prompt, including after their configuration changes. In restricted mode, workspace MCP configuration is blocked and these servers don't start.
-
-Review workspace MCP configuration before you trust a repository because local MCP servers can run code on your machine.
-
-MCP servers from other sources can use a separate trust decision. For these servers, {% data variables.product.prodname_vscode_shortname %} shows a dialog when a server first starts or its configuration changes. In the dialog, select the link to the MCP server to review its configuration.
-
-![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
-
-If you don't trust the MCP server, it will not be started, and chat requests will continue without using the tools provided by the server.
-
-To reset separate MCP server trust decisions, run the **MCP: Reset Trust** command from the Command Palette. This command doesn't change Workspace Trust.
 
 ## Synchronize MCP configuration across devices
 
