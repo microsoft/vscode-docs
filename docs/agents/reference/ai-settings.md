@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -259,6 +259,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.experimental.agentsWindowPRComments)` `feature(agents-window-pr-comments)`<br/>Show **Add PR Comment** when you [add range comments while reviewing agent changes](/docs/agents/run/review-code-edits.md#add-pull-request-review-comments). | `false` |
 | `setting(sessions.useWorktree)` _(Insiders)_<br/>Control whether **New Worktree** is selected when no previous code-isolation choice has been saved. After you start a session, the saved choice applies across workspaces instead. | `true` |
 | `setting(chat.automations.enabled)` `feature(automations)`<br/>Show [Automations](/docs/agents/run/automations.md) in the {% data variables.copilot.agents_window %} and run scheduled agent tasks. When disabled, automation entry points are hidden and scheduled tasks aren't dispatched. | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(chat.automations.cloud.enabled)` `feature(cloud-automations)`<br/>Enable management of user-owned GitHub Copilot [cloud automations](/docs/agents/run/automations.md#create-a-cloud-automation) in the **Automations** view. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot harness sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
 | `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot harness session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |

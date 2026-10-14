@@ -1,6 +1,6 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Understand sessions and chats in {% data variables.product.prodname_vscode_shortname %}, and choose when to start a chat, fork, or create a session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -46,6 +46,8 @@ Both chats can edit the same files. When you need separate working directories, 
 ## Choose a new chat, a fork, or a new session
 
 Continue in the same chat when you're working on the same task and its conversation history is still relevant. When you need a separate conversation, choose based on whether you want to retain that history and share the same workspace.
+
+If the task needs another folder or a new Git worktree, you don't have to start a new conversation. In supported single-chat sessions in the {% data variables.copilot.agents_window %}, you can [move the existing chat](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) and continue with its conversation history intact.
 
 | Choose | When to use it | Conversation history | Workspace and code changes |
 |--------|----------------|----------------------|----------------------------|
