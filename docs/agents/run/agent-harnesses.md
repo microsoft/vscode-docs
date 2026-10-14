@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 10/7/2026
-MetaDescription: Compare agent harnesses in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
+DateApproved: 10/14/2026
+MetaDescription: Compare agent harnesses and built-in roles in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -65,7 +65,16 @@ The control only lists targets whose [requirements](#requirements-and-setup) are
 
 <a name="choose-a-built-in-agent-role"></a>
 
-After selecting a harness, choose an available agent role separately. For example, Local harness sessions provide **Ask** for questions without code changes, **Agent** for autonomous implementation, and **Plan** for researching and planning changes. Switching roles from the agent picker does not change the harness.
+### Choose a built-in agent role
+
+After selecting a harness, choose an available built-in agent role from the agent picker. The available roles depend on the harness:
+
+| Harness | Built-in roles |
+|---------|----------------|
+| **Copilot** | **Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands. **Agent** implements changes and validates the result. |
+| **Local** | **Ask** answers questions without changing your code. **Agent** implements changes and validates the result. **Plan** researches a task and creates an implementation plan for you to review. |
+
+Switching roles doesn't change the harness. Copilot harness options such as [Plan](/docs/agents/run/planning.md) and [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) are modes with their own workflows, not additional built-in agent roles.
 
 <a name="choose-code-isolation"></a>
 
@@ -194,7 +203,33 @@ To hand off a Local harness session:
 
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the destination session. To implement a plan or continue it with another supported session, see [planning with agents](/docs/agents/run/planning.md).
 
+> [!NOTE]
+> Enterprise-managed sandbox or permission settings might automatically move a Local session to the Copilot harness so the Agent Host can enforce the policy. This policy-driven move preserves the conversation history and unsent input without submitting a prompt, and archives the original Local session as read-only. It is different from a user-initiated handoff. Learn more about [Agent Host policy enforcement](/docs/enterprise/manage-ai-settings.md#enforce-runtime-policies-with-copilot-agent-host).
+
 Changing a harness is different from starting another conversation or opening the same session in another interface. Learn more about [sessions, forks, and handoffs](/docs/agents/concepts/sessions.md).
+
+## Use canvases with the Copilot harness
+
+`feature(canvases)`
+
+Canvases are interactive visual surfaces shared by you and the agent. For example, you can inspect a diagram that the agent updates or adjust controls whose values flow back to the agent. Every canvas is provided by a canvas extension.
+
+![Screenshot of a kanban canvas showing tasks and columns in the editor.](../images/agent-harnesses/kanban-canvas.png)
+
+Before you create a new supported Copilot session, turn on `setting(chat.canvases.enabled)`. To get a canvas, use one of these options:
+
+* **Create a canvas extension**: When the `/create-canvas` skill is available, enter `/create-canvas` in the chat input and describe the user interface you want for your project. The skill creates a canvas extension in your workspace and opens its canvas.
+
+* **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
+
+In the {% data variables.copilot.agents_window %}, you can also open an available canvas from **Add Tab (+)** > **Canvas** in the editor area.
+
+When the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
+
+Canvas extensions are also supported in the {% data variables.copilot.github_copilot_app %}. Learn how to [work with canvas extensions in the {% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). To explore examples, browse [sample canvas extensions](https://awesome-copilot.github.com/extensions/).
+
+> [!NOTE]
+> Canvases are available only on desktop in supported local Copilot Agent Host sessions. They aren't supported for Claude, Codex, extension-host Local sessions, remote Agent Host sessions, browser or web clients, or auxiliary-window hosting.
 
 ## Related resources
 
