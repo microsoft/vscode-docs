@@ -253,7 +253,21 @@ Use the following policies to govern [MCP servers](/docs/agent-customization/mcp
 
 #### Configure agent tool approvals
 
-Use {% data variables.product.prodname_vscode_shortname %} device policies to control approval behavior for agent tools.
+Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings to control session permission levels. Use {% data variables.product.prodname_vscode_shortname %} device policies for other approval behavior.
+
+##### Manage permission levels
+
+For Copilot harness sessions, use enterprise-managed settings to control which permission levels developers can select and the initial level for new sessions.
+
+| Managed setting | Effect in {% data variables.product.prodname_vscode_shortname %} |
+|-----------------|------------------------------------------------------------------|
+| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to remove **Allow all** from the permissions picker. |
+| `permissions.disableAssistedPermissionsMode` | Set to `true` to remove **Assisted permissions** from the permissions picker. |
+| `permissions.defaultMode` | Sets the initial permission level. Supported values are `"manual"`, `"assisted"`, and `"allow-all"`. |
+
+If the configured default is unavailable, new sessions use **Manual permissions**. Setting a default doesn't prevent developers from switching to another permission level that the organization allows.
+
+These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
 
 ##### Disable global auto-approval
 
