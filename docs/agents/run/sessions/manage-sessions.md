@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Start, coordinate, and manage agent sessions across workspaces in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -28,6 +28,26 @@ You can switch between these surfaces after you start a session. To compare all 
 
 > [!NOTE]
 > **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+
+## Move a chat to another folder or worktree
+
+In the {% data variables.copilot.agents_window %}, move the current chat to another folder or a new Git worktree to continue a task without starting over. The move preserves its conversation history. This capability requires an Agent Host session that contains one chat and one local folder. Use the {% data variables.product.prodname_copilot_short %} harness, or [Codex on the Agent Host (Experimental)](/docs/agents/run/agent-harnesses.md#codex) in Interactive mode.
+
+Ask the agent to move the chat with a natural-language prompt. This is an agent-tool request, not a separate move button. To move the current chat to an existing local folder on the same host:
+
+```prompt
+Move this chat to <absolute folder path> and continue the current task there.
+```
+
+To isolate implementation in a new Git worktree, use this prompt from a folder session before implementation begins:
+
+```prompt
+Continue this task in a new Git worktree of the current repository before implementing it.
+```
+
+When prompted, confirm the destination and whether to use the folder directly or create a worktree. Review any tool approval or Workspace Trust request. The agent finishes the current turn and then moves the chat. Wait for the workspace-change notice and for the chat to continue automatically before you send more prompts.
+
+A folder move uses the files already in the destination and doesn't move or copy your existing files. A new worktree starts from committed Git state. Your uncommitted changes stay in the original folder, except for files copied by configured worktree include rules. Creating a worktree requires a Git repository with at least one commit. For complete prerequisites, file-copy behavior, and security considerations, see [Choose code isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
 
 ## Manage session context
 
@@ -237,7 +257,10 @@ To start a {% data variables.copilot.copilot_cli %} session from {% data variabl
 
 ## Archive sessions
 
-To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
+To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. You can unarchive a session that you archived manually to restore it to the active sessions list.
+
+> [!NOTE]
+> If enterprise-managed sandbox or permission settings automatically move a Local session to the Copilot harness, the original Local session is archived as a read-only record. Continue the conversation in the Copilot session. The original remains read-only while the policy applies. Learn more about [Agent Host policy enforcement](/docs/enterprise/manage-ai-settings.md#enforce-runtime-policies-with-copilot-agent-host).
 
 When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 

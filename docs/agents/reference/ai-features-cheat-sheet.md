@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -21,7 +21,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 
 | I want to... | Use | Start with... |
 |---|---|---|
-| Understand unfamiliar code | [Chat](/docs/chat/chat-overview.md) | Ask "Trace how a request reaches the database." |
+| Understand unfamiliar code without changing it | [Ask](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) | Select **Ask** and enter "Trace how a request reaches the database." |
 | Plan a complex change | [Plan agent](/docs/agents/run/planning.md) | Select **Plan** and describe the change to research before implementation. |
 | Build a feature, fix a bug, or create a project | [Agents](#use-agents) | Select **Agent**, describe the outcome, and specify how to verify it. |
 | Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
