@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Start, coordinate, and manage agent sessions across workspaces in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -28,6 +28,26 @@ You can switch between these surfaces after you start a session. To compare all 
 
 > [!NOTE]
 > **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+
+## Move a chat to another folder or worktree
+
+In the {% data variables.copilot.agents_window %}, move the current chat to another folder or a new Git worktree to continue a task without starting over. The move preserves its conversation history. This capability requires an Agent Host session that contains one chat and one local folder. Use the {% data variables.product.prodname_copilot_short %} harness, or [Codex on the Agent Host (Experimental)](/docs/agents/run/agent-harnesses.md#codex) in Interactive mode.
+
+Ask the agent to move the chat with a natural-language prompt. This is an agent-tool request, not a separate move button. To move the current chat to an existing local folder on the same host:
+
+```prompt
+Move this chat to <absolute folder path> and continue the current task there.
+```
+
+To isolate implementation in a new Git worktree, use this prompt from a folder session before implementation begins:
+
+```prompt
+Continue this task in a new Git worktree of the current repository before implementing it.
+```
+
+When prompted, confirm the destination and whether to use the folder directly or create a worktree. Review any tool approval or Workspace Trust request. The agent finishes the current turn and then moves the chat. Wait for the workspace-change notice and for the chat to continue automatically before you send more prompts.
+
+A folder move uses the files already in the destination and doesn't move or copy your existing files. A new worktree starts from committed Git state. Your uncommitted changes stay in the original folder, except for files copied by configured worktree include rules. Creating a worktree requires a Git repository with at least one commit. For complete prerequisites, file-copy behavior, and security considerations, see [Choose code isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
 
 ## Manage session context
 

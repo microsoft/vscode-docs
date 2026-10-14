@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -88,6 +88,25 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 * [Enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) lists supported keys, values, combination behavior, and client coverage.
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
+
+### Keep Local harness as default
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness as the default for new agent sessions and prevent automatic selection of the Copilot harness.
+
+Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed settings:
+
+```json
+{
+    "vscode": {
+        "temporaryDefaultToLocalHarness": true
+    }
+}
+```
+
+This control suppresses automatic routing to the Copilot harness, including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
+
+> [!WARNING]
+> Local does not enforce runtime-only sandbox and permission rules. Those managed rules continue to be enforced in Copilot harness sessions. Review the security impact before you use this temporary control.
 
 ### Verify applied managed settings
 

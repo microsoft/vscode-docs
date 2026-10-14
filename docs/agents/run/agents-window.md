@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -84,6 +84,8 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 ![Screenshot of the {% data variables.copilot.agents_window %} interface, showing the sessions list, customizations panel, chat area, changes panel, and files panel.](../images/agents-window/agents-window-ui-annotated.png)
 
 By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
+
+Supported {% data variables.product.prodname_copilot_short %} canvases `feature(canvases)` open in the editor area. You can reopen a dismissed live canvas from the editor group's **Add Tab (+)** menu. Learn more about [using canvases with the Copilot harness](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
 
 ## Understand the active session
 
@@ -264,6 +266,8 @@ To continue a quick chat in a workspace:
 
 1. Wait for workspace setup to finish. The quick chat becomes a workspace session and moves from the **Chats** group to the selected workspace in the sessions list. The agent then continues the original request.
 
+If the chat already has a workspace, see [Move a chat to another folder or worktree](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) to continue the same task in a different location without starting a new conversation.
+
 ## Review and finish an agent session
 
 When an agent finishes a task, make the session active to inspect its workspace and access its validation and Git actions.
@@ -394,9 +398,11 @@ For what chats share, how to create them, and the controls in each interface, se
 
 `feature(automations)`
 
-Automations run recurring agent tasks from a saved prompt and schedule. Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+Automations run recurring agent tasks from a saved prompt and schedule. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub and continue when you close {% data variables.product.prodname_vscode_shortname %} or turn off your computer.
 
-Learn how to [create an automation and review its results](/docs/agents/run/automations.md).
+Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. For cloud execution, also enable `setting(chat.automations.cloud.enabled)`. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+
+Learn how to [choose where an automation runs, create an automation, and review its results](/docs/agents/run/automations.md).
 
 ## Configure the {% data variables.copilot.agents_window %}
 

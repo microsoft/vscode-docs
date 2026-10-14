@@ -1095,6 +1095,8 @@
 { "key": "ctrl+k ctrl+alt+s",     "command": "git.stageSelectedRanges" },
 { "key": "ctrl+k ctrl+n",         "command": "git.unstageSelectedRanges" },
 { "key": "ctrl+k ctrl+r",         "command": "git.revertSelectedRanges" },
+{ "key": "ctrl+space",            "command": "markdown.editor.triggerSuggest" },
+{ "key": "f2",                    "command": "markdown.editor.rename" },
 { "key": "ctrl+k v",              "command": "markdown.showPreviewToSide" },
 { "key": "ctrl+shift+v",          "command": "markdown.togglePreview" },
 { "key": "ctrl+b",                "command": "markdown.editor.cursorLeft" },
