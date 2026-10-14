@@ -1,6 +1,6 @@
 ---
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Get the best out of {% data variables.product.prodname_vscode %} for Markdown
 ---
 # Markdown and {% data variables.product.prodname_vscode %}
@@ -196,6 +196,28 @@ With automatic Markdown link updating, {% data variables.product.prodname_vscode
 * `always` — Update links automatically without confirmation.
 
 Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `setting(markdown.updateLinksOnFileMove.include)`.
+
+## Markdown Editor
+
+`feature(markdown-editor)`
+
+The Markdown Editor lets you edit rendered Markdown directly, without switching between the text editor and a separate preview. It is available in regular editor windows and the {% data variables.copilot.agents_window %}.
+
+To open a Markdown file in the experimental editor:
+
+1. Open a `.md` file.
+1. In the breadcrumbs bar, select the editor type dropdown, such as **Text Editor**.
+1. Select **Markdown Editor**.
+
+Alternatively, in the editor title, select **More Actions** (**...**) > **Reopen Editor With** > **Markdown Editor**. You can also run **View: Reopen Editor With...** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+Switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit the document directly. In **Locked** mode, the document remains rendered and read-only.
+
+Git change markers in the margin indicate added, modified, and deleted content. The markers update as you edit and disappear when you undo or revert the corresponding changes.
+
+Rendered fenced code blocks include a **Copy** button that copies the complete block without requiring you to select or edit its contents.
+
+To make the experimental editor the default for Markdown files in the {% data variables.copilot.agents_window %}, see [View and edit Markdown files in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#view-and-edit-markdown-files).
 
 ## Markdown preview
 
