@@ -235,7 +235,7 @@ Canvas extensions are also supported in the {% data variables.copilot.github_cop
 
 ### What is the difference between Local and Copilot?
 
-Both harnesses can run on your machine. **Local** uses {% data variables.product.prodname_vscode_shortname %}'s built-in agent harness. **Copilot** uses the {% data variables.copilot.copilot_sdk %}.
+Both harnesses can run on your machine. **Local** uses {% data variables.product.prodname_vscode_shortname %}'s built-in proprietary agent harness and works in VS Code's extension host. **Copilot** uses the {% data variables.copilot.copilot_sdk %}, which is the agent experience shared consistently across GitHub Copilot products.
 
 Both harnesses support tools, model selection, and agent customizations, but the available capabilities and configuration differ.
 
@@ -251,7 +251,7 @@ The Copilot harness provides these benefits:
 
 Start with **Copilot** for day-to-day coding and agent tasks, especially when you want to continue work between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}, or keep work running after closing an editor window.
 
-Consider **Local** when your workflow depends on specific tools or customizations that aren't supported by the Copilot harness. Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
+If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
 
 ### Does running locally mean the language model runs on my machine?
 
