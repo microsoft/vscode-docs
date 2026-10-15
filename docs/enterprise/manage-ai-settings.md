@@ -323,7 +323,8 @@ The following {% data variables.product.prodname_vscode_shortname %} device poli
 | `ChatAgentSandboxEnabled` | Requires or disables sandboxing for supported terminal commands. |
 | `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
 | `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
-| `ChatAgentSandboxAllowAutoApprove` | Controls automatic approval of sandboxed terminal commands. |
+
+The `ChatAgentSandboxAllowAutoApprove` policy is removed. Local harness sessions approve sandboxed terminal commands automatically. To require approval for these commands, [set `ChatToolsTerminalEnableAutoApprove` to `false`](#configure-terminal-auto-approval).
 
 </details>
 
