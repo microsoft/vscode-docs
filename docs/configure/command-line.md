@@ -289,7 +289,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
 > [!NOTE]
-> If you are using {% data variables.product.prodname_vscode_shortname %} [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://` (for example, `vscode-insiders://file/{full path to file}`). When targeting {% data variables.product.prodname_vscode_shortname %} for the Web, you can route URLs through `https://vscode.dev/redirect?url=...`.
+> If you are using {% data variables.product.prodname_vscode_shortname %} [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://` (for example, `vscode-insiders://file/{full path to file}`). To launch the desktop app through an HTTPS link, use `https://vscode.dev/redirect?url=<url-encoded-vscode-URL>`.
 
 ## Next steps
 
