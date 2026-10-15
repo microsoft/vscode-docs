@@ -179,7 +179,7 @@ When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is en
 
 Instead of hiding derived or companion files, you can nest them underneath a parent file in the Explorer view. File nesting visually groups related files based on their names and collapses them into a "root" file, which reduces clutter in the Explorer while keeping files easily accessible.
 
-![File nesting in the File Explorer](../images/userinterface/file-nesting.png)
+![Screenshot showing file nesting of the package.json and package-lock.json files.](../images/userinterface/file-nesting.png)
 
 You can configure file nesting with the following settings:
 
@@ -187,7 +187,7 @@ You can configure file nesting with the following settings:
 * `setting(explorer.fileNesting.expand)`: Controls whether nested files are expanded by default.
 * `setting(explorer.fileNesting.patterns)`: Configures the nesting rules that determine how files are grouped.
 
-The default configuration provides nesting intelligence for TypeScript and JavaScript projects (for example, nesting `.js` and `.d.ts` files under a matching `.ts` file). You can customize `setting(explorer.fileNesting.patterns)` to fit your project's structure:
+The default patterns include rules for TypeScript and JavaScript projects, such as nesting a matching `.js` file under its `.ts` source file. You can customize `setting(explorer.fileNesting.patterns)` to fit your project's structure:
 
 ```json
 "explorer.fileNesting.enabled": true,
