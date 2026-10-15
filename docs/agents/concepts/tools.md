@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Understand how tools let AI agents act in {% data variables.product.prodname_vscode_shortname %}, including built-in, MCP, and extension tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -54,7 +54,10 @@ An available tool comes from {% data variables.product.prodname_vscode_shortname
 
 Limit enabled tools to the capabilities that are relevant to your task. A focused set helps the agent choose appropriate tools, reduces the chance of unnecessary actions, and limits the tool output added to the [context window](/docs/agents/concepts/language-models.md#context-window).
 
-The scope of a tool selection depends on where the agent session runs. For the Local harness on the extension host, the selection applies to one chat request. For the Copilot harness on the Agent Host, the selection persists in your [user profile](/docs/configure/profiles.md). Tools can also be fixed for a reusable [custom agent](/docs/agent-customization/custom-agents.md).
+For Copilot harness sessions, your tool selection persists in the active [user profile](/docs/configure/profiles.md). Tools can also be fixed for a reusable [custom agent](/docs/agent-customization/custom-agents.md). Learn how to [manage available tools](/docs/agents/run/tools.md#manage-available-tools).
+
+> [!NOTE]
+> **For Local harness sessions:** The tool selection applies to one chat request rather than persisting across requests.
 
 ## Tool approval and trust
 

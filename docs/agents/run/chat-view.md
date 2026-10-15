@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -22,7 +22,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * Access to an AI model through a supported setup:
     * For models provided by {% data variables.product.prodname_copilot %}, [set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
-    * To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or your own model credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target) and [language model setup](/docs/agent-customization/language-models.md).
+    * To use {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}, or your own model credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#requirements-and-setup) and [language model setup](/docs/agent-customization/language-models.md).
 
 ## Open the {% data variables.copilot.chat_view %}
 
@@ -63,13 +63,13 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 ### Switch chats within a session
 
-A supported Agent Host session can contain a main chat and additional peer chats. In the **Sessions** view, expand the main chat row and select a peer to open its conversation in the {% data variables.copilot.chat_view %}.
+With a harness that supports multiple chats, such as Copilot or Claude, a session can contain a main chat and additional peer chats. In the **Sessions** view, expand the main chat row and select a peer to open its conversation in the {% data variables.copilot.chat_view %}.
 
 You can continue peer chats created in the {% data variables.copilot.agents_window %} without starting a new session. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 ## Start a session
 
-To start a workspace-scoped session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send the first prompt, use the chat input controls to choose a **Session Target**, **Agent**, **Language model**, and **Permissions**. For a first coding task, use **Copilot**, **Agent**, **Auto**, and **Manual permissions**, as shown in the [agents quickstart](/docs/agents/quickstart.md). Available choices depend on your account, installed providers, and organization policies. Learn more about [configuring an agent session](/docs/agents/run/agent-harnesses.md#understand-the-session-controls).
+To start a workspace-scoped session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send the first prompt, use the chat input controls to choose a **Session Target**, **Agent**, **Language model**, and **Permissions**. For a first coding task, use **Copilot**, **Agent**, **Auto**, and **Manual permissions**, as shown in the [agents quickstart](/docs/agents/quickstart.md). Available choices depend on your account, installed providers, and organization policies. Learn how to [identify your current harness](/docs/agents/run/agent-harnesses.md#identify-your-current-harness) or [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses).
 
 Type a prompt and press `kb(workbench.action.chat.submit)`. For shared request, context, and conversation controls, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md). For session context, history, and organization, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
@@ -77,7 +77,7 @@ Type a prompt and press `kb(workbench.action.chat.submit)`. For shared request, 
 
 Because the {% data variables.copilot.chat_view %} runs in the main {% data variables.product.prodname_vscode_shortname %} window, you can inspect agent edits in the editor, follow terminal activity, debug the application, and run tasks or tests without switching surfaces. The agent also has access to supported extensions and can [work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md). When you connect to a [remote workspace](/docs/remote/remote-overview.md), the session uses the same remote project context and tools.
 
-The **Copilot** session target applies and saves edits directly to the selected folder or worktree. Select a changed file in the response to inspect its diff, or set `setting(chat.checkpoints.showFileChanges)` to show a changed-files summary after each request. For revisions, checkpoints, target-specific review workflows, and integrating changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+The Copilot harness applies and saves edits directly to the selected folder or worktree. Select a changed file in the response to inspect its diff, or set `setting(chat.checkpoints.showFileChanges)` to show a changed-files summary after each request. For revisions, checkpoints, harness-specific review workflows, and integrating changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Next steps
 

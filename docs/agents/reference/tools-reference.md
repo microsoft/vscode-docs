@@ -1,6 +1,6 @@
 ---
 ContentId: 6257086f-4936-4f53-bfa1-fec1cfd4dfb5
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Look up tools, tool sets, and context references for AI chat in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/chat-tools/agent-mode-select-tools.png
 Keywords:
@@ -88,7 +88,7 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 | `#todos` | Track task progress with a todo list. |
 | `#vscode/askQuestions` | Ask clarifying questions with interactive controls. |
 
-For tools that coordinate work across Agent Host sessions, see [session orchestration](/docs/agents/run/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+To coordinate work across sessions, see [Coordinate work across sessions](/docs/agents/run/sessions/manage-sessions.md#coordinate-work-across-sessions).
 
 ### Configure projects and the editor
 

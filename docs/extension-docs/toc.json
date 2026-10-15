@@ -48,7 +48,7 @@
       ["Hosted Agents (Preview)", "/docs/intelligentapps/hosted-agents"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Optimizations", "/docs/intelligentapps/optimizations"],
-      ["Tool Catalog", "/docs/intelligentapps/tool-catalog"],
+      ["Tools and Toolboxes", "/docs/intelligentapps/tool-catalog"],
       ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
       ["Fine-Tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],

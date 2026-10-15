@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.141 release",
-      "description": "Use cross-platform terminal sandboxing, arrange sessions in a grid, and continue Copilot and Codex conversations.",
-      "link": "/updates/v1_141",
-      "image": "/assets/updates/1_141/release-highlights.webp"
+      "title": "VS Code 1.142 release",
+      "description": "Use visual and interactive canvases, move chats without losing context, work in the expanded Markdown editor, and apply more granular enterprise controls.",
+      "link": "/updates/v1_142",
+      "image": "/assets/updates/1_142/release-highlights.webp"
     },
     {
       "type": "documentation",

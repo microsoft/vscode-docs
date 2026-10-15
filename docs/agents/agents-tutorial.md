@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -65,7 +65,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
-1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#cloud-target).
 
 ### Start an agent session
 
@@ -89,7 +89,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     | Control | Value | Short description |
     |---------|-------|-------------------|
-    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session with the {% data variables.copilot.copilot_sdk %} on your machine. |
+    | **Session Target** | **Copilot** | Uses the {% data variables.product.prodname_copilot_short %} agent harness to run the session on your machine. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
     | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
@@ -180,7 +180,7 @@ You can use the {% data variables.copilot.chat_view %} alongside your editor to 
 
 {% /action-card %}
 
-For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot session in the {% data variables.copilot.chat_view %}.
+For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot harness session in the {% data variables.copilot.chat_view %}.
 
 ### Open the editor for your workspace
 
@@ -198,7 +198,7 @@ For some changes, you might prefer a code-first approach, where your focus is on
 
 ### Continue the session from the {% data variables.copilot.chat_view %}
 
-The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar, alongside your editor tabs. The same Copilot session remains active when you move between the {% data variables.copilot.agents_window %} and the editor.
+The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar, alongside your editor tabs. The same Copilot harness session remains active when you move between the {% data variables.copilot.agents_window %} and the editor.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 

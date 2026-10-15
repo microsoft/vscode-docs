@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 10/7/2026
-MetaDescription: Run parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
+DateApproved: 10/14/2026
+MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %}
@@ -24,9 +24,9 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
-  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
-  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
-  * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for Agent Host sessions.
+  * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#claude) to use Claude without GitHub sign-in (Experimental).
+  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#codex) to use Codex without GitHub sign-in (Experimental).
+  * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for use in the {% data variables.copilot.agents_window %}.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -55,9 +55,9 @@ On desktop, you can open the {% data variables.copilot.agents_window %} without 
 
 * Claude configured with an API key or another supported Claude BYOK option.
 * Codex signed in to ChatGPT.
-* A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available to Agent Host sessions.
+* A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available in the {% data variables.copilot.agents_window %}.
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
 
 To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the {% data variables.copilot.agents_window %}, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
@@ -85,11 +85,13 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 
 By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
 
+Supported {% data variables.product.prodname_copilot_short %} canvases `feature(canvases)` open in the editor area. You can reopen a dismissed live canvas from the editor group's **Add Tab (+)** menu. Learn more about [using canvases with the Copilot harness](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
+
 ## Understand the active session
 
 The {% data variables.copilot.agents_window %} picks up your agent sessions across your workspaces. The **active session** is the session that currently has focus. Its conversation and project context determine what you see and which workspace your actions apply to.
 
-Select a session in the sessions list to open it and make it active. When you [open multiple sessions side by side](#open-multiple-sessions-side-by-side), select anywhere in a session view to make that session active. The active session is highlighted in the sessions list.
+Select a session in the sessions list to open it and make it active. When you [open multiple sessions side by side](#work-with-multiple-sessions), select anywhere in a session view to make that session active. The active session is highlighted in the sessions list.
 
 The following parts of the window update when the active session changes:
 
@@ -123,7 +125,7 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
     ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
 
-1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
+1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [choose where the agent makes changes](#choose-where-an-agent-makes-changes).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
 
@@ -132,16 +134,44 @@ To start a new agent session in the {% data variables.copilot.agents_window %}:
 
 The sessions list shows the session's status and change statistics while it works. The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
+### Choose where an agent makes changes
+
+For a workspace session in the {% data variables.copilot.agents_window %}, choose whether the agent edits your current folder or works in a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees). Use a worktree to keep an agent's changes separate from your active workspace, especially when you run tasks in parallel.
+
+Code isolation controls where the agent applies file changes. The permission level controls which actions require your approval. A worktree keeps changes out of your active workspace, but it does not restrict commands, network access, or access to files outside the worktree.
+
+| Choice | Choose it for | Considerations |
+|--------|---------------|----------------|
+| **New Worktree** | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
+| **Folder** | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
+
+For a walkthrough with separate worktrees for two independent tasks, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
+When you [start a session](#start-an-agent-session), select **New Worktree** and choose the base branch. The base branch provides the initial contents of the new worktree and does not change the branch in your active workspace.
+
+If you leave **New Worktree** unselected, the agent works directly in the selected folder. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
+
+Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace. **Local** sessions also always apply changes in the active workspace.
+
+In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(sessions.useWorktree)` controls whether **New Worktree** is selected when you create your first workspace session. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers your isolation choice across workspaces and uses it instead of this setting.
+
+![Screenshot showing the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
+
+Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
+
+Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large ignored folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes an agent makes through the symlink affect the folder in the original checkout.
+
+Worktree sessions use **Allow all** and don't offer manual approval prompts. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+
+Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
+
 ### Run a session in a Dev Container
 
 `feature(agent-host-dev-containers)`
 
-Run an Agent Host session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
+Run a session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
 This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.
-
-> [!NOTE]
-> Dev Container sessions are rolling out gradually. If the setting isn't enabled for you yet, you can enable it manually.
 
 Before you start, make sure that:
 
@@ -169,7 +199,7 @@ Use `setting(chat.agentHost.devContainer.idleTimeout)` to change the inactivity 
 
 ### Start a session from a pull request
 
-For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](/docs/agents/run/agent-harnesses.md#choose-code-isolation) that tracks the pull request branch.
+For a local GitHub-backed workspace, start a session from an existing pull request to ask questions about the proposed changes or continue working on the pull request. The session includes the pull request details, changes, and comments as context. It uses an [isolated Git worktree](#choose-where-an-agent-makes-changes) that tracks the pull request branch.
 
 To start a session from a pull request:
 
@@ -222,7 +252,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 If a quick chat becomes project-specific, attach a local workspace and continue the same conversation. The session retains its title, conversation history, and current request. After workspace setup finishes, the agent automatically continues your request with access to the project files.
 
 > [!NOTE]
-> This option is currently available for quick chats that use the Copilot harness or Codex on the Agent Host. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation) requires a local Git repository with at least one commit.
+> This option is available for quick chats that use the Copilot or Codex harness. For Codex, use Interactive mode. The target must be a local folder. [Worktree isolation](#choose-where-an-agent-makes-changes) requires a local Git repository with at least one commit.
 
 To continue a quick chat in a workspace:
 
@@ -235,6 +265,8 @@ To continue a quick chat in a workspace:
     If the folder isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you proceed.
 
 1. Wait for workspace setup to finish. The quick chat becomes a workspace session and moves from the **Chats** group to the selected workspace in the sessions list. The agent then continues the original request.
+
+If the chat already has a workspace, see [Move a chat to another folder or worktree](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) to continue the same task in a different location without starting a new conversation.
 
 ## Review and finish an agent session
 
@@ -260,7 +292,7 @@ If the active session has uncommitted changes, select **Commit Changes** in the 
 
 ### Create a pull request
 
-For an Agent Host session without a pull request, use the **Create PR** form to review the pull request details and choose what happens after creation:
+If the session doesn't already have a pull request, use the **Create PR** form to review the details and choose what happens after creation:
 
 1. Open the **Changes** view, and then select **Create PR**.
 
@@ -356,7 +388,7 @@ The {% data variables.copilot.agents_window %} restores conversations, drafts, p
 
 ### Work with multiple chats in a session
 
-In supported Agent Host sessions, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
+With a harness that supports multiple chats, such as Copilot or Claude, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
 The main chat and interactive peer chats are also available in the editor's [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#switch-chats-within-a-session), where you select them from the **Sessions** view rather than the {% data variables.copilot.agents_window %} chat tabs.
 
@@ -366,9 +398,11 @@ For what chats share, how to create them, and the controls in each interface, se
 
 `feature(automations)`
 
-Automations run recurring agent tasks from a saved prompt and schedule. Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+Automations run recurring agent tasks from a saved prompt and schedule. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub and continue when you close {% data variables.product.prodname_vscode_shortname %} or turn off your computer.
 
-Learn how to [create an automation and review its results](/docs/agents/run/automations.md).
+Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. For cloud execution, also enable `setting(chat.automations.cloud.enabled)`. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+
+Learn how to [choose where an automation runs, create an automation, and review its results](/docs/agents/run/automations.md).
 
 ## Configure the {% data variables.copilot.agents_window %}
 
@@ -376,13 +410,13 @@ You can personalize chat, adjust the window layout, configure settings and exten
 
 ## Limitations
 
-* Agent Host Codex sessions can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. The Local harness and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
+* Sessions that use the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex) can run in both the {% data variables.copilot.agents_window %} and the main {% data variables.product.prodname_vscode_shortname %} window. Local harness sessions and Codex sessions from the OpenAI extension run only in the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the {% data variables.copilot.agents_window %}.
 
-* The agents dropdown currently doesn't have the plan agent. You can use the `/plan` command in a Copilot or Claude agent session. In Copilot sessions, the plan agent is also automatically invoked when you ask it to create a plan.
+* The agents dropdown currently doesn't have the plan agent. You can use the `/plan` command in a Copilot or Claude agent session. In Copilot harness sessions, the plan agent is also automatically invoked when you ask it to create a plan.
 
-* Running multiple chats in a single session is currently supported for Copilot and Claude sessions.
+* Running multiple chats in a single session is currently supported for sessions that use the Copilot or Claude harness.
 
 * Multi-root sessions are not yet supported in the {% data variables.copilot.agents_window %}. You can ask the agent to work across projects in a single session.
 

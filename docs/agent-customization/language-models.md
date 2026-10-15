@@ -1,7 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 10/7/2026
-MetaDescription: Configure AI language models in {% data variables.product.prodname_vscode_shortname %}, change chat and inline models, set thinking effort, and bring your own API key.
+DateApproved: 10/14/2026
+MetaDescription: Configure chat and inline models in {% data variables.product.prodname_vscode_shortname %}, adjust thinking effort, and use your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - language models
@@ -126,7 +126,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions `feature(agent-host-byok-models)`.
+> To use supported BYOK models in Copilot harness sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`.
 
 You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 
@@ -284,6 +284,7 @@ In addition to the [common model properties](#model-configuration-reference) the
 | `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and {% data variables.product.prodname_vscode_shortname %} derives it as `contextWindow - maxOutputTokens`. |
 | `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
+| `statefulResponses` | _(Optional)_ Whether the Responses API server retains prior responses. Defaults to `true`. Set to `false` for stateless servers to send full conversation history with each request. Applies only to the Responses API. See [Stateful Responses API endpoints](#stateful-responses-api-endpoints). |
 
 ##### Endpoint URL resolution
 
@@ -293,6 +294,21 @@ The `url` you provide for a model is resolved based on its API type:
 * Otherwise, {% data variables.product.prodname_vscode_shortname %} appends the path for the model's API type. If the URL doesn't already end in a version segment such as `/v1`, {% data variables.product.prodname_vscode_shortname %} inserts `/v1` first. For example, with the Responses API type, `https://my-host.example.com` resolves to `https://my-host.example.com/v1/responses`.
 
 To avoid ambiguity, provide the full endpoint URL including the API path, as shown in the examples.
+
+##### Stateful Responses API endpoints
+
+Responses API models default to `statefulResponses: true`, sending only new history with `previous_response_id`. For stateless servers, set `statefulResponses` to `false` to omit that ID and send full history, including tool calls and results, avoiding missing-tool-call errors.
+
+For a stateless server, add these properties to its model entry in `chatLanguageModels.json`:
+
+```json
+{
+  "apiType": "responses",
+  "statefulResponses": false
+}
+```
+
+This option describes the server's capabilities and does not change its data retention policy. When `zeroDataRetentionEnabled` is `true`, `statefulResponses` is ignored and requests send full conversation history without `previous_response_id`.
 
 ##### Custom authentication headers
 

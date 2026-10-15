@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Learn how to implement context engineering using {% data variables.product.prodname_vscode_shortname %}'s built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -92,7 +92,7 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
 
-With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team. For deep research that produces a thorough, well-cited report on a topic, use the built-in [research agent](/docs/agents/run/agent-harnesses.md#run-deep-research-with-the-research-agent) in Copilot sessions.
+With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team. For deep research that produces a thorough, well-cited report on a topic, use the built-in [research agent](/docs/agents/run/planning.md#research-before-planning-preview) in Copilot harness sessions.
 
 > [!TIP]
 > Once you create custom agents, treat them as living documents. Refine and improve them over time based on any mistakes or shortcomings you observe in the agent's behavior.

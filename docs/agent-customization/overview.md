@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -36,7 +36,7 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 ## Agent Customizations editor
 
-The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections and includes an editor with syntax highlighting and validation.
+The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections. Depending on the customization type and source, it provides a configuration form, an inline file editor with syntax highlighting and validation, or a read-only details view.
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
@@ -98,7 +98,7 @@ Store a customization at the narrowest scope that matches how you want to use an
 Scope determines where a customization is available and who can share it. Not every customization type supports every scope. The selected agent harness also determines which customization types and locations it supports. See the guide for each customization type for its supported locations.
 
 > [!NOTE]
-> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level customizations from supported folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your {% data variables.product.prodname_vscode_shortname %} profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
+> Store user-level customizations in a folder that the selected harness supports on the machine where the agent runs. For example, {% data variables.product.prodname_copilot_short %} reads customizations from `~/.copilot`, and {% data variables.product.prodname_anthropic_claude %} reads them from `~/.claude`. These folders are separate from your {% data variables.product.prodname_vscode_shortname %} profile user data and aren't shared automatically between machines. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for supported user-level locations.
 
 ## Create a customization
 
@@ -127,7 +127,9 @@ Create a workspace code reviewer skill for Python and JavaScript files. Check th
 
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
-For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources, install an item, and manage the installation from the corresponding section.
+To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps and configuration options, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md#add-a-server-from-the-agent-customizations-editor).
+
+For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources and install an item. Manage the installation from the corresponding section.
 
 See the guides for [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [prompt files](/docs/agent-customization/prompt-files.md), [custom agents](/docs/agent-customization/custom-agents.md), [MCP servers](/docs/agent-customization/mcp-servers.md), [hooks](/docs/agent-customization/hooks.md), and [agent plugins](/docs/agent-customization/agent-plugins.md) for their file formats and configuration options.
 
@@ -137,8 +139,8 @@ Use the Agent Customizations editor to find and update customizations for the se
 
 1. Open the Agent Customizations editor and select the customization type.
 1. Use the search box to find the customization.
-1. Select the customization to open its details or edit its file.
-1. Review and save your changes.
+1. Select the customization to open its details.
+1. If the customization is editable, update its form or file and save your changes. For a read-only customization, use the available action to open the source file.
 
 The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Manage plugin-provided customizations from the **Plugins** section.
 

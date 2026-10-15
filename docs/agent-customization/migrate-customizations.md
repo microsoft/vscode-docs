@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 9/30/2026
+DateApproved: 10/14/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Move existing agent customizations to folders and formats supported by the Copilot harness in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
@@ -17,14 +17,14 @@ Keywords:
 - instructions
 - skills
 ---
-# Migrate Copilot customizations in {% data variables.product.prodname_vscode_shortname %}
+# Migrate customizations to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}
 
-When {% data variables.product.prodname_vscode_shortname %} shows a customization migration notice, it found a file, setting, or MCP server that Copilot does not read in its current location or format. Use the migration list to move or convert each affected customization.
+When {% data variables.product.prodname_vscode_shortname %} shows a customization migration notice, it found a file, setting, or MCP server that the Copilot harness does not read in its current location or format. Use the migration list to move or convert each affected customization.
 
 This article explains why migration is needed, how to complete each migration that {% data variables.product.prodname_vscode_shortname %} supports, and what to review manually.
 
 > [!NOTE]
-> This article covers migration to the Copilot harness. For Claude or Codex sessions, use the locations and formats in the provider documentation.
+> This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
 
 ## Open the migration list
 
@@ -55,13 +55,14 @@ You only need to migrate each item once. Keep the original until you verify the 
 
 ## Why migration is needed
 
-Earlier versions of {% data variables.product.prodname_vscode_shortname %} stored some user customizations in profile user data and supported additional locations through `chat.*FilesLocations` settings. The Local agent reads those {% data variables.product.prodname_vscode_shortname %}-specific sources.
+The Copilot harness reads customizations from Copilot folders and portable formats. If a customization is stored in your {% data variables.product.prodname_vscode_shortname %} profile or a location configured through `chat.*FilesLocations` settings, move it to a supported location to use it in a Copilot harness session.
 
-The Copilot harness runs on Agent Host and uses the shared Copilot runtime that also powers {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. It reads customizations from Copilot folders and portable formats.
+> [!NOTE]
+> **For Local harness sessions:** The agent reads {% data variables.product.prodname_vscode_shortname %} profile customizations and the additional locations configured through those settings. Moving a customization for the Copilot harness doesn't change which sources the Local harness reads.
 
 Moving customizations to those locations has these benefits:
 
-* Agent Host can load them directly, including when it runs independently of the editor.
+* The Copilot harness can load them directly without relying on an editor to provide them.
 * Workspace customizations stay with the repository and can be shared through source control.
 * {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %} read the same Copilot customization files. The {% data variables.copilot.github_copilot_app %} also uses repository and Copilot CLI skills and MCP server configuration.
 * You can remove old location settings and avoid maintaining duplicate copies.
@@ -79,7 +80,7 @@ MCP server migration moves compatible configurations to files that the Copilot h
 | Workspace `.vscode/mcp.json` | `.mcp.json` at the corresponding workspace root |
 | {% data variables.product.prodname_vscode_shortname %} profile `mcp.json` | `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is not set |
 
-The automatic migration writes workspace servers to `.mcp.json` at the workspace root. Commit the file to source control when your team should share the configuration. For a remote or Dev Container session, paths and user configuration belong to the machine or container where Agent Host runs.
+The automatic migration writes workspace servers to `.mcp.json` at the workspace root. Commit the file to source control when your team should share the configuration. For a remote or Dev Container session, paths and user configuration belong to the machine or container where the agent runs.
 
 To migrate MCP servers:
 
@@ -107,10 +108,10 @@ Use the following table to decide whether a server can migrate automatically and
 | Standard `command`, `args`, `env`, `url`, and `headers` values | Migrates automatically and adds `tools: ["*"]` | Inspect the server's tools. Replace `*` with the specific tools Copilot should invoke when you do not want every server tool available. |
 | `${workspaceFolder}`, `${workspaceRoot}`, `${workspaceFolderBasename}`, `${workspaceRootFolderName}`, `${cwd}`, or `${pathSeparator}` | Migrates after {% data variables.product.prodname_vscode_shortname %} resolves the variable and writes its current value | Review the resulting value before you share the destination file or use it on another machine. |
 | `gallery`, `version`, `dev`, or `sandboxEnabled` | Migrates with changes and removes these properties | Review the migration warning. Decide how to handle updates, development behavior, or sandboxing after migration. |
-| `${input:...}`, `${config:...}`, `${command:...}`, or other interactive {% data variables.product.prodname_vscode_shortname %} variables | Does not migrate automatically | Reconfigure the value for Copilot. Do not copy a resolved secret into the MCP file. |
-| `${env:NAME}` | Does not migrate automatically | Use `$NAME`, `${NAME}`, or `${NAME:-default}`, and define the variable in the Agent Host environment. |
-| `cwd` | Does not migrate automatically | Add `cwd` manually only when the server requires it, and verify the path on the Agent Host machine. |
-| `envFile` | Does not migrate automatically | Export the required variables in the Agent Host environment and reference them from `env`. Do not copy secret values into the MCP file. |
+| `${input:...}`, `${config:...}`, `${command:...}`, or other interactive {% data variables.product.prodname_vscode_shortname %} variables | Does not migrate automatically | Reconfigure the value for the Copilot harness. Do not copy a resolved secret into the MCP file. |
+| `${env:NAME}` | Does not migrate automatically | Use `$NAME`, `${NAME}`, or `${NAME:-default}`, and define the variable in the environment used to start the agent. |
+| `cwd` | Does not migrate automatically | Add `cwd` manually only when the server requires it, and verify the path on the machine where the agent runs. |
+| `envFile` | Does not migrate automatically | Export the required variables in the environment used to start the agent and reference them from `env`. Do not copy secret values into the MCP file. |
 | SSE transport | Does not migrate automatically | Use `type: "sse"` only when the server does not support Streamable HTTP. SSE is deprecated. |
 | A VS Code `oauth` object | Does not migrate automatically | Remove the nested object to use OAuth discovery, or translate supported client settings to the flat Copilot OAuth fields. Authenticate when Copilot prompts you. |
 | Environment variables with `null` values | Does not migrate automatically | Remove the entry or provide a supported value. |
@@ -120,7 +121,7 @@ Use the following table to decide whether a server can migrate automatically and
 Input variables need special attention. The {% data variables.product.prodname_vscode_shortname %} MCP format can prompt for values such as API keys through `${input:api-key}`. The Copilot MCP format does not use this {% data variables.product.prodname_vscode_shortname %} input flow, so these servers require manual configuration.
 
 > [!IMPORTANT]
-> VS Code per-server sandbox settings and top-level `sandbox` rules do not transfer to Copilot configuration. Copilot uses session-level sandbox settings. Local stdio MCP servers run in the Copilot sandbox only when local sandboxing and MCP server sandboxing are enabled. Remote HTTP and SSE servers are not locally sandboxed. Review these settings before enabling a migrated server.
+> VS Code per-server sandbox settings and top-level `sandbox` rules do not transfer to the Copilot harness configuration. The Copilot harness uses session-level sandbox settings. Local stdio MCP servers run in the Copilot harness sandbox only when local sandboxing and MCP server sandboxing are enabled. Remote HTTP and SSE servers are not locally sandboxed. Review these settings before enabling a migrated server.
 
 When a server requires manual work:
 
@@ -132,10 +133,10 @@ When a server requires manual work:
 
 ## Convert prompt files to skills
 
-{% data variables.product.prodname_vscode_shortname %} still supports `*.prompt.md` files in Local sessions, but Copilot sessions on Agent Host do not load them. Convert workspace and user prompt files to [agent skills](/docs/agent-customization/agent-skills.md) to keep the workflows available in Copilot sessions.
+Copilot harness sessions use [agent skills](/docs/agent-customization/agent-skills.md) for reusable workflows and do not load `*.prompt.md` files. Convert workspace and user prompt files to skills to use those workflows with the Copilot harness. Prompt files remain supported in Local harness sessions.
 
 > [!IMPORTANT]
-> Converting a workspace prompt to a project skill changes how Copilot can use it. A prompt file runs only when someone invokes it. Copilot can select a committed skill automatically in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, Copilot cloud agent, and Copilot code review. Review the skill's description and instructions with the repository maintainer before you commit it. Convert a personal workflow to a user skill instead.
+> Converting a workspace prompt to a project skill changes how the Copilot harness can use it. A prompt file runs only when someone invokes it. The Copilot harness can select a committed skill automatically in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, Copilot cloud agent, and Copilot code review. Review the skill's description and instructions with the repository maintainer before you commit it. Convert a personal workflow to a user skill instead.
 
 To convert prompt files:
 
@@ -161,11 +162,11 @@ To move user customizations:
 
 The migrated files are not included in [Settings Sync](/docs/configure/settings-sync.md).
 
-After migration, start a Copilot session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agent-customization/custom-instructions.md#instructions-file-locations) for the supported destinations.
+After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agent-customization/custom-instructions.md#instructions-file-locations) for the supported destinations.
 
 ## Move customizations from configured locations
 
-The following settings add file locations for the Local agent, but the Copilot harness does not read them:
+The following settings add file locations for the Local harness, but the Copilot harness does not read them:
 
 * `setting(chat.agentFilesLocations)`
 * `setting(chat.modeFilesLocations)`
@@ -195,27 +196,27 @@ This migration applies only to the deprecated {% data variables.product.prodname
 
 The migration list does not automatically convert every customization type:
 
-* **Custom agents with Local-specific behavior**: use **Migrate with Agent** when an agent depends on Local tool names, tool sets, hooks, or other behavior that needs semantic changes.
-* **Tool sets**: Copilot does not support {% data variables.product.prodname_vscode_shortname %} tool-set files. There is no automatic migration. Review the tools directly in the custom agent or chat tools picker. See [Create and use tool sets](/docs/agent-customization/tool-sets.md).
-* **Hooks**: there is no automatic hook migration. Configure hooks for Copilot using the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) and [Configure agent hooks](/docs/agent-customization/hooks.md).
+* **Custom agents with Local harness-specific behavior**: use **Migrate with Agent** when an agent depends on Local harness tool names, tool sets, hooks, or other behavior that needs semantic changes.
+* **Tool sets**: The Copilot harness does not support {% data variables.product.prodname_vscode_shortname %} tool-set files. There is no automatic migration. Review the tools directly in the custom agent or chat tools picker. See [Create and use tool sets](/docs/agent-customization/tool-sets.md).
+* **Hooks**: there is no automatic hook migration. Configure hooks for the Copilot harness using the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) and [Configure agent hooks](/docs/agent-customization/hooks.md).
 * **Plugins and marketplaces**: manage these separately from the migration list. See [Discover and install plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins).
-* **Extension-provided customizations**: extensions can provide tools, MCP servers, custom agents, skills, and instructions. Keep the contributing extension installed. Extension tools are available only in editor chat while the extension runs. Learn more about [Agent Host behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+* **Extension-provided customizations**: extensions can provide tools, MCP servers, custom agents, skills, and instructions. Keep the contributing extension installed. Extension tools are available only in editor chat while the extension runs. Learn how to [manage extension tools for the Copilot harness](/docs/agents/run/tools.md#add-extension-tools-for-the-copilot-harness).
 
 ## Verify the migration
 
 After you complete a migration:
 
-1. Start a new Copilot session.
+1. Start a new Copilot harness session.
 1. Confirm that the migrated agents, instructions, skills, MCP servers, or plugins appear in the Agent Customizations editor.
 1. Run a representative task that uses the customization.
 1. Check that old and migrated copies are not both active.
 1. Commit workspace migrations to source control when your team should share them.
 1. Remove old files and settings after the migrated customization works.
 
-For remote or Dev Container sessions, perform this check in the destination environment. User customization folders belong to the machine or container where the Agent Host runs.
+For remote or Dev Container sessions, perform this check in the destination environment. User customization folders belong to the machine or container where the agent runs.
 
 ## Related resources
 
 * [Create and manage agent customizations](/docs/agent-customization/overview.md)
-* [Understand the Agent Host](/docs/agents/concepts/agent-host.md)
+* [Choose and configure an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Agent customization concepts](/docs/agents/concepts/customization.md)
