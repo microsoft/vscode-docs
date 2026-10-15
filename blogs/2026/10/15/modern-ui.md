@@ -38,9 +38,9 @@ Color is part of how you make VS Code your own, but it also shapes how quickly y
 
 We began the modernization journey by rethinking color with the [Dark 2026 and Light 2026](https://github.com/microsoft/vscode/pull/288417) themes. We looked at workbench colors and [syntax highlighting](https://github.com/microsoft/vscode/pull/299014) as one experience, establishing a visual foundation that we later carried into the modernized UI. A tighter range of surface colors creates a clearer hierarchy and keeps code at the center. More consistent hover, focus, selection, validation, and agent states help the interface read clearly in both light and dark environments.
 
-![Light 2026 and Dark 2026 shown side by side with the same Explorer, TypeScript editor, and Chat layout.](./vscode-ui-2026-themes.png)
+![Screenshot showing Dark 2026 and Light 2026 side by side with the Explorer, a TypeScript editor, Quick Open, and the integrated terminal.](./vscode-ui-2026-themes.png)
 
-*Light 2026 and Dark 2026 themes.*
+*Dark 2026 and Light 2026 themes.*
 
 Color gave us a starting point, but creating a more cohesive interface required shared rules for spacing, typography, surfaces, and controls. The opportunity to develop those rules came with a new kind of VS Code window.
 
@@ -109,7 +109,7 @@ Combined with theme and color customization, it can give you a layout closer to 
 
 To use compact density, open **Customize Layout** from the title bar and select **Layout Density** > **Compact**, or set `window.density.layout` to `compact`.
 
-![The same VS Code workspace shown side by side at default density and in Compact Mode.](./default-vs-compact-mode.png)
+![Screenshot showing the same VS Code workspace side by side at default and compact layout density.](./default-vs-compact-mode.png)
 
 *Default density and compact density, shown with the same window size, theme, open views, and editor content.*
 
