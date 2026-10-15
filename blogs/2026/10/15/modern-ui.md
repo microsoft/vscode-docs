@@ -22,9 +22,9 @@ The modernized UI is available today in preview. The work began with the 2026 co
 
 Some interface changes have been small refinements. Others have introduced new ways to organize your work. Even features that now feel like part of the original editor arrived gradually.
 
-![Timeline showing major VS Code interface milestones from 2015 to 2026.](./vscode-ui-timeline.svg)
+![Timeline showing major VS Code interface milestones from 2015 to 2026.](./vscode-ui-timeline.png)
 
-*The timeline highlights the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), [editor tabs in 2016](https://code.visualstudio.com/updates/June_2016#_tabs), the [Dark Modern and Light Modern themes in 2023](https://code.visualstudio.com/updates/v1_78#_new-default-color-themes), and the modernized UI preview in 2026.*
+*The timeline highlights the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), [editor tabs in 2016](https://code.visualstudio.com/updates/June_2016#_tabs), the [new tree widget in 2019](https://code.visualstudio.com/updates/v1_31#_new-tree-widget), the [Dark Modern and Light Modern themes in 2023](https://code.visualstudio.com/updates/v1_78#_new-default-color-themes), and the modernized UI preview in 2026.*
 
 ![The classic and modernized VS Code interfaces shown with the same workspace and content.](./classic-to-modern.png)
 
