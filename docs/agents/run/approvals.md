@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -34,19 +34,21 @@ Learn why {% data variables.product.prodname_vscode_shortname %} uses permission
 | [Tool approval](#tool-approval) | Which tools require confirmation before or after they run | `setting(chat.tools.eligibleForAutoApproval)` |
 | [URL approval](#url-approval) | Which URLs can be requested and which responses can enter the chat context | `setting(chat.tools.urls.autoApprove)` |
 | [Terminal approval](#automatically-approve-terminal-commands) | Which terminal commands run without confirmation | `setting(chat.tools.terminal.autoApprove)` |
-| [Sandboxing](/docs/agents/run/agent-sandboxing.md) | The file system and network boundaries for terminal commands | Platform-specific |
+| [Sandboxing](/docs/agents/run/agent-sandboxing.md) | The file system and network boundaries for terminal commands | `setting(chat.agent.sandbox.enabled)` |
 
 ## Permission levels
 
 Permission levels control how the agent handles approvals for the current chat session. Select a level from the permissions dropdown in the chat input. You can change it at any time.
 
-New sessions use the level configured by `setting(chat.permissions.default)`.
+The levels below describe Copilot harness sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
-**Assisted permissions** is available only for supported sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md). For the Copilot harness, choose **Folder** isolation because worktree sessions always use **Allow all**.
+New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. The managed default doesn't prevent you from switching to another level that the organization allows.
+
+To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
 
 `feature(assisted-permissions)`
 
-Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assisted permissions** in supported Agent Host permission pickers. An organization can also hide this option by [disabling global auto-approval](/docs/enterprise/manage-ai-settings.md#disable-global-auto-approval).
+Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
 
 | Permission level | Description |
 |---|---|
@@ -54,7 +56,9 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting to show **Assiste
 | **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
 | **Allow all** | Runs all tool calls without confirmation. |
 
-Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. Because sandboxing applies only to terminal commands, use tool and URL approvals to control other actions with **Manual permissions**.
+An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). These settings can hide **Assisted permissions** or **Allow all** from the permissions picker.
+
+Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. The sandbox doesn't cover every tool, so use tool and URL approvals to control other actions with **Manual permissions**.
 
 > [!IMPORTANT]
 > **Assisted permissions** reduces approval interruptions but does not replace your judgment. The model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm.
@@ -70,7 +74,8 @@ Sandboxing is independent of the permission level. **Allow all** and **Autopilot
 * Retries when it encounters errors.
 * Responds automatically to questions that would otherwise block progress.
 
-For differences between Autopilot on the Agent Host and extension host, see [Agent Host behavior](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+> [!NOTE]
+> **For Local harness sessions:** **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
 
 ### Advanced autopilot (Preview)
 
@@ -78,6 +83,28 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 > [!NOTE]
 > Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
+
+### Claude permission modes
+
+[Claude harness sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
+
+* **Edit automatically**: apply changes without asking for approval.
+* **Request approval**: ask before applying changes.
+* **Plan**: outline the approach before implementation.
+
+> [!CAUTION]
+> The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Use it only in an isolated sandbox environment without internet access.
+
+### Codex approval presets
+
+The [direct Codex integration](/docs/agents/run/agent-harnesses.md#codex) provides these approval presets. For the extension-based integration, use the OpenAI Codex extension's documentation.
+
+* **Default Permissions**: read and edit workspace files and run routine local commands. Codex asks before using the internet or accessing resources outside the workspace.
+* **Auto-Review**: use the same workspace access as **Default Permissions**, but send approval requests to an automatic reviewer instead of prompting you.
+* **Full Access**: edit files outside the workspace and use the internet without asking.
+
+> [!CAUTION]
+> **Full Access** gives Codex unrestricted disk and network access. Use it only when you intend to give the agent full access to your machine.
 
 ### Allow all tools globally
 
@@ -208,7 +235,7 @@ Related settings:
 
 Agent sandboxing restricts file system and network access for terminal commands. It is independent of the selected permission level, so an enabled sandbox continues to restrict terminal commands with **Allow all** and **Autopilot**.
 
-Select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off. For Copilot Agent Host sessions, the toggle applies only to the current session. New sessions use the effective User or Workspace setting for their platform, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
+In a Copilot harness session, select **Sandboxing for terminal** in the permissions picker to turn sandboxing on or off for that session. New sessions use the effective sandbox configuration on the machine where commands run, and an explicit session selection persists when you restore the session. Managed settings can require sandboxing and disable the toggle.
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, or `setting(chat.agent.deniedNetworkDomains)` to ensure new integrated browser sessions use the updated network policy.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 10/7/2026
+DateApproved: 10/14/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %}, open a project, and choose a guided path to learn editor basics or complete a task with an AI agent.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -123,7 +123,7 @@ You don't need a {% data variables.product.prodname_copilot %} subscription to u
 
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
 
-For agent workflows, [understand the session controls](/docs/agents/run/agent-harnesses.md#understand-the-session-controls) and [choose a session target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
+For agent workflows, [choose a harness or the Cloud target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
 
 ### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
 

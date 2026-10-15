@@ -1,7 +1,7 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 10/7/2026
-MetaDescription: Configure AI providers, accounts, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
+DateApproved: 10/14/2026
+MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Configure the {% data variables.copilot.agents_window %}
@@ -12,16 +12,16 @@ For instructions about starting and working with sessions, see [Use the {% data 
 
 ## Manage AI providers and accounts
 
-The {% data variables.copilot.agents_window %} doesn't have separate provider configuration. It uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
+The {% data variables.copilot.agents_window %} uses the accounts and model credentials available in {% data variables.product.prodname_vscode_shortname %}:
 
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
-* **Claude**: use a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
+* **Claude**: configure a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
-* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available to Agent Host sessions. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available in the desktop {% data variables.copilot.agents_window %}. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
-For complete authentication, billing, and capability information, see [Configure a harness or Cloud target](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+For account requirements, billing options, and integration setup, see [Agent harness requirements and setup](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
-Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in. This signed-out experience is experimental and requires `setting(chat.agentHost.allowSignedOutWhenUsable)`. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
+Claude, ChatGPT-backed Codex, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without GitHub sign-in when you enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. This option is experimental. Features that require GitHub authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
 ## Configure settings for the {% data variables.copilot.agents_window %}
 
@@ -97,14 +97,14 @@ When you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the {% d
 
 ## View and edit Markdown files
 
-The {% data variables.copilot.agents_window %} supports rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+`feature(markdown-editor)`
 
-* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
+The {% data variables.copilot.agents_window %} supports Markdown Preview and the Markdown Editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
+* When enabled, `.md` files open with **Markdown Editor**.
 * When disabled, `.md` files open with **Markdown Preview**.
 
-In **Markdown Editor (Experimental)**, switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit content directly. In **Locked** mode, the document remains rendered and read-only.
-
-When you edit a Markdown file, the editor shows Git change markers in the margin. Green indicates added content, blue indicates modified content, and red indicates deleted content. The markers reflect the current Git changes and disappear when you undo or revert the corresponding changes.
+This setting changes the default only in the {% data variables.copilot.agents_window %}. Learn how to open and use the editor in any window in [Markdown Editor](/docs/languages/markdown.md#markdown-editor).
 
 ## Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
 
@@ -126,6 +126,6 @@ Add a decorative chat background, use the interactive VS Code pet, or adjust how
 
 ## Next steps
 
-* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare providers, execution environments, permissions, and isolation.
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare options, select a harness, and review its setup requirements.
 * [Use the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) - start, monitor, review, and finish agent sessions across workspaces.
 * [AI settings reference](/docs/agents/reference/ai-settings.md) - review settings for agents and chat.
