@@ -216,7 +216,7 @@ The `label` value is what you will see in the tasks list; you can name this what
 
 The `detail` value is what you will see as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
 
-From now on, the editor play button will read from `tasks.json` to figure out how to build and run your program. (Note that this play button in the editor tab bar is for running the active file, which is separate from the play button in the **Run and Debug** view that runs configurations from `launch.json`.) You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the editor play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -230,6 +230,9 @@ with this:
 ```json
     "group": "build",
 ```
+
+> [!NOTE]
+> The play button in the editor tab bar runs the active file, whereas the play button in the **Run and Debug** view starts the selected debug configuration, which can come from `launch.json` or be provided dynamically by an extension.
 
 ### Modifying tasks.json
 
