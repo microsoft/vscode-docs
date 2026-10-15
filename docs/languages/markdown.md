@@ -121,7 +121,7 @@ You can use AI to generate or update alt text for images in Markdown files. To g
 1. Put the cursor on an image link.
 1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
 
-    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](../copilot/images/copilot-smart-actions/generate-alt-text.png)
+    ![Screenshot showing a Code Action menu with Generate alt text option for a Markdown image link.](../editing/images/copilot-smart-actions/generate-alt-text.png)
 
 1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
 
