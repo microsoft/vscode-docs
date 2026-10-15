@@ -299,7 +299,7 @@ Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific t
 
 ##### Configure terminal auto-approval
 
-Set `ChatToolsTerminalEnableAutoApprove` to `false` to require approval for terminal commands.
+Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
@@ -324,7 +324,7 @@ The following {% data variables.product.prodname_vscode_shortname %} device poli
 | `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
 | `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
 
-The `ChatAgentSandboxAllowAutoApprove` policy is removed. Local harness sessions approve sandboxed terminal commands automatically. To require approval for these commands, [set `ChatToolsTerminalEnableAutoApprove` to `false`](#configure-terminal-auto-approval).
+Local harness sessions approve sandboxed terminal commands automatically. The [terminal auto-approval policy](#configure-terminal-auto-approval) controls rule-based approval, not sandbox auto-approval.
 
 </details>
 

@@ -253,12 +253,11 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 
 Local harness sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
 
-* The removed `chat.agent.sandbox.enabledWindows` setting is replaced by the unified `setting(chat.agent.sandbox.enabled)` setting on Windows.
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
 * `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local harness terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to the Copilot harness's default tools.
-* The `chat.agent.sandbox.allowAutoApprove` setting is removed. In Local harness sessions, terminal commands that run inside the sandbox are approved automatically, unless a command needs confirmation to run outside the sandbox or with unrestricted network access. To require approval for all terminal commands, including sandboxed commands, disable `setting(chat.tools.terminal.enableAutoApprove)`.
 * `setting(chat.agent.sandbox.fileSystem.mac)` and `setting(chat.agent.sandbox.fileSystem.linux)` are deprecated platform-specific settings. The Copilot harness's default tools ignore them.
-* The `chat.agent.sandbox.fileSystem.windows` setting is removed. The Local harness sandboxes terminal commands on macOS and Linux only.
+
+The Local harness sandboxes terminal commands on macOS and Linux only. Commands that run inside the sandbox are approved automatically, unless a command needs confirmation to run outside the sandbox or with unrestricted network access. Disabling `setting(chat.tools.terminal.enableAutoApprove)` turns off rule-based terminal auto-approval, but does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
 Domain allow and deny controls are available for compatible terminal tools. Their capabilities differ by implementation and platform. For Copilot harness sessions, use [the effective sandbox policy report](#inspect-the-effective-sandbox-policy) rather than inferring restrictions from another tool's behavior.
 
