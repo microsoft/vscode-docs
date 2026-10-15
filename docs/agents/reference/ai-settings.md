@@ -206,10 +206,8 @@ The following settings configure the Local harness sandbox or custom terminal be
 |------------------------|---------------|
 | `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
 | `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local harness only)_<br/>Allow a blocked terminal command in a Local harness session to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local harness only)_<br/>Automatically approve terminal commands that run inside the Local harness sandbox. | `true` |
 | `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on Linux with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
 | `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on macOS with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on Windows with `allowRead`, `allowWrite`, and `denyRead`. | `{}` |
 
 ### Planning, models, and agent providers
 
