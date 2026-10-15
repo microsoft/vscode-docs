@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-labelledby="title description">
   <title id="title">VS Code interface timeline from 2015 to 2026</title>
-  <desc id="description">Major interface milestones include the first preview, editor tabs, modern color themes, and the Modern UI preview.</desc>
+  <desc id="description">Major interface milestones include the first preview, editor tabs, modern color themes, and the modernized UI preview.</desc>
   <rect width="1600" height="420" rx="24" fill="#181818"/>
   <line x1="160" y1="190" x2="1440" y2="190" stroke="#5f5f5f" stroke-width="4"/>
 
@@ -29,7 +29,7 @@
     <g transform="translate(1440 0)">
       <circle cx="0" cy="190" r="16" fill="#0078d4"/>
       <text x="0" y="120" fill="#4daafc" font-size="38" font-weight="600">2026</text>
-      <text x="0" y="255" fill="#f0f0f0" font-size="28" font-weight="600">Modern UI preview</text>
+      <text x="0" y="255" fill="#f0f0f0" font-size="28" font-weight="600">Modernized UI preview</text>
       <text x="0" y="295" fill="#cccccc" font-size="22">A shared design system</text>
     </g>
   </g>
