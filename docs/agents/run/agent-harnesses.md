@@ -231,6 +231,40 @@ Canvas extensions are also supported in the {% data variables.copilot.github_cop
 > [!NOTE]
 > Canvases are available only on desktop in supported local Copilot Agent Host sessions. They aren't supported for Claude, Codex, extension-host Local sessions, remote Agent Host sessions, browser or web clients, or auxiliary-window hosting.
 
+## Frequently asked questions
+
+### What is the difference between Local and Copilot?
+
+Both harnesses can run on your machine. **Local** uses {% data variables.product.prodname_vscode_shortname %}'s built-in proprietary agent harness and works in VS Code's extension host. **Copilot** uses the {% data variables.copilot.copilot_sdk %}, which is the agent experience shared consistently across GitHub Copilot products.
+
+Both harnesses support tools, model selection, and agent customizations, but the available capabilities and configuration differ.
+
+The Copilot harness provides these benefits:
+
+* **A shared runtime across Copilot products**: core capabilities and behavior are more consistent across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
+
+* **Continuity between interfaces and machines**: you can continue the same live session in the {% data variables.copilot.chat_view %}, the {% data variables.copilot.agents_window %}, and other GitHub Copilot interfaces. You can also [connect remotely from another machine](/docs/agents/run/remote-agent-sessions.md) while the session continues to run on its host. Local sessions are available only in the editor's {% data variables.copilot.chat_view %}.
+
+* **Work independent of an editor window**: ongoing work can continue after you close the editor window, while the Agent Host remains running. Closing a Local harness session's editor window stops its ongoing work.
+
+### Which harness should I choose?
+
+Start with **Copilot** for day-to-day coding and agent tasks, especially when you want to continue work between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}, or keep work running after closing an editor window.
+
+If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
+
+### Does running locally mean the language model runs on my machine?
+
+No. The harness coordinates the session and its tools, but the language model can run elsewhere. A session that edits files and runs commands on your machine can still send model requests to a hosted service. The **Local** harness name does not mean that the model runs locally or that the session works offline. Learn how [harnesses differ from models and execution environments](/docs/agents/concepts/agent-harnesses.md#how-a-harness-differs-from-other-agent-concepts).
+
+### Does selecting a different model change the harness?
+
+No. Selecting a model changes the model used within the current harness. For example, selecting a Claude model in a Copilot session does not switch to the Claude harness. Changing the agent role, such as Ask or Agent, also does not change the harness. To check which harness you are using, see [Identify your current harness](#identify-your-current-harness).
+
+### Can I continue an existing Local session with Copilot?
+
+Yes. In the Local session's chat input, open the **Session Target** dropdown and select **Copilot**. The handoff carries the conversation history and context to the destination session, but the available tools, permissions, and models might change. See [Hand off from a Local harness session](#hand-off-from-a-local-session).
+
 ## Related resources
 
 <a name="use-copilot-cli-from-the-terminal"></a>
