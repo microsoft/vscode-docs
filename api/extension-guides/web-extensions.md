@@ -313,6 +313,24 @@ $ mkcert -install
 $ mkcert localhost
 ```
 
+vscode.dev is [cross-origin isolated](https://developer.mozilla.org/docs/Web/API/Window/crossOriginIsolated), so the browser only loads resources from your local server if they are served with the `Cross-Origin-Resource-Policy: cross-origin` header. Without it, your extension's icon and other resources fail to load (the console shows `ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep`), and extensions that run in web workers, such as language servers, might not start at all. The `--cors` option of `serve` doesn't add this header, so create a `serve.json` file in your extension's folder:
+
+```json
+{
+  "headers": [
+    {
+      "source": "**/*",
+      "headers": [
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "cross-origin"
+        }
+      ]
+    }
+  ]
+}
+```
+
 Then, from your extension's path, start an HTTP server by running `npx serve`:
 
 ```
