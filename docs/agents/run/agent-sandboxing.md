@@ -38,7 +38,7 @@ Sandboxing applies to terminal commands and their child processes. When configur
 
 Sandboxing is not a virtual machine or user-account boundary, and it does not replace endpoint security. A sandboxed process still runs on the execution host under your account. Network access, extra paths, credentials, developer tool access, and permission to run outside the sandbox all weaken isolation. Grant only the access that a task requires.
 
-Depending on the operation and platform, restrictions use operating system protections or checks within the process that runs the agent. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [Per-server MCP sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is a separate feature with its own configuration and platform support.
+Depending on the operation and platform, restrictions use operating system protections or checks within the process that runs the agent. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [Per-server MCP sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is a separate feature with its own configuration and platform support.
 
 For the security model and threats that sandboxing helps mitigate, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
@@ -75,7 +75,7 @@ On Windows, install the update that applies to your Windows version:
 * Windows 11 26H1: [KB5124012](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124012-windows-11-26h1-security-update).
 
 > [!NOTE]
-> Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
+> Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
 
 <a name="turn-on-sandboxing-on-the-execution-host"></a>
 

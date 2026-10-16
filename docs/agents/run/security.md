@@ -104,7 +104,7 @@ Sandboxing is an added layer. It is not a virtual machine or user-account bounda
 
 On macOS and Linux, you can enable sandboxing for locally-running MCP servers that use the stdio transport. When sandboxing is enabled, the server can only access the file system paths and network domains that you explicitly permit in the sandbox configuration. Tool calls from sandboxed servers are auto-approved because they run in a controlled environment.
 
-Learn more about [configuring MCP server sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers).
+Learn more about [configuring MCP server sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers).
 
 ## Security risks to be aware of
 
