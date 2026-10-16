@@ -2,7 +2,6 @@
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
 DateApproved: 10/14/2026
 MetaDescription: Restrict file system and network access for {% data variables.product.prodname_copilot_short %} agent commands and verify each session's sandbox policy.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai

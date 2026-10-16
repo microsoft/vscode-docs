@@ -2,7 +2,6 @@
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
 DateApproved: 10/14/2026
 MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot

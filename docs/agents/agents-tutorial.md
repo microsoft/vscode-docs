@@ -1,8 +1,7 @@
 ---
-ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
+ContentId: a4fa1788-9004-48ee-b75d-51765beaee5f
 DateApproved: 10/14/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 

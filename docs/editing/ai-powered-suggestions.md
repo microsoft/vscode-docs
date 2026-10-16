@@ -2,7 +2,6 @@
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 DateApproved: 10/14/2026
 MetaDescription: Get AI-powered ghost text completions and next edit suggestions in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
 # Inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}

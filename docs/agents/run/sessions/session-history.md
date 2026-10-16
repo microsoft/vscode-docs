@@ -2,7 +2,6 @@
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 10/14/2026
 MetaDescription: Manage local and synced session history in {% data variables.product.prodname_vscode %}, including privacy controls and Chronicle searches.
-MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Sync and query session history
 
