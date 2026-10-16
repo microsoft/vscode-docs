@@ -80,7 +80,7 @@ The cloud service runs the prompt in the selected repository. It doesn't use you
 Automation templates provide a starting name, prompt, and schedule that you can review and adapt:
 
 * **Built-in Templates** contains templates included with {% data variables.product.prodname_vscode_shortname %}.
-* **Templates from Plugins** contains templates from enabled [Agent Plugins](/docs/agent-customization/agent-plugins.md#automations-in-plugins). Each template shows a **Plugin** badge and its source plugin.
+* **Templates from Plugins** contains templates from enabled [Agent Plugins](/docs/agent-customization/agent-plugins.md#what-plugins-provide). Each template shows a **Plugin** badge and its source plugin.
 
 The template sections start expanded when you have no saved automations and collapsed when you have saved automations. A blue marker on **Templates from Plugins** indicates that an enabled plugin contributed a new template. Expand the section to clear the marker.
 

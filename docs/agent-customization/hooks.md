@@ -136,7 +136,7 @@ The Local harness discovers hooks from these built-in locations:
 | User | `~/.copilot/hooks/*.json` | Available across Local harness sessions. |
 | User, Claude format | `~/.claude/settings.json` | Requires `setting(chat.useClaudeHooks)`. |
 | Custom agent | `hooks` in `.agent.md` frontmatter | Runs only for that custom agent in the Local harness. |
-| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format | See [hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins). |
+| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format | See [hooks in plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins). |
 
 The `setting(chat.useHooks)` setting controls Local hook execution and is on by default. Workspace hook files are subject to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
@@ -236,7 +236,7 @@ When the custom agent runs as a subagent, its `Stop` hook is treated as `Subagen
 
 For the other fields in an agent definition, see the [custom agent file reference](/docs/agents/reference/custom-agent-file-reference.md#header-fields).
 
-For custom agents contributed by Claude-format or legacy OpenPlugin plugins, use [plugin-root tokens](/docs/agent-customization/agent-plugins.md#reference-plugin-paths-in-hook-commands) to reference bundled scripts without hardcoding installation paths.
+For custom agents contributed by Claude-format or legacy OpenPlugin plugins, use [plugin-root tokens](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands) to reference bundled scripts without hardcoding installation paths.
 
 ### Local hook examples
 
