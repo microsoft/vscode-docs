@@ -137,6 +137,7 @@
                     ["Tools and Context", "/docs/agents/reference/tools-reference"],
                     ["Settings Reference", "/docs/agents/reference/ai-settings"],
                     ["VS Code Pet", "/docs/agents/reference/chat-pet"],
+                    ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
                     ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                     ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
                     ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"],

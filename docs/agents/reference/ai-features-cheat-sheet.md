@@ -21,7 +21,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 
 | I want to... | Use | Start with... |
 |---|---|---|
-| Understand unfamiliar code without changing it | [Ask](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) | Select **Ask** and enter "Trace how a request reaches the database." |
+| Understand unfamiliar code without changing it | [Ask](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent) | Select **Ask** and enter "Trace how a request reaches the database." |
 | Plan a complex change | [Plan agent](/docs/agents/run/planning.md) | Select **Plan** and describe the change to research before implementation. |
 | Build a feature, fix a bug, or create a project | [Agents](#use-agents) | Select **Agent**, describe the outcome, and specify how to verify it. |
 | Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
@@ -166,7 +166,7 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
 | `/init` | Generate or update workspace instructions in a local agent session. |
-| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. |
+| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. In the {% data variables.copilot.chat_view %}, all are available with **Local**. Only `/prompts` and `/hooks` are available with **Copilot**. |
 | `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
 | `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |

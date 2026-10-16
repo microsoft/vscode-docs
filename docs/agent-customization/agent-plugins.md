@@ -504,7 +504,7 @@ Plugins installed directly from a Git repository can be updated or uninstalled, 
 
 {% tab label="Agent Customizations" %}
 
-1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the {% data variables.copilot.chat_view %}, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
+1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
 
 1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces):
 
@@ -540,7 +540,7 @@ The **Agent Plugins - Installed** view in the Extensions view shows the plugins 
 
 ![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
 
-You can also manage installed plugins from the {% data variables.copilot.chat_view %} by selecting the **gear icon** > **Plugins**.
+You can also manage installed plugins from the {% data variables.copilot.chat_view %} by selecting **Open Customizations** in the title bar, and then selecting **Plugins**.
 
 ### Enable or disable plugins
 

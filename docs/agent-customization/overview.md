@@ -54,7 +54,7 @@ In the left sidebar, select a customization type in the **Customizations** panel
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
 
