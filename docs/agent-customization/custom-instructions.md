@@ -192,11 +192,11 @@ To create an instructions file:
 
 1. Select the agent harness that should use the instructions.
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. In the Agent Customizations editor, select **Instructions**.
 
-1. From the **New** dropdown, select a workspace or user instruction.
+1. Select **New Instruction** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the file.
 
 1. Select a supported location and enter a file name.
 
@@ -204,13 +204,17 @@ To create an instructions file:
 
 You can also run **Chat: New Instructions File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
+<!-- TODO: Replace screenshot to show the New Instruction (plus icon) buttons next to the Workspace and User groups in the Instructions section. -->
 ![Screenshot showing the Instructions section and the menu for creating an instructions file in the Agent Customizations editor.](images/customization/create-instructions-file.png)
 
 ### Generate an instructions file with AI
 
-In the Agent Customizations editor, enter a request in the **Overview** section that describes the instruction you want to create. Confirm that the generated file uses the format and location for the selected harness.
+In chat, describe the convention or guideline you want to enforce and ask the agent to create an instructions file. This works for every harness, including **Copilot**. Confirm that the generated file uses the format and location for the selected harness.
 
-For a Local harness session, you can also type `/create-instructions` in chat and describe the convention or guideline you want to enforce. To generate project-wide instructions, type `/init`.
+With **Local** selected, you can also use these shortcuts, which aren't available for other harnesses:
+
+* Type `/create-instructions` in chat and describe the convention or guideline.
+* Type `/init` to generate project-wide instructions. In the {% data variables.copilot.chat_view %}, the **Customize Your Agent** box on the **Overview** page of the Agent Customizations editor also uses `/init`.
 
 Review generated instructions before you use them. Verify commands, paths, and conventions against the repository.
 
