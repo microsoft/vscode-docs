@@ -55,7 +55,7 @@ For step-by-step guides in an existing project, [explore a codebase](/docs/agent
 
 ## Write effective prompts
 
-The quality of AI responses depends on the clarity and specificity of your prompt. These techniques help you get better results.
+The quality of AI responses depends on the clarity and specificity of your prompt. Writing requests with a clear goal, constraints, and relevant context is often called *prompt engineering*. These techniques help you get better results.
 
 * **Be specific about inputs, outputs, and constraints.** State the programming language, frameworks, and libraries you want to use. Describe expected behavior or include example input and output.
 
@@ -89,7 +89,7 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Parallel tasks.** If you have multiple independent tasks, ask the AI to run them in parallel to save time. For example, "Perform isolated research about X and Y in parallel and summarize the findings."
 
-For more information, find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+Adapt the [prompt examples](/docs/agents/guides/prompt-examples.md) for your task, including the multi-turn examples for refining a result. For a video introduction, watch [Core principles of prompt engineering with {% data variables.product.prodname_copilot %}](https://www.youtube.com/watch?v=hh1nOX14TyY).
 
 ## Provide the right context
 

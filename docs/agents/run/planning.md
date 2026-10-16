@@ -159,4 +159,4 @@ These options apply to the built-in Plan agent in Local harness sessions, not to
 ## Related resources
 
 * [Review AI-generated code edits](/docs/agents/run/review-code-edits.md)
-* [Write effective prompts](/docs/agents/guides/prompt-engineering-guide.md)
+* [Write effective prompts](/docs/agents/best-practices.md#write-effective-prompts)
