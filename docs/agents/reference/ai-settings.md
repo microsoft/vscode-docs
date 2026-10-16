@@ -2,7 +2,6 @@
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 DateApproved: 10/14/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI settings reference
 
@@ -65,7 +64,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
-| `setting(chat.experimental.persistentProgress)` _(Experimental)_<br/>Keep a [progress indicator visible until an agent response finishes](/docs/chat/chat-overview.md#customize-the-chat-display). Values are `off`, `draw`, `drawMonochrome`, and `drawMonochromeNoIcon`. | `"draw"` (Insiders)<br/>`"off"` (Stable)<br/>Experiments can override these defaults. |
+| `setting(chat.experimental.persistentProgress)` _(Experimental)_<br/>Keep a [progress indicator visible until an agent response finishes](/docs/chat/chat-overview.md#customize-the-chat-display). Values are `off`, `draw`, `drawMonochrome`, and `drawMonochromeNoIcon`. | `"draw"` (Insiders)<br/>`"off"` (Stable) |
 | `setting(chat.experimental.persistentProgressVerbosity)` _(Experimental)_<br/>Control completed tool-call details while persistent progress is active. `compact` replaces completed groups with expandable summaries, and `verbose` keeps full tool-call details visible. | `"compact"` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
@@ -235,11 +234,11 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
 | `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |
-| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false`<br/>Experiments can override this default. |
+| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false` |
 | `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of inactive days before an eligible session with a merged pull request is [automatically marked as done](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). Set to `0` to disable automatic cleanup. The recommended value is `15`. | `0` |
 | `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
 | `setting(sessions.showChatTabs)` _(Preview)_<br/>Show each chat as a tab with `multiple`, or show only the active chat as the session view with `single`. | `"multiple"` |
-| `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable)<br/>Experiments can override these defaults. |
+| `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
 | `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
 | `setting(sessions.chat.experimental.welcomeName)` _(Experimental)_<br/>Set the name in new-session welcome messages. Leave empty to use the first name from the signed-in GitHub profile when available. | `""` |
@@ -260,8 +259,8 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.automations.cloud.enabled)` `feature(cloud-automations)`<br/>Enable management of user-owned GitHub Copilot [cloud automations](/docs/agents/run/automations.md#create-a-cloud-automation) in the **Automations** view. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot harness sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
-| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot harness session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
-| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
+| `setting(chat.sessionSync.enabled)` _(Experimental)_<br/>Sync [session history](/docs/agents/run/sessions/session-history.md#enable-or-disable-session-sync-experimental) to GitHub.com for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)`. Set a preference explicitly and check the [sync status](/docs/agents/run/sessions/session-history.md#session-sync-status). | `false` |
+| `setting(chat.sessionSync.excludeRepositories)` _(Experimental)_<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md#exclude-repositories-from-sync). Use exact `owner/repo` names or glob patterns like `my-org/*`. Matching sessions are not uploaded by session sync. | `[]` |
 
 ### Agent Host
 

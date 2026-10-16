@@ -2,7 +2,6 @@
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
 DateApproved: 10/14/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
 - trust

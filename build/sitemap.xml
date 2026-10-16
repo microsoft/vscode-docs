@@ -546,6 +546,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/agent-plugin-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/mcp-configuration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -607,6 +612,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2267,11 +2277,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/optimize-usage</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/agents/guides/prompt-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
