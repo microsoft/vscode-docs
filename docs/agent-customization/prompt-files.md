@@ -138,12 +138,13 @@ When you create a prompt file, choose whether to store it in your workspace or u
 To create a prompt file:
 
 > [!TIP]
-> Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
+> With **Local** or **Copilot** selected in the {% data variables.copilot.chat_view %}, type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Prompts** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar to open the Agent Customizations editor, and then select **Prompts**.
 
-1. Select **New Prompt (Workspace)** or **New Prompt (User)** from the dropdown, depending on where you want to store the prompt file.
+1. Select **New Prompt** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the prompt file.
 
+    <!-- TODO: Replace screenshot to show the New Prompt (plus icon) buttons next to the Workspace and User groups in the Prompts section. -->
     ![Screenshot of the Agent Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](images/customization/create-prompt-file.png)
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
@@ -159,11 +160,13 @@ You can modify existing prompt files by opening them in the Agent Customizations
 
 ### Generate a prompt file with AI
 
-You can use AI to generate a prompt file based on a description of the task. Type `/create-prompt` in chat and describe the task you want to automate (for example, "a prompt for generating unit tests"). The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage.
+You can use AI to generate a prompt file based on a description of the task. In chat, ask the agent to create a prompt file and describe the task you want to automate (for example, "create a prompt file for generating unit tests"). This works for every harness, including **Copilot**.
+
+With **Local** selected, you can also type `/create-prompt` in chat followed by the description. The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage. The `/create-prompt` command isn't available for other harnesses.
 
 You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
 
-You can also generate a prompt file from the Agent Customizations editor by selecting **Generate Prompt** from the dropdown.
+With **Local** selected in the {% data variables.copilot.chat_view %}, you can also generate a prompt file from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Prompts** section.
 
 ## Use a prompt file in chat
 

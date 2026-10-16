@@ -71,15 +71,15 @@ To view and manage hooks:
 
 1. Open the Agent Customizations editor:
 
-    * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) and then select **Hooks**.
+    * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, and then select **Hooks**.
     * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
-    * Enter `/hooks` in the chat input.
+    * In the {% data variables.copilot.chat_view %}, with **Local** or **Copilot** selected, enter `/hooks` in the chat input.
 
 1. Review the hook sources for the selected harness or Cloud target. Select a hook to open its configuration.
 
 You can also run **Chat: Configure Hooks** from the Command Palette (`kb(workbench.action.showCommands)`) to manage Local hook files.
 
-To generate a hook with AI, enter `/create-hook <description>` in chat or run **Chat: Generate Hook** from the Command Palette. The generated hook uses `.github/hooks/`. Review the result against the destination harness reference before you use it.
+To generate a hook with AI, describe the hook you want in chat. With **Local** selected, you can also enter `/create-hook <description>` in chat or run **Chat: Generate Hook** from the Command Palette. These shortcuts aren't available for other harnesses. The `/create-hook` command generates hooks in `.github/hooks/`. Review the result against the destination harness reference before you use it.
 
 For Claude and Codex, use the provider documentation for additional configuration and management options.
 
@@ -217,6 +217,8 @@ When an event fires, the Local harness passes a JSON object to the command throu
 
 Add a `hooks` map to a [custom agent](/docs/agent-customization/custom-agents.md) to run commands only while that agent is active. Agent-scoped hooks run in addition to applicable user, workspace, and plugin hooks.
 
+For example, save the following as `.github/agents/strict-formatter.agent.md`. Replace the command with your project's formatting script. The `PostToolUse` hook runs after every successful tool call while this agent is active, whether you select it directly or invoke it as a subagent.
+
 ```markdown
 ---
 name: Strict Formatter
@@ -231,6 +233,8 @@ Follow the project's formatting requirements.
 ```
 
 When the custom agent runs as a subagent, its `Stop` hook is treated as `SubagentStop`. Agent-scoped hooks require `setting(chat.useHooks)` and a trusted workspace.
+
+For the other fields in an agent definition, see the [custom agent file reference](/docs/agents/reference/custom-agent-file-reference.md#header-fields).
 
 For custom agents contributed by Claude-format or legacy OpenPlugin plugins, use [plugin-root tokens](/docs/agent-customization/agent-plugins.md#reference-plugin-paths-in-hook-commands) to reference bundled scripts without hardcoding installation paths.
 

@@ -45,7 +45,7 @@ Browser tools are generally available by default. Verify that they are selected 
 
 1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
-1. Select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
+1. Select **Open Customizations** in the {% data variables.copilot.chat_view %} title bar > **Tools** and verify that **Integrated Browser** is selected.
 
 The agent can now use these tools to interact with web pages. If the tools are missing, verify that `setting(workbench.browser.enableChatTools)` is turned on. An organization policy can also turn off browser tools.
 
