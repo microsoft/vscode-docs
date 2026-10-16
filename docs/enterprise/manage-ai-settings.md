@@ -153,6 +153,9 @@ Identity capture is off by default and independent of content capture. Review bo
 
 The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) for accepted values and minimum versions.
 
+> [!IMPORTANT]
+> {% data variables.product.prodname_copilot_short %} harness sessions don't enforce every device policy the same way as Local harness sessions. The following sections note known differences. Test a policy in the harness that your developers use before you rely on it.
+
 Jump to:
 
 * [Control access and feature availability](#control-access-and-feature-availability)
@@ -174,7 +177,9 @@ The policy is fail-closed. AI features remain disabled until account policy data
 
 Set the `ChatAgentMode` policy to `false` to disable [agents](/docs/agents/overview.md). This policy controls `setting(chat.agent.enabled)`.
 
-When the policy is disabled, the **Agent** option is not available in the agents dropdown. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits.
+When the policy is disabled, the **Agent** option is not available in the agents dropdown, and the {% data variables.copilot.agents_window %} is unavailable. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits.
+
+The policy does not remove Agent Host session targets, such as **Copilot**, from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) in the editor. Developers can still start agent sessions from those targets.
 
 #### Enable or disable extension language tools
 
@@ -297,9 +302,13 @@ Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global
 
 Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific tools.
 
+For {% data variables.product.prodname_copilot_short %} harness sessions, a tool marked `false` removes **Allow all** from the permissions picker for the whole session. It does not require confirmation for each call to that tool, so **Assisted permissions** and saved session approvals can still approve it.
+
 ##### Configure terminal auto-approval
 
 Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
+
+For {% data variables.product.prodname_copilot_short %} harness sessions, the policy requires approval for commands that run through the built-in shell tool. Set `ChatAgentHostCustomTerminalTool` to `false` to keep these sessions on that tool.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
@@ -334,7 +343,7 @@ Set `ChatAgentNetworkFilter` to `true` to restrict network access according to t
 
 Use `ChatAgentAllowedNetworkDomains` for permitted domain patterns and `ChatAgentDeniedNetworkDomains` for blocked patterns. Denied domains take precedence.
 
-Network filtering applies to the fetch tool and Integrated Browser. Terminal coverage depends on the selected harness, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
+In Local harness sessions, network filtering applies to the fetch tool and Integrated Browser. In {% data variables.product.prodname_copilot_short %} harness sessions, it applies to the Integrated Browser, but the allowed domain list does not restrict the runtime's web fetch tool. A fetch to a domain outside the list asks for approval, and **Allow all** approves it without a prompt. When sandboxing is on, the sandbox does not receive the allowed or denied domain lists. Terminal coverage depends on the selected harness, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change network filtering settings so new Integrated Browser sessions use the updated policy.
 
