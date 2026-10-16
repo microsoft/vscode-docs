@@ -119,7 +119,7 @@ If an MCP server or one of its tools is unavailable:
 
 If the server is running but the model does not invoke its tool, follow [An MCP tool is not being invoked](/docs/agents/agent-troubleshooting/chat-debug-view.md#an-mcp-tool-is-not-being-invoked).
 
-For setup and server-specific checks, see [Configure and debug MCP servers](/docs/agent-customization/mcp-servers.md#troubleshoot-and-debug-mcp-servers).
+For server-specific checks, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
 
 ## Report an unresolved issue
 

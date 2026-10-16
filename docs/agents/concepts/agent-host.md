@@ -116,7 +116,7 @@ The process boundary also affects how you review edits, configure the agent, and
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |
 | Continue sessions across interfaces | [Sessions across surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces). |
-| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [configure MCP servers](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). |
+| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [MCP configuration formats](/docs/agents/reference/mcp-configuration.md#configuration-file). |
 
 ## Related resources
 

@@ -136,7 +136,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)`<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
-| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agent-customization/mcp-servers.md#automatically-start-mcp-servers). | `newAndOutdated` |
+| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agents/run/manage-mcp-servers.md#automatically-start-mcp-servers). | `newAndOutdated` |
 
 ### Agent tools
 
