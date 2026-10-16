@@ -261,7 +261,7 @@ The built-in [integrated browser](/docs/debugtest/integrated-browser.md) opens l
 
     The app opens in an integrated browser tab.
 
-    <!-- TODO: Capture a screenshot showing the completed recipe app in the integrated browser. -->
+    ![Screenshot of the completed recipe app in the integrated browser](../images/getting-started/recipe-app-screenshot.png)
 
 1. Check the app manually:
 
@@ -379,7 +379,7 @@ Attach the debugger to the integrated browser tab you used to preview the app. T
 
     Execution pauses at the breakpoint in `addRecipe`.
 
-    <!-- TODO: Capture a screenshot showing the integrated browser tab and the debugger paused at the addRecipe breakpoint. -->
+    ![Screenshot of the debugger paused at the addRecipe breakpoint](../images/getting-started/debugger-paused-addRecipe.png)
 
 1. Hover over `name` and `description` in `app.js` to inspect their values. You can also inspect them in the **Variables** section of the Run and Debug view.
 
