@@ -32,7 +32,6 @@
                 "area": "chat",
                 "topics": [
                     ["Use Chat", "/docs/chat/chat-overview"],
-                    ["Chat View & Layout", "/docs/agents/run/chat-view"],
                     ["Inline Chat & Quick Chat", "/docs/chat/inline-chat"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"]
@@ -43,6 +42,8 @@
                 "name": "Run Agents",
                 "area": "agents/run",
                 "topics": [
+                    ["Overview", "/docs/agents/run/overview"],
+                    ["Chat View & Layout", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
@@ -106,6 +107,7 @@
                 "name": "Tutorials & Guides",
                 "area": "agents/guides",
                 "topics": [
+                    ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
                     ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                     ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],

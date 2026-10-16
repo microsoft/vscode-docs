@@ -84,7 +84,9 @@ The conversation and work for a task belong to a **session**. Sessions keep rela
 
 ## Ways to work with agents
 
-Start with the interface that fits how you want to work. You can continue supported sessions between the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, rather than choosing one interface for every task.
+Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} support agent workflows. Choose the {% data variables.copilot.chat_view %} for collaboration over code in your current workspace, or the {% data variables.copilot.agents_window %} for multi-project orchestration and higher-level task assignment. You can continue supported sessions between them rather than choosing one interface for every task.
+
+For a path from your first request through planning, steering, review, and recovery, see [Run agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/overview.md).
 
 ### Work alongside your code
 
