@@ -165,7 +165,7 @@ Use these settings to adjust the chat transcript:
 
 With persistent progress, reasoning appears in separate collapsible previews and tool calls remain visible while they run. `setting(chat.experimental.persistentProgressVerbosity)` controls completed tool-call details. **Compact** replaces completed groups with expandable summaries when response text resumes or the response finishes. **Verbose** keeps the full details visible.
 
-Persistent progress defaults to **Draw** in Insiders and **Off** in Stable. Experiments can change either default during rollout, but an explicit setting always takes precedence.
+Persistent progress defaults to **Draw** in Insiders and **Off** in Stable.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 

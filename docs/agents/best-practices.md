@@ -197,7 +197,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality and wastes tokens on irrelevant history.
 
-* **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
+* **Start a fresh chat for related work.** When the task still belongs in the same workspace but doesn't need the current conversation history, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. It shares the session's files and code changes without inheriting the other chats' history.
 
 * **Compact context.** Use [/compact](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context) and provide instructions to selectively compact the context and retain only the most relevant information. Compacting reduces the tokens sent with each subsequent request, which helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md).
 

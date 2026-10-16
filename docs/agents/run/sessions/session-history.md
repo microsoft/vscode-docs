@@ -16,8 +16,6 @@ Launch a chat prompt that summarizes your recent coding sessions into a standup 
 
 </div>
 
-<a name="opt-out-of-session-sync"></a>
-
 ## Enable or disable session sync (Experimental)
 
 Check the [session sync status](#session-sync-status) to see whether sync is enabled. Use `setting(chat.sessionSync.enabled)` to set your preference:
