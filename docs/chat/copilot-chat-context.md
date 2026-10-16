@@ -25,7 +25,7 @@ For tool names and context references, see the [Tools and context reference](/do
 
 ### Add files as context
 
-By default, {% data variables.product.prodname_vscode_shortname %} uses workspace indexing to automatically include relevant files as context based on the conversation. You can also explicitly add specific files, folders, or symbols by using #-mentions or the context picker. Explicit context is useful when you want to make sure the AI considers specific parts of your codebase.
+Agents can use workspace search and file-reading tools to gather relevant context. A workspace index helps locate code, but doesn't attach every file to the conversation. Add specific files, folders, or symbols by using #-mentions or the context picker when you know which sources the agent should consider.
 
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
@@ -36,7 +36,7 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Select **Add Context** in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
 
-To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
+Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
 
 ### Add project and GitHub context
 

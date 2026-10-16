@@ -24,7 +24,7 @@ Choose the surface that matches your workflow:
 * Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) for a workspace-scoped, code-first session beside the editor.
 * Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) to start and monitor sessions across workspaces, attach related projects or GitHub items, or start from an existing pull request. On Windows, you can also launch the {% data variables.copilot.agents_window %} directly by right-clicking the {% data variables.product.prodname_vscode_shortname %} application icon in the taskbar and selecting **Agents Window**.
 
-You can switch between these surfaces after you start a session. To compare all agent interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
+You can continue supported sessions between these surfaces after starting work. Availability depends on the harness; see [Sessions across surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces). To choose an interface and follow the workflow, see [Run agents](/docs/agents/run/overview.md). To send and steer requests after a session starts, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 > [!NOTE]
 > **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
@@ -70,7 +70,15 @@ To compact the conversation manually:
 * Type `/compact` in the chat input. Optionally, add instructions for what the summary should retain, for example `/compact focus on the database schema decisions`.
 * Select the context window control, and then select **Compact Conversation**.
 
-Manual compaction is available for local, background, and Claude agent sessions. To reset the context entirely, [start a new session](#start-an-agent-session).
+Manual compaction is available for Local, Copilot, and Claude agent sessions.
+
+To start with fresh conversation history instead of a summary:
+
+* For related work in the same workspace, [start another chat in the session](#run-multiple-chats-in-a-session), where supported. It shares the session's folder or worktree and code changes without inheriting the other chats' history.
+
+* For an independent task or a different project, [start a new session](#start-an-agent-session). Select a separate worktree when code changes must be isolated.
+
+Neither option clears saved files, applicable custom instructions, or persistent memory. To undo code changes rather than start a fresh conversation, [review and revert the changes](/docs/agents/run/review-code-edits.md).
 
 Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
 

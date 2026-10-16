@@ -8,7 +8,7 @@ MetaSocialImage: ../../images/shared/github-copilot-social.png
 
 Planning helps you clarify requirements, compare approaches, and identify risks before an agent changes your code. Use a separate planning step when the approach is uncertain or a change spans multiple parts of your project. For a small, well-defined edit, you can ask an agent to implement it directly.
 
-You can ask an agent to propose an approach in an ordinary conversation. For a dedicated planning workflow, use **Plan** mode in a **{% data variables.product.prodname_copilot_short %}** session. The agent researches your project, asks clarifying questions, and creates a plan for you to review before implementation.
+You can create and review a plan in either the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}. For a dedicated planning workflow, use the **Plan** agent (`/plan`) . The agent researches your project, asks clarifying questions, and creates a plan for you to review before implementation.
 
 This article walks you through creating a plan with {% data variables.product.prodname_copilot_short %}, reviewing and refining it, and choosing whether to implement it or save it for later. It also covers the different controls for [planning in a Local harness session](#plan-in-a-local-harness-session).
 
@@ -23,13 +23,13 @@ Use {% data variables.product.prodname_copilot_short %} to create and review an 
 
 ## How to plan a task
 
-Open your project folder in {% data variables.product.prodname_vscode_shortname %} and [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) before you begin.
+[Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) before you begin. You can plan from either the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}.
 
 The following steps use the {% data variables.product.prodname_copilot_short %} harness. Learn more about [choosing an agent harness](/docs/agents/run/agent-harnesses.md).
 
-1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)` and select **New Chat** (`+`).
+1. Start a session for your project.
 
-1. Choose **{% data variables.product.prodname_copilot_short %}** from the **Session Target** UI control.
+1. Open the **Session Target** control and choose **{% data variables.product.prodname_copilot_short %}**.
 
 1. Enter `/plan` followed by the outcome you want, any constraints, and how you will verify success. For example:
 
@@ -41,7 +41,6 @@ The following steps use the {% data variables.product.prodname_copilot_short %} 
     Identify decisions I need to make before implementation.
     ```
 
-    `/plan` switches the session to Plan mode and submits your request. Alternatively, select **Plan** from the agent mode picker and enter the task without the slash command.
 
 1. Answer the agent's clarifying questions as it researches your project. For example, agree on a pagination approach and defaults before it finalizes the plan. If you're unsure, ask it to recommend an approach and explain the tradeoffs.
 

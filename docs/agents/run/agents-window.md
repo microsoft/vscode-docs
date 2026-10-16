@@ -6,9 +6,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.agents_window %}
 
-When you delegate tasks across several projects, use the {% data variables.copilot.agents_window %} to track progress and review results in one place instead of switching between project windows. This dedicated {% data variables.product.prodname_vscode %} window keeps the focus on assigning work and reviewing outcomes.
+The {% data variables.copilot.agents_window %} runs agents in a dedicated {% data variables.product.prodname_vscode %} window. Use it to assign higher-level tasks, coordinate work across projects, monitor multiple sessions, and review outcomes in one place.
 
-If your task needs frequent editing, debugging, or testing in one project, use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) beside your editor instead. This article shows how to start, monitor, review, and finish sessions in the {% data variables.copilot.agents_window %}. For conversation controls shared by both interfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
+Both the {% data variables.copilot.agents_window %} and [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) let you direct agents and review their work. Choose based on whether you want to focus on orchestrating tasks or collaborating over code alongside your editor. For guidance, see [Run agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/overview.md#choose-an-interface). This article shows how to start, monitor, review, and finish sessions in the {% data variables.copilot.agents_window %}. For conversation controls shared by both interfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 <!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
 
