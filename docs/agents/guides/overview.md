@@ -82,7 +82,7 @@ Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasize
 
 ## Test and validate
 
-* [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate tests for a function or module, run them, and review assertions, failures, and coverage. **Use your own project.**
+* [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate tests for a function or module, run them, and review assertions, failures, and coverage. **Use your own project with {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.**
 
 * [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator app and check it against observable acceptance criteria. **Sample web app.**
 
