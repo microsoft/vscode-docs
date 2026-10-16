@@ -260,8 +260,8 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.automations.cloud.enabled)` `feature(cloud-automations)`<br/>Enable management of user-owned GitHub Copilot [cloud automations](/docs/agents/run/automations.md#create-a-cloud-automation) in the **Automations** view. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot harness sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
-| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot harness session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
-| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
+| `setting(chat.sessionSync.enabled)` _(Experimental)_<br/>Sync [session history](/docs/agents/run/sessions/session-history.md#enable-or-disable-session-sync-experimental) to GitHub.com for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)`. Set a preference explicitly and check the [sync status](/docs/agents/run/sessions/session-history.md#session-sync-status). | `false` |
+| `setting(chat.sessionSync.excludeRepositories)` _(Experimental)_<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md#exclude-repositories-from-sync). Use exact `owner/repo` names or glob patterns like `my-org/*`. Matching sessions are not uploaded by session sync. | `[]` |
 
 ### Agent Host
 
