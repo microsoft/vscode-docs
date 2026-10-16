@@ -13,11 +13,9 @@ Keywords:
 ---
 # Use prompt files in {% data variables.product.prodname_vscode_shortname %}
 
-Prompt files, also known as slash commands, are supported only in Local harness sessions. They simplify prompting for common tasks by encoding them as standalone Markdown files that you invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
+Prompt files simplify prompting for common tasks by encoding them as standalone Markdown files that you invoke as slash commands in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
-
-For reusable workflows in sessions that use another harness, create an [agent skill](/docs/agent-customization/agent-skills.md). You can also [convert existing prompt files to skills](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
 Use prompt files to:
 
@@ -25,6 +23,9 @@ Use prompt files to:
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
 With **Local** selected, use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage prompt files. Run **Chat: Open Customizations** from the Command Palette.
+
+> [!IMPORTANT]
+> Prompt files run only in **Local** harness sessions in the {% data variables.copilot.chat_view %}. For reusable workflows in other harnesses, create an [agent skill](/docs/agent-customization/agent-skills.md) or [convert an existing prompt file to a skill](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
 ## Prompt file locations
 
@@ -133,12 +134,12 @@ Return the TODO list in a Markdown format, grouped by priority and issue type.
 
 ## Create a prompt file
 
-When you create a prompt file, choose whether to store it in your workspace or user profile. Workspace prompt files apply only to that workspace, while user prompt files are available across multiple workspaces.
+Before creating a prompt file, select the **Local** harness in the {% data variables.copilot.chat_view %}. Choose whether to store the file in your workspace or user profile. Workspace prompt files are available to Local sessions in that workspace. User prompt files are available to Local sessions across workspaces in the same profile.
 
 To create a prompt file:
 
 > [!TIP]
-> With **Local** or **Copilot** selected in the {% data variables.copilot.chat_view %}, type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
+> With **Local** selected in the {% data variables.copilot.chat_view %}, type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
 
 1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar to open the Agent Customizations editor, and then select **Prompts**.
 
@@ -160,17 +161,19 @@ You can modify existing prompt files by opening them in the Agent Customizations
 
 ### Generate a prompt file with AI
 
-You can use AI to generate a prompt file based on a description of the task. In chat, ask the agent to create a prompt file and describe the task you want to automate (for example, "create a prompt file for generating unit tests"). This works for every harness, including **Copilot**.
+An agent with file-editing tools can help author a prompt file, even if you use a different harness to write it. Tell the agent that the file will run in a Local session and describe the task, expected output, and storage location. Review the generated file before using it.
+
+Authoring a `.prompt.md` file in a {% data variables.product.prodname_copilot_short %} session doesn't make that file runnable by the Copilot harness. To reuse a workflow in that harness, [create a skill](/docs/agent-customization/agent-skills.md#create-a-skill) or [convert an existing prompt file](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
 With **Local** selected, you can also type `/create-prompt` in chat followed by the description. The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage. The `/create-prompt` command isn't available for other harnesses.
 
-You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
+You can also ask an agent to capture an ongoing conversation as a prompt file for Local sessions. Specify the target harness so that it doesn't create a customization in a format you can't use.
 
 With **Local** selected in the {% data variables.copilot.chat_view %}, you can also generate a prompt file from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Prompts** section.
 
 ## Use a prompt file in chat
 
-You have multiple options to run a prompt file:
+Select **Local** in the {% data variables.copilot.chat_view %} before running the prompt. The following options run prompt files in Local sessions:
 
 * In the {% data variables.copilot.chat_view %}, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/agent-customization/agent-skills.md) also appear as slash commands alongside prompt files.
 

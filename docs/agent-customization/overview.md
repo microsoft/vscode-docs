@@ -34,6 +34,19 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
+## Check harness compatibility
+
+Select the [agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use before choosing a customization type or creating a file. The harness determines which formats, locations, and capabilities are supported. Changing the language model doesn't change those requirements.
+
+| Customization | Check before creating it |
+|---------------|--------------------------|
+| [Instructions](/docs/agent-customization/custom-instructions.md) and [skills](/docs/agent-customization/agent-skills.md) | Use a format and file location that the selected harness reads. Check its activation rules and supported user, workspace, or organization scope. |
+| [Custom agents](/docs/agent-customization/custom-agents.md), [hooks](/docs/agent-customization/hooks.md), and [MCP servers](/docs/agent-customization/mcp-servers.md) | Follow the configuration for your harness. Tool names, supported fields, lifecycle events, and connection locations can differ. |
+| [Prompt files](/docs/agent-customization/prompt-files.md) and [tool sets](/docs/agent-customization/tool-sets.md) | Use a **Local** harness session in the {% data variables.copilot.chat_view %}. For reusable workflows in other skills-compatible harnesses, create a skill instead of a prompt file. |
+| [Plugins](/docs/agent-customization/agent-plugins.md) | Check that the selected harness supports the plugin and its bundled customization types. |
+
+The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} both run agents, but the available harnesses differ. Local sessions are editor-only. Select the intended harness before opening the Customizations editor so you see its supported types and destinations.
+
 ## Agent Customizations editor
 
 The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections. Depending on the customization type and source, it provides a configuration form, an inline file editor with syntax highlighting and validation, or a read-only details view.
@@ -102,7 +115,7 @@ Scope determines where a customization is available and who can share it. Not ev
 
 ## Create a customization
 
-You can create customization files with AI or create them manually. Review and test every customization before you rely on it for development tasks.
+You can create customization files with AI or create them manually. Creating a file doesn't mean the selected harness can load or run it. Specify the target harness and user or workspace scope, save the file in a supported location, and verify it in a session that uses that harness.
 
 ### Create a customization with AI
 
@@ -151,7 +164,9 @@ The available actions depend on the customization type and its source. Use the i
 
 ## Verify a customization
 
-Test a new or updated customization with a representative task. Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, expand the **References** section in the chat response to confirm that the expected customization was included.
+Test a new or updated customization in a fresh chat with the intended harness and workspace. Use a representative task and confirm that the harness discovers the file before assessing its behavior. This separates the saved customization from instructions in the conversation that created it.
+
+Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, use the response's **References** section, where available, to check which customizations were included.
 
 If the result doesn't match your intent, make the customization more specific, resolve conflicting guidance, and repeat the task. For a complete project workflow, including how to review and share generated instructions, see [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md).
 

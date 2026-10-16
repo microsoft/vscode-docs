@@ -1,7 +1,7 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 DateApproved: 10/14/2026
-MetaDescription: Learn about the AI agent customization options in {% data variables.product.prodname_vscode_shortname %}, including instructions, prompt files, custom agents, skills, hooks, and plugins.
+MetaDescription: Choose instructions, skills, custom agents, and other customizations for your workflow in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -48,6 +48,8 @@ Relevant customizations can reduce back-and-forth and rework by giving the agent
 
 Start from an observed problem instead of adding customization by default. Define a representative task and its expected outcome. If the result already meets your needs, stop. Otherwise, try the smallest change that addresses the repeated problem.
 
+Before creating files, [check the selected harness and supported locations](/docs/agent-customization/overview.md#check-harness-compatibility). Choosing a language model doesn't change the customization formats that a harness reads. For example, prompt files and reusable tool-set files are Local harness customizations; use skills for reusable workflows with other skills-compatible harnesses.
+
 | Observed behavior | Smallest change to try |
 |-------------------|------------------------|
 | The agent misses a one-time requirement or relevant file | Add the requirement or [context](/docs/chat/copilot-chat-context.md) to the current request |
@@ -61,6 +63,7 @@ Start from an observed problem instead of adding customization by default. Defin
 
 Ask the following questions when choosing a customization:
 
+* Does the selected harness support the format, file location, and scope you need?
 * Should it apply automatically, or only when you request it?
 * Are you providing guidance, defining a workflow, adding a capability, or enforcing an action?
 * Should the model decide when to use it?
@@ -72,7 +75,7 @@ The following table compares the customization types by purpose and activation.
 | Apply standards across a project | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Require a specific logging library and error-handling pattern | Automatically included in each request |
 | Apply guidance to specific code or tasks | [File-based instructions](/docs/agent-customization/custom-instructions.md) | Apply React conventions when the agent works with `.tsx` files | Included when files match a pattern or the task matches the description |
 | Teach the agent a workflow with supporting resources | [Agent skills](/docs/agent-customization/agent-skills.md) | Create a service from instructions, template files, and a setup script | The agent loads the skill when the task matches, or you invoke it directly |
-| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command |
+| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command (Local harness sessions only) |
 | Use a specialized role and tool configuration | [Custom agents](/docs/agent-customization/custom-agents.md) | Review code with read-only tools | You select the agent, use it as a subagent, or another agent delegates to it |
 | Connect to an external system | [MCP](/docs/agent-customization/mcp-servers.md) | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
 | Run code at a lifecycle event | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | {% data variables.product.prodname_vscode_shortname %} runs the hook when the configured event occurs |

@@ -1,7 +1,7 @@
 ---
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
 DateApproved: 10/14/2026
-MetaDescription: Create reusable tool sets in {% data variables.product.prodname_vscode %} to group agent tools for prompts, prompt files, and custom agents.
+MetaDescription: Group tools for Local harness prompts and custom agents with reusable tool sets in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -13,13 +13,16 @@ Keywords:
 ---
 # Create and use tool sets
 
-A tool set is a reusable collection of agent tools that you can reference as a single entity. Use tool sets to organize related tools and make them easier to select in prompts, [prompt files](/docs/agent-customization/prompt-files.md), and [custom agents](/docs/agent-customization/custom-agents.md).
+A tool set is a reusable collection of agent tools that you can reference as a single entity. This article describes user-defined tool-set files for organizing related tools in prompts, [prompt files](/docs/agent-customization/prompt-files.md), and [custom agents](/docs/agent-customization/custom-agents.md) in Local sessions.
+
+> [!IMPORTANT]
+> User-defined tool-set files are supported only in **Local** harness sessions. For the **{% data variables.product.prodname_copilot_short %}** harness, configure tools through its tool controls or a custom agent's tool list instead. See [customizations without automatic migration](/docs/agent-customization/migrate-customizations.md#customizations-without-automatic-migration).
 
 {% data variables.product.prodname_vscode_shortname %} also provides predefined tool sets, such as `#edit` and `#search`.
 
 ## Create a tool set
 
-To create a tool set:
+Select **Local** as the **Session Target** in the {% data variables.copilot.chat_view %}, then create a tool set:
 
 1. Run **Chat: Configure Tool Sets** from the Command Palette and select **Create new tool sets file**.
 
