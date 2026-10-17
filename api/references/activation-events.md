@@ -344,6 +344,8 @@ This activation event is emitted when the issue reporter is opened (for example,
 
 An activation event emitted when the specified chat participant is invoked.
 
+Chat participants are deprecated and are not supported in the Copilot harness. This event remains relevant for Local harness compatibility. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
+
 ```json
 "activationEvents": [
     "onChatParticipant:my-chat-participant"
