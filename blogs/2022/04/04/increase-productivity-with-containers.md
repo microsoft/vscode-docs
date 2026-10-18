@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: Moving from Local to Remote Development
 PageTitle: Using Containers to move from local to Remote Development

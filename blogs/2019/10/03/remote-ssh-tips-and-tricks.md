@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: SSH Tips and Tricks
 PageTitle: Visual Studio Code Remote SSH Tips and Tricks

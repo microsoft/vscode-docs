@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Source Control]
 Order:
 TOCTitle: Extensions Roundup - Fun with Git
 PageTitle: Visual Studio Code Extensions Roundup - Git August 2016

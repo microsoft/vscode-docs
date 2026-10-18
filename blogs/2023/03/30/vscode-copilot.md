@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI]
 Order: 
 TOCTitle: VS Code and Copilot
 PageTitle: Visual Studio Code and GitHub Copilot AI

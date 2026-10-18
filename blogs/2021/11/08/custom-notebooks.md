@@ -1,4 +1,5 @@
 ---
+Tags: [Notebooks, Extensions]
 Order: 
 TOCTitle: Custom Notebooks
 PageTitle: Notebooks, Visual Studio Code style

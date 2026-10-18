@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Extensions, Design]
 Order:
 TOCTitle: File Icon Themes
 PageTitle: File and Folder Icons in Visual Studio Code

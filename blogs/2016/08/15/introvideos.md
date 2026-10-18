@@ -1,4 +1,5 @@
 ---
+Tags: [Education]
 Order:
 TOCTitle: Intro Videos
 PageTitle: Visual Studio Code Introductory Videos
