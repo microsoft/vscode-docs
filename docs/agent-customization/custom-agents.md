@@ -169,7 +169,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
-| `hooks` (Preview)  | Optional Local hook commands scoped to this agent. Hooks defined here only run in the Local harness when this agent is active, either invoked by the user or as a subagent. Requires `setting(chat.useHooks)` and a trusted workspace. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-the-local-harness). |
+| `hooks` | Optional hook event map scoped to this agent. Support and payloads depend on the runtime and version. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks) before reusing Local frontmatter in a Copilot session. |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -261,24 +261,13 @@ Implement changes following existing code patterns. Make minimal, focused edits.
 </details>
 
 <details>
-<summary>Agent with scoped hooks example (Preview)</summary>
+<summary>Migrate an agent with scoped hooks</summary>
 
-The following example shows a custom agent that defines hooks in its frontmatter. The `PostToolUse` hook runs after every successful tool call and only runs when this agent is active in the Local harness. Local hooks must be enabled with `setting(chat.useHooks)`, and the workspace must be trusted.
+If an existing custom agent has a `hooks` field, review both its frontmatter and the scripts it invokes. Moving the agent file does not convert its hook payloads or output decisions.
 
-```markdown
----
-name: Strict Formatter
-description: Agent that formats code after every successful tool call
-hooks:
-  PostToolUse:
-    - type: command
-      command: "./scripts/format-changed-files.sh"
----
+The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) documents the shared harness's supported fields, trust requirements, and excluded agent sources. Keep the hook agent-scoped; moving it to a repository-wide event would make it run for other agents too.
 
-You are a code editing agent. Follow the project's formatting requirements.
-```
-
-Learn more about hooks in [Agent hooks](/docs/agent-customization/hooks.md).
+Follow the [hook migration checklist](/docs/agent-customization/migrate-customizations.md#migrate-hooks), including a test where the custom agent runs as a subagent.
 
 </details>
 

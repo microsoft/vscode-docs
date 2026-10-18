@@ -200,11 +200,15 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 
 ## Hooks
 
-[Agent hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions. Unlike instructions or prompts that guide agent behavior, hooks run deterministically with guaranteed outcomes, making them suitable for enforcing security policies.
+[Agent hooks](/docs/agent-customization/hooks.md) run commands at runtime lifecycle points rather than relying on the model to request them. For Copilot sessions, use the shared runtime's event and output contract.
 
-* **Block dangerous operations**: Use `PreToolUse` hooks to intercept tool invocations and block dangerous commands (for example, `rm -rf` or `DROP TABLE`) before they execute, regardless of how the agent was prompted.
-* **Control approvals**: Hooks can return `allow`, `deny`, or `ask` decisions to automatically approve safe operations or require confirmation for sensitive ones.
-* **Create audit trails**: Log every tool invocation, command execution, or file change for compliance and debugging purposes.
+* **Validate tool calls**: A `preToolUse` hook can inspect a supported tool's arguments and return a denial. A filter that misses a tool or argument shape does not validate that operation.
+* **Control approvals**: Hooks can return `allow`, `deny`, or `ask`. Approval prompts depend on the session mode; do not assume `ask` pauses an unattended session.
+* **Record events**: Log selected, non-sensitive event data. Verify event coverage and failure behavior before treating the log as a complete audit trail.
+
+Hooks are not a substitute for enforced permissions, sandboxing, or enterprise controls. GitHub documents command `preToolUse` failures as denying the tool call, but timeouts as continuing through normal permissions, including for policy hooks. See [hook exit codes](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks). Instructions guide the model and are not an enforcement boundary.
+
+When switching from Local, [migrate and test the hook scripts](/docs/agent-customization/migrate-customizations.md#migrate-hooks), not only their configuration files.
 
 ## Enterprise policies
 
