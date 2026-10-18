@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, AI]
 Order: 128
 TOCTitle: Agents for Real-World Dev
 PageTitle: "Making agents practical for real-world development"

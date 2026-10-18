@@ -3,7 +3,6 @@ ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
 DateApproved: 10/14/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Move existing agent customizations to folders and formats supported by the Copilot harness in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -97,7 +96,7 @@ A migration with changes can remove {% data variables.product.prodname_vscode_sh
 > [!IMPORTANT]
 > Disabled state is not stored in `.mcp.json` or `mcp-config.json`. {% data variables.product.prodname_vscode_shortname %} preserves workspace disablement in the current profile when possible, but user-level disablement can be lost. Other Copilot clients and other machines can treat the migrated server as enabled. Review the server's enabled state in each client before use.
 
-Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md).
+Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
 
 ### Check MCP values before migration
 

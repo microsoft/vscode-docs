@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development, AI, Agents]
 Order: 100
 TOCTitle: Enhance productivity with AI + Remote Dev
 PageTitle: "Enhance productivity with AI + Remote Dev"

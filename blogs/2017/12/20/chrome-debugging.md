@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging, Extensions]
 Order:
 TOCTitle: What's New for Chrome Debugging
 PageTitle: What's New for Chrome debugging in VS Code

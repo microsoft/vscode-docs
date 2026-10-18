@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: Docker in WSL 2
 PageTitle: Using Docker in Windows for Linux Subsystem (WSL) 2

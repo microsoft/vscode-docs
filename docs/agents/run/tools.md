@@ -2,7 +2,6 @@
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 10/14/2026
 MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai
@@ -87,7 +86,7 @@ For Copilot harness sessions, manage tools from the Agent Customizations editor.
 
 1. Open the Agent Customizations editor:
 
-    * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+    * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
     * In the {% data variables.copilot.agents_window %}, go to the **Customizations** panel.
 
 1. Select the **Tools** tab.
@@ -147,7 +146,7 @@ For Local harness sessions, select tools for an individual request from the {% d
 
 1. Select or deselect tools to control which ones are available for the current request. Use the search box to filter the list.
 
-You can also specify tools in a [prompt file](/docs/agent-customization/prompt-files.md) or [custom agent](/docs/agent-customization/custom-agents.md). Learn more about the [tool list priority order](/docs/agent-customization/custom-agents.md#tool-list-priority).
+You can also specify tools in a [prompt file](/docs/agent-customization/prompt-files.md) or [custom agent](/docs/agent-customization/custom-agents.md). Learn more about the [tool list priority order](/docs/agents/reference/custom-agent-file-reference.md#tool-list-priority).
 
 </details>
 

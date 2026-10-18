@@ -1,8 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 10/14/2026
-MetaDescription: Compare agent harnesses and built-in roles in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
 - ai
@@ -29,7 +28,7 @@ For a deeper explanation of how harnesses work and differ from models and hosts,
 
 Start with the Copilot harness for day-to-day coding and agent tasks. Choose another harness or the Cloud target when you need different tools, customizations, or execution workflows.
 
-| **Session Target** choice | What runs | What this means for your work |
+| Harness | What runs | What this means for your work |
 |----------------|-----------|-------------------------------|
 | **Copilot** | Run tasks using the {% data variables.copilot.copilot_sdk_short %}, which provides the shared agent experience across {% data variables.product.prodname_copilot %} products. The agent works in the [Agent Host](/docs/agents/concepts/agent-host.md#session-lifetime-and-client-dependencies). | Sessions run independently of the editor window and can continue in the background after you close it, while the Agent Host stays running. You can also continue sessions across supported interfaces. See [Copilot requirements and limitations](#copilot). |
 | **Local** | Run tasks within {% data variables.product.prodname_vscode_shortname %}'s built-in agent harness. The agent works in {% data variables.product.prodname_vscode_shortname %}'s [extension host](/docs/agents/concepts/agent-host.md#local-and-existing-extension-host-sessions). | The agent iterates via chat and works interactively to implement changes in your current workspace. The session is tied to the editor window: closing that window stops the agent's ongoing work. See [Local requirements](#local). |
@@ -63,18 +62,16 @@ Select a harness before you submit the first prompt for a session:
 
 The control only lists targets whose [requirements](#requirements-and-setup) are met in the current window.
 
-<a name="choose-a-built-in-agent-role"></a>
+### Choose a built-in agent
 
-### Choose a built-in agent role
+After selecting a harness, choose an available built-in agent from the agent picker. The available built-in agents depend on the harness:
 
-After selecting a harness, choose an available built-in agent role from the agent picker. The available roles depend on the harness:
-
-| Harness | Built-in roles |
+| Harness | Built-in agents |
 |---------|----------------|
-| **Copilot** | **Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands. **Agent** implements changes and validates the result. |
-| **Local** | **Ask** answers questions without changing your code. **Agent** implements changes and validates the result. **Plan** researches a task and creates an implementation plan for you to review. |
+| **Copilot** | <ul><li>**Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands.</li><li>**Agent** implements changes and validates the result.</li><li>**[Plan](/docs/agents/run/planning.md)** researches a task and creates an implementation plan for you to review. Invoke it with `/plan`.</li></ul> |
+| **Local** | <ul><li>**Ask** answers questions without changing your code.</li><li>**Agent** implements changes and validates the result.</li><li>**Plan** researches a task and creates an implementation plan for you to review.</li></ul> |
 
-Switching roles doesn't change the harness. Copilot harness options such as [Plan](/docs/agents/run/planning.md) and [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) are modes with their own workflows, not additional built-in agent roles.
+Switching agents doesn't change the harness. You can also select [custom agents](/docs/agent-customization/custom-agents.md) from the same picker. In the Copilot harness, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is a mode with its own workflow, not an additional built-in agent.
 
 <a name="choose-code-isolation"></a>
 
@@ -100,7 +97,7 @@ For GitHub sign-in and account requirements, follow the [{% data variables.produ
 
 For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-Before reusing a Local harness session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) and [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). Copilot harness sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
+Before reusing a Local harness session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) and [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file). Copilot harness sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
 
 <a name="prefer-copilot-for-new-editor-chat-sessions"></a>
 
@@ -203,6 +200,9 @@ To hand off a Local harness session:
 
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the destination session. To implement a plan or continue it with another supported session, see [planning with agents](/docs/agents/run/planning.md).
 
+> [!NOTE]
+> Enterprise-managed sandbox or permission settings might automatically move a Local session to the Copilot harness so the Agent Host can enforce the policy. This policy-driven move preserves the conversation history and unsent input without submitting a prompt, and archives the original Local session as read-only. It is different from a user-initiated handoff. Learn more about [Agent Host policy enforcement](/docs/enterprise/manage-ai-settings.md#enforce-runtime-policies-with-copilot-agent-host).
+
 Changing a harness is different from starting another conversation or opening the same session in another interface. Learn more about [sessions, forks, and handoffs](/docs/agents/concepts/sessions.md).
 
 ## Use canvases with the Copilot harness
@@ -227,6 +227,40 @@ Canvas extensions are also supported in the {% data variables.copilot.github_cop
 
 > [!NOTE]
 > Canvases are available only on desktop in supported local Copilot Agent Host sessions. They aren't supported for Claude, Codex, extension-host Local sessions, remote Agent Host sessions, browser or web clients, or auxiliary-window hosting.
+
+## Frequently asked questions
+
+### What is the difference between Local and Copilot?
+
+Both harnesses can run on your machine. **Local** uses {% data variables.product.prodname_vscode_shortname %}'s built-in proprietary agent harness and works in VS Code's extension host. **Copilot** uses the {% data variables.copilot.copilot_sdk %}, which is the agent experience shared consistently across GitHub Copilot products.
+
+Both harnesses support tools, model selection, and agent customizations, but the available capabilities and configuration differ.
+
+The Copilot harness provides these benefits:
+
+* **A shared runtime across Copilot products**: core capabilities and behavior are more consistent across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
+
+* **Continuity between interfaces and machines**: you can continue the same live session in the {% data variables.copilot.chat_view %}, the {% data variables.copilot.agents_window %}, and other GitHub Copilot interfaces. You can also [connect remotely from another machine](/docs/agents/run/remote-agent-sessions.md) while the session continues to run on its host. Local sessions are available only in the editor's {% data variables.copilot.chat_view %}.
+
+* **Work independent of an editor window**: ongoing work can continue after you close the editor window, while the Agent Host remains running. Closing a Local harness session's editor window stops its ongoing work.
+
+### Which harness should I choose?
+
+Start with **Copilot** for day-to-day coding and agent tasks, especially when you want to continue work between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}, or keep work running after closing an editor window.
+
+If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
+
+### Does running locally mean the language model runs on my machine?
+
+No. The harness coordinates the session and its tools, but the language model can run elsewhere. A session that edits files and runs commands on your machine can still send model requests to a hosted service. The **Local** harness name does not mean that the model runs locally or that the session works offline. Learn how [harnesses differ from models and execution environments](/docs/agents/concepts/agent-harnesses.md#how-a-harness-differs-from-other-agent-concepts).
+
+### Does selecting a different model change the harness?
+
+No. Selecting a model changes the model used within the current harness. For example, selecting a Claude model in a Copilot session does not switch to the Claude harness. Changing the agent role, such as Ask or Agent, also does not change the harness. To check which harness you are using, see [Identify your current harness](#identify-your-current-harness).
+
+### Can I continue an existing Local session with Copilot?
+
+Yes. In the Local session's chat input, open the **Session Target** dropdown and select **Copilot**. The handoff carries the conversation history and context to the destination session, but the available tools, permissions, and models might change. See [Hand off from a Local harness session](#hand-off-from-a-local-session).
 
 ## Related resources
 

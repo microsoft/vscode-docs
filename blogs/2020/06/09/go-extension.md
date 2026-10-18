@@ -1,4 +1,5 @@
 ---
+Tags: [Languages, Extensions, Community]
 Order: 
 TOCTitle: The Go experience
 PageTitle: Visual Studio Code Go extension joins the Go project
