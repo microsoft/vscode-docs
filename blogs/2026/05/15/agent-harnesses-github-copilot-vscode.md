@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, GitHub Copilot, Models]
 Order: 130
 TOCTitle: Coding Harness
 PageTitle: "The Coding Harness Behind GitHub Copilot in VS Code"

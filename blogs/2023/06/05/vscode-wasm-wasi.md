@@ -1,4 +1,5 @@
 ---
+Tags: [Web, Extensions, Languages]
 Order: 
 TOCTitle: VS Code and WebAssemblies
 PageTitle: VS Code and WebAssemblies

@@ -1,4 +1,5 @@
 ---
+Tags: [Languages, Performance, Engineering]
 Order: 134
 TOCTitle: Iterating faster with TypeScript 7
 PageTitle: Iterating faster with TypeScript 7

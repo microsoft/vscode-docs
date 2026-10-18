@@ -1,4 +1,5 @@
 ---
+Tags: [Security, Extensions]
 Order:
 TOCTitle: Event-Stream Package Security Update
 PageTitle: Event-Stream Package Security Update

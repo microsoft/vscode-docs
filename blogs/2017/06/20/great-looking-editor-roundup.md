@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Extensions, Design]
 Order:
 TOCTitle: Fresh Paint
 PageTitle: Fresh Paint - Give Visual Studio Code a New Look
