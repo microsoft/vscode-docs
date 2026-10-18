@@ -1,4 +1,5 @@
 ---
+Tags: [AI, GitHub Copilot, Community]
 Order: 99
 TOCTitle: Open Source AI Editor
 PageTitle: "VS Code: Open Source AI Editor"

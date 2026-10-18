@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education]
 Order: 
 TOCTitle: VS Code at Build
 PageTitle: Visual Studio Code at Microsoft Build 2020

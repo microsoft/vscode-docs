@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Engineering, Design]
 Order: 140
 TOCTitle: Modernizing the VS Code UI
 PageTitle: Modernizing the VS Code UI

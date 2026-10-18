@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, Extensions, Security]
 Order: 101
 TOCTitle: Full MCP Spec Support
 PageTitle: "The Complete MCP Experience: Full Specification Support in VS Code"

@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, AI]
 Order: 126
 TOCTitle: Multi-Agent Development
 PageTitle: "Your Home for Multi-Agent Development"

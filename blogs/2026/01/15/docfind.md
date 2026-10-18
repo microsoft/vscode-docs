@@ -1,4 +1,5 @@
 ---
+Tags: [Engineering, Performance, Web]
 Order: 122
 TOCTitle: "Building docfind"
 PageTitle: "Building docfind: Fast Client-Side Search with Rust and WebAssembly"
