@@ -84,6 +84,9 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 
 ### Claude permission modes
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Their permission modes do not override that restriction. Contact the IT team that deployed the settings to discuss access.
+
 [Claude harness sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
 
 * **Edit automatically**: apply changes without asking for approval.

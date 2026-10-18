@@ -26,7 +26,7 @@ This article helps you choose the correct hook implementation, manage hooks from
 > The {% data variables.product.prodname_vscode_shortname %} hooks experience is in Preview. Individual provider implementations might have a different lifecycle status. For example, hooks in the {% data variables.copilot.copilot_sdk_short %} are generally available.
 
 > [!IMPORTANT]
-> Your organization might restrict which hooks can run. Contact your administrator for more information. Administrators can learn how to [manage hooks in enterprise environments](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks).
+> Your organization might restrict which hooks can run. Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access. Administrators can learn how to [manage hooks in enterprise environments](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks).
 
 ## Choose the hook implementation for your session
 

@@ -22,6 +22,9 @@ Keywords:
 * **Other accounts**: use an [account supported by the selected harness](/docs/agents/run/agent-harnesses.md#cloud-target), such as a ChatGPT account for Codex. Model availability, usage limits, and billing depend on that account's plan and the harness.
 * **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in {% data variables.product.prodname_vscode_shortname %} without a GitHub Copilot plan.
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even when you use separate provider credentials. Contact the IT team that deployed the settings to discuss access. This harness restriction does not itself disable Claude or OpenAI models in the Copilot harness.
+
 This article explains how language models work, their characteristics, and how to think about model selection.
 
 ![Screenshot of the Language Models editor, showing the list of available models.](../images/language-models/language-models-editor.png)

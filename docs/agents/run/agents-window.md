@@ -28,6 +28,9 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
   * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#codex) to use Codex without GitHub sign-in (Experimental).
   * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for use in the {% data variables.copilot.agents_window %}.
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Existing sessions are not deleted by this restriction. Contact the IT team that deployed the settings to discuss access.
+
 ## Open the {% data variables.copilot.agents_window %}
 
 The {% data variables.copilot.agents_window %} opens as a dedicated {% data variables.product.prodname_vscode_shortname %} window alongside your main editor window. To open the {% data variables.copilot.agents_window %}, use one of the following methods:
