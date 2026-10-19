@@ -2,7 +2,6 @@
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
 DateApproved: 10/14/2026
 MetaDescription: Delegate focused tasks to context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} and review results in the main chat.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
 - agents
@@ -160,7 +159,7 @@ Include the `agent` tool set in the coordinator's `tools` property. The [coordin
 Local subagents select a model in this order:
 
 1. An explicit model parameter supplied by the main agent to the `runSubagent` tool.
-1. The selected custom agent's [`model`](/docs/agent-customization/custom-agents.md#header-optional) property, which accepts a model name or a prioritized list of models.
+1. The selected custom agent's [`model`](/docs/agents/reference/custom-agent-file-reference.md#model-preferences) property, which accepts a model name or a prioritized list of models.
 1. Auto, when `setting(chat.subagents.defaultToAuto)` is enabled and the [conditions for using Auto](#use-auto-for-subagents) apply.
 1. The model running the main conversation.
 
@@ -249,6 +248,43 @@ For each feature request:
 Save all three files. In a Local harness session, select **Feature Builder** from the agents dropdown and describe the feature to implement. The workers have read-only tools, while the coordinator has edit tools.
 
 If another review is needed, the coordinator starts a new invocation and supplies the updated context. The earlier reviewer invocation doesn't retain a conversation for follow-up messages.
+
+#### Delegate implementation to a worker
+
+To keep the coordinator focused on delegation, give it only the `agent` tool set and move editing to an implementation worker. This Local example reuses [Codebase Researcher](#run-a-custom-agent-as-a-subagent).
+
+Create `.github/agents/implementer.agent.md`:
+
+```markdown
+---
+name: Implementer
+description: Implement code changes based on research findings
+user-invocable: false
+tools: ['edit', 'read', 'search']
+---
+Implement the supplied requirements using the research findings.
+Follow existing code patterns and make focused changes.
+Return a summary of changes and any validation still needed.
+```
+
+Create `.github/agents/research-and-implement.agent.md`:
+
+```markdown
+---
+name: Research and Implement
+description: Coordinate research before delegating implementation
+tools: ['agent']
+agents: ['Codebase Researcher', 'Implementer']
+---
+For each feature request:
+1. Ask Codebase Researcher to find relevant files and existing patterns.
+2. Pass the requirements and research findings to Implementer.
+3. Summarize the implementation results and any validation still needed.
+```
+
+Save the three files, select **Research and Implement** in a Local harness session, and describe a change. The coordinator can invoke only the named workers. Codebase Researcher has read-only tools, while Implementer can edit files.
+
+For the syntax and defaults of `agents`, `tools`, and invocation controls, see the [custom agent file reference](/docs/agents/reference/custom-agent-file-reference.md#subagent-configuration).
 
 #### Multi-perspective code review
 

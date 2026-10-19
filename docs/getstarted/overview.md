@@ -109,7 +109,7 @@ To get started with {% data variables.product.prodname_copilot_short %}:
 
     * If your account has a Copilot subscription, {% data variables.product.prodname_vscode_shortname %} uses that subscription.
 
-    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free), which includes a monthly allowance of inline suggestions and AI credits.
+    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup), which includes a monthly allowance of inline suggestions and AI credits.
 
 If agents don't appear after sign-in, review the [agent availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 

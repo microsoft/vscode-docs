@@ -2,7 +2,6 @@
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 10/14/2026
 MetaDescription: Configure Copilot hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -55,12 +54,12 @@ Select the harness before opening the hooks interface so the editor shows the re
 1. Open the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 1. Select **Copilot** from the **Session Target** UI control.
 1. Open the Agent Customizations editor:
-   * In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) and then **Hooks**.
+   * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, and then **Hooks**.
    * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
-   * Enter `/hooks` in the chat input.
+   * In the {% data variables.copilot.chat_view %}, enter `/hooks` in the chat input.
 1. Review the sources and select a hook to open its configuration.
 
-To generate a hook with AI, enter `/create-hook <description>` in chat. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
+To generate a hook with AI, describe the hook you want in chat. The `/create-hook <description>` and **Chat: Generate Hook** shortcuts are available only for Local sessions. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
 
 ## Choose a hook source
 
@@ -71,7 +70,7 @@ Choose the scope that matches the workflow:
 | Personal automation across repositories | User hook files in `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set. |
 | Automation shared with a repository | `.github/hooks/*.json` at the repository root |
 | Hooks alongside other personal or repository settings | An inline `hooks` map in a supported Copilot settings file |
-| A reusable setup with scripts and other customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins) |
+| A reusable setup with scripts and other customizations | [Agent plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins) |
 | Automation active only for one custom agent | [Agent-scoped hooks](#agent-scoped-hooks), with a current limitation for converted plugin agents |
 | Organization-managed validation | [Enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks) |
 
@@ -122,7 +121,7 @@ process.stdout.write('{}');
 
 Add `.github/hooks/tool-use.log` to `.gitignore`. Start a new **Copilot** session and request a harmless task that uses a tool, such as reading a project file. Confirm that the log contains the tool name and that the task continues through its normal permission checks. Returning `{}` makes no permission decision; it does not automatically approve the tool.
 
-The log is written beside the script, so moving the script to your user hook directory keeps its log there too. See the [personal hook and settings examples](/docs/agent-customization/migrate-customizations.md#personal-hooks-and-inline-settings) for quoted command paths. For shared plugin hooks, use the [bundled-script example](/docs/agent-customization/agent-plugins.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
+The log is written beside the script, so moving the script to your user hook directory keeps its log there too. See the [personal hook and settings examples](/docs/agent-customization/migrate-customizations.md#personal-hooks-and-inline-settings) for quoted command paths. For shared plugin hooks, use the [bundled-script example](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
 
 ## Configure commands and event data
 
@@ -173,7 +172,7 @@ An agent-scoped hook is declared in a custom agent's `hooks` frontmatter and app
 The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) describes supported command fields, trust requirements, subagent behavior, and exclusions for remote or organization-hosted definitions.
 
 > [!IMPORTANT]
-> {% data variables.product.prodname_vscode_shortname %} currently omits the `hooks` field when it converts plugin-provided custom agents for the Copilot harness. An agent can appear and run without its scoped hooks. This is a limitation of the [agent conversion path](https://github.com/microsoft/vscode/blob/9dcad803e562f8fdfaad889ef0dfa765d955e5ea/src/vs/platform/agentHost/node/copilot/copilotPluginConverters.ts#L114), not a lack of agent-scoped hook support in the shared harness.
+> {% data variables.product.prodname_vscode_shortname %} currently omits the `hooks` field when it converts plugin-provided custom agents for the Copilot harness. An agent can appear and run without its scoped hooks. This [tracked conversion limitation](https://github.com/microsoft/vscode/issues/341681) is not a lack of agent-scoped hook support in the shared harness.
 
 For affected agents, retain the original hook definition and leave its migration incomplete until the conversion preserves the hooks and you verify that they run. Do not move the command to a repository-wide or plugin-wide event as a workaround: that changes which agents trigger it and is not an equivalent conversion.
 

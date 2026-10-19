@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging, Extensions]
 Order:
 TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code

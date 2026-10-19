@@ -2,8 +2,7 @@
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
 DateApproved: 10/14/2026
 FeatureStatus: user-customization-migration
-MetaDescription: Migrate agent customizations and hook scripts to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaDescription: Migrate hooks and other customizations and replace deprecated integrations in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -20,9 +19,9 @@ Keywords:
 ---
 # Migrate customizations to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}
 
-When {% data variables.product.prodname_vscode_shortname %} shows a customization migration notice, it found a file, setting, or MCP server that the Copilot harness does not read in its current location or format. Use the migration list to move or convert each affected customization.
+Move existing customizations to the Copilot harness, including customizations that require manual changes. When {% data variables.product.prodname_vscode_shortname %} shows a customization migration notice, use the migration list to move or convert the detected files, settings, or MCP servers.
 
-This article explains why migration is needed, how to complete each migration that {% data variables.product.prodname_vscode_shortname %} supports, and what to review manually. You can also [migrate hooks](#migrate-hooks) from user folders, settings, repositories, custom agents, or plugins, even when no migration notice appears.
+This article covers supported migrations, [manual hook migration](#migrate-hooks), and replacements for [deprecated tool sets](#replace-tool-sets) and [chat participants](#replace-chat-participants). Hooks can come from user folders, settings, repositories, custom agents, or plugins. These manual migrations do not appear as automatic conversions in the migration list.
 
 > [!NOTE]
 > This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
@@ -98,7 +97,7 @@ A migration with changes can remove {% data variables.product.prodname_vscode_sh
 > [!IMPORTANT]
 > Disabled state is not stored in `.mcp.json` or `mcp-config.json`. {% data variables.product.prodname_vscode_shortname %} preserves workspace disablement in the current profile when possible, but user-level disablement can be lost. Other Copilot clients and other machines can treat the migrated server as enabled. Review the server's enabled state in each client before use.
 
-Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md).
+Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
 
 ### Check MCP values before migration
 
@@ -198,7 +197,8 @@ This migration applies only to the deprecated {% data variables.product.prodname
 The migration list does not automatically convert every customization type:
 
 * **Custom agents with Local harness-specific behavior**: use **Migrate with Agent** when an agent depends on Local harness tool names, tool sets, hooks, or other behavior that needs semantic changes.
-* **Tool sets**: The Copilot harness does not support {% data variables.product.prodname_vscode_shortname %} tool-set files. There is no automatic migration. Review the tools directly in the custom agent or chat tools picker. See [Create and use tool sets](/docs/agent-customization/tool-sets.md).
+* **Tool sets**: deprecated and not supported in the Copilot harness. [Replace tool-set references](#replace-tool-sets) with tools configured for the workflow.
+* **Chat participants**: deprecated and not supported in the Copilot harness. [Replace participant capabilities](#replace-chat-participants) with plugins that combine skills, MCP tools, and, when needed, MCP Apps.
 * **Hooks**: there is no automatic hook migration. Follow [Migrate hooks](#migrate-hooks) to review discovery, command configuration, script inputs, and output decisions.
 * **Plugins and marketplaces**: manage these separately from the migration list. See [Discover and install plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins).
 * **Extension-provided customizations**: extensions can provide tools, MCP servers, custom agents, skills, and instructions. Keep the contributing extension installed. Extension tools are available only in editor chat while the extension runs. Learn how to [manage extension tools for the Copilot harness](/docs/agents/run/tools.md#add-extension-tools-for-the-copilot-harness).
@@ -234,7 +234,7 @@ Inventory each configuration and the scripts it invokes before changing anything
 | Repository settings | The Copilot harness reads an inline `hooks` map from `.github/copilot/settings.json` and `.github/copilot/settings.local.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. Preserve other settings; do not replace a settings file with a standalone hook-file envelope. |
 | User settings | Copilot reads inline hooks from `~/.copilot/settings.json`, not `~/.copilot/config.json`. Do not assume a Local hook in `~/.claude/settings.json` is discovered by Copilot. Move it to a documented Copilot user source. |
 | Custom agent frontmatter | Review the agent's `hooks` map and the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} currently drops this field when converting plugin-provided agents. For those agents, keep the hook definition but leave its migration incomplete; see the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Copilot also excludes scoped hooks from remote or organization-hosted agent definitions. |
-| Installed plugins | Update the plugin's source package or obtain an updated version from its publisher. Do not patch an installation cache. Keep scripts with the plugin and review its path variables, events, and payloads. See [hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins). |
+| Installed plugins | Update the plugin's source package or obtain an updated version from its publisher. Do not patch an installation cache. Keep scripts with the plugin and review its path variables, events, and payloads. See [hooks in plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins). |
 | Administrator-managed hooks | Coordinate changes with the administrator. Policy hooks and managed plugin hooks have different discovery and trust rules from personal files. See [enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks). |
 
 The Copilot harness combines applicable hooks from multiple sources; adding a repository copy does not replace a user or plugin copy. Avoid running both the original and migrated hook. For a shared setup used across repositories, consider distributing the converted hooks and scripts in a plugin rather than copying them into each repository.
@@ -432,7 +432,7 @@ Alternatively, keep the configuration inline in `~/.copilot/settings.json` while
 
 Preserve unrelated settings and existing hook entries. If `hooks` or `preToolUse` already exists, merge into it rather than adding a duplicate JSON property. The standalone hook-file `version` property is not needed for this inline map. Choose either the standalone file or inline settings for this hook, not both.
 
-For a shared plugin, use the [bundled-script configuration](/docs/agent-customization/agent-plugins.md#reference-plugin-paths-in-hook-commands) instead of a personal absolute path.
+For a shared plugin, use the [bundled-script configuration](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands) instead of a personal absolute path.
 
 ### Check the converted script directly
 
@@ -484,6 +484,111 @@ These fixtures check the script's input and output handling. They do not establi
 1. Repeat in the target operating system, remote host, container, or worktree. Verify `cwd`, script dependencies, user folders, and sandbox access without logging credentials or full prompts.
 1. Only then retire the old configuration. Publish shared changes through the repository or plugin's normal review process.
 
+## Replace tool sets
+
+User-defined tool sets are deprecated and are not supported in the Copilot harness. A tool-set file groups existing tools under a reusable name; it does not implement the tools. Move the tool selection, not the file.
+
+> [!NOTE]
+> Tool-set files remain a Local harness compatibility feature. Tool groups displayed in the Copilot **Tools** tab and supported built-in tool aliases are separate from user-defined tool-set files.
+
+Choose a replacement based on why you used the tool set:
+
+| Previous use | Replacement |
+|--------------|-------------|
+| Select the same capabilities for a recurring role | Specify the supported tools directly in a [custom agent's `tools` property](/docs/agents/reference/custom-agent-file-reference.md#tools). |
+| Control which editor-provided tools are available | Manage tool availability in the [Agent Customizations editor's **Tools** tab](/docs/agents/run/tools.md#manage-available-tools). This selection persists in your profile; it is not a per-request tool-set alias. |
+| Attach a named group to a prompt, such as `#reader` | Describe the task and select the relevant custom agent. A user-defined `#reader` alias has no direct replacement. |
+| Share a workflow and its external integrations | Package the workflow as a skill and its tools as an MCP server in an [agent plugin](/docs/agent-customization/agent-plugins.md). A plugin packages capabilities; it does not recreate a tool-set alias or enforce a tool allow-list. |
+
+To replace an existing tool set:
+
+1. Open its `.toolsets.jsonc` file and list the tools it contains. Expand references to other tool sets.
+1. Find uses of the set in custom-agent `tools` lists, prompt files, and prompt text. Convert prompt files to skills by following [prompt file migration](#convert-prompt-files-to-skills).
+1. In a Copilot harness session, review the available tools in the **Tools** tab. Match each old tool to the capability you need. Do not assume Local tool IDs have identical Copilot equivalents.
+1. Configure the replacement custom agent with supported tool names. Keep workflow instructions in the agent or skill, rather than copying the tool-set JSON into it.
+1. Test the workflow and inspect the tools it actually uses before removing the original set.
+
+For example, a `reader` set might combine code search, symbol usages, diagnostics, and source control changes. Create a review agent with the corresponding available tools, rather than copying `reader` into its `tools` list. If a capability depends on an extension, keep the extension installed and the editor connected. If no equivalent tool is available, adapt the workflow to consume explicitly attached context, add an appropriate integration, or document the missing capability.
+
+> [!IMPORTANT]
+> A skill's instructions do not replace a tool allow-list. Converting a prompt to a skill does not preserve its `tools` selection. Tool availability is also separate from [permissions and approvals](/docs/agents/run/approvals.md).
+
+## Replace chat participants
+
+Chat participants, including extension-provided `@participant` integrations, are deprecated and are not supported in the Copilot harness. The Chat Participant API remains available for Local harness compatibility, but new integrations should not depend on it.
+
+### If you use a participant
+
+For built-in participant workflows, ask the Copilot agent directly. For example, replace `@vscode how do I enable word wrapping` with `How do I turn on word wrapping in the editor?`. For codebase or terminal questions, attach the relevant files, terminal output, or other [context](/docs/chat/copilot-chat-context.md).
+
+For an extension-provided participant, check whether its publisher provides an [agent plugin](/docs/agent-customization/agent-plugins.md), MCP server, or extension tools. Install the replacement and follow its setup instructions. Removing the `@name` prefix does not give Copilot access to the participant's private data, services, or implementation.
+
+There is no automatic conversion of an installed participant. If its publisher has not provided a replacement, ask for one. Keep Local compatibility only while you still need the original integration.
+
+### If you maintain a participant
+
+Start with an **agent plugin containing skills and an MCP server**. Skills describe the domain workflow, and MCP tools provide the data and actions needed to complete it. Add a custom agent when users need an ongoing specialist role. This separates reusable expertise from the code that accesses a service and makes the integration usable beyond one editor.
+
+For interactive controls, use [MCP Apps](/api/extension-guides/ai/mcp.md#mcp-apps). They can provide buttons, forms, visualizations, and multi-step interactions in chat. Prefer [extension tools](/api/extension-guides/ai/tools.md) when the integration needs editor APIs or live editor context that an independent MCP server cannot access.
+
+Inventory the responsibilities of your participant before choosing its components:
+
+| Participant responsibility | Migration approach | What to review |
+|----------------------------|--------------------|----------------|
+| Domain instructions and examples | Put task-specific knowledge in a skill. Use a custom agent for a persistent role, or instruction files for standing project guidance. | Move the useful instructions, not the entire request-handler implementation. |
+| Slash commands such as `@tutor /exercise` | Create explicitly invoked skills for the workflows. Set `disable-model-invocation: true` when they should run only on request. | Choose the skill name and argument guidance. Plugin skills use the plugin's command prefix, not the old `@participant` syntax. |
+| Service access, retrieval, or actions | Expose bounded operations as MCP tools and include the server configuration in the plugin. | Preserve authentication, input validation, cancellation, error reporting, and approval requirements. Do not put secrets in the plugin. |
+| Buttons, forms, or a confirmation step within a workflow | Return an MCP App from a tool and implement the interaction in its UI. | This requires a new UI implementation, not a conversion of `ChatResponseStream` calls. An app's confirmation step does not replace host tool approvals or authorization in the service. |
+| Selection, diagnostics, or other editor state | Let users attach context, or expose editor-specific operations through extension tools. | An MCP server does not automatically have access to {% data variables.product.prodname_vscode_shortname %} APIs. Extension tools require the contributing extension and a connected editor. |
+| A procedure that must run in a fixed order | Keep the procedure in a script or tool implementation and use the skill to describe when to call it. | Model instructions are not a substitute for deterministic execution or validation. |
+| Custom model calls, conversation history, or response rendering | Refactor a bounded operation into a tool, or retain the bespoke experience in extension commands and views. | A custom agent or skill does not take over the harness's conversation loop. Participant history, feedback events, routing rules, and arbitrary response parts have no automatic mapping. |
+
+MCP Apps require a client that supports their UI. Provide a useful text or structured tool result for clients without that support. Test app behavior in each target client instead of assuming that every Copilot interface renders the same controls. In {% data variables.product.prodname_vscode_shortname %}, review the [MCP Apps behavior and limitations](/api/extension-guides/ai/mcp.md#vs-code-behavior-and-limitations), including how apps add messages and context.
+
+### Example: migrate a code tutor to a plugin
+
+Instead of replacing a code-tutor participant with one large custom-agent prompt, separate its capabilities:
+
+* **Teaching workflow:** a `teach-concept` skill asks about the learner's experience, explains a concept, and proposes an exercise.
+* **Exercise operations:** MCP tools retrieve exercises and check answers.
+* **Interactive exercise:** an MCP App displays the question, accepts an answer, and shows feedback. Keep a text-based exercise path for clients without app support.
+* **Optional Tutor agent:** a custom agent holds the teaching style for a longer conversation.
+* **Optional editor integration:** an extension tool supplies diagnostics or selected code when the workflow needs live editor APIs. Otherwise, ask the learner to attach the code.
+
+A plugin can package the portable parts together:
+
+```text
+code-tutor/
+  plugin.json
+  skills/
+    teach-concept/
+      SKILL.md
+  mcp.json
+  com.github.copilot/
+    agents/
+      tutor.agent.md
+```
+
+Use the [plugin manifest and format guidance](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) to configure the package. The MCP server supplies the exercise tools and app resources; the plugin does not automatically convert or embed the old participant extension.
+
+For the teaching skill, preserve explicit invocation:
+
+```markdown
+---
+name: teach-concept
+description: Explain a programming concept and guide the learner through an exercise.
+argument-hint: "[concept or code to explain]"
+disable-model-invocation: true
+---
+
+Ask about the learner's experience and the concept or code they want to understand.
+Explain the concept with a short example before offering an exercise.
+Use the exercise server's tools when available. If they are unavailable, explain
+that limitation and offer a text-only exercise instead.
+```
+
+With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-concept`, rather than `@tutor /teach`. Test the installed plugin, authentication, app interactions, and text-only path before retiring the participant.
+
 ## Verify the migration
 
 After you complete a migration:
@@ -491,6 +596,7 @@ After you complete a migration:
 1. Start a new Copilot harness session.
 1. Confirm that the migrated agents, instructions, skills, MCP servers, or plugins appear in the Agent Customizations editor.
 1. Run a representative task that uses the customization.
+1. For a replaced tool set, inspect the selected tools and check for missing capabilities. For a replaced participant, test its workflows, unavailable-service errors, approvals, and any MCP App interactions.
 1. Check that old and migrated copies are not both active.
 1. Commit workspace migrations to source control when your team should share them.
 1. Remove old files and settings after the migrated customization works.

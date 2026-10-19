@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education]
 Order: 
 TOCTitle: VS Code Day
 PageTitle: Visual Studio Code Day 2023
