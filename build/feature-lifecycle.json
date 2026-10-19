@@ -95,6 +95,10 @@
       "label": "Nested AGENTS.md files",
       "state": "experimental"
     },
+    "on-device-models": {
+      "label": "On-device models",
+      "state": "experimental"
+    },
     "rubber-duck": {
       "label": "Rubber Duck",
       "state": "experimental"
