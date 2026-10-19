@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, GitHub Copilot]
 Order: 103
 TOCTitle: "Command GitHub's Coding Agent from VS Code"
 PageTitle: "Command GitHub's Coding Agent from VS Code"

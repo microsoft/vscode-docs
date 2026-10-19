@@ -1,4 +1,5 @@
 ---
+Tags: [Languages, Debugging]
 Order:
 TOCTitle: Node.js Development with Visual Studio Code and Azure
 PageTitle: Node.js Development with Visual Studio Code and Azure

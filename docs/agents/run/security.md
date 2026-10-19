@@ -2,7 +2,6 @@
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
 DateApproved: 10/14/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
 - trust
@@ -104,7 +103,7 @@ Sandboxing is an added layer. It is not a virtual machine or user-account bounda
 
 On macOS and Linux, you can enable sandboxing for locally-running MCP servers that use the stdio transport. When sandboxing is enabled, the server can only access the file system paths and network domains that you explicitly permit in the sandbox configuration. Tool calls from sandboxed servers are auto-approved because they run in a controlled environment.
 
-Learn more about [configuring MCP server sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers).
+Learn more about [configuring MCP server sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers).
 
 ## Security risks to be aware of
 

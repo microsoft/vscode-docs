@@ -3,7 +3,6 @@ ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
 DateApproved: 10/14/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Migrate customizations and replace deprecated tool sets and chat participants in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -97,7 +96,7 @@ A migration with changes can remove {% data variables.product.prodname_vscode_sh
 > [!IMPORTANT]
 > Disabled state is not stored in `.mcp.json` or `mcp-config.json`. {% data variables.product.prodname_vscode_shortname %} preserves workspace disablement in the current profile when possible, but user-level disablement can be lost. Other Copilot clients and other machines can treat the migrated server as enabled. Review the server's enabled state in each client before use.
 
-Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md).
+Servers that cannot migrate automatically appear under **Needs manual review**. Select **Review** to open the server details and the source configuration. Resolve configuration errors, missing values, or duplicate server names, and then retry. You can also use **Migrate with Agent** for guided help. For MCP formats and supported locations, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
 
 ### Check MCP values before migration
 
@@ -214,7 +213,7 @@ Choose a replacement based on why you used the tool set:
 
 | Previous use | Replacement |
 |--------------|-------------|
-| Select the same capabilities for a recurring role | Specify the supported tools directly in a [custom agent's `tools` property](/docs/agent-customization/custom-agents.md#custom-agent-file-structure). |
+| Select the same capabilities for a recurring role | Specify the supported tools directly in a [custom agent's `tools` property](/docs/agents/reference/custom-agent-file-reference.md#tools). |
 | Control which editor-provided tools are available | Manage tool availability in the [Agent Customizations editor's **Tools** tab](/docs/agents/run/tools.md#manage-available-tools). This selection persists in your profile; it is not a per-request tool-set alias. |
 | Attach a named group to a prompt, such as `#reader` | Describe the task and select the relevant custom agent. A user-defined `#reader` alias has no direct replacement. |
 | Share a workflow and its external integrations | Package the workflow as a skill and its tools as an MCP server in an [agent plugin](/docs/agent-customization/agent-plugins.md). A plugin packages capabilities; it does not recreate a tool-set alias or enforce a tool allow-list. |
@@ -288,7 +287,7 @@ code-tutor/
       tutor.agent.md
 ```
 
-Use the [plugin manifest and format guidance](/docs/agent-customization/agent-plugins.md#plugin-manifest-pluginjson) to configure the package. The MCP server supplies the exercise tools and app resources; the plugin does not automatically convert or embed the old participant extension.
+Use the [plugin manifest and format guidance](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) to configure the package. The MCP server supplies the exercise tools and app resources; the plugin does not automatically convert or embed the old participant extension.
 
 For the teaching skill, preserve explicit invocation:
 

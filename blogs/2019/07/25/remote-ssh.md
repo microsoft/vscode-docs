@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: Remote SSH
 PageTitle: Remote SSH access with Visual Studio Code

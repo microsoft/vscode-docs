@@ -2,7 +2,6 @@
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
 DateApproved: 10/14/2026
 MetaDescription: Replace deprecated tool sets with custom-agent tool selections and plugins in {% data variables.product.prodname_vscode %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai

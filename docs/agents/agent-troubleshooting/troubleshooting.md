@@ -2,7 +2,6 @@
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
 DateApproved: 10/14/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot
@@ -119,7 +118,7 @@ If an MCP server or one of its tools is unavailable:
 
 If the server is running but the model does not invoke its tool, follow [An MCP tool is not being invoked](/docs/agents/agent-troubleshooting/chat-debug-view.md#an-mcp-tool-is-not-being-invoked).
 
-For setup and server-specific checks, see [Configure and debug MCP servers](/docs/agent-customization/mcp-servers.md#troubleshoot-and-debug-mcp-servers).
+For server-specific checks, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
 
 ## Report an unresolved issue
 

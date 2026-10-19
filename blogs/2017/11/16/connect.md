@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements, Community]
 Order:
 TOCTitle: Connect 2017
 PageTitle: Visual Studio Code 2.6M Users, 12 months of momentum and more to come.

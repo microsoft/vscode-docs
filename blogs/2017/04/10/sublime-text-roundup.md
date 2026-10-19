@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Extensions]
 Order:
 TOCTitle: Sublime Text Extension Roundup
 PageTitle: Sublime Text Extension Roundup

@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development, Education]
 Order: 
 TOCTitle: Development Containers in Education
 PageTitle: Development Containers in Education with Visual Studio Code

@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: Dev container CLI
 PageTitle: Development Container CLI
