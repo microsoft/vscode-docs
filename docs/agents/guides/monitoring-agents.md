@@ -294,7 +294,7 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 ## Manage OTel configuration for your organization
 
-Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the Agent Host process.
+Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the Agent Host process. In addition to collector export, Copilot Agent Host sessions support a managed file destination.
 
 For delivery methods, configuration fields, client support, and precedence, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry). For the behavior specific to {% data variables.product.prodname_vscode_shortname %}, see [Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
 
@@ -302,6 +302,43 @@ For Local harness sessions, {% data variables.product.prodname_vscode_shortname 
 
 > [!NOTE]
 > When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
+
+### Export managed telemetry to a file
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, administrators can set `telemetry.filePath` to save Copilot Agent Host telemetry as JSON Lines (JSONL), without running an OTLP collector or requiring developers to opt in through personal OTel settings. This managed destination is separate from the Copilot Chat extension's [file exporter](#other-exporter-examples).
+
+For a local Agent Host, add the following telemetry block to the device-wide `managed-settings.json` file, not your editor settings JSON:
+
+| Platform | Managed settings file |
+|---|---|
+| macOS | `/Library/Application Support/GitHubCopilot/managed-settings.json` |
+| Linux | `/etc/github-copilot/managed-settings.json` |
+| Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
+
+```json
+{
+    "telemetry": {
+        "filePath": "~/copilot-telemetry/copilot-otel.jsonl",
+        "captureContent": false,
+        "capture": {
+            "identity": false
+        }
+    }
+}
+```
+
+Choose an absolute or home-relative output path that the Agent Host can write to. Paths refer to the machine that exports the telemetry. The `~/` prefix expands to that machine's user home directory. Environment-variable references such as `$HOME` or `%USERPROFILE%` in `filePath` are not expanded and are rejected.
+
+Setting `filePath` enables Agent Host OTel export without `enabled: true`. An explicit managed `telemetry.enabled: false` takes precedence and turns off export.
+
+After {% data variables.product.prodname_vscode_shortname %} resolves a managed telemetry change, it restarts the local Agent Host automatically. Start a new Copilot Agent Host session and send a prompt, then check the destination file for spans such as `invoke_agent` and `vscode.agent_host.session`.
+
+The exporter creates missing parent directories and appends one span per line. If it cannot resolve the path or write to the file, the Agent Host logs an error without blocking chat. It does not fall back to a collector. Apply your organization's access and retention controls to the exported files.
+
+> [!IMPORTANT]
+> A managed `filePath` takes precedence over collector configuration. While it is configured, Agent Host telemetry goes to the file instead of the collector, and [dynamic headers](#configure-dynamic-headers) do not apply. Include the file configuration in the [highest-precedence managed telemetry block](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
+
+To remove the managed file destination, remove `telemetry.filePath` from the effective managed configuration. After the change is applied, another configured collector or personal Agent Host exporter can become effective again. Removing `filePath` stops all export only when no other exporter is configured. To turn off Agent Host OTel export through managed settings, set `telemetry.enabled` to `false`.
 
 ### Configure dynamic headers
 
@@ -503,7 +540,7 @@ Console output (quick debugging):
 }
 ```
 
-File-based output (offline or CI):
+File-based output from the Copilot Chat extension (offline or CI):
 
 ```json
 {
@@ -512,6 +549,8 @@ File-based output (offline or CI):
   "github.copilot.chat.otel.outfile": "/tmp/copilot-otel.jsonl"
 }
 ```
+
+For organization-managed output from Copilot Agent Host sessions, see [Export managed telemetry to a file](#export-managed-telemetry-to-a-file).
 
 For static HTTP headers, set `OTEL_EXPORTER_OTLP_HEADERS`. Administrators can also configure managed static headers and, for Copilot Agent Host sessions, [dynamic headers](#configure-dynamic-headers).
 
@@ -524,7 +563,7 @@ OTel monitoring is off by default. You or your organization must configure monit
 | **Off by default** | No OTel data is exported unless you or your organization enables monitoring. |
 | **No content by default** | Prompts, responses, and tool arguments require opt-in with `captureContent`. |
 | **No PII in default attributes** | Session IDs, model names, and token counts are not personally identifiable. |
-| **Configured endpoints** | Data goes to the endpoint configured by you or your organization. |
+| **Configured destinations** | Data goes to the collector endpoint or file configured by you or your organization. |
 
 ## Related content
 

@@ -167,7 +167,9 @@ If built-in updates are disabled by policy, the notice directs the developer to 
 
 ### Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}
 
-Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the Agent Host automatically after it resolves a managed telemetry change.
+Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the local Agent Host automatically after it resolves a managed telemetry change.
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, use `telemetry.filePath` to save Copilot Agent Host telemetry to a JSONL file without a collector or personal OTel opt-in. The managed file destination takes precedence over collector configuration, unless managed `telemetry.enabled` is `false`, which turns off export. See [Export managed telemetry to a file](/docs/agents/guides/monitoring-agents.md#export-managed-telemetry-to-a-file) for configuration, path requirements, and removal behavior.
 
 Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, use `telemetry.headersProvider` to generate and refresh HTTP headers for OTLP export from Copilot Agent Host sessions. Headers can supply collector-specific metadata, route telemetry, or authenticate with the collector. Managed export does not require developers to opt in through personal OTel settings. For a configuration example and helper requirements, see [Configure dynamic headers](/docs/agents/guides/monitoring-agents.md#configure-dynamic-headers).
 
