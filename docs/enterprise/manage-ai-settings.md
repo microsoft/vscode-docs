@@ -220,6 +220,19 @@ Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data
 
 Setting this policy to `true` does not override the [Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
 
+#### Enable or disable the copilot command
+
+{% data variables.product.prodname_vscode_shortname %} includes a `copilot` command that runs {% data variables.copilot.copilot_cli %}. When {% data variables.copilot.copilot_cli_short %} isn't installed, the command offers to install it from GitHub. On Windows, setup can also [add the command to `PATH` and install {% data variables.copilot.copilot_cli_short %}](/docs/setup/windows.md#set-up-the-copilot-command).
+
+Set the `CopilotCliCommand` policy to `false` to turn off the command. This policy controls `setting(chat.copilotCliCommand.enabled)`. When the policy is disabled:
+
+* New integrated terminals don't include the `copilot` command.
+* On Windows, setup doesn't show its **{% data variables.copilot.copilot_cli %}** page or install {% data variables.copilot.copilot_cli_short %}. The next time setup runs, for example during an update, it removes the `copilot` command from `PATH`. Until then, the command doesn't install {% data variables.copilot.copilot_cli_short %}.
+
+The policy doesn't affect a {% data variables.copilot.copilot_cli_short %} installation that you deploy separately. To control which {% data variables.copilot.copilot_cli_short %} version developers use and where it comes from, disable the policy and deploy {% data variables.copilot.copilot_cli_short %} with your own software distribution tools. Learn more about [installing {% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+
+Whether developers can use {% data variables.copilot.copilot_cli_short %} is controlled by your [GitHub organization and enterprise settings](#use-github-organization-and-enterprise-settings), which {% data variables.copilot.copilot_cli_short %} applies after sign-in.
+
 ### Configure models and data handling
 
 #### Set a default chat model

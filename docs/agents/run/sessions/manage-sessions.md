@@ -263,6 +263,8 @@ To start a {% data variables.copilot.copilot_cli %} session from {% data variabl
 * Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
 * Enter `copilot` in an integrated terminal.
 
+If {% data variables.copilot.copilot_cli_short %} isn't installed, the `copilot` command offers to install it. On Windows, setup can also [add the copilot command to PATH](/docs/setup/windows.md#set-up-the-copilot-command), so it works in any terminal.
+
 {% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
 
 ## Archive sessions

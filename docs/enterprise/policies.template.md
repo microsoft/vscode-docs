@@ -34,7 +34,7 @@ You can get the ADMX and ADML files from either an existing installation or by d
 
 1. Download the [{% data variables.product.prodname_vscode_shortname %} zip archive](/download) for your version of {% data variables.product.prodname_vscode_shortname %}.
 1. Extract the zip file to a temporary location.
-1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template files (for example, `vscode.admx`) and a `locales` subfolder with ADML files for different languages.
+1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template file (for example, `VSCode.admx`) and a folder for each language, such as `en-us`, with the ADML file for that language.
 
 ### Step 2: Configure policy values
 
@@ -71,8 +71,8 @@ Follow these steps to configure {% data variables.product.prodname_vscode_shortn
 
 #### Step 1: Install the policy definition files
 
-1. Copy the `vscode.admx` file to `C:\Windows\PolicyDefinitions`.
-1. Copy the appropriate ADML file from the `locales` subfolder (for example, `en-US\vscode.adml`) to `C:\Windows\PolicyDefinitions\<your-locale>` (for example, `C:\Windows\PolicyDefinitions\en-US`).
+1. Copy the `VSCode.admx` file to `C:\Windows\PolicyDefinitions`.
+1. Copy the ADML file from the folder for your language (for example, `en-us\VSCode.adml`) to `C:\Windows\PolicyDefinitions\<your-locale>` (for example, `C:\Windows\PolicyDefinitions\en-US`).
 
 > [!NOTE]
 > You need administrator privileges to copy files to the `PolicyDefinitions` directory.
