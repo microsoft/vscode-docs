@@ -36,7 +36,7 @@ For System Setup, ZIP archive, or other options, see the [full Windows setup gui
 1. Open the `.dmg` file and drag **{% data variables.product.prodname_vscode %}.app** to the **Applications** folder.
 1. Open {% data variables.product.prodname_vscode_shortname %} from the Applications folder or Spotlight.
 
-To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
+To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' and optionally 'copilot' commands in PATH**. Installing {% data variables.copilot.copilot_cli %} is optional. For details about both choices, see the [macOS command-line setup instructions](/docs/setup/mac.md#configure-path-with-vs-code).
 
 {% /tab %}
 {% tab label="Linux" %}
