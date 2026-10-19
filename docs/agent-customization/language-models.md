@@ -81,8 +81,9 @@ You can see which model is used for generating a response by hovering over the c
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
-## Use on-device models (Experimental)
+## Use on-device models
 
+`feature(on-device-models)`
 On-device models let you run a coding model provided by {% data variables.product.prodname_copilot_short %}, currently MAI Code 1.1 Flash, directly on your device in Copilot harness sessions. llama.cpp serves the model, so model processing stays on your machine. You can use the local model alongside cloud models, and Auto can route suitable requests to it with cloud fallback.
 
 Laptops such as the [Surface Laptop Ultra](https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra), powered by the NVIDIA RTX Spark superchip with up to 128 GB of unified memory, have enough GPU memory to run a capable coding model locally. On-device models bring that capability to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}, without you having to find, download, and serve a model yourself.

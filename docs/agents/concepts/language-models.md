@@ -20,7 +20,7 @@ Keywords:
 * **Models from your GitHub Copilot plan**: choose from multiple models by different providers, such as Anthropic, Google, and OpenAI, included with your plan.
 * **Other accounts**: use an [account supported by the selected harness](/docs/agents/run/agent-harnesses.md#cloud-target), such as a ChatGPT account for Codex. Model availability, usage limits, and billing depend on that account's plan and the harness.
 * **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in {% data variables.product.prodname_vscode_shortname %} without a GitHub Copilot plan.
-* **On-device models** _(Experimental)_: download a [Copilot-provided coding model](/docs/agent-customization/language-models.md#use-on-device-models-experimental) and run it on a supported NVIDIA GPU in Copilot harness sessions.
+* **On-device models** `feature(on-device-models)`: download a [Copilot-provided coding model](/docs/agent-customization/language-models.md#use-on-device-models-experimental) and run it on a supported NVIDIA GPU in Copilot harness sessions.
 
 This article explains how language models work, their characteristics, and how to think about model selection.
 
