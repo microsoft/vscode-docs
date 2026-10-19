@@ -1,11 +1,11 @@
 ---
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 DateApproved: 3/2/2023
-MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with Visual Studio Code
+MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with {% data variables.product.prodname_vscode %}
 ---
-# Java Web Apps with Visual Studio Code
+# Java Web Apps with {% data variables.product.prodname_vscode %}
 
-This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to deploy a Java web application to a Linux Tomcat server in Azure App Service.
+This tutorial shows you how to create a Java web application with {% data variables.product.prodname_vscode %}. You'll learn how to deploy a Java web application to a Linux Tomcat server in Azure App Service.
 
 ## Scenario
 
@@ -59,7 +59,7 @@ Install Apache Maven for your local development environment:
 
 ## Deploy Web Apps to the cloud
 
-We just built a Java web application and ran it locally. Now you will learn how to deploy from Visual Studio Code and run it on [Azure](https://azure.microsoft.com) in the cloud.
+We just built a Java web application and ran it locally. Now you will learn how to deploy from {% data variables.product.prodname_vscode %} and run it on [Azure](https://azure.microsoft.com) in the cloud.
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -109,11 +109,11 @@ Once you have signed in, you can open the command prompt or terminal window and 
 mvn clean package
 ```
 
-After building the project, open the `target` directory in VS Code Explorer. Right-click on the artifact and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
+After building the project, open the `target` directory in {% data variables.product.prodname_vscode_shortname %} Explorer. Right-click on the artifact and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
 
 ![Deploy to Web App](images/java-webapp/deploy-webapp.png)
 
-Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. Click the link to open it in a browser, you can see the web app running on Azure!
+Open the **Output** window in {% data variables.product.prodname_vscode_shortname %} to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. Click the link to open it in a browser, you can see the web app running on Azure!
 
 ![Greeting from Spring Boot](images/java-webapp/greeting.png)
 
@@ -131,5 +131,5 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 
 ## Next steps
 
-- To containerize and deploy a web application, check out the [Docker in VS Code](/docs/containers/overview.md).
+- To containerize and deploy a web application, check out the [Docker in {% data variables.product.prodname_vscode_shortname %}](/docs/containers/overview.md).
 - To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).

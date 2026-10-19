@@ -1,6 +1,6 @@
 ---
 ContentId: 9c8b7a6d-5e4f-4c3b-9a2d-1f0e2d3c4b05
-DateApproved: 05/21/2026
+DateApproved: 10/14/2026
 MetaDescription: Practice installing, reviewing, using, and recommending agent plugins for repeatable AI workflows in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -15,7 +15,7 @@ Keywords:
 # Agent plugins
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9lonfxt7dqU" title="Agent Plugins" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch Agent Plugins on YouTube (opens in new tab).](images/3-agent-plugins/youtube-9lonfxt7dqU.jpg)](https://www.youtube.com/watch?v=9lonfxt7dqU)
 
 Agent plugins bundle multiple customizations into one installable package. In this guide, you will inspect a plugin before installing it, use a plugin-provided command, and decide when a plugin is a better fit than separate local customizations.
 
@@ -108,22 +108,21 @@ The goal is not to install everything. The goal is to see how a plugin can bring
 
 ## Read the manifest
 
-When you inspect a plugin repository, start with `plugin.json`. The manifest defines the plugin identity and points to the folders that contain skills, agents, hooks, and MCP server definitions.
+When you inspect a plugin repository, start with `plugin.json`. The manifest defines the plugin identity, and the folders beside it hold the skills, agents, hooks, and MCP server definitions.
 
-Look for fields like these:
+A plugin that follows the [Agent Plugins standard](https://agent-plugins.org/) declares the schema it targets:
 
 ```json
 {
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "team-review-tools",
-    "description": "Review workflow for the team repository",
-    "skills": "skills/",
-    "agents": "agents/",
-    "hooks": "hooks.json",
-    "mcpServers": ".mcp.json"
+    "description": "Review workflow for the team repository"
 }
 ```
 
-This step matters because plugins can run hooks and MCP servers on your machine. The manifest tells you where to inspect the behavior before you trust it.
+Components sit in fixed locations rather than manifest fields: skills in `skills/`, MCP servers in `mcp.json`, and Copilot-specific parts such as agents and hooks under `com.github.copilot/`. Older Copilot and Claude plugins instead list component paths in the manifest with fields like `skills`, `agents`, `hooks`, and `mcpServers`.
+
+This step matters because plugins can run hooks and MCP servers on your machine. The manifest and these folders tell you where to inspect the behavior before you trust it.
 
 ## Share recommended plugins
 

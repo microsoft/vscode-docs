@@ -1,9 +1,10 @@
 ---
+Tags: [AI, GitHub Copilot, Community]
 Order: 99
 TOCTitle: Open Source AI Editor
 PageTitle: "VS Code: Open Source AI Editor"
 MetaDescription: We will open source the GitHub Copilot Chat extension. It’s the next step towards making VS Code an open source AI editor.
-MetaSocialImage: open_source_ai_editor.png
+MetaSocialImage: open_source_ai_editor.webp
 Date: 2025-05-19
 Author: The VS Code team
 ---

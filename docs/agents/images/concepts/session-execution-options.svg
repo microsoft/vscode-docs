@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550" role="img" aria-labelledby="title description">
+  <title id="title">Where agent sessions work on code</title>
+  <desc id="description">Sessions can work directly on your machine or a connected SSH, Tunnel, or WSL host, or inside a Dev Container on either host. Provider-managed cloud sessions work on a repository and return a pull request. Dev Container sessions require the desktop Agents Window, and available options depend on the host and harness.</desc>
+  <rect width="800" height="550" fill="#ffffff"/>
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle" fill="#1e1e1e">
+    <text x="400" y="51" font-size="28">Where agent sessions work on code</text>
+    <text x="400" y="84" font-size="18" fill="#475569">Choose an environment, then an available harness.</text>
+
+    <rect x="20" y="118" width="242" height="344" rx="12" fill="#eff6ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="141" y="153" font-size="22" fill="#1e40af">Your machine</text>
+    <text x="141" y="182" font-size="18" fill="#475569">Local workspace</text>
+    <rect x="36" y="214" width="210" height="80" rx="10" fill="#ffffff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="141" y="246" font-size="20">Directly on host</text>
+    <text x="141" y="273" font-size="16" fill="#475569">Workspace + tools</text>
+    <text x="141" y="325" font-size="18" fill="#475569">or</text>
+    <rect x="36" y="340" width="210" height="98" rx="10" fill="#e5dbff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="141" y="379" font-size="20">Dev Container*</text>
+    <text x="141" y="409" font-size="16" fill="#475569">Workspace + tools</text>
+
+    <rect x="279" y="118" width="242" height="344" rx="12" fill="#eff6ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="400" y="153" font-size="22" fill="#1e40af">Connected host</text>
+    <text x="400" y="182" font-size="18" fill="#475569">SSH, Tunnel, or WSL</text>
+    <rect x="295" y="214" width="210" height="80" rx="10" fill="#ffffff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="400" y="246" font-size="20">Directly on host</text>
+    <text x="400" y="273" font-size="16" fill="#475569">Workspace + tools</text>
+    <text x="400" y="325" font-size="18" fill="#475569">or</text>
+    <rect x="295" y="340" width="210" height="98" rx="10" fill="#e5dbff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="400" y="379" font-size="20">Dev Container*</text>
+    <text x="400" y="409" font-size="16" fill="#475569">Workspace + tools</text>
+
+    <rect x="538" y="118" width="242" height="344" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <text x="659" y="153" font-size="22" fill="#166534">Provider cloud</text>
+    <text x="659" y="182" font-size="18" fill="#475569">Managed infrastructure</text>
+    <rect x="554" y="214" width="210" height="80" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    <text x="659" y="261" font-size="20">Repository task</text>
+    <path d="M659 302 V330 M653 323 L659 330 L665 323" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="554" y="340" width="210" height="98" rx="10" fill="#d3f9d8" stroke="#22c55e" stroke-width="2"/>
+    <text x="659" y="396" font-size="20">Pull request</text>
+
+    <text x="24" y="497" font-size="16" text-anchor="start" fill="#475569">* Dev Container sessions require the desktop Agents Window.</text>
+    <text x="24" y="525" font-size="16" text-anchor="start" fill="#475569">Available options depend on the host and harness.</text>
+  </g>
+</svg>

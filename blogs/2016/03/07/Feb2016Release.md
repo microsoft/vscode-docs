@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements]
 Order:
 TOCTitle: February 2016 Release
 PageTitle: Visual Studio February 2016 Release

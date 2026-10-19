@@ -1,15 +1,15 @@
 ---
 ContentId: 442dd725-5d6c-4b88-9696-95d5ddf5b2b8
-MetaDescription: VS Code for the Web - Azure
+MetaDescription: {% data variables.product.prodname_vscode_shortname %} for the Web - Azure
 DateApproved: 05/12/2025
 ---
-# VS Code for the Web - Azure
+# {% data variables.product.prodname_vscode_shortname %} for the Web - Azure
 
-VS Code for the Web is a zero-install and browser-based version of Visual Studio Code. The `/azure` (for short) environment, accessible via <https://vscode.dev/azure>, is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
+{% data variables.product.prodname_vscode_shortname %} for the Web is a zero-install and browser-based version of {% data variables.product.prodname_vscode %}. The `/azure` (for short) environment, accessible via <https://vscode.dev/azure>, is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
 
 Powered by [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), this environment offers up to **4 hours of compute time**, eliminating the need to manually configure dev environments or install dependencies. `/azure` comes preloaded with the latest libraries, extensions, and tools to get you coding instantly.
 
-![VS Code for the Web Azure](./images/vscodeforweb/azurescreenshot.png)
+![{% data variables.product.prodname_vscode_shortname %} for the Web Azure](./images/vscodeforweb/azurescreenshot.png)
 
 ## Getting started
 
@@ -34,49 +34,49 @@ All major runtimes are pre-installed:
 
 Seamlessly commit your changes directly to your GitHub repository using the [GitHub Repository extension](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub). GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories guide](/docs/sourcecontrol/github.md#github-repositories-extension).
 
-### Continue working in VS Code on the desktop
+### Continue working in {% data variables.product.prodname_vscode_shortname %} on the desktop
 
-After the Azure Cloud Shell container time is up, you may want to continue your work in VS Code on the desktop. Use the **Continue Working on** button, located in the Status Bar of VS Code for the Web, to commit your code to a chosen repository in GitHub, and move over to your local environment.
+After the Azure Cloud Shell container time is up, you may want to continue your work in {% data variables.product.prodname_vscode_shortname %} on the desktop. Use the **Continue Working on** button, located in the Status Bar of {% data variables.product.prodname_vscode_shortname %} for the Web, to commit your code to a chosen repository in GitHub, and move over to your local environment.
 
 Within this experience, you have two options for local continuation:
 
 * **Using Docker**: Launch a pre-configured development container.
-* **Using VS Code Locally**: Clone the repo and configure your environment using a README.
+* **Using {% data variables.product.prodname_vscode_shortname %} Locally**: Clone the repo and configure your environment using a README.
 
 ## Azure entry points
 
-The `/azure` experience integrates with Microsoft Foundry to bring code closer to developers. Buttons like **Open in VS Code for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground** and the **Microsoft Foundry home page**. See more in the sample use cases or scenarios section.
+The `/azure` experience integrates with Microsoft Foundry to bring code closer to developers. Buttons like **Open in {% data variables.product.prodname_vscode_shortname %} for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground** and the **Microsoft Foundry home page**. See more in the sample use cases or scenarios section.
 
 To get started:
 
 1. Choose a model.
 2. Build and test your agent.
 3. Select **View Code**, and then select your programming language and SDK.
-4. Launch directly into VS Code using the **Open in VS Code** button for the Web with **one click**.
+4. Launch directly into {% data variables.product.prodname_vscode_shortname %} using the **Open in {% data variables.product.prodname_vscode_shortname %}** button for the Web with **one click**.
 
 Alternatively, you can create an agent from the Microsoft Foundry home page:
 
 1. Open the Microsoft Foundry home page (<https://ai.azure.com>)
 2. View the suggested code snippet generated on the home page
-3. Select **Open in VS Code** for a one-click experience to create an agent based on the generated code
+3. Select **Open in {% data variables.product.prodname_vscode_shortname %}** for a one-click experience to create an agent based on the generated code
 
-Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and select **Open in VS Code** to launch their template in one operation to the `/azure` environment.
+Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and select **Open in {% data variables.product.prodname_vscode_shortname %}** to launch their template in one operation to the `/azure` environment.
 
 To get started:
 
 1. Navigate to the AI App Gallery(https://aka.ms/aiapps)
 2. Choose a template or search for a template you'd like to run
-3. Select **Open in VS Code** from the dropdown menu
-4. Launch directly into VS Code and use GitHub Copilot to answer any questions you might have.
+3. Select **Open in {% data variables.product.prodname_vscode_shortname %}** from the dropdown menu
+4. Launch directly into {% data variables.product.prodname_vscode_shortname %} and use GitHub Copilot to answer any questions you might have.
 
-We also have integrations with the Azure portal. Developers can now access an "Open in VS Code" button from Azure Copilot when they generate code.
+We also have integrations with the Azure portal. Developers can now access an "Open in {% data variables.product.prodname_vscode_shortname %}" button from Azure Copilot when they generate code.
 
 To get started:
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account
 2. Navigate to Azure Copilot and start developing a scenario you'd like to build
-3. Once Copilot has generated code, select the generated code file and select **Open in VS Code**
-4. Launch directly in VS Code and use GitHub Copilot to answer any further questions.
+3. Once Copilot has generated code, select the generated code file and select **Open in {% data variables.product.prodname_vscode_shortname %}**
+4. Launch directly in {% data variables.product.prodname_vscode_shortname %} and use GitHub Copilot to answer any further questions.
 
 ## Sample use cases or scenarios
 
@@ -84,12 +84,12 @@ The following are commonly used scenarios for the `\azure` environment.
 
 * [Using Microsoft Foundry to create an agent](https://ai.azure.com)
 
-    1. Access the Microsoft Foundry NextGen portal and select **Open in VS Code** next to the code generated for your agent
-    2. Let the VS Code for the Web - Azure environment initialize and set up your environment
+    1. Access the Microsoft Foundry NextGen portal and select **Open in {% data variables.product.prodname_vscode_shortname %}** next to the code generated for your agent
+    2. Let the {% data variables.product.prodname_vscode_shortname %} for the Web - Azure environment initialize and set up your environment
     3. Read the README file and follow the steps to run the **create_and_run_agent.py** file
     4. Your agent will be created and has run successfully! Continue using the Foundry Extension (pre-installed) to fine-tune   your agent or follow the steps below to create an application with your agent
 
-* [Using Microsoft Foundry to create a model deployment and open your code in VS Code](https://ai.azure.com)
+* [Using Microsoft Foundry to create a model deployment and open your code in {% data variables.product.prodname_vscode_shortname %}](https://ai.azure.com)
 
     1. From the Microsoft Foundry portal, select the best model for your use case, including o3, o4-mini or MAI-DS-R1 from Foundry Models. In this case, we’ll use gpt-4o-mini as an example model for an agent workflow.
 
@@ -113,11 +113,11 @@ The following are commonly used scenarios for the `\azure` environment.
 
         ![Screenshot that shows EntraID auth](images/vscodeforweb/fifth.png)
 
-    6. When ready, select **Open in VS Code** and be redirected to the /azure environment of VS Code for the Web.
+    6. When ready, select **Open in {% data variables.product.prodname_vscode_shortname %}** and be redirected to the /azure environment of {% data variables.product.prodname_vscode_shortname %} for the Web.
 
-        ![Screenshot that shows Open in VS Code button](images/vscodeforweb/sixth.png)
+        ![Screenshot that shows Open in {% data variables.product.prodname_vscode_shortname %} button](images/vscodeforweb/sixth.png)
 
-        You’ll notice that as the environment is set up, the code sample, API endpoint, and key are automatically imported into a new VS Code for the Web workspace.
+        You’ll notice that as the environment is set up, the code sample, API endpoint, and key are automatically imported into a new {% data variables.product.prodname_vscode_shortname %} for the Web workspace.
 
         ![Screenshot that shows loading dial](images/vscodeforweb/seventh.png)
 
@@ -137,7 +137,7 @@ The following are commonly used scenarios for the `\azure` environment.
 
         ![Screenshot that shows azd up](images/vscodeforweb/fifteenth.png)
 
-    10. Continue in VS Code on the desktop or GitHub Desktop by selecting “Continue on Desktop” in the bottom left corner. This button allows you to move your workspace to your local environment in one operation. If you have a dev container attached to an existing application, you have the choice to move using that container or to your local environment.
+    10. Continue in {% data variables.product.prodname_vscode_shortname %} on the desktop or GitHub Desktop by selecting “Continue on Desktop” in the bottom left corner. This button allows you to move your workspace to your local environment in one operation. If you have a dev container attached to an existing application, you have the choice to move using that container or to your local environment.
 
         ![Screenshot that shows Continue On button](images/vscodeforweb/sixteenth.png)
 
@@ -161,13 +161,13 @@ The following are commonly used scenarios for the `\azure` environment.
     - Batch run prompts for selected AI models
     - Evaluate an AI model with a dataset for supported popular evaluators like F1 score, relevance, similarity, coherence, and more
 
-* [Rapid prototyping with VS Code extensions and Python](https://code.visualstudio.com/docs/python/python-quick-start)
+* [Rapid prototyping with {% data variables.product.prodname_vscode_shortname %} extensions and Python](https://code.visualstudio.com/docs/python/python-quick-start)
 
 * [Create, Edit, and Deploy an Agents with Azure Copilot](https://review.learn.microsoft.com/en-us/azure/copilot/deployment-agent?branch=release-ignite-azure-copilot)
 
 ## Limitations
 
-Although VS Code for the Web is almost at parity with VS Code on the desktop, there are some limitations to the development environment:
+Although {% data variables.product.prodname_vscode_shortname %} for the Web is almost at parity with {% data variables.product.prodname_vscode_shortname %} on the desktop, there are some limitations to the development environment:
 
 * No terminal access beyond Cloud Shell
 * Limited support for some native extensions or language features
@@ -175,7 +175,7 @@ Although VS Code for the Web is almost at parity with VS Code on the desktop, th
 
 ## Troubleshooting
 
-If you encounter any issues with VS Code for the Web – Azure, please log an issue in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure)
+If you encounter any issues with {% data variables.product.prodname_vscode_shortname %} for the Web – Azure, please log an issue in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure)
 
 
 ### Connection issue
@@ -196,7 +196,7 @@ Once finished you should see this screen.
 
 ### Gathering logs
 
-The extension logs will help us diagnose any issues with vscode.dev/azure. You can access them by going to the Output view, then selecting the **VS Code for the Web - Azure** output channel.
+The extension logs will help us diagnose any issues with vscode.dev/azure. You can access them by going to the Output view, then selecting the **{% data variables.product.prodname_vscode_shortname %} for the Web - Azure** output channel.
 
 ![Screenshot that shows Logs](images/vscodeforweb/tbs5.png)
 
@@ -209,8 +209,8 @@ Keep learning and exploring with the following resources:
 * [Azure Developer CLI documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
 * [GitHub Copilot](https://github.com/features/copilot)
 * [Azure AI Studio](https://ai.azure.com/)
-* [VS Code Dev Containers](https://containers.dev/)
+* [{% data variables.product.prodname_vscode_shortname %} Dev Containers](https://containers.dev/)
 
 ## Feedback and Support
 
-Create issues in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure) as you find them while using vscode.dev/azure. The more detail the better. If possible, include logs from the "VS Code for the Web - Azure" output channel.
+Create issues in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure) as you find them while using vscode.dev/azure. The more detail the better. If possible, include logs from the "{% data variables.product.prodname_vscode_shortname %} for the Web - Azure" output channel.

@@ -1,8 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 8/12/2026
-MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/14/2026
+MetaDescription: Configure chat and inline models in {% data variables.product.prodname_vscode_shortname %}, adjust thinking effort, and use your own API key.
 Keywords:
 - language models
 - BYOK
@@ -12,9 +11,9 @@ Keywords:
 - local models
 - customize
 ---
-# AI language models in VS Code
+# AI language models in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code gives you access to multiple built-in language models, each optimized for different tasks. You can switch models for chat, inline suggestions, and utility tasks, and you can add more models by bringing your own API key.
+{% data variables.product.prodname_vscode %} gives you access to multiple built-in language models, each optimized for different tasks. You can switch models for chat, inline suggestions, and utility tasks, and you can add more models by bringing your own API key.
 
 For background on how language models work, their characteristics, and how to choose the right model, see [Language models concepts](/docs/agents/concepts/language-models.md).
 
@@ -22,7 +21,7 @@ For background on how language models work, their characteristics, and how to ch
 
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
+![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
 
@@ -37,13 +36,13 @@ You can further extend the list of available models by [using your own language 
 > For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Configure thinking effort
 
 Some models support configurable thinking effort, which controls how much reasoning the model applies to each request. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
 
-By default, VS Code sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
+By default, {% data variables.product.prodname_vscode_shortname %} sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
 
 > [!TIP]
 > Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/agents/guides/optimize-usage.md).
@@ -68,9 +67,17 @@ The model picker label updates to show the selected effort level, for example "C
 
 ## Use auto model selection
 
-With auto model selection, VS Code evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
+With auto model selection, {% data variables.product.prodname_vscode_shortname %} evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
-To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
+To use auto model selection, select **Auto** from the model picker in chat. Then use **Optimize for** to choose the tier that matches your priorities:
+
+* **Efficiency** favors lower AI credit consumption.
+* **Balance** balances capability and credit consumption.
+* **Intelligence** favors more capable models for complex tasks.
+
+Your organization can set a starting tier for new chats. The managed tier appears as **Default** in the **Optimize for** menu, but you can still choose a different tier. An explicit choice is preserved when the managed default changes or is removed.
+
+You can see which model is used for generating a response by hovering over the chat response.
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
@@ -78,7 +85,7 @@ To use auto model selection, select **Auto** from the model picker in chat. You 
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/getting-started/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
@@ -113,19 +120,19 @@ To pin or unpin a model:
 
 ## Bring your own language model key
 
-Bring Your Own Key (BYOK) lets you connect to any compatible model provider while still using the VS Code chat experience and tools. You can use BYOK to access models from other providers, to run models locally, or to use models that are not yet available as built-in options in VS Code.
+Bring Your Own Key (BYOK) lets you connect to any compatible model provider while still using the {% data variables.product.prodname_vscode_shortname %} chat experience and tools. You can use BYOK to access models from other providers, to run models locally, or to use models that are not yet available as built-in options in {% data variables.product.prodname_vscode_shortname %}.
 
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [Agents window](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> To use supported BYOK models in Copilot harness sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`.
 
-You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
+You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
 > Some features still require a GitHub account: semantic search, inline suggestions (code completions), and features that rely on embeddings. BYOK applies to the chat experience and utility tasks only.
 
-VS Code provides different options to add more language models:
+{% data variables.product.prodname_vscode_shortname %} provides different options to add more language models:
 
 * [Built-in providers](#add-a-model-from-a-built-in-provider): The provider you want is already listed (Azure, Anthropic, Gemini, OpenAI, and others).
 
@@ -134,14 +141,14 @@ VS Code provides different options to add more language models:
 * [Custom endpoint](#add-a-custom-endpoint-model): You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Add a model from a built in provider
 
-Pick from a set of common providers that are ready to use in VS Code. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
+Pick from a set of common providers that are ready to use in {% data variables.product.prodname_vscode_shortname %}. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
 
 > [!IMPORTANT]
-> The built-in Ollama provider is deprecated. For local Ollama models, install the official Ollama extension from the [Ollama publisher on the Visual Studio Marketplace](https://marketplace.visualstudio.com/publishers/Ollama) instead. The extension is maintained by the Ollama team, so it can support new Ollama models and capabilities faster than the built-in provider. If you use the built-in Ollama provider for BYOK local models, install the extension and remove the built-in provider configuration to keep using Ollama models without interruption.
+> The built-in Ollama provider is deprecated. For local Ollama models, install the official Ollama extension from the [Ollama publisher on the {% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/publishers/Ollama) instead. The extension is maintained by the Ollama team, so it can support new Ollama models and capabilities faster than the built-in provider. If you use the built-in Ollama provider for BYOK local models, install the extension and remove the built-in provider configuration to keep using Ollama models without interruption.
 
 To configure a language model from a built-in provider:
 
@@ -157,7 +164,7 @@ To configure a language model from a built-in provider:
 
 1. Enter the provider-specific details, such as the API key or endpoint URL.
 
-1. If the provider requires additional configuration, VS Code opens a `chatLanguageModels.json` file where you can configure the provider and model details. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
+1. If the provider requires additional configuration, {% data variables.product.prodname_vscode_shortname %} opens a `chatLanguageModels.json` file where you can configure the provider and model details. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
 
     The following example shows an Azure OpenAI configuration that uses Entra ID authentication:
 
@@ -187,7 +194,7 @@ To configure a language model from a built-in provider:
 
 ### Add a model provider extension
 
-You can install extensions from the Visual Studio Marketplace that add language model providers to VS Code. These extensions can provide access to additional cloud-hosted or locally running models. For example, the Foundry Toolkit for VS Code extension provides access to Foundry's local and cloud-hosted models.
+You can install extensions from the {% data variables.product.prodname_vs_marketplace %} that add language model providers to {% data variables.product.prodname_vscode_shortname %}. These extensions can provide access to additional cloud-hosted or locally running models. For example, the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %} extension provides access to Foundry's local and cloud-hosted models.
 
 To add a model provider extension:
 
@@ -195,20 +202,20 @@ To add a model provider extension:
 
 1. Select **Install Model Providers**.
 
-    VS Code opens the Extensions view, filtered to language model provider extensions. Alternatively, open the Extensions view and search for `@tag:language-models`.
+    {% data variables.product.prodname_vscode_shortname %} opens the Extensions view, filtered to language model provider extensions. Alternatively, open the Extensions view and search for `@tag:language-models`.
 
-1. Select **Install** to install the extension, for example, [Foundry Toolkit for VS Code](https://aka.ms/AIToolkit).
+1. Select **Install** to install the extension, for example, [Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/AIToolkit).
 
 1. Follow the extension's setup instructions to configure model access.
 
-1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload VS Code.
+1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload {% data variables.product.prodname_vscode_shortname %}.
 
 ### Add a custom endpoint model
 
 > [!NOTE]
 > It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
-The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and the Anthropic Messages API. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in {% data variables.product.prodname_vscode_shortname %}. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and the Anthropic Messages API. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
 
 To add a model with the Custom Endpoint provider:
 
@@ -224,7 +231,7 @@ To add a model with the Custom Endpoint provider:
 
 1. Select the API type: **Chat Completions**, **Responses**, or **Messages**. Make sure the model supports this API type.
 
-1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Custom Endpoint configuration reference](#custom-endpoint-configuration-reference) for details on the configuration properties.
+1. {% data variables.product.prodname_vscode_shortname %} opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Custom Endpoint configuration reference](#custom-endpoint-configuration-reference) for details on the configuration properties.
 
     The following example shows a Messages API configuration for an Anthropic endpoint:
 
@@ -253,7 +260,7 @@ To add a model with the Custom Endpoint provider:
 1. After configuring the model, select it from the model picker in chat.
 
     > [!TIP]
-    > If the model you added does not immediately appear in the model picker, restart VS Code.
+    > If the model you added does not immediately appear in the model picker, restart {% data variables.product.prodname_vscode_shortname %}.
 
 #### Custom Endpoint configuration reference
 
@@ -266,33 +273,49 @@ Provider-level properties (in addition to the [common provider properties](#mode
 | `vendor` | Must be `customendpoint` to use the Custom Endpoint provider. |
 | `apiKey` | The API key used to authenticate requests. Store the key securely by using an input variable, for example `"apiKey": "${input:myApiKey}"`, instead of committing a raw key. |
 | `apiType` | _(Optional)_ Default API type for all models in the provider: `chat-completions` (default), `responses`, or `messages`. Override it per model with the model-level `apiType`. |
-| `url` | _(Optional)_ Base URL used to discover models automatically. When set, VS Code queries the endpoint for the list of available models instead of using the `models` array. Omit it to configure models explicitly with the `models` array. |
+| `url` | _(Optional)_ Base URL used to discover models automatically. When set, {% data variables.product.prodname_vscode_shortname %} queries the endpoint for the list of available models instead of using the `models` array. Omit it to configure models explicitly with the `models` array. |
 
 In addition to the [common model properties](#model-configuration-reference) the Custom Endpoint provider supports the following model-level properties:
 
 | Property | Description |
 |----------|-------------|
 | `apiType` | _(Optional)_ Override the API type for this model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`, or is inferred from the `url` when neither is set. |
-| `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and VS Code derives it as `contextWindow - maxOutputTokens`. |
+| `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and {% data variables.product.prodname_vscode_shortname %} derives it as `contextWindow - maxOutputTokens`. |
 | `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
+| `statefulResponses` | _(Optional)_ Whether the Responses API server retains prior responses. Defaults to `true`. Set to `false` for stateless servers to send full conversation history with each request. Applies only to the Responses API. See [Stateful Responses API endpoints](#stateful-responses-api-endpoints). |
 
 ##### Endpoint URL resolution
 
 The `url` you provide for a model is resolved based on its API type:
 
 * If the URL already contains an explicit API path (`/chat/completions`, `/responses`, or `/messages`), it is used as-is.
-* Otherwise, VS Code appends the path for the model's API type. If the URL doesn't already end in a version segment such as `/v1`, VS Code inserts `/v1` first. For example, with the Responses API type, `https://my-host.example.com` resolves to `https://my-host.example.com/v1/responses`.
+* Otherwise, {% data variables.product.prodname_vscode_shortname %} appends the path for the model's API type. If the URL doesn't already end in a version segment such as `/v1`, {% data variables.product.prodname_vscode_shortname %} inserts `/v1` first. For example, with the Responses API type, `https://my-host.example.com` resolves to `https://my-host.example.com/v1/responses`.
 
 To avoid ambiguity, provide the full endpoint URL including the API path, as shown in the examples.
+
+##### Stateful Responses API endpoints
+
+Responses API models default to `statefulResponses: true`, sending only new history with `previous_response_id`. For stateless servers, set `statefulResponses` to `false` to omit that ID and send full history, including tool calls and results, avoiding missing-tool-call errors.
+
+For a stateless server, add these properties to its model entry in `chatLanguageModels.json`:
+
+```json
+{
+  "apiType": "responses",
+  "statefulResponses": false
+}
+```
+
+This option describes the server's capabilities and does not change its data retention policy. When `zeroDataRetentionEnabled` is `true`, `statefulResponses` is ignored and requests send full conversation history without `previous_response_id`.
 
 ##### Custom authentication headers
 
 By default, the Custom Endpoint provider infers the authentication header from the API type and URL. For the Messages API, it sends `x-api-key`. For Azure OpenAI URLs, it sends `api-key`. Otherwise, it sends `Authorization: Bearer <apiKey>`.
 
-You can override the authentication header with `requestHeaders`. When you supply a well-known auth header (such as `Authorization`, `api-key`, `x-api-key`, `x-goog-api-key`, or `apikey`), VS Code does not also send the default inferred auth header, so the endpoint doesn't receive conflicting credentials.
+You can override the authentication header with `requestHeaders`. When you supply a well-known auth header (such as `Authorization`, `api-key`, `x-api-key`, `x-goog-api-key`, or `apikey`), {% data variables.product.prodname_vscode_shortname %} does not also send the default inferred auth header, so the endpoint doesn't receive conflicting credentials.
 
-To keep your API key in secret storage while still using it in a custom header, use the `${apiKey}` token in the header value. VS Code replaces it with the configured `apiKey` at request time:
+To keep your API key in secret storage while still using it in a custom header, use the `${apiKey}` token in the header value. {% data variables.product.prodname_vscode_shortname %} replaces it with the configured `apiKey` at request time:
 
 ```json
 [
@@ -330,7 +353,7 @@ To keep your API key in secret storage while still using it in a custom header, 
 
 To update the details of a model provider you configured previously:
 
-1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the {% data variables.copilot.chat_view %} or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. In the Language Models editor, select the gear icon next to the model provider you want to update.
 
@@ -348,33 +371,33 @@ You can configure a default language model for editor inline chat. This enables 
 
 To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
 
-If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload {% data variables.product.prodname_vscode_shortname %}, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
 ### Change the model for inline suggestions
 
 To change the language model that is used for generating inline suggestions in the editor:
 
-1. Select **Configure Inline Suggestions...** from the Chat menu in the VS Code title bar.
+1. Select **Configure Inline Suggestions...** from the Chat menu in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 > [!NOTE]
 > The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
 >
-> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Change the model for utility tasks
 
-In addition to the main chat model, VS Code uses lightweight models in the background for utility tasks such as generating titles, creating commit messages, and detecting intent. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
+In addition to the main chat model, {% data variables.product.prodname_vscode_shortname %} uses lightweight models in the background for utility tasks such as generating titles, creating commit messages and pull request descriptions, and detecting intent. The model you select for a chat or agent session does not control these utility tasks. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
 
 There are two settings for utility models, depending on the type of task:
 
 * `setting(chat.utilityModel)`: Override the model used for general utility flows, such as generating titles and summaries, settings search, and Git review.
-* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
+* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, pull request titles and descriptions, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
-If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. VS Code shows a notification in the Chat view that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation, commit message creation, and pull request description creation.
 
 #### Configure the default utility model for BYOK models
 
@@ -424,24 +447,24 @@ Each model in the `models` array supports the following properties:
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 > [!NOTE]
-> The sum of `maxInputTokens` and `maxOutputTokens` must not exceed the model's context window. VS Code uses the sum of these two values as the model's total context window, for example to show context usage in the Chat view. Typically, you set `maxInputTokens` to the model's context window size minus `maxOutputTokens`. Check your provider's model documentation for the context window size.
+> The sum of `maxInputTokens` and `maxOutputTokens` must not exceed the model's context window. {% data variables.product.prodname_vscode_shortname %} uses the sum of these two values as the model's total context window, for example to show context usage in the {% data variables.copilot.chat_view %}. Typically, you set `maxInputTokens` to the model's context window size minus `maxOutputTokens`. Check your provider's model documentation for the context window size.
 
 ## Frequently asked questions
 
-### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
+### How do I enable bring your own model key for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
-### Can I use locally hosted models with Copilot in VS Code?
+### Can I use locally hosted models with Copilot in {% data variables.product.prodname_vscode_shortname %}?
 
 You can use locally hosted models in chat by using [bring your own model key](#bring-your-own-language-model-key) (BYOK) and using a model provider that supports connecting to a local model. You have different options to connect to a local model:
 
 * Use a built-in model provider that supports local models
-* Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
+* Install an extension from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for {% data variables.product.prodname_vscode_shortname %} with Foundry Local](https://aka.ms/AIToolkit)
 
 Locally hosted models work without a GitHub account, without a Copilot plan, and without an internet connection. To get the full set of utility features (title generation, commit messages, and others), configure `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to point to a local model.
 
-Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
+Currently, you cannot connect to a local model for inline suggestions. {% data variables.product.prodname_vscode_shortname %} provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
 > Some features require a GitHub account and internet connectivity: semantic search, inline suggestions (code completions), and features that rely on embeddings. These features are not available through BYOK models.
@@ -459,4 +482,4 @@ Yes, you can use BYOK models, including local models, without a Copilot plan and
 * [Language models concepts](/docs/agents/concepts/language-models.md)
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 * [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
-* [Security considerations for AI in VS Code](/docs/agents/run/security.md)
+* [Security considerations for AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

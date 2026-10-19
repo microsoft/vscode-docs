@@ -1,8 +1,7 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 8/12/2026
-MetaDescription: Build with AI agents in Visual Studio Code. Free to start, with multiple models or your own API key. Learn what agents can do and how to run them.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/14/2026
+MetaDescription: Explore AI in {% data variables.product.prodname_vscode %}, from code suggestions to agents that plan, edit, and test changes.
 Keywords:
 - GitHub Copilot
 - AI
@@ -12,11 +11,12 @@ Keywords:
 - multi-file editing
 - architecture
 - refactoring
-- cloud agent
-- copilot coding agent
+- "{% data variables.copilot.copilot_cloud_agent_short %}"
 - copilot cli
 - third-party agents
+- language models
 - MCP
+- plugins
 - enterprise
 - overview
 - getting started
@@ -28,131 +28,112 @@ Keywords:
 - agent harness
 ---
 
-# Build with agents in VS Code
+# Build with AI in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code comes with AI agents built in. Describe a task in natural language and an agent plans the approach, edits files across your project, runs commands, and self-corrects until the work is done. Agents stay in the flow of how you already work, so you can focus on intent and review instead of typing every line.
+Use AI in {% data variables.product.prodname_vscode %} to understand unfamiliar code, fix bugs, and build features. For a task that spans files and tools, an agent can find relevant code, make changes, and run checks without you directing each search, edit, and test run. You describe the outcome, review the changes, and verify the result.
 
-Agents are free to start and built into VS Code: sign in with a GitHub account to use the free plan, choose from multiple agents and models, or bring your own model key and even run a local model offline. New to agents? Learn [how agents work](/docs/agents/concepts/agents.md).
+Work with an agent in the same workspace as your editor, terminal, tests, and debugger. You can inspect its changes and investigate failures without moving code and command output to a separate chat application. For a question or focused edit, use chat, inline chat, or suggestions without delegating an entire task.
 
-<video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
+For day-to-day coding and agent tasks, start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot) to explore code, plan changes, implement features, and run tests. The harness uses a shared runtime for core capabilities and more consistent behavior across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}. You can continue the same live session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, and [discover and continue supported sessions created in {% data variables.copilot.copilot_cli %} or the {% data variables.copilot.github_copilot_app %}](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Complete your first coding task with an agent in the Agents window or Chat view.
+Choose another [agent harness](/docs/agents/concepts/agent-harnesses.md) when you need its tools or workflows, or delegate an independent task to a [cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session).
 
-* [Start quickstart](/docs/agents/quickstart.md)
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Try your first agent task">
+Build and validate a small app in the {% data variables.copilot.chat_view %}, then review the result.
+
+* [Start the agents quickstart](/docs/agents/quickstart.md)
 
 </div>
 
-## What you can do with agents
+If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). If you already use agents, skip the sample project and follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track). For AI help without delegating a task, [choose between suggestions, focused edits, questions, and agents](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
-Agents handle real coding tasks end-to-end. A few common ones:
+The quickstart uses the [{% data variables.product.prodname_copilot %} harness](/docs/agents/run/agent-harnesses.md#copilot). See the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md) for account, usage, and data-handling requirements. If provider, sign-in, or execution location affects your setup, [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and review their [requirements and setup](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
-* **Plan before you code**: use the [Plan agent](/docs/agents/run/planning.md) to produce a step-by-step implementation plan you can review and refine before any file changes.
-* **Build new features**: describe what functionality you want and let the agent scaffold UI, wire up state, and update tests.
-* **Prototype and explore variants**: spin up quick proofs of concept or generate multiple design variants of the same feature in parallel, then keep the one that works best.
-* **Refactor at scale**: rename, restructure, or migrate code across the workspace, with the agent tracking what still needs to change.
-* **Build and validate web apps**: give an agent a visual and interactive feedback loop with [browser tools](/docs/agents/run/browser-tools.md). The agent can run your app, exercise user flows in the integrated browser, inspect the result, fix problems, and verify its changes.
-* **Debug and fix failing tests**: point an agent at a stack trace or a red test and have it find the root cause and apply a fix.
+## What you can do with AI
 
-Agents are the most autonomous of several AI surfaces in VS Code. For lighter-weight help, you can also use [chat](/docs/chat/chat-overview.md), [inline chat](/docs/chat/inline-chat.md), [inline suggestions](/docs/editing/ai-powered-suggestions.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+Choose a workflow based on the task, from help with a single line to a coordinated change across your project.
 
-## Get started
+| Your goal | How AI helps |
+|-----------|--------------|
+| Implement a feature, fix a bug, or refactor across files | [Work with an agent](#how-you-work-with-an-agent) to find relevant code, make changes, and run tests. |
+| Understand a codebase or explore an approach | [Ask questions in chat](/docs/chat/chat-overview.md) to get explanations grounded in your code and discuss alternatives. |
+| Research a complex change before editing | [Plan with an agent](/docs/agents/run/planning.md) and review the proposed approach before implementation. |
+| Make a focused edit without leaving your code | Use [inline chat](/docs/chat/inline-chat.md) to describe the change in the editor. |
+| Get code suggestions while you type | Use [inline suggestions](/docs/editing/ai-powered-suggestions.md) for completions and suggested next edits. |
+| Complete a common development task | Use [smart actions](/docs/editing/copilot-smart-actions.md) for tasks such as generating a commit message or explaining selected code. |
 
-AI features are built into VS Code. Sign in with your GitHub account to enable them, then complete the [agents quickstart](/docs/agents/quickstart.md). If you don't have a subscription, you're signed up for the free plan with monthly limits. To explore a longer scenario, follow the [agents tutorial](/docs/agents/agents-tutorial.md).
+You use chat both to ask questions and to direct agents. You can ask **Agent** to propose an approach before editing, or select **Plan**, where available, for a dedicated planning workflow.
 
-> [!NOTE]
-> Make sure agents are enabled in VS Code settings (`setting(chat.agent.enabled)`). If your organization has disabled agents, contact your GitHub organization admin.
+For a compact comparison, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) to choose the least autonomous option that fits your task.
 
-## Choose how you work with agents
+## How you work with an agent
 
-In VS Code, the choice comes down to your approach and your scope. The Agents window is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
+An agent uses a language model to reason about your request and [tools](/docs/agents/concepts/tools.md) to act on your development environment. It gathers [context](/docs/agents/concepts/context.md), such as code, error messages, and test results, rather than relying only on the words in your prompt.
 
-If you want to work outside VS Code, you can also manage your agents from the terminal with the Copilot CLI, from the GitHub Copilot app, or directly in your browser.
+For example, ask an agent to fix a failing test while preserving the intended behavior:
 
-Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
+1. The agent finds the test and reads the related code to understand the failure.
+1. It edits the implementation or tests based on the task and your constraints.
+1. It runs the tests, inspects the results, and revises its changes if needed.
+1. You review the diff and validation results, verify the behavior yourself, and decide which changes to keep.
 
-{% tabs id="agent-surface" %}
-{% tab label="Agents window" %}
+This repeated reasoning, action, and validation is the **agent loop**. You can provide more context, redirect the work, or stop the agent along the way. Learn more about [how agents work](/docs/agents/concepts/agents.md).
 
-The [Agents window](/docs/agents/run/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for **agent-first workflows**.
+The conversation and work for a task belong to a **session**. Sessions keep related context and changes together so you can return to a task or manage independent tasks separately. Learn about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
-![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-overview/agents-window-hero.png)
+## Ways to work with agents
 
-{% /tab %}
-{% tab label="Chat view" %}
+Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} support agent workflows. Choose the {% data variables.copilot.chat_view %} for collaboration over code in your current workspace, or the {% data variables.copilot.agents_window %} for multi-project orchestration and higher-level task assignment. You can continue supported sessions between them rather than choosing one interface for every task.
 
-The [Chat view](/docs/agents/run/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in VS Code, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The Chat view is optimized for **code-first workflows**.
+For a path from your first request through planning, steering, review, and recovery, see [Run agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/overview.md).
 
-![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
+### Work alongside your code
 
-{% /tab %}
-{% tab label="Browser" %}
+Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) when you're working in an open project. Keep the conversation beside your editor, inspect changes as they happen, and use the debugger, terminal, and tests as part of the same workflow. This is the starting point for the agents quickstart.
 
-Stay on top of your agents from any browser, no setup required. On [github.com](https://github.com/copilot), assign issues to Copilot, review agent pull requests, and track progress, then pull a branch into VS Code when you want to take over.
+![Screenshot showing the {% data variables.copilot.chat_view %} with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
-Need your own environment? [vscode.dev/agents](https://vscode.dev/agents) opens a secure tunnel to your development machine, letting you track and manage your running agent sessions in the browser with your local code and tools within reach.
+For keyboard, screen reader, and low-vision workflows, learn how to use the [Accessible View and other accessibility features](/docs/configure/accessibility/accessibility.md#accessible-view).
 
-![Screenshot showing the GitHub website with the Copilot tab open, displaying a list of issues assigned to Copilot.](images/agents-overview/hero-vscode-dev-agents-dark.png)
+### Delegate and manage tasks
 
-{% /tab %}
-{% tab label="Copilot CLI" %}
+Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) when your focus is assigning tasks and reviewing their results. Manage multiple sessions across projects, follow their progress, and open the editor when you want to work directly with the code.
 
-Use [GitHub Copilot CLI](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the VS Code integrated terminal or an external terminal.
+![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 
-![Screenshot showing the Copilot CLI running in the VS Code integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
+### Other ways to access agents
 
-{% /tab %}
-{% tab label="GitHub Copilot App" %}
+For terminal-based work, use [{% data variables.copilot.copilot_cli %}](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal). The [{% data variables.copilot.github_copilot_app %}](https://github.com/features/copilot) provides a dedicated desktop experience. You can [open and continue supported local sessions created in either application](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}. To continue a {% data variables.product.prodname_copilot_short %} session in the CLI, right-click the session and select **Resume in Terminal**.
 
-Use the [GitHub Copilot app](https://github.com/features/copilot) to manage AI coding tasks in a dedicated desktop experience outside VS Code.
+For work away from your machine, explore [cloud agents that return pull requests](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) or [remote sessions and browser access](/docs/agents/run/remote-agent-sessions.md).
 
-![Screenshot showing the GitHub Copilot app with the sessions list, conversation, and chat input.](images/agents-overview/hero-copilot-app-dark.png)
+## Choose your models, agents, and tools
 
-{% /tab %}
-{% /tabs %}
+Start with the quickstart's recommended setup, then adjust individual choices to fit your task and project:
 
-## Choose your agent and model
+* **Models**: choose a [language model](/docs/agents/concepts/language-models.md) based on the reasoning capabilities, speed, and cost your task requires.
+* **Agent harnesses**: use a supported [agent harness](/docs/agents/run/agent-harnesses.md), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}, for its tools and workflows. The harness connects a model to tools and manages the session, so changing harnesses is different from switching models.
+* **Model access**: use models from your {% data variables.product.prodname_copilot %} plan, [bring your own API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), or connect a supported local model. These options let you use an existing model provider account or keep model processing local.
+* **Tools and customization**: share your coding standards and test commands through [project instructions](/docs/agents/guides/customize-copilot-guide.md). Connect external systems through [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md), package recurring tasks as [agent skills](/docs/agent-customization/agent-skills.md), or install [plugins](/docs/agent-customization/agent-plugins.md) that bundle tools and workflows. Compare the options in [agent customization concepts](/docs/agents/concepts/customization.md).
 
-VS Code gives you flexibility instead of locking you into one agent or model. You choose:
+Available models, tools, and customizations depend on the selected harness, your account, and your organization's policies.
 
-* **Your agent harness**: run [Copilot, Claude, or Codex](/docs/agents/run/agent-harnesses.md) on your machine, use the Local harness for the full VS Code tool and model ecosystem, or hand work to a cloud harness that runs remotely and opens a pull request.
-* **Your model**: use a model hosted and provided by GitHub Copilot, or bring your own key to use a model from the provider or host of your choice, including a local model that runs offline.
+Where tools run and where the model is hosted are separate choices. An agent can edit files on your machine while sending model requests to a hosted provider.
 
-Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/agents/run/sessions/manage-sessions.md).
+## Stay in control
 
-## Tailor agents to your codebase
+AI can produce incorrect code or misunderstand your intent. You remain responsible for deciding which changes reach your codebase.
 
-Agents work best when they understand your project's conventions and have the right tools. VS Code gives you several ways to tailor agents so they produce code that fits your codebase and team practices from the start:
+* **Review before integrating.** Agents can save edits directly to the session folder or worktree. [Review the diff and validate the result](/docs/agents/run/review-code-edits.md) before you commit or merge changes.
+* **Control actions and redirect work.** Use [permissions and approvals](/docs/agents/run/approvals.md) to decide which actions require confirmation. You can [steer or stop a request](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running), but stopping doesn't undo completed actions or changes to external services.
+* **Understand isolation.** A Git worktree keeps code changes separate, but isn't a security boundary. For file system and network restrictions on agent-run terminal commands, review the [platform-specific sandboxing options](/docs/agents/run/agent-sandboxing.md).
 
-* **Set coding standards**: define project-wide rules and conventions with [custom instructions](/docs/agent-customization/custom-instructions.md) so agents generate code in your style.
-
-* **Automate repeatable tasks**: package multi-step workflows, scripts, and template files as [agent skills](/docs/agent-customization/agent-skills.md), or capture a single reusable prompt in a [prompt file](/docs/agent-customization/prompt-files.md).
-
-* **Specialize the agent**: create [custom agents](/docs/agent-customization/custom-agents.md) for personas or roles like code reviewer, security expert, or tester.
-
-* **Connect external tools and data**: add [MCP servers](/docs/agent-customization/mcp-servers.md) to reach databases and APIs, and use [hooks](/docs/agent-customization/hooks.md) to run scripts at key points in an agent session.
-
-To decide which option fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). For setup steps and examples, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md). You can also install [plugins](/docs/agent-customization/agent-plugins.md) to add pre-packaged bundles of these customizations from the Marketplace.
-
-## Trust and control
-
-Agents can read and edit files, run terminal commands, and call external services. VS Code keeps you in control: approve or deny tool calls before they run, set a permission level that matches the autonomy you are comfortable with, and enable agent sandboxing to restrict file system and network access at the OS level. Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md) and [AI security](/docs/agents/run/security.md).
-
-Organizations can centrally manage which AI features, models, and tools are available across their teams. Admins define policies that control agent capabilities, restrict MCP servers or extensions, and enforce compliance requirements, so developers get a consistent, governed experience out of the box. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
+Before using agents on an existing project, review the [recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline). On a managed device, your organization might restrict available agents, models, and tools through [enterprise AI policies](/docs/enterprise/manage-ai-settings.md). If agents don't appear in chat, review the [availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 
 ## Next steps
 
-<div class="card-grid">
-    <a class="card" href="/docs/agents/agents-handoff-tutorial">
-        <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Explore agent handoffs</p>
-    </a>
-    <a class="card" href="/docs/agents/best-practices">
-        <i class="codicon codicon-checklist" aria-hidden="true"></i>
-        <p>Learn agent best practices</p>
-    </a>
-    <a class="card" href="/docs/agents/concepts/agents">
-        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
-        <p>Explore agent concepts</p>
-    </a>
-</div>
+* **New to {% data variables.product.prodname_vscode_shortname %} and AI:** [Install the editor, open a workspace, and choose a first task](/docs/getstarted/overview.md).
+* **Already use {% data variables.product.prodname_vscode_shortname %}, but new to agents:** [Complete a first agent task](/docs/agents/quickstart.md) with a recommended starting configuration.
+* **Already use AI agents:** Follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track) to work in your own repository.
+* **Prefer lighter-weight AI:** [Choose an AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) for suggestions, focused edits, questions, or delegated work.
+* **Ready to improve a project workflow:** [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md), then [compare quality, reliability, and usage](/docs/agents/guides/optimize-usage.md).

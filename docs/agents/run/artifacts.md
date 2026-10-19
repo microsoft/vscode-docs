@@ -1,33 +1,39 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 8/12/2026
-MetaDescription: Use the artifacts panel in Visual Studio Code to view screenshots, plans, documents, and other resources produced during an agent session.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+DateApproved: 10/14/2026
+FeatureStatus: agent-artifacts
+MetaDescription: View and manage artifacts, references, screenshots, plans, and other agent session resources in {% data variables.product.prodname_vscode %}.
 ---
-# Agent artifacts (Preview)
+# Use artifacts in agent sessions
 
-The artifacts panel in Visual Studio Code surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
-
-> [!NOTE]
-> The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
+The artifacts panel in {% data variables.product.prodname_vscode %} surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
 
 > [!NOTE]
-> The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
+> The features on this page work in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+
+> [!NOTE]
+> To enable the artifacts panel, set `setting(chat.artifacts.enabled)` to `true`.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try artifacts in action">
 Launch a chat prompt that asks the agent to save a screenshot as an artifact.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Take%20a%20screenshot%20of%20my%20app%20and%20set%20it%20as%20an%20artifact.)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Take%20a%20screenshot%20of%20my%20app%20and%20set%20it%20as%20an%20artifact.)
 
 </div>
 
-![Screenshot of the artifacts panel in the Chat view, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
+![Screenshot of the artifacts panel in the {% data variables.copilot.chat_view %}, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
+
+## Artifacts and references
+
+Agent sessions can surface both artifacts and references next to the chat input. Artifacts represent notable results or resources the session works on, while references provide supporting information that the session only consults.
+
+For GitHub issues and pull requests, an item is an artifact when the session works on it, even if the item existed before the session started. An issue or pull request that the session only uses for information is a reference.
 
 ## Artifact sources
 
 Artifacts can appear in the panel from different sources, which are merged and grouped by origin:
 
-* **Rules-based extraction**: VS Code automatically extracts artifacts from conversation content based on configurable MIME type patterns, file path globs, or memory file paths. For example, the built-in rules surface screenshots and plan documents. See [Configure artifact extraction rules](#configure-artifact-extraction-rules) for details.
+* **Rules-based extraction**: {% data variables.product.prodname_vscode_shortname %} automatically extracts artifacts from conversation content based on configurable MIME type patterns, file path globs, or memory file paths. For example, the built-in rules surface screenshots and plan documents. See [Configure artifact extraction rules](#configure-artifact-extraction-rules) for details.
 * **Agent-set artifacts**: the agent explicitly sets artifacts by using the `#artifacts` tool. Each update replaces the previous agent artifact list.
 * **Subagent artifacts**: when the agent delegates work to subagents, each subagent can set its own artifacts, shown in separate groups labeled with the subagent's name.
 
@@ -59,6 +65,14 @@ When artifacts are available, the artifacts panel appears alongside the conversa
 * Artifacts from the agent replace the previous agent list each time the agent updates them.
 * Each subagent's artifacts are shown in a separate group. You can clear a specific subagent's artifacts independently.
 * Rules-based artifacts update automatically as the conversation progresses. If you change the rule settings, the artifacts panel reflects the updated rules.
+
+## Remove an artifact or reference
+
+To remove an individual recorded item, hover over or focus the item next to the chat input, and then select its remove action. If a group contains multiple items, first select the group to open the list. The removal persists when you reload or reopen the session.
+
+Removing an item deletes only its record from the current session. It doesn't delete a file or website, revert file changes, or modify an issue or pull request.
+
+Not every displayed item is removable. The remove action is available only when the session provider supports removal and the recorded item has a stable ID. An issue or pull request association that {% data variables.product.prodname_vscode_shortname %} discovers independently might remain visible or reappear after you remove a recorded item. Derived file changes and independently discovered associations can't be removed with this action.
 
 ## Ask the agent to create artifacts
 

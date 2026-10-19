@@ -1,7 +1,8 @@
 # PreToolUse hook: block en dash/em dash in Markdown edits.
 
-$Input = [Console]::In.ReadToEnd()
-$json = $Input | ConvertFrom-Json
+$rawInput = $input | Out-String
+$rawInput = [Text.Encoding]::UTF8.GetString([Console]::InputEncoding.GetBytes($rawInput))
+$json = $rawInput | ConvertFrom-Json
 $toolName = $json.tool_name
 
 $editTools = @(

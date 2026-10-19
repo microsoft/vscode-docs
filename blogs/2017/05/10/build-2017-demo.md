@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education]
 Order:
 TOCTitle: Build 2017 Demo
 PageTitle: Build 2017 Demo

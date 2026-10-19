@@ -180,11 +180,13 @@ async function updateDocumentation(docDate) {
 		'docs/agent-customization/**/*.md',
 		'docs/agents/**/*.md',
 		'docs/chat/**/*.md',
+		`docs/configure/**/*.md`,
 		'docs/core-editor/**/*.md',
 		'docs/extension-docs/**/*.md',
 		'docs/setup/**/*.md',
 		'docs/getstarted/**/*.md',
 		'docs/editing/**/*.md',
+		'docs/editor/**/*.md',
 		'docs/debugtest/**/*.md',
 		'docs/copilot/**/*.md',
 		'docs/sourcecontrol/**/*.md',
@@ -196,7 +198,8 @@ async function updateDocumentation(docDate) {
 		'docs/remote/**/*.md',
 		'docs/devcontainers/**/*.md',
 		'docs/reference/**/*.md',
-		'remote/**/*.md'
+		'remote/**/*.md',
+		'learn/**/*.md'
 	];
 
 	let totalFiles = 0;

@@ -1,7 +1,7 @@
 ---
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
 DateApproved: 7/25/2019
-MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in Visual Studio Code
+MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in {% data variables.product.prodname_vscode %}
 Keywords:
 - C++
 ---
@@ -9,7 +9,7 @@ Keywords:
 
 The [Natvis](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
-For gdb/lldb debugging (`"type": "cppdbg"`), a subset of the Natvis framework has been ported to the Visual Studio Code C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
+For gdb/lldb debugging (`"type": "cppdbg"`), a subset of the Natvis framework has been ported to the {% data variables.product.prodname_vscode %} C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 
 For Microsoft C++ debugging (`"type": "cppvsdbg"`), the debugger contains the full implementation of the Natvis framework in Visual Studio.
 

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="580" viewBox="0 0 800 580" role="img" aria-labelledby="title description">
+  <title id="title">What an agent harness coordinates</title>
+  <desc id="description">An agent harness exchanges prompts and progress with the user interface and context and responses with the language model. It prepares context, applies permission rules, coordinates tool calls, and tracks state. It reads and updates conversation state and invokes tools that run operations and return results. The model requests actions but does not call tools directly. This is a diagram of responsibilities, not deployment locations.</desc>
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="800" height="580" fill="#ffffff"/>
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle" fill="#1e1e1e">
+    <text x="400" y="44" font-size="28">What an agent harness coordinates</text>
+    <text x="400" y="77" font-size="17" fill="#475569">The model proposes actions. The harness coordinates execution.</text>
+
+    <rect x="20" y="166" width="188" height="116" rx="12" fill="#eff6ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="114" y="203" font-size="22" fill="#1e40af">User interface</text>
+    <text x="114" y="241" font-size="17" fill="#475569">Prompts + progress</text>
+
+    <rect x="280" y="132" width="240" height="222" rx="12" fill="#e5dbff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="400" y="172" font-size="24" fill="#5b21b6">Agent harness</text>
+    <text x="400" y="213" font-size="18">Prepare context</text>
+    <text x="400" y="246" font-size="18">Apply permissions</text>
+    <text x="400" y="279" font-size="18">Coordinate tools</text>
+    <text x="400" y="312" font-size="18">Track state</text>
+
+    <rect x="592" y="166" width="188" height="116" rx="12" fill="#d3f9d8" stroke="#22c55e" stroke-width="2"/>
+    <text x="686" y="203" font-size="22" fill="#166534">Language model</text>
+    <text x="686" y="235" font-size="16" fill="#475569">Reasons about the task</text>
+    <text x="686" y="261" font-size="16" fill="#475569">Requests actions</text>
+
+    <g fill="none" stroke="#475569" stroke-width="2" marker-start="url(#arrowhead)" marker-end="url(#arrowhead)">
+      <path d="M218 224 H268"/>
+      <path d="M532 224 H580"/>
+      <path d="M342 366 L225 438"/>
+      <path d="M458 366 L575 438"/>
+    </g>
+    <text x="166" y="399" font-size="16" fill="#475569">Read + update</text>
+    <text x="634" y="399" font-size="16" fill="#475569">Calls + results</text>
+
+    <rect x="50" y="450" width="290" height="108" rx="12" fill="#eff6ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="195" y="489" font-size="22" fill="#1e40af">Conversation + state</text>
+    <text x="195" y="528" font-size="17" fill="#475569">Messages, context, progress</text>
+
+    <rect x="460" y="450" width="290" height="108" rx="12" fill="#fff3bf" stroke="#d97706" stroke-width="2"/>
+    <text x="605" y="489" font-size="22" fill="#92400e">Tools</text>
+    <text x="605" y="528" font-size="17" fill="#475569">Run operations + return results</text>
+  </g>
+</svg>

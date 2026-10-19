@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Mixed Claude models, sticky prompts, and auto-reloading previews",
-    "description": "Switch between Anthropic and Copilot models mid-session, keep track of prompts in long chats, and see local HTML changes refresh automatically.",
-    "link": "/updates/v1_133",
-    "image": "/assets/updates/1_133/release-highlights.webp"
+    "title": "Use visual and interactive canvases with agents",
+    "description": "Plan and track work on canvases, move chats without losing context, use the expanded Markdown editor, and apply more granular enterprise controls.",
+    "link": "/updates/v1_142",
+    "image": "/assets/updates/1_142/release-highlights.webp"
   },
   "highlights": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "type": "blog",
-      "title": "Iterating faster with TypeScript 7",
-      "description": "How the VS Code and TypeScript teams collaborated to adopt TypeScript 7, speeding up builds and improving the day-to-day editing loop for both developers and agents.",
-      "link": "/blogs/2026/06/26/iterating-faster-with-ts-7",
-      "image": "/assets/blogs/2026/06/26/ts-7.png"
+      "title": "Introducing the Agent Host",
+      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
+      "link": "/blogs/2026/08/26/agent-host-architecture",
+      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
     }
   ]
 }

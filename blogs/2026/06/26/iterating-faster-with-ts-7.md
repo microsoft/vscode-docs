@@ -1,9 +1,10 @@
 ---
+Tags: [Languages, Performance, Engineering]
 Order: 134
 TOCTitle: Iterating faster with TypeScript 7
 PageTitle: Iterating faster with TypeScript 7
 MetaDescription: How the VS Code and TypeScript teams collaborated to adopt TypeScript 7 and speed up VS Code development
-MetaSocialImage: ts-7.png
+MetaSocialImage: ts-7.webp
 Date: 2026-06-26
 Author: VS Code Team
 ---

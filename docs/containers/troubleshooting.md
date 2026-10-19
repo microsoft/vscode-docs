@@ -1,15 +1,15 @@
 ---
 ContentId: 79bb60fd-5248-43d2-8801-34b9fc2ec543
-MetaDescription: Visual Studio Code container development troubleshooting tips and tricks
+MetaDescription: {% data variables.product.prodname_vscode %} container development troubleshooting tips and tricks
 DateApproved: 12/21/2022
 ---
 # Container Tools Tips and Tricks
 
-This article covers troubleshooting tips and tricks for the Visual Studio Code [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node.js](/docs/containers/quickstart-node.md), [Python](/docs/containers/quickstart-python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with containers.
+This article covers troubleshooting tips and tricks for the {% data variables.product.prodname_vscode %} [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node.js](/docs/containers/quickstart-node.md), [Python](/docs/containers/quickstart-python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with containers.
 
 ## Running as a non-root user
 
-For security reasons, we recommend selecting the default ports when executing the **Containers: Add Docker Files to Workspace...** command, or otherwise opting for a port **greater than** 1023 whenever possible. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container. In some cases, there is no port selection, so the Container Tools extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application can be accessed by a non-root user in your container.
+For security reasons, we recommend selecting the default ports when executing the **Containers: Add Docker Files to Workspace...** command, or otherwise opting for a port **greater than** 1023 whenever possible. This will allow {% data variables.product.prodname_vscode_shortname %} to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container. In some cases, there is no port selection, so the Container Tools extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application can be accessed by a non-root user in your container.
 
 If you select a port less than 1024 when adding Dockerfiles to the workspace, the Container Tools extension **cannot** create a Dockerfile that runs the container as a non-root user. This is because ports in this range are called **well-known** or **system** ports and must execute with root privileges in order to bind a network socket to an IP address.
 
@@ -56,7 +56,7 @@ Next, ensure the `docker run` task in `tasks.json` also expects the same port. Y
 
 ## Error "connect EACCES /var/run/docker.sock" on Linux
 
-Since VS Code runs as a non-root user, you will need to follow the steps in "Manage Docker as a non-root user" from [Post-installation steps for Linux](https://aka.ms/AA37yk6) to access Docker from the extension.
+Since {% data variables.product.prodname_vscode_shortname %} runs as a non-root user, you will need to follow the steps in "Manage Docker as a non-root user" from [Post-installation steps for Linux](https://aka.ms/AA37yk6) to access Docker from the extension.
 
 ## Containers and images have disappeared from Container Explorer
 

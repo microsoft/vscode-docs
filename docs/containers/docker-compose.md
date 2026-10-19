@@ -1,15 +1,15 @@
 ---
 ContentId: c63d86a0-48f8-4724-ba24-fa5ce4199632
 DateApproved: 12/21/2022
-MetaDescription: Develop a multi-container app running in containers using Docker Compose and Visual Studio Code.
+MetaDescription: Develop a multi-container app running in containers using Docker Compose and {% data variables.product.prodname_vscode %}.
 ---
 # Use Docker Compose
 
-Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET, and also helps you configure debugging in Visual Studio Code for these scenarios.
+Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET, and also helps you configure debugging in {% data variables.product.prodname_vscode %} for these scenarios.
 
 Also, for single-container scenarios, using Docker Compose provides tool-independent configuration in a way that a single Dockerfile does not. Configuration settings such as volume mounts for the container, port mappings, and environment variables can be declared in the docker-compose YML files.
 
-To use Docker Compose in VS Code using the Container Tools extension, you should already be familiar with the basics of [Docker Compose](https://docs.docker.com/compose/).
+To use Docker Compose in {% data variables.product.prodname_vscode_shortname %} using the Container Tools extension, you should already be familiar with the basics of [Docker Compose](https://docs.docker.com/compose/).
 
 ## Adding Docker Compose support to your project
 
@@ -21,7 +21,7 @@ The Container Tools extension adds the `docker-compose.yml` file to your workspa
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Container Tools extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Containers: Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/reference/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The {% data variables.product.prodname_vscode_shortname %} Container Tools extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Containers: Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in {% data variables.product.prodname_vscode_shortname %} to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/reference/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
@@ -41,7 +41,7 @@ For .NET, the folder structure is already set up to handle multiple projects whe
 
 ## Debug
 
-First, refer to the debugging documentation for your target platform, to understand the basics on debugging in containers with VS Code:
+First, refer to the debugging documentation for your target platform, to understand the basics on debugging in containers with {% data variables.product.prodname_vscode_shortname %}:
 
 - [Node.js debugging](/docs/containers/debug-node.md)
 - [Python Container debugging](/docs/containers/debug-python.md)
@@ -165,7 +165,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration** and select the `Container Attach` configuration template **Containers: .NET Attach (Preview)**.
 
-1. VS Code tries to copy `vsdbg` from the host machine to the target container using a default path. You can also provide a path to an existing instance of `vsdbg` in the **Attach** configuration.
+1. {% data variables.product.prodname_vscode_shortname %} tries to copy `vsdbg` from the host machine to the target container using a default path. You can also provide a path to an existing instance of `vsdbg` in the **Attach** configuration.
 
    ```json
     "netCore": {

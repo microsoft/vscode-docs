@@ -6,7 +6,7 @@ MetaSocialImage:
 ---
 # Running and debugging Java
 
-Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/microsoft/java-debug), which extends the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
+{% data variables.product.prodname_vscode %} allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/microsoft/java-debug), which extends the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
 Here's a list of supported debugging features:
 
@@ -25,13 +25,13 @@ Here's a list of supported debugging features:
 The Java debugger is an open-source project, which welcomes contributors to collaborate through GitHub repositories:
 
 - [Debugger for Java](https://github.com/microsoft/vscode-java-debug)
-- [Java Debug Server for Visual Studio Code](https://github.com/microsoft/java-debug)
+- [Java Debug Server for {% data variables.product.prodname_vscode %}](https://github.com/microsoft/java-debug)
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Install
 
-To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Debugger for Java extension.
+To get the complete Java language support in {% data variables.product.prodname_vscode %}, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Debugger for Java extension.
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
@@ -67,18 +67,18 @@ Another way to start debugging is to select **Run Java** or **Debug Java** menu 
 
 ### Run from pressing F5
 
-Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
+Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of {% data variables.product.prodname_vscode_shortname %}. See more at [Debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
 
 ## Debugging single files
 
-In addition to support for debugging Java projects managed by build tools, VS Code also supports for debugging single Java files without any project.
+In addition to support for debugging Java projects managed by build tools, {% data variables.product.prodname_vscode_shortname %} also supports for debugging single Java files without any project.
 
 <video src="images/java-debugging/single-file-debugging.mp4" autoplay loop muted playsinline controls title="Debugging a single Main.java file">
 </video>
 
 ## Debug session inputs
 
-The default Debug Console in VS Code doesn't support inputs. If your program needs inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
+The default Debug Console in {% data variables.product.prodname_vscode_shortname %} doesn't support inputs. If your program needs inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within {% data variables.product.prodname_vscode_shortname %} or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
 
 <video src="images/java-debugging/launch-in-terminal.mp4" autoplay loop muted playsinline controls title="Debugging a Java app that takes input via the Integrated Terminal">
 </video>
@@ -124,7 +124,7 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 
 ## Hot Code Replace
 
-Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Debugger for Java transmits the class changes over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
+Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Debugger for Java transmits the class changes over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in {% data variables.product.prodname_vscode_shortname %}.
 
 <video src="images/java-debugging/hcr.mp4" autoplay loop muted playsinline controls title="Using Hot Code replacement to change string output during a debug session">
 </video>
@@ -151,7 +151,7 @@ There are many options and settings available to configure the debugger. For exa
 
 Consult the documentation for the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help with setting up your project.
 
-For many commonly used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with the main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
+For many commonly used setups, there are samples available in [{% data variables.product.prodname_vscode_shortname %} Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with the main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
 
 Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/debugtest/debugging.md).
 
@@ -180,8 +180,8 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `envFile` - Absolute path to a file containing environment variable definitions.
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. If not specified, use the console specified by the `java.debug.settings.console` user setting.
-  - `internalConsole` - VS Code Debug Console (input stream not supported).
-  - `integratedTerminal` - VS Code Integrated Terminal.
+  - `internalConsole` - {% data variables.product.prodname_vscode_shortname %} Debug Console (input stream not supported).
+  - `integratedTerminal` - {% data variables.product.prodname_vscode_shortname %} Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 - `shortenCommandLine` - When the project has long classpath or big VM arguments, the command line to launch the program may exceed the maximum command-line string limitation allowed by the OS. This configuration item provides multiple approaches to shorten the command line. Defaults to `auto`.
   - `none` - Launch the program with the standard command line 'java {options} classname {args}'.
@@ -214,7 +214,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 
 ### User settings
 
-- `java.debug.logLevel`: Minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
+- `java.debug.logLevel`: Minimum level of debugger logs that are sent to {% data variables.product.prodname_vscode_shortname %}, defaults to `warn`.
 - `java.debug.settings.showHex`: Show numbers in hex format in **Variables**, defaults to `false`.
 - `java.debug.settings.showStaticVariables`: Show static variables in **Variables**, defaults to `false`.
 - `java.debug.settings.showQualifiedNames`: Show fully qualified class names in **Variables**, defaults to `false`.
@@ -225,12 +225,12 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
   - manual - Click the toolbar to apply the changes.
   - auto - Automatically apply the changes after compilation.
   - never - Never apply the changes.
-- `java.debug.settings.enableHotCodeReplace`: Enable Hot Code Replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.enableHotCodeReplace`: Enable Hot Code Replace for Java code. Make sure the auto build is not disabled for [{% data variables.product.prodname_vscode_shortname %} Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: Enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
 - `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
-  - `internalConsole` - VS Code Debug Console (input stream not supported).
-  - `integratedTerminal` - VS Code Integrated Terminal.
+  - `internalConsole` - {% data variables.product.prodname_vscode_shortname %} Debug Console (input stream not supported).
+  - `integratedTerminal` - {% data variables.product.prodname_vscode_shortname %} Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 - `java.debug.settings.exceptionBreakpoint.skipClasses`: Skip the specified classes when breaking on exception. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
 - `java.debug.settings.stepping.skipClasses`: Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
@@ -269,9 +269,9 @@ You can find the full list of issues at the [vscode-java-debug](https://github.c
 
 Read on to find out about:
 
-- [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+- [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in {% data variables.product.prodname_vscode_shortname %} with your project for any language.
 
 And for Java:
 
-- [Java testing](/docs/java/java-testing.md) - Test Java within VS Code with the Java Test Runner extension.
-- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java testing](/docs/java/java-testing.md) - Test Java within {% data variables.product.prodname_vscode_shortname %} with the Java Test Runner extension.
+- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for {% data variables.product.prodname_vscode_shortname %}.

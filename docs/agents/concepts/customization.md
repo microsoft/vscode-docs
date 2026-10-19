@@ -1,8 +1,7 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 8/12/2026
-MetaDescription: Learn about the AI agent customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/14/2026
+MetaDescription: Choose instructions, skills, custom agents, and other customizations for your workflow in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -16,11 +15,11 @@ Keywords:
 - MCP
 ---
 
-# Agent customization
+# Understand agent customization
 
 AI models have broad knowledge, but they don't know your codebase, team practices, or development systems. Agent customization adapts an agent to your environment by adding persistent context, repeatable workflows, specialized roles, external tools, and deterministic controls.
 
-This article explains how customizations change an agent, how the customization types differ, and how you can combine them. To create and manage customizations, see [Customize agent behavior in Visual Studio Code](/docs/agent-customization/overview.md).
+This article explains how customizations change an agent, how the customization types differ, and how you can combine them. To create and manage customizations, see [Customize agent behavior in {% data variables.product.prodname_vscode %}](/docs/agent-customization/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.
@@ -46,8 +45,24 @@ Relevant customizations can reduce back-and-forth and rework by giving the agent
 
 ## Customization options at a glance
 
+Start from an observed problem instead of adding customization by default. Define a representative task and its expected outcome. If the result already meets your needs, stop. Otherwise, try the smallest change that addresses the repeated problem.
+
+Before creating files, [check the selected harness and supported locations](/docs/agent-customization/overview.md#check-harness-compatibility). Choosing a language model doesn't change the customization formats that a harness reads. For example, prompt files and reusable tool-set files are Local harness customizations; use skills for reusable workflows with other skills-compatible harnesses.
+
+| Observed behavior | Smallest change to try |
+|-------------------|------------------------|
+| The agent misses a one-time requirement or relevant file | Add the requirement or [context](/docs/chat/copilot-chat-context.md) to the current request |
+| The agent repeatedly misses a project-wide command, convention, or architecture decision | Add or refine project instructions |
+| The problem only affects certain files, languages, or tasks | Add targeted instructions |
+| Your team repeatedly explains the same multi-step process | Create an agent skill |
+| A recurring role needs focused instructions or a restricted tool set | Create a custom agent |
+| The agent needs to interact with an external system | Add an MCP server |
+| An action must run at a lifecycle point independently of the model | Configure a hook |
+| Your team wants to install and maintain a packaged set of customizations | Use an agent plugin |
+
 Ask the following questions when choosing a customization:
 
+* Does the selected harness support the format, file location, and scope you need?
 * Should it apply automatically, or only when you request it?
 * Are you providing guidance, defining a workflow, adding a capability, or enforcing an action?
 * Should the model decide when to use it?
@@ -59,10 +74,10 @@ The following table compares the customization types by purpose and activation.
 | Apply standards across a project | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Require a specific logging library and error-handling pattern | Automatically included in each request |
 | Apply guidance to specific code or tasks | [File-based instructions](/docs/agent-customization/custom-instructions.md) | Apply React conventions when the agent works with `.tsx` files | Included when files match a pattern or the task matches the description |
 | Teach the agent a workflow with supporting resources | [Agent skills](/docs/agent-customization/agent-skills.md) | Create a service from instructions, template files, and a setup script | The agent loads the skill when the task matches, or you invoke it directly |
-| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command |
+| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command (Local harness sessions only) |
 | Use a specialized role and tool configuration | [Custom agents](/docs/agent-customization/custom-agents.md) | Review code with read-only tools | You select the agent, use it as a subagent, or another agent delegates to it |
 | Connect to an external system | [MCP](/docs/agent-customization/mcp-servers.md) | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
-| Run code at a lifecycle event | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | VS Code runs the hook when the configured event occurs |
+| Run code at a lifecycle event | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | {% data variables.product.prodname_vscode_shortname %} runs the hook when the configured event occurs |
 | Install a packaged customization setup | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Add a testing workflow with a skill, agent, hooks, and MCP server | Each bundled customization follows its own activation rules |
 
 Start with instructions when your main goal is to stop repeating project context. Add other customization types when you identify a recurring task, specialized role, missing capability, or action that must always run.
@@ -99,9 +114,11 @@ Where you define a customization determines who can use it and where it applies.
 
 Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and team workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
 
+Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
+
 Not every customization type supports every scope or agent harness. See the individual customization guide for supported locations and environments.
 
 ## Related resources
 
-* [Customize agent behavior in VS Code](/docs/agent-customization/overview.md)
+* [Customize agent behavior in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md)
 * [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md)

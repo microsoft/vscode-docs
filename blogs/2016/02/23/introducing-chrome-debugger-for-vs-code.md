@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging, Extensions]
 Order:
 TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code
@@ -18,7 +19,7 @@ Our Chrome Debugger allows front-end developers to debug their client-side JavaS
 
 <br />
 
-![Demo](chrome-debugger-demo.gif)
+<video src="chrome-debugger-demo.mp4" title="Video showing Demo." autoplay loop controls muted></video>
 
 ## How does it work?
 

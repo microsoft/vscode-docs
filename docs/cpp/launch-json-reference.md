@@ -1,21 +1,21 @@
 ---
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
 DateApproved: 6/10/2021
-MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
+MetaDescription: Configure launch.json for C/C++ debugging in {% data variables.product.prodname_vscode %}
 Keywords:
 - C++
 ---
 # Configure C/C++ debugging
 
-A `launch.json` file is used to configure the [debugger](/docs/debugtest/debugging.md) in Visual Studio Code.
+A `launch.json` file is used to configure the [debugger](/docs/debugtest/debugging.md) in {% data variables.product.prodname_vscode %}.
 
-Visual Studio Code generates a `launch.json` (under a `.vscode` folder in your project) with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+{% data variables.product.prodname_vscode %} generates a `launch.json` (under a `.vscode` folder in your project) with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
-## Configure VS Code's debugging behavior
+## Configure {% data variables.product.prodname_vscode_shortname %}'s debugging behavior
 
-Set or change the following options to control VS Code's behavior during debugging:
+Set or change the following options to control {% data variables.product.prodname_vscode_shortname %}'s behavior during debugging:
 
 ### program (required)
 
@@ -37,13 +37,13 @@ Tells GDB or LLDB what paths to search for .so files. Separate multiple paths wi
 
 Used only when launching the debuggee. For `attach`, this parameter does not change the debuggee's behavior.
 
-- **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
-- **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
-- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. When set to false, the output can be seen in VS Code's debugConsole. Due to limitations within `lldb-mi`, integratedTerminal support is not available.
+- **Windows**: When set to true, it will spawn an external console. When set to false, it will use {% data variables.product.prodname_vscode_shortname %}'s integratedTerminal.
+- **Linux**: When set to true, it will notify {% data variables.product.prodname_vscode_shortname %} to spawn an external console. When set to false, it will use {% data variables.product.prodname_vscode_shortname %}'s integratedTerminal.
+- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. When set to false, the output can be seen in {% data variables.product.prodname_vscode_shortname %}'s debugConsole. Due to limitations within `lldb-mi`, integratedTerminal support is not available.
 
 ### avoidWindowsConsoleRedirection
 
-In order to support VS Code's Integrated Terminal with gdb on Windows, the extension adds console redirection commands to the debuggee's arguments to have console input and output show up in the integrated terminal. Setting this option to `true` will disable it.
+In order to support {% data variables.product.prodname_vscode_shortname %}'s Integrated Terminal with gdb on Windows, the extension adds console redirection commands to the debuggee's arguments to have console input and output show up in the integrated terminal. Setting this option to `true` will disable it.
 
 ### logging
 
@@ -119,7 +119,7 @@ You can change the behavior of GDB or LLDB by setting the following options:
 
 ### MIMode
 
-Indicates the debugger that VS Code will connect to. Must be set to `gdb` or `lldb`. This is pre-configured on a per-operating system basis and can be changed as needed.
+Indicates the debugger that {% data variables.product.prodname_vscode_shortname %} will connect to. Must be set to `gdb` or `lldb`. This is pre-configured on a per-operating system basis and can be changed as needed.
 
 ### miDebuggerPath
 

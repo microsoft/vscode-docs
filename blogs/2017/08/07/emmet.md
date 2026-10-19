@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Languages]
 Order:
 TOCTitle: Emmet 2.0
 PageTitle: Emmet 2.0 in Visual Studio Code
@@ -19,7 +20,7 @@ Its features include:
 * Multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/).
 * Updated support for custom Emmet snippets.
 
-![Emmet in suggestion/auto-completion list](emmet.gif)
+<video src="emmet.mp4" title="Video showing Emmet in suggestion/auto-completion list." autoplay loop controls muted></video>
 
 As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](https://www.npmjs.com/~emmetio).
 

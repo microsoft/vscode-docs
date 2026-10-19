@@ -1,11 +1,11 @@
 ---
 ContentId: 8488ca7b-6f92-4894-9029-1bae431784e9
 DateApproved: 04/04/2024
-MetaDescription: Full documentation on working with the Data Wrangler extension in Visual Studio Code.
+MetaDescription: Full documentation on working with the Data Wrangler extension in {% data variables.product.prodname_vscode %}.
 ---
-# Getting Started with Data Wrangler in VS Code
+# Getting Started with Data Wrangler in {% data variables.product.prodname_vscode_shortname %}
 
-[Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
+[Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vscode_shortname %} Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
 
 The following is an example of opening Data Wrangler from the notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the notebook.
 
@@ -26,7 +26,7 @@ This document covers how to:
 
 1. If you have not already done so, install [Python](https://www.python.org/downloads/).
    **IMPORTANT:** Data Wrangler only supports Python version 3.8 or higher.
-2. Install [Visual Studio Code](https://code.visualstudio.com/download).
+2. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download).
 3. <a class="install-extension-btn" href="vscode:extension/ms-toolsai.datawrangler">Install the Data Wrangler extension</a>
 
 When you launch Data Wrangler for the first time, it asks you which Python kernel you would like to connect to. It also checks your machine and environment to see if the required Python packages are installed, such as Pandas.
@@ -55,7 +55,7 @@ There are three ways to launch Data Wrangler from your Jupyter Notebook
 
 ### Launch Data Wrangler directly from a file
 
-You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in VS Code that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
+You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in {% data variables.product.prodname_vscode_shortname %} that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
 
 ![a screenshot showing the entry point into Data Wrangler from a file](images/data-wrangler/open-from-file.png)
 
@@ -79,7 +79,7 @@ Data Wrangler has two modes when working with your data. The details for each mo
 
 Note: By default, Data Wrangler opens in the Viewing mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
 
-![a screenshot of the setting in Visual Studio Code for setting the default mode of Data Wrangler](images/data-wrangler/edit-view-mode-default.png)
+![a screenshot of the setting in {% data variables.product.prodname_vscode %} for setting the default mode of Data Wrangler](images/data-wrangler/edit-view-mode-default.png)
 
 ### Viewing mode interface
 
@@ -200,4 +200,4 @@ If you have problems, have feature requests, or any other feedback, please submi
 
 ## Data and telemetry
 
-The Microsoft Data Wrangler extension for Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. This extension respects the `telemetry.telemetryLevel` setting which you can learn more about at https://code.visualstudio.com/docs/configure/telemetry.
+The Microsoft Data Wrangler extension for {% data variables.product.prodname_vscode %} collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. This extension respects the `telemetry.telemetryLevel` setting which you can learn more about at https://code.visualstudio.com/docs/configure/telemetry.

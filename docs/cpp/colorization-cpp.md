@@ -1,14 +1,14 @@
 ---
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
 DateApproved: 2/23/2023
-MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
+MetaDescription: How to customize semantic colorization of C++ code in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 - Bunny
 ---
 # Enhanced colorization
 
-The Visual Studio Code C/C++ extension now supports semantic colorization, when IntelliSense is enabled.  Use of enhanced colorization is controlled by the C_Cpp.enhancedColorization setting.  This setting is enabled by default.
+The {% data variables.product.prodname_vscode %} C/C++ extension now supports semantic colorization, when IntelliSense is enabled.  Use of enhanced colorization is controlled by the C_Cpp.enhancedColorization setting.  This setting is enabled by default.
 
 ```json
 "C_Cpp.enhancedColorization": "enabled"
@@ -16,13 +16,13 @@ The Visual Studio Code C/C++ extension now supports semantic colorization, when 
 
 ## Themes
 
-Colors can be associated using the existing support for theming and color customization in VS Code.  See the [VS Code Themes documentation](/docs/configure/themes.md) for more information.
+Colors can be associated using the existing support for theming and color customization in {% data variables.product.prodname_vscode_shortname %}.  See the [{% data variables.product.prodname_vscode_shortname %} Themes documentation](/docs/configure/themes.md) for more information.
 
 Colors are associated with [semantic tokens](https://code.visualstudio.com/api/extension-guides/color-theme#semantic-colors) as well as [TextMate scopes](https://macromates.com/manual/en/language_grammars#naming_conventions).
 
 ### C/C++ Themes Extension
 
-We've created a set of VS Code themes that closely resemble the default Light and Dark themes in Visual Studio, and include colors for semantic tokens.  These themes can be found [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes).
+We've created a set of {% data variables.product.prodname_vscode_shortname %} themes that closely resemble the default Light and Dark themes in Visual Studio, and include colors for semantic tokens.  These themes can be found [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes).
 
 ## IntelliSense Tokens and Scopes
 

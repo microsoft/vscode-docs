@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Community]
 Order: 
 TOCTitle: VS Code Community Discussions
 PageTitle: VS Code Community Discussions for Extension Authors
@@ -19,7 +20,7 @@ Today we're announcing the official launch of [VS Code Community Discussions](ht
 
 ## Navigating the Forum
 
-![A screenshot showing the VS Code Community Discussions landing page](github-discussions.png)
+![A screenshot showing the VS Code Community Discussions landing page](github-discussions.webp)
 
 The new GitHub Discussions forum is a place for extension authors to connect with each other and stay up to date on announcements from the VS Code team. We want to be as close to developers as possible, and having a centralized, official community helps to achieve that.
 

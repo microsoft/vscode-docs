@@ -1,13 +1,13 @@
 ---
 ContentId: 90d72255-dbe2-402a-aecc-a6edd12aadba
 DateApproved: 6/6/2023
-MetaDescription: Manage C# projects in Visual Studio Code
+MetaDescription: Manage C# projects in {% data variables.product.prodname_vscode %}
 ---
 # Project management
 
-When you create a C# application in Visual Studio Code, you start with a **project**. A project contains all files (such as source code, images, etc.) that are compiled into an executable, library, or website.  All of your related projects can then be stored in a container called a **solution**.  This article shows you how you can maintain all your projects and their respective files via the **Solution Explorer** view.
+When you create a C# application in {% data variables.product.prodname_vscode %}, you start with a **project**. A project contains all files (such as source code, images, etc.) that are compiled into an executable, library, or website.  All of your related projects can then be stored in a container called a **solution**.  This article shows you how you can maintain all your projects and their respective files via the **Solution Explorer** view.
 
->**Note**: The [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is required to use the Solution Explorer view in VS Code.
+>**Note**: The [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is required to use the Solution Explorer view in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Solution Explorer
 
@@ -19,13 +19,13 @@ If you have a single solution file (.sln file) in the workspace, the Solution Ex
 
 ![Open workspace with 1 solution file](images/project-management/open-workspace-1-sln-file.gif)
 
-In the animation above, the workspace was loaded into VS Code for the first time. After the workspace is loaded, the Solution Explorer detects the lone `.sln` file and automatically loads that.
+In the animation above, the workspace was loaded into {% data variables.product.prodname_vscode_shortname %} for the first time. After the workspace is loaded, the Solution Explorer detects the lone `.sln` file and automatically loads that.
 
-When you have more than one solution file in the workspace, you will be prompted to select the specific solution file to load. After a solution file is loaded for a workspace, the extension will remember which solution file was loaded last and automatically reload that file when the workspace is loaded in VS Code. In the animation below, you can see the experience of opening a workspace with multiple solution files for the first time.
+When you have more than one solution file in the workspace, you will be prompted to select the specific solution file to load. After a solution file is loaded for a workspace, the extension will remember which solution file was loaded last and automatically reload that file when the workspace is loaded in {% data variables.product.prodname_vscode_shortname %}. In the animation below, you can see the experience of opening a workspace with multiple solution files for the first time.
 
 ![Open workspace with multiple solution files](images/project-management/open-workspace-multiple-sln-files.gif)
 
-In the video above, after the workspace is loaded, the Solution Explorer detects that the workspace contains multiple solution files and you are prompted to select the solution to load with the standard VS Code notification. Going forward when you open the same workspace, the Solution Explorer remembers which solution file was loaded last and automatically reload that.
+In the video above, after the workspace is loaded, the Solution Explorer detects that the workspace contains multiple solution files and you are prompted to select the solution to load with the standard {% data variables.product.prodname_vscode_shortname %} notification. Going forward when you open the same workspace, the Solution Explorer remembers which solution file was loaded last and automatically reload that.
 
 When you have a solution loaded in the Solution Explorer and you would like to close that solution, you can use the **Close Solution** command. You can find this command in the context menu when you right-click on a solution in the Solution Explorer.
 
@@ -75,7 +75,7 @@ In the image above, we can see the Solution Explorer with a couple Solution Fold
 
 From here, you can open files by double clicking them in the Solution Explorer. You can also right-click items in the Solution Explorer to get a context specific menu for available actions. For example, to add a new file to a project, right-click on the project and select **Add New File**. When you select that option, you'll be prompted to choose the file template to be used for the default content. You'll get the best experience here if you are working on a project targeting .NET 7.0.200 or above.
 
-You can also add files into projects by creating files as you normally would in VS Code and save them under the folder containing the project file. By default, new files added to the project folder will automatically be added to the project.
+You can also add files into projects by creating files as you normally would in {% data variables.product.prodname_vscode_shortname %} and save them under the folder containing the project file. By default, new files added to the project folder will automatically be added to the project.
 
 In the project view, you can also see the dependencies that the project has, both for **Project References** as well as **Package References**. In this version of the C# Dev Kit, you don't have the ability to modify the dependencies. To add a dependency to a project or package reference, you can use the `dotnet add` command line tool. To add a package reference, see [dotnet add package command - .NET CLI](https://learn.microsoft.com/dotnet/core/tools/dotnet-add-package) and to add a project reference, see [dotnet add reference command - .NET CLI](https://learn.microsoft.com/dotnet/core/tools/dotnet-add-reference). To remove a reference, use `dotnet remove`. You can read more information at [how to remove a package reference](https://learn.microsoft.com/dotnet/core/tools/dotnet-remove-reference) and [how to remove a package](https://learn.microsoft.com/dotnet/core/tools/dotnet-remove-package).
 

@@ -91,7 +91,7 @@ for file in "$MEDIA_FOLDER"/*.png; do
     echo "Processing: $filename"
 
     if [ "$WEBP_TOOL" = "ffmpeg" ]; then
-        convert_ok=$(ffmpeg -hide_banner -loglevel error -i "$file" "$webp_file" -y && echo ok)
+        convert_ok=$(ffmpeg -nostdin -hide_banner -loglevel error -i "$file" "$webp_file" -y && echo ok)
     else
         convert_ok=$(cwebp -quiet "$file" -o "$webp_file" && echo ok)
     fi

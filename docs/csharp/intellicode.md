@@ -1,11 +1,11 @@
 ---
 ContentId: 0a0fd079-c56b-413c-8394-b166cd76be38
 DateApproved: 6/6/2023
-MetaDescription: IntelliCode for C# in Visual Studio Code
+MetaDescription: IntelliCode for C# in {% data variables.product.prodname_vscode %}
 ---
 # IntelliCode for C# Dev Kit
 
-For users of the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension in Visual Studio Code, the [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp) extension is available to provide IntelliCode support. Predictions of up to a whole-line of code, along with ranking methods and properties in the IntelliSense list are available for C# Dev Kit users.
+For users of the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension in {% data variables.product.prodname_vscode %}, the [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp) extension is available to provide IntelliCode support. Predictions of up to a whole-line of code, along with ranking methods and properties in the IntelliSense list are available for C# Dev Kit users.
 
 ## Whole line suggestions
 
@@ -44,7 +44,7 @@ Since models powering IntelliCode features run on your local machine, this allow
 
 ## Get support for other languages
 
-To get IntelliCode whole-line autocompletions for Python, JavaScript, and TypeScript in VS Code, install the general [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) extension. The general extension also ranks methods and properties in the IntelliSense list with stars for Python and SQL, in addition to the languages supported for whole-line autocomplete.
+To get IntelliCode whole-line autocompletions for Python, JavaScript, and TypeScript in {% data variables.product.prodname_vscode_shortname %}, install the general [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) extension. The general extension also ranks methods and properties in the IntelliSense list with stars for Python and SQL, in addition to the languages supported for whole-line autocomplete.
 
 ## Prerequisites
 
@@ -60,4 +60,4 @@ In order to use this extension, you must have both the C# Dev Kit and .NET 6 ins
 
 ## How do I report feedback and issues
 
-You can file an issue on our IntelliCode for VS Code extension [GitHub feedback repo](https://github.com/MicrosoftDocs/intellicode/issues).
+You can file an issue on our IntelliCode for {% data variables.product.prodname_vscode_shortname %} extension [GitHub feedback repo](https://github.com/MicrosoftDocs/intellicode/issues).

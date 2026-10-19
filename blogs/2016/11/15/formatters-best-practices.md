@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Languages]
 Order:
 TOCTitle: Creating a Formatter Extension
 PageTitle: Creating a Formatter Extension

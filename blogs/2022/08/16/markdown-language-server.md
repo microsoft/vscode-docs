@@ -1,4 +1,5 @@
 ---
+Tags: [Languages, Extensions]
 Order: 
 TOCTitle: Markdown Language Server
 PageTitle: Introducing the Markdown Language Server

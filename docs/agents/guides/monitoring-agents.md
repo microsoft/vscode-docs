@@ -1,8 +1,7 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 8/12/2026
-MetaDescription: Learn how to monitor GitHub Copilot agent interactions in VS Code with OpenTelemetry traces, metrics, and events.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/14/2026
+MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
 Keywords:
 - monitoring
 - telemetry
@@ -17,12 +16,12 @@ Keywords:
 
 # Monitor agent usage with OpenTelemetry
 
-This article describes how to enable and configure OpenTelemetry monitoring for Copilot Chat agent interactions in VS Code.
+This article describes how to enable and configure OpenTelemetry monitoring for Copilot Chat agent interactions in {% data variables.product.prodname_vscode_shortname %}.
 
 Copilot Chat can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/), so the data works with any OTel-compatible backend.
 
 > [!TIP]
-> For an interactive view of the cache metrics without setting up an OTel backend, use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to inspect prompt cache hit rates directly in VS Code.
+> For an interactive view of the cache metrics without setting up an OTel backend, use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to inspect prompt cache hit rates directly in {% data variables.product.prodname_vscode_shortname %}.
 
 ## What gets collected
 
@@ -35,8 +34,8 @@ Copilot Chat emits OTel attributes under three namespaces:
 | Namespace | Source | When to use |
 |---|---|---|
 | `gen_ai.*` | [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/) | Whenever a standard key exists |
-| `github.copilot.*` | Canonical Copilot-specific namespace, shared with the [GitHub Copilot CLI OpenTelemetry conventions](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring) | Preferred for new dashboards, alerts, and queries |
-| `copilot_chat.*` | Original VS Code extension namespace | Legacy. Several keys are now dual-emitted alongside `github.copilot.*` equivalents |
+| `github.copilot.*` | Canonical Copilot-specific namespace, shared with the [{% data variables.copilot.copilot_cli %} OpenTelemetry conventions](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring) | Preferred for new dashboards, alerts, and queries |
+| `copilot_chat.*` | Original {% data variables.product.prodname_vscode_shortname %} extension namespace | Legacy. Several keys are now dual-emitted alongside `github.copilot.*` equivalents |
 
 Legacy `copilot_chat.*` keys continue to emit indefinitely so existing collectors, dashboards, and downstream consumers keep working without changes. There is no sunset date. The tables in this section mark dual-emitted rows as **Legacy** with a pointer to the preferred key.
 
@@ -166,7 +165,7 @@ Extension-specific metrics:
 | `copilot_chat.session.count` | Counter | Chat sessions started |
 | `copilot_chat.time_to_first_token` | Histogram | Time to first SSE token (seconds) |
 
-Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and Copilot coding agents):
+Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and {% data variables.copilot.copilot_cloud_agent %}s):
 
 | Metric | Type | Description |
 |---|---|---|
@@ -208,13 +207,28 @@ All signals carry these resource attributes:
 |---|---|
 | `service.name` | `copilot-chat` (configurable with `OTEL_SERVICE_NAME`) |
 | `service.version` | Extension version |
-| `session.id` | Unique per VS Code window |
+| `session.id` | Unique per {% data variables.product.prodname_vscode_shortname %} window |
 
 Add custom resource attributes with `OTEL_RESOURCE_ATTRIBUTES` to filter by team, department, or other organizational boundaries:
 
 ```bash
 export OTEL_RESOURCE_ATTRIBUTES="team.id=platform,department=engineering"
 ```
+
+### Identity capture
+
+For Local harness sessions, identity capture can attribute agent activity to an individual developer and machine. When enabled, telemetry includes:
+
+* `user.name` on agent invocation spans, including subagent and inline chat spans.
+* `process.user.name` and `host.name` as resource attributes.
+
+Enable identity capture with `setting(github.copilot.chat.otel.captureIdentity)` or `COPILOT_OTEL_CAPTURE_IDENTITY=true`. This control is independent of [content capture](#content-capture).
+
+> [!CAUTION]
+> Identity attributes can identify a developer and their machine. Enable identity capture only when your organization has an appropriate purpose, access controls, and retention policy for this data.
+
+> [!NOTE]
+> Identity capture currently applies only to Local harness sessions. Telemetry from the [Agent Host](/docs/agents/concepts/agent-host.md) process doesn't include these identity attributes.
 
 ### Content capture
 
@@ -234,7 +248,7 @@ OTel activates when any of the following conditions is true:
 * `COPILOT_OTEL_ENABLED=true`
 * `OTEL_EXPORTER_OTLP_ENDPOINT` is set
 
-### VS Code settings
+### {% data variables.product.prodname_vscode_shortname %} settings
 
 Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot otel`:
 
@@ -244,13 +258,14 @@ Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot 
 | `setting(github.copilot.chat.otel.exporterType)` | string | `"otlp-http"` | `otlp-http`, `otlp-grpc`, `console`, or `file` |
 | `setting(github.copilot.chat.otel.otlpEndpoint)` | string | `"http://localhost:4318"` | OTLP collector endpoint |
 | `setting(github.copilot.chat.otel.captureContent)` | boolean | `false` | Capture full prompt and response content |
+| `setting(github.copilot.chat.otel.captureIdentity)` | boolean | `false` | Capture the authenticated account name, operating system username, and machine hostname for Local harness sessions |
 | `setting(github.copilot.chat.otel.maxAttributeSizeChars)` | integer | `0` | Maximum characters per content attribute (prompts, tool args, tool results). `0` disables truncation. Set a positive value to match your backend's per-attribute size limit. |
 | `setting(github.copilot.chat.otel.outfile)` | string | `""` | File path for JSON-lines output |
 | `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` | boolean | `false` | Persist OTel spans to a local SQLite database for the **Chat: Export Agent Traces DB** command. Implicitly enables OTel. |
 
 ### Environment variables
 
-Environment variables always take precedence over VS Code settings. When your organization mandates OTel configuration through [Copilot managed settings](#manage-otel-configuration-for-your-organization), those managed values take precedence over both environment variables and user settings.
+Environment variables always take precedence over {% data variables.product.prodname_vscode_shortname %} settings. When your organization mandates OTel configuration through [Copilot managed settings](#manage-otel-configuration-for-your-organization), those managed values override user settings. In the Copilot Chat extension, OTel environment variables can still override managed values.
 
 | Variable | Default | Description |
 |---|---|---|
@@ -262,6 +277,7 @@ Environment variables always take precedence over VS Code settings. When your or
 | `OTEL_SERVICE_NAME` | `copilot-chat` | Service name in resource attributes |
 | `OTEL_RESOURCE_ATTRIBUTES` | | Extra resource attributes (`key1=val1,key2=val2`) |
 | `COPILOT_OTEL_CAPTURE_CONTENT` | `false` | Capture full prompt and response content |
+| `COPILOT_OTEL_CAPTURE_IDENTITY` | `false` | Capture developer and machine identity for Local harness sessions |
 | `COPILOT_OTEL_MAX_ATTRIBUTE_SIZE_CHARS` | `0` | Override the max character size for content attributes. `0` disables truncation. Takes precedence over the `maxAttributeSizeChars` setting. |
 | `COPILOT_OTEL_LOG_LEVEL` | `info` | Minimum log level: `trace`, `debug`, `info`, `warn`, or `error`. |
 | `COPILOT_OTEL_FILE_EXPORTER_PATH` | | Write all signals to this file as JSON lines. |
@@ -278,28 +294,34 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 
 ## Manage OTel configuration for your organization
 
-Enterprises can mandate OTel export configuration centrally through Copilot managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+Enterprises can mandate OTel export configuration centrally through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the Agent Host process.
 
-Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/ai-settings.md#configure-telemetry-export-with-opentelemetry).
+For delivery methods, configuration fields, client support, and precedence, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry). For the behavior specific to {% data variables.product.prodname_vscode_shortname %}, see [Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
+
+For Local harness sessions, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 
 > [!NOTE]
-> When a managed telemetry value is configured, it takes precedence over both environment variables and user settings. The resolved value follows the order: policy, then environment variable, then user setting, then default.
+> When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
 
-## Trace structure for background and Claude agents
+<a name="trace-structure-for-background-and-claude-agents"></a>
 
-When OTel is enabled, all agent types are automatically instrumented. The same settings that enable foreground agent traces also enable Copilot and Claude agent traces.
+## Trace structure by harness
 
-### Copilot
+When OTel is enabled, the Copilot and Claude integrations described in this section are automatically instrumented. The same settings used for Local harness session traces also enable traces for these integrations.
 
-The Copilot SDK runs in the same VS Code process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the SDK's native spans (service `github-copilot`). Both appear in the same trace in your collector.
+<a name="copilot"></a>
 
-Copilot sessions also show the full SDK hierarchy in the **Agent Debug Log** panel in VS Code, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the SDK's internal tracing is always active for the panel.
+### Copilot harness
+
+The shared runtime for Copilot harness sessions runs in the same {% data variables.product.prodname_vscode_shortname %} process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the runtime's native spans (service `github-copilot`). Both appear in the same trace in your collector.
+
+Copilot harness sessions also show the full runtime trace hierarchy in the **Agent Debug Logs** panel in {% data variables.product.prodname_vscode_shortname %}, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the runtime's internal tracing is always active for the panel.
 
 When OTel export is disabled, the debug panel automatically captures full prompt and response content. When OTel export is enabled, the `setting(github.copilot.chat.otel.captureContent)` setting controls content capture for both the debug panel and OTLP export.
 
-### Copilot CLI (terminal session)
+### {% data variables.copilot.copilot_cli_short %} (terminal session)
 
-When you run a Copilot CLI session in the terminal (**New Copilot CLI Session**), it runs in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
+When you run a {% data variables.copilot.copilot_cli_short %} session in the terminal (**New {% data variables.copilot.copilot_cli_short %} Session**), it runs in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
 
 The CLI runtime only supports `otlp-http`. When `otlp-grpc` is configured, the terminal CLI still uses HTTP. Backends that serve both protocols on the same port (such as the Aspire Dashboard) work transparently.
 
@@ -316,14 +338,14 @@ In your trace viewer, filter by `service.name` to see traces from specific agent
 | `service.name` | Source |
 |---|---|
 | `copilot-chat` | Foreground agent, CLI wrapper, and Claude agent spans (extension-emitted) |
-| `github-copilot` | Copilot SDK native spans and CLI terminal sessions |
+| `github-copilot` | Shared Copilot runtime spans and CLI terminal sessions |
 | `claude-code` | Claude Code subprocess SDK telemetry (when `CLAUDE_CODE_ENABLE_TELEMETRY` is forwarded) |
 
 Within the `copilot-chat` service, distinguish agent types by `gen_ai.agent.name`:
 
 | `gen_ai.agent.name` | Agent type |
 |---|---|
-| `GitHub Copilot Chat` | Foreground agent (agent mode) |
+| `{% data variables.copilot.copilot_chat %}` | Foreground agent (agent mode) |
 | `copilotcli` | Copilot wrapper span |
 | `claude` | Claude agent |
 
@@ -348,7 +370,7 @@ docker run --rm -d -p 18888:18888 -p 4318:18890 --name aspire-dashboard \
   mcr.microsoft.com/dotnet/aspire-dashboard:latest
 ```
 
-VS Code configuration:
+{% data variables.product.prodname_vscode_shortname %} configuration:
 
 ```json
 {
@@ -369,7 +391,7 @@ Open `http://localhost:18888` and go to **Traces** to view your agent interactio
 docker run -d --name jaeger -p 16686:16686 -p 4318:4318 jaegertracing/jaeger:latest
 ```
 
-VS Code configuration:
+{% data variables.product.prodname_vscode_shortname %} configuration:
 
 ```json
 {
@@ -382,15 +404,15 @@ Open `http://localhost:16686`, select service `copilot-chat`, and select **Find 
 
 ### Azure Application Insights
 
-Use an [OTel Collector](https://opentelemetry.io/docs/collector/) with the [Azure Monitor exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) to forward Copilot Chat telemetry to Application Insights. Point the VS Code `setting(github.copilot.chat.otel.otlpEndpoint)` setting at the collector's OTLP endpoint, and configure the collector to export to your Application Insights connection string.
+Use an [OTel Collector](https://opentelemetry.io/docs/collector/) with the [Azure Monitor exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) to forward Copilot Chat telemetry to Application Insights. Point the {% data variables.product.prodname_vscode_shortname %} `setting(github.copilot.chat.otel.otlpEndpoint)` setting at the collector's OTLP endpoint, and configure the collector to export to your Application Insights connection string.
 
-For an end-to-end setup with a ready-made dashboard, see [Monitor AI coding agents with Grafana](https://learn.microsoft.com/azure/managed-grafana/grafana-opentelemetry-app-insights#github-copilot). The guide walks through running the OTel Collector, pointing VS Code at it, and importing a prebuilt [Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/) dashboard. The dashboard visualizes Copilot operations, input and output tokens, chat sessions, tool calls, and per-model response time and TTFT from Application Insights.
+For an end-to-end setup with a ready-made dashboard, see [Monitor AI coding agents with Grafana](https://learn.microsoft.com/azure/managed-grafana/grafana-opentelemetry-app-insights#github-copilot). The guide walks through running the OTel Collector, pointing {% data variables.product.prodname_vscode_shortname %} at it, and importing a prebuilt [Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/) dashboard. The dashboard visualizes Copilot operations, input and output tokens, chat sessions, tool calls, and per-model response time and TTFT from Application Insights.
 
 ### Langfuse
 
 [Langfuse](https://langfuse.com/) is an open-source LLM observability platform with native OTLP ingestion and support for OTel GenAI Semantic Conventions.
 
-VS Code configuration:
+{% data variables.product.prodname_vscode_shortname %} configuration:
 
 ```json
 {
@@ -455,8 +477,8 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 ## Related content
 
 * [AI settings reference](/docs/agents/reference/ai-settings.md)
-* [Manage AI settings in enterprise environments](/docs/enterprise/ai-settings.md)
-* [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
+* [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md)
+* [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
 * [Inside the LLM Call: GenAI Observability with OpenTelemetry](https://opentelemetry.io/blog/2026/genai-observability/)

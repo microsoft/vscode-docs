@@ -6,7 +6,7 @@ MetaSocialImage:
 ---
 # Debugging
 
-You can debug C# applications in Visual Studio Code using the [Microsoft C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
+You can debug C# applications in {% data variables.product.prodname_vscode %} using the [Microsoft C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
 ## Run and Debug
 
@@ -18,7 +18,7 @@ To run and debug without C# Dev Kit, see [Microsoft C# extension's GitHub page](
 
 With the C# Dev Kit extension installed and no debug configurations available to select in the Debug view, you can start debugging your project by having a `.cs` file opened and then pressing `kb(workbench.action.debug.start)`. The debugger will automatically find your project and start debugging. If you have multiple projects, it will prompt for which project you would like to start debugging.
 
-You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
+You can also start a debugging session from the **Run and Debug** view from the side bar of {% data variables.product.prodname_vscode_shortname %}. See more at [Debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
 
 ![Debugging using Run and Debug](images/debugging/run-and-debug.gif)
 
@@ -88,7 +88,7 @@ You can attach to a C# process using with the Command Palette `kb(workbench.acti
 
 ## Configuration options
 
-There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/configure/settings) to modify your debug options, or directly modify your `launch.json`.
+There are many options and settings available to configure the debugger. You can use `launchSettings.json`, {% data variables.product.prodname_vscode_shortname %} [User Settings](/docs/configure/settings) to modify your debug options, or directly modify your `launch.json`.
 
 ### launchSettings.json
 
@@ -104,8 +104,8 @@ If you have settings that you wish to change while using the C# debugger, you ca
 
 * `csharp.debug.stopAtEntry` - If true, the debugger should stop at the entry point of the target. This option defaults to `false`.
 * `csharp.debug.console` - When launching console projects, indicates which console the target program should be launched into. **Note:** This option is only used for the 'dotnet' debug configuration type.
-  * `internalConsole` [Default] - VS Code's Debug Console. This mode allows you to see messages from both the debugger and the target program in one place. Refer to [full documentation](/docs/csharp/debugger-settings.md#console-terminal-window) for more details.
-  * `integratedTerminal` - VS Code's integrated terminal.
+  * `internalConsole` [Default] - {% data variables.product.prodname_vscode_shortname %}'s Debug Console. This mode allows you to see messages from both the debugger and the target program in one place. Refer to [full documentation](/docs/csharp/debugger-settings.md#console-terminal-window) for more details.
+  * `integratedTerminal` - {% data variables.product.prodname_vscode_shortname %}'s integrated terminal.
   * `externalTerminal` - External terminal that can be configured via user settings.
 * `csharp.debug.sourceFileMap` - Maps build-time paths to local source locations. All instances of build-time path will be replaced with the local source path. <br> &emsp; Example: <br> &emsp; &emsp; `{\"<build-path>\":\"<local-source-path>\"}`
 * `csharp.debug.justMyCode` - When enabled (the default), the debugger only displays and steps into user code (\"My Code\"), ignoring system code and other code that is optimized or that does not have debugging symbols. [More information](/docs/csharp/debugger-settings.md#just-my-code).
@@ -259,4 +259,4 @@ Once a Hot Reload session starts and new changes are made, you can apply these c
 
 Read on to find out about:
 
-* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in {% data variables.product.prodname_vscode_shortname %} with your project for any language.
