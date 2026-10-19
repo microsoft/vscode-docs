@@ -169,7 +169,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
-| `hooks` | Optional hook event map scoped to this agent. Support and payloads depend on the runtime and version. See [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks) before reusing Local frontmatter in a Copilot session. |
+| `hooks` | Optional hook event map scoped to this agent. The Copilot harness supports agent-scoped hooks, but {% data variables.product.prodname_vscode_shortname %} currently omits this field when converting plugin-provided agents. See the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks) before migrating an existing agent. |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -265,9 +265,9 @@ Implement changes following existing code patterns. Make minimal, focused edits.
 
 If an existing custom agent has a `hooks` field, review both its frontmatter and the scripts it invokes. Moving the agent file does not convert its hook payloads or output decisions.
 
-The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) documents the shared harness's supported fields, trust requirements, and excluded agent sources. Keep the hook agent-scoped; moving it to a repository-wide event would make it run for other agents too.
+The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) documents the shared harness's supported fields, trust requirements, and excluded agent sources. However, {% data variables.product.prodname_vscode_shortname %} currently omits `hooks` when converting plugin-provided agents. For affected agents, retain the original hook definition and leave the hook migration incomplete. See the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks).
 
-Follow the [hook migration checklist](/docs/agent-customization/migrate-customizations.md#migrate-hooks), including a test where the custom agent runs as a subagent.
+Do not move the hook to a repository-wide or plugin-wide event as a workaround; it would run for other agents too. Once conversion preserves the hook, follow the [hook migration checklist](/docs/agent-customization/migrate-customizations.md#migrate-hooks), including a test where the custom agent runs as a subagent.
 
 </details>
 

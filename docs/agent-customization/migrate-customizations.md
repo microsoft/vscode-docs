@@ -233,11 +233,13 @@ Inventory each configuration and the scripts it invokes before changing anything
 | Additional Local locations | `chat.hookFilesLocations` does not configure Copilot discovery. Move the configuration and its dependencies to a supported source, or package shared hooks in a plugin. |
 | Repository settings | The Copilot harness reads an inline `hooks` map from `.github/copilot/settings.json` and `.github/copilot/settings.local.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. Preserve other settings; do not replace a settings file with a standalone hook-file envelope. |
 | User settings | Copilot reads inline hooks from `~/.copilot/settings.json`, not `~/.copilot/config.json`. Do not assume a Local hook in `~/.claude/settings.json` is discovered by Copilot. Move it to a documented Copilot user source. |
-| Custom agent frontmatter | Review the agent's `hooks` map and the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). Copilot does not run scoped hooks from remote or organization-hosted agent definitions. |
+| Custom agent frontmatter | Review the agent's `hooks` map and the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} currently drops this field when converting plugin-provided agents. For those agents, keep the hook definition but leave its migration incomplete; see the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Copilot also excludes scoped hooks from remote or organization-hosted agent definitions. |
 | Installed plugins | Update the plugin's source package or obtain an updated version from its publisher. Do not patch an installation cache. Keep scripts with the plugin and review its path variables, events, and payloads. See [hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins). |
 | Administrator-managed hooks | Coordinate changes with the administrator. Policy hooks and managed plugin hooks have different discovery and trust rules from personal files. See [enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks). |
 
 The Copilot harness combines applicable hooks from multiple sources; adding a repository copy does not replace a user or plugin copy. Avoid running both the original and migrated hook. For a shared setup used across repositories, consider distributing the converted hooks and scripts in a plugin rather than copying them into each repository.
+
+Plugin-wide hooks and hooks in a plugin-provided agent's frontmatter are separate configurations. Packaging an agent does not work around the conversion limitation for its scoped hooks. Do not broaden a scoped hook to plugin-wide or repository-wide execution merely to make it run.
 
 ### Compare configuration and script contracts
 

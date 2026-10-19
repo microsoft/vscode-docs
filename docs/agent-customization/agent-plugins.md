@@ -392,7 +392,9 @@ The [plugin parser](https://github.com/microsoft/vscode/blob/1.142.0/src/vs/plat
 
 ### Supported hook events
 
-Use the shared harness's [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads). For hooks contributed by a custom agent, preserve [agent scope](/docs/agent-customization/hooks.md#agent-scoped-hooks). A plugin-wide hook is not a substitute for agent scope.
+Use the shared harness's [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for plugin-wide hooks.
+
+Hooks in a plugin-provided custom agent's frontmatter have a separate [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks): {% data variables.product.prodname_vscode_shortname %} currently omits the agent's `hooks` field when passing that agent to the Copilot harness. The agent appearing in the picker does not prove its hooks run. Retain the scoped definition and leave its migration incomplete until this conversion is supported and verified. A plugin-wide hook is not an equivalent workaround.
 
 ### How plugin hooks interact with other hooks
 
