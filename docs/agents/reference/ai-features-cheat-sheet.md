@@ -160,7 +160,9 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/doc` | Generate documentation comments from editor inline chat. |
 | `/setupTests` (Experimental) | Get help choosing and setting up a test framework. |
 | `/new`, `/newNotebook` | Scaffold a workspace, file, or notebook. |
-| `/compact`, `/fork` | Compact context, or branch the conversation with its history. |
+| `/compact` | Compact conversation context. |
+| `/fork` | [Fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) with its history. |
+| `/fork <title>`, `/fork prompt <prompt>` | Name a fork, or fork and immediately send a prompt with attached context. Requires a supported Agent Host session. See [named and prompted forks](/docs/agents/run/sessions/manage-sessions.md#name-a-fork-or-send-a-prompt). |
 | `/clear` | Start a new chat and archive or mark the current chat as done. |
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |

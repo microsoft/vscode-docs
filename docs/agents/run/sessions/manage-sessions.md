@@ -354,9 +354,9 @@ When a merged pull request makes a session eligible, select **Configure Automati
 
 ## Fork a chat session
 
-Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions whose harness doesn't support multiple chats, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
+Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions whose harness doesn't support multiple chats, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree.
 
-For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session and runs independently from sibling chats.
 
 For Copilot harness sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -372,6 +372,26 @@ There are two ways to fork a chat session:
 
 > [!TIP]
 > A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
+
+### Name a fork or send a prompt
+
+Use named and prompted forks to label an alternative approach or start exploring it immediately. These forms are available in supported [Agent Host](/docs/agents/concepts/agent-host.md) sessions, such as Copilot, in both the editor window's {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}.
+
+| Command | Result |
+|---|---|
+| `/fork` | Fork the current conversation without sending a new prompt. |
+| `/fork <title>` | Fork the conversation with the title you provide, without sending a new prompt. |
+| `/fork prompt <prompt>` | Fork the conversation and immediately send the prompt and any attached context to the fork. |
+
+For example, explore an alternative design while retaining the discussion so far:
+
+```prompt
+/fork prompt Compare this design with an event-driven approach. Do not change any files.
+```
+
+The prompted fork uses the source conversation's agent and model, not a new selection you make in the input pickers before forking.
+
+A named fork retains the title you provide. Without an explicit title, the fork starts with a default title and can receive an automatically generated title. For prompted forks, title generation can use the original title and the new prompt.
 
 <a name="orchestrate-sessions-from-agent-host-sessions"></a>
 
