@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Start, coordinate, and manage agent sessions across workspaces in {% data variables.product.prodname_vscode %}.
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}

@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Build a Local TDD workflow in {% data variables.product.prodname_vscode_shortname %} with custom agents, handoffs, and instructions.
 Keywords:
 - ai

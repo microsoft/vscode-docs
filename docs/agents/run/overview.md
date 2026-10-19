@@ -1,6 +1,6 @@
 ---
 ContentId: 2f1c7a0e-69d4-4b83-bb72-0e897a31f5c6
-DateApproved: 10/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Choose an agent interface, scope a task, guide the work, and review results in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/agents-overview/chat-view-expanded.png
 ---

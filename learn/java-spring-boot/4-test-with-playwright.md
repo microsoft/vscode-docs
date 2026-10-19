@@ -1,6 +1,6 @@
 ---
 ContentId: aad66383-6454-4291-b989-377abba471c5
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use GitHub Copilot and Playwright MCP tools to test a Spring Boot web application in Visual Studio Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

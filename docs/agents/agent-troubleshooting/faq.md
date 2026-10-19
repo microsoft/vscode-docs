@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
 ---
 # GitHub Copilot frequently asked questions

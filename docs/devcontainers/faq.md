@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: {% data variables.product.prodname_vscode %} troubleshooting tips and tricks for Dev Containers
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 ---
 # Dev Containers FAQ
 

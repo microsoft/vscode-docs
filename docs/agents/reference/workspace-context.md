@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how Copilot agents search workspace code, gather context, and work within indexing and exclusion limits.
 Keywords:
 - workspace context

@@ -1,6 +1,6 @@
 ---
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
 # Ruby in {% data variables.product.prodname_vscode %}

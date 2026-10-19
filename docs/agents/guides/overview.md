@@ -1,6 +1,6 @@
 ---
 ContentId: a73cc399-b974-4639-9965-497749172539
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Find agent tutorials and guides for {% data variables.product.prodname_vscode_shortname %} by task, from a first app to testing and project workflows.
 MetaSocialImage: ../images/agents-overview/chat-view-expanded.png
 ---
