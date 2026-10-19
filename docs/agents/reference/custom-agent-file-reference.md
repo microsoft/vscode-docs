@@ -50,7 +50,7 @@ All fields in this table are optional. Defaults and harness-specific behavior ar
 | `name` | String | The agent's name in the UI. Defaults to the file name. |
 | `description` | String | What the agent does and when to use it. |
 | `argument-hint` | String | Hint text that describes the input the agent expects. Shown in the Local chat input. |
-| `tools` | String or array of strings | Tools or tool sets available to the agent. Tool names depend on the harness. See [Tools](#tools). |
+| `tools` | String or array of strings | Tools available to the agent. Tool names and supported aliases depend on the harness. User-defined tool sets are deprecated and are not supported in the Copilot harness. See [Tools](#tools). |
 | `agents` | Array of strings | Custom agents available as subagents. In Local, use `['*']` or omit the field to allow all available agents, or use `[]` to prevent subagent use. Include the `agent` tool set in `tools`. See [Subagent configuration](#subagent-configuration). |
 | `model` | String or array of strings | The model to use in the {% data variables.product.prodname_copilot_short %} harness. An array specifies models in preference order, using the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
 | `reasoning-effort` | String | Reasoning effort for the agent in the Copilot harness: `low`, `medium`, `high`, `xhigh`, or `max`. Availability depends on the selected model. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort). |
@@ -64,7 +64,7 @@ All fields in this table are optional. Defaults and harness-specific behavior ar
 
 ### Tools
 
-In Local, `tools` can include built-in tools, [tool sets](/docs/agent-customization/tool-sets.md), MCP tools, and tools contributed by extensions. To include all tools from an MCP server, use `<server name>/*`.
+In Local, `tools` can include built-in tools, MCP tools, and tools contributed by extensions. Existing user-defined tool-set references are deprecated and are not supported in the Copilot harness. See [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets). Built-in aliases such as `read` and `search` are separate from user-defined tool-set files. To include all tools from an MCP server, use `<server name>/*`.
 
 ```yaml
 tools: ['read', 'search', '<server name>/*']

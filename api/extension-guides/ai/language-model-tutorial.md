@@ -327,12 +327,12 @@ Restart your extension with the green arrow or press `kbstyle(F5)` if the extens
 
 In this tutorial, you learned how to create a VS Code extension that integrates AI into the editor with the language model API. You used the VS Code extension API to get the code from the current tab, sent it to the model with a custom prompt, and then parsed and displayed the model result right in the editor using decorators.
 
-Next, you can extend your Code Tutor extension to [include a chat participant](/api/extension-guides/ai/chat-tutorial) as well which will allow users to interact directly with your extension via the GitHub Copilot chat interface. You can also [explore the full range of API's in VS Code](/api/references/vscode-api) to explore new ways of building custom AI experiences your editor.
+To add a conversational teaching workflow, [package a code-tutor plugin with skills, MCP tools, and MCP Apps](/docs/agent-customization/migrate-customizations.md#example-migrate-a-code-tutor-to-a-plugin). Keep editor-specific functionality, such as annotations and diagnostics, in the extension and expose it through [extension tools](/api/extension-guides/ai/tools.md) when the agent needs it.
 
 You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/lm-api-tutorial).
 
 ## Related content
 
 - [Language Model API extension guide](/api/extension-guides/ai/language-model)
-- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/ai/chat-tutorial)
-- [VS Code Chat API reference](/api/extension-guides/ai/chat)
+* [Agent plugins](/docs/agent-customization/agent-plugins.md)
+* [MCP tools and Apps](/api/extension-guides/ai/mcp.md)

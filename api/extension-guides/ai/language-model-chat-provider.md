@@ -226,4 +226,4 @@ You can get started with a [basic example project](https://github.com/microsoft/
 
 - [VS Code API Reference](/api/references/vscode-api)
 - [Language Model API Guide](/api/extension-guides/ai/language-model)
-- [Chat API Extension](/api/extension-guides/ai/chat)
+* [AI extensibility options](/api/extension-guides/ai/ai-extensibility-overview.md)

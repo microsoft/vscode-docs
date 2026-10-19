@@ -54,7 +54,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.localeOverride)`<br/>Specify a locale for chat responses, such as `en` or `fr`. | `"auto"` |
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Control detection of [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants) in Local harness chat. Does not apply to the Copilot harness. | `true` |
 | `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |

@@ -174,9 +174,9 @@ Type `/` to see commands available in the current session. Availability depends 
 
 For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
 
-### Chat participants
+### Chat participants (deprecated)
 
-In chat surfaces that support participants, type `@` to choose a specialist. Use `@github` for repositories, issues, and pull requests, `@terminal` for shell questions, or `@vscode` for editor features and settings. For example, `@vscode /search` generates a Search view query.
+Chat participants are not supported in the Copilot harness. Ask the agent directly and attach relevant context, or use a plugin with skills and MCP tools for a domain-specific workflow. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ## Next steps
 
