@@ -282,7 +282,7 @@ Environment variables always take precedence over {% data variables.product.prod
 | `COPILOT_OTEL_LOG_LEVEL` | `info` | Minimum log level: `trace`, `debug`, `info`, `warn`, or `error`. |
 | `COPILOT_OTEL_FILE_EXPORTER_PATH` | | Write all signals to this file as JSON lines. |
 | `COPILOT_OTEL_HTTP_INSTRUMENTATION` | `false` | Enable HTTP-level OTel instrumentation. |
-| `OTEL_EXPORTER_OTLP_HEADERS` | | Auth headers (for example, `Authorization=Bearer token`) |
+| `OTEL_EXPORTER_OTLP_HEADERS` | | Static HTTP headers for the collector. For managed Agent Host sessions, see [dynamic headers](#configure-dynamic-headers). |
 
 ### Commands
 
@@ -302,6 +302,55 @@ For Local harness sessions, {% data variables.product.prodname_vscode_shortname 
 
 > [!NOTE]
 > When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.
+
+### Configure dynamic headers
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, administrators can configure `telemetry.headersProvider` for Copilot Agent Host sessions to generate and refresh HTTP headers for OTLP export. The Agent Host runs a helper executable to obtain header values, so developers don't need to update them manually. Use these headers to supply collector-specific metadata, route telemetry, or authenticate with the collector.
+
+Configure the provider through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, not your editor settings JSON. For example, deploy the following telemetry block in `managed-settings.json`:
+
+```json
+{
+    "telemetry": {
+        "enabled": true,
+        "endpoint": "https://<collector-host>:4318",
+        "protocol": "http/protobuf",
+        "captureContent": false,
+        "capture": {
+            "identity": false
+        },
+        "headers": {
+            "x-organization": "<organization-id>"
+        },
+        "headersProvider": {
+            "path": "<absolute-path-to-header-helper>",
+            "args": [],
+            "refreshIntervalMs": 1740000
+        }
+    }
+}
+```
+
+Replace the endpoint, organization ID, and helper path with your deployment values. Install the helper and its dependencies on the machine where the Agent Host runs. For remote sessions, the executable and paths must exist on the remote host.
+
+The helper runs from the execution host's home directory, with the arguments in `args` passed without shell evaluation. It must finish within 30 seconds and write a JSON object with string values to standard output:
+
+```json
+{
+    "x-team": "platform",
+    "x-environment": "production"
+}
+```
+
+The helper can also return an `Authorization` header when the collector requires authentication.
+
+The provider refreshes headers every 29 minutes by default. Set `refreshIntervalMs` to match how often your header values need to be refreshed. Returning `{}` clears dynamic headers. If a refresh fails, exports that require dynamic headers are blocked until the provider refreshes successfully.
+
+Headers returned by the provider take precedence over managed static `telemetry.headers` values with the same name. Nonconflicting static headers remain in the request. Managed headers also take precedence over user-provided headers.
+
+The provider requires an `endpoint` in the same telemetry block and supports HTTP OTLP export with `http/protobuf` or `http/json`, not gRPC. Managed export does not require developers to opt in through personal OTel settings.
+
+Higher-precedence managed sources replace the entire `telemetry` block. Include all required fields in the winning source rather than splitting the endpoint and provider across delivery methods. See [managed-settings delivery precedence](/docs/enterprise/manage-ai-settings.md#across-managed-settings-delivery-methods) and the [header provider reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference#dynamic-authentication-headers) for more information.
 
 <a name="trace-structure-for-background-and-claude-agents"></a>
 
@@ -464,18 +513,18 @@ File-based output (offline or CI):
 }
 ```
 
-Authentication headers for remote collectors are only configurable through the `OTEL_EXPORTER_OTLP_HEADERS` environment variable (for example, `Authorization=Bearer your-token`).
+For static HTTP headers, set `OTEL_EXPORTER_OTLP_HEADERS`. Administrators can also configure managed static headers and, for Copilot Agent Host sessions, [dynamic headers](#configure-dynamic-headers).
 
 ## Security and privacy
 
-OTel monitoring is off by default and emits no data until you explicitly enable it. You control what is collected and where it goes.
+OTel monitoring is off by default. You or your organization must configure monitoring before data is exported. For managed deployments, your organization controls what is collected and where it goes.
 
 | Aspect | Detail |
 |---|---|
-| **Off by default** | No OTel data is emitted unless you explicitly enable it. The OTel SDK is not loaded when disabled, resulting in zero runtime overhead. |
+| **Off by default** | No OTel data is exported unless you or your organization enables monitoring. |
 | **No content by default** | Prompts, responses, and tool arguments require opt-in with `captureContent`. |
 | **No PII in default attributes** | Session IDs, model names, and token counts are not personally identifiable. |
-| **User-configured endpoints** | Data goes only where you point it. There is no phone-home behavior. |
+| **Configured endpoints** | Data goes to the endpoint configured by you or your organization. |
 
 ## Related content
 

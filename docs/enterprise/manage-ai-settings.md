@@ -169,6 +169,10 @@ If built-in updates are disabled by policy, the notice directs the developer to 
 
 Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the Agent Host automatically after it resolves a managed telemetry change.
 
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, use `telemetry.headersProvider` to generate and refresh HTTP headers for OTLP export from Copilot Agent Host sessions. Headers can supply collector-specific metadata, route telemetry, or authenticate with the collector. Managed export does not require developers to opt in through personal OTel settings. For a configuration example and helper requirements, see [Configure dynamic headers](/docs/agents/guides/monitoring-agents.md#configure-dynamic-headers).
+
+The [highest-precedence delivery source](#across-managed-settings-delivery-methods) that supplies `telemetry` owns the entire block. Fields omitted from that source do not inherit values from lower-precedence sources.
+
 Identity capture is off by default and independent of content capture. Review both controls before deployment, and remove conflicting OpenTelemetry environment variables from managed devices. For the configuration schema and supported clients, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry).
 
 ## Use {% data variables.product.prodname_vscode_shortname %} device policies
