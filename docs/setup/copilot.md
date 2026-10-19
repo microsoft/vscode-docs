@@ -16,6 +16,9 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 
 </div>
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
+
 ## Before you start
 
 Review these account, usage, and data-handling details before you send project content to an AI model:

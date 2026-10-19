@@ -25,6 +25,8 @@ This article covers supported migrations, [manual hook migration](#migrate-hooks
 
 > [!NOTE]
 > This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
+>
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 ## Open the migration list
 

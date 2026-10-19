@@ -110,6 +110,8 @@ Open **Permissions** and select **Sandboxing for terminal** to change sandboxing
 
 A new session inherits the effective configuration of its execution host. An explicit session selection persists when you restore the session unless an organization-managed restriction overrides it.
 
+When an organization-managed policy enables sandboxing, `sandbox.allowBypass` controls this choice. If it is `true`, you can turn sandboxing off for the current session. If it is `false` or omitted, sandboxing stays on and the control is locked. Changing the session toggle does not change the managed policy or affect other sessions.
+
 Sandboxing is independent of the selected [permission level](/docs/agents/run/approvals.md#permission-levels). For example, the sandbox continues to restrict processes when you select **Allow all**.
 
 <a name="configure-sandboxing-for-an-agent-host-session"></a>
@@ -262,7 +264,7 @@ Domain allow and deny controls are available for compatible terminal tools. Thei
 
 ## When your organization manages sandboxing
 
-Managed sandbox enforcement is in Preview. Your organization can require sandboxing, prevent bypass, or restrict network access. Enforced controls are locked, but you can select a more restrictive value where a control remains editable.
+Managed sandbox enforcement is in Preview. When a policy sets `sandbox.enabled` to `true`, `sandbox.allowBypass` determines whether the session toggle is editable: `true` lets you turn sandboxing off for the current session, while `false` or an omitted value keeps sandboxing on and locks the toggle. A session choice does not change the managed policy or other sessions. Your organization can also restrict network access.
 
 If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 

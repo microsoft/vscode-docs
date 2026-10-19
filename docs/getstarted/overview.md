@@ -121,6 +121,9 @@ You don't need a {% data variables.product.prodname_copilot %} subscription to u
 * **Provider subscription:** Use [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
 * **Local model:** [Run a model on your own machine, such as Ollama](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), including offline.
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with your own API key or provider account. Contact the IT team that deployed the settings to discuss access.
+
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
 
 For agent workflows, [choose a harness or the Cloud target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
