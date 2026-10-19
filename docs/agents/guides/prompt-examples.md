@@ -1,8 +1,7 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use chat prompts in {% data variables.product.prodname_vscode_shortname %} to explore code, build features, refactor, debug, and test.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Prompt examples
 

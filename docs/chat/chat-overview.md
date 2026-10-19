@@ -1,8 +1,7 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
 
@@ -19,7 +18,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Choose where to chat
 
-The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. To compare these interfaces with browser and terminal options, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents).
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Run agents](/docs/agents/run/overview.md#choose-an-interface).
 
 For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
@@ -85,7 +84,7 @@ When you have multiple pending messages (queued or steering), you can drag and d
 
 Providing the right context helps the AI generate more relevant and accurate responses.
 
-* **Implicit context**: {% data variables.product.prodname_vscode_shortname %} automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
+* **Implicit context**: {% data variables.product.prodname_vscode_shortname %} can include or suggest editor context, such as the active file or selection. The behavior depends on the interface, harness, and context settings. Attach important files explicitly instead of assuming that opening a file adds its contents to the request. Learn how [implicit context works](/docs/agents/concepts/context.md#implicit-context).
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
 
@@ -166,7 +165,7 @@ Use these settings to adjust the chat transcript:
 
 With persistent progress, reasoning appears in separate collapsible previews and tool calls remain visible while they run. `setting(chat.experimental.persistentProgressVerbosity)` controls completed tool-call details. **Compact** replaces completed groups with expandable summaries when response text resumes or the response finishes. **Verbose** keeps the full details visible.
 
-Persistent progress defaults to **Draw** in Insiders and **Off** in Stable. Experiments can change either default during rollout, but an explicit setting always takes precedence.
+Persistent progress defaults to **Draw** in Insiders and **Off** in Stable.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 

@@ -1,8 +1,7 @@
 ---
-ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 10/14/2026
+ContentId: a4fa1788-9004-48ee-b75d-51765beaee5f
+DateApproved: 10/21/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 
@@ -65,7 +64,7 @@ In this part, you open your folder in the {% data variables.copilot.agents_windo
 
     ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
-1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#cloud-target).
+1. If you're prompted to sign in, use the GitHub account that has access to {% data variables.product.prodname_copilot %}. This tutorial uses the **Copilot** agent harness. To use your own provider credentials for supported workflows, review the [agent harness authentication options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
 ### Start an agent session
 

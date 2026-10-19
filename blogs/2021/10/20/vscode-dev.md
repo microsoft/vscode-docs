@@ -1,4 +1,5 @@
 ---
+Tags: [Web, Announcements]
 Order: 
 TOCTitle: vscode.dev
 PageTitle: vscode.dev Visual Studio Code for the Web

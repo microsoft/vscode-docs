@@ -1,6 +1,6 @@
 ---
 ContentId: 96b20723-ca52-4c3a-8632-6dae669ac7e0
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Default settings in {% data variables.product.prodname_vscode %}.
 ---
 # Default settings reference

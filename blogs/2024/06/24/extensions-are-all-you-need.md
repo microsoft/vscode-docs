@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, Models, Extensions]
 Order: 
 TOCTitle: Copilot extensions are all you need
 PageTitle: GitHub Copilot Extensions are all you need

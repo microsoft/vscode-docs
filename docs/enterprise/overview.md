@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure enterprise policies, extensions, AI access, and network settings for development teams in {% data variables.product.prodname_vscode %}.
 ---
 
@@ -28,10 +28,10 @@ See the [enterprise policies reference](/docs/enterprise/policies.md) for a comp
 
 ## Extension management
 
-Organizations can control which extensions are installed on users' machines and host a private extension marketplace.
+Organizations can manage extension installation and enablement in {% data variables.product.prodname_vscode_shortname %} and host a private extension marketplace.
 
-* **Allowed extensions** - Specify which extensions can be installed by publisher, extension ID, or version
-* **Private marketplace** - Self-host extensions for your organization and control access to the public marketplace
+* **Allowed extensions** - Configure which extensions {% data variables.product.prodname_vscode_shortname %} permits users to install and enable by publisher, extension ID, version, or platform
+* **Private marketplace** - Host and distribute internal and public extensions within your organization
 
 Learn more about [managing extensions in enterprise environments](/docs/enterprise/extensions.md).
 

@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements, Engineering]
 Order:
 TOCTitle: Evolution of VS Code Insiders
 PageTitle: Evolution of Visual Studio Code Insiders

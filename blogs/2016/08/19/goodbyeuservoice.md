@@ -1,4 +1,5 @@
 ---
+Tags: [Community]
 Order:
 TOCTitle: Goodbye User Voice
 PageTitle: Goodbye User Voice

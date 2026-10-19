@@ -1,8 +1,7 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -38,7 +37,7 @@ Each time the agent sends a request to the language model, {% data variables.pro
 * **Customizations**: AI customizations you set up, including custom agents, skills, and custom instructions.
 * **User message**: the current request or follow-up message you send to the agent.
 * **Conversation history**: the messages exchanged so far in the current chat.
-* **Implicit context**: the file you're editing, your current selection, visible errors, and git state.
+* **Implicit context**: editor information, such as the active file or selection, when the interface, harness, and context settings include it.
 * **Explicit references**: files, editor context, web content, and other sources you reference with `#`-mentions.
 * **Tool outputs**: results from file reads, terminal commands, codebase search results, and other tool calls during agent sessions.
 
@@ -54,14 +53,14 @@ Learn more about [workspace indexing](/docs/agents/reference/workspace-context.m
 
 ## Implicit context
 
-{% data variables.product.prodname_vscode_shortname %} uses your current activity to provide context to the prompt or suggest context you might add:
+{% data variables.product.prodname_vscode_shortname %} can use your editor activity to provide context to a request or suggest an attachment. This behavior depends on the interface, harness, and context settings:
 
-* The currently selected text in the active editor.
-* The file name or notebook name of the active editor.
-* When you use the **Ask** agent, the contents of the active file.
-* When you use **Agent**, the active file as a suggested attachment that you can add to the context.
+* In the {% data variables.copilot.chat_view %}, the active file, notebook, or selected text can provide editor context.
+* With the Local harness and the default context settings, **Ask** includes active editor context. **Agent** suggests the active file as an attachment, while selected text is included.
+* Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, can also receive active editor context automatically. The Local harness behavior doesn't apply to every agent.
+* In the {% data variables.copilot.agents_window %}, implicit editor context is off by default. Add the files or project context that the request needs.
 
-Implicit context reduces how much information you need to specify. If a particular source is important to the task, add it explicitly instead of relying on the agent to infer that it is relevant.
+A suggested attachment isn't the same as an explicitly attached file. When a source is important, [add it to the request](/docs/chat/copilot-chat-context.md#add-files-as-context) instead of assuming that an open editor supplies the full file. The agent can also gather more context through its tools.
 
 ## Explicit context
 
@@ -78,7 +77,7 @@ The context window is the maximum amount of information a language model can pro
 
 When a conversation approaches the limit, {% data variables.product.prodname_vscode_shortname %} automatically compacts older parts of the conversation into a summary. Compaction makes room for new information, but details from earlier messages might be summarized or omitted. You can also enter `/compact` in the chat input to compact the conversation manually.
 
-Start a new session when you switch to an unrelated task. If an instruction should apply across requests or sessions, store it in [custom instructions](/docs/agent-customization/custom-instructions.md) instead of relying on conversation history. Learn more about [managing conversation context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context).
+To start with fresh conversation history while keeping the same workspace and code changes, [create another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. Start a new session for an unrelated task or a different project. Neither action removes saved files, applicable custom instructions, or persistent memory. If an instruction should apply across conversations, store it in [custom instructions](/docs/agent-customization/custom-instructions.md). Learn more about [managing conversation context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context).
 
 ## Context isolation with subagents
 
@@ -93,7 +92,7 @@ Learn how to [delegate work to subagents](/docs/agents/run/subagents.md).
 * **Describe the goal and constraints.** Explain the outcome you want and any requirements the agent should follow.
 * **Let the agent discover context.** The agent can search your workspace and read related files as it works. You don't need to attach the entire codebase.
 * **Reference important sources.** Explicitly add files, symbols, errors, or documentation that the agent must consider.
-* **Keep each session focused.** Use a separate session for an unrelated task so that its history doesn't compete for context.
+* **Keep each conversation focused.** Use a new chat for related work that doesn't need the current history, or a separate session for an unrelated task.
 
 ### How context improves a response
 

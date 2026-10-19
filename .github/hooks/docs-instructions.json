@@ -1,19 +1,18 @@
 {
+  "version": 1,
   "hooks": {
-    "PreToolUse": [
+    "preToolUse": [
       {
         "type": "command",
-        "bash": "./.github/hooks/block-markdown-dashes.sh",
-        "powershell": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\block-markdown-dashes.ps1",
-        "timeout": 10
+        "command": "node .github/hooks/docs-hooks.cjs preToolUse",
+        "timeoutSec": 10
       }
     ],
-    "PostToolUse": [
+    "postToolUse": [
       {
         "type": "command",
-        "bash": "./.github/hooks/check-docs-instructions.sh",
-        "powershell": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\check-docs-instructions.ps1",
-        "timeout": 10
+        "command": "node .github/hooks/docs-hooks.cjs postToolUse",
+        "timeoutSec": 10
       }
     ]
   }

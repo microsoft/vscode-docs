@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging, Languages, Extensions]
 Order:
 TOCTitle: Java Debugging
 PageTitle: Using Visual Studio Code to Debug Java Applications

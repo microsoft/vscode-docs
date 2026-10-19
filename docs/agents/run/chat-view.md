@@ -1,14 +1,13 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the {% data variables.copilot.chat_view %}
 
-The {% data variables.copilot.chat_view %} is a code-first interface for asking questions and working with agents in the main {% data variables.product.prodname_vscode %} window. Use it when your task centers on the current project and you want the editor, debugger, tests, extensions, and notebooks available alongside the conversation.
+The {% data variables.copilot.chat_view %} runs agents beside your code in the main {% data variables.product.prodname_vscode %} window. Use it when you want to collaborate over code in the current workspace while keeping the editor, debugger, tests, terminals, extensions, and notebooks available alongside the conversation.
 
-In this article, you learn how to open the {% data variables.copilot.chat_view %}, choose a layout, understand its interface, and start a workspace-scoped session. To compare it with other interfaces, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents). For conversation mechanics shared with the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
+In this article, you learn how to open the {% data variables.copilot.chat_view %}, choose a layout, understand its interface, and start a workspace-scoped session. Both the {% data variables.copilot.chat_view %} and [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) let you direct agents and review their work. To choose an interface based on where you want to focus, see [Run agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/overview.md#choose-an-interface). For conversation mechanics shared by both interfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.

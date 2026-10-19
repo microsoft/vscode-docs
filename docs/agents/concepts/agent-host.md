@@ -1,8 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host manages sessions, execution environments, and connected clients.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
 - agent host protocol
@@ -116,7 +115,7 @@ The process boundary also affects how you review edits, configure the agent, and
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |
 | Continue sessions across interfaces | [Sessions across surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces). |
-| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [configure MCP servers](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). |
+| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [MCP configuration formats](/docs/agents/reference/mcp-configuration.md#configuration-file). |
 
 ## Related resources
 

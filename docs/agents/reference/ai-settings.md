@@ -1,8 +1,7 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI settings reference
 
@@ -55,7 +54,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.localeOverride)`<br/>Specify a locale for chat responses, such as `en` or `fr`. | `"auto"` |
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Control detection of [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants) in Local harness chat. Does not apply to the Copilot harness. | `true` |
 | `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
@@ -65,7 +64,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
-| `setting(chat.experimental.persistentProgress)` _(Experimental)_<br/>Keep a [progress indicator visible until an agent response finishes](/docs/chat/chat-overview.md#customize-the-chat-display). Values are `off`, `draw`, `drawMonochrome`, and `drawMonochromeNoIcon`. | `"draw"` (Insiders)<br/>`"off"` (Stable)<br/>Experiments can override these defaults. |
+| `setting(chat.experimental.persistentProgress)` _(Experimental)_<br/>Keep a [progress indicator visible until an agent response finishes](/docs/chat/chat-overview.md#customize-the-chat-display). Values are `off`, `draw`, `drawMonochrome`, and `drawMonochromeNoIcon`. | `"draw"` (Insiders)<br/>`"off"` (Stable) |
 | `setting(chat.experimental.persistentProgressVerbosity)` _(Experimental)_<br/>Control completed tool-call details while persistent progress is active. `compact` replaces completed groups with expandable summaries, and `verbose` keeps full tool-call details visible. | `"compact"` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
@@ -136,7 +135,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)`<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
-| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agent-customization/mcp-servers.md#automatically-start-mcp-servers). | `newAndOutdated` |
+| `setting(chat.mcp.autostart)` _(Experimental)_<br/>Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agents/run/manage-mcp-servers.md#automatically-start-mcp-servers). | `newAndOutdated` |
 
 ### Agent tools
 
@@ -206,10 +205,8 @@ The following settings configure the Local harness sandbox or custom terminal be
 |------------------------|---------------|
 | `setting(chat.agent.sandbox.allowNetwork)` _(Deprecated)_<br/>Former network access setting. Its value migrates to `setting(chat.agent.sandbox.network.allowNetwork)`. | `true` |
 | `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` _(Deprecated, Local harness only)_<br/>Allow a blocked terminal command in a Local harness session to retry inside the sandbox with unrestricted network access after user confirmation. | `true` |
-| `setting(chat.agent.sandbox.allowAutoApprove)` _(Local harness only)_<br/>Automatically approve terminal commands that run inside the Local harness sandbox. | `true` |
 | `setting(chat.agent.sandbox.fileSystem.linux)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on Linux with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
 | `setting(chat.agent.sandbox.fileSystem.mac)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on macOS with `allowRead`, `allowWrite`, `denyRead`, and `denyWrite`. | `{}` |
-| `setting(chat.agent.sandbox.fileSystem.windows)` _(Deprecated)_<br/>Configure Local harness sandbox file system access on Windows with `allowRead`, `allowWrite`, and `denyRead`. | `{}` |
 
 ### Planning, models, and agent providers
 
@@ -237,11 +234,11 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
 | `setting(chat.agentSessions.showExternal)` <br/>Control which [sessions from supported external applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) appear in the session lists. Values are `none`, `recent` (the two most recent from the last seven days), `last24Hours`, `last7Days`, and `all`. | `"none"` |
-| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false`<br/>Experiments can override this default. |
+| `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` _(Experimental)_<br/>Show a suggestion to [clean up inactive session worktrees](/docs/agents/run/sessions/manage-sessions.md#clean-up-session-worktrees) when they use at least 5 GiB or 20 worktrees are eligible for cleanup. | `false` |
 | `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of inactive days before an eligible session with a merged pull request is [automatically marked as done](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). Set to `0` to disable automatic cleanup. The recommended value is `15`. | `0` |
 | `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
 | `setting(sessions.showChatTabs)` _(Preview)_<br/>Show each chat as a tab with `multiple`, or show only the active chat as the session view with `single`. | `"multiple"` |
-| `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable)<br/>Experiments can override these defaults. |
+| `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
 | `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
 | `setting(sessions.chat.experimental.welcomeName)` _(Experimental)_<br/>Set the name in new-session welcome messages. Leave empty to use the first name from the signed-in GitHub profile when available. | `""` |
@@ -262,8 +259,8 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.automations.cloud.enabled)` `feature(cloud-automations)`<br/>Enable management of user-owned GitHub Copilot [cloud automations](/docs/agents/run/automations.md#create-a-cloud-automation) in the **Automations** view. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot harness sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
-| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot harness session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
-| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
+| `setting(chat.sessionSync.enabled)` _(Experimental)_<br/>Sync [session history](/docs/agents/run/sessions/session-history.md#enable-or-disable-session-sync-experimental) to GitHub.com for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)`. Set a preference explicitly and check the [sync status](/docs/agents/run/sessions/session-history.md#session-sync-status). | `false` |
+| `setting(chat.sessionSync.excludeRepositories)` _(Experimental)_<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md#exclude-repositories-from-sync). Use exact `owner/repo` names or glob patterns like `my-org/*`. Matching sessions are not uploaded by session sync. | `[]` |
 
 ### Agent Host
 
@@ -345,7 +342,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
 | `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
 | `setting(chat.useHooks)` _(Preview)_ <br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
-| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [Local hook file locations](/docs/agent-customization/hooks.md#local-hook-file-locations). Specify paths to folders, which load all `*.json` files, or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional Local hook file locations. Specify folders containing `*.json` files or individual `.json` files, using relative or tilde paths. For Copilot, [migrate to a supported hook source](/docs/agent-customization/migrate-customizations.md#find-every-hook-source) instead. | `{}` |
 | `setting(chat.useClaudeHooks)` _(Preview)_ <br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |

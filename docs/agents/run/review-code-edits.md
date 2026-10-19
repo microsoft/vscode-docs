@@ -1,8 +1,7 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
 

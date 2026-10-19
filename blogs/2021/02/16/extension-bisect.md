@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions]
 Order: 
 TOCTitle: Extension bisect
 PageTitle: Visual Studio Code extension bisect utility

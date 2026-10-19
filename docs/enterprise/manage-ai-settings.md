@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -89,6 +89,23 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
+### Enforce runtime policies with Copilot Agent Host
+
+Some managed sandbox and permission settings require the Copilot Agent Host for enforcement. {% data variables.product.prodname_vscode_shortname %} automatically uses the Copilot harness for full chat sessions when either condition applies:
+
+* Managed `sandbox.enabled` is `true`.
+* The managed `permissions` object contains at least one key. An empty `permissions` object does not require the Agent Host.
+
+When one of these conditions becomes effective, {% data variables.product.prodname_vscode_shortname %} automatically moves an open Local harness session to the Copilot harness. The new session preserves the conversation history and unsent input, including attachments and selections, without submitting the input. After the Copilot session opens, the original Local session is [archived](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) as read-only. Opening another unarchived Local session starts the same process.
+
+While the policy applies:
+
+* Claude and Codex sessions do not appear in the sessions list. These sessions are not migrated, archived, or deleted.
+* Local-backed terminal chat is unavailable.
+* Inline Chat and next edit suggestions remain available.
+
+The `ChatToolsAutoApprove` device policy does not trigger this routing by itself.
+
 ### Keep Local harness as default
 
 Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness as the default for new agent sessions and prevent automatic selection of the Copilot harness.
@@ -103,7 +120,7 @@ Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed
 }
 ```
 
-This control suppresses automatic routing to the Copilot harness, including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
+This control suppresses [automatic routing to the Copilot harness](#enforce-runtime-policies-with-copilot-agent-host), including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Those managed rules continue to be enforced in Copilot harness sessions. Review the security impact before you use this temporary control.
@@ -218,6 +235,13 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 
 Local harness sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
+When moving to Copilot, inventory policy hooks, managed plugins, and any permitted user or repository hooks. Convert and test their scripts as well as their configuration. See [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks).
+
+> [!WARNING]
+> Copilot policy hooks run on the host, outside the session sandbox. Keep their scripts in administrator-controlled locations. Do not promote a repository hook to a policy hook while retaining a workspace-controlled script path; that would run editable workspace code outside the sandbox. See [policy hooks and sandboxed sessions](https://docs.github.com/en/copilot/reference/hooks-reference#sandboxed-sessions).
+
+Test failures and timeouts separately. The [Copilot command-hook reference](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks) documents timeouts as fail-open even for policy hooks. A requirement for complete audit coverage or fail-closed enforcement therefore needs more than the presence of a hook file.
+
 <a id="deploy-hooks-through-managed-plugins"></a>
 
 ##### Restrict hook sources
@@ -253,7 +277,21 @@ Use the following policies to govern [MCP servers](/docs/agent-customization/mcp
 
 #### Configure agent tool approvals
 
-Use {% data variables.product.prodname_vscode_shortname %} device policies to control approval behavior for agent tools.
+Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings to control session permission levels. Use {% data variables.product.prodname_vscode_shortname %} device policies for other approval behavior.
+
+##### Manage permission levels
+
+For Copilot harness sessions, use enterprise-managed settings to control which permission levels developers can select and the initial level for new sessions.
+
+| Managed setting | Effect in {% data variables.product.prodname_vscode_shortname %} |
+|-----------------|------------------------------------------------------------------|
+| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to remove **Allow all** from the permissions picker. |
+| `permissions.disableAssistedPermissionsMode` | Set to `true` to remove **Assisted permissions** from the permissions picker. |
+| `permissions.defaultMode` | Sets the initial permission level. Supported values are `"manual"`, `"assisted"`, and `"allow-all"`. |
+
+If the configured default is unavailable, new sessions use **Manual permissions**. Setting a default doesn't prevent developers from switching to another permission level that the organization allows.
+
+These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
 
 ##### Disable global auto-approval
 
@@ -268,7 +306,7 @@ Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific t
 
 ##### Configure terminal auto-approval
 
-Set `ChatToolsTerminalEnableAutoApprove` to `false` to require approval for terminal commands.
+Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
@@ -292,7 +330,8 @@ The following {% data variables.product.prodname_vscode_shortname %} device poli
 | `ChatAgentSandboxEnabled` | Requires or disables sandboxing for supported terminal commands. |
 | `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
 | `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
-| `ChatAgentSandboxAllowAutoApprove` | Controls automatic approval of sandboxed terminal commands. |
+
+Local harness sessions approve sandboxed terminal commands automatically. The [terminal auto-approval policy](#configure-terminal-auto-approval) controls rule-based approval, not sandbox auto-approval.
 
 </details>
 

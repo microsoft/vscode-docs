@@ -1,8 +1,7 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 10/14/2026
-MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, including ghost text completions and next edit suggestions.
-MetaSocialImage: images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Get AI-powered ghost text completions and next edit suggestions in {% data variables.product.prodname_vscode_shortname %}.
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
 # Inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
@@ -154,6 +153,15 @@ To change the language model that is used for generating ghost text suggestions 
 ### Context
 
 To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in {% data variables.product.prodname_vscode_shortname %} while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
+
+### Guide suggestions with your code
+
+Inline suggestions use the code around your cursor as context. Make your intent clear in the code you want to complete:
+
+* **Use descriptive names and comments.** Name functions for the behavior they implement. Use a short module comment to explain its purpose, and focused function comments to specify inputs, expected results, or constraints that aren't clear from the name.
+* **Include the imports you intend to use.** Existing imports help indicate the libraries and APIs that fit your project. For example, importing your project's logging library provides a more specific starting point than leaving the logging choice unspecified.
+* **Provide a representative example.** Keep a small, correct example of the intended API or coding pattern in a related open file. This can help when working with an unfamiliar library version. Don't leave temporary sample code in production files.
+* **Keep patterns consistent and review the result.** Suggestions can repeat mistakes in surrounding code as well as useful patterns. Check the proposed APIs, dependencies, and behavior before accepting a suggestion.
 
 ## Settings
 

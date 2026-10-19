@@ -1,8 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure chat and inline models in {% data variables.product.prodname_vscode_shortname %}, adjust thinking effort, use your own API key, or run a model on your device.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - language models
 - BYOK
