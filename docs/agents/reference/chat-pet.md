@@ -1,8 +1,7 @@
 ---
 ContentId: 587745a8-bc1a-4a6c-9570-93c10066cbe2
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Customize Blobby, the {% data variables.product.prodname_vscode_shortname %} pet, with colors, achievements, movement, and chat reactions.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 
 # VS Code pet interactions and reactions

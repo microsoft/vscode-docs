@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: WSL 2
 PageTitle: Using WSL 2 with Visual Studio Code

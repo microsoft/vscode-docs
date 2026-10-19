@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, AI, Engineering]
 Order: 129
 TOCTitle: How VS Code Builds with AI
 PageTitle: "How VS Code Builds with AI"

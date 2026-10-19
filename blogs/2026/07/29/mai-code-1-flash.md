@@ -1,4 +1,5 @@
 ---
+Tags: [Models, GitHub Copilot, Performance]
 Order: 136
 TOCTitle: MAI-Code-1-Flash
 PageTitle: "More with less: MAI-Code-1-Flash in real developer workflows"

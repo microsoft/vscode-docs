@@ -1,8 +1,7 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
@@ -16,6 +15,9 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 * [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
 
 ## Before you start
 
@@ -38,7 +40,7 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
     * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
 1. Start using Copilot in {% data variables.product.prodname_vscode_shortname %}!
 

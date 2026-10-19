@@ -1,8 +1,7 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - agents
@@ -61,7 +60,7 @@ Use custom instructions when you want to:
 ## Create a skill
 
 > [!TIP]
-> Type `/skills` in the chat input to quickly open the **Configure Skills** menu.
+> With **Local** selected in the {% data variables.copilot.chat_view %}, type `/skills` in the chat input to quickly open the **Configure Skills** menu. For other harnesses, such as **Copilot**, use **Open Customizations** instead.
 
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. {% data variables.product.prodname_vscode_shortname %} supports two types of skills:
 
@@ -74,6 +73,8 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 > To reuse repository skills with {% data variables.product.prodname_openai_codex %}, [configure the experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). This integration discovers workspace skills in `.github/skills/` before your first prompt, without additional skill-location configuration. Codex also discovers `.agents/skills/` natively.
 >
 > If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence. Discovery makes skills available to the model but does not guarantee that it invokes a skill for every relevant prompt.
+>
+> The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 > [!NOTE]
 > **For Local harness sessions:** The `setting(chat.agentSkillsLocations)` setting adds other skill locations. This setting is deprecated and isn't read by Copilot harness sessions. To reuse those skills with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
@@ -83,10 +84,11 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 
 To create a skill:
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar to open the Agent Customizations editor, and then select **Skills**.
 
-1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
+1. Select **New Skill** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the skill.
 
+    <!-- TODO: Replace screenshot to show the New Skill (plus icon) buttons next to the Workspace and User groups in the Skills section. -->
     ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill-v2.png)
 
 1. Select the location and enter a name for the skill.
@@ -117,11 +119,13 @@ To create a skill:
 
 ### Generate a skill with AI
 
-You can use AI to generate a skill based on a description of the capability. Type `/create-skill` in chat and describe the skill you want (for example, "a skill for running and debugging integration tests"). The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
+You can use AI to generate a skill based on a description of the capability. In chat, ask the agent to create a skill and describe the capability you want (for example, "create a skill for running and debugging integration tests"). This works for every harness, including **Copilot**. The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
+
+With **Local** selected, you can also type `/create-skill` in chat followed by the description. The `/create-skill` command isn't available for other harnesses.
 
 You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
 
-You can also generate a skill from the Agent Customizations editor by selecting **Generate Skill** from the dropdown.
+With **Local** selected in the {% data variables.copilot.chat_view %}, you can also generate a skill from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Skills** section.
 
 ### Install a skill from the Customization Marketplace (Experimental)
 

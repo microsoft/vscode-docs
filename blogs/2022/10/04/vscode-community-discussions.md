@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Community]
 Order: 
 TOCTitle: VS Code Community Discussions
 PageTitle: VS Code Community Discussions for Extension Authors

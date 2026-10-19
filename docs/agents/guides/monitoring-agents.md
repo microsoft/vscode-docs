@@ -1,8 +1,7 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - monitoring
 - telemetry
@@ -327,6 +326,9 @@ When you run a {% data variables.copilot.copilot_cli_short %} session in the ter
 The CLI runtime only supports `otlp-http`. When `otlp-grpc` is configured, the terminal CLI still uses HTTP. Backends that serve both protocols on the same port (such as the Aspire Dashboard) work transparently.
 
 ### Claude agent
+
+> [!NOTE]
+> The Claude harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed telemetry settings. Contact the IT team that deployed the settings to discuss access.
 
 When OTel is enabled, Claude agent sessions produce extension-level spans under service `copilot-chat` that follow the GenAI semantic conventions. The extension creates spans by intercepting Claude SDK messages and proxying LLM calls through a local HTTP server.
 

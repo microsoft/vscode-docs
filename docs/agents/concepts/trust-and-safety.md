@@ -1,8 +1,7 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -49,7 +48,7 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 * **Workspace**: controls whether {% data variables.product.prodname_vscode_shortname %} enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
-* **MCP server**: controls whether an MCP server can start and provide tools. Servers configured in `.vscode/mcp.json` or workspace-root `.mcp.json` inherit Workspace Trust. Servers from other sources can require a [separate MCP server trust decision](/docs/agent-customization/mcp-servers.md#mcp-server-trust) and prompt again after configuration changes.
+* **MCP server**: controls whether an MCP server can start and provide tools. Servers configured in `.vscode/mcp.json` or workspace-root `.mcp.json` inherit Workspace Trust. Servers from other sources can require a [separate MCP server trust decision](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust) and prompt again after configuration changes.
 * **Network domain**: controls whether the agent can fetch content from a URL. {% data variables.product.prodname_vscode_shortname %} prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict domains for the fetch tool and integrated browser. [Sandbox network controls](/docs/agents/run/agent-sandboxing.md#configure-network-access) apply separately to terminal commands.
 
 You can revoke trust at any time through dedicated commands in the Command Palette. Changing Workspace Trust controls whether workspace MCP servers can run. For servers with a separate trust decision, run **MCP: Reset Trust**. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).

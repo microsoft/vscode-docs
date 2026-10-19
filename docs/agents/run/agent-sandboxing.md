@@ -1,8 +1,7 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Restrict file system and network access for {% data variables.product.prodname_copilot_short %} agent commands and verify each session's sandbox policy.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai
@@ -38,7 +37,7 @@ Sandboxing applies to terminal commands and their child processes. When configur
 
 Sandboxing is not a virtual machine or user-account boundary, and it does not replace endpoint security. A sandboxed process still runs on the execution host under your account. Network access, extra paths, credentials, developer tool access, and permission to run outside the sandbox all weaken isolation. Grant only the access that a task requires.
 
-Depending on the operation and platform, restrictions use operating system protections or checks within the process that runs the agent. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [Per-server MCP sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is a separate feature with its own configuration and platform support.
+Depending on the operation and platform, restrictions use operating system protections or checks within the process that runs the agent. Sandboxing does not replace the isolation provided by cloud sessions or Dev Containers. [Per-server MCP sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is a separate feature with its own configuration and platform support.
 
 For the security model and threats that sandboxing helps mitigate, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
@@ -75,7 +74,7 @@ On Windows, install the update that applies to your Windows version:
 * Windows 11 26H1: [KB5124012](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124012-windows-11-26h1-security-update).
 
 > [!NOTE]
-> Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
+> Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
 
 <a name="turn-on-sandboxing-on-the-execution-host"></a>
 
@@ -110,6 +109,8 @@ If an operating system dependency is unavailable, the command does not silently 
 Open **Permissions** and select **Sandboxing for terminal** to change sandboxing for the current session. This control does not update User or Workspace settings, change other sessions, or set the default for new sessions.
 
 A new session inherits the effective configuration of its execution host. An explicit session selection persists when you restore the session unless an organization-managed restriction overrides it.
+
+When an organization-managed policy enables sandboxing, `sandbox.allowBypass` controls this choice. If it is `true`, you can turn sandboxing off for the current session. If it is `false` or omitted, sandboxing stays on and the control is locked. Changing the session toggle does not change the managed policy or affect other sessions.
 
 Sandboxing is independent of the selected [permission level](/docs/agents/run/approvals.md#permission-levels). For example, the sandbox continues to restrict processes when you select **Allow all**.
 
@@ -253,17 +254,17 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 
 Local harness sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
 
-* The removed `chat.agent.sandbox.enabledWindows` setting is replaced by the unified `setting(chat.agent.sandbox.enabled)` setting on Windows.
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
 * `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local harness terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to the Copilot harness's default tools.
-* `setting(chat.agent.sandbox.allowAutoApprove)` controls terminal approval behavior for Local harness sessions. It does not configure the Copilot harness sandbox.
-* `setting(chat.agent.sandbox.fileSystem.mac)`, `setting(chat.agent.sandbox.fileSystem.linux)`, and `setting(chat.agent.sandbox.fileSystem.windows)` are deprecated platform-specific settings. The Copilot harness's default tools ignore them.
+* `setting(chat.agent.sandbox.fileSystem.mac)` and `setting(chat.agent.sandbox.fileSystem.linux)` are deprecated platform-specific settings. The Copilot harness's default tools ignore them.
+
+The Local harness sandboxes terminal commands on macOS and Linux only. Commands that run inside the sandbox are approved automatically, unless a command needs confirmation to run outside the sandbox or with unrestricted network access. Disabling `setting(chat.tools.terminal.enableAutoApprove)` turns off rule-based terminal auto-approval, but does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
 Domain allow and deny controls are available for compatible terminal tools. Their capabilities differ by implementation and platform. For Copilot harness sessions, use [the effective sandbox policy report](#inspect-the-effective-sandbox-policy) rather than inferring restrictions from another tool's behavior.
 
 ## When your organization manages sandboxing
 
-Managed sandbox enforcement is in Preview. Your organization can require sandboxing, prevent bypass, or restrict network access. Enforced controls are locked, but you can select a more restrictive value where a control remains editable.
+Managed sandbox enforcement is in Preview. When a policy sets `sandbox.enabled` to `true`, `sandbox.allowBypass` determines whether the session toggle is editable: `true` lets you turn sandboxing off for the current session, while `false` or an omitted value keeps sandboxing on and locks the toggle. A session choice does not change the managed policy or other sessions. Your organization can also restrict network access.
 
 If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 

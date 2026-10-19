@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %}, open a project, and choose a guided path to learn editor basics or complete a task with an AI agent.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -109,7 +109,7 @@ To get started with {% data variables.product.prodname_copilot_short %}:
 
     * If your account has a Copilot subscription, {% data variables.product.prodname_vscode_shortname %} uses that subscription.
 
-    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free), which includes a monthly allowance of inline suggestions and AI credits.
+    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup), which includes a monthly allowance of inline suggestions and AI credits.
 
 If agents don't appear after sign-in, review the [agent availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 
@@ -120,6 +120,9 @@ You don't need a {% data variables.product.prodname_copilot %} subscription to u
 * **Bring your own key (BYOK):** [Connect a supported model provider](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) or [use Claude with an API key or another supported BYOK option (Experimental)](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in).
 * **Provider subscription:** Use [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
 * **Local model:** [Run a model on your own machine, such as Ollama](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), including offline.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with your own API key or provider account. Contact the IT team that deployed the settings to discuss access.
 
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
 

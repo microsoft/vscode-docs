@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Languages, Debugging]
 Order:
 TOCTitle: JavaScript Extensions Part 2
 PageTitle: Visual Studio Code JavaScript Extensions Part 2 Oct 2016

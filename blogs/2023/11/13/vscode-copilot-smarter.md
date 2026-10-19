@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI, Extensions]
 Order: 
 TOCTitle: Pursuit of wicked smartness in VS Code
 PageTitle: Pursuit of wicked smartness in VS Code
