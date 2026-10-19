@@ -12,6 +12,9 @@ The team is continuously working on improving the AI features in {% data variabl
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Enabling their user settings does not override that restriction. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
+
 Use the following links to jump to the settings for a specific area:
 
 * Core AI features: [general](#general-settings), [code editing](#code-editing-settings), [chat](#chat-settings), [agents](#agent-settings), [agent sessions](#agent-sessions), and [inline chat](#inline-chat-settings).
@@ -217,7 +220,7 @@ The following settings configure the Local harness sandbox or custom terminal be
 | `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
 | `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
 | `setting(github.copilot.chat.planAgent.additionalTools)` _(Experimental)_<br/>Give the plan agent access to additional tools during research and planning phases. | `[]` |
-| `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK. | `true` |
+| `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK, subject to [enterprise-managed restrictions](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
@@ -268,11 +271,11 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 |------------------------|---------------|
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Make extension-provided [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) models available to the Agent Host. Changes are synchronized to the running process. | `false` |
+| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Restart the Agent Host process for the change to take effect. | `true` |
+| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
 | `setting(chat.copilot.localModel.enabled)` `feature(on-device-models)`<br/>Offer [on-device models](/docs/agent-customization/language-models.md#use-on-device-models-experimental) to download and run on this device with llama.cpp. Changes restart the local Copilot runtime after active turns finish. | `false` |
 | `setting(chat.copilot.localModel.useInAuto)` `feature(on-device-models)`<br/>Enable Auto to route turns to the active on-device model, with cloud fallback. Changes take effect immediately. | `false` |
 | `setting(chat.copilot.localModel.llamaServerPath)` `feature(on-device-models)`<br/>Specify the absolute path to a user-installed `llama-server` executable. {% data variables.product.prodname_vscode_shortname %} doesn't install llama.cpp. | `""` |
-| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Restart the Agent Host process for the change to take effect. | `true` |
-| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
 | `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and folders on SSH, Tunnel, or WSL hosts, and [run sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
 | `setting(chat.agentHost.agentOrchestrationLimits)` _(Experimental)_<br/>Control process-wide limits within an Agent Host on sessions and chats created, messages sent, and recursive session creation by session coordination tools. Set to `off` to remove the limits without changing confirmation or validation requirements. | `"on"` |
 | `setting(chat.remoteAgentHostsEnabled)` _(Experimental)_<br/>Allow connections to [remote machines for agent sessions](/docs/agents/run/remote-agent-sessions.md). | `true` |

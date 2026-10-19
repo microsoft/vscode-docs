@@ -24,6 +24,9 @@ To understand how the customization types differ and work together, see [Agent c
 
 ## Prerequisites
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
 * Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 * Open the repository root that you want to configure.

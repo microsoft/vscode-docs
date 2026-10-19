@@ -89,22 +89,44 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
-### Enforce runtime policies with Copilot Agent Host
+### Claude and Codex availability
 
-Some managed sandbox and permission settings require the Copilot Agent Host for enforcement. {% data variables.product.prodname_vscode_shortname %} automatically uses the Copilot harness for full chat sessions when either condition applies:
+The Claude and Codex harness integrations in {% data variables.product.prodname_vscode_shortname %} are disabled while {% data variables.product.prodname_copilot_short %} enterprise-managed settings apply. This includes settings delivered through server-managed, MDM-managed, or file-based deployments.
 
-* Managed `sandbox.enabled` is `true`.
-* The managed `permissions` object contains at least one key. An empty `permissions` object does not require the Agent Host.
+The {% data variables.product.prodname_copilot_short %} runtime enforces these settings, but the Claude and Codex harnesses cannot enforce them. {% data variables.product.prodname_vscode_shortname %} disables those harnesses so a session cannot bypass your organization's controls.
 
-When one of these conditions becomes effective, {% data variables.product.prodname_vscode_shortname %} automatically moves an open Local harness session to the Copilot harness. The new session preserves the conversation history and unsent input, including attachments and selections, without submitting the input. After the Copilot session opens, the original Local session is [archived](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) as read-only. Opening another unarchived Local session starts the same process.
+This restriction does not delete existing Claude or Codex sessions.
 
-While the policy applies:
+The restriction depends on the presence of managed settings, not only on whether a particular restriction is enabled. For example:
 
-* Claude and Codex sessions do not appear in the sessions list. These sessions are not migrated, archived, or deleted.
-* Local-backed terminal chat is unavailable.
-* Inline Chat and next edit suggestions remain available.
+* Managed permission settings, such as `permissions.disableBypassPermissionsMode`, `permissions.allow`, `permissions.ask`, or `permissions.deny`, disable the harnesses. An empty rule list still counts as a managed setting.
+* Managed `sandbox.enabled` disables the harnesses even when its value is `false`.
+* Other enterprise-managed controls, such as plugin or telemetry settings, can also disable the harnesses.
 
-The `ChatToolsAutoApprove` device policy does not trigger this routing by itself.
+Setting `setting(chat.agentHost.claudeAgent.enabled)` or `setting(chat.agentHost.codexAgent.enabled)` to `true` does not override this restriction. Setting the `Claude3PIntegration` or `Codex3PIntegration` device policy to `true` does not override it either. The restriction also applies when you use a Claude API key or a ChatGPT account.
+
+This restriction applies to harness availability, not to Claude or OpenAI models selected in a Copilot harness session. Model availability is governed separately.
+
+#### If Claude or Codex is missing
+
+If you need access to one of these harnesses:
+
+1. Run **Developer: Policy Diagnostics** from the Command Palette to inspect the effective `Claude3PIntegration` and `Codex3PIntegration` policies and their sources.
+1. Contact the IT team that deployed the managed settings. Share which harness is unavailable and the relevant policy values and sources.
+1. If you don't know who owns the settings, ask your IT help desk to route the request to the administrator responsible for {% data variables.product.prodname_copilot_short %} enterprise-managed settings or device management.
+
+Ask the administrator which harnesses are approved for your work and whether the deployed configuration needs review. You cannot restore access by changing your user or workspace settings.
+
+#### Runtime policies and harness selection
+
+The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. The following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
+
+* `sandbox.enabled` set to `true`.
+* A `permissions` object with at least one key.
+
+An empty `permissions` object does not trigger that routing.
+
+The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply.
 
 ### Keep Local harness as default
 
@@ -195,6 +217,8 @@ Set `CopilotNextEditSuggestions` to `false` to disable next edit suggestions.
 #### Enable or disable Claude Agent
 
 Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data variables.product.prodname_vscode_shortname %}.
+
+Setting this policy to `true` does not override the [Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
 
 ### Configure models and data handling
 
