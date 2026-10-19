@@ -37,7 +37,7 @@ The fields below describe the {% data variables.product.prodname_vscode_shortnam
 The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines which fields and tool names take effect. A shared file location does not imply identical behavior across harnesses.
 
 * **Local** supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
-* **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs and agent-scoped hooks do not apply.
+* **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs do not apply. Agent-scoped hooks have a current [plugin-agent conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks).
 * **Claude** uses its own [agent format](#claude-agent-format) and runtime behavior.
 * **{% data variables.copilot.copilot_cloud_agent %}** has a separate [configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration). The `target: github-copilot` value refers to that target, not the **Copilot** harness selected in {% data variables.product.prodname_vscode_shortname %}.
 
@@ -60,7 +60,7 @@ All fields in this table are optional. Defaults and harness-specific behavior ar
 | `target` | String | The target environment for the file: `vscode` or `github-copilot`. This is not the harness selector. |
 | `mcp-servers` | Object | MCP server configurations for [custom agents in {% data variables.copilot.copilot_cloud_agent %}](https://docs.github.com/en/copilot/reference/custom-agents-configuration). Not used by custom agents in {% data variables.product.prodname_vscode_shortname %}. |
 | `handoffs` | Array of objects | Suggested transitions to another agent after a response in Local. See [Handoff fields](#handoff-fields). |
-| `hooks` (Preview) | Object | Hook commands scoped to this agent in Local. Requires `setting(chat.useHooks)` and a trusted workspace. See [Agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-the-local-harness) for a complete example. |
+| `hooks` | Object | Hook event map scoped to this agent. The Copilot harness supports agent-scoped hooks, but {% data variables.product.prodname_vscode_shortname %} currently omits this field when converting plugin-provided agents. Retain the definition and leave the affected migration incomplete. See the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Local execution requires `setting(chat.useHooks)` and a trusted workspace. |
 
 ### Tools
 

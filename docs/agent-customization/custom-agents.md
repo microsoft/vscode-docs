@@ -140,6 +140,8 @@ The **Local** harness stores user-level custom agents in {% data variables.produ
 
 The deprecated `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings add other locations for the Local harness only. To reuse agents from these locations with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
+If an agent has `hooks` in its frontmatter, review the [agent-scoped hook conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Plugin-provided agents can appear and run without their scoped hooks because conversion currently omits the `hooks` field. Retain the scoped definition and leave the affected hook migration incomplete; do not broaden it to repository-wide or plugin-wide execution as a workaround.
+
 ## Handoffs
 
 In the **Local** harness, handoffs connect agents into a workflow with suggested next steps. After a chat response completes, handoff buttons let you switch to another agent with the conversation context and a pre-filled prompt.

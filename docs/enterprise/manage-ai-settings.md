@@ -235,6 +235,13 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 
 Local harness sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
+When moving to Copilot, inventory policy hooks, managed plugins, and any permitted user or repository hooks. Convert and test their scripts as well as their configuration. See [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks).
+
+> [!WARNING]
+> Copilot policy hooks run on the host, outside the session sandbox. Keep their scripts in administrator-controlled locations. Do not promote a repository hook to a policy hook while retaining a workspace-controlled script path; that would run editable workspace code outside the sandbox. See [policy hooks and sandboxed sessions](https://docs.github.com/en/copilot/reference/hooks-reference#sandboxed-sessions).
+
+Test failures and timeouts separately. The [Copilot command-hook reference](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks) documents timeouts as fail-open even for policy hooks. A requirement for complete audit coverage or fail-closed enforcement therefore needs more than the presence of a hook file.
+
 <a id="deploy-hooks-through-managed-plugins"></a>
 
 ##### Restrict hook sources
