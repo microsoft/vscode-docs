@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, Extensions]
 Order: 125
 TOCTitle: MCP Apps Support
 PageTitle: "Giving Agents a Visual Voice: MCP Apps Support in VS Code"

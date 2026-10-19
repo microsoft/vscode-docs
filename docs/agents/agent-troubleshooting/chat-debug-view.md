@@ -1,8 +1,7 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Diagnose agent behavior in {% data variables.product.prodname_vscode %} by inspecting requests, context, tool calls, token usage, and agent flows.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Debug chat interactions
 
@@ -56,7 +55,7 @@ If the model does not call an expected tool:
 
 1. Run **MCP: List Servers** from the Command Palette and verify that the server is running.
 1. Open the Chat Debug view and check whether the tool appears in the available tool definitions.
-1. If the tool is absent, [troubleshoot the MCP server](/docs/agent-customization/mcp-servers.md#troubleshoot-and-debug-mcp-servers).
+1. If the tool is absent, [troubleshoot the MCP server](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
 1. If the tool is available, check the Agent Debug Logs for tool calls and errors.
 1. State the tool name and the action it should perform in your prompt, and then repeat the request.
 

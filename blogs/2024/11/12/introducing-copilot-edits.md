@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI]
 Order: 
 TOCTitle: Introducing Copilot Edits
 PageTitle: Introducing Copilot Edits

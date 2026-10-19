@@ -1,4 +1,5 @@
 ---
+Tags: [Security, Engineering]
 Order: 
 TOCTitle: VS Code Sandboxing
 PageTitle: VS Code Sandboxing

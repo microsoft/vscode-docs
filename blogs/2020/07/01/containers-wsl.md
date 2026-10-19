@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development]
 Order: 
 TOCTitle: Dev Containers in WSL 2
 PageTitle: Using Dev Containers in WSL 2

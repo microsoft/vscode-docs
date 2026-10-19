@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, Models, Performance]
 Order: 131
 TOCTitle: Improving Token Efficiency
 PageTitle: "Improving token efficiency for GitHub Copilot in VS Code"

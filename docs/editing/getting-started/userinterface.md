@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: A quick overview of the {% data variables.product.prodname_vscode %} user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -174,6 +174,39 @@ When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is en
 
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+
+### File nesting
+
+Instead of hiding derived or companion files, you can nest them underneath a parent file in the Explorer view. File nesting visually groups related files based on their names and collapses them into a "root" file, which reduces clutter in the Explorer while keeping files easily accessible.
+
+![Screenshot showing file nesting of the package.json and package-lock.json files.](../images/userinterface/file-nesting.png)
+
+You can configure file nesting with the following settings:
+
+* `setting(explorer.fileNesting.enabled)`: Controls whether file nesting is enabled. It can be set globally or for a specific workspace.
+* `setting(explorer.fileNesting.expand)`: Controls whether nested files are expanded by default.
+* `setting(explorer.fileNesting.patterns)`: Configures the nesting rules that determine how files are grouped.
+
+The default patterns include rules for TypeScript and JavaScript projects, such as nesting a matching `.js` file under its `.ts` source file. You can customize `setting(explorer.fileNesting.patterns)` to fit your project's structure:
+
+```json
+"explorer.fileNesting.enabled": true,
+"explorer.fileNesting.expand": false,
+"explorer.fileNesting.patterns": {
+  "*.ts": "${capture}.js, ${capture}.d.ts, ${capture}.js.map",
+  "*.js": "${capture}.js.map",
+  "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+}
+```
+
+Nesting patterns support the following tokens:
+
+* `${capture}`: Matches whatever string was matched by the `*` wildcard in the pattern key.
+* `${basename}`: Matches the parent file's basename (the filename without extension).
+* `${extname}`: Matches the parent file's extension.
+* `${dirname}`: Matches the parent file's directory name.
+
+When a nest is collapsed, file operations like copy, cut, drag and drop, and delete apply to the entire nested group as a single unit. When the nest is expanded, selections and operations apply to individual files.
 
 ### Multi-selection
 

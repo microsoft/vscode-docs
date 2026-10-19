@@ -543,6 +543,39 @@ Use '>' to show menu sequences.
 **View** > **Command Palette**
 ```
 
+### Blog pull quotes
+
+In **blog posts only**, use `[!QUOTE]` to highlight a noteworthy sentence:
+
+```markdown
+The best tools give you more room to think. Our goal is a calmer day of building.
+
+> [!QUOTE]
+> The best tools give you more room to think.
+```
+
+The website renders centered serif text with short rules above and below, using
+one shared style. Authors choose the words and where the block appears. There is
+no automatic extraction or duplication; if you repeat a sentence from a
+paragraph, maintain both copies yourself.
+
+Put `[!QUOTE]` on its own first line, immediately followed by one nonempty
+paragraph, without a blank quoted line in between. Wrapped lines, emphasis,
+links, and inline code are supported. Images, raw HTML, custom interactive
+macros, nested blocks, and multiple paragraphs are not supported and fail the
+website build. Keep quotes short and use them sparingly.
+
+Ordinary `>` blockquotes remain available for external quotations, and existing
+alerts such as `[!NOTE]` are unchanged. Authored pull-quote text remains accessible
+to screen readers.
+
+`[!QUOTE]` is a custom website extension, not a standard GitHub alert type.
+GitHub and Docsify previews may display the literal marker in an ordinary
+blockquote. Verify the final rendering in the website preview, and publish
+posts using this syntax only after the website support is deployed.
+
+See the [blog authoring guide](blogs/README.md#pull-quotes) for guidance.
+
 ### Links
 
 For links within our own documentation, use a site relative link like `/docs/editing/codebasics.md`.

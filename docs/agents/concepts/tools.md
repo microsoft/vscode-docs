@@ -1,8 +1,7 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how tools let AI agents act in {% data variables.product.prodname_vscode_shortname %}, including built-in, MCP, and extension tools.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -73,4 +72,4 @@ Review the tool name and inputs before you approve a call. Learn more about [tru
 
 * [Use tools with agents](/docs/agents/run/tools.md)
 * [Manage approvals and permissions](/docs/agents/run/approvals.md)
-* [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
+* [Add MCP servers](/docs/agent-customization/mcp-servers.md)

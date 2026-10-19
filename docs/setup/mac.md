@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on macOS, add the code command to your path, and resolve common setup issues.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
