@@ -237,17 +237,19 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 
 ## Troubleshoot agent sandboxing
 
-If chat reports **Sandboxing might not work as expected**, or sandboxed tools fail to start or connect, check dependencies and operating system requirements on the [Agent Host](/docs/agents/concepts/agent-host.md), where the session runs commands. Certificate errors can require a separate check even when all dependencies are installed.
+If chat reports **Sandboxing might not work as expected**, or sandboxed tools fail to start or connect, check dependencies and operating system requirements in the environment where the session runs commands. Certificate errors can require a separate check even when all dependencies are installed.
 
 ### Install missing sandbox dependencies
 
+Install dependencies and operating system updates in the environment where the agent runs. {% data variables.product.prodname_vscode_shortname %} can connect to that environment remotely, so it might run on a different machine than the agent.
+
+Follow the installation steps for the agent's operating system. A remote workspace does not always mean the agent runs remotely. If the agent runs locally, install locally.
+
 Install packages and operating system updates where the agent runs:
 
-* **Local agent host:** Install on the same machine as {% data variables.product.prodname_vscode_shortname %}.
-* **WSL:** Install inside the Linux distribution running the agent, not on Windows.
-* **Remote host, Dev Container, or Codespace:** Install on that host or inside that environment.
-
-Use the agent host's operating system, even if the computer displaying {% data variables.product.prodname_vscode_shortname %} uses a different one. Viewing a remote workspace does not necessarily mean the agent runs remotely. If the agent still runs locally, install locally.
+* **Local agent host**: Install on the same machine as {% data variables.product.prodname_vscode_shortname %}.
+* **WSL**: Install inside the Linux distribution running the agent, not on Windows.
+* **Remote host, Dev Container, or Codespace**: Install on that host or inside that environment.
 
 On Debian and Ubuntu, update the package index:
 
@@ -311,10 +313,6 @@ If **Install** is unavailable, installation fails, or your organization manages 
 
 > [!NOTE]
 > This OS-trust installation workflow applies only to Windows and macOS. On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
-
-<a name="legacy-local-and-custom-terminal-behavior"></a>
-
-<a name="local-sessions-and-custom-terminal-tools"></a>
 
 ## Local harness sessions and custom terminal tools
 
