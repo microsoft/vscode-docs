@@ -15,6 +15,8 @@ This topic covers:
 
 - Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
+- Publishing from
+  [GitHub Actions with Trusted Publishing](#publish-with-github-actions-and-trusted-publishing)
 - [Registering a publisher](#create-a-publisher) necessary for publishing extensions
 
 ## vsce
@@ -66,9 +68,65 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 ### Secure automated publishing to Visual Studio Marketplace
 
-We recommend that extension publishing use [Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops) with **workload identity federation and managed identities**. This approach eliminates long-lived secrets such as Personal Access Tokens (PATs) and enables secure, automated publishing pipelines.
+Use federated identity to publish extensions without storing long-lived secrets
+such as Personal Access Tokens (PATs). Choose the authentication method for your
+CI/CD provider:
 
-This approach strengthens the overall security posture by removing reliance on stored credentials, simplifies operations through native integration with Azure Pipelines and Entra ID, scales effectively across environments, and aligns with modern identity and access management standards required for enterprise compliance. For more information, see [Reduce PAT usage](https://devblogs.microsoft.com/devops/reducing-pat-usage-across-azure-devops/).
+- **GitHub Actions**: Use Marketplace Trusted Publishing with GitHub OIDC.
+- **Azure Pipelines**: Use
+  [Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops)
+  with workload identity federation and managed identities.
+
+Both options remove stored publishing credentials and simplify credential
+management. For more information, see
+[Reduce PAT usage](https://devblogs.microsoft.com/devops/reducing-pat-usage-across-azure-devops/).
+
+#### Publish with GitHub Actions and Trusted Publishing
+
+Trusted Publishing uses OpenID Connect (OIDC) to publish from GitHub Actions
+without storing a PAT as a repository secret.
+
+First, create a policy for the workflow:
+
+1. Sign in to the
+   [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
+1. Open the publisher that owns your extension, and select **Trusted Publishing**.
+1. Expand **Create**, and enter the policy name, GitHub repository owner,
+   repository, and workflow file name.
+1. If the workflow uses a GitHub environment, enter the environment name.
+1. Select **Create**.
+
+For a private repository, run the configured workflow within 48 hours of
+creating the policy. The first successful token exchange permanently activates
+the policy.
+
+Next, grant the publishing job permission to request an OIDC token and publish
+with `vsce`:
+
+```yaml
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx @vscode/vsce@4.0.1-1 publish --oidc
+```
+
+> [!NOTE]
+> `@vscode/vsce@4.0.1-1` is a prerelease version. Pin the workflow to this
+> version while Trusted Publishing is in preview.
+
+The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
+be exchanged only once.
+
+#### Publish from Azure Pipelines with Microsoft Entra ID
 
 1. Create a Service Connection (Azure DevOps)
 
