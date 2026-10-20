@@ -19,24 +19,18 @@ For background on how language models work, their characteristics, and how to ch
 
 ## Change the model for chat
 
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
+
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
 ![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
+If the language model picker only shows **Auto**, verify that the workspace is trusted. Learn more about [workspace trust and restricted mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
 > [!NOTE]
-> In an untrusted workspace in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), the chat model picker only shows **Auto**. Trust the workspace to restore the full model list.
-
-> [!TIP]
-> Install the AI Toolkit extension to add more language models to enhance GitHub Copilot capabilities.
->
-> For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
-
-> [!NOTE]
-> If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> If you are a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Configure thinking effort
 
@@ -84,9 +78,12 @@ You can see which model is used for generating a response by hovering over the c
 ## Use on-device models
 
 `feature(on-device-models)`
-On-device models let you run a coding model provided by {% data variables.product.prodname_copilot_short %}, currently MAI Code 1.1 Flash, directly on your device in Copilot harness sessions. llama.cpp serves the model, so model processing stays on your machine. You can use the local model alongside cloud models, and Auto can route suitable requests to it with cloud fallback.
 
-Laptops such as the [Surface Laptop Ultra](https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra), powered by the NVIDIA RTX Spark superchip with up to 128 GB of unified memory, have enough GPU memory to run a capable coding model locally. On-device models bring that capability to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}, without you having to find, download, and serve a model yourself.
+On-device models let you run a coding model provided by {% data variables.product.prodname_copilot_short %}, currently MAI Code 1.1 Flash, directly on your device in Copilot harness sessions. VS Code uses [llama.cpp](https://github.com/ggml-org/llama.cpp) to serve the model on your device. On-device models bring that capability to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}, without you having to find, download, and serve a model yourself.
+
+You can use the local model alongside cloud models. [Auto-model selection](#use-auto-model-selection) can route suitable requests to the local model, with fallback to a cloud model.
+
+<!-- Laptops such as the [Surface Laptop Ultra](https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra), powered by the NVIDIA RTX Spark superchip with up to 128 GB of unified memory, have enough GPU memory to run a capable coding model locally. -->
 
 On-device models differ from [BYOK local models](#bring-your-own-language-model-key). {% data variables.product.prodname_copilot_short %} provides and manages on-device models, and they require GitHub sign-in. BYOK local models, such as Ollama, work without sign-in through a provider that you configure.
 
@@ -95,10 +92,14 @@ On-device models differ from [BYOK local models](#bring-your-own-language-model-
 ### On-device model requirements
 
 * Sign in to GitHub with Copilot access. If you use {% data variables.copilot.copilot_business_short %} or Enterprise, your administrator must enable `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
 * Use a [Copilot harness session](/docs/agents/run/agent-harnesses.md) that runs on your local machine in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
-* Use an NVIDIA GPU with 96 GB or more of GPU memory (VRAM). On devices with unified memory, such as the Surface Laptop Ultra with 128 GB of memory, memory that the GPU shares with the system counts toward this requirement.
-* Have about 55 GB of free disk space for MAI Code 1.1 Flash. The download is 52.8 GB, and setup requires 54.8 GB of free space. The details page shows the exact size for your device.
-* Install a llama.cpp build that supports the model. {% data variables.product.prodname_vscode_shortname %} does not install llama.cpp. Get a build from the [llama.cpp releases page](https://github.com/ggml-org/llama.cpp/releases). MAI Code 1.1 Flash requires llama.cpp b11658 or later. If the build is too old, the model shows a **Needs a newer llama.cpp** status.
+
+* Use an NVIDIA GPU with 96 GB or more of GPU memory (VRAM). Devices with unified memory, memory that the GPU shares with the system, count toward this requirement.
+
+* Have about 55 GB of free disk space for MAI Code 1.1 Flash. The download is 52.8 GB, and setup requires 54.8 GB of free space. The details page in the model picker shows the exact size for your device.
+
+* Install a llama.cpp build that supports the model. {% data variables.product.prodname_vscode_shortname %} does not install llama.cpp. Get a build from the [llama.cpp releases page](https://github.com/ggml-org/llama.cpp/releases). MAI Code 1.1 Flash requires llama.cpp b11658 or later. If the build is too old, the model picker shows notification that a newer version is needed.
 
 ### Set up an on-device model
 
@@ -120,7 +121,7 @@ On-device models differ from [BYOK local models](#bring-your-own-language-model-
 
     ![Screenshot showing a download progress notice for MAI Code 1.1 Flash above the chat input with a Pause button.](images/language-models/on-device-model-download-progress.png)
 
-Models are stored in `~/.copilot/azureml-models` and shared with other Copilot apps, such as {% data variables.copilot.copilot_cli_short %}. A model you download in {% data variables.product.prodname_vscode_shortname %} is also available there. {% data variables.product.prodname_vscode_shortname %} verifies each downloaded file before use.
+{% data variables.product.prodname_vscode_shortname %} stores models in `~/.copilot/azureml-models` and shares them with other Copilot apps, such as {% data variables.copilot.copilot_cli_short %}.
 
 ### Use an on-device model in chat
 
@@ -140,16 +141,16 @@ To change how the model runs, hover over the model in the **On This Device** tab
 
 ![Screenshot showing the details page of an installed on-device model with Effort Level, Context, and Use in Auto options.](images/language-models/on-device-model-details.png)
 
-### Let Auto use an on-device model
+### Use an on-device model with auto-model selection
 
-Turn on **Use in Auto** on the model's details page, or enable `setting(chat.copilot.localModel.useInAuto)`. Auto can then route some requests to the active on-device model, with cloud fallback. If the on-device model can't respond, Auto falls back to a cloud model before the first output. The change takes effect immediately.
+[Auto-model selection](#use-auto-model-selection) can route requests to the active on-device model, with cloud fallback. If the on-device model can't respond, model selection falls back to a cloud model before the first output. The change takes effect immediately.
 
-Auto still chooses the model for each request, so many requests continue to use cloud models. Responses that Auto runs on your device are labeled **On-device**. If a model is too slow for Auto on your device, it shows **Too slow for Auto**. You can still select the model directly.
+To enable the local model for auto-model selection, enable **Use in Auto** on the model's details page, or enable `setting(chat.copilot.localModel.useInAuto)`.
+
+Auto-model selection chooses the appropriate model for each request, so many requests continue to use cloud models. Responses that use the local model are labeled **On-device**. If a model is too slow for auto-model selection on your device, it shows **Too slow for Auto**. You can still select the model directly.
 
 > [!CAUTION]
 > Local models might not use the same safety filters as GitHub Copilot-provided cloud models and might be more susceptible to malicious instructions, especially when [actions are automatically approved](/docs/agents/run/approvals.md).
-
-For more information about Auto, see [Use auto model selection](#use-auto-model-selection).
 
 ### Manage on-device models
 
