@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how tools let AI agents act in {% data variables.product.prodname_vscode_shortname %}, including built-in, MCP, and extension tools.
 Keywords:
 - copilot

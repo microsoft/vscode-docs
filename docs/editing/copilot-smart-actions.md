@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use AI smart actions in {% data variables.product.prodname_vscode_shortname %} to generate commit messages, rename symbols, and fix errors.
 ---
 # AI smart actions in {% data variables.product.prodname_vscode %}

@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 ---
 # AI settings reference
@@ -11,6 +11,9 @@ The team is continuously working on improving the AI features in {% data variabl
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Enabling their user settings does not override that restriction. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
 
 Use the following links to jump to the settings for a specific area:
 
@@ -54,7 +57,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.localeOverride)`<br/>Specify a locale for chat responses, such as `en` or `fr`. | `"auto"` |
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Control detection of [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants) in Local harness chat. Does not apply to the Copilot harness. | `true` |
 | `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
@@ -103,7 +106,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
 | `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
 | `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
 | `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, pull request titles and descriptions, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
@@ -217,7 +220,7 @@ The following settings configure the Local harness sandbox or custom terminal be
 | `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
 | `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
 | `setting(github.copilot.chat.planAgent.additionalTools)` _(Experimental)_<br/>Give the plan agent access to additional tools during research and planning phases. | `[]` |
-| `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK. | `true` |
+| `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK, subject to [enterprise-managed restrictions](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
@@ -238,6 +241,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of inactive days before an eligible session with a merged pull request is [automatically marked as done](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). Set to `0` to disable automatic cleanup. The recommended value is `15`. | `0` |
 | `setting(chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays)` `feature(automatic-session-cleanup)`<br/>Control the number of days after an eligible session is automatically marked as done before it is permanently deleted. Sessions that you mark as done manually aren't deleted automatically. Set to `0` to disable permanent deletion. The recommended value is `15`. | `0` |
 | `setting(sessions.showChatTabs)` _(Preview)_<br/>Show each chat as a tab with `multiple`, or show only the active chat as the session view with `single`. | `"multiple"` |
+| `setting(sessions.chat.compareAgents.enabled)` _(Preview)_<br/>Enable [model comparison](/docs/agents/run/compare-models.md) for eligible new sessions in the {% data variables.copilot.agents_window %}. Run the same prompt with multiple models in isolated worktrees. | `false` |
 | `setting(sessions.chat.unifiedWorkspacePicker.enabled)` _(Experimental)_<br/>Use the unified workspace picker in the {% data variables.copilot.agents_window %} to search local, GitHub, and remote workspaces and, when supported, start a session without a workspace. | `true` (Insiders)<br/>`false` (Stable) |
 | `setting(sessions.chat.experimental.newSessionComposerLayout)` _(Experimental)_<br/>Group workspace, repository, worktree, and harness controls above the new-session input. Requires the unified workspace picker. | `false` |
 | `setting(sessions.chat.experimental.welcomePhrases)` _(Experimental)_<br/>Show rotating welcome phrases above the new-session composer in the {% data variables.copilot.agents_window %}. | `false` |
@@ -268,8 +272,11 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 |------------------------|---------------|
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Make extension-provided [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) models available to the Agent Host. Changes are synchronized to the running process. | `false` |
-| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Restart the Agent Host process for the change to take effect. | `true` |
-| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
+| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Restart the Agent Host process for the change to take effect. | `true` |
+| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
+| `setting(chat.copilot.localModel.enabled)` `feature(on-device-models)`<br/>Offer [on-device models](/docs/agent-customization/language-models.md#use-on-device-models-experimental) to download and run on this device with llama.cpp. Changes restart the local Copilot runtime after active turns finish. | `false` |
+| `setting(chat.copilot.localModel.useInAuto)` `feature(on-device-models)`<br/>Enable Auto to route turns to the active on-device model, with cloud fallback. Changes take effect immediately. | `false` |
+| `setting(chat.copilot.localModel.llamaServerPath)` `feature(on-device-models)`<br/>Specify the absolute path to a user-installed `llama-server` executable. {% data variables.product.prodname_vscode_shortname %} doesn't install llama.cpp. | `""` |
 | `setting(chat.agentHost.devContainer.enabled)`<br/>Show **Use Dev Container** for eligible local folders and folders on SSH, Tunnel, or WSL hosts, and [run sessions in the project's Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container). | `false` |
 | `setting(chat.agentHost.agentOrchestrationLimits)` _(Experimental)_<br/>Control process-wide limits within an Agent Host on sessions and chats created, messages sent, and recursive session creation by session coordination tools. Set to `off` to remove the limits without changing confirmation or validation requirements. | `"on"` |
 | `setting(chat.remoteAgentHostsEnabled)` _(Experimental)_<br/>Allow connections to [remote machines for agent sessions](/docs/agents/run/remote-agent-sessions.md). | `true` |
@@ -339,11 +346,11 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
 | `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
 | `setting(chat.useHooks)` _(Preview)_ <br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
-| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [Local hook file locations](/docs/agent-customization/hooks.md#local-hook-file-locations). Specify paths to folders, which load all `*.json` files, or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional Local hook file locations. Specify folders containing `*.json` files or individual `.json` files, using relative or tilde paths. For Copilot, [migrate to a supported hook source](/docs/agent-customization/migrate-customizations.md#find-every-hook-source) instead. | `{}` |
 | `setting(chat.useClaudeHooks)` _(Preview)_ <br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
-| `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
+| `setting(chat.useAgentsMdFile)` <br/>Automatically attach instructions from workspace-root `AGENTS.md` files to chat requests in Local harness sessions only. Does not control [{% data variables.product.prodname_copilot_short %} instruction discovery](/docs/agent-customization/custom-instructions.md#use-an-agentsmd-file) or discovery in other harnesses. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 
 ## Reusable prompt files settings
 
@@ -419,6 +426,7 @@ Learn how to [use Voice Mode and built-in dictation](/docs/configure/accessibili
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Controls whether Voice Mode is available for spoken conversations with an agent. | `false` |
+| `setting(agents.voice.useBYOKVoiceModel)` `feature(voice-mode)`<br/>Selects an OpenAI Live model for [Voice Mode with your own API key](/docs/configure/accessibility/voice.md#use-your-own-openai-key). Leave empty to use hosted Voice Mode. | `""` |
 | `setting(agents.voice.showButton)` `feature(voice-mode)`<br/>Controls whether the **Voice Mode** button appears in the chat input. The keyboard shortcut remains available when the button is hidden. | `true` |
 | `setting(agents.voice.speakResponses)` `feature(voice-mode)`<br/>Controls whether the agent reads responses aloud. Enable `setting(agents.voice.showTranscript)` to read responses as text when spoken responses are off. | `true` |
 | `setting(agents.voice.agentProgress)` `feature(voice-mode)`<br/>Controls whether the agent speaks brief progress updates while it works. | `true` |

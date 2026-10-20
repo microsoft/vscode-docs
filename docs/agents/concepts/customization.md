@@ -1,6 +1,6 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Choose instructions, skills, custom agents, and other customizations for your workflow in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -36,10 +36,10 @@ Without customization, the agent works from your prompt, the current conversatio
 * **Define repeatable work**: [agent skills](/docs/agent-customization/agent-skills.md) and [prompt files](/docs/agent-customization/prompt-files.md) package task-specific guidance so you don't have to describe the same process in every conversation.
 * **Configure a role**: [custom agents](/docs/agent-customization/custom-agents.md) combine instructions, tools, and a language model into a specialized agent persona.
 * **Add capabilities**: [MCP servers](/docs/agent-customization/mcp-servers.md) give the agent tools for interacting with external systems such as databases, browsers, and APIs.
-* **Enforce actions**: [hooks](/docs/agent-customization/hooks.md) run commands at specific points in the agent loop, independent of whether the model chooses to run them.
+* **Automate lifecycle actions**: [hooks](/docs/agent-customization/hooks.md) run commands at specific points in the agent loop, independent of whether the model chooses to run them.
 * **Adopt a ready-made setup**: [agent plugins](/docs/agent-customization/agent-plugins.md) let you install multiple related customization types as one package.
 
-These mechanisms affect different layers of the agent. Instructions guide the model's decisions, tools expand the actions it can take, and hooks run outside the model's decision-making. As a result, adding a rule to an instructions file is not equivalent to enforcing that rule with a hook.
+These mechanisms affect different layers of the agent. Instructions guide the model's decisions, tools expand the actions it can take, and hooks run outside the model's decision-making. Adding a rule to an instructions file is not equivalent to executing a validation script. Neither mechanism alone establishes a security boundary.
 
 Relevant customizations can reduce back-and-forth and rework by giving the agent project context from the start. Avoiding corrective turns and discarded implementations can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep customizations focused because their content also consumes space in the model's context window.
 
@@ -86,9 +86,11 @@ Start with instructions when your main goal is to stop repeating project context
 
 Most customizations guide the model or give it more options. The model interprets instructions, decides whether a skill is relevant, and chooses when to call an available tool. The result depends on the request, available context, and model reasoning.
 
-Hooks are deterministic. A hook runs when its configured lifecycle event occurs. Use a hook when an action must happen consistently, such as validating a command before it runs or starting a formatter after an edit. Use instructions when you want to guide how the agent reasons or writes code.
+Hooks are dispatched by the runtime when a supported, configured lifecycle event occurs. Use a hook for actions such as validating a tool call or starting a formatter after an edit. Discovery, trust, filters, timeouts, and error handling still affect execution. Use instructions when you want to guide how the agent reasons or writes code.
 
 For example, an instruction that says "run the formatter after editing a file" asks the model to remember and perform that action. A hook configured for the corresponding lifecycle event runs regardless of whether the model remembers the instruction.
+
+For new Copilot hooks, use the [shared runtime guidance](/docs/agent-customization/hooks.md). Existing hooks in personal folders, settings, repositories, agents, or plugins need a [compatibility review](/docs/agent-customization/migrate-customizations.md#migrate-hooks) when migrating from Local.
 
 ## How customizations combine
 

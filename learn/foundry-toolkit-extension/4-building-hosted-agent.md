@@ -1,6 +1,6 @@
 ---
 ContentId: 48bcead9-78df-4695-9d8e-e17a8a598a7a
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Scaffold, debug, and deploy a hosted agent with GitHub Copilot CLI, Agent Inspector, and Microsoft Foundry.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

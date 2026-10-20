@@ -1,6 +1,6 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support
@@ -15,12 +15,28 @@ Voice Mode is a feature that lets you have a hands-free, spoken conversation wit
 
 To start a voice conversation, enable `setting(agents.voice.enabled)`, open the chat view or the {% data variables.copilot.agents_window %}, and select the **Voice Mode** button in the chat input. You can also focus the chat input and press `kb(agentsVoice.startVoiceInChat)`.
 
-On first use, allow microphone access and follow the introduction to select a microphone and preview the available voices. Voice Mode sends your request to the active chat or agent session and uses its selected model and attached files. You can also ask Voice Mode about running sessions or ask it to start a new session. Voice Mode announces when it routes a request to an existing session or starts a new one.
+On first use, allow microphone access and follow the introduction to select a microphone and preview the available voices. Voice Mode sends your request to the chat or agent session where you start it and uses that session's selected model and attached files. To continue the conversation in another session, open the destination session and explicitly start Voice Mode there. Spoken requests to switch sessions are submitted as ordinary chat requests and don't change the active session automatically.
 
 When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening again after the agent finishes speaking. While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
 
+When Voice Mode uses English, say 'approve' or 'reject' to respond to the current tool confirmation. For other languages or unsupported phrases, respond with the controls in the chat input. For a question form, say an exact displayed option label or its number, such as `1`. Use the form controls for custom answers or unsupported spoken responses.
+
 > [!NOTE]
-> Voice Mode is rolling out gradually and might not be available to every eligible account immediately. It requires an eligible individual {% data variables.product.prodname_copilot %} plan and is not available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. Organizations can also turn off Copilot preview features by policy.
+> Voice Mode is rolling out gradually and might not be available to every eligible account immediately. Hosted Voice Mode requires an eligible individual {% data variables.product.prodname_copilot %} plan and is not available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. The OpenAI bring your own key (BYOK) option can be used without hosted Voice Mode entitlement when client BYOK is permitted. Organizations can turn off Copilot preview features or restrict client BYOK by policy.
+
+### Use your own OpenAI key
+
+Voice Mode can use an OpenAI Live model with your own API key. This Experimental option uses your OpenAI account and incurs OpenAI usage charges. Your account and organization policies must permit client BYOK.
+
+1. [Add an OpenAI model from the built-in provider](/docs/agent-customization/language-models.md#add-a-model-from-a-built-in-provider) and enter your OpenAI API key.
+
+1. Set `setting(agents.voice.useBYOKVoiceModel)` to an OpenAI Live model ID that your key can access, such as `gpt-live-1`. Model access depends on your OpenAI account and key.
+
+1. Start Voice Mode from the chat or agent session that you want to use.
+
+Leave `setting(agents.voice.useBYOKVoiceModel)` empty to use hosted Voice Mode. If you configure a BYOK model and the key, model, or policy check fails, Voice Mode reports the error and doesn't silently switch to the hosted service.
+
+The OpenAI Live model handles the spoken conversation. The model selected in the chat or agent session remains the coding model that processes your requests.
 
 ### Configure Voice Mode
 
@@ -31,7 +47,7 @@ You can also configure Voice Mode in the following ways:
 * Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
 * Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
 * Use `setting(agents.voice.voice)` to select the voice that reads responses aloud.
-* Use `setting(agents.voice.speakResponses)` to control whether the agent reads responses aloud. If you turn off spoken responses, enable `setting(agents.voice.showTranscript)` to read them as text.
+* Use `setting(agents.voice.speakResponses)` to control whether the agent reads responses aloud. Turning off spoken responses keeps the microphone and voice input active. Enable `setting(agents.voice.showTranscript)` to read responses as text.
 * Run **Voice Mode: Show Introduction** from the Command Palette to reopen the introduction, where you can select a microphone and preview the available voices.
 
 Open the context menu for the **Voice Mode** button to access its settings, instructions, introduction, microphone selection, and transcript controls. For all available options, see the [Voice Mode and dictation settings](/docs/agents/reference/ai-settings.md#voice-and-dictation-settings).

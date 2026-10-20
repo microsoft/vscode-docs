@@ -47,12 +47,14 @@
                     ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
+                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
 
                     ["", "", {
                         "name": "Plan and Run Tasks",
                         "area": "agents/run/tasks",
                         "topics": [
                             ["Plan Work", "/docs/agents/run/planning"],
+                            ["Compare Model Results", "/docs/agents/run/compare-models"],
                             ["Use Tools", "/docs/agents/run/tools"],
                             ["Add MCP Servers", "/docs/agent-customization/mcp-servers"],
                             ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
@@ -63,14 +65,13 @@
                     }],
 
                     ["", "", {
-                        "name": "Sessions and Results",
+                        "name": "Sessions",
                         "area": "agents/run/sessions",
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
                             ["Session History", "/docs/agents/run/sessions/session-history"],
                             ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                             ["Memory", "/docs/agents/run/memory"],
-                            ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
                     }],

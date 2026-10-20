@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create, edit, preview, and debug a recipe app in {% data variables.product.prodname_vscode %}, then explore extensions, settings, and Git.
 ---
 # Tutorial: Get started with {% data variables.product.prodname_vscode %}

@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Build and validate a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review and recover changes.
 ---
 # Quickstart: Complete your first task with an agent

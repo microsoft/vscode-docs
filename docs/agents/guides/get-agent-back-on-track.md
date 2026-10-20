@@ -1,6 +1,6 @@
 ---
 ContentId: 77f594c1-b808-4421-9729-d6b17dd16e16
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Recover an AI agent session in {% data variables.product.prodname_vscode_shortname %} by steering requests, restoring checkpoints, and resetting context.
 Keywords:
 - ai

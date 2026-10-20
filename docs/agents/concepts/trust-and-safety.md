@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand approvals, review, sandboxing, and security considerations for AI agents in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

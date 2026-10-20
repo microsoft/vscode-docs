@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use AI effectively in {% data variables.product.prodname_vscode_shortname %} by choosing the right workflow, writing focused prompts, and reviewing results.
 ---
 # Best practices for using AI in {% data variables.product.prodname_vscode_shortname %}
@@ -156,6 +156,9 @@ For more information, see [GitHub Copilot security](/docs/agents/run/security.md
 ## Choose the right agent harness
 
 When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 * **Use the Copilot harness for day-to-day coding.** The Copilot harness runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
 

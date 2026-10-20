@@ -1,7 +1,7 @@
 ---
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 ---
 # {% data variables.product.prodname_vscode_shortname %} Remote Development
 

@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
 Keywords:
 - copilot
@@ -80,6 +80,9 @@ Sessions can run in parallel. Both the [{% data variables.copilot.chat_view %}](
 ## Agent harnesses and execution environments
 
 An agent harness is the runtime that coordinates the agent loop. It manages the session, connects the language model to tools, and provides provider-specific capabilities. {% data variables.product.prodname_vscode_shortname %} supports harnesses such as Copilot, Claude, and Codex.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 The execution environment is where the harness runs workspace tools and changes code. Depending on the available harness, this can be your machine, a connected host, a Dev Container on either host, or cloud infrastructure. A Dev Container provides the project's configured tools and dependencies without changing the harness. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
 

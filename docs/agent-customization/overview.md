@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
 Keywords:
 - ai
@@ -177,6 +177,8 @@ If a customization isn't applied or causes unexpected behavior, check the follow
 * The customization is stored in a location that the harness supports.
 * Any activation conditions match the current file or task.
 * The customization file has no validation errors.
+
+For hooks, also verify the script's event inputs and outputs. Hooks in user folders, settings, repositories, custom agents, and plugins can require [manual migration to the shared Copilot runtime](/docs/agent-customization/migrate-customizations.md#migrate-hooks), even when the file is discovered.
 
 If the issue continues, open the **Agent Debug Logs** view to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Logs** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 

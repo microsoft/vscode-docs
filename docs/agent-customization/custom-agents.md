@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles, tools, and workflows.
 Keywords:
 - custom agents
@@ -139,6 +139,8 @@ For Claude-specific fields and compatibility with Local, see the [Claude agent f
 The **Local** harness stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 The deprecated `setting(chat.agentFilesLocations)` and `setting(chat.modeFilesLocations)` settings add other locations for the Local harness only. To reuse agents from these locations with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+
+If an agent has `hooks` in its frontmatter, review the [agent-scoped hook conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Plugin-provided agents can appear and run without their scoped hooks because conversion currently omits the `hooks` field. Retain the scoped definition and leave the affected hook migration incomplete; do not broaden it to repository-wide or plugin-wide execution as a workaround.
 
 ## Handoffs
 

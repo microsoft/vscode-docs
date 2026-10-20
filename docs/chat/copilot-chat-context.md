@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
 ---
 # Add context to chat
@@ -66,16 +66,9 @@ Learn more about [using tools with agents](/docs/agents/run/tools.md).
 
 ## @-mentions
 
-Chat participants are specialized assistants that let you ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. {% data variables.product.prodname_vscode_shortname %} has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
+Chat participants invoked with `@name` are deprecated and are not supported in the Copilot harness. They remain available for Local harness compatibility.
 
-The following examples show how to use @-mentions in your chat prompts:
-
-* `"@vscode how to enable word wrapping"`
-* `"@terminal what are the top 5 largest files in the current directory"`
-
-Type `@` in the chat input field to see a list of available chat participants.
-
-Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
+Ask Copilot directly about your code, terminal output, or editor settings and attach the relevant context. For domain-specific integrations, use plugins with skills and MCP tools, or extension tools when editor context is required. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ## Vision
 

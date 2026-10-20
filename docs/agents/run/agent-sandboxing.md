@@ -1,7 +1,7 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 10/14/2026
-MetaDescription: Restrict file system and network access for {% data variables.product.prodname_copilot_short %} agent commands and verify each session's sandbox policy.
+DateApproved: 10/21/2026
+MetaDescription: Configure file system and network isolation for {% data variables.product.prodname_copilot_short %} agents and troubleshoot sandbox failures.
 keywords:
 - copilot
 - ai
@@ -17,7 +17,7 @@ keywords:
 
 {% data variables.product.prodname_copilot_short %} sessions can run terminal commands and start language or tool servers on your machine or a connected remote machine. Agent sandboxing confines these processes to the file system and network access that you configure on the machine where they run.
 
-Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, and inspect the effective policy for a session.
+Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, manage certificate trust, inspect the effective policy for a session, and troubleshoot sandbox failures.
 
 The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
 
@@ -50,28 +50,17 @@ Check the operating system where commands run against the following prerequisite
 
 | Platform | Prerequisite |
 |---|---|
-| macOS | None. |
-| Linux and WSL2 | Install `bubblewrap` and `socat`. |
-| Windows | Install the applicable September 8, 2026 Windows security update. |
-
-On Debian and Ubuntu, install the Linux dependencies:
-
-```bash
-sudo apt-get install bubblewrap socat
-```
-
-On Fedora, install the Linux dependencies:
-
-```bash
-sudo dnf install bubblewrap socat
-```
+| macOS | macOS 15 or later with the built-in Seatbelt facility. No additional sandbox packages. |
+| glibc-based Linux and WSL2 | `bubblewrap` 0.5.0 or later, `slirp4netns`, util-linux 2.35 or later, and compatible `iptables` tools. See [install missing sandbox dependencies](#install-missing-sandbox-dependencies). |
+| Windows | Windows 11 with BaseContainer and the required OS capabilities. See the update baselines below. |
+| Alpine Linux and other musl-based distributions | Sandboxed shell execution is not supported by this runtime. Use a supported glibc-based Linux environment. |
 
 WSL version 1 is not supported because it does not provide the Linux kernel features that `bubblewrap` requires.
 
-On Windows, install the update that applies to your Windows version:
+On Windows, the documented update baselines are:
 
-* Windows 11 24H2 or 25H2: [KB5124008](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124008-windows-11-24h2-25h2-security-update).
-* Windows 11 26H1: [KB5124012](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124012-windows-11-26h1-security-update).
+* Windows 11 25H2: [KB5124010](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124010-windows-11-24h2-25h2-update), build 26200.9550 or later.
+* Windows 11 26H1: [KB5124006](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124006-windows-11-26h1-update), build 28000.3086 or later.
 
 > [!NOTE]
 > Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
@@ -109,6 +98,8 @@ If an operating system dependency is unavailable, the command does not silently 
 Open **Permissions** and select **Sandboxing for terminal** to change sandboxing for the current session. This control does not update User or Workspace settings, change other sessions, or set the default for new sessions.
 
 A new session inherits the effective configuration of its execution host. An explicit session selection persists when you restore the session unless an organization-managed restriction overrides it.
+
+When an organization-managed policy enables sandboxing, `sandbox.allowBypass` controls this choice. If it is `true`, you can turn sandboxing off for the current session. If it is `false` or omitted, sandboxing stays on and the control is locked. Changing the session toggle does not change the managed policy or affect other sessions.
 
 Sandboxing is independent of the selected [permission level](/docs/agents/run/approvals.md#permission-levels). For example, the sandbox continues to restrict processes when you select **Allow all**.
 
@@ -244,9 +235,134 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 > [!CAUTION]
 > Approval to run outside the sandbox removes file system and network restrictions for that operation. If you approve a session-wide bypass, subsequent terminal commands in that session also run without those restrictions until you turn sandboxing back on.
 
-<a name="legacy-local-and-custom-terminal-behavior"></a>
+## Troubleshoot agent sandboxing
 
-<a name="local-sessions-and-custom-terminal-tools"></a>
+If chat reports **Sandboxing might not work as expected**, or sandboxed tools fail to start or connect, check dependencies and operating system requirements in the environment where the session runs commands. Certificate errors can require a separate check even when all dependencies are installed.
+
+### Install missing sandbox dependencies
+
+Install dependencies and operating system updates in the environment where the agent runs. {% data variables.product.prodname_vscode_shortname %} can connect to that environment remotely, so it might run on a different machine than the agent.
+
+Follow the installation steps for the agent's operating system. A remote workspace does not always mean the agent runs remotely. If the agent runs locally, install locally.
+
+Install packages and operating system updates where the agent runs:
+
+* **Local agent host**: Install on the same machine as {% data variables.product.prodname_vscode_shortname %}.
+* **WSL**: Install inside the Linux distribution running the agent, not on Windows.
+* **Remote host, Dev Container, or Codespace**: Install on that host or inside that environment.
+
+On Debian and Ubuntu, update the package index:
+
+```bash
+sudo apt-get update
+```
+
+After the update succeeds, install the required packages:
+
+```bash
+sudo apt-get install bubblewrap slirp4netns util-linux iptables
+```
+
+On Fedora:
+
+```bash
+sudo dnf install bubblewrap slirp4netns util-linux iptables-nft
+```
+
+On Arch Linux, the following command also performs a system upgrade. Review the changes before approving:
+
+```bash
+sudo pacman -Syu bubblewrap slirp4netns util-linux iptables
+```
+
+On other glibc-based distributions, use the distribution's package manager or ask your administrator to install packages that provide:
+
+* `bwrap` 0.5.0 or later and `slirp4netns`.
+* `unshare` and `nsenter` from util-linux 2.35 or later.
+* All four firewall commands: `iptables`, `ip6tables`, `iptables-restore`, and `ip6tables-restore`, with a compatible firewall backend.
+
+Linux also requires unprivileged user and network namespaces and read/write access to `/dev/net/tun`. The `unshare` command must support `--map-current-user` and `--keep-caps`. If the packages are installed but these facilities are blocked or unavailable, ask your administrator or container owner to fix the environment. Installing packages alone does not add support for Alpine Linux or other musl-based distributions.
+
+On macOS, there are no additional sandbox packages to install. Open **System Settings > General > Software Update** and install applicable updates.
+
+On Windows, there is no standalone sandbox package. Open **Settings > Windows Update > Check for updates**, install applicable updates, and restart Windows when prompted. Check the [platform prerequisites](#check-platform-availability) for supported baselines.
+
+### Check Windows sandbox proxy access
+
+On Windows, a sandbox proxy requires `setting(chat.agent.sandbox.network.allowLocalNetwork)` to be `true` so sandboxed tools can reach the proxy's local listener. If local-network access is blocked, commands that require the proxy cannot launch.
+
+Open Settings, search for `@id:chat.agent.sandbox.network.allowLocalNetwork`, and turn on the setting only if you accept the additional access to the local network. If your organization manages this setting, contact your administrator. See [configure network access](#configure-network-access) for the security implications.
+
+### Trust the sandbox CA certificate on Windows and macOS
+
+If chat reports **Sandbox trusted CA is not installed**, tools that rely on the operating system's certificate store might fail with certificate, HTTPS, or authentication errors.
+
+{% data variables.product.prodname_copilot_short %}'s sandbox credential proxy lets tools authenticate to approved services without exposing real authentication tokens to sandboxed processes. Some tools need the proxy's **certificate authority (CA) certificate** installed in the operating system's trust store to connect successfully.
+
+**Installation is optional and improves tool compatibility.** It is not a general requirement for using {% data variables.product.prodname_vscode_shortname %} or running sandboxed commands.
+
+#### Why certificate trust is needed
+
+When credential masking is enabled, {% data variables.product.prodname_copilot_short %} supplies sandboxed tools with placeholder credentials instead of real tokens. For approved credential destinations, the local proxy replaces these placeholders with real credentials.
+
+Because HTTPS encrypts request headers, credential substitution requires the proxy to establish separate encrypted connections with the tool and the destination. The proxy presents its own TLS certificate to the tool and independently verifies the destination's certificate before forwarding credentials.
+
+The tool must trust the certificate presented by the proxy. {% data variables.product.prodname_copilot_short %} supplies a **per-process certificate bundle** for tools that support it. Installing the CA into the operating system's trust store improves compatibility with tools that rely exclusively on OS trust.
+
+Domain filtering alone does not require CA installation. The built-in local proxy can check destinations and tunnel HTTPS traffic without decrypting it.
+
+#### What gets installed
+
+{% data variables.product.prodname_copilot_short %} generates a local, self-signed CA. It is not issued by a public certificate authority.
+
+Installation adds only the **public CA certificate** to OS trust. It does not install an authentication token. The private key remains in {% data variables.product.prodname_copilot_short %}'s local storage and is not passed to sandboxed tools.
+
+Installing the certificate does not, by itself, redirect or intercept other applications' traffic.
+
+#### Manage certificate trust in VS Code
+
+Sandbox certificate trust management is available for agent hosts running Windows or macOS.
+
+{% data variables.product.prodname_vscode_shortname %} shows a dismissible **Sandbox trusted CA is not installed** notice with an **Install** option when trust is missing and installation is supported.
+
+You can also run **Sandbox: Manage Trusted CA** from the Command Palette to install, rotate, or remove trust for the last-focused chat's agent host. Each operation asks for confirmation and identifies the target host.
+
+* **Install:** Adds the public CA certificate to OS trust. Installation can require operating system authorization.
+  * **Windows:** Installation uses the machine's trusted root certificate store and requires administrator approval. Trust applies to all users on that machine. Installing only in the current user's store is not sufficient for sandboxed tools.
+  * **macOS:** Installation uses your login Keychain. macOS might ask for your login password to authorize the trust change.
+* **Rotate:** Replaces the CA, which can be necessary when configured credential destinations change. Replacing a trusted CA also updates OS trust and can require operating system authorization.
+* **Remove:** Removes OS trust but retains the locally stored certificate and private key. Tools that use {% data variables.product.prodname_copilot_short %}'s certificate bundle can continue to work.
+
+Running sandboxed tools might need to restart after a certificate change.
+
+If **Install** is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Removing the CA from OS trust can cause tools that depend on it to stop working.
+
+> [!NOTE]
+> On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
+
+#### Continuing without installation
+
+Missing trust does not block chat startup or sending messages, and opening a chat never changes certificate trust.
+
+Tools that support {% data variables.product.prodname_copilot_short %}'s certificate bundle can continue to work without OS installation. Tools that rely only on OS trust might report certificate-verification or authentication errors when using credential masking. These errors do not necessarily indicate an invalid account or token.
+
+> [!WARNING]
+> Do not disable TLS certificate verification to work around these errors.
+
+#### Security considerations
+
+> [!CAUTION]
+> Only approve installation for an agent host you trust. Installing a root CA changes which certificates applications trust, including applications outside the sandbox that use that store. On Windows, that trust applies to all users on the device. On macOS, it applies to the current user.
+
+The {% data variables.product.prodname_copilot_short %} CA is constrained to configured credential destinations and their DNS subdomains, and limited to TLS server authentication rather than code signing or client authentication.
+
+The private key is stored unencrypted and protected by filesystem permissions. Other programs running as the same user can access it. Protect {% data variables.product.prodname_copilot_short %}'s local storage and follow your organization's certificate-management policies. Do not manually copy the agent's certificate files or private keys.
+
+#### Remote environments
+
+Certificate operations affect the machine running the agent host, which might differ from the machine displaying {% data variables.product.prodname_vscode_shortname %}. Installing the CA locally does not automatically establish trust in a remote host, container, or WSL environment.
+
+Before confirming an operation, check the target host shown by {% data variables.product.prodname_vscode_shortname %}.
 
 ## Local harness sessions and custom terminal tools
 
@@ -262,7 +378,7 @@ Domain allow and deny controls are available for compatible terminal tools. Thei
 
 ## When your organization manages sandboxing
 
-Managed sandbox enforcement is in Preview. Your organization can require sandboxing, prevent bypass, or restrict network access. Enforced controls are locked, but you can select a more restrictive value where a control remains editable.
+Managed sandbox enforcement is in Preview. When a policy sets `sandbox.enabled` to `true`, `sandbox.allowBypass` determines whether the session toggle is editable: `true` lets you turn sandboxing off for the current session, while `false` or an omitted value keeps sandboxing on and locks the toggle. A session choice does not change the managed policy or other sessions. Your organization can also restrict network access.
 
 If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 

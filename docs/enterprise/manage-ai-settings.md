@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -89,22 +89,44 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
-### Enforce runtime policies with Copilot Agent Host
+### Claude and Codex availability
 
-Some managed sandbox and permission settings require the Copilot Agent Host for enforcement. {% data variables.product.prodname_vscode_shortname %} automatically uses the Copilot harness for full chat sessions when either condition applies:
+The Claude and Codex harness integrations in {% data variables.product.prodname_vscode_shortname %} are disabled while {% data variables.product.prodname_copilot_short %} enterprise-managed settings apply. This includes settings delivered through server-managed, MDM-managed, or file-based deployments.
 
-* Managed `sandbox.enabled` is `true`.
-* The managed `permissions` object contains at least one key. An empty `permissions` object does not require the Agent Host.
+The {% data variables.product.prodname_copilot_short %} runtime enforces these settings, but the Claude and Codex harnesses cannot enforce them. {% data variables.product.prodname_vscode_shortname %} disables those harnesses so a session cannot bypass your organization's controls.
 
-When one of these conditions becomes effective, {% data variables.product.prodname_vscode_shortname %} automatically moves an open Local harness session to the Copilot harness. The new session preserves the conversation history and unsent input, including attachments and selections, without submitting the input. After the Copilot session opens, the original Local session is [archived](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) as read-only. Opening another unarchived Local session starts the same process.
+This restriction does not delete existing Claude or Codex sessions.
 
-While the policy applies:
+The restriction depends on the presence of managed settings, not only on whether a particular restriction is enabled. For example:
 
-* Claude and Codex sessions do not appear in the sessions list. These sessions are not migrated, archived, or deleted.
-* Local-backed terminal chat is unavailable.
-* Inline Chat and next edit suggestions remain available.
+* Managed permission settings, such as `permissions.disableBypassPermissionsMode`, `permissions.allow`, `permissions.ask`, or `permissions.deny`, disable the harnesses. An empty rule list still counts as a managed setting.
+* Managed `sandbox.enabled` disables the harnesses even when its value is `false`.
+* Other enterprise-managed controls, such as plugin or telemetry settings, can also disable the harnesses.
 
-The `ChatToolsAutoApprove` device policy does not trigger this routing by itself.
+Setting `setting(chat.agentHost.claudeAgent.enabled)` or `setting(chat.agentHost.codexAgent.enabled)` to `true` does not override this restriction. Setting the `Claude3PIntegration` or `Codex3PIntegration` device policy to `true` does not override it either. The restriction also applies when you use a Claude API key or a ChatGPT account.
+
+This restriction applies to harness availability, not to Claude or OpenAI models selected in a Copilot harness session. Model availability is governed separately.
+
+#### If Claude or Codex is missing
+
+If you need access to one of these harnesses:
+
+1. Run **Developer: Policy Diagnostics** from the Command Palette to inspect the effective `Claude3PIntegration` and `Codex3PIntegration` policies and their sources.
+1. Contact the IT team that deployed the managed settings. Share which harness is unavailable and the relevant policy values and sources.
+1. If you don't know who owns the settings, ask your IT help desk to route the request to the administrator responsible for {% data variables.product.prodname_copilot_short %} enterprise-managed settings or device management.
+
+Ask the administrator which harnesses are approved for your work and whether the deployed configuration needs review. You cannot restore access by changing your user or workspace settings.
+
+#### Runtime policies and harness selection
+
+The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. The following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
+
+* `sandbox.enabled` set to `true`.
+* A `permissions` object with at least one key.
+
+An empty `permissions` object does not trigger that routing.
+
+The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply.
 
 ### Keep Local harness as default
 
@@ -145,7 +167,13 @@ If built-in updates are disabled by policy, the notice directs the developer to 
 
 ### Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}
 
-Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the Agent Host automatically after it resolves a managed telemetry change.
+Managed OpenTelemetry configuration applies to the {% data variables.product.prodname_copilot_short %} Chat extension and the [Agent Host](/docs/agents/concepts/agent-host.md), the process that runs agent sessions. The extension might offer **Reload Window** after a configuration change. {% data variables.product.prodname_vscode_shortname %} restarts the local Agent Host automatically after it resolves a managed telemetry change.
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, use `telemetry.filePath` to save Copilot Agent Host telemetry to a JSONL file without a collector or personal OTel opt-in. The managed file destination takes precedence over collector configuration, unless managed `telemetry.enabled` is `false`, which turns off export. See [Export managed telemetry to a file](/docs/agents/guides/monitoring-agents.md#export-managed-telemetry-to-a-file) for configuration, path requirements, and removal behavior.
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, use `telemetry.headersProvider` to generate and refresh HTTP headers for OTLP export from Copilot Agent Host sessions. Headers can supply collector-specific metadata, route telemetry, or authenticate with the collector. Managed export does not require developers to opt in through personal OTel settings. For a configuration example and helper requirements, see [Configure dynamic headers](/docs/agents/guides/monitoring-agents.md#configure-dynamic-headers).
+
+The [highest-precedence delivery source](#across-managed-settings-delivery-methods) that supplies `telemetry` owns the entire block. Fields omitted from that source do not inherit values from lower-precedence sources.
 
 Identity capture is off by default and independent of content capture. Review both controls before deployment, and remove conflicting OpenTelemetry environment variables from managed devices. For the configuration schema and supported clients, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry).
 
@@ -196,6 +224,21 @@ Set `CopilotNextEditSuggestions` to `false` to disable next edit suggestions.
 
 Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data variables.product.prodname_vscode_shortname %}.
 
+Setting this policy to `true` does not override the [Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
+
+#### Enable or disable the copilot command
+
+{% data variables.product.prodname_vscode_shortname %} includes a `copilot` command that runs {% data variables.copilot.copilot_cli %}. When {% data variables.copilot.copilot_cli_short %} isn't installed, the command offers to install it from GitHub. On Windows, setup can also [add the command to `PATH` and install {% data variables.copilot.copilot_cli_short %}](/docs/setup/windows.md#set-up-the-copilot-command).
+
+Set the `CopilotCliCommand` policy to `false` to turn off the command. This policy controls `setting(chat.copilotCliCommand.enabled)`. When the policy is disabled:
+
+* New integrated terminals don't include the `copilot` command.
+* On Windows, setup doesn't show its **{% data variables.copilot.copilot_cli %}** page or install {% data variables.copilot.copilot_cli_short %}. The next time setup runs, for example during an update, it removes the `copilot` command from `PATH`. Until then, the command doesn't install {% data variables.copilot.copilot_cli_short %}.
+
+The policy doesn't affect a {% data variables.copilot.copilot_cli_short %} installation that you deploy separately. To control which {% data variables.copilot.copilot_cli_short %} version developers use and where it comes from, disable the policy and deploy {% data variables.copilot.copilot_cli_short %} with your own software distribution tools. Learn more about [installing {% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+
+Whether developers can use {% data variables.copilot.copilot_cli_short %} is controlled by your [GitHub organization and enterprise settings](#use-github-organization-and-enterprise-settings), which {% data variables.copilot.copilot_cli_short %} applies after sign-in.
+
 ### Configure models and data handling
 
 #### Set a default chat model
@@ -234,6 +277,13 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 {% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot harness sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
 
 Local harness sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
+
+When moving to Copilot, inventory policy hooks, managed plugins, and any permitted user or repository hooks. Convert and test their scripts as well as their configuration. See [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks).
+
+> [!WARNING]
+> Copilot policy hooks run on the host, outside the session sandbox. Keep their scripts in administrator-controlled locations. Do not promote a repository hook to a policy hook while retaining a workspace-controlled script path; that would run editable workspace code outside the sandbox. See [policy hooks and sandboxed sessions](https://docs.github.com/en/copilot/reference/hooks-reference#sandboxed-sessions).
+
+Test failures and timeouts separately. The [Copilot command-hook reference](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks) documents timeouts as fail-open even for policy hooks. A requirement for complete audit coverage or fail-closed enforcement therefore needs more than the presence of a hook file.
 
 <a id="deploy-hooks-through-managed-plugins"></a>
 
