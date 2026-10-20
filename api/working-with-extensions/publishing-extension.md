@@ -75,7 +75,7 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
 | GitHub Actions | Use [Marketplace Trusted Publishing][trusted-publishing]. |
-| Azure Pipelines | Use an onboarded [Microsoft Entra identity][entra]. |
+| Azure Pipelines | [Use an onboarded Microsoft Entra identity.][entra] |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
 The Azure Pipelines method doesn't use a Marketplace Trusted Publishing policy
