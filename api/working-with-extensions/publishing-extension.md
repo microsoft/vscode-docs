@@ -123,12 +123,8 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: npx @vscode/vsce@4.0.1-1 publish --oidc
+      - run: npx @vscode/vsce publish --oidc
 ```
-
-> [!NOTE]
-> `@vscode/vsce@4.0.1-1` is a prerelease version. Pin the workflow to this
-> version while Trusted Publishing is in preview.
 
 The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
 be exchanged only once. For more information, see
