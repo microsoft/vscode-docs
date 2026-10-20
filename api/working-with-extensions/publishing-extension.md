@@ -139,7 +139,11 @@ before publication.
 
 The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
 be exchanged only once. For more information, see
-[Trusted Publishing in the `vscode-vsce` repository](https://github.com/microsoft/vscode-vsce#trusted-publishing).
+[Visual Studio Marketplace Trusted Publishing][vsm-trusted-publishing] and
+[Trusted Publishing in the `vscode-vsce` repository][vsce-trusted-publishing].
+
+[vsm-trusted-publishing]: https://aka.ms/vsm/trustedpublishing
+[vsce-trusted-publishing]: https://github.com/microsoft/vscode-vsce#trusted-publishing
 
 #### Publish from Azure Pipelines with Microsoft Entra ID
 
