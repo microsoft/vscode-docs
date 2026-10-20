@@ -132,6 +132,11 @@ jobs:
       - run: npx @vscode/vsce publish --oidc
 ```
 
+<!--
+TODO: Document the minimum stable @vscode/vsce version that supports --oidc
+before publication.
+-->
+
 The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
 be exchanged only once. For more information, see
 [Trusted Publishing in the `vscode-vsce` repository](https://github.com/microsoft/vscode-vsce#trusted-publishing).
