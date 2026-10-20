@@ -106,7 +106,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
 | `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
 | `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
 | `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, pull request titles and descriptions, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
@@ -348,9 +348,9 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(chat.useHooks)` _(Preview)_ <br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
 | `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional Local hook file locations. Specify folders containing `*.json` files or individual `.json` files, using relative or tilde paths. For Copilot, [migrate to a supported hook source](/docs/agent-customization/migrate-customizations.md#find-every-hook-source) instead. | `{}` |
 | `setting(chat.useClaudeHooks)` _(Preview)_ <br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
-| `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
+| `setting(chat.useAgentsMdFile)` <br/>Automatically attach instructions from workspace-root `AGENTS.md` files to chat requests in Local harness sessions only. Does not control [{% data variables.product.prodname_copilot_short %} instruction discovery](/docs/agent-customization/custom-instructions.md#use-an-agentsmd-file) or discovery in other harnesses. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 
 ## Reusable prompt files settings
 
