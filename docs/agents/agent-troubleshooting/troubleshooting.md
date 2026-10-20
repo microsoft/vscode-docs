@@ -25,6 +25,7 @@ When chat, agents, or inline suggestions do not behave as expected, start with t
 | A file, tool, or expected step is missing from a response | [Inspect chat interactions](#inspect-chat-interactions). | Compare the session events with the request sent to the model. |
 | A response is slow or uses more tokens than expected | Open the Agent Debug Logs Summary view. | Use the Cache Explorer only if the session reports low cache reuse. |
 | An MCP server or tool is unavailable | [Troubleshoot MCP servers](#troubleshoot-mcp-servers). | Inspect the server output and the tools available to the request. |
+| Sandboxing reports missing dependencies, or sandboxed tools fail with certificate errors | [Troubleshoot agent sandboxing](/docs/agents/run/agent-sandboxing.md#troubleshoot-agent-sandboxing). | Check dependencies, proxy access, and certificate trust on the agent host. |
 
 ## Start with basic checks
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
 DateApproved: 10/21/2026
-MetaDescription: Restrict file system and network access for {% data variables.product.prodname_copilot_short %} agent commands and verify each session's sandbox policy.
+MetaDescription: Configure file system and network isolation for {% data variables.product.prodname_copilot_short %} agents and troubleshoot sandbox failures.
 keywords:
 - copilot
 - ai
@@ -17,7 +17,7 @@ keywords:
 
 {% data variables.product.prodname_copilot_short %} sessions can run terminal commands and start language or tool servers on your machine or a connected remote machine. Agent sandboxing confines these processes to the file system and network access that you configure on the machine where they run.
 
-Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, and inspect the effective policy for a session.
+Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, inspect the effective policy for a session, and troubleshoot sandbox failures.
 
 The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
 
@@ -50,28 +50,17 @@ Check the operating system where commands run against the following prerequisite
 
 | Platform | Prerequisite |
 |---|---|
-| macOS | None. |
-| Linux and WSL2 | Install `bubblewrap` and `socat`. |
-| Windows | Install the applicable September 8, 2026 Windows security update. |
-
-On Debian and Ubuntu, install the Linux dependencies:
-
-```bash
-sudo apt-get install bubblewrap socat
-```
-
-On Fedora, install the Linux dependencies:
-
-```bash
-sudo dnf install bubblewrap socat
-```
+| macOS | macOS 15 or later with the built-in Seatbelt facility. No additional sandbox packages. |
+| glibc-based Linux and WSL2 | `bubblewrap` 0.5.0 or later, `slirp4netns`, util-linux 2.35 or later, and compatible `iptables` tools. See [install missing sandbox dependencies](#install-missing-sandbox-dependencies). |
+| Windows | Windows 11 with BaseContainer and the required OS capabilities. See the update baselines below. |
+| Alpine Linux and other musl-based distributions | Sandboxed shell execution is not supported by this runtime. Use a supported glibc-based Linux environment. |
 
 WSL version 1 is not supported because it does not provide the Linux kernel features that `bubblewrap` requires.
 
-On Windows, install the update that applies to your Windows version:
+On Windows, the documented update baselines are:
 
-* Windows 11 24H2 or 25H2: [KB5124008](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124008-windows-11-24h2-25h2-security-update).
-* Windows 11 26H1: [KB5124012](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124012-windows-11-26h1-security-update).
+* Windows 11 25H2: [KB5124010](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124010-windows-11-24h2-25h2-update), build 26200.9550 or later.
+* Windows 11 26H1: [KB5124006](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124006-windows-11-26h1-update), build 28000.3086 or later.
 
 > [!NOTE]
 > Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
@@ -245,6 +234,83 @@ The agent requests approval when a sandboxed command fails or sandbox restrictio
 
 > [!CAUTION]
 > Approval to run outside the sandbox removes file system and network restrictions for that operation. If you approve a session-wide bypass, subsequent terminal commands in that session also run without those restrictions until you turn sandboxing back on.
+
+## Troubleshoot agent sandboxing
+
+If chat reports **Sandboxing might not work as expected**, or sandboxed tools fail to start or connect, check dependencies and operating system requirements on the [Agent Host](/docs/agents/concepts/agent-host.md), where the session runs commands. Certificate errors can require a separate check even when all dependencies are installed.
+
+### Install missing sandbox dependencies
+
+Install packages and operating system updates where the agent runs:
+
+* **Local agent host:** Install on the same machine as {% data variables.product.prodname_vscode_shortname %}.
+* **WSL:** Install inside the Linux distribution running the agent, not on Windows.
+* **Remote host, Dev Container, or Codespace:** Install on that host or inside that environment.
+
+Use the agent host's operating system, even if the computer displaying {% data variables.product.prodname_vscode_shortname %} uses a different one. Viewing a remote workspace does not necessarily mean the agent runs remotely. If the agent still runs locally, install locally.
+
+On Debian and Ubuntu, update the package index:
+
+```bash
+sudo apt-get update
+```
+
+After the update succeeds, install the required packages:
+
+```bash
+sudo apt-get install bubblewrap slirp4netns util-linux iptables
+```
+
+On Fedora:
+
+```bash
+sudo dnf install bubblewrap slirp4netns util-linux iptables-nft
+```
+
+On Arch Linux, the following command also performs a system upgrade. Review the changes before approving:
+
+```bash
+sudo pacman -Syu bubblewrap slirp4netns util-linux iptables
+```
+
+On other glibc-based distributions, use the distribution's package manager or ask your administrator to install packages that provide:
+
+* `bwrap` 0.5.0 or later and `slirp4netns`.
+* `unshare` and `nsenter` from util-linux 2.35 or later.
+* All four firewall commands: `iptables`, `ip6tables`, `iptables-restore`, and `ip6tables-restore`, with a compatible firewall backend.
+
+Linux also requires unprivileged user and network namespaces and read/write access to `/dev/net/tun`. The `unshare` command must support `--map-current-user` and `--keep-caps`. If the packages are installed but these facilities are blocked or unavailable, ask your administrator or container owner to fix the environment. Installing packages alone does not add support for Alpine Linux or other musl-based distributions.
+
+On macOS, there are no additional sandbox packages to install. Open **System Settings > General > Software Update** and install applicable updates.
+
+On Windows, there is no standalone sandbox package. Open **Settings > Windows Update > Check for updates**, install applicable updates, and restart Windows when prompted. Check the [platform prerequisites](#check-platform-availability) for supported baselines.
+
+### Check Windows sandbox proxy access
+
+On Windows, a sandbox proxy requires `setting(chat.agent.sandbox.network.allowLocalNetwork)` to be `true` so sandboxed tools can reach the proxy's local listener. If local-network access is blocked, commands that require the proxy cannot launch.
+
+Open Settings, search for `@id:chat.agent.sandbox.network.allowLocalNetwork`, and turn on the setting only if you accept the additional access to the local network. If your organization manages this setting, contact your administrator. See [configure network access](#configure-network-access) for the security implications.
+
+### Trust the sandbox CA certificate on Windows and macOS
+
+If chat reports **Sandbox trusted CA is not installed**, tools that rely on the operating system's certificate store might fail with certificate, HTTPS, or authentication errors.
+
+The sandbox proxy supplies a certificate authority (CA) bundle to its tools, but some tools ignore that bundle and use only the OS certificate store. Trusting the sandbox CA in that store improves compatibility; it is not required for every tool.
+
+1. In the affected chat, select **Install** in the **Sandbox trusted CA is not installed** notification.
+1. Review the confirmation and check the target agent host. For a local agent, this is the same machine as {% data variables.product.prodname_vscode_shortname %}. For a remote agent, it is the remote host.
+1. Confirm installation and complete any OS authorization prompt:
+   * **Windows:** Installation uses the machine's trusted root certificate store and requires administrator approval. Trust applies to all users on that machine. Installing only in the current user's store is not sufficient for sandboxed tools.
+   * **macOS:** Installation uses your login Keychain. macOS might ask for your login password to authorize the trust change.
+1. Restart affected sandboxed tools or the agent host, and retry the operation.
+
+> [!CAUTION]
+> Only approve installation for an agent host you trust. Adding a CA changes which certificates applications trust, including applications outside the sandbox that use that store. Installation adds the public CA certificate, not its private signing key.
+
+If **Install** is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Do not manually copy the agent's certificate files or private keys. If the CA is rotated, restart running tools. Removing the CA from OS trust can cause tools that depend on it to stop working.
+
+> [!NOTE]
+> This OS-trust installation workflow applies only to Windows and macOS. On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
 
 <a name="legacy-local-and-custom-terminal-behavior"></a>
 
