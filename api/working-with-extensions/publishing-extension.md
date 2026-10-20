@@ -78,8 +78,6 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 | Azure Pipelines | [Use an onboarded Microsoft Entra identity.][entra] |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
-The Azure Pipelines method doesn't use a Marketplace Trusted Publishing policy
-or GitHub OIDC.
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
 Support for additional providers might be added in the future.
 
