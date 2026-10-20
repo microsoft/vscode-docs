@@ -62,7 +62,7 @@ The publishing tool checks the following constraints:
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 > [!IMPORTANT]
-> On December 1, 2026, global Personal Access Tokens (PATs) in Azure DevOps are retired. To keep publishing extensions, use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
+> On December 1, 2026, global Personal Access Tokens (PATs) in Azure DevOps are retired. PATs scoped to a single organization continue to work, but we recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
 
 ### Secure automated publishing to Visual Studio Marketplace
 
@@ -155,7 +155,7 @@ Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory pa
 `vsce` can also publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 > [!IMPORTANT]
-> Global PATs in Azure DevOps are retired on December 1, 2026. We recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
+> Global PATs in Azure DevOps are retired on December 1, 2026. PATs scoped to a single organization continue to work, but we recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
 
 ### Get a Personal Access Token
 
@@ -176,7 +176,7 @@ You can create a Personal Access Token via the Azure DevOps portal. To create a 
 1. In the Create a new personal access token modal, select the following details for the token:
 
     - Name: any name you want for the token
-    - Organization: **All accessible organizations**
+    - Organization: select your Azure DevOps organization
     - Expiration (optional): set the desired expiration date for the token
     - Scopes: **Custom defined**:
       - click **Show all scopes** link below the **Scopes** section
@@ -624,7 +624,7 @@ The Visual Studio Marketplace does not allow an extension package to have more t
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to select a specific organization instead of **All accessible organizations** in the **Organizations** field dropdown. Another possible mistake is incorrect scope - you should set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is incorrect scope. You should set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
