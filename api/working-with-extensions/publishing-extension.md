@@ -75,14 +75,13 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
 | GitHub Actions | Use [Marketplace Trusted Publishing][trusted-publishing]. |
-| Azure Pipelines | [Use an onboarded Microsoft Entra identity.][entra] |
+| Azure Pipelines | [Use an onboarded Microsoft Entra identity.](#publish-from-azure-pipelines-with-microsoft-entra-id) |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
 Support for additional providers might be added in the future.
 
 [trusted-publishing]: #publish-with-github-actions-and-trusted-publishing
-[entra]: #publish-from-azure-pipelines-with-microsoft-entra-id
 
 Both options remove stored publishing credentials and simplify credential
 management. For more information, see
@@ -93,19 +92,28 @@ management. For more information, see
 Trusted Publishing uses OpenID Connect (OIDC) to publish from GitHub Actions
 without storing a PAT as a repository secret.
 
-First, create a policy for the workflow:
+First, create a Trusted Publishing policy for the workflow:
 
 1. Sign in to the
    [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
-1. Open the publisher that owns your extension, and select **Trusted Publishing**.
-1. Expand **Create**, and enter the policy name, GitHub repository owner,
-   repository, and workflow file name.
-1. If the workflow uses a GitHub environment, enter the environment name.
+1. Open the publisher that owns your extension.
+1. Select **Trusted Publishing**.
+1. Expand **Create**, and enter the policy details:
+   - **Policy name**: A descriptive name, such as `Release workflow`.
+   - **Repository owner**: The exact GitHub organization or user login that
+     owns the repository, such as `contoso`.
+   - **Repository**: The repository name without the owner, such as
+     `sample-extension`.
+   - **Workflow**: The workflow filename under `.github/workflows`, such as
+     `publish.yml`.
+   - **Environment**: If the workflow uses a GitHub environment, enter its
+     exact name, such as `production`. Otherwise, leave this field empty.
 1. Select **Create**.
 
-For a private repository, run the configured workflow within 48 hours of
-creating the policy. The first successful token exchange permanently activates
-the policy.
+> [!NOTE]
+> For a private repository, run the configured workflow within 48 hours after
+> creating the policy. The first successful token exchange permanently
+> activates the policy.
 
 Next, grant the publishing job permission to request an OIDC token and publish
 with `vsce`:
