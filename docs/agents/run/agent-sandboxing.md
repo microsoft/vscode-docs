@@ -17,7 +17,7 @@ keywords:
 
 {% data variables.product.prodname_copilot_short %} sessions can run terminal commands and start language or tool servers on your machine or a connected remote machine. Agent sandboxing confines these processes to the file system and network access that you configure on the machine where they run.
 
-Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, inspect the effective policy for a session, and troubleshoot sandbox failures.
+Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, manage certificate trust, inspect the effective policy for a session, and troubleshoot sandbox failures.
 
 The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
 
@@ -297,22 +297,72 @@ Open Settings, search for `@id:chat.agent.sandbox.network.allowLocalNetwork`, an
 
 If chat reports **Sandbox trusted CA is not installed**, tools that rely on the operating system's certificate store might fail with certificate, HTTPS, or authentication errors.
 
-The sandbox proxy supplies a certificate authority (CA) bundle to its tools, but some tools ignore that bundle and use only the OS certificate store. Trusting the sandbox CA in that store improves compatibility; it is not required for every tool.
+{% data variables.product.prodname_copilot_short %}'s sandbox credential proxy lets tools authenticate to approved services without exposing real authentication tokens to sandboxed processes. Some tools need the proxy's **certificate authority (CA) certificate** installed in the operating system's trust store to connect successfully.
 
-1. In the affected chat, select **Install** in the **Sandbox trusted CA is not installed** notification.
-1. Review the confirmation and check the target agent host. For a local agent, this is the same machine as {% data variables.product.prodname_vscode_shortname %}. For a remote agent, it is the remote host.
-1. Confirm installation and complete any OS authorization prompt:
-   * **Windows:** Installation uses the machine's trusted root certificate store and requires administrator approval. Trust applies to all users on that machine. Installing only in the current user's store is not sufficient for sandboxed tools.
-   * **macOS:** Installation uses your login Keychain. macOS might ask for your login password to authorize the trust change.
-1. Restart affected sandboxed tools or the agent host, and retry the operation.
+**Installation is optional and improves tool compatibility.** It is not a general requirement for using {% data variables.product.prodname_vscode_shortname %} or running sandboxed commands.
 
-> [!CAUTION]
-> Only approve installation for an agent host you trust. Adding a CA changes which certificates applications trust, including applications outside the sandbox that use that store. Installation adds the public CA certificate, not its private signing key.
+#### Why certificate trust is needed
 
-If **Install** is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Do not manually copy the agent's certificate files or private keys. If the CA is rotated, restart running tools. Removing the CA from OS trust can cause tools that depend on it to stop working.
+When credential masking is enabled, {% data variables.product.prodname_copilot_short %} supplies sandboxed tools with placeholder credentials instead of real tokens. For approved credential destinations, the local proxy replaces these placeholders with real credentials.
+
+Because HTTPS encrypts request headers, credential substitution requires the proxy to establish separate encrypted connections with the tool and the destination. The proxy presents its own TLS certificate to the tool and independently verifies the destination's certificate before forwarding credentials.
+
+The tool must trust the certificate presented by the proxy. {% data variables.product.prodname_copilot_short %} supplies a **per-process certificate bundle** for tools that support it. Installing the CA into the operating system's trust store improves compatibility with tools that rely exclusively on OS trust.
+
+Domain filtering alone does not require CA installation. The built-in local proxy can check destinations and tunnel HTTPS traffic without decrypting it.
+
+#### What gets installed
+
+{% data variables.product.prodname_copilot_short %} generates a local, self-signed CA. It is not issued by a public certificate authority.
+
+Installation adds only the **public CA certificate** to OS trust. It does not install an authentication token. The private key remains in {% data variables.product.prodname_copilot_short %}'s local storage and is not passed to sandboxed tools.
+
+Installing the certificate does not, by itself, redirect or intercept other applications' traffic.
+
+#### Manage certificate trust in VS Code
+
+Sandbox certificate trust management is available for agent hosts running Windows or macOS.
+
+{% data variables.product.prodname_vscode_shortname %} shows a dismissible **Sandbox trusted CA is not installed** notice with an **Install** option when trust is missing and installation is supported.
+
+You can also run **Sandbox: Manage Trusted CA** from the Command Palette to install, rotate, or remove trust for the last-focused chat's agent host. Each operation asks for confirmation and identifies the target host.
+
+* **Install:** Adds the public CA certificate to OS trust. Installation can require operating system authorization.
+  * **Windows:** Installation uses the machine's trusted root certificate store and requires administrator approval. Trust applies to all users on that machine. Installing only in the current user's store is not sufficient for sandboxed tools.
+  * **macOS:** Installation uses your login Keychain. macOS might ask for your login password to authorize the trust change.
+* **Rotate:** Replaces the CA, which can be necessary when configured credential destinations change. Replacing a trusted CA also updates OS trust and can require operating system authorization.
+* **Remove:** Removes OS trust but retains the locally stored certificate and private key. Tools that use {% data variables.product.prodname_copilot_short %}'s certificate bundle can continue to work.
+
+Running sandboxed tools might need to restart after a certificate change.
+
+If **Install** is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Removing the CA from OS trust can cause tools that depend on it to stop working.
 
 > [!NOTE]
-> This OS-trust installation workflow applies only to Windows and macOS. On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
+> On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
+
+#### Continuing without installation
+
+Missing trust does not block chat startup or sending messages, and opening a chat never changes certificate trust.
+
+Tools that support {% data variables.product.prodname_copilot_short %}'s certificate bundle can continue to work without OS installation. Tools that rely only on OS trust might report certificate-verification or authentication errors when using credential masking. These errors do not necessarily indicate an invalid account or token.
+
+> [!WARNING]
+> Do not disable TLS certificate verification to work around these errors.
+
+#### Security considerations
+
+> [!CAUTION]
+> Only approve installation for an agent host you trust. Installing a root CA changes which certificates applications trust, including applications outside the sandbox that use that store. On Windows, that trust applies to all users on the device. On macOS, it applies to the current user.
+
+The {% data variables.product.prodname_copilot_short %} CA is constrained to configured credential destinations and their DNS subdomains, and limited to TLS server authentication rather than code signing or client authentication.
+
+The private key is stored unencrypted and protected by filesystem permissions. Other programs running as the same user can access it. Protect {% data variables.product.prodname_copilot_short %}'s local storage and follow your organization's certificate-management policies. Do not manually copy the agent's certificate files or private keys.
+
+#### Remote environments
+
+Certificate operations affect the machine running the agent host, which might differ from the machine displaying {% data variables.product.prodname_vscode_shortname %}. Installing the CA locally does not automatically establish trust in a remote host, container, or WSL environment.
+
+Before confirming an operation, check the target host shown by {% data variables.product.prodname_vscode_shortname %}.
 
 ## Local harness sessions and custom terminal tools
 
