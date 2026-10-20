@@ -15,8 +15,6 @@ This topic covers:
 
 - Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
-- Publishing from
-  [GitHub Actions with Trusted Publishing](#publish-with-github-actions-and-trusted-publishing)
 - [Registering a publisher](#create-a-publisher) necessary for publishing extensions
 
 ## vsce
