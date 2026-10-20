@@ -72,8 +72,8 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
-| GitHub Actions | Use [Marketplace Trusted Publishing][trusted-publishing]. |
-| Azure Pipelines | [Use an onboarded Microsoft Entra identity.](#publish-from-azure-pipelines-with-microsoft-entra-id) |
+| GitHub Actions | [Publish with GitHub Actions and Trusted Publishing][trusted-publishing]. |
+| Azure Pipelines | [Publish from Azure Pipelines with Microsoft Entra ID.](#publish-from-azure-pipelines-with-microsoft-entra-id) |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
