@@ -68,8 +68,9 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 ### Secure automated publishing to Visual Studio Marketplace
 
-Use federated identity to publish extensions without storing long-lived secrets
-such as Personal Access Tokens (PATs).
+We recommend that extension publishing use federated identity to publish
+extensions without storing long-lived secrets such as Personal Access Tokens
+(PATs).
 
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
