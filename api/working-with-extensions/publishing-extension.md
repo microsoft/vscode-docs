@@ -64,18 +64,24 @@ The publishing tool checks the following constraints:
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 > [!IMPORTANT]
-> On December 1, 2026, global Personal Access Tokens (PATs) in Azure DevOps are retired. To keep publishing extensions, use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
+> On December 1, 2026, global Personal Access Tokens (PATs) in Azure DevOps are retired. To keep publishing extensions, use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with federated identity instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
 
 ### Secure automated publishing to Visual Studio Marketplace
 
 Use federated identity to publish extensions without storing long-lived secrets
-such as Personal Access Tokens (PATs). Choose the authentication method for your
-CI/CD provider:
+such as Personal Access Tokens (PATs).
 
-- **GitHub Actions**: Use Marketplace Trusted Publishing with GitHub OIDC.
-- **Azure Pipelines**: Use
-  [Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops)
-  with workload identity federation and managed identities.
+| CI/CD provider | Trusted Publishing support |
+| -------------- | -------------------------- |
+| GitHub Actions | Supported with GitHub OIDC. |
+| Azure Pipelines | Not supported. |
+| Other CI/CD providers | Not currently supported. |
+
+To publish from Azure Pipelines, use
+[Microsoft Entra ID-based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops)
+with workload identity federation. This method doesn't use a Marketplace Trusted
+Publishing policy. Support for additional OIDC providers might be added in the
+future.
 
 Both options remove stored publishing credentials and simplify credential
 management. For more information, see
@@ -124,7 +130,8 @@ jobs:
 > version while Trusted Publishing is in preview.
 
 The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
-be exchanged only once.
+be exchanged only once. For more information, see
+[Trusted Publishing in the `vscode-vsce` repository](https://github.com/microsoft/vscode-vsce#trusted-publishing).
 
 #### Publish from Azure Pipelines with Microsoft Entra ID
 
