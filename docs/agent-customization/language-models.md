@@ -1,7 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
 DateApproved: 10/21/2026
-MetaDescription: Configure chat and inline models in {% data variables.product.prodname_vscode_shortname %}, adjust thinking effort, use your own API key, or run a model on your device.
+MetaDescription: Configure chat, inline, and voice models in {% data variables.product.prodname_vscode_shortname %}. Use your own API key or run models on your device.
 Keywords:
 - language models
 - BYOK
@@ -466,7 +466,7 @@ To update the details of a model provider you configured previously:
 
 ## Configure models for other features
 
-In addition to the main chat model, you can configure which model is used for inline chat, inline suggestions, and background utility tasks.
+In addition to the main chat model, you can configure which model is used for inline chat, inline suggestions, Voice Mode, and background utility tasks.
 
 ### Change the model for inline chat
 
@@ -488,6 +488,10 @@ To change the language model that is used for generating inline suggestions in t
 > The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
 >
 > If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+
+### Change the model for Voice Mode
+
+To use an OpenAI Live model for spoken agent conversations, [configure Voice Mode with your own OpenAI key](/docs/configure/accessibility/voice.md#use-your-own-openai-key). `feature(voice-mode)` The voice model handles the spoken conversation separately from the model selected for coding tasks in chat.
 
 ### Change the model for utility tasks
 
