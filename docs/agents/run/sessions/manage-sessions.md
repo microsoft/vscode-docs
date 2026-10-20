@@ -313,7 +313,7 @@ For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in
 
 Worktree-isolated agent sessions can accumulate and use significant disk space. Run **Chat: Open Worktree Cleanup** to review inactive session worktrees and remove the ones you no longer need.
 
-<!-- TODO: Add a screenshot showing the worktree cleanup editor with the storage summary, inactivity filter, and selectable sessions. -->
+![Screenshot showing the worktree cleanup editor with cleanup settings, an inactivity filter, and selected session worktrees with their storage sizes.](../../images/chat-sessions/worktree-cleanup-editor.png)
 
 In the cleanup editor:
 
@@ -321,11 +321,18 @@ In the cleanup editor:
 
 1. Review the estimated size of each worktree. Eligible worktrees are selected by default. Clear any worktrees that you want to keep.
 
+1. Save any open file edits in the selected worktrees before you continue.
+
 1. Confirm the cleanup for the selected worktrees.
 
 Cleanup marks each selected session as done and schedules its worktree for removal. Before removing a worktree, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch. If the changes can't be preserved or the worktree can't be removed, the worktree remains. The session and its branch history are preserved, so restoring the session re-creates the worktree.
 
 The cleanup editor excludes sessions that are active, running, waiting for input, pinned, done, archived, untitled, in an error state, or more recent than the selected inactivity period. It also excludes worktrees whose size can't be measured.
+
+Use **Cleanup Settings** in the editor to configure:
+
+* **Mark merged sessions as done after** and **Permanently delete automatically completed sessions after**: set the inactivity period before automatic completion and a separate retention period before permanent deletion. See [automatically clean up merged sessions (Preview)](#automatically-clean-up-merged-sessions).
+* **Suggest cleaning up session storage when it grows large**: turn [storage cleanup suggestions (Experimental)](#get-storage-cleanup-suggestions-experimental) on or off.
 
 ### Get storage cleanup suggestions (Experimental)
 
