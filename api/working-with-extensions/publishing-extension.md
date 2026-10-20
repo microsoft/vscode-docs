@@ -73,7 +73,7 @@ such as Personal Access Tokens (PATs).
 
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
-| GitHub Actions | Use Marketplace Trusted Publishing with GitHub OIDC. |
+| GitHub Actions | Use [Marketplace Trusted Publishing][trusted-publishing]. |
 | Azure Pipelines | Use an onboarded [Microsoft Entra identity][entra-auth]. |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
@@ -82,6 +82,7 @@ or GitHub OIDC.
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
 Support for additional providers might be added in the future.
 
+[trusted-publishing]: #publish-with-github-actions-and-trusted-publishing
 [entra-auth]: https://learn.microsoft.com/azure/devops/integrate/get-started/authentication/entra
 
 Both options remove stored publishing credentials and simplify credential
