@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure project instructions, skills, and custom agents for multiple harnesses in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - customization
@@ -23,6 +23,9 @@ This guide helps you configure the {% data variables.product.prodname_copilot %}
 To understand how the customization types differ and work together, see [Agent customization](/docs/agents/concepts/customization.md).
 
 ## Prerequisites
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
 * Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).

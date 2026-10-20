@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand agent harnesses, model access, execution environments, and code isolation in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -88,6 +88,9 @@ The harness choice does not by itself determine where the language model runs or
 
 > [!NOTE]
 > **For Local harness sessions:** The Local harness works in the current workspace through the editor's extension host. **Local** is a session-target name, not the only way to run agents on your machine. See [Local setup and capabilities](/docs/agents/run/agent-harnesses.md#local).
+
+> [!NOTE]
+> Claude and Codex harness integrations are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access. Selecting a Claude or OpenAI model in the Copilot harness is a separate choice and does not switch harnesses.
 
 Cloud is an execution target that groups available cloud agents, not a single provider harness. After you select Cloud, you choose an available cloud agent.
 

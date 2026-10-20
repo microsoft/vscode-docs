@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 ---
 # Use the {% data variables.copilot.chat_view %}
@@ -67,6 +67,9 @@ With a harness that supports multiple chats, such as Copilot or Claude, a sessio
 You can continue peer chats created in the {% data variables.copilot.agents_window %} without starting a new session. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 ## Start a session
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 To start a workspace-scoped session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send the first prompt, use the chat input controls to choose a **Session Target**, **Agent**, **Language model**, and **Permissions**. For a first coding task, use **Copilot**, **Agent**, **Auto**, and **Manual permissions**, as shown in the [agents quickstart](/docs/agents/quickstart.md). Available choices depend on your account, installed providers, and organization policies. Learn how to [identify your current harness](/docs/agents/run/agent-harnesses.md#identify-your-current-harness) or [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses).
 

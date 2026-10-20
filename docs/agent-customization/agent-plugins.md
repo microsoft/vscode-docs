@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Discover, install, configure, and troubleshoot agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

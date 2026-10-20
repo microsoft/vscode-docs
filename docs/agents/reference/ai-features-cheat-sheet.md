@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 ---
 # AI features cheat sheet
@@ -160,7 +160,9 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/doc` | Generate documentation comments from editor inline chat. |
 | `/setupTests` (Experimental) | Get help choosing and setting up a test framework. |
 | `/new`, `/newNotebook` | Scaffold a workspace, file, or notebook. |
-| `/compact`, `/fork` | Compact context, or branch the conversation with its history. |
+| `/compact` | Compact conversation context. |
+| `/fork` | [Fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) with its history. |
+| `/fork <title>`, `/fork prompt <prompt>` | Name a fork, or fork and immediately send a prompt with attached context. Requires a supported Agent Host session. See [named and prompted forks](/docs/agents/run/sessions/manage-sessions.md#name-a-fork-or-send-a-prompt). |
 | `/clear` | Start a new chat and archive or mark the current chat as done. |
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
@@ -174,9 +176,9 @@ Type `/` to see commands available in the current session. Availability depends 
 
 For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
 
-### Chat participants
+### Chat participants (deprecated)
 
-In chat surfaces that support participants, type `@` to choose a specialist. Use `@github` for repositories, issues, and pull requests, `@terminal` for shell questions, or `@vscode` for editor features and settings. For example, `@vscode /search` generates a Search view query.
+Chat participants are not supported in the Copilot harness. Ask the agent directly and attach relevant context, or use a plugin with skills and MCP tools for a domain-specific workflow. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ## Next steps
 

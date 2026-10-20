@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
 Keywords:
 - customize
@@ -226,16 +226,17 @@ Use `AGENTS.md` when:
 * You work with multiple compatible AI coding agents and want to share one set of instructions.
 * You want subfolder-level instructions that apply to specific parts of a monorepo.
 
-For the Local harness, configure the `setting(chat.useAgentsMdFile)` setting to enable or disable support for `AGENTS.md` files.
+For {% data variables.product.prodname_copilot_short %} sessions, instructions are discovered at the repository root, the session's working directory, and intermediate directories between them. {% data variables.product.prodname_copilot_short %} combines applicable instructions from `AGENTS.md` and other supported instruction files. Avoid conflicting guidance because there is no general precedence order between these files. For more information, see [{% data variables.product.prodname_copilot_short %} instruction discovery](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
+
+> [!NOTE]
+> **For Local harness sessions:** The `setting(chat.useAgentsMdFile)` setting controls whether instructions from workspace-root `AGENTS.md` files are automatically attached to chat requests and is enabled by default. This setting does not control instruction discovery in other harnesses.
 
 ### Use multiple `AGENTS.md` files
 
-`feature(nested-agents-md-files)`
-
-Use nested `AGENTS.md` files when different folders need different guidance. Follow the selected harness's working-folder and nested-instruction rules for discovery and activation.
+Use nested `AGENTS.md` files when different folders need different guidance. As {% data variables.product.prodname_copilot_short %} works with files in subfolders, it discovers `AGENTS.md` files along their directory paths. Other harnesses use their own discovery and activation rules.
 
 > [!NOTE]
-> **For Local harness sessions:** The `setting(chat.useNestedAgentsMdFiles)` setting controls support for nested `AGENTS.md` files and is disabled by default. When enabled, {% data variables.product.prodname_vscode_shortname %} lists these files with their folder locations so the agent can load relevant instructions for the task.
+> **For Local harness sessions:** `feature(nested-agents-md-files)` Set both `setting(chat.useAgentsMdFile)` and `setting(chat.useNestedAgentsMdFiles)` to `true` to discover nested `AGENTS.md` files. The nested-file setting is disabled by default. When both settings are enabled, {% data variables.product.prodname_vscode_shortname %} lists these files with their folder locations so the agent can load relevant instructions for the task. Neither setting controls {% data variables.product.prodname_copilot_short %} instruction discovery.
 
 > [!TIP]
 > For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.

@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Delegate focused tasks to context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} and review results in the main chat.
 Keywords:
 - subagents
@@ -40,6 +40,8 @@ For a quick lookup or a small edit, a direct request is usually enough. Delegati
 Your [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) determines how subagents run and which configuration options they support. [Select a harness](/docs/agents/run/agent-harnesses.md#select-a-harness) before you submit the first prompt.
 
 > [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+>
 > Provider documentation also covers CLI workflows. Commands and configuration options can differ in {% data variables.product.prodname_vscode_shortname %}. Use the [harness guide](/docs/agents/run/agent-harnesses.md) for integration-specific setup and limitations.
 
 {% tabs id="subagents-by-harness" %}

@@ -1,6 +1,6 @@
 ---
 ContentId: cbff1d23-7653-44b7-b24d-4a9a889fea41
-DateApproved: 10/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Package skills, agents, MCP servers, hooks, and automation templates with agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../agent-customization/images/agent-plugins/installed-plugins.png
 Keywords:
@@ -309,7 +309,9 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 
 Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/manage-ai-settings.md#deploy-hooks-through-managed-plugins).
 
-Hook configuration and payloads depend on the session's harness. Start with [choosing a hook implementation](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session) to find its supported events and configuration. For Local harness sessions, expand **Configure plugin hooks for Local harness sessions** below.
+For Copilot sessions, use the [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) for configuration, event payloads, and output decisions. A plugin packages hooks; it does not translate Local scripts into the shared harness's contract.
+
+When adopting or updating a plugin, follow [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Update the source package, not its installation cache. Check bundled scripts, path references, agent-scoped hooks, and any duplicate commands in user settings or repository hook files.
 
 ### Hook file location
 
@@ -330,111 +332,57 @@ my-plugin/
     hooks/
       hooks.json         # Hook configuration (Agent Plugins format)
   scripts/
-    format.sh            # Hook script referenced by hooks.json
+    review-tool-copilot.cjs
 ```
-
-<details>
-<summary>Configure plugin hooks for Local harness sessions</summary>
-
-The following configuration, event, and matcher behavior applies to the Local harness.
 
 ### Hook configuration format
 
-For the Local harness, plugin hooks use the same base format as [workspace hooks](/docs/agent-customization/hooks.md#local-hook-configuration-formats). The Local parser accepts Claude hook configuration, including matcher syntax, but ignores matcher values. As a result, all nested commands for the event run in Local harness sessions.
-
-**Flat format** (same as workspace hooks):
-
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      {
-        "type": "command",
-        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
-      }
-    ]
-  }
-}
-```
-
-**Matcher format** (Claude compatibility syntax):
-
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-The Local harness parses the `matcher` field for compatibility with Claude Code, but ignores matcher values. To filter Local hook behavior, check the event input inside the hook script.
+Use the hook schema supported by the plugin's target runtime. For Copilot, review the [command-hook format](https://docs.github.com/en/copilot/reference/hooks-reference#command-hooks) and [matcher semantics](https://docs.github.com/en/copilot/reference/hooks-reference#matcher-filtering). Event aliases can affect payload and tool names, so test scripts and matchers together.
 
 ### Reference plugin paths in hook commands
 
-Use a plugin-root token in Local hook commands to reference bundled scripts and files without hardcoding the plugin's installation path.
+Use a plugin-root reference rather than hardcoding its installation directory. These references identify the package root, not the current repository or the folder containing the hook configuration:
 
 | Plugin format | Token | Environment variable |
 |---------------|-------|----------------------|
+| Agent Plugins 1.0 | `${PLUGIN_ROOT}` | `PLUGIN_ROOT` |
+| Copilot | `${PLUGIN_ROOT}` | `PLUGIN_ROOT` |
 | Claude | `${CLAUDE_PLUGIN_ROOT}` | `CLAUDE_PLUGIN_ROOT` |
 | Legacy OpenPlugin | `${PLUGIN_ROOT}` | `PLUGIN_ROOT` |
 
-{% data variables.product.prodname_vscode_shortname %} expands the token to the plugin's absolute path in hook commands and `env` values. This includes the `command`, `bash`, `powershell`, and platform-specific command fields. Expanded command paths are shell-quoted, so plugin paths can contain spaces.
-
-The hook process also receives the matching root environment variable. For example, a Node.js script can read `process.env.CLAUDE_PLUGIN_ROOT`. These references resolve to the new root when the plugin is discovered at a different location.
+For example, include the [converted review script](/docs/agent-customization/migrate-customizations.md#example-conversion) as `scripts/review-tool-copilot.cjs` in the package structure above. In an Agent Plugins 1.0 package, put this configuration in `com.github.copilot/hooks/hooks.json`:
 
 ```json
 {
+  "version": 1,
   "hooks": {
-    "PreToolUse": [
+    "preToolUse": [
       {
         "type": "command",
-        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/validate-tool.sh"
+        "command": "node \"${PLUGIN_ROOT}/scripts/review-tool-copilot.cjs\"",
+        "env": { "REVIEW_TOOL_NAME": "<copilot-tool-name>" },
+        "timeoutSec": 10
       }
     ]
   }
 }
 ```
 
-The same expansion applies to hooks in the frontmatter of plugin-provided custom agents. For example, a Claude-format plugin can contribute `agents/reviewer.md` that invokes its bundled `scripts/validate-tool.js` script:
+Replace `<copilot-tool-name>` with the tool to review. The quoted script path keeps installations containing spaces as one command argument. This example requires Node.js on the execution host and does not write into the installed package.
 
-```markdown
----
-name: Code reviewer
-description: Review code with plugin-provided validation.
-hooks:
-  PreToolUse:
-    - type: command
-      command: "node ${CLAUDE_PLUGIN_ROOT}/scripts/validate-tool.js"
----
-
-Review code for correctness and maintainability.
-```
-
-For legacy OpenPlugin plugins, use `${PLUGIN_ROOT}` in place of `${CLAUDE_PLUGIN_ROOT}`.
-
-These [agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks-for-the-local-harness) are in Preview and require the Local harness, `setting(chat.useHooks)`, and a trusted workspace. They run only while the contributing custom agent is active, including when it runs as a subagent.
+The [plugin parser](https://github.com/microsoft/vscode/blob/1.142.0/src/vs/platform/agentPlugins/common/pluginParsers.ts) defines the format-specific hook-root references and their command-path expansion. Use the token and hook-file location for your package format; do not copy an installed cache path. Before testing the package in a disposable Copilot session, deactivate any standalone copy of the same hook.
 
 ### Supported hook events
 
-In the Local harness, plugin hooks support the same events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See the [Local hooks reference](/docs/agents/reference/hooks-reference.md) for event schemas.
+Use the shared harness's [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for plugin-wide hooks.
+
+Hooks in a plugin-provided custom agent's frontmatter have a separate [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks): {% data variables.product.prodname_vscode_shortname %} currently omits the agent's `hooks` field when passing that agent to the Copilot harness. The agent appearing in the picker does not prove its hooks run. Retain the scoped definition and leave its migration incomplete until this conversion is supported and verified. A plugin-wide hook is not an equivalent workaround.
 
 ### How plugin hooks interact with other hooks
 
-Plugin-wide hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
+Plugin-wide hooks run alongside other applicable hook sources. For Copilot `preToolUse`, a denial blocks the tool call. Return no decision when the hook should leave the normal permission flow unchanged. Review the runtime's timeout and failure rules before relying on a hook for validation.
 
 Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
-
-</details>
 
 ## Cross-tool compatibility
 

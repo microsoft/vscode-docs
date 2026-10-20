@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
@@ -43,6 +43,9 @@ Changing the model or agent role does not change the harness. For example, selec
 **Local** is a harness name, not a synonym for running on your machine. The Copilot, Claude, and Codex harnesses can also run on your machine.
 
 Available models depend on the harness and how you [access models](/docs/agent-customization/language-models.md), such as through a {% data variables.product.prodname_copilot %} subscription, another supported account, or your own API key. Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
 
 <a name="start-a-session"></a>
 
@@ -116,7 +119,7 @@ SDK Policy Hooks are not loaded in Local harness sessions. Check [hook compatibi
 
 ### Claude
 
-Claude support is enabled by default. Turn it on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+Claude support is enabled by default unless [enterprise-managed settings disable the harness](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). When organization policy permits it, turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
 
 To use Claude, configure one of these authentication and billing options:
 
@@ -143,6 +146,9 @@ Codex is not listed by default. Choose one of the following integrations. You do
 To use Codex in the {% data variables.copilot.chat_view %}, install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). Follow the extension's documentation for authentication and permissions.
 
 #### Agent Host integration (Experimental)
+
+> [!NOTE]
+> The Codex Agent Host integration is disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with a ChatGPT account or the integration's user setting set to `true`. Contact the IT team that deployed the settings to discuss access.
 
 Enable `setting(chat.agentHost.codexAgent.enabled)` to make Codex available in the {% data variables.copilot.agents_window %} without the {% data variables.product.prodname_openai_codex %} extension.
 
@@ -219,9 +225,14 @@ Before you create a new supported Copilot session, turn on `setting(chat.canvase
 
 * **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
 
-In the {% data variables.copilot.agents_window %}, you can also open an available canvas from **Add Tab (+)** > **Canvas** in the editor area.
+To open an available canvas without asking the agent, use one of these menus:
 
-When the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
+* In the editor window, select **New Chat (+)** > **Canvas** in the {% data variables.copilot.chat_view %}.
+* In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas** in the editor area.
+
+In the editor window, the **Canvas** submenu appears after your first message in a supported Copilot harness session, when canvas support is enabled and canvas extensions are installed.
+
+Whether you or the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
 
 Canvas extensions are also supported in the {% data variables.copilot.github_copilot_app %}. Learn how to [work with canvas extensions in the {% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). To explore examples, browse [sample canvas extensions](https://awesome-copilot.github.com/extensions/).
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Use agent memory in {% data variables.product.prodname_vscode_shortname %} to retain preferences, repository knowledge, and task context across conversations.
 ---
 

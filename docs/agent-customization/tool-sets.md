@@ -1,7 +1,7 @@
 ---
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
-DateApproved: 10/14/2026
-MetaDescription: Group tools for Local harness prompts and custom agents with reusable tool sets in {% data variables.product.prodname_vscode %}.
+DateApproved: 10/21/2026
+MetaDescription: Replace deprecated tool sets with custom-agent tool selections and plugins in {% data variables.product.prodname_vscode %}.
 Keywords:
 - copilot
 - ai
@@ -10,62 +10,21 @@ Keywords:
 - tool sets
 - customization
 ---
-# Create and use tool sets
+# Tool sets (deprecated)
 
-A tool set is a reusable collection of agent tools that you can reference as a single entity. This article describes user-defined tool-set files for organizing related tools in prompts, [prompt files](/docs/agent-customization/prompt-files.md), and [custom agents](/docs/agent-customization/custom-agents.md) in Local sessions.
+User-defined tool sets group existing tools under a reusable name. They are deprecated and are not supported in the Copilot harness. Tool-set files remain available only for Local harness compatibility.
 
-> [!IMPORTANT]
-> User-defined tool-set files are supported only in **Local** harness sessions. For the **{% data variables.product.prodname_copilot_short %}** harness, configure tools through its tool controls or a custom agent's tool list instead. See [customizations without automatic migration](/docs/agent-customization/migrate-customizations.md#customizations-without-automatic-migration).
+To move an existing workflow to the Copilot harness, follow [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets).
 
-{% data variables.product.prodname_vscode_shortname %} also provides predefined tool sets, such as `#edit` and `#search`.
+## Choose a replacement
 
-## Create a tool set
+* For a recurring role, specify supported tools directly in a [custom agent](/docs/agent-customization/custom-agents.md).
+* For personal tool availability, use the [Tools tab in the Agent Customizations editor](/docs/agents/run/tools.md#manage-available-tools).
+* To distribute a workflow with external tools, package skills and MCP servers in an [agent plugin](/docs/agent-customization/agent-plugins.md).
 
-Select **Local** as the **Session Target** in the {% data variables.copilot.chat_view %}, then create a tool set:
-
-1. Run **Chat: Configure Tool Sets** from the Command Palette and select **Create new tool sets file**.
-
-    Alternatively, select the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %}, select **Tool Sets**, and then select **Create new tool sets file**.
-
-1. Define your tool set in the `.jsonc` file that opens.
-
-    The following example creates a tool set named `reader`:
-
-    ```json
-    {
-        "reader": {
-            "tools": [
-                "search/changes",
-                "search/codebase",
-                "read/problems",
-                "search/usages"
-            ],
-            "description": "Tools for reading and gathering context",
-            "icon": "book"
-        }
-    }
-    ```
-
-    A tool set has the following properties:
-
-    * `tools`: array of built-in, MCP, or extension tool names.
-    * `description`: brief description displayed in the tools picker.
-    * `icon`: icon for the tool set. See the [Product Icon Reference](/api/references/icons-in-labels.md).
-
-## Use a tool set
-
-Reference a tool set in a prompt by typing `#` followed by its name:
-
-```prompt
-Analyze the codebase for security issues #reader
-```
-
-In the tools picker, tool sets appear as collapsible groups. Select or deselect a tool set to change the availability of all its tools at once.
-
-You can also reference tool sets in [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md).
+The tool groups displayed by the Copilot harness and its supported built-in tool aliases are not user-defined tool-set files. A plugin or skill does not recreate a named tool-set alias.
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/run/tools.md)
-* [Add MCP servers](/docs/agent-customization/mcp-servers.md)
-* [Create custom agents](/docs/agent-customization/custom-agents.md)
+* [Migrate existing customizations](/docs/agent-customization/migrate-customizations.md)
+* [Tools and context reference](/docs/agents/reference/tools-reference.md)

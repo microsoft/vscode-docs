@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 ---
 # Use the {% data variables.copilot.agents_window %}
@@ -26,6 +26,9 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
   * A [Claude API key or another supported bring-your-own-key (BYOK) configuration](/docs/agents/run/agent-harnesses.md#claude) to use Claude without GitHub sign-in (Experimental).
   * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#codex) to use Codex without GitHub sign-in (Experimental).
   * A [BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) configured for use in the {% data variables.copilot.agents_window %}.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Existing sessions are not deleted by this restriction. Contact the IT team that deployed the settings to discuss access.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -384,6 +387,10 @@ Use **Maximize** in the session header to expand the active session, and use **R
 Press `kb(sessions.closeAllSessions)` while a session has focus to close all visible panes and return to the new-session view. This action does not delete or archive the sessions.
 
 The {% data variables.copilot.agents_window %} restores conversations, drafts, pane geometry, the active session, and the maximized state after a reload. At narrow or phone width, only the active session is shown. The grid returns when you widen the window.
+
+### Compare model results (Preview)
+
+Run the same prompt with multiple models or harnesses in isolated worktrees, then compare their approaches and results. You can optionally use a Judge to evaluate the attempts and request a synthesized solution. See [Compare model results](/docs/agents/run/compare-models.md) for prerequisites and the full workflow.
 
 ### Work with multiple chats in a session
 

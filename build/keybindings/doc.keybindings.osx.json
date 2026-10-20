@@ -699,7 +699,7 @@
 { "key": "escape",                "command": "workbench.action.browser.stopElementSelection" },
 { "key": "f12",                   "command": "workbench.action.browser.toggleDevTools" },
 { "key": "cmd+d",                 "command": "workbench.action.browser.toggleFavorite" },
-{ "key": "cmd+escape",            "command": "workbench.action.chat.cancel" },
+{ "key": "ctrl+escape",           "command": "workbench.action.chat.cancel" },
 { "key": "enter",                 "command": "workbench.action.chat.editRequests" },
 { "key": "cmd+f",                 "command": "workbench.action.chat.find" },
 { "key": "f3",                    "command": "workbench.action.chat.findNext" },
