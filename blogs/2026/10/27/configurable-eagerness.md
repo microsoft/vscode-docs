@@ -3,7 +3,7 @@ Tags: [GitHub Copilot, Models, Engineering]
 Order: 141
 TOCTitle: Configurable eagerness
 PageTitle: Tune {% data variables.product.prodname_copilot %} Inline Suggestions with Configurable Eagerness
-MetaDescription: Choose how proactively {% data variables.product.prodname_copilot %} offers inline suggestions.
+MetaDescription: Choose how proactively {% data variables.product.prodname_copilot_short %} offers inline suggestions.
 MetaSocialImage: supervised-fine-tuning.png
 Date: 2026-10-27
 Author: Ben Steenhoek, Ulugbek Abdullaev
@@ -14,7 +14,7 @@ Keywords: [github copilot, inline suggestions, configurable eagerness, model tra
 
 October 27, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
-_Choose how proactively {% data variables.product.prodname_copilot %} offers inline suggestions._
+_Choose how proactively {% data variables.product.prodname_copilot_short %} offers inline suggestions._
 
 A helpful suggestion at the wrong moment can still feel like an interruption. When you're completing a familiar pattern, you may want {% data variables.product.prodname_copilot_short %} to anticipate several changes ahead. When working through delicate logic, you may prefer {% data variables.product.prodname_copilot_short %} to scope its changes to the statement at hand and leave the next decision to you.
 
