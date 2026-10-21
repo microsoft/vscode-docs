@@ -208,13 +208,13 @@ We evaluated the configurable model in A/B experiments against the [production 3
   <tbody>
     <tr>
       <td>
-        Low eagerness had a <strong>29%</strong> lower dismissal rate and <strong>28%</strong> shorter suggestions than medium eagerness.
+        Low eagerness had a <strong>29% lower dismissal rate</strong> and <strong>28% shorter suggestions</strong> than medium eagerness.
       </td>
       <td>
         No key metrics changed significantly from the baseline.
       </td>
       <td>
-        High eagerness had a <strong>40%</strong> increase in accepted and retained characters, <strong>40%</strong> more suggestions shown, and <strong>22%</strong> longer suggestions than medium eagerness.
+        High eagerness had a <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness.
       </td>
     </tr>
   </tbody>
