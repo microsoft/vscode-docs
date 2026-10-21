@@ -63,7 +63,7 @@ We considered training a separate model for each eagerness level, but this appro
 ```
 
 </td>
-<td style="vertical-align: top;">No change.</td>
+<td style="vertical-align: top;"><em>No change</em></td>
 <td style="vertical-align: top;">
 
 ```text
