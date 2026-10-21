@@ -107,9 +107,9 @@ For low and high eagerness, we reused the quality graders developed for the 3-in
 
 ### Mitigating reward hacking
 
-[Reward hacking](https://en.wikipedia.org/wiki/Reward_hacking) occurs when a model finds a way to increase its measured reward without producing the behavior the model developer intended to encourage. During development, we observed two such failure modes in certain training runs and added mitigations for each.
+[Reward hacking](https://en.wikipedia.org/wiki/Reward_hacking) occurs when a model finds a way to increase its measured reward without producing the behavior the model developer intended to encourage. During development, we observed such failure modes in both of the new eagerness settings and added mitigations for each.
 
-For high eagerness, an early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance.
+**High eagerness:** An early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance.
 
 We addressed this failure mode by balancing eagerness rewards with rewards from the RL quality grader, plus added instructions to allow legitimately broader edits. Our offline [Simulation Tests (STests)](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_offline-benchmarks) caught this issue.
 
@@ -137,7 +137,7 @@ _Figure 4. Example of an over-eager suggestion before mitigation._
 
 _Figure 5. Benchmark results before and after mitigating excessive suggestions on the STests benchmark._
 
-For low eagerness, one training run produced smaller measured edits partly by [minifying suggestions](https://en.wikipedia.org/wiki/Minification_(programming)): removing whitespace and delimiter characters or shortening variable names while maintaining syntactic correctness. This is technically shorter code but is much less desirable! We mitigated this behavior in two ways:
+**Low eagerness:** One training run produced smaller measured edits partly by [minifying suggestions](https://en.wikipedia.org/wiki/Minification_(programming)): removing whitespace and delimiter characters or shortening variable names while maintaining syntactic correctness. This is technically shorter code but is much less desirable! We mitigated this behavior in two ways:
 
 * We normalized whitespace and delimiters before calculating edit distance, which removed any possible advantage from deleting whitespace.
 * We added LLM-based grading for less deterministic cases involving variable names and delimiters.
@@ -220,8 +220,6 @@ We evaluated the configurable model in A/B experiments against the [production 3
   </tbody>
 </table>
 
-<p id="high-eagerness-note"><sup>1</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 1 reference">Return to results.</a></p>
-
 These findings indicate that the configurable model behaved as intended: low eagerness was more conservative, high eagerness was more proactive, and medium preserved the default experience.
 
 ## What we learned
@@ -250,3 +248,5 @@ Thank you to the developer community for your ongoing feedback that shaped confi
 Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Gaurav Mittal, and Nick Trogh for their insightful feedback on this blog post.
 
 Happy coding! 💙
+
+<p id="high-eagerness-note"><sup>1</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 1 reference">Return to results.</a></p>
