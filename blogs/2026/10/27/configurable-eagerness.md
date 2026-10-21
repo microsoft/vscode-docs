@@ -26,11 +26,28 @@ Configurable eagerness gives developers more control over how proactively Copilo
 
 We define eagerness along two dimensions: how often the model offers a suggestion and the size of each proposed edit.
 
-| Eagerness setting | Intended behavior |
-|-------------------|-------------------|
-| Low | Offer fewer suggestions and favor smaller, more conservative edits. |
-| Medium | Provide the current 'default' level of assistance. |
-| High | Offer suggestions more proactively, including larger edits when appropriate. |
+<table aria-label="Intended behavior by eagerness setting">
+  <thead>
+    <tr>
+      <th scope="col">Eagerness setting</th>
+      <th scope="col">Intended behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Low</th>
+      <td>Offer fewer suggestions and favor smaller, more conservative edits.</td>
+    </tr>
+    <tr>
+      <th scope="row">Medium</th>
+      <td>Provide the current 'default' level of assistance.</td>
+    </tr>
+    <tr>
+      <th scope="row">High</th>
+      <td>Offer suggestions more proactively, including larger edits when appropriate.</td>
+    </tr>
+  </tbody>
+</table>
 
 These settings guide how Copilot behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
 
@@ -40,13 +57,13 @@ The demo placeholder below marks a comparison of all three modes as a developer 
 
 _Figure 1. Placeholder for a comparison of low, medium, and high eagerness during the same development task._
 
-We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance), the number of characters changed in an inline suggestion's diff, as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" aria-label="Footnote 1">1</a></sup>.
+We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
 
 ## One model, three modes
 
 We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, we trained one model to produce all three behaviors (low, medium, and high eagerness), conditioned on a lightweight control tag:
 
-<table>
+<table aria-label="Control tags by eagerness setting">
   <thead>
     <tr>
       <th scope="col">Low eagerness</th>
@@ -79,9 +96,11 @@ We trained the model to interpret this tag as an eagerness control: it produced 
 
 We started with [supervised fine-tuning (SFT)](https://en.wikipedia.org/wiki/Supervised_learning). For every training prompt, we sampled responses from variants of the model with varying levels of eagerness, filtered to high-quality responses, and ordered the responses by edit distance to produce examples of low, medium, and high eagerness for each prompt in the dataset.
 
-![Diagram showing responses filtered by eagerness and quality into low, default, and high training examples, followed by supervised fine-tuning, reinforcement learning, and evaluation.](supervised-fine-tuning.png)
+![Supervised fine-tuning workflow from variant model responses to three eagerness training sets, described below.](supervised-fine-tuning.png)
 
 _Figure 2. Supervised fine-tuning for configurable eagerness._
+
+The training dataset is sent to model variants with different eagerness settings, and their responses are filtered by eagerness and quality into low-eagerness responses with prompts, default responses, and high-eagerness responses with prompts. These three groups form the dataset for SFT, followed by RL and evaluation.
 
 This approach fit naturally into our existing reinforcement-learning pipeline. Most of the work happened during supervised fine-tuning, with only minimal changes to the RL setup:
 
@@ -99,11 +118,13 @@ To make eagerness portable across future base models, we separated the behavior 
 * For medium eagerness, match the behavior of a reference inline suggestions model.
 * For low and high eagerness, move edit distance below or above the reference model's medium prediction while preserving suggestion quality.
 
-![Diagram showing a reference model and default prompt contributing distillation loss, with low and high prompts contributing quality and eagerness rewards to a joint training objective.](portable-post-training.png)
+![Portable post-training workflow combining distillation, quality, and eagerness objectives, described below.](portable-post-training.png)
 
 _Figure 3. Portable post-training with on-policy distillation for configurable eagerness._
 
-For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior<sup><a id="distillation-note-ref" href="#distillation-note" aria-label="Footnote 2">2</a></sup>. The model under training generated responses, and the reference model supplied token-level probabilities on those same generated prefixes. This taught the model to match the reference on its own generated responses at medium eagerness, while low- and high-eagerness modes were learned through their rewards.
+The training dataset branches into default prompts and low- and high-eagerness prompts. Default prompts and the reference model contribute the distillation objective, while low- and high-eagerness prompts contribute quality and eagerness rewards; the combined objective feeds RL and evaluation.
+
+For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior<sup><a id="distillation-note-ref" href="#distillation-note" role="doc-noteref" aria-label="Footnote 2: shared model architecture">2</a></sup>. The model under training generated responses, and the reference model supplied token-level probabilities on those same generated prefixes. This taught the model to match the reference on its own generated responses at medium eagerness, while low- and high-eagerness modes were learned through their rewards.
 
 For low and high eagerness, we reused the quality graders developed for the 3-in-1 model's SFT and RL, then added a relative eagerness reward based on the response's edit distance compared to the reference model's medium response. Low eagerness was rewarded for proposing a smaller edit than the reference. High eagerness was rewarded for proposing a larger one. In both cases, the quality reward prevented the model from optimizing edit distance at the expense of usefulness.
 
@@ -135,9 +156,11 @@ We addressed this failure mode by balancing eagerness rewards with rewards from 
 
 _Figure 4. Example of an over-eager suggestion before mitigation._
 
-![Chart showing Simulation Tests scores falling for high eagerness before mitigation and remaining near the production baseline after mitigation.](reward-hacking-benchmark.png)
+![Before-and-after Simulation Tests chart showing high-eagerness quality recovering after mitigation; trends and approximate values follow.](reward-hacking-benchmark.png)
 
 _Figure 5. Benchmark results before and after mitigating excessive suggestions on the STests benchmark._
+
+The chart plots training steps against the percentage of bad suggestions avoided, on a scale from 60% to 100%. The production baseline stays near 89%; before mitigation, the high-eagerness score falls to about 66% by the final plotted step, while low and medium eagerness remain near the baseline. After mitigation, all three modes stay near the baseline. Low, medium, and high are distinguished by square, circle, and triangle markers, respectively, as well as line styles, so the comparison does not depend on color alone; values here are approximate readings of the plotted lines.
 
 **Low eagerness:** One training run produced smaller measured edits partly by [minifying suggestions](https://en.wikipedia.org/wiki/Minification_(programming)): removing whitespace and delimiter characters or shortening variable names while maintaining syntactic correctness. This is technically shorter code but is much less desirable! We mitigated this behavior in two ways:
 
@@ -146,7 +169,7 @@ _Figure 5. Benchmark results before and after mitigating excessive suggestions o
 
 We baked this into our evaluations by adding a deterministic minification check to the training and evaluation pipeline so this failure mode can be screened in subsequent runs.
 
-<table>
+<table aria-label="Code example before and after minification mitigation">
   <thead>
     <tr>
       <th scope="col">Before mitigation</th>
@@ -199,7 +222,7 @@ _Figure 6. Example of minification before and after mitigation._
 
 We evaluated the configurable model in A/B experiments against the [production 3-in-1 model](https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two). The results below highlight statistically significant changes. No other key metrics changed significantly from the baseline.
 
-<table>
+<table aria-label="Online results by eagerness setting">
   <thead>
     <tr>
       <th scope="col">Low eagerness</th>
@@ -216,7 +239,7 @@ We evaluated the configurable model in A/B experiments against the [production 3
         No key metrics changed significantly from the baseline.
       </td>
       <td>
-        <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness<sup><a id="high-eagerness-note-ref" href="#high-eagerness-note" aria-label="Footnote 3">3</a></sup>.
+        <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness<sup><a id="high-eagerness-note-ref" href="#high-eagerness-note" role="doc-noteref" aria-label="Footnote 3: high-eagerness dismissals">3</a></sup>.
       </td>
     </tr>
   </tbody>
@@ -251,8 +274,11 @@ Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Ga
 
 Happy coding! 💙
 
-<p id="edit-distance-note"><sup>1</sup> A no-edit response has distance zero, while a nonzero distance counts the characters changed in a proposed edit, so the distribution reflects both how often edits are proposed and how much they change. <a href="#edit-distance-note-ref" aria-label="Return to footnote 1 reference">Return to edit distance.</a></p>
+<section role="doc-endnotes" aria-label="Footnotes">
+<hr>
+<p id="edit-distance-note"><a href="#edit-distance-note-ref" role="doc-backlink" aria-label="Footnote 1: return to edit distance">[1]</a> A no-edit response has distance zero, while a nonzero distance counts the characters changed in a proposed edit, so the distribution reflects both how often edits are proposed and how much they change.</p>
 
-<p id="distillation-note"><sup>2</sup> Here, the reference model and the model under training share the same base architecture; our application of distillation preserves behavior rather than compressing a larger model into a smaller one. <a href="#distillation-note-ref" aria-label="Return to footnote 2 reference">Return to on-policy distillation.</a></p>
+<p id="distillation-note"><a href="#distillation-note-ref" role="doc-backlink" aria-label="Footnote 2: return to on-policy distillation">[2]</a> Here, the reference model and the model under training share the same base architecture; our application of distillation preserves behavior rather than compressing a larger model into a smaller one.</p>
 
-<p id="high-eagerness-note"><sup>3</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 3 reference">Return to results.</a></p>
+<p id="high-eagerness-note"><a href="#high-eagerness-note-ref" role="doc-backlink" aria-label="Footnote 3: return to online results">[3]</a> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly.</p>
+</section>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title" aria-describedby="description">
   <title id="title">Configurable eagerness demo placeholder</title>
   <desc id="description">A neutral static placeholder for a future comparison of low, medium, and high eagerness. No demo media is included.</desc>
   <rect width="1200" height="400" fill="#f3f4f6"/>
