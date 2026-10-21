@@ -169,9 +169,37 @@ _Figure 6. Example of minification before and after mitigation._
 
 We evaluated the configurable model in A/B experiments against the [production 3-in-1 model](https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two). The results below highlight statistically significant changes. No other key metrics changed significantly from the baseline.
 
-* At medium eagerness, no key metrics changed significantly from the baseline.
-* At low eagerness, a 29% lower dismissal rate and 28% shorter suggestions than medium eagerness.
-* At high eagerness, a 40% increase in accepted and retained characters, 40% more suggestions shown, and 22% longer suggestions than medium eagerness.
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Low eagerness</th>
+      <th scope="col">Medium eagerness</th>
+      <th scope="col">High eagerness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>A 29% lower dismissal rate than medium eagerness.</li>
+          <li>28% shorter suggestions than medium eagerness.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>No key metrics changed significantly from the baseline.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>A 40% increase in accepted and retained characters compared with medium eagerness.</li>
+          <li>40% more suggestions shown than medium eagerness.</li>
+          <li>22% longer suggestions than medium eagerness.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 These findings indicate that the configurable model behaved as intended: low eagerness was more conservative, high eagerness was more proactive, and medium preserved the default experience.
 
