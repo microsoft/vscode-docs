@@ -40,7 +40,7 @@ The demo placeholder below marks a comparison of all three modes as a developer 
 
 _Figure 1. Placeholder for a comparison of low, medium, and high eagerness during the same development task._
 
-To train these behaviors, we needed a measurable definition of eagerness. Because inline suggestions use a diff-based format, we chose edit distance, the number of characters changed by a proposed edit, as a proxy for eagerness. Larger edit distances indicate more eager behavior. For a response that proposes an edit, edit distance measures the size of the change. A no-edit response produces an empty diff with an edit distance of zero, so the distribution of zero- and nonzero-distance responses also reflects how often the model chooses to show a suggestion.
+We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance), the number of characters changed in an inline suggestion's diff, as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" aria-label="Footnote 1">1</a></sup>.
 
 ## One model, three modes
 
@@ -101,9 +101,9 @@ To make eagerness portable across future base models, we separated the behavior 
 
 _Figure 3. Portable post-training with on-policy distillation for configurable eagerness._
 
-For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior in medium eagerness mode. OPD normally transfers knowledge from a larger teacher to a smaller student. Here, the teacher and student shared the same base architecture: the reference model supplied the target behavior, and the model under training learned to match it at medium eagerness while also learning low- and high-eagerness modes.
+For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior<sup><a id="distillation-note-ref" href="#distillation-note" aria-label="Footnote 2">2</a></sup>. The model under training generated responses, and the reference model supplied token-level probabilities on those same generated prefixes. This taught the model to match the reference on its own generated responses at medium eagerness, while low- and high-eagerness modes were learned through their rewards.
 
-For low and high eagerness, we reused the quality graders developed for the 3-in-1 model's SFT and RL, then added a relative eagerness reward based on the response's [edit distance](https://en.wikipedia.org/wiki/Edit_distance) compared to the reference model's medium response. Low eagerness was rewarded for proposing a smaller edit than the reference. High eagerness was rewarded for proposing a larger one. In both cases, the quality reward prevented the model from optimizing edit distance at the expense of usefulness.
+For low and high eagerness, we reused the quality graders developed for the 3-in-1 model's SFT and RL, then added a relative eagerness reward based on the response's edit distance compared to the reference model's medium response. Low eagerness was rewarded for proposing a smaller edit than the reference. High eagerness was rewarded for proposing a larger one. In both cases, the quality reward prevented the model from optimizing edit distance at the expense of usefulness.
 
 ### Mitigating reward hacking
 
@@ -193,7 +193,7 @@ main()
 
 _Figure 6. Example of minification before and after mitigation._
 
-## What the online evaluations showed
+## Online results
 
 We evaluated the configurable model in A/B experiments against the [production 3-in-1 model](https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two). The results below highlight statistically significant changes. No other key metrics changed significantly from the baseline.
 
@@ -208,13 +208,13 @@ We evaluated the configurable model in A/B experiments against the [production 3
   <tbody>
     <tr>
       <td>
-        Low eagerness had a <strong>29% lower dismissal rate</strong> and <strong>28% shorter suggestions</strong> than medium eagerness.
+        <strong>29% lower dismissal rate</strong> and <strong>28% shorter suggestions</strong> than medium eagerness.
       </td>
       <td>
         No key metrics changed significantly from the baseline.
       </td>
       <td>
-        High eagerness had a <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness<sup><a id="high-eagerness-note-ref" href="#high-eagerness-note" aria-label="Footnote 1">1</a></sup>.
+        <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness<sup><a id="high-eagerness-note-ref" href="#high-eagerness-note" aria-label="Footnote 3">3</a></sup>.
       </td>
     </tr>
   </tbody>
@@ -237,7 +237,7 @@ Configurable eagerness is a first step toward inline suggestions that adapt to e
 
 The goal isn't simply to suggest more or less code. It's to provide the right level of assistance for the moment, and improve that fit over time.
 
-## Try configurable eagerness
+## Try it out
 
 Configurable eagerness is available to paid GitHub Copilot subscribers in VS Code. Update to the latest version of VS Code, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the Copilot settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
 
@@ -249,4 +249,8 @@ Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Ga
 
 Happy coding! 💙
 
-<p id="high-eagerness-note"><sup>1</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 1 reference">Return to results.</a></p>
+<p id="edit-distance-note"><sup>1</sup> A no-edit response has distance zero, while a nonzero distance counts the characters changed in a proposed edit, so the distribution reflects both how often edits are proposed and how much they change. <a href="#edit-distance-note-ref" aria-label="Return to footnote 1 reference">Return to edit distance.</a></p>
+
+<p id="distillation-note"><sup>2</sup> Here, the reference model and the model under training share the same base architecture; our application of distillation preserves behavior rather than compressing a larger model into a smaller one. <a href="#distillation-note-ref" aria-label="Return to footnote 2 reference">Return to on-policy distillation.</a></p>
+
+<p id="high-eagerness-note"><sup>3</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 3 reference">Return to results.</a></p>
