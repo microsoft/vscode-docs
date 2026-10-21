@@ -343,7 +343,11 @@ Set `ChatAgentNetworkFilter` to `true` to restrict network access according to t
 
 Use `ChatAgentAllowedNetworkDomains` for permitted domain patterns and `ChatAgentDeniedNetworkDomains` for blocked patterns. Denied domains take precedence.
 
-In Local harness sessions, network filtering applies to the fetch tool and Integrated Browser. In {% data variables.product.prodname_copilot_short %} harness sessions, it applies to the Integrated Browser, but the allowed domain list does not restrict the runtime's web fetch tool. A fetch to a domain outside the list asks for approval, and **Allow all** approves it without a prompt. When sandboxing is on, the sandbox does not receive the allowed or denied domain lists. Terminal coverage depends on the selected harness, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
+In Local harness sessions, network filtering applies to the fetch tool and Integrated Browser. In {% data variables.product.prodname_copilot_short %} harness sessions, these policies also apply to the Integrated Browser.
+
+When the `ChatAgentNetworkFilter` policy is `true` and the `ChatAgentAllowedNetworkDomains` policy contains permitted domains, {% data variables.product.prodname_copilot_short %} harness sessions block the runtime's web fetch tool from accessing domains outside that list, even with **Allow all** selected. This restriction does not require sandboxing.
+
+Terminal coverage depends on the selected harness, platform, and sandbox configuration. See [Configure sandbox network access](/docs/agents/run/agent-sandboxing.md#configure-network-access).
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change network filtering settings so new Integrated Browser sessions use the updated policy.
 

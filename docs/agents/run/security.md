@@ -223,7 +223,6 @@ Organizations can implement [centralized security controls](/docs/enterprise/man
 > * `ChatAgentMode` doesn't remove Agent Host session targets, such as **Copilot**, from the **Session Target** UI control in the editor.
 > * `ChatMCP` doesn't apply to MCP servers that the Copilot runtime discovers on its own.
 > * `ChatToolsEligibleForAutoApproval` removes **Allow all**, but **Assisted permissions** and saved session approvals can still approve a listed tool.
-> * Network filtering policies don't restrict the runtime's web fetch tool to the allowed domains.
 >
 > Review the harness notes in [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md#use-vs-code-device-policies) before you rely on a policy for Copilot harness sessions.
 
