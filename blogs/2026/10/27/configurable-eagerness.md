@@ -235,7 +235,7 @@ The goal isn't simply to suggest more or less code. It's to provide the right le
 
 ## Try configurable eagerness
 
-Configurable eagerness is available to paid {% data variables.product.prodname_copilot %} subscribers in {% data variables.product.prodname_vscode_shortname %}. The eagerness setting is experimental. Update to the latest version of {% data variables.product.prodname_vscode_shortname %}, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions) (they are on by default), then open the {% data variables.product.prodname_copilot_short %} settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
+Configurable eagerness is available to paid {% data variables.product.prodname_copilot %} subscribers in {% data variables.product.prodname_vscode_shortname %}. The eagerness setting is experimental. Update to the latest version of {% data variables.product.prodname_vscode_shortname %}, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the {% data variables.product.prodname_copilot_short %} settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
 
 ## Acknowledgments
 
