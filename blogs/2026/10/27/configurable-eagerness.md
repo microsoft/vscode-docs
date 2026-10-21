@@ -157,7 +157,7 @@ We baked this into our evaluations by adding a deterministic minification check 
 
 ```python
 class ModelManager: # user typed
-    # model suggestions
+    # model suggestion
     def __init__(self):self.models=[]
     def add(self,m):self.models.append(m)
 
