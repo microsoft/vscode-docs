@@ -26,11 +26,9 @@ Configurable eagerness gives developers more control over how proactively {% dat
 
 We define eagerness along two dimensions: how often the model offers a suggestion and the size of each proposed edit.
 
-| Setting | Intended behavior |
-|---------|-------------------|
-| Low | Offer fewer suggestions and favor smaller, more conservative edits. |
-| Medium | Provide the current 'default' level of assistance. |
-| High | Offer suggestions more proactively, including larger edits when appropriate. |
+| Low | Medium | High |
+|-----|--------|------|
+| Offer fewer suggestions and favor smaller, more conservative edits. | Provide the current 'default' level of assistance. | Offer suggestions more proactively, including larger edits when appropriate. |
 
 These settings guide how {% data variables.product.prodname_copilot_short %} behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
 
@@ -46,21 +44,34 @@ To train these behaviors, we needed a measurable definition of eagerness. Becaus
 
 We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, we trained one model to produce all three behaviors (low, medium, and high eagerness), conditioned on a lightweight control tag:
 
-**Low**
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Low</th>
+      <th scope="col">Medium</th>
+      <th scope="col">High</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
 
 ```text
 <|aggression|>low<|/aggression|>
 ```
 
-**Medium**
-
-No change.
-
-**High**
+</td>
+<td style="vertical-align: top;">No change.</td>
+<td style="vertical-align: top;">
 
 ```text
 <|aggression|>high<|/aggression|>
 ```
+
+</td>
+</tr>
+</tbody>
+</table>
 
 We trained the model to interpret this tag as an eagerness control: it produced more conservative suggestions for low eagerness and more proactive suggestions for high eagerness, while preserving its default behavior for medium.
 
@@ -187,9 +198,9 @@ We evaluated the configurable model in A/B experiments against the [production 3
 <table>
   <thead>
     <tr>
-      <th scope="col">Low eagerness</th>
-      <th scope="col">Medium eagerness</th>
-      <th scope="col">High eagerness</th>
+      <th scope="col">Low</th>
+      <th scope="col">Medium</th>
+      <th scope="col">High</th>
     </tr>
   </thead>
   <tbody>
