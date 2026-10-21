@@ -99,7 +99,7 @@ To make eagerness portable across future base models, we separated the behavior 
 
 ![Diagram showing a reference model and default prompt contributing distillation loss, with low and high prompts contributing quality and eagerness rewards to a joint training objective.](portable-post-training.png)
 
-_Figure 3. Portable post-training for configurable eagerness._
+_Figure 3. Portable post-training with on-policy distillation for configurable eagerness._
 
 For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior in medium eagerness mode. OPD normally transfers knowledge from a larger teacher to a smaller student. Here, the teacher and student shared the same base architecture: the reference model supplied the target behavior, and the model under training learned to match it at medium eagerness while also learning low- and high-eagerness modes.
 
