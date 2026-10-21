@@ -49,9 +49,9 @@ We considered training a separate model for each eagerness level, but this appro
 <table>
   <thead>
     <tr>
-      <th scope="col">Low</th>
-      <th scope="col">Medium</th>
-      <th scope="col">High</th>
+      <th scope="col">Low eagerness</th>
+      <th scope="col">Medium eagerness</th>
+      <th scope="col">High eagerness</th>
     </tr>
   </thead>
   <tbody>
@@ -200,9 +200,9 @@ We evaluated the configurable model in A/B experiments against the [production 3
 <table>
   <thead>
     <tr>
-      <th scope="col">Low</th>
-      <th scope="col">Medium</th>
-      <th scope="col">High</th>
+      <th scope="col">Low eagerness</th>
+      <th scope="col">Medium eagerness</th>
+      <th scope="col">High eagerness</th>
     </tr>
   </thead>
   <tbody>
@@ -214,11 +214,13 @@ We evaluated the configurable model in A/B experiments against the [production 3
         No key metrics changed significantly from the baseline.
       </td>
       <td>
-        High eagerness had a <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness.
+        High eagerness had a <strong>40% increase in accepted and retained characters</strong>, <strong>40% more suggestions shown</strong>, and <strong>22% longer suggestions</strong> than medium eagerness<sup><a id="high-eagerness-note-ref" href="#high-eagerness-note" aria-label="Footnote 1">1</a></sup>.
       </td>
     </tr>
   </tbody>
 </table>
+
+<p id="high-eagerness-note"><sup>1</sup> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly. <a href="#high-eagerness-note-ref" aria-label="Return to footnote 1 reference">Return to results.</a></p>
 
 These findings indicate that the configurable model behaved as intended: low eagerness was more conservative, high eagerness was more proactive, and medium preserved the default experience.
 
