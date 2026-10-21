@@ -57,7 +57,7 @@ The demo placeholder below marks a comparison of all three modes as a developer 
 
 _Figure 1. Placeholder for a comparison of low, medium, and high eagerness during the same development task._
 
-We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
+We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed by a suggestion) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
 
 ## One model, three modes
 
