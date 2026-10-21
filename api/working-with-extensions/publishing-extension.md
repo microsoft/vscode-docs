@@ -159,9 +159,9 @@ Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory pa
 
 ### Get a Personal Access Token
 
-You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
+You can create a Personal Access Token via the Azure DevOps portal. Azure DevOps requires a PAT to be created in an organization, but Marketplace publishers aren't linked to Azure DevOps organizations. You can use any organization you belong to. The Marketplace authorizes the Microsoft account that owns the token, so make sure it's the same account you use to [manage your publisher](#create-a-publisher). To create a Personal Access Token:
 
-1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
+1. If you don't belong to an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article. The organization is only needed to create the token.
 
 1. Go to the [Azure DevOps portal](https://go.microsoft.com/fwlink/?LinkId=307137), and select your organization.
 
@@ -176,7 +176,7 @@ You can create a Personal Access Token via the Azure DevOps portal. To create a 
 1. In the Create a new personal access token modal, select the following details for the token:
 
     - Name: any name you want for the token
-    - Organization: select your Azure DevOps organization
+    - Organization: select any organization you belong to
     - Expiration (optional): set the desired expiration date for the token
     - Scopes: **Custom defined**:
       - click **Show all scopes** link below the **Scopes** section
