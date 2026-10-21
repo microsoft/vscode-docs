@@ -92,6 +92,8 @@ This approach fit naturally into our existing reinforcement-learning pipeline. M
 
 The SFT approach worked, but it had two limitations that made it difficult to scale: it depended on pre-existing model variants with different eagerness levels and required retraining on responses from those models. Adding the feature to an improved base model would therefore mean training new models and then retraining from scratch. We needed a way to preserve a new model's default behavior while adding only the low- and high-eagerness modes.
 
+The key insight was that instead of relying on multiple model variants, we could use the production model to generate and compare multiple variants of a suggestion.
+
 To make eagerness portable across future base models, we separated the behavior we wanted to preserve from the behavior we wanted to change. The training objective had two parts:
 
 * For medium eagerness, match the behavior of a reference inline suggestions model.
