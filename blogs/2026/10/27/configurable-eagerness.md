@@ -73,23 +73,11 @@ We considered training a separate model for each eagerness level, but this appro
   </thead>
   <tbody>
     <tr>
-      <td style="vertical-align: top;">
-
-```text
-<|aggression|>low<|/aggression|>
-```
-
-</td>
-<td style="vertical-align: top;"><em>No change</em></td>
-<td style="vertical-align: top;">
-
-```text
-<|aggression|>high<|/aggression|>
-```
-
-</td>
-</tr>
-</tbody>
+      <td style="vertical-align: top;"><code>&lt;|aggression|&gt;low&lt;|/aggression|&gt;</code></td>
+      <td style="vertical-align: top;"><em>No change</em></td>
+      <td style="vertical-align: top;"><code>&lt;|aggression|&gt;high&lt;|/aggression|&gt;</code></td>
+    </tr>
+  </tbody>
 </table>
 
 We trained the model to interpret this tag as an eagerness control: it produced more conservative suggestions for low eagerness and more proactive suggestions for high eagerness, while preserving its default behavior for medium.
