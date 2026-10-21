@@ -2,25 +2,25 @@
 Tags: [GitHub Copilot, Models, Engineering]
 Order: 141
 TOCTitle: Configurable eagerness
-PageTitle: Tune {% data variables.product.prodname_copilot %} Inline Suggestions with Configurable Eagerness
-MetaDescription: Choose how proactively {% data variables.product.prodname_copilot_short %} offers inline suggestions.
+PageTitle: Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
+MetaDescription: Choose how proactively Copilot offers inline suggestions.
 MetaSocialImage: supervised-fine-tuning.png
 Date: 2026-10-27
 Author: Ben Steenhoek, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, configurable eagerness, model training, reinforcement learning, on-policy distillation]
 ---
 
-# Tune {% data variables.product.prodname_copilot %} inline suggestions with configurable eagerness
+# Tune GitHub Copilot inline suggestions with configurable eagerness
 
 October 27, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
-_Choose how proactively {% data variables.product.prodname_copilot_short %} offers inline suggestions._
+_Choose how proactively Copilot offers inline suggestions._
 
-A helpful suggestion at the wrong moment can still feel like an interruption. When you're completing a familiar pattern, you may want {% data variables.product.prodname_copilot_short %} to anticipate several changes ahead. When working through delicate logic, you may prefer {% data variables.product.prodname_copilot_short %} to scope its changes to the statement at hand and leave the next decision to you.
+A helpful suggestion at the wrong moment can still feel like an interruption. When you're completing a familiar pattern, you may want Copilot to anticipate several changes ahead. When working through delicate logic, you may prefer Copilot to scope its changes to the statement at hand and leave the next decision to you.
 
-[Community feedback about inline suggestions](https://github.com/microsoft/vscode/issues/283075) made both preferences clear: some developers wanted fewer suggestions, while others wanted {% data variables.product.prodname_copilot_short %} to do more. No single default could satisfy everyone. In earlier posts about training the 3-in-1 inline suggestions model covering Completions, NES, and Long-Distance NES ([part one](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one), [part two](https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two)), we explained how developer feedback helped us improve the default experience. This strong default is a great starting point, but developers differ in how much assistance they prefer. We wanted to let them tailor their experience to their own preferences.
+[Community feedback about inline suggestions](https://github.com/microsoft/vscode/issues/283075) made both preferences clear: some developers wanted fewer suggestions, while others wanted Copilot to do more. No single default could satisfy everyone. In earlier posts about training the 3-in-1 inline suggestions model covering Completions, NES, and Long-Distance NES ([part one](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one), [part two](https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two)), we explained how developer feedback helped us improve the default experience. This strong default is a great starting point, but developers differ in how much assistance they prefer. We wanted to let them tailor their experience to their own preferences.
 
-Configurable eagerness gives developers more control over how proactively {% data variables.product.prodname_copilot_short %} offers inline suggestions. We trained the inline suggestions model to support three modes: low, medium, and high eagerness. In this post, we'll explain how we defined and trained those behaviors, what our first approach taught us, and how on-policy distillation (OPD) and reinforcement learning (RL) made the feature easier to carry forward to future models.
+Configurable eagerness gives developers more control over how proactively Copilot offers inline suggestions. We trained the inline suggestions model to support three modes: low, medium, and high eagerness. In this post, we'll explain how we defined and trained those behaviors, what our first approach taught us, and how on-policy distillation (OPD) and reinforcement learning (RL) made the feature easier to carry forward to future models.
 
 ## Introducing configurable eagerness
 
@@ -32,7 +32,7 @@ We define eagerness along two dimensions: how often the model offers a suggestio
 | Medium | Provide the current 'default' level of assistance. |
 | High | Offer suggestions more proactively, including larger edits when appropriate. |
 
-These settings guide how {% data variables.product.prodname_copilot_short %} behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
+These settings guide how Copilot behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
 
 The demo placeholder below marks a comparison of all three modes as a developer adds password and password-confirmation support to a registration form. That seemingly small change creates several opportunities for follow-up work: adding field labels, validating that the passwords match, and updating the form inputs.
 
@@ -232,18 +232,18 @@ These findings indicate that the configurable model behaved as intended: low eag
 
 Configurable eagerness is a first step toward inline suggestions that adapt to each developer and task. We're exploring two directions:
 
-* **Automatic eagerness:** Adjust how proactively {% data variables.product.prodname_copilot_short %} offers suggestions based on the current context, while keeping developers in control of the experience.
+* **Automatic eagerness:** Adjust how proactively Copilot offers suggestions based on the current context, while keeping developers in control of the experience.
 * **Learning from experience:** Use signals from rejected, modified, or corrected suggestions to reduce repeated errors and better align future suggestions with a developer's intent.
 
 The goal isn't simply to suggest more or less code. It's to provide the right level of assistance for the moment, and improve that fit over time.
 
 ## Try configurable eagerness
 
-Configurable eagerness is available to paid {% data variables.product.prodname_copilot %} subscribers in {% data variables.product.prodname_vscode_shortname %}. Update to the latest version of {% data variables.product.prodname_vscode_shortname %}, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the {% data variables.product.prodname_copilot_short %} settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
+Configurable eagerness is available to paid GitHub Copilot subscribers in VS Code. Update to the latest version of VS Code, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the Copilot settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
 
 ## Acknowledgments
 
-Thank you to the developer community for your ongoing feedback that shaped configurable eagerness, and to the combined teams of researchers, engineers, PMs, and designers across {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_copilot %}, and Microsoft for their contributions, testing, and support throughout development.
+Thank you to the developer community for your ongoing feedback that shaped configurable eagerness, and to the combined teams of researchers, engineers, PMs, and designers across VS Code, GitHub Copilot, and Microsoft for their contributions, testing, and support throughout development.
 
 Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Gaurav Mittal, and Nick Trogh for their insightful feedback on this blog post.
 
