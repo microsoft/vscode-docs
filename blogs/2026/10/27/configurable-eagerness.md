@@ -26,9 +26,11 @@ Configurable eagerness gives developers more control over how proactively {% dat
 
 We define eagerness along two dimensions: how often the model offers a suggestion and the size of each proposed edit.
 
-| Low | Medium | High |
-|-----|--------|------|
-| Offer fewer suggestions and favor smaller, more conservative edits. | Provide the current 'default' level of assistance. | Offer suggestions more proactively, including larger edits when appropriate. |
+| Eagerness setting | Intended behavior |
+|-------------------|-------------------|
+| Low | Offer fewer suggestions and favor smaller, more conservative edits. |
+| Medium | Provide the current 'default' level of assistance. |
+| High | Offer suggestions more proactively, including larger edits when appropriate. |
 
 These settings guide how {% data variables.product.prodname_copilot_short %} behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
 
