@@ -1,4 +1,5 @@
 ---
+Tags: [Engineering, Performance]
 Order: 
 TOCTitle: Shrinking VS Code with name mangling
 PageTitle: Shrinking VS Code with name mangling

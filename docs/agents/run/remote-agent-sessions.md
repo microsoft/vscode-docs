@@ -1,8 +1,7 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Run agent sessions on remote machines and in Dev Containers, and manage them in the browser-based {% data variables.copilot.agents_window %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Run and manage remote agent sessions
 

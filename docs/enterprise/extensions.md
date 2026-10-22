@@ -1,19 +1,24 @@
 ---
 ContentId: 8a2b5f4c-9e3d-4c6a-b8f1-2d7e9a4c5b3f
-DateApproved: 10/14/2026
-MetaDescription: Learn how to manage and control {% data variables.product.prodname_vscode_shortname %} extensions in enterprise environments, including private marketplace, allowed extensions, and preinstalling extensions.
+DateApproved: 10/21/2026
+MetaDescription: Manage {% data variables.product.prodname_vscode_shortname %} extensions with allowlists, a private marketplace, and preinstalled extensions.
 ---
 
 # Manage extensions in enterprise environments
 
-{% data variables.product.prodname_vscode %} extensions enhance productivity but require careful management in enterprise environments to maintain security and compliance. This article covers how IT admins can control extension installation, host a private marketplace, and deploy extensions to users' machines.
+As an IT admin, you can configure extension installation and enablement in {% data variables.product.prodname_vscode %}, host a private marketplace, and preinstall extensions for your development teams.
 
 ## Configure allowed extensions
 
 > [!NOTE]
 > Support for allowed extensions is available starting from {% data variables.product.prodname_vscode_shortname %} version 1.96.
 
-{% data variables.product.prodname_vscode_shortname %} supports controlling which extensions can be installed on users' machines through the `setting(extensions.allowed)` application-wide setting. You can selectively allow extensions by publisher, specific extension, version, and platform. By default, all extensions are allowed. When you configure this setting, only listed extensions can be installed, and unlisted extensions are blocked. If you block an extension or version that is already installed, the extension is disabled.
+Use the application-wide `setting(extensions.allowed)` setting to control which extensions {% data variables.product.prodname_vscode_shortname %} permits users to install and enable. You can allow or block extensions by publisher, extension ID, version, and platform.
+
+By default, all extensions are allowed. With an allowlist, extensions that do not match an allow rule are blocked. If you block an extension or version that is already installed, {% data variables.product.prodname_vscode_shortname %} disables it.
+
+> [!NOTE]
+> For locally supplied VSIX packages, these rules use identifiers declared in the package. They do not verify the package's origin, prevent changes to local extension files, or limit an extension's [runtime permissions](/docs/configure/extensions/extension-runtime-security.md#about-extension-runtime-permissions).
 
 ### Allow or block by publisher
 
@@ -97,13 +102,13 @@ Users can still uninstall extensions that were preinstalled. Restarting {% data 
 
 ## Host a private extension marketplace
 
-The private marketplace enables enterprises to self-host and distribute extensions within their organization to meet security and compliance requirements. The private marketplace integrates with the {% data variables.product.prodname_vscode_shortname %} extensions experience, giving users discovery and automatic updates of private extensions.
+Use a private marketplace to host and distribute extensions within your organization. It integrates with the {% data variables.product.prodname_vscode_shortname %} extensions experience, giving users discovery and automatic updates of private extensions.
 
 Key features of the private marketplace:
 
-* **Self-hosting**: Host internal extensions on your own infrastructure, such as Azure or Kubernetes, to protect intellectual property.
+* **Self-hosting**: Host internal extensions on your own infrastructure, such as Azure or Kubernetes.
 * **Upstreaming**: Automatically include public extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com), even in environments with restricted internet connectivity. Allow or deny select extensions by setting up an [allow list](#configure-allowed-extensions).
-* **Rehosting**: Download and host public extensions to apply enterprise-specific verification and security standards, with support for air-gapped environments. See how [Microsoft protects your software supply chain](https://aka.ms/vsmsecurityblog).
+* **Rehosting**: Download and host public extensions on your own infrastructure, including in air-gapped environments.
 * **Simple deployment**: Deploy as a stateless Docker container, no external database required.
 * **Flexible storage**: Publish and manage extensions using any file system or Azure Artifacts.
 * **Centralized rollout**: Deploy the private marketplace to your team using group policy on Windows and macOS.

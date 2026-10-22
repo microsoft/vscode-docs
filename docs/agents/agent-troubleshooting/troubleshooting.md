@@ -1,8 +1,7 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot
@@ -26,6 +25,7 @@ When chat, agents, or inline suggestions do not behave as expected, start with t
 | A file, tool, or expected step is missing from a response | [Inspect chat interactions](#inspect-chat-interactions). | Compare the session events with the request sent to the model. |
 | A response is slow or uses more tokens than expected | Open the Agent Debug Logs Summary view. | Use the Cache Explorer only if the session reports low cache reuse. |
 | An MCP server or tool is unavailable | [Troubleshoot MCP servers](#troubleshoot-mcp-servers). | Inspect the server output and the tools available to the request. |
+| Sandboxing reports missing dependencies, or sandboxed tools fail with certificate errors | [Troubleshoot agent sandboxing](/docs/agents/run/agent-sandboxing.md#troubleshoot-agent-sandboxing). | Check dependencies, proxy access, and certificate trust on the agent host. |
 
 ## Start with basic checks
 
@@ -119,7 +119,7 @@ If an MCP server or one of its tools is unavailable:
 
 If the server is running but the model does not invoke its tool, follow [An MCP tool is not being invoked](/docs/agents/agent-troubleshooting/chat-debug-view.md#an-mcp-tool-is-not-being-invoked).
 
-For setup and server-specific checks, see [Configure and debug MCP servers](/docs/agent-customization/mcp-servers.md#troubleshoot-and-debug-mcp-servers).
+For server-specific checks, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
 
 ## Report an unresolved issue
 

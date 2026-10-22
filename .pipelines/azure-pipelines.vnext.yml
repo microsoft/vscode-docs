@@ -39,7 +39,7 @@ extends:
       tsa:
         enabled: true
     settings:
-      networkIsolationPolicy: CFSClean,CFSClean2,CFSClean3
+      networkIsolationPolicy: Preferred,GitHub,GoogleStorage,CFSClean,CFSClean2,CFSClean3
 
     stages:
     - template: templates/stages/build-vnext.yml@self

@@ -1,8 +1,7 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 10/14/2026
-MetaDescription: Look up Local harness hook configuration and event schemas in {% data variables.product.prodname_vscode %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Review legacy Local hook schemas when migrating to Copilot in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -14,15 +13,18 @@ Keywords:
 - lifecycle
 ---
 
-# Local hooks reference
+# Legacy Local hooks reference
 
-This article is the configuration and event-schema reference for hooks in the **Local** harness in {% data variables.product.prodname_vscode_shortname %}. The Local harness runs in the extension host and uses the PascalCase event names and payloads documented here.
+Use this reference to interpret an existing **Local** hook while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
 
 For hooks executed by a provider harness, use the corresponding provider documentation:
 
 * For **Copilot** sessions, use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
 * For **Claude** sessions, use the [Claude hooks reference](https://code.claude.com/docs/en/hooks).
 * For **Codex** sessions, use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/).
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 If you select **Local** from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness maps the configuration and then sends the payloads documented here.
 
@@ -49,7 +51,7 @@ A hook file contains a `hooks` object. Each property is a supported event name a
 
 ### Command properties
 
-In this format, each command entry must have `type: "command"` and at least one command property:
+Use an explicit `type: "command"` and at least one command property in this format. The Local parser also accepts entries without `type` as command hooks:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -58,11 +60,13 @@ In this format, each command entry must have `type: "command"` and at least one 
 | `windows` | string | Windows-specific command override. |
 | `linux` | string | Linux-specific command override. |
 | `osx` | string | macOS-specific command override. |
-| `cwd` | string | Working directory, relative to the repository root. |
+| `cwd` | string | Working directory, relative to the workspace root or absolute. Local expands `~` to the user home directory. |
 | `env` | object | Additional environment variables. |
 | `timeout` | number | Timeout in seconds. The default is 30 seconds. |
 
-The harness selects an operating system override from the extension host platform. If an override is not defined for that platform, it uses `command`. Copilot and Claude source formats use different property names and defaults before the Local parser maps them to this format.
+The harness selects an operating system override from the extension host platform. If an override is not defined for that platform, it uses `command`. Local accepts `bash` as a fallback for `linux` and `osx`, and `powershell` as a fallback for `windows`. It accepts `timeoutSec` when `timeout` is absent. Do not specify both timeout aliases when migrating; the Copilot runtime gives them the opposite precedence.
+
+Local accepts PascalCase and Copilot event aliases in hook files; a numeric `version` does not select a different Local payload schema. It also accepts nested Claude command groups but ignores matcher values. See the [migration compatibility matrix](/docs/agent-customization/migrate-customizations.md#compare-configuration-and-script-contracts) before reusing a file.
 
 ## Common input
 

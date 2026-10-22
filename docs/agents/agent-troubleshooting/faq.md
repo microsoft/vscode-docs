@@ -1,8 +1,7 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot frequently asked questions
 
@@ -131,7 +130,7 @@ Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copi
 * Verify that [GitHub Copilot is not turned off](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language.
 * Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code).
 * Verify that your [network settings](#network-and-firewall-configuration-for-copilot) permit connectivity to GitHub Copilot.
-* Verify that you have not reached the inline suggestions limit for the month with the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* Verify that you have not reached the inline suggestions limit for the month with the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
 If these checks pass, [view the GitHub Copilot logs](/docs/agents/agent-troubleshooting/troubleshooting.md#view-logs-for-github-copilot).
 

@@ -1,8 +1,7 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 10/14/2026
-MetaDescription: Build and validate web applications with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %} through an interactive test and fix workflow.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Build and validate a web app with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - ai
 - copilot
@@ -45,7 +44,7 @@ Browser tools are generally available by default. Verify that they are selected 
 
 1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
-1. Select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
+1. Select **Open Customizations** in the {% data variables.copilot.chat_view %} title bar > **Tools** and verify that **Integrated Browser** is selected.
 
 The agent can now use these tools to interact with web pages. If the tools are missing, verify that `setting(workbench.browser.enableChatTools)` is turned on. An organization policy can also turn off browser tools.
 

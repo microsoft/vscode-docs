@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Use visual and interactive canvases with agents",
-    "description": "Plan and track work on canvases, move chats without losing context, use the expanded Markdown editor, and apply more granular enterprise controls.",
-    "link": "/updates/v1_142",
-    "image": "/assets/updates/1_142/release-highlights.webp"
+    "title": "Compare models on the same coding task",
+    "description": "Run multiple models in parallel, then compare and combine their solutions in the Agents window (Preview). Also try experimental worktree cleanup, on-device models, and a multi-diff file list.",
+    "link": "/updates/v1_143",
+    "image": "/assets/updates/1_143/release-highlights.webp"
   },
   "highlights": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "type": "blog",
-      "title": "Introducing the Agent Host",
+      "title": "Modernizing the VS Code UI",
       "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
-      "link": "/blogs/2026/08/26/agent-host-architecture",
-      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
+      "link": "/blogs/2026/10/15/modern-ui",
+      "image": "/assets/blogs/2026/10/15/classic-to-modern.png"
     }
   ]
 }

@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Performance, Engineering]
 Order:
 TOCTitle: Optimizations in Syntax Highlighting
 PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story

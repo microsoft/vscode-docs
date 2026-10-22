@@ -1,8 +1,7 @@
 ---
 ContentId: 77f594c1-b808-4421-9729-d6b17dd16e16
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Recover an AI agent session in {% data variables.product.prodname_vscode_shortname %} by steering requests, restoring checkpoints, and resetting context.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
@@ -30,7 +29,7 @@ Start with the symptom you observe:
 | An ambiguous earlier prompt caused the agent to take the wrong approach. | [Edit the earlier request](#correct-a-completed-response) and resend it. |
 | File changes after a known point are unwanted. | [Restore a checkpoint](#recover-unwanted-changes). |
 | You want to compare another approach without losing the current conversation. | [Fork the conversation](#reset-conversation-context). |
-| The conversation contains too much irrelevant or conflicting context. | [Compact the context or start a new session](#reset-conversation-context). |
+| The conversation contains too much irrelevant or conflicting context. | [Compact the context or start a fresh chat](#reset-conversation-context). |
 | The agent follows your instructions but repeatedly encounters the same error. | [Diagnose the failure](#diagnose-repeated-failures) before it retries. |
 
 > [!CAUTION]
@@ -136,14 +135,19 @@ Fork from a checkpoint when you want to explore a different approach while prese
 
 A fork creates separate conversation history, but it doesn't always provide separate files. Depending on the session type, the fork might share the same folder or Git worktree. Use a separate worktree-isolated session when both approaches must modify files independently. Learn more about [forking a chat session](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session).
 
+### Start a new chat in the session
+
+If the work still belongs in the same workspace but the conversation contains conflicting instructions or repeated corrections, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. The new chat doesn't inherit the other chats' history, but it shares the session's folder or worktree and code changes.
+
+Provide the accepted decisions, current state, and validation criteria in the new prompt. Starting a chat doesn't remove saved files, applicable custom instructions, or persistent memory. If the harness doesn't support multiple chats in a session, start a new session instead.
+
 ### Start a new session
 
 Start a new session when:
 
 * The goal changed into a different task.
-* Earlier instructions conflict with the current requirements.
-* Repeated corrections make it difficult to identify the authoritative decision.
-* You want the agent to investigate the current workspace without inheriting earlier assumptions.
+* The work belongs in another project.
+* You need a separate folder or worktree to keep code changes independent.
 
 Starting a new session doesn't undo file changes. Review or restore the workspace first, then provide a concise prompt with the current state, accepted decisions, constraints, and validation criteria.
 

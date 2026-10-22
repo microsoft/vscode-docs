@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education, AI]
 Order: 
 TOCTitle: "VS Code Dev Days 2025"
 PageTitle: "VS Code Dev Days – Join an event near you to learn about AI-assisted development"

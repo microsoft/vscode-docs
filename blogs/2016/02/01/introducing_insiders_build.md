@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements]
 Order:
 TOCTitle: The Insiders Build
 PageTitle: Introducing the Insiders Build

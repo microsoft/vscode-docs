@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements, Community]
 Order:
 TOCTitle: 1.0 Release
 PageTitle: Visual Studio Code 1.0 Release

@@ -1,8 +1,7 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
 - trust
@@ -71,6 +70,9 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 ### Approvals and review
 
+> [!NOTE]
+> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss approved harnesses.
+
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
 * **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions, Autopilot is a permission level instead.
@@ -104,7 +106,7 @@ Sandboxing is an added layer. It is not a virtual machine or user-account bounda
 
 On macOS and Linux, you can enable sandboxing for locally-running MCP servers that use the stdio transport. When sandboxing is enabled, the server can only access the file system paths and network domains that you explicitly permit in the sandbox configuration. Tool calls from sandboxed servers are auto-approved because they run in a controlled environment.
 
-Learn more about [configuring MCP server sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers).
+Learn more about [configuring MCP server sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers).
 
 ## Security risks to be aware of
 
@@ -200,22 +202,35 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 
 ## Hooks
 
-[Agent hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions. Unlike instructions or prompts that guide agent behavior, hooks run deterministically with guaranteed outcomes, making them suitable for enforcing security policies.
+[Agent hooks](/docs/agent-customization/hooks.md) run commands at runtime lifecycle points rather than relying on the model to request them. For Copilot sessions, use the shared runtime's event and output contract.
 
-* **Block dangerous operations**: Use `PreToolUse` hooks to intercept tool invocations and block dangerous commands (for example, `rm -rf` or `DROP TABLE`) before they execute, regardless of how the agent was prompted.
-* **Control approvals**: Hooks can return `allow`, `deny`, or `ask` decisions to automatically approve safe operations or require confirmation for sensitive ones.
-* **Create audit trails**: Log every tool invocation, command execution, or file change for compliance and debugging purposes.
+* **Validate tool calls**: A `preToolUse` hook can inspect a supported tool's arguments and return a denial. A filter that misses a tool or argument shape does not validate that operation.
+* **Control approvals**: Hooks can return `allow`, `deny`, or `ask`. Approval prompts depend on the session mode; do not assume `ask` pauses an unattended session.
+* **Record events**: Log selected, non-sensitive event data. Verify event coverage and failure behavior before treating the log as a complete audit trail.
+
+Hooks are not a substitute for enforced permissions, sandboxing, or enterprise controls. GitHub documents command `preToolUse` failures as denying the tool call, but timeouts as continuing through normal permissions, including for policy hooks. See [hook exit codes](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks). Instructions guide the model and are not an enforcement boundary.
+
+When switching from Local, [migrate and test the hook scripts](/docs/agent-customization/migrate-customizations.md#migrate-hooks), not only their configuration files.
 
 ## Enterprise policies
 
 Organizations can implement [centralized security controls](/docs/enterprise/manage-ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
 
-* **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
+* **Disable agents**: Turn off agent mode and the {% data variables.copilot.agents_window %} with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
-* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
+* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or turn off MCP support (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
 * **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Allow all** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
-* **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
+* **Require manual approval for specific tools**: Require manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
+
+> [!IMPORTANT]
+> Copilot harness sessions don't fully enforce some of these policies:
+>
+> * `ChatAgentMode` doesn't remove Agent Host session targets, such as **Copilot**, from the **Session Target** UI control in the editor.
+> * `ChatMCP` doesn't apply to MCP servers that the Copilot runtime discovers on its own.
+> * `ChatToolsEligibleForAutoApproval` removes **Allow all**, but **Assisted permissions** and saved session approvals can still approve a listed tool.
+>
+> Review the harness notes in [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md#use-vs-code-device-policies) before you rely on a policy for Copilot harness sessions.
 
 Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
 

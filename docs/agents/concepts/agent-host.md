@@ -1,8 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host manages sessions, execution environments, and connected clients.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
 - agent host protocol
@@ -31,6 +30,9 @@ Separating the agent from the window that displays it provides these capabilitie
 * **Independent execution**: an agent session can continue without a connected editor while the host and its execution environment remain running. Tools provided by a client still require that client.
 * **Multiple agent implementations**: different agent runtimes plug into one host-facing interface and present common session concepts to clients.
 * **Dedicated process**: agents run in their own process, where they won't be blocked by busy extensions.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 ## Process architecture
 
@@ -116,7 +118,7 @@ The process boundary also affects how you review edits, configure the agent, and
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |
 | Continue sessions across interfaces | [Sessions across surfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces). |
-| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [configure MCP servers](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). |
+| Configure tools and MCP servers | [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) and [MCP configuration formats](/docs/agents/reference/mcp-configuration.md#configuration-file). |
 
 ## Related resources
 

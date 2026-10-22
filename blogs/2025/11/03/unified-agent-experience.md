@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, AI, GitHub Copilot]
 Order: 108
 TOCTitle: A Unified Agent Experience
 PageTitle: A Unified Experience for all Coding Agents

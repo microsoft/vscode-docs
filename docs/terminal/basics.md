@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: {% data variables.product.prodname_vscode %} has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -349,19 +349,13 @@ When Copilot provides a response, you can select **Run** to execute the command 
 
 For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat).
 
-### Terminal chat participant
+<a name="terminal-chat-participant"></a>
 
-Use the dedicated `@terminal` chat participant in chat to ask questions about terminal commands, shell scripting, or explaining terminal output:
+### Ask about terminal commands
 
-1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
-2. Start your question with `@terminal` to direct it to the terminal participant
-3. Ask about terminal commands, shell scripting, or explaining terminal output
+Ask the agent directly about shell commands and attach relevant terminal output. For example, ask `How do I search for a pattern recursively?` or `Explain this command without running it`.
 
-Examples:
-
-* `@terminal list the 5 largest files in this workspace`
-* `@terminal /explain top shell command`
-* `@terminal how to grep for patterns recursively`
+The `@terminal` chat participant is deprecated and is not supported in the Copilot harness. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ### Reference terminal context in chat
 

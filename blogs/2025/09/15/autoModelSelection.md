@@ -1,4 +1,5 @@
 ---
+Tags: [Models, GitHub Copilot]
 Order: 106
 TOCTitle: "Introducing auto model selection (preview)"
 PageTitle: "Introducing auto model selection (preview)"

@@ -15,17 +15,13 @@ ProductEdition: Stable
 Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev), [Instagram](https://www.instagram.com/vscode.ig) | [View online](https://code.visualstudio.com/updates)
 %ENDIF % -->
 <!-- %IF IN_WEB %
-<p class="release-metadata"><span>Released <release Month day, year></span> <span class="release-channel">Stable</span></p>
+<p class="release-metadata"><span>Release date: <release Month day, year></span> <span class="release-channel">Stable</span></p>
 %ENDIF % -->
 <!-- %IF IN_PRODUCT %
 _Release date: <release Month day, year>_
 %ENDIF % -->
 
 <!-- DOWNLOAD_LINKS_PLACEHOLDER -->
-
-<!-- %IF STABLE %
-<p class="release-update-guidance">Already installed? Use <strong>Check for Updates</strong> in VS Code. For upcoming features, use the <a href="https://code.visualstudio.com/insiders">Insiders build</a>.</p>
-%ENDIF % -->
 
 <!-- RELEASE_HIGHLIGHTS_START -->
 ## Release highlights
@@ -34,6 +30,10 @@ This release ... <TODO @ntrogh>
 
 * [highlight](#bookmark): <highlight description, including availability or requirements when relevant>
 <!-- RELEASE_HIGHLIGHTS_END -->
+
+<!-- %IF STABLE %
+<p class="release-update-guidance">Already installed? Use <strong>Check for Updates</strong> in VS Code. For upcoming features, use the <a href="https://code.visualstudio.com/insiders">Insiders build</a>.</p>
+%ENDIF % -->
 
 <!-- %IF IN_PRODUCT %
 Happy Coding!

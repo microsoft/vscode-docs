@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education]
 Order: 
 TOCTitle: Build 2021
 PageTitle: Visual Studio Code at Microsoft Build 2021

@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Engineering, Design]
 Order: 140
 TOCTitle: Modernizing the VS Code UI
 PageTitle: Modernizing the VS Code UI
@@ -26,7 +27,7 @@ Some interface changes have been small refinements. Others have introduced new w
 
 *The timeline highlights the [first preview in 2015](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0), [editor tabs in 2016](https://code.visualstudio.com/updates/June_2016#_tabs), the [new tree widget in 2019](https://code.visualstudio.com/updates/v1_31#_new-tree-widget), the [Dark Modern and Light Modern themes in 2023](https://code.visualstudio.com/updates/v1_78#_new-default-color-themes), and the modernized UI preview in 2026.*
 
-![The classic and modernized VS Code interfaces shown with the same workspace and content.](./classic-to-modern.png)
+![Screenshot showing overlapping VS Code windows with the classic and modernized interfaces, connected by an arrow.](./classic-to-modern.png)
 
 *The previous workbench design, which we refer to as the classic UI, and the modernized UI preview.*
 
@@ -38,7 +39,7 @@ Color is part of how you make VS Code your own, but it also shapes how quickly y
 
 We began the modernization journey by rethinking color with the [Dark 2026 and Light 2026](https://github.com/microsoft/vscode/pull/288417) themes. We looked at workbench colors and [syntax highlighting](https://github.com/microsoft/vscode/pull/299014) as one experience, establishing a visual foundation that we later carried into the modernized UI. A tighter range of surface colors creates a clearer hierarchy and keeps code at the center. More consistent hover, focus, selection, validation, and agent states help the interface read clearly in both light and dark environments.
 
-![Screenshot showing Dark 2026 and Light 2026 side by side with the Explorer, a TypeScript editor, Quick Open, and the integrated terminal.](./vscode-ui-2026-themes.png)
+![Screenshot showing overlapping VS Code windows using the Dark 2026 and Light 2026 themes.](./vscode-ui-2026-themes.png)
 
 *Dark 2026 and Light 2026 themes.*
 
@@ -74,11 +75,11 @@ Shared design tokens provide named values for spacing, sizes, and colors instead
 
 ![An earlier editor window and Agents window shown side by side, each based on its own UI foundation.](./editor-vs-agents-before.png)
 
-*Earlier: the editor and Agents experiences began with layouts shaped independently around their workflows. For a like-for-like comparison, both windows use Dark 2026 and are shown at the same size.*
+*Earlier: the editor and Agents experiences began with layouts shaped independently around their workflows. Both windows use Dark 2026.*
 
 ![The modern editor window and Agents window shown side by side with consistent spacing, surfaces, typography, and controls.](./editor-vs-agents-after.png)
 
-*Now: a shared design system creates a stronger family resemblance while each window remains optimized for its purpose. Both windows use Dark 2026 and are the same size.*
+*Now: a shared design system creates a stronger family resemblance while each window remains optimized for its purpose. Both windows use Dark 2026.*
 
 ## Rolling out and learning from feedback
 

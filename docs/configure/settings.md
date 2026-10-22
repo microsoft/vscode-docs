@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: How to modify {% data variables.product.prodname_vscode %} User and Workspace Settings.
 ---
 # User and workspace settings

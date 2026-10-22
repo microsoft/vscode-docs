@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, Models, Engineering]
 Order: 138
 TOCTitle: "New Inline Suggestions Model (part 1)"
 PageTitle: "Building the new GitHub Copilot Inline Suggestions Model: Part One"

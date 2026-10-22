@@ -1,6 +1,6 @@
 ---
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Windows, choose User or System setup, and configure Windows developer tools.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -39,6 +39,25 @@ See the [Download {% data variables.product.prodname_vscode %}](/download) page 
 1. Run the installer with administrator permissions.
 
 The System setup makes {% data variables.product.prodname_vscode_shortname %} available to all users on the machine.
+
+### Set up the copilot command
+
+Setup can add the `copilot` command to your `%PATH%` environment variable, so you can run [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) from any terminal. {% data variables.copilot.copilot_cli_short %} is a separate GitHub product with its own license terms, and it requires a {% data variables.product.prodname_copilot %} subscription.
+
+When {% data variables.copilot.copilot_cli_short %} isn't installed, the User setup shows the **{% data variables.copilot.copilot_cli %}** page with these options:
+
+* **Install {% data variables.copilot.copilot_cli %} now**: Setup adds `copilot` to `%PATH%`. After it installs {% data variables.product.prodname_vscode_shortname %}, it downloads {% data variables.copilot.copilot_cli_short %} from GitHub and installs it.
+* **Install {% data variables.copilot.copilot_cli %} when I first run copilot**: Setup adds `copilot` to `%PATH%`. Nothing is downloaded until you run `copilot` and confirm the installation.
+* **Don't add the copilot command**: Setup doesn't add `copilot` to `%PATH%`. You can still run `copilot` in the {% data variables.product.prodname_vscode_shortname %} integrated terminal.
+
+The System setup offers only to add the command for all users or not. In that case, `copilot` asks each user before it downloads {% data variables.copilot.copilot_cli_short %} the first time they run it. When the User setup can't reach GitHub, it also offers only to add the command or not.
+
+Setup skips the page when {% data variables.copilot.copilot_cli_short %} is already installed, when you run the User setup as an administrator, or when an administrator [disables the copilot command with a policy](/docs/enterprise/manage-ai-settings.md#enable-or-disable-the-copilot-command).
+
+Updates keep your choice and never download {% data variables.copilot.copilot_cli_short %}. To change your choice, run setup again. {% data variables.copilot.copilot_cli_short %} updates itself, and uninstalling {% data variables.product.prodname_vscode_shortname %} doesn't remove {% data variables.copilot.copilot_cli_short %} or its data.
+
+> [!TIP]
+> Open a new terminal after setup to use the `copilot` command.
 
 ### Install from a ZIP archive
 
@@ -92,6 +111,8 @@ After you install {% data variables.product.prodname_vscode_shortname %}, finish
 {% data variables.product.prodname_vscode_shortname %} uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its Windows setup package. All [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available.
 
 To prevent Setup from launching {% data variables.product.prodname_vscode_shortname %} after completion, use `/mergetasks=!runcode`.
+
+To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) in a silent installation, use `/copilotcli=install`, `/copilotcli=onfirstuse`, or `/copilotcli=none`. These values match the options on the **{% data variables.copilot.copilot_cli %}** page. With `install`, the System setup adds the command without installing {% data variables.copilot.copilot_cli_short %}. Without this switch, Setup adds `copilot` to `%PATH%` when it also adds {% data variables.product.prodname_vscode_shortname %} to `%PATH%`, unless you made a different choice in an earlier installation. Setup doesn't download {% data variables.copilot.copilot_cli_short %} unless you use `/copilotcli=install`.
 
 </details>
 

@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, GitHub Copilot, Extensions]
 Order: 98
 TOCTitle: Adding MCP in VS Code
 PageTitle: "Beyond the tools, adding MCP in VS Code"

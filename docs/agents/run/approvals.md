@@ -1,8 +1,7 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai
@@ -85,6 +84,9 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 > Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
 
 ### Claude permission modes
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Their permission modes do not override that restriction. Contact the IT team that deployed the settings to discuss access.
 
 [Claude harness sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
 
@@ -207,7 +209,7 @@ For example:
 }
 ```
 
-A `false` rule requires approval. It does not block the command. To block a terminal tool call in the Local harness, use a [Preview `PreToolUse` hook](/docs/agents/reference/hooks-reference.md#pretooluse) that returns `permissionDecision: "deny"`.
+A `false` rule requires approval. It does not block the command. When moving this workflow to Copilot, review the shared runtime's [hook decision and failure behavior](/docs/agent-customization/hooks.md#decisions-and-failures). A `preToolUse` denial can block a tool call, but copying a Local hook does not preserve its tool names, arguments, or output contract.
 
 By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
 

@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Extensions]
 Order:
 TOCTitle: Extensions using CodeLens
 PageTitle: Visual Studio Code Extensions using CodeLens

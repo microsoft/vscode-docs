@@ -214,9 +214,9 @@ This task tells g++ to take the active file (`${file}`), compile it, and create 
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-The `detail` value is what you will as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
+The `detail` value is what you will see as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
 
-From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the editor play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -230,6 +230,9 @@ with this:
 ```json
     "group": "build",
 ```
+
+> [!NOTE]
+> The play button in the editor tab bar runs the active file, whereas the play button in the **Run and Debug** view starts the selected debug configuration, which can come from `launch.json` or be provided dynamically by an extension.
 
 ### Modifying tasks.json
 
@@ -305,10 +308,6 @@ To keep track of the value of a variable as your program executes, set a **watch
 1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
-
-Next, you'll create a `tasks.json` file to tell {% data variables.product.prodname_vscode_shortname %} how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
-
-It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
 
 ## Customize debugging with launch.json
 

@@ -1,8 +1,7 @@
 ---
-ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 10/14/2026
+ContentId: 68b741af-14cf-4d42-9289-c06c61dd09f5
+DateApproved: 10/21/2026
 MetaDescription: Reduce AI credit usage in {% data variables.product.prodname_vscode_shortname %} with efficient models, scoped tools, and focused context.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Optimize AI credit usage in {% data variables.product.prodname_vscode_shortname %}
 

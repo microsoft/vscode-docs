@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development, Extensions]
 Order: 
 TOCTitle: Remote Development
 PageTitle: Remote Development with Visual Studio Code

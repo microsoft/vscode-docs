@@ -1,8 +1,7 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot
@@ -34,6 +33,19 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
+## Check harness compatibility
+
+Select the [agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use before choosing a customization type or creating a file. The harness determines which formats, locations, and capabilities are supported. Changing the language model doesn't change those requirements.
+
+| Customization | Check before creating it |
+|---------------|--------------------------|
+| [Instructions](/docs/agent-customization/custom-instructions.md) and [skills](/docs/agent-customization/agent-skills.md) | Use a format and file location that the selected harness reads. Check its activation rules and supported user, workspace, or organization scope. |
+| [Custom agents](/docs/agent-customization/custom-agents.md), [hooks](/docs/agent-customization/hooks.md), and [MCP servers](/docs/agent-customization/mcp-servers.md) | Follow the configuration for your harness. Tool names, supported fields, lifecycle events, and connection locations can differ. |
+| [Prompt files](/docs/agent-customization/prompt-files.md) and [tool sets](/docs/agent-customization/tool-sets.md) | Use a **Local** harness session in the {% data variables.copilot.chat_view %}. For reusable workflows in other skills-compatible harnesses, create a skill instead of a prompt file. |
+| [Plugins](/docs/agent-customization/agent-plugins.md) | Check that the selected harness supports the plugin and its bundled customization types. |
+
+The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} both run agents, but the available harnesses differ. Local sessions are editor-only. Select the intended harness before opening the Customizations editor so you see its supported types and destinations.
+
 ## Agent Customizations editor
 
 The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate sections. Depending on the customization type and source, it provides a configuration form, an inline file editor with syntax highlighting and validation, or a read-only details view.
@@ -54,7 +66,7 @@ In the left sidebar, select a customization type in the **Customizations** panel
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
 
@@ -102,7 +114,7 @@ Scope determines where a customization is available and who can share it. Not ev
 
 ## Create a customization
 
-You can create customization files with AI or create them manually. Review and test every customization before you rely on it for development tasks.
+You can create customization files with AI or create them manually. Creating a file doesn't mean the selected harness can load or run it. Specify the target harness and user or workspace scope, save the file in a supported location, and verify it in a session that uses that harness.
 
 ### Create a customization with AI
 
@@ -127,7 +139,7 @@ Create a workspace code reviewer skill for Python and JavaScript files. Check th
 
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
-To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps and configuration options, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md#add-a-server-from-the-agent-customizations-editor).
+To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps, see [Add MCP servers](/docs/agent-customization/mcp-servers.md#connect-a-server). To update an existing connection, see [Edit an MCP server configuration](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration).
 
 For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources and install an item. Manage the installation from the corresponding section.
 
@@ -151,7 +163,9 @@ The available actions depend on the customization type and its source. Use the i
 
 ## Verify a customization
 
-Test a new or updated customization with a representative task. Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, expand the **References** section in the chat response to confirm that the expected customization was included.
+Test a new or updated customization in a fresh chat with the intended harness and workspace. Use a representative task and confirm that the harness discovers the file before assessing its behavior. This separates the saved customization from instructions in the conversation that created it.
+
+Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, use the response's **References** section, where available, to check which customizations were included.
 
 If the result doesn't match your intent, make the customization more specific, resolve conflicting guidance, and repeat the task. For a complete project workflow, including how to review and share generated instructions, see [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md).
 
@@ -163,6 +177,8 @@ If a customization isn't applied or causes unexpected behavior, check the follow
 * The customization is stored in a location that the harness supports.
 * Any activation conditions match the current file or task.
 * The customization file has no validation errors.
+
+For hooks, also verify the script's event inputs and outputs. Hooks in user folders, settings, repositories, custom agents, and plugins can require [manual migration to the shared Copilot runtime](/docs/agent-customization/migrate-customizations.md#migrate-hooks), even when the file is discovered.
 
 If the issue continues, open the **Agent Debug Logs** view to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Logs** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 

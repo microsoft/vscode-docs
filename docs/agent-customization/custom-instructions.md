@@ -1,8 +1,7 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customize
 - rules
@@ -192,11 +191,11 @@ To create an instructions file:
 
 1. Select the agent harness that should use the instructions.
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. In the Agent Customizations editor, select **Instructions**.
 
-1. From the **New** dropdown, select a workspace or user instruction.
+1. Select **New Instruction** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the file.
 
 1. Select a supported location and enter a file name.
 
@@ -204,13 +203,17 @@ To create an instructions file:
 
 You can also run **Chat: New Instructions File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
+<!-- TODO: Replace screenshot to show the New Instruction (plus icon) buttons next to the Workspace and User groups in the Instructions section. -->
 ![Screenshot showing the Instructions section and the menu for creating an instructions file in the Agent Customizations editor.](images/customization/create-instructions-file.png)
 
 ### Generate an instructions file with AI
 
-In the Agent Customizations editor, enter a request in the **Overview** section that describes the instruction you want to create. Confirm that the generated file uses the format and location for the selected harness.
+In chat, describe the convention or guideline you want to enforce and ask the agent to create an instructions file. This works for every harness, including **Copilot**. Confirm that the generated file uses the format and location for the selected harness.
 
-For a Local harness session, you can also type `/create-instructions` in chat and describe the convention or guideline you want to enforce. To generate project-wide instructions, type `/init`.
+With **Local** selected, you can also use these shortcuts, which aren't available for other harnesses:
+
+* Type `/create-instructions` in chat and describe the convention or guideline.
+* Type `/init` to generate project-wide instructions. In the {% data variables.copilot.chat_view %}, the **Customize Your Agent** box on the **Overview** page of the Agent Customizations editor also uses `/init`.
 
 Review generated instructions before you use them. Verify commands, paths, and conventions against the repository.
 
@@ -223,16 +226,17 @@ Use `AGENTS.md` when:
 * You work with multiple compatible AI coding agents and want to share one set of instructions.
 * You want subfolder-level instructions that apply to specific parts of a monorepo.
 
-For the Local harness, configure the `setting(chat.useAgentsMdFile)` setting to enable or disable support for `AGENTS.md` files.
+For {% data variables.product.prodname_copilot_short %} sessions, instructions are discovered at the repository root, the session's working directory, and intermediate directories between them. {% data variables.product.prodname_copilot_short %} combines applicable instructions from `AGENTS.md` and other supported instruction files. Avoid conflicting guidance because there is no general precedence order between these files. For more information, see [{% data variables.product.prodname_copilot_short %} instruction discovery](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
+
+> [!NOTE]
+> **For Local harness sessions:** The `setting(chat.useAgentsMdFile)` setting controls whether instructions from workspace-root `AGENTS.md` files are automatically attached to chat requests and is enabled by default. This setting does not control instruction discovery in other harnesses.
 
 ### Use multiple `AGENTS.md` files
 
-`feature(nested-agents-md-files)`
-
-Use nested `AGENTS.md` files when different folders need different guidance. Follow the selected harness's working-folder and nested-instruction rules for discovery and activation.
+Use nested `AGENTS.md` files when different folders need different guidance. As {% data variables.product.prodname_copilot_short %} works with files in subfolders, it discovers `AGENTS.md` files along their directory paths. Other harnesses use their own discovery and activation rules.
 
 > [!NOTE]
-> **For Local harness sessions:** The `setting(chat.useNestedAgentsMdFiles)` setting controls support for nested `AGENTS.md` files and is disabled by default. When enabled, {% data variables.product.prodname_vscode_shortname %} lists these files with their folder locations so the agent can load relevant instructions for the task.
+> **For Local harness sessions:** `feature(nested-agents-md-files)` Set both `setting(chat.useAgentsMdFile)` and `setting(chat.useNestedAgentsMdFiles)` to `true` to discover nested `AGENTS.md` files. The nested-file setting is disabled by default. When both settings are enabled, {% data variables.product.prodname_vscode_shortname %} lists these files with their folder locations so the agent can load relevant instructions for the task. Neither setting controls {% data variables.product.prodname_copilot_short %} instruction discovery.
 
 > [!TIP]
 > For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.

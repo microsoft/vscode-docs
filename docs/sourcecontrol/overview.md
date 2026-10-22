@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Explore Git in {% data variables.product.prodname_vscode_shortname %} and find guides to commits, collaboration, history, and troubleshooting.
 Keywords:
 - source control

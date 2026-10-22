@@ -1,8 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 10/14/2026
-MetaDescription: Compare agent harnesses and built-in roles in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
 - ai
@@ -29,7 +28,7 @@ For a deeper explanation of how harnesses work and differ from models and hosts,
 
 Start with the Copilot harness for day-to-day coding and agent tasks. Choose another harness or the Cloud target when you need different tools, customizations, or execution workflows.
 
-| **Session Target** choice | What runs | What this means for your work |
+| Harness | What runs | What this means for your work |
 |----------------|-----------|-------------------------------|
 | **Copilot** | Run tasks using the {% data variables.copilot.copilot_sdk_short %}, which provides the shared agent experience across {% data variables.product.prodname_copilot %} products. The agent works in the [Agent Host](/docs/agents/concepts/agent-host.md#session-lifetime-and-client-dependencies). | Sessions run independently of the editor window and can continue in the background after you close it, while the Agent Host stays running. You can also continue sessions across supported interfaces. See [Copilot requirements and limitations](#copilot). |
 | **Local** | Run tasks within {% data variables.product.prodname_vscode_shortname %}'s built-in agent harness. The agent works in {% data variables.product.prodname_vscode_shortname %}'s [extension host](/docs/agents/concepts/agent-host.md#local-and-existing-extension-host-sessions). | The agent iterates via chat and works interactively to implement changes in your current workspace. The session is tied to the editor window: closing that window stops the agent's ongoing work. See [Local requirements](#local). |
@@ -44,6 +43,9 @@ Changing the model or agent role does not change the harness. For example, selec
 **Local** is a harness name, not a synonym for running on your machine. The Copilot, Claude, and Codex harnesses can also run on your machine.
 
 Available models depend on the harness and how you [access models](/docs/agent-customization/language-models.md), such as through a {% data variables.product.prodname_copilot %} subscription, another supported account, or your own API key. Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
 
 <a name="start-a-session"></a>
 
@@ -63,18 +65,16 @@ Select a harness before you submit the first prompt for a session:
 
 The control only lists targets whose [requirements](#requirements-and-setup) are met in the current window.
 
-<a name="choose-a-built-in-agent-role"></a>
+### Choose a built-in agent
 
-### Choose a built-in agent role
+After selecting a harness, choose an available built-in agent from the agent picker. The available built-in agents depend on the harness:
 
-After selecting a harness, choose an available built-in agent role from the agent picker. The available roles depend on the harness:
-
-| Harness | Built-in roles |
+| Harness | Built-in agents |
 |---------|----------------|
-| **Copilot** | **Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands. **Agent** implements changes and validates the result. |
-| **Local** | **Ask** answers questions without changing your code. **Agent** implements changes and validates the result. **Plan** researches a task and creates an implementation plan for you to review. |
+| **Copilot** | <ul><li>**Ask** answers questions and researches your codebase without making changes. It only uses read-only tools and can't edit files or run state-changing commands.</li><li>**Agent** implements changes and validates the result.</li><li>**[Plan](/docs/agents/run/planning.md)** researches a task and creates an implementation plan for you to review. Invoke it with `/plan`.</li></ul> |
+| **Local** | <ul><li>**Ask** answers questions without changing your code.</li><li>**Agent** implements changes and validates the result.</li><li>**Plan** researches a task and creates an implementation plan for you to review.</li></ul> |
 
-Switching roles doesn't change the harness. Copilot harness options such as [Plan](/docs/agents/run/planning.md) and [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) are modes with their own workflows, not additional built-in agent roles.
+Switching agents doesn't change the harness. You can also select [custom agents](/docs/agent-customization/custom-agents.md) from the same picker. In the Copilot harness, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is a mode with its own workflow, not an additional built-in agent.
 
 <a name="choose-code-isolation"></a>
 
@@ -100,7 +100,7 @@ For GitHub sign-in and account requirements, follow the [{% data variables.produ
 
 For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-Before reusing a Local harness session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) and [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file). Copilot harness sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
+Before reusing a Local harness session's configuration, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) and [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file). Copilot harness sessions don't have access to every built-in or extension-provided tool. The shared SDK runtime also does not imply identical tools, models, permissions, or customizations across products, or that all sessions and personal settings synchronize.
 
 <a name="prefer-copilot-for-new-editor-chat-sessions"></a>
 
@@ -119,7 +119,7 @@ SDK Policy Hooks are not loaded in Local harness sessions. Check [hook compatibi
 
 ### Claude
 
-Claude support is enabled by default. Turn it on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+Claude support is enabled by default unless [enterprise-managed settings disable the harness](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). When organization policy permits it, turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
 
 To use Claude, configure one of these authentication and billing options:
 
@@ -146,6 +146,9 @@ Codex is not listed by default. Choose one of the following integrations. You do
 To use Codex in the {% data variables.copilot.chat_view %}, install and enable the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). Follow the extension's documentation for authentication and permissions.
 
 #### Agent Host integration (Experimental)
+
+> [!NOTE]
+> The Codex Agent Host integration is disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with a ChatGPT account or the integration's user setting set to `true`. Contact the IT team that deployed the settings to discuss access.
 
 Enable `setting(chat.agentHost.codexAgent.enabled)` to make Codex available in the {% data variables.copilot.agents_window %} without the {% data variables.product.prodname_openai_codex %} extension.
 
@@ -222,9 +225,14 @@ Before you create a new supported Copilot session, turn on `setting(chat.canvase
 
 * **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
 
-In the {% data variables.copilot.agents_window %}, you can also open an available canvas from **Add Tab (+)** > **Canvas** in the editor area.
+To open an available canvas without asking the agent, use one of these menus:
 
-When the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
+* In the editor window, select **New Chat (+)** > **Canvas** in the {% data variables.copilot.chat_view %}.
+* In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas** in the editor area.
+
+In the editor window, the **Canvas** submenu appears after your first message in a supported Copilot harness session, when canvas support is enabled and canvas extensions are installed.
+
+Whether you or the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
 
 Canvas extensions are also supported in the {% data variables.copilot.github_copilot_app %}. Learn how to [work with canvas extensions in the {% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). To explore examples, browse [sample canvas extensions](https://awesome-copilot.github.com/extensions/).
 
@@ -251,7 +259,7 @@ The Copilot harness provides these benefits:
 
 Start with **Copilot** for day-to-day coding and agent tasks, especially when you want to continue work between the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}, or keep work running after closing an editor window.
 
-If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agent-customization/mcp-servers.md#configure-the-mcpjson-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
+If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
 
 ### Does running locally mean the language model runs on my machine?
 

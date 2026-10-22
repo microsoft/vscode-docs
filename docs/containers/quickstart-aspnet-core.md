@@ -144,7 +144,7 @@ When Docker files were added to the application, the Container Tools extension a
 You can use specific port on the host by changing the Docker run options used by `docker-run: debug` task (defined in `.vscode/tasks.json` file). For example, if you want to use the same port (5000) to expose the service, the `docker-run: debug` task definition would look like this:
 
 ```json
- {
+{
     "type": "docker-run",
     "label": "docker-run: debug",
     "dependsOn": [
@@ -159,6 +159,7 @@ You can use specific port on the host by changing the Docker run options used by
         "appProject": "${workspaceFolder}/netcorerest.csproj",
         "enableDebugging": true
     }
+}
 
 ```
 

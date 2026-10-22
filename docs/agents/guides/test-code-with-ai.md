@@ -1,8 +1,7 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 10/14/2026
+DateApproved: 10/21/2026
 MetaDescription: Add and run tests for existing code with AI in {% data variables.product.prodname_vscode %}, then review assertions, failures, and coverage.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Test existing code with AI
 
@@ -10,9 +9,11 @@ Adding tests to an existing project involves more than generating test code. You
 
 This guide shows you how to use an agent in {% data variables.product.prodname_vscode %} to add tests for existing code, run them, investigate failures, and review the result. Start with one function or module, then expand coverage after you validate the first set of tests.
 
+The walkthrough uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %} to collaborate over code in the current workspace. To compare this approach with assigning higher-level tasks in the {% data variables.copilot.agents_window %}, see [Run agents](/docs/agents/run/overview.md).
+
 ## Prerequisites
 
-* [Enable AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features).
+* [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open an existing project in {% data variables.product.prodname_vscode_shortname %}.
 * Install the project's dependencies and any runtime needed to run its tests.
 
@@ -22,7 +23,7 @@ A testing extension is optional for running tests in the terminal. To discover a
 
 Reuse the project's framework and test conventions instead of introducing a new test runner. This helps new tests work with existing test commands and avoids adding a second setup to maintain.
 
-1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the agent picker.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), start a new chat, and select **{% data variables.product.prodname_copilot_short %}** as the **Session Target** and **Agent** from the agent picker.
 
 1. Ask the agent to inspect the project before making changes:
 
@@ -135,5 +136,5 @@ Custom instructions guide the agent but don't enforce these safeguards. Review t
 ## Next steps
 
 * Follow a complete workflow to [fix an API bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md).
-* Set up a test-first workflow with [TDD custom agents and handoffs](/docs/agents/guides/test-driven-development-guide.md).
+* For a Local-harness example, set up a test-first workflow with [TDD custom agents and handoffs](/docs/agents/guides/test-driven-development-guide.md).
 * Try [testing web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md).

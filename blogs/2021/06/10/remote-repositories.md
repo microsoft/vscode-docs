@@ -1,4 +1,5 @@
 ---
+Tags: [Source Control, Remote Development, Extensions]
 Order: 
 TOCTitle: Remote Repositories
 PageTitle: Remote Repositories extension for Visual Studio Code

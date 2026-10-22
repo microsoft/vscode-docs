@@ -1,4 +1,5 @@
 ---
+Tags: [Models, Agents]
 Order: 132
 TOCTitle: Bring Your Own Key
 PageTitle: "Use your own language model key or local model in VS Code"
