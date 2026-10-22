@@ -12,7 +12,7 @@ Keywords: [github copilot, inline suggestions, configurable eagerness, model tra
 
 # Tune GitHub Copilot inline suggestions with configurable eagerness
 
-October 27, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
+October 26, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
 _Choose how proactively Copilot offers inline suggestions._
 
