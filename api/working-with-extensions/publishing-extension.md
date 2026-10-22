@@ -72,14 +72,12 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
-| GitHub Actions | [Publish with GitHub Actions and Trusted Publishing][trusted-publishing]. |
+| GitHub Actions | [Publish with GitHub Actions and Trusted Publishing](#publish-with-github-actions-and-trusted-publishing). |
 | Azure Pipelines | [Publish from Azure Pipelines with Microsoft Entra ID.](#publish-from-azure-pipelines-with-microsoft-entra-id) |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
 Support for additional providers might be added in the future.
-
-[trusted-publishing]: #publish-with-github-actions-and-trusted-publishing
 
 Both options remove stored publishing credentials and simplify credential
 management. For more information, see
@@ -139,11 +137,8 @@ before publication.
 
 The Marketplace credential expires after 15 minutes. Each GitHub OIDC token can
 be exchanged only once. For more information, see
-[Visual Studio Marketplace Trusted Publishing][vsm-trusted-publishing] and
-[Trusted Publishing in the `vscode-vsce` repository][vsce-trusted-publishing].
-
-[vsm-trusted-publishing]: https://aka.ms/vsm/trustedpublishing
-[vsce-trusted-publishing]: https://github.com/microsoft/vscode-vsce#trusted-publishing
+[Visual Studio Marketplace Trusted Publishing](https://aka.ms/vsm/trustedpublishing) and
+[Trusted Publishing in the `vscode-vsce` repository](https://github.com/microsoft/vscode-vsce#trusted-publishing).
 
 #### Publish from Azure Pipelines with Microsoft Entra ID
 
