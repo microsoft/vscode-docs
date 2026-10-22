@@ -268,7 +268,7 @@ Happy coding! 💙
 <hr>
 <p id="edit-distance-note"><a href="#edit-distance-note-ref" role="doc-backlink" aria-label="Footnote 1: return to edit distance">[1]</a> A no-edit response has distance zero, while a nonzero distance counts the characters changed in a proposed edit, so the distribution reflects both how often edits are proposed and how much they change.</p>
 
-<p id="distillation-note"><a href="#distillation-note-ref" role="doc-backlink" aria-label="Footnote 2: return to on-policy distillation">[2]</a> Here, the reference model and the model under training share the same base architecture; our application of distillation preserves behavior rather than compressing a larger model into a smaller one.</p>
+<p id="distillation-note"><a href="#distillation-note-ref" role="doc-backlink" aria-label="Footnote 2: return to on-policy distillation">[2]</a> Here, the reference model and the model under training share the same base architecture; our application of distillation preserves behavior from the reference model rather than compressing a larger model into a smaller one.</p>
 
 <p id="high-eagerness-note"><a href="#high-eagerness-note-ref" role="doc-backlink" aria-label="Footnote 3: return to online results">[3]</a> Raw dismissals were also higher alongside the increase in shown suggestions, but dismissal rate did not change significantly.</p>
 </section>
