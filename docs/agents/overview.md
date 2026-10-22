@@ -36,7 +36,7 @@ You can choose models from multiple providers and work with the {% data variable
 
 When you switch interfaces, you can continue sessions without starting over. For projects on another machine, you can connect to agents running there while keeping your files and development tools remote.
 
-<!-- TODO: Add a human-recorded, 30-45 second overview video showing inline suggestions, collaboration alongside code, and task orchestration in the Agents window. Use click-to-play playback, captions, a descriptive poster, and a brief written summary. -->
+<video src="images/agents-overview/build-with-ai-overview.mp4" title="Video overview of building with AI in VS Code, showing inline suggestions, collaboration alongside code, and task orchestration in the Agents window." autoplay loop controls muted></video>
 
 <a name="what-you-can-do-with-ai"></a>
 <a name="ways-to-work-with-agents"></a>
