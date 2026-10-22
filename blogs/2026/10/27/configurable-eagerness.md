@@ -26,7 +26,7 @@ Configurable eagerness gives developers more control over how proactively Copilo
 > Configurable eagerness gives developers more control over how proactively Copilot offers inline suggestions.
 ## Introducing configurable eagerness
 
-We define eagerness along two dimensions: how often the model offers a suggestion and the size of each proposed edit.
+We define eagerness along two dimensions: **how often the model offers a suggestion** and **the size of each proposed edit**.
 
 <table aria-label="Intended behavior by eagerness setting">
   <thead>
@@ -63,7 +63,7 @@ To train these behaviors, we needed a measurable definition of eagerness. Becaus
 
 ## One model, three modes
 
-We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, we trained one model to produce all three behaviors (low, medium, and high eagerness), conditioned on a lightweight control tag:
+We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, **we trained one model to produce all three behaviors (low, medium, and high eagerness)**, conditioned on a lightweight control tag:
 
 <table aria-label="Intended behavior by eagerness setting">
   <thead>
