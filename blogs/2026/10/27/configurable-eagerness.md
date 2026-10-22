@@ -260,9 +260,28 @@ The goal isn't simply to suggest more or less code. It's to provide the right le
 
 ## Try it out
 
+<style>
+  .eagerness-settings-screenshot {
+    float: right;
+    width: 45%;
+    max-width: 360px;
+    margin: 0 0 1rem 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .eagerness-settings-screenshot {
+      float: none;
+      display: block;
+      width: 100%;
+      margin: 0 auto 1rem;
+    }
+  }
+</style>
+
+<img class="eagerness-settings-screenshot" src="./eagerness-setting.png" alt="Screenshot showing the Copilot settings menu above the Copilot status bar icon, with Next edit suggestions enabled and a red outline around the Eagerness selector and its expanded Auto, Low, Medium, and High options.">
+
 Configurable eagerness is available to paid GitHub Copilot subscribers in VS Code. Update to the latest version of VS Code, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the Copilot settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
 
-![Screenshot showing the Copilot settings menu above the Copilot status bar icon, with Next edit suggestions enabled and a red outline around the Eagerness selector and its expanded Auto, Low, Medium, and High options.](eagerness-setting.png)
+<div style="clear: both;"></div>
 
 ## Acknowledgments
 
