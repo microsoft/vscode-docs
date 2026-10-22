@@ -112,8 +112,10 @@ Use the following table to decide whether a server can migrate automatically and
 | Standard `command`, `args`, `env`, `url`, and `headers` values | Migrates automatically and adds `tools: ["*"]` | Inspect the server's tools. Replace `*` with the specific tools Copilot should invoke when you do not want every server tool available. |
 | `${workspaceFolder}`, `${workspaceRoot}`, `${workspaceFolderBasename}`, `${workspaceRootFolderName}`, `${cwd}`, or `${pathSeparator}` | Migrates after {% data variables.product.prodname_vscode_shortname %} resolves the variable and writes its current value | Review the resulting value before you share the destination file or use it on another machine. |
 | `gallery`, `version`, `dev`, or `sandboxEnabled` | Migrates with changes and removes these properties | Review the migration warning. Decide how to handle updates, development behavior, or sandboxing after migration. |
-| `${input:...}`, `${config:...}`, `${command:...}`, or other interactive {% data variables.product.prodname_vscode_shortname %} variables | Does not migrate automatically | Reconfigure the value for the Copilot harness. Do not copy a resolved secret into the MCP file. |
-| `${env:NAME}` | Does not migrate automatically | Use `$NAME`, `${NAME}`, or `${NAME:-default}`, and define the variable in the environment used to start the agent. |
+| Eligible non-password `promptString` or `pickString` inputs declared in the same source file | Migrates to environment-variable references | Review the generated variable names and defaults. Stdio entries can include default or empty values in `env`. HTTP entries use references in URLs or headers. |
+| Password inputs, command inputs, `${command:...}`, or other unsupported variables | Does not migrate automatically | If environment variables meet your requirements, [replace the input with an environment-variable reference](#replace-input-prompts-with-environment-variables). Do not copy a resolved secret into the MCP file. |
+| `${config:...}` | Eligible setting references migrate to environment-variable entries based on the effective setting values | Review generated values before sharing the file. Unlike an environment-variable reference, this conversion can write setting values into the destination configuration. |
+| `${env:NAME}` | Eligible references migrate automatically to `${NAME}` | The reference is preserved without writing the resolved environment value. Define the variable in the environment of the host that runs or connects to the server. |
 | `cwd` | Does not migrate automatically | Add `cwd` manually only when the server requires it, and verify the path on the machine where the agent runs. |
 | `envFile` | Does not migrate automatically | Export the required variables in the environment used to start the agent and reference them from `env`. Do not copy secret values into the MCP file. |
 | SSE transport | Does not migrate automatically | Use `type: "sse"` only when the server does not support Streamable HTTP. SSE is deprecated. |
@@ -122,7 +124,7 @@ Use the following table to decide whether a server can migrate automatically and
 | Additional VS Code-specific properties | Does not migrate automatically | Remove or replace the unsupported property before you retry. |
 | A different server with the same name in the destination or another workspace root | Migration stops without changing the source | Rename or remove the conflicting server, and then retry. |
 
-Input variables need special attention. The {% data variables.product.prodname_vscode_shortname %} MCP format can prompt for values such as API keys through `${input:api-key}`. The Copilot MCP format does not use this {% data variables.product.prodname_vscode_shortname %} input flow, so these servers require manual configuration.
+Input variables need special attention. The {% data variables.product.prodname_vscode_shortname %} MCP format can prompt for values such as API keys through `${input:api-key}`. The Copilot MCP format does not use this input flow. Migration converts eligible non-secret inputs to environment variables, but password and command inputs require manual changes.
 
 > [!IMPORTANT]
 > VS Code per-server sandbox settings and top-level `sandbox` rules do not transfer to the Copilot harness configuration. The Copilot harness uses session-level sandbox settings. Local stdio MCP servers run in the Copilot harness sandbox only when local sandboxing and MCP server sandboxing are enabled. Remote HTTP and SSE servers are not locally sandboxed. Review these settings before enabling a migrated server.
@@ -134,6 +136,49 @@ When a server requires manual work:
 1. Follow the [Copilot CLI MCP server guidance](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) for the destination configuration.
 1. Decide how to provide secrets, authentication, or environment-specific paths. Do not copy sensitive values into a committed file.
 1. Test the server with the Copilot harness before you remove the original entry.
+
+### Replace input prompts with environment variables
+
+Portable `.mcp.json` and Copilot user `mcp-config.json` support environment-variable references. If your security requirements permit environment variables, use them instead of input prompts. This keeps credential values out of the configuration file, but does not provide prompting or secret storage.
+
+For example, an HTTP server in `.vscode/mcp.json` might use `"Authorization": "Bearer ${input:api-key}"`. Create the corresponding portable entry with `${SERVICE_API_KEY}` instead:
+
+```json
+{
+    "mcpServers": {
+        "service": {
+            "type": "http",
+            "url": "https://api.example.com/mcp",
+            "headers": {
+                "Authorization": "Bearer ${SERVICE_API_KEY}"
+            },
+            "tools": ["*"]
+        }
+    }
+}
+```
+
+Replace the example URL with your server's endpoint. For a stdio server, reference the variable in its `env` values instead:
+
+```json
+{
+    "env": {
+        "API_KEY": "${SERVICE_API_KEY}"
+    }
+}
+```
+
+Add this `env` object to the server's existing command and arguments. To update a portable entry, use **Chat: Open Customizations** > **MCP Servers**, select the server, and edit its headers or environment variables in the [configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration). Enter the reference, not the credential value, then select **Save**.
+
+Before testing:
+
+1. Provide `SERVICE_API_KEY` through your organization's approved environment or credential-injection mechanism. It must be available to the host that runs the stdio server or connects to the HTTP server.
+1. For a remote or Dev Container session, configure the variable in that host or container. Setting it in an unrelated terminal does not update an already-running Agent Host. If you change the launch environment, restart the affected client or Agent Host so it inherits the change.
+1. Verify that the server connects and its tools work in a Copilot session. Remove an old input declaration only after no remaining server uses it, and retire the original server entry after verification.
+
+Use `${NAME}` rather than the {% data variables.product.prodname_vscode_shortname %}-specific `${env:NAME}` in the portable file. For non-secret defaults, `${NAME:-default}` is also supported. Do not put a secret in a default or replace a reference with a literal credential in the form or JSON.
+
+Environment variables are not a secret store. This migration does not meet a requirement to avoid both environment variables and credentials in files. See [prompted-secret limitations](#can-copilot-pass-a-prompted-secret-to-an-http-mcp-server-without-an-environment-variable-or-a-file).
 
 ## Convert prompt files to skills
 
@@ -627,7 +672,7 @@ Administrators can use the temporary `vscode.temporaryDefaultToLocalHarness` ent
 
 Servers that require `${input:...}` or `${command:...}` variables are not forwarded from `.vscode/mcp.json` or profile `mcp.json` to the Copilot harness. The server's tools are therefore unavailable in the session. Resolving the prompt in a Local session first does not help: Copilot forwarding rejects these variables before resolving their values, including cached values.
 
-Moving the same configuration to `.mcp.json` does not add input-prompt support. Keep the original configuration until you have a supported authentication method and have verified the tools in a Copilot session. See [MCP input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) and the open reports [microsoft/vscode#334271](https://github.com/microsoft/vscode/issues/334271) and [microsoft/vscode#337311](https://github.com/microsoft/vscode/issues/337311).
+Moving the same configuration to `.mcp.json` does not add input-prompt support. Migration converts eligible non-secret inputs to environment variables. For password inputs or other manual changes, see [Replace input prompts with environment variables](#replace-input-prompts-with-environment-variables). Keep the original configuration until you have a supported authentication method and have verified the tools in a Copilot session. See [MCP input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) and the open reports [microsoft/vscode#334271](https://github.com/microsoft/vscode/issues/334271) and [microsoft/vscode#337311](https://github.com/microsoft/vscode/issues/337311).
 
 ### Can Copilot pass a prompted secret to an HTTP MCP server without an environment variable or a file?
 

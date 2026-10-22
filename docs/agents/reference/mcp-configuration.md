@@ -36,6 +36,7 @@ The formats and locations differ in the capabilities they support:
 | Top-level server object | `servers` | `mcpServers` | `mcpServers` |
 | Agent Customizations editor | Read-only JSON | Configuration form | Configuration form |
 | Server transports | stdio, HTTP, and SSE | stdio and HTTP | stdio, HTTP, and SSE |
+| Environment-variable references | `${env:NAME}` | `${NAME}` or `${NAME:-default}` | `${NAME}` or `${NAME:-default}` |
 | Working directory | Yes | No | Yes |
 | Environment file | Yes | No | No |
 | {% data variables.product.prodname_vscode_shortname %} input variables | Yes | No | No |
@@ -76,6 +77,16 @@ For an HTTP server, replace the server entry with the publisher's endpoint:
 Follow the [Context7 setup instructions](https://context7.com/docs/resources/all-clients) for authentication and service limits. An endpoint alone doesn't grant access to a service.
 
 The property tables below describe the {% data variables.product.prodname_vscode_shortname %} format, not a shared schema for all MCP clients. Check the [capability comparison](#configuration-file) before copying properties into a portable file.
+
+### Environment-variable references
+
+Portable configurations support environment variables independently of {% data variables.product.prodname_vscode_shortname %} input prompts. Use `${NAME}` to reference a value, or `${NAME:-default}` for a non-secret default. Stdio servers can use references in `command`, `args`, and `env` values. HTTP servers can use them in header values.
+
+Provide variables in the environment of the host that runs or connects to the server. For remote sessions, that is the remote host or container. Use the braced `${NAME}` form for compatibility across the Copilot runtime and the {% data variables.product.prodname_vscode_shortname %} MCP client, which treats bare `$NAME` as literal text.
+
+You can edit environment variables and HTTP headers in the [MCP configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration). The form writes the configured values to the file. Enter references rather than literal credentials.
+
+Support for environment variables does not include `envFile`, input prompting, or a bridge to {% data variables.product.prodname_vscode_shortname %} `SecretStorage`. For a worked example, see [Replace input prompts with environment variables](/docs/agent-customization/migrate-customizations.md#replace-input-prompts-with-environment-variables).
 
 ### Configuration structure
 
@@ -255,7 +266,7 @@ Choose an authentication method that both the server and your configuration supp
 | Server requirement | Guidance |
 |--------------------|----------|
 | Browser sign-in or OAuth | Follow the publisher's connection instructions and review the requested permissions. Complete the authorization flow when prompted. The `oauth` fields above apply to the {% data variables.product.prodname_vscode_shortname %} format. |
-| Environment variables for a local server | Follow the publisher's instructions to provide credentials in the environment that launches the server. Configure them on the machine where the server runs, not only in an unrelated terminal or on your local machine for a remote server. |
+| Environment variables | Portable configurations support [environment-variable references](#environment-variable-references) in stdio server configuration and HTTP headers. Provide credentials in the environment of the host that runs or connects to the server, not only in an unrelated terminal or on your local machine for a remote session. |
 | {% data variables.product.prodname_vscode_shortname %} input prompts | Use the [input variables](#input-variables-for-sensitive-data) supported by the {% data variables.product.prodname_vscode_shortname %} format. Servers requiring these interactive inputs aren't forwarded to Copilot harness sessions. |
 | An environment file | `envFile` is supported in the {% data variables.product.prodname_vscode_shortname %} format, not in portable `.mcp.json` or Copilot user `mcp-config.json`. Keep files containing credentials out of source control. |
 
