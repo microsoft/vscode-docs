@@ -57,7 +57,7 @@ This demo shows a simple example: from the same starting point (`class ModelMana
 
 _Figure 1. Low, medium, and high eagerness while building a `ModelManager` class._
 
-We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed by a suggestion) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
+To train these behaviors, we needed a measurable definition of eagerness. Because our model outputs suggestions in a diff-based format, we used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed by a suggestion) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
 
 ## One model, three modes
 
