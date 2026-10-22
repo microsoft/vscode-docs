@@ -261,9 +261,13 @@ Choose an authentication method that both the server and your configuration supp
 
 Do not commit tokens, passwords, or populated authentication headers. A personal configuration file is not a secret store. For a server that requires a fixed token, follow its publisher's secure configuration guidance for your client and harness rather than copying credentials into a shared example.
 
+The Copilot harness has no built-in MCP configuration option to forward a `${input:...}` secret or read an existing {% data variables.product.prodname_vscode_shortname %} `SecretStorage` value into an HTTP authentication header. OAuth can be an alternative when the server supports it, but it does not substitute a prompted API key. If your integration requires a static bearer token without environment variables or credentials in files, see the [migration FAQ](/docs/agent-customization/migrate-customizations.md#can-copilot-pass-a-prompted-secret-to-an-http-mcp-server-without-an-environment-variable-or-a-file).
+
 ### Input variables for sensitive data
 
 Input variables in the {% data variables.product.prodname_vscode_shortname %} format let you define placeholders for values such as API keys or passwords. They aren't supported in portable configuration files, and servers that require them aren't forwarded to Copilot harness sessions.
+
+Forwarding rejects input and command variables before resolving them. Entering or caching the secret in a Local session first does not make the server available to Copilot. Keep the original configuration until a supported authentication method works in the destination harness.
 
 When you reference an input variable using `${input:variable-id}`, {% data variables.product.prodname_vscode_shortname %} prompts you for the value when the server starts for the first time. The value is then securely stored for subsequent use. Learn more about [input variables](/docs/reference/variables-reference.md#input-variables) in {% data variables.product.prodname_vscode_shortname %}.
 

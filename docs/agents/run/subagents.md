@@ -51,6 +51,8 @@ Your [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses
 
 The **{% data variables.product.prodname_copilot_short %}** harness manages delegation to built-in or custom subagents. Request a subagent in your prompt, or let the main agent decide when to delegate. For native agent behavior and configuration, see [built-in and custom agents in {% data variables.product.prodname_copilot_short %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents).
 
+Copilot uses the native `task` tool for delegation, rather than Local's `runSubagent`. When migrating a coordinator agent, review both instructions that name the tool and the agent's tool list. Do not assume the tools accept identical arguments. See the [subagent migration FAQ](/docs/agent-customization/migrate-customizations.md#why-does-my-coordinators-subagent-invocation-stop-working).
+
 {% /tab %}
 {% tab label="Claude" %}
 
