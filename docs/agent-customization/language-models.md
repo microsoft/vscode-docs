@@ -113,15 +113,15 @@ On-device models differ from [BYOK local models](#bring-your-own-language-model-
 
 1. In a Copilot harness session, open the model picker and select the **On This Device** tab. Models that are not downloaded appear dimmed with a **Download** action.
 
-    ![Screenshot showing the On This Device tab in the model picker with MAI Code 1.1 Flash and a Download action.](images/language-models/on-device-model-picker.png)
+    ![Screenshot showing the On This Device tab in the model picker with MAI Code 1.1 Flash and a Download action.](images/language-models/on-device-model-picker-2.png)
 
 1. Select the model name to open its details, review the download size, source (Azure ML registry), and license, and then select **Download**.
 
-    ![Screenshot showing the details page for MAI Code 1.1 Flash with the download size, source, license, and a Download button.](images/language-models/on-device-model-download-details.png)
+    ![Screenshot showing the details page for MAI Code 1.1 Flash with the download size, source, license, and a Download button.](images/language-models/on-device-model-download-details-2.png)
 
 1. Track progress in the notice above the chat input. You can keep using Copilot while the model downloads, and select **Pause** to pause the download.
 
-    ![Screenshot showing a download progress notice for MAI Code 1.1 Flash above the chat input with a Pause button.](images/language-models/on-device-model-download-progress.png)
+    ![Screenshot showing a download progress notice for MAI Code 1.1 Flash above the chat input with a Pause button.](images/language-models/on-device-model-download-progress-2.png)
 
 {% data variables.product.prodname_vscode_shortname %} stores models in `~/.copilot/azureml-models` and shares them with other Copilot apps, such as {% data variables.copilot.copilot_cli_short %}.
 
@@ -129,11 +129,11 @@ On-device models differ from [BYOK local models](#bring-your-own-language-model-
 
 After the download finishes, {% data variables.product.prodname_vscode_shortname %} verifies the files and loads the model. Loading can take a few minutes, and the notice above the chat input shows the progress, with a **Cancel** action. When the model is ready, select **Switch to MAI Code 1.1 Flash** in the notice, or select the model from the **On This Device** tab.
 
-![Screenshot showing a notice above the chat input that says MAI Code 1.1 Flash is ready on this device, with Not Now and Switch to MAI Code 1.1 Flash buttons.](images/language-models/on-device-model-ready.png)
+![Screenshot showing a notice above the chat input that says MAI Code 1.1 Flash is ready on this device, with Not Now and Switch to MAI Code 1.1 Flash buttons.](images/language-models/on-device-model-ready-2.png)
 
 When you select an on-device model, the model picker and the footer of each response show the model name followed by **On-device**. On-device responses don't use AI credits, and the response footer shows **0 credits**.
 
-![Screenshot showing a chat response labeled MAI Code 1.1 Flash On-device with 0 credits, and the model picker showing the on-device model.](images/language-models/on-device-model-response.png)
+![Screenshot showing a chat response labeled MAI Code 1.1 Flash On-device with 0 credits, and the model picker showing the on-device model.](images/language-models/on-device-model-response-2.png)
 
 To change how the model runs, hover over the model in the **On This Device** tab and select **Details**. On the details page, you can:
 
@@ -141,7 +141,7 @@ To change how the model runs, hover over the model in the **On This Device** tab
 * Choose the **Context** size. The available sizes depend on the GPU memory of your device, and the page shows the estimated memory for the selected size. Changing the context size reloads the model after running responses finish.
 * Stop or remove the model by using the icons at the top of the page.
 
-![Screenshot showing the details page of an installed on-device model with Effort Level, Context, and Use in Auto options.](images/language-models/on-device-model-details.png)
+![Screenshot showing the details page of an installed on-device model with Effort Level, Context, and Use in Auto options.](images/language-models/on-device-model-details-2.png)
 
 ### Use an on-device model with auto-model selection
 

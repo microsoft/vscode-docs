@@ -16,7 +16,7 @@ For background on what context is and how {% data variables.product.prodname_vsc
 
 You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the {% data variables.copilot.chat_view %} to open the context picker.
+Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} to open the context picker.
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
@@ -33,7 +33,7 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
+* Select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
 
 Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
 
@@ -44,7 +44,9 @@ When you start a session in the {% data variables.copilot.agents_window %}, the 
 You can attach project and GitHub context to a request:
 
 * In the {% data variables.copilot.agents_window %}, select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
-* In any chat input, select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+
+* In any chat input, select **Add Context** (`+` icon), and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+
 * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
 You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
