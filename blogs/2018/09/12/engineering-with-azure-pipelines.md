@@ -1,4 +1,5 @@
 ---
+Tags: [Engineering]
 Order:
 TOCTitle: Using Azure Pipelines
 PageTitle: Visual Studio Code using Azure Pipelines

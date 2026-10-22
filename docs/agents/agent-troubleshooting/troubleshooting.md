@@ -1,8 +1,7 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 9/9/2026
+DateApproved: 10/21/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot
@@ -26,6 +25,7 @@ When chat, agents, or inline suggestions do not behave as expected, start with t
 | A file, tool, or expected step is missing from a response | [Inspect chat interactions](#inspect-chat-interactions). | Compare the session events with the request sent to the model. |
 | A response is slow or uses more tokens than expected | Open the Agent Debug Logs Summary view. | Use the Cache Explorer only if the session reports low cache reuse. |
 | An MCP server or tool is unavailable | [Troubleshoot MCP servers](#troubleshoot-mcp-servers). | Inspect the server output and the tools available to the request. |
+| Sandboxing reports missing dependencies, or sandboxed tools fail with certificate errors | [Troubleshoot agent sandboxing](/docs/agents/run/agent-sandboxing.md#troubleshoot-agent-sandboxing). | Check dependencies, proxy access, and certificate trust on the agent host. |
 
 ## Start with basic checks
 
@@ -50,7 +50,7 @@ Use the result to choose the next action:
 * **The file is missing**: Verify its file name, location, and the settings that control instruction discovery.
 * **The file has an error**: Fix the reported frontmatter or content error, and then reopen the diagnostics view.
 * **The file is loaded but not applied**: For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on. Also check the **References** section of the chat response to see which instructions were used.
-* **A prompt file is missing from the request**: Invoke the prompt file manually in chat. Prompt files do not use `applyTo`, and agents that run on the Agent Host do not use prompt files.
+* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 For file locations, applicability rules, and settings, see [Use custom instructions](/docs/agent-customization/custom-instructions.md). To verify the exact instructions sent to the model, use the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
 
@@ -67,15 +67,17 @@ Use the following tools when the basic checks pass but an agent behaves unexpect
 
 Prepare the session before you reproduce the issue:
 
-* For local chat sessions in the main {% data variables.product.prodname_vscode_shortname %} window, enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting and reload the window before you use `/troubleshoot`.
-* For sessions that run on the [Agent Host](/docs/agents/concepts/agent-host.md), enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect. Capture is not retroactive.
+* Enable the experimental `setting(chat.agentHost.agentDebugLog.enabled)` setting before the activity that you want to inspect. It captures events for sessions managed by the [Agent Host](/docs/agents/concepts/agent-host.md), whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Capture is not retroactive.
 * Reproduce the issue, and then select that session when you open the logs or use `/troubleshoot`.
 
-To analyze an Agent Host session with chat:
+> [!NOTE]
+> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+
+To analyze a session with chat:
 
 1. Open the {% data variables.copilot.agents_window %}.
 1. Enter `/troubleshoot #session` in the chat input.
-1. Select the local or remote session that contains the issue.
+1. Select the session that contains the issue.
 1. Add a focused question, such as `which tool failed and what error did it return?`, and send the request.
 
 For detailed procedures and scenario-based guidance, see [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md).
@@ -117,7 +119,7 @@ If an MCP server or one of its tools is unavailable:
 
 If the server is running but the model does not invoke its tool, follow [An MCP tool is not being invoked](/docs/agents/agent-troubleshooting/chat-debug-view.md#an-mcp-tool-is-not-being-invoked).
 
-For setup and server-specific checks, see [Configure and debug MCP servers](/docs/agent-customization/mcp-servers.md#troubleshoot-and-debug-mcp-servers).
+For server-specific checks, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
 
 ## Report an unresolved issue
 

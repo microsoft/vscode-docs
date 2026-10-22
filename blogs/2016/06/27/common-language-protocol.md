@@ -1,4 +1,5 @@
 ---
+Tags: [Languages, Extensions]
 Order:
 TOCTitle: The Language Server Protocol
 PageTitle: Common Language Server Protocol

@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Security]
 Order: 120
 TOCTitle: "Announcing Private Marketplace for VS Code"
 PageTitle: "Announcing Private Marketplace for VS Code"

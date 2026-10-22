@@ -1,6 +1,6 @@
 ---
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Sync settings and preferences across devices with {% data variables.product.prodname_vscode %} {% data variables.product.prodname_settings_sync %}.
 ---
 # {% data variables.product.prodname_settings_sync %}
@@ -37,7 +37,7 @@ Run the **Settings Sync: Configure...** command or select **Settings Sync is On*
 | Keyboard Shortcuts | User-defined keyboard shortcuts. Shortcuts are synchronized separately for each operating system by default. |
 | Snippets | [User snippets](/docs/editing/userdefinedsnippets.md). |
 | Tasks | [User-level tasks](/docs/debugtest/tasks.md#user-level-tasks). Workspace tasks are not synchronized. |
-| MCP Servers | [MCP server configurations](/docs/agent-customization/mcp-servers.md#synchronize-mcp-configuration-across-devices). |
+| MCP Servers | [User-profile MCP server configurations](/docs/agents/run/manage-mcp-servers.md#synchronize-mcp-configuration-across-devices). |
 | UI State | Display language, Activity Bar and Panel entries, view layout and visibility, recently used commands, and 'Do not show again' notification choices. |
 | Extensions | Installed extensions and the global enablement state of built-in and installed extensions. |
 | Profiles | [Profiles](/docs/configure/profiles.md) and their data for the selected categories. You can synchronize up to 20 profiles. |

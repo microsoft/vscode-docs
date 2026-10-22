@@ -1,4 +1,5 @@
 ---
+Tags: [Security, Editor]
 Order: 
 TOCTitle: Workspace Trust
 PageTitle: Workspace Trust in Visual Studio Code

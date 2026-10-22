@@ -1,8 +1,7 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 9/16/2026
-MetaDescription: Learn how to set up a test-driven development (TDD) workflow in {% data variables.product.prodname_vscode_shortname %} with Copilot and custom agents and instructions.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Build a Local TDD workflow in {% data variables.product.prodname_vscode_shortname %} with custom agents, handoffs, and instructions.
 Keywords:
 - ai
 - copilot
@@ -18,7 +17,7 @@ Keywords:
 
 Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. {% data variables.product.prodname_vscode %}'s AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions.
+This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
 
 <details>
 <summary>TDD overview</summary>
@@ -37,13 +36,23 @@ The three phases are:
 
 </details>
 
+## Prerequisites
+
+Use your own repository for this workflow. Before you start:
+
+* Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
+* Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
+* Install the project dependencies and confirm that you can run its test command from the integrated terminal. The custom agents use that command to verify each phase.
+
+If you use another harness, adapt these TDD roles with the [customization formats that the harness supports](/docs/agents/concepts/customization.md#customization-options-at-a-glance). You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).
+
 ## Implementation overview
 
 You can implement an AI-assisted TDD workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents. Each phase of the TDD process (red, green, refactor) has a specific goal and requires different AI behavior. You create a custom agent for each phase that defines the specific role and guidelines for that phase.
 
 With custom agent handoffs, you can transition from one phase to the next once the AI completes its task. The custom agents are connected in a cycle that mirrors the TDD workflow:
 
-* **Red phase** → hands off to **Green phase** after writing failing tests
+* **Red phase** → runs a new test to verify that it fails for the expected reason, then hands off to **Green phase**
 * **Green phase** → runs tests to verify implementation, then hands off to **Refactor phase**
 * **Refactor phase** → runs tests to ensure they still pass, then hands off back to **Red phase** to start the next cycle
 
@@ -130,13 +139,15 @@ To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/a
     description: TDD phase for writing FAILING tests
     disable-model-invocation: false
     user-invocable: true
-    tools: ['read', 'edit', 'search']
+    tools: ['read', 'edit', 'search', 'execute']
     handoffs:
       - label: TDD Green
         agent: TDD Green
         prompt: Implement minimal implementation
     ---
-    You are a test-writer: when given a function name, spec, or requirements, output a complete test file (or test function) that asserts the expected behavior, which must fail when run against the current codebase. Use the project’s style/conventions. Do not write implementation, only tests.
+    You are a test writer. When given a function name, specification, or requirements, write a complete test file or test function that asserts the expected behavior. Use the project's style and conventions. Do not write implementation code.
+
+    Run the targeted test and verify that it fails for the expected reason before handing off.
     ```
 
 ## Step 3: Create green phase custom agent
@@ -160,7 +171,7 @@ To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/do
     description: TDD phase for writing MINIMAL implementation to pass tests
     disable-model-invocation: false
     user-invocable: true
-    tools: ['search', 'edit', 'execute']
+    tools: ['read', 'search', 'edit', 'execute']
     handoffs:
       - label: TDD Refactor
         agent: TDD Refactor
@@ -220,11 +231,11 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 1. Review the generated tests and use the handoff actions to transition through the TDD cycle:
 
-    * After tests are written, select **TDD Green** to implement the minimal code to make tests pass
-    * The green agent runs tests automatically after implementing
-    * After tests pass, select **TDD Refactor** to improve code quality
-    * The refactor agent runs tests automatically after refactoring to ensure they still pass
-    * Select **TDD Red** to start the next cycle with additional functionality
+    * Confirm that the new test fails for the expected reason, and then select **TDD Green** to implement the minimal code that makes the test pass.
+    * Confirm that the green agent's test run passes, and then select **TDD Refactor** to improve code quality.
+    * Confirm that the refactor agent's test run still passes, and then select **TDD Red** to start the next cycle with additional functionality.
+
+    Each handoff switches to its named agent and fills the chat input with the next prompt. Review or edit the prompt before you submit it. The handoffs don't submit automatically because their configurations omit the `send` property.
 
 ## Troubleshooting and best practices
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 87225324-0ae8-4dd8-bce1-bb38ec4f29b1
-DateApproved: 9/22/2026
+DateApproved: 10/21/2026
 MetaDescription: Explore a codebase with an agent in {% data variables.product.prodname_vscode_shortname %}, trace a behavior, and verify explanations against source code.
 MetaSocialImage: ../images/agents-overview/hero-vscode-dev-agents-dark.png
 Keywords:
@@ -28,7 +28,7 @@ Review the [security guidance for working with agents](/docs/agents/run/security
 Start with one behavior rather than asking the agent to explain the entire repository. A bounded question makes it easier to check whether the explanation is complete.
 
 1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and start a new chat.
-1. Select the **{% data variables.product.prodname_copilot_short %}** session target and the **Agent** role. Keep **Manual permissions** selected.
+1. Select **{% data variables.product.prodname_copilot_short %}** from the **Session Target** UI control and select the **Agent** role. Keep **Manual permissions** selected.
 1. Describe the behavior you want to understand. Include an entry point if you know one, such as a route, command, or UI element.
 
 For example, adapt this prompt to an endpoint in your project:

@@ -1,8 +1,7 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Add context to chat
 
@@ -17,7 +16,7 @@ For background on what context is and how {% data variables.product.prodname_vsc
 
 You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the {% data variables.copilot.chat_view %} to open the context picker.
+Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} to open the context picker.
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
@@ -25,7 +24,7 @@ For tool names and context references, see the [Tools and context reference](/do
 
 ### Add files as context
 
-By default, {% data variables.product.prodname_vscode_shortname %} uses workspace indexing to automatically include relevant files as context based on the conversation. You can also explicitly add specific files, folders, or symbols by using #-mentions or the context picker. Explicit context is useful when you want to make sure the AI considers specific parts of your codebase.
+Agents can use workspace search and file-reading tools to gather relevant context. A workspace index helps locate code, but doesn't attach every file to the conversation. Add specific files, folders, or symbols by using #-mentions or the context picker when you know which sources the agent should consider.
 
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
@@ -34,9 +33,9 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
+* Select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
 
-To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
+Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
 
 ### Add project and GitHub context
 
@@ -45,7 +44,9 @@ When you start a session in the {% data variables.copilot.agents_window %}, the 
 You can attach project and GitHub context to a request:
 
 * In the {% data variables.copilot.agents_window %}, select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
-* In any chat input, select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+
+* In any chat input, select **Add Context** (`+` icon), and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+
 * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
 You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
@@ -67,16 +68,9 @@ Learn more about [using tools with agents](/docs/agents/run/tools.md).
 
 ## @-mentions
 
-Chat participants are specialized assistants that let you ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. {% data variables.product.prodname_vscode_shortname %} has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
+Chat participants invoked with `@name` are deprecated and are not supported in the Copilot harness. They remain available for Local harness compatibility.
 
-The following examples show how to use @-mentions in your chat prompts:
-
-* `"@vscode how to enable word wrapping"`
-* `"@terminal what are the top 5 largest files in the current directory"`
-
-Type `@` in the chat input field to see a list of available chat participants.
-
-Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
+Ask Copilot directly about your code, terminal output, or editor settings and attach the relevant context. For domain-specific integrations, use plugins with skills and MCP tools, or extension tools when editor context is required. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ## Vision
 

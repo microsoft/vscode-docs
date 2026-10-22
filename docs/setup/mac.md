@@ -1,7 +1,7 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 9/16/2026
-MetaDescription: Install {% data variables.product.prodname_vscode %} on macOS, add the code command to your path, and resolve common setup issues.
+DateApproved: 10/21/2026
+MetaDescription: Install {% data variables.product.prodname_vscode %} on macOS, add code to PATH, and optionally install {% data variables.copilot.copilot_cli %}.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Installing {% data variables.product.prodname_vscode %} on macOS
@@ -31,16 +31,32 @@ To run {% data variables.product.prodname_vscode_shortname %} from the terminal 
 
 1. Launch {% data variables.product.prodname_vscode_shortname %}.
 
-1. Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`), type `shell command`, and run the **Shell Command: Install 'code' command in PATH** command.
+1. Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`), type `shell command`, and run **Shell Command: Install 'code' and optionally 'copilot' commands in PATH**.
 
-    ![Screenshot showing the Shell Command command in the Command Palette on macOS.](images/mac/shell-command.png)
+    ![Screenshot showing the Shell Command command in the Command Palette on macOS.](images/mac/macos_install_copilot.png)
+
+1. When prompted to also install {% data variables.copilot.copilot_cli %}, select an option:
+
+    * **Yes**: start installation in the **Install {% data variables.copilot.copilot_cli %}** integrated terminal and continue adding `code` to PATH.
+    * **No**: add only `code` to PATH.
+
+    Pressing `kbstyle(Escape)` dismisses the prompt without installing either command.
+
+1. If you select **Yes**, follow the installation instructions in the terminal, including any instructions to update your shell profile or PATH. If {% data variables.copilot.copilot_cli_short %} is already installed, the existing installation is reused.
+
+    {% data variables.copilot.copilot_cli_short %} installation runs separately from adding `code` to PATH. The success message for `code` does not confirm that {% data variables.copilot.copilot_cli_short %} installation is complete. Check the installation terminal for the result.
 
 1. Restart the terminal for the new `$PATH` value to take effect.
 
     Run `code .` in any folder to start editing files in that folder.
 
+If you install {% data variables.copilot.copilot_cli_short %}, run `copilot` to [start a session from the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
+
 > [!NOTE]
-> If an old `code` alias remains in `.bash_profile` or an equivalent shell profile from an earlier {% data variables.product.prodname_vscode_shortname %} version, remove it and run the **Shell Command: Install 'code' command in PATH** command again.
+> In [Insiders](/insiders), the command uses `code-insiders` instead of `code`. If AI features are hidden or your organization disables {% data variables.copilot.copilot_cli_short %} installation, the command keeps its original **Shell Command: Install 'code' command in PATH** label and does not offer to install {% data variables.copilot.copilot_cli_short %}.
+
+> [!NOTE]
+> If an old `code` alias remains in `.bash_profile` or an equivalent shell profile from an earlier {% data variables.product.prodname_vscode_shortname %} version, remove it and run the Shell Command installation command again.
 
 ### Manually configure PATH
 

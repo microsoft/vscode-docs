@@ -1,8 +1,7 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customize
 - rules
@@ -20,7 +19,7 @@ Custom instructions provide reusable context that helps AI follow your coding pr
 
 This article helps you choose an instruction type and location, configure when instructions apply, and verify that your agent uses them. For a guided setup workflow, see [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md).
 
-Instruction support depends on the [agent harness](/docs/agents/concepts/agent-harnesses.md) selected for your session. Agent Host sessions use the discovery rules and file formats of the selected harness. The Local agent uses the {% data variables.product.prodname_vscode_shortname %} instruction settings described in this article.
+Instruction support depends on the [agent harness](/docs/agents/concepts/agent-harnesses.md) selected for your session. Each harness uses its own discovery rules and file formats. If you select the Local harness, {% data variables.product.prodname_vscode_shortname %} uses the Local harness-specific instruction settings described in this article.
 
 > [!TIP]
 > Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to discover, create, and manage customizations for the selected agent harness. Run **Chat: Open Customizations** from the Command Palette.
@@ -34,14 +33,16 @@ Select the intended harness before you open the Agent Customizations editor. The
 
 ### Choose a format
 
-Use an instruction format supported by the selected harness. The Local agent also supports compatibility formats.
+Use an instruction format supported by the selected harness.
 
 | Harness | Recommended project instructions | Targeted instructions |
 |---------|----------------------------------|-----------------------|
 | {% data variables.product.prodname_copilot_short %} | [`.github/copilot-instructions.md`](#use-a-githubcopilot-instructionsmd-file) or [`AGENTS.md`](#use-an-agentsmd-file) | [`.github/instructions/**/*.instructions.md`](#use-instructionsmd-files) |
 | {% data variables.product.prodname_anthropic_claude %} | [`CLAUDE.md`](#use-a-claudemd-file) | Markdown files in `.claude/rules` |
 | {% data variables.product.prodname_openai_codex %} | [`AGENTS.md`](#use-an-agentsmd-file) | `AGENTS.md` files in subfolders |
-| Local | `.github/copilot-instructions.md`, `AGENTS.md`, or `CLAUDE.md` | `.github/instructions/**/*.instructions.md` or Markdown files in `.claude/rules` |
+
+> [!NOTE]
+> **For Local harness sessions:** Project instructions can use `.github/copilot-instructions.md`, `AGENTS.md`, or `CLAUDE.md`. Targeted instructions can use `.github/instructions/**/*.instructions.md` or Markdown files in `.claude/rules`. The Local harness-specific settings in the sections below control discovery.
 
 `AGENTS.md` is not specific to Codex. It is a cross-agent format that you can use as the shared project instructions file when your selected harnesses support it. Some harnesses also recognize additional formats.
 
@@ -54,10 +55,10 @@ Store instructions at the narrowest scope that matches how you want to use and s
 | Scope | Use it for | Storage |
 |-------|------------|---------|
 | Workspace | Project conventions shared with contributors | A supported folder in the repository or session working folder |
-| User | Personal preferences across projects | A harness-specific user folder for Agent Host, or your {% data variables.product.prodname_vscode_shortname %} profile for the Local agent |
+| User | Personal preferences across projects | A user folder supported by the selected harness |
 | Organization | Centrally managed requirements for supported {% data variables.product.prodname_copilot_short %} sessions | GitHub organization settings |
 
-User instructions in Agent Host folders, such as `~/.copilot/instructions` and `~/.claude/rules`, do not roam through Settings Sync. Local agent instructions stored in your {% data variables.product.prodname_vscode_shortname %} profile can roam through Settings Sync.
+User instructions in harness folders, such as `~/.copilot/instructions` and `~/.claude/rules`, do not roam through Settings Sync. Local harness instructions stored in your {% data variables.product.prodname_vscode_shortname %} profile can roam through Settings Sync.
 
 ### Choose activation behavior
 
@@ -73,9 +74,9 @@ To reference files or URLs in instructions, use Markdown links. Relative file pa
 
 ## Use a `.github/copilot-instructions.md` file
 
-For {% data variables.product.prodname_copilot_short %} Agent Host sessions, use `.github/copilot-instructions.md` for project-wide guidance. Store the file in the `.github` folder at the repository root.
+For {% data variables.product.prodname_copilot_short %} sessions, use `.github/copilot-instructions.md` for project-wide guidance. Store the file in the `.github` folder at the repository root.
 
-The Local agent also discovers this workspace file when `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` is enabled.
+The Local harness also discovers this workspace file when `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` is enabled.
 
 Use `copilot-instructions.md` for:
 
@@ -85,7 +86,7 @@ Use `copilot-instructions.md` for:
 * Security requirements and error handling approaches.
 * Documentation standards.
 
-For personal, always-on instructions in {% data variables.product.prodname_copilot_short %} Agent Host sessions, use `~/.copilot/copilot-instructions.md`.
+For personal, always-on instructions in {% data variables.product.prodname_copilot_short %} sessions, use `~/.copilot/copilot-instructions.md`.
 
 Follow these steps to create a `.github/copilot-instructions.md` file in your workspace:
 
@@ -129,17 +130,15 @@ The supported location depends on the session type and selected harness.
 
 | Session and scope | Default file location |
 |-------------------|-----------------------|
-| Agent Host workspace, {% data variables.product.prodname_copilot_short %} format | `.github/instructions` |
-| Agent Host workspace, Claude format | `.claude/rules` |
-| Agent Host user, {% data variables.product.prodname_copilot_short %} format | `~/.copilot/instructions` |
-| Agent Host user, Claude format | `~/.claude/rules` |
-| Local agent workspace | `.github/instructions` or `.claude/rules` |
-| Local agent user | {% data variables.product.prodname_vscode_shortname %} profile storage |
+| {% data variables.product.prodname_copilot_short %} workspace | `.github/instructions` |
+| {% data variables.product.prodname_anthropic_claude %} workspace | `.claude/rules` |
+| {% data variables.product.prodname_copilot_short %} user | `~/.copilot/instructions` |
+| {% data variables.product.prodname_anthropic_claude %} user | `~/.claude/rules` |
 
-Use the Agent Customizations editor to create user instructions in a location supported by the selected harness. To move profile-based instructions to Agent Host user folders, use [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations).
+Use the Agent Customizations editor to create user instructions in a location supported by the selected harness. To move profile-based instructions to a supported harness user folder, use [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 > [!NOTE]
-> The `setting(chat.instructionsFilesLocations)` setting is deprecated and only used by the Local agent. If you configured other instruction locations with this setting, [migrate the customizations to supported locations](/docs/agent-customization/overview.md#migrate-customizations-from-configured-locations).
+> **For Local harness sessions:** Workspace instruction files use `.github/instructions` or `.claude/rules`, and user instructions use {% data variables.product.prodname_vscode_shortname %} profile storage. The deprecated `setting(chat.instructionsFilesLocations)` setting adds other locations for the Local harness only. To reuse those instructions with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 {% data variables.product.prodname_vscode_shortname %} searches these folders recursively, which enables you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
@@ -192,11 +191,11 @@ To create an instructions file:
 
 1. Select the agent harness that should use the instructions.
 
-1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon), or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. In the Agent Customizations editor, select **Instructions**.
 
-1. From the **New** dropdown, select a workspace or user instruction.
+1. Select **New Instruction** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the file.
 
 1. Select a supported location and enter a file name.
 
@@ -204,45 +203,49 @@ To create an instructions file:
 
 You can also run **Chat: New Instructions File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
+<!-- TODO: Replace screenshot to show the New Instruction (plus icon) buttons next to the Workspace and User groups in the Instructions section. -->
 ![Screenshot showing the Instructions section and the menu for creating an instructions file in the Agent Customizations editor.](images/customization/create-instructions-file.png)
 
 ### Generate an instructions file with AI
 
-In the Agent Customizations editor, enter a request in the **Overview** section that describes the instruction you want to create. Confirm that the generated file uses the format and location for the selected harness.
+In chat, describe the convention or guideline you want to enforce and ask the agent to create an instructions file. This works for every harness, including **Copilot**. Confirm that the generated file uses the format and location for the selected harness.
 
-For a Local session, you can also type `/create-instructions` in chat and describe the convention or guideline you want to enforce. To generate project-wide instructions, type `/init`.
+With **Local** selected, you can also use these shortcuts, which aren't available for other harnesses:
+
+* Type `/create-instructions` in chat and describe the convention or guideline.
+* Type `/init` to generate project-wide instructions. In the {% data variables.copilot.chat_view %}, the **Customize Your Agent** box on the **Overview** page of the Agent Customizations editor also uses `/init`.
 
 Review generated instructions before you use them. Verify commands, paths, and conventions against the repository.
 
 ## Use an `AGENTS.md` file
 
-`AGENTS.md` is a cross-agent format for project guidance. It is supported by multiple harnesses, including {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_openai_codex %}, and by the Local agent. Place the primary file at the repository root.
+`AGENTS.md` is a cross-agent format for project guidance. Multiple harnesses, including {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_openai_codex %}, support it. The Local harness also supports this format. Place the primary file at the repository root.
 
 Use `AGENTS.md` when:
 
 * You work with multiple compatible AI coding agents and want to share one set of instructions.
 * You want subfolder-level instructions that apply to specific parts of a monorepo.
 
-For the Local agent, configure the `setting(chat.useAgentsMdFile)` setting to enable or disable support for `AGENTS.md` files.
+For {% data variables.product.prodname_copilot_short %} sessions, instructions are discovered at the repository root, the session's working directory, and intermediate directories between them. {% data variables.product.prodname_copilot_short %} combines applicable instructions from `AGENTS.md` and other supported instruction files. Avoid conflicting guidance because there is no general precedence order between these files. For more information, see [{% data variables.product.prodname_copilot_short %} instruction discovery](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
+
+> [!NOTE]
+> **For Local harness sessions:** The `setting(chat.useAgentsMdFile)` setting controls whether instructions from workspace-root `AGENTS.md` files are automatically attached to chat requests and is enabled by default. This setting does not control instruction discovery in other harnesses.
 
 ### Use multiple `AGENTS.md` files
 
-`feature(nested-agents-md-files)`
+Use nested `AGENTS.md` files when different folders need different guidance. As {% data variables.product.prodname_copilot_short %} works with files in subfolders, it discovers `AGENTS.md` files along their directory paths. Other harnesses use their own discovery and activation rules.
 
-Use nested `AGENTS.md` files when different folders need different guidance. Discovery and activation depend on the selected harness.
-
-For the Local agent, use the `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files. The setting is disabled by default.
-
-When enabled, {% data variables.product.prodname_vscode_shortname %} lists nested `AGENTS.md` files with their folder locations so the Local agent can load relevant instructions for the task. For Agent Host sessions, follow the selected harness's working-folder and nested-instruction rules.
+> [!NOTE]
+> **For Local harness sessions:** `feature(nested-agents-md-files)` Set both `setting(chat.useAgentsMdFile)` and `setting(chat.useNestedAgentsMdFiles)` to `true` to discover nested `AGENTS.md` files. The nested-file setting is disabled by default. When both settings are enabled, {% data variables.product.prodname_vscode_shortname %} lists these files with their folder locations so the agent can load relevant instructions for the task. Neither setting controls {% data variables.product.prodname_copilot_short %} instruction discovery.
 
 > [!TIP]
 > For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.
 
 ## Use a `CLAUDE.md` file
 
-For Claude Agent Host sessions, use `CLAUDE.md` at the repository root for project-wide guidance. The Claude harness also supports additional native locations and formats, such as `.claude/CLAUDE.md` and `.claude/rules`.
+For {% data variables.product.prodname_anthropic_claude %} sessions, use `CLAUDE.md` at the repository root for project-wide guidance. The {% data variables.product.prodname_anthropic_claude %} harness also supports additional native locations and formats, such as `.claude/CLAUDE.md` and `.claude/rules`.
 
-The Local agent searches for Claude instructions in these locations when `setting(chat.useClaudeMdFile)` is enabled:
+The Local harness searches for Claude instructions in these locations when `setting(chat.useClaudeMdFile)` is enabled:
 
 | Location | Description |
 |----------|-------------|
@@ -286,9 +289,11 @@ To enable discovery of organization-level custom instructions, set `setting(gith
 
 Learn how you can [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
 
-### Sync Local agent instructions across devices
+<a name="sync-local-agent-instructions-across-devices"></a>
 
-{% data variables.product.prodname_vscode_shortname %} can sync Local agent instructions stored in your user profile by using [Settings Sync](/docs/configure/settings-sync.md). User instructions in Agent Host folders, such as `~/.copilot/instructions` and `~/.claude/rules`, do not roam through Settings Sync.
+### Sync Local harness instructions across devices
+
+{% data variables.product.prodname_vscode_shortname %} can sync Local harness instructions stored in your user profile by using [Settings Sync](/docs/configure/settings-sync.md). User instructions in harness folders, such as `~/.copilot/instructions` and `~/.claude/rules`, do not roam through Settings Sync.
 
 To sync profile instructions, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
@@ -310,6 +315,17 @@ For code review, commit messages, and pull request descriptions, you can still u
 Applicable instruction sources are additive. Do not depend on a file order or precedence rule to resolve conflicts because discovery and merge behavior can differ by harness.
 
 Keep shared requirements consistent across user, repository, and organization instructions. Remove duplicate guidance and resolve contradictions at their source.
+
+For example, suppose organization instructions require an approved HTTP client, repository instructions identify the project's wrapper for that client, and personal instructions request a different library. A targeted instruction for API files might add another conflicting rule. Don't add a new instruction or assume that one source overrides the others.
+
+1. Start a new chat with the intended harness and ask for a small change that matches the targeted instruction.
+1. Use the Agent Customizations editor and Agent Debug Logs to check which instruction sources are discovered and whether they contain errors.
+1. Expand **References** in the response to confirm which instructions were included for the request.
+1. Compare the generated code, tool activity, and validation results with the repository requirement.
+1. Resolve the contradiction in the source files. Remove or narrow the personal rule, and align the repository and targeted instructions with the reviewed organization requirement.
+1. Repeat the same task in another new chat and compare the observed result.
+
+For more diagnostic steps, see [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md) and [inspect the instructions sent in the model request](/docs/agents/agent-troubleshooting/chat-debug-view.md#instructions-or-a-prompt-file-are-not-applied).
 
 ## Tips for writing effective instructions
 
@@ -341,7 +357,7 @@ If your instructions file is not being applied, check the following:
 
 * For `*.instructions.md` files, check that `applyTo` matches a file the agent creates or modifies, or that `description` clearly identifies the relevant task. If neither applies, attach the file manually.
 
-* For the Local agent, check that relevant settings are enabled. These include `setting(chat.includeApplyingInstructions)` for pattern-based instructions, `setting(chat.includeReferencedInstructions)` for linked instructions, and `setting(chat.useAgentsMdFile)` for `AGENTS.md`.
+* For the Local harness, check that relevant settings are enabled. These include `setting(chat.includeApplyingInstructions)` for pattern-based instructions, `setting(chat.includeReferencedInstructions)` for linked instructions, and `setting(chat.useAgentsMdFile)` for `AGENTS.md`.
 
 * Expand **References** in the chat response to check which instructions were used.
 

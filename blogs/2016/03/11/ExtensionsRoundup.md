@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Community]
 Order:
 TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions Roundup

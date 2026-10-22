@@ -11,7 +11,7 @@ You can do all of your data science work within {% data variables.product.prodna
 
 ## Extensions
 
-The {% data variables.product.prodname_vscode_shortname %} Marketplace offers a family of extensions that provide a first-class data science experience for Python data science. In order to get started with Python, Microsoft recommends the following extensions:
+The {% data variables.product.prodname_vs_marketplace %} offers a family of extensions that provide a first-class data science experience for Python data science. In order to get started with Python, Microsoft recommends the following extensions:
 
 <div class="marketplace-extensions-datascience-python"></div>
 

@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Performance, Engineering]
 Order:
 TOCTitle: Text Buffer Reimplementation
 PageTitle: Text Buffer Reimplementation, a Visual Studio Code Story

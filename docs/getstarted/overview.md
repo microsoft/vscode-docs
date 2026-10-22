@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %}, open a project, and choose a guided path to learn editor basics or complete a task with an AI agent.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -16,7 +16,7 @@ AI features are optional. You don't need an account to use the core editor.
 
 1. **Open your code.** Open an existing folder, clone a repository, or create a folder for a new project.
 
-1. **Complete your first task.** Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) to learn the basics, or use the [agents quickstart](/docs/agents/quickstart.md) to build an app from a natural-language prompt.
+1. **Complete your first task.** Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) to learn the basics, use the [agents quickstart](/docs/agents/quickstart.md) to build an app from a natural-language prompt, or [choose an AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) for a smaller task.
 
 ## Install {% data variables.product.prodname_vscode_shortname %}
 
@@ -36,7 +36,7 @@ For System Setup, ZIP archive, or other options, see the [full Windows setup gui
 1. Open the `.dmg` file and drag **{% data variables.product.prodname_vscode %}.app** to the **Applications** folder.
 1. Open {% data variables.product.prodname_vscode_shortname %} from the Applications folder or Spotlight.
 
-To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
+To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' and optionally 'copilot' commands in PATH**. Installing {% data variables.copilot.copilot_cli %} is optional. For details about both choices, see the [macOS command-line setup instructions](/docs/setup/mac.md#configure-path-with-vs-code).
 
 {% /tab %}
 {% tab label="Linux" %}
@@ -55,6 +55,8 @@ Choose your distribution for installation instructions. Installing the package s
 {% /tabs %}
 
 Review the [system requirements](/docs/supporting/requirements.md) before you install {% data variables.product.prodname_vscode_shortname %} on an older or managed device.
+
+On a managed device, your organization might control installation and available AI features. Developers should check their organization's policies or contact their administrator. Administrators can [manage AI settings](/docs/enterprise/manage-ai-settings.md).
 
 ## Open your code
 
@@ -91,7 +93,7 @@ Choose a guided path based on how you want to start. Both paths introduce the wo
     </a>
 </div>
 
-If you're new to code editors, start with the editor tutorial. You can enable AI features at any time.
+If you're new to both code editors and AI, start with the editor tutorial, then try the agents quickstart. If you already use agents in other tools, skip the sample app and follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track) in your own repository. If you want suggestions, focused edits, or answers without delegating a task, [choose a lighter-weight AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
 ## Enable AI features
 
@@ -107,7 +109,9 @@ To get started with {% data variables.product.prodname_copilot_short %}:
 
     * If your account has a Copilot subscription, {% data variables.product.prodname_vscode_shortname %} uses that subscription.
 
-    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free), which includes a monthly allowance of inline suggestions and AI credits.
+    * If you don't have a Copilot subscription, you can sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup), which includes a monthly allowance of inline suggestions and AI credits.
+
+If agents don't appear after sign-in, review the [agent availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 
 ### Use AI without a Copilot subscription
 
@@ -117,7 +121,12 @@ You don't need a {% data variables.product.prodname_copilot %} subscription to u
 * **Provider subscription:** Use [Codex with your ChatGPT account](/docs/agents/run/agent-harnesses.md#codex).
 * **Local model:** [Run a model on your own machine, such as Ollama](/docs/agent-customization/language-models.md#bring-your-own-language-model-key), including offline.
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with your own API key or provider account. Contact the IT team that deployed the settings to discuss access.
+
 Setup, available features, and usage charges depend on the provider and integration. API-key and local models don't provide features that rely on the {% data variables.product.prodname_copilot %} service, such as inline suggestions, semantic search, and embeddings.
+
+For agent workflows, [choose a harness or the Cloud target](/docs/agents/run/agent-harnesses.md#choose-a-session-target) that fits your provider, sign-in, and execution-location requirements.
 
 ### Can I use {% data variables.product.prodname_vscode_shortname %} without signing in?
 
@@ -132,6 +141,8 @@ To hide the built-in AI features, see [Remove AI features from {% data variables
 The {% data variables.product.prodname_vscode_shortname %} interface brings your project files, editing tools, terminal, source control, and AI chat into one workspace.
 
 ![Screenshot showing the Explorer, editor, integrated browser, terminal, and Chat view in {% data variables.product.prodname_vscode_shortname %}.](images/overview/vscode-overview.png)
+
+For keyboard, screen reader, and low-vision workflows, learn how to use the [Accessible View and other accessibility features](/docs/configure/accessibility/accessibility.md#accessible-view).
 
 * **Explorer and editor:** Browse project files and edit code with IntelliSense, refactoring, and multi-cursor support.
 
@@ -188,7 +199,7 @@ Stable releases ship weekly and update automatically. Install the [Insiders buil
 <details>
 <summary>Can I use {% data variables.product.prodname_vscode_shortname %} in a browser or on a remote machine?</summary>
 
-Yes. Use [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md) in a browser, or connect your desktop editor to a [remote machine](/docs/remote/remote-overview.md).
+Yes. Use [{% data variables.product.prodname_vscode_shortname %} for the Web](/docs/remote/vscode-web.md) in a browser, or connect your desktop editor to a [remote machine](/docs/remote/remote-overview.md). For supported agent workflows, you can also [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
 
 </details>
 

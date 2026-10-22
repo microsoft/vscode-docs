@@ -12,7 +12,7 @@ Linting highlights semantic and stylistic problems in your Python source code, w
 
 ## Choose a linter
 
-Search the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.
+Search the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.
 
 Microsoft publishes the following linting extensions for Python:
 | Linter | Extension                                                                       |

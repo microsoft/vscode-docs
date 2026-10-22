@@ -1,8 +1,7 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 9/16/2026
-MetaDescription: Look up Local harness hook configuration and event schemas in {% data variables.product.prodname_vscode %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Review legacy Local hook schemas when migrating to Copilot in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -14,23 +13,26 @@ Keywords:
 - lifecycle
 ---
 
-# Local hooks reference
+# Legacy Local hooks reference
 
-This article is the configuration and event-schema reference for hooks in the **Local** harness in {% data variables.product.prodname_vscode_shortname %}. The Local harness runs in the extension host and uses the PascalCase event names and payloads documented here.
+Use this reference to interpret an existing **Local** hook while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
 
 For hooks executed by a provider harness, use the corresponding provider documentation:
 
-* For **Copilot** sessions on Agent Host, use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
+* For **Copilot** sessions, use the [GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference).
 * For **Claude** sessions, use the [Claude hooks reference](https://code.claude.com/docs/en/hooks).
 * For **Codex** sessions, use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/).
 
-If Local is the selected session target, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local parser maps the configuration and then sends the Local payloads documented here.
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
-For help choosing a runtime, creating a hook, or migrating an existing hook, see [Configure agent hooks](/docs/agent-customization/hooks.md).
+If you select **Local** from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness maps the configuration and then sends the payloads documented here.
+
+For help choosing a harness, creating a hook, or migrating an existing hook, see [Configure agent hooks](/docs/agent-customization/hooks.md).
 
 ## Configuration format
 
-A Local hook file contains a `hooks` object. Each property is a supported event name and its value is an array of command entries:
+A hook file contains a `hooks` object. Each property is a supported event name and its value is an array of command entries:
 
 ```json
 {
@@ -49,7 +51,7 @@ A Local hook file contains a `hooks` object. Each property is a supported event 
 
 ### Command properties
 
-In the native Local format, each command entry must have `type: "command"` and at least one command property:
+Use an explicit `type: "command"` and at least one command property in this format. The Local parser also accepts entries without `type` as command hooks:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -58,15 +60,17 @@ In the native Local format, each command entry must have `type: "command"` and a
 | `windows` | string | Windows-specific command override. |
 | `linux` | string | Linux-specific command override. |
 | `osx` | string | macOS-specific command override. |
-| `cwd` | string | Working directory, relative to the repository root. |
+| `cwd` | string | Working directory, relative to the workspace root or absolute. Local expands `~` to the user home directory. |
 | `env` | object | Additional environment variables. |
 | `timeout` | number | Timeout in seconds. The default is 30 seconds. |
 
-The Local harness selects an operating system override from the extension host platform. If an override is not defined for that platform, it uses `command`. Copilot and Claude source formats use different property names and defaults before the Local parser maps them to this format.
+The harness selects an operating system override from the extension host platform. If an override is not defined for that platform, it uses `command`. Local accepts `bash` as a fallback for `linux` and `osx`, and `powershell` as a fallback for `windows`. It accepts `timeoutSec` when `timeout` is absent. Do not specify both timeout aliases when migrating; the Copilot runtime gives them the opposite precedence.
+
+Local accepts PascalCase and Copilot event aliases in hook files; a numeric `version` does not select a different Local payload schema. It also accepts nested Claude command groups but ignores matcher values. See the [migration compatibility matrix](/docs/agent-customization/migrate-customizations.md#compare-configuration-and-script-contracts) before reusing a file.
 
 ## Common input
 
-Every Local hook receives a JSON object on standard input (stdin). The object contains these common fields in addition to the fields for the event:
+Every hook receives a JSON object on standard input (stdin). The object contains these common fields in addition to the fields for the event:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -81,7 +85,7 @@ Every Local hook receives a JSON object on standard input (stdin). The object co
 
 ## Common output
 
-A Local hook can write a JSON object to standard output (stdout). All events support these top-level fields:
+A hook can write a JSON object to standard output (stdout). All events support these top-level fields:
 
 ```json
 {
@@ -101,7 +105,7 @@ Events can also support fields such as `decision` or `hookSpecificOutput`. The e
 
 ### Exit codes
 
-The hook command's exit code controls how the Local harness processes its result:
+The hook command's exit code controls how the harness processes its result:
 
 | Exit code | Behavior |
 |-----------|----------|
@@ -122,7 +126,7 @@ When outputs conflict, the most restrictive outcome takes precedence. For exampl
 
 ## `PreToolUse`
 
-The `PreToolUse` hook fires before the Local agent invokes a tool.
+The `PreToolUse` hook fires before the agent invokes a tool.
 
 ### Input
 
@@ -138,11 +142,11 @@ In addition to the [common input](#common-input), the hook receives:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `tool_name` | string | Name of the Local tool. |
+| `tool_name` | string | Name of the tool. |
 | `tool_input` | object | Arguments for the tool call. |
 | `tool_use_id` | string | Identifier for the tool call. |
 
-Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the Local tool schema before you filter or modify a tool call.
+Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the tool schema for the Local harness session before you filter or modify a tool call.
 
 ### Output
 
@@ -164,7 +168,7 @@ Use `hookSpecificOutput` to control the tool call:
 | `hookEventName` | `"PreToolUse"` | Identifies the event-specific output. |
 | `permissionDecision` | `"allow"`, `"deny"`, or `"ask"` | Allows the tool call, denies it, or requires user confirmation. |
 | `permissionDecisionReason` | string | Reason shown to the user. |
-| `updatedInput` | object | Optional replacement tool input. The value must match the Local tool schema. |
+| `updatedInput` | object | Optional replacement tool input. The value must match the tool schema for the Local harness session. |
 | `additionalContext` | string | Additional context for the model. |
 
 When multiple hooks return a permission decision for the same tool call, the most restrictive decision wins:
@@ -173,11 +177,11 @@ When multiple hooks return a permission decision for the same tool call, the mos
 1. `ask` requires user confirmation.
 1. `allow` approves the tool call.
 
-If `updatedInput` does not match the Local tool schema, the Local harness ignores it.
+If `updatedInput` does not match the tool schema for the Local harness session, the harness ignores it.
 
 ## `PostToolUse`
 
-The `PostToolUse` hook fires after a Local tool completes successfully.
+The `PostToolUse` hook fires after a tool completes successfully.
 
 ### Input
 
@@ -243,7 +247,7 @@ The hook supports the [common output](#common-output).
 
 ## `SessionStart`
 
-The `SessionStart` hook fires when the first prompt starts a Local agent session.
+The `SessionStart` hook fires when the first prompt starts the session.
 
 ### Input
 
@@ -279,7 +283,7 @@ The hook can add context to the conversation:
 
 ## `Stop`
 
-The `Stop` hook fires when the current Local agent execution is about to stop. The event does not indicate that the session ended or became inactive.
+The `Stop` hook fires when the current agent execution is about to stop. The event does not indicate that the session ended or became inactive.
 
 When a custom agent runs as a subagent, its `Stop` hook is treated as `SubagentStop`.
 
@@ -322,7 +326,7 @@ The hook can require the agent to continue:
 
 ## `SubagentStart`
 
-The `SubagentStart` hook fires when the Local agent starts a subagent.
+The `SubagentStart` hook fires when the agent starts a subagent.
 
 ### Input
 
@@ -360,7 +364,7 @@ The hook can add context to the subagent:
 
 ## `SubagentStop`
 
-The `SubagentStop` hook fires when a Local subagent is about to stop.
+The `SubagentStop` hook fires when a subagent is about to stop.
 
 ### Input
 
@@ -398,7 +402,7 @@ The hook can require the subagent to continue:
 
 ## `PreCompact`
 
-The `PreCompact` hook fires before the Local harness compacts conversation context.
+The `PreCompact` hook fires before the harness compacts conversation context.
 
 ### Input
 

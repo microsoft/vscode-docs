@@ -95,7 +95,11 @@ echo ""
 echo "--- Step 3c: Append keybindings files ---"
 KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings"
 AGENTS_KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings/agents"
-node "$SCRIPT_DIR/append-keybindings.js" "$KEYBINDINGS_DIR" "$AGENTS_KEYBINDINGS_DIR"
+if [ -d "$AGENTS_KEYBINDINGS_DIR" ]; then
+    node "$SCRIPT_DIR/append-keybindings.js" "$KEYBINDINGS_DIR" "$AGENTS_KEYBINDINGS_DIR"
+else
+    echo "Skipping: Agent keybindings directory not found."
+fi
 echo ""
 
 # Step 4: Clean up keybindings

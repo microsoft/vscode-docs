@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging, Extensions]
 Order:
 TOCTitle: iOS Web Debugging
 PageTitle: Introducing iOS Web Debugging for VS Code on Windows and Mac

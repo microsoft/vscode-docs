@@ -1,15 +1,25 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Review, revise, and revert AI changes in {% data variables.product.prodname_vscode %} with diffs, checkpoints, and Source Control.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
 
 When you work with an agent in {% data variables.product.prodname_vscode %}, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
+The available review controls depend primarily on the agent harness:
+
+| Session | How changes are tracked | Review workflow |
+|---------|-------------------------|-----------------|
+| Copilot, Claude, and Codex harness sessions | Edits are saved directly in the session's folder or isolated Git worktree. They don't wait in a pending review state. | Inspect diffs in the {% data variables.copilot.chat_view %}, {% data variables.copilot.agents_window %}, or Source Control. Use checkpoints or Git to revert unwanted changes. |
+| Local harness sessions and existing extension-host sessions | Edits are saved directly. Supported edits are also marked as pending. | Inspect each pending edit in the editor. Use **Keep** to acknowledge it or **Undo** to revert it. |
+| Cloud sessions | Changes are committed to a branch and returned through a pull request. | Review the pull request on GitHub or check out the branch locally. |
+
 > [!NOTE]
-> You can review AI-generated changes in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
+> The change-review experience for Copilot harness sessions is [under active development](https://github.com/microsoft/vscode/issues/339363#issuecomment-6134276862). The user interface and available controls might change in upcoming releases.
+
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -20,42 +30,81 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Review agent changes
 
-In Agent Host sessions, the agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending review state, so review them in a diff before you commit or integrate them. **Manual permissions** doesn't require confirmation for edits that your approval settings already allow. To require confirmation before specific files are edited, configure [sensitive-file approval](#edit-sensitive-files).
+Agents can change files through editing tools, terminal commands, scripts, and MCP tools. Review the resulting files before you commit or integrate them, including changes that might not appear in a tool-specific list of edits.
 
-Older extension-host sessions save edits and then mark them as pending so you can keep or undo them. Expand **Review extension-host changes** below for that workflow.
+For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility), which presents changes in a unified patch format.
 
-Review agent changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
+The {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %} provide different ways to inspect saved changes.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-1. Select a changed file in the agent's response to open its diff or select it from the Source Control view.
+1. Above the chat input, a pill indicates the number of affected files and diff statistics. Select the pill to view a multi-diff editor with all the changes.
 
-1. To see a summary after each completed request, set `setting(chat.checkpoints.showFileChanges)` to `true`. Expand the changed-files summary to see the files and diff statistics, or select **View All File Changes** to open a multi-file diff.
+1. Select a changed file in the agent's response to open its diff in the editor.
 
-1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](#restore-a-checkpoint).
+1. Use the [Source Control view](/docs/sourcecontrol/staging-commits.md) to see the list of changed files and any untracked files. Select a file to open its diff in the editor.
 
-1. Run tests and use the debugger or other editor tools to validate the result.
+1. To request revisions, send a follow-up prompt or edit the files directly in the editor.
 
-1. When you're satisfied with the changes:
-
-    * For folder-isolated sessions, stage and commit the changes with Source Control.
-
-    * For worktree-isolated sessions, apply or merge the worktree changes into your main workspace.
-
-    * For cloud sessions, review the pull request or check out its branch locally.
+<!-- To see a summary after each completed request, set `setting(chat.checkpoints.showFileChanges)` to `true`. Expand the changed-files summary to see the files and diff statistics, or select **View All File Changes** to open a multi-file diff. -->
 
 {% /tab %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-By default, the {% data variables.copilot.agents_window %} shows these views in a side panel:
+1. Open the **Changes** view in the side panel by using the layout controls in the title bar, or using the `kb(workbench.action.toggleAuxiliaryBar)` keyboard shortcut.
 
-* **Files**: a file explorer for the session workspace.
-* **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
+1. Select a file in the **Changes** view to open a diff of the agent's edits.
 
-The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
+    The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. Files changed only through terminal commands or scripts might not appear in tool-specific change tracking. Review the session's folder or worktree in Source Control as well, including untracked files.
 
-### Configure word wrap in diff editors
+    > [!TIP]
+    > Use the **Branch Changes** dropdown to choose which changeset to review.
+
+1. To provide feedback, select a range of code in a changed file, and enter feedback in the inline comment box that appears.
+
+1. Continue reviewing and providing feedback on other changes as needed. Select **Submit Feedback** to send them to the agent.
+
+    The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
+
+1. Select **Mark as Reviewed** in a file's toolbar to track files you've reviewed in the **Branch Changes** changeset. The reviewed state clears if you or the agent changes the file again.
+
+{% /tab %}
+{% /tabs %}
+
+### Review changes from the sessions list
+
+When a session completes and makes code changes to your project, the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) shows the file change statistics for that session. Select the session to open its details and review the changes.
+
+![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
+
+Depending on the agent harness and isolation mode, you can apply or merge changes into your local workspace, or check out the branch from a cloud session.
+
+### Add pull request review comments
+
+`feature(agents-window-pr-comments)`
+
+For a session that uses the Copilot or Claude harness, or the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex), you can add a review comment to its open GitHub pull request directly from the **Changes** view in the {% data variables.copilot.agents_window %}. This is different from agent feedback, which asks the agent to revise its changes.
+
+1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
+
+1. Open a changed file from the **Changes** view and select a range of code.
+
+1. Select **Add Feedback** and enter your comment.
+
+1. Select **Add PR Comment** to add the review comment to the pull request. If the session is associated with multiple pull requests, the action identifies the target as `owner/repository#number`.
+
+The selected range must contain only lines that are part of the pull request diff. If the range isn't eligible, {% data variables.product.prodname_vscode_shortname %} reports that a pull request comment can't be added to the line.
+
+**Add PR Comment** adds the comment to GitHub and doesn't send it to the agent. To ask the agent to change the code instead, add the comment as feedback and select **Submit Feedback**.
+
+### Customize change review in the {% data variables.copilot.agents_window %}
+
+By default, selecting a file in the **Changes** view opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
+
+Use the diff toolbar to show the editor side by side with chat or in a modal window. To change the diff layout, select **More Actions** (**...**) > **Diff View**, and then select **Inline**, **Side by Side**, or **Automatic**. With **Automatic**, the Changes editor shows files side by side when there is enough space and switches to inline when the editor is narrow.
+
+#### Configure word wrap in diff editors
 
 `feature(agents-window-word-wrap)`
 
@@ -69,48 +118,7 @@ This setting only affects diff editors and doesn't affect code editors in the {%
 
 To change this setting from a diff editor, select **More Actions** (**...**) > **Word Wrap**. This action updates `setting(sessions.diffEditor.wordWrap)` independently of the code editor setting.
 
-To review and integrate the changes:
-
-1. Select a file in the **Changes** view to open a diff view of the agent's edits.
-
-    ![Screenshot showing the Changes panel in the {% data variables.copilot.agents_window %}, highlighting the list of edited files and the diff view.](../images/review-code-edits/agents-window-diff-view.png)
-
-    By default, selecting a file opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
-
-    Use the diff toolbar to show the editor side by side with chat or in a modal window.
-
-    To change the diff layout, select **More Actions** (**...**) > **Diff View**, and then select **Inline**, **Side by Side**, or **Automatic**. With **Automatic**, the Changes editor shows files side by side when there is enough space and switches to inline when the editor is narrow.
-
-1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
-
-    ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
-
-    Markdown files follow the same feedback flow. Open a workspace file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback. Feedback stays in sync if you reopen the file in the text editor.
-
-    The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
-
-1. Select **Mark as Reviewed** in a file's toolbar to track files you've reviewed in the **Branch Changes** changeset. The reviewed state clears if you or the agent changes the file again.
-
-1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
-
-When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
-
-### Add pull request review comments
-
-`feature(agents-window-pr-comments)`
-
-For an Agent Host session associated with an open GitHub pull request, you can add a review comment to the pull request directly from the **Changes** view. This is different from agent feedback, which asks the agent to revise its changes.
-
-1. Enable the `setting(chat.experimental.agentsWindowPRComments)` setting.
-1. Open a changed file from the **Changes** view and select a range of code.
-1. Select **Add Feedback** and enter your comment.
-1. Select **Add PR Comment** to add the review comment to the pull request. If the session is associated with multiple pull requests, the action identifies the target as `owner/repository#number`.
-
-The selected range must contain only lines that are part of the pull request diff. If the range isn't eligible, {% data variables.product.prodname_vscode_shortname %} reports that a pull request comment can't be added to the line.
-
-**Add PR Comment** adds the comment to GitHub and doesn't send it to the agent. To ask the agent to change the code instead, add the comment as feedback and select **Submit Feedback**.
-
-### Review changes in the single-pane layout (Experimental)
+#### Review changes in the single-pane layout (Experimental)
 
 When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
 
@@ -118,44 +126,102 @@ Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once.
 
 The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
-{% /tab %}
-{% /tabs %}
+<a name="review-local-session-changes"></a>
 
-## Integrate worktree changes
+## Review Local harness session changes
 
-A worktree session keeps the agent's branch and working files separate from your primary worktree. After you review and validate the result, choose how to continue:
+The following controls apply when you select **Local** from the **Session Target** UI control or continue an existing extension-host session in the {% data variables.copilot.chat_view %}. These sessions track supported file edits as pending changes that you can keep or undo individually.
 
-* **Apply or migrate the changes**: transfer the worktree changes into your current workspace for further editing and commit them with your existing work.
-* **Commit or merge the branch**: preserve the work on the session branch and merge it into the destination branch.
-* **Check out the branch**: open the session branch in an editor window to continue working on it manually.
-* **Discard the changes**: remove changes that you don't want to keep.
+After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
-Before you apply or merge changes:
+![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
-1. Confirm the session's base branch and the destination branch in your primary workspace.
-1. Commit or stash unrelated changes in the destination workspace.
-1. Review all changed files, including untracked files, and run the relevant tests.
-1. Select the integration action and resolve any merge conflicts.
-1. Test the integrated result before you archive or delete the session.
+To review pending edits:
 
-The available actions and labels depend on the session harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
+1. Open a file from the changed-files list in the {% data variables.copilot.chat_view %} or from the Explorer view.
 
-For a walkthrough of reviewing two results separately, integrating them one at a time, and testing the combined change, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
-## Edit requests and restore checkpoints
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between edits.
 
-For help deciding whether to revise a request, restore changes, or start fresh, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
+1. For each edit, choose one of the following actions:
 
-Use request editing and checkpoints to revise or undo a batch of changes:
+    * Select **Keep** to acknowledge the saved edit and clear its pending-review state.
+    * Select **Undo** to reject and revert the edit.
+    * Hover over an inline change to keep or undo that specific change without affecting other edits in the file.
 
-* **Edit a previous request**: modify a prompt you already sent. {% data variables.product.prodname_vscode_shortname %} reverts changes made by that request and all subsequent requests, then resends the edited prompt.
-* **Restore a checkpoint**: roll back all file changes to a specific point in the conversation without changing the prompt.
+You can also keep or undo all pending edits from the {% data variables.copilot.chat_view %}. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
+
+### Source Control integration
+
+If you stage your changes in the Source Control view, any pending edits are automatically kept. If you discard your changes, any pending edits are also discarded.
+
+### Auto-accept edits
+
+Use `setting(chat.editing.autoAcceptDelay)` to automatically keep pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
+
+> [!IMPORTANT]
+> If you automatically keep all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
+
+## Validate and revise changes
+
+Before you integrate agent changes:
+
+1. Review all changed and untracked files in Source Control.
+
+1. Run the relevant tests.
+
+1. Use the debugger, language diagnostics, or other editor tools to validate the result.
+
+1. Send a follow-up prompt, add feedback in the {% data variables.copilot.agents_window %}, or edit the files directly to correct issues.
+
+### Get a second opinion with Rubber Duck
+
+`feature(rubber-duck)`
+
+In a [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot), use Rubber Duck to get a second opinion on the agent's plans, code, and tests. This built-in, read-only critic uses a complementary model to look for substantive issues, such as logic errors, design flaws, security vulnerabilities, and missing test coverage. Rubber Duck groups its feedback into blocking issues, non-blocking issues, and suggestions. The Copilot harness summarizes the critique and decides how to act on it, but Rubber Duck doesn't edit files or run commands that change your environment.
+
+For non-trivial work, the Copilot harness might consult Rubber Duck automatically at key points, such as:
+
+* After creating a plan, before implementation.
+* During a complex implementation.
+* After writing tests.
+* After repeated failures or unexpected results.
+
+For smaller tasks, the Copilot harness typically skips this review. To request a review at any time, ask the agent in natural language:
+
+```prompt
+Get a second opinion on the changes made so far.
+```
+
+You can also enter `/rubber-duck <question>` in the chat input. For example, enter `/rubber-duck What edge cases are missing?`.
+
+> [!NOTE]
+> Rubber Duck is available only when the main session uses a Claude or GPT model and a suitable complementary model is available. The additional model pass adds latency and model usage.
+
+Learn more about the [Rubber Duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in the GitHub documentation.
+
+<a name="edit-requests-and-restore-checkpoints"></a>
+
+## Undo changes at the right scope
+
+Choose a recovery action based on how much work you want to undo:
+
+| Action | Scope | What happens |
+|--------|-------|--------------|
+| [**Undo** in a Local harness session](#review-local-harness-session-changes) | One pending edit, an inline change, or all pending edits | Reverts the selected saved edits without rewinding the conversation. |
+| [Edit a previous request](#edit-a-previous-chat-request) | The selected request and every later request | Reverts their file changes and resends the revised request. |
+| [Restore a checkpoint](#restore-a-checkpoint) | A request and all later file changes and conversation turns | Restores affected workspace files and removes subsequent conversation turns. |
+| [Discard with Source Control](/docs/sourcecontrol/staging-commits.md#discard-changes) | The files or changes you select | Reverts repository changes without changing the conversation. |
+| Use an external service's recovery controls | Deployments, issues, pull requests, databases, or other external state | Reverses effects that {% data variables.product.prodname_vscode_shortname %} checkpoints and Git don't control. |
+
+For help choosing an action, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
 
 ### Edit a previous chat request
 
 Each request in your conversation history is editable. When you edit a previous request, {% data variables.product.prodname_vscode_shortname %} reverts file changes made by the original request and subsequent requests, and then sends the updated request to the language model.
 
-Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
+Before you resend the request, review the affected changes so you understand which work will be removed. Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
 
 <video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the {% data variables.copilot.chat_view %}." loop controls muted></video>
 
@@ -197,45 +263,38 @@ Hover over a request and select **Fork Conversation** to create an independent s
 > [!NOTE]
 > Checkpoints are temporary and don't replace Git version control. Use Git for permanent version history and collaboration.
 
-<details>
-<summary>Review extension-host changes</summary>
+## Integrate approved changes
 
-If [Agent Host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+After you review and validate the result, choose the integration workflow for the session:
 
-After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Pending means that you can keep or undo the saved edit. It doesn't mean that the edit is waiting to be written to disk. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
+* **Folder-isolated session**: stage and commit the intended changes with Source Control.
+* **Worktree-isolated session**: apply the changes to your current workspace, merge or check out the session branch, or discard the worktree.
+* **Cloud session**: review and merge the pull request, or check out its branch locally for more changes.
 
-![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
+### Integrate worktree changes
 
-To review pending edits:
+A worktree session keeps the agent's branch and working files separate from your primary worktree. After you review and validate the result, choose how to continue:
 
-1. Open a file from the changed-files list in the {% data variables.copilot.chat_view %} or from the Explorer view.
+* **Apply or migrate the changes**: transfer the worktree changes into your current workspace for further editing and commit them with your existing work.
+* **Commit or merge the branch**: preserve the work on the session branch and merge it into the destination branch.
+* **Check out the branch**: open the session branch in an editor window to continue working on it manually.
+* **Discard the changes**: remove changes that you don't want to keep.
 
-    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
+Before you apply or merge changes:
 
-1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between edits.
+1. Confirm the session's base branch and the destination branch in your primary workspace.
+1. Commit or stash unrelated changes in the destination workspace.
+1. Review all changed files, including untracked files, and run the relevant tests.
+1. Select the integration action and resolve any merge conflicts.
+1. Test the integrated result before you archive or delete the session.
 
-1. For each edit, choose one of the following actions:
+The available actions and labels depend on the selected harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
-    * Select **Keep** to accept the edit.
-    * Select **Undo** to reject the edit and revert the change.
-    * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
+For a walkthrough of reviewing two results separately, integrating them one at a time, and testing the combined change, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
-You can also accept or reject all pending edits from the {% data variables.copilot.chat_view %}. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
+<a name="edit-sensitive-files"></a>
 
-### Source Control integration
-
-If you stage your changes in the Source Control view, any pending edits are automatically accepted. If you discard your changes, any pending edits are also discarded.
-
-### Auto-accept edits
-
-Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
-
-> [!IMPORTANT]
-> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
-
-</details>
-
-## Edit sensitive files
+## Require approval before sensitive edits
 
 Sensitive-file approval is separate from reviewing changes after the agent saves them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
 
@@ -250,14 +309,6 @@ The following example configuration automatically allows edits to all files exce
   "**/.env": false
 }
 ```
-
-## Review changes from the sessions list
-
-When a session completes and makes code changes to your project, the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
-
-![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
-
-Depending on the agent harness and isolation mode, you can apply or merge changes into your local workspace, or check out the branch from a cloud session.
 
 ## Related resources
 

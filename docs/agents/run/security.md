@@ -1,8 +1,7 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
 - trust
@@ -18,7 +17,7 @@ Keywords:
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 > [!NOTE]
-> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
+> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/manage-ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
 Learn about trust boundaries, agent sandboxing, and the reasoning behind {% data variables.product.prodname_vscode_shortname %}'s security model.
@@ -33,7 +32,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Use agent sandboxing.** On a supported platform, turn on agent sandboxing to restrict file system and network access for agent-executed terminal commands. Learn more about [configuring agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+1. **Use agent sandboxing and configure network access.** On a supported platform, turn on agent sandboxing to restrict file system access for agent-executed shell commands and child processes. Outbound network access remains enabled by default because `setting(chat.agent.sandbox.network.allowNetwork)` defaults to `true`. Configure network access separately when you need to restrict it. Learn more about [configuring agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
@@ -63,7 +62,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud sessions](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: Sessions that use the Copilot, Claude, or Codex harness can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud sessions](/docs/agents/run/agent-harnesses.md#cloud-target) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using {% data variables.product.prodname_vscode_shortname %}'s secure credentials store to protect authentication tokens and other sensitive data.
 
@@ -71,9 +70,12 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 ### Approvals and review
 
+> [!NOTE]
+> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss approved harnesses.
+
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Manual permissions** uses your configured approval settings. For supported sessions that run on the Agent Host, **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions, Autopilot is a permission level instead.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -81,7 +83,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
@@ -91,18 +93,20 @@ Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-
 
 ### Agent sandboxing
 
-Agent sandboxing uses OS-level isolation to restrict what agent-executed terminal commands can access on your machine. It is in Preview on macOS, Linux, and WSL2, and Experimental on Windows. Learn how to [configure agent terminal sandboxing](/docs/agents/run/agent-sandboxing.md).
+In Copilot harness sessions that use the default tools, agent sandboxing uses OS-level isolation to confine shell execution and child processes. It can also sandbox MCP servers and language servers started or managed for the session when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain governed by separate permission checks.
 
-The sandbox applies to Copilot Agent Host sessions and is independent of the selected permission level. For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
+This sandboxing is available on supported Windows, macOS, and Linux machines and is independent of the selected permission level. For remote sessions, check prerequisites and configure restrictions on the machine where commands run. Local harness sessions and custom terminal tools have [different sandbox behavior](/docs/agents/run/agent-sandboxing.md#local-harness-sessions-and-custom-terminal-tools).
+
+Sandboxing is an added layer. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. Credentials you explicitly inject, developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass all weaken its isolation. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md). For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 > [!IMPORTANT]
-> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run {% data variables.product.prodname_vscode_shortname %} in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Use agent sandboxing as one layer of protection against malicious shell commands instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax. A [dev container](/docs/devcontainers/containers.md) can provide an additional configured boundary.
 
 ### MCP server sandboxing
 
 On macOS and Linux, you can enable sandboxing for locally-running MCP servers that use the stdio transport. When sandboxing is enabled, the server can only access the file system paths and network domains that you explicitly permit in the sandbox configuration. Tool calls from sandboxed servers are auto-approved because they run in a controlled environment.
 
-Learn more about [configuring MCP server sandboxing](/docs/agent-customization/mcp-servers.md#sandbox-mcp-servers).
+Learn more about [configuring MCP server sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers).
 
 ## Security risks to be aware of
 
@@ -117,11 +121,11 @@ All development tasks operate with the same permissions as the user.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
 
-* **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Use [agent sandboxing](#agent-sandboxing-preview) to restrict network access to only the domains the agent needs.
+* **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
 
@@ -155,9 +159,9 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Autopilot mode**: **Autopilot** combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
-* **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/run/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
+* **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/run/agent-harnesses.md#claude). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 
 Learn more about [managing auto approvals](/docs/agents/run/approvals.md#tool-approval).
 
@@ -192,30 +196,43 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 * **Tool output chaining**: Output from one tool becomes input for another, creating opportunities for malicious content to propagate through the system and influence subsequent operations.
 * **External data processing**: When the AI processes untrusted content from files, web requests, or external tools, malicious instructions embedded in that content can be interpreted as legitimate commands.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
 
 </details>
 
 ## Hooks
 
-[Agent hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions. Unlike instructions or prompts that guide agent behavior, hooks run deterministically with guaranteed outcomes, making them suitable for enforcing security policies.
+[Agent hooks](/docs/agent-customization/hooks.md) run commands at runtime lifecycle points rather than relying on the model to request them. For Copilot sessions, use the shared runtime's event and output contract.
 
-* **Block dangerous operations**: Use `PreToolUse` hooks to intercept tool invocations and block dangerous commands (for example, `rm -rf` or `DROP TABLE`) before they execute, regardless of how the agent was prompted.
-* **Control approvals**: Hooks can return `allow`, `deny`, or `ask` decisions to automatically approve safe operations or require confirmation for sensitive ones.
-* **Create audit trails**: Log every tool invocation, command execution, or file change for compliance and debugging purposes.
+* **Validate tool calls**: A `preToolUse` hook can inspect a supported tool's arguments and return a denial. A filter that misses a tool or argument shape does not validate that operation.
+* **Control approvals**: Hooks can return `allow`, `deny`, or `ask`. Approval prompts depend on the session mode; do not assume `ask` pauses an unattended session.
+* **Record events**: Log selected, non-sensitive event data. Verify event coverage and failure behavior before treating the log as a complete audit trail.
+
+Hooks are not a substitute for enforced permissions, sandboxing, or enterprise controls. GitHub documents command `preToolUse` failures as denying the tool call, but timeouts as continuing through normal permissions, including for policy hooks. See [hook exit codes](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks). Instructions guide the model and are not an enforcement boundary.
+
+When switching from Local, [migrate and test the hook scripts](/docs/agent-customization/migrate-customizations.md#migrate-hooks), not only their configuration files.
 
 ## Enterprise policies
 
-Organizations can implement [centralized security controls](/docs/enterprise/ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
+Organizations can implement [centralized security controls](/docs/enterprise/manage-ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
 
-* **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
+* **Disable agents**: Turn off agent mode and the {% data variables.copilot.agents_window %} with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
-* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
+* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or turn off MCP support (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
 * **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Allow all** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
-* **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
+* **Require manual approval for specific tools**: Require manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 
-Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
+> [!IMPORTANT]
+> Copilot harness sessions don't fully enforce some of these policies:
+>
+> * `ChatAgentMode` doesn't remove Agent Host session targets, such as **Copilot**, from the **Session Target** UI control in the editor.
+> * `ChatMCP` doesn't apply to MCP servers that the Copilot runtime discovers on its own.
+> * `ChatToolsEligibleForAutoApproval` removes **Allow all**, but **Assisted permissions** and saved session approvals can still approve a listed tool.
+>
+> Review the harness notes in [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md#use-vs-code-device-policies) before you rely on a policy for Copilot harness sessions.
+
+Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
 
 ## Related resources
 

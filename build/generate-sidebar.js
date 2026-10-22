@@ -69,7 +69,7 @@ function renderTopics(topics, indent) {
   let md = '';
   for (const item of topics) {
     // Subsection: ["", "", { name, topics }]
-    if (item.length === 3 && typeof item[2] === 'object') {
+    if (item[0] === '' && item[1] === '' && item[2] && typeof item[2] === 'object') {
       const sub = item[2];
       md += `${indent}- **${sub.name}**\n`;
       md += renderTopics(sub.topics, indent + '  ');
@@ -248,5 +248,6 @@ if (require.main === module) {
 module.exports = {
   buildSidebar,
   loadJSON,
+  renderTopics,
   resolveJsonDataVariables
 };

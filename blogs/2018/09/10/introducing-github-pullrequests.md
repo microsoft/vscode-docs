@@ -1,4 +1,5 @@
 ---
+Tags: [Source Control, Extensions, Collaboration]
 Order:
 TOCTitle: GitHub Pull Requests
 PageTitle: Introducing GitHub Pull Requests for Visual Studio Code

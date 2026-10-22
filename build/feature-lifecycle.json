@@ -49,9 +49,19 @@
       "label": "Built-in dictation",
       "state": "experimental"
     },
+    "canvases": {
+      "label": "Canvases",
+      "state": "preview",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/340946"
+    },
     "chat-pet": {
       "label": "VS Code pet",
       "state": "experimental"
+    },
+    "cloud-automations": {
+      "label": "Cloud automations",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
     },
     "forked-skill-context": {
       "label": "Forked skill context",
@@ -64,6 +74,10 @@
     "integrated-browser-remote": {
       "label": "Integrated browser remote connections",
       "state": "preview"
+    },
+    "markdown-editor": {
+      "label": "Markdown Editor",
+      "state": "experimental"
     },
     "mcp-autostart": {
       "label": "Automatically start MCP servers",
@@ -81,8 +95,16 @@
       "label": "Nested AGENTS.md files",
       "state": "experimental"
     },
+    "on-device-models": {
+      "label": "On-device models",
+      "state": "experimental"
+    },
     "rubber-duck": {
       "label": "Rubber Duck",
+      "state": "experimental"
+    },
+    "subagent-auto-model-selection": {
+      "label": "Auto model selection for subagents",
       "state": "experimental"
     },
     "terminal-block-detected-file-writes": {

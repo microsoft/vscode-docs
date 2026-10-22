@@ -1,7 +1,7 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 9/16/2026
-MetaDescription: {% data variables.product.prodname_vscode %} command-line interface (switches).
+DateApproved: 10/21/2026
+MetaDescription: Launch and configure {% data variables.product.prodname_vscode %} from the command line, and open files, settings, extensions, or agent session drafts with URLs.
 ---
 # Command Line Interface (CLI)
 
@@ -24,7 +24,7 @@ You can launch {% data variables.product.prodname_vscode_shortname %} from the c
 ![launch {% data variables.product.prodname_vscode_shortname %}](images/command-line/launch-vscode.png)
 
 > [!NOTE]
-> Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add {% data variables.product.prodname_vscode_shortname %} executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
+> On macOS, first run **Shell Command: Install 'code' and optionally 'copilot' commands in PATH** to add the {% data variables.product.prodname_vscode_shortname %} executable to the `PATH` environment variable. Installing {% data variables.copilot.copilot_cli %} is optional. Read the [macOS command-line setup instructions](/docs/setup/mac.md#configure-path-with-vs-code) for help.
 
 Windows and Linux installations should add the {% data variables.product.prodname_vscode_shortname %} binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default {% data variables.product.prodname_vscode_shortname %} binaries location is `AppData\Local\Programs\Microsoft {% data variables.product.prodname_vscode_shortname %}\bin`. To review platform-specific setup instructions, see [Setup](/docs/getstarted/overview.md).
 
@@ -219,20 +219,77 @@ vscode://file/{full path to file}:line:column
 vscode://file/c:/myProject/package.json:5:10
 ```
 
-Open the Settings Editor
+Open the Settings editor
 
 ```bash
-vscode://settings/setting.name
+vscode://settings/{setting-id}
 
 vscode://settings/editor.wordWrap
 ```
+
+Clone a Git repository
+
+```bash
+vscode://vscode.git/clone?url={url-encoded repository URL}
+
+vscode://vscode.git/clone?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode.git
+```
+
+Open an extension in the Extensions view
+
+```bash
+vscode:extension/{publisher}.{extensionName}
+
+vscode:extension/ms-python.python
+```
+
+Send a request to an extension (URI handler)
+
+Extensions can register a custom URI handler using the `vscode.window.registerUriHandler` API to handle incoming deep links from external websites or tools, such as OAuth authentication callbacks. The URL authority matches the extension ID (`{publisher}.{extensionName}`):
+
+```bash
+vscode://{publisher}.{extensionName}/{path}?{query}
+
+vscode://vscode-samples.uri-handler-sample/hello?name=world
+```
+
+Learn more about registering URI handlers in the [Extension API documentation](/api/advanced-topics/remote-extensions.md#callbacks-and-uri-handlers).
+
+Open a remote resource
+
+```bash
+vscode://vscode-remote/{remoteName}+{authority}/{path}
+```
+
+For example, to open a remote SSH host or a container path in a remote workspace.
+
+### Prepare a new agent session draft
+
+Use an `agents/new` URL to open the {% data variables.copilot.agents_window %} with a prompt and workspace ready for review:
+
+```text
+vscode://agents/new?prompt=<url-encoded-prompt>&workspace=<url-encoded-folder-uri>
+```
+
+Both query parameters are optional:
+
+* `prompt` adds decoded text to the **New Session** composer.
+* `workspace` selects the folder URI for the session. If you omit this parameter, the draft uses **No Workspace**.
+
+URL-encode each query parameter value. For example, this URL prepares a draft chat without a workspace:
+
+```text
+vscode://agents/new?prompt=Explain%20how%20this%20project%20runs%20its%20tests.%20Do%20not%20run%20anything%20yet.
+```
+
+Opening the URL doesn't submit the prompt. Review or edit the draft, and then send it when you're ready. If the new-session composer already contains a draft, {% data variables.product.prodname_vscode_shortname %} preserves it instead of replacing it with the URL contents.
 
 You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
 > [!NOTE]
-> If you are using {% data variables.product.prodname_vscode_shortname %} [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
+> If you are using {% data variables.product.prodname_vscode_shortname %} [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://` (for example, `vscode-insiders://file/{full path to file}`). To launch the desktop app through an HTTPS link, use `https://vscode.dev/redirect?url=<url-encoded-vscode-URL>`.
 
 ## Next steps
 

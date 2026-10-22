@@ -1,4 +1,5 @@
 ---
+Tags: [Debugging]
 Order:
 TOCTitle: Logpoints and auto-attach
 PageTitle: Introducing Logpoints and auto-attach

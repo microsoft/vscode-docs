@@ -1,8 +1,7 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI features cheat sheet
 
@@ -21,13 +20,13 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 
 | I want to... | Use | Start with... |
 |---|---|---|
-| Understand unfamiliar code | [Chat](/docs/chat/chat-overview.md) | Ask "Trace how a request reaches the database." |
+| Understand unfamiliar code without changing it | [Ask](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent) | Select **Ask** and enter "Trace how a request reaches the database." |
 | Plan a complex change | [Plan agent](/docs/agents/run/planning.md) | Select **Plan** and describe the change to research before implementation. |
 | Build a feature, fix a bug, or create a project | [Agents](#use-agents) | Select **Agent**, describe the outcome, and specify how to verify it. |
 | Make a focused edit | [Inline chat](/docs/chat/inline-chat.md) | Select code in the editor and describe the change. |
 | Get help while typing and editing | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Accept ghost text to complete code, or use next edit suggestions to navigate to and apply a related edit. |
-| Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
-| Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) | Choose the **Cloud** session target and a repository. |
+| Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
+| Delegate work that returns a pull request | [Cloud agents](/docs/agents/run/agent-harnesses.md#cloud-target) | Select **Cloud** from the **Session Target** UI control and choose a repository. |
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule | [Automations](/docs/agents/run/automations.md) `feature(automations)` | Save a prompt and schedule in the {% data variables.copilot.agents_window %}. |
 | Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
@@ -60,7 +59,7 @@ To organize larger tasks:
 
 * Use [separate sessions and worktrees](/docs/agents/guides/delegate-two-tasks.md) for independent tasks that should not share code changes.
 * Use [subagents](/docs/agents/run/subagents.md) to delegate a focused part of a task in a separate context.
-* [Hand off a session](/docs/agents/run/agent-harnesses.md#hand-off-a-session) when you want to continue work with another supported session target.
+* [Hand off a session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) when you want to continue work with another supported harness or the Cloud target.
 
 <a name="add-context-to-your-prompt"></a>
 
@@ -71,7 +70,7 @@ To organize larger tasks:
 | Ground a request in specific code or a failure | [Add context](/docs/chat/copilot-chat-context.md) with **Add Context**, `#`-mentions, or dragged files. Attach relevant code, errors, test output, or GitHub issues. |
 | Explore the codebase without finding every file yourself | Let the agent gather [workspace context](/docs/agents/reference/workspace-context.md) with search and language tools. |
 | Balance reasoning, speed, and cost | Use the [model picker](/docs/agent-customization/language-models.md), or **Auto** when available. Changing the model does not change the agent harness. |
-| Work with another agent provider | [Choose a harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}. Check its tools, authentication options, and setup requirements. |
+| Work with another agent provider | [Choose a harness](/docs/agents/run/agent-harnesses.md#cloud-target), such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %}. Check its tools, authentication options, and setup requirements. |
 | Use your own model provider or a local model | Configure [bring your own key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Inline suggestions and semantic search still require the {% data variables.product.prodname_copilot %} service. |
 | Retain useful knowledge across conversations | Ask the agent to remember it with [memory](/docs/agents/run/memory.md). Use **Chat: Show Memory Files** to inspect stored notes. |
 | Manage a long conversation or its cost | Check [context usage](/docs/agents/run/sessions/manage-sessions.md#manage-session-context), compact the conversation, or start a new chat for an unrelated task. See [usage guidance](/docs/agents/guides/optimize-usage.md). |
@@ -161,23 +160,25 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/doc` | Generate documentation comments from editor inline chat. |
 | `/setupTests` (Experimental) | Get help choosing and setting up a test framework. |
 | `/new`, `/newNotebook` | Scaffold a workspace, file, or notebook. |
-| `/compact`, `/fork` | Compact context, or branch the conversation with its history. |
+| `/compact` | Compact conversation context. |
+| `/fork` | [Fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) with its history. |
+| `/fork <title>`, `/fork prompt <prompt>` | Name a fork, or fork and immediately send a prompt with attached context. Requires a supported Agent Host session. See [named and prompted forks](/docs/agents/run/sessions/manage-sessions.md#name-a-fork-or-send-a-prompt). |
 | `/clear` | Start a new chat and archive or mark the current chat as done. |
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
 | `/init` | Generate or update workspace instructions in a local agent session. |
-| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. |
+| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. In the {% data variables.copilot.chat_view %}, all are available with **Local**. Only `/prompts` and `/hooks` are available with **Copilot**. |
 | `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
 | `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |
-| `/sandbox-policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} Agent Host session. |
+| `/sandbox policy` | Inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) for a {% data variables.product.prodname_copilot_short %} session. |
 | `/<name>` | Invoke an agent skill or reusable prompt by name. |
 
 For example, a skill in `.github/skills/webapp-testing/SKILL.md` can be invoked with `/webapp-testing`. For permission and Autopilot commands, see [approvals and permissions](/docs/agents/run/approvals.md).
 
-### Chat participants
+### Chat participants (deprecated)
 
-In chat surfaces that support participants, type `@` to choose a specialist. Use `@github` for repositories, issues, and pull requests, `@terminal` for shell questions, or `@vscode` for editor features and settings. For example, `@vscode /search` generates a Search view query.
+Chat participants are not supported in the Copilot harness. Ask the agent directly and attach relevant context, or use a plugin with skills and MCP tools for a domain-specific workflow. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ## Next steps
 

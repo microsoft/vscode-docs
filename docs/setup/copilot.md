@@ -1,14 +1,13 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
 This guide walks you through setting up GitHub Copilot in {% data variables.product.prodname_vscode %}. To use Copilot in {% data variables.product.prodname_vscode_shortname %}, you need access to GitHub Copilot with your GitHub account.
 
-This article covers the GitHub Copilot setup path. To use Claude, Codex, or your own model credentials for supported agent workflows, compare the [agent harness authentication and billing options](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target). Some agent workflows without GitHub sign-in are experimental.
+This article covers the GitHub Copilot setup path. To use Claude, Codex, or your own model credentials for supported agent workflows, compare the [agent harness authentication and billing options](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Some agent workflows without GitHub sign-in are experimental.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Complete your first coding task with an AI agent in {% data variables.product.prodname_vscode_shortname %}.
@@ -17,12 +16,15 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 
 </div>
 
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
+
 ## Before you start
 
 Review these account, usage, and data-handling details before you send project content to an AI model:
 
 * **Account access**: the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in {% data variables.copilot.copilot_free_short %}.
-* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use a Claude bring-your-own-key (BYOK) configuration, a ChatGPT subscription, or your own model credentials, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#configure-a-harness-or-cloud-target).
+* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use a Claude bring-your-own-key (BYOK) configuration, a ChatGPT subscription, or your own model credentials, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 * **Monitor usage**: open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar to view the percentage of your monthly allowance that you used. Learn [how to monitor usage and what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#how-can-i-monitor-my-copilot-usage).
 * **Data handling**: review the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. {% data variables.product.prodname_vscode_shortname %} [telemetry settings](/docs/configure/telemetry.md) are separate from AI-provider data handling.
 
@@ -38,7 +40,7 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
     * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
 1. Start using Copilot in {% data variables.product.prodname_vscode_shortname %}!
 

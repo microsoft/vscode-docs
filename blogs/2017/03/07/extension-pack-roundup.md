@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Community]
 Order:
 TOCTitle: Extension Packs
 PageTitle: Visual Studio Code Extension Packs

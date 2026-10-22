@@ -1,8 +1,7 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 9/16/2026
-MetaDescription: Use smart actions in {% data variables.product.prodname_vscode_shortname %} to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
-MetaSocialImage: images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Use AI smart actions in {% data variables.product.prodname_vscode_shortname %} to generate commit messages, rename symbols, and fix errors.
 ---
 # AI smart actions in {% data variables.product.prodname_vscode %}
 

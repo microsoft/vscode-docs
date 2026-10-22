@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Languages]
 Order:
 TOCTitle: JavaScript Extensions Part 1
 PageTitle: Visual Studio Code JavaScript Extensions Part 1 Sep 2016

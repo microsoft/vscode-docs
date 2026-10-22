@@ -1,16 +1,13 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 9/16/2026
-MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
+DateApproved: 10/21/2026
+MetaDescription: Run and debug tests in {% data variables.product.prodname_vscode_shortname %}, inspect coverage, and use optional AI assistance to add tests.
 ---
 # Testing
 
-{% data variables.product.prodname_vscode %} provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results. GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} can assist with setting up the testing framework for your project, and help you generate test code and fix failing tests.
+{% data variables.product.prodname_vscode %} provides tools to discover, run, and debug tests, inspect results, and measure code coverage. This article covers testing extensions, test execution, coverage, and integration with tasks.
 
-In this article, you'll learn how to start with testing in {% data variables.product.prodname_vscode_shortname %}, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in {% data variables.product.prodname_vscode_shortname %} can help you write tests faster and can assist you in fixing failing tests.
-
-> [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup). You'll get a monthly allowance of inline suggestions and AI credits.
+AI assistance is optional. If you use {% data variables.product.prodname_copilot %}, you can also [add tests with an agent](#write-tests-with-ai), get help configuring a test framework, and investigate failures.
 
 <!-- ![Testing in {% data variables.product.prodname_vscode %}](images/testing/testing-hero.png) -->
 
@@ -30,7 +27,7 @@ Testing support in {% data variables.product.prodname_vscode_shortname %} is lan
 
 * **Test coverage**: [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
 
-* **AI-assisted testing**: use GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} to assist you with setting up your testing framework, generating test code, and fixing failing tests.
+* **AI-assisted testing**: optionally use {% data variables.product.prodname_copilot %} to [add and review tests](#write-tests-with-ai), inspect your testing setup, and investigate failures.
 
 * **Task integration**: make your testing work easier by [creating tasks to run your tests](#task-integration). You can also run your tests in the background when you change your code.
 
@@ -51,7 +48,7 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 <div class="marketplace-extensions-testing-tools-curated"></div>
 
 > [!TIP]
-> Copilot can assist with setting up a testing framework and suggesting relevant testing extensions. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), enter the `/setupTests` command, and Copilot will guide you through the process of configuring your project.
+> For AI help, ask an agent to [inspect your project's testing setup](/docs/agents/guides/test-code-with-ai.md#identify-the-testing-setup) and recommend a framework only if one isn't already configured. Review the proposal before installing dependencies. You can also use `/setupTests` (Experimental) when it is offered in your session's slash-command list.
 
 ## Automatic test discovery in Testing view
 
@@ -75,39 +72,37 @@ In the **More Actions** menu, you can access more functionality, such as sort an
 If you add new tests or change your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 > [!NOTE]
-> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. You can use the `setupTests` command in Copilot {% data variables.copilot.chat_view %} to get help with setting up a testing framework for your project.
+> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. For AI-assisted setup, [identify the project's framework and test commands](/docs/agents/guides/test-code-with-ai.md#identify-the-testing-setup) before making changes.
 
 ## Write tests with AI
 
-Writing tests can be time-consuming and they're often neglected. Copilot can speed up the process of writing tests by creating test code for your application. You can use it to write unit tests, integration tests, end-to-end tests, and more.
+An agent can help add tests, run the project's test command, and investigate failures. You still need to review the assertions and verify the results. Start with one function or module rather than asking for tests for the entire project.
 
-To write tests with Copilot in {% data variables.product.prodname_vscode_shortname %}, you can use either of these methods:
+The following workflow uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %}, alongside your code. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents; see [Run agents](/docs/agents/run/overview.md) to choose an interface for your work.
 
-* Editor smart actions
+1. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md), open your project, and install the project's dependencies.
 
-	1. Optionally, select a block of application code
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), start a new chat, and select **{% data variables.product.prodname_copilot_short %}** as the **Session Target** and **Agent** as the agent.
 
-	1. Right-click in the editor, and then select **Copilot** > **Generate Tests**
+1. [Attach the source file, a representative test if available, and relevant requirements](/docs/chat/copilot-chat-context.md#add-files-as-context). Ask the agent to inspect the existing framework and propose cases before editing:
 
-* Chat prompts
+    ```prompt
+    Propose tests for the attached code using this project's existing
+    framework and test helpers. Use the supplied requirements to define
+    expected results, including boundary and error cases.
+    Identify the targeted test command and any setup requirements.
+    Do not edit files or install dependencies yet.
+    ```
 
-	1. Open the application code file for which you want to generate tests
+1. Review the proposed cases. Once you agree on the expected behavior, ask the agent to add and run the tests without changing implementation code. Request the exact command, pass and fail counts, and any skipped tests.
 
-	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), or the editor Inline Chat (`kb(inlineChat.start)`)
+1. [Review the diff](/docs/agents/run/review-code-edits.md) and run the tests yourself. Check that assertions test the intended behavior and that unrelated files remain unchanged. Treat tests that couldn't run as unverified.
 
-	1. Enter a prompt to generate tests, such as _Generate tests for this code. Also include tests for edge cases._
+If a test fails, identify whether the cause is test setup, an incorrect expectation, or an implementation bug before accepting a fix. Don't weaken assertions, skip tests, or change expected values solely to obtain a passing result.
 
-		Add extra context to your prompt by typing `#file` in the prompt. For example, _Generate tests for this code #file:calculator.js_
+For a complete walkthrough, follow [Test existing code with AI](/docs/agents/guides/test-code-with-ai.md). It covers baseline tests, failure diagnosis, assertion quality, and coverage. An agent can run test commands in the terminal without a testing extension; Test Explorer discovery still requires an appropriate extension.
 
-		> [!TIP]
-		> Get more example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests), [mock objects](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers), or [end-to-end tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage) in the GitHub Copilot documentation.
-
-Copilot will generate test cases code for your application code. If you already have a tests file, Copilot will add the tests there, or create a new file, if needed. You can further customize the generated tests by providing more prompts to Copilot. For example, you can ask Copilot to use another testing framework.
-
-> [!TIP]
-> You can give Copilot your own [special instructions for generating code](/docs/agent-customization/overview.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
-
-Learn more about [using Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md).
+For a quick starting point without writing a prompt, use the [Generate Tests smart action](/docs/editing/copilot-smart-actions.md#generate-tests). Review and run the generated tests before keeping them. To reuse project testing conventions, add [custom instructions](/docs/agent-customization/custom-instructions.md).
 
 ## Run and debug tests
 
@@ -135,7 +130,7 @@ Use the **Show Output** button in the Test Explorer to view the test output in t
 ![Test Results panel](images/testing/test-results-panel.png)
 
 > [!TIP]
-> Copilot can help you fix failing tests. In the Test Explorer, hover over the tree view, and select the **Fix Test Failure** button (_sparkle_) and Copilot will suggest a fix for the failing test.
+> For help with a current failure, hover over the failed test in the Test Explorer and select **Fix Test Failure** (sparkle icon). You can also attach failure output to chat. Review the suggested change against the expected behavior, then rerun the test and related tests. See [Investigate test failures](/docs/agents/guides/test-code-with-ai.md#run-tests-and-investigate-failures) for how to distinguish a test problem from an implementation bug.
 
 ![Screenshot showing the Test Explorer, highlighting the "Fix Test Failure" button, and the editor that shows a suggestion from Copilot on how to fix the failing test.](images/testing/copilot-fix-test-failure.png)
 
@@ -228,8 +223,8 @@ You can find all testing-related settings in the Settings editor (`kb(workbench.
 
 ## Next steps
 
-* Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
+* Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), [C#](/docs/csharp/testing.md), or [Ruby](/docs/languages/ruby.md#run-and-debug-tests)
 
-* Learn more about [Copilot and AI-assisted testing in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md)
+* Follow the workflow to [add and validate tests with an agent](/docs/agents/guides/test-code-with-ai.md)
 
 * Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md)

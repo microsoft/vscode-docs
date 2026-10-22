@@ -1,8 +1,7 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
 
@@ -19,7 +18,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Choose where to chat
 
-The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. To compare these interfaces with browser and terminal options, see [Ways to work with agents](/docs/agents/overview.md#ways-to-work-with-agents).
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Run agents](/docs/agents/run/overview.md#choose-an-interface).
 
 For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
@@ -39,7 +38,7 @@ For common tasks, you can use slash commands as shortcuts for frequently used pr
 
 You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
+Each session has controls that shape how the agent responds: **Session Target**, **Agent**, **Language model**, and **Permissions**. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [select one for a session](/docs/agents/run/agent-harnesses.md#select-a-harness).
 
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
@@ -57,7 +56,7 @@ For example, enter the following message to run your tests:
 The command runs immediately in the session's default shell, without sending the message to the agent or asking for approval. It uses the session folder or worktree as the working directory. The command output and exit status appear in the chat transcript.
 
 > [!NOTE]
-> The `!` command is only available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions.
+> The `!` command isn't available in Local harness sessions, cloud sessions, or extension-based agent integrations. Use the [integrated terminal](/docs/terminal/getting-started.md) to run commands yourself instead.
 
 ## Send messages while a request is running
 
@@ -85,7 +84,7 @@ When you have multiple pending messages (queued or steering), you can drag and d
 
 Providing the right context helps the AI generate more relevant and accurate responses.
 
-* **Implicit context**: {% data variables.product.prodname_vscode_shortname %} automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
+* **Implicit context**: {% data variables.product.prodname_vscode_shortname %} can include or suggest editor context, such as the active file or selection. The behavior depends on the interface, harness, and context settings. Attach important files explicitly instead of assuming that opening a file adds its contents to the request. Learn how [implicit context works](/docs/agents/concepts/context.md#implicit-context).
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
 
@@ -106,6 +105,8 @@ To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `fal
 ## Review and manage changes
 
 After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
+
+For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
 
 For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
@@ -144,6 +145,8 @@ Use the following keyboard shortcuts to navigate between prompts in a chat sessi
 * `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
 * `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
 
+To inspect a chat response character by character or line by line with a keyboard or screen reader, run **Open Accessible View** (`kb(editor.action.accessibleView)`). Learn more about the [Accessible View](/docs/configure/accessibility/accessibility.md#accessible-view).
+
 ## Personalize chat
 
 Adjust how chat content appears, add an interactive pet, or set a decorative background in the {% data variables.copilot.agents_window %}.
@@ -158,25 +161,13 @@ Use these settings to adjust the chat transcript:
 | Code block font and layout | Set the font family, size, weight, and line height with `setting(chat.editor.fontFamily)`, `setting(chat.editor.fontSize)`, `setting(chat.editor.fontWeight)`, and `setting(chat.editor.lineHeight)`. Control line wrapping with `setting(chat.editor.wordWrap)`. |
 | Sticky prompts | Use `setting(chat.stickyScroll.enabled)` to pin the current prompt to the top of the transcript while you scroll. |
 | Request timestamps | Use `setting(chat.verbose)` to show or hide request and completion timestamps. Hover over a completion timestamp to view the elapsed response time. |
+| Persistent progress (Experimental) | Use `setting(chat.experimental.persistentProgress)` to keep a progress indicator visible until an agent response finishes. Choose a colored or monochrome **Draw** animation, or turn the indicator off. |
+
+With persistent progress, reasoning appears in separate collapsible previews and tool calls remain visible while they run. `setting(chat.experimental.persistentProgressVerbosity)` controls completed tool-call details. **Compact** replaces completed groups with expandable summaries when response text resumes or the response finishes. **Verbose** keeps the full details visible.
+
+Persistent progress defaults to **Draw** in Insiders and **Off** in Stable.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
-
-### Use the VS Code pet
-
-`feature(chat-pet)`
-
-The interactive VS Code pet sits above the chat input box and reacts to chat activity and your interactions. Type `/vscode-pet` in the chat input to show or hide it. In the new-session view of the {% data variables.copilot.agents_window %}, you can also right-click outside the input box and select the **Pet (/vscode-pet)** item.
-
-Interact with the pet in the following ways:
-
-* Select the pet to trigger a reaction. With the keyboard, press `kbstyle(Tab)` to focus it, and then press `kbstyle(Enter)` or `kbstyle(Space)`.
-* Drag the pet around chat and release it to drop it. You can also flick it to throw it.
-* When the pet has keyboard focus, press `kbstyle(Left)` or `kbstyle(Right)` to make it hop. Hold `kbstyle(Shift)` with an arrow key to throw it toward a wall.
-* Right-click the pet to open its context menu and view achievements, send it on the run, resize it, or switch between Stable and Insiders colors. With the keyboard, focus the pet and press `kbstyle(Shift+F10)`.
-
-Only one pet appears at a time in the active chat surface. Its position and size are shared across chats and windows and persist after you restart {% data variables.product.prodname_vscode_shortname %}.
-
-For a complete list of behaviors, see the [VS Code pet interactions and reactions reference](/docs/agents/reference/chat-pet.md).
 
 ### Customize the {% data variables.copilot.agents_window %} chat background
 
@@ -224,6 +215,6 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 * [Create and manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 
-* [Choose a session target and configure permissions](/docs/agents/run/agent-harnesses.md)
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md)
 
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)

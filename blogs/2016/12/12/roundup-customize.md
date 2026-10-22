@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Extensions]
 Order:
 TOCTitle: Customize VS Code Extension Roundup
 PageTitle: Customize Visual Studio Code Extension Roundup

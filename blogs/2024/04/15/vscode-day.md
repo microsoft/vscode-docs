@@ -1,4 +1,5 @@
 ---
+Tags: [Community, Education, AI]
 Order: 
 TOCTitle: VS Code Day 2024
 PageTitle: Visual Studio Code Day 2024

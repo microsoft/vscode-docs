@@ -1,4 +1,5 @@
 ---
+Tags: [AI, GitHub Copilot, Community]
 Order: 102
 TOCTitle: "Open Source AI Editor: First Milestone"
 PageTitle: "Open Source AI Editor: First Milestone"

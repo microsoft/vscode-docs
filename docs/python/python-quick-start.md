@@ -12,7 +12,7 @@ Get started by installing:
 
 - [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/)
 - [A Python Interpreter](/docs/python/python-tutorial.md#install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
-- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the {% data variables.product.prodname_vscode_shortname %} Marketplace
+- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the {% data variables.product.prodname_vs_marketplace %}
 
 > [!TIP]
 > These are three separate pieces that work together: {% data variables.product.prodname_vscode_shortname %} is the editor, the Python extension adds Python support to {% data variables.product.prodname_vscode_shortname %}, and the Python interpreter runs your code. For a plain-language explanation, see [Understand the Python setup](/docs/python/python-tutorial.md#understand-the-python-setup).

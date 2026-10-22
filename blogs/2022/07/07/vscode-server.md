@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development, Web]
 Order: 
 TOCTitle: The VS Code Server
 PageTitle: The VS Code Server

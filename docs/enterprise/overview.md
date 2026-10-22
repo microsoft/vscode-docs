@@ -1,12 +1,17 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 9/16/2026
-MetaDescription: Learn how to configure and manage {% data variables.product.prodname_vscode %} in enterprise environments, including policies, extensions, AI settings, and network configuration.
+DateApproved: 10/21/2026
+MetaDescription: Configure enterprise policies, extensions, AI access, and network settings for development teams in {% data variables.product.prodname_vscode %}.
 ---
 
 # {% data variables.product.prodname_vscode_shortname %} for enterprise
 
 {% data variables.product.prodname_vscode %} can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure {% data variables.product.prodname_vscode_shortname %} to achieve consistency and compliance across your organization.
+
+For an AI rollout, start with [managing AI settings](/docs/enterprise/manage-ai-settings.md). Choose the controls your organization needs, test them with a representative development workflow, and tell developers which capabilities are available and how to request access.
+
+> [!NOTE]
+> If you're a developer using a managed device, start with the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). If a setting is managed by your organization, contact your administrator rather than trying to override the policy.
 
 ## Enterprise policies
 
@@ -14,7 +19,7 @@ MetaDescription: Learn how to configure and manage {% data variables.product.pro
 
 Policies are available to control:
 
-* [AI and Copilot features](/docs/enterprise/ai-settings.md) - Agent mode, MCP servers, and tool approvals
+* [AI and Copilot features](/docs/enterprise/manage-ai-settings.md) - Agent mode, MCP servers, and tool approvals
 * [Extensions](/docs/enterprise/extensions.md) - Allowed extensions and private marketplace
 * [Telemetry](/docs/enterprise/telemetry.md) - Data collection levels and feedback mechanisms
 * [Automatic updates](/docs/enterprise/updates.md) - Control when and how {% data variables.product.prodname_vscode_shortname %} updates
@@ -23,10 +28,10 @@ See the [enterprise policies reference](/docs/enterprise/policies.md) for a comp
 
 ## Extension management
 
-Organizations can control which extensions are installed on users' machines and host a private extension marketplace.
+Organizations can manage extension installation and enablement in {% data variables.product.prodname_vscode_shortname %} and host a private extension marketplace.
 
-* **Allowed extensions** - Specify which extensions can be installed by publisher, extension ID, or version
-* **Private marketplace** - Self-host extensions for your organization and control access to the public marketplace
+* **Allowed extensions** - Configure which extensions {% data variables.product.prodname_vscode_shortname %} permits users to install and enable by publisher, extension ID, version, or platform
+* **Private marketplace** - Host and distribute internal and public extensions within your organization
 
 Learn more about [managing extensions in enterprise environments](/docs/enterprise/extensions.md).
 
