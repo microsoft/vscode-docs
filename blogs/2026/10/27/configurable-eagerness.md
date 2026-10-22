@@ -22,6 +22,8 @@ A helpful suggestion at the wrong moment can still feel like an interruption. Wh
 
 Configurable eagerness gives developers more control over how proactively Copilot offers inline suggestions. We trained the inline suggestions model to support three modes: low, medium, and high eagerness. In this post, we'll explain how we defined and trained those behaviors, what our first approach taught us, and how on-policy distillation (OPD) and reinforcement learning (RL) made the feature easier to carry forward to future models.
 
+> [!QUOTE]
+> Configurable eagerness gives developers more control over how proactively Copilot offers inline suggestions.
 ## Introducing configurable eagerness
 
 We define eagerness along two dimensions: how often the model offers a suggestion and the size of each proposed edit.
