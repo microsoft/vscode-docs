@@ -43,6 +43,8 @@ When you switch interfaces, you can continue sessions without starting over. For
 
 ## Choose how you work
 
+Switch between different experiences depending on your task, and [continue agent sessions across interfaces](#continue-across-interfaces-and-machines) to pick up where you left off.
+
 <div class="card-grid">
     <a class="card" href="/docs/editing/ai-powered-suggestions">
         <i class="codicon codicon-edit" aria-hidden="true"></i>
