@@ -4,7 +4,7 @@ Order: 141
 TOCTitle: Configurable eagerness
 PageTitle: Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
 MetaDescription: Choose how proactively Copilot offers inline suggestions.
-MetaSocialImage: supervised-fine-tuning.png
+MetaSocialImage: configurable-eagerness-social.png
 Date: 2026-10-27
 Author: Ben Steenhoek, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, configurable eagerness, model training, reinforcement learning, on-policy distillation]
@@ -51,11 +51,18 @@ We define eagerness along two dimensions: how often the model offers a suggestio
 
 These settings guide how Copilot behaves rather than imposing strict limits on suggestion timing or size. Low eagerness still offers complete, useful suggestions; it's simply more conservative. High eagerness may propose more and larger suggestions, but only when that work is relevant to the user's current task.
 
-The demo placeholder below marks a comparison of all three modes as a developer adds password and password-confirmation support to a registration form. That seemingly small change creates several opportunities for follow-up work: adding field labels, validating that the passwords match, and updating the form inputs.
+<details>
+<summary>Show animated demo (collapse to hide motion)</summary>
 
-![Static demo placeholder labeled Low, Medium, and High, with no recording or application content.](demo-placeholder.svg)
+![Animated side-by-side comparison of Low, Medium, and High eagerness building a Python ModelManager class. Footer labels report lines and characters added; callouts contrast incremental suggestions at Low with KeyError validation at High.](configurable-eagerness-modelmanager.gif)
 
-_Figure 1. Placeholder for a comparison of low, medium, and high eagerness during the same development task._
+</details>
+
+_Figure 1. Low, medium, and high eagerness while building a `ModelManager` class._
+
+This demo shows a simple example: from the same starting point (`class ModelManager:`), each setting produces different behavior. Low eagerness proposes five small, incremental suggestions and leaves it to the developer to decide which methods to add and what validation they need. High eagerness proposes three larger suggestions that anticipate follow-on work, such as raising a `KeyError` in `remove_model` when the model doesn't exist.
+
+The on-screen annotations report the additions from suggestions: 11 lines and 224 characters at Low, 12 lines and 292 characters at Medium, and 14 lines and 363 characters at High. This illustrative demo compares suggestion content, not latency.
 
 We used [edit distance](https://en.wikipedia.org/wiki/Edit_distance) (the number of characters changed by a suggestion) as a proxy for eagerness, capturing both edit size and frequency<sup><a id="edit-distance-note-ref" href="#edit-distance-note" role="doc-noteref" aria-label="Footnote 1: edit distance and suggestion frequency">1</a></sup>.
 
