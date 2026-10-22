@@ -5,7 +5,7 @@ TOCTitle: Configurable eagerness
 PageTitle: Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
 MetaDescription: Choose how proactively Copilot offers inline suggestions.
 MetaSocialImage: configurable-eagerness-social.png
-Date: 2026-10-27
+Date: 2026-10-26
 Author: Ben Steenhoek, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, configurable eagerness, model training, reinforcement learning, on-policy distillation]
 ---
