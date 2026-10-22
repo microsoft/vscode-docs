@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Languages]
 Order:
 TOCTitle: Emmet 2.0
 PageTitle: Emmet 2.0 in Visual Studio Code

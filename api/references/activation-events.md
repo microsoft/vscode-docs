@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -343,6 +343,8 @@ This activation event is emitted when the issue reporter is opened (for example,
 ## onChatParticipant
 
 An activation event emitted when the specified chat participant is invoked.
+
+Chat participants are deprecated and are not supported in the Copilot harness. This event remains relevant for Local harness compatibility. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
 
 ```json
 "activationEvents": [

@@ -1,8 +1,7 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -74,15 +73,18 @@ Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-saf
 
 ## Sessions
 
-A session is the unit of work with an agent. It contains one conversation and the context, workspace, changes, and execution state associated with that task.
+A session is the unit of work with an agent. It brings together the workspace, code changes, and execution state for a task. Depending on the harness, a session can contain multiple chats, each with its own conversation history.
 
-Sessions are independent, can run in parallel, and are shared across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). A session can run on your machine or a remote host, and you can hand it off to another agent. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+Sessions can run in parallel. Both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) support agents, but the harness determines whether you can continue the same session in both interfaces. For example, Local harness sessions are editor-only. Sessions can use the same folder or separate worktrees, so separate conversations don't necessarily isolate code changes. Learn about [session compatibility, execution environments, and handoff](/docs/agents/concepts/sessions.md).
 
 ## Agent harnesses and execution environments
 
 An agent harness is the runtime that coordinates the agent loop. It manages the session, connects the language model to tools, and provides provider-specific capabilities. {% data variables.product.prodname_vscode_shortname %} supports harnesses such as Copilot, Claude, and Codex.
 
-The execution environment is where the harness runs tools and changes code. Depending on the harness and task, this can be your machine, cloud infrastructure, or a remote machine. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md).
+> [!NOTE]
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+
+The execution environment is where the harness runs workspace tools and changes code. Depending on the available harness, this can be your machine, a connected host, a Dev Container on either host, or cloud infrastructure. A Dev Container provides the project's configured tools and dependencies without changing the harness. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
 
 ## Capabilities that extend agent work
 
@@ -98,13 +100,17 @@ The Plan agent uses read-only tools while preparing the plan. After you review a
 
 For complex tasks, the main agent can delegate focused work to subagents. A subagent performs a specific task, such as researching a topic or analyzing part of a codebase, and reports the result to the main agent.
 
-Subagents are useful when independent research would add large amounts of intermediate information to the main agent's [context window](/docs/agents/concepts/language-models.md#context-window). Each subagent works in a separate context window and returns a focused result.
+Subagents are useful when independent research would add large amounts of intermediate information to the main agent's [context window](/docs/agents/concepts/language-models.md#context-window).
 
 Key characteristics of subagents:
 
-* **Context isolation**: each subagent runs in its own context window and doesn't inherit the main agent's conversation history. It receives the task prompt, applicable instruction files, and the current agent configuration.
-* **Parallel execution**: {% data variables.product.prodname_vscode_shortname %} can spawn multiple subagents in parallel for tasks like analyzing security, performance, and accessibility simultaneously.
-* **Focused results**: only the final result is returned to the main agent, keeping the main context focused and reducing token usage.
+* **Context isolation**: each subagent works in its own context. The harness determines which instructions and conversation history it receives. In the Local harness, subagents receive the delegated task and applicable instructions, not the main conversation history.
+* **Parallel execution**: independent subtasks can run in parallel when the harness supports concurrent subagents, such as separate correctness and performance reviews.
+* **Focused results**: the main agent uses the subagent's result without adding all of its intermediate work to the main context.
+
+Subagents make their own model requests, so a smaller main context doesn't necessarily mean lower total token usage or [cost](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs).
+
+You don't need to create a custom agent to use subagents. A [custom agent](/docs/agent-customization/custom-agents.md) defines reusable instructions, tools, and model preferences that a subagent can use.
 
 For example, the [Plan agent](#planning) can use subagents to research independent parts of a task before creating a plan.
 

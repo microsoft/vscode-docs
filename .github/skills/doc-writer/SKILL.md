@@ -69,3 +69,10 @@ Once the user approves the plan:
 4. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
 5. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
 6. Summarize the changes you made and call out any remaining `TODO`s for the user.
+
+## Orchestrate your documentation updates
+
+- Act as a reviewer and coordinator
+- Delegate work to GPT-5.6 Sol subagents, in parallel when feasible.
+- The subagents should not themselves run validation on their work, that's your job! You own the plan; delegate work in parallel when reasonable.
+- Monitor the progress of subagents and integrate their contributions into the final documentation.

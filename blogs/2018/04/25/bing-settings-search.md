@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Engineering]
 Order:
 TOCTitle: Settings Search
 PageTitle: Bing-powered settings search in VS Code

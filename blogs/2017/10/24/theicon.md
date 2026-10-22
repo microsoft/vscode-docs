@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Community, Design]
 Order:
 TOCTitle: The Icon Journey
 PageTitle: The Icon Journey

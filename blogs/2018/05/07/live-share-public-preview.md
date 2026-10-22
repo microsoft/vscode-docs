@@ -1,4 +1,5 @@
 ---
+Tags: [Collaboration, Extensions]
 Order:
 TOCTitle: Live Share Preview
 PageTitle: Announcing the Visual Studio Live Share Public Preview

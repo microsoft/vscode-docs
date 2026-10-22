@@ -283,10 +283,36 @@ To add a new topic to the TOC, add a new entry in the `topics` attribute of the 
 
 The order in which the topics are listed in the `/docs/toc.json` file determines the order in which they are displayed in the left rail navigation.
 
-Each topic in the TOC has two attributes:
+Each article topic in the TOC has two required attributes:
 
 * TOC title: the title that is displayed in the left rail navigation.
 * File name: the relative path to the topic file in the format `/docs/<subfolder>/<filename-without-md>`.
+
+### Primary and secondary locations
+
+An article can appear in more than one TOC location. Every entry is primary by default. To make an entry a secondary shortcut, add an optional third item:
+
+```json
+["Agents Quickstart", "/docs/agents/quickstart", { "secondary": true }]
+```
+
+Leave the primary location as a normal two-item entry:
+
+```json
+["Agents Quickstart", "/docs/agents/quickstart"]
+```
+
+On the website, opening an article from any location selects its primary entry and expands that entry's ancestors. Secondary shortcuts remain visible and work normally, but are never marked as the current article. Desktop navigation and the mobile dropdown select the same primary location.
+
+The first primary in depth-first TOC order wins if several entries are unmarked. An omitted `secondary` property or `secondary: false` means primary. The website build fails if an internal documentation article has only secondary entries, or if `secondary` is not a boolean. Resolve primary locations within each sidebar (main Docs, Languages, or Extension Docs); a primary in a different sidebar does not satisfy this requirement.
+
+Direct-link section objects also accept `secondary` beside `name` and `link`. Do not add it to groups: it applies to individual article links and does not cascade. Nested group syntax is unchanged. Reorganizing placements does not require moving article files or changing their URLs.
+
+The lightweight Docsify preview accepts this metadata and retains the shortcut links. To validate its generated sidebar, run `npm run test:sidebar`.
+
+Publish website parser support before content adopts the metadata, and keep the Docsify generator update with the content changes.
+
+### Sections and subsections
 
 The following example shows a `Getting Started` section that has two topics.
 
@@ -516,6 +542,39 @@ Use '>' to show menu sequences.
 **File** > **Preferences** > **Settings**
 **View** > **Command Palette**
 ```
+
+### Blog pull quotes
+
+In **blog posts only**, use `[!QUOTE]` to highlight a noteworthy sentence:
+
+```markdown
+The best tools give you more room to think. Our goal is a calmer day of building.
+
+> [!QUOTE]
+> The best tools give you more room to think.
+```
+
+The website renders centered serif text with short rules above and below, using
+one shared style. Authors choose the words and where the block appears. There is
+no automatic extraction or duplication; if you repeat a sentence from a
+paragraph, maintain both copies yourself.
+
+Put `[!QUOTE]` on its own first line, immediately followed by one nonempty
+paragraph, without a blank quoted line in between. Wrapped lines, emphasis,
+links, and inline code are supported. Images, raw HTML, custom interactive
+macros, nested blocks, and multiple paragraphs are not supported and fail the
+website build. Keep quotes short and use them sparingly.
+
+Ordinary `>` blockquotes remain available for external quotations, and existing
+alerts such as `[!NOTE]` are unchanged. Authored pull-quote text remains accessible
+to screen readers.
+
+`[!QUOTE]` is a custom website extension, not a standard GitHub alert type.
+GitHub and Docsify previews may display the literal marker in an ordinary
+blockquote. Verify the final rendering in the website preview, and publish
+posts using this syntax only after the website support is deployed.
+
+See the [blog authoring guide](blogs/README.md#pull-quotes) for guidance.
 
 ### Links
 

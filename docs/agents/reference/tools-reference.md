@@ -1,13 +1,12 @@
 ---
 ContentId: 6257086f-4936-4f53-bfa1-fec1cfd4dfb5
-DateApproved: 9/20/2026
-MetaDescription: Look up tools, tool sets, and context references for AI chat in {% data variables.product.prodname_vscode_shortname %}.
+DateApproved: 10/21/2026
+MetaDescription: Look up tools and context references for AI chat in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/chat-tools/agent-mode-select-tools.png
 Keywords:
 - agents
 - chat
 - tools
-- tool sets
 - context
 - reference
 ---
@@ -20,23 +19,26 @@ Look up common tool names and context references for chat prompts in {% data var
 The `#` picker includes references that serve different purposes:
 
 * **Tools** perform actions, such as reading a file or running a command. For example, `#search/textSearch` searches file contents.
-* **Tool sets** group related tools. For example, `#search` groups workspace search tools.
 * **Context items** supply information to a prompt without asking the agent to perform an action. For example, `#selection` adds the selected editor text.
 
 Available references depend on your harness, enabled extensions, and session capabilities. Type `#` in the chat input to see the current list. Extensions and MCP servers can provide additional tools beyond those listed here.
 
+User-defined tool sets are deprecated and are not supported in the Copilot harness. To replace an existing tool-set file, follow [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets). This does not remove tool groups in the **Tools** tab or supported built-in aliases.
+
 Referencing a tool does not bypass its [approval and permission controls](/docs/agents/run/approvals.md).
 
-## Tools and tool sets
+<a name="tools-and-tool-sets"></a>
+
+## Tools
+
+The following tables use Local harness tool reference names. Do not assume that these identifiers map directly to Copilot harness tools. In a Copilot session, use the **Tools** tab to [review the available tools](/docs/agents/run/tools.md#manage-available-tools).
 
 ### Read and search workspace files
 
 | Reference | Purpose |
 |---|---|
-| `#read` (tool set) | Read workspace files and execution output. |
 | `#read/readFile` | Read a file. |
 | `#read/problems` | Get diagnostics from the **Problems** panel. |
-| `#search` (tool set) | Search the workspace. |
 | `#search/changes` | List source control changes. |
 | `#search/codebase` | Find relevant code with workspace code search. |
 | `#search/fileSearch` | Find files by a glob pattern. |
@@ -48,7 +50,6 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 
 | Reference | Purpose |
 |---|---|
-| `#edit` (tool set) | Modify workspace files and notebooks. |
 | `#edit/createDirectory` | Create a directory. |
 | `#edit/createFile` | Create a file. |
 | `#edit/editFiles` | Apply edits to files. |
@@ -61,7 +62,6 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 
 | Reference | Purpose |
 |---|---|
-| `#execute` (tool set) | Run commands, tasks, and notebook cells. |
 | `#execute/createAndRunTask` | Create and run a [workspace task](/docs/debugtest/tasks.md). |
 | `#execute/getTerminalOutput` | Get output from a running terminal command. |
 | `#execute/runInTerminal` | Run a shell command in the integrated terminal. |
@@ -73,8 +73,6 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 
 | Reference | Purpose |
 |---|---|
-| `#browser` (tool set) | Navigate, inspect, and interact with pages using [browser tools](/docs/agents/run/browser-tools.md). |
-| `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch a web page. |
 | `#githubRepo` | Search a GitHub repository semantically. Specify the repository as `owner/repo`. |
 | `#githubTextSearch` | Search a GitHub repository or organization for text or code patterns. |
@@ -83,12 +81,11 @@ Referencing a tool does not bypass its [approval and permission controls](/docs/
 
 | Reference | Purpose |
 |---|---|
-| `#agent` (tool set) | Delegate tasks to [subagents](/docs/agents/run/subagents.md). |
 | `#agent/runSubagent` | Run a task in an isolated subagent context. |
 | `#todos` | Track task progress with a todo list. |
 | `#vscode/askQuestions` | Ask clarifying questions with interactive controls. |
 
-For tools that coordinate work across Agent Host sessions, see [session orchestration](/docs/agents/run/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+To coordinate work across sessions, see [Coordinate work across sessions](/docs/agents/run/sessions/manage-sessions.md#coordinate-work-across-sessions).
 
 ### Configure projects and the editor
 
@@ -117,4 +114,4 @@ Use **Add Context** or drag items into chat to attach other context, such as ima
 ## Related resources
 
 * [Understand tools in the agent loop](/docs/agents/concepts/tools.md).
-* [Create and use tool sets](/docs/agent-customization/tool-sets.md).
+* [Migrate existing customizations](/docs/agent-customization/migrate-customizations.md).

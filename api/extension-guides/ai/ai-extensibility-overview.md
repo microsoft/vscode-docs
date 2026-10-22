@@ -1,7 +1,7 @@
 ---
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
-DateApproved: 9/16/2026
-MetaDescription: Overview of how to extend the AI features in your Visual Studio Code extension by using the Language Model, Tools, and Chat APIs.
+DateApproved: 10/21/2026
+MetaDescription: Extend AI workflows with plugins, MCP Apps, and tools, or integrate models into {% data variables.product.prodname_vscode_shortname %} extensions.
 ---
 # AI extensibility in VS Code
 
@@ -27,6 +27,14 @@ Adding AI capabilities to your extension brings several benefits to your users:
 - **Improved developer productivity**: Enhance common developer tasks, like debugging, code reviewing or testing, with AI capabilities
 
 ## Extend the chat experience
+
+### Agent plugin
+
+Start with an [agent plugin](/docs/agent-customization/agent-plugins.md) to distribute a domain-specific chat workflow. Package skills for expertise and reusable tasks with an MCP server for data access and actions. Add a custom agent when users need an ongoing specialist role.
+
+For interactive workflows, [MCP Apps](/api/extension-guides/ai/mcp.md#mcp-apps) can provide buttons, forms, and other controls in chat. Provide useful tool results for clients that do not render the app.
+
+Plugins are the recommended replacement for [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants). They do not require a participant request handler. Use extension tools instead when a capability depends on editor APIs or live editor state.
 
 ### Language model tool
 
@@ -64,22 +72,9 @@ As MCP tools run outside of VS Code, they do not have access to the VS Code exte
 - No access to VS Code extension APIs
 - Distribution and deployment require users to set up the MCP server
 
-### Chat participant
+### Chat participant (deprecated)
 
-Chat participants are specialized assistants that enable users to extend ask mode with domain-specific experts. In chat, users can invoke a chat participant by @-mentioning it and passing in a natural language prompt about a particular topic or domain. The chat participant is responsible for handling the entire chat interaction.
-
-To implement a chat participant, use the [Chat API](/api/extension-guides/ai/chat) within your VS Code extension. A chat participant can access all VS Code extension APIs and provide deep integration with the editor.
-
-**Key benefits**:
-
-- Control the end-to-end interaction flow
-- Running in the extension host process allows access to VS Code extension APIs
-- Easy distribution and deployment via the Visual Studio Marketplace
-
-**Key considerations**:
-
-- Remote deployment requires the extension to implement the client-server communication
-- Reuse across different tools requires modular design and implementation
+Chat participants are not supported in the Copilot harness. The API remains available for Local harness compatibility, but new integrations should use plugins or tools. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants), including options for interactive UI and custom orchestration.
 
 ## Build your own AI-powered features
 
@@ -101,6 +96,11 @@ To use language models directly, use the [Language Model API](/api/extension-gui
 
 When choosing the right approach for extending AI in your VS Code extension, consider the following guidelines:
 
+1. **Choose an agent plugin when**:
+    * You want to distribute domain expertise and workflows with their MCP integrations
+    * You are replacing a chat participant with skills, tools, and optional MCP Apps
+    * Your integration should work across clients rather than depend on editor APIs
+
 1. **Choose Language Model Tool when**:
     - You want to extend chat in VS Code with specialized capabilities
     - You want automatic invocation based on user intent in agent mode
@@ -114,12 +114,6 @@ When choosing the right approach for extending AI in your VS Code extension, con
     - Your tool needs to work across different environments (not just VS Code)
     - Your tool should run remotely or locally
 
-1. **Choose Chat Participant when**:
-    - You want to extend ask mode with a specialized assistant with domain expertise
-    - You need to customize the entire interaction flow and response behavior
-    - You want access to VS Code APIs for deep integration in VS Code
-    - You want to distribute your tool through the VS Code Marketplace
-
 1. **Choose Language Model API when**:
     - You want to integrate AI capabilities into existing extension features
     - You're building UI experiences outside the chat interface
@@ -129,15 +123,14 @@ When choosing the right approach for extending AI in your VS Code extension, con
 
 Choose the approach that best fits your extension's goals:
 
+* [Package an agent plugin](/docs/agent-customization/agent-plugins.md)
 - [Implement a language model tool](/api/extension-guides/ai/tools)
 - [Register MCP tools in your VS Code extension](/api/extension-guides/ai/mcp)
 - [Integrate AI in your extension with the Language Model API](/api/extension-guides/ai/language-model)
-- [Implement a chat participant](/api/extension-guides/ai/chat)
 - [Extend code completions with the Inline Completions API](/api/references/vscode-api#InlineCompletionItemProvider)
 
 ### Sample projects
 
-- [Chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): Extension with agent mode tool and chat participant
-- [Code tutor chat participant tutorial](/api/extension-guides/ai/chat-tutorial): Building a specialized chat assistant
+* [Code-tutor migration example](/docs/agent-customization/migrate-customizations.md#example-migrate-a-code-tutor-to-a-plugin): Replace a participant with a plugin, skills, and MCP Apps
 - [AI-powered code annotations tutorial](/api/extension-guides/ai/language-model-tutorial): Step-by-step guide for using the Language Model API
 - [MCP extension sample](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample): Extension that registers an MCP tool

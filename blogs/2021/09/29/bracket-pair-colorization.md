@@ -1,4 +1,5 @@
 ---
+Tags: [Editor, Performance, Engineering]
 Order: 
 TOCTitle: Bracket Pair Colorization
 PageTitle: How We Made Bracket Pair Colorization 10,000x Faster In Visual Studio Code

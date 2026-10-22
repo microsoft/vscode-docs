@@ -1,4 +1,5 @@
 ---
+Tags: [Education, Languages]
 Order: 
 TOCTitle: VS Code on Chromebook
 PageTitle: Coding and learning with VS Code on Chromebooks

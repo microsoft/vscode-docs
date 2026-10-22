@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, GitHub Copilot, Extensions]
 Order: 
 TOCTitle: Agent mode available to all users
 PageTitle: "Agent mode: available to all users and supports MCP"

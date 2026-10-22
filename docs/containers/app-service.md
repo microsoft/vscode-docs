@@ -89,6 +89,6 @@ In the previous section, the image is pushed to a remote container registry. Now
 
 Read on to learn more about
 
-- [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
+- [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vs_marketplace %} has hundreds of extensions for Azure and the cloud.
 - [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 - [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage, and query MongoDB databases from within {% data variables.product.prodname_vscode_shortname %}.

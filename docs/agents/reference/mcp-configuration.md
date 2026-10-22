@@ -1,8 +1,8 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
 - mcp
 - model context protocol
@@ -16,18 +16,70 @@ Keywords:
 ---
 # MCP configuration reference
 
-This article provides a reference for the MCP server configuration file format, related commands, and settings in {% data variables.product.prodname_vscode_shortname %}. For information about adding and managing MCP servers, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md).
+This article provides the MCP configuration formats, supported fields, commands, and settings in {% data variables.product.prodname_vscode_shortname %}. To connect your first server, see [Add MCP servers](/docs/agent-customization/mcp-servers.md). For operational tasks, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md).
 
 ## Configuration file
 
 MCP server configuration uses one of the following file formats:
 
 * The {% data variables.product.prodname_vscode_shortname %} format is stored in `.vscode/mcp.json` in your workspace or in your [user profile](/docs/configure/profiles.md). It defines servers in a top-level `servers` object. {% data variables.product.prodname_vscode_shortname %} provides IntelliSense for this format.
-* The portable format is stored in `.mcp.json` at the root of your workspace or in `~/.copilot/mcp-config.json` for your user. It defines servers in a top-level `mcpServers` object.
+* The portable {% data variables.product.prodname_copilot_short %} format is stored in `.mcp.json` at the root of your workspace or in `$COPILOT_HOME/mcp-config.json` for your user, with `~/.copilot/mcp-config.json` as the fallback location. It defines servers in a top-level `mcpServers` object.
 
-The [Agent Host](/docs/agents/concepts/agent-host.md) reads the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards servers from `.vscode/mcp.json` to the Agent Host, except servers that require interactive input, such as `${input:...}` variables. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+Copilot harness sessions read the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards eligible servers from the {% data variables.product.prodname_vscode_shortname %} format to the session, except servers that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly. For setup steps, see [Choose a configuration destination](/docs/agent-customization/mcp-servers.md#choose-a-configuration-destination).
+
+For other providers, use the provider's MCP configuration documentation. Their configuration locations and schemas can differ from the two formats described here.
+
+The formats and locations differ in the capabilities they support:
+
+| Capability | Workspace or profile `mcp.json` | Workspace-root `.mcp.json` | Copilot user `mcp-config.json` |
+|------------|---------------------------------|----------------------------|--------------------------------|
+| Top-level server object | `servers` | `mcpServers` | `mcpServers` |
+| Agent Customizations editor | Read-only JSON | Configuration form | Configuration form |
+| Server transports | stdio, HTTP, and SSE | stdio and HTTP | stdio, HTTP, and SSE |
+| Working directory | Yes | No | Yes |
+| Environment file | Yes | No | No |
+| {% data variables.product.prodname_vscode_shortname %} input variables | Yes | No | No |
+| Development mode and per-server sandboxing | Yes | No | No |
+
+The configuration form preserves properties that it doesn't display. Select **Other Properties** in the form to open the complete server entry in JSON.
+
+### Portable configuration
+
+Use a top-level `mcpServers` object in workspace-root `.mcp.json` or Copilot user `mcp-config.json`. This example configures one local Playwright server:
+
+```json
+{
+    "mcpServers": {
+        "playwright": {
+            "command": "npx",
+            "args": ["-y", "@playwright/mcp@latest"]
+        }
+    }
+}
+```
+
+Install the publisher's runtime prerequisites before starting the server. The [Playwright setup requirements](https://github.com/microsoft/playwright-mcp#requirements) include Node.js 18 or newer.
+
+For an HTTP server, replace the server entry with the publisher's endpoint:
+
+```json
+{
+    "mcpServers": {
+        "context7": {
+            "type": "http",
+            "url": "https://mcp.context7.com/mcp"
+        }
+    }
+}
+```
+
+Follow the [Context7 setup instructions](https://context7.com/docs/resources/all-clients) for authentication and service limits. An endpoint alone doesn't grant access to a service.
+
+The property tables below describe the {% data variables.product.prodname_vscode_shortname %} format, not a shared schema for all MCP clients. Check the [capability comparison](#configuration-file) before copying properties into a portable file.
 
 ### Configuration structure
+
+The following structure applies to the {% data variables.product.prodname_vscode_shortname %} format. The portable Copilot format uses a separate schema with a top-level `mcpServers` object.
 
 The configuration file has three main sections:
 
@@ -53,6 +105,7 @@ Use this configuration for servers that communicate through standard input and o
 | `envFile` | No | Path to an environment file to load more variables | `"${workspaceFolder}/.env"` |
 | `dev` | No | Development mode settings to watch for file changes and debug the server. See [Development mode](#development-mode). | `{"watch": "src/**/*.ts"}` |
 | `sandboxEnabled` | No | Run the server in a sandboxed environment. Only supported on macOS and Linux. | `true` |
+| `sandbox` | No | File system and network permissions for this server. Root-level sandbox deny rules also apply. | `{"filesystem": {"allowWrite": ["${workspaceFolder}"]}}` |
 
 > [!NOTE]
 > When using Docker with stdio servers, don't use the detach option (`-d`). The server must run in the foreground to communicate with {% data variables.product.prodname_vscode_shortname %}.
@@ -60,17 +113,15 @@ Use this configuration for servers that communicate through standard input and o
 <details>
 <summary>Example local server configuration</summary>
 
-This example shows the minimal configuration for a basic, local MCP server using `npx`:
+This example configures the same Playwright server in the {% data variables.product.prodname_vscode_shortname %} format:
 
 ```json
 {
     "servers": {
-        "memory": {
+        "playwright": {
+            "type": "stdio",
             "command": "npx",
-            "args": [
-            "-y",
-            "@modelcontextprotocol/server-memory"
-            ]
+            "args": ["-y", "@playwright/mcp@latest"]
         }
     }
 }
@@ -80,29 +131,31 @@ This example shows the minimal configuration for a basic, local MCP server using
 
 ### Sandbox configuration
 
-You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers can only access the file system paths and network domains that you explicitly permit. Sandboxing is available on macOS and Linux only.
+You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandbox rules can deny file access, grant write access, and grant access to specific network domains. Sandboxing is available on macOS and Linux only.
 
-To enable sandboxing for a server, set `\"sandboxEnabled\": true` in its configuration. Then, define a top-level `sandbox` object to specify the file system and network access rules. The `sandbox` object is a sibling of `servers` and `inputs`, and its rules apply to all sandboxed servers. When a sandboxed server needs access that the current rules don't permit, check the server output for error messages and update the `sandbox` configuration accordingly.
+To enable sandboxing for a server, set `"sandboxEnabled": true` in its configuration. Add a `sandbox` object to the server to define its file system and network permissions. You can also add a top-level `sandbox` object as a sibling of `servers` and `inputs` to define deny rules that apply to all sandboxed servers in the file.
+
+Allow rules are supported only in a server's `sandbox` object. Top-level `allowWrite` and `allowedDomains` rules are ignored.
 
 > [!NOTE]
 > When sandboxing is enabled, tool confirmations are auto-approved because the server runs in a controlled environment.
 
-The `sandbox` object supports the following properties:
+The server-level and top-level `sandbox` objects support the following properties:
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `filesystem.allowWrite` | string[] | File paths that the server is allowed to write to. |
-| `filesystem.denyRead` | string[] | File paths that the server is not allowed to read. |
-| `filesystem.denyWrite` | string[] | File paths that the server is not allowed to write to. |
-| `network.allowedDomains` | string[] | Domains that the server is allowed to access. Wildcards are supported, for example `*.example.com`. |
-| `network.deniedDomains` | string[] | Domains that the server is not allowed to access. |
+| Property | Type | Supported scope | Description |
+|----------|------|-----------------|-------------|
+| `filesystem.allowWrite` | string[] | Server only | File paths that the server is allowed to write to. |
+| `filesystem.denyRead` | string[] | Server and top level | File paths that the server is not allowed to read. |
+| `filesystem.denyWrite` | string[] | Server and top level | File paths that the server is not allowed to write to. |
+| `network.allowedDomains` | string[] | Server only | Domains that the server is allowed to access. Wildcards are supported, for example `*.example.com`. |
+| `network.deniedDomains` | string[] | Server and top level | Domains that the server is not allowed to access. |
 
 You can use [predefined variables](/docs/reference/variables-reference.md), such as `${workspaceFolder}`, in file system path values.
 
 <details>
 <summary>Example sandbox configuration</summary>
 
-This example enables sandboxing and grants write access to the workspace, denies read access to the `.ssh` directory, and allows network access to specific domains:
+This example grants one server write access to the workspace and network access to specific domains. The top-level rule denies all sandboxed servers in the file access to the `.ssh` directory:
 
 ```json
 {
@@ -111,16 +164,20 @@ This example enables sandboxing and grants write access to the workspace, denies
             "type": "stdio",
             "command": "npx",
             "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com", "*.cdn.example.com"]
+                }
+            }
         }
     },
     "sandbox": {
         "filesystem": {
-            "allowWrite": ["${workspaceFolder}"],
             "denyRead": ["${userHome}/.ssh"]
-        },
-        "network": {
-            "allowedDomains": ["api.example.com", "*.cdn.example.com"]
         }
     }
 }
@@ -146,7 +203,6 @@ The `oauth` object supports the following properties:
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
 | `clientId` | string | Yes | The OAuth client ID to use when authenticating with the server. |
-| `enterpriseManaged` | boolean | No | (Preview) Authenticate through the enterprise single sign-on (SSO) issuer configured by the `mcp.enterpriseManagedAuth.idp` setting, using the OAuth Identity Assertion Authorization Grant (ID-JAG). After a one-time sign-in, subsequent enterprise-managed servers connect silently. Default is `false`. |
 
 > [!NOTE]
 > When `oauth` is configured, {% data variables.product.prodname_vscode_shortname %} handles the OAuth flow automatically. A browser window opens for authorization on the first connection to the server.
@@ -154,7 +210,7 @@ The `oauth` object supports the following properties:
 <details>
 <summary>Example remote server configuration</summary>
 
-This example shows the minimal configuration for a remote MCP server without authentication:
+This example specifies a remote MCP endpoint. Follow the publisher's authentication instructions before using it:
 
 ```json
 {
@@ -190,9 +246,24 @@ This example shows the configuration for an MCP server that uses OAuth for authe
 
 </details>
 
+### Authentication and secrets
+
+Authentication grants access to an external service. It is separate from trusting a server to start and approving individual tool calls.
+
+Choose an authentication method that both the server and your configuration support:
+
+| Server requirement | Guidance |
+|--------------------|----------|
+| Browser sign-in or OAuth | Follow the publisher's connection instructions and review the requested permissions. Complete the authorization flow when prompted. The `oauth` fields above apply to the {% data variables.product.prodname_vscode_shortname %} format. |
+| Environment variables for a local server | Follow the publisher's instructions to provide credentials in the environment that launches the server. Configure them on the machine where the server runs, not only in an unrelated terminal or on your local machine for a remote server. |
+| {% data variables.product.prodname_vscode_shortname %} input prompts | Use the [input variables](#input-variables-for-sensitive-data) supported by the {% data variables.product.prodname_vscode_shortname %} format. Servers requiring these interactive inputs aren't forwarded to Copilot harness sessions. |
+| An environment file | `envFile` is supported in the {% data variables.product.prodname_vscode_shortname %} format, not in portable `.mcp.json` or Copilot user `mcp-config.json`. Keep files containing credentials out of source control. |
+
+Do not commit tokens, passwords, or populated authentication headers. A personal configuration file is not a secret store. For a server that requires a fixed token, follow its publisher's secure configuration guidance for your client and harness rather than copying credentials into a shared example.
+
 ### Input variables for sensitive data
 
-Input variables let you define placeholders for configuration values, avoiding the need to hardcode sensitive information like API keys or passwords directly in the server configuration.
+Input variables in the {% data variables.product.prodname_vscode_shortname %} format let you define placeholders for values such as API keys or passwords. They aren't supported in portable configuration files, and servers that require them aren't forwarded to Copilot harness sessions.
 
 When you reference an input variable using `${input:variable-id}`, {% data variables.product.prodname_vscode_shortname %} prompts you for the value when the server starts for the first time. The value is then securely stored for subsequent use. Learn more about [input variables](/docs/reference/variables-reference.md#input-variables) in {% data variables.product.prodname_vscode_shortname %}.
 
@@ -295,12 +366,12 @@ When defining MCP servers, follow these naming conventions for the server name:
 | Cursor (workspace) | `cursor-workspace` | `<workspace>/.cursor/mcp.json` |
 | Windsurf | `windsurf` | `~/.codeium/windsurf/mcp_config.json` |
 
-All discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
+{% data variables.copilot.copilot_cli %} discovery is on by default. All other discovery sources are off by default. In a remote window, {% data variables.product.prodname_vscode_shortname %} resolves configuration locations and environment variables in the remote environment.
 
 For {% data variables.copilot.copilot_cli %}, setting `COPILOT_HOME` replaces the default `~/.copilot` location. {% data variables.product.prodname_vscode_shortname %} does not check both locations.
 
 > [!NOTE]
-> Agent Host sessions read the {% data variables.copilot.copilot_cli %} MCP configuration independently. The discovery setting does not change how the Agent Host receives MCP servers. Learn more about [MCP configuration behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+> Copilot harness sessions read the {% data variables.copilot.copilot_cli %} MCP configuration independently, whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The discovery setting does not change how these sessions receive MCP servers. See [configuration formats and forwarding](#configuration-file).
 
 ## Commands
 
@@ -320,6 +391,18 @@ The following table lists the MCP-related commands available in the Command Pale
 | **MCP: Reset Trust** | Reset separate trust decisions for MCP servers from non-workspace sources. Workspace MCP servers inherit Workspace Trust and are unaffected. |
 | **MCP: Show Installed Servers** | Show a list of all installed MCP servers. |
 
+### Command-line installation
+
+Use `code --add-mcp` with a JSON object containing a unique `name` and the server configuration. The command adds a server to the {% data variables.product.prodname_vscode_shortname %} user-profile configuration.
+
+For example, from a Bash shell:
+
+```bash
+code --add-mcp '{"name":"playwright","type":"stdio","command":"npx","args":["-y","@playwright/mcp@latest"]}'
+```
+
+This uses the {% data variables.product.prodname_vscode_shortname %} format, not the portable Copilot user file. To choose a portable destination, use the [guided connection flow](/docs/agent-customization/mcp-servers.md#connect-a-server). After installation, [verify a tool call](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call).
+
 ## Settings
 
 For a full list of {% data variables.product.prodname_vscode_shortname %} AI settings, see the [AI Settings Reference](/docs/agents/reference/ai-settings.md). The following settings are specific to MCP servers.
@@ -328,12 +411,14 @@ For a full list of {% data variables.product.prodname_vscode_shortname %} AI set
 |---------|-------------|
 | `setting(chat.mcp.access)` | Manage which MCP servers can be used in {% data variables.product.prodname_vscode_shortname %}. |
 | `setting(chat.mcp.discovery.enabled)` | Configure automatic discovery of MCP server configuration from other applications. |
-| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't control servers managed by the Agent Host. |
+| `setting(chat.mcp.workspaceRootConfig.enabled)` | (Experimental) Control whether **MCP: Add Server** offers the workspace-root `.mcp.json` destination. Existing `.mcp.json` files remain available when this setting is off. |
+| `setting(chat.mcp.autostart)` `feature(mcp-autostart)` | Control which MCP servers {% data variables.product.prodname_vscode_shortname %} starts automatically when you submit a chat message. This setting doesn't prevent a Copilot harness session from starting servers it manages independently. See [MCP autostart behavior](/docs/agents/run/manage-mcp-servers.md#automatically-start-mcp-servers). |
 | `setting(chat.mcp.serverSampling)` | Configure which models are exposed to MCP servers for sampling (making requests in the background). |
 | `setting(chat.mcp.apps.enabled)` `feature(mcp-apps)` | Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. |
+| `setting(accessibility.verbosity.mcpServerConfiguration)` | Control whether the MCP server configuration form announces information about opening Accessibility Help. |
 
 ## Related resources
 
-* [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
-* [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Dev Guide](/docs/agents/guides/mcp-developer-guide.md)
+* [Add MCP servers](/docs/agent-customization/mcp-servers.md)
+* [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md)
+* [MCP tool extensibility overview](/api/extension-guides/ai/ai-extensibility-overview.md#mcp-tool)

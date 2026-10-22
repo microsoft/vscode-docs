@@ -65,5 +65,5 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vscode_shortname %} Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vs_marketplace %} has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

@@ -1,4 +1,5 @@
 ---
+Tags: [Collaboration, Extensions]
 Order:
 TOCTitle: Introducing Live Share
 PageTitle: Introducing Visual Studio Live Share

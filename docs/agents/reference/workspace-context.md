@@ -1,8 +1,7 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 9/16/2026
-MetaDescription: Learn how Copilot agents understand your codebase with semantic search, text search, grep, and other tools to gather context for accurate answers.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Understand how Copilot agents search workspace code, gather context, and work within indexing and exclusion limits.
 Keywords:
 - workspace context
 - semantic search
@@ -21,9 +20,9 @@ Keywords:
 
 # How Copilot understands your workspace
 
-Copilot agents search your entire codebase to understand how components connect and provide answers grounded in your actual code. You can use broad prompts like "where is authentication handled?" or "add tests for the list endpoint" and get accurate answers and edits based on your codebase.
+Copilot agents use search and file-reading tools to find relevant workspace code. For prompts like "where is authentication handled?" or "add tests for the list endpoint", they can gather context from related files instead of relying only on the current editor. What they find depends on available tools, indexing, exclusions, and the information you provide. Review their answers and edits against the source.
 
-This article explains how Copilot understands your codebase, including the different tools it uses for searching through your code and the indexes it creates to enable quick searches. These same general approaches are used on all codebases, from those with five files to those with 500,000 files.
+This article explains the tools and indexes Copilot uses to discover workspace context, and the limits to consider when a result is incomplete. An index helps find relevant snippets; it doesn't put the entire workspace into each model request.
 
 ## Search and read tools
 
@@ -37,7 +36,7 @@ For example, when asked to "add error handling to the payment service", the agen
 1. Use **file search** to locate related configuration and test files.
 1. Read the relevant files and make coordinated changes.
 
-This iterative approach means the agent gathers context the same way a developer would: by exploring the codebase from multiple angles until it has a complete picture.
+This iterative approach lets the agent follow relationships across the codebase. It doesn't guarantee that every relevant file is found. Reference important files explicitly when you know they are needed.
 
 Agents have access to the following built-in search tools. You can also explicitly reference these tools in your prompts by typing `#` followed by the tool name.
 
@@ -66,12 +65,12 @@ For more advanced GitHub workflows, such as searching and managing issues or pul
 
 ### What the agent has access to
 
-Agents search through the same sources a developer would use when navigating a codebase:
+Depending on the harness, tools, and context settings, agents can gather information from:
 
-* All [indexable files](#what-content-is-included-in-the-semantic-index) in the workspace, except those ignored by a `.gitignore` file
+* [Indexable workspace files](#what-content-is-included-in-the-semantic-index), subject to indexing and exclusion rules
 * Directory structure with nested folders and file names
 * Code symbols and definitions (classes, functions, variables)
-* Currently selected text or visible text in the active editor
+* [Editor context](/docs/agents/concepts/context.md#implicit-context), such as selected text, when included in the request
 * Conversation history and previous tool results
 
 > [!IMPORTANT]
@@ -87,7 +86,7 @@ Configure exclusion settings to keep agent searches focused on source code you c
 * **`setting(files.exclude)`**: hides files from the Explorer and excludes them from text search, grep, and the semantic index.
 * **`setting(search.exclude)`**: excludes files from text search and grep while keeping them visible in the Explorer.
 
-Strict exclusions improve search relevance, speed up searches over large workspaces, and reduce the tokens consumed by search results. This also helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md#exclude-files-from-copilot-context).
+Strict exclusions improve search relevance, speed up searches over large workspaces, and reduce the tokens consumed by search results. This also helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md#exclude-files-from-chat-context).
 
 Add exclusion patterns to your [workspace settings](/docs/configure/settings.md). Patterns use [glob syntax](/docs/editor/glob-patterns.md).
 

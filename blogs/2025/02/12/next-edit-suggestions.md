@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI, Agents]
 Order: 
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)

@@ -1,8 +1,7 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
-MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
@@ -22,7 +21,7 @@ In this guide, you choose two changes in your own repository, run them in separa
 To follow this guide, you need:
 
 * {% data variables.product.prodname_vscode %} with [AI features set up](/docs/setup/copilot.md).
-* Access to the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), which is currently in Preview, and the **{% data variables.product.prodname_copilot_short %}** session target.
+* Access to the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and the {% data variables.product.prodname_copilot_short %} harness.
 * A local Git repository with at least one commit, a working development environment, and existing tests.
 * Experience completing a single agent-assisted task. If you're new to agents, start with the [agents quickstart](/docs/agents/quickstart.md).
 
@@ -68,7 +67,7 @@ For this walkthrough, use **two separate sessions**, each with **New Worktree** 
 > [!CAUTION]
 > Worktrees isolate working files, not the agent's access to your machine or external services. {% data variables.product.prodname_copilot_short %} worktree sessions use **Allow all**, which skips tool approval prompts. Use a trusted repository and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. If you require manual approvals, use folder sessions one at a time instead.
 
-For details about the available choices, see [choose code isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
+For details about the available choices, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
 ## 3. Prepare and delegate
 
@@ -119,7 +118,7 @@ Start both tasks from the same known-good commit so that you can review each res
     Finish with the changed files, validation commands and results, any manual checks still needed, and unresolved concerns.
     ```
 
-1. Select **New** again to create a separate session for the same project. Choose the same session target and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
+1. Select **New** again to create a separate session for the same project. Choose the same harness and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
 
 1. Fill in a second copy of the template from task B's brief and submit it to the new session. Use task B's outcome, scope, and validation commands, not task A's. Keep the same base commit.
 

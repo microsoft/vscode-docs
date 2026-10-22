@@ -1,4 +1,5 @@
 ---
+Tags: [Remote Development, Web]
 Order: 
 TOCTitle: Remote Development Even Better
 PageTitle: Making Remote Development Even Better

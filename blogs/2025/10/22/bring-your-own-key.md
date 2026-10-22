@@ -1,4 +1,5 @@
 ---
+Tags: [Models, GitHub Copilot, Extensions]
 Order: 107
 TOCTitle: Expanding Model Choice
 PageTitle: Expanding Model Choice in VS Code with Bring Your Own Key

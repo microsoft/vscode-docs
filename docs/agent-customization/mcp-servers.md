@@ -1,8 +1,8 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 9/16/2026
-MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Connect MCP servers in {% data variables.product.prodname_vscode_shortname %} to give agents external tools, then verify the first tool call.
+MetaSocialImage: images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
 - mcp
 - model context protocol
@@ -10,289 +10,185 @@ Keywords:
 - copilot
 - ai
 - agents
-- chat
-- customization
-- api
+- setup
 ---
-# Add and manage MCP servers in {% data variables.product.prodname_vscode_shortname %}
+# Add MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In {% data variables.product.prodname_vscode %}, MCP servers provide [tools](/docs/agents/run/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+Add an MCP server when your agent needs a capability its existing tools don't provide, such as querying a database or retrieving information from an external service. [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) connects agents to these tools and data sources. If your existing tools meet your needs, you don't need another server.
 
-For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
+This article takes you from adding a server to verifying its first tool call. Choose your starting point:
 
-This article covers how to add, configure, and manage MCP servers. To learn how agents invoke tools, see [Use tools with agents](/docs/agents/run/tools.md).
+* **I have a server URL or command:** [Connect a server](#connect-a-server).
+* **Help me find a server:** [Choose a server to try](#choose-a-server-to-try).
+* **My server is configured but isn't working:** [Check the connection](#if-the-server-does-not-work).
 
-> [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+## Before you start
 
-## Quickstart: use an MCP server in chat
-
-Follow these steps to install an MCP server and use its tools in chat. This example uses the [Playwright](https://github.com/microsoft/playwright-mcp) MCP server to interact with web pages through a browser.
-
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp playwright` in the search field.
-
-1. Select **Install** to install the Playwright MCP server in your user profile.
-
-1. When prompted, confirm that you trust the server to start it. {% data variables.product.prodname_vscode_shortname %} discovers the server's tools and makes them available in chat.
-
-1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and enter a prompt that uses the Playwright tools. For example:
-
-    ```prompt
-    Go to code.visualstudio.com, decline the cookie banner, and give me a screenshot of the homepage.
-    ```
-
-    {% data variables.product.prodname_vscode_shortname %} invokes the Playwright tools to open the page in a browser, and take a screenshot. You might be asked to confirm each tool invocation.
-
-> [!TIP]
-> Select the **Configure Tools** button in the chat input to see all available tools for the Playwright MCP server and toggle specific tools on or off.
-
-## Add an MCP server
-
-To install an MCP server from the MCP server gallery:
-
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp` in the search field. This shows the list of available MCP servers in the gallery.
-
-1. You can install an MCP server in your user profile or in your workspace:
-
-    * To install in your user profile, select **Install**.
-
-    * To install in your workspace, right-click the MCP server and select **Install in Workspace**. This updates the `.vscode/mcp.json` file in your workspace.
-
-1. To view the MCP server details, select the MCP server in the list to open the details page.
+* [Enable AI features](/docs/getstarted/overview.md#enable-ai-features) and open a local project folder in {% data variables.product.prodname_vscode_shortname %}.
+* Check the server publisher's prerequisites. A remote HTTP server can require an account or sign-in. A server launched by a command needs its runtime installed on the machine that runs it.
 
 > [!CAUTION]
-> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %} to understand the implications.
+> Local MCP servers can run code on your machine, and tools can access external services using your permissions. Review the publisher, command or endpoint, and requested access before installing or starting a server. Only trust configurations you have reviewed. Learn about [MCP server trust](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust).
 
-### Configure the `mcp.json` file
+## Choose a server to try
 
-You can manually configure MCP servers in the following locations:
-
-* **Workspace, {% data variables.product.prodname_vscode_shortname %} format**: create or open `.vscode/mcp.json` in your project. This format defines servers in a top-level `servers` object.
-* **Workspace, portable format**: create `.mcp.json` at the root of your project. This format defines servers in a top-level `mcpServers` object and works across compatible tools.
-* **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md) folder. Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
-
-Include workspace configuration in source control to share MCP servers with your team.
-
-You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
-
-For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
-
-> [!IMPORTANT]
-> Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
-
-The following example shows an `mcp.json` file that configures a remote MCP server and a local MCP server:
-
-```json
-{
-    "servers": {
-        "github": {
-            "type": "http",
-            "url": "https://api.githubcopilot.com/mcp"
-        },
-        "playwright": {
-            "command": "npx",
-            "args": ["-y", "@microsoft/mcp-server-playwright"]
-        }
-    }
-}
-```
-
-{% data variables.product.prodname_vscode_shortname %} provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
-
-> [!NOTE]
-> MCP servers run wherever they are configured. Servers in your user profile run locally. If you're connected to a [remote](/docs/remote/remote-overview.md) and want a server to run on the remote machine, define it in the workspace settings or remote user settings (**MCP: Open Remote User Configuration**).
-
-### Other options to add an MCP server
-
-<details>
-<summary>Add an MCP server to a dev container</summary>
-
-MCP servers can be configured in Dev Containers through the `devcontainer.json` file. This allows you to include MCP server configurations as part of your containerized development environment.
-
-To configure MCP servers in a Dev Container, add the server configuration to the `customizations.vscode.mcp` section:
-
-```json
-{
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
-    "customizations": {
-        "vscode": {
-            "mcp": {
-                "servers": {
-                    "playwright": {
-                        "command": "npx",
-                        "args": ["-y", "@microsoft/mcp-server-playwright"]
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-When the Dev Container is created, {% data variables.product.prodname_vscode_shortname %} automatically writes the MCP server configurations to the remote `mcp.json` file, making them available in your containerized development environment.
-
-</details>
-
-<details>
-<summary>Automatically discover MCP servers</summary>
-
-{% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
-
-With the `setting(chat.mcp.discovery.enabled)` setting, you can select one or more tools from which to discover their MCP server configuration.
-
-Supported sources include Claude Desktop, {% data variables.copilot.copilot_cli %}, Cursor, and Windsurf. Learn more about [automatic MCP server discovery](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery), including configuration locations and remote behavior.
-
-</details>
-
-<details>
-<summary>Install an MCP server from the command line</summary>
-
-You can also use the {% data variables.product.prodname_vscode_shortname %} command-line interface to add an MCP server to your user profile or to a workspace.
-
-To add an MCP server to your user profile, use the `--add-mcp` {% data variables.product.prodname_vscode_shortname %} command line option, and provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}`.
+For a concrete local example, use the [Playwright MCP server](https://github.com/microsoft/playwright-mcp). It requires **Node.js 18 or newer**, with `npx` available. Check your installation in a terminal:
 
 ```bash
-code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-server-fetch\"]}"
+node --version
+npx --version
 ```
 
-</details>
+The walkthrough uses Playwright to demonstrate connecting an external tool provider. For everyday browser interaction, try the [built-in browser tools](/docs/agents/run/browser-tools.md) first: they don't require an MCP server.
 
-## Other MCP capabilities
+To try a remote documentation server instead, follow the [Context7 setup requirements](https://context7.com/docs/resources/all-clients) for its current authentication requirements and service limits. Use the HTTP endpoint `https://mcp.context7.com/mcp` in the connection steps below. A remote server doesn't require a local Node.js installation.
 
-Beyond tools, MCP servers can provide other capabilities:
+<a name="add-an-mcp-server"></a>
+<a name="add-a-server-from-the-agent-customizations-editor"></a>
 
-| Capability | Description | How to use |
-|------------|-------------|------------|
-| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the {% data variables.copilot.chat_view %}, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
-| **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
-| **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
+## Connect a server
 
-## Sandbox MCP servers
+Use the publisher's URL or launch command. For the Playwright example, use the command in step two.
 
-On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **MCP: Add Server**.
 
-To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a top-level `sandbox` object with specific file system and network rules.
+1. Choose the option that matches what the publisher provides:
 
-The following example shows how to enable sandboxing for a local MCP server and restrict its access to only write to files in the workspace and access a specific API domain:
+    | What you have | Choose | Enter |
+    |---------------|--------|-------|
+    | A server URL | **HTTP (HTTP or Server-Sent Events)** | The publisher's MCP endpoint. |
+    | A launch command | **Command (stdio)** | The command and its arguments. The server communicates through standard input and output. |
 
-```json
-{
-    "servers": {
-        "myServer": {
-            "type": "stdio",
-            "command": "npx",
-            "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true
-        }
-    },
-    "sandbox": {
-        "filesystem": {
-            "allowWrite": ["${workspaceFolder}"]
-        },
-        "network": {
-            "allowedDomains": ["api.example.com"]
-        }
-    }
-}
-```
+    For Playwright, choose **Command (stdio)** and enter:
 
-When sandboxing is enabled, tool calls from the server are auto-approved because they run in a controlled environment.
+    ```bash
+    npx -y @playwright/mcp@latest
+    ```
 
-For the full sandbox configuration schema, see the [Sandbox configuration](/docs/agents/reference/mcp-configuration.md#sandbox-configuration) reference.
+1. Enter a server ID, such as `playwright` or `context7`, that isn't already used in the destination configuration. Use distinct IDs for different servers you plan to use together.
 
-> [!NOTE]
-> Sandboxing is currently not available on Windows.
+1. For a personal configuration, select **Global**, and then **Copilot Global** when prompted. This stores the server outside your project. For team configurations or other harnesses, [choose a configuration destination](#choose-a-configuration-destination).
 
-## Manage MCP servers
+    If **Copilot Global** isn't available, check the [Copilot harness requirements](/docs/agents/run/agent-harnesses.md#copilot) before continuing with this walkthrough.
 
-{% data variables.product.prodname_vscode_shortname %} provides several options to manage your MCP servers, such as starting or stopping a server, viewing logs, uninstalling, or clearing cached tools.
+1. Review any server trust or authentication prompts before accepting them. Follow the publisher's sign-in instructions if the service requires authentication. Do not paste credentials into chat or commit them to your project.
 
-| Method | Description | |
-|--------|-------------|---|
-| **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png) |
-| **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
-| **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png) |
+You can also start the guided flow from **Chat: Open Customizations** > **MCP Servers** > **Add Server**. The editor is scoped to the selected agent harness.
 
-## Enable or disable MCP servers
+For other ways to add a server, see [Find another server](#find-another-server).
 
-You can enable or disable an MCP server globally or for a specific workspace. When an MCP server is disabled, it does not start and its tools, prompts, resources, and MCP apps are excluded from chat.
+## Verify the first tool call
 
-To enable or disable an MCP server:
+Adding a configuration isn't proof that the agent can use the server. Complete a request and inspect the tool call:
 
-* Right-click a server in the **MCP SERVERS - INSTALLED** section of the Extensions view and select **Enable** or **Disable**.
-* Run **MCP: List Servers** from the Command Palette, select a server, and choose **Enable** or **Disable**.
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle the server's enabled state.
+1. In the agent session, enter a prompt that explicitly names the server and a low-impact action. For Playwright:
 
-The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
+    ```prompt
+    Use the Playwright MCP server to open <your URL here> and report the page title. Use its tools, not the built-in browser tools. Do not change files.
+    ```
 
-## Centrally manage access to MCP servers in {% data variables.product.prodname_vscode_shortname %}
+    For Context7:
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
+    ```prompt
+    Use the Context7 MCP tools to look up the React documentation for useState. Summarize the basic usage and cite the documentation returned by the tool. Do not change files.
+    ```
 
-## Automatically start MCP servers
+1. Review startup, sign-in, and tool approval requests as they appear. Approve only actions you understand.
 
-`feature(mcp-autostart)`
+1. Expand the tool call in the conversation. Check that it belongs to the server you added and inspect its returned output.
 
-When you submit a chat message, {% data variables.product.prodname_vscode_shortname %} can automatically start MCP servers so that their tools are available to the chat. Use the `setting(chat.mcp.autostart)` setting to control which servers {% data variables.product.prodname_vscode_shortname %} starts during this autostart pass:
+**Your connection works when all three checks pass:**
 
-* `never`: Don't automatically start MCP servers.
-* `onlyNew`: Start servers that have never run.
-* `newAndOutdated` (default): Start servers that have never run and servers whose configuration has changed.
+* A tool from the intended MCP server was called in your session.
+* The tool returned the requested page or documentation without a connection error.
+* The agent's answer reflects that tool output. A plausible answer alone isn't sufficient.
 
-Disabled servers and servers in an error state are excluded from the autostart pass.
+To control available tools in a Copilot session, open **Chat: Open Customizations** > **Tools**. For Local harness sessions, use **Configure Tools** in the chat input. See [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) for the differences.
 
-> [!IMPORTANT]
-> For [Agent Host](/docs/agents/concepts/agent-host.md) sessions, `setting(chat.mcp.autostart)` only controls the {% data variables.product.prodname_vscode_shortname %} MCP autostart pass. The Agent Host and Copilot SDK manage their MCP server processes independently. The Agent Host discovers MCP configuration from workspace `.mcp.json` and user `~/.copilot/mcp-config.json` files. {% data variables.product.prodname_vscode_shortname %} also forwards eligible server configurations from supported sources, including `.vscode/mcp.json`. As a result, setting `setting(chat.mcp.autostart)` to `never` doesn't prevent an Agent Host session from starting its configured MCP servers.
+## Find another server
 
-## MCP server trust
+Use the MCP server gallery (Preview) to browse publishers and capabilities:
 
-Workspace MCP servers inherit [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). When you trust a workspace, servers in `.vscode/mcp.json` and workspace-root `.mcp.json` can start without a separate MCP server trust prompt, including after their configuration changes. In restricted mode, workspace MCP configuration is blocked and these servers don't start.
+1. Open the Extensions view (`kb(workbench.view.extensions)`) and search for `@mcp`.
 
-Review workspace MCP configuration before you trust a repository because local MCP servers can run code on your machine.
+1. Select a server and review its publisher, capabilities, and installation requirements.
 
-MCP servers from other sources can use a separate trust decision. For these servers, {% data variables.product.prodname_vscode_shortname %} shows a dialog when a server first starts or its configuration changes. In the dialog, select the link to the MCP server to review its configuration.
+1. Select **Install** for a personal installation, or right-click and select **Install in Workspace** to share its configuration with the project.
 
-![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
+1. Complete the publisher's setup, and then [verify a tool call](#verify-the-first-tool-call).
 
-If you don't trust the MCP server, it will not be started, and chat requests will continue without using the tools provided by the server.
+If the gallery isn't available, use a publisher-provided URL or command with [MCP: Add Server](#connect-a-server). Your organization can restrict which servers are available.
 
-To reset separate MCP server trust decisions, run the **MCP: Reset Trust** command from the Command Palette. This command doesn't change Workspace Trust.
-
-## Synchronize MCP configuration across devices
-
-With [Settings Sync](/docs/configure/settings-sync.md) enabled, you can synchronize settings and configurations across devices, including MCP server configurations. This enables you to maintain a consistent development environment and access the same MCP servers on all your devices.
-
-To synchronize MCP server configuration with Settings Sync:
-
-1. Run the **Settings Sync: Configure** command from the Command Palette
-
-1. Enable the **MCP Servers** option in the list of synchronized configurations
-
-## Troubleshoot and debug MCP servers
-
-### MCP output log
-
-When {% data variables.product.prodname_vscode_shortname %} encounters an issue with an MCP server, it shows an error indicator in the {% data variables.copilot.chat_view %}.
-
-![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
-
-Select the error notification in the {% data variables.copilot.chat_view %}, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
-
-![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
-
-## Frequently asked questions
+You can also open the gallery with **MCP: Add Server** > **Browse MCP Servers...**. Choose **Add from another application...** in the same picker to [discover existing server configurations](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery).
 
 <details>
-<summary>The MCP server is not starting when using Docker</summary>
+<summary>Add from a package or Docker image (model-assisted)</summary>
 
-Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshoot-and-debug-mcp-servers)).
+If you have a package or image name instead of a launch command, use model assistance to generate the server configuration:
+
+1. Run **MCP: Add Server** and select **NPM Package**, **Pip Package**, or **Docker Image**.
+1. [Choose a configuration destination](#choose-a-configuration-destination), then enter the package or image name when prompted. For example, enter `@playwright/mcp` for **NPM Package**.
+1. Review the package name, version, and publisher shown in the confirmation. Select **Allow** only if you trust the source, then follow the model-assisted setup prompts.
+1. Confirm a server ID that isn't already used in the destination configuration. Review the generated command, arguments, and credential requirements before accepting any server trust or tool approval prompts.
+1. [Verify a tool call](#verify-the-first-tool-call) from the added server.
+
+These options appear only when model-assisted setup is supported in your current configuration. If they aren't available, use the publisher's launch command with **Command (stdio)**. Runtime prerequisites still apply: generating a configuration doesn't replace installing the required runtime.
 
 </details>
+
+<details>
+<summary>Discover servers in the Customization Marketplace (Experimental)</summary>
+
+For a Copilot session, turn on `setting(chat.customizations.marketplace.enabled)`, open **Chat: Open Customizations**, and select **Discover**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
+
+Availability depends on the harness and your organization's marketplace policies. If automatic installation isn't supported, follow the publisher's instructions. Learn about [marketplace discovery](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
+
+</details>
+
+## Choose a configuration destination
+
+Choose a destination based on who needs the server and which harness runs it:
+
+| Your goal | Configuration |
+|-----------|---------------|
+| Use a server across your workspaces | **Global** > **Copilot Global** writes to `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is unset. |
+| Share a server with a team using compatible Copilot tools | Workspace-root `.mcp.json`. The guided flow offers this destination when the Experimental `setting(chat.mcp.workspaceRootConfig.enabled)` setting is on. |
+| Use a Local harness configuration with input variables or per-server sandboxing | Workspace `.vscode/mcp.json` or user-profile `mcp.json`. These destinations remain available for compatibility and are labeled deprecated in the guided flow. |
+
+Portable files use a top-level `mcpServers` object. The {% data variables.product.prodname_vscode_shortname %} format uses `servers`. Don't copy a configuration between them without checking the [format and capability reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
+
+> [!IMPORTANT]
+> Portable configurations don't support {% data variables.product.prodname_vscode_shortname %} input variables or environment files. Servers requiring interactive inputs aren't forwarded to Copilot harness sessions. Use the [authentication guidance for your configuration](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets), rather than adding unsupported credential placeholders.
+
+To reuse an existing setup from other applications, see [automatic discovery](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery). For [Dev Containers](/docs/agents/run/manage-mcp-servers.md#remote-workspaces-and-dev-containers) or [command-line installation](/docs/agents/reference/mcp-configuration.md#command-line-installation), follow the environment-specific instructions.
+
+## Use context and prompts from your server
+
+Servers can provide more than tools. Available capabilities depend on the server and your session:
+
+* **Resources:** attach server-provided data to a request from **Add Context** > **MCP Resources**, or run **MCP: Browse Resources**.
+
+* **Prompts:** use a server's prompt template by typing `/<server>.<prompt>` in chat.
+
+* **MCP Apps (Experimental):** supported servers can display interactive forms or visualizations in chat. See [MCP Apps support](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support).
+
+## If the server does not work
+
+| What you observe | Next step |
+|------------------|-----------|
+| The server doesn't appear or cannot start | Check its configuration scope, runtime requirements, and [server output](/docs/agents/run/manage-mcp-servers.md#view-server-output). |
+| Sign-in or a connection fails | Check the publisher's authentication instructions and your organization's access restrictions. See [MCP troubleshooting](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers). |
+| The server runs, but no tool from it is called | Check [tool availability and invocation](/docs/agents/agent-troubleshooting/chat-debug-view.md#an-mcp-tool-is-not-being-invoked). |
+
+After correcting the problem, repeat the request and inspect the tool output again.
+
+## Manage an existing server
+
+Continue with [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md) to change a connection, stop or remove a server, review trust and startup behavior, or share configuration across environments.
+
+For specific tasks, see [MCP sandboxing](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers), [configuration synchronization](/docs/agents/run/manage-mcp-servers.md#synchronize-mcp-configuration-across-devices), or [enterprise access management](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
 
 ## Related resources
 
-* [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)
 * [Use tools with agents](/docs/agents/run/tools.md)
-* [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Apps support in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
-* [Discover and manage agent plugins](/docs/agent-customization/agent-plugins.md), including [MCP servers in plugins](/docs/agent-customization/agent-plugins.md#mcp-servers-in-plugins)
+* [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)

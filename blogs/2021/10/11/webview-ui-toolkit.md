@@ -1,4 +1,5 @@
 ---
+Tags: [Extensions, Design]
 Order: 
 TOCTitle: Webview UI Toolkit
 PageTitle: Webview UI Toolkit for Visual Studio Code

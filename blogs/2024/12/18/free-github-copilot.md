@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI, Announcements]
 Order: 
 TOCTitle: Announcing Copilot Free in VS Code
 PageTitle: Announcing a free GitHub Copilot for VS Code

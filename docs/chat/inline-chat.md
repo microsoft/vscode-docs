@@ -1,8 +1,7 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 9/16/2026
-MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for targeted editor changes, terminal command suggestions, and short AI interactions.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for focused edits, terminal help, and short AI conversations.
 ---
 # Inline chat and Quick Chat
 

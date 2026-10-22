@@ -1,4 +1,5 @@
 ---
+Tags: [Announcements]
 Order:
 TOCTitle: February 2016 Recovery Release
 PageTitle: Visual Studio Code February 2016 Recovery Release

@@ -1,4 +1,5 @@
 ---
+Tags: [Source Control, Extensions, Collaboration]
 Order: 
 TOCTitle: GitHub Issues Integration
 PageTitle: Working with GitHub Issues in Visual Studio Code

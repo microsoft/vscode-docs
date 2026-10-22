@@ -1,8 +1,7 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 9/16/2026
-MetaDescription: Run agent sessions over SSH or tunnels and in remote Dev Containers, or manage sessions in the browser-based {% data variables.copilot.agents_window %}.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+DateApproved: 10/21/2026
+MetaDescription: Run agent sessions on remote machines and in Dev Containers, and manage them in the browser-based {% data variables.copilot.agents_window %}.
 ---
 # Run and manage remote agent sessions
 
@@ -10,7 +9,21 @@ The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.
 
 This is useful when you want to take advantage of a remote machine's resources, work from a mobile device, or check in on your agent's progress when you're away from your main development machine.
 
-The {% data variables.copilot.agents_window %} connects to the remote machine by using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the {% data variables.copilot.agents_window %} automatically installs and starts the {% data variables.product.prodname_vscode_shortname %} CLI on the remote machine. The remote machine must be powered on and accessible over the network.
+The agent works with files and development tools on the remote machine, not the machine where you connect to the session. When you connect, the {% data variables.copilot.agents_window %} automatically installs and starts the {% data variables.product.prodname_vscode_shortname %} CLI on the remote machine. Keep the remote machine powered on and the session running. To connect and manage the session, the machine must be accessible over the network.
+
+## Start a chat without a workspace on a remote host
+
+Use a chat without a workspace when a task needs the resources or environment of a remote host but doesn't need a repository. First, enable `setting(sessions.chat.unifiedWorkspacePicker.enabled)` and connect the host over SSH or a dev tunnel.
+
+To start a chat without a workspace:
+
+1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
+
+1. In the workspace picker, select the **Chat** entry for a connected remote host without choosing a folder. The entry identifies the host where the chat runs.
+
+1. Choose an agent harness, enter your prompt, and press `kbstyle(Enter)`.
+
+The main workspace picker also shows folders from connected remote hosts alongside local folders. Select a remote folder there when the task needs an existing workspace.
 
 ## Connect via SSH
 
@@ -51,25 +64,58 @@ To start a session on a remote machine via dev tunnel:
 > [!IMPORTANT]
 > Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/run/security.md).
 
+<a name="delegate-work-to-remote-agent-hosts-experimental"></a>
+
+## Delegate tasks to remote machines (Experimental)
+
+In the {% data variables.copilot.agents_window %}, ask the agent to delegate a task to a connected remote machine. Enable both `setting(chat.remoteAgentHostsEnabled)` and `setting(chat.remoteSessions.tools.enabled)`, and connect the machines that the agent can use. You don't need to select the target machine in the workspace picker.
+
+The remote delegation tools let an agent:
+
+* Use `list_agent_hosts` to discover connected remote machines, available models, resource capacity, and session load.
+* Use `create_remote_session` to start a session on a specific remote machine or choose a target automatically. For automatic placement, specify criteria such as Windows, Linux, or macOS, minimum memory, logical CPU count, and an optional model. Among matching machines, placement favors the machine with the fewest running sessions and pending session creations. If no connected machine meets all the criteria, the tool reports an error instead of selecting a nonmatching machine.
+* Use `get_remote_session` to check a remote session's status and latest response.
+* Use `send_remote_message` to send follow-up work or report results and questions to the exact originating chat. If that chat is busy, the message waits in its queue.
+
+For repository work, specify an existing trusted folder on the target machine, either directly or in a new Git worktree. The tools don't clone or copy the coordinating session's workspace to the remote machine. If you don't specify a workspace, the remote session starts without one.
+
+Normal approval requirements still apply to delegated work and messages. Review the selected host, folder, and worktree before you approve a tool call, especially when the agent uses automatic placement.
+
+Keep the coordinating {% data variables.copilot.agents_window %} open and connected while delegated work runs so messages can flow between sessions. A remote session's final response isn't forwarded automatically. Ask the remote agent to use `send_remote_message` to report its result.
+
+Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote delegation tools, but doesn't disconnect remote machines or stop remote sessions that are already running.
+
 ## Run a session in a remote Dev Container
 
 `feature(agent-host-dev-containers)`
 
-Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the host. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL hosts in the desktop {% data variables.copilot.agents_window %}.
+Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the remote machine. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL connections in the desktop {% data variables.copilot.agents_window %}.
 
-Docker must be installed and running on the remote host. For prerequisites and setup steps, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Before you start, enable `setting(chat.agentHost.devContainer.enabled)`. Docker must be installed and running on the remote host, and the project must contain a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
+
+To run a session in a remote Dev Container:
+
+1. Connect over SSH, through a tunnel, or to WSL, and select the project folder in the workspace picker.
+
+1. Expand the menu for the remote folder and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+The **Use Dev Container** option appears only when the source machine advertises Dev Container support. It isn't available for unsupported machines or for folders whose source is nested inside another remote environment. For more information about prerequisites, switching back to the source machine, and troubleshooting, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ## Use the {% data variables.copilot.agents_window %} in the browser
 
-The {% data variables.copilot.agents_window %} is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing {% data variables.product.prodname_vscode %} locally.
+The {% data variables.copilot.agents_window %} is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote machine without installing {% data variables.product.prodname_vscode %} locally.
 
-The browser-based {% data variables.copilot.agents_window %} connects to your development machine through a [dev tunnel](/docs/remote/tunnels.md). Agent sessions run on the remote host, and the browser acts as a lightweight client for chatting, reviewing changes, and managing sessions.
+The browser-based {% data variables.copilot.agents_window %} connects to your development machine through a [dev tunnel](/docs/remote/tunnels.md). Agent sessions run on the remote machine. The browser acts only as a client for chatting, reviewing changes, and managing sessions.
 
 ### Set up a dev tunnel
 
 Before you can use the {% data variables.copilot.agents_window %} in the browser, start a dev tunnel on the machine you want to connect to:
 
-1. On your remote host, run the following command to start a dev tunnel:
+1. On your remote machine, run the following command to start a dev tunnel:
 
     ```bash
     code-insiders tunnel
@@ -89,16 +135,25 @@ Before you can use the {% data variables.copilot.agents_window %} in the browser
 
 ### Host management
 
-The hosts bar in the browser-based {% data variables.copilot.agents_window %} shows your available tunnel hosts. Each host displays its connection status:
+The hosts bar in the browser-based {% data variables.copilot.agents_window %} shows machines with configured dev tunnels. Each machine displays its connection status:
 
 * **Online**: the host is reachable and you can start or continue sessions on it.
 * **Offline**: the tunnel on the host is not running. Start the tunnel on the host to bring it back online.
 
-You can connect and disconnect from hosts directly through the hosts bar. If a host goes offline while you have an active session, the session shows a disconnected state. When the host comes back online, the session reconnects automatically.
+You can connect and disconnect from machines directly through the hosts bar. If a machine goes offline while you have an active session, the session shows a disconnected state. When the machine comes back online, the session reconnects automatically.
+
+<a name="remote-control-copilot-sessions"></a>
+
+## Remote control Copilot harness sessions
+
+To monitor and steer an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from GitHub.com or the GitHub Mobile app, enter `/remote on` in the session. This provides another way to access a running session without selecting the Cloud target or starting a new session on a remote host.
+
+Session history, tool activity, status, approvals, and questions stay synchronized. Remote control requires GitHub authentication and a workspace that maps to a GitHub repository.
+
+Enter `/remote off` to stop sharing the session. Keep the session's host running while you use remote control. For desktop-managed sessions on your machine, keep {% data variables.product.prodname_vscode_shortname %} running.
 
 ## Related resources
 
 * [Use the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) - agent-first workflows across multiple projects.
-* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare harnesses, execution environments, and isolation options.
 * [Developing with Remote Tunnels](/docs/remote/tunnels.md) - set up and manage dev tunnels.
-* [Security](/docs/agents/run/security.md) - trust boundaries and security considerations.
+* [Agent Host architecture](/docs/agents/concepts/agent-host.md) - technical details about remote connections and session execution.

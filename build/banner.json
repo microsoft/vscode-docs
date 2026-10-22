@@ -1,9 +1,7 @@
 {
   "enabled": true,
-  "version": "2026-09-09-vscode-documentary-agent-host",
+  "version": "2026-10-21-gh-universe",
   "messages": [
-    "<a href=\"https://aka.ms/the-story-of-vs-code?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">🎬 Watch The Story of VS Code!</a>",
-    "<a href=\"https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one?source=vsc-website-banner\" target=\"_self\" rel=\"noopener\">Blog: Building the new GitHub Copilot inline suggestions model.</a>",
-    "<a href=\"https://gh.io/githubcopilotday?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Rewatch GitHub Copilot Day.</a>"
+    "<a href=\"https://githubuniverse.com/?utm_source=website&utm_medium=Social&utm_campaign=code_livestream&source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Join VS Code at GitHub Universe!</a>"
   ]
 }

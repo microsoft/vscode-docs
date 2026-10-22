@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7f90ee4f-cac1-4b99-aee6-c99e088789d0
-DateApproved: 9/16/2026
+DateApproved: 10/21/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to implement a LanguageModelChatProvider to contribute custom language models to VS Code's chat experience for extensions.
@@ -226,4 +226,4 @@ You can get started with a [basic example project](https://github.com/microsoft/
 
 - [VS Code API Reference](/api/references/vscode-api)
 - [Language Model API Guide](/api/extension-guides/ai/language-model)
-- [Chat API Extension](/api/extension-guides/ai/chat)
+* [AI extensibility options](/api/extension-guides/ai/ai-extensibility-overview.md)

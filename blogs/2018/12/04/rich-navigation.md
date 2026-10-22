@@ -1,4 +1,5 @@
 ---
+Tags: [Source Control, Languages]
 Order:
 TOCTitle: Rich Code Navigation
 PageTitle: Rich Code Navigation

@@ -1,6 +1,6 @@
 ---
 ContentId: b8e2024a-7618-4a7c-a2ee-8618b4530f89
-DateApproved: 9/22/2026
+DateApproved: 10/21/2026
 MetaDescription: Refactor code with an agent in {% data variables.product.prodname_vscode_shortname %} while preserving behavior through focused changes and regression checks.
 MetaSocialImage: ../images/agents-overview/hero-vscode-dev-agents-dark.png
 Keywords:
@@ -39,7 +39,7 @@ Record the behavior that callers depend on:
 For the example, the goal is to extract repeated pagination validation into a helper without changing page defaults, accepted values, error responses, or the order of validation. Exclude new API behavior and unrelated cleanup.
 
 1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and start a new chat.
-1. Select the **{% data variables.product.prodname_copilot_short %}** session target and the **Agent** role. Keep **Manual permissions** selected.
+1. Select **{% data variables.product.prodname_copilot_short %}** from the **Session Target** UI control and select the **Agent** role. Keep **Manual permissions** selected.
 1. Ask the agent to investigate the proposed refactor. Replace the placeholder with the relevant files or symbols:
 
     ```prompt

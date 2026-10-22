@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI, Extensions]
 Order: 
 TOCTitle: GitHub Copilot for Azure
 PageTitle: Introducing GitHub Copilot for Azure

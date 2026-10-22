@@ -264,6 +264,7 @@
   function createDocsifyTabsPlugin() {
     const selectedLabels = new Map();
     let hasTabs = false;
+    let renderedRoute = '';
 
     function selectTab(button) {
       const group = button.closest('.vscode-tabs');
@@ -318,6 +319,25 @@
       nextButton.focus();
     }
 
+    function revealHashTarget() {
+      if (window.location.hash.split('?')[0] !== renderedRoute) {
+        return;
+      }
+
+      const query = window.location.hash.split('?')[1];
+      const anchorId = query ? new URLSearchParams(query).get('id') : undefined;
+      const anchor = anchorId ? document.getElementById(anchorId) : undefined;
+      const panel = anchor ? anchor.closest('.vscode-tabs__panel') : undefined;
+      const anchorButton = panel ? document.getElementById(panel.getAttribute('aria-labelledby')) : undefined;
+      if (anchorButton) {
+        const wasHidden = panel.hidden;
+        selectTab(anchorButton);
+        if (wasHidden) {
+          anchor.scrollIntoView();
+        }
+      }
+    }
+
     function initializeTabs() {
       const groups = document.querySelectorAll('.vscode-tabs');
       for (const group of groups) {
@@ -343,20 +363,29 @@
         }
       }
 
-      const query = window.location.hash.split('?')[1];
-      const anchorId = query ? new URLSearchParams(query).get('id') : undefined;
-      const anchor = anchorId ? document.getElementById(anchorId) : undefined;
-      const panel = anchor ? anchor.closest('.vscode-tabs__panel') : undefined;
-      const anchorButton = panel ? document.getElementById(panel.getAttribute('aria-labelledby')) : undefined;
-      if (anchorButton) {
-        selectTab(anchorButton);
-      }
+      revealHashTarget();
     }
 
     return function docsifyTabs(hook, vm) {
+      window.addEventListener('hashchange', function revealLinkedTab() {
+        if (hasTabs) {
+          revealHashTarget();
+        }
+      });
+      document.addEventListener('click', function revealCurrentAnchor(event) {
+        if (!hasTabs || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || !(event.target instanceof Element)) {
+          return;
+        }
+        const link = event.target.closest('a[href]');
+        if (link && link.href === window.location.href && (!link.target || link.target === '_self') && !link.hasAttribute('download')) {
+          revealHashTarget();
+        }
+      }, true);
+
       hook.beforeEach(function transformTabs(content) {
         const result = transformTabbedContent(content, vm.route.file || vm.route.path);
         hasTabs = result.groupCount > 0;
+        renderedRoute = window.location.hash.split('?')[0];
         return result.content;
       });
       hook.afterEach(function materializeTabs(html, next) {

@@ -1,4 +1,5 @@
 ---
+Tags: [GitHub Copilot, AI]
 Order: 94
 TOCTitle: Better AI results with custom instructions
 PageTitle: "Context is all you need - Better AI results with custom instructions"

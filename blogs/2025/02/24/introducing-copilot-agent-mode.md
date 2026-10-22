@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, GitHub Copilot]
 Order:
 TOCTitle: Copilot Agent Mode (preview)
 PageTitle: Copilot Agent Mode (preview)

@@ -1,4 +1,5 @@
 ---
+Tags: [Agents, Engineering, Remote Development]
 Order: 137
 TOCTitle: The Agent Host
 PageTitle: "Introducing the Agent Host for persistent, portable agent sessions"

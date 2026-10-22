@@ -1,4 +1,5 @@
 ---
+Tags: [Education, Remote Development]
 Order: 
 TOCTitle: The problem with tutorials
 PageTitle: The problem with tutorials
