@@ -24,7 +24,9 @@ If you only need a model client sample, use [View Code in the Playground](/docs/
 
 Remote model requests can consume quota or incur charges even when the agent runs locally. Use non-sensitive test inputs and keep credentials out of prompts and committed files.
 
-## Using Copilot tools in Foundry Toolkit
+<a name="using-copilot-tools-in-foundry-toolkit"></a>
+
+## Enable Copilot tools in Foundry Toolkit
 
 Enable the relevant tools so {% data variables.product.prodname_copilot_short %} can use Toolkit guidance while working on your project.
 
@@ -41,12 +43,14 @@ Enable the relevant tools so {% data variables.product.prodname_copilot_short %}
 
 <!-- TODO: Have a human capture the Tools tab in Agent Customizations in VS Code Insiders with the current public Foundry Toolkit guidance tools. Replace the outdated images/copilottools/configure-tools.png capture before embedding it again. -->
 
-Toolkit also contributes [skills](#foundry-skills), which provide instructions for a broader workflow. You can describe your goal in Chat without manually invoking each tool.
+Toolkit also contributes [skills](#understand-foundry-skills), which provide instructions for a broader workflow. You can describe your goal in chat without manually invoking each tool.
 
 > [!NOTE]
-> The model selected in Chat powers {% data variables.product.prodname_copilot_short %}. It is separate from the model deployment your generated application calls. Enabling Toolkit tools does not change your application's model or create a deployment. For Chat model selection, see [Language models in Chat](/docs/agent-customization/language-models.md).
+> The model selected in chat powers {% data variables.product.prodname_copilot_short %}. It is separate from the model deployment your generated application calls. Enabling Toolkit tools does not change your application's model or create a deployment. For chat model selection, see [Language models in chat](/docs/agent-customization/language-models.md).
 
-## AI Model Guide tool
+<a name="ai-model-guide-tool"></a>
+
+## Choose and test a model
 
 **Get AI Model Guidance** supplies Foundry-oriented guidance for discovering models, preparing a deployment, and trying it in Toolkit. Describe your inputs, expected outputs, hosting requirements, and constraints rather than relying on a fixed default model.
 
@@ -65,7 +69,9 @@ Toolkit also contributes [skills](#foundry-skills), which provide instructions f
 
 Model guidance is a starting point, not a benchmark or a promise about cost or quality. Verify the current model's capabilities and lifecycle, then test representative inputs. Playground comparison does not replace repeatable evaluation.
 
-## Agent Code Gen tool
+<a name="agent-code-gen-tool"></a>
+
+## Generate and test agent code
 
 **Get Agent Code Generation Best Practices** supplies instructions that complement the Microsoft Foundry skill. Use it to guide {% data variables.product.prodname_copilot_short %}'s code changes for the scenario and model you tested.
 
@@ -89,11 +95,13 @@ Opening Inspector alone does not start the agent server. Generated code and debu
 
 If you later add tools, test a request that requires a real tool result and inspect its inputs and output. A model-only answer or a mocked result does not verify the live integration. For shared connections and tool prerequisites, use [Tool Catalog](/docs/intelligentapps/tool-catalog.md).
 
-## Evaluation Code Gen tool
+<a name="evaluation-code-gen-tool"></a>
+
+## Add evaluation tests
 
 After the agent works interactively, add repeatable tests to check whether changes improve the result or introduce regressions. **Get Evaluation Code Generation Best Practices** provides Python evaluation guidance, with different paths for local tests and Foundry evaluation.
 
-Continue the same Chat conversation with a concrete evaluation goal:
+Continue the same chat conversation with a concrete evaluation goal:
 
 ```prompt
 Add local Python evaluation tests for this summarization agent using Foundry
@@ -107,7 +115,9 @@ Review the dataset, expected results, evaluator selection, and any judge-model r
 
 The guidance tool does not itself run your dataset. Application execution, scoring, and storing results are separate actions with their own runtime, model access, and cost requirements.
 
-## Tracing Code Gen tool
+<a name="tracing-code-gen-tool"></a>
+
+## Add tracing
 
 Use traces when you need to understand which model or tool calls occurred, or investigate latency and failures. **Get Tracing Code Generation Best Practices** provides instrumentation guidance for supported language and SDK combinations.
 
@@ -140,9 +150,11 @@ Preparing configuration does not submit a deployment. After you authorize deploy
 
 Local sign-in does not transfer your user's permissions to the deployed agent. For service identity, publication, networking, and production operations, follow the [Foundry agent lifecycle](https://learn.microsoft.com/azure/foundry/agents/concepts/development-lifecycle). Publishing an agent application is separate from deploying hosted-agent code.
 
-## Foundry skills
+<a name="foundry-skills"></a>
 
-Skills supply workflow instructions, while tools expose specific capabilities or guidance to Chat. Toolkit contributes skills for {% data variables.product.prodname_vscode_shortname %}-specific agent development and onboarding:
+## Understand Foundry skills
+
+Skills supply workflow instructions, while tools expose specific capabilities or guidance to chat. Toolkit contributes skills for {% data variables.product.prodname_vscode_shortname %}-specific agent development and onboarding:
 
 | Skill | Role |
 | --- | --- |
@@ -155,7 +167,7 @@ Skills supply workflow instructions, while tools expose specific capabilities or
 ## Troubleshoot the workflow
 
 * **Toolkit tools are missing:** Confirm that the current extension is installed and enabled, then check the **Tools** tab in Agent Customizations. Workspace restrictions or organizational policies can limit available capabilities.
-* **The Foundry skill is unavailable:** Check Git availability and use **Foundry Toolkit: Install Foundry Skill** to retry. A request in Chat does not prove installation succeeded.
+* **The Foundry skill is unavailable:** Check Git availability and use **Foundry Toolkit: Install Foundry Skill** to retry. A request in chat does not prove installation succeeded.
 * **No deployed models appear:** Confirm the selected Toolkit project and your access to it. Catalog discovery and listing existing deployments are different operations. Follow [Foundry project setup](https://learn.microsoft.com/azure/foundry/how-to/develop/set-up-foundry-project-visual-studio-code) before creating another resource.
 * **A model input or feature does not work:** Check the selected model's capabilities and endpoint, then test it directly in the [Playground](/docs/intelligentapps/playground.md#troubleshoot-the-playground) before changing the agent code.
 
