@@ -93,7 +93,7 @@
                 "area": "agent-customization",
                 "noCollapse": false,
                 "topics": [
-                    ["Create and Manage", "/docs/agent-customization/overview"],
+                    ["Overview", "/docs/agent-customization/overview"],
                     ["Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Agent Skills", "/docs/agent-customization/agent-skills"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],

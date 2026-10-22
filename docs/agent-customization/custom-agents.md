@@ -37,7 +37,7 @@ When you select a custom agent, it applies to your requests until you switch age
 
 ## Create a custom agent
 
-Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to create an agent in your workspace or at the user level.
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to create an agent in your workspace or at the user level.
 
 Use the **Session Target** UI control to [select the agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use, then open the editor from either surface:
 
