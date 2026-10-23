@@ -21,10 +21,10 @@
     },
     {
       "type": "blog",
-      "title": "Introducing the Agent Host",
+      "title": "Modernizing the VS Code UI",
       "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
-      "link": "/blogs/2026/08/26/agent-host-architecture",
-      "image": "/assets/blogs/2026/08/26/remote-agent-hosts.png"
+      "link": "/blogs/2026/10/15/modern-ui",
+      "image": "/assets/blogs/2026/10/15/classic-to-modern.png"
     }
   ]
 }

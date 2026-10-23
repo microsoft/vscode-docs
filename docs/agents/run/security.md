@@ -216,12 +216,21 @@ When switching from Local, [migrate and test the hook scripts](/docs/agent-custo
 
 Organizations can implement [centralized security controls](/docs/enterprise/manage-ai-settings.md) to manage AI-assisted development capabilities across their development teams. Key AI-specific policies include:
 
-* **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
+* **Disable agents**: Turn off agent mode and the {% data variables.copilot.agents_window %} with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
-* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
+* **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or turn off MCP support (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
 * **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Allow all** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
-* **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
+* **Require manual approval for specific tools**: Require manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
+
+> [!IMPORTANT]
+> Copilot harness sessions don't fully enforce some of these policies:
+>
+> * `ChatAgentMode` doesn't remove Agent Host session targets, such as **Copilot**, from the **Session Target** UI control in the editor.
+> * `ChatMCP` doesn't apply to MCP servers that the Copilot runtime discovers on its own.
+> * `ChatToolsEligibleForAutoApproval` removes **Allow all**, but **Assisted permissions** and saved session approvals can still approve a listed tool.
+>
+> Review the harness notes in [Manage AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md#use-vs-code-device-policies) before you rely on a policy for Copilot harness sessions.
 
 Learn more about [managing AI settings in enterprise environments](/docs/enterprise/manage-ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
 

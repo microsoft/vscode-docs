@@ -77,7 +77,7 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 > The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 > [!NOTE]
-> **For Local harness sessions:** The `setting(chat.agentSkillsLocations)` setting adds other skill locations. This setting is deprecated and isn't read by Copilot harness sessions. To reuse those skills with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+> Prefer native harness folders over custom search locations. The `setting(chat.agentSkillsLocations)` setting remains supported and is not deprecated, and the editor forwards skills from additional configured locations to Agent Host harnesses. Custom locations are not recommended for Copilot workflows because {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not inherit editor settings. [Move existing skills to native harness locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to use them across Copilot clients.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
