@@ -223,43 +223,6 @@ Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory pa
       vsce publish --azure-credential
 ```
 
-***
-`vsce` can also publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
-
-> [!IMPORTANT]
-> Global PATs in Azure DevOps are retired on December 1, 2026. We recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
-
-### Get a Personal Access Token
-
-You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
-
-1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
-
-1. Go to the [Azure DevOps portal](https://go.microsoft.com/fwlink/?LinkId=307137), and select your organization.
-
-1. Open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
-
-    ![Personal settings menu](images/publishing-extension/menu-pat.png)
-
-1. On the **Personal Access Tokens** page, select **New Token**:
-
-    ![Create new token button](images/publishing-extension/new-token.png)
-
-1. In the Create a new personal access token modal, select the following details for the token:
-
-    - Name: any name you want for the token
-    - Organization: **All accessible organizations**
-    - Expiration (optional): set the desired expiration date for the token
-    - Scopes: **Custom defined**:
-      - click **Show all scopes** link below the **Scopes** section
-      - in the Scopes list, scroll to **Marketplace** and select **Manage** scope
-
-    ![Create personal access token](images/publishing-extension/create-token.png)
-
-1. Click **Create**.
-
-    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
-
 ### Create a publisher
 
 A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` identifier in its [`package.json` file](/api/references/extension-manifest).
@@ -677,6 +640,42 @@ Alternatively, you can also use the `--target` flag when packaging to create a p
 vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
+
+#### Publish extension using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+
+> [!IMPORTANT]
+> Global PATs in Azure DevOps are retired on December 1, 2026. We recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
+
+### Get a Personal Access Token
+
+You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
+
+1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
+
+1. Go to the [Azure DevOps portal](https://go.microsoft.com/fwlink/?LinkId=307137), and select your organization.
+
+1. Open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+
+    ![Personal settings menu](images/publishing-extension/menu-pat.png)
+
+1. On the **Personal Access Tokens** page, select **New Token**:
+
+    ![Create new token button](images/publishing-extension/new-token.png)
+
+1. In the Create a new personal access token modal, select the following details for the token:
+
+    - Name: any name you want for the token
+    - Organization: **All accessible organizations**
+    - Expiration (optional): set the desired expiration date for the token
+    - Scopes: **Custom defined**:
+      - click **Show all scopes** link below the **Scopes** section
+      - in the Scopes list, scroll to **Marketplace** and select **Manage** scope
+
+    ![Create personal access token](images/publishing-extension/create-token.png)
+
+1. Click **Create**.
+
+    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
 
 #### Continuous integration
 
