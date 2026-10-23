@@ -274,6 +274,27 @@ Start with **Copilot** for day-to-day coding and agent tasks, especially when yo
 
 If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
 
+### Can I keep Local available while migrating?
+
+Yes. Local remains an editor harness option while you adapt integrations that depend on it. Start a new session in the editor's {% data variables.copilot.chat_view %} and select **Local** from **Session Target**. Local is not available in the {% data variables.copilot.agents_window %}.
+
+For an unmanaged editor, the following experimental settings make Local visible and turn off automatic Copilot preference:
+
+```json
+{
+    "chat.editor.localAgent.enabled": true,
+    "chat.defaultToCopilotHarness": false,
+    "chat.editor.preferCopilotHarness": false
+}
+```
+
+An organization policy can override user settings. Starting with version 1.142, administrators can set `vscode.temporaryDefaultToLocalHarness` to `true` in [enterprise-managed settings](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default). This temporary control keeps Local available and suppresses automatic Copilot routing, including routing triggered by managed sandbox and permission settings. It preserves explicit, remembered, and current harness choices.
+
+> [!WARNING]
+> Local does not enforce runtime-only sandbox and permission rules. Administrators must review the security impact before using the temporary Local default. Copilot harness sessions continue to enforce those rules.
+
+For customization-specific blockers and next steps, see the [migration FAQ](/docs/agent-customization/migrate-customizations.md#frequently-asked-questions).
+
 ### Does running locally mean the language model runs on my machine?
 
 No. The harness coordinates the session and its tools, but the language model can run elsewhere. A session that edits files and runs commands on your machine can still send model requests to a hosted service. The **Local** harness name does not mean that the model runs locally or that the session works offline. Learn how [harnesses differ from models and execution environments](/docs/agents/concepts/agent-harnesses.md#how-a-harness-differs-from-other-agent-concepts).
