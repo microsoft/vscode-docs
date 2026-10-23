@@ -268,7 +268,7 @@ Configurable eagerness is available to paid GitHub Copilot subscribers in VS Cod
 
 Thank you to the developer community for your ongoing feedback that shaped configurable eagerness, and to the combined teams of researchers, engineers, PMs, and designers across VS Code, GitHub Copilot, and Microsoft for their contributions, testing, and support throughout development.
 
-Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Gaurav Mittal, and Nick Trogh for their insightful feedback on this blog post.
+Special thanks to Julia Gong, Satarupa Guha, Yu Hu, Ben Liggett, Shengjie Ma, Gaurav Mittal, Elsie Nallipogu, and Nick Trogh for their insightful feedback on this blog post.
 
 Happy coding! 💙
 
