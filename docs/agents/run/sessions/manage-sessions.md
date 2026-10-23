@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 10/21/2026
-MetaDescription: Start, coordinate, and manage agent sessions across workspaces in {% data variables.product.prodname_vscode %}.
+MetaDescription: Continue and manage agent sessions across interfaces, applications, and workspaces in {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
@@ -30,6 +30,66 @@ You can continue supported sessions between these surfaces after starting work. 
 
 > [!NOTE]
 > **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+
+## Continue an existing session
+
+To pick up a task where you left off, open its existing session rather than start a new one. The available options depend on the harness and where the session runs.
+
+* **{% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}**: [Switch between the two interfaces](#continue-between-the-chat-view-and-agents-window) while keeping the same supported session.
+* **From another application**: [Find supported local sessions](#view-sessions-from-other-applications) created in another application.
+* **In a terminal**: [Use {% data variables.copilot.copilot_cli %}](#use-copilot-cli-from-the-terminal), including **Resume in Terminal** for sessions that provide that action.
+* **From another device**: [Connect to the session's host or use remote control](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session continues to run on its host.
+
+Opening the same session in another interface doesn't change its harness, workspace, or worktree. To change the harness or delegate work to a cloud agent instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+
+### Continue between the Chat view and Agents window
+
+You can continue supported {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_anthropic_claude %} sessions in either interface. {% data variables.product.prodname_openai_codex %} requires the [experimental Agent Host integration](/docs/agents/run/agent-harnesses.md#codex). Local harness sessions and sessions from the OpenAI Codex extension remain editor-only.
+
+For a {% data variables.product.prodname_copilot_short %} session with a project:
+
+* **From the {% data variables.copilot.agents_window %} to the editor**: select **Open in Editor** in the title bar. The editor opens the session's project with the session available in the {% data variables.copilot.chat_view %}.
+* **From the {% data variables.copilot.chat_view %} to the {% data variables.copilot.agents_window %}**: select **Open in Agents** in the application title bar, then select your existing {% data variables.product.prodname_copilot_short %} session from the sessions list.
+
+If a session isn't visible, check the workspace and [sessions list](#sessions-list) filters.
+
+### View sessions from other applications
+
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
+The **External** filter controls which discovered sessions appear. Its default is **Last 7 Days**. To change it, open the sessions list filter, select **External**, and choose one of these options:
+
+* **None**: hide all external sessions.
+* **Recent**: show up to two of the most recently updated external sessions from the last seven days. At startup, sessions older than the second-most-recently updated local session are hidden.
+* **Last 24 Hours**: show external sessions updated within the last 24 hours.
+* **Last 7 Days**: show external sessions updated within the last seven days.
+* **Last 30 Days**: show external sessions updated within the last 30 days.
+
+The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting (Experimental).
+
+Discovery has its own limits. For example, {% data variables.product.prodname_copilot_short %} only considers supported local sessions updated within the last seven days. Selecting **Last 30 Days** doesn't extend that discovery period.
+
+When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
+
+When you open an external Codex session, only one application can write to the chat at a time. If the chat is still open in ChatGPT or Codex CLI, {% data variables.product.prodname_vscode_shortname %} keeps the transcript, draft, and attachments available, but disables sending, queueing, and resending. The **This chat is open in another app** banner appears above the chat input.
+
+To continue the chat in {% data variables.product.prodname_vscode_shortname %}, fully quit the other application, and then select **Retry** in the banner. Retrying checks whether the chat is available without sending the draft or adding a transcript entry. After the banner disappears, send the draft yourself.
+
+After you send a message from {% data variables.product.prodname_vscode_shortname %} in an external session, the session is no longer external. The **External** filter no longer controls whether the session appears in the sessions list.
+
+### Use Copilot CLI from the terminal
+
+If a session's context menu includes **Resume in Terminal**, select it to continue that session in {% data variables.copilot.copilot_cli %}. This action is provided by the {% data variables.copilot.copilot_cli %} integration, not by every harness or session type. If it isn't available, continue the session in a supported {% data variables.product.prodname_vscode_shortname %} interface.
+
+To start a new {% data variables.copilot.copilot_cli %} session from {% data variables.product.prodname_vscode_shortname %}, use one of these options:
+
+* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
+* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Enter `copilot` in an integrated terminal.
+
+If {% data variables.copilot.copilot_cli_short %} isn't installed, the `copilot` command offers to install it. On macOS, you can also [install it when you add code to PATH](/docs/setup/mac.md#configure-path-with-vs-code). On Windows, setup can also [add the copilot command to PATH](/docs/setup/windows.md#set-up-the-copilot-command), so it works in any terminal.
+
+{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. Starting a new CLI session doesn't select an existing {% data variables.product.prodname_vscode_shortname %} conversation.
 
 ## Move a chat to another folder or worktree
 
@@ -230,42 +290,6 @@ For sessions whose harness supports multiple chats, expand the main chat row to 
 
 {% /tab %}
 {% /tabs %}
-
-### View sessions from other applications
-
-{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
-
-For Copilot harness sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
-
-By default, sessions created in other applications are hidden. To control which sessions appear, open the sessions list filter, select **External**, and choose one of these options:
-
-* **None**: hide all external sessions.
-* **Recent**: show the two most recently updated external sessions from the last seven days.
-* **Last 24 Hours**: show external sessions updated within the last 24 hours.
-* **Last 7 Days**: show external sessions updated within the last seven days.
-* **All**: show all discovered external sessions.
-
-The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
-
-When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
-
-When you open an external Codex session, only one application can write to the chat at a time. If the chat is still open in ChatGPT or Codex CLI, {% data variables.product.prodname_vscode_shortname %} keeps the transcript, draft, and attachments available, but disables sending, queueing, and resending. The **This chat is open in another app** banner appears above the chat input.
-
-To continue the chat in {% data variables.product.prodname_vscode_shortname %}, fully quit the other application, and then select **Retry** in the banner. Retrying checks whether the chat is available without sending the draft or adding a transcript entry. After the banner disappears, send the draft yourself.
-
-After you send a message from {% data variables.product.prodname_vscode_shortname %} in an external session, the session is no longer external. The **External** filter no longer controls whether the session appears in the sessions list.
-
-### Use Copilot CLI from the terminal
-
-To start a {% data variables.copilot.copilot_cli %} session from {% data variables.product.prodname_vscode_shortname %}, use one of these options:
-
-* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
-* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
-* Enter `copilot` in an integrated terminal.
-
-If {% data variables.copilot.copilot_cli_short %} isn't installed, the `copilot` command offers to install it. On macOS, you can also [install it when you add code to PATH](/docs/setup/mac.md#configure-path-with-vs-code). On Windows, setup can also [add the copilot command to PATH](/docs/setup/windows.md#set-up-the-copilot-command), so it works in any terminal.
-
-{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
 
 ## Archive sessions
 

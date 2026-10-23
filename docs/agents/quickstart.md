@@ -226,9 +226,9 @@ The {% data variables.copilot.agents_window %} and {% data variables.copilot.cha
 
 * From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 
-* From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
+* Select **Open in Agents** in the application title bar, then select your existing {% data variables.product.prodname_copilot_short %} session from the sessions list.
 
-If you start work in {% data variables.copilot.copilot_cli %} or the {% data variables.copilot.github_copilot_app %}, you can [open and continue supported local sessions from those applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}. To continue a {% data variables.product.prodname_copilot_short %} session in the CLI, right-click the session and select [**Resume in Terminal**](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
+For other applications, terminal options, or access from another device, see [Continue an existing session](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session). That guide covers the supported routes and their requirements.
 
 ## Clean up resources
 
