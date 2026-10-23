@@ -257,6 +257,29 @@ In the **files to include** box, you can use the **Search only in changed files*
 > [!TIP]
 > From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
+### Troubleshoot search performance and excessive ripgrep processes
+
+{% data variables.product.prodname_vscode_shortname %} uses the [ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) tool to perform fast workspace searches. In large codebases, if search becomes slow or if multiple `rg` processes consume high CPU, verify the following configuration:
+
+1. **Check the Use Exclude Settings and Ignore Files toggle:** In the Search view, expand **Toggle Search Details** (the ellipsis `...` icon) and confirm that the **Use Exclude Settings and Ignore Files** toggle button (the gear icon) in the **files to exclude** box is enabled.
+   Turning off this toggle bypasses ignore files and the `files.exclude` and `search.exclude` settings. This can include large directories such as `node_modules` and build output, increasing search time and CPU usage. Explicit patterns in **files to include and files to exclude** still apply.
+2. **Verify ignore settings:** Confirm that `setting(search.useIgnoreFiles)` is set to `true` (the default) in your settings so that `.gitignore` and `.ignore` files are respected during searches.
+3. **Disable symbolic link following:** If your workspace contains cyclic or large symlinked directories, set `setting(search.followSymlinks)` to `false` in your settings to prevent `rg` from traversing external or recursive links.
+4. **Exclude large generated directories:** Add project-specific build folders, package manager artifacts, or worktrees to `setting(search.exclude)` in your `settings.json`:
+
+   ```json
+   {
+     "search.exclude": {
+       "**/node_modules/**": true,
+       "**/target/**": true,
+       "**/.worktrees/**": true
+     }
+   }
+   ```
+
+> [!TIP]
+> For additional troubleshooting when search results are missing or take longer than expected, consult the [Search Issues wiki](https://github.com/microsoft/vscode/wiki/Search-Issues).
+
 ### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
@@ -555,3 +578,7 @@ If you'd like to ignore line wraps when adding cursors above or below your curre
   "args": { "logicalLine": true },
 },
 ```
+
+### Why is search slow or consuming excessive CPU?
+
+Search in {% data variables.product.prodname_vscode_shortname %} is driven by ripgrep (`rg`). If multiple `rg` processes are running or search is slow, check that the **Use Exclude Settings and Ignore Files** toggle button is turned on in the Search view details, verify that `setting(search.useIgnoreFiles)` is enabled, and exclude heavy directories like `node_modules` or build caches in `setting(search.exclude)`. For step-by-step instructions, see [troubleshoot search performance](#troubleshoot-search-performance-and-excessive-ripgrep-processes).

@@ -36,6 +36,7 @@ The formats and locations differ in the capabilities they support:
 | Top-level server object | `servers` | `mcpServers` | `mcpServers` |
 | Agent Customizations editor | Read-only JSON | Configuration form | Configuration form |
 | Server transports | stdio, HTTP, and SSE | stdio and HTTP | stdio, HTTP, and SSE |
+| Environment-variable references | `${env:NAME}` | `${NAME}` or `${NAME:-default}` | `${NAME}` or `${NAME:-default}` |
 | Working directory | Yes | No | Yes |
 | Environment file | Yes | No | No |
 | {% data variables.product.prodname_vscode_shortname %} input variables | Yes | No | No |
@@ -76,6 +77,16 @@ For an HTTP server, replace the server entry with the publisher's endpoint:
 Follow the [Context7 setup instructions](https://context7.com/docs/resources/all-clients) for authentication and service limits. An endpoint alone doesn't grant access to a service.
 
 The property tables below describe the {% data variables.product.prodname_vscode_shortname %} format, not a shared schema for all MCP clients. Check the [capability comparison](#configuration-file) before copying properties into a portable file.
+
+### Environment-variable references
+
+Portable configurations support environment variables independently of {% data variables.product.prodname_vscode_shortname %} input prompts. Use `${NAME}` to reference a value, or `${NAME:-default}` for a non-secret default. Stdio servers can use references in `command`, `args`, and `env` values. HTTP servers can use them in header values.
+
+Provide variables in the environment of the host that runs or connects to the server. For remote sessions, that is the remote host or container. Use the braced `${NAME}` form for compatibility across the Copilot runtime and the {% data variables.product.prodname_vscode_shortname %} MCP client, which treats bare `$NAME` as literal text.
+
+You can edit environment variables and HTTP headers in the [MCP configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration). The form writes the configured values to the file. Enter references rather than literal credentials.
+
+Support for environment variables does not include `envFile`, input prompting, or a bridge to {% data variables.product.prodname_vscode_shortname %} `SecretStorage`. For a worked example, see [Replace input prompts with environment variables](/docs/agent-customization/migrate-customizations.md#replace-input-prompts-with-environment-variables).
 
 ### Configuration structure
 
@@ -255,15 +266,19 @@ Choose an authentication method that both the server and your configuration supp
 | Server requirement | Guidance |
 |--------------------|----------|
 | Browser sign-in or OAuth | Follow the publisher's connection instructions and review the requested permissions. Complete the authorization flow when prompted. The `oauth` fields above apply to the {% data variables.product.prodname_vscode_shortname %} format. |
-| Environment variables for a local server | Follow the publisher's instructions to provide credentials in the environment that launches the server. Configure them on the machine where the server runs, not only in an unrelated terminal or on your local machine for a remote server. |
+| Environment variables | Portable configurations support [environment-variable references](#environment-variable-references) in stdio server configuration and HTTP headers. Provide credentials in the environment of the host that runs or connects to the server, not only in an unrelated terminal or on your local machine for a remote session. |
 | {% data variables.product.prodname_vscode_shortname %} input prompts | Use the [input variables](#input-variables-for-sensitive-data) supported by the {% data variables.product.prodname_vscode_shortname %} format. Servers requiring these interactive inputs aren't forwarded to Copilot harness sessions. |
 | An environment file | `envFile` is supported in the {% data variables.product.prodname_vscode_shortname %} format, not in portable `.mcp.json` or Copilot user `mcp-config.json`. Keep files containing credentials out of source control. |
 
 Do not commit tokens, passwords, or populated authentication headers. A personal configuration file is not a secret store. For a server that requires a fixed token, follow its publisher's secure configuration guidance for your client and harness rather than copying credentials into a shared example.
 
+The Copilot harness has no built-in MCP configuration option to forward a `${input:...}` secret or read an existing {% data variables.product.prodname_vscode_shortname %} `SecretStorage` value into an HTTP authentication header. OAuth can be an alternative when the server supports it, but it does not substitute a prompted API key. If your integration requires a static bearer token without environment variables or credentials in files, see the [migration FAQ](/docs/agent-customization/migrate-customizations.md#can-copilot-pass-a-prompted-secret-to-an-http-mcp-server-without-an-environment-variable-or-a-file).
+
 ### Input variables for sensitive data
 
 Input variables in the {% data variables.product.prodname_vscode_shortname %} format let you define placeholders for values such as API keys or passwords. They aren't supported in portable configuration files, and servers that require them aren't forwarded to Copilot harness sessions.
+
+Forwarding rejects input and command variables before resolving them. Entering or caching the secret in a Local session first does not make the server available to Copilot. Keep the original configuration until a supported authentication method works in the destination harness.
 
 When you reference an input variable using `${input:variable-id}`, {% data variables.product.prodname_vscode_shortname %} prompts you for the value when the server starts for the first time. The value is then securely stored for subsequent use. Learn more about [input variables](/docs/reference/variables-reference.md#input-variables) in {% data variables.product.prodname_vscode_shortname %}.
 

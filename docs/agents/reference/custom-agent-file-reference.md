@@ -74,6 +74,8 @@ Replace `<server name>` with the name of a configured MCP server. If `tools` is 
 
 For Copilot and other harnesses, check [tool availability](/docs/agents/run/tools.md) before reusing a Local agent's tool list.
 
+Local references such as `agent/runSubagent` and `vscode/toolSearch` are not portable tool names. Copilot uses its native `task` tool for delegation, and its tool-discovery capability depends on the session's available tools. Review the tool list and any instructions that require a particular tool, rather than only moving the agent file. For compatibility checks and related open issues, see the [tool-discovery migration FAQ](/docs/agent-customization/migrate-customizations.md#why-does-an-agent-fail-with-a-tool-discovery-capability-error).
+
 ### Model preferences
 
 To specify a prioritized list, replace the placeholders with model names available in your harness:
