@@ -12,7 +12,7 @@ Still choosing how to use AI? [Compare suggestions, collaboration alongside code
 
 ## Choose where to start
 
-If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). If you already know {% data variables.product.prodname_vscode_shortname %}, use one of these sample projects to learn the agent workflow:
+If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). Otherwise, choose a sample project to learn with, or apply an agent workflow to your own repository:
 
 <div class="card-grid">
     <a class="card" href="/docs/agents/quickstart">
@@ -31,9 +31,15 @@ If you're new to both {% data variables.product.prodname_vscode_shortname %} and
             <p>Sample project. Requires Git.</p>
         </div>
     </a>
+    <a class="card" href="/docs/agents/guides/overview#experienced-agent-fast-track">
+        <i class="codicon codicon-source-control" aria-hidden="true"></i>
+        <div>
+            <p><strong>Work in your own repository</strong></p>
+            <p>Already use agents? Follow the fast track to explore your codebase or add a feature.</p>
+            <p>Use your own repository. Check the requirements for the guide you choose.</p>
+        </div>
+    </a>
 </div>
-
-Already use agents? Skip the sample projects and follow the [experienced-agent fast track](#experienced-agent-fast-track).
 
 Or jump to a task:
 

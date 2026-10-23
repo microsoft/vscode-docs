@@ -98,8 +98,8 @@ Choose where you interact with an agent and where it runs. Session support and r
 
 | Where you want to work | Start here |
 |------------------------|------------|
-| **Editor or {% data variables.copilot.agents_window %}** | Switch between coordinating work and editing code while [continuing a supported session](/docs/agents/quickstart.md#continue-in-another-interface-or-application). |
-| **{% data variables.copilot.copilot_cli %} or {% data variables.copilot.github_copilot_app %}** | Discover and continue [supported local sessions](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}, or [resume a {% data variables.product.prodname_copilot_short %} session](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal) in the terminal. |
+| **Editor or {% data variables.copilot.agents_window %}** | Switch between coordinating work and editing code while [continuing a supported session](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window). |
+| **{% data variables.copilot.copilot_cli %} or {% data variables.copilot.github_copilot_app %}** | Discover and continue [supported local sessions](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}, or [resume a session in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal) where available. |
 | **GitHub.com** | Monitor and steer a running {% data variables.product.prodname_copilot_short %} session with [remote control](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions). Requires {% data variables.product.prodname_github %} sign-in and a workspace linked to a {% data variables.product.prodname_github %} repository. |
 | **Another machine** | Connect to an agent through [SSH](/docs/agents/run/remote-agent-sessions.md#connect-via-ssh) or a [dev tunnel](/docs/agents/run/remote-agent-sessions.md#connect-via-dev-tunnel). Files and development tools stay on the remote machine. |
 
