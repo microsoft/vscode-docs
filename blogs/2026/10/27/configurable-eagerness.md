@@ -260,9 +260,15 @@ The goal isn't simply to suggest more or less code. It's to provide the right le
 
 ## Try it out
 
-Configurable eagerness is available to paid GitHub Copilot subscribers in VS Code. Update to the latest version of VS Code, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the Copilot settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you.
+Configurable eagerness is available to paid GitHub Copilot subscribers in VS Code. Update to the latest version of VS Code, [confirm that Next Edit Suggestions are enabled](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions) (they are on by default), then open the Copilot settings menu and choose an **Eagerness** setting. Try each mode to find the level of assistance that works best for you, and please share your feedback in the [VS Code repository](https://github.com/microsoft/vscode/issues).
 
 <img src="./eagerness-settings-menu.png" alt="Screenshot showing the Copilot settings menu with Next edit suggestions enabled and the Eagerness dropdown outlined in red, listing Auto, Low, Medium, and High." width="500">
+
+### Help shape what’s next
+
+We’re constantly working to improve the model, and your feedback can help. **Sign up to participate in our user studies and help shape future improvements.**
+
+[Join a user study](https://aka.ms/joinastudy)
 
 ## Acknowledgments
 
