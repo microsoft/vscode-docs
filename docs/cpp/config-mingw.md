@@ -235,9 +235,9 @@ with this:
 
 ### Modifying tasks.json
 
-Starting November 3, 2024, MSYS2 has disabled wildcard support for `mingw-w64` by default. This change impacts how wildcards like `"*.cpp"` are processed in build commands. To build multiple C++ files in your `tasks.json`, you must explicitly list the files, use a build system like `make` or `cmake` or implement the following workarounds: https://www.msys2.org/docs/c/#expanding-wildcard-arguments.
+MSYS2's GCC packages [enable wildcard expansion](https://github.com/msys2/MINGW-packages/pull/23517), even though [MSYS2 disables it by default for applications built with `mingw-w64`](https://www.msys2.org/docs/c/#expanding-wildcard-arguments). To build all `.cpp` files in your workspace folder, replace `"${file}"` in the `args` array in `tasks.json` with `"${workspaceFolder}/*.cpp"`.
 
-If you previously used `"${workspaceFolder}/*.cpp"` to compile all `.cpp` files in the current folder, this will no longer work directly. Instead, you can manually list the files or define a build script.
+If your compiler does not expand wildcards, list the source files individually in the `args` array or use a build system such as Make or CMake.
 
 ## Debug helloworld.cpp
 
