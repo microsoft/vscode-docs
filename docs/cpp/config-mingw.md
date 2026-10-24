@@ -235,9 +235,9 @@ with this:
 
 ### Modifying tasks.json
 
-MSYS2's GCC packages [enable wildcard expansion](https://github.com/msys2/MINGW-packages/pull/23517), even though [MSYS2 disables it by default for applications built with `mingw-w64`](https://www.msys2.org/docs/c/#expanding-wildcard-arguments). To build all `.cpp` files in your workspace folder, replace `"${file}"` in the `args` array in `tasks.json` with `"${workspaceFolder}/*.cpp"`.
+MSYS2's GCC compiler drivers, including `g++`, [enable wildcard expansion](https://github.com/msys2/MINGW-packages/pull/23517). To build all `.cpp` files directly in your workspace folder, replace `"${file}"` in the `args` array in `tasks.json` with `"${workspaceFolder}/*.cpp"`.
 
-If your compiler does not expand wildcards, list the source files individually in the `args` array or use a build system such as Make or CMake.
+Wildcard expansion remains [disabled by default for applications built with `mingw-w64`](https://www.msys2.org/docs/c/#expanding-wildcard-arguments). If your compiler does not expand wildcards, list the source files individually in the `args` array or use a build system such as Make or CMake.
 
 ## Debug helloworld.cpp
 
