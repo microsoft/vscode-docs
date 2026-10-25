@@ -136,6 +136,8 @@ Learn more about [making pull requests](https://docs.github.com/pull-requests/co
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.
 
+Use Node.js 20 or later.
+
 ```bash
 npm install
 npm run serve
@@ -148,6 +150,8 @@ This starts a local server (default `http://localhost:3000`) with:
 * Tabbed content validated and rendered with synchronized tab selections
 * Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
 * Full-text search across all content
+
+The preview uses native filesystem notifications for content, images, and preview support files. It does not scan the entire checkout or watch `node_modules` and Git metadata. Changes automatically refresh the browser. To use a different port, run `npm run serve -- --port 3001`.
 
 > [!NOTE]
 > The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.

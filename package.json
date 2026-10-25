@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/microsoft/vscode-docs.git"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
     "check-release-note-toc": "node ./build/check-release-note-toc.js",
@@ -20,17 +23,23 @@
     "test:tabs": "node --test ./build/tabs.test.js",
     "test:cards": "node --test ./build/cards.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
+    "test:serve": "node --test ./build/serve.test.js",
     "generate-sidebar": "node ./build/generate-sidebar.js",
-    "serve": "npm run generate-sidebar && docsify serve .",
+    "serve": "npm run generate-sidebar && node ./build/serve.js",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
-    "docsify-cli": "^5.0.0",
+    "connect": "^3.7.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "connect-livereload": "^0.6.1",
     "eslint": "^8.57.1",
     "eslint-plugin-security": "^1.7.1",
+    "get-port": "^5.1.1",
     "gulp": "~5.0.0",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.3",
+    "livereload": "^0.9.3",
+    "serve-static": "^1.16.3",
     "shelljs": "^0.8.5"
   },
   "lint-staged": {
