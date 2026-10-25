@@ -191,6 +191,21 @@ For an image background, run **Chat: Change Background Layout...** to repeat, st
 
 Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
 
+#### Generate a chat background (Experimental)
+
+Generate a background from a text description instead of finding an image yourself. Select an image-generation model with `setting(chat.copilot.imageGeneration.model)` and keep `setting(chat.agentSessions.appearanceTools.enabled)` turned on.
+
+In a [Copilot harness](/docs/agents/run/agent-harnesses.md) session in the {% data variables.copilot.agents_window %}, ask the agent to generate an image and apply it as your chat background. For example:
+
+```prompt
+Generate a subtle mountain landscape and set it as my chat background.
+```
+
+If you don't specify colors, the agent uses your current theme as guidance and aims to keep chat messages readable. Explicit colors and design preferences in your prompt take precedence over the theme.
+
+> [!NOTE]
+> Image generation requires access to the selected model and uses [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) in addition to those used by the conversation model. This workflow isn't available in the browser version of the {% data variables.copilot.agents_window %}.
+
 ## Get better responses
 
 Chat provides several ways to improve the quality and relevance of AI responses:
