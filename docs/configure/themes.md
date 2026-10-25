@@ -204,6 +204,34 @@ You can disable a built-in theme extension, as you would any other {% data varia
 
 ![disable theme](images/themes/disable-theme.png)
 
+## Troubleshooting Color Theme Issues
+
+If a color theme does not appear or does not look as expected, check the following common issues.
+
+### Theme Does Not Appear in the Color Theme Picker
+
+1. Open the Extensions view.
+2. Search for the theme using the `@category:"themes"` filter.
+3. Check whether the theme extension is installed and enabled.
+4. If the theme is not installed, select **Browse Additional Color Themes...** from the Color Theme picker to find available themes in the Marketplace.
+5. Install the desired extension and select its theme from the Color Theme picker.
+
+### Theme Colors Do Not Match Expectations
+
+1. Open Settings and search for `workbench.colorCustomizations`.
+2. Review any custom color values that might override the active theme.
+3. If editor syntax highlighting differs from expectations, check `editor.tokenColorCustomizations` and `editor.semanticHighlighting.enabled`.
+4. Adjust or remove customizations as needed.
+
+### Theme Changes Are Not Applied
+
+1. Open the Command Palette.
+2. Run the `Preferences: Color Theme` command.
+3. Select the desired theme and press Enter.
+4. If the issue persists, verify that the theme extension is enabled and review the relevant user and workspace settings.
+
+For further assistance, consult the theme extension's documentation or report a reproducible issue to its maintainer.
+
 ## File Icon Themes
 
 File icons indicate a particular file type. These icons are shown alongside the file name in the Explorer view and in tabbed headings. File Icon Themes can be contributed by extensions.
