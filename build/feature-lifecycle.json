@@ -63,6 +63,10 @@
       "state": "experimental",
       "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
     },
+    "editor-working-set": {
+      "label": "Editor working set",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"

@@ -27,6 +27,7 @@ Start with the symptom you observe:
 | The agent is about to perform an unsafe, destructive, or irrelevant action. | [Stop the request](#redirect-a-running-request) immediately and state what it must not do. |
 | The response is complete, and most of the work is useful. | [Send a focused follow-up](#correct-a-completed-response) that identifies the specific mismatch. |
 | An ambiguous earlier prompt caused the agent to take the wrong approach. | [Edit the earlier request](#correct-a-completed-response) and resend it. |
+| Only specific pending file edits are unwanted. | [Undo those edits](#recover-unwanted-changes) without rewinding the conversation. |
 | File changes after a known point are unwanted. | [Restore a checkpoint](#recover-unwanted-changes). |
 | You want to compare another approach without losing the current conversation. | [Fork the conversation](#reset-conversation-context). |
 | The conversation contains too much irrelevant or conflicting context. | [Compact the context or start a fresh chat](#reset-conversation-context). |
@@ -97,6 +98,8 @@ Edit a previous request when its wording introduced the wrong requirement or omi
 Before you edit the request, review the affected changes so you understand which work will be removed. Select the prompt in the conversation, modify its text, and resend it. Learn more about [editing a previous chat request](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request).
 
 ## Recover unwanted changes
+
+To revert specific pending edits without changing the conversation, use **Undo** in the editor's review controls or the working set `feature(editor-working-set)`. {% data variables.product.prodname_copilot_short %} harness sessions support this workflow in the editor window, even without Git. The working set only includes edits made through tracked edit tools, not terminal commands. Use Source Control, if available, or edit the files yourself to revert changes outside the working set. Local harness sessions also support undoing pending edits. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes).
 
 Use a checkpoint when you can identify the last request before the agent's workspace changes went wrong. Restoring the checkpoint returns affected workspace files and chat history to that point.
 

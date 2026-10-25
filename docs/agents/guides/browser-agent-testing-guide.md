@@ -62,7 +62,7 @@ With browser tools enabled, ask the agent to create a simple calculator applicat
 
 1. Review the generated files as the agent creates `index.html`, `styles.css`, and `script.js`.
 
-1. Select **Keep** to save the files to your workspace.
+1. [Review the saved changes](/docs/agents/run/review-code-edits.md). If edits are pending review, select **Keep** to retain them or **Undo** to revert them. **Keep** clears pending review; the files are already saved to your workspace.
 
 The agent has built the basic structure of the calculator application.
 

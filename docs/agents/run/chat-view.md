@@ -54,9 +54,11 @@ Keep the code and its checks beside the conversation as you work:
 
 1. **Ask for an explanation or a change**: For example, ask where a behavior is implemented before requesting a fix. Follow the [codebase exploration guide](/docs/agents/guides/explore-a-codebase.md) for a read-only task, or the [add a feature guide](/docs/agents/guides/add-a-feature.md) to plan and implement a change in your own project.
 
-1. **Review and steer the work**: Inspect the agent's responses, proposed actions, and changes while using your editor, terminal, debugger, and tests. The {% data variables.product.prodname_copilot_short %} harness saves edits directly to the session's folder or worktree. Select a changed file in the response to inspect its diff. For revisions, approvals, and sending a correction while work is running, see [Use chat](/docs/chat/chat-overview.md).
+1. **Review and steer the work**: Inspect the agent's responses, proposed actions, and changes while using your editor, terminal, debugger, and tests. In a {% data variables.product.prodname_copilot_short %} harness session, expand the working set `feature(editor-working-set)` above the chat input to review tracked edits and use **Keep** or **Undo**. Edits are already saved; **Keep** clears their pending-review state. You can also select a changed file in the response to inspect its diff. For revisions, approvals, and sending a correction while work is running, see [Use chat](/docs/chat/chat-overview.md).
 
 1. **Validate before integrating**: Check the agent's test results and run the relevant checks yourself. See [Review AI-generated code edits](/docs/agents/run/review-code-edits.md) for feedback, checkpoints, and recovery.
+
+The {% data variables.product.prodname_copilot_short %} working set works without Git, but only lists changes made through tracked edit tools, not terminal commands. Review other changed files separately. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes) for the complete workflow.
 
 To show a changed-files summary after each request, enable `setting(chat.checkpoints.showFileChanges)`. Supported tools depend on your harness and installed extensions. For example, you can [work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md) with the required tools installed. In a [remote workspace](/docs/remote/remote-overview.md), the session uses that project's remote context and tools.
 
