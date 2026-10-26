@@ -144,7 +144,7 @@ The {% data variables.copilot.agents_window %} restores conversations, drafts, p
 
 ### Compare model results (Preview)
 
-Run the same prompt with multiple models or harnesses in isolated worktrees, then compare their approaches and results. You can optionally use a Judge to evaluate the attempts and request a synthesized solution. See [Compare model results](/docs/agents/run/compare-models.md) for prerequisites and the full workflow.
+Run the same prompt with multiple models or harnesses, then compare their approaches and results. Compare responses in folderless chats, or compare code changes in isolated worktrees for a Git repository. For repository comparisons, you can optionally use a Judge to evaluate the attempts and request a synthesized solution. See [Compare model results](/docs/agents/run/compare-models.md) for prerequisites and the full workflow.
 
 ### Work with multiple chats in a session
 
