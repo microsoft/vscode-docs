@@ -92,7 +92,6 @@ let diagnosticCollection: vscode.DiagnosticCollection;
 
 export function activate(ctx: vscode.ExtensionContext): void {
   ...
-  ctx.subscriptions.push(getDisposable());
   diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
   ctx.subscriptions.push(diagnosticCollection);
   ...
@@ -162,13 +161,14 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    ctx.subscriptions.push(getDisposable());
     ctx.subscriptions.push(
         vscode.languages.registerCompletionItemProvider(
             GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
     ...
 }
 ```
+
+You can explore a complete example in the [completions sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/completions-sample).
 
 > **Basic**
 >
