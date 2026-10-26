@@ -306,9 +306,17 @@ Use the following policies to govern [agent plugins](/docs/agent-customization/a
 * `ChatExtraMarketplaces` adds plugin marketplaces.
 * `ChatStrictMarketplaces` restricts plugin installation to approved marketplace sources. An empty list blocks installation from all marketplaces.
 
-Plugins blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces managed by policy are identified in the marketplace picker.
+Plugins blocked by policy remain visible but appear disabled. In **Customize** > **Plugins**, policy-managed plugins are identified as managed by policy, and their toggles are locked. Marketplaces managed by policy are identified in the marketplace picker.
 
-For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, use {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
+For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, follow [Manage plugin marketplaces and plugins](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/manage-plugin-marketplaces-and-plugins) to configure {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
+
+##### Delegate plugin defaults to teams
+
+Use [team-provided plugins](/docs/agent-customization/agent-plugins.md#team-provided-plugins) to let team maintainers and organization owners [select plugins for their organization teams](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/configure-plugins-for-organization-teams) without making administrators approve every team-only configuration change. Administrators retain control over approved marketplace sources and required or blocked capabilities, while members start with their team's plugin defaults.
+
+Enterprise-managed plugin settings only require or block plugins. They don't set optional defaults. Team selections must stay within organization and enterprise policy restrictions. Repository defaults take precedence over team defaults. Members can turn off plugins enabled by repository or team defaults, but can't override policy requirements or blocks.
+
+These defaults use {% data variables.product.prodname_github %} organization teams and apply to direct team members. They are separate from the enterprise teams configured through `copilot/team-mappings.json` for server-managed settings overrides. Organization-team plugin selections don't override enterprise-managed settings.
 
 <!--
 #### Configure MCP server access

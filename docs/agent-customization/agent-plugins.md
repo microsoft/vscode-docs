@@ -1,7 +1,7 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
 DateApproved: 10/28/2026
-MetaDescription: Discover, install, configure, and troubleshoot agent plugins in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Install and manage agent plugins and team defaults in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - agents
@@ -13,12 +13,13 @@ Keywords:
 - hooks
 - mcp
 - automations
+- team customizations
 ---
 # Agent plugins in {% data variables.product.prodname_vscode_shortname %}
 
 Agent plugins package related customizations, such as skills, agents, and tool integrations, so you can install them together. For example, a testing plugin can include a test-running skill, review agent, and reporting integration that are intended to work together.
 
-This article shows you how to discover, install, configure, update, and troubleshoot plugins. To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
+This article shows you how to discover, install, configure, update, and troubleshoot plugins, including [plugins provided by your team](#team-provided-plugins). To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
 
 If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-options-at-a-glance). Choose a bundle when its components support a workflow you want to adopt together.
 
@@ -212,6 +213,24 @@ Updating pulls down changes from cloned marketplace repositories and checks for 
 
 Plugins sourced from npm or PyPI never update automatically. Instead, they show an **Update** button in the Extensions view. Selecting the button prompts you to confirm before running the install command. If an update is found during a background check, no action is taken until you explicitly select **Update**.
 
+## Team-provided plugins
+
+Team customizations let team maintainers and organization owners select agent plugins as defaults for their team. Members start with the capabilities their team relies on instead of repeating the same plugin setup individually. Team defaults are optional, not enforced requirements.
+
+Team customizations are available to organizations with {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}. Only direct members of the {% data variables.product.prodname_github %} organization team receive its defaults. Membership inherited through a child team doesn't apply.
+
+### Select plugins for your team
+
+As a team maintainer or organization owner, [configure your team's plugin defaults](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/configure-plugins-for-organization-teams) on {% data variables.product.prodname_github %}, rather than in {% data variables.product.prodname_vscode_shortname %}. Add the marketplaces your team needs and select plugins from sources permitted by your organization and enterprise policies.
+
+The team selections apply across supported clients, including {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and {% data variables.copilot.copilot_cloud_agent %}. The available plugin components still depend on the client and [selected harness](/docs/agent-customization/overview.md#check-harness-compatibility).
+
+### Use team-provided plugins
+
+Team-provided plugins are enabled by default for the team's direct members. Team defaults can be turned off by individual members, but they cannot override enterprise-managed or repository-level requirements.
+
+Policy-managed plugins are identified as managed by policy, and their toggles are locked.
+
 ## Workspace plugin recommendations
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
@@ -247,6 +266,13 @@ Specify the following fields in the settings file to configure workspace plugin 
 {% data variables.product.prodname_vscode_shortname %} also supports existing Copilot, Claude, and legacy OpenPlugin formats. Support for a package format doesn't guarantee that every component works in every harness or client. Check the plugin's requirements. For file layouts and client-specific namespaces, see the [plugin authoring compatibility reference](/docs/agents/reference/agent-plugin-reference.md#cross-tool-compatibility).
 
 ## Troubleshooting
+
+### Team plugin does not appear
+
+* Confirm that you're a direct member of the team that provides the plugin.
+* Allow for the daily team-settings refresh, then start a new session.
+* Check whether organization or enterprise policy blocks the plugin or its marketplace.
+* For a private marketplace, confirm that the {% data variables.product.prodname_github %} account you use has read access to its repository. Team membership and plugin selection don't grant repository access.
 
 ### Plugin does not appear after installation
 
