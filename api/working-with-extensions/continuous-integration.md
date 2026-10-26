@@ -52,7 +52,7 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '20.x'
   displayName: 'Install Node.js'
 
 - bash: |
@@ -62,12 +62,11 @@ steps:
   condition: and(succeeded(), eq(variables['Agent.OS'], 'Linux'))
 
 - bash: |
-    echo ">>> Compile vscode-test"
-    yarn && yarn compile
-    echo ">>> Compiled vscode-test"
-    cd sample
+    echo ">>> Compile extension"
+    npm install && npm run compile
+    echo ">>> Compiled extension"
     echo ">>> Run sample integration test"
-    yarn && yarn compile && yarn test
+    npm test
   displayName: Run Tests
   env:
     DISPLAY: ':99.0'
@@ -82,12 +81,12 @@ You can enable the build to run continuously when pushing to a branch and even o
 ### Azure Pipelines automated publishing
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://learn.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
-2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev`).
 3. Declare a `deploy` script in `package.json` without the PAT (by default, `vsce` will use the `VSCE_PAT` environment variable as the Personal Access Token).
 
 ```json
 "scripts": {
-  "deploy": "vsce publish --yarn"
+  "deploy": "vsce publish"
 }
 ```
 
@@ -103,12 +102,12 @@ trigger:
     - refs/tags/v*
 ```
 
-5. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable.
+5. Add a `publish` step in `azure-pipelines.yml` that calls `npm run deploy` with the secret variable.
 
 ```yaml
 - bash: |
     echo ">>> Publish"
-    yarn deploy
+    npm run deploy
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
   env:
@@ -158,12 +157,12 @@ jobs:
 ### GitHub Actions automated publishing
 
 1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://docs.github.com/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
-2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json
 "scripts": {
-  "deploy": "vsce publish --yarn"
+  "deploy": "vsce publish"
 }
 ```
 
@@ -202,7 +201,7 @@ In our example, the condition has three checks:
 GitLab CI can be used to test and publish the extension in headless Docker containers. This can be done by pulling a preconfigured Docker image, or installing `xvfb` and the libraries required to run Visual Studio Code during the pipeline.
 
 ```yaml
-image: node:12-buster
+image: node:20-bookworm
 
 before_script:
   - npm install
@@ -218,12 +217,12 @@ test:
 ### GitLab CI automated publishing
 
 1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
-2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json
 "scripts": {
-  "deploy": "vsce publish --yarn"
+  "deploy": "vsce publish"
 }
 ```
 
@@ -239,6 +238,6 @@ deploy:
 
 ## Common questions
 
-### Do I need to use Yarn for continuous integration?
+### Can I use Yarn or other package managers for continuous integration?
 
-All of the above examples refer to a hypothetical project built with [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/), [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/), or any other JavaScript build tool.
+All of the above examples refer to a project built with [npm](https://www.npmjs.com/), but can be adapted to use [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/), [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/), or any other JavaScript build tool. When using Yarn, pass the `--yarn` flag to `vsce publish` (for example, in your `"deploy"` script) so `vsce` packages dependencies using Yarn.
