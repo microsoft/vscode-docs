@@ -110,9 +110,35 @@ This setting changes the default only in the {% data variables.copilot.agents_wi
 
 ## Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
 
-The {% data variables.copilot.agents_window %} can run {% data variables.product.prodname_vscode_shortname %} extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
+Choose which installed {% data variables.product.prodname_vscode_shortname %} extensions run in the {% data variables.copilot.agents_window %} without changing their enablement in the editor window. Extensions must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile.
 
-For other extensions, opt them in by ID with the `setting(extensions.supportAgentsWindow)` setting:
+Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
+
+### Manage extensions (Experimental)
+
+Use the **Extensions** section of the Agent Customizations editor to turn installed extensions on or off for the {% data variables.copilot.agents_window %}. This experimental section requires `setting(extensions.experimental.agentsWindowManagement)`. If the section isn't visible, turn on this setting.
+
+1. In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Select **Extensions**.
+
+1. Find an extension in the list, or use the search field, and turn it on or off.
+
+1. If **Restart Required** or **Reload Required** appears, select **Restart Extensions** or **Reload Window** to apply the change.
+
+The list groups extensions by their support for the {% data variables.copilot.agents_window %}:
+
+* **AI Features**: extensions that contribute AI features, such as tools, MCP servers, or skills, but haven't declared support for the {% data variables.copilot.agents_window %}.
+* **Supported**: extensions that support the {% data variables.copilot.agents_window %}. These extensions are enabled by default.
+* **Other Extensions**: other installed extensions that haven't declared support for the {% data variables.copilot.agents_window %}.
+
+The `setting(extensions.experimental.agentsWindowSuggestions)` setting controls whether extension suggestions appear for the {% data variables.copilot.agents_window %}.
+
+Extensions that haven't declared support might not work as expected, especially if they rely on editor views or debugging.
+
+### Override extension support by ID
+
+As an alternative to the **Extensions** section, use `setting(extensions.supportAgentsWindow)` to override support for individual extension IDs:
 
 ```json
 "extensions.supportAgentsWindow": {
@@ -120,7 +146,9 @@ For other extensions, opt them in by ID with the `setting(extensions.supportAgen
 }
 ```
 
-The extension must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile. Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
+Set an extension ID to `true` to enable it even when it would otherwise be disabled, or to `false` to disable it even when it is supported by default. Reload the {% data variables.copilot.agents_window %} after changing this setting. These overrides don't affect editor windows.
+
+Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
 
 ## Personalize chat
 

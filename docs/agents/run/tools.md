@@ -81,7 +81,7 @@ For Copilot harness sessions, manage tools from the Agent Customizations editor.
 1. Open the Agent Customizations editor:
 
     * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
-    * In the {% data variables.copilot.agents_window %}, go to the **Customizations** panel.
+    * In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar.
 
 1. Select the **Tools** tab.
 

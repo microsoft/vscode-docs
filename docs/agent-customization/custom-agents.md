@@ -41,7 +41,7 @@ Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agen
 
 Use the **Session Target** UI control to [select the agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use, then open the editor from either surface:
 
-* **{% data variables.copilot.agents_window %}**: Select **Agents** in the **Customizations** panel in the left sidebar.
+* **{% data variables.copilot.agents_window %}**: Select **Customizations** in the left sidebar to open the Agent Customizations editor. Then select **Agents**.
 
 * **{% data variables.copilot.chat_view %}**: Select **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`). Then select **Agents**.
 

@@ -55,7 +55,7 @@ Select the harness before opening the hooks interface so the editor shows the re
 1. Select **Copilot** from the **Session Target** UI control.
 1. Open the Agent Customizations editor:
    * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, and then **Hooks**.
-   * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
+   * In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, and then **Hooks** in the editor.
    * In the {% data variables.copilot.chat_view %}, enter `/hooks` in the chat input.
 1. Review the sources and select a hook to open its configuration.
 

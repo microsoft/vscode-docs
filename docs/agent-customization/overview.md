@@ -81,9 +81,11 @@ Follow these steps to open the Agent Customizations editor:
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-In the left sidebar, select a customization type in the **Customizations** panel.
+In the left sidebar, select **Customizations** to open the Agent Customizations editor. Then select the customization type in the editor.
 
-![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
+![Screenshot showing the Customizations sidebar action and the Agent Customizations editor.](images/customization/agents-window-customizations.png)
+
+The experimental **Extensions** section also lets you [choose which installed extensions run in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}

@@ -162,11 +162,11 @@ For access from another device, [connect to the session's host or use remote con
 
 ## {% data variables.copilot.agents_window %} interface overview
 
-The {% data variables.copilot.agents_window %} has the following main areas:
+The {% data variables.copilot.agents_window %} has the following main areas and actions:
 
 1. **Sessions list**: view and manage sessions across workspaces. By default, sessions are grouped by workspace. Select a session to [make it active](#understand-the-active-session).
 
-1. **Customizations panel**: access agent customizations for your workflow and preferences, and open [Automations](#schedule-recurring-tasks) when enabled.
+1. **Customizations**: select this sidebar action to open the Agent Customizations editor and manage your workflow and preferences.
 
 1. **Chat area**: view and interact with the active agent chat conversation
 
@@ -175,6 +175,8 @@ The {% data variables.copilot.agents_window %} has the following main areas:
 1. **Files panel**: browse the workspace associated with the active session
 
 ![Screenshot of the {% data variables.copilot.agents_window %} interface, showing the sessions list, customizations panel, chat area, changes panel, and files panel.](../images/agents-window/agents-window-ui-annotated.png)
+
+When enabled, the separate **Automations** sidebar action opens [recurring tasks](#schedule-recurring-tasks).
 
 By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
 
