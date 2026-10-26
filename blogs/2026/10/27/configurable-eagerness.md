@@ -65,11 +65,11 @@ To train these behaviors, we needed a measurable definition of eagerness. Becaus
 
 We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, **we trained one model to produce all three behaviors (low, medium, and high eagerness)**, conditioned on a lightweight control tag:
 
-<table aria-label="Intended behavior by eagerness setting">
+<table aria-label="Control tag used by eagerness setting">
   <thead>
     <tr>
       <th scope="col">Eagerness setting</th>
-      <th scope="col">Intended behavior</th>
+      <th scope="col">Control tag</th>
     </tr>
   </thead>
   <tbody>
