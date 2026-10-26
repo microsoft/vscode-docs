@@ -120,7 +120,7 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 Memory retains preferences and codebase knowledge separately from the conversation context that a session accumulates automatically. The memory system depends on the agent harness:
 
-* **{% data variables.copilot.copilot_memory %} (Preview)**: Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can recall cloud-backed repository facts and user preferences. Repository facts are shared with people who have access to that repository and memory. User preferences apply to your own supported interactions across repositories.
+* **{% data variables.copilot.copilot_memory %}**: Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can recall cloud-backed repository facts and user preferences. Repository facts are shared with people who have access to that repository and memory. User preferences apply to your own supported interactions across repositories.
 * **File-based memory**: The Local harness uses a separate memory tool for user, repository, and session notes. These files are stored locally by default. Session memory can hold temporary task context, such as an implementation plan.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).

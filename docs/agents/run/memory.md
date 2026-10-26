@@ -8,7 +8,7 @@ MetaDescription: Use cloud-backed and local memory in {% data variables.product.
 
 Memory helps agents reuse coding preferences and repository knowledge without asking you to repeat them in every conversation. The memory system depends on your [agent harness](/docs/agents/run/agent-harnesses.md):
 
-* **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %} (Preview)](#copilot-memory-preview) to store repository facts and user preferences in the cloud.
+* **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %}](#copilot-memory) to store repository facts and user preferences in the cloud.
 
 * **Local harness**: Use [memory files](#local-memory-files) for persistent notes and temporary session context.
 
@@ -23,21 +23,23 @@ Launch a chat prompt that asks the agent to remember a coding preference.
 
 </div>
 
-## {% data variables.copilot.copilot_memory %} (Preview)
+## {% data variables.copilot.copilot_memory %}
 
 Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can use {% data variables.copilot.copilot_memory %}, the same cloud memory service used by {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, and code review. Memories captured by one supported feature can inform another, although supported scopes vary. For example, code review uses repository facts, not user preferences.
 
 ### Set up cloud-backed memory
 
-{% data variables.copilot.copilot_memory %} is off by default in {% data variables.product.prodname_vscode_shortname %}. To use it:
+{% data variables.copilot.copilot_memory %} is on by default in {% data variables.product.prodname_vscode_shortname %}. To use it:
 
 1. [Sign in to {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) with your {% data variables.product.prodname_github %} account.
 
-1. In your [personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.prodname_github %}](https://github.com/settings/copilot/features), check that **{% data variables.copilot.copilot_memory %}** is **Enabled**. If your plan is managed by an organization or enterprise, its policies must permit both memory and preview features.
+1. In your [personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.prodname_github %}](https://github.com/settings/copilot/features), check that **{% data variables.copilot.copilot_memory %}** is **Enabled**. If your plan is managed by an organization or enterprise, its policies must permit memory.
 
-1. Turn on `setting(chat.copilot.memory.enabled)` in {% data variables.product.prodname_vscode_shortname %} Settings.
+1. Check that `setting(chat.copilot.memory.enabled)` is on in {% data variables.product.prodname_vscode_shortname %} Settings. If you previously turned it off, it stays off until you turn it on.
 
 1. Create or resume a local {% data variables.product.prodname_copilot_short %} session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The setting applies to sessions created or resumed after it changes.
+
+The {% data variables.product.prodname_vscode_shortname %} editor preview-features policy doesn't control cloud memory.
 
 Repository memories require a {% data variables.product.prodname_github %}-hosted repository. User preferences are tied to your signed-in {% data variables.product.prodname_github %} account and can apply across repositories.
 
