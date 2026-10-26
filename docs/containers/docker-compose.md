@@ -124,6 +124,7 @@ For debugging Python with Docker Compose, follow these steps:
                 }
             ]
         }
+         ]
     ```
 
 1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab, and select **Python Debugger: Remote Attach** as the active configuration.
