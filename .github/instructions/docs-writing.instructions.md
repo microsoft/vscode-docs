@@ -25,6 +25,16 @@ Do not document functionality that is limited to internal builds or dogfooding. 
 
 Existence in source code is not proof of availability. Verify how the functionality is registered and exposed, which product quality or feature flags control it, and whether it is available in Stable or confirmed for the upcoming release when working on `vnext`. When reviewing existing content, flag or remove coverage that does not meet these availability requirements.
 
+## Focused research
+
+Keep research proportional to the documentation change. Accuracy and public availability checks remain required, but they don't require an exhaustive source audit.
+
+* Define the user-facing claims and open questions from the request and existing docs before searching. For coverage checks, use a checklist of the feature's functionality and settings, not an inventory of its implementation dependencies.
+* Start with the supplied issue or PR, relevant comments, and directly related changes. Follow linked files and exact setting or command IDs. Prefer searches within the relevant feature folder and bounded reads around registrations or behavior over repository-wide scans, bulk source downloads, and broad history searches.
+* Expand the search only to resolve a specific unanswered question that affects the documentation. Don't trace unrelated subsystems, enumerate every command, or follow every transitive dependency.
+* Reuse verified evidence across affected pages and delegated tasks. Don't repeat source scans or assign overlapping research to multiple agents.
+* Stop researching a claim once its behavior and public availability are supported. If a focused check leaves a material uncertainty, report it or ask a targeted question instead of scanning indefinitely or guessing.
+
 ## General Style tips
 
 * Get to the point fast.
