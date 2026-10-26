@@ -89,6 +89,36 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
+### Set managed model defaults
+
+Give developers a consistent starting model without preventing them from choosing another model for an individual task. Set the top-level `model` managed setting to `auto` or an available model ID.
+
+For Copilot harness sessions, use `fusionTier` to set the starting Auto or Fusion tier:
+
+| Value | Starting tier |
+|-------|---------------|
+| `"standard"` | Fusion **Standard**, or Auto **Balance** when Fusion is unavailable. |
+| `"high"` | Fusion **High** when available, otherwise Auto **Intelligence**. |
+| `"max"` | Fusion **Max** when available. If it isn't available, the runtime default remains in effect. |
+| `"unmanaged"` | No managed tier selection. The legacy `autoTier` setting is also ignored. |
+
+For example, add the following values to your enterprise-managed settings:
+
+```json
+{
+    "model": "auto",
+    "fusionTier": "high"
+}
+```
+
+This example starts new conversations on Fusion **High** when [Copilot Fusion (Research preview)](/docs/agent-customization/language-models.md#use-copilot-fusion-research-preview) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
+
+`fusionTier` takes precedence over the legacy `autoTier` setting. It applies to the Copilot harness, not Local sessions.
+
+Managed model defaults take precedence over saved personal preferences for new conversations in both the editor and the {% data variables.copilot.agents_window %}. Developers can still change the model or tier within a conversation, and existing conversations keep their selections. Removing a managed default lets new conversations use saved personal preferences again.
+
+To verify the model default, check **Org default** in the model picker and the briefcase indicator for `setting(chat.defaultModel)` in Settings. See [Organization-managed model defaults](/docs/agent-customization/language-models.md#organization-managed-model-defaults).
+
 ### Claude and Codex availability
 
 The Claude and Codex harness integrations in {% data variables.product.prodname_vscode_shortname %} are disabled while {% data variables.product.prodname_copilot_short %} enterprise-managed settings apply. This includes settings delivered through server-managed, MDM-managed, or file-based deployments.
@@ -252,6 +282,8 @@ Set the `ChatDefaultModel` policy to choose the default model for new conversati
 
 Developers can select another model for an individual conversation. Reopened conversations keep their saved model.
 
+For defaults delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, see [Set managed model defaults](#set-managed-model-defaults).
+
 #### Control dictation data
 
 Use the following policies to control whether [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) audio and transcripts leave the developer's device.
@@ -341,11 +373,25 @@ For Copilot harness sessions, use enterprise-managed settings to control which p
 
 | Managed setting | Effect in {% data variables.product.prodname_vscode_shortname %} |
 |-----------------|------------------------------------------------------------------|
-| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to remove **Allow all** from the permissions picker. |
-| `permissions.disableAssistedPermissionsMode` | Set to `true` to remove **Assisted permissions** from the permissions picker. |
+| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to disable **Allow all** in the permissions picker. |
+| `permissions.disableAssistedPermissionsMode` | Set to `true` to disable **Assisted permissions** in the permissions picker. |
 | `permissions.defaultMode` | Sets the initial permission level. Supported values are `"manual"`, `"assisted"`, and `"allow-all"`. |
 
+For example, start sessions with **Assisted permissions** when available, while preventing **Allow all**:
+
+```json
+{
+    "permissions": {
+        "disableBypassPermissionsMode": "disable",
+        "disableAssistedPermissionsMode": false,
+        "defaultMode": "assisted"
+    }
+}
+```
+
 If the configured default is unavailable, new sessions use **Manual permissions**. Setting a default doesn't prevent developers from switching to another permission level that the organization allows.
+
+In both the editor and the {% data variables.copilot.agents_window %}, supported permission levels restricted by policy remain visible but disabled. The picker shows **Disabled by policy** with a briefcase icon and an explanation. Unsupported permission levels aren't shown.
 
 These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
 

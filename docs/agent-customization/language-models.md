@@ -45,6 +45,16 @@ You can further extend the list of available models by [using your own language 
 
 To compare solutions to the same coding task, use [model comparison (Preview)](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %}. Run one prompt with multiple models or harnesses, then review the results side by side.
 
+### Organization-managed model defaults
+
+Your organization can set the starting model for new conversations in both the editor and the {% data variables.copilot.agents_window %}. The model picker marks the organization's choice as **Org default**, and the Settings editor shows an indicator for `setting(chat.defaultModel)` with a **Managed by organization** explanation.
+
+The managed default takes precedence over your saved model preference for new conversations, but you can still select another available model for the current conversation. Existing conversations keep their model. Your saved preference is preserved and applies to new conversations again when the managed default is removed.
+
+For administrator configuration, see [Set managed model defaults](/docs/enterprise/manage-ai-settings.md#set-managed-model-defaults).
+
+<!-- TODO: Add a screenshot showing Org default in the model picker and the managed indicator for chat.defaultModel in Settings. -->
+
 ## Configure thinking effort
 
 Some models support configurable thinking effort, which controls how much reasoning the model applies to each request. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
