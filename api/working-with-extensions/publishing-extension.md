@@ -641,14 +641,20 @@ vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
 
-#### Publish extension using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+#### Continuous integration
+
+Managing multiple platform-specific VSIXs might get overwhelming, so we suggest automating your extension's build process with [continuous integration](/api/working-with-extensions/continuous-integration) (CI) tooling. For example, you can use [GitHub Actions](https://github.com/features/actions) to build your extensions. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a starting point for learning: its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
+
+### Publish an extension using Personal Access Tokens (Not Recommended)
 
 > [!IMPORTANT]
 > Global PATs in Azure DevOps are retired on December 1, 2026. We recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
 
-### Get a Personal Access Token
+#### Get a Personal Access Token
 
-You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
+You can create a Personal Access Token (PAT) through the Azure DevOps portal. For more information, see [Use Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
+To create a PAT, follow these steps:
 
 1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
 
@@ -676,10 +682,6 @@ You can create a Personal Access Token via the Azure DevOps portal. To create a 
 1. Click **Create**.
 
     You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
-
-#### Continuous integration
-
-Managing multiple platform-specific VSIXs might get overwhelming, so we suggest automating your extension's build process with [continuous integration](/api/working-with-extensions/continuous-integration) (CI) tooling. For example, you can use [GitHub Actions](https://github.com/features/actions) to build your extensions. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a starting point for learning: its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
 
 ## Next steps
 
