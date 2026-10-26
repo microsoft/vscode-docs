@@ -95,6 +95,8 @@ npm run serve
 
 You can then navigate to `http://localhost:3000` in your browser to see the documentation website. Any changes you make to the Markdown files will automatically refresh the page so you can see your updates in real time.
 
+The local preview renders `card-grid` and `card` HTML markup as responsive, linked cards with Codicons. Internal card links stay in the local preview. Styling is a lightweight approximation of the published website.
+
 ## Publishing
 
 Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on <https://code.visualstudio.com> but the intent is that they will usually be live within 24 hours.

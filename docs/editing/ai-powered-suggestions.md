@@ -1,18 +1,20 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Get AI-powered ghost text completions and next edit suggestions in {% data variables.product.prodname_vscode_shortname %}.
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
 # Inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
-GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in {% data variables.product.prodname_vscode_shortname %}, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/chat-overview.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+Use inline suggestions when you want to keep writing code yourself, with help completing code, comments, or tests and making related edits. {% data variables.product.prodname_copilot %} suggests changes in the editor as you type. You review each suggestion and decide whether to accept it, accept part of it, or keep typing.
 
-You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
+{% data variables.product.prodname_copilot_short %} uses your existing code as context for two kinds of suggestions:
 
-* **Ghost text suggestions**: Start typing in the editor, and Copilot provides dimmed *ghost text* suggestions at your current cursor location.
+* **Ghost text suggestions**: Dimmed text at your cursor suggests how to complete the code you're writing.
 
-* **Next edit suggestions**: Predict your next code edit with Copilot next edit suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Next edit suggestions**: Based on your recent edits, {% data variables.product.prodname_copilot_short %} suggests another change and where to make it.
+
+You don't need to start a chat for inline suggestions. You can also [combine them with chat and agents](#combine-suggestions-with-chat-and-agents) as your task changes.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
@@ -38,13 +40,18 @@ Copilot offers dimmed *ghost text* suggestions as you type: sometimes the comple
 
     ![JavaScript ghost text suggestion.](images/inline-suggestions/js-suggest.png)
 
-1. Accept a suggestion by pressing the `kbstyle(Tab)` key.
+1. Review the suggested code. Press `kbstyle(Tab)` to accept it, or `kbstyle(Escape)` to dismiss it.
 
-    To partially accept a suggestion, use the `kb(editor.action.inlineSuggest.acceptNextWord)` keyboard shortcut to accept either the next word of a suggestion, or the next line.
+    To accept only part of a suggestion:
+
+    * Use `kb(editor.action.inlineSuggest.acceptNextWord)` to accept the next word.
+    * Run **Accept Next Line Of Inline Suggestion** from the Command Palette (`kb(workbench.action.showCommands)`) to accept the next line.
+
+1. Continue editing and check that the accepted code does what you intended. Suggestions can be incorrect, so run the relevant tests before relying on the result.
 
 ### Alternative suggestions
 
-For any given input, Copilot might offer multiple, alternative suggestions. You can hover over the suggestion to any of the other suggestions.
+For a given input, {% data variables.product.prodname_copilot_short %} might offer more than one suggestion. Hover over the suggestion to see the toolbar, then use its next and previous controls to compare alternatives.
 
 ![Hovering over inline suggestions enables you to select from multiple suggestions](images/inline-suggestions/copilot-hover-highlight.png)
 
@@ -58,17 +65,15 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ## Next edit suggestions
 
-Ghost text suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of inline suggestions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Next edit suggestions (Copilot NES) is this evolution.
+When one edit leads to another, next edit suggestions help you make the related changes. For example, after you add a parameter to a function, {% data variables.product.prodname_copilot_short %} can suggest updates to code that uses it. Suggestions can appear at your cursor or elsewhere in the file, and can change a symbol, a line, or several lines.
 
 <video src="./images/inline-suggestions/nes-video.mp4" title="Video showing next edit suggestions in action on a Point typescript class." loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
-Based on the edits you're making, next edit suggestions predict both the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions might span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
-
-To get started with Copilot NES, enable the {% data variables.product.prodname_vscode_shortname %} setting `setting(github.copilot.nextEditSuggestions.enabled)`.
+To use next edit suggestions (Copilot NES), verify that `setting(github.copilot.nextEditSuggestions.enabled)` is enabled.
 
 ### Navigate and accept edit suggestions
 
-You can quickly navigate to suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
+Press `kbstyle(Tab)` to navigate to a suggested edit. Review the proposed change, then press `kbstyle(Tab)` again to accept it or `kbstyle(Escape)` to dismiss it.
 
 An arrow in the gutter indicates if there is an edit suggestion available. The arrow indicates where the next edit suggestion is located, relative to your current cursor position.
 
@@ -81,7 +86,7 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 
 ### Reduce distractions by edit suggestions
 
-By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. Enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting to show the code changes in the editor only until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu.
+By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. Enable `setting(editor.inlineSuggest.edits.showCollapsed)` to keep the suggested changes collapsed until you navigate to them. Alternatively, hover over the gutter arrow and select **Show Collapsed** from the menu.
 
 ### Use cases for next edit suggestions
 
@@ -163,6 +168,18 @@ Inline suggestions use the code around your cursor as context. Make your intent 
 * **Provide a representative example.** Keep a small, correct example of the intended API or coding pattern in a related open file. This can help when working with an unfamiliar library version. Don't leave temporary sample code in production files.
 * **Keep patterns consistent and review the result.** Suggestions can repeat mistakes in surrounding code as well as useful patterns. Check the proposed APIs, dependencies, and behavior before accepting a suggestion.
 
+## Combine suggestions with chat and agents
+
+Inline suggestions are one way to work with AI, not a choice that locks you out of other approaches:
+
+* For a focused edit described in your own words, use [inline chat](/docs/chat/inline-chat.md#use-editor-inline-chat).
+
+* To ask questions or work through a larger change beside your code, use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md).
+
+* To assign tasks and manage agent sessions across projects, use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+
+You can keep using inline suggestions while working with chat or agents. If you already have an agent conversation, see how to [continue a supported session in another interface](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session).
+
 ## Settings
 
 ### Ghost text suggestions settings
@@ -193,7 +210,5 @@ Inline suggestions use the code around your cursor as context. Make your intent 
 ## Next steps
 
 * Discover the key features in the [Quickstart](/docs/agents/quickstart.md).
-
-* Use AI chat conversations with [chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
 * Watch the videos in our [{% data variables.product.prodname_vscode_shortname %} Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

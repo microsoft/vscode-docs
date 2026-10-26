@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure AI features and agents in {% data variables.product.prodname_vscode %}, including chat, agent sessions, dictation, and accessibility settings.
 ---
 # AI settings reference
@@ -81,6 +81,7 @@ Use the following links to jump to the settings for a specific area:
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(chat.editor.workingSet.enabled)` `feature(editor-working-set)`<br/>Show the [working set](/docs/agents/run/review-code-edits.md#review-agent-changes) for {% data variables.product.prodname_copilot_short %} harness sessions in the editor window, with **Keep**, **Undo**, and **View All Edits** controls. Turn off to show the Changes pill instead. Does not enable the working set for Claude or Codex. In the {% data variables.copilot.agents_window %}, this setting is fixed to `false`. | `true` |
 | `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
@@ -101,6 +102,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the {% data variables.copilot.chat_view %}. | `false` |
 | `setting(imageCarousel.chat.enabled)` <br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
+| `setting(chat.copilot.imageGeneration.model)` _(Experimental)_<br/>Select the image model that {% data variables.product.prodname_copilot_short %} uses to [generate and edit images](/docs/chat/chat-overview.md#generate-a-chat-background-experimental). Values are `off` and `gpt-image-2.5-flare` (GPT Image 2.5 Flare). Image generation requires account and tool access and uses additional AI credits. | `"gpt-image-2.5-flare"` (Insiders)<br/>`"off"` (Stable) |
 | `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the {% data variables.copilot.chat_view %} as context. | `true` |
 | `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
 | `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
@@ -251,6 +253,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(sessions.showApplicationBadge)` _(Preview)_<br/>Show the number of unarchived sessions that need attention on the [application icon](/docs/agents/run/sessions/manage-sessions.md#monitor-sessions-from-the-application-icon-preview). | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(chat.agentSessions.appearanceTools.enabled)`<br/>Enable the agent tools and built-in skill for [generating and setting chat backgrounds](/docs/chat/chat-overview.md#generate-a-chat-background-experimental) in the {% data variables.copilot.agents_window %}. Disabling the setting doesn't remove existing backgrounds or affect manual background controls. | `true` |
 | `setting(chat.agentSessions.preferredDarkBackgroundImageLayout)` _(Experimental)_<br/>Control the [chat background image layout](/docs/chat/chat-overview.md#customize-the-agents-window-chat-background) in the {% data variables.copilot.agents_window %} when using a dark color theme. | `"repeat"` |
 | `setting(chat.agentSessions.preferredLightBackgroundImageLayout)` _(Experimental)_<br/>Control the [chat background image layout](/docs/chat/chat-overview.md#customize-the-agents-window-chat-background) in the {% data variables.copilot.agents_window %} when using a light color theme. | `"repeat"` |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
@@ -272,8 +275,10 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#sessions-li
 |------------------------|---------------|
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the {% data variables.copilot.agents_window %} without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`<br/>Make extension-provided [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) models available to the Agent Host. Changes are synchronized to the running process. | `false` |
+| `setting(chat.copilot.memory.enabled)` _(Preview)_<br/>Use cloud-backed [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory-preview) to store and recall repository facts and user preferences in local {% data variables.product.prodname_copilot_short %} sessions. {% data variables.product.prodname_github %} account settings and organization policies still apply. Changes apply to sessions created or resumed after the setting changes. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Make the Claude provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Restart the Agent Host process for the change to take effect. | `true` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Make the Codex provider available to the [Agent Host](/docs/agents/concepts/agent-host.md), unless [enterprise-managed settings disable it](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Enabling takes effect without a restart. Disabling takes effect after the next Agent Host restart. | `false` |
+| `setting(chat.agentHost.computerUse.enabled)` _(Experimental)_<br/>Offer [Computer Use](/docs/agents/run/tools.md#control-desktop-applications-experimental) in local {% data variables.product.prodname_copilot_short %} sessions on macOS and Windows to interact with desktop applications. The plugin downloads on first use and requires activation and application approvals. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting. | `false` |
 | `setting(chat.copilot.localModel.enabled)` `feature(on-device-models)`<br/>Offer [on-device models](/docs/agent-customization/language-models.md#use-on-device-models-experimental) to download and run on this device with llama.cpp. Changes restart the local Copilot runtime after active turns finish. | `false` |
 | `setting(chat.copilot.localModel.useInAuto)` `feature(on-device-models)`<br/>Enable Auto to route turns to the active on-device model, with cloud fallback. Changes take effect immediately. | `false` |
 | `setting(chat.copilot.localModel.llamaServerPath)` `feature(on-device-models)`<br/>Specify the absolute path to a user-installed `llama-server` executable. {% data variables.product.prodname_vscode_shortname %} doesn't install llama.cpp. | `""` |

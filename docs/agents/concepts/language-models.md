@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand language models in {% data variables.product.prodname_vscode_shortname %}, including model access, characteristics, context windows, and selection.
 Keywords:
 - copilot

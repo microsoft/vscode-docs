@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
 Keywords:
 - monitoring

@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Connect MCP servers in {% data variables.product.prodname_vscode_shortname %} to give agents external tools, then verify the first tool call.
 MetaSocialImage: images/mcp-servers/mcp-server-configuration-form.png
 Keywords:

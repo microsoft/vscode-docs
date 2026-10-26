@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 ---
 # AI features cheat sheet

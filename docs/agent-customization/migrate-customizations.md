@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Migrate agent customizations and resolve harness compatibility gaps in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
@@ -290,13 +290,13 @@ Inventory each configuration and the scripts it invokes before changing anything
 | Additional Local locations | `chat.hookFilesLocations` does not configure Copilot discovery. Move the configuration and its dependencies to a supported source, or package shared hooks in a plugin. |
 | Repository settings | The Copilot harness reads an inline `hooks` map from `.github/copilot/settings.json` and `.github/copilot/settings.local.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. Preserve other settings; do not replace a settings file with a standalone hook-file envelope. |
 | User settings | Copilot reads inline hooks from `~/.copilot/settings.json`, not `~/.copilot/config.json`. Do not assume a Local hook in `~/.claude/settings.json` is discovered by Copilot. Move it to a documented Copilot user source. |
-| Custom agent frontmatter | Review the agent's `hooks` map and the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} currently drops this field when converting plugin-provided agents. For those agents, keep the hook definition but leave its migration incomplete; see the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Copilot also excludes scoped hooks from remote or organization-hosted agent definitions. |
+| Custom agent frontmatter | Preserve the agent's `hooks` map and review the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} forwards scoped hooks for converted agents, including plugin-provided agents. Verify execution and expected decisions before completing the migration. Copilot excludes scoped hooks from remote or organization-hosted agent definitions. |
 | Installed plugins | Update the plugin's source package or obtain an updated version from its publisher. Do not patch an installation cache. Keep scripts with the plugin and review its path variables, events, and payloads. See [hooks in plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins). |
 | Administrator-managed hooks | Coordinate changes with the administrator. Policy hooks and managed plugin hooks have different discovery and trust rules from personal files. See [enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks). |
 
 The Copilot harness combines applicable hooks from multiple sources; adding a repository copy does not replace a user or plugin copy. Avoid running both the original and migrated hook. For a shared setup used across repositories, consider distributing the converted hooks and scripts in a plugin rather than copying them into each repository.
 
-Plugin-wide hooks and hooks in a plugin-provided agent's frontmatter are separate configurations. Packaging an agent does not work around the conversion limitation for its scoped hooks. Do not broaden a scoped hook to plugin-wide or repository-wide execution merely to make it run.
+Plugin-wide hooks and hooks in a plugin-provided agent's frontmatter are separate configurations. Keep an agent's scoped hooks in its frontmatter when packaging it. Moving them to plugin-wide or repository-wide execution broadens which agents trigger them and is not an equivalent migration.
 
 ### Compare configuration and script contracts
 
@@ -698,11 +698,13 @@ Review both the coordinator's Markdown instructions and its `tools` list. Prefer
 
 ### Why does an agent fail with a tool-discovery capability error?
 
-Finding an agent file does not mean that its tool list is compatible with the selected harness. References such as `vscode/toolSearch`, Local tool IDs, and user-defined tool sets are not a portable Copilot tool configuration.
+Finding an agent file does not mean that its tool list is compatible with the selected harness. Local delegation references such as `agent/runSubagent` and user-defined tool sets aren't portable Copilot tool configurations. Qualified client-tool references, including `vscode/<tool>`, can be valid when those tools are provided to the Copilot session.
 
-Review each entry in `tools` against the capabilities available in the Copilot session. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
+Review each entry in `tools` against the capabilities available in the Copilot session. Select Copilot before [editing the agent file](/docs/agent-customization/custom-agents.md#edit-a-custom-agent-file) and use its completions to preserve canonical tool references. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
 
-Do not assume that removing a prefix or replacing a tool name fixes every discovery error. Harness-aware editing and tool validation are tracked in [microsoft/vscode#342854](https://github.com/microsoft/vscode/issues/342854) and [microsoft/vscode#342881](https://github.com/microsoft/vscode/issues/342881). A separate open report, [microsoft/vscode#342961](https://github.com/microsoft/vscode/issues/342961), describes tool search returning no results even when MCP tools are callable. If compatible tools still cannot be discovered, report the exact error, selected model, agent tool list, and environment rather than treating every discovery failure as an authentication problem.
+Do not assume that removing a prefix or replacing a tool name fixes every discovery error. These editor hints aren't proof of a runtime tool-discovery failure.
+
+A separate report, [microsoft/vscode#342961](https://github.com/microsoft/vscode/issues/342961), describes tool search returning no results even when MCP tools are callable. If compatible tools still cannot be discovered, report the exact error, selected model, agent tool list, and environment rather than treating every discovery failure as an authentication problem.
 
 ## Related resources
 

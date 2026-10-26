@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand agent harnesses, model access, execution environments, and code isolation in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

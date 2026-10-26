@@ -1,6 +1,6 @@
 ---
 ContentId: cbff1d23-7653-44b7-b24d-4a9a889fea41
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Package skills, agents, MCP servers, hooks, and automation templates with agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../agent-customization/images/agent-plugins/installed-plugins.png
 Keywords:
@@ -376,7 +376,7 @@ The [plugin parser](https://github.com/microsoft/vscode/blob/1.142.0/src/vs/plat
 
 Use the shared harness's [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for plugin-wide hooks.
 
-Hooks in a plugin-provided custom agent's frontmatter have a separate [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks): {% data variables.product.prodname_vscode_shortname %} currently omits the agent's `hooks` field when passing that agent to the Copilot harness. The agent appearing in the picker does not prove its hooks run. Retain the scoped definition and leave its migration incomplete until this conversion is supported and verified. A plugin-wide hook is not an equivalent workaround.
+Hooks in a plugin-provided custom agent's frontmatter are [scoped to that agent](/docs/agent-customization/hooks.md#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} forwards those hooks when passing the agent to Copilot. The agent appearing in the picker doesn't prove its hooks run, so verify the expected events and decisions in a trusted session. Keep agent-specific hooks in the agent's frontmatter rather than broadening them to plugin-wide execution.
 
 ### How plugin hooks interact with other hooks
 

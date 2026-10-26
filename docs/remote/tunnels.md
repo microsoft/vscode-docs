@@ -1,7 +1,7 @@
 ---
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the {% data variables.product.prodname_vscode %} Remote Tunnels extension
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 ---
 # Developing with Remote Tunnels
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 924a518d-d9de-4f32-aaf4-b16919f0e66b
-DateApproved: 10/20/2026
+DateApproved: 10/28/2026
 MetaDescription: Run one coding task across models, compare evaluated results, and continue with the strongest implementation in the {% data variables.copilot.agents_window %}.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 Keywords:

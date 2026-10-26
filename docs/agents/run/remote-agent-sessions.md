@@ -1,37 +1,32 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 10/21/2026
-MetaDescription: Run agent sessions on remote machines and in Dev Containers, and manage them in the browser-based {% data variables.copilot.agents_window %}.
+DateApproved: 10/28/2026
+MetaDescription: Connect to remote agent sessions in {% data variables.product.prodname_vscode_shortname %} over SSH or dev tunnels, or use remote control.
 ---
 # Run and manage remote agent sessions
 
-The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) lets you connect to remote machines to start agent sessions or check in on existing ones. You can connect over SSH, through a dev tunnel, or use the {% data variables.copilot.agents_window %} directly in a browser from any device.
+Use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) to start or continue agent sessions on another machine. You can also monitor and steer an existing {% data variables.product.prodname_copilot_short %} session through remote control without starting another session.
 
-This is useful when you want to take advantage of a remote machine's resources, work from a mobile device, or check in on your agent's progress when you're away from your main development machine.
+## Choose how to connect
 
-The agent works with files and development tools on the remote machine, not the machine where you connect to the session. When you connect, the {% data variables.copilot.agents_window %} automatically installs and starts the {% data variables.product.prodname_vscode_shortname %} CLI on the remote machine. Keep the remote machine powered on and the session running. To connect and manage the session, the machine must be accessible over the network.
+Choose based on where you want to interact with the session and how you can reach its host:
 
-## Start a chat without a workspace on a remote host
+* **Desktop {% data variables.copilot.agents_window %} over SSH**: [Connect via SSH](#connect-via-ssh) when you have SSH access to the machine.
+* **Desktop {% data variables.copilot.agents_window %} through a tunnel**: [Connect via dev tunnel](#connect-via-dev-tunnel) when an authenticated tunnel is already running on the machine.
+* **A browser on another device**: [Use the browser-based {% data variables.copilot.agents_window %}](#use-the-agents-window-in-the-browser) through a dev tunnel. The browser client requires GitHub sign-in.
+* **GitHub.com or the GitHub Mobile app**: [Use remote control](#remote-control-copilot-harness-sessions) to monitor and steer an existing {% data variables.product.prodname_copilot_short %} session. This requires GitHub authentication and a workspace associated with a GitHub repository.
 
-Use a chat without a workspace when a task needs the resources or environment of a remote host but doesn't need a repository. First, enable `setting(sessions.chat.unifiedWorkspacePicker.enabled)` and connect the host over SSH or a dev tunnel.
+The files and development tools stay on the machine where the agent runs. Keep that machine powered on and reachable, and keep its agent host running. For a session hosted by desktop {% data variables.product.prodname_vscode_shortname %}, keep the application running.
 
-To start a chat without a workspace:
-
-1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
-
-1. In the workspace picker, select the **Chat** entry for a connected remote host without choosing a folder. The entry identifies the host where the chat runs.
-
-1. Choose an agent harness, enter your prompt, and press `kbstyle(Enter)`.
-
-The main workspace picker also shows folders from connected remote hosts alongside local folders. Select a remote folder there when the task needs an existing workspace.
+Connecting doesn't move a local session or copy its workspace to another machine. To continue an existing remote session, connect to the host where it already runs. To delegate a task to provider-managed infrastructure and receive a pull request instead, use a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target).
 
 ## Connect via SSH
 
-**Prerequisite**: the remote machine must be accessible over SSH. No extra agent installation is needed on the remote machine.
+**Prerequisite**: the remote machine must be accessible over SSH. {% data variables.product.prodname_vscode_shortname %} installs the required CLI on the remote machine when needed.
 
-To start a session on a remote machine via SSH:
+To connect to a remote machine via SSH:
 
-1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
+1. Select **New** or press `kb(workbench.action.chat.newChat)`.
 
 1. In the workspace dropdown, select the **Remote** tab, and then select **SSH**. If you've already set up SSH connections, they appear as options in the dropdown.
 
@@ -39,17 +34,15 @@ To start a session on a remote machine via SSH:
 
 1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
 
-1. Select the folder on the remote machine to use for the session.
-
-1. Type a prompt and press `kbstyle(Enter)` to start the session.
+After connecting, [open an existing remote session or start a new one](#continue-an-existing-remote-session).
 
 ## Connect via dev tunnel
 
 **Prerequisite**: a dev tunnel is already running on the remote machine. See [Developing with Remote Tunnels](/docs/remote/tunnels.md) for setup instructions.
 
-To start a session on a remote machine via dev tunnel:
+To connect to a remote machine via dev tunnel:
 
-1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
+1. Select **New** or press `kb(workbench.action.chat.newChat)`.
 
 1. In the workspace dropdown, select the **Remote** tab, and then select **Tunnels** and choose your account type.
 
@@ -57,53 +50,16 @@ To start a session on a remote machine via dev tunnel:
 
 1. Choose the active dev tunnel from the list.
 
-1. Select the folder on the remote machine to use for the session.
-
-1. Type a prompt and press `kbstyle(Enter)` to start the session.
+After connecting, [open an existing remote session or start a new one](#continue-an-existing-remote-session).
 
 > [!IMPORTANT]
 > Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/run/security.md).
 
-<a name="delegate-work-to-remote-agent-hosts-experimental"></a>
+## Continue an existing remote session
 
-## Delegate tasks to remote machines (Experimental)
+After connecting to the host, select the existing session from the {% data variables.copilot.agents_window %} [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list). Check the host, workspace group, and list filters if the session isn't visible.
 
-In the {% data variables.copilot.agents_window %}, ask the agent to delegate a task to a connected remote machine. Enable both `setting(chat.remoteAgentHostsEnabled)` and `setting(chat.remoteSessions.tools.enabled)`, and connect the machines that the agent can use. You don't need to select the target machine in the workspace picker.
-
-The remote delegation tools let an agent:
-
-* Use `list_agent_hosts` to discover connected remote machines, available models, resource capacity, and session load.
-* Use `create_remote_session` to start a session on a specific remote machine or choose a target automatically. For automatic placement, specify criteria such as Windows, Linux, or macOS, minimum memory, logical CPU count, and an optional model. Among matching machines, placement favors the machine with the fewest running sessions and pending session creations. If no connected machine meets all the criteria, the tool reports an error instead of selecting a nonmatching machine.
-* Use `get_remote_session` to check a remote session's status and latest response.
-* Use `send_remote_message` to send follow-up work or report results and questions to the exact originating chat. If that chat is busy, the message waits in its queue.
-
-For repository work, specify an existing trusted folder on the target machine, either directly or in a new Git worktree. The tools don't clone or copy the coordinating session's workspace to the remote machine. If you don't specify a workspace, the remote session starts without one.
-
-Normal approval requirements still apply to delegated work and messages. Review the selected host, folder, and worktree before you approve a tool call, especially when the agent uses automatic placement.
-
-Keep the coordinating {% data variables.copilot.agents_window %} open and connected while delegated work runs so messages can flow between sessions. A remote session's final response isn't forwarded automatically. Ask the remote agent to use `send_remote_message` to report its result.
-
-Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote delegation tools, but doesn't disconnect remote machines or stop remote sessions that are already running.
-
-## Run a session in a remote Dev Container
-
-`feature(agent-host-dev-containers)`
-
-Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the remote machine. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL connections in the desktop {% data variables.copilot.agents_window %}.
-
-Before you start, enable `setting(chat.agentHost.devContainer.enabled)`. Docker must be installed and running on the remote host, and the project must contain a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
-
-To run a session in a remote Dev Container:
-
-1. Connect over SSH, through a tunnel, or to WSL, and select the project folder in the workspace picker.
-
-1. Expand the menu for the remote folder and select **Use Dev Container**.
-
-    The workspace label gains the **- Dev Container** suffix.
-
-1. Choose an available agent harness, configure the session, and enter your prompt.
-
-The **Use Dev Container** option appears only when the source machine advertises Dev Container support. It isn't available for unsupported machines or for folders whose source is nested inside another remote environment. For more information about prerequisites, switching back to the source machine, and troubleshooting, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+For a separate task, select **New**, choose a folder on the connected remote machine, select an available harness, and enter a prompt. This starts a new conversation rather than continuing a session from your local machine.
 
 ## Use the {% data variables.copilot.agents_window %} in the browser
 
@@ -131,7 +87,7 @@ Before you can use the {% data variables.copilot.agents_window %} in the browser
 
 1. Your tunnel host appears in the hosts bar at the top of the window. Select it to connect.
 
-1. Choose a folder on the remote machine, select an agent, and start a session.
+1. Select an existing session from the sessions list to continue it. For a new task, choose a folder on the remote machine, select an agent, and enter a prompt.
 
 ### Host management
 
@@ -151,6 +107,61 @@ To monitor and steer an existing [Copilot harness session](/docs/agents/run/agen
 Session history, tool activity, status, approvals, and questions stay synchronized. Remote control requires GitHub authentication and a workspace that maps to a GitHub repository.
 
 Enter `/remote off` to stop sharing the session. Keep the session's host running while you use remote control. For desktop-managed sessions on your machine, keep {% data variables.product.prodname_vscode_shortname %} running.
+
+## Start a chat without a workspace on a remote host
+
+Use a chat without a workspace when a task needs the resources or environment of a remote host but doesn't need a repository. First, enable `setting(sessions.chat.unifiedWorkspacePicker.enabled)` and connect the host over SSH or a dev tunnel.
+
+To start a chat without a workspace:
+
+1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
+
+1. In the workspace picker, select the **Chat** entry for a connected remote host without choosing a folder. The entry identifies the host where the chat runs.
+
+1. Choose an agent harness, enter your prompt, and press `kbstyle(Enter)`.
+
+The main workspace picker also shows folders from connected remote hosts alongside local folders. Select a remote folder there when the task needs an existing workspace.
+
+## Run a session in a remote Dev Container
+
+`feature(agent-host-dev-containers)`
+
+Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the remote machine. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL connections in the desktop {% data variables.copilot.agents_window %}.
+
+Before you start, enable `setting(chat.agentHost.devContainer.enabled)`. Docker must be installed and running on the remote host, and the project must contain a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
+
+To run a session in a remote Dev Container:
+
+1. Connect over SSH, through a tunnel, or to WSL, and select the project folder in the workspace picker.
+
+1. Expand the menu for the remote folder and select **Use Dev Container**.
+
+    The workspace label gains the **- Dev Container** suffix.
+
+1. Choose an available agent harness, configure the session, and enter your prompt.
+
+The **Use Dev Container** option appears only when the source machine advertises Dev Container support. It isn't available for unsupported machines or for folders whose source is nested inside another remote environment. For more information about prerequisites, switching back to the source machine, and troubleshooting, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+
+<a name="delegate-work-to-remote-agent-hosts-experimental"></a>
+
+## Delegate tasks to remote machines (Experimental)
+
+In the {% data variables.copilot.agents_window %}, ask the agent to delegate a task to a connected remote machine. Enable both `setting(chat.remoteAgentHostsEnabled)` and `setting(chat.remoteSessions.tools.enabled)`, and connect the machines that the agent can use. You don't need to select the target machine in the workspace picker.
+
+The remote delegation tools let an agent:
+
+* Use `list_agent_hosts` to discover connected remote machines, available models, resource capacity, and session load.
+* Use `create_remote_session` to start a session on a specific remote machine or choose a target automatically. For automatic placement, specify criteria such as Windows, Linux, or macOS, minimum memory, logical CPU count, and an optional model. Among matching machines, placement favors the machine with the fewest running sessions and pending session creations. If no connected machine meets all the criteria, the tool reports an error instead of selecting a nonmatching machine.
+* Use `get_remote_session` to check a remote session's status and latest response.
+* Use `send_remote_message` to send follow-up work or report results and questions to the exact originating chat. If that chat is busy, the message waits in its queue.
+
+For repository work, specify an existing trusted folder on the target machine, either directly or in a new Git worktree. The tools don't clone or copy the coordinating session's workspace to the remote machine. If you don't specify a workspace, the remote session starts without one.
+
+Normal approval requirements still apply to delegated work and messages. Review the selected host, folder, and worktree before you approve a tool call, especially when the agent uses automatic placement.
+
+Keep the coordinating {% data variables.copilot.agents_window %} open and connected while delegated work runs so messages can flow between sessions. A remote session's final response isn't forwarded automatically. Ask the remote agent to use `send_remote_message` to report its result.
+
+Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote delegation tools, but doesn't disconnect remote machines or stop remote sessions that are already running.
 
 ## Related resources
 

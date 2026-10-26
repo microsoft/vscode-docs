@@ -5,6 +5,7 @@
   <title>VS Code Docs (Local Preview)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.36/dist/codicon.css">
   <style>
     .sidebar .sidebar-nav > ul > li > p {
       font-weight: 700;
@@ -32,6 +33,46 @@
     .markdown-section video {
       max-width: 100%;
       height: auto;
+    }
+    .markdown-section .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 1em;
+      margin: 1.5em 0;
+    }
+    .markdown-section .card-grid .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75em;
+      min-width: 0;
+      padding: 1.25em;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      color: inherit;
+      font-weight: normal;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .markdown-section .card-grid .card:hover {
+      border-color: #42b983;
+      background: #f3faf7;
+    }
+    .markdown-section .card-grid .card:focus-visible {
+      outline: 2px solid #0969da;
+      outline-offset: 3px;
+    }
+    .markdown-section .card-grid .card .codicon {
+      flex: 0 0 auto;
+      margin-top: 0.15em;
+      color: #087f5b;
+      font-size: 24px;
+    }
+    .markdown-section .card-grid .card p {
+      margin: 0 0 0.5em;
+    }
+    .markdown-section .card-grid .card p:last-child {
+      margin-bottom: 0;
     }
     /* Style blockquotes and GFM alert blocks */
     .markdown-section blockquote {
@@ -196,6 +237,21 @@
           });
         },
         globalThis.vscodeDocsTabs.createDocsifyTabsPlugin(),
+        function cardLinks(hook) {
+          hook.doneEach(function () {
+            document.querySelectorAll('.markdown-section .card-grid a.card[href]').forEach(function (card) {
+              var href = card.getAttribute('href');
+              if (!/^\/(docs|api|blogs|learn|release-notes|remote|updates)\//.test(href)) return;
+              var url = new URL(href, window.location.href);
+              var route = url.pathname.replace(/^\/updates\//, '/release-notes/').replace(/\.md$/, '');
+              var query = url.search;
+              if (url.hash) {
+                query += (query ? '&' : '?') + 'id=' + url.hash.slice(1);
+              }
+              card.setAttribute('href', '#' + route + query);
+            });
+          });
+        },
         function ghAlertStyling(hook) {
           hook.doneEach(function () {
             document.querySelectorAll('.alert-title[data-alert-type]').forEach(function (span) {

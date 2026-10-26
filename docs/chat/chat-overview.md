@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
@@ -104,11 +104,13 @@ To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `fal
 
 ## Review and manage changes
 
-After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
+After the AI changes files, review and validate the result before you commit or integrate it. In a {% data variables.product.prodname_copilot_short %} harness session in the editor window, expand the working set `feature(editor-working-set)` above the chat input to review tracked edits and use **Keep** or **Undo**. This works without Git, but doesn't list edits made through terminal commands. **Keep** clears pending review for edits that are already saved.
+
+You can also select a changed file in a response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel instead of the editor working set. Review controls depend on the harness and interface.
 
 For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
 
-For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For harness-specific review controls, requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
 
@@ -188,6 +190,21 @@ For an image background, run **Chat: Change Background Layout...** to repeat, st
 > Light and dark color themes have separate backgrounds and image layouts. These choices are stored on the current machine and don't sync across devices.
 
 Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
+
+#### Generate a chat background (Experimental)
+
+Generate a background from a text description instead of finding an image yourself. Select an image-generation model with `setting(chat.copilot.imageGeneration.model)` and keep `setting(chat.agentSessions.appearanceTools.enabled)` turned on.
+
+In a [Copilot harness](/docs/agents/run/agent-harnesses.md) session in the {% data variables.copilot.agents_window %}, ask the agent to generate an image and apply it as your chat background. For example:
+
+```prompt
+Generate a subtle mountain landscape and set it as my chat background.
+```
+
+If you don't specify colors, the agent uses your current theme as guidance and aims to keep chat messages readable. Explicit colors and design preferences in your prompt take precedence over the theme.
+
+> [!NOTE]
+> Image generation requires access to the selected model and uses [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) in addition to those used by the conversation model. This workflow isn't available in the browser version of the {% data variables.copilot.agents_window %}.
 
 ## Get better responses
 

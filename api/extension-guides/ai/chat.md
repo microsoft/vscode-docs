@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Replace deprecated chat participants with agent plugins, MCP tools and Apps, or editor-specific extension tools.
 ---
 

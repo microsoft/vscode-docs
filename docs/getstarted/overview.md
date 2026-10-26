@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %}, open a project, and choose a guided path to learn editor basics or complete a task with an AI agent.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -16,7 +16,7 @@ AI features are optional. You don't need an account to use the core editor.
 
 1. **Open your code.** Open an existing folder, clone a repository, or create a folder for a new project.
 
-1. **Complete your first task.** Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) to learn the basics, use the [agents quickstart](/docs/agents/quickstart.md) to build an app from a natural-language prompt, or [choose an AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) for a smaller task.
+1. **Complete your first task.** Follow the [editor tutorial](/docs/editing/getting-started/editor-tutorial.md) to learn the basics, [choose how to work with AI](/docs/agents/overview.md#choose-how-you-work), or use the [agents quickstart](/docs/agents/quickstart.md) to build an app from a natural-language prompt.
 
 ## Install {% data variables.product.prodname_vscode_shortname %}
 
@@ -74,7 +74,7 @@ When the folder name and files appear in the Explorer view, you're ready to star
 
 ## Choose your first task
 
-Choose a guided path based on how you want to start. Both paths introduce the workspace and core {% data variables.product.prodname_vscode_shortname %} features.
+Start with editor basics, explore ways to use AI, or complete a first task with an agent.
 
 <div class="card-grid">
     <a class="card" href="/docs/editing/getting-started/editor-tutorial">
@@ -82,6 +82,13 @@ Choose a guided path based on how you want to start. Both paths introduce the wo
         <div>
             <p><strong>Learn the editor basics</strong></p>
             <p>Create and edit files, use extensions and source control, and run and debug code.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agents/overview">
+        <i class="codicon codicon-sparkle" aria-hidden="true"></i>
+        <div>
+            <p><strong>Choose how to work with AI</strong></p>
+            <p>Get suggestions, collaborate alongside code, or manage agent tasks across projects.</p>
         </div>
     </a>
     <a class="card" href="/docs/agents/quickstart">
@@ -93,11 +100,13 @@ Choose a guided path based on how you want to start. Both paths introduce the wo
     </a>
 </div>
 
-If you're new to both code editors and AI, start with the editor tutorial, then try the agents quickstart. If you already use agents in other tools, skip the sample app and follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track) in your own repository. If you want suggestions, focused edits, or answers without delegating a task, [choose a lighter-weight AI feature](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
+If you're new to code editors, start with the editor tutorial. If you already use agents in other tools, skip the sample app and follow the [experienced-agent fast track](/docs/agents/guides/overview.md#experienced-agent-fast-track) in your own repository.
 
 ## Enable AI features
 
 We recommend {% data variables.product.prodname_copilot %} for getting started with AI in {% data variables.product.prodname_vscode_shortname %}. It provides inline suggestions and access to multiple language models, and is the option used in the agents quickstart. You can also [use AI without a Copilot subscription](#use-ai-without-a-copilot-subscription).
+
+To compare models, agent harnesses, and ways to use existing provider accounts or API keys, [explore your AI setup options](/docs/agents/overview.md#choose-your-models-agents-and-tools).
 
 To get started with {% data variables.product.prodname_copilot_short %}:
 

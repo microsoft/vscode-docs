@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 Keywords:
 - security
@@ -36,7 +36,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
-1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
@@ -83,7 +83,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review agent changes](/docs/agents/run/review-code-edits.md) before you commit, merge, or create a pull request. {% data variables.product.prodname_copilot_short %} harness sessions in the editor window provide a working set `feature(editor-working-set)` with **Keep** and **Undo**, including without Git. It only tracks edits made through supported edit tools, so review changes made through terminal commands separately. Keeping an edit acknowledges an already-saved change. It is not approval before execution. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
@@ -120,6 +120,8 @@ All development tasks operate with the same permissions as the user.
 * **Autonomous file operations**: The agent can create, modify, and delete files within your workspace. File modifications are written directly to disk and can trigger watch tasks that perform additional actions.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
+
+* **Desktop application control**: [Computer Use (Experimental)](/docs/agents/run/tools.md#control-desktop-applications-experimental) can capture application windows and interact with apps outside your workspace. Review each application approval and keep sensitive content out of captured windows. Activation persists across chats and includes {% data variables.copilot.copilot_cli_short %} on the same computer. Run `/computer off` when you no longer need this access.
 
 * **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 
@@ -180,7 +182,7 @@ Your workspace data and development environment information can be exposed throu
 
 * **Custom model output**: When using [bring-your-own-key models](/docs/agent-customization/language-models.md), there is no guarantee that responsible AI filtering is applied to the model's output. Review custom model responses carefully.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 </details>
 

@@ -1,6 +1,6 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use Voice Mode for spoken agent conversations and built-in dictation for speech input in {% data variables.product.prodname_vscode %}.
 ---
 # Voice support

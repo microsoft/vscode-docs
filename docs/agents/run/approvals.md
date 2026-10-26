@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
@@ -125,7 +125,7 @@ When approval is required, review the tool name and input parameters, then appro
 
 ![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/approvals/chat-approve-tool.png)
 
-For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %}.

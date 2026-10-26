@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Expand your development workflow with task integration in {% data variables.product.prodname_vscode %}.
 ---
 # Integrate with External Tools via Tasks

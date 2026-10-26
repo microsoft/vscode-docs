@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
 Keywords:
 - copilot
@@ -118,13 +118,10 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ### Memory
 
-When the memory tool is available, an agent can store notes for use later in the same session or in future sessions. These notes can record preferences, lessons from previous tasks, or information about your codebase. Memory is separate from the conversation context that a session accumulates automatically.
+Memory retains preferences and codebase knowledge separately from the conversation context that a session accumulates automatically. The memory system depends on the agent harness:
 
-The memory tool stores notes locally on your machine in three scopes:
-
-* **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
-* **Repository memory** (`/memories/repo/`): scoped to the current workspace and persists across conversations.
-* **Session memory** (`/memories/session/`): scoped to the current conversation and cleared when it ends.
+* **{% data variables.copilot.copilot_memory %} (Preview)**: Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can recall cloud-backed repository facts and user preferences. Repository facts are shared with people who have access to that repository and memory. User preferences apply to your own supported interactions across repositories.
+* **File-based memory**: The Local harness uses a separate memory tool for user, repository, and session notes. These files are stored locally by default. Session memory can hold temporary task context, such as an implementation plan.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 10/21/2026
-MetaDescription: Start, coordinate, and manage agent sessions across workspaces in {% data variables.product.prodname_vscode %}.
+DateApproved: 10/28/2026
+MetaDescription: Continue and manage agent sessions across interfaces, applications, and workspaces in {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
@@ -30,6 +30,66 @@ You can continue supported sessions between these surfaces after starting work. 
 
 > [!NOTE]
 > **For Local harness sessions:** Continue the session in the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only. To use Codex in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex).
+
+## Continue an existing session
+
+To pick up a task where you left off, open its existing session rather than start a new one. The available options depend on the harness and where the session runs.
+
+* **{% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}**: [Switch between the two interfaces](#continue-between-the-chat-view-and-agents-window) while keeping the same supported session.
+* **From another application**: [Find supported local sessions](#view-sessions-from-other-applications) created in another application.
+* **In a terminal**: [Use {% data variables.copilot.copilot_cli %}](#use-copilot-cli-from-the-terminal), including **Resume in Terminal** for sessions that provide that action.
+* **From another device**: [Connect to the session's host or use remote control](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session continues to run on its host.
+
+Opening the same session in another interface doesn't change its harness, workspace, or worktree. To change the harness or delegate work to a cloud agent instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+
+### Continue between the Chat view and Agents window
+
+You can continue supported {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_anthropic_claude %} sessions in either interface. {% data variables.product.prodname_openai_codex %} requires the [experimental Agent Host integration](/docs/agents/run/agent-harnesses.md#codex). Local harness sessions and sessions from the OpenAI Codex extension remain editor-only.
+
+For a {% data variables.product.prodname_copilot_short %} session with a project:
+
+* **From the {% data variables.copilot.agents_window %} to the editor**: select **Open in Editor** in the title bar. The editor opens the session's project with the session available in the {% data variables.copilot.chat_view %}.
+* **From the {% data variables.copilot.chat_view %} to the {% data variables.copilot.agents_window %}**: select **Open in Agents** in the application title bar, then select your existing {% data variables.product.prodname_copilot_short %} session from the sessions list.
+
+If a session isn't visible, check the workspace and [sessions list](#sessions-list) filters.
+
+### View sessions from other applications
+
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
+The **External** filter controls which discovered sessions appear. Its default is **Last 7 Days**. To change it, open the sessions list filter, select **External**, and choose one of these options:
+
+* **None**: hide all external sessions.
+* **Recent**: show up to two of the most recently updated external sessions from the last seven days. At startup, sessions older than the second-most-recently updated local session are hidden.
+* **Last 24 Hours**: show external sessions updated within the last 24 hours.
+* **Last 7 Days**: show external sessions updated within the last seven days.
+* **Last 30 Days**: show external sessions updated within the last 30 days.
+
+The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting (Experimental).
+
+Discovery has its own limits. For example, {% data variables.product.prodname_copilot_short %} only considers supported local sessions updated within the last seven days. Selecting **Last 30 Days** doesn't extend that discovery period.
+
+When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
+
+When you open an external Codex session, only one application can write to the chat at a time. If the chat is still open in ChatGPT or Codex CLI, {% data variables.product.prodname_vscode_shortname %} keeps the transcript, draft, and attachments available, but disables sending, queueing, and resending. The **This chat is open in another app** banner appears above the chat input.
+
+To continue the chat in {% data variables.product.prodname_vscode_shortname %}, fully quit the other application, and then select **Retry** in the banner. Retrying checks whether the chat is available without sending the draft or adding a transcript entry. After the banner disappears, send the draft yourself.
+
+After you send a message from {% data variables.product.prodname_vscode_shortname %} in an external session, the session is no longer external. The **External** filter no longer controls whether the session appears in the sessions list.
+
+### Use Copilot CLI from the terminal
+
+If a session's context menu includes **Resume in Terminal**, select it to continue that session in {% data variables.copilot.copilot_cli %}. This action is provided by the {% data variables.copilot.copilot_cli %} integration, not by every harness or session type. If it isn't available, continue the session in a supported {% data variables.product.prodname_vscode_shortname %} interface.
+
+To start a new {% data variables.copilot.copilot_cli %} session from {% data variables.product.prodname_vscode_shortname %}, use one of these options:
+
+* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
+* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Enter `copilot` in an integrated terminal.
+
+If {% data variables.copilot.copilot_cli_short %} isn't installed, the `copilot` command offers to install it. On macOS, you can also [install it when you add code to PATH](/docs/setup/mac.md#configure-path-with-vs-code). On Windows, setup can also [add the copilot command to PATH](/docs/setup/windows.md#set-up-the-copilot-command), so it works in any terminal.
+
+{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. Starting a new CLI session doesn't select an existing {% data variables.product.prodname_vscode_shortname %} conversation.
 
 ## Move a chat to another folder or worktree
 
@@ -76,7 +136,7 @@ Manual compaction is available for Local, Copilot, and Claude agent sessions.
 
 To start with fresh conversation history instead of a summary:
 
-* For related work in the same workspace, [start another chat in the session](#run-multiple-chats-in-a-session), where supported. It shares the session's folder or worktree and code changes without inheriting the other chats' history.
+* For related work in the same workspace, [start another chat in the session](#run-multiple-chats-in-a-session), where supported. Keep the session's folder or worktree selected to share code changes without inheriting the other chats' history.
 
 * For an independent task or a different project, [start a new session](#start-an-agent-session). Select a separate worktree when code changes must be isolated.
 
@@ -86,32 +146,40 @@ Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
 
 ## Run multiple chats in a session
 
-With a harness that supports multiple chats, such as Copilot or Claude, use them to work on related tasks without interrupting an ongoing conversation. The session has a main chat and can contain additional interactive **peer chats**. Each chat has its own conversation history, title, and agent or language model selection, but all chats share the session's workspace and worktree.
+With a harness that supports multiple chats, use separate conversations to work on related tasks without interrupting an ongoing conversation. The session has a main chat and can contain additional interactive [nested sessions](/docs/agents/concepts/sessions.md#chats-within-a-session). Each conversation has its own history, title, and agent or language model selection. Nested sessions use the parent session's folder or worktree by default. In the {% data variables.copilot.agents_window %}, supported harnesses also let a nested session use a different folder, a separate worktree, or no workspace.
 
-A new chat starts blank and doesn't inherit the history of the other chats. To retain the source conversation's history, [fork the conversation](#fork-a-chat-session) instead. Learn more about [choosing a chat, a fork, or a new session](/docs/agents/concepts/sessions.md#choose-a-new-chat-a-fork-or-a-new-session).
+A new nested session starts blank and doesn't inherit the history of the other chats. To retain the source conversation's history, [fork the conversation](#fork-a-chat-session) instead. Learn more about [choosing a nested session, a fork, or a top-level session](/docs/agents/concepts/sessions.md#choose-a-new-chat-a-fork-or-a-new-session).
 
 > [!NOTE]
-> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) when tasks must not modify the same files.
+> Separate conversations don't isolate file changes. Chats that use the same folder or worktree can modify the same files. Choose **New Worktree** for a nested session, where supported, or start separate [worktree-isolated top-level sessions](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) when tasks must not modify the same files.
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-In the {% data variables.copilot.agents_window %}, create peer chats and use `setting(sessions.showChatTabs)` to choose how conversations appear:
+In the {% data variables.copilot.agents_window %}, create nested sessions and use `setting(sessions.showChatTabs)` to choose how conversations appear:
 
 * **Multiple**: Show each open chat as a tab. You can arrange tabs in split groups to monitor conversations side by side.
-* **Single**: Show the active chat as the session view. Selecting another peer chat replaces the unpinned chat pane. A chat that you explicitly open to the side stays visible, and closing the last peer chat pane doesn't reopen the main chat.
+* **Single**: Show the active chat as the session view. Selecting another nested session replaces the unpinned chat pane. A chat that you explicitly open to the side stays visible, and closing the last nested session pane doesn't reopen the main chat.
 
-To create a peer chat:
+To create a nested session:
 
-1. Right-click an active session in the sessions list and select **New Chat in This Session**. You can also use this action from the session header's **...** menu, or press `kb(sessions.chatCompositeBar.addChat)` while the session has focus.
+1. Hover over an active session in the sessions list and select **+** (**New Nested Session**). You can also select **New Nested Session** from the session's context menu, or press `kb(sessions.chatCompositeBar.addChat)` while the session has focus.
 
-    <!-- TODO: Replace the outdated agents-window-new-subsession.png screenshot with one showing New Chat in This Session in the session context menu. -->
+    <!-- TODO: Replace the outdated agents-window-new-subsession.png screenshot with one showing New Nested Session and the composer's folder and isolation controls. -->
 
-    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. The new chat also appears beneath its owning session in the sessions list.
+1. In the folder picker above the input, choose where the nested session should work:
 
-1. Type a prompt and press `kbstyle(Enter)` to start the chat.
+    * Keep the preselected folder to use the session's folder or worktree.
+    * Select a recent folder or **Open Folder...** to work in another folder.
+    * Select **No Workspace** to give the chat its own temporary folder. It doesn't share the temporary files of other workspace-less chats.
 
-The action requires a harness that supports multiple chats. It isn't available for quick chats or archived sessions.
+    For a quick chat, **No Workspace** is preselected. Harnesses that support only one folder limit the picker to the session's folder, or **No Workspace** for a quick chat.
+
+1. For a Git folder, select **Branch** to work directly in that folder, or **New Worktree** and a base branch to isolate the nested session's changes. Plain folders and **No Workspace** don't offer isolation or branch controls.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the nested session.
+
+The nested session appears beneath its parent session in the sessions list. It uses the parent's harness and host, so the composer doesn't offer separate harness or environment pickers. The action requires a harness that supports multiple chats and isn't available for archived sessions.
 
 In the **Multiple** presentation, use the chat tabs and their context menus to:
 
@@ -136,21 +204,21 @@ Visible and hidden chats, including their conversation history, are restored whe
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the editor window, use the **Sessions** view to continue the main chat or a peer chat beside your code:
+In the editor window, use the **Sessions** view to continue the main chat or a nested session beside your code:
 
 1. Open the existing session in the {% data variables.copilot.chat_view %}. If you started in the {% data variables.copilot.agents_window %}, select **Open in Editor** in its title bar to open the session's workspace in an editor window.
 
 1. Show the [sessions list](#sessions-list) beside the {% data variables.copilot.chat_view %} by using the side-by-side layout.
 
-1. Expand the main chat row to show its peer chats beneath it.
+1. Expand the main chat row to show its nested sessions beneath it.
 
-1. Select a peer chat to open its conversation in the existing {% data variables.copilot.chat_view %}. Select the main chat row to return to the main conversation.
+1. Select a nested session to open its conversation in the existing {% data variables.copilot.chat_view %}. Select the main chat row to return to the main conversation.
 
 When you switch chats, each chat keeps its own messages and unsent draft. Returning to a chat restores its draft so you can continue where you left off.
 
-To open a peer chat in an editor tab, right-click its row and select **Open as Editor**. To open it in another editor group, select **Open to the Side**.
+To open a nested session in an editor tab, right-click its row and select **Open as Editor**. To open it in another editor group, select **Open to the Side**.
 
-<!-- TODO: Add a screenshot showing the editor's Sessions view with an expanded main chat, two nested peer chats, and the selected peer's conversation in the Chat view. -->
+<!-- TODO: Add a screenshot showing the editor's Sessions view with an expanded main chat, two nested sessions, and the selected nested session's conversation in the Chat view. -->
 
 The editor's nested list doesn't include [side chats](#ask-side-questions) or [read-only subagent chats](/docs/agents/run/subagents.md#agents-window). Use the {% data variables.copilot.agents_window %} to view those chats and arrange them in chat groups.
 
@@ -158,6 +226,46 @@ The editor's nested list doesn't include [side chats](#ask-side-questions) or [r
 {% /tabs %}
 
 To practice separating and monitoring independent work, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
+
+## Move chats between sessions (Experimental)
+
+In the {% data variables.copilot.agents_window %}, reorganize related conversations by reordering nested sessions, moving them under another session, or promoting them to top-level sessions. Enable `setting(chat.agentHost.moveChats.enabled)` to use these actions. The setting is enabled by default in Insiders.
+
+### Reorder nested sessions
+
+To keep a manual order, select **Filter Sessions** > **Ordering** > **Created**.
+
+Drag a nested session above or below another nested session under the same parent. An insertion line shows the drop position. You can also right-click a nested session and select **Move Up** or **Move Down**. With the row focused in the sessions list, press `kb(sessionsViewPane.moveChatUp)` or `kb(sessionsViewPane.moveChatDown)` to move it one position.
+
+The commands are available only when the nested session can move in that direction. The order is preserved when you reopen the window.
+
+### Move and promote sessions
+
+Use the sessions list to move and promote sessions:
+
+* **Move a nested session**: drop it on the destination session's row to add it at the end, or on the top or bottom half of an existing nested session's row to insert it before or after that conversation. Hover over a collapsed destination session to expand it before dropping.
+* **Promote a nested session to a top-level session**: right-click it and select **Promote to Session**, or drag it onto empty space below the list or a section header. Send at least one prompt before promoting a nested session.
+* **Nest a top-level session**: drag it onto the center of another session's row, or above or below one of that session's nested rows. The source session must contain only one chat.
+
+In **Pinned** and custom groups, dropping near the top edge of a top-level session's row can reorder it instead of nesting it. Use the insertion line to identify a reorder, or the highlighted destination session to identify a nest.
+
+The source and destination must use the same harness and host, and the destination must support multiple chats. Archived sessions can't participate in a move.
+
+When promotion creates a new top-level session, it inherits the parent's custom group, if any, but not the parent's pinned state.
+
+### Undo a move
+
+Moves don't ask for confirmation. A notice at the bottom of the sessions list shows progress and the result, and the list selects the moved row. Select **Undo** in the notice within 10 seconds to restore the previous parent and position, or return a nested session to its previous top-level state.
+
+### What a move preserves
+
+Moving or promoting a conversation preserves its history and working folder, including an existing worktree or a quick chat's temporary folder. It doesn't copy files into the destination session's folder or create a new worktree. Conversations that still use the same worktree continue to share file changes, even after promotion.
+
+You can move a nested session while a response is still streaming. The response continues in the destination session. Linked subagent conversations, associated pull requests, and enabled [{% data variables.copilot.agent_merge %}](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) monitoring stay with the conversation, including when you undo a move.
+
+A workspace-less nested session promoted to a top-level session appears in the **Chats** section. Moving a session under a quick chat doesn't change either conversation's working folder.
+
+To change where the agent works instead of how conversations are grouped, see [Move a chat to another folder or worktree](#move-a-chat-to-another-folder-or-worktree).
 
 ## Ask side questions
 
@@ -194,17 +302,36 @@ In the **{% data variables.copilot.agents_window %}**, the sessions list is loca
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the {% data variables.copilot.agents_window %}, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. Collapse a group header when you want to reduce the sessions list.
 
-To organize the sessions list in the {% data variables.copilot.agents_window %}:
+### Create a custom group
 
-1. Create a custom group from the sessions list controls.
+Create custom groups to keep related workspace sessions and [quick chats](/docs/agents/run/agents-window.md#start-a-quick-chat) together, even across workspaces. Custom groups organize top-level sessions, not individual [nested sessions](#run-multiple-chats-in-a-session).
 
-1. Drag one or more sessions onto the group. An insertion line shows where the sessions land.
+1. In the sessions list, right-click a session or quick chat and select **Create Group**. To create an empty group, right-click an empty area of the list and select **Create Group**.
 
-1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
+1. Type a name for the group and press `kbstyle(Enter)`.
 
-You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
+1. To add more sessions or quick chats, right-click an item and select **Add to Group** > your group. For an item that's already in a custom group, select **Move to Group** instead.
+
+You can also drag one or more sessions or quick chats onto a group. An insertion line shows where the items land. Select multiple items to move them together.
+
+Custom groups can contain subgroups to organize sessions in a tree. Right-click a group and select **Create Subgroup**, or drag an existing group into another group. Repeat within a subgroup to add more levels.
+
+Hover over a group header to start a new session in that group, or mark all sessions in the group as done. Drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it.
+
+### Set a group icon and color
+
+Give each custom group a distinct icon and color to recognize related work in a busy sessions list.
+
+Right-click the group header and select:
+
+* **Change Icon...** to search for and select an icon.
+* **Change Color...** to select a color from the theme-aware palette.
+
+To restore the default icon or color, open its picker and select **Reset to default**. Resetting one doesn't change the other. Your choices are preserved when you reload the window.
+
+<!-- TODO: Add a screenshot showing a custom group containing workspace sessions and quick chats, with a custom icon and color and the group context menu showing Change Icon and Change Color. -->
 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the {% data variables.copilot.agents_window %} or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
@@ -223,49 +350,13 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 * **Side-by-side**: The list of sessions is shown side-by-side with the {% data variables.copilot.chat_view %}. Select a session from the list to view its details in the {% data variables.copilot.chat_view %}. You can further configure the orientations with the `setting(chat.viewSessions.orientation)` setting.
 
-For sessions whose harness supports multiple chats, expand the main chat row to see its peer chats. Selecting a peer opens that conversation rather than a separate session. See [Run multiple chats in a session](#run-multiple-chats-in-a-session) for the workflow and the differences between interfaces.
+For sessions whose harness supports multiple chats, expand the main chat row to see its nested sessions. Select a nested session to open its conversation. See [Run multiple chats in a session](#run-multiple-chats-in-a-session) for the workflow and the differences between interfaces.
 
 > [!NOTE]
 > Extension developers can learn how to integrate with the sessions view by using the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
 {% /tab %}
 {% /tabs %}
-
-### View sessions from other applications
-
-{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
-
-For Copilot harness sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
-
-By default, sessions created in other applications are hidden. To control which sessions appear, open the sessions list filter, select **External**, and choose one of these options:
-
-* **None**: hide all external sessions.
-* **Recent**: show the two most recently updated external sessions from the last seven days.
-* **Last 24 Hours**: show external sessions updated within the last 24 hours.
-* **Last 7 Days**: show external sessions updated within the last seven days.
-* **All**: show all discovered external sessions.
-
-The filter applies to the sessions lists in both the {% data variables.copilot.chat_view %} and {% data variables.copilot.agents_window %}. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
-
-When you open an external session in the {% data variables.copilot.agents_window %}, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
-
-When you open an external Codex session, only one application can write to the chat at a time. If the chat is still open in ChatGPT or Codex CLI, {% data variables.product.prodname_vscode_shortname %} keeps the transcript, draft, and attachments available, but disables sending, queueing, and resending. The **This chat is open in another app** banner appears above the chat input.
-
-To continue the chat in {% data variables.product.prodname_vscode_shortname %}, fully quit the other application, and then select **Retry** in the banner. Retrying checks whether the chat is available without sending the draft or adding a transcript entry. After the banner disappears, send the draft yourself.
-
-After you send a message from {% data variables.product.prodname_vscode_shortname %} in an external session, the session is no longer external. The **External** filter no longer controls whether the session appears in the sessions list.
-
-### Use Copilot CLI from the terminal
-
-To start a {% data variables.copilot.copilot_cli %} session from {% data variables.product.prodname_vscode_shortname %}, use one of these options:
-
-* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
-* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
-* Enter `copilot` in an integrated terminal.
-
-If {% data variables.copilot.copilot_cli_short %} isn't installed, the `copilot` command offers to install it. On macOS, you can also [install it when you add code to PATH](/docs/setup/mac.md#configure-path-with-vs-code). On Windows, setup can also [add the copilot command to PATH](/docs/setup/windows.md#set-up-the-copilot-command), so it works in any terminal.
-
-{% data variables.product.prodname_vscode_shortname %} adds the session to the sessions list. To continue an existing [Copilot harness session](/docs/agents/run/agent-harnesses.md#copilot) from the terminal, right-click it in the sessions list and select **Resume in Terminal**.
 
 ## Archive sessions
 
@@ -363,7 +454,7 @@ When a merged pull request makes a session eligible, select **Configure Automati
 
 Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions whose harness doesn't support multiple chats, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree.
 
-For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#copilot) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a nested session under the same parent and runs independently from the other conversations.
 
 For Copilot harness sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -409,19 +500,19 @@ In sessions that use the [Copilot](/docs/agents/run/agent-harnesses.md#copilot) 
 With these tools, an agent can:
 
 * List your sessions and inspect metadata like status, workspace, and file changes.
-* Create a new session for a sub-task, or create a new chat in an existing session.
+* Create a new session for a sub-task, or create a nested session under an existing session.
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
 
 Choose the session relationship first, and then choose the workspace and code isolation:
 
-* **Related work**: Use `currentSession` to create a peer chat in the current session. The peer chat shares the current workspace and checkout, so use this option for related research, planning, or other work that doesn't need isolated file changes.
+* **Related work**: Use `currentSession` to create a nested session under the current session. The nested session shares the current workspace and checkout, so use this option for related research, planning, or other work that doesn't need isolated file changes.
 * **Unrelated work or a separate deliverable**: Use `independent` to create a separate session. Omit the workspace when the task doesn't need repository files. If it does, choose a trusted folder or worktree. Request a new worktree when file changes must be isolated from your current checkout.
 
 In your prompt, state both the session relationship and the workspace choice. For related, read-only work that needs the current repository context:
 
 ```prompt
-Create a peer chat in this session that reuses the current workspace and checkout to review the authentication flow. Do not modify files.
+Create a nested session under this session that reuses the current workspace and checkout to review the authentication flow. Do not modify files.
 ```
 
 For unrelated work that doesn't need repository files:
