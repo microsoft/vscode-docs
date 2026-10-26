@@ -116,12 +116,11 @@ Where you define a customization determines who can use it and where it applies.
 
 * **User**: available to you across workspaces.
 * **Workspace or repository**: stored with the project and shared with contributors through source control.
-* **Team**: [agent plugin defaults](/docs/agent-customization/agent-plugins.md#team-provided-plugins) selected for direct members of a {% data variables.product.prodname_github %} organization team.
 * **Organization**: managed centrally and shared across repositories, where supported.
 
-Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and repository-specific workflows belong in the repository. Use team plugin defaults to share optional capabilities across your team's projects. Organization-wide requirements belong at the organization level when the customization type supports it.
+Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and repository-specific workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
 
-For plugin selection, enterprise-managed requirements and blocks always take precedence. Repository defaults take precedence over team defaults, and members can turn off plugins enabled by either source. Team defaults don't create a new storage location for individual customization files.
+For plugin selection, enterprise-managed requirements and blocks always take precedence. Members can turn off plugins enabled by repository defaults, but can't override policy requirements or blocks.
 
 Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
 

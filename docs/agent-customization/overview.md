@@ -42,7 +42,6 @@ Start with a recurring task or an observed problem. You don't need to create eve
 Use an existing customization when it provides the workflow or capability you need:
 
 * **[Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins)**: Add related skills, agents, and tool integrations together.
-* **[Use team-provided plugins](/docs/agent-customization/agent-plugins.md#team-provided-plugins)**: Start with capabilities selected by your team instead of repeating plugin setup.
 * **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
 * **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
 
@@ -132,7 +131,6 @@ Store a customization at the narrowest scope that matches how you want to use an
 
 * **User**: use the customization across your workspaces. User customizations are specific to you and are not committed to the project.
 * **Workspace**: share the customization with project contributors through source control.
-* **Team**: share [agent plugin defaults](/docs/agent-customization/agent-plugins.md#team-provided-plugins) with direct members of a {% data variables.product.prodname_github %} organization team. Team maintainers and organization owners select these defaults on {% data variables.product.prodname_github %}. Members can turn off these plugins unless policy requires them.
 * **Organization**: centrally manage supported customization types and share them across repositories. Organization customizations are configured through GitHub rather than created in the Agent Customizations editor.
 
 Scope determines where a customization is available and who can share it. Not every customization type supports every scope. The selected agent harness also determines which customization types and locations it supports. See the guide for each customization type for its supported locations.
