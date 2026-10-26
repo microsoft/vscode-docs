@@ -1,16 +1,20 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
 DateApproved: 10/28/2026
-MetaDescription: Use agent memory in {% data variables.product.prodname_vscode_shortname %} to retain preferences, repository knowledge, and task context across conversations.
+MetaDescription: Use cloud-backed and local memory in {% data variables.product.prodname_vscode_shortname %} to retain coding preferences and repository knowledge.
 ---
 
 # Use memory with agents in {% data variables.product.prodname_vscode_shortname %}
 
-Agents in {% data variables.product.prodname_vscode %} use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
+Memory helps agents reuse coding preferences and repository knowledge without asking you to repeat them in every conversation. The memory system depends on your [agent harness](/docs/agents/run/agent-harnesses.md):
+
+* **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %} (Preview)](#copilot-memory-preview) to store repository facts and user preferences in the cloud.
+
+* **Local harness**: Use [memory files](#local-memory-files) for persistent notes and temporary session context.
 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
-This article explains how to use the memory tool in {% data variables.product.prodname_vscode_shortname %} and manage memory files.
+This article shows how to set up cloud-backed memory, review or delete stored information, and manage local memory files.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try memory in action">
 Launch a chat prompt that asks the agent to remember a coding preference.
@@ -19,9 +23,76 @@ Launch a chat prompt that asks the agent to remember a coding preference.
 
 </div>
 
-## Memory tool
+## {% data variables.copilot.copilot_memory %} (Preview)
 
-The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. User, repository, and session memory are stored locally on your machine.
+Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can use {% data variables.copilot.copilot_memory %}, the same cloud memory service used by {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, and code review. Memories captured by one supported feature can inform another, although supported scopes vary. For example, code review uses repository facts, not user preferences.
+
+### Set up cloud-backed memory
+
+{% data variables.copilot.copilot_memory %} is off by default in {% data variables.product.prodname_vscode_shortname %}. To use it:
+
+1. [Sign in to {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) with your {% data variables.product.prodname_github %} account.
+
+1. In your [personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.prodname_github %}](https://github.com/settings/copilot/features), check that **{% data variables.copilot.copilot_memory %}** is **Enabled**. If your plan is managed by an organization or enterprise, its policies must permit both memory and preview features.
+
+1. Turn on `setting(chat.copilot.memory.enabled)` in {% data variables.product.prodname_vscode_shortname %} Settings.
+
+1. Create or resume a local {% data variables.product.prodname_copilot_short %} session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The setting applies to sessions created or resumed after it changes.
+
+Repository memories require a {% data variables.product.prodname_github %}-hosted repository. User preferences are tied to your signed-in {% data variables.product.prodname_github %} account and can apply across repositories.
+
+If the setting is on but memory isn't available, check your {% data variables.product.prodname_github %} account settings and organization policies. Contact your administrator if a required feature is unavailable or locked. For account eligibility and default billing-entity requirements when you have multiple licenses, see [Managing {% data variables.copilot.copilot_memory %} for your personal account](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
+
+### Choose what to remember
+
+Cloud-backed memory has two scopes:
+
+| Scope | What it stores | Where it applies |
+|---|---|---|
+| **Repository** | Durable codebase facts and conventions, supported by citations to the code. | Shared with people who have access to the repository and {% data variables.copilot.copilot_memory %}. Used only for that repository. |
+| **User** | Coding and workflow preferences that apply across repositories. | Used in your own supported {% data variables.product.prodname_copilot_short %} interactions, not other contributors' interactions. |
+
+Storing repository facts requires write access to the repository and memory enabled for your account. On organization- or enterprise-managed plans, administrators can also review and delete user preferences. See [Managing {% data variables.copilot.copilot_memory %} for an organization or enterprise](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator).
+
+> [!CAUTION]
+> Don't store credentials, secrets, or sensitive personal information in memory. Repository facts are shared, not private notes. Keep reviewed team requirements in source-controlled project documentation or [custom instructions](/docs/agent-customization/custom-instructions.md).
+
+### Store, recall, and correct memories
+
+Ask the agent to remember a durable convention or preference. State the scope when it matters:
+
+```prompt
+Find how this repository verifies changes, and remember the command for this repository.
+```
+
+```prompt
+Across all my repositories, remember that I prefer concise commit message subjects.
+```
+
+The agent recalls relevant repository facts and user preferences when a session starts. It uses **Store Memory** to save new information. When it verifies an existing memory, it can upvote it instead of storing a duplicate. It can downvote an outdated memory and store a corrected replacement.
+
+If a remembered convention is wrong, point the agent to the current code and ask it to correct the memory. Use persistent memory for durable information, not temporary task status.
+
+### Review and delete cloud memories
+
+Review stored information on {% data variables.product.prodname_github %}:
+
+* **User preferences**: Open your [personal memory settings](https://github.com/settings/copilot/memory) to view and delete preferences.
+* **Repository facts**: With repository administration access, open the repository's **Settings** > **Copilot** > **Memory**. Deleting a repository fact removes it for everyone who uses memory in that repository.
+
+Asking the agent to forget a cloud memory downvotes it rather than permanently deleting it. To permanently delete it, use the {% data variables.product.prodname_github %} settings above. The local memory-file commands below don't delete cloud memories.
+
+Facts and preferences that go unused are automatically deleted after 28 days. Successful validation and use can reset that timer. Learn more about [memory retention and validation](https://docs.github.com/en/copilot/concepts/prompting-and-context/copilot-memory#retention-and-validation).
+
+To stop using cloud memory in newly created or resumed {% data variables.product.prodname_vscode_shortname %} sessions, turn off `setting(chat.copilot.memory.enabled)`. Your personal memory setting on {% data variables.product.prodname_github %} controls its use across supported {% data variables.product.prodname_copilot_short %} features. To remove stored information, delete it on {% data variables.product.prodname_github %}.
+
+<a name="memory-tool"></a>
+
+## Local memory files
+
+The Local harness has a separate file-based memory tool that saves and recalls notes as the agent works. You can also explicitly ask the agent to remember something. By default, user, repository, and session memory are stored locally on your machine.
+
+The following sections describe local memory files. If repository memory is backed by {% data variables.product.prodname_github %} instead, manage those repository facts on {% data variables.product.prodname_github %}, not with the local file-management commands.
 
 ### Memory scopes
 
@@ -35,7 +106,7 @@ Each scope serves a different purpose, depending on how long the information sho
 
 #### Memory or shared project guidance
 
-All memory scopes on this page are stored locally. Use memory for personal preferences, temporary task context, or emerging project knowledge that your team hasn't reviewed. Repository memory is associated with the current workspace, but it isn't a shared project file.
+The memory files in this section are stored locally. Use them for personal preferences, temporary task context, or emerging project knowledge that your team hasn't reviewed. Repository memory files are associated with the current workspace, but aren't shared project files.
 
 Put reviewed architecture decisions, commands, conventions, and workflows that contributors depend on in source-controlled project documentation or [custom instructions](/docs/agent-customization/custom-instructions.md). This makes the guidance available for your team's normal review and maintenance process.
 
@@ -50,7 +121,7 @@ For a workflow that creates, verifies, and shares project instructions, see [Con
 
 #### User memory
 
-User memory persists across all workspaces and conversations. The first 200 lines are automatically loaded into the agent's context at the start of every session. Use user memory for general preferences and insights that apply regardless of which project you're working in.
+Local user memory persists across all workspaces and conversations. The first 200 lines are automatically loaded into the agent's context at the start of every session. Use user memory for general preferences and insights that apply regardless of which project you're working in.
 
 For example, ask the agent to remember a coding preference:
 
@@ -70,7 +141,7 @@ For example:
 Remember that the legacy API routes in this workspace use the repository pattern for data access
 ```
 
-Repository memory is stored locally on your machine.
+Repository memory files are stored locally on your machine.
 
 #### Session memory
 
@@ -96,7 +167,7 @@ Memory file references in the agent's chat responses are clickable, so you can v
 
 ### Manage memory files
 
-{% data variables.product.prodname_vscode_shortname %} provides commands to view and manage your memory files:
+{% data variables.product.prodname_vscode_shortname %} provides commands to view and manage local memory files in Local harness sessions:
 
 * **Chat: Show Memory Files**: opens a list of all memory files across scopes. Select a file to view its contents.
 * **Chat: Clear All Memory Files**: removes all memory files across all scopes.
