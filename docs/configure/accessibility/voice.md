@@ -19,8 +19,6 @@ On first use, allow microphone access and follow the introduction to select a mi
 
 When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening again after the agent finishes speaking. While the agent is speaking, start speaking or press `kb(agentsVoice.pushToTalk)` to interrupt the response and continue the conversation.
 
-When Voice Mode uses English, say 'approve' or 'reject' to respond to the current tool confirmation. For other languages or unsupported phrases, respond with the controls in the chat input. For a question form, say an exact displayed option label or its number, such as `1`. Use the form controls for custom answers or unsupported spoken responses.
-
 > [!NOTE]
 > Voice Mode is rolling out gradually and might not be available to every eligible account immediately. Hosted Voice Mode requires an eligible individual {% data variables.product.prodname_copilot %} plan and is not available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. The OpenAI bring your own key (BYOK) option can be used without hosted Voice Mode entitlement when client BYOK is permitted. Organizations can turn off Copilot preview features or restrict client BYOK by policy.
 
@@ -38,15 +36,40 @@ Leave `setting(agents.voice.useBYOKVoiceModel)` empty to use hosted Voice Mode. 
 
 The OpenAI Live model handles the spoken conversation. The model selected in the chat or agent session remains the coding model that processes your requests.
 
+On the first successful OpenAI Live connection in each profile, a notice identifies OpenAI as the voice provider. The notice doesn't repeat when you reconnect or restart. To check the active provider later, hover over the **Voice Mode** button.
+
+### Ask about your sessions (Experimental)
+
+With an OpenAI Live model configured, Voice Mode can answer read-only questions about your tracked agent sessions without submitting a coding request. For example, ask 'Where were we?', 'What just happened?', or 'Which tracked session needs input?'.
+
+The `setting(agents.voice.sessionAwareness)` setting is on by default and applies only to OpenAI BYOK Voice Mode. When enabled, the voice model receives a limited briefing of tracked session titles, states, and response summaries, plus the active chat's recent conversation, pending prompts, selected coding model, and attachment names. The briefing doesn't include attachment contents or other sessions' conversation histories.
+
+Changes to this setting take effect when Voice Mode reconnects. To stop sharing the briefing, turn off the setting, then disconnect and reconnect Voice Mode.
+
+Session awareness doesn't switch the session that receives your coding requests or approvals. To work in another session, start Voice Mode there.
+
+### Respond to approvals and questions
+
+When Voice Mode uses English, say 'approve' or 'reject' to respond to the current tool confirmation.
+
+With OpenAI BYOK Voice Mode, you can also approve or reject in the current voice language. Localized replies work in all 25 supported speech-recognition languages, including languages selected through **Automatic**. English approval and rejection phrases remain available in every language.
+
+Use complete, unambiguous replies. Qualified replies such as 'approve, but only this time' don't authorize an action. If a reply isn't recognized, use the controls in the chat input. With hosted Voice Mode, use the chat controls for non-English approvals.
+
+For a question form, say an exact displayed option label or its number, such as `1`. You can also give a spoken free-text answer when the question permits it. Localized option labels work when the agent supplies them in that language. Changing the voice language doesn't translate the question or its choices. Use the form controls for unsupported spoken responses.
+
 ### Configure Voice Mode
 
 While Voice Mode is connected, use the controls in the chat input to mute or unmute your microphone without ending the voice session. You can also focus the chat input and press `kb(agentsVoice.toggleMute)`, or run **Voice Mode: Toggle Mute Microphone** from the Command Palette.
+
+The blue animation stays visible while Voice Mode is connected, including while speaking, processing, idle, or muted. It indicates a connection, not whether your microphone is unmuted.
 
 You can also configure Voice Mode in the following ways:
 
 * Enable `setting(agents.voice.showTranscript)` to show the conversation transcript in the chat input. Use the Voice Mode controls to show or hide the transcript and mute or unmute your microphone without ending the voice session.
 * Run **Chat: Dictate: Select Microphone** from the Command Palette to choose the input device used by both dictation and Voice Mode.
 * Use `setting(agents.voice.voice)` to select the voice that reads responses aloud.
+* Use `setting(agents.voice.language)` to select English, German, Spanish, French, Italian, Portuguese, Japanese, Korean, or Chinese. **Automatic** uses the configured display language for speech recognition and dictation when supported, or the system or browser locale otherwise. Spoken responses fall back to English when the detected language doesn't support native voice output. Language changes take effect immediately, including while connected.
 * Use `setting(agents.voice.speakResponses)` to control whether the agent reads responses aloud. Turning off spoken responses keeps the microphone and voice input active. Enable `setting(agents.voice.showTranscript)` to read responses as text.
 * Run **Voice Mode: Show Introduction** from the Command Palette to reopen the introduction, where you can select a microphone and preview the available voices.
 

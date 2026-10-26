@@ -433,11 +433,12 @@ Learn how to [use Voice Mode and built-in dictation](/docs/configure/accessibili
 |------------------------|---------------|
 | `setting(agents.voice.enabled)` `feature(voice-mode)`<br/>Controls whether Voice Mode is available for spoken conversations with an agent. | `false` |
 | `setting(agents.voice.useBYOKVoiceModel)` `feature(voice-mode)`<br/>Selects an OpenAI Live model for [Voice Mode with your own API key](/docs/configure/accessibility/voice.md#use-your-own-openai-key). Leave empty to use hosted Voice Mode. | `""` |
+| `setting(agents.voice.sessionAwareness)` `feature(voice-mode)`<br/>Shares a limited session briefing with OpenAI BYOK Voice Mode so it can answer [session-status questions](/docs/configure/accessibility/voice.md#ask-about-your-sessions-experimental). Changes take effect when Voice Mode reconnects. | `true` |
 | `setting(agents.voice.showButton)` `feature(voice-mode)`<br/>Controls whether the **Voice Mode** button appears in the chat input. The keyboard shortcut remains available when the button is hidden. | `true` |
 | `setting(agents.voice.speakResponses)` `feature(voice-mode)`<br/>Controls whether the agent reads responses aloud. Enable `setting(agents.voice.showTranscript)` to read responses as text when spoken responses are off. | `true` |
 | `setting(agents.voice.agentProgress)` `feature(voice-mode)`<br/>Controls whether the agent speaks brief progress updates while it works. | `true` |
 | `setting(agents.voice.voice)` `feature(voice-mode)`<br/>Selects the voice that reads agent responses aloud. | `"birch_neutral"` |
-| `setting(agents.voice.language)` `feature(built-in-dictation)`<br/>Selects the language for speech recognition, dictation, and spoken responses. Use `auto` to use the configured display language when supported, or the system or browser locale otherwise. | `"auto"` |
+| `setting(agents.voice.language)` `feature(built-in-dictation)`<br/>Selects the language for speech recognition, dictation, and spoken responses. Use `auto` to use the configured display language when supported, or the system or browser locale otherwise. Spoken responses fall back to English when native voice output isn't supported. Language changes take effect immediately. | `"auto"` |
 | `setting(agents.voice.showTranscript)` `feature(voice-mode)`<br/>Shows the Voice Mode transcript in the chat input while Voice Mode is active. | `false` |
 | `setting(agents.voice.liveTranscript)` `feature(voice-mode)`<br/>Shows speech word by word while you are speaking. Requires `setting(agents.voice.showTranscript)`. | `false` |
 | `setting(agents.voice.handsFree)` `feature(voice-mode)`<br/>Starts listening again after the agent finishes speaking for a hands-free conversation. | `true` |
