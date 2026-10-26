@@ -325,7 +325,7 @@ There are several cases where automatic injection doesn't work, here are some co
 The likely cause of this is that your system has shell integration for another terminal installed that [{% data variables.product.prodname_vscode_shortname %} understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
 
 ```json
-"terminal.integrated.shellIntegration.decorationsEnabled": never
+"terminal.integrated.shellIntegration.decorationsEnabled": "never"
 ```
 
 Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#command-navigation).
