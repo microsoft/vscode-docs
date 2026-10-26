@@ -193,17 +193,23 @@ A canvas is an interactive visual surface that an extension provides to the Copi
 
 To find and manage installed canvas extensions:
 
+1. Select an active local {% data variables.product.prodname_copilot_short %} session in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
 1. Open the Agent Customizations editor and select **Canvases**.
 
 1. Expand the user, workspace, plugin, or other source group, then expand an extension to see its canvases.
 
-1. Open a child canvas by double-clicking it, selecting it and pressing `Enter`, or selecting **More Actions** > **Open Canvas**.
+1. Open a canvas marked **Ready to Open** by double-clicking it, selecting it and pressing `Enter`, or selecting **More Actions** > **Open Canvas**.
 
 1. To inspect an extension's origin, use **More Actions** to open its source folder. For an extension owned by a plugin, select **Show Plugin** to view the plugin details.
 
+If **Canvases are only available inside a session** appears, select an active local {% data variables.product.prodname_copilot_short %} session, then reopen the Agent Customizations editor.
+
+Canvases marked **Requires Input** can't be opened directly from the list. Ask the agent to open the canvas and describe the information or configuration it should use.
+
 <!-- TODO: Add a screenshot showing the Canvases source groups and extension switches. -->
 
-Use the switch on a user or plugin extension to enable or disable the extension, not an individual canvas. Workspace extensions cannot be enabled or disabled from this editor. When you disable an extension, its last-known canvas entries might remain visible so that you can identify the extension and enable it again.
+Use the switch on a user or plugin extension to enable or disable the extension, not an individual canvas. Workspace extensions cannot be enabled or disabled from this editor. When you disable an extension, its last-known canvas entries might remain visible so that you can identify the extension and enable it again. You can't open canvases from a disabled extension.
 
 ## Verify a customization
 

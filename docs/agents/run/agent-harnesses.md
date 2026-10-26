@@ -240,10 +240,12 @@ Before you create a new supported Copilot session, turn on `setting(chat.canvase
 
 * **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
 
-To open an available canvas without asking the agent, double-click it in the **Canvases** section of the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor), or use one of these menus:
+For canvases that don't require input, double-click the canvas in the **Canvases** section of the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-canvas-extensions) to open it without asking the agent, or use one of these menus:
 
 * In the editor window, select **New Chat (+)** > **Canvas** in the {% data variables.copilot.chat_view %}.
 * In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas** in the editor area.
+
+For a canvas marked **Requires Input**, ask the agent to open it and provide the required information.
 
 In the editor window, the **Canvas** submenu appears after your first message in a supported Copilot harness session, when canvas support is enabled and canvas extensions are installed.
 
