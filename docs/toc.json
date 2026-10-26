@@ -95,6 +95,7 @@
                     ["Agent Skills", "/docs/agent-customization/agent-skills"],
                     ["Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],
+                    ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
                     ["Add MCP Servers", "/docs/agent-customization/mcp-servers"],
                     ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
                     ["Hooks", "/docs/agent-customization/hooks"],

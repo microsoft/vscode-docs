@@ -68,6 +68,8 @@ Starting can require trust or authentication. If the server fails to start, [vie
 
 **Removal depends on the configuration source.** If **Uninstall** isn't available for a manually configured server, remove only its entry from the source configuration, not the whole file. If automatic discovery restores it, review its [discovery source](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery). You can also uninstall an installed server from the **MCP SERVERS - INSTALLED** section of the Extensions view.
 
+For {% data variables.product.prodname_github %}-managed MCP servers, [disconnect the {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md#disconnect-a-service) instead of uninstalling a server or editing a local configuration file.
+
 ## Automatically start MCP servers
 
 `feature(mcp-autostart)`

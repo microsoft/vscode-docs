@@ -10,6 +10,7 @@ Keywords:
 - model context protocol
 - built-in tools
 - extension tools
+- copilot connectors
 - tool approval
 ---
 
@@ -40,6 +41,8 @@ Each call gives the agent new information or changes the development environment
 * **Built-in tools**: tools that ship with {% data variables.product.prodname_vscode_shortname %} for common development tasks, like reading and writing files, running terminal commands, searching your codebase, and navigating the editor. These are available immediately without any setup.
 * **MCP tools**: tools provided by [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers, an open standard for connecting AI models to external tools and data sources. MCP servers can run locally on your machine or be hosted remotely. Use MCP tools to connect to databases, APIs, and other external services.
 * **Extension tools**: tools contributed by {% data variables.product.prodname_vscode_shortname %} extensions through the Language Model Tools API. Extension tools integrate deeply with the editor and are available when you install the extension.
+
+For supported services, [{% data variables.product.prodname_copilot_short %} connectors (Preview)](/docs/agent-customization/copilot-connectors.md) provide MCP tools to {% data variables.product.prodname_copilot_short %} harness sessions without installing a local server or writing MCP configuration.
 
 ## How agents choose tools
 

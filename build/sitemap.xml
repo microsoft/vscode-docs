@@ -536,6 +536,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/copilot-connectors</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/mcp-servers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

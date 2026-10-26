@@ -42,9 +42,8 @@ Start with a recurring task or an observed problem. You don't need to create eve
 Use an existing customization when it provides the workflow or capability you need:
 
 * **[Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins)**: Add related skills, agents, and tool integrations together.
-* **[Use team-provided plugins](/docs/agent-customization/agent-plugins.md#team-provided-plugins)**: Start with capabilities selected by your team instead of repeating plugin setup.
 * **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
-* **Connect an external system**: [Add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) for the tools your task requires.
+* **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
 
 For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-experimental) (Experimental). Review the publisher, included files, and setup requirements before installing or running a customization.
 
@@ -107,14 +106,16 @@ The GitHub Feed source is enabled by default for harnesses that provide marketpl
 To find and install a customization:
 
 1. Open the Agent Customizations editor and select **Browse**.
-1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed**.
+1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed** or an individual plugin marketplace.
 1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
 1. Select an item and review its publisher, source, installation details, and any setup requirements.
-1. Select **Install** and choose a destination when prompted.
+1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors (Preview), select **Connect** and complete authorization instead.
 
 Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
 
-<!-- TODO: Add a screenshot showing Browse with GitHub Feed selected in a supported harness and source or publisher images visible. -->
+To [add or manage plugin marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces), select **Configure Marketplaces** from the source menu.
+
+<!-- TODO: Add a screenshot showing Browse with source or publisher images visible and the source menu open, including GitHub Feed and an individual plugin marketplace in a supported harness. -->
 
 Marketplace items show a source or publisher image in **Browse** and, when available, on the installed item and its details page. Use this information together with the item details to verify the source before installation.
 
@@ -130,7 +131,6 @@ Store a customization at the narrowest scope that matches how you want to use an
 
 * **User**: use the customization across your workspaces. User customizations are specific to you and are not committed to the project.
 * **Workspace**: share the customization with project contributors through source control.
-* **Team**: share [agent plugin defaults](/docs/agent-customization/agent-plugins.md#team-provided-plugins) with direct members of a {% data variables.product.prodname_github %} organization team. Team maintainers and organization owners select these defaults on {% data variables.product.prodname_github %}. Members can turn off these plugins unless policy requires them.
 * **Organization**: centrally manage supported customization types and share them across repositories. Organization customizations are configured through GitHub rather than created in the Agent Customizations editor.
 
 Scope determines where a customization is available and who can share it. Not every customization type supports every scope. The selected agent harness also determines which customization types and locations it supports. See the guide for each customization type for its supported locations.

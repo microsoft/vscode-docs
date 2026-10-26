@@ -41,7 +41,7 @@ Permission levels control how the agent handles approvals for the current chat s
 
 The levels below describe Copilot harness sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
-New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. The managed default doesn't prevent you from switching to another level that the organization allows.
+New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. If the managed default isn't available, new sessions use **Manual permissions**. The managed default doesn't prevent you from switching to another level that the organization allows.
 
 To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
 
@@ -55,7 +55,7 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select 
 | **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
 | **Allow all** | Runs all tool calls without confirmation. |
 
-An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). These settings can hide **Assisted permissions** or **Allow all** from the permissions picker.
+An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). In both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, supported permission levels blocked by policy remain visible but disabled. Permission levels that the harness doesn't support aren't shown.
 
 Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. The sandbox doesn't cover every tool, so use tool and URL approvals to control other actions with **Manual permissions**.
 

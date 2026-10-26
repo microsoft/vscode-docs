@@ -53,6 +53,8 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 You can revoke trust at any time through dedicated commands in the Command Palette. Changing Workspace Trust controls whether workspace MCP servers can run. For servers with a separate trust decision, run **MCP: Reset Trust**. For steps to configure these controls, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
+Authorizing a [{% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) grants access to the connected service. This is separate from approval of individual tool calls. The session's permission and approval settings still determine whether a tool action requires confirmation.
+
 ## Agent sandboxing
 
 Agent sandboxing uses operating system-level isolation to restrict what terminal commands can access on the machine where they run. Instead of relying solely on approval prompts before each action, sandboxing enforces configured file system and network boundaries.

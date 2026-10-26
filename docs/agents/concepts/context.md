@@ -43,6 +43,8 @@ Each time the agent sends a request to the language model, {% data variables.pro
 
 The context changes as the agent works. For example, the output of a code search can lead the agent to read a file, and that file can then inform the next model request. Information that isn't included in a request is unavailable to the model, but the agent can use tools to discover and add more information.
 
+The agent can also retrieve context from external services through [{% data variables.product.prodname_copilot_short %} connectors (Preview)](/docs/agent-customization/copilot-connectors.md) or other MCP tools. Connecting a service doesn't automatically load its data into the context. Results become tool output when an agent retrieves them.
+
 ## Workspace indexing
 
 {% data variables.product.prodname_vscode_shortname %} uses a semantic index to find code by meaning rather than only by exact keywords. The index helps the agent locate relevant snippets quickly, especially in a large codebase. It doesn't add your entire workspace to every model request.
