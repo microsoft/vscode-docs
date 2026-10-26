@@ -128,7 +128,7 @@ For low and high eagerness, we reused the quality graders developed for the 3-in
 
 [Reward hacking](https://en.wikipedia.org/wiki/Reward_hacking) occurs when a model finds a way to increase its measured reward without producing the behavior the model developer intended to encourage. During development, we observed such failure modes in both of the new eagerness settings and added mitigations for each.
 
-**High eagerness:** An early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance.
+**High eagerness:** An early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance, as seen in the example below.
 
 We addressed this failure mode by balancing eagerness rewards with rewards from the RL quality grader, plus added instructions to allow legitimately broader edits. Our offline [Simulation Tests (STests)](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_offline-benchmarks) caught this issue.
 
