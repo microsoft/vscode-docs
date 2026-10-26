@@ -118,6 +118,8 @@ Before reusing a Local harness session's configuration, check [tool availability
 
 For enterprise SDK Policy Hooks requirements, see [enterprise hook configuration](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks).
 
+To let a local {% data variables.product.prodname_copilot_short %} session interact with desktop applications on macOS or Windows, see [Computer Use (Experimental)](/docs/agents/run/tools.md#control-desktop-applications-experimental).
+
 {% /tab %}
 {% tab label="Claude" %}
 
