@@ -138,11 +138,11 @@ These options appear only when model-assisted setup is supported in your current
 </details>
 
 <details>
-<summary>Discover servers in the Customization Marketplace (Experimental)</summary>
+<summary>Discover servers in the Customization Marketplace (Preview)</summary>
 
-For a Copilot session, turn on `setting(chat.customizations.marketplace.enabled)`, open **Chat: Open Customizations**, and select **Browse**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
+For a Copilot session, open **Chat: Open Customizations** and select **Browse**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
 
-Availability depends on the harness and your organization's marketplace policies. If automatic installation isn't supported, follow the publisher's instructions. Learn about [marketplace discovery](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
+Marketplace discovery is enabled by default. Availability depends on the harness and your organization's preview-feature and marketplace policies. If automatic installation isn't supported, follow the publisher's instructions. Learn about [marketplace discovery](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview).
 
 </details>
 

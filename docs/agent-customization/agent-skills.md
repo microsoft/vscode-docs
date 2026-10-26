@@ -63,11 +63,10 @@ Start with an existing skill when it provides the workflow you need. You can ins
 
 A skill includes its full directory, not only the `SKILL.md` file: scripts, templates, examples, and other resources can be part of the workflow.
 
-### Install a skill from the Customization Marketplace (Experimental)
+### Install a skill from the Customization Marketplace (Preview)
 
-Use the Customization Marketplace to find and install skills from configured sources. GitHub Feed requires a harness that provides marketplace search; Local sessions don't provide this source, and organization policy can restrict access.
+Use the Customization Marketplace to find and install skills from configured sources. Marketplace discovery is enabled by default. GitHub Feed requires a harness that provides marketplace search; Local sessions don't provide this source, and organization policy can restrict access.
 
-1. Turn on the `setting(chat.customizations.marketplace.enabled)` setting.
 1. Open the Agent Customizations editor and select **Browse**.
 1. From the source menu, select **GitHub Feed**, and then search for a skill by name or add `@type:skill` to your search.
 1. Select a skill and review its publisher, source, and included files.
@@ -80,7 +79,7 @@ Use the Customization Marketplace to find and install skills from configured sou
 
 If files from a Marketplace-installed skill are missing, **Browse** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
 
-For more information about browsing sources and installation states, see [Discover marketplace customizations](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
+For more information about browsing sources and installation states, see [Discover marketplace customizations](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview).
 
 ### Copy and adapt an existing skill
 

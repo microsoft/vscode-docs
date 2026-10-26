@@ -18,7 +18,7 @@ The team is continuously working on improving the AI features in {% data variabl
 Use the following links to jump to the settings for a specific area:
 
 * Core AI features: [general](#general-settings), [code editing](#code-editing-settings), [chat](#chat-settings), [agents](#agent-settings), [agent sessions](#agent-sessions), and [inline chat](#inline-chat-settings).
-* Agent customization: [migration](#customization-migration-settings), [custom instructions](#custom-instructions-settings), [prompt files](#reusable-prompt-files-settings), [custom agents](#custom-agents-settings), [agent skills](#agent-skills-settings), and [agent plugins](#agent-plugins-settings).
+* Agent customization: [migration](#customization-migration-settings), [custom instructions](#custom-instructions-settings), [prompt files](#reusable-prompt-files-settings), [custom agents](#custom-agents-settings), [agent skills](#agent-skills-settings), [marketplace and connectors](#customization-marketplace-settings), and [agent plugins](#agent-plugins-settings).
 * Other AI features: [code review](#code-review-settings), [source control](#source-control-settings), [observability](#observability-settings), [debugging](#debugging-settings), [testing](#testing-settings), [notebooks](#notebook-settings), [voice and dictation](#voice-and-dictation-settings), and [accessibility](#accessibility-settings).
 
 ## General settings
@@ -391,6 +391,15 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
 | `setting(github.copilot.chat.otel.captureContent)` <br/>Capture full prompt and response content in OTel spans. May include sensitive information. | `false` |
 | `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local harness sessions. This is independent of content capture and may include sensitive information. | `false` |
+
+## Customization marketplace settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.customizations.marketplace.enabled)` _(Preview)_<br/>Show the unified [**Browse** page](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview) when a marketplace source is available. When disabled, discovery remains in the existing customization management pages. | `true` |
+| `setting(chat.customizations.copilotConnectors.enabled)` _(Preview)_<br/>Control [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) in the unified marketplace and the availability of connected connector MCP servers in {% data variables.product.prodname_copilot_short %} agent sessions. | `true` |
+
+Organization policy forces both settings off when **Editor preview features** is disabled. See [organization and enterprise settings](/docs/enterprise/manage-ai-settings.md#use-github-organization-and-enterprise-settings).
 
 ## Agent plugins settings
 

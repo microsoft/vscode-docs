@@ -45,7 +45,7 @@ Use an existing customization when it provides the workflow or capability you ne
 * **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
 * **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
 
-For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-experimental) (Experimental). Review the publisher, included files, and setup requirements before installing or running a customization.
+For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-preview) (Preview). Review the publisher, included files, and setup requirements before installing or running a customization.
 
 ### Create or adapt
 
@@ -97,9 +97,11 @@ In the {% data variables.copilot.chat_view %}, select **Open Customizations** in
 {% /tab %}
 {% /tabs %}
 
-### Discover marketplace customizations (Experimental)
+### Discover marketplace customizations (Preview)
 
-The Customization Marketplace provides a unified **Browse** page for finding skills, MCP servers, plugins, and other agent customizations from configured sources. To use the marketplace, turn on the `setting(chat.customizations.marketplace.enabled)` setting. Available sources and installation actions depend on the selected harness.
+The Customization Marketplace provides a unified **Browse** page for finding skills, MCP servers, plugins, and other agent customizations from configured sources. It is enabled by default with `setting(chat.customizations.marketplace.enabled)`. The **Browse** page appears when a marketplace source is available. Available sources and installation actions depend on the selected harness and organization policy.
+
+If **Browse** isn't available, check that the setting is enabled and your organization permits **Editor preview features**. Disabling that policy forces the unified **Browse** experience and {% data variables.product.prodname_copilot_short %} connectors off. See [organization and enterprise settings](/docs/enterprise/manage-ai-settings.md#use-github-organization-and-enterprise-settings).
 
 The GitHub Feed source is enabled by default for harnesses that provide marketplace search. Local sessions don't provide this source, and organization policy can restrict access. Use the `setting(chat.customizations.marketplace.sources.publicFeed.enabled)` setting to show or hide this source.
 

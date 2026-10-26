@@ -99,7 +99,7 @@ Plugins installed directly from a Git repository can be updated or uninstalled, 
 
 1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces):
 
-    * To use the unified **Browse** experience (Experimental), enable `setting(chat.customizations.marketplace.enabled)` and select **Browse**. Available sources depend on the selected harness and organization policy.
+    * To use the unified **Browse** experience (Preview), select **Browse**. This experience is enabled by default with `setting(chat.customizations.marketplace.enabled)`. Available sources depend on the selected harness and organization policy.
     * Otherwise, select the **Plugins** tab and then select **Browse Marketplace**.
 
 1. Select a plugin to review its publisher, included customizations, and **Plugin README**, when provided.
@@ -175,9 +175,9 @@ In the Agent Customizations editor, select **Plugins**, open the plugin's detail
 
 Add and manage plugin marketplaces in the Agent Customizations editor or configure their sources in Settings.
 
-### Manage marketplaces in the Customizations editor (Experimental)
+### Manage marketplaces in the Customizations editor (Preview)
 
-1. Turn on `setting(chat.customizations.marketplace.enabled)`, open the Agent Customizations editor, and select **Browse**.
+1. Open the Agent Customizations editor and select **Browse**.
 1. Open the source menu and select **Configure Marketplaces**.
 1. Select **Add Marketplace** and enter a GitHub repository, Git repository URL, or local repository URI. Only add marketplaces you trust.
 1. Return to **Browse** and select the added marketplace from the source menu to browse its plugins.

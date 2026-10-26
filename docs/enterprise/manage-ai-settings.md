@@ -332,11 +332,13 @@ Plugin distribution is a separate decision. To force-enable plugins or govern ma
 
 #### Manage agent plugins and marketplaces
 
-Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) in {% data variables.product.prodname_vscode_shortname %}:
+Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) and customization discovery in {% data variables.product.prodname_vscode_shortname %}:
 
 * `ChatEnabledPlugins` force-enables or force-disables named plugins.
 * `ChatExtraMarketplaces` adds plugin marketplaces.
 * `ChatStrictMarketplaces` restricts plugin installation to approved marketplace sources. An empty list blocks installation from all marketplaces.
+* `ChatCustomizationMarketplace` controls the unified **Browse** discovery surface. When disabled, marketplace discovery remains available in the existing customization management pages.
+* `ChatCopilotConnectors` controls connector discovery and whether connected connector MCP servers are available to {% data variables.product.prodname_copilot_short %} sessions.
 
 Plugins blocked by policy remain visible but appear disabled. In **Customize** > **Plugins**, policy-managed plugins are identified as managed by policy, and their toggles are locked. Marketplaces managed by policy are identified in the marketplace picker.
 
@@ -460,6 +462,8 @@ For the complete list of policies and the settings they control, see the [enterp
 GitHub-hosted controls apply through the signed-in account and GitHub services. They are not {% data variables.product.prodname_vscode_shortname %} device policies.
 
 Use GitHub organization and enterprise settings to manage {% data variables.product.prodname_copilot_short %} access, available models and features, content exclusions, and other service-side policies. See [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise).
+
+To restrict the unified marketplace and {% data variables.product.prodname_copilot_short %} connectors, turn off **Editor preview features**. This forces `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)` off, even though both default to `true`. Developers can't override this restriction in Settings. Other eligibility requirements and managed restrictions still apply when preview features are permitted.
 
 ### Configure organization-level custom instructions
 

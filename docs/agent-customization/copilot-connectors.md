@@ -23,9 +23,10 @@ If the service you need isn't available as a connector, [add an MCP server](/doc
 
 * Sign in to {% data variables.product.prodname_vscode_shortname %} with your GitHub.com account. Connectors are in public preview and are available on all {% data variables.product.prodname_copilot %} plans.
 * Select **Copilot** in the **Session Target** dropdown. Connectors provide tools to the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot), not Local harness sessions.
-* Turn on `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)` in Settings. These settings are Experimental.
 
-For Business and Enterprise plans, an administrator must turn on the **Editor preview features** policy. Some services also require approval from a service administrator, such as allowing Slack MCP access. Your organization's MCP access restrictions also apply. See [administration guidance for connectors](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist#allowing-copilot-connectors).
+Marketplace discovery and connectors are enabled by default with `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)`. Both settings are Preview.
+
+For Business and Enterprise plans, an administrator must turn on the **Editor preview features** policy. When that policy is off, both settings are forced off. Some services also require approval from a service administrator, such as allowing Slack MCP access. Your organization's MCP access restrictions also apply. See [administration guidance for connectors](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist#allowing-copilot-connectors).
 
 ## Connect a service
 
