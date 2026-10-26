@@ -317,11 +317,11 @@ For Local harness sessions, check these common causes:
 
 ## What you see in chat
 
-The presentation depends on both the harness and the interface. Interactive [peer chats](/docs/agents/concepts/sessions.md#chats-within-a-session) are conversations you prompt independently. Subagent chats show work that an agent delegates.
+The presentation depends on both the harness and the interface. [Nested sessions](/docs/agents/concepts/sessions.md#chats-within-a-session) are conversations you prompt independently. Subagent chats show work that an agent delegates.
 
 ### Chat view
 
-The editor's **Sessions** view shows interactive peer chats, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats, use the [{% data variables.copilot.agents_window %}](#agents-window).
+The editor's **Sessions** view shows nested sessions, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats, use the [{% data variables.copilot.agents_window %}](#agents-window).
 
 > [!NOTE]
 > **For Local harness sessions:** A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.

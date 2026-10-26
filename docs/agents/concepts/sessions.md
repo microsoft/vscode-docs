@@ -32,15 +32,17 @@ The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#r
 
 ## Chats within a session
 
-A session can contain more than one chat. Each chat is an independent conversation with its own history, title, status, and agent or model selection, but all chats in a session share the same workspace and code isolation. A new chat starts blank and doesn't inherit the conversation history of the other chats in the session.
+The session has a main chat. A **nested session** is a separate conversation grouped under an existing session. You can prompt each nested session independently. This differs from a [subagent](/docs/agents/run/subagents.md), which an agent starts to perform delegated work.
 
-The session has a main chat. Additional interactive conversations are called **peer chats**. You can prompt each peer chat independently. This differs from a [subagent](/docs/agents/run/subagents.md), which an agent starts to perform delegated work.
+Each conversation has its own history, title, status, and agent or model selection. Nested sessions use the parent session's folder or worktree by default. In the {% data variables.copilot.agents_window %}, supported harnesses let a nested session use another folder, its own worktree, or no workspace. A new nested session starts blank and doesn't inherit the conversation history of the other chats in the parent session.
 
-Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. Multiple chats in one session are available with Copilot and Claude. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.
 
-Both chats can edit the same files. When you need separate working directories, use separate sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes), where available.
+Both chats can edit the same files if they use the same folder or worktree. When you need separate working directories, choose **New Worktree** for a nested session, where supported, or use separate top-level sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+
+You can also [move nested sessions](/docs/agents/run/sessions/manage-sessions.md#move-chats-between-sessions-experimental) to organize related work. A move changes which session groups the conversation, not the folder or worktree where it runs.
 
 ## Choose a new chat, a fork, or a new session
 
@@ -50,14 +52,14 @@ If the task needs another folder or a new Git worktree, you don't have to start 
 
 | Choose | When to use it | Conversation history | Workspace and code changes |
 |--------|----------------|----------------------|----------------------------|
-| [New chat in the same session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) | Work on a related task with a fresh conversation, such as writing tests for the feature another chat is implementing. | Starts without the other chats' history. | Shares the session's workspace and worktree. |
+| [Nested session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) | Work on a related task with a fresh conversation, such as writing tests for the feature another chat is implementing. | Starts without the other chats' history. | Uses the parent session's folder or worktree by default. Supported nested sessions can use another folder or a separate worktree. |
 | [Fork a conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) | Explore an alternative approach while retaining the requirements and discussion so far. | Inherits the source conversation up to the fork point. The original conversation remains available. | Can share the original session and worktree. Forking doesn't guarantee separate code changes. |
 | [New session](/docs/agents/run/sessions/manage-sessions.md#start-an-agent-session) | Start an unrelated task, work in another project, or choose a separate execution environment or worktree. | Starts without the previous chat's history. | Uses the folder or worktree selected for the new session. |
 
 A fork can open as another chat in the same session or as a new session, depending on the harness. Forking a conversation isn't the same as creating a Git branch or a separate worktree. For example, a fork of a Copilot worktree session continues to use the original worktree.
 
 > [!IMPORTANT]
-> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Use separate sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes), where available, when changes must stay separate.
+> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Choose separate worktrees for nested or top-level sessions, where supported, when changes must stay separate. Learn how to [choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
 Sessions can run in parallel and keep running when you switch between them. To return an existing conversation and affected workspace files to an earlier point instead of branching the conversation, see [Restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
 
@@ -68,7 +70,7 @@ Sessions can run in parallel and keep running when you switch between them. To r
 
 You can access and continue the same live **Copilot** or **Claude** session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). To use **Codex** in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). Switching between these interfaces doesn't create a session, fork the conversation, or change its harness, workspace, or worktree.
 
-Both interfaces provide access to the session's main chat and, for harnesses that support them, interactive peer chats. Their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Both interfaces provide access to the session's main chat and, for harnesses that support them, nested sessions. Their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 > [!NOTE]
 > **For Local harness sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.

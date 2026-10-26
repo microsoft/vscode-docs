@@ -148,9 +148,13 @@ Run the same prompt with multiple models or harnesses in isolated worktrees, the
 
 ### Work with multiple chats in a session
 
-With a harness that supports multiple chats, such as Copilot or Claude, use chat tabs and split groups to keep several conversations visible. Arrange interactive peer chats, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
+With a harness that supports multiple chats, use chat tabs and split groups to keep several conversations visible. Arrange nested sessions, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
-The main chat and interactive peer chats are also available in the editor's [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#switch-chats-within-a-session), where you select them from the **Sessions** view rather than the {% data variables.copilot.agents_window %} chat tabs.
+Select **+** (**New Nested Session**) on a session's row to start a nested session. Keep the preselected folder, or choose another folder, **New Worktree**, or **No Workspace**, where supported. The nested session uses the parent's harness and host.
+
+You can also [move nested sessions](/docs/agents/run/sessions/manage-sessions.md#move-chats-between-sessions-experimental) or promote a nested session to a top-level session. These actions preserve the conversation's working folder or worktree.
+
+The main chat and nested sessions are also available in the editor's [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#switch-chats-within-a-session), where you select them from the **Sessions** view rather than the {% data variables.copilot.agents_window %} chat tabs.
 
 For what chats share, how to create them, and the controls in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
@@ -287,6 +291,8 @@ Removing a pull request artifact only disassociates the artifact from the curren
 ## Start a quick chat
 
 Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat to ask a question or start a task that doesn't belong to a specific project. Quick chats appear in the **Chats** section at the top of the sessions list, separate from your workspace-scoped sessions.
+
+Quick chats also support [nested sessions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where available. With **No Workspace** selected, each nested session uses its own temporary folder rather than sharing the parent chat's files.
 
 To start a new quick chat in the {% data variables.copilot.agents_window %}:
 

@@ -140,7 +140,7 @@ A fork creates separate conversation history, but it doesn't always provide sepa
 
 ### Start a new chat in the session
 
-If the work still belongs in the same workspace but the conversation contains conflicting instructions or repeated corrections, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. The new chat doesn't inherit the other chats' history, but it shares the session's folder or worktree and code changes.
+If the work still belongs in the same workspace but the conversation contains conflicting instructions or repeated corrections, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. The new chat doesn't inherit the other chats' history. Keep the session's folder or worktree selected to continue with the same files and code changes.
 
 Provide the accepted decisions, current state, and validation criteria in the new prompt. Starting a chat doesn't remove saved files, applicable custom instructions, or persistent memory. If the harness doesn't support multiple chats in a session, start a new session instead.
 
