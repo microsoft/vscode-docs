@@ -18,6 +18,7 @@ Add an MCP server when your agent needs a capability its existing tools don't pr
 
 This article takes you from adding a server to verifying its first tool call. Choose your starting point:
 
+* **Connect a supported service without server setup:** [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md).
 * **I have a server URL or command:** [Connect a server](#connect-a-server).
 * **Help me find a server:** [Choose a server to try](#choose-a-server-to-try).
 * **My server is configured but isn't working:** [Check the connection](#if-the-server-does-not-work).
@@ -25,7 +26,7 @@ This article takes you from adding a server to verifying its first tool call. Ch
 ## Before you start
 
 * [Enable AI features](/docs/getstarted/overview.md#enable-ai-features) and open a local project folder in {% data variables.product.prodname_vscode_shortname %}.
-* Check the server publisher's prerequisites. A remote HTTP server can require an account or sign-in. A server launched by a command needs its runtime installed on the machine that runs it.
+* For manually configured servers, check the server publisher's prerequisites. A remote HTTP server can require an account or sign-in. A server launched by a command needs its runtime installed on the machine that runs it.
 
 > [!CAUTION]
 > Local MCP servers can run code on your machine, and tools can access external services using your permissions. Review the publisher, command or endpoint, and requested access before installing or starting a server. Only trust configurations you have reviewed. Learn about [MCP server trust](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust).
@@ -139,7 +140,7 @@ These options appear only when model-assisted setup is supported in your current
 <details>
 <summary>Discover servers in the Customization Marketplace (Experimental)</summary>
 
-For a Copilot session, turn on `setting(chat.customizations.marketplace.enabled)`, open **Chat: Open Customizations**, and select **Discover**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
+For a Copilot session, turn on `setting(chat.customizations.marketplace.enabled)`, open **Chat: Open Customizations**, and select **Browse**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
 
 Availability depends on the harness and your organization's marketplace policies. If automatic installation isn't supported, follow the publisher's instructions. Learn about [marketplace discovery](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
 

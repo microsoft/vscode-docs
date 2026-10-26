@@ -44,7 +44,7 @@ Use an existing customization when it provides the workflow or capability you ne
 * **[Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins)**: Add related skills, agents, and tool integrations together.
 * **[Use team-provided plugins](/docs/agent-customization/agent-plugins.md#team-provided-plugins)**: Start with capabilities selected by your team instead of repeating plugin setup.
 * **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
-* **Connect an external system**: [Add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) for the tools your task requires.
+* **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
 
 For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-experimental) (Experimental). Review the publisher, included files, and setup requirements before installing or running a customization.
 
@@ -110,7 +110,7 @@ To find and install a customization:
 1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed**.
 1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
 1. Select an item and review its publisher, source, installation details, and any setup requirements.
-1. Select **Install** and choose a destination when prompted.
+1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors (Preview), select **Connect** and complete authorization instead.
 
 Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
 
