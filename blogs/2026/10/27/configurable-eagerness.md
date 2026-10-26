@@ -165,7 +165,7 @@ The chart plots training steps against the percentage of bad suggestions avoided
 
 We baked this into our evaluations by adding a deterministic minification check to the training and evaluation pipeline so this failure mode can be screened in subsequent runs.
 
-<table aria-label="Code example before and after minification mitigation">
+<table aria-label="Code example before and after minification mitigation" style="width: 100%; table-layout: fixed;">
   <thead>
     <tr>
       <th scope="col">Before mitigation</th>
