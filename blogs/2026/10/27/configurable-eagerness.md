@@ -10,7 +10,7 @@ Author: Ben Steenhoek, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, configurable eagerness, model training, reinforcement learning, on-policy distillation]
 ---
 
-# Tune GitHub Copilot inline suggestions with configurable eagerness
+# Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
 
 October 26, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
@@ -65,11 +65,11 @@ To train these behaviors, we needed a measurable definition of eagerness. Becaus
 
 We considered training a separate model for each eagerness level, but this approach would have multiplied future deployment and upgrade complexity. Instead, **we trained one model to produce all three behaviors (low, medium, and high eagerness)**, conditioned on a lightweight control tag:
 
-<table aria-label="Intended behavior by eagerness setting">
+<table aria-label="Control tag used by eagerness setting">
   <thead>
     <tr>
       <th scope="col">Eagerness setting</th>
-      <th scope="col">Intended behavior</th>
+      <th scope="col">Control tag</th>
     </tr>
   </thead>
   <tbody>
@@ -120,7 +120,7 @@ _Figure 3. Portable post-training with on-policy distillation for configurable e
 
 The training dataset branches into default prompts and low- and high-eagerness prompts. Default prompts and the reference model contribute the distillation objective, while low- and high-eagerness prompts contribute quality and eagerness rewards; the combined objective feeds RL and evaluation.
 
-For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior<sup><a id="distillation-note-ref" href="#distillation-note" role="doc-noteref" aria-label="Footnote 2: shared model architecture">2</a></sup>. The model under training generated responses, and the reference model supplied token-level probabilities on those same generated prefixes. This taught the model to match the reference on its own generated responses at medium eagerness, while low- and high-eagerness modes were learned through their rewards.
+For medium eagerness, we used [on-policy distillation (OPD)](https://en.wikipedia.org/wiki/Knowledge_distillation) to preserve the reference model's default behavior<sup><a id="distillation-note-ref" href="#distillation-note" role="doc-noteref" aria-label="Footnote 2: shared model architecture">2</a></sup>. The model under training generated responses, and the reference model supplied token-level probabilities on those same generated prefixes. Training then minimized the difference between the two models' predicted token distributions, encouraging the model to behave like the reference. This taught the model to match the reference on its own generated responses at medium eagerness, while low- and high-eagerness modes were learned through their rewards.
 
 For low and high eagerness, we reused the quality graders developed for the 3-in-1 model's SFT and RL, then added a relative eagerness reward based on the response's edit distance compared to the reference model's medium response. Low eagerness was rewarded for proposing a smaller edit than the reference. High eagerness was rewarded for proposing a larger one. In both cases, the quality reward prevented the model from optimizing edit distance at the expense of usefulness.
 
@@ -128,7 +128,7 @@ For low and high eagerness, we reused the quality graders developed for the 3-in
 
 [Reward hacking](https://en.wikipedia.org/wiki/Reward_hacking) occurs when a model finds a way to increase its measured reward without producing the behavior the model developer intended to encourage. During development, we observed such failure modes in both of the new eagerness settings and added mitigations for each.
 
-**High eagerness:** An early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance.
+**High eagerness:** An early reward design did not apply the quality grader to the low- and high-eagerness modes. In that training run, the model sometimes proposed unrelated functionality or unnecessary formatting changes while increasing edit distance, as seen in the example below.
 
 We addressed this failure mode by balancing eagerness rewards with rewards from the RL quality grader, plus added instructions to allow legitimately broader edits. Our offline [Simulation Tests (STests)](https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one#_offline-benchmarks) caught this issue.
 
@@ -150,13 +150,13 @@ We addressed this failure mode by balancing eagerness rewards with rewards from 
  }
 ```
 
-_Figure 4. Example of an over-eager suggestion before mitigation._
+_Figure 4. Example of an over-eager suggestion before mitigation. The model unnecessarily added caching and expanded the service's API._
 
 ![Before-and-after Simulation Tests chart showing high-eagerness quality recovering after mitigation; trends and approximate values follow.](reward-hacking-benchmark.png)
 
 _Figure 5. Benchmark results before and after mitigating excessive suggestions on the STests benchmark._
 
-The chart plots training steps against the percentage of bad suggestions avoided, on a scale from 60% to 100%. The production baseline stays near 89%; before mitigation, the high-eagerness score falls to about 66% by the final plotted step, while low and medium eagerness remain near the baseline. After mitigation, all three modes stay near the baseline. Low, medium, and high are distinguished by square, circle, and triangle markers, respectively, as well as line styles, so the comparison does not depend on color alone; values here are approximate readings of the plotted lines.
+The chart plots training steps against the percentage of bad suggestions avoided, on a scale from 60% to 100%. The production baseline stays near 89%; before mitigation, the high-eagerness score falls to about 66% by the final plotted step, while low and medium eagerness remain near the baseline. After mitigation, all three modes stay near the baseline.
 
 **Low eagerness:** One training run produced smaller measured edits partly by [minifying suggestions](https://en.wikipedia.org/wiki/Minification_(programming)): removing whitespace and delimiter characters or shortening variable names while maintaining syntactic correctness. This is technically shorter code but is much less desirable! We mitigated this behavior in two ways:
 
@@ -165,7 +165,7 @@ The chart plots training steps against the percentage of bad suggestions avoided
 
 We baked this into our evaluations by adding a deterministic minification check to the training and evaluation pipeline so this failure mode can be screened in subsequent runs.
 
-<table aria-label="Code example before and after minification mitigation">
+<table aria-label="Code example before and after minification mitigation" style="width: 100%; table-layout: fixed;">
   <thead>
     <tr>
       <th scope="col">Before mitigation</th>
