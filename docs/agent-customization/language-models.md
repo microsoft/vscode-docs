@@ -88,6 +88,22 @@ You can see which model is used for generating a response by hovering over the c
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
+## Use Copilot Fusion (Research preview)
+
+Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. Unlike Auto, which selects one model per request, Fusion can use a single model or coordinate multiple models. For example, one model can draft a solution, a second model can critique it, and the first can revise it based on that feedback. You receive a single final response.
+
+For details about orchestration, tiers, availability, and AI credit usage, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
+
+To use Copilot Fusion:
+
+1. Enable `setting(chat.copilot.dynamicAutoTiers.enabled)` in the Settings editor. The Copilot runtime restarts after active requests finish.
+
+1. Start a new chat with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot).
+
+1. In the model picker, select **Copilot Fusion**, then choose **Standard**, **High**, or **Max**.
+
+Copilot Fusion appears only if your account has access to a Fusion tier.
+
 <a name="use-on-device-models-experimental"></a>
 
 ## Use on-device models
