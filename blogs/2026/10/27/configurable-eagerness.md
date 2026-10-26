@@ -10,7 +10,7 @@ Author: Ben Steenhoek, Ulugbek Abdullaev
 Keywords: [github copilot, inline suggestions, configurable eagerness, model training, reinforcement learning, on-policy distillation]
 ---
 
-# Tune GitHub Copilot inline suggestions with configurable eagerness
+# Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
 
 October 26, 2026 by [Ben Steenhoek](https://github.com/bstee615) and [Ulugbek Abdullaev](https://github.com/ulugbekna)
 
