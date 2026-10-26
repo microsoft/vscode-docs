@@ -346,6 +346,10 @@ For cross-client plugin governance instead of {% data variables.product.prodname
 
 Enterprise-managed plugin settings only require or block plugins. They don't set optional defaults.
 
+For optional project-specific plugins, use [repository defaults](/docs/agent-customization/agent-plugins.md#workspace-plugin-recommendations). Members can turn off these defaults unless managed policy requires the plugin.
+
+The enterprise-managed `strictKnownMarketplaces` setting also disables built-in marketplaces. Configure the permitted sources explicitly.
+
 <!--
 #### Configure MCP server access
 

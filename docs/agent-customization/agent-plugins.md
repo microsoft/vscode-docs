@@ -113,13 +113,13 @@ Plugins installed directly from a Git repository can be updated or uninstalled, 
 
 ### Install a plugin from source
 
-You can install a plugin directly from a Git repository URL without adding a full marketplace first.
+You can install a plugin directly from a Git repository or local folder without adding a full marketplace first.
 
-* Run **Chat: Install Plugin From Source** from the Command Palette.
+* Run **Chat: Install Plugin from Source** from the Command Palette.
 
 * Alternatively, select **Install Plugin from Source** on the **Plugins** page of the Agent Customizations editor.
 
-Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
+Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) or a local folder path. For a repository URL, {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
 
 ### Plugins installed by {% data variables.copilot.copilot_cli %}
 
@@ -175,6 +175,8 @@ In the Agent Customizations editor, select **Plugins**, open the plugin's detail
 
 Add and manage plugin marketplaces in the Agent Customizations editor or configure their sources in Settings.
 
+Adding a marketplace makes its plugins available to browse. It does not install or enable them.
+
 ### Manage marketplaces in the Customizations editor (Preview)
 
 1. Open the Agent Customizations editor and select **Browse**.
@@ -199,7 +201,7 @@ Marketplaces are Git repositories that contain plugin definitions. You can refer
 
 For reproducible installations, use a full 40-character commit SHA, such as `owner/repo#<commit-sha>`. {% data variables.product.prodname_vscode_shortname %} installs plugins from that exact revision. Branch and tag references use the revision they resolve to when the marketplace is fetched.
 
-Private repositories are also supported. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
+Private repositories are also supported. Sign in to GitHub and make sure you have read access to the marketplace repository. Organization membership alone does not grant repository access. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
 
 When a marketplace index declares a plugin at a relative path, {% data variables.product.prodname_vscode_shortname %} verifies the repository, resolved revision, and path before installation. Sources with a missing revision, an invalid path, or an ambiguous path match are rejected.
 
@@ -239,7 +241,9 @@ Plugins sourced from npm or PyPI never update automatically. Instead, they show 
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-{% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
+In the Local harness, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
+
+In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. You can turn off optional plugins in **Plugins** in the Agent Customizations editor without changing the shared defaults. Enterprise-managed settings take precedence over repository defaults and your choices.
 
 Specify the following fields in the settings file to configure workspace plugin recommendations:
 
@@ -262,6 +266,8 @@ Specify the following fields in the settings file to configure workspace plugin 
     }
 }
 ```
+
+The marketplace key, `company-tools` in this example, must match the `name` in the marketplace's `marketplace.json`. Plugin identifiers use `<plugin>@<marketplace>`, not the marketplace repository name. Keep marketplace names stable so shared settings continue to refer to the same plugins.
 
 ## Cross-tool compatibility
 
