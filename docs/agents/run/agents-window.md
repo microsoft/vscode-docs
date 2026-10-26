@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 ---
 # Use the {% data variables.copilot.agents_window %}

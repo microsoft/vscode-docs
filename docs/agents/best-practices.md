@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use AI effectively in {% data variables.product.prodname_vscode_shortname %} by choosing the right workflow, writing focused prompts, and reviewing results.
 ---
 # Best practices for using AI in {% data variables.product.prodname_vscode_shortname %}

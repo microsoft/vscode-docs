@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Install, adapt, and create agent customizations in {% data variables.product.prodname_vscode_shortname %} for your coding workflows.
 Keywords:
 - ai
@@ -182,6 +182,26 @@ The available actions depend on the customization type and its source. Use the i
 
 > [!IMPORTANT]
 > If the Agent Customizations editor shows **Migrations**, Copilot cannot use one or more customizations in their current location or format. Select **Migrations** to review the required work, and follow [Migrate Copilot customizations in VS Code](/docs/agent-customization/migrate-customizations.md) for detailed steps.
+
+### Manage canvas extensions
+
+`feature(canvases)`
+
+A canvas is an interactive visual surface that an extension provides to the Copilot harness. Before you manage or open canvases, review the [canvas prerequisites and limitations](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
+
+To find and manage installed canvas extensions:
+
+1. Open the Agent Customizations editor and select **Canvases**.
+
+1. Expand the user, workspace, plugin, or other source group, then expand an extension to see its canvases.
+
+1. Open a child canvas by double-clicking it, selecting it and pressing `Enter`, or selecting **More Actions** > **Open Canvas**.
+
+1. To inspect an extension's origin, use **More Actions** to open its source folder. For an extension owned by a plugin, select **Show Plugin** to view the plugin details.
+
+<!-- TODO: Add a screenshot showing the Canvases source groups and extension switches. -->
+
+Use the switch on a user or plugin extension to enable or disable the extension, not an individual canvas. Workspace extensions cannot be enabled or disabled from this editor. When you disable an extension, its last-known canvas entries might remain visible so that you can identify the extension and enable it again.
 
 ## Verify a customization
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Run and debug tests in {% data variables.product.prodname_vscode_shortname %}, inspect coverage, and use optional AI assistance to add tests.
 ---
 # Testing

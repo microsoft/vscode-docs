@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Choose AI workflows, models, and agents in {% data variables.product.prodname_vscode_shortname %}, from inline suggestions to remote sessions.
 Keywords:
 - GitHub Copilot

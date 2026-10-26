@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use prompt files in {% data variables.product.prodname_vscode_shortname %} for reusable Local harness workflows, or migrate them to agent skills.
 Keywords:
 - prompt files

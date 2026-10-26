@@ -1,6 +1,6 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Manage local and synced session history in {% data variables.product.prodname_vscode %}, including privacy controls and Chronicle searches.
 ---
 # Sync and query session history

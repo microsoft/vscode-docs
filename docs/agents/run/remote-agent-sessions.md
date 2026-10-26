@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Connect to remote agent sessions in {% data variables.product.prodname_vscode_shortname %} over SSH or dev tunnels, or use remote control.
 ---
 # Run and manage remote agent sessions

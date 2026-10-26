@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure Copilot hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

@@ -1,6 +1,6 @@
 ---
 ContentId: a0c8df3a-3079-4396-8eff-c8afe4c97683
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Expose Spring Boot operations as MCP tools and call them from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

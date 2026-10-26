@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Migrate agent customizations and resolve harness compatibility gaps in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:

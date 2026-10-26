@@ -1,6 +1,6 @@
 ---
 ContentId: cbff1d23-7653-44b7-b24d-4a9a889fea41
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Package skills, agents, MCP servers, hooks, and automation templates with agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../agent-customization/images/agent-plugins/installed-plugins.png
 Keywords:

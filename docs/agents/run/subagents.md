@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Delegate focused tasks to context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} and review results in the main chat.
 Keywords:
 - subagents

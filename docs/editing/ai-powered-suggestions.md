@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Get AI-powered ghost text completions and next edit suggestions in {% data variables.product.prodname_vscode_shortname %}.
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---

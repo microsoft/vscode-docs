@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
@@ -238,7 +238,7 @@ Before you create a new supported Copilot session, turn on `setting(chat.canvase
 
 * **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
 
-To open an available canvas without asking the agent, use one of these menus:
+To open an available canvas without asking the agent, double-click it in the **Canvases** section of the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor), or use one of these menus:
 
 * In the editor window, select **New Chat (+)** > **Canvas** in the {% data variables.copilot.chat_view %}.
 * In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas** in the editor area.
@@ -246,6 +246,8 @@ To open an available canvas without asking the agent, use one of these menus:
 In the editor window, the **Canvas** submenu appears after your first message in a supported Copilot harness session, when canvas support is enabled and canvas extensions are installed.
 
 Whether you or the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
+
+To review where canvas extensions come from and enable or disable supported extensions, see [Manage canvas extensions](/docs/agent-customization/overview.md#manage-canvas-extensions).
 
 Canvas extensions are also supported in the {% data variables.copilot.github_copilot_app %}. Learn how to [work with canvas extensions in the {% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). To explore examples, browse [sample canvas extensions](https://awesome-copilot.github.com/extensions/).
 

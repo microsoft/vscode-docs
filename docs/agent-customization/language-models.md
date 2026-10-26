@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure chat, inline, and voice models in {% data variables.product.prodname_vscode_shortname %}. Use your own API key or run models on your device.
 Keywords:
 - language models

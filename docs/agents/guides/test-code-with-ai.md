@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Add and run tests for existing code with AI in {% data variables.product.prodname_vscode %}, then review assertions, failures, and coverage.
 ---
 # Test existing code with AI

@@ -1,6 +1,6 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand sessions and chats in {% data variables.product.prodname_vscode_shortname %}, and choose when to start a chat, fork, or create a session.
 Keywords:
 - copilot

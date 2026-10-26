@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Find, adapt, and create Agent Skills in {% data variables.product.prodname_vscode_shortname %} for reusable workflows with supported agents.
 Keywords:
 - copilot

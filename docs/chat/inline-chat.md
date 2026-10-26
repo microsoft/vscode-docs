@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for focused edits, terminal help, and short AI conversations.
 ---
 # Inline chat and Quick Chat

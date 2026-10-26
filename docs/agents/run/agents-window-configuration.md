@@ -1,6 +1,6 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 ---
 # Configure the {% data variables.copilot.agents_window %}

@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription:  Learn about {% data variables.product.prodname_vscode %} IntelliSense (intelligent code completion).
 ---
 # IntelliSense

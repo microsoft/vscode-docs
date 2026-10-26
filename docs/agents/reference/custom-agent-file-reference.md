@@ -1,6 +1,6 @@
 ---
 ContentId: 30510047-1b9d-4df0-ba48-308f514f3592
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Look up custom agent file syntax, frontmatter fields, defaults, and harness-specific configuration in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:

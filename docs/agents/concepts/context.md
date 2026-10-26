@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
 Keywords:
 - copilot
