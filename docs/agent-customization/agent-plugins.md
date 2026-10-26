@@ -96,12 +96,14 @@ Plugins installed directly from a Git repository can be updated or uninstalled, 
 
 {% tab label="Agent Customizations" %}
 
-1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
+1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or selecting **Customizations** in the {% data variables.copilot.agents_window %} sidebar.
 
 1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces):
 
     * To use the unified **Browse** experience (Experimental), enable `setting(chat.customizations.marketplace.enabled)` and select **Browse**. Available sources depend on the selected harness and organization policy.
     * Otherwise, select the **Plugins** tab and then select **Browse Marketplace**.
+
+1. Select a plugin to review its publisher, included customizations, and **Plugin README**, when provided.
 
 1. Select **Install** to install a plugin.
 
@@ -132,7 +134,9 @@ The **Agent Plugins - Installed** view in the Extensions view shows the plugins 
 
 ![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
 
-You can also manage installed plugins from the {% data variables.copilot.chat_view %} by selecting **Open Customizations** in the title bar, and then selecting **Plugins**.
+In the Agent Customizations editor, select **Plugins**, then select an installed plugin to open its details. Review its **Plugin README** and included customizations. Under **Skills**, select a skill to open its instructions.
+
+<!-- TODO: Add a screenshot showing an installed plugin's details, Plugin README, and bundled skills in the Agent Customizations editor. -->
 
 ### Verify a plugin after installation
 
@@ -164,7 +168,24 @@ When a plugin is disabled, its skills, agents, hooks, MCP servers, slash command
 
 To remove a plugin, right-click it in the **Agent Plugins - Installed** view and select **Uninstall**. Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
+In the Agent Customizations editor, select **Plugins**, open the plugin's details, and select **Uninstall**.
+
 ## Configure plugin marketplaces
+
+Add and manage plugin marketplaces in the Agent Customizations editor or configure their sources in Settings.
+
+### Manage marketplaces in the Customizations editor (Experimental)
+
+1. Turn on `setting(chat.customizations.marketplace.enabled)`, open the Agent Customizations editor, and select **Browse**.
+1. Open the source menu and select **Configure Marketplaces**.
+1. Select **Add Marketplace** and enter a GitHub repository, Git repository URL, or local repository URI. Only add marketplaces you trust.
+1. Return to **Browse** and select the added marketplace from the source menu to browse its plugins.
+
+To manage an existing marketplace, select it in **Configure Marketplaces**. Available actions depend on the selected harness and include **Browse**, **Refresh Marketplace**, **Open Folder**, and **Remove Marketplace**. Use **Back** to return to the marketplace list.
+
+Organization-managed marketplaces can't be removed, and some harnesses also protect built-in marketplaces. If prompted to **Remove Marketplace and Plugins**, review which plugins will be uninstalled before confirming.
+
+### Configure marketplaces in Settings
 
 You can discover plugins from marketplaces such as [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/). To configure additional marketplaces, use `setting(chat.plugins.marketplaces)` (Experimental).
 

@@ -107,14 +107,16 @@ The GitHub Feed source is enabled by default for harnesses that provide marketpl
 To find and install a customization:
 
 1. Open the Agent Customizations editor and select **Browse**.
-1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed**.
+1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed** or an individual plugin marketplace.
 1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
 1. Select an item and review its publisher, source, installation details, and any setup requirements.
 1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors (Preview), select **Connect** and complete authorization instead.
 
 Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
 
-<!-- TODO: Add a screenshot showing Browse with GitHub Feed selected in a supported harness and source or publisher images visible. -->
+To [add or manage plugin marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces), select **Configure Marketplaces** from the source menu.
+
+<!-- TODO: Add a screenshot showing Browse with source or publisher images visible and the source menu open, including GitHub Feed and an individual plugin marketplace in a supported harness. -->
 
 Marketplace items show a source or publisher image in **Browse** and, when available, on the installed item and its details page. Use this information together with the item details to verify the source before installation.
 
