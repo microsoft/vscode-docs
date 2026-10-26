@@ -71,7 +71,7 @@ Choose the scope that matches the workflow:
 | Automation shared with a repository | `.github/hooks/*.json` at the repository root |
 | Hooks alongside other personal or repository settings | An inline `hooks` map in a supported Copilot settings file |
 | A reusable setup with scripts and other customizations | [Agent plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins) |
-| Automation active only for one custom agent | [Agent-scoped hooks](#agent-scoped-hooks), with a current limitation for converted plugin agents |
+| Automation active only for one custom agent | [Agent-scoped hooks](#agent-scoped-hooks) |
 | Organization-managed validation | [Enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks) |
 
 The Copilot harness reads inline hook settings in `.github/copilot/settings.json`, `.github/copilot/settings.local.json`, and `~/.copilot/settings.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. User `config.json` is not the hook settings file. For all supported sources, precedence, and policy directories, see [Copilot hook locations](https://docs.github.com/en/copilot/reference/hooks-reference#hooks-locations).
@@ -171,10 +171,11 @@ An agent-scoped hook is declared in a custom agent's `hooks` frontmatter and app
 
 The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) describes supported command fields, trust requirements, subagent behavior, and exclusions for remote or organization-hosted definitions.
 
-> [!IMPORTANT]
-> {% data variables.product.prodname_vscode_shortname %} currently omits the `hooks` field when it converts plugin-provided custom agents for the Copilot harness. An agent can appear and run without its scoped hooks. This [tracked conversion limitation](https://github.com/microsoft/vscode/issues/341681) is not a lack of agent-scoped hook support in the shared harness.
+{% data variables.product.prodname_vscode_shortname %} preserves the `hooks` field when converting custom agents for Copilot, including plugin-provided agents. Hook mappings remain scoped to their individual agents.
 
-For affected agents, retain the original hook definition and leave its migration incomplete until the conversion preserves the hooks and you verify that they run. Do not move the command to a repository-wide or plugin-wide event as a workaround: that changes which agents trigger it and is not an equivalent conversion.
+The [custom-agent editor](/docs/agents/reference/custom-agent-file-reference.md#copilot-specific-configuration) validates hook structure, but selecting an agent or seeing no validation hints doesn't prove that its hooks execute. Verify the expected event and any tool-denial behavior in a trusted session before relying on a hook.
+
+Keep agent-specific automation in the agent's frontmatter. Moving a command to a repository-wide or plugin-wide event changes which agents trigger it and is not an equivalent configuration.
 
 ## Existing Local hooks
 
