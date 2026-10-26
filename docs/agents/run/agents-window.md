@@ -117,7 +117,7 @@ Dev Container sessions work directly in the container workspace and don't suppor
 
 Use separate sessions for independent tasks, such as updating documentation in one project while investigating a bug in another. Separate conversations don't isolate files: sessions using the same folder can edit the same files. For parallel implementation in one repository, review the [worktree and permission requirements](#choose-where-an-agent-makes-changes) and follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
-The sessions list shows sessions across all your workspaces. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+The sessions list shows sessions across all your workspaces. You can group sessions by workspace or time, create custom groups with distinct icons and colors, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
 ### Arrange sessions in a grid
 

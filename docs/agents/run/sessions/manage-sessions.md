@@ -254,17 +254,36 @@ In the **{% data variables.copilot.agents_window %}**, the sessions list is loca
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the {% data variables.copilot.agents_window %}, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. Collapse a group header when you want to reduce the sessions list.
 
-To organize the sessions list in the {% data variables.copilot.agents_window %}:
+### Create a custom group
 
-1. Create a custom group from the sessions list controls.
+Create custom groups to keep related workspace sessions and [quick chats](/docs/agents/run/agents-window.md#start-a-quick-chat) together, even across workspaces. Custom groups organize sessions, not individual [peer chats within a session](#run-multiple-chats-in-a-session).
 
-1. Drag one or more sessions onto the group. An insertion line shows where the sessions land.
+1. In the sessions list, right-click a session or quick chat and select **Create Group**. To create an empty group, right-click an empty area of the list and select **Create Group**.
 
-1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
+1. Type a name for the group and press `kbstyle(Enter)`.
 
-You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
+1. To add more sessions or quick chats, right-click an item and select **Add to Group** > your group. For an item that's already in a custom group, select **Move to Group** instead.
+
+You can also drag one or more sessions or quick chats onto a group. An insertion line shows where the items land. Select multiple items to move them together.
+
+Custom groups can contain subgroups to organize sessions in a tree. Right-click a group and select **Create Subgroup**, or drag an existing group into another group. Repeat within a subgroup to add more levels.
+
+Hover over a group header to start a new session in that group, or mark all sessions in the group as done. Drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it.
+
+### Set a group icon and color
+
+Give each custom group a distinct icon and color to recognize related work in a busy sessions list.
+
+Right-click the group header and select:
+
+* **Change Icon...** to search for and select an icon.
+* **Change Color...** to select a color from the theme-aware palette.
+
+To restore the default icon or color, open its picker and select **Reset to default**. Resetting one doesn't change the other. Your choices are preserved when you reload the window.
+
+<!-- TODO: Add a screenshot showing a custom group containing workspace sessions and quick chats, with a custom icon and color and the group context menu showing Change Icon and Change Color. -->
 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the {% data variables.copilot.agents_window %} or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
