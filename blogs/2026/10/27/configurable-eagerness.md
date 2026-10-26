@@ -150,7 +150,7 @@ We addressed this failure mode by balancing eagerness rewards with rewards from 
  }
 ```
 
-_Figure 4. Example of an over-eager suggestion before mitigation._
+_Figure 4. Example of an over-eager suggestion before mitigation. The model unnecessarily added caching and expanded the service's API._
 
 ![Before-and-after Simulation Tests chart showing high-eagerness quality recovering after mitigation; trends and approximate values follow.](reward-hacking-benchmark.png)
 
