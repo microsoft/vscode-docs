@@ -156,7 +156,7 @@ _Figure 4. Example of an over-eager suggestion before mitigation._
 
 _Figure 5. Benchmark results before and after mitigating excessive suggestions on the STests benchmark._
 
-The chart plots training steps against the percentage of bad suggestions avoided, on a scale from 60% to 100%. The production baseline stays near 89%; before mitigation, the high-eagerness score falls to about 66% by the final plotted step, while low and medium eagerness remain near the baseline. After mitigation, all three modes stay near the baseline. Low, medium, and high are distinguished by square, circle, and triangle markers, respectively, as well as line styles, so the comparison does not depend on color alone; values here are approximate readings of the plotted lines.
+The chart plots training steps against the percentage of bad suggestions avoided, on a scale from 60% to 100%. The production baseline stays near 89%; before mitigation, the high-eagerness score falls to about 66% by the final plotted step, while low and medium eagerness remain near the baseline. After mitigation, all three modes stay near the baseline.
 
 **Low eagerness:** One training run produced smaller measured edits partly by [minifying suggestions](https://en.wikipedia.org/wiki/Minification_(programming)): removing whitespace and delimiter characters or shortening variable names while maintaining syntactic correctness. This is technically shorter code but is much less desirable! We mitigated this behavior in two ways:
 
