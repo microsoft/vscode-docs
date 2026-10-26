@@ -27,8 +27,6 @@ Before you start, make sure you have:
 * Met the [{% data variables.copilot.agents_window %} prerequisites](/docs/agents/run/agents-window.md#prerequisites).
 * Access to an eligible Agent Host harness.
 
-For a repository comparison, select a Git repository that has a branch and at least one commit, and use a harness that supports worktree isolation. A configured remote isn't required.
-
 For a folderless comparison, use a harness that supports [quick chats](/docs/agents/run/agents-window.md#start-a-quick-chat). Folderless comparisons run independent chats without worktrees, a judge, or a synthesizer.
 
 The models and harnesses available for comparison depend on your setup, credentials, and enterprise policies. Learn how to [configure and choose an agent harness](/docs/agents/run/agent-harnesses.md).
