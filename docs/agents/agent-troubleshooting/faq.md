@@ -190,11 +190,11 @@ You can also control the default visibility of the Secondary Side Bar with the `
 
 ### Can I continue a {% data variables.copilot.copilot_cli_short %} or {% data variables.copilot.github_copilot_app_short %} session in {% data variables.product.prodname_vscode_shortname %}?
 
-Yes, use **External** > **All** in the sessions list filter to show [supported sessions from other applications on your machine](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. After you send a message in {% data variables.product.prodname_vscode_shortname %}, the session is no longer external, so the **External** filter no longer controls whether it appears.
+Yes. The **External** filter defaults to **Last 7 Days** and shows [supported sessions from other applications on your machine](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. After you send a message in {% data variables.product.prodname_vscode_shortname %}, the session is no longer external, so the **External** filter no longer controls whether it appears.
 
 ### Why can't I see a {% data variables.product.prodname_copilot_short %} session I already started?
 
-Sessions from other applications are hidden until you change the [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) from **None**. {% data variables.product.prodname_copilot_short %} discovers repository-associated sessions updated within the last seven days. **Recent** shows the two most recently updated external sessions, whereas **All** shows all discovered sessions, not every past session.
+Check the workspace, host, state filters, and [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). **None** hides external sessions; **Last 7 Days** is the default. **Recent** shows up to two recently updated external sessions and, at startup, hides those older than the second-most-recently updated local session. {% data variables.product.prodname_copilot_short %} only discovers supported local sessions updated within the last seven days, so **Last 30 Days** doesn't extend its discovery period.
 
 ### Can I continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal?
 

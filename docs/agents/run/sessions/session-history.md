@@ -1,13 +1,15 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 10/28/2026
-MetaDescription: Manage local and synced session history in {% data variables.product.prodname_vscode %}, including privacy controls and Chronicle searches.
+MetaDescription: Save, search, and share session history in {% data variables.product.prodname_vscode %} with exports, sync, and privacy controls.
 ---
-# Sync and query session history
+# Save, sync, and query session history
+
+Keep a copy of an agent conversation, find earlier work, or share results with collaborators. Export or copy a conversation for a standalone record, or use session-history tracking and sync to search across your work.
 
 {% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your {% data variables.product.prodname_copilot_short %} harness sessions. Session sync (Experimental) can upload local session history to your GitHub account for cross-device access and sharing. With sync enabled, you can query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, code review, and the {% data variables.copilot.github_copilot_app %}.
 
-Synced sessions are private unless you explicitly share them.
+Synced sessions are private unless you explicitly share them. To resume a task rather than search its history, see [Find and resume a session](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try it">
 Launch a chat prompt that summarizes your recent coding sessions into a standup report.
@@ -15,6 +17,29 @@ Launch a chat prompt that summarizes your recent coding sessions into a standup 
 * [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fchronicle%3Astandup)
 
 </div>
+
+## Export or copy a conversation
+
+Exporting and copying create standalone records. These actions are separate from uploading session history with sync.
+
+### Export a chat session as a JSON file
+
+To save all prompts and responses from a conversation:
+
+1. Open the session in the {% data variables.copilot.chat_view %}.
+1. Run **Chat: Export Chat...** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Choose where to save the JSON file.
+
+### Copy chat messages as Markdown
+
+Right-click a message or the chat background in the {% data variables.copilot.chat_view %} and choose:
+
+* **Copy**: Copy an individual prompt or response, including its text, thinking steps, and tool calls.
+* **Copy All**: Copy the entire conversation, including prompts, responses, thinking steps, and tool calls.
+* **Copy Final Response**: Copy only the final Markdown section after the last tool call, without intermediate steps.
+
+> [!IMPORTANT]
+> Review exported files and copied messages before sharing. They can contain sensitive prompts, responses, or tool output.
 
 ## Enable or disable session sync (Experimental)
 

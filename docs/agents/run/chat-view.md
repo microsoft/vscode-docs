@@ -46,6 +46,18 @@ The {% data variables.copilot.chat_view %} opens in the Secondary Side Bar, next
 
 1. Enter a question or describe the task, and press `kb(workbench.action.chat.submit)`.
 
+### Start a {% data variables.copilot.copilot_cli_short %} session
+
+To start a new {% data variables.copilot.copilot_cli %} conversation from the editor, use one of these options:
+
+* Open the **{% data variables.copilot.copilot_cli %}** terminal profile.
+* Run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Enter `copilot` in an integrated terminal.
+
+If the CLI isn't installed, `copilot` offers to install it. You can also add the command to PATH during [macOS configuration](/docs/setup/mac.md#configure-path-with-vs-code) or [Windows setup](/docs/setup/windows.md#set-up-the-copilot-command).
+
+The new session appears in the sessions list. To continue an existing conversation instead, use [Resume in Terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal), where available.
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:
@@ -93,13 +105,34 @@ The {% data variables.copilot.chat_view %} keeps the agent next to your code, so
 > [!TIP]
 > To inspect a chat response with a keyboard or screen reader, run **Open Accessible View** (`kb(editor.action.accessibleView)`). Learn more about the [Accessible View](/docs/configure/accessibility/accessibility.md#accessible-view).
 
-The {% data variables.copilot.chat_view %} operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+### Sessions list layout
+
+Use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between two layouts:
+
+* **Compact**: The sessions list and conversation share the same panel. Select a session to open it, then use the back button to return to the list.
+* **Side-by-side**: The sessions list stays visible next to the conversation. Select a session to open its details. Use `setting(chat.viewSessions.orientation)` to configure the orientation.
+
+To hide or show the list, right-click in an empty chat and toggle **Show Sessions**, or use `setting(chat.viewSessions.enabled)`. For filters and session actions, see [Find and resume a session](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session).
 
 ### Switch chats within a session
 
 With a harness that supports multiple chats, a session can contain a main chat and nested sessions. In the **Sessions** view, expand the main chat row and select a nested session to open its conversation in the {% data variables.copilot.chat_view %}.
 
 You can continue nested sessions created in the {% data variables.copilot.agents_window %} without starting a new conversation. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+
+## Session status indicator (Experimental)
+
+Use `setting(chat.agentsControl.enabled)` to show a session status indicator in the title-bar command center. It provides access to sessions without switching views.
+
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
+
+* Select the **unread sessions badge** to filter the sessions list to conversations with new messages.
+* Select the **in-progress sessions badge** to filter to sessions with running agents.
+* Select the **sparkle icon** for chat and session management options.
+
+## View sessions on the welcome page
+
+Set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage` to show recent sessions, an embedded chat widget for new tasks, and quick actions on the welcome page at startup. The startup page opens when no editors are restored from the previous session.
 
 ## Next steps
 

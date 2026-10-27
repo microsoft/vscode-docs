@@ -163,6 +163,55 @@ Confirmations from the Local harness and extension-contributed tools can support
 
 ## Common built-in tool workflows
 
+### Coordinate work across sessions
+
+In sessions using the {% data variables.product.prodname_copilot_short %} or {% data variables.product.prodname_anthropic_claude_short %} harness, agents can use built-in session-management tools to coordinate related work. These tools are also available with the [experimental {% data variables.product.prodname_openai_codex_short %} integration](/docs/agents/run/agent-harnesses.md#codex).
+
+An agent can:
+
+* List sessions and inspect their status, workspace, and file changes.
+* Create sessions or nested sessions.
+* Read another conversation's recent context.
+* Send messages to start or steer follow-up work.
+
+State both the relationship between tasks and where the new work should run:
+
+* **Related work**: Request a nested session that reuses the current workspace and checkout for research or planning that can share files.
+* **Independent work**: Request a separate session. Omit the workspace for work that doesn't need repository files, or choose a trusted folder. Request a new worktree when code changes must be isolated.
+
+For related, read-only work:
+
+```prompt
+Create a nested session under this session that reuses the current workspace and checkout to review the authentication flow. Do not modify files.
+```
+
+For unrelated work without repository files:
+
+```prompt
+Create an independent session with no workspace to research licensing options for a separate project.
+```
+
+For isolated implementation in a known project:
+
+```prompt
+Create an independent session in the vscode workspace with a new worktree to implement and test the authentication change.
+```
+
+The tools use `currentSession` for nested work and `independent` for separate sessions. A project name can identify the workspace instead of an absolute path or URI. If names are ambiguous, the agent reports matching projects rather than choosing one. Remote workspace URIs and multi-root project working directories are also supported.
+
+When a tool creates or targets a session, an **Open Session** pill lets you jump to it. To monitor and finish the work yourself, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+Keep these constraints in mind:
+
+* Sending a message to another session always requires confirmation.
+* Agents can't send messages to the chat they are currently running in.
+* Creation and messaging limits guard against unbounded fan-out.
+* Archived sessions are excluded from listings unless explicitly requested.
+
+The experimental `setting(chat.agentHost.agentOrchestrationLimits)` setting defaults to `on`. It limits how many sessions and chats each source session creates and how many messages it sends within a sliding one-hour window, as well as recursive session creation depth. A busy session doesn't consume another session's allowance, and capacity returns as earlier actions leave the window.
+
+Setting it to `off` removes these limits without changing confirmation requirements or input validation. Changes apply without restarting the Agent Host. Reaching a limit doesn't interrupt work already running.
+
 ### Use browser tools
 
 Browser tools give agents an interactive way to validate web applications. Instead of inspecting only the source code, an agent can run your app, open it in the integrated browser, exercise a user flow, inspect page content and console errors, and fix problems it discovers.
