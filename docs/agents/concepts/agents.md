@@ -13,7 +13,7 @@ Keywords:
 - memory
 - planning
 - local agents
-- cloud sandboxes
+- cloud sessions
 - remote agent sessions
 - agent host protocol
 ---

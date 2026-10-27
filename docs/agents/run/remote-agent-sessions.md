@@ -25,11 +25,11 @@ SSH and dev tunnels provide {% data variables.product.prodname_vscode_shortname 
 
 The files and development tools stay on the machine where the agent runs. Keep that machine powered on and reachable, and keep its agent host running. For a session hosted by desktop {% data variables.product.prodname_vscode_shortname %}, keep the application running.
 
-Connecting doesn't move a local session or copy its workspace to another machine. To continue an existing remote session, connect to the host where it already runs. For managed compute that doesn't depend on keeping your own host online, use [cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md).
+Connecting doesn't move a local session or copy its workspace to another machine. To continue an existing remote session, connect to the host where it already runs. For managed compute that doesn't depend on keeping your own host online, use [cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md).
 
 ## Manage remote environments (Experimental)
 
-Use the Remote Environments editor in the {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When [GitHub Environments](#github-environments-preview) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not managed cloud sandboxes.
+Use the Remote Environments editor in the {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When [GitHub Environments](#github-environments-preview) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
 
 Remote environment management requires `setting(sessions.chat.experimental.environmentPicker)`, `setting(sessions.chat.experimental.environmentPickerManageRemotes)`, and `setting(chat.remoteAgentHostsEnabled)`. All three settings are on by default.
 

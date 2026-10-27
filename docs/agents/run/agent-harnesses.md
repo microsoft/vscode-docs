@@ -11,7 +11,7 @@ Keywords:
 - session target
 - claude
 - codex
-- cloud sandbox
+- cloud sessions
 ---
 
 # Choose an agent harness
@@ -34,7 +34,7 @@ Start with the Copilot harness for day-to-day coding and agent tasks. Choose ano
 | **Local** | Run tasks within {% data variables.product.prodname_vscode_shortname %}'s built-in agent harness. The agent works in {% data variables.product.prodname_vscode_shortname %}'s [extension host](/docs/agents/concepts/agent-host.md#local-and-existing-extension-host-sessions). | The agent iterates via chat and works interactively to implement changes in your current workspace. The session is tied to the editor window: closing that window stops the agent's ongoing work. See [Local requirements](#local). |
 | **Claude** | The {% data variables.product.prodname_anthropic_claude %} Agent SDK is integrated into {% data variables.product.prodname_vscode_shortname %}. | Sessions use Claude project configuration and provider workflows in your current workspace or an isolated worktree. See [Claude requirements](#claude). |
 | **Codex** | {% data variables.product.prodname_openai_codex %} runs through the {% data variables.product.prodname_openai_codex %} extension or the experimental Agent Host integration. | Sessions support interactive or background coding. Available interfaces depend on the integration. See [Codex requirements](#codex). |
-| **Cloud** | The Copilot harness runs in a managed cloud sandbox. Cloud is an execution target, not a separate harness. | Use an interactive [cloud sandbox (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) and reconnect to continue work without keeping your own machine online. Cloud work uses a separate workspace rather than your local editor state. See [Cloud target requirements](#cloud-target). |
+| **Cloud** | The Copilot harness runs in a managed cloud environment. Cloud is an execution target, not a separate harness. | Use an interactive [cloud session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) and reconnect to continue work without keeping your own machine online. Cloud work uses a separate workspace rather than your local editor state. See [Cloud target requirements](#cloud-target). |
 
 For Agent Host sessions managed by desktop {% data variables.product.prodname_vscode_shortname %} on your machine, keep the application running. Closing an editor window is different from quitting the application. Tools provided by a window also require that window to stay connected.
 
@@ -191,15 +191,15 @@ SDK Policy Hooks are not loaded in Local harness sessions. Check [hook compatibi
 
 ### Cloud target
 
-Use a cloud sandbox to work interactively with an agent on managed compute and return to the same session later, without keeping your own machine online. Cloud is an execution target, separate from your choice of language model.
+Use a cloud session to work interactively with an agent on managed compute and return to the same session later, without keeping your own machine online. Cloud is an execution target, separate from your choice of language model.
 
-#### Cloud sandboxes (Experimental)
+#### Cloud sessions (Experimental)
 
-With `setting(chat.agentHost.cloudSandbox.enabled)` on, new **Cloud** sessions use a managed sandbox running the {% data variables.product.prodname_copilot_short %} runtime. In the {% data variables.copilot.agents_window %}, this replaces the {% data variables.copilot.copilot_cloud_agent %} workflow on {% data variables.product.prodname_github %} Actions for new **Cloud** sessions. You can send follow-ups and reconnect to the session without keeping your own machine online. Connections require `setting(chat.remoteAgentHostsEnabled)` and service access for your account.
+With `setting(chat.agentHost.cloudSandbox.enabled)` on, new **Cloud** sessions use a managed environment running the {% data variables.product.prodname_copilot_short %} runtime. In the {% data variables.copilot.agents_window %}, this replaces the {% data variables.copilot.copilot_cloud_agent %} workflow on {% data variables.product.prodname_github %} Actions for new **Cloud** sessions. You can send follow-ups and reconnect to the session without keeping your own machine online. Connections require `setting(chat.remoteAgentHostsEnabled)` and service access for your account.
 
-The sandbox has its own workspace and tools. Choosing another model doesn't change the harness. Enabling it doesn't move a local conversation or local files into the cloud.
+The cloud environment has its own workspace and tools. Choosing another model doesn't change the harness. Enabling cloud sessions doesn't move a local conversation or local files into the cloud.
 
-To get started, follow [Run agent sessions in a cloud sandbox](/docs/agents/run/cloud-sandbox-sessions.md) for creation, continuation, and lifecycle guidance. The **Cloud** creation experience depends on your settings and account availability.
+To get started, follow [Run cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) for creation, continuation, and lifecycle guidance. The **Cloud** creation experience depends on your settings and account availability.
 
 ## Continue with a different harness
 
@@ -207,7 +207,7 @@ A handoff continues an ongoing task with a different harness or execution enviro
 
 ### Hand off from a Local harness session
 
-From a Local harness session, you can select another supported harness after work starts. Sessions that use the Copilot or Claude harness, and sessions that use the [experimental Codex integration](#codex), can receive these handoffs but can't hand off to another harness or to a cloud sandbox.
+From a Local harness session, you can select another supported harness after work starts. Sessions that use the Copilot or Claude harness, and sessions that use the [experimental Codex integration](#codex), can receive these handoffs but can't hand off to another harness or to a cloud session.
 
 To hand off a Local harness session:
 

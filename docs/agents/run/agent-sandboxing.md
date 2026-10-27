@@ -21,7 +21,7 @@ Use this article to understand the security boundary, turn on sandboxing, grant 
 
 The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
 
-This process-level protection is different from [cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md), which provide a managed cloud environment for running and continuing agent sessions. Use the cloud-session guide for that workflow, not the local sandbox setup below.
+This process-level protection is different from [cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md), which provide a managed cloud environment for running and continuing agent sessions. Use the cloud-session guide for that workflow, not the local sandbox setup below.
 
 > [!NOTE]
 > **For Local harness sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local harness sessions and custom terminal tools](#local-harness-sessions-and-custom-terminal-tools) for compatibility details.

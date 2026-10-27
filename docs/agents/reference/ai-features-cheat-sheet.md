@@ -27,7 +27,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 | Get help while typing and editing | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Accept ghost text to complete code, or use next edit suggestions to navigate to and apply a related edit. |
 | Manage independent tasks across projects | [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Select **Open in Agents** in the title bar, then start and monitor sessions. |
 | Continue agent work across apps and devices | [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) | Register your development machine from **Remote Connections**, then connect from a supported {% data variables.product.prodname_copilot_short %} client. For {% data variables.product.prodname_vscode_shortname %}-specific access, use [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). |
-| Run and continue interactive work without keeping my machine online | [Cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) | Turn on cloud sandbox support, select **Cloud**, and choose a repository. Reopen the existing session to continue. |
+| Run and continue interactive work without keeping my machine online | [Cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) | Turn on cloud session support, select **Cloud**, and choose a repository. Reopen the existing session to continue. |
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule or repository event | [Automations](/docs/agents/run/automations.md) | Save a prompt and configuration in the {% data variables.copilot.agents_window %}. Check a manual run first. Cloud automations `feature(cloud-automations)` also support service-advertised issue and pull request triggers. |
 | Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
@@ -60,7 +60,7 @@ To organize larger tasks:
 
 * Use [separate sessions and worktrees](/docs/agents/guides/delegate-two-tasks.md) for independent tasks that should not share code changes.
 * Use [subagents](/docs/agents/run/subagents.md) to delegate a focused part of a task in a separate context.
-* [Hand off a session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) when you want to continue work with another supported harness. For cloud execution, [start a cloud sandbox session](/docs/agents/run/cloud-sandbox-sessions.md).
+* [Hand off a session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness) when you want to continue work with another supported harness. For cloud execution, [start a cloud session](/docs/agents/run/cloud-sandbox-sessions.md).
 
 <a name="add-context-to-your-prompt"></a>
 

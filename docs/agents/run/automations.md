@@ -30,7 +30,7 @@ You can choose to run an automation locally or in the cloud based on your needs:
 
 GitHub service plans, permissions, billing, security, and supported triggers can change independently of {% data variables.product.prodname_vscode_shortname %}. Review [{% data variables.product.prodname_copilot %} automations](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations) before enabling unattended cloud runs.
 
-Automations start a run when a trigger fires. They are different from [cloud sandbox sessions](/docs/agents/run/cloud-sandbox-sessions.md), where you start an interactive task and reopen the same session to continue it. Creating a cloud sandbox doesn't create an automation or schedule.
+Automations start a run when a trigger fires. They are different from [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md), where you start an interactive task and reopen the same session to continue it. Creating a cloud session doesn't create an automation or schedule.
 
 ## Create an automation
 

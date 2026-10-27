@@ -59,7 +59,7 @@ Start a session for a local folder, GitHub repository, or [remote workspace](/do
 
 To connect to and organize remote machines in one place, use [remote environment management (Experimental)](/docs/agents/run/remote-agent-sessions.md#manage-remote-environments-experimental).
 
-For interactive work on managed compute, [start a cloud sandbox session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-sandbox-session). The cloud environment runs the task independently of your local machine. To continue it later, [reopen the existing session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) rather than starting another task.
+For interactive work on managed compute, [start a cloud session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-session). The cloud environment runs the task independently of your local machine. To continue it later, [reopen the existing session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) rather than starting another task.
 
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 

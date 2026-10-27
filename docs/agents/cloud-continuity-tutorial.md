@@ -1,12 +1,12 @@
 ---
 ContentId: 1e9a832b-694f-4ab6-85ce-cf4af9e71870
 DateApproved: 10/28/2026
-MetaDescription: Explore a private repository in a cloud sandbox, then continue the same session from a terminal with {% data variables.copilot.copilot_cli_short %}.
+MetaDescription: Explore a private repository in a cloud session, then continue the same session from a terminal with {% data variables.copilot.copilot_cli_short %}.
 MetaSocialImage: images/agents-overview/hero-copilot-cli-dark.png
 ---
 # Tutorial: Continue a cloud agent session in your terminal (Experimental)
 
-Start an agent task in {% data variables.product.prodname_vscode %}, close the application, and continue the same conversation from {% data variables.copilot.copilot_cli %} in a regular terminal. The agent runs in a managed cloud sandbox, so your development machine doesn't need to stay online for the task to run.
+Start an agent task in {% data variables.product.prodname_vscode %}, close the application, and continue the same conversation from {% data variables.copilot.copilot_cli %} in a regular terminal. The agent runs in a managed cloud environment, so your development machine doesn't need to stay online for the task to run.
 
 In this tutorial, you ask an agent to explore one of your private repositories and suggest improvements. Then you connect from your terminal and turn one suggestion into an implementation plan without repeating the repository context. You don't need to clone the repository, install its dependencies, or change any code.
 
@@ -15,7 +15,7 @@ If you haven't worked with agents before, start with the [agents quickstart](/do
 ## Prerequisites
 
 * [Install {% data variables.product.prodname_vscode_shortname %}](/download) and [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
-* Use a {% data variables.product.prodname_github %} account with access to cloud sandbox sessions. Availability depends on your account and organization.
+* Use a {% data variables.product.prodname_github %} account with access to cloud sessions. Availability depends on your account and organization.
 * Have an existing repository on GitHub.com.
 * Ensure the experimental `setting(chat.agentHost.cloudSandbox.enabled)` setting is on in {% data variables.product.prodname_vscode_shortname %}.
 * [Install the latest {% data variables.copilot.copilot_cli_short %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli). Choose a native installation option if you don't already have Node.js. Your account and organization must allow CLI access and cloud connections.
@@ -29,11 +29,13 @@ Choose a repository from your own projects that is available for cloud sessions.
 
 The task only reads repository files and returns its findings in the conversation. You don't need to install dependencies or run the project for this walkthrough.
 
-The cloud session works with the code available on GitHub.com. Uncommitted changes, local dependencies, and files that exist only on your computer aren't copied to the sandbox.
+The cloud session works with the code available on GitHub.com. Uncommitted changes, local dependencies, and files that exist only on your computer aren't copied to the cloud environment.
 
-## 2. Start the task in a cloud sandbox
+<a name="2-start-the-task-in-a-cloud-sandbox"></a>
 
-A cloud sandbox provides an isolated environment for the agent to explore the repository without affecting your local setup. They run on GitHub's infrastructure.
+## 2. Start the task in a cloud session
+
+A cloud session provides an isolated environment for the agent to explore the repository without affecting your local setup. It runs on {% data variables.product.prodname_github %}'s infrastructure.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar to open the {% data variables.copilot.agents_window %}.
 
@@ -93,7 +95,7 @@ You can use the same computer or another computer with {% data variables.copilot
 
 1. Observe that the terminal now shows the ongoing conversation and the agent's progress. You can continue interacting with the agent as if you were in the original client.
 
-    The terminal is another client for the same session. Repository access and agent tools still run in the cloud sandbox, not in your terminal's current directory. You don't need a local clone.
+    The terminal is another client for the same session. Repository access and agent tools still run in the cloud environment, not in your terminal's current directory. You don't need a local clone.
 
 If you already know the session ID or task ID, you can connect directly with `copilot --connect=<session-or-task-id>`. For details, see the [CLI command-line options](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options).
 
@@ -126,5 +128,5 @@ You have explored a repository in {% data variables.product.prodname_vscode_shor
 
 ## Next steps
 
-* [Manage cloud sandbox sessions](/docs/agents/run/cloud-sandbox-sessions.md) to learn about reconnecting, reviewing work, and finishing a session.
+* [Manage cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) to learn about reconnecting, reviewing work, and finishing a session.
 * [Create an automation](/docs/agents/run/automations.md) for recurring work such as a repository digest. An automation starts new runs from a saved prompt rather than keeping this interactive session running.

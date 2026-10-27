@@ -136,7 +136,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use chat for questions or use a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent sessions that use the Copilot, Claude, or Codex harness in parallel. For managed cloud execution, [start a cloud sandbox session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) with the task and its context.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent sessions that use the Copilot, Claude, or Codex harness in parallel. For managed cloud execution, [start a cloud session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) with the task and its context.
 1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).
@@ -166,7 +166,7 @@ When working with agents, choose the harness that matches your task and workflow
 
 * **Use Claude or Codex for provider-specific capabilities.** These harnesses also run tools on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
 
-* **Use cloud sandboxes for managed execution.** Use [cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for interactive work on managed compute that you can reconnect to later, without keeping your own host online.
+* **Use cloud sessions for managed execution.** Use [cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for interactive work on managed compute that you can reconnect to later, without keeping your own host online.
 
 * **Run parallel sessions for independent tasks.** Start multiple sessions with the Copilot, Claude, or Codex harness, or use cloud sessions, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
@@ -208,7 +208,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/run/subagents.md) so the findings don't clutter your main context.
 
-* **Choose the right harness and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) for day-to-day work in a folder or isolated worktree on your machine, or a [cloud sandbox (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for interactive work on managed compute.
+* **Choose the right harness and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) for day-to-day work in a folder or isolated worktree on your machine, or a [cloud session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for interactive work on managed compute.
 
 * **Scale with parallel sessions.** Run multiple sessions in separate folders or worktrees to save time and keep contexts separate. You can switch among sessions that run on your machine, a connected host, in a Dev Container, or on provider-managed cloud infrastructure from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) in {% data variables.product.prodname_vscode_shortname %}.
 

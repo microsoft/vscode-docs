@@ -41,7 +41,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Run tasks in cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for managed remote execution.
+* [Run tasks in cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for managed remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
