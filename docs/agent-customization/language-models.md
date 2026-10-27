@@ -36,7 +36,7 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
-If the language model picker only shows **Auto**, verify that the workspace is trusted. Learn more about [workspace trust and restricted mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
+If the model picker shows **Models** instead of a model name, open it to check whether workspace trust or sign-in is required. Learn more about [workspace trust and Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -86,7 +86,11 @@ The model picker label updates to show the selected effort level, for example "C
 
 With auto model selection, {% data variables.product.prodname_vscode_shortname %} evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
-To use auto model selection, select **Auto** from the model picker in chat. Then use **Optimize for** to choose the tier that matches your priorities:
+To use auto model selection, select **Auto** from the model picker in chat.
+
+In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), **Copilot Fusion** replaces **Auto** when dynamic Auto tiers are enabled and the service offers a Fusion tier your account can run. If the picker shows **Copilot Fusion**, follow the [Fusion instructions](#use-copilot-fusion-research-preview) instead.
+
+Use **Optimize for**, when available, to choose a tier that matches your priorities. The offered tiers depend on the service and can include:
 
 * **Efficiency** favors lower AI credit consumption.
 * **Balance** balances capability and credit consumption.
@@ -100,19 +104,19 @@ You can see which model is used for generating a response by hovering over the c
 
 ## Use Copilot Fusion (Research preview)
 
-Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. Unlike Auto, which selects one model per request, Fusion can use a single model or coordinate multiple models. For example, one model can draft a solution, a second model can critique it, and the first can revise it based on that feedback. You receive a single final response.
+Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. For background on how Fusion differs from Auto and when to use it, see [Copilot Fusion concepts](/docs/agents/concepts/language-models.md#copilot-fusion-research-preview).
 
 For details about orchestration, tiers, availability, and AI credit usage, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
 
 To use Copilot Fusion:
 
-1. Enable `setting(chat.copilot.dynamicAutoTiers.enabled)` in the Settings editor. The Copilot runtime restarts after active requests finish.
+1. Verify that `setting(chat.copilot.dynamicAutoTiers.enabled)` is enabled in the Settings editor. Changing it restarts the {% data variables.product.prodname_copilot_short %} runtime after active requests finish.
 
 1. Start a new chat with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot).
 
-1. In the model picker, select **Copilot Fusion**, then choose **Standard**, **High**, or **Max**.
+1. In the model picker, select **Copilot Fusion**, then choose an available tier: **Standard**, **High**, or **Max**.
 
-Copilot Fusion appears only if your account has access to a Fusion tier.
+Enabling the setting doesn't grant access to Fusion tiers. If the service doesn't offer a Fusion tier that your account can run, the picker continues to show **Auto** instead.
 
 <a name="use-on-device-models-experimental"></a>
 
