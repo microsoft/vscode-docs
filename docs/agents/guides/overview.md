@@ -41,7 +41,7 @@ If you're new to both {% data variables.product.prodname_vscode_shortname %} and
     </a>
 </div>
 
-To work beyond your development machine, [start a task in a cloud session and continue it from a terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) (Experimental). Use your own private repository without cloning it or installing project dependencies. Requires cloud session access and {% data variables.copilot.copilot_cli_short %}.
+To work beyond your development machine, [start a task in a cloud session and continue it from a terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) `feature(cloud-sessions)`. Use your own private repository without cloning it or installing project dependencies. Requires cloud session access and {% data variables.copilot.copilot_cli_short %}.
 
 Or jump to a task:
 

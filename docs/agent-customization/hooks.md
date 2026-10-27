@@ -38,7 +38,7 @@ Other session targets use their own hook implementations:
 | **Claude** | [Claude hooks reference](https://code.claude.com/docs/en/hooks) |
 | **Codex** | [Codex hooks documentation](https://developers.openai.com/codex/hooks/) |
 
-[Cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) use the Copilot harness in a managed environment. Local hook files aren't automatically copied to that environment. Check the configuration available in the cloud workspace rather than assuming that hooks on your machine apply there.
+[Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` use the Copilot harness in a managed environment. Local hook files aren't automatically copied to that environment. Check the configuration available in the cloud workspace rather than assuming that hooks on your machine apply there.
 
 The older Local harness has a separate [Local hooks reference](/docs/agents/reference/hooks-reference.md). Use it to interpret existing hooks during migration, not as the schema for a new Copilot hook.
 

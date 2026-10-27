@@ -84,11 +84,11 @@ To begin a separate terminal conversation, [start a new CLI session](/docs/agent
 | Where the session runs | How to continue |
 |---|---|
 | A remote host | Use [GitHub Environments (Preview), SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect), then open the existing session. The host must remain running and reachable. |
-| A managed cloud environment (Experimental) | [Reconnect to the existing cloud session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session). Execution stays in the managed environment. |
+| A managed cloud environment `feature(cloud-sessions)` | [Reconnect to the existing cloud session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session). Execution stays in the managed environment. |
 
 To move from local work to cloud execution, [start a separate cloud session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-session).
 
-For a hands-on walkthrough, [start a task in a cloud session and continue it from a regular terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) (Experimental).
+For a hands-on walkthrough, [start a task in a cloud session and continue it from a regular terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) `feature(cloud-sessions)`.
 
 ## Start a new or related conversation
 

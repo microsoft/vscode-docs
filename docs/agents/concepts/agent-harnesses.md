@@ -84,7 +84,7 @@ The harness choice does not by itself determine where the language model runs or
 |-----------------------|---------|-----------------------|
 | **Copilot** | The {% data variables.product.prodname_copilot_short %} harness, which uses the shared runtime. | Your machine, a connected host, or a Dev Container. |
 | **Claude or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine, or a connected host or Dev Container where the integration supports it. Check the [harness setup and capabilities](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
-| **Cloud** | The Copilot harness in a managed cloud environment. | Managed infrastructure for [interactive cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) that you can reconnect to without keeping your own machine online. |
+| **Cloud** | The Copilot harness in a managed cloud environment. | Managed infrastructure for [interactive cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` that you can reconnect to without keeping your own machine online. |
 
 > [!NOTE]
 > **For Local harness sessions:** The Local harness works in the current workspace through the editor's extension host. **Local** is a session-target name, not the only way to run agents on your machine. See [Local setup and capabilities](/docs/agents/run/agent-harnesses.md#local).
@@ -101,7 +101,7 @@ The execution environment determines where the harness runs workspace tools and 
 * **Your machine**: the harness works with a local folder or Git worktree and can access local context, such as test results and terminal output.
 * **A connected host**: the harness runs next to the source code on an SSH, Tunnel, or WSL host. Learn more about [remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
 * **A Dev Container**: the agent runs workspace tools inside the project's container and uses its configured tools and dependencies. The container can be on your machine or on a supported SSH, Tunnel, or WSL host.
-* **Cloud infrastructure**: the harness works in a managed environment rather than your local {% data variables.product.prodname_vscode_shortname %} workspace. [Cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) support interactive work and reconnection.
+* **Cloud infrastructure**: the harness works in a managed environment rather than your local {% data variables.product.prodname_vscode_shortname %} workspace. [Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` support interactive work and reconnection.
 
 ![Diagram showing session execution options grouped by your machine, a connected SSH, Tunnel, or WSL host, and provider-managed cloud infrastructure. Both your machine and a connected host can run sessions directly on the host or inside a Dev Container.](../images/concepts/session-execution-options.svg)
 

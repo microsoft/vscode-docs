@@ -25,7 +25,7 @@ SSH and dev tunnels provide {% data variables.product.prodname_vscode_shortname 
 
 The files and development tools stay on the machine where the agent runs. Keep that machine powered on and reachable, and keep its agent host running. For a session hosted by desktop {% data variables.product.prodname_vscode_shortname %}, keep the application running.
 
-Connecting doesn't move a local session or copy its workspace to another machine. To continue an existing remote session, connect to the host where it already runs. For managed compute that doesn't depend on keeping your own host online, use [cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md).
+Connecting doesn't move a local session or copy its workspace to another machine. To continue an existing remote session, connect to the host where it already runs. For managed compute that doesn't depend on keeping your own host online, use [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`.
 
 ## Manage remote environments (Experimental)
 

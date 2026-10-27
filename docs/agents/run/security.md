@@ -58,7 +58,7 @@ Disconnecting a client doesn't stop the host's tasks. To stop sharing from the h
 
 ## Cloud sessions
 
-[Cloud sessions (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) run agent tools in a managed environment, not in your local workspace. Check the repository, cloud session's permissions, and data-handling requirements before sending code or task context. Local editor state, extension tools, and uncommitted files aren't automatically transferred.
+[Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` run agent tools in a managed environment, not in your local workspace. Check the repository, cloud session's permissions, and data-handling requirements before sending code or task context. Local editor state, extension tools, and uncommitted files aren't automatically transferred.
 
 Managed compute is a different boundary from [process-level agent sandboxing](/docs/agents/run/agent-sandboxing.md). Don't assume that local sandbox or approval settings configure the cloud service. Use the controls available in the cloud session and review its changes and test results before integration.
 

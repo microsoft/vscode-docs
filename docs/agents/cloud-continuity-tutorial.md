@@ -1,10 +1,13 @@
 ---
 ContentId: 1e9a832b-694f-4ab6-85ce-cf4af9e71870
 DateApproved: 10/28/2026
+FeatureStatus: cloud-sessions
 MetaDescription: Explore a private repository in a cloud session, then continue the same session from a terminal with {% data variables.copilot.copilot_cli_short %}.
 MetaSocialImage: images/agents-overview/hero-copilot-cli-dark.png
 ---
-# Tutorial: Continue a cloud agent session in your terminal (Experimental)
+<a name="tutorial-continue-a-cloud-agent-session-in-your-terminal-experimental"></a>
+
+# Tutorial: Continue a cloud agent session in your terminal
 
 Start an agent task in {% data variables.product.prodname_vscode %}, close the application, and continue the same conversation from {% data variables.copilot.copilot_cli %} in a regular terminal. The agent runs in a managed cloud environment, so your development machine doesn't need to stay online for the task to run.
 
@@ -17,7 +20,7 @@ If you haven't worked with agents before, start with the [agents quickstart](/do
 * [Install {% data variables.product.prodname_vscode_shortname %}](/download) and [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Use a {% data variables.product.prodname_github %} account with access to cloud sessions. Availability depends on your account and organization.
 * Have an existing repository on GitHub.com.
-* Ensure the experimental `setting(chat.agentHost.cloudSandbox.enabled)` setting is on in {% data variables.product.prodname_vscode_shortname %}.
+* Ensure the `setting(chat.agentHost.cloudSandbox.enabled)` setting is on in {% data variables.product.prodname_vscode_shortname %}.
 * [Install the latest {% data variables.copilot.copilot_cli_short %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli). Choose a native installation option if you don't already have Node.js. Your account and organization must allow CLI access and cloud connections.
 
 > [!NOTE]

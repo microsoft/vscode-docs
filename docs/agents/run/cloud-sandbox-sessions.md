@@ -1,13 +1,14 @@
 ---
 ContentId: 9b18cd39-21c1-4f77-a0ab-c54f221998b7
 DateApproved: 10/23/2026
+FeatureStatus: cloud-sessions
 MetaDescription: Run and continue cloud sessions from {% data variables.product.prodname_vscode_shortname %} without keeping your development machine online.
 Keywords:
 - cloud sessions
 - continuity
 - remote execution
 ---
-# Run agent sessions in the cloud (Experimental)
+# Run agent sessions in the cloud
 
 A cloud session runs an agent in a managed execution environment, so you can work with it without keeping your development machine online. Start a task, send follow-up instructions, and reconnect to the existing session from {% data variables.product.prodname_vscode_shortname %}. Your code and tools run in the cloud environment rather than on the device displaying the conversation.
 
@@ -24,7 +25,7 @@ Explore your own private repository in a cloud session, then continue the same c
 
 | Option | Choose it when |
 |--------|----------------|
-| **Cloud session (Experimental)** | You want to keep agent tools and changes off your local machine, or work on managed cloud compute without maintaining a host or keeping your own machine online. Reconnect to the existing session to continue the task. |
+| **Cloud session** | You want to keep agent tools and changes off your local machine, or work on managed cloud compute without maintaining a host or keeping your own machine online. Reconnect to the existing session to continue the task. |
 | **[GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview)** | You want to access sessions on your existing development machine across supported {% data variables.product.prodname_copilot_short %} clients. That machine and its Agent Host must remain running. |
 | **[SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect)** | You want {% data variables.product.prodname_vscode_shortname %}-specific access to an agent host on another machine. |
 
@@ -35,7 +36,7 @@ A cloud session currently supports the {% data variables.product.prodname_copilo
 ## Prerequisites
 
 * Sign in with the {% data variables.product.prodname_github %} account that has access to the cloud service and the repository you want to use. Availability depends on your account and organization.
-* Turn on the experimental `setting(chat.agentHost.cloudSandbox.enabled)` setting to create and discover cloud sessions. In the {% data variables.copilot.agents_window %}, this replaces the {% data variables.copilot.copilot_cloud_agent %} workflow on {% data variables.product.prodname_github %} Actions for new **Cloud** sessions.
+* Turn on the `setting(chat.agentHost.cloudSandbox.enabled)` setting to create and discover cloud sessions. In the {% data variables.copilot.agents_window %}, this replaces the {% data variables.copilot.copilot_cloud_agent %} workflow on {% data variables.product.prodname_github %} Actions for new **Cloud** sessions.
 * For the repository workflow below, choose a repository hosted on GitHub.com that your account can access.
 
 To prevent this client from connecting to remote agent hosts, including those for cloud sessions, turn off `setting(chat.remoteAgentHostsEnabled)`.
@@ -86,7 +87,7 @@ In the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md):
 The selected repository is prepared in the cloud environment. Files, dependencies, terminal state, and uncommitted changes on your local machine aren't automatically copied there. Give the agent the context it needs in the prompt, and use the capabilities available in the cloud session rather than assuming local extension tools are present.
 
 > [!NOTE]
-> The experimental `setting(chat.agentHost.cloudSandbox.earlyPreparation)` setting can prepare cloud compute while you compose a prompt, before you send it. It is off by default.
+> The `setting(chat.agentHost.cloudSandbox.earlyPreparation)` setting can prepare cloud compute while you compose a prompt, before you send it. It is off by default.
 
 ## Continue an existing cloud session
 
