@@ -23,6 +23,7 @@
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Agents Quickstart", "/docs/agents/quickstart"],
                     ["Agents Tutorial", "/docs/agents/agents-tutorial"],
+                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
                     ["Best Practices", "/docs/agents/best-practices"]
                 ]
             }],

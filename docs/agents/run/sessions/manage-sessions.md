@@ -88,6 +88,8 @@ To begin a separate terminal conversation, [start a new CLI session](/docs/agent
 
 To move from local work to cloud execution, [start a separate cloud sandbox session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-sandbox-session).
 
+For a hands-on walkthrough, [start a task in a cloud sandbox and continue it from a regular terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) (Experimental).
+
 ## Start a new or related conversation
 
 Choose a conversation based on whether you need the discussion so far:

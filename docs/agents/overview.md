@@ -113,6 +113,8 @@ Continuity means picking up agent work across supported interfaces and machines 
 
 For sessions that run on your own machine, keep the host running and reachable. Cloud sandboxes use managed compute instead. Start a cloud sandbox session for work in the cloud, then reopen that session to continue.
 
+Use your own private repository to [start a cloud agent task in {% data variables.product.prodname_vscode_shortname %} and continue it in {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) (Experimental).
+
 Where tools run and where the model is hosted are separate choices. An agent can edit files on your machine while sending model requests to a hosted provider.
 
 ## Stay in control
