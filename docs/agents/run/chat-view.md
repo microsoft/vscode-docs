@@ -7,7 +7,7 @@ MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_v
 
 The {% data variables.copilot.chat_view %} runs agents beside your code in the main {% data variables.product.prodname_vscode %} window. Use it when you want to collaborate over code in the current workspace while keeping the editor, debugger, tests, terminals, extensions, and notebooks available alongside the conversation.
 
-Start with a question about your project, ask for a change when you're ready, and inspect the result alongside your code. This article shows how to start a session, work with the agent, and arrange chat around your editor. To compare this approach with coordinating tasks in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), see [Choose an interface](/docs/agents/run/overview.md#choose-an-interface).
+Start with a question about your project, ask for a change when you're ready, and inspect the result alongside your code. This article shows how to start a session, work with the agent, and arrange chat around your editor. To compare this approach with coordinating tasks in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), see [Choose how you work](/docs/agents/overview.md#choose-how-you-work).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.

@@ -38,7 +38,6 @@
                     ["Use Chat", "/docs/chat/chat-overview"],
                     ["Canvases", "/docs/agents/run/canvases"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
-                    ["Run an Agent Task", "/docs/agents/run/overview"],
                     ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
                     ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
 

@@ -76,7 +76,7 @@ Before starting a guide, check:
 
 * **Interface:** Which steps use the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}?
 
-Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasizes collaboration over code in the current workspace; the {% data variables.copilot.agents_window %} emphasizes multi-project orchestration and higher-level task assignment. Follow the guide's chosen interface for its walkthrough. See [Run agents](/docs/agents/run/overview.md) to compare approaches.
+Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasizes collaboration over code in the current workspace; the {% data variables.copilot.agents_window %} emphasizes multi-project orchestration and higher-level task assignment. Follow the guide's chosen interface for its walkthrough. See [Choose how you work](/docs/agents/overview.md#choose-how-you-work) to compare approaches.
 
 ## Work on a project
 

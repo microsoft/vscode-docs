@@ -9,7 +9,7 @@ Adding tests to an existing project involves more than generating test code. You
 
 This guide shows you how to use an agent in {% data variables.product.prodname_vscode %} to add tests for existing code, run them, investigate failures, and review the result. Start with one function or module, then expand coverage after you validate the first set of tests.
 
-The walkthrough uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %} to collaborate over code in the current workspace. To compare this approach with assigning higher-level tasks in the {% data variables.copilot.agents_window %}, see [Run agents](/docs/agents/run/overview.md).
+The walkthrough uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %} to collaborate over code in the current workspace. To compare this approach with assigning higher-level tasks in the {% data variables.copilot.agents_window %}, see [Choose how you work](/docs/agents/overview.md#choose-how-you-work).
 
 ## Prerequisites
 

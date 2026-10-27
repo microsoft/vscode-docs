@@ -44,11 +44,13 @@ When you're ready to use an agent in your own project, start with one bounded ta
 
 1. In the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md), select **Copilot** from the **Session Target** UI control, select the **Agent** role, and keep **Manual permissions** for an interactive first task.
 
+    Keep the other session defaults for your first task. When you need a different setup, change one option at a time so that you can identify its effect.
+
 1. Review each approval request. When the agent finishes, inspect every changed file and run the relevant tests yourself.
 
-1. Commit only the intended changes. If the result is wrong, provide focused feedback or [restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
+1. Commit only the intended changes. If the result is wrong, [choose a recovery action](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action), such as providing focused feedback or restoring a checkpoint.
 
-Checkpoints restore affected workspace files and chat history, but they don't reverse completed terminal commands, deployments, or changes to external services. Use Git and the external service's recovery controls for those effects.
+Stopping a request doesn't undo completed actions. Checkpoints restore affected workspace files and chat history, but they don't reverse completed terminal commands, deployments, or changes to external services. Use Git and the external service's recovery controls for those effects.
 
 For step-by-step guides in an existing project, [explore a codebase](/docs/agents/guides/explore-a-codebase.md), [add a feature](/docs/agents/guides/add-a-feature.md), or [refactor without changing behavior](/docs/agents/guides/refactor-safely.md).
 

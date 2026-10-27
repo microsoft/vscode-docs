@@ -78,7 +78,7 @@ If you add new tests or change your tests, use the **Refresh Tests** button to r
 
 An agent can help add tests, run the project's test command, and investigate failures. You still need to review the assertions and verify the results. Start with one function or module rather than asking for tests for the entire project.
 
-The following workflow uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %}, alongside your code. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents; see [Run agents](/docs/agents/run/overview.md) to choose an interface for your work.
+The following workflow uses the {% data variables.product.prodname_copilot_short %} harness in the {% data variables.copilot.chat_view %}, alongside your code. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents; see [Choose how you work](/docs/agents/overview.md#choose-how-you-work) to choose an interface for your work.
 
 1. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md), open your project, and install the project's dependencies.
 

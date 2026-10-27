@@ -71,7 +71,7 @@ Switch between different experiences depending on your task, and [continue agent
         <i class="codicon codicon-comment-discussion" aria-hidden="true"></i>
         <div>
             <p><strong>Collaborate alongside your code</strong></p>
-            <p>Ask questions and work with an agent beside your editor, terminal, tests, and debugger.</p>
+            <p>Work with an agent in the {% data variables.copilot.chat_view %}, focused on the current workspace alongside your editor, terminal, tests, and debugger.</p>
         </div>
     </a>
     <a id="delegate-and-manage-tasks" class="card" href="/docs/agents/run/agents-window">
@@ -83,7 +83,7 @@ Switch between different experiences depending on your task, and [continue agent
     </a>
 </div>
 
-An [agent](/docs/agents/concepts/agents.md) uses a model and tools to find relevant code, make changes, and run checks. You set the goal, guide the work, and review the results.
+An [agent](/docs/agents/concepts/agents.md) uses a model and tools to find relevant code, make changes, and run checks. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. You set the goal, guide the work, and review the results.
 
 For routine work, save a prompt as an [automation](/docs/agents/run/automations.md). Run it locally on a schedule, or use cloud automations `feature(cloud-automations)` for scheduled or event-triggered repository work that continues while your computer is off. Review a manual run before enabling recurring work.
 
@@ -129,6 +129,5 @@ For keyboard, screen reader, and low-vision workflows, learn how to use the [Acc
 
 ## Next steps
 
-* [Learn the agent workflow for planning, steering, review, and recovery](/docs/agents/run/overview.md).
 * [Apply agent best practices to your project](/docs/agents/best-practices.md).
 * [Compare quality, reliability, and AI credit usage](/docs/agents/guides/optimize-usage.md).

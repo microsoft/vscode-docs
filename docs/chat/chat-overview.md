@@ -18,7 +18,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Choose where to chat
 
-The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Run agents](/docs/agents/run/overview.md#choose-an-interface).
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Choose how you work](/docs/agents/overview.md#choose-how-you-work).
 
 For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
