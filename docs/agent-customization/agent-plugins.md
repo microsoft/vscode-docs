@@ -33,6 +33,7 @@ Plugins can provide the following customizations. The selected harness and plugi
 |------------|---------|
 | [Skills](/docs/agent-customization/agent-skills.md) | Instructions, scripts, and resources for specialized workflows |
 | [MCP servers](/docs/agent-customization/mcp-servers.md) | Tools for interacting with external systems |
+| [Canvases](/docs/agents/run/canvases.md) `feature(canvases)` | Interactive visual surfaces shared by you and the agent in supported {% data variables.product.prodname_copilot_short %} sessions |
 | [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized roles and tool configurations |
 | [Hooks](/docs/agent-customization/hooks.md) | Commands that run at agent lifecycle points |
 | [Automation templates](/docs/agents/run/automations.md#start-from-a-template) | Starting prompts and schedules to review before creating an automation |

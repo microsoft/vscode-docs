@@ -228,33 +228,7 @@ Changing a harness is different from starting another conversation or opening th
 
 `feature(canvases)`
 
-Canvases are interactive visual surfaces shared by you and the agent. For example, you can inspect a diagram that the agent updates or adjust controls whose values flow back to the agent. Every canvas is provided by a canvas extension.
-
-![Screenshot of a kanban canvas showing tasks and columns in the editor.](../images/agent-harnesses/kanban-canvas.png)
-
-Before you create a new supported Copilot session, turn on `setting(chat.canvases.enabled)`. To get a canvas, use one of these options:
-
-* **Create a canvas extension**: When the `/create-canvas` skill is available, enter `/create-canvas` in the chat input and describe the user interface you want for your project. The skill creates a canvas extension in your workspace and opens its canvas.
-
-* **Install a chat plugin**: In the {% data variables.copilot.github_copilot_app %}, install a chat plugin that includes a canvas extension. Switch to {% data variables.product.prodname_vscode_shortname %} and ask the agent in chat to list the available canvases and have it open one.
-
-For canvases that don't require input, double-click the canvas in the **Canvases** section of the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-canvas-extensions) to open it without asking the agent, or use one of these menus:
-
-* In the editor window, select **New Chat (+)** > **Canvas** in the {% data variables.copilot.chat_view %}.
-* In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas** in the editor area.
-
-For a canvas marked **Requires Input**, ask the agent to open it and provide the required information.
-
-In the editor window, the **Canvas** submenu appears after your first message in a supported Copilot harness session, when canvas support is enabled and canvas extensions are installed.
-
-Whether you or the agent opens a canvas, it appears in an editor tab and remains associated with its owning chat. You can interact with the canvas directly. Depending on the extension, your interactions can update the session, and the agent can invoke actions exposed by the canvas to inspect or update its state. You can close and reopen a live canvas when the canvas supports it.
-
-To review where canvas extensions come from and enable or disable supported extensions, see [Manage canvas extensions](/docs/agent-customization/overview.md#manage-canvas-extensions).
-
-Canvas extensions are also supported in the {% data variables.copilot.github_copilot_app %}. Learn how to [work with canvas extensions in the {% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). To explore examples, browse [sample canvas extensions](https://awesome-copilot.github.com/extensions/).
-
-> [!NOTE]
-> Canvases are available only on desktop in supported local Copilot Agent Host sessions. They aren't supported for Claude, Codex, extension-host Local sessions, remote Agent Host sessions, browser or web clients, or auxiliary-window hosting.
+Canvases are interactive visual surfaces shared by you and the agent in supported local {% data variables.product.prodname_copilot_short %} sessions. For prerequisites and steps to find, open, and manage canvases, see [Use canvases with agents](/docs/agents/run/canvases.md).
 
 ## Frequently asked questions
 

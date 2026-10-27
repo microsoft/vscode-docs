@@ -188,7 +188,7 @@ When enabled, the separate **Automations** sidebar action opens [recurring tasks
 
 By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
 
-Supported {% data variables.product.prodname_copilot_short %} canvases `feature(canvases)` open in the editor area. You can reopen a dismissed live canvas from the editor group's **Add Tab (+)** menu. Learn more about [using canvases with the Copilot harness](/docs/agents/run/agent-harnesses.md#use-canvases-with-the-copilot-harness).
+Supported {% data variables.product.prodname_copilot_short %} canvases `feature(canvases)` open in the editor area. You can reopen a dismissed live canvas from the editor group's **Add Tab (+)** menu. Learn more about [using canvases with agents](/docs/agents/run/canvases.md).
 
 ## Understand the active session
 
