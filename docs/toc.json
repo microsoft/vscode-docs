@@ -38,8 +38,8 @@
                     ["Use Chat", "/docs/chat/chat-overview"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
                     ["Run an Agent Task", "/docs/agents/run/overview"],
-                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
                     ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
 
                     ["", "", {
                         "name": "Plan and Run Tasks",
