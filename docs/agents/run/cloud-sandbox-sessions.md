@@ -13,6 +13,13 @@ A cloud sandbox gives an agent a managed execution environment, so you can work 
 
 Cloud sandboxes support continuity by separating the session's execution from your current client.
 
+{% action-card title="Try a cloud agent session" display="inline" %}
+Explore your own private repository in a cloud sandbox, then continue the same conversation from a regular terminal.
+
+* [Start in {% data variables.product.prodname_vscode_shortname %}, continue in {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md)
+
+{% /action-card %}
+
 ## Choose cloud or your own machine
 
 | Option | Choose it when |

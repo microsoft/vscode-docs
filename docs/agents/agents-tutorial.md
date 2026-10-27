@@ -244,6 +244,6 @@ To go deeper with agentic coding in {% data variables.product.prodname_vscode %}
 
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline)
 
-* [Learn how agents work in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
+* [Continue a cloud agent session from your terminal](/docs/agents/cloud-continuity-tutorial.md) (Experimental)
 
 * [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project)
