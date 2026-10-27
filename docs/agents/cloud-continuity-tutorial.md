@@ -85,9 +85,11 @@ You can use the same computer or another computer with {% data variables.copilot
 
 1. Choose the cloud session you started in {% data variables.product.prodname_vscode_shortname %}. Match its title and repository to the task from the previous section.
 
+    ![Screenshot of the Copilot CLI connecting to the cloud session.](images/cloud-continuity-tutorial/connect-cloud-session.png)
+
 1. Wait for the connection, then check that the conversation includes your repository exploration prompt and the agent's progress or findings.
 
-    <!-- TODO: Capture Copilot CLI in a regular terminal connected to the existing cloud session, with the earlier conversation visible. Redact sensitive repository details. -->
+    ![Screenshot of the Copilot CLI showing the ongoing conversation in the cloud session.](images/cloud-continuity-tutorial/ongoing-conversation.png)
 
 1. Observe that the terminal now shows the ongoing conversation and the agent's progress. You can continue interacting with the agent as if you were in the original client.
 
