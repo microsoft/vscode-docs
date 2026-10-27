@@ -49,10 +49,6 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 > [!IMPORTANT]
 > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
-## Prepare a project for AI (optional)
-
-After you sign in, enter `/init` in a chat session to create starter [custom instructions](/docs/agent-customization/custom-instructions.md) for a project. The command analyzes the codebase and records coding practices that help AI-generated code match the project.
-
 ## Use Copilot with a GHE account
 
 If your Copilot subscription is associated with a GitHub Enterprise (GHE) account, you can sign in to Copilot in {% data variables.product.prodname_vscode_shortname %} with your GHE credentials.
@@ -114,12 +110,9 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
 
 ## Remove AI features from {% data variables.product.prodname_vscode_shortname %}
 
-You can disable the built-in AI features in {% data variables.product.prodname_vscode_shortname %} with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in {% data variables.product.prodname_vscode_shortname %}. This disables and hides features like chat or inline suggestions in {% data variables.product.prodname_vscode_shortname %} and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+You can disable the built-in AI features in {% data variables.product.prodname_vscode_shortname %} with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in {% data variables.product.prodname_vscode_shortname %}.
 
-Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
-
-> [!NOTE]
-> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of {% data variables.product.prodname_vscode_shortname %}.
+This setting disables and hides features like chat or inline suggestions in {% data variables.product.prodname_vscode_shortname %} and disables the Copilot extension. You can configure the setting at the workspace or user level.
 
 ## Disable AI features for a workspace
 
