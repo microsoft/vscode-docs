@@ -37,10 +37,6 @@
       "label": "Automatic session cleanup",
       "state": "preview"
     },
-    "automations": {
-      "label": "Automations",
-      "state": "preview"
-    },
     "built-in-dictation": {
       "label": "Built-in dictation",
       "state": "experimental"
@@ -56,7 +52,7 @@
     },
     "cloud-automations": {
       "label": "Cloud automations",
-      "state": "experimental",
+      "state": "preview",
       "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
     },
     "editor-working-set": {

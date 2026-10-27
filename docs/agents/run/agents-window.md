@@ -426,8 +426,6 @@ To stop monitoring the pull request, select **{% data variables.copilot.agent_me
 
 ## Schedule recurring tasks
 
-`feature(automations)`
-
 Automations run agent tasks from a saved prompt and configuration. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub on a schedule or in response to supported repository events, even when your computer is off.
 
 Select **Automations** in the sidebar to get started. For cloud execution, select **Run in the Cloud** when creating the automation. Start with a manual run and review its session before enabling a recurring trigger.
