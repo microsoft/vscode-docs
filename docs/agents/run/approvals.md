@@ -45,9 +45,7 @@ New sessions use the level configured by `setting(chat.permissions.default)`. An
 
 To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
 
-`feature(assisted-permissions)`
-
-Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
+Select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
 
 | Permission level | Description |
 |---|---|

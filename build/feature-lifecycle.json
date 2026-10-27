@@ -33,10 +33,6 @@
       "label": "Agents window word wrap",
       "state": "experimental"
     },
-    "assisted-permissions": {
-      "label": "Assisted permissions",
-      "state": "experimental"
-    },
     "automatic-session-cleanup": {
       "label": "Automatic session cleanup",
       "state": "preview"
