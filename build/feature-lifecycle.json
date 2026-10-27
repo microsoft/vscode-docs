@@ -3,7 +3,7 @@
   "features": {
     "agent-artifacts": {
       "label": "Agent artifacts",
-      "state": "preview"
+      "state": "experimental"
     },
     "agent-host-byok-models": {
       "label": "BYOK models in Agent Host",
