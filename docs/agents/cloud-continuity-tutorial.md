@@ -41,6 +41,8 @@ A cloud sandbox provides an isolated environment for the agent to explore the re
 
 1. Choose the **Cloud** environment from the environment dropdown, then select **Work in Repository** from the workspace dropdown, and choose your private repository.
 
+    ![Screenshot of selecting the cloud environment and repository.](images/cloud-continuity-tutorial/cloud-environment-repo.png)
+
 1. Keep other options at their defaults.
 
 1. Enter the following prompt:
