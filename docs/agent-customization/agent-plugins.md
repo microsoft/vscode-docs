@@ -119,6 +119,62 @@ You can install a plugin directly from a Git repository URL without adding a ful
 
 Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
 
+### Share and install plugins with deep links
+
+Plugin providers can create shareable deep links to help users register a marketplace or install a specific named plugin directly in {% data variables.product.prodname_vscode_shortname %}.
+
+> [!IMPORTANT]
+> Agent plugins are distinct from {% data variables.product.prodname_vscode_shortname %} extensions. To install an extension from the {% data variables.product.prodname_vs_marketplace %}, use `vscode:extension/<publisher>.<extensionName>` as described in [URL handling](/docs/configure/command-line.md#url-handling).
+
+#### Install a specific plugin
+
+Use the `chat-plugin/install` route to add a marketplace (if not already registered) and install a specific named plugin:
+
+```text
+vscode://chat-plugin/install?source=<url-encoded-source>&plugin=<url-encoded-plugin-name>
+```
+
+Parameters:
+
+* **`source`** (required): The remote marketplace source (for example, `owner/repo` or a Git repository URL).
+* **`plugin`** (required): The exact plugin name declared in the plugin manifest (`plugin.json`). Do not include the `@marketplace` qualifier used by the CLI.
+
+URL-encode parameter values (for example, `/` as `%2F`).
+
+**Example:**
+
+```text
+vscode://chat-plugin/install?source=github%2Fevals&plugin=eval
+```
+
+When opened, {% data variables.product.prodname_vscode_shortname %} displays a confirmation dialog asking the user to confirm adding the marketplace and installing the plugin. If confirmed, {% data variables.product.prodname_vscode_shortname %} registers the marketplace, locates the plugin by name, installs it into the Copilot Agent Host session, and opens the Agent Customizations editor filtered to the plugin.
+
+#### Add a plugin marketplace
+
+To register a marketplace without installing any plugins, use the `chat-plugin/add-marketplace` route:
+
+```text
+vscode://chat-plugin/add-marketplace?ref=<url-encoded-source>
+```
+
+**Example:**
+
+```text
+vscode://chat-plugin/add-marketplace?ref=github%2Fevals
+```
+
+When opened, {% data variables.product.prodname_vscode_shortname %} prompts the user to confirm adding the marketplace. Adding a marketplace alone makes its plugins discoverable, but does not install any plugins automatically.
+
+#### Deep link requirements and security
+
+* **Consent and security:** Plugins can execute code via hooks or MCP servers. Deep links always prompt for explicit user confirmation before registering a marketplace or installing a plugin, and cannot bypass trust dialogs, workspace trust, or enterprise policies.
+* **Prerequisites:** Plugin deep links require `setting(chat.plugins.enabled)` to be enabled and an active or provisional Copilot Agent Host session.
+* **Insiders and web redirect:** For {% data variables.product.prodname_vscode_shortname %} Insiders, use the `vscode-insiders://` scheme. To publish links on web pages or markdown badges, use the HTTPS redirect wrapper:
+
+  ```text
+  https://vscode.dev/redirect?url=vscode%3A%2F%2Fchat-plugin%2Finstall%3Fsource%3Dgithub%252Fevals%26plugin%3Deval
+  ```
+
 ### Plugins installed by {% data variables.copilot.copilot_cli %}
 
 {% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.

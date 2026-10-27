@@ -259,18 +259,69 @@ Right-click on an MCP server or select the gear icon to perform different manage
 >
 > ![MCP server configuration with lenses to manage server.](../images/ai/mcp/mcp-server-config-lenses.png)
 
-## Create an MCP installation URL
+## Create an MCP installation or lookup URL
 
-VS Code provides a URL handler for installing an MCP server from a link: `vscode:mcp/install?{json-configuration}` (Insiders: `vscode-insiders:mcp/install?{json-configuration}`).
+VS Code provides URL handlers for installing an MCP server directly from configuration or looking it up in an active MCP registry or gallery.
+
+### Install an MCP server from configuration
+
+Use `vscode:mcp/install?{json-configuration}` (Insiders: `vscode-insiders:mcp/install?{json-configuration}`) to prompt the user to add an MCP server configured with JSON:
 
 Provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}` and then perform a JSON-stringify and URL encode on it. For example, use the following logic to create the installation URL:
 
 ```typescript
-// For Insiders, use `vscode-insiders` instead of `code`
+// For Insiders, use `vscode-insiders` instead of `vscode`
 const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
-This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
+This link opens a confirmation dialog in VS Code displaying the configuration details for user review before installing.
+
+### Open an MCP server from a registry or gallery
+
+If your MCP server is listed in an active MCP registry or gallery, you can provide deep links that resolve the server against the gallery and open its details view in VS Code:
+
+* **Lookup by name:**
+
+  ```text
+  vscode:mcp/by-name/<registry-server-name>
+  ```
+
+  Resolves `<registry-server-name>` against the active MCP gallery and opens the server details page for user review. For example:
+
+  ```text
+  vscode:mcp/by-name/github-mcp-server
+  ```
+
+* **Lookup by gallery URL:**
+
+  ```text
+  vscode:mcp/<https-server-url-without-scheme>
+  ```
+
+  Resolves a server from the gallery matching the specified HTTPS URL (omitting the `https://` prefix). For example:
+
+  ```text
+  vscode:mcp/example.com/mcp/server
+  ```
+
+Both lookup routes open the server details page in VS Code so the user can review tools and permissions before choosing to install; they do not silently install the server or execute tools.
+
+### Shareable web badges and redirect wrapper
+
+To embed installation or lookup links on websites or documentation badges, use the HTTPS redirect wrapper:
+
+```text
+https://vscode.dev/redirect?url=<url-encoded-vscode-URL>
+```
+
+For example, to link to a gallery server:
+
+```text
+https://vscode.dev/redirect?url=vscode%3Amcp%2Fby-name%2Fgithub-mcp-server
+```
+
+> [!NOTE]
+> For VS Code Insiders, use the `vscode-insiders:` scheme prefix (for example, `vscode-insiders:mcp/by-name/<registry-server-name>`). For more information about URL schemes across extensions, plugins, and workspaces, see [URL handling](/docs/configure/command-line.md#url-handling).
 
 ## Register an MCP server in your extension
 
