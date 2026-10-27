@@ -13,7 +13,7 @@ Keywords:
 - memory
 - planning
 - local agents
-- "{% data variables.copilot.copilot_cloud_agent_short %}s"
+- cloud sandboxes
 - remote agent sessions
 - agent host protocol
 ---

@@ -416,6 +416,14 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, the po
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
+#### Control GitHub Environments (Preview)
+
+[GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) provides continuity across supported {% data variables.product.prodname_copilot_short %} clients by registering an existing development machine for remote access. Administrators can control this registration and connection path to meet remote-access and data-handling requirements while allowing approved cross-device work.
+
+Set the `ChatAgentHostGitHubEnvironments` device policy to `false` to prevent sharing a machine as a GitHub Environment and discovering or connecting to other registered machines through this feature. The policy controls `setting(chat.agentHost.githubEnvironments.enabled)` and requires {% data variables.product.prodname_vscode_shortname %} 1.144 or later. Turning off {% data variables.product.prodname_copilot_short %} preview features through organization policy also forces this setting off.
+
+This control doesn't govern all remote connectivity. It isn't a blanket restriction on SSH or dev tunnels, and it doesn't configure other clients' policies. Review those access paths separately before treating it as an organization-wide remote-access boundary.
+
 ### Configure security and observability
 
 #### Configure agent sandboxing

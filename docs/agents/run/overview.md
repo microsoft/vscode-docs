@@ -54,6 +54,10 @@ Change one dimension at a time so you can tell why the workflow behaves differen
 * **Code isolation:** [choose a folder or worktree](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) to control where edits land. A worktree separates code changes, not access to your machine. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md#understand-the-sandbox-boundary) for supported file system and network restrictions.
 * **Permissions:** [choose a permission level](/docs/agents/run/approvals.md#permission-levels) based on which actions should require confirmation. Permissions and sandboxing provide different protections.
 
+## Automate routine work
+
+After validating a repeatable task, save its prompt and configuration as an [automation](/docs/agents/run/automations.md). Start with a manual run and inspect the result before enabling a recurring schedule. Use local execution when the task needs your development environment, or cloud automations `feature(cloud-automations)` for scheduled or supported event-triggered repository work while your computer is off.
+
 ## Next steps
 
 * [Apply agent best practices](/docs/agents/best-practices.md).

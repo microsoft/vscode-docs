@@ -26,16 +26,6 @@ Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Confl
 
 ![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
 
-## Implement todo comments
-
-If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with the [Copilot cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session).
-
-1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
-1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.
-1. Select the code action and select **Delegate to coding agent**.
-
-    ![Screenshot that shows a Code Action menu with Start Coding Agent option for a TODO comment.](images/copilot-smart-actions/start-coding-agent-todo.png)
-
 ## Rename symbols
 
 When you rename a symbol in your code, get AI-generated suggestions for a new name based on the context of the symbol and the codebase.

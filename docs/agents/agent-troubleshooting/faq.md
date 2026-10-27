@@ -41,7 +41,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
+* [Run tasks in cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for managed remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -206,7 +206,7 @@ No. When a session supports both interfaces, opening it in either one keeps the 
 
 ### Is picking up a session the same as syncing its history?
 
-No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions).
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live access from another device, use [GitHub Environments (Preview), SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session's host must remain running and reachable.
 
 ## Troubleshooting and feedback
 

@@ -11,7 +11,7 @@ Keywords:
 - session target
 - claude
 - codex
-- "{% data variables.copilot.copilot_cloud_agent_short %}"
+- cloud sandbox
 ---
 
 # Choose an agent harness
@@ -34,7 +34,7 @@ Start with the Copilot harness for day-to-day coding and agent tasks. Choose ano
 | **Local** | Run tasks within {% data variables.product.prodname_vscode_shortname %}'s built-in agent harness. The agent works in {% data variables.product.prodname_vscode_shortname %}'s [extension host](/docs/agents/concepts/agent-host.md#local-and-existing-extension-host-sessions). | The agent iterates via chat and works interactively to implement changes in your current workspace. The session is tied to the editor window: closing that window stops the agent's ongoing work. See [Local requirements](#local). |
 | **Claude** | The {% data variables.product.prodname_anthropic_claude %} Agent SDK is integrated into {% data variables.product.prodname_vscode_shortname %}. | Sessions use Claude project configuration and provider workflows in your current workspace or an isolated worktree. See [Claude requirements](#claude). |
 | **Codex** | {% data variables.product.prodname_openai_codex %} runs through the {% data variables.product.prodname_openai_codex %} extension or the experimental Agent Host integration. | Sessions support interactive or background coding. Available interfaces depend on the integration. See [Codex requirements](#codex). |
-| **Cloud** | An available provider harness runs on provider-managed remote infrastructure. Cloud is an execution target, not a single harness. | The selected provider works against a GitHub repository and returns a pull request. The session does not use local editor context. See [Cloud target requirements](#cloud-target). |
+| **Cloud** | The Copilot harness runs in a managed cloud sandbox. Cloud is an execution target, not a separate harness. | Use an interactive [cloud sandbox (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) and reconnect to continue work without keeping your own machine online. Cloud work uses a separate workspace rather than your local editor state. See [Cloud target requirements](#cloud-target). |
 
 For Agent Host sessions managed by desktop {% data variables.product.prodname_vscode_shortname %} on your machine, keep the application running. Closing an editor window is different from quitting the application. Tools provided by a window also require that window to stay connected.
 
@@ -169,7 +169,7 @@ Choose one of these access options for the Agent Host integration:
 
 When both accounts are signed in, the model picker groups models by **Copilot** and **ChatGPT**. Your selection determines which account provides model access, and {% data variables.product.prodname_vscode_shortname %} saves that provider with the session.
 
-To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The desktop {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based {% data variables.copilot.agents_window %} still requires GitHub sign-in.
+To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based {% data variables.copilot.agents_window %} still requires GitHub sign-in.
 
 See [Codex approval presets](/docs/agents/run/approvals.md#codex-approval-presets) for approval behavior and related cautions.
 
@@ -191,25 +191,23 @@ SDK Policy Hooks are not loaded in Local harness sessions. Check [hook compatibi
 
 ### Cloud target
 
-Cloud sessions require a GitHub repository and access to an available cloud provider. {% data variables.product.prodname_vscode_shortname %} supports the {% data variables.copilot.copilot_cloud_agent %} and Claude and Codex cloud agents (Preview).
+Use a cloud sandbox to work interactively with an agent on managed compute and return to the same session later, without keeping your own machine online. Cloud is an execution target, separate from your choice of language model.
 
-To use Claude or Codex in the cloud, turn on support in your Copilot account settings. See [Managing policies for third-party {% data variables.copilot.copilot_cloud_agent_short %}s](https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). You don't need the provider's {% data variables.product.prodname_vscode_shortname %} extension for a cloud session.
+#### Cloud sandboxes (Experimental)
 
-<a name="start-a-cloud-session"></a>
+With `setting(chat.agentHost.cloudSandbox.enabled)` on, new **Cloud** sessions use a managed sandbox running the {% data variables.product.prodname_copilot_short %} runtime. In the {% data variables.copilot.agents_window %}, this replaces the {% data variables.copilot.copilot_cloud_agent %} workflow on {% data variables.product.prodname_github %} Actions for new **Cloud** sessions. You can send follow-ups and reconnect to the session without keeping your own machine online. Connections require `setting(chat.remoteAgentHostsEnabled)` and service access for your account.
 
-Select **Cloud** from the **Session Target** UI control, then choose the cloud provider and, when available, a custom agent and model. In the {% data variables.copilot.agents_window %}, select a GitHub repository when you [start the session](/docs/agents/run/agents-window.md#start-an-agent-session).
+The sandbox has its own workspace and tools. Choosing another model doesn't change the harness. Enabling it doesn't move a local conversation or local files into the cloud.
 
-Configure tools, MCP servers, and models in the cloud service. Cloud sessions can't use {% data variables.product.prodname_vscode_shortname %} built-in tools or local development context.
+To get started, follow [Run agent sessions in a cloud sandbox](/docs/agents/run/cloud-sandbox-sessions.md) for creation, continuation, and lifecycle guidance. The **Cloud** creation experience depends on your settings and account availability.
 
 ## Continue with a different harness
 
 A handoff continues an ongoing task with a different harness or execution environment and carries the conversation history and context with it. The tools, permissions, and models might change because the new configuration provides different capabilities.
 
-In a Copilot harness session, enter `/delegate` to continue a well-scoped task with a cloud agent.
-
 ### Hand off from a Local harness session
 
-From a Local harness session, you can select another harness or Cloud after work starts. Sessions that use the Copilot or Claude harness, and sessions that use the [experimental Codex integration](#codex), can receive these handoffs but do not show a **Session Target** dropdown after the session starts.
+From a Local harness session, you can select another supported harness after work starts. Sessions that use the Copilot or Claude harness, and sessions that use the [experimental Codex integration](#codex), can receive these handoffs but can't hand off to another harness or to a cloud sandbox.
 
 To hand off a Local harness session:
 
@@ -217,7 +215,7 @@ To hand off a Local harness session:
 
 1. In the chat input, open the **Session Target** dropdown.
 
-1. Select Copilot, Claude, Codex, or Cloud to continue the work.
+1. Select Copilot, Claude, or Codex to continue the work.
 
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the destination session. To implement a plan or continue it with another supported session, see [planning with agents](/docs/agents/run/planning.md).
 
@@ -316,5 +314,5 @@ Yes. In the Local session's chat input, open the **Session Target** dropdown and
 ## Related resources
 
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md), including [continuing in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
-* [Remote control for Copilot harness sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-harness-sessions)
+* [Remote agent access through GitHub Environments, SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect)
 * [Approvals and permissions](/docs/agents/run/approvals.md)

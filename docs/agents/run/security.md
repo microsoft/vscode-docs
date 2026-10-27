@@ -46,6 +46,32 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust decisions cover the workspace, extension publishers, MCP servers, and network domains, and you can revoke trust at any time. Related boundaries can share a decision. For example, MCP servers in `.vscode/mcp.json` and workspace-root `.mcp.json` inherit Workspace Trust. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
+## Remote connections and GitHub Environments
+
+[GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) lets you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
+
+Session actions are mirrored to {% data variables.product.prodname_github %} for catalog and history storage. Conversation content is not end-to-end encrypted. Review the sharing disclosure before registering a host and check your organization's data-handling requirements.
+
+For {% data variables.product.prodname_vscode_shortname %}-specific connections over SSH or dev tunnels, protect the SSH credentials or tunnel account. Require authentication for tunnels; don't expose an agent host through anonymous access.
+
+Disconnecting a client doesn't stop the host's tasks. To stop sharing from the host, select **Remote Connections** > **Off**. To halt active work, stop the task in its session. Neither action undoes completed file edits, commands, or external effects. See [disconnect or stop sharing](/docs/agents/run/remote-agent-sessions.md#disconnect-or-stop-sharing).
+
+## Cloud sandbox sessions
+
+[Cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) run agent tools in a managed environment, not in your local workspace. Check the repository, cloud session's permissions, and data-handling requirements before sending code or task context. Local editor state, extension tools, and uncommitted files aren't automatically transferred.
+
+Managed compute is a different boundary from [process-level agent sandboxing](/docs/agents/run/agent-sandboxing.md). Don't assume that local sandbox or approval settings configure the cloud service. Use the controls available in the cloud session and review its changes and test results before integration.
+
+Closing a client or marking a task as done isn't a cloud-resource shutdown action. Stopping a request doesn't undo completed actions, and deleting a task shouldn't be treated as confirmation that its compute environment was deleted. See [cloud session lifecycle guidance](/docs/agents/run/cloud-sandbox-sessions.md#review-work-and-finish-a-session).
+
+## Unattended cloud automations
+
+[Cloud automations](/docs/agents/run/automations.md#create-an-automation) `feature(cloud-automations)` run saved tasks on GitHub when a schedule or supported repository event triggers them. Restrict their allowed tools, test the prompt with a manual run, and use event filters and **Require write access to trigger** to limit which events can start work. Local approval and sandbox settings don't configure the cloud service.
+
+Keep secrets out of automation prompts. An **Only me** automation definition is private, but its run sessions and logs can be visible to people with repository access. Review [cloud automation security and usage](/docs/agents/run/automations.md#cloud-automation-security-and-usage) before enabling unattended work.
+
+Closing the application or turning off cloud controls doesn't disable GitHub triggers. Disable the automation to prevent future runs, and use **Stop** separately to request cancellation of an active run. Neither action reverses completed changes.
+
 ## How {% data variables.product.prodname_vscode_shortname %} protects your environment
 
 {% data variables.product.prodname_vscode_shortname %} includes several built-in security protections to provide visibility into sensitive operations, limit the scope of actions, and help prevent unintended consequences.

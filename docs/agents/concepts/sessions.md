@@ -83,13 +83,10 @@ With Copilot or Claude, or with Codex through the [experimental integration](/do
 
 Handoff continues ongoing work with a different agent configuration and carries the full conversation history and context with it. A handoff can change the [harness](/docs/agents/concepts/agent-harnesses.md), execution environment, or agent role. Use handoff when another configuration is a better fit for the next part of the task.
 
-Common handoffs include:
-
-* **Plan to implementation**: use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent.
-* **Continue in the cloud**: in a Copilot harness session, enter `/delegate` to continue a well-scoped task with a [cloud agent](/docs/agents/run/agent-harnesses.md#cloud-target) for remote execution and a pull request workflow.
+For example, use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent. To work in a [cloud sandbox](/docs/agents/run/cloud-sandbox-sessions.md), start a separate session. Cloud sandboxes don't receive local-session handoffs.
 
 > [!NOTE]
-> **For Local harness sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, Codex, or Cloud. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
+> **For Local harness sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, or Codex. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
 
 Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
@@ -97,7 +94,8 @@ Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#c
 
 A session doesn't have to run on your local machine, and it doesn't have to stay on one device:
 
-* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot harness session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot harness sessions](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-harness-sessions).
+* **Remote sessions** run on a machine other than the one you work from. [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) registers that machine for access across supported {% data variables.product.prodname_copilot_short %} clients. For {% data variables.product.prodname_vscode_shortname %}-specific access, connect over [SSH or a dev tunnel](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The host, workspace, and running session stay on the remote machine.
+* **Cloud sandbox sessions (Experimental)** run in managed cloud environments rather than on a machine you register. [Reopen the existing cloud session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) to reconnect and continue work. This doesn't migrate an existing local conversation, and environment lifetime is managed by the service.
 * **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/run/sessions/session-history.md).
 * **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
 

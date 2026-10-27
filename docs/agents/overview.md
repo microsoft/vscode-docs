@@ -11,7 +11,7 @@ Keywords:
 - multi-file editing
 - architecture
 - refactoring
-- "{% data variables.copilot.copilot_cloud_agent_short %}"
+- cloud sandbox
 - copilot cli
 - third-party agents
 - language models
@@ -26,6 +26,8 @@ Keywords:
 - BYOK
 - local models
 - agent harness
+- continuity
+- GitHub Environments
 ---
 
 # Build with AI in {% data variables.product.prodname_vscode_shortname %}
@@ -34,7 +36,7 @@ Use as much or as little AI as your task needs in {% data variables.product.prod
 
 You can choose models from multiple providers and work with the {% data variables.product.prodname_copilot_short %}, Claude, or Codex agent harness, using a supported account or your own API key. Customizations and plugins help you tailor agents to your work.
 
-When you switch interfaces, you can continue sessions without starting over. For projects on another machine, you can connect to agents running there while keeping your files and development tools remote.
+Continuity lets you pick up agent work across supported interfaces without starting over. Connect to sessions on your own machine through GitHub Environments, or use a managed cloud sandbox without keeping a local host online.
 
 <video src="images/agents-overview/build-with-ai-overview.mp4" title="Video overview of building with AI in VS Code, showing inline suggestions, collaboration alongside code, and task orchestration in the Agents window." autoplay loop controls muted></video>
 
@@ -73,6 +75,8 @@ Switch between different experiences depending on your task, and [continue agent
 
 An [agent](/docs/agents/concepts/agents.md) uses a model and tools to find relevant code, make changes, and run checks. You set the goal, guide the work, and review the results.
 
+For routine work, save a prompt as an [automation](/docs/agents/run/automations.md). Run it locally on a schedule, or use cloud automations `feature(cloud-automations)` for scheduled or event-triggered repository work that continues while your computer is off. Review a manual run before enabling recurring work.
+
 For a focused edit, use [inline chat](/docs/chat/inline-chat.md) without leaving your code. To compare features for a specific task, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
 ## Choose your models, agents, and tools
@@ -94,16 +98,17 @@ Available options depend on your harness, account, and organization's policies. 
 
 ## Continue across interfaces and machines
 
-Choose where you interact with an agent and where it runs. Session support and requirements differ by harness and destination.
+Continuity means picking up agent work across supported interfaces and machines without starting over. Choose where you interact with an agent while its workspace and execution stay on the host. Session support and requirements differ by harness and destination.
 
 | Where you want to work | Start here |
 |------------------------|------------|
+| **Across {% data variables.product.prodname_copilot_short %} apps and devices** | Use [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) to register your development machine and continue its agent sessions from {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli_short %}, GitHub.com, or GitHub Mobile. Available actions vary by client. |
+| **On managed cloud compute** | Use [cloud sandboxes (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md) for interactive agent work without keeping your own machine online. Reopen the existing cloud session to continue the conversation. Execution stays in the cloud environment, whose availability and lifetime are managed by the service. |
 | **Editor or {% data variables.copilot.agents_window %}** | Switch between coordinating work and editing code while [continuing a supported session](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window). |
-| **{% data variables.copilot.copilot_cli %} or {% data variables.copilot.github_copilot_app %}** | Discover and continue [supported local sessions](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}, or [resume a session in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal) where available. |
-| **GitHub.com** | Monitor and steer a running {% data variables.product.prodname_copilot_short %} session with [remote control](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions). Requires {% data variables.product.prodname_github %} sign-in and a workspace linked to a {% data variables.product.prodname_github %} repository. |
-| **Another machine** | Connect to an agent through [SSH](/docs/agents/run/remote-agent-sessions.md#connect-via-ssh) or a [dev tunnel](/docs/agents/run/remote-agent-sessions.md#connect-via-dev-tunnel). Files and development tools stay on the remote machine. |
+| **{% data variables.copilot.copilot_cli %} or {% data variables.copilot.github_copilot_app %} on the same machine** | Discover and continue [supported local sessions](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}, or [resume a session in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal) where available. |
+| **{% data variables.product.prodname_vscode_shortname %} on another machine** | Use {% data variables.product.prodname_vscode_shortname %}-specific remote connections through [SSH](/docs/agents/run/remote-agent-sessions.md#connect-via-ssh) or a [dev tunnel](/docs/agents/run/remote-agent-sessions.md#connect-via-dev-tunnel). Dev tunnels also support the [browser-based {% data variables.copilot.agents_window %}](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser). |
 
-Keep the session's host running and reachable for remote access. Connecting to a running session is different from [delegating a task to a cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session), which works on provider-managed infrastructure and returns a pull request.
+For sessions on your own machines, keep the host running and reachable. Cloud sandboxes use managed compute instead. Start a cloud sandbox session for work in the cloud, then reopen that session to continue. Connecting to it doesn't move a local task or its files into the cloud.
 
 Where tools run and where the model is hosted are separate choices. An agent can edit files on your machine while sending model requests to a hosted provider.
 

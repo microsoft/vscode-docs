@@ -222,6 +222,7 @@ To restore your workspace to an earlier checkpoint:
 
 > [!IMPORTANT]
 > A checkpoint restores affected workspace files and chat history. It doesn't reverse completed terminal commands, network requests, deployments, or changes that tools made to external services. Use Git and the external service's recovery controls for those effects.
+
 ## Require approval before sensitive edits
 
 Sensitive-file approval happens before the agent saves an edit, rather than during review. Use `setting(chat.tools.edits.autoApprove)` with glob patterns to require a diff and approval for edits to sensitive files.

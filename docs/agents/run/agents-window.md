@@ -57,6 +57,10 @@ If this is your first agent task, follow the [agents quickstart](/docs/agents/qu
 
 Start a session for a local folder, GitHub repository, or [remote workspace](/docs/agents/run/remote-agent-sessions.md). You can attach other projects, issues, and pull requests as context before you send the first prompt. For work that doesn't belong to a project, start a [quick chat](#start-a-quick-chat).
 
+To connect to and organize remote machines in one place, use [remote environment management (Experimental)](/docs/agents/run/remote-agent-sessions.md#manage-remote-environments-experimental).
+
+For interactive work on managed compute, [start a cloud sandbox session (Experimental)](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-sandbox-session). The cloud environment runs the task independently of your local machine. To continue it later, [reopen the existing session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) rather than starting another task.
+
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 
 1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`. To start directly in a specific workspace, hover over the workspace in the sessions list and select **+** (New Session).
@@ -162,7 +166,7 @@ For what chats share, how to create them, and the controls in each interface, se
 
 When you want to edit or debug alongside the conversation, select **Open in Editor** in the title bar of a supported project session. To return, select **Open in Agents** in the application title bar, then select the existing session from the sessions list. Check the [supported session types and continuation requirements](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
 
-For access from another device, [connect to the session's host or use remote control](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The agent continues to run on its host, so keep that machine and the required application or service running.
+For continuity across apps and devices, use [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) to register this machine from **Remote Connections** in the title bar. Connect from another supported {% data variables.product.prodname_copilot_short %} client to continue a session on the host. For {% data variables.product.prodname_vscode_shortname %}-specific remote access, use [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). Keep the host and its required application or service running.
 
 ## {% data variables.copilot.agents_window %} interface overview
 
@@ -230,7 +234,7 @@ If {% data variables.product.prodname_vscode_shortname %} doesn't find a provide
 
 Run a session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
-This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.
+This option is available in the {% data variables.copilot.agents_window %}, but not in the browser version. Dev Container support (`setting(chat.agentHost.devContainer.enabled)`) is on by default.
 
 Before you start, make sure that:
 
@@ -424,9 +428,9 @@ To stop monitoring the pull request, select **{% data variables.copilot.agent_me
 
 `feature(automations)`
 
-Automations run recurring agent tasks from a saved prompt and schedule. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub and continue when you close {% data variables.product.prodname_vscode_shortname %} or turn off your computer.
+Automations run agent tasks from a saved prompt and configuration. Local automations run in your development environment on your computer. Cloud automations `feature(cloud-automations)` run remotely in GitHub on a schedule or in response to supported repository events, even when your computer is off.
 
-Enable `setting(chat.automations.enabled)`, and then select **Automations** in the sidebar to get started. For cloud execution, also enable `setting(chat.automations.cloud.enabled)`. You can run a task on demand or schedule it to run hourly, daily, or weekly.
+Select **Automations** in the sidebar to get started. For cloud execution, select **Run in the Cloud** when creating the automation. Start with a manual run and review its session before enabling a recurring trigger.
 
 Learn how to [choose where an automation runs, create an automation, and review its results](/docs/agents/run/automations.md).
 

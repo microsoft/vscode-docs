@@ -5,7 +5,7 @@ MetaDescription: Manage local and synced session history in {% data variables.pr
 ---
 # Sync and query session history
 
-{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your {% data variables.product.prodname_copilot_short %} harness sessions. Session sync (Experimental) can upload local session history to your GitHub account for cross-device access and sharing. With sync enabled, you can query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent_short %}, code review, and the {% data variables.copilot.github_copilot_app %}.
+{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your {% data variables.product.prodname_copilot_short %} harness sessions. Session sync (Experimental) can upload local session history to your GitHub account for cross-device access and sharing. With sync enabled, you can query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, code review, and the {% data variables.copilot.github_copilot_app %}.
 
 Synced sessions are private unless you explicitly share them.
 

@@ -38,9 +38,10 @@ To pick up a task where you left off, open its existing session rather than star
 * **{% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}**: [Switch between the two interfaces](#continue-between-the-chat-view-and-agents-window) while keeping the same supported session.
 * **From another application**: [Find supported local sessions](#view-sessions-from-other-applications) created in another application.
 * **In a terminal**: [Use {% data variables.copilot.copilot_cli %}](#use-copilot-cli-from-the-terminal), including **Resume in Terminal** for sessions that provide that action.
-* **From another device**: [Connect to the session's host or use remote control](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session continues to run on its host.
+* **In a cloud sandbox (Experimental)**: [Open the existing cloud session and reconnect](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session). Execution stays in the managed environment, so you don't need to keep a local host running.
+* **From another device**: Use [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) across supported {% data variables.product.prodname_copilot_short %} clients, or [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect) for {% data variables.product.prodname_vscode_shortname %}-specific access. Connect to the host, then [open the existing remote session](/docs/agents/run/remote-agent-sessions.md#continue-an-existing-remote-session). The session continues to run on its host.
 
-Opening the same session in another interface doesn't change its harness, workspace, or worktree. To change the harness or delegate work to a cloud agent instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+Opening the same session in another interface doesn't change its harness, workspace, or worktree. To change the harness, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness). For cloud execution, [start a separate cloud sandbox session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-sandbox-session).
 
 ### Continue between the Chat view and Agents window
 
