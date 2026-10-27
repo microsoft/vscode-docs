@@ -1,6 +1,7 @@
 ---
 ContentId: b52d0265-d616-4c76-8910-c4e83d1efe13
 DateApproved: 10/28/2026
+FeatureStatus: copilot-connectors
 MetaDescription: Connect external services to {% data variables.product.prodname_copilot_short %} without server setup, use their tools, and manage connections.
 MetaSocialImage: images/customization/chat-customizations-editor.png
 Keywords:
@@ -11,7 +12,7 @@ Keywords:
 - tools
 - ai
 ---
-# Connect services with {% data variables.product.prodname_copilot_short %} connectors (Preview) in {% data variables.product.prodname_vscode_shortname %}
+# Connect services with {% data variables.product.prodname_copilot_short %} connectors in {% data variables.product.prodname_vscode_shortname %}
 
 Bring context from services such as Slack, Notion, and Microsoft Learn into your agent sessions with {% data variables.product.prodname_copilot_short %} connectors, also called {% data variables.product.prodname_github %}-managed MCP servers. Connect a supported service without installing a local server, writing MCP configuration, or managing credentials.
 
@@ -21,10 +22,10 @@ If the service you need isn't available as a connector, [add an MCP server](/doc
 
 ## Before you start
 
-* Sign in to {% data variables.product.prodname_vscode_shortname %} with your GitHub.com account. Connectors are in public preview and are available on all {% data variables.product.prodname_copilot %} plans.
+* Sign in to {% data variables.product.prodname_vscode_shortname %} with your GitHub.com account. Connectors are available on all {% data variables.product.prodname_copilot %} plans.
 * Select **Copilot** in the **Session Target** dropdown. Connectors provide tools to the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot), not Local harness sessions.
 
-Marketplace discovery and connectors are enabled by default with `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)`. Both settings are Preview.
+Marketplace discovery and connectors are enabled by default with `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)`.
 
 For Business and Enterprise plans, an administrator must turn on the **Editor preview features** policy. When that policy is off, both settings are forced off. Some services also require approval from a service administrator, such as allowing Slack MCP access. Your organization's MCP access restrictions also apply. See [administration guidance for connectors](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist#allowing-copilot-connectors).
 

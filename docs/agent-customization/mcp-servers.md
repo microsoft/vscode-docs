@@ -16,9 +16,12 @@ Keywords:
 
 Add an MCP server when your agent needs a capability its existing tools don't provide, such as querying a database or retrieving information from an external service. [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) connects agents to these tools and data sources. If your existing tools meet your needs, you don't need another server.
 
+For supported services, [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` provide {% data variables.product.prodname_github %}-managed MCP connections for {% data variables.product.prodname_copilot_short %} harness sessions without local server setup or manual MCP configuration.
+
 This article takes you from adding a server to verifying its first tool call. Choose your starting point:
 
-* **Connect a supported service without server setup:** [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md).
+* **Connect a supported service without server setup:** [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`.
+* **Use tools from a packaged workflow:** [Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundles MCP servers.
 * **I have a server URL or command:** [Connect a server](#connect-a-server).
 * **Help me find a server:** [Choose a server to try](#choose-a-server-to-try).
 * **My server is configured but isn't working:** [Check the connection](#if-the-server-does-not-work).

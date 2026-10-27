@@ -15,7 +15,7 @@ keywords:
 
 Tools let an agent inspect your project and check results instead of only suggesting code or commands for you to apply. For example, it can read the implementation behind a failing test, make a change, and run the test to check whether the change works.
 
-Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. Add an [MCP server](/docs/agent-customization/mcp-servers.md) or extension when the task needs a capability the available tools don't provide.
+Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. When the task needs a capability these tools don't provide, connect a supported service to the {% data variables.product.prodname_copilot_short %} harness with [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, [add an MCP server](/docs/agent-customization/mcp-servers.md), [install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundles MCP servers, or install an extension that contributes tools.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -87,7 +87,7 @@ For Copilot harness sessions, manage tools from the Agent Customizations editor.
 
 1. Select or deselect tools to control which ones are available to the agent.
 
-Limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+Limit the selection to tools that are relevant to your request. Add MCP tools by connecting supported services with [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, [adding MCP servers](/docs/agent-customization/mcp-servers.md), or [installing agent plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundle MCP servers. [Extensions](/docs/configure/extensions/extensions.md) can also contribute tools.
 
 To define a reusable tool selection for a workflow, specify tools in a [custom agent](/docs/agent-customization/custom-agents.md). For other harnesses, check their [setup requirements and configuration options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 

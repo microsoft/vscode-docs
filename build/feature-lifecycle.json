@@ -55,6 +55,10 @@
       "state": "preview",
       "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
     },
+    "copilot-connectors": {
+      "label": "Copilot connectors",
+      "state": "preview"
+    },
     "editor-working-set": {
       "label": "Editor working set",
       "state": "experimental"

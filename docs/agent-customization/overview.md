@@ -43,7 +43,7 @@ Use an existing customization when it provides the workflow or capability you ne
 
 * **[Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins)**: Add related skills, agents, and tool integrations together.
 * **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
-* **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector (Preview)](/docs/agent-customization/copilot-connectors.md) without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
+* **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
 
 For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-preview) (Preview). Review the publisher, included files, and setup requirements before installing or running a customization.
 
@@ -111,7 +111,7 @@ To find and install a customization:
 1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed** or an individual plugin marketplace.
 1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
 1. Select an item and review its publisher, source, installation details, and any setup requirements.
-1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors (Preview), select **Connect** and complete authorization instead.
+1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors `feature(copilot-connectors)`, select **Connect** and complete authorization instead.
 
 Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
 
