@@ -18,7 +18,7 @@ Keywords:
 
 Agent plugins package related customizations, such as skills, agents, and tool integrations, so you can install them together. For example, a testing plugin can include a test-running skill, review agent, and reporting integration that are intended to work together.
 
-This article shows you how to discover, install, configure, update, and troubleshoot plugins. To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
+This article shows you how to discover, install, and manage plugins with the Agent Customizations editor, and how to troubleshoot common issues. To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
 
 If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-options-at-a-glance). Choose a bundle when its components support a workflow you want to adopt together.
 
@@ -48,60 +48,16 @@ Check the plugin's supported clients and components before installing. See [Cros
 
 ## Discover and install plugins
 
-You can browse and install plugins from marketplaces or directly from a Git repository.
-
-### Manage plugins with slash commands
-
-In a {% data variables.product.prodname_copilot_short %} harness session, enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
-
-| Command | Purpose |
-|---------|---------|
-| `/plugin list` | List installed plugins and their status. |
-| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
-| `/plugin update <plugin>` | Update an installed plugin. |
-| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
-| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
-| `/plugin uninstall <plugin>` | Remove an installed plugin. |
-| `/plugin marketplace list` | List included and registered marketplaces. |
-| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
-| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
-| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
-| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
-
-Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
-
-Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
-
-> [!NOTE]
-> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+Use the Agent Customizations editor to browse marketplaces and install plugins. You can also install a plugin directly from a Git repository or local folder. Available plugins and actions depend on the selected [agent harness](/docs/agents/concepts/agent-harnesses.md) and organization policy.
 
 ### Install a plugin from a marketplace
 
-{% tabs id="plugin-marketplace" %}
-{% tab label="Extensions view" %}
-
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@agentPlugins` in the search field.
-
-    Alternatively, select the **More Actions** (three dots) icon in the Extensions sidebar and choose **Views** > **Agent Plugins**.
-
-1. Browse the list of available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
-
-    ![Screenshot of browsing agent plugins in the Extensions sidebar.](images/agent-plugins/extensions-view.png)
-
-1. Select **Install** to install a plugin.
-
-    The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
-
-{% /tab %}
-
-{% tab label="Agent Customizations" %}
-
 1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or selecting **Customizations** in the {% data variables.copilot.agents_window %} sidebar.
 
-1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces):
+1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).  Available sources depend on the selected harness and organization policy.
 
-    * To use the unified **Browse** experience (Preview), select **Browse**. This experience is enabled by default with `setting(chat.customizations.marketplace.enabled)`. Available sources depend on the selected harness and organization policy.
-    * Otherwise, select the **Plugins** tab and then select **Browse Marketplace**.
+    * Select the **Browse** tab and search for a plugin.
+    * Select the **Plugins** tab and then select **Browse** to find available plugins.
 
 1. Select a plugin to review its publisher, included customizations, and **Plugin README**, when provided.
 
@@ -109,32 +65,30 @@ Plugins installed directly from a Git repository can be updated or uninstalled, 
 
     The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
 
-{% /tab %}
-{% /tabs %}
-
 ### Install a plugin from source
 
-You can install a plugin directly from a Git repository or local folder without adding a full marketplace first.
+You can install a plugin directly from a Git repository or local folder without adding a full marketplace first. For a repository URL, {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
 
-* Run **Chat: Install Plugin from Source** from the Command Palette.
+1. In the Agent Customizations editor, select **Plugins**, then select the add (`+`) button next to **User** or **Workspace**, depending on where you want to install the plugin.
 
-* Alternatively, select **Install Plugin from Source** on the **Plugins** page of the Agent Customizations editor.
+1. Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) or a local folder path.
 
-Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) or a local folder path. For a repository URL, {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
+
+Alternatively, run **Chat: Install Plugin from Source** from the Command Palette.
 
 ### Plugins installed by {% data variables.copilot.copilot_cli %}
 
-{% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
+{% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Discovered plugins from `~/.copilot/installed-plugins/` appear on the **Plugins** page of the Agent Customizations editor.
 
 The CLI stores plugins under `~/.copilot/installed-plugins/<marketplace>/<plugin>/`. Plugins installed directly from a Git URL (rather than from a marketplace) live under the `_direct` bucket, for example `~/.copilot/installed-plugins/_direct/github--moda-linter--copilot-plugin/`.
 
 ### View installed plugins
 
-The **Agent Plugins - Installed** view in the Extensions view shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
+In the Agent Customizations editor, select **Plugins** to view the plugins available to the selected harness. From this page, you can inspect, enable, disable, or uninstall plugins.
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
+<!-- TODO: Add a screenshot showing installed plugins and their management controls in the Agent Customizations editor. -->
 
-In the Agent Customizations editor, select **Plugins**, then select an installed plugin to open its details. Review its **Plugin README** and included customizations. Under **Skills**, select a skill to open its instructions.
+Select an installed plugin to open its details. Review its **Plugin README** and included customizations. Under **Skills**, select a skill to open its instructions.
 
 <!-- TODO: Add a screenshot showing an installed plugin's details, Plugin README, and bundled skills in the Agent Customizations editor. -->
 
@@ -142,7 +96,7 @@ In the Agent Customizations editor, select **Plugins**, then select an installed
 
 Installing a plugin makes its supported components available; it doesn't guarantee that an agent uses them for every task.
 
-1. In the interface where you installed the plugin, confirm that it is listed and enabled.
+1. In the Agent Customizations editor, select **Plugins** and confirm that the plugin is listed and enabled for the intended harness and workspace.
 
 1. Review the publisher's setup instructions and complete any required configuration. For bundled MCP servers, check [server controls and connection requirements](/docs/agents/run/manage-mcp-servers.md#open-the-server-controls).
 
@@ -154,23 +108,22 @@ If you only need a skill, consider [using or adapting an existing skill](/docs/a
 
 ### Enable or disable plugins
 
-You can enable or disable a plugin globally or for a specific workspace:
+You can enable or disable a plugin for the current profile or a specific workspace:
 
-* Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
-
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle a plugin's enabled state.
+1. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
+1. Use **Enable** or **Disable** to change its state for the current profile, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose the scope.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 
 Policy-managed plugins are identified as managed by policy, and their toggles are locked.
 
-When a plugin is disabled, its skills, agents, hooks, MCP servers, slash commands, and automation templates are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**, and automation templates do not appear in **Templates from Plugins**. Disabled plugins appear with a dimmed style in the Agent Customizations editor and Extensions view.
+When a plugin is disabled, its skills, agents, hooks, MCP servers, slash commands, and automation templates are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**, and automation templates do not appear in **Templates from Plugins**. Disabled plugins appear with a dimmed style in the Agent Customizations editor.
 
 ### Uninstall plugins
 
-To remove a plugin, right-click it in the **Agent Plugins - Installed** view and select **Uninstall**. Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
-
 In the Agent Customizations editor, select **Plugins**, open the plugin's details, and select **Uninstall**.
+
+Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces
 
@@ -220,7 +173,9 @@ Marketplace plugins can also reference external package sources such as npm or P
 
 ## Use local plugins
 
-If you manually clone or download a plugin, you can register it with `setting(chat.pluginLocations)` (Experimental). This setting maps local plugin directory paths to an enabled or disabled state. Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+To install a plugin from a local folder, use [Install a plugin from source](#install-a-plugin-from-source) in the Agent Customizations editor.
+
+If you manually clone or download a plugin and need to register its directory without installing it, use `setting(chat.pluginLocations)` (Experimental). This setting maps local plugin directory paths to an enabled or disabled state. Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
 
 ```json
 // settings.json
@@ -232,23 +187,23 @@ If you manually clone or download a plugin, you can register it with `setting(ch
 
 ## Update plugins
 
-{% data variables.product.prodname_vscode_shortname %} checks for plugin updates when you run **Extensions: Check for Extension Updates** from the Command Palette, or automatically every 24 hours when `setting(extensions.autoUpdate)` is enabled.
+In the Agent Customizations editor, select **Plugins**, then select **Check for and Apply Updates** (the refresh icon) next to an installed-plugin group. Alternatively, run **Chat: Update Plugins** from the Command Palette.
 
 Updating pulls down changes from cloned marketplace repositories and checks for new versions of externally sourced plugins.
 
-Plugins sourced from npm or PyPI never update automatically. Instead, they show an **Update** button in the Extensions view. Selecting the button prompts you to confirm before running the install command. If an update is found during a background check, no action is taken until you explicitly select **Update**.
+Plugins can also update automatically when `setting(extensions.autoUpdate)` is enabled. Plugins sourced from npm or PyPI never update automatically. Use the update action in the Agent Customizations editor and review the confirmation prompt before the install command runs.
 
 ## Workspace plugin recommendations
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-In the Local harness, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
+In the Local harness, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
 
 In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. You can turn off optional plugins in **Plugins** in the Agent Customizations editor without changing the shared defaults. Enterprise-managed settings take precedence over repository defaults and your choices.
 
 Specify the following fields in the settings file to configure workspace plugin recommendations:
 
-* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear when you search `@agentPlugins` in the Extensions view.
+* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear among the available sources in the Agent Customizations editor.
 
 * **`enabledPlugins`**: lists plugins that should be enabled by default.
 
@@ -269,6 +224,31 @@ Specify the following fields in the settings file to configure workspace plugin 
 ```
 
 The marketplace key, `company-tools` in this example, must match the `name` in the marketplace's `marketplace.json`. Plugin identifiers use `<plugin>@<marketplace>`, not the marketplace repository name. Keep marketplace names stable so shared settings continue to refer to the same plugins.
+
+## Manage plugins with slash commands
+
+As an alternative to the Agent Customizations editor, you can manage plugins with slash commands in a {% data variables.product.prodname_copilot_short %} harness session. Enter `/plugin ` in the chat input to view completions for plugin and marketplace operations.
+
+> [!NOTE]
+> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin list` | List installed plugins and their status. |
+| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
+| `/plugin update <plugin>` | Update an installed plugin. |
+| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
+| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
+| `/plugin uninstall <plugin>` | Remove an installed plugin. |
+| `/plugin marketplace list` | List included and registered marketplaces. |
+| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
+| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
+| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
+| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
+
+Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
+
+Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
 
 ## Cross-tool compatibility
 
@@ -291,7 +271,7 @@ The marketplace key, `company-tools` in this example, must match the `name` in t
 
 ### Plugin version does not update
 
-* Run **Extensions: Check for Extension Updates** from the Command Palette to trigger an update check.
+* In the Agent Customizations editor, select **Plugins**, then select **Check for and Apply Updates** (the refresh icon).
 * If you maintain the plugin, review its [versioning and update requirements](/docs/agents/reference/agent-plugin-reference.md#test-and-distribute-a-plugin).
 
 ### Plugin installation fails after retry

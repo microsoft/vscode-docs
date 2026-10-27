@@ -382,7 +382,7 @@ Hooks in a plugin-provided custom agent's frontmatter are [scoped to that agent]
 
 Plugin-wide hooks run alongside other applicable hook sources. For Copilot `preToolUse`, a denial blocks the tool call. Return no decision when the hook should leave the normal permission flow unchanged. Review the runtime's timeout and failure rules before relying on a hook for validation.
 
-Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
+Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can [enable or disable plugins](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins) for the current profile or a specific workspace from the Agent Customizations editor.
 
 ## Cross-tool compatibility
 
