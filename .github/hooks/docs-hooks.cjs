@@ -2,12 +2,7 @@
 
 const fs = require('node:fs');
 
-const editTools = new Set([
-  'create', 'edit', 'str_replace_editor', 'apply_patch',
-  'editFiles', 'createFile', 'create_file', 'edit_file',
-  'replace_string_in_file', 'multi_replace_string_in_file',
-  'copilot_replaceString', 'copilot_multiReplaceString', 'copilot_createFile', 'copilot_editFile'
-]);
+const editTools = new Set(['create', 'edit', 'str_replace_editor', 'apply_patch']);
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -37,19 +32,10 @@ function patchEdits(patch) {
   return edits;
 }
 
-function structuredEdits(input, inheritedPath) {
-  if (!object(input)) {
-    throw new Error('Expected an object for a file edit.');
-  }
-  const path = input.path ?? input.file_path ?? input.filePath ?? inheritedPath;
-  const children = input.replacements ?? input.edits ?? input.files;
-  if (children !== undefined) {
-    if (!Array.isArray(children) || children.length === 0) {
-      throw new Error('Expected a nonempty array of file edits.');
-    }
-    return children.flatMap(edit => structuredEdits(edit, path));
-  }
-  const text = input.new_str ?? input.newString ?? input.new_string ?? input.newText ?? input.content;
+function structuredEdits(name, input) {
+  const path = input.path;
+  const creating = name === 'create' || (name === 'str_replace_editor' && input.command === 'create');
+  const text = creating ? input.file_text : input.new_str;
   if (typeof path !== 'string' || !path || typeof text !== 'string') {
     throw new Error('Unsupported edit arguments. Expected a file path and replacement or file content.');
   }
@@ -64,21 +50,15 @@ function runHook(phase, event) {
     throw new Error('Expected a JSON hook event object.');
   }
 
-  // This config uses camelCase Copilot events. Local still sends its own snake_case payload.
-  // PascalCase Copilot aliases are a different contract and are not configured here.
-  const copilot = Object.hasOwn(event, 'toolName');
-  if (copilot && Object.hasOwn(event, 'tool_name')) {
-    throw new Error('Ambiguous hook event with both toolName and tool_name.');
-  }
-  const name = copilot ? event.toolName : event.tool_name;
+  const name = event.toolName;
   if (typeof name !== 'string' || !name) {
-    throw new Error('Expected toolName (Copilot) or tool_name (Local).');
+    throw new Error('Expected a Copilot toolName.');
   }
   if (!editTools.has(name)) {
     return {};
   }
 
-  let input = copilot ? event.toolArgs : event.tool_input;
+  let input = event.toolArgs;
   if (typeof input === 'string') {
     input = name === 'apply_patch' ? { input } : JSON.parse(input);
   }
@@ -90,27 +70,25 @@ function runHook(phase, event) {
   }
   const edits = name === 'apply_patch'
     ? patchEdits(input.input ?? input.patch)
-    : structuredEdits(input);
+    : structuredEdits(name, input);
 
   if (phase === 'preToolUse') {
     const invalid = edits.some(edit => /\.md$/i.test(edit.path) && /[\u2013\u2014]/u.test(edit.text));
     if (!invalid) {
       return {};
     }
-    const decision = {
+    return {
       permissionDecision: 'deny',
       permissionDecisionReason: 'Markdown edits must not add en dash or em dash characters. Use commas or separate sentences.'
     };
-    return copilot ? decision : { hookSpecificOutput: { hookEventName: 'PreToolUse', ...decision } };
   }
 
   if (!edits.some(edit => /(^|[\\/])docs[\\/]/i.test(edit.path))) {
     return {};
   }
-  const context = {
+  return {
     additionalContext: 'Review the edited documentation against .github/instructions/docs-writing.instructions.md and correct any style issues.'
   };
-  return copilot ? context : { hookSpecificOutput: { hookEventName: 'PostToolUse', ...context } };
 }
 
 if (require.main === module) {
