@@ -34,7 +34,7 @@ Different models have different strengths. Use a fast model for quick edits and 
 
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
+![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model.png)
 
 If the model picker shows **Models** instead of a model name, open it to check whether workspace trust or sign-in is required. Learn more about [workspace trust and Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
 
@@ -55,29 +55,29 @@ For administrator configuration, see [Set managed model defaults](/docs/enterpri
 
 <!-- TODO: Add a screenshot showing Org default in the model picker and the managed indicator for chat.defaultModel in Settings. -->
 
-## Configure thinking effort
+## Configure thinking effort and context size
 
-Some models support configurable thinking effort, which controls how much reasoning the model applies to each request. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
+Some models support configurable thinking effort, context size, and other parameters.These control how much reasoning the model applies to each request, and how much context the model can consider at once. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
 
-By default, {% data variables.product.prodname_vscode_shortname %} sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
+By default, {% data variables.product.prodname_vscode_shortname %} sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the default configuration works well.
 
 > [!TIP]
 > Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/agents/guides/optimize-usage.md).
 
-To configure the thinking effort:
+To configure model parameters:
 
 1. Open the model picker in the chat input field and select a reasoning model.
 
-1. Select the **>** arrow that appears next to the model name to open the **Thinking Effort** submenu.
+1. Select the **>** arrow that appears next to the model name to open the model configuration submenu.
 
     > [!NOTE]
-    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort submenu.
+    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort option in the model configuration submenu.
 
 1. Select an effort level.
 
-    ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](images/language-models/thinking-effort-submenu.png)
+    ![Screenshot showing the the model configuration submenu, with different effort levels and context size options.](images/language-models/thinking-effort-submenu.png)
 
-The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level is remembered per session, so revisiting an earlier session keeps the effort level it was using. New conversations start from the effort level you last set for that model.
+The model configuration is remembered per session, so revisiting an earlier session keeps the same effort level and context size it was using. New conversations start from the effort level and context size you last set for that model.
 
 > [!NOTE]
 > The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. Configure thinking effort directly from the language model picker.
