@@ -4,14 +4,18 @@
     "preToolUse": [
       {
         "type": "command",
-        "command": "node .github/hooks/docs-hooks.cjs preToolUse",
+        "matcher": "^(create|edit|str_replace_editor|apply_patch)$",
+        "bash": "node .github/hooks/docs-hooks.cjs preToolUse || { printf '%s\\n' 'Docs style hook failed; allowing the tool call. See the error above.' >&2; printf '%s\\n' '{\"additionalContext\":\"Warning: Docs style hook failed; allowing the tool call. Check that Node.js is available and .github/hooks/docs-hooks.cjs exists in the session working directory.\"}'; }",
+        "powershell": "$ErrorActionPreference = 'Stop'; try { & node .github/hooks/docs-hooks.cjs preToolUse; if ($LASTEXITCODE -ne 0) { throw \"Node exited with code $LASTEXITCODE\" } } catch { [Console]::Error.WriteLine(\"Docs style hook failed; allowing the tool call: $_\"); Write-Output '{\"additionalContext\":\"Warning: Docs style hook failed; allowing the tool call. Check that Node.js is available and .github/hooks/docs-hooks.cjs exists in the session working directory.\"}' }; exit 0",
         "timeoutSec": 10
       }
     ],
     "postToolUse": [
       {
         "type": "command",
-        "command": "node .github/hooks/docs-hooks.cjs postToolUse",
+        "matcher": "^(create|edit|str_replace_editor|apply_patch)$",
+        "bash": "node .github/hooks/docs-hooks.cjs postToolUse || { printf '%s\\n' 'Docs style hook failed; allowing the tool call. See the error above.' >&2; printf '%s\\n' '{\"additionalContext\":\"Warning: Docs style hook failed; allowing the tool call. Check that Node.js is available and .github/hooks/docs-hooks.cjs exists in the session working directory.\"}'; }",
+        "powershell": "$ErrorActionPreference = 'Stop'; try { & node .github/hooks/docs-hooks.cjs postToolUse; if ($LASTEXITCODE -ne 0) { throw \"Node exited with code $LASTEXITCODE\" } } catch { [Console]::Error.WriteLine(\"Docs style hook failed; allowing the tool call: $_\"); Write-Output '{\"additionalContext\":\"Warning: Docs style hook failed; allowing the tool call. Check that Node.js is available and .github/hooks/docs-hooks.cjs exists in the session working directory.\"}' }; exit 0",
         "timeoutSec": 10
       }
     ]

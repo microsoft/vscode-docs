@@ -7,6 +7,7 @@ You've found the GitHub repository that contains the source for the Visual Studi
 Thank you for your interest in VS Code documentation!
 
 * [Prerequisites](#prerequisites)
+* [Agent writing hooks](#agent-writing-hooks)
 * [Quick Start](#quick-start)
 * [Contributing](#contributing)
 * [Testing Your Changes](#testing-your-changes)
@@ -22,6 +23,10 @@ Thank you for your interest in VS Code documentation!
 
 > [!IMPORTANT]
 > Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
+## Agent writing hooks
+
+The repository's hooks target the Copilot harness used by the CLI and Agents window. They use Node.js to check Markdown edits and remind agents about the writing guidelines, and run only for Copilot's editing tools: `create`, `edit`, `str_replace_editor`, and `apply_patch`. Bash and PowerShell launch the same Node.js hook on their respective platforms. If Node.js is unavailable or a hook fails, the hook reports a warning and allows the tool call. A successful check still blocks newly inserted en dashes and em dashes in Markdown.
 
 ## Prerequisites
 
