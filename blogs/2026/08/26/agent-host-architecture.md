@@ -26,7 +26,7 @@ In this post, we'll explain why we built the Agent Host, what it enables in VS C
 
 In late 2025, we added support for [closing a local agent chat and keeping it running in the background](https://code.visualstudio.com/updates/v1_107#_local-agent-sessions-remain-active-when-closed). That made it possible to run multiple sessions in parallel or focus on another task while you were in VS Code. The next step was enabling those sessions to continue after you closed the folder where they started and to move across VS Code surfaces.
 
-Aside from supporting long-running sessions, we set out to adopt the [GitHub Copilot SDK](https://github.com/github/copilot-sdk) for the Copilot harness in VS Code. Using the SDK gives Copilot a more consistent harness behavior and functionality across Copilot CLI, the standalone GitHub Copilot app, and other Copilot products.
+Aside from supporting long-running sessions, we set out to adopt the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk) for the Copilot harness in VS Code. Using the SDK gives Copilot a more consistent harness behavior and functionality across Copilot CLI, the standalone GitHub Copilot app, and other Copilot products.
 
 Bringing these efforts together gave us an opportunity to reevaluate how we run agent harnesses in VS Code. An [agent harness](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses) assembles context, provides tools, runs the agent loop, and applies changes. Without the Agent Host, VS Code runs the local agent harness in each editor window's extension host, the process that VS Code uses to run extensions such as GitHub Copilot Chat. The extension host isolates extension code from the core editor, however it also ties the agent runtime to one VS Code window. Closing that window stops the runtime. As a result, each window loads its own agent infrastructure.
 
@@ -70,7 +70,7 @@ When the host runs on the same machine as VS Code, all editor windows and the Ag
 
 The Agent Host is designed to support different harnesses. Each harness retains its own agent loop and capabilities, while an adapter translates its events into the common AHP session model. Here are two examples of how this works:
 
-* The **Copilot harness** is powered by the [GitHub Copilot SDK](https://github.com/github/copilot-sdk), which manages its runtime as a child process.
+* The **Copilot harness** is powered by the [{% data variables.copilot.copilot_sdk %}](https://github.com/github/copilot-sdk), which manages its runtime as a child process.
 * The **Claude harness** loads Anthropic's Claude Agent SDK. Its adapter maps sessions, tools, permissions, and subagents into AHP while retaining features such as slash commands and hooks.
 
 AHP standardizes the client-facing session, not how an agent reasons, manages context, or calls tools. Learn more about [choosing an agent harness in VS Code](https://code.visualstudio.com/docs/agents/run/agent-harnesses).

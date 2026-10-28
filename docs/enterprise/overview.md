@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure enterprise policies, extensions, AI access, and network settings for development teams in {% data variables.product.prodname_vscode %}.
 ---
 

@@ -246,6 +246,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  CONTENT_DIRECTORIES,
   buildSidebar,
   loadJSON,
   renderTopics,

@@ -6,7 +6,7 @@ tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, vscode/
 ---
 Analyze the feature description and related code updates, and suggest updates to the vs code docs (docs/ folder). It is acceptable to say that no documentation update is needed. Ask the user for confirmation if you think no updates are needed.
 
-If needed, check the source code in GitHub repos microsoft/vscode and microsoft/vscode-copilot-chat to understand the feature implementation.
+If needed, check the source code in the GitHub repo microsoft/vscode to understand the feature implementation, including Copilot Chat.
 
 Ask clarifying questions if the feature description is ambiguous or lacks details.
 

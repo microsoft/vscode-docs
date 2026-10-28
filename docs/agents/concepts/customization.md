@@ -1,6 +1,6 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Choose instructions, skills, custom agents, and other customizations for your workflow in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -13,6 +13,7 @@ Keywords:
 - hooks
 - plugins
 - MCP
+- copilot connectors
 ---
 
 # Understand agent customization
@@ -39,6 +40,8 @@ Without customization, the agent works from your prompt, the current conversatio
 * **Automate lifecycle actions**: [hooks](/docs/agent-customization/hooks.md) run commands at specific points in the agent loop, independent of whether the model chooses to run them.
 * **Adopt a ready-made setup**: [agent plugins](/docs/agent-customization/agent-plugins.md) let you install multiple related customization types as one package.
 
+For supported services, [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` provide a managed alternative to configuring an MCP server. Connectors add MCP tools to {% data variables.product.prodname_copilot_short %} harness sessions without installing a local server or writing configuration.
+
 These mechanisms affect different layers of the agent. Instructions guide the model's decisions, tools expand the actions it can take, and hooks run outside the model's decision-making. Adding a rule to an instructions file is not equivalent to executing a validation script. Neither mechanism alone establishes a security boundary.
 
 Relevant customizations can reduce back-and-forth and rework by giving the agent project context from the start. Avoiding corrective turns and discarded implementations can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep customizations focused because their content also consumes space in the model's context window.
@@ -56,7 +59,8 @@ Before creating files, [check the selected harness and supported locations](/doc
 | The problem only affects certain files, languages, or tasks | Add targeted instructions |
 | Your team repeatedly explains the same multi-step process | Create an agent skill |
 | A recurring role needs focused instructions or a restricted tool set | Create a custom agent |
-| The agent needs to interact with an external system | Add an MCP server |
+| The agent needs access to a supported service, such as Slack or Notion | Connect a [{% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` |
+| The agent needs an external integration that isn't available as a connector | Add an MCP server |
 | An action must run at a lifecycle point independently of the model | Configure a hook |
 | Your team wants to install and maintain a packaged set of customizations | Use an agent plugin |
 
@@ -76,7 +80,7 @@ The following table compares the customization types by purpose and activation.
 | Teach the agent a workflow with supporting resources | [Agent skills](/docs/agent-customization/agent-skills.md) | Create a service from instructions, template files, and a setup script | The agent loads the skill when the task matches, or you invoke it directly |
 | Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command (Local harness sessions only) |
 | Use a specialized role and tool configuration | [Custom agents](/docs/agent-customization/custom-agents.md) | Review code with read-only tools | You select the agent, use it as a subagent, or another agent delegates to it |
-| Connect to an external system | [MCP](/docs/agent-customization/mcp-servers.md) | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
+| Connect to an external system | Manually configured [MCP servers](/docs/agent-customization/mcp-servers.md) or managed [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
 | Run code at a lifecycle event | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | {% data variables.product.prodname_vscode_shortname %} runs the hook when the configured event occurs |
 | Install a packaged customization setup | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Add a testing workflow with a skill, agent, hooks, and MCP server | Each bundled customization follows its own activation rules |
 
@@ -114,7 +118,9 @@ Where you define a customization determines who can use it and where it applies.
 * **Workspace or repository**: stored with the project and shared with contributors through source control.
 * **Organization**: managed centrally and shared across repositories, where supported.
 
-Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and team workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
+Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and repository-specific workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
+
+For plugin selection, enterprise-managed requirements and blocks always take precedence. Members can turn off plugins enabled by repository defaults, but can't override policy requirements or blocks.
 
 Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
 

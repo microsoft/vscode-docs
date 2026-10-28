@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Working with containers in Visual Studio Code
 ContentId: fbc9ef0d-7448-4289-aedb-278af37f15c2
 MetaDescription: Working inside a development container with Visual Studio Code
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 ---
 # Advanced container configuration
 

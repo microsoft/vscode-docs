@@ -1,6 +1,6 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Reference of default keyboard shortcuts in {% data variables.product.prodname_vscode %}.
 ---
 # Default keyboard shortcuts reference

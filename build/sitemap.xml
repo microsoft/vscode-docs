@@ -191,6 +191,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/cloud-continuity-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/configure/extensions/extensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -516,6 +521,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/cloud-sandbox-sessions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/best-practices</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -532,6 +542,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/custom-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/copilot-connectors</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -621,17 +636,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/run/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/run/subagents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/run/agent-harnesses</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/canvases</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

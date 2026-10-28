@@ -1,6 +1,6 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 ---
 # Configure the {% data variables.copilot.agents_window %}
@@ -81,6 +81,26 @@ With the unified workspace picker enabled, use `kb(sessions.focusNewSessionWorks
 
 ## Adjust the window layout
 
+### Arrange chat tabs and groups
+
+For sessions that support [multiple chats](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), use `setting(sessions.showChatTabs)` to choose how conversations appear:
+
+* **Multiple**: Show each open chat as a tab, with optional split groups.
+* **Single**: Show the active chat as the session view. Selecting a nested session replaces the unpinned chat pane. A chat explicitly opened to the side stays visible, and closing the last nested session pane doesn't reopen the main chat.
+
+In **Multiple**, arrange chat groups with the mouse or keyboard:
+
+* Drag a tab to the center of another group to move it there.
+* Drag a tab to a group's left, right, top, or bottom edge to create a group in that direction.
+* Run **Sessions: Split Chat Group Right**, **Sessions: Split Chat Group Down**, **Sessions: Move Chat to Previous Group**, or **Sessions: Move Chat to Next Group** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Press `kb(sessions.focusPreviousChatGroup)` or `kb(sessions.focusNextChatGroup)` to move focus between groups.
+
+Moving or closing the last chat in a group closes that group and expands the remaining groups. Visible and hidden chats, their history, group assignments, active chats, and split sizes are restored when you switch sessions or reload the window.
+
+To arrange separate top-level sessions instead, see [Arrange sessions in a grid](/docs/agents/run/agents-window.md#arrange-sessions-in-a-grid).
+
+To hide the sessions sidebar, select **Toggle Sidebar** in the top-left corner or press `kb(workbench.action.toggleSidebarVisibility)`.
+
 ### Use the single-pane editor panel (Experimental)
 
 The experimental single-pane layout replaces the separate editor and side panel with one docked pane. A shared tab bar spans the editor and the **Changes** or **Files** detail view. Files and diffs open in the docked editor next to the chat instead of in a modal window.
@@ -110,9 +130,35 @@ This setting changes the default only in the {% data variables.copilot.agents_wi
 
 ## Use {% data variables.product.prodname_vscode_shortname %} extensions in the {% data variables.copilot.agents_window %}
 
-The {% data variables.copilot.agents_window %} can run {% data variables.product.prodname_vscode_shortname %} extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
+Choose which installed {% data variables.product.prodname_vscode_shortname %} extensions run in the {% data variables.copilot.agents_window %} without changing their enablement in the editor window. Extensions must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile.
 
-For other extensions, opt them in by ID with the `setting(extensions.supportAgentsWindow)` setting:
+Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
+
+### Manage extensions (Experimental)
+
+Use the **Extensions** section of the Agent Customizations editor to turn installed extensions on or off for the {% data variables.copilot.agents_window %}. This experimental section requires `setting(extensions.experimental.agentsWindowManagement)`. If the section isn't visible, turn on this setting.
+
+1. In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Select **Extensions**.
+
+1. Find an extension in the list, or use the search field, and turn it on or off.
+
+1. If **Restart Required** or **Reload Required** appears, select **Restart Extensions** or **Reload Window** to apply the change.
+
+The list groups extensions by their support for the {% data variables.copilot.agents_window %}:
+
+* **AI Features**: extensions that contribute AI features, such as tools, MCP servers, or skills, but haven't declared support for the {% data variables.copilot.agents_window %}.
+* **Supported**: extensions that support the {% data variables.copilot.agents_window %}. These extensions are enabled by default.
+* **Other Extensions**: other installed extensions that haven't declared support for the {% data variables.copilot.agents_window %}.
+
+The `setting(extensions.experimental.agentsWindowSuggestions)` setting controls whether extension suggestions appear for the {% data variables.copilot.agents_window %}.
+
+Extensions that haven't declared support might not work as expected, especially if they rely on editor views or debugging.
+
+### Override extension support by ID
+
+As an alternative to the **Extensions** section, use `setting(extensions.supportAgentsWindow)` to override support for individual extension IDs:
 
 ```json
 "extensions.supportAgentsWindow": {
@@ -120,11 +166,37 @@ For other extensions, opt them in by ID with the `setting(extensions.supportAgen
 }
 ```
 
-The extension must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile. Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
+Set an extension ID to `true` to enable it even when it would otherwise be disabled, or to `false` to disable it even when it is supported by default. Reload the {% data variables.copilot.agents_window %} after changing this setting. These overrides don't affect editor windows.
+
+Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
 
 ## Personalize chat
 
 Add a decorative chat background, use the interactive VS Code pet, or adjust how chat content appears. Learn how to [personalize chat](/docs/chat/chat-overview.md#personalize-chat).
+
+### Set a group icon and color
+
+Give [custom session groups](/docs/agents/run/sessions/manage-sessions.md#create-a-custom-group) distinct icons and colors to recognize related work in a busy list.
+
+Right-click a group header and select **Change Icon...** to search for an icon, or **Change Color...** to choose a color from the theme-aware palette.
+
+To restore either default, open its picker and select **Reset to default**. Resetting one doesn't change the other. Both choices persist after reload.
+
+<!-- TODO: Add a screenshot showing a custom group containing workspace sessions and quick chats, with a custom icon and color and the group context menu showing Change Icon and Change Color. -->
+
+## Monitor sessions from the application icon (Preview)
+
+Enable `setting(sessions.showApplicationBadge)` to show how many unarchived sessions need attention on the macOS dock, Linux launcher, or Windows taskbar icon. The setting defaults to `true` in Insiders and `false` in Stable.
+
+![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} application icon with a badge count of one in the Windows taskbar.](../images/agents-overview/application-icon-session-badge.png)
+
+The badge counts sessions that:
+
+* Have unread results and are no longer in progress.
+* Are waiting for input.
+* Have failing CI checks on an open, non-draft pull request and are no longer in progress.
+
+Unread sessions still in progress aren't counted. Reading or archiving a session removes it from the count when it no longer needs attention.
 
 ## Next steps
 

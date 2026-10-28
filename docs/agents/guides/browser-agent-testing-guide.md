@@ -1,6 +1,6 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Build and validate a web app with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - ai
@@ -62,7 +62,7 @@ With browser tools enabled, ask the agent to create a simple calculator applicat
 
 1. Review the generated files as the agent creates `index.html`, `styles.css`, and `script.js`.
 
-1. Select **Keep** to save the files to your workspace.
+1. [Review the saved changes](/docs/agents/run/review-code-edits.md). If edits are pending review, select **Keep** to retain them or **Undo** to revert them. **Keep** clears pending review; the files are already saved to your workspace.
 
 The agent has built the basic structure of the calculator application.
 

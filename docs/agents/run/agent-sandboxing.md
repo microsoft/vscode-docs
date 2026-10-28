@@ -1,6 +1,6 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure file system and network isolation for {% data variables.product.prodname_copilot_short %} agents and troubleshoot sandbox failures.
 keywords:
 - copilot
@@ -20,6 +20,8 @@ keywords:
 Use this article to understand the security boundary, turn on sandboxing, grant the minimum required access, manage certificate trust, inspect the effective policy for a session, and troubleshoot sandbox failures.
 
 The settings and behavior below apply to Copilot harness sessions that use the default tools in the shared runtime.
+
+This process-level protection is different from [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`, which provide a managed cloud environment for running and continuing agent sessions. Use the cloud-session guide for that workflow, not the local sandbox setup below.
 
 > [!NOTE]
 > **For Local harness sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local harness sessions and custom terminal tools](#local-harness-sessions-and-custom-terminal-tools) for compatibility details.

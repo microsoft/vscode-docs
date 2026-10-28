@@ -1,6 +1,6 @@
 ---
 ContentId: f35e56c9-6307-4741-94f0-5d6eb9699197
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Edit, share, stop, and troubleshoot MCP servers in {% data variables.product.prodname_vscode %}, with guidance on trust and remote environments.
 MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 Change, stop, share, or troubleshoot an existing MCP server in {% data variables.product.prodname_vscode %}. For first-time setup, see [Add MCP servers](/docs/agent-customization/mcp-servers.md). For formats and properties, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
-Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to edit connections, start or stop servers, change their enabled state, and view output. The editor is scoped to the selected agent harness. The configuration form steps below use the {% data variables.product.prodname_copilot_short %} harness. For differences in server support and configuration, see [Agent harnesses](/docs/agents/run/agent-harnesses.md).
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to edit connections, start or stop servers, change their enabled state, and view output. The editor is scoped to the selected agent harness. The configuration form steps below use the {% data variables.product.prodname_copilot_short %} harness. For differences in server support and configuration, see [Agent harnesses](/docs/agents/run/agent-harnesses.md).
 
 ## Open the server controls
 
@@ -67,6 +67,8 @@ Starting can require trust or authentication. If the server fails to start, [vie
 <a name="remove-an-mcp-server"></a>
 
 **Removal depends on the configuration source.** If **Uninstall** isn't available for a manually configured server, remove only its entry from the source configuration, not the whole file. If automatic discovery restores it, review its [discovery source](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery). You can also uninstall an installed server from the **MCP SERVERS - INSTALLED** section of the Extensions view.
+
+For {% data variables.product.prodname_github %}-managed MCP servers, [disconnect the {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md#disconnect-a-service) instead of uninstalling a server or editing a local configuration file.
 
 ## Automatically start MCP servers
 

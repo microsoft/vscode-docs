@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Create custom instructions in {% data variables.product.prodname_vscode_shortname %} that align AI responses with project standards and development practices.
 Keywords:
 - customize
@@ -205,8 +205,7 @@ To create an instructions file:
 
 You can also run **Chat: New Instructions File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-<!-- TODO: Replace screenshot to show the New Instruction (plus icon) buttons next to the Workspace and User groups in the Instructions section. -->
-![Screenshot showing the Instructions section and the menu for creating an instructions file in the Agent Customizations editor.](images/customization/create-instructions-file.png)
+![Screenshot showing the Instructions section and the options for creating an instructions file in the Agent Customizations editor.](images/customization/create-instructions-file-2.png)
 
 ### Generate an instructions file with AI
 

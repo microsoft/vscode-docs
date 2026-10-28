@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Learn how to implement context engineering using {% data variables.product.prodname_vscode_shortname %}'s built-in AI features.
 ---
 # Set up a context engineering flow in {% data variables.product.prodname_vscode_shortname %}

@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.143 release",
-      "description": "Get the Copilot harness by default, compare model results in the Agents window, and try experimental worktree cleanup, and a multi-diff file list.",
-      "link": "/updates/v1_143",
-      "image": "/assets/updates/1_143/release-highlights.webp"
+      "title": "VS Code 1.144 release",
+      "description": "Continue agent work across environments, let Copilot Fusion choose models, and try image generation (Preview).",
+      "link": "/updates/v1_144",
+      "image": "/assets/updates/1_144/release-highlights.webp"
     },
     {
       "type": "documentation",
@@ -60,10 +60,10 @@
     },
     {
       "type": "blog",
-      "title": "Modernizing the VS Code UI",
-      "description": "Learn how the VS Code Agent Host and Agent Host Protocol (AHP) enable persistent, portable agent sessions across windows, clients, and local or remote environments.",
-      "link": "/blogs/2026/10/15/modern-ui",
-      "image": "/assets/blogs/2026/10/15/classic-to-modern.png"
+      "title": "VS Code Wrapped: GitHub Universe 2026",
+      "description": "Catch up on a year of VS Code, from parallel agents to continuous work across apps and environments.",
+      "link": "/blogs/2026/10/26/vscode-wrapped",
+      "image": "/assets/blogs/2026/10/26/social-image.png"
     }
   ]
 }
