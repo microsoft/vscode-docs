@@ -88,7 +88,7 @@ With auto model selection, {% data variables.product.prodname_vscode_shortname %
 
 To use auto model selection, select **Auto** from the model picker in chat.
 
-In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), **Copilot Fusion** replaces **Auto** when dynamic Auto tiers are enabled and the service offers a Fusion tier your account can run. If the picker shows **Copilot Fusion**, follow the [Fusion instructions](#use-copilot-fusion-research-preview) instead.
+In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), **Copilot Fusion** replaces **Auto** when dynamic Auto tiers are enabled and the service offers a Fusion tier your account can run. If the picker shows **Copilot Fusion**, follow the [Fusion instructions](#use-copilot-fusion) instead.
 
 Use **Optimize for**, when available, to choose a tier that matches your priorities. The offered tiers depend on the service and can include:
 
@@ -102,9 +102,9 @@ You can see which model is used for generating a response by hovering over the c
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
-## Use Copilot Fusion (Research preview)
+## Use Copilot Fusion
 
-Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. For background on how Fusion differs from Auto and when to use it, see [Copilot Fusion concepts](/docs/agents/concepts/language-models.md#copilot-fusion-research-preview).
+Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. For background on how Fusion differs from Auto and when to use it, see [Copilot Fusion concepts](/docs/agents/concepts/language-models.md#copilot-fusion).
 
 For details about orchestration, tiers, availability, and AI credit usage, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
 
