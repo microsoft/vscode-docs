@@ -350,7 +350,7 @@ The [Color Theme guide](/api/extension-guides/color-theme#syntax-colors) describ
 
 VS Code's built-in scope inspector tool helps debug grammars and semantic tokens. It displays the scopes for the token and the semantic tokens at the current position in a file, along with metadata about which theme rules apply to that token.
 
-Trigger the scope inspector from the Command Palette with the `Developer: Inspect Editor Tokens and Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
+Trigger the scope inspector from the Command Palette with the `Developer: Inspect Editor Tokens and Scopes` command or [create a keybinding](/docs/configure/keybindings) for it:
 
 ```json
 {

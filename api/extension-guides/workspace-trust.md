@@ -111,4 +111,4 @@ Similar to debugging, VS Code prevents running tasks in Restricted Mode. If your
 
 ## Testing Workspace Trust
 
-See the [Workspace Trust user guide](/docs/editor/workspace-trust) for details on enabling and configuring Workspace Trust.
+See the [Workspace Trust user guide](/docs/editing/workspaces/workspace-trust) for details on enabling and configuring Workspace Trust.
