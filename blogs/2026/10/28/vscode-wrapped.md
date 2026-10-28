@@ -18,7 +18,7 @@ When we gathered at [GitHub Universe in October 2025](https://code.visualstudio.
 > [!QUOTE]
 > A year later, working with agents has become the new normal.
 
-Imagine handing off a feature to Copilot while Claude investigates a bug, then opening the running app in a browser that both you and the agent can see and control. Project instructions and tools give those agents the context to work, and the Agents window brings their progress and changes together for review.
+Imagine handing off a feature to Copilot, while an agent using the Claude harness investigates a bug, then opening the running app in a browser that both you and the agent can see and control. Project instructions and tools give those agents the context to work, and the Agents window brings their progress and changes together for review.
 
 When you hand a task to an agent, it shouldn't matter which app you're using to launch the task. When you switch to another tool, the task should continue running. Over the last releases, we've worked to make these connected, continuous experiences across VS Code and other Copilot apps become reality.
 
@@ -42,9 +42,9 @@ AHP lets clients connect to those sessions and stay in sync. Cloud sessions run 
 ![Screenshot of selecting a harness](harness-image.png)
 
 The agent harness is what coordinates the agent loop and connects the language model to context and tools.
-We combined our Local VS Code harness with the Copilot CLI harness to create the new Copilot harness, now the default for new sessions in both the editor and Agents window. Built on the [Microsoft Copilot SDK](https://github.com/github/copilot-sdk), it brings more consistent agent behavior across VS Code, Copilot CLI, and the GitHub Copilot app. This also means that you can reuse your agent customizations across different Copilot experiences without modifications.
+We combined our Local VS Code harness with the Copilot CLI harness to create the new Copilot harness, now the default for new sessions in both the editor and Agents window. Built on the [Microsoft Copilot SDK](https://github.com/github/copilot-sdk) developed by GitHub, it brings more consistent agent behavior across VS Code, Copilot CLI, and the GitHub Copilot app. This also means that you can reuse your agent customizations across different Copilot experiences without modifications.
 
-You can also use [Claude and Codex](https://code.visualstudio.com/blogs/2026/02/05/multi-agent-development) in VS Code through the Agent Host. Each runs on its provider’s own [agent harness](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses), with its own runtime and capabilities. VS Code brings their sessions together in one place, where you can manage work across agents without requiring every agent to work the same way.
+You can also use the [Claude and Codex harnesses](https://code.visualstudio.com/blogs/2026/02/05/multi-agent-development) in VS Code through the Agent Host. Each runs on its provider’s own [agent harness](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses), with its own runtime and capabilities. VS Code brings their sessions together in one place, where you can manage work across agents without requiring every agent to work the same way.
 
 ## Choosing your model
 
@@ -71,7 +71,7 @@ The Agent Host is a separate process that lets the Agents window connect to mult
 
 ## Shaping your agents
 
-[Instructions, skills, hooks, custom agents, and plugins](https://code.visualstudio.com/docs/agent-customization/overview) help agents understand your project conventions and workflows. Projects already customized for Claude Code or Codex can use that setup with their respective harnesses, without rebuilding it for VS Code.
+[Instructions, skills, hooks, custom agents, and plugins](https://code.visualstudio.com/docs/agent-customization/overview) help agents understand your project conventions and workflows. Projects already customized for the Claude Code or OpenAI Codex developer tools can use that setup with their respective harnesses, without rebuilding it for VS Code.
 
 Support for the [Model Context Protocol](https://code.visualstudio.com/docs/agent-customization/mcp-servers), including MCP Apps, connects agents to your tools and services. Extension authors can contribute [agent tools and MCP servers](https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview) through the Marketplace.
 
