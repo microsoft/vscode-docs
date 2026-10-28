@@ -37,11 +37,11 @@ Model comparison is on by default. If **Compare Models** isn't shown for an elig
 
 1. In the {% data variables.copilot.agents_window %}, select **New**, and then select the Git repository for the task. To compare responses without a repository, [start a quick chat](/docs/agents/run/agents-window.md#start-a-quick-chat) instead.
 
-1. Open the model picker and select **Compare Models**.
+1. Open the model picker and select **Compare Models** (scale icon).
 
-    If the optional **Send Query to Multiple Models** hint appears at the bottom of the picker, you can also select it to open comparison setup. The hint stops appearing after you first open comparison setup.
+    ![Screenshot showing the model picker with the Compare Models option selected.](../images/compare-models/compare-models-icon.png)
 
-1. Add between two and 10 attempts.
+1. Add between two and 10 models.
 
     Choose from the models available to your agent harnesses. When available, you can mix {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude %}, and {% data variables.product.prodname_openai_codex %} attempts. **Auto** and other routing choices aren't available for comparisons.
 
@@ -55,9 +55,6 @@ Model comparison is on by default. If **Compare Models** isn't shown for an elig
 
 1. Select **Done**. To compare attempts without a judge or synthesizer, select **Done** directly after choosing the attempts.
 
-<!-- TODO: Update the model picker screenshot to show the current Compare Models icon and Configure Judge button. -->
-![Screenshot showing the model picker with four models selected for a comparison.](../images/compare-models/bake-off-picker.webp)
-
 ## Run the same task across attempts
 
 Enter one bounded prompt that gives every attempt the same goal and success criteria. For a repository comparison, use a coding task such as:
@@ -70,11 +67,11 @@ add focused tests for valid, empty, and overlong names. Don't change other forms
 
 For a folderless comparison, ask a question or request a plan, such as outlining the trade-offs between two API designs.
 
-![Screenshot showing a comparison prompt and the Run 4 Attempts button.](../images/compare-models/bake-off-multiple-attempts.webp)
+![Screenshot showing a comparison prompt and the Run 4 Attempts button.](../images/compare-models/bake-off-multiple-attempts.png)
 
 Select **Run N Attempts**, where `N` is the number of attempts you configured. All attempts start concurrently as independent sessions. The results appear in a tiled grid by default, where you can monitor each attempt and open its session.
 
-![Screenshot showing four model comparison attempts running side by side in a grid.](../images/compare-models/bake-off-grid.webp)
+![Screenshot showing two model comparison attempts running side by side in a grid.](../images/compare-models/bake-off-grid.png)
 
 For repository comparisons, each attempt works in its own Git worktree based on the repository's committed state. It doesn't include changes that are uncommitted in your original working tree. Git-ignored files and dependencies might also be absent. For worktree requirements, ignored files, and **Allow all** permission behavior, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
@@ -93,7 +90,7 @@ If you configured a judge, evaluation starts automatically after the attempts fi
 
 Token values can be lower bounds rather than complete totals. The scorecard doesn't measure credit or currency costs.
 
-![Screenshot showing the judge scorecard with the recommended attempt, time and token usage, validation evidence, and Synthesize action.](../images/compare-models/bake-off-results.webp)
+![Screenshot showing the judge scorecard with the recommended attempt, time and token usage, validation evidence, and Synthesize action.](../images/compare-models/bake-off-results.png)
 
 > [!IMPORTANT]
 > A judge's assessment isn't proof that an implementation is correct. Review the code, verify the evidence, and run the project's tests before you integrate a result.

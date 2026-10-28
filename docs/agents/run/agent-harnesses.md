@@ -59,7 +59,7 @@ Select a harness before you submit the first prompt for a session:
 
 1. Open the **Session Target** UI control and select an available harness or the Cloud target.
 
-    ![Screenshot showing the Session Target UI control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-session-target.png)
+    ![Screenshot showing the Session Target UI control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-session-target-2.png)
 
 The control only lists targets whose [requirements](#requirements-and-setup) are met in the current window.
 

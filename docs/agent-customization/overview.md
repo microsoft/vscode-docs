@@ -74,8 +74,6 @@ The Agent Customizations editor provides a central place to discover, create, an
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
-![Screenshot showing the Agent Customizations editor with Copilot CLI custom agents and customization categories.](images/customization/agents-customizations.png)
-
 Follow these steps to open the Agent Customizations editor:
 
 {% tabs id="chat-surface" %}
@@ -92,7 +90,7 @@ The experimental **Extensions** section also lets you [choose which installed ex
 
 In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
+![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor-2.png)
 
 {% /tab %}
 {% /tabs %}

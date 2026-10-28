@@ -65,7 +65,6 @@ GitHub Environments supports continuity across apps and devices: register your d
 
 * Sign in to the host and connecting client with the same {% data variables.product.prodname_github %} account.
 
-
 * Check your [organization's controls](/docs/enterprise/manage-ai-settings.md#control-github-environments-preview) if the option is managed or unavailable.
 
 ### Register your machine
@@ -131,9 +130,9 @@ To connect to a remote machine via SSH:
 
 1. Select **New** or press `kb(workbench.action.chat.newChat)`.
 
-1. In the workspace dropdown, select the **Remote** tab, and then select **SSH**. If you've already set up SSH connections, they appear as options in the dropdown.
+1. In the environments dropdown, select **SSH**. If you've already set up SSH connections, they appear as options in the dropdown.
 
-    ![Screenshot showing how to select SSH in the workspace dropdown when starting a new agent session in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-remote.png)
+    ![Screenshot showing how to select SSH in the environments dropdown when starting a new agent session in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-remote-2.png)
 
 1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
 
@@ -147,9 +146,9 @@ To connect to a remote machine via dev tunnel:
 
 1. Select **New** or press `kb(workbench.action.chat.newChat)`.
 
-1. In the workspace dropdown, select the **Remote** tab, and then select **Tunnels** and choose your account type.
+1. In the environments dropdown, select **Dev Tunnels** and choose your account type.
 
-    ![Screenshot showing how to select Tunnels in the workspace dropdown when starting a new agent session in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-remote.png)
+    ![Screenshot showing how to select Tunnels in the environments dropdown when starting a new agent session in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-remote-2.png)
 
 1. Choose the active dev tunnel from the list.
 

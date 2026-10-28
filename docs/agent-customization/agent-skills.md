@@ -124,7 +124,7 @@ To create a skill:
 1. Select **New Skill** (plus icon) next to **Workspace** to store the skill in your project, or next to **User** to use it across your workspaces.
 
     <!-- TODO: Replace screenshot to show the New Skill (plus icon) buttons next to the Workspace and User groups in the Skills section. -->
-    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill-v2.png)
+    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill.png)
 
 1. Choose a location if prompted, and enter a skill name, such as `test-changes`. The editor offers locations for the selected harness. See [Skill locations](#skill-locations) for details.
 
