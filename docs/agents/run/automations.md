@@ -122,6 +122,19 @@ The cloud service runs the prompt in the selected repository. It doesn't use you
 {% /tab %}
 {% /tabs %}
 
+## Create an automation from chat
+
+You can also create an automation by asking in a normal chat in the {% data variables.copilot.agents_window %}. Describe the task, where it should run, and its schedule. For example:
+
+```prompt
+Create a local automation for this workspace that runs daily at 9:00 AM.
+Summarize commits from the last 24 hours, grouped by feature, fix, and maintenance.
+Return the summary in the session. Do not modify files.
+Save the automation disabled so I can review it before enabling scheduled runs.
+```
+
+The agent creates the automation through the normal tool-approval flow. Review any approval request before allowing creation. Then open **Automations** to review the saved prompt, execution environment, schedule, and permissions before enabling scheduled runs.
+
 ## Start from a template
 
 Automation templates provide a starting name, prompt, and schedule that you can review and adapt:
@@ -189,11 +202,11 @@ Instead of a schedule, a cloud automation can respond to events advertised by Gi
     | **Changed paths** | Limit triggering to matching file paths in a pull request. |
     | **Review states** | Filter by pull request review states. |
 
-1. Turn on **Require write access to trigger** to limit triggering to people with write access to the repository. This option is off by default. Review the [security considerations](#cloud-automation-security-and-usage) before allowing events from other users.
+1. Under **Trigger activity**, select **Include activity from users without write access to this repository** to let these users trigger runs. Clear it to restrict triggers to users with write access. Repository settings can keep this option cleared and unavailable, with **Disabled by your repository settings** shown. Review the [security considerations](#cloud-automation-security-and-usage) before including activity from users without write access.
 
 1. Review the prompt and allowed tools for the selected event, then save the automation with **Enabled** selected.
 
-<!-- TODO: Capture Issue and Pull Request trigger configuration with the Advanced filters and Require write access to trigger option. -->
+<!-- TODO: Capture Issue and Pull Request trigger configuration with the Advanced filters and Include activity from users without write access to this repository option. -->
 
 Test with a controlled event in a repository where you can safely inspect the outcome. Event-triggered automations don't show **Run now**. To test the prompt manually first, create a separate automation with a **Manual** trigger.
 
