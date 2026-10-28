@@ -1,7 +1,7 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/21/2026
-MetaDescription: Create, manage, migrate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} across profiles and workspaces.
+DateApproved: 10/28/2026
+MetaDescription: Install, adapt, and create agent customizations in {% data variables.product.prodname_vscode_shortname %} for your coding workflows.
 Keywords:
 - ai
 - copilot
@@ -15,9 +15,9 @@ Keywords:
 - agent skills
 - mcp
 ---
-# Create and manage agent customizations
+# Customize agents for your workflow
 
-Agent customizations adapt agents to your coding standards, workflows, and development systems. This article explains how to create, manage, evaluate, and troubleshoot customizations in {% data variables.product.prodname_vscode %}. To compare the customization types and understand how they work together, see [Agent customization concepts](/docs/agents/concepts/customization.md).
+Agent customizations adapt agents to your coding standards, workflows, and development systems. You can install an agent plugin, use or adapt an existing skill, or create customizations for your project. This guide helps you choose a starting point, manage customizations in {% data variables.product.prodname_vscode %}, and verify that they work with your agent harness. To compare customization types, see [Agent customization concepts](/docs/agents/concepts/customization.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -33,11 +33,33 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
+## Choose how to customize
+
+Start with a recurring task or an observed problem. You don't need to create every customization yourself, or add one when the agent already meets your needs.
+
+### Install or reuse
+
+Use an existing customization when it provides the workflow or capability you need:
+
+* **[Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins)**: Add related skills, agents, and tool integrations together.
+* **[Use an existing skill](/docs/agent-customization/agent-skills.md#use-an-existing-skill)**: Reuse its instructions, scripts, and resources for your task.
+* **Connect an external system**: [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` without server setup, or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) using a URL or launch command.
+
+For supported marketplace sources, you can also [browse customizations in the editor](#discover-marketplace-customizations-preview) (Preview). Review the publisher, included files, and setup requirements before installing or running a customization.
+
+### Create or adapt
+
+Adapt existing instructions or a skill when they nearly match your needs. Create a new customization when you need project-specific guidance or a workflow that isn't already available.
+
+Follow [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md) to add a customization and compare the agent's results before and after the change. To create an individual customization with AI or manually, use the [creation steps below](#create-a-customization).
+
+You can combine these approaches: install a plugin, then add project instructions for your codebase.
+
 ## Check harness compatibility
 
-Select the [agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use before choosing a customization type or creating a file. The harness determines which formats, locations, and capabilities are supported. Changing the language model doesn't change those requirements.
+Select the [agent harness](/docs/agents/run/agent-harnesses.md#select-a-harness) you intend to use before installing, copying, or creating a customization. The harness determines which formats, locations, and capabilities are supported. Changing the language model doesn't change those requirements.
 
-| Customization | Check before creating it |
+| Customization | Check before using it |
 |---------------|--------------------------|
 | [Instructions](/docs/agent-customization/custom-instructions.md) and [skills](/docs/agent-customization/agent-skills.md) | Use a format and file location that the selected harness reads. Check its activation rules and supported user, workspace, or organization scope. |
 | [Custom agents](/docs/agent-customization/custom-agents.md), [hooks](/docs/agent-customization/hooks.md), and [MCP servers](/docs/agent-customization/mcp-servers.md) | Follow the configuration for your harness. Tool names, supported fields, lifecycle events, and connection locations can differ. |
@@ -52,46 +74,50 @@ The Agent Customizations editor provides a central place to discover, create, an
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
-![Screenshot showing the Agent Customizations editor with Copilot CLI custom agents and customization categories.](images/customization/agents-customizations.png)
-
 Follow these steps to open the Agent Customizations editor:
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-In the left sidebar, select a customization type in the **Customizations** panel.
+In the left sidebar, select **Customizations** to open the Agent Customizations editor. Then select the customization type in the editor.
 
-![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
+![Screenshot showing the Customizations sidebar action and the Agent Customizations editor.](images/customization/agents-window-customizations.png)
+
+The experimental **Extensions** section also lets you [choose which installed extensions run in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
 In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
+![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor-2.png)
 
 {% /tab %}
 {% /tabs %}
 
-### Discover marketplace customizations (Experimental)
+### Discover marketplace customizations (Preview)
 
-The Customization Marketplace provides a unified **Discover** page for finding skills, MCP servers, plugins, and other agent customizations from configured sources. To use the marketplace, turn on the `setting(chat.customizations.marketplace.enabled)` setting.
+The Customization Marketplace provides a unified **Browse** page for finding skills, MCP servers, plugins, and other agent customizations from configured sources. It is enabled by default with `setting(chat.customizations.marketplace.enabled)`. The **Browse** page appears when a marketplace source is available. Available sources and installation actions depend on the selected harness and organization policy.
 
-The GitHub Feed source is available by default when the marketplace is enabled. Use the `setting(chat.customizations.marketplace.sources.publicFeed.enabled)` setting to show or hide this source.
+If **Browse** isn't available, check that the setting is enabled and your organization permits **Editor preview features**. Disabling that policy forces the unified **Browse** experience and {% data variables.product.prodname_copilot_short %} connectors off. See [organization and enterprise settings](/docs/enterprise/manage-ai-settings.md#use-github-organization-and-enterprise-settings).
+
+The GitHub Feed source is enabled by default for harnesses that provide marketplace search. Local sessions don't provide this source, and organization policy can restrict access. Use the `setting(chat.customizations.marketplace.sources.publicFeed.enabled)` setting to show or hide this source.
 
 To find and install a customization:
 
-1. Open the Agent Customizations editor and select **Discover**.
-1. Use the source menu to browse all sources or select a specific source, such as **GitHub Feed**.
+1. Open the Agent Customizations editor and select **Browse**.
+1. Use the source menu to browse all sources or select a specific available source, such as **GitHub Feed** or an individual plugin marketplace.
 1. Search by name or use a type filter, such as `@type:skill` or `@type:mcp`.
 1. Select an item and review its publisher, source, installation details, and any setup requirements.
-1. Select **Install** and choose a destination when prompted.
+1. Select **Install** and choose a destination when prompted. For {% data variables.product.prodname_copilot_short %} connectors `feature(copilot-connectors)`, select **Connect** and complete authorization instead.
 
 Some items are available for discovery but don't support automatic installation. Follow the publisher's setup instructions when they are provided.
 
-<!-- TODO: Add a screenshot showing Discover with GitHub Feed selected and source or publisher images visible. -->
+To [add or manage plugin marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces), select **Configure Marketplaces** from the source menu.
 
-Marketplace items show a source or publisher image in **Discover** and, when available, on the installed item and its details page. Use this information together with the item details to verify the source before installation.
+<!-- TODO: Add a screenshot showing Browse with source or publisher images visible and the source menu open, including GitHub Feed and an individual plugin marketplace in a supported harness. -->
+
+Marketplace items show a source or publisher image in **Browse** and, when available, on the installed item and its details page. Use this information together with the item details to verify the source before installation.
 
 {% data variables.product.prodname_vscode_shortname %} associates marketplace state with the exact installed target, not only its display name. A local customization and a Marketplace-installed customization with the same name remain separate:
 
@@ -123,6 +149,8 @@ You can create customization files with AI or create them manually. Creating a f
 1. Answer any questions the agent asks about missing details.
 1. Review the generated customization, correct any inaccurate information, and save the file.
 
+You can also describe the customization directly in chat with the intended harness.
+
 For example, to create a code reviewer skill, you can enter the following prompt:
 
 ```prompt
@@ -140,8 +168,6 @@ Create a workspace code reviewer skill for Python and JavaScript files. Check th
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
 To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps, see [Add MCP servers](/docs/agent-customization/mcp-servers.md#connect-a-server). To update an existing connection, see [Edit an MCP server configuration](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration).
-
-For Agent Skills, MCP servers, and agent plugins, use [Discover](#discover-marketplace-customizations-experimental) to browse marketplace sources and install an item. Manage the installation from the corresponding section.
 
 See the guides for [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [prompt files](/docs/agent-customization/prompt-files.md), [custom agents](/docs/agent-customization/custom-agents.md), [MCP servers](/docs/agent-customization/mcp-servers.md), [hooks](/docs/agent-customization/hooks.md), and [agent plugins](/docs/agent-customization/agent-plugins.md) for their file formats and configuration options.
 
@@ -161,9 +187,15 @@ The available actions depend on the customization type and its source. Use the i
 > [!IMPORTANT]
 > If the Agent Customizations editor shows **Migrations**, Copilot cannot use one or more customizations in their current location or format. Select **Migrations** to review the required work, and follow [Migrate Copilot customizations in VS Code](/docs/agent-customization/migrate-customizations.md) for detailed steps.
 
+### Manage canvas extensions
+
+`feature(canvases)`
+
+The **Canvases** section lists canvas extensions available to the active local {% data variables.product.prodname_copilot_short %} session and groups them by source. For prerequisites, opening canvases, and managing extension enablement, see [Use canvases with agents](/docs/agents/run/canvases.md).
+
 ## Verify a customization
 
-Test a new or updated customization in a fresh chat with the intended harness and workspace. Use a representative task and confirm that the harness discovers the file before assessing its behavior. This separates the saved customization from instructions in the conversation that created it.
+Test a newly installed, copied, or edited customization in a fresh chat with the intended harness and workspace. Use a representative task and confirm that the harness discovers the customization before assessing its behavior. This separates the saved customization from instructions in the conversation that created or adapted it.
 
 Check that the agent follows the expected instructions, workflow, tool configuration, or lifecycle action. For instructions and skills, use the response's **References** section, where available, to check which customizations were included.
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 10/21/2026
-MetaDescription: Use and manage agent tools in {% data variables.product.prodname_vscode_shortname %}, including automatic selection, approvals, and terminal commands.
+DateApproved: 10/28/2026
+MetaDescription: Use agent tools in {% data variables.product.prodname_vscode_shortname %} to inspect code, run commands, control desktop apps, and manage approvals.
 keywords:
 - copilot
 - ai
@@ -15,7 +15,7 @@ keywords:
 
 Tools let an agent inspect your project and check results instead of only suggesting code or commands for you to apply. For example, it can read the implementation behind a failing test, make a change, and run the test to check whether the change works.
 
-Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. Add an [MCP server](/docs/agent-customization/mcp-servers.md) or extension when the task needs a capability the available tools don't provide.
+Start with the tools already available in your session. {% data variables.product.prodname_vscode %} supports built-in tools, Model Context Protocol (MCP) tools, and extension tools. When the task needs a capability these tools don't provide, connect a supported service to the {% data variables.product.prodname_copilot_short %} harness with [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, [add an MCP server](/docs/agent-customization/mcp-servers.md), [install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundles MCP servers, or install an extension that contributes tools.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -81,13 +81,13 @@ For Copilot harness sessions, manage tools from the Agent Customizations editor.
 1. Open the Agent Customizations editor:
 
     * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
-    * In the {% data variables.copilot.agents_window %}, go to the **Customizations** panel.
+    * In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar.
 
 1. Select the **Tools** tab.
 
 1. Select or deselect tools to control which ones are available to the agent.
 
-Limit the selection to tools that are relevant to your request. Add capabilities by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+Limit the selection to tools that are relevant to your request. Add MCP tools by connecting supported services with [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, [adding MCP servers](/docs/agent-customization/mcp-servers.md), or [installing agent plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundle MCP servers. [Extensions](/docs/configure/extensions/extensions.md) can also contribute tools.
 
 To define a reusable tool selection for a workflow, specify tools in a [custom agent](/docs/agent-customization/custom-agents.md). For other harnesses, check their [setup requirements and configuration options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
@@ -163,6 +163,55 @@ Confirmations from the Local harness and extension-contributed tools can support
 
 ## Common built-in tool workflows
 
+### Coordinate work across sessions
+
+In sessions using the {% data variables.product.prodname_copilot_short %} or {% data variables.product.prodname_anthropic_claude_short %} harness, agents can use built-in session-management tools to coordinate related work. These tools are also available with the [experimental {% data variables.product.prodname_openai_codex_short %} integration](/docs/agents/run/agent-harnesses.md#codex).
+
+An agent can:
+
+* List sessions and inspect their status, workspace, and file changes.
+* Create sessions or nested sessions.
+* Read another conversation's recent context.
+* Send messages to start or steer follow-up work.
+
+State both the relationship between tasks and where the new work should run:
+
+* **Related work**: Request a nested session that reuses the current workspace and checkout for research or planning that can share files.
+* **Independent work**: Request a separate session. Omit the workspace for work that doesn't need repository files, or choose a trusted folder. Request a new worktree when code changes must be isolated.
+
+For related, read-only work:
+
+```prompt
+Create a nested session under this session that reuses the current workspace and checkout to review the authentication flow. Do not modify files.
+```
+
+For unrelated work without repository files:
+
+```prompt
+Create an independent session with no workspace to research licensing options for a separate project.
+```
+
+For isolated implementation in a known project:
+
+```prompt
+Create an independent session in the vscode workspace with a new worktree to implement and test the authentication change.
+```
+
+The tools use `currentSession` for nested work and `independent` for separate sessions. A project name can identify the workspace instead of an absolute path or URI. If names are ambiguous, the agent reports matching projects rather than choosing one. Remote workspace URIs and multi-root project working directories are also supported.
+
+When a tool creates or targets a session, an **Open Session** pill lets you jump to it. To monitor and finish the work yourself, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
+
+Keep these constraints in mind:
+
+* Sending a message to another session always requires confirmation.
+* Agents can't send messages to the chat they are currently running in.
+* Creation and messaging limits guard against unbounded fan-out.
+* Archived sessions are excluded from listings unless explicitly requested.
+
+The experimental `setting(chat.agentHost.agentOrchestrationLimits)` setting defaults to `on`. It limits how many sessions and chats each source session creates and how many messages it sends within a sliding one-hour window, as well as recursive session creation depth. A busy session doesn't consume another session's allowance, and capacity returns as earlier actions leave the window.
+
+Setting it to `off` removes these limits without changing confirmation requirements or input validation. Changes apply without restarting the Agent Host. Reaching a limit doesn't interrupt work already running.
+
 ### Use browser tools
 
 Browser tools give agents an interactive way to validate web applications. Instead of inspecting only the source code, an agent can run your app, open it in the integrated browser, exercise a user flow, inspect page content and console errors, and fix problems it discovers.
@@ -224,6 +273,71 @@ Keep agent shell commands aligned with your development environment by loading y
 With [Python Environments](/docs/python/environments.md#terminal-settings) installed and `setting(python-envs.terminal.autoActivationType)` set to `shellStartup`, the selected workspace environment is also activated.
 
 This setting does not apply to remote sessions or the custom terminal tool override.
+
+## Control desktop applications (Experimental)
+
+Use Computer Use when a task needs a desktop application that the agent's other tools can't reach. {% data variables.product.prodname_github %}'s Computer Use plugin lets the agent see application windows, click, type, and scroll. For web applications, use [browser tools](#use-browser-tools) instead.
+
+Computer Use is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
+
+> [!CAUTION]
+> Computer Use can read and change content in applications outside your workspace. Approve access only to apps needed for your task, and avoid exposing sensitive content in application windows. See [desktop application access risks](/docs/agents/run/security.md#security-risks-to-be-aware-of).
+
+### Turn on Computer Use
+
+Computer Use is Experimental and off by default. To use it:
+
+1. Turn on `setting(chat.agentHost.computerUse.enabled)` in Settings, and restart {% data variables.product.prodname_vscode_shortname %}.
+
+1. Start a new local {% data variables.product.prodname_copilot_short %} chat in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The plugin downloads automatically on first use.
+
+1. Ask the agent to perform a task in a desktop application. For example:
+
+    ```prompt
+    Open Calculator and use it to compute 12 times 7.
+    ```
+
+1. When the agent asks **Turn on Computer Use?**, review its reason and select **Turn On**.
+
+1. On macOS, [grant the required system permissions](#grant-macos-permissions). On both platforms, approve access to each application when requested.
+
+You can also run `/computer on` in a {% data variables.product.prodname_copilot_short %} chat. If you select **Not Now**, the agent continues without Computer Use and doesn't ask again in that chat. Run `/computer on` if you change your mind.
+
+> [!IMPORTANT]
+> Turning on Computer Use is not limited to the current chat. It stays on for {% data variables.product.prodname_copilot_short %} on this computer, including {% data variables.copilot.copilot_cli_short %}, until you run `/computer off`.
+
+### Grant macOS permissions
+
+On macOS, Computer Use requires two permissions for the **Copilot Computer Use** helper app:
+
+* **Accessibility**: Click and type in applications.
+* **Screen Recording**: See application windows.
+
+To grant these permissions:
+
+1. Select **Set Up Computer Use** on the chat card.
+
+1. For the current permission, select **Allow in Settings** and follow the macOS prompt or turn on **Copilot Computer Use** in System Settings. If the app isn't listed, drag **Copilot Computer Use** from the setup dialog into the permission list in System Settings.
+
+1. Return to {% data variables.product.prodname_vscode_shortname %}. The dialog checks the permission and shows a check mark when it's granted. Repeat for the next permission. You can also select the refresh icon to check the current permission again.
+
+When both permissions are confirmed, the dialog closes and the agent continues your task.
+
+<!-- TODO: Add a screenshot of the macOS Computer Use setup dialog showing the permission steps and the Copilot Computer Use helper app. -->
+
+### Turn off Computer Use
+
+Run `/computer off` in a {% data variables.product.prodname_copilot_short %} chat to turn off Computer Use, including for {% data variables.copilot.copilot_cli_short %} on the same computer.
+
+To stop offering the integration in {% data variables.product.prodname_vscode_shortname %}, turn off `setting(chat.agentHost.computerUse.enabled)` and restart.
+
+### Troubleshoot Computer Use
+
+* **Computer Use isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
+* **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. If you previously selected **Not Now**, the agent doesn't ask again in that chat.
+* **The macOS setup dialog closes before you finish**: The dialog closes if the waiting tool call ends. Finish granting permissions in System Settings, then ask the agent to retry the task. A new setup card appears if permissions are still missing.
+* **Allow in Settings doesn't open a prompt**: After a restart, macOS might not show a permission prompt it has already shown. Select **Allow in Settings** again to open System Settings.
+* **Your organization blocks Computer Use**: Contact your administrator. Turning on the setting doesn't override an organization restriction.
 
 ## Built-in tools and context reference
 

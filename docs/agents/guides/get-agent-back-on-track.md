@@ -1,6 +1,6 @@
 ---
 ContentId: 77f594c1-b808-4421-9729-d6b17dd16e16
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Recover an AI agent session in {% data variables.product.prodname_vscode_shortname %} by steering requests, restoring checkpoints, and resetting context.
 Keywords:
 - ai
@@ -27,6 +27,7 @@ Start with the symptom you observe:
 | The agent is about to perform an unsafe, destructive, or irrelevant action. | [Stop the request](#redirect-a-running-request) immediately and state what it must not do. |
 | The response is complete, and most of the work is useful. | [Send a focused follow-up](#correct-a-completed-response) that identifies the specific mismatch. |
 | An ambiguous earlier prompt caused the agent to take the wrong approach. | [Edit the earlier request](#correct-a-completed-response) and resend it. |
+| Only specific pending file edits are unwanted. | [Undo those edits](#recover-unwanted-changes) without rewinding the conversation. |
 | File changes after a known point are unwanted. | [Restore a checkpoint](#recover-unwanted-changes). |
 | You want to compare another approach without losing the current conversation. | [Fork the conversation](#reset-conversation-context). |
 | The conversation contains too much irrelevant or conflicting context. | [Compact the context or start a fresh chat](#reset-conversation-context). |
@@ -98,6 +99,8 @@ Before you edit the request, review the affected changes so you understand which
 
 ## Recover unwanted changes
 
+To revert specific pending edits without changing the conversation, use **Undo** in the editor's review controls or the working set `feature(editor-working-set)`. {% data variables.product.prodname_copilot_short %} harness sessions support this workflow in the editor window, even without Git. The working set only includes edits made through tracked edit tools, not terminal commands. Use Source Control, if available, or edit the files yourself to revert changes outside the working set. Local harness sessions also support undoing pending edits. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes).
+
 Use a checkpoint when you can identify the last request before the agent's workspace changes went wrong. Restoring the checkpoint returns affected workspace files and chat history to that point.
 
 In supported chat sessions, checkpoints are enabled by default and created automatically before each request is processed. Send a request to establish a checkpoint before the agent makes changes. You don't need to create one manually.
@@ -137,7 +140,7 @@ A fork creates separate conversation history, but it doesn't always provide sepa
 
 ### Start a new chat in the session
 
-If the work still belongs in the same workspace but the conversation contains conflicting instructions or repeated corrections, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. The new chat doesn't inherit the other chats' history, but it shares the session's folder or worktree and code changes.
+If the work still belongs in the same workspace but the conversation contains conflicting instructions or repeated corrections, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. The new chat doesn't inherit the other chats' history. Keep the session's folder or worktree selected to continue with the same files and code changes.
 
 Provide the accepted decisions, current state, and validation criteria in the new prompt. Starting a chat doesn't remove saved files, applicable custom instructions, or persistent memory. If the harness doesn't support multiple chats in a session, start a new session instead.
 

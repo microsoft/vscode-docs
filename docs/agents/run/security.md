@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 Keywords:
 - security
@@ -36,7 +36,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
-1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
@@ -45,6 +45,32 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 ## Trust boundaries
 
 {% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust decisions cover the workspace, extension publishers, MCP servers, and network domains, and you can revoke trust at any time. Related boundaries can share a decision. For example, MCP servers in `.vscode/mcp.json` and workspace-root `.mcp.json` inherit Workspace Trust. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
+
+## Remote connections and GitHub Environments
+
+[GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) lets you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
+
+Session actions are mirrored to {% data variables.product.prodname_github %} for catalog and history storage. Conversation content is not end-to-end encrypted. Review the sharing disclosure before registering a host and check your organization's data-handling requirements.
+
+For {% data variables.product.prodname_vscode_shortname %}-specific connections over SSH or dev tunnels, protect the SSH credentials or tunnel account. Require authentication for tunnels; don't expose an agent host through anonymous access.
+
+Disconnecting a client doesn't stop the host's tasks. To stop sharing from the host, select **Remote Connections** > **Off**. To halt active work, stop the task in its session. Neither action undoes completed file edits, commands, or external effects. See [disconnect or stop sharing](/docs/agents/run/remote-agent-sessions.md#disconnect-or-stop-sharing).
+
+## Cloud sessions
+
+[Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` run agent tools in a managed environment, not in your local workspace. Check the repository, cloud session's permissions, and data-handling requirements before sending code or task context. Local editor state, extension tools, and uncommitted files aren't automatically transferred.
+
+Managed compute is a different boundary from [process-level agent sandboxing](/docs/agents/run/agent-sandboxing.md). Don't assume that local sandbox or approval settings configure the cloud service. Use the controls available in the cloud session and review its changes and test results before integration.
+
+Closing a client or marking a task as done isn't a cloud-resource shutdown action. Stopping a request doesn't undo completed actions, and deleting a task shouldn't be treated as confirmation that its compute environment was deleted. See [cloud session lifecycle guidance](/docs/agents/run/cloud-sandbox-sessions.md#review-work-and-finish-a-session).
+
+## Unattended cloud automations
+
+[Cloud automations](/docs/agents/run/automations.md#create-an-automation) `feature(cloud-automations)` run saved tasks on GitHub when a schedule or supported repository event triggers them. Restrict their allowed tools, test the prompt with a manual run, and use event filters and **Require write access to trigger** to limit which events can start work. Local approval and sandbox settings don't configure the cloud service.
+
+Keep secrets out of automation prompts. An **Only me** automation definition is private, but its run sessions and logs can be visible to people with repository access. Review [cloud automation security and usage](/docs/agents/run/automations.md#cloud-automation-security-and-usage) before enabling unattended work.
+
+Closing the application or turning off cloud controls doesn't disable GitHub triggers. Disable the automation to prevent future runs, and use **Stop** separately to request cancellation of an active run. Neither action reverses completed changes.
 
 ## How {% data variables.product.prodname_vscode_shortname %} protects your environment
 
@@ -75,7 +101,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** `feature(assisted-permissions)` uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions, Autopilot is a permission level instead.
+* **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions, Autopilot is a permission level instead.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -83,7 +109,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review agent changes](/docs/agents/run/review-code-edits.md) before you commit, merge, or create a pull request. {% data variables.product.prodname_copilot_short %} harness sessions in the editor window provide a working set `feature(editor-working-set)` with **Keep** and **Undo**, including without Git. It only tracks edits made through supported edit tools, so review changes made through terminal commands separately. Keeping an edit acknowledges an already-saved change. It is not approval before execution. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
@@ -120,6 +146,8 @@ All development tasks operate with the same permissions as the user.
 * **Autonomous file operations**: The agent can create, modify, and delete files within your workspace. File modifications are written directly to disk and can trigger watch tasks that perform additional actions.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
+
+* **Desktop application control**: [Computer Use (Experimental)](/docs/agents/run/tools.md#control-desktop-applications-experimental) can capture application windows and interact with apps outside your workspace. Review each application approval and keep sensitive content out of captured windows. Activation persists across chats and includes {% data variables.copilot.copilot_cli_short %} on the same computer. Run `/computer off` when you no longer need this access.
 
 * **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 
@@ -180,7 +208,7 @@ Your workspace data and development environment information can be exposed throu
 
 * **Custom model output**: When using [bring-your-own-key models](/docs/agent-customization/language-models.md), there is no guarantee that responsible AI filtering is applied to the model's output. Review custom model responses carefully.
 
-{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 </details>
 

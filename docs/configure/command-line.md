@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Launch and configure {% data variables.product.prodname_vscode %} from the command line, and open files, settings, extensions, or agent session drafts with URLs.
 ---
 # Command Line Interface (CLI)

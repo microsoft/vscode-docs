@@ -1,6 +1,6 @@
 ---
 ContentId: 30510047-1b9d-4df0-ba48-308f514f3592
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Look up custom agent file syntax, frontmatter fields, defaults, and harness-specific configuration in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:
@@ -37,34 +37,53 @@ The fields below describe the {% data variables.product.prodname_vscode_shortnam
 The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines which fields and tool names take effect. A shared file location does not imply identical behavior across harnesses.
 
 * **Local** supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
-* **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs do not apply. Agent-scoped hooks have a current [plugin-agent conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks).
+* **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs do not apply. See [Copilot-specific configuration](#copilot-specific-configuration) for fields recognized by the editor but not forwarded during agent conversion.
 * **Claude** uses its own [agent format](#claude-agent-format) and runtime behavior.
-* **{% data variables.copilot.copilot_cloud_agent %}** has a separate [configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration). The `target: github-copilot` value refers to that target, not the **Copilot** harness selected in {% data variables.product.prodname_vscode_shortname %}.
+* **{% data variables.copilot.copilot_cloud_agent %}** has a separate [configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration).
+
+By default, the selected harness determines the editor's completions, hovers, and validation. Set `target: github-copilot` to interpret the file with the Copilot schema, or `target: vscode` to use the Local schema. The `target` field overrides file interpretation, not the harness that runs your session.
+
+The editor identifies attributes that aren't supported by the effective target. For example, Local doesn't accept `skills` or `mcp-servers`, and Copilot doesn't accept `handoffs`, `agents`, `argument-hint`, or `advancedOptions`.
 
 ## Header fields
 
-All fields in this table are optional. Defaults and harness-specific behavior are listed where applicable.
+Fields are optional unless noted. Defaults and harness-specific behavior are listed where applicable.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String | The agent's name in the UI. Defaults to the file name. |
-| `description` | String | What the agent does and when to use it. |
+| `description` | String | What the agent does and when to use it. Required by the Copilot schema. |
 | `argument-hint` | String | Hint text that describes the input the agent expects. Shown in the Local chat input. |
+| `advancedOptions` | Object | Local-only map of advanced agent options. Not supported by the Copilot schema. |
 | `tools` | String or array of strings | Tools available to the agent. Tool names and supported aliases depend on the harness. User-defined tool sets are deprecated and are not supported in the Copilot harness. See [Tools](#tools). |
 | `agents` | Array of strings | Custom agents available as subagents. In Local, use `['*']` or omit the field to allow all available agents, or use `[]` to prevent subagent use. Include the `agent` tool set in `tools`. See [Subagent configuration](#subagent-configuration). |
 | `model` | String or array of strings | The model to use in the {% data variables.product.prodname_copilot_short %} harness. An array specifies models in preference order, using the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
-| `reasoning-effort` | String | Reasoning effort for the agent in the Copilot harness: `low`, `medium`, `high`, `xhigh`, or `max`. Availability depends on the selected model. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort). |
+| `model-policy` | String | Recognized by the Copilot editor schema with values `preferred` and `required`. Not forwarded when converting plugin-provided agents. See [Model preferences](#model-preferences). |
+| `reasoning-effort` | String | Reasoning effort for the agent in the Copilot harness. Supported values depend on the model. Completions use the configured models' advertised capabilities, where available. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort). |
+| `skills` | Array of strings | Names of skills to load into the agent's context in Copilot. Completions and hovers use the matching harness's skill inventory. See [Skills](#skills). |
+| `deferred-tool-loading` | Boolean | Copilot schema field for loading tools on demand. See [conversion limits](#copilot-specific-configuration) before relying on it. |
+| `strict-tools-list` | Boolean | Copilot schema field for omitting standard required tools that aren't explicitly listed. See [conversion limits](#copilot-specific-configuration) before relying on it. |
+| `include-custom-instructions` | Boolean | Copilot schema field for including repository custom instructions in the agent's context. See [conversion limits](#copilot-specific-configuration) before relying on it. |
+| `github` | Object | GitHub MCP configuration recognized by the Copilot schema, with `toolsets` and `permissions` properties. See [Copilot-specific configuration](#copilot-specific-configuration). |
 | `user-invocable` | Boolean | Whether the agent appears in the agents dropdown in Local and Copilot. Defaults to `true`. Set to `false` to hide a subagent-only helper from the picker. |
 | `disable-model-invocation` | Boolean | Whether to prevent other agents from invoking this agent as a subagent. Defaults to `false`. See [Subagent configuration](#subagent-configuration) for the Local explicit-list exception. |
 | `infer` | Boolean | **Deprecated.** Use `user-invocable` and `disable-model-invocation` to control picker visibility and subagent invocation separately. |
-| `target` | String | The target environment for the file: `vscode` or `github-copilot`. This is not the harness selector. |
-| `mcp-servers` | Object | MCP server configurations for [custom agents in {% data variables.copilot.copilot_cloud_agent %}](https://docs.github.com/en/copilot/reference/custom-agents-configuration). Not used by custom agents in {% data variables.product.prodname_vscode_shortname %}. |
+| `target` | String | Override the harness used to interpret the file in the editor: `vscode` for Local or `github-copilot` for Copilot. Omit it to follow the selected harness. This doesn't switch the session's harness. |
+| `mcp-servers` | Object or null | Agent-scoped MCP server definitions recognized by Copilot file editing. See [Copilot-specific configuration](#copilot-specific-configuration) for schema support and conversion limits. |
 | `handoffs` | Array of objects | Suggested transitions to another agent after a response in Local. See [Handoff fields](#handoff-fields). |
-| `hooks` | Object | Hook event map scoped to this agent. The Copilot harness supports agent-scoped hooks, but {% data variables.product.prodname_vscode_shortname %} currently omits this field when converting plugin-provided agents. Retain the definition and leave the affected migration incomplete. See the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Local execution requires `setting(chat.useHooks)` and a trusted workspace. |
+| `hooks` | Object | Hook event map scoped to this agent. Supported by Local and Copilot, including plugin-provided agents. See [Agent-scoped hooks](/docs/agent-customization/hooks.md#agent-scoped-hooks). Local execution requires `setting(chat.useHooks)` and a trusted workspace. |
 
 ### Tools
 
-In Local, `tools` can include built-in tools, MCP tools, and tools contributed by extensions. Existing user-defined tool-set references are deprecated and are not supported in the Copilot harness. See [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets). Built-in aliases such as `read` and `search` are separate from user-defined tool-set files. To include all tools from an MCP server, use `<server name>/*`.
+In Copilot, `tools` supports the built-in aliases `execute`, `read`, `edit`, `search`, `agent`, `web`, and `todo`. Use `*` to select all tools.
+
+Use completions to select available client-provided tools with their canonical qualified references, such as `browser/<tool>`, `notebook/<tool>`, and `vscode/<tool>`. Extension tools retain `<extensionId>/<tool>` references. Don't strip these prefixes or replace them with internal runtime registration names.
+
+To include all tools published by a configured MCP server, use `<server name>/*`. A namespace's availability depends on the session's MCP inventory. Review [tool availability](/docs/agents/run/tools.md) before reusing a tool list in another harness.
+
+In Local, `tools` can include built-in tools, MCP tools, and tools contributed by extensions. Existing user-defined tool-set references are deprecated and are not supported in Copilot. See [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets). Built-in aliases such as `read` and `search` are separate from user-defined tool-set files.
+
+For example, a Local agent can combine built-in tools with an MCP server namespace:
 
 ```yaml
 tools: ['read', 'search', '<server name>/*']
@@ -72,17 +91,44 @@ tools: ['read', 'search', '<server name>/*']
 
 Replace `<server name>` with the name of a configured MCP server. If `tools` is omitted in Local, the tools enabled in the tools picker are available. Unavailable tools are ignored.
 
-For Copilot and other harnesses, check [tool availability](/docs/agents/run/tools.md) before reusing a Local agent's tool list.
-
-Local references such as `agent/runSubagent` and `vscode/toolSearch` are not portable tool names. Copilot uses its native `task` tool for delegation, and its tool-discovery capability depends on the session's available tools. Review the tool list and any instructions that require a particular tool, rather than only moving the agent file. For compatibility checks and related open issues, see the [tool-discovery migration FAQ](/docs/agent-customization/migrate-customizations.md#why-does-an-agent-fail-with-a-tool-discovery-capability-error).
+Local's `agent/runSubagent` reference isn't a portable delegation tool name. Copilot uses its native `task` tool for delegation. A qualified client-tool reference such as `vscode/toolSearch` is valid only when that tool is provided to the Copilot session; the prefix alone doesn't make it Local-only. Review both the tool list and instructions that require a particular tool. For compatibility checks and known editing limitations, see the [tool-discovery migration FAQ](/docs/agent-customization/migrate-customizations.md#why-does-an-agent-fail-with-a-tool-discovery-capability-error).
 
 ### Model preferences
 
-To specify a prioritized list, replace the placeholders with model names available in your harness:
+Use the model identifiers inserted by completions for the intended harness. Copilot completions insert runtime model IDs, including exact provider-qualified IDs for BYOK models. These differ from Local's qualified model display names.
+
+To specify a prioritized list for Copilot, replace the placeholders with available model IDs. Keep the array in your preferred order:
 
 ```yaml
-model: ['<preferred model>', '<fallback model>']
+model: ['<preferred model ID>', '<fallback model ID>']
 ```
+
+The Copilot editor schema also recognizes `model-policy: preferred` and `model-policy: required`. Conversion of plugin-provided agents selects a model from the authored list but doesn't forward `model-policy`. Don't rely on `required` to enforce a required-model policy for those converted agents.
+
+### Skills
+
+In Copilot, use `skills` to name skills to load into the custom agent's context:
+
+```yaml
+skills: ['<skill name>']
+```
+
+Replace `<skill name>` with an enabled skill available to the intended Copilot harness. Completions and hovers show descriptions, sources, and availability details where provided. Disabled or temporarily unavailable skills can also appear, so review their status before selecting them.
+
+This inventory validation is specific to Copilot files. Setting `target: vscode` uses Local interpretation instead. For skill creation and supported locations, see [Agent skills](/docs/agent-customization/agent-skills.md).
+
+### Copilot-specific configuration
+
+The editor provides nested completions, hovers, and structural validation for these Copilot fields:
+
+* `github`: a `toolsets` array and a `permissions` map. GitHub MCP toolsets aren't Local user-defined tool-set files.
+* `mcp-servers`: a map of server definitions, with local command-based or remote URL-based configurations. The editor checks property types, tool arrays, URLs, and positive timeouts.
+* `hooks`: event maps with action arrays. Validation checks event-specific action combinations, matcher patterns, URLs, and positive timeouts. Use the [agent-scoped hook reference](/docs/agent-customization/hooks.md#agent-scoped-hooks) for runtime requirements.
+
+Structural validation doesn't start or authenticate MCP servers, or prove that a hook executes.
+
+> [!IMPORTANT]
+> Editor schema support doesn't guarantee runtime support. When converting agent files to SDK custom-agent configuration, including plugin-provided agents, {% data variables.product.prodname_vscode_shortname %} doesn't forward `model-policy`, `mcp-servers`, `github`, `deferred-tool-loading`, `strict-tools-list`, or `include-custom-instructions`. Don't rely on those fields to configure the runtime behavior of converted agents. To make MCP tools available to a session, use the [supported MCP server configuration](/docs/agent-customization/mcp-servers.md).
 
 ### Subagent configuration
 
@@ -135,7 +181,11 @@ Replace the model placeholder with an available model, or omit `model`. For a pl
 
 The Markdown body contains the instructions the agent follows, such as its task, guidelines, and expected output.
 
-Reference files with Markdown links or `#file:` syntax. Relative paths resolve from the custom agent file. Use `~` or `~/` to reference your home folder, and use Unix-style `/` separators to keep paths portable across operating systems.
+When you select the custom agent in the {% data variables.copilot.chat_view %}, its body instructions are added after your custom instructions and take precedence if they conflict.
+
+### Local file and tool references
+
+In Local, reference files with Markdown links or `#file:` syntax. Relative paths resolve from the custom agent file. Use `~` or `~/` to reference your home folder, and use Unix-style `/` separators to keep paths portable across operating systems.
 
 ```markdown
 Follow the [review checklist](./review-checklist.md).
@@ -144,7 +194,21 @@ Use #file:~/copilot/security-guidelines.md for security reviews.
 
 In Local, reference a tool with `#tool:<tool-name>`, such as `#tool:web/fetch`.
 
-When you select the custom agent in the {% data variables.copilot.chat_view %}, its body instructions are added after your custom instructions and take precedence if they conflict.
+### Copilot body placeholders
+
+Copilot file editing recognizes these case-sensitive placeholders:
+
+| Placeholder | Meaning |
+|-------------|---------|
+| `{{cwd}}` | Current working directory. |
+| `{{homedir}}` | Your home directory. |
+| `{{configDir}}` | Copilot configuration directory. |
+| `{{grepToolName}}` | Effective file-content search tool name. |
+| `{{globToolName}}` | Effective file-globbing tool name. |
+| `{{shellToolName}}` | Effective shell tool name. |
+| `{{shellCommandExamples}}` | Shell-appropriate command examples. |
+
+The editor provides completions, hovers, and highlighting for recognized placeholders and identifies unknown placeholder-like values. Local `#file:` and `#tool:` references are identified as unsupported for Copilot. Use ordinary Markdown links for file references and the `tools` frontmatter field to configure tools instead.
 
 ## Tool list priority
 

@@ -1,6 +1,6 @@
 ---
 ContentId: a4fa1788-9004-48ee-b75d-51765beaee5f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
@@ -244,6 +244,6 @@ To go deeper with agentic coding in {% data variables.product.prodname_vscode %}
 
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline)
 
-* [Learn how agents work in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
+* [Continue a cloud agent session from your terminal](/docs/agents/cloud-continuity-tutorial.md) (Experimental)
 
 * [Find a guide for your next task](/docs/agents/guides/overview.md#work-on-a-project)

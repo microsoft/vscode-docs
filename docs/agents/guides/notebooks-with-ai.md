@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Create, edit, run, and analyze Jupyter notebooks with AI in {% data variables.product.prodname_vscode %}.
 ---
 # Work with Jupyter notebooks using AI in {% data variables.product.prodname_vscode_shortname %}

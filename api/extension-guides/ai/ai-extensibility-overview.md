@@ -1,6 +1,6 @@
 ---
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Extend AI workflows with plugins, MCP Apps, and tools, or integrate models into {% data variables.product.prodname_vscode_shortname %} extensions.
 ---
 # AI extensibility in VS Code

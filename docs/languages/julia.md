@@ -1,6 +1,6 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Learn about working with the Julia programming language in {% data variables.product.prodname_vscode %}.
 ---
 # Julia in {% data variables.product.prodname_vscode %}
