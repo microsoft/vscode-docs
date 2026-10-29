@@ -206,18 +206,36 @@ The Markdown Editor lets you edit rendered Markdown directly, without switching 
 To open a Markdown file in the experimental editor:
 
 1. Open a `.md` file.
+
 1. In the breadcrumbs bar, select the editor type dropdown, such as **Text Editor**.
+
+    ![Screenshot of the editor type dropdown showing the option to select Markdown Editor.](images/markdown/markdown-editor-dropdown.png)
+
 1. Select **Markdown Editor**.
 
 Alternatively, in the editor title, select **More Actions** (**...**) > **Reopen Editor With** > **Markdown Editor**. You can also run **View: Reopen Editor With...** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-Switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit the document directly. In **Locked** mode, the document remains rendered and read-only.
-
-Git change markers in the margin indicate added, modified, and deleted content. The markers update as you edit and disappear when you undo or revert the corresponding changes.
-
-Rendered fenced code blocks include a **Copy** button that copies the complete block without requiring you to select or edit its contents.
-
 To make the experimental editor the default for Markdown files in the {% data variables.copilot.agents_window %}, see [View and edit Markdown files in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#view-and-edit-markdown-files).
+
+### Use the Markdown editor
+
+The editor has a toggle to switch between editing and locked modes. In locked mode, the document is read-only and rendered, while in editing mode, you can modify the content directly.
+
+1. If the mode control shows **Locked**, select it to switch to **Editing**.
+
+    ![Screenshot of the Markdown editor in Editing mode, showing the mode control set to Editing.](images/markdown/markdown-editor-editing-mode.png)
+
+1. Notice how the text at the cursor location is editable and how the Markdown syntax is visible. Place the cursor in the document and type to edit the content directly. Use Markdown syntax to format your content.
+
+    ![Screenshot of a short document in Editing mode, with the cursor in a paragraph, visible Markdown syntax, and the mode control.](images/markdown/markdown-editor-editing-mode-cursor.png)
+
+1. Save the file as usual. To read without accidentally changing the document, select the mode control to switch back to **Locked**. The document remains rendered and read-only.
+
+Git change markers in the margin show added, modified, and deleted content as you edit. Undo or revert the corresponding changes to remove the markers.
+
+To copy a code sample without editing it, hover over a rendered fenced code block and select **Copy**. This copies the complete block.
+
+To return to the raw Markdown source, select **Text Editor** from the editor type dropdown in the breadcrumbs bar.
 
 ## Markdown preview
 
