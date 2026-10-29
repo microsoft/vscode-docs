@@ -218,6 +218,9 @@ The `oauth` object supports the following properties:
 > [!NOTE]
 > When `oauth` is configured, {% data variables.product.prodname_vscode_shortname %} handles the OAuth flow automatically. A browser window opens for authorization on the first connection to the server.
 
+> [!NOTE]
+> A client secret is not part of `mcp.json`. If the server's OAuth client is confidential, select the **Set Client Secret** CodeLens that appears above `oauth.clientId` in `mcp.json`. {% data variables.product.prodname_vscode_shortname %} keeps the secret in its secret storage. To change it later, select **Replace Client Secret**.
+
 <details>
 <summary>Example remote server configuration</summary>
 
