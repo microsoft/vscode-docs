@@ -209,7 +209,7 @@ To open a Markdown file in the experimental editor:
 
 1. In the breadcrumbs bar, select the editor type dropdown, such as **Text Editor**.
 
-    ![Screenshot of the editor type dropdown showing the option to select Markdown Editor.](images/markdown/markdown-editor-dropdown.png)
+    ![Screenshot of the editor type dropdown showing the option to select Markdown Editor.](images/Markdown/markdown-editor-dropdown.png)
 
 1. Select **Markdown Editor**.
 
@@ -223,11 +223,11 @@ The editor has a toggle to switch between editing and locked modes. In locked mo
 
 1. If the mode control shows **Locked**, select it to switch to **Editing**.
 
-    ![Screenshot of the Markdown editor in Editing mode, showing the mode control set to Editing.](images/markdown/markdown-editor-editing-mode.png)
+    ![Screenshot of the Markdown editor in Editing mode, showing the mode control set to Editing.](images/Markdown/markdown-editor-editing-mode.png)
 
 1. Notice how the text at the cursor location is editable and how the Markdown syntax is visible. Place the cursor in the document and type to edit the content directly. Use Markdown syntax to format your content.
 
-    ![Screenshot of a short document in Editing mode, with the cursor in a paragraph, visible Markdown syntax, and the mode control.](images/markdown/markdown-editor-editing-mode-cursor.png)
+    ![Screenshot of a short document in Editing mode, with the cursor in a paragraph, visible Markdown syntax, and the mode control.](images/Markdown/markdown-editor-editing-mode-cursor.png)
 
 1. Save the file as usual. To read without accidentally changing the document, select the mode control to switch back to **Locked**. The document remains rendered and read-only.
 
