@@ -87,8 +87,6 @@ Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote dele
 
 ## Run a session in a remote Dev Container
 
-`feature(agent-host-dev-containers)`
-
 Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the remote machine. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL connections in the desktop {% data variables.copilot.agents_window %}.
 
 Before you start, enable `setting(chat.agentHost.devContainer.enabled)`. Docker must be installed and running on the remote host, and the project must contain a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).

@@ -113,8 +113,6 @@ For a remote session, use the [session toggle](#control-sandboxing-for-the-curre
 
 ### Use sandboxing in Dev Containers
 
-`feature(agent-host-dev-containers)`
-
 To run the sandbox inside a [Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), the container needs Docker options that a default container doesn't have. When sandboxing is on for a new Dev Container session, {% data variables.product.prodname_vscode_shortname %} adds these options when it starts the container:
 
 | Docker option | Why the sandbox needs it |
