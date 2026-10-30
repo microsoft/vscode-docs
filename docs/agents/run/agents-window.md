@@ -169,8 +169,6 @@ Dev Container sessions work directly in the container workspace and don't suppor
 
 ### Run a session in a Dev Container
 
-`feature(agent-host-dev-containers)`
-
 Run a session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
 This option is available only in the desktop {% data variables.copilot.agents_window %}. Enable `setting(chat.agentHost.devContainer.enabled)`.

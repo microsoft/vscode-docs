@@ -62,8 +62,6 @@ The desktop {% data variables.copilot.agents_window %} can connect to an Agent H
 
 Clients display and control sessions. The Agent Host owns them. Desktop and browser clients can connect to the same tunnel host.
 
-`feature(agent-host-dev-containers)`
-
 For a Dev Container session, the Agent Host runs inside the project's container. The container can run on your machine or on a supported SSH, Tunnel, or WSL host, while the desktop {% data variables.copilot.agents_window %} remains on your machine. Workspace file edits and commands use the tools and dependencies inside the container, rather than those installed directly on the source host.
 
 Dev Container execution is an environment choice, not a different harness. See the [session execution options diagram](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) for how local, connected-host, container, and cloud execution relate. For setup steps, see [Run an agent session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).

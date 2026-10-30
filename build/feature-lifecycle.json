@@ -9,10 +9,6 @@
       "label": "BYOK models in Agent Host",
       "state": "experimental"
     },
-    "agent-host-dev-containers": {
-      "label": "Dev Containers in Agent Host",
-      "state": "experimental"
-    },
     "agent-host-shell-initialization": {
       "label": "Shell initialization for Copilot Agent Host sessions",
       "state": "experimental"
