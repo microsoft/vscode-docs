@@ -1,6 +1,6 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
-MetaDescription: {% data variables.product.prodname_vscode %} Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
+MetaDescription: Find answers about {% data variables.product.prodname_vscode %} Remote Development, SSH, Dev Containers, WSL, and extension access to local resources.
 DateApproved: 10/28/2026
 ---
 # Remote Development FAQ
@@ -205,11 +205,9 @@ The {% data variables.product.prodname_vscode_shortname %} extension API abstrac
 
 ### Can an extension access local resources or APIs when a user is connected remotely?
 
-When {% data variables.product.prodname_vscode_shortname %} connects to a remote environment, extensions are classified as either **UI** or **Workspace** extensions. UI Extensions run in a **local extension host**, can contribute UI or personalization features (for example themes), and have access to local files or APIs. Workspace extensions run in a **remote extension host** with the workspace and have full access to the source code, remote filesystem, and remote APIs. While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
+Yes. A workspace extension running remotely can access client resources through the extension API, subject to client capabilities and permissions. For example, it can use the client clipboard and contribute UI. Its Node.js code and child processes still run remotely.
 
-When a user installs an extension, {% data variables.product.prodname_vscode_shortname %} attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
-
-If your extension is not functioning as expected, [there are steps to check](/api/advanced-topics/remote-extensions#incorrect-execution-location) if it is running in the correct location or should perhaps have a different `extensionKind`. Also see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details on what extension authors need to know about Remote Development and Codespaces.
+See [execution location and access to client resources](/api/advanced-topics/remote-extensions.md#execution-location-and-access-to-client-resources) for details, including access to client-local files.
 
 ## License and privacy
 
