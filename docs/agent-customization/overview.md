@@ -51,6 +51,8 @@ For supported marketplace sources, you can also [browse customizations in the ed
 
 Adapt existing instructions or a skill when they nearly match your needs. Create a new customization when you need project-specific guidance or a workflow that isn't already available.
 
+To make the agent follow your project's conventions, [create and test project instructions](/docs/agent-customization/custom-instructions.md#get-started-with-project-instructions). Start with one repeated problem, such as using the wrong test command or placing code in the wrong directory.
+
 Follow [Configure AI for your codebase](/docs/agents/guides/customize-copilot-guide.md) to add a customization and compare the agent's results before and after the change. To create an individual customization with AI or manually, use the [creation steps below](#create-a-customization).
 
 You can combine these approaches: install a plugin, then add project instructions for your codebase.
@@ -136,7 +138,7 @@ Store a customization at the narrowest scope that matches how you want to use an
 Scope determines where a customization is available and who can share it. Not every customization type supports every scope. The selected agent harness also determines which customization types and locations it supports. See the guide for each customization type for its supported locations.
 
 > [!NOTE]
-> Store user-level customizations in a folder that the selected harness supports on the machine where the agent runs. For example, {% data variables.product.prodname_copilot_short %} reads customizations from `~/.copilot`, and {% data variables.product.prodname_anthropic_claude %} reads them from `~/.claude`. These folders are separate from your {% data variables.product.prodname_vscode_shortname %} profile user data and aren't shared automatically between machines. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for supported user-level locations.
+> Store user-level customizations in a folder that the selected harness supports on the machine where the agent runs. For example, {% data variables.product.prodname_copilot_short %} reads customizations from `~/.copilot`, and {% data variables.product.prodname_anthropic_claude %} reads them from `~/.claude`. These folders are separate from your {% data variables.product.prodname_vscode_shortname %} profile user data and aren't shared automatically between machines. See [instructions](/docs/agents/reference/custom-instructions-reference.md#user-instructions), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for supported user-level locations.
 
 ## Create a customization
 

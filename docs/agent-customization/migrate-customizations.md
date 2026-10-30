@@ -211,7 +211,7 @@ To move user customizations:
 
 The migrated files are not included in [Settings Sync](/docs/configure/settings-sync.md).
 
-After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agent-customization/custom-instructions.md#instructions-file-locations) for the supported destinations.
+After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agents/reference/custom-instructions-reference.md#user-instructions) for the supported destinations.
 
 ## Move customizations from configured locations
 

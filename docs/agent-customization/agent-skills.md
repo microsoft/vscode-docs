@@ -36,7 +36,7 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | Feature | Agent Skills | Custom Instructions |
 | ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
-| **Portability** | Reusable across [skills-compatible coding agents](#agent-skills-standard), subject to each agent's supported locations and features | Reusable across experiences that support the selected [instruction format](/docs/agent-customization/custom-instructions.md#choose-a-format) |
+| **Portability** | Reusable across [skills-compatible coding agents](#agent-skills-standard), subject to each agent's supported locations and features | Reusable across experiences that support the selected [instruction format](/docs/agents/reference/custom-instructions-reference.md#supported-formats-and-locations) |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
 | **Scope** | Task-specific, loaded on-demand | Always applied (or via glob patterns) |
 | **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | Multiple formats, such as `AGENTS.md` and `.github/copilot-instructions.md` |
