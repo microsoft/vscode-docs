@@ -111,6 +111,24 @@ Sandboxing is independent of the selected [permission level](/docs/agents/run/ap
 
 For a remote session, use the [session toggle](#control-sandboxing-for-the-current-session) to change the current session's sandbox state. Defaults for new sessions come from the remote machine's sandbox configuration, not from the machine where you connect to the session.
 
+### Use sandboxing in Dev Containers
+
+`feature(agent-host-dev-containers)`
+
+To run the sandbox inside a [Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), the container needs Docker options that a default container doesn't have. When sandboxing is on for a new Dev Container session, {% data variables.product.prodname_vscode_shortname %} adds these options when it starts the container:
+
+| Docker option | Why the sandbox needs it |
+|---|---|
+| `--security-opt seccomp=unconfined` | Docker's default seccomp profile blocks the system calls that create the sandbox's namespaces. |
+| `--security-opt apparmor=unconfined` | Docker's default AppArmor profile blocks the mount operations that set up the sandbox. |
+| `--security-opt systempaths=unconfined` | Docker's masked `/proc` and `/sys` paths prevent the sandbox from mounting its own `/proc`. |
+| `--device /dev/net/tun` | `slirp4netns` uses it to give the sandbox network access. |
+
+> [!CAUTION]
+> These options relax the container's isolation from the host. Terminal commands that the agent runs still run inside the sandbox.
+
+To use sandboxing with an existing container that was started without these options, recreate the container with sandboxing on.
+
 <a name="agent-host-sandbox-settings"></a>
 
 ## Sandbox settings

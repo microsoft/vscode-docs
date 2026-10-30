@@ -193,6 +193,8 @@ To run a session in a Dev Container:
 
 Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
 
+To sandbox terminal commands inside the container, see [Use sandboxing in Dev Containers](/docs/agents/run/agent-sandboxing.md#use-sandboxing-in-dev-containers).
+
 The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
 
 When no session in the container is actively working, waiting for input, or holding an unsent draft, {% data variables.product.prodname_vscode_shortname %} stops the container after five minutes. Approval prompts count as waiting for input and keep the container running. Continuing a session restarts the container and reconnects it without losing the conversation history.
