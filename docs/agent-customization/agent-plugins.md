@@ -1,7 +1,7 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
 DateApproved: 10/28/2026
-MetaDescription: Install and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Find, install, and manage agent plugins from marketplaces in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - agents
@@ -35,7 +35,7 @@ Plugins can provide the following customizations. The selected harness and plugi
 | [MCP servers](/docs/agent-customization/mcp-servers.md) | Tools for interacting with external systems |
 | [Canvases](/docs/agents/run/canvases.md) `feature(canvases)` | Interactive visual surfaces shared by you and the agent in supported {% data variables.product.prodname_copilot_short %} sessions |
 | [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized roles and tool configurations |
-| [Hooks](/docs/agent-customization/hooks.md) | Commands that run at agent lifecycle points |
+| [Hooks](/docs/agent-customization/hooks.md) | Commands that run at specific points in the agent's workflow |
 | [Automation templates](/docs/agents/run/automations.md#start-from-a-template) | Starting prompts and schedules to review before creating an automation |
 | Slash commands | Commands you can invoke with `/` in chat |
 
@@ -50,14 +50,16 @@ Check the plugin's supported clients and components before installing. See [Cros
 
 Use the Agent Customizations editor to browse marketplaces and install plugins. You can also install a plugin directly from a Git repository or local folder. Available plugins and actions depend on the selected [agent harness](/docs/agents/concepts/agent-harnesses.md) and organization policy.
 
+Plugin marketplaces let you reuse workflows published by the community or your organization. If you don't need a bundle, the [Customization Marketplace](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) also provides discovery for individual skills and MCP servers from supported sources.
+
 ### Install a plugin from a marketplace
 
 1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting **Open Customizations** in the {% data variables.copilot.chat_view %} title bar, or selecting **Customizations** in the {% data variables.copilot.agents_window %} sidebar.
 
 1. Browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).  Available sources depend on the selected harness and organization policy.
 
-    * Select the **Browse** tab and search for a plugin.
-    * Select the **Plugins** tab and then select **Browse** to find available plugins.
+    * In the unified Customization Marketplace (Preview), select **Browse** and use the source menu to choose a plugin marketplace, or search across available sources.
+    * If the unified **Browse** page isn't available, select **Plugins** and then **Browse Marketplace** to find available plugins.
 
 1. Select a plugin to review its publisher, included customizations, and **Plugin README**, when provided.
 
@@ -127,7 +129,7 @@ Plugins installed from an external source (such as npm, PyPI, or an external Git
 
 ## Configure plugin marketplaces
 
-Add and manage plugin marketplaces in the Agent Customizations editor or configure their sources in Settings.
+A plugin marketplace is a Git repository containing a catalog of plugin definitions. Add community or organization marketplaces in the Agent Customizations editor, or configure their sources in Settings.
 
 Adding a marketplace makes its plugins available to browse. It does not install or enable them.
 
@@ -146,7 +148,7 @@ Organization-managed marketplaces can't be removed, and some harnesses also prot
 
 You can discover plugins from marketplaces such as [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/). To configure additional marketplaces, use `setting(chat.plugins.marketplaces)` (Experimental).
 
-Marketplaces are Git repositories that contain plugin definitions. You can reference them in several formats:
+You can reference marketplace repositories in several formats:
 
 * **Shorthand**: `owner/repo` for public GitHub repositories. For example, `anthropics/claude-code`. Append `#<ref>` to select a branch, tag, or full 40-character commit SHA.
 * **HTTPS git remote**: a full URL ending in `.git`. For example, `https://github.com/anthropics/claude-code.git`.

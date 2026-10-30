@@ -31,6 +31,8 @@ For Business and Enterprise plans, an administrator must turn on the **Editor pr
 
 ## Connect a service
 
+Connectors are a source in the [Customization Marketplace](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview). Unlike installing a skill or plugin, connecting a service authorizes access to its tools rather than installing customization files.
+
 1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) and select **Browse**.
 
 1. Choose **Copilot Connectors** in the source menu, or search for a service by name.

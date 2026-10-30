@@ -26,6 +26,8 @@ With **Local** selected, use the [Agent Customizations editor](/docs/agent-custo
 > [!IMPORTANT]
 > Prompt files run only in **Local** harness sessions in the {% data variables.copilot.chat_view %}. For reusable workflows in other harnesses, create an [agent skill](/docs/agent-customization/agent-skills.md) or [convert an existing prompt file to a skill](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
+Before writing a prompt file, consider [reusing a skill from the Customization Marketplace](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview) for the same task. This installs a skill, not a Local prompt file. Follow the skill's harness requirements and invocation instructions.
+
 ## Prompt file locations
 
 You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations that the Local harness uses for prompt files.

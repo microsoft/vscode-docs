@@ -1,7 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
 DateApproved: 10/28/2026
-MetaDescription: Create and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles, tools, and workflows.
+MetaDescription: Reuse, create, and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles and workflows.
 Keywords:
 - custom agents
 - chat modes
@@ -17,7 +17,7 @@ Keywords:
 
 Custom agents combine instructions, tools, and an optional language model into a reusable configuration for a specific role, such as planning or code review. Switch to a custom agent instead of repeating the same instructions and selecting tools for every conversation.
 
-This article shows you how to create, use, and manage custom agents in {% data variables.product.prodname_vscode_shortname %}, configure their files, and connect them with handoffs.
+This article shows you how to reuse, create, and manage custom agents in {% data variables.product.prodname_vscode_shortname %}, configure their files, and connect them with handoffs.
 
 > [!TIP]
 > **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare custom agents with prompt files, agent skills, and the other options.
@@ -34,6 +34,17 @@ Create a custom agent when a recurring task needs its own instructions, tools, o
 Custom agents appear in the agent picker alongside the [built-in agents](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent). The tools and controls available to a custom agent depend on the selected [agent harness](/docs/agents/run/agent-harnesses.md).
 
 When you select a custom agent, it applies to your requests until you switch agents. In the {% data variables.product.prodname_copilot_short %} harness, the agent's instructions are added to your [custom instructions](/docs/agent-customization/custom-instructions.md) and take precedence if they conflict. If the agent specifies a `tools` list, only those tools are available. Another agent can also run a custom agent as a subagent, or a [handoff](#handoffs) can switch the conversation to it.
+
+## Reuse an agent from a plugin
+
+Before creating a custom agent, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for a plugin that includes the role you need.
+
+1. Select a plugin and review its included agents, instructions, tools, and setup requirements. Confirm that it supports your intended harness.
+1. [Install the plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace) and complete its setup.
+1. [Select the agent in chat](#use-a-custom-agent) if it supports user invocation, or use it as a [subagent](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent) as intended by the publisher.
+1. Try a representative task and review the agent's response and tool calls before relying on it.
+
+Manage the installation through the [Plugins section](/docs/agent-customization/agent-plugins.md#view-installed-plugins). Create your own agent when you need a role or configuration that the available plugins don't provide.
 
 ## Create a custom agent
 

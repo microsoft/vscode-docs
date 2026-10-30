@@ -59,13 +59,13 @@ Use custom instructions when you want to:
 
 ## Use an existing skill
 
-Start with an existing skill when it provides the workflow you need. You can install a skill from a supported marketplace source, use one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md), or copy and adapt one for your project. Check [harness compatibility](/docs/agent-customization/overview.md#check-harness-compatibility) before choosing a source and location.
+Start with an existing skill when it provides the workflow you need. [Browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to install an individual skill or find one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md). You can also copy and adapt a skill for your project. Check [harness compatibility](/docs/agent-customization/overview.md#check-harness-compatibility) before choosing a source and location.
 
 A skill includes its full directory, not only the `SKILL.md` file: scripts, templates, examples, and other resources can be part of the workflow.
 
 ### Install a skill from the Customization Marketplace (Preview)
 
-Use the Customization Marketplace to find and install skills from configured sources. Marketplace discovery is enabled by default. GitHub Feed requires a harness that provides marketplace search; Local sessions don't provide this source, and organization policy can restrict access.
+Use the Customization Marketplace to find and install skills from configured sources. Marketplace discovery is enabled by default. The experimental GitHub Feed requires a harness that provides marketplace search. Local sessions don't provide this source, and organization policy can restrict access.
 
 1. Open the Agent Customizations editor and select **Browse**.
 1. From the source menu, select **GitHub Feed**, and then search for a skill by name or add `@type:skill` to your search.
@@ -73,13 +73,15 @@ Use the Customization Marketplace to find and install skills from configured sou
 1. Select **Install**, and choose a supported user or workspace destination when prompted.
 1. [Verify the installed skill](#verify-a-skill) in a session with the intended harness.
 
+To reuse skills bundled in a plugin, select a plugin marketplace from the source menu and [install the plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace). If your team's marketplace isn't listed, [add it through Configure Marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces).
+
 {% data variables.product.prodname_vscode_shortname %} doesn't overwrite an existing skill at the selected destination. If another supported location contains a skill with the same name, both skills appear on the **Skills** page. The source or publisher image identifies the Marketplace installation, and **Copy Relative Path** shows its exact location.
 
 {% data variables.product.prodname_vscode_shortname %} tracks the directory of each skill installed from the Marketplace. Deleting that skill from the **Skills** page doesn't remove a local skill with the same name in another location.
 
 If files from a Marketplace-installed skill are missing, **Browse** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
 
-For more information about browsing sources and installation states, see [Discover marketplace customizations](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview).
+For source availability and setup, see [Discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
 
 ### Copy and adapt an existing skill
 

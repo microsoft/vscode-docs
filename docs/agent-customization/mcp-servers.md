@@ -23,7 +23,7 @@ This article takes you from adding a server to verifying its first tool call. Ch
 * **Connect a supported service without server setup:** [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`.
 * **Use tools from a packaged workflow:** [Install an agent plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundles MCP servers.
 * **I have a server URL or command:** [Connect a server](#connect-a-server).
-* **Help me find a server:** [Choose a server to try](#choose-a-server-to-try).
+* **Help me find a server:** [Choose a server to try](#choose-a-server-to-try) or [browse the Customization Marketplace](#discover-servers-in-the-customization-marketplace-preview).
 * **My server is configured but isn't working:** [Check the connection](#if-the-server-does-not-work).
 
 ## Before you start
@@ -111,19 +111,27 @@ To control available tools in a Copilot session, open **Chat: Open Customization
 
 ## Find another server
 
-Use the MCP server gallery (Preview) to browse publishers and capabilities:
+### Discover servers in the Customization Marketplace (Preview)
 
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and search for `@mcp`.
+Use the [Customization Marketplace](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to find existing server integrations alongside skills and plugins.
 
-1. Select a server and review its publisher, capabilities, and installation requirements.
+1. For a {% data variables.product.prodname_copilot_short %} session, run **Chat: Open Customizations** and select **Browse**.
+1. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`.
+1. Review the publisher, server capabilities, and setup requirements, then select **Install** when available.
+1. Complete the publisher's setup and [verify a tool call](#verify-the-first-tool-call).
 
-1. Select **Install** for a personal installation, or right-click and select **Install in Workspace** to share its configuration with the project.
+The experimental GitHub Feed requires a harness that provides marketplace search. Local sessions don't provide this source. Availability also depends on organization policy. If automatic installation isn't supported, follow the publisher's instructions or [add its URL or command](#connect-a-server).
 
-1. Complete the publisher's setup, and then [verify a tool call](#verify-the-first-tool-call).
+You can also select a plugin marketplace and [install a plugin that bundles MCP servers](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace). Adding the marketplace alone doesn't install its servers.
 
-If the gallery isn't available, use a publisher-provided URL or command with [MCP: Add Server](#connect-a-server). Your organization can restrict which servers are available.
+> [!NOTE]
+> Searching for `@mcp` in the Extensions view or running **MCP: Browse MCP Servers** opens **Find MCP Servers in Customizations**, not a list of gallery results, when `setting(chat.customizations.marketplace.enabled)` is on (the default). Select **Browse MCP Servers** to continue in the Agent Customizations editor. When the setting is off, the legacy Extensions gallery can still appear.
 
-You can also open the gallery with **MCP: Add Server** > **Browse MCP Servers...**. Choose **Add from another application...** in the same picker to [discover existing server configurations](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery).
+### Add a server from another source
+
+If marketplace discovery isn't available for your harness or organization, use a publisher-provided URL or command with [MCP: Add Server](#connect-a-server).
+
+To reuse a configuration from another application, run **MCP: Add Server** and choose **Add from another application...**. See [automatic MCP server discovery](/docs/agents/reference/mcp-configuration.md#automatic-mcp-server-discovery) for supported sources.
 
 <details>
 <summary>Add from a package or Docker image (model-assisted)</summary>
@@ -137,15 +145,6 @@ If you have a package or image name instead of a launch command, use model assis
 1. [Verify a tool call](#verify-the-first-tool-call) from the added server.
 
 These options appear only when model-assisted setup is supported in your current configuration. If they aren't available, use the publisher's launch command with **Command (stdio)**. Runtime prerequisites still apply: generating a configuration doesn't replace installing the required runtime.
-
-</details>
-
-<details>
-<summary>Discover servers in the Customization Marketplace (Preview)</summary>
-
-For a Copilot session, open **Chat: Open Customizations** and select **Browse**. Select **GitHub Feed** from the source menu and search by name or with `@type:mcp`. Review the server and select **Install**.
-
-Marketplace discovery is enabled by default. Availability depends on the harness and your organization's preview-feature and marketplace policies. If automatic installation isn't supported, follow the publisher's instructions. Learn about [marketplace discovery](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview).
 
 </details>
 

@@ -131,7 +131,7 @@ You can customize the agent loop for a project or workflow:
 
 * A [**custom agent**](/docs/agent-customization/custom-agents.md) defines instructions, available tools, a language model, and optional handoffs for a specific workflow.
 * [**Agent skills**](/docs/agent-customization/agent-skills.md) give an agent instructions and resources for a specialized task.
-* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent lifecycle.
+* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent's workflow, such as before or after a tool runs.
 
 Learn more about [customization concepts](/docs/agents/concepts/customization.md).
 

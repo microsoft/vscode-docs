@@ -228,7 +228,7 @@ Agent files in `.claude/agents` use plain `.md` files and the [Claude subagents 
 | `permissionMode` | `default`, `acceptEdits`, `dontAsk`, `bypassPermissions`, or `plan`. |
 | `skills` | Skills to load into the agent's context at startup. |
 | `mcpServers` | MCP servers available to the agent. |
-| `hooks` | Lifecycle hooks scoped to the agent. |
+| `hooks` | Hooks that run at configured points in this agent's workflow. |
 | `memory` | Persistent memory scope: `user`, `project`, or `local`. |
 
 The Claude harness implements these fields according to its provider documentation. When Local loads a Claude-format agent, it maps supported Claude tool and model names to their {% data variables.product.prodname_vscode_shortname %} equivalents. This compatibility does not make all Claude runtime features available in Local.
