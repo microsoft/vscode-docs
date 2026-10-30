@@ -89,7 +89,7 @@ Inside a Claude session, type `/` in the chat input to see the available command
 | Slash command | Description |
 | --- | --- |
 | `/agents` | Wizard for creating and managing Claude sub-agents. |
-| `/hooks` | Configure lifecycle hooks that run at key points during a session. |
+| `/hooks` | Configure hooks that run at specific points in the agent's workflow. |
 | `/memory` | Open and edit the `CLAUDE.md` memory file used across sessions. |
 | `/init` | Initialize a new `CLAUDE.md` memory file for the project. |
 | `/pr-comments` | Get comments from a pull request. |

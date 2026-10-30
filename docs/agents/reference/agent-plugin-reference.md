@@ -27,7 +27,7 @@ Agent Plugins 1.0 defines skills and MCP servers as portable component types. Ot
 | [MCP servers](/docs/agent-customization/mcp-servers.md) | External tool integrations | | ✓ |
 | [Skills](/docs/agent-customization/agent-skills.md) | Instructions, scripts, and resources that load on-demand | | ✓ |
 | [Agents](/docs/agent-customization/custom-agents.md) | Specialized personas and tool configurations | ✓ | |
-| [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
+| [Hooks](/docs/agent-customization/hooks.md) | Shell commands that run at specific points in the agent's workflow | ✓ | |
 | [Automation templates](#automations-in-plugins) | Reusable prompts and schedules for agent tasks | ✓ | |
 | Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
@@ -302,7 +302,7 @@ Disabling a plugin stops its MCP servers. Tools provided by the stopped servers 
 
 ## Hooks in plugins
 
-Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin-wide hooks work alongside your workspace and user-level hooks. When a plugin is enabled, these hooks fire in addition to any other hooks configured for the same event.
+Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at specific points in the agent's workflow. Plugin-wide hooks work alongside your workspace and user-level hooks. When a plugin is enabled, these hooks fire in addition to any other hooks configured for the same event.
 
 > [!NOTE]
 > Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
