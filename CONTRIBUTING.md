@@ -473,7 +473,7 @@ Use lowercase for file and folder names and dashes `-` as separators.
 
 For example:
 
-* `/docs/editor/workspace-trust.md`
+* `/docs/editing/workspaces/workspace-trust.md`
 * `/docs/supporting/troubleshoot-terminal-launch.md`
 * `/api/extension-guides/custom-editors.md`
 
@@ -648,7 +648,7 @@ Press `kb(workbench.action.files.openFile)` to open a file.
 ```
 
 > [!TIP]
-> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
+> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/configure/keybindings#_default-keyboard-shortcuts).
 
 **For multiple key bindings, use a table:**
 

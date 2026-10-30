@@ -854,7 +854,7 @@ Contribute a validation schema for a specific type of `json` file. The `url` val
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/configure/keybindings) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 

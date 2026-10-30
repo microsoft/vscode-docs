@@ -28,7 +28,7 @@ An extension can contribute extension-specific settings with the [`contributes.c
 
 ## Keybinding
 
-An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings](/docs/getstarted/keybindings) topics.
+An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings](/docs/configure/keybindings) topics.
 
 ## Context Menu
 
