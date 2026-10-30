@@ -207,6 +207,8 @@ Return to **Instructions** in the Agent Customizations editor to find and edit e
 
 Use user scope for personal preferences across projects. Don't put your individual response preferences in a shared project file unless your team wants them too. For locations and synchronization limits, see [user instructions](/docs/agents/reference/custom-instructions-reference.md#user-instructions).
 
+You can also distribute instructions as rule components in an [agent plugin](/docs/agent-customization/agent-plugins.md#what-plugins-provide), alongside related agents, skills, or tools. Support depends on the selected harness and plugin format. Check [plugin compatibility](/docs/agent-customization/agent-plugins.md#cross-tool-compatibility) before sharing the bundle across clients.
+
 <a name="sync-local-agent-instructions-across-devices"></a>
 
 ## Instruction formats and settings

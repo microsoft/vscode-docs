@@ -211,7 +211,7 @@ To move user customizations:
 
 The migrated files are not included in [Settings Sync](/docs/configure/settings-sync.md).
 
-After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agents/reference/custom-instructions-reference.md#user-instructions) for the supported destinations.
+After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agents/reference/custom-agent-file-reference.md#custom-agent-file-locations) and [instruction file locations](/docs/agents/reference/custom-instructions-reference.md#user-instructions) for the supported destinations.
 
 ## Move customizations from configured locations
 
@@ -700,7 +700,7 @@ Review both the coordinator's Markdown instructions and its `tools` list. Prefer
 
 Finding an agent file does not mean that its tool list is compatible with the selected harness. Local delegation references such as `agent/runSubagent` and user-defined tool sets aren't portable Copilot tool configurations. Qualified client-tool references, including `vscode/<tool>`, can be valid when those tools are provided to the Copilot session.
 
-Review each entry in `tools` against the capabilities available in the Copilot session. Select Copilot before [editing the agent file](/docs/agent-customization/custom-agents.md#edit-a-custom-agent-file) and use its completions to preserve canonical tool references. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
+Review each entry in `tools` against the capabilities available in the Copilot session. Select Copilot before [editing the agent file](/docs/agents/reference/custom-agent-file-reference.md#edit-a-custom-agent-file) and use its completions to preserve canonical tool references. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
 
 Do not assume that removing a prefix or replacing a tool name fixes every discovery error. These editor hints aren't proof of a runtime tool-discovery failure.
 

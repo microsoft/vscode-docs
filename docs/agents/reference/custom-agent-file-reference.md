@@ -1,7 +1,7 @@
 ---
 ContentId: 30510047-1b9d-4df0-ba48-308f514f3592
-DateApproved: 10/28/2026
-MetaDescription: Look up custom agent file syntax, frontmatter fields, defaults, and harness-specific configuration in {% data variables.product.prodname_vscode_shortname %}.
+DateApproved: 10/30/2026
+MetaDescription: Look up custom agent file locations, syntax, fields, and harness compatibility in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:
 - custom agents
@@ -14,7 +14,7 @@ Keywords:
 
 # Custom agent file reference
 
-This article describes custom agent file syntax, frontmatter fields, and harness-specific configuration in {% data variables.product.prodname_vscode_shortname %}. For creation steps, file locations, and a complete starter example, see [Create and manage custom agents](/docs/agent-customization/custom-agents.md).
+This article describes custom agent file locations, syntax, frontmatter fields, and harness-specific configuration in {% data variables.product.prodname_vscode_shortname %}. For a step-by-step creation and verification workflow, see [Create and use custom agents](/docs/agent-customization/custom-agents.md).
 
 ## File structure
 
@@ -32,6 +32,43 @@ Report actionable findings with file references. Do not edit files.
 
 The fields below describe the {% data variables.product.prodname_vscode_shortname %} format. Files in `.claude/agents` use the [Claude agent format](#claude-agent-format).
 
+## Custom agent file locations
+
+You can define custom agents for a specific workspace or at the user level, where they are available across your workspaces. Select the intended harness before you create an agent so the Agent Customizations editor stores it in a supported location.
+
+| Scope | Default file location | File format |
+|-------|-----------------------|-------------|
+| Workspace | `.github/agents` folder | `.agent.md` or `.md` files |
+| Workspace (Claude format) | `.claude/agents` folder | `.md` files in the [Claude agent format](#claude-agent-format) |
+| User ({% data variables.product.prodname_copilot_short %}) | `~/.copilot/agents` folder | `.agent.md` or `.md` files |
+| User ({% data variables.product.prodname_anthropic_claude %}) | `~/.claude/agents` folder | `.md` files in the [Claude agent format](#claude-agent-format) |
+
+To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command. Store the file in a supported folder on the machine where the selected harness runs.
+
+In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
+
+### Local harness locations and migration
+
+The **Local** harness stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
+
+Prefer native harness folders, such as `.github/agents` and `~/.copilot/agents`, over custom search locations. The `setting(chat.agentFilesLocations)` setting remains supported and is not deprecated. The editor forwards agents from additional configured locations to Agent Host harnesses, including {% data variables.product.prodname_copilot_short %}, for compatibility with existing editor workflows. The older `chat.modeFilesLocations` setting is deprecated.
+
+Custom locations are not recommended for {% data variables.product.prodname_copilot_short %} workflows because {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not inherit editor location settings. To use agents across {% data variables.product.prodname_copilot_short %} clients, [move them to native harness locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+
+Custom agents were previously known as custom chat modes. If you have `.chatmode.md` files, rename them to `.agent.md` and place them in a supported custom agent location.
+
+If an agent has `hooks` in its frontmatter, review the [agent-scoped hook contract](/docs/agent-customization/hooks.md#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} preserves those hooks when converting agents for {% data variables.product.prodname_copilot_short %}, including plugin-provided agents. Keep agent-specific automation scoped to the agent and verify that its hooks run before completing a migration.
+
+### Organization-level agents
+
+To share custom agents across multiple workspaces within your organization, you can define them at the GitHub organization level.
+
+{% data variables.product.prodname_vscode_shortname %} automatically detects organization-level custom agents to which your account has access. These agents appear in the agents dropdown alongside built-in, personal, and workspace agents.
+
+Discovery of organization-level custom agents is enabled by default. To stop showing them in chat, set `setting(github.copilot.chat.organizationCustomAgents.enabled)` to `false`.
+
+Learn how to [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
+
 ## Harness compatibility
 
 The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines which fields and tool names take effect. A shared file location does not imply identical behavior across harnesses.
@@ -44,6 +81,16 @@ The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines whi
 By default, the selected harness determines the editor's completions, hovers, and validation. Set `target: github-copilot` to interpret the file with the Copilot schema, or `target: vscode` to use the Local schema. The `target` field overrides file interpretation, not the harness that runs your session.
 
 The editor identifies attributes that aren't supported by the effective target. For example, Local doesn't accept `skills` or `mcp-servers`, and Copilot doesn't accept `handoffs`, `agents`, `argument-hint`, or `advancedOptions`.
+
+### Edit a custom agent file
+
+Use completions and hover details in an `.agent.md` file to choose values for the intended harness. An explicit `target` overrides how the editor interprets the file, but doesn't switch your session's harness.
+
+For {% data variables.product.prodname_copilot_short %}-assisted editing, set `target` explicitly when you need target-specific guidance. Without an explicit target, the file context supplied to {% data variables.product.prodname_copilot_short %} describes only shared attributes and doesn't suggest target-specific model or tool values. This differs from normal editor completions, which follow the selected harness.
+
+Hover a value to inspect its details or availability. The editor refreshes validation as harness inventories change. Unknown-value hints depend on discovery completing, so the absence of a hint while discovery is pending doesn't confirm that a value is available.
+
+Select the intended harness before editing, then try the agent in that harness to verify its behavior. Editor feedback doesn't replace checking which tools and skills the running agent can use. See [Verify your custom agent](/docs/agent-customization/custom-agents.md#verify-your-custom-agent).
 
 ## Header fields
 

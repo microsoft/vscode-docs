@@ -313,7 +313,7 @@ After generating the agent:
 1. Ask it to research how a feature works. Check that it identifies relevant files, supports findings with evidence, and follows its configured role.
 1. Review any changes and tool activity rather than assuming the agent's name or instructions make it read-only.
 
-Learn more about [custom agents](/docs/agent-customization/custom-agents.md).
+For a complete test procedure and guidance on refining the agent's role, see [Verify your custom agent](/docs/agent-customization/custom-agents.md#verify-your-custom-agent).
 
 ## What you configured
 
