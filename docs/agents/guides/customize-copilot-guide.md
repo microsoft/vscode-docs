@@ -22,6 +22,8 @@ This guide helps you configure the {% data variables.product.prodname_copilot %}
 
 To understand how the customization types differ and work together, see [Agent customization](/docs/agents/concepts/customization.md).
 
+For ready-made workflows and integrations, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) before authoring your own. You can reuse an existing skill or plugin and still follow this guide to add repository-specific instructions.
+
 ## Prerequisites
 
 > [!NOTE]
@@ -378,4 +380,4 @@ Review and share any optional customization files through the same process as th
 
 * [Create and manage customizations](/docs/agent-customization/overview.md) from the Agent Customizations editor.
 * Add [MCP servers](/docs/agent-customization/mcp-servers.md) to connect the agent to external tools and services.
-* Set up [hooks](/docs/agent-customization/hooks.md) when an action must run at a specific agent lifecycle event.
+* Set up [hooks](/docs/agent-customization/hooks.md) when an action must run at a specific point in the agent's workflow, such as before a tool runs.

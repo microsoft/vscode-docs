@@ -402,7 +402,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.customizations.marketplace.enabled)` _(Preview)_<br/>Show the unified [**Browse** page](/docs/agent-customization/overview.md#discover-marketplace-customizations-preview) when a marketplace source is available. When disabled, discovery remains in the existing customization management pages. | `true` |
+| `setting(chat.customizations.marketplace.enabled)` _(Preview)_<br/>Show the unified [**Browse** page](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) when a marketplace source is available. When disabled, discovery remains in the existing customization management pages. | `true` |
 | `setting(chat.customizations.copilotConnectors.enabled)` `feature(copilot-connectors)`<br/>Control [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) in the unified marketplace and the availability of connected connector MCP servers in {% data variables.product.prodname_copilot_short %} agent sessions. | `true` |
 
 Organization policy forces both settings off when **Editor preview features** is disabled. See [organization and enterprise settings](/docs/enterprise/manage-ai-settings.md#use-github-organization-and-enterprise-settings).

@@ -321,7 +321,7 @@ For complete output and failure rules, see [Copilot decision control](https://do
 
 ### Review event timing
 
-Use this table to find the corresponding lifecycle point, not as a mechanical rename list. Changing a configured event from PascalCase to camelCase also changes its stdin payload.
+Use this table to find the event that corresponds to the same point in the agent's workflow, not as a mechanical rename list. Changing a configured event from PascalCase to camelCase also changes its stdin payload.
 
 | Local event | Copilot event | Behavior to verify |
 |-------------|---------------|--------------------|
@@ -340,7 +340,7 @@ Do not carry these assumptions into a migrated script:
 
 * **Common Local outputs:** `continue`, `stopReason`, and `systemMessage` are not a documented cross-event Copilot command-hook contract. Choose the destination's event-specific output. Do not treat denying one tool as stopping the whole session.
 * **Nested output envelopes:** accepting a PascalCase input alias does not establish support for every Local `hookSpecificOutput` field. Emit the documented Copilot output.
-* **Transcripts and tool IDs:** do not require `transcript_path` or `tool_use_id` on every event. Copilot documents transcript paths on particular lifecycle events, not all tool events. A transcript filename or substring is not proof that the agent read or followed an instruction.
+* **Transcripts and tool IDs:** do not require `transcript_path` or `tool_use_id` on every event. {% data variables.product.prodname_copilot_short %} documents transcript paths for particular events in the agent's workflow, not all tool events. A transcript filename or substring is not proof that the agent read or followed an instruction.
 * **Matcher behavior:** Local ignores matcher values. Copilot applies documented matcher rules, including different semantics for compatible `PreToolUse` names. Recheck every filter, including invalid patterns and tools it should not match.
 * **SDK callback types:** programmatic callbacks are not JSON-file command hooks. A field in SDK source, such as a callback-only prompt override, is not evidence that a shell hook can use it.
 * **Enforcement:** `ask` depends on an interactive approval flow; do not assume it pauses an unattended session. GitHub also documents fail-open timeouts, including for policy hooks. Neither instructions nor a migrated hook alone establishes a security boundary.
@@ -537,7 +537,7 @@ These fixtures check the script's input and output handling. They do not establi
 1. Disable the original hook without deleting its backup. Activate only the converted configuration you intend to use. For the standalone example, rename `review-copilot.json.disabled` to `review-copilot.json`; for settings, merge the validated hook entries into the existing `hooks` map.
 1. Select **Copilot** as the **Session Target** and start a new disposable session. Confirm the intended source is discovered and the hook actually fires. A visible file alone is not proof of execution.
 1. Test allow, deny, and approval paths as applicable. Separately test a command error and a timeout; they do not necessarily have the same result.
-1. Test the relevant lifecycle transitions, including resume or subagent completion when used. Check that each hook runs once, not once per duplicate source.
+1. Test the relevant events in the agent's workflow, including resuming a session or completing a subagent when used. Check that each hook runs once, not once per duplicate source.
 1. Repeat in the target operating system, remote host, container, or worktree. Verify `cwd`, script dependencies, user folders, and sandbox access without logging credentials or full prompts.
 1. Only then retire the old configuration. Publish shared changes through the repository or plugin's normal review process.
 

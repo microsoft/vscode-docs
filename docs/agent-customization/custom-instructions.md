@@ -94,7 +94,7 @@ Start with project instructions for rules that apply broadly. Use targeted instr
 | Task relevance | In Local sessions, a `description` lets the agent decide whether to read an instructions file for the task. This is separate from pattern matching. |
 | Manual | Attach guidance for a particular request when automatic discovery or activation isn't appropriate. |
 
-An instruction file such as `AGENTS.md` provides guidance to an existing agent. It doesn't define a [custom agent](/docs/agent-customization/custom-agents.md). For a reusable multi-step workflow rather than coding conventions or project context, consider an [agent skill](/docs/agent-customization/agent-skills.md).
+An instruction file such as `AGENTS.md` provides guidance to an existing agent. It doesn't define a [custom agent](/docs/agent-customization/custom-agents.md). For a reusable multi-step workflow rather than coding conventions or project context, consider an [agent skill](/docs/agent-customization/agent-skills.md). [Look for an existing skill in the Customization Marketplace](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview) before writing the workflow yourself. Keep repository-specific commands and conventions in your project instructions.
 
 ## Apply instructions to specific files or tasks
 

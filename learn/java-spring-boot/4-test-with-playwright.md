@@ -1,7 +1,7 @@
 ---
 ContentId: aad66383-6454-4291-b989-377abba471c5
 DateApproved: 10/28/2026
-MetaDescription: Use GitHub Copilot and Playwright MCP tools to test a Spring Boot web application in Visual Studio Code.
+MetaDescription: Test a Spring Boot web application with agent-driven Playwright MCP tools in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -29,7 +29,7 @@ is a test. This chapter is about the difference.
 
 In this chapter, you will learn to:
 
-- **Install an MCP server from the gallery:** Find the Playwright MCP server in the Extensions view and install it with trust confirmed.
+* **Install an MCP server from the Customization Marketplace (Preview):** Find Playwright in the Agent Customizations editor, review its publisher, and complete setup.
 - **Write markup that is testable:** Recognise the stable hooks that let a tool target one exact control.
 - **Establish a baseline:** Run the existing Java tests so a browser failure means something.
 - **Prompt for actions *and* assertions:** Phrase a request so Copilot verifies each state instead of just performing clicks.
@@ -61,12 +61,15 @@ the layer this chapter covers.
 
 - **A cloned copy of the sample:** Clone [microsoft/github-copilot-java-mcp-demo](https://github.com/microsoft/github-copilot-java-mcp-demo) and open it in a current version of Visual Studio Code.
 - **JDK 25 and both extension packs:** The **Extension Pack for Java** and the **Spring Boot Extension Pack**.
-- **GitHub Copilot:** Installed and signed in, with Agent mode available in Copilot Chat.
+* **{% data variables.product.prodname_copilot %}:** Signed in, with the **Copilot** harness available in the **Session Target** control. See [harness requirements](/docs/agents/run/agent-harnesses.md#copilot).
 - **A clean starting state:** The app stopped, port 8080 free, and the Playwright MCP server not yet installed, so the **Install** action is available.
 - **Permission to install and run:** Allow MCP server installation and tool use when prompted.
 
-> **If the gallery result is missing:** when `@mcp playwright` returns nothing in the
-> Extensions view, add the server to `.vscode/mcp.json` and start it from there instead.
+> [!NOTE]
+> If marketplace discovery or automatic installation isn't available, follow the
+> [Playwright connection steps](/docs/agent-customization/mcp-servers.md#connect-a-server)
+> to add the publisher's command through **MCP: Add Server**. Marketplace sources depend
+> on the harness and organization policy.
 >
 > **Browser warning:** Playwright opens a real Chrome window that shows an **unsupported
 > command-line flag: --no-sandbox** infobar. Dismiss it with its **×**; it does not affect
@@ -86,8 +89,8 @@ It is worth being precise about what it gives the model:
 - **Evaluation:** Run a snippet against the page to read state, such as whether a checkbox is checked.
 
 Unlike an MCP server you build into your own application, this one is not part of your
-project. It installs into your Visual Studio Code user profile and runs as a local
-process, so it stays available in every workspace once installed.
+project. Use a supported user-level configuration to make it available across your
+workspaces. It runs as a local process and requires the publisher's runtime dependencies.
 
 ### Markup that a tool can target
 
@@ -117,11 +120,13 @@ it improves the page for screen reader users at the same time.
 
 ## Exercise - install the tools and establish a baseline
 
-1. Select the **Extensions** button in the Activity Bar and search **`@mcp playwright`**.
-2. Open the Playwright MCP server result and review its publisher and command configuration before installing.
-3. Select **Install**, confirm trust for the server, and wait for its running status.
-4. Open `templates/index.html` and find the four `data-testid` values and the checkbox's `th:attr` label.
-5. Select the **Testing** button in the Activity Bar, select **Run All Tests**, and wait until every Java test passes.
+1. In a new chat, select **Copilot** from the **Session Target** control.
+1. Run **Chat: Open Customizations** from the Command Palette and select **Browse**.
+1. Select **GitHub Feed** from the source menu and search for `playwright` with the `@type:mcp` filter.
+1. Open the Playwright MCP server's details and review its publisher, command configuration, and runtime prerequisites.
+1. Select **Install** when available and choose a supported personal destination when prompted. Complete setup and review any trust or authentication prompts before accepting them.
+1. Open `templates/index.html` and find the four `data-testid` values and the checkbox's `th:attr` label.
+1. Select the **Testing** button in the Activity Bar, select **Run All Tests**, and wait until every Java test passes.
 
 ![The Testing view reporting all Java tests passing](../images/java-spring-boot/ch4-testing-view.png)
 
@@ -134,7 +139,7 @@ executable you choose to run.
 ## Exercise - let Copilot drive the browser
 
 1. Select the **Spring Boot Dashboard** icon in the Activity Bar, find **springboot-mcp-demo**, select **Run**, and wait until the Dashboard shows it running on port 8080.
-2. Open Copilot Chat, select **Agent** mode, select **Configure Tools...** in the chat input, confirm the Playwright tools are listed and enabled, and close the picker.
+2. In the same **Copilot** harness, select **Agent**. Run **Chat: Open Customizations**, select **Tools**, and confirm that the Playwright tools are listed and enabled. Return to chat.
 3. Enter the following prompt and select **Send**:
 
    ```prompt
@@ -201,7 +206,7 @@ than clicks.
 
 - [Playwright MCP server](https://github.com/microsoft/playwright-mcp) — the server installed in this chapter, and its tool list.
 - [Playwright documentation](https://playwright.dev/docs/intro) — locators, assertions, and the accessibility snapshot model.
-- [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) — installing from the gallery and managing trust.
+* [Add MCP servers](/docs/agent-customization/mcp-servers.md) to discover servers in the Customization Marketplace, complete setup, and verify their tools.
 - [Testing Java in Visual Studio Code](https://code.visualstudio.com/docs/java/java-testing) — the Testing view and test discovery.
 - [Demo source on GitHub](https://github.com/microsoft/github-copilot-java-mcp-demo) — the sample used in every chapter.
 

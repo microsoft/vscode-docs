@@ -1,8 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 10/30/2026
-MetaDescription: Create, test, and share custom agents in {% data variables.product.prodname_vscode_shortname %} for consistent code reviews and other recurring tasks.
-MetaSocialImage: ../../learn/images/shared/agent-first-development-social.png
+DateApproved: 10/28/2026
+MetaDescription: Reuse, create, and manage custom agents in {% data variables.product.prodname_vscode_shortname %} for specialized development roles and workflows.
 Keywords:
 - custom agents
 - chat modes
@@ -31,6 +30,17 @@ Create a custom agent when a recurring role needs its own instructions, tools, o
 You don't need a custom agent for every task. Use the [built-in planning workflow](/docs/agents/run/planning.md) if it already meets your needs. Put project-wide conventions in [custom instructions](/docs/agent-customization/custom-instructions.md), and put one-time requirements in your prompt. For reusable workflows with supporting scripts or resources, consider an [agent skill](/docs/agent-customization/agent-skills.md).
 
 See the [customization comparison](/docs/agents/concepts/customization.md#customization-options-at-a-glance) if you're unsure which option fits.
+
+## Reuse an agent from a plugin
+
+Before creating a custom agent, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for a plugin that includes the role you need.
+
+1. Select a plugin and review its included agents, instructions, tools, and setup requirements. Confirm that it supports your intended harness.
+1. [Install the plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace) and complete its setup.
+1. [Select the agent in chat](#use-a-custom-agent) if it supports user invocation, or use it as a [subagent](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent) as intended by the publisher.
+1. Try a representative task and review the agent's response and tool calls before relying on it.
+
+Manage the installation through the [Plugins section](/docs/agent-customization/agent-plugins.md#view-installed-plugins). Create your own agent when you need a role or configuration that the available plugins don't provide.
 
 ## Create a custom agent
 

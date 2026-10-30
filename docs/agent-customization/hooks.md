@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 10/28/2026
-MetaDescription: Configure Copilot hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Reuse and configure agent hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -15,7 +15,7 @@ Keywords:
 
 # Configure agent hooks in {% data variables.product.prodname_vscode %} (Preview)
 
-Hooks run custom actions at specific points in an agent's lifecycle. Use them to add context, validate a tool call, run a formatter, or record an event without relying on the model to request the action.
+Hooks run custom actions at specific points in the agent's workflow, such as before or after a tool runs. Use them to add context, validate a tool call, run a formatter, or record an event without relying on the model to request the action.
 
 This article helps you configure hooks for the shared Copilot runtime, choose a personal or shared source, and verify the result. If you already have hooks, start with [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Migration includes user folders, settings, custom agents, and plugins, not only repository files.
 
@@ -47,6 +47,14 @@ The older Local harness has a separate [Local hooks reference](/docs/agents/refe
 Sharing a hook file location does not establish runtime compatibility. Event naming can select a different payload, tool names and arguments can change, and output or error behavior can differ.
 
 Follow the [hook migration procedure and compatibility matrix](/docs/agent-customization/migrate-customizations.md#migrate-hooks) before reusing a hook. Select the destination harness and start a test session; changing only the language model does not test migration.
+
+## Reuse hooks from a plugin
+
+For an existing automation workflow, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for a plugin that includes hooks and their supporting scripts.
+
+Before installing, review the scripts, required executables, and supported harness. Hooks can run when their configured events occur without the model requesting them. A marketplace listing doesn't establish that a hook's event format or commands are compatible with your session.
+
+Follow the [plugin installation steps](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace), complete the publisher's setup, and verify the hook's execution in the intended environment. Check for [duplicate hook sources](#choose-a-hook-source) before also adding a standalone copy. If execution differs from your expectations, follow [hook troubleshooting](#troubleshoot-hooks).
 
 ## Create and manage hooks
 
