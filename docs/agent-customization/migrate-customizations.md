@@ -711,3 +711,23 @@ A separate report, [microsoft/vscode#342961](https://github.com/microsoft/vscode
 * [Create and manage agent customizations](/docs/agent-customization/overview.md)
 * [Choose and configure an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Agent customization concepts](/docs/agents/concepts/customization.md)
+## Converting an existing plugin package to Agent Plugins 1.0
+
+When converting existing or legacy plugin packages to the standardized Agent Plugins format, follow this end-to-end checklist:
+
+1. **Manifest relocation and schema:**
+   - Move the plugin manifest to the root as `plugin.json`.
+   - Declare the canonical schema in the manifest root to enable validation.
+2. **Component paths and namespaces:**
+   - Move client-specific components (such as custom agents and commands) under `com.github.copilot/`.
+   - Retain portable components, such as `skills/` and Model Context Protocol (`mcp.json`) configurations, at their standard root locations.
+3. **Canvas extension discovery:**
+   - SDK canvas extensions are discovered from `com.github.copilot/extensions/`. Manifest paths do not redirect discovery for canvas extensions.
+4. **Metadata pruning:**
+   - Remove unsupported manifest fields such as `categories`, `status`, `maintainers`, and `evals`. Move applicable catalog-level metadata to `marketplace.json`.
+5. **Reference and duplicate cleanup:**
+   - Update relative path references, version numbers, and test fixtures.
+   - Deactivate or delete old legacy component paths to prevent duplicate entries in the agent picker and tool registries.
+6. **Subprocess stdout isolation for hooks:**
+   - Hook scripts enforce a strict one-response JSON contract across the entire process tree.
+   - Ensure child processes or dependency installers (e.g., `npm`, `pip`) do not output progress or diagnostics to `stdout`. Redirect all subprocess logs to `stderr` to avoid invalidating the hook JSON response.
