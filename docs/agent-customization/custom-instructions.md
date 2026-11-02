@@ -100,14 +100,17 @@ An instruction file such as `AGENTS.md` provides guidance to an existing agent. 
 
 Keep project-wide rules in your main instructions file. Add targeted guidance when, for example, tests need different conventions from application code. The following example scopes Python testing rules to a `tests` directory.
 
-Create the file for your harness below, adapting the paths and rules to your project.
+Start in the Agent Customizations editor with the intended harness selected. Use the steps for your harness below, then adapt the paths and rules to your project.
 
 {% tabs id="instruction-harness" %}
 {% tab label="{% data variables.product.prodname_copilot_short %} or Local" %}
 
-Create multiple `.instructions.md` files in `.github/instructions` to keep guidance for different languages, folders, or tasks separate. Use the `applyTo` field in each file's YAML frontmatter to specify which files the instructions apply to.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) and select **Instructions**.
+1. Select the `+` button next to **Workspace** and choose the action for a new instructions file, rather than a project-wide file such as `AGENTS.md`.
+1. Choose `.github/instructions` if prompted and enter `python-tests` as the file name.
+1. In the generated file, add the following frontmatter and instructions.
 
-For example, create `.github/instructions/python-tests.instructions.md` with guidance for Python tests:
+Use `applyTo` to specify which files the instructions apply to:
 
 ```markdown
 ---
@@ -122,14 +125,19 @@ applyTo: 'tests/**/*.py'
 
 The pattern matches `tests/test_api.py` and `tests/unit/test_api.py`, but not `src/api.py`. It is relative to the workspace or project root, not the `.github/instructions` directory.
 
+If you prefer to create the file directly, save it as `.github/instructions/python-tests.instructions.md`. Use separate `.instructions.md` files for guidance that applies to different languages, folders, or tasks.
+
 In Local sessions, you can also add a `description`, such as `'Use when creating or updating Python tests.'`, for task-based discovery. The description is not an extra restriction on `applyTo`. The agent can load the file by relevance separately from pattern matching.
 
 {% /tab %}
 {% tab label="Claude" %}
 
-Create multiple Markdown files in `.claude/rules` to separate guidance by language, folder, or task. Use the `paths` field in each file's YAML frontmatter to list the file patterns the rules apply to. Patterns are relative to the project root.
+1. Open the Agent Customizations editor with the **Claude** harness selected and select **Instructions**.
+1. Select the `+` button next to **Workspace** and choose the action for a new rules file, rather than the project-wide `CLAUDE.md` file.
+1. Choose `.claude/rules` if prompted and enter `python-tests` as the file name.
+1. In the generated file, add the following frontmatter and instructions.
 
-For example, create `.claude/rules/python-tests.md`:
+Use `paths` to list the file patterns the rules apply to. Patterns are relative to the project root:
 
 ```markdown
 ---
@@ -145,12 +153,23 @@ paths:
 
 The rule targets Python files under `tests`, including nested directories. Without `paths`, the rule applies generally.
 
+If you prefer to create the file directly, save it as `.claude/rules/python-tests.md`. Use separate rules files for guidance that applies to different languages, folders, or tasks.
+
 {% /tab %}
 {% tab label="Codex" %}
 
-Create an `AGENTS.md` file in each directory that needs specialized guidance. Keep project-wide instructions in the repository-root `AGENTS.md`. Codex uses directory locations rather than `applyTo` or `paths` patterns, and these files don't require YAML frontmatter.
+For nested instructions, use the Agent Customizations editor's **Overview** section with the **Codex** harness selected to request the file:
 
-For example, create `tests/AGENTS.md`:
+```prompt
+Create or update tests/AGENTS.md with Python testing conventions.
+Reuse fixtures from conftest.py, name tests test_<behavior>_<condition>,
+and run python -m pytest <test-file> after changing a test.
+Preserve existing guidance and do not change application code.
+```
+
+Review the generated file before using it. Codex uses directory locations rather than `applyTo` or `paths` patterns, and these files don't require YAML frontmatter. Keep project-wide instructions in the repository-root `AGENTS.md` and targeted guidance in the relevant directory.
+
+For example, `tests/AGENTS.md` contains:
 
 ```markdown
 # Python tests
@@ -161,6 +180,8 @@ For example, create `tests/AGENTS.md`:
 ```
 
 Start a new Codex session with `tests` as its working directory. Codex loads instructions along the path from the repository root to that directory. Opening a test file in the editor doesn't change the session's working directory.
+
+If you prefer to create the file directly, save the example as `tests/AGENTS.md`.
 
 {% /tab %}
 {% /tabs %}

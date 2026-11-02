@@ -96,32 +96,9 @@ For source availability and setup, see [Discover and install existing customizat
 
 ## Create a skill
 
-> [!TIP]
-> With **Local** selected in the {% data variables.copilot.chat_view %}, type `/skills` in the chat input to quickly open the **Configure Skills** menu. For other harnesses, such as **Copilot**, use **Open Customizations** instead.
+Use the Agent Customizations editor to create the skill's directory and `SKILL.md` file in a location supported by your selected harness. Choose **Workspace** to share the skill with your project or **User** to use it across your workspaces.
 
-Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. {% data variables.product.prodname_vscode_shortname %} supports two types of skills:
-
-| Skill type | Location |
-| ---------- | -------- |
-| Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
-| Personal skills, stored in your home directory | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
-
-> [!NOTE]
-> To reuse repository skills with {% data variables.product.prodname_openai_codex %}, [configure the experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). This integration discovers workspace skills in `.github/skills/` before your first prompt, without additional skill-location configuration. Codex also discovers `.agents/skills/` natively.
->
-> If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence. Discovery makes skills available to the model but does not guarantee that it invokes a skill for every relevant prompt.
->
-> The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
-
-> [!NOTE]
-> Prefer native harness folders over custom search locations. The `setting(chat.agentSkillsLocations)` setting remains supported and is not deprecated, and the editor forwards skills from additional configured locations to Agent Host harnesses. Custom locations are not recommended for Copilot workflows because {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not inherit editor settings. [Move existing skills to native harness locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to use them across Copilot clients.
-
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
-
-To create a skill:
-
-1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar to open the Agent Customizations editor, and then select **Skills**.
+1. Select the intended harness, run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`), and select **Skills**. In the {% data variables.copilot.agents_window %}, you can also select **Customizations** in the sidebar.
 
 1. Select **New Skill** (plus icon) next to **Workspace** to store the skill in your project, or next to **User** to use it across your workspaces.
 
@@ -153,6 +130,8 @@ To create a skill:
 
 1. Save the files and [verify the skill](#verify-a-skill).
 
+If you prefer to create files directly, create a directory for the skill in a [supported skill location](#skill-locations) and save its instructions as `SKILL.md`. Keep the directory name consistent with the frontmatter `name`, then verify the skill in the same way.
+
 ### Generate a skill with AI
 
 Instead of writing the file yourself, ask the agent to create a skill in a chat with your intended harness. Describe the task, when the skill should apply, and where to store it. For example:
@@ -172,6 +151,19 @@ With **Local** selected in the {% data variables.copilot.chat_view %}, you can a
 * Select **Generate with AI** in the **Skills** section of the Agent Customizations editor.
 
 For other harnesses, use **Open Customizations** or describe the skill directly in chat.
+
+## Use skills as slash commands
+
+Skills can appear as slash commands in chat and can be loaded automatically when the request matches their description. Type `/` in the chat input field to see available skills and prompts, and select a skill to invoke it. You can add context after the command, such as `/test-changes for the authentication update`.
+
+Use the `user-invocable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
+
+| Configuration | Slash command | Auto-loaded by Copilot | Use case |
+|---|---|---|---|
+| Default (both properties omitted) | Yes | Yes | General-purpose skills |
+| `user-invocable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
+| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
+| Both set | No | No | Disabled skills |
 
 ## Verify a skill
 
@@ -206,7 +198,7 @@ The Codex harness is disabled when [{% data variables.product.prodname_copilot_s
 
 Local sessions also read project skills from `.claude/skills/` and `.agents/skills/`, and personal skills from `~/.claude/skills/` and `~/.agents/skills/`.
 
-The `setting(chat.agentSkillsLocations)` setting adds other skill locations for Local sessions. This setting is deprecated and isn't read by Copilot harness sessions. To reuse those skills with the Copilot harness, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+The deprecated `setting(chat.agentSkillsLocations)` setting adds other skill locations for Local sessions and remains available for compatibility. When another harness runs in {% data variables.product.prodname_vscode_shortname %}, the editor forwards skills from these locations. Independent harness clients do not inherit this setting. To use these skills from native locations, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
 
 ### Monorepos
 
@@ -323,6 +315,8 @@ npx playwright test --debug
 - Keep tests independent and atomic
 - Use Page Object Model for complex pages
 - Take screenshots on failure
+
+To check the skill, run `/webapp-testing for the login page`. Confirm that the result identifies the relevant test file, uses the project test command, and reports whether the test passed.
 ````
 
 </details>
@@ -357,21 +351,6 @@ This skill helps you debug failing GitHub Actions workflows in pull requests.
 ````
 
 </details>
-
-## Use skills as slash commands
-
-Skills are available as slash commands in chat, alongside [prompt files](/docs/agent-customization/prompt-files.md). Type `/` in the chat input field to see a list of available skills and prompts, and select a skill to invoke it.
-
-You can add extra context after the slash command. For example, `/webapp-testing for the login page` or `/github-actions-debugging PR #42`.
-
-By default, all skills appear in the `/` menu. Use the `user-invocable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
-
-| Configuration | Slash command | Auto-loaded by Copilot | Use case |
-|---|---|---|---|
-| Default (both properties omitted) | Yes | Yes | General-purpose skills |
-| `user-invocable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
-| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
-| Both set | No | No | Disabled skills |
 
 ## How Copilot uses skills
 
