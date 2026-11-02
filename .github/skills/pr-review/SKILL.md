@@ -1,12 +1,12 @@
 ---
 name: pr-review
-description: 'Verify the technical accuracy of a vscode-docs pull request against the VS Code source code in microsoft/vscode and microsoft/vscode-copilot-chat. Use when reviewing a docs PR for factual correctness — setting names, command IDs, default values, API shapes, keybindings, versioned availability, and described behavior.'
+description: 'Verify the technical accuracy of a vscode-docs pull request against the VS Code source code in microsoft/vscode. Use when reviewing a docs PR for factual correctness: setting names, command IDs, default values, API shapes, keybindings, versioned availability, and described behavior.'
 argument-hint: '<PR number or branch> (defaults to the current PR / branch)'
 ---
 
 # PR Technical Accuracy Review
 
-Review a vscode-docs pull request and verify every factual claim about VS Code behavior against the source code in `microsoft/vscode` and `microsoft/vscode-copilot-chat`. Produce an actionable list of findings the author can address before merging.
+Review a vscode-docs pull request and verify every factual claim about VS Code behavior against the source code in `microsoft/vscode`, including Copilot Chat. Produce an actionable list of findings the author can address before merging.
 
 This skill checks **technical accuracy only**. It does not enforce writing style, frontmatter, or release-notes structure — use the `release-note-writer` or `frontmatter-description` skills for those.
 
@@ -19,12 +19,12 @@ This skill checks **technical accuracy only**. It does not enforce writing style
 
 Do **not** use this skill for pure copy-edits, redirects, image swaps, or other changes that make no factual claims.
 
-## Repos to Check
+## Source repository
 
-| Area being documented | Primary source repo(s) |
+| Area being documented | Source repo |
 |----------------------|------------------------|
 | Core editor, workbench, debug, terminal, tasks, settings, commands, keybindings | `microsoft/vscode` |
-| Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP integration in chat | `microsoft/vscode-copilot-chat` |
+| Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP integration in chat | `microsoft/vscode` |
 | Extension API, contribution points, `package.json` schema | `microsoft/vscode` (under `src/vs/workbench/api/`, `src/vscode-dts/`, and `extensions/`) |
 | Enterprise policies | `microsoft/vscode` (policy definitions) — note that `enterprise/policies.md` is generated; verify against source, not the generated file |
 
@@ -63,10 +63,9 @@ Treat anchor-style references (e.g., `setting(chat.agent.enabled)`, `command:wor
 
 For every claim, locate the source of truth and compare. Prefer one targeted lookup per claim — do not download full files when a search will do.
 
-**Search the source repos** (parallelize independent lookups):
+**Search the source repository** (parallelize independent lookups):
 
-* `gh search code --repo microsoft/vscode '"<exact-string>"'` for setting IDs, command IDs, contribution keys.
-* `gh search code --repo microsoft/vscode-copilot-chat '"<exact-string>"'` for chat tool names, participant IDs, agent-mode flags.
+* `gh search code --repo microsoft/vscode '"<exact-string>"'` for setting IDs, command IDs, contribution keys, chat tool names, participant IDs, and agent-mode flags.
 * `gh api "search/code?q=<query>+repo:microsoft/vscode"` when the `gh search` CLI quotes the query in a way that breaks qualifiers (see user memory `gh-cli-powershell.md`).
 * `gh api repos/microsoft/vscode/contents/<path>?ref=main` to read a specific file.
 
@@ -76,7 +75,7 @@ For every claim, locate the source of truth and compare. Prefer one targeted loo
 * Commands — search for `CommandsRegistry.registerCommand` or `registerAction2` with the matching `id`.
 * Keybindings — search for `KeybindingsRegistry.registerKeybindingRule` or look in `src/vs/workbench/browser/parts/editor/...` and feature folders.
 * Extension API — `src/vscode-dts/vscode.d.ts` (stable) and `src/vscode-dts/vscode.proposed.*.d.ts` (proposed).
-* Chat tools — search `microsoft/vscode-copilot-chat` for `displayName`, `toolReferenceName`, or the tool ID string.
+* Chat tools: search `microsoft/vscode` for `displayName`, `toolReferenceName`, or the tool ID string.
 * Contribution points — `extensions/<ext>/package.json` and the schema in `src/vs/workbench/api/common/extHost*.ts`.
 
 **Version availability** — when a doc claims "since 1.X":

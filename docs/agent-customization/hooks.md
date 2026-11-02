@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 10/21/2026
-MetaDescription: Configure Copilot hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
+DateApproved: 10/28/2026
+MetaDescription: Reuse and configure agent hooks for personal and shared workflows in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -15,9 +15,9 @@ Keywords:
 
 # Configure agent hooks in {% data variables.product.prodname_vscode %} (Preview)
 
-Hooks run custom actions at specific points in an agent's lifecycle. Use them to add context, validate a tool call, run a formatter, or record an event without relying on the model to request the action.
+Hooks run custom actions at specific points in the agent's workflow, such as before or after a tool runs. Use them to add context, validate a tool call, run a formatter, or record an event without relying on the model to request the action.
 
-This article helps you configure hooks for the shared Copilot runtime, choose a personal or shared source, and verify the result. If you already have hooks, start with [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Migration includes user folders, settings, custom agents, and plugins, not only repository files.
+Use the [Agent Customizations editor](#find-and-manage-hooks) to create and manage hooks for the shared {% data variables.product.prodname_copilot_short %} runtime. This article walks through creating a hook, adding its supporting script, and verifying the result. If you already have hooks for another harness, start with [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Migration includes user folders, settings, custom agents, and plugins, not only repository files.
 
 > [!NOTE]
 > The {% data variables.product.prodname_vscode_shortname %} hooks experience is in Preview. Individual provider implementations can have a different lifecycle status and release schedule.
@@ -37,7 +37,8 @@ Other session targets use their own hook implementations:
 |--------------------------|-----------------------------------|
 | **Claude** | [Claude hooks reference](https://code.claude.com/docs/en/hooks) |
 | **Codex** | [Codex hooks documentation](https://developers.openai.com/codex/hooks/) |
-| **Cloud** | The selected cloud provider's documentation. For {% data variables.copilot.copilot_cloud_agent %}, use the cloud-agent sections of the GitHub reference for its execution environment and event coverage. |
+
+[Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` use the Copilot harness in a managed environment. Local hook files aren't automatically copied to that environment. Check the configuration available in the cloud workspace rather than assuming that hooks on your machine apply there.
 
 The older Local harness has a separate [Local hooks reference](/docs/agents/reference/hooks-reference.md). Use it to interpret existing hooks during migration, not as the schema for a new Copilot hook.
 
@@ -47,7 +48,15 @@ Sharing a hook file location does not establish runtime compatibility. Event nam
 
 Follow the [hook migration procedure and compatibility matrix](/docs/agent-customization/migrate-customizations.md#migrate-hooks) before reusing a hook. Select the destination harness and start a test session; changing only the language model does not test migration.
 
-## Create and manage hooks
+## Reuse hooks from a plugin
+
+For an existing automation workflow, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for a plugin that includes hooks and their supporting scripts.
+
+Before installing, review the scripts, required executables, and supported harness. Hooks can run when their configured events occur without the model requesting them. A marketplace listing doesn't establish that a hook's event format or commands are compatible with your session.
+
+Follow the [plugin installation steps](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace), complete the publisher's setup, and verify the hook's execution in the intended environment. Check for [duplicate hook sources](#choose-a-hook-source) before also adding a standalone copy. If execution differs from your expectations, follow [hook troubleshooting](#troubleshoot-hooks).
+
+## Find and manage hooks
 
 Select the harness before opening the hooks interface so the editor shows the relevant customization sources.
 
@@ -55,38 +64,24 @@ Select the harness before opening the hooks interface so the editor shows the re
 1. Select **Copilot** from the **Session Target** UI control.
 1. Open the Agent Customizations editor:
    * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, and then **Hooks**.
-   * In the {% data variables.copilot.agents_window %}, select **Hooks** in the **Customizations** panel.
+   * In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, and then **Hooks** in the editor.
    * In the {% data variables.copilot.chat_view %}, enter `/hooks` in the chat input.
-1. Review the sources and select a hook to open its configuration.
+1. Select **New Hook** (plus icon) next to **Workspace** or **User** to create a hook, or select an existing hook to open its configuration.
 
 To generate a hook with AI, describe the hook you want in chat. The `/create-hook <description>` and **Chat: Generate Hook** shortcuts are available only for Local sessions. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
 
-## Choose a hook source
-
-Choose the scope that matches the workflow:
-
-| Need | Source |
-|------|--------|
-| Personal automation across repositories | User hook files in `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set. |
-| Automation shared with a repository | `.github/hooks/*.json` at the repository root |
-| Hooks alongside other personal or repository settings | An inline `hooks` map in a supported Copilot settings file |
-| A reusable setup with scripts and other customizations | [Agent plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins) |
-| Automation active only for one custom agent | [Agent-scoped hooks](#agent-scoped-hooks), with a current limitation for converted plugin agents |
-| Organization-managed validation | [Enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks) |
-
-The Copilot harness reads inline hook settings in `.github/copilot/settings.json`, `.github/copilot/settings.local.json`, and `~/.copilot/settings.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. User `config.json` is not the hook settings file. For all supported sources, precedence, and policy directories, see [Copilot hook locations](https://docs.github.com/en/copilot/reference/hooks-reference#hooks-locations).
-
-Applicable hooks from multiple sources run together. A new repository hook does not replace a user or plugin hook for the same event. Check for duplicates before enabling a migrated copy.
-
-Also preserve disabled state. Local settings such as `chat.useHooks` do not prevent the Copilot harness from loading a configuration. Follow the [preparation steps](/docs/agent-customization/migrate-customizations.md#prepare-hooks-for-migration) before switching.
-
-In remote sessions and containers, the user folder and executable dependencies belong to the environment where the runtime runs. Local editor settings such as `chat.hookFilesLocations` do not configure Copilot discovery.
-
 ## Create your first Copilot hook
 
-Start with a diagnostic that records only the tool name, not its arguments or result. This example requires Node.js on the execution host.
+Start with a diagnostic that records only the tool name, not its arguments or result. This example creates a workspace hook and requires Node.js on the execution host. For a hook you can use across repositories, follow [Set up a personal hook](#set-up-a-personal-hook).
 
-Create `.github/hooks/audit.json`:
+1. Open your project folder and select **Copilot** from the **Session Target** control.
+1. Open the Agent Customizations editor and select the **Hooks** tab.
+1. Select **New Hook** (plus icon) next to **Workspace**.
+1. Select **Pre-Tool Use**. If existing hooks are listed, select **Add new hook...**.
+1. Select **Create new hook config file...**, choose the repository's `.github/hooks` folder if prompted, and enter `audit` as the file name.
+1. In the generated configuration, use the JSON below. Complete the supporting script before testing the hook.
+
+The editor creates and opens the configuration file. Use the `preToolUse` event name in this example because the script expects the corresponding camelCase payload:
 
 ```json
 {
@@ -103,7 +98,7 @@ Create `.github/hooks/audit.json`:
 }
 ```
 
-Create `.github/hooks/log-tool-use.cjs`:
+Next, add the supporting script at `.github/hooks/log-tool-use.cjs`. The hook creation flow creates the configuration, not this script:
 
 ```javascript
 const fs = require('node:fs');
@@ -121,7 +116,45 @@ process.stdout.write('{}');
 
 Add `.github/hooks/tool-use.log` to `.gitignore`. Start a new **Copilot** session and request a harmless task that uses a tool, such as reading a project file. Confirm that the log contains the tool name and that the task continues through its normal permission checks. Returning `{}` makes no permission decision; it does not automatically approve the tool.
 
-The log is written beside the script, so moving the script to your user hook directory keeps its log there too. See the [personal hook and settings examples](/docs/agent-customization/migrate-customizations.md#personal-hooks-and-inline-settings) for quoted command paths. For shared plugin hooks, use the [bundled-script example](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
+The log is written beside the script, so moving the script to your user hook directory keeps its log there too. For shared plugin hooks, use the [bundled-script example](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
+
+After verification, remove `tool-use.log`. Keep its `.gitignore` entry if you continue using the diagnostic, or remove the diagnostic configuration and script if you no longer need them. Before sharing the hook, review the script, document its Node.js dependency, and repeat the check in each intended environment, such as a container or remote workspace. A successful local check does not confirm that the execution host has the same paths, dependencies, or permissions.
+
+If you prefer to create the configuration directly, save the JSON as `.github/hooks/audit.json`, creating the folder if needed. Add the same supporting script and perform the verification above.
+
+## Choose a hook source
+
+In the Agent Customizations editor, choose **Workspace** for shared repository hooks or **User** for personal hooks. The following table lists the underlying sources and other ways to distribute hooks:
+
+| Need | Source |
+|------|--------|
+| Personal automation across repositories | User hook files in `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set. |
+| Automation shared with a repository | `.github/hooks/*.json` at the repository root |
+| Hooks alongside other personal or repository settings | An inline `hooks` map in a supported Copilot settings file |
+| A reusable setup with scripts and other customizations | [Agent plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins) |
+| Automation active only for one custom agent | [Agent-scoped hooks](#agent-scoped-hooks) |
+| Organization-managed validation | [Enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks) |
+
+The Copilot harness reads inline hook settings in `.github/copilot/settings.json`, `.github/copilot/settings.local.json`, and `~/.copilot/settings.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. User `config.json` is not the hook settings file. For all supported sources, precedence, and policy directories, see [Copilot hook locations](https://docs.github.com/en/copilot/reference/hooks-reference#hooks-locations).
+
+Applicable hooks from multiple sources run together. A new repository hook does not replace a user or plugin hook for the same event. Check for duplicates before enabling a migrated copy.
+
+Also preserve disabled state. Local settings such as `chat.useHooks` do not prevent the Copilot harness from loading a configuration. Follow the [preparation steps](/docs/agent-customization/migrate-customizations.md#prepare-hooks-for-migration) before switching.
+
+In remote sessions and containers, the user folder and executable dependencies belong to the environment where the runtime runs. Local editor settings such as `chat.hookFilesLocations` do not configure Copilot discovery.
+
+### Set up a personal hook
+
+To use a new hook across repositories:
+
+1. Open **Hooks** in the Agent Customizations editor with the **Copilot** harness selected.
+1. Select **New Hook** (plus icon) next to **User**.
+1. Choose the event, add a new hook, and follow the prompts to create its configuration in a supported user hook folder.
+1. Add the supporting script to that folder and use its absolute, quoted path in the hook's `command`. The path and executable must exist in the environment where the agent runtime runs.
+
+For example, adapt the [diagnostic hook](#create-your-first-copilot-hook) by placing `log-tool-use.cjs` in the user hook folder and updating its command path. Start a new session and verify its log as described above. Check the **Hooks** page for duplicate commands before testing.
+
+If you prefer to create the files directly, use `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set, for the configuration and script.
 
 ## Configure commands and event data
 
@@ -171,10 +204,11 @@ An agent-scoped hook is declared in a custom agent's `hooks` frontmatter and app
 
 The [Copilot agent-scoped hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks) describes supported command fields, trust requirements, subagent behavior, and exclusions for remote or organization-hosted definitions.
 
-> [!IMPORTANT]
-> {% data variables.product.prodname_vscode_shortname %} currently omits the `hooks` field when it converts plugin-provided custom agents for the Copilot harness. An agent can appear and run without its scoped hooks. This [tracked conversion limitation](https://github.com/microsoft/vscode/issues/341681) is not a lack of agent-scoped hook support in the shared harness.
+{% data variables.product.prodname_vscode_shortname %} preserves the `hooks` field when converting custom agents for Copilot, including plugin-provided agents. Hook mappings remain scoped to their individual agents.
 
-For affected agents, retain the original hook definition and leave its migration incomplete until the conversion preserves the hooks and you verify that they run. Do not move the command to a repository-wide or plugin-wide event as a workaround: that changes which agents trigger it and is not an equivalent conversion.
+The [custom-agent editor](/docs/agents/reference/custom-agent-file-reference.md#copilot-specific-configuration) validates hook structure, but selecting an agent or seeing no validation hints doesn't prove that its hooks execute. Verify the expected event and any tool-denial behavior in a trusted session before relying on a hook.
+
+Keep agent-specific automation in the agent's frontmatter. Moving a command to a repository-wide or plugin-wide event changes which agents trigger it and is not an equivalent configuration.
 
 ## Existing Local hooks
 

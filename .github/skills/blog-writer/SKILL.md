@@ -41,12 +41,7 @@ Do not modify any files in this phase.
 
 1. **Understand the topic.** Read the feature description, issue, or PR provided. If it is ambiguous or lacks detail, ask clarifying questions before continuing.
 2. **Establish the content framing.** Identify the primary persona, reader intent, and narrative purpose by following the [blog content-framing guidance](../../instructions/blog-writing.instructions.md#content-framing). Infer them from the topic, source material, existing coverage, and writer's request. If any part of the framing remains ambiguous and different interpretations would change the angle, ask the writer to confirm before proposing the outline.
-3. **Check the source if needed.** To understand the feature, inspect the source code in the `microsoft/vscode` and `microsoft/vscode-copilot-chat` repos. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
-
-   | Area being written about | Primary source repo |
-   |--------------------------|---------------------|
-   | Core editor, workbench, debug, terminal, tasks, settings, commands, keybindings | `microsoft/vscode` |
-   | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
+3. **Check the source if needed.** To understand the feature, inspect the source code in `microsoft/vscode` for all features, including Copilot Chat. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
 4. **Verify public availability.** Confirm that each announced capability is available to users in the named public channel by the publication date. Public Preview, Experimental, and Insiders functionality qualifies when labeled clearly. Source-code existence or manual configurability is not enough. Exclude planned, hidden, internal dogfood, and source-only functionality.
 5. **Determine placement and metadata.** Decide the target folder (`blogs/<year>/<month>/<day>/`) and the next available `Order` value by checking recent posts. Confirm the author name and social media profile link with the user if unknown.

@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use AI smart actions in {% data variables.product.prodname_vscode_shortname %} to generate commit messages, rename symbols, and fix errors.
 ---
 # AI smart actions in {% data variables.product.prodname_vscode %}
@@ -25,16 +25,6 @@ Get help generating commit messages and pull request (PR) titles and description
 Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the {% data variables.copilot.chat_view %} and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
 
 ![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
-
-## Implement todo comments
-
-If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with the [Copilot cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session).
-
-1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
-1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.
-1. Select the code action and select **Delegate to coding agent**.
-
-    ![Screenshot that shows a Code Action menu with Start Coding Agent option for a TODO comment.](images/copilot-smart-actions/start-coding-agent-todo.png)
 
 ## Rename symbols
 

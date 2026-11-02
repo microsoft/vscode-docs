@@ -1,6 +1,6 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Debug applications in {% data variables.product.prodname_vscode %} with breakpoints, step controls, variable inspection, and the Debug Console.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

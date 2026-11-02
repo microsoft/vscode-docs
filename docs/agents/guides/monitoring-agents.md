@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Monitor GitHub Copilot agents in {% data variables.product.prodname_vscode_shortname %} with OpenTelemetry traces, metrics, events, and identity controls.
 Keywords:
 - monitoring
@@ -165,7 +165,7 @@ Extension-specific metrics:
 | `copilot_chat.session.count` | Counter | Chat sessions started |
 | `copilot_chat.time_to_first_token` | Histogram | Time to first SSE token (seconds) |
 
-Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and {% data variables.copilot.copilot_cloud_agent %}s):
+Agent activity and outcome metrics track agentic code changes across supported surfaces, including inline chat and agent sessions:
 
 | Metric | Type | Description |
 |---|---|---|

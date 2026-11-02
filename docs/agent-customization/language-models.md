@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Configure chat, inline, and voice models in {% data variables.product.prodname_vscode_shortname %}. Use your own API key or run models on your device.
 Keywords:
 - language models
@@ -17,15 +17,26 @@ Keywords:
 
 For background on how language models work, their characteristics, and how to choose the right model, see [Language models concepts](/docs/agents/concepts/language-models.md).
 
+## Choose how to access models
+
+Start with the account, credentials, or model you already have:
+
+* **{% data variables.product.prodname_copilot %} access**: [Set up {% data variables.product.prodname_copilot_short %}](/docs/setup/copilot.md), then [choose a model](#change-the-model-for-chat) from the providers available through your plan.
+* **A provider account or harness-specific credentials**: Follow the [{% data variables.product.prodname_anthropic_claude %}](/docs/agents/run/agent-harnesses.md#claude) or [{% data variables.product.prodname_openai_codex %}](/docs/agents/run/agent-harnesses.md#codex) requirements for that harness. Supported accounts and authentication methods depend on the integration.
+* **An API key or custom endpoint**: [Add a model provider](#bring-your-own-language-model-key) in the Language Models editor. This configures model access, not a different harness.
+* **A locally running model**: Add a [model provider extension](#add-a-model-provider-extension), such as Ollama. Alternatively, check the hardware and sign-in requirements for [Copilot-managed on-device models](#on-device-model-requirements).
+
+The model provides reasoning, the harness coordinates tools and workflow, and the access provider determines authentication and billing. These choices are related, but aren't interchangeable. Compare [harness-specific access options](/docs/agents/run/agent-harnesses.md#requirements-and-setup) before reusing an account or key.
+
 ## Change the model for chat
 
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
 
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
+![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model.png)
 
-If the language model picker only shows **Auto**, verify that the workspace is trusted. Learn more about [workspace trust and restricted mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
+If the model picker shows **Models** instead of a model name, open it to check whether workspace trust or sign-in is required. Learn more about [workspace trust and Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode).
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -34,29 +45,39 @@ You can further extend the list of available models by [using your own language 
 
 To compare solutions to the same coding task, use [model comparison (Preview)](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %}. Run one prompt with multiple models or harnesses, then review the results side by side.
 
-## Configure thinking effort
+### Organization-managed model defaults
 
-Some models support configurable thinking effort, which controls how much reasoning the model applies to each request. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
+Your organization can set the starting model for new conversations in both the editor and the {% data variables.copilot.agents_window %}. The model picker marks the organization's choice as **Org default**, and the Settings editor shows an indicator for `setting(chat.defaultModel)` with a **Managed by organization** explanation.
 
-By default, {% data variables.product.prodname_vscode_shortname %} sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
+The managed default takes precedence over your saved model preference for new conversations, but you can still select another available model for the current conversation. Existing conversations keep their model. Your saved preference is preserved and applies to new conversations again when the managed default is removed.
+
+For administrator configuration, see [Set managed model defaults](/docs/enterprise/manage-ai-settings.md#set-managed-model-defaults).
+
+<!-- TODO: Add a screenshot showing Org default in the model picker and the managed indicator for chat.defaultModel in Settings. -->
+
+## Configure thinking effort and context size
+
+Some models support configurable thinking effort, context size, and other parameters.These control how much reasoning the model applies to each request, and how much context the model can consider at once. For background on thinking and reasoning, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
+
+By default, {% data variables.product.prodname_vscode_shortname %} sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the default configuration works well.
 
 > [!TIP]
 > Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/agents/guides/optimize-usage.md).
 
-To configure the thinking effort:
+To configure model parameters:
 
 1. Open the model picker in the chat input field and select a reasoning model.
 
-1. Select the **>** arrow that appears next to the model name to open the **Thinking Effort** submenu.
+1. Select the **>** arrow that appears next to the model name to open the model configuration submenu.
 
     > [!NOTE]
-    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort submenu.
+    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort option in the model configuration submenu.
 
 1. Select an effort level.
 
-    ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](images/language-models/thinking-effort-submenu.png)
+    ![Screenshot showing the the model configuration submenu, with different effort levels and context size options.](images/language-models/thinking-effort-submenu.png)
 
-The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level is remembered per session, so revisiting an earlier session keeps the effort level it was using. New conversations start from the effort level you last set for that model.
+The model configuration is remembered per session, so revisiting an earlier session keeps the same effort level and context size it was using. New conversations start from the effort level and context size you last set for that model.
 
 > [!NOTE]
 > The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. Configure thinking effort directly from the language model picker.
@@ -65,7 +86,11 @@ The model picker label updates to show the selected effort level, for example "C
 
 With auto model selection, {% data variables.product.prodname_vscode_shortname %} evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
-To use auto model selection, select **Auto** from the model picker in chat. Then use **Optimize for** to choose the tier that matches your priorities:
+To use auto model selection, select **Auto** from the model picker in chat.
+
+In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), **Copilot Fusion** replaces **Auto** when dynamic Auto tiers are enabled and the service offers a Fusion tier your account can run. If the picker shows **Copilot Fusion**, follow the [Fusion instructions](#use-copilot-fusion) instead.
+
+Use **Optimize for**, when available, to choose a tier that matches your priorities. The offered tiers depend on the service and can include:
 
 * **Efficiency** favors lower AI credit consumption.
 * **Balance** balances capability and credit consumption.
@@ -76,6 +101,24 @@ Your organization can set a starting tier for new chats. The managed tier appear
 You can see which model is used for generating a response by hovering over the chat response.
 
 ![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
+
+## Use Copilot Fusion
+
+Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. For background on how Fusion differs from Auto and when to use it, see [Copilot Fusion concepts](/docs/agents/concepts/language-models.md#copilot-fusion).
+
+For details about orchestration, tiers, availability, and AI credit usage, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
+
+To use Copilot Fusion:
+
+1. Verify that `setting(chat.copilot.dynamicAutoTiers.enabled)` is enabled in the Settings editor. Changing it restarts the {% data variables.product.prodname_copilot_short %} runtime after active requests finish.
+
+1. Start a new chat with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot).
+
+1. In the model picker, select **Copilot Fusion**, then choose an available tier: **Standard**, **High**, or **Max**.
+
+Enabling the setting doesn't grant access to Fusion tiers. If the service doesn't offer a Fusion tier that your account can run, the picker continues to show **Auto** instead.
+
+<a name="use-on-device-models-experimental"></a>
 
 ## Use on-device models
 
@@ -227,10 +270,12 @@ To pin or unpin a model:
 
 Bring Your Own Key (BYOK) lets you connect to any compatible model provider while still using the {% data variables.product.prodname_vscode_shortname %} chat experience and tools. You can use BYOK to access models from other providers, to run models locally, or to use models that are not yet available as built-in options in {% data variables.product.prodname_vscode_shortname %}.
 
-BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
+In [Local harness sessions](/docs/agents/run/agent-harnesses.md#local), BYOK models work without signing into a GitHub account and without a Copilot plan. This lets you use AI chat features with your own models, including offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> To use supported BYOK models in Copilot harness sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`.
+> To use supported BYOK models in Copilot harness sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`. Using the desktop {% data variables.copilot.agents_window %} without GitHub sign-in also requires the separate experimental [signed-out access option](/docs/agents/run/agents-window-configuration.md#manage-ai-providers-and-accounts).
+
+To use provider credentials with the {% data variables.product.prodname_anthropic_claude %} or {% data variables.product.prodname_openai_codex %} harness instead, follow that [harness's setup requirements](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Adding a model here does not configure authentication for every harness.
 
 You can also use these models to [override the models used for utility tasks in {% data variables.product.prodname_vscode_shortname %}](#configure-models-for-other-features) (such as title generation and intent detection).
 
@@ -570,7 +615,7 @@ You have two options to use locally hosted models in chat:
 
 * **BYOK local models**: Use [bring your own model key](#bring-your-own-language-model-key) (BYOK) with a model provider that supports connecting to a local model. You can use a built-in model provider that supports local models or install an extension from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), such as [AI Toolkit for {% data variables.product.prodname_vscode_shortname %} with Foundry Local](https://aka.ms/AIToolkit). BYOK local models work without a GitHub account, a Copilot plan, or an internet connection.
 
-* **On-device models (Experimental)**: Use a [Copilot-managed model](#use-on-device-models-experimental) that runs on supported NVIDIA hardware. On-device models require GitHub sign-in.
+* **On-device models (Experimental)**: Use a [Copilot-managed model](#use-on-device-models) that runs on supported NVIDIA hardware. On-device models require GitHub sign-in.
 
 To get the full set of utility features with a BYOK local model, such as title generation and commit messages, configure `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to point to the local model.
 

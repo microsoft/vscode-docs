@@ -1,6 +1,6 @@
 ---
 ContentId: 68b741af-14cf-4d42-9289-c06c61dd09f5
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Reduce AI credit usage in {% data variables.product.prodname_vscode_shortname %} with efficient models, scoped tools, and focused context.
 ---
 # Optimize AI credit usage in {% data variables.product.prodname_vscode_shortname %}

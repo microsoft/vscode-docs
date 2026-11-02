@@ -1,13 +1,13 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, understand billing and data use, and manage your account.
 ---
 # Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
-This guide walks you through setting up GitHub Copilot in {% data variables.product.prodname_vscode %}. To use Copilot in {% data variables.product.prodname_vscode_shortname %}, you need access to GitHub Copilot with your GitHub account.
+Use this guide to sign in to {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} and manage your account. If you already have Copilot access, sign in with that GitHub account.
 
-This article covers the GitHub Copilot setup path. To use Claude, Codex, or your own model credentials for supported agent workflows, compare the [agent harness authentication and billing options](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Some agent workflows without GitHub sign-in are experimental.
+For a different access path, follow the [{% data variables.product.prodname_anthropic_claude %} setup](/docs/agents/run/agent-harnesses.md#claude), [{% data variables.product.prodname_openai_codex %} setup](/docs/agents/run/agent-harnesses.md#codex), or [bring your own model key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). These routes have their own requirements; some agent workflows without GitHub sign-in are experimental.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Complete your first coding task with an AI agent in {% data variables.product.prodname_vscode_shortname %}.
@@ -24,11 +24,11 @@ Complete your first coding task with an AI agent in {% data variables.product.pr
 Review these account, usage, and data-handling details before you send project content to an AI model:
 
 * **Account access**: the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in {% data variables.copilot.copilot_free_short %}.
-* **Usage and billing**: models included with Copilot consume AI credits from your Copilot plan. If you use a Claude bring-your-own-key (BYOK) configuration, a ChatGPT subscription, or your own model credentials, that provider manages usage and billing instead. Compare the [authentication and billing options for each agent harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
+* **Usage and billing**: models accessed through {% data variables.product.prodname_copilot_short %} consume AI credits from your Copilot plan. Access through another provider's credentials follows that provider's usage and billing terms. Compare [harness authentication and billing options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 * **Monitor usage**: open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar to view the percentage of your monthly allowance that you used. Learn [how to monitor usage and what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#how-can-i-monitor-my-copilot-usage).
 * **Data handling**: review the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. {% data variables.product.prodname_vscode_shortname %} [telemetry settings](/docs/configure/telemetry.md) are separate from AI-provider data handling.
 
-To use chat with your own model instead, [bring your own language model key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). This path doesn't require a Copilot plan, but some features, including inline suggestions, semantic search, and embeddings, still require the GitHub Copilot service.
+BYOK can provide chat access without a Copilot plan, but it doesn't replace the {% data variables.product.prodname_copilot %} service for inline suggestions, semantic search, or embeddings. Check the [requirements for your chosen BYOK workflow](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
 ## Set up GitHub Copilot
 
@@ -48,10 +48,6 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
 > [!IMPORTANT]
 > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
-
-## Prepare a project for AI (optional)
-
-After you sign in, enter `/init` in a chat session to create starter [custom instructions](/docs/agent-customization/custom-instructions.md) for a project. The command analyzes the codebase and records coding practices that help AI-generated code match the project.
 
 ## Use Copilot with a GHE account
 
@@ -114,12 +110,9 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
 
 ## Remove AI features from {% data variables.product.prodname_vscode_shortname %}
 
-You can disable the built-in AI features in {% data variables.product.prodname_vscode_shortname %} with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in {% data variables.product.prodname_vscode_shortname %}. This disables and hides features like chat or inline suggestions in {% data variables.product.prodname_vscode_shortname %} and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+You can disable the built-in AI features in {% data variables.product.prodname_vscode_shortname %} with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in {% data variables.product.prodname_vscode_shortname %}.
 
-Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
-
-> [!NOTE]
-> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of {% data variables.product.prodname_vscode_shortname %}.
+This setting disables and hides features like chat or inline suggestions in {% data variables.product.prodname_vscode_shortname %} and disables the Copilot extension. You can configure the setting at the workspace or user level.
 
 ## Disable AI features for a workspace
 

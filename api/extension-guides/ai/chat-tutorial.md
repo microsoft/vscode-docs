@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: bea1d4c5-71e5-4b27-ac1e-fa9b59886dab
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Migrate a code-tutor chat participant to an agent plugin with skills, MCP tools, and interactive exercises.
 ---
 

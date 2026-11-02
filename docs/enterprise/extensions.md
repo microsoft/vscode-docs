@@ -1,6 +1,6 @@
 ---
 ContentId: 8a2b5f4c-9e3d-4c6a-b8f1-2d7e9a4c5b3f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Manage {% data variables.product.prodname_vscode_shortname %} extensions with allowlists, a private marketplace, and preinstalled extensions.
 ---
 

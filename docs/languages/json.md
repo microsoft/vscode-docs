@@ -1,6 +1,6 @@
 ---
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Edit JSON files in {% data variables.product.prodname_vscode %}
 ---
 # Editing JSON with {% data variables.product.prodname_vscode %}

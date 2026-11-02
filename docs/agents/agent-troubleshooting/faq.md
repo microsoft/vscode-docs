@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Find answers about GitHub Copilot access, usage, chat, agents, inline suggestions, and troubleshooting in {% data variables.product.prodname_vscode %}.
 ---
 # GitHub Copilot frequently asked questions
@@ -41,7 +41,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
+* [Run tasks in cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` for managed remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -190,11 +190,11 @@ You can also control the default visibility of the Secondary Side Bar with the `
 
 ### Can I continue a {% data variables.copilot.copilot_cli_short %} or {% data variables.copilot.github_copilot_app_short %} session in {% data variables.product.prodname_vscode_shortname %}?
 
-Yes, use **External** > **All** in the sessions list filter to show [supported sessions from other applications on your machine](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. After you send a message in {% data variables.product.prodname_vscode_shortname %}, the session is no longer external, so the **External** filter no longer controls whether it appears.
+Yes. The **External** filter defaults to **Last 7 Days** and shows [supported sessions from other applications on your machine](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Open a session and send a message to continue it. After you send a message in {% data variables.product.prodname_vscode_shortname %}, the session is no longer external, so the **External** filter no longer controls whether it appears.
 
 ### Why can't I see a {% data variables.product.prodname_copilot_short %} session I already started?
 
-Sessions from other applications are hidden until you change the [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) from **None**. {% data variables.product.prodname_copilot_short %} discovers repository-associated sessions updated within the last seven days. **Recent** shows the two most recently updated external sessions, whereas **All** shows all discovered sessions, not every past session.
+Check the workspace, host, state filters, and [**External** filter](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications). **None** hides external sessions; **Last 7 Days** is the default. **Recent** shows up to two recently updated external sessions and, at startup, hides those older than the second-most-recently updated local session. {% data variables.product.prodname_copilot_short %} only discovers supported local sessions updated within the last seven days, so **Last 30 Days** doesn't extend its discovery period.
 
 ### Can I continue a {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} session in the terminal?
 
@@ -206,7 +206,7 @@ No. When a session supports both interfaces, opening it in either one keeps the 
 
 ### Is picking up a session the same as syncing its history?
 
-No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live monitoring or steering from another device, use [remote agent access](/docs/agents/run/remote-agent-sessions.md) or [{% data variables.product.prodname_copilot_short %} remote control](/docs/agents/run/remote-agent-sessions.md#remote-control-copilot-sessions).
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live access from another device, use [GitHub Environments (Preview), SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session's host must remain running and reachable.
 
 ## Troubleshooting and feedback
 

@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -88,6 +88,36 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 * [Enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) lists supported keys, values, combination behavior, and client coverage.
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
+
+### Set managed model defaults
+
+Give developers a consistent starting model without preventing them from choosing another model for an individual task. Set the top-level `model` managed setting to `auto` or an available model ID.
+
+For Copilot harness sessions, use `fusionTier` to set the starting Auto or Fusion tier:
+
+| Value | Starting tier |
+|-------|---------------|
+| `"standard"` | Fusion **Standard**, or Auto **Balance** when Fusion is unavailable. |
+| `"high"` | Fusion **High** when available, otherwise Auto **Intelligence**. |
+| `"max"` | Fusion **Max** when available. If it isn't available, the runtime default remains in effect. |
+| `"unmanaged"` | No managed tier selection. The legacy `autoTier` setting is also ignored. |
+
+For example, add the following values to your enterprise-managed settings:
+
+```json
+{
+    "model": "auto",
+    "fusionTier": "high"
+}
+```
+
+This example starts new conversations on Fusion **High** when [Copilot Fusion (Research preview)](/docs/agent-customization/language-models.md#use-copilot-fusion-research-preview) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
+
+`fusionTier` takes precedence over the legacy `autoTier` setting. It applies to the Copilot harness, not Local sessions.
+
+Managed model defaults take precedence over saved personal preferences for new conversations in both the editor and the {% data variables.copilot.agents_window %}. Developers can still change the model or tier within a conversation, and existing conversations keep their selections. Removing a managed default lets new conversations use saved personal preferences again.
+
+To verify the model default, check **Org default** in the model picker and the briefcase indicator for `setting(chat.defaultModel)` in Settings. See [Organization-managed model defaults](/docs/agent-customization/language-models.md#organization-managed-model-defaults).
 
 ### Claude and Codex availability
 
@@ -252,6 +282,8 @@ Set the `ChatDefaultModel` policy to choose the default model for new conversati
 
 Developers can select another model for an individual conversation. Reopened conversations keep their saved model.
 
+For defaults delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, see [Set managed model defaults](#set-managed-model-defaults).
+
 #### Control dictation data
 
 Use the following policies to control whether [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) audio and transcripts leave the developer's device.
@@ -300,15 +332,23 @@ Plugin distribution is a separate decision. To force-enable plugins or govern ma
 
 #### Manage agent plugins and marketplaces
 
-Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) in {% data variables.product.prodname_vscode_shortname %}:
+Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) and customization discovery in {% data variables.product.prodname_vscode_shortname %}:
 
 * `ChatEnabledPlugins` force-enables or force-disables named plugins.
 * `ChatExtraMarketplaces` adds plugin marketplaces.
 * `ChatStrictMarketplaces` restricts plugin installation to approved marketplace sources. An empty list blocks installation from all marketplaces.
+* `ChatCustomizationMarketplace` controls the unified **Browse** discovery surface. When disabled, marketplace discovery remains available in the existing customization management pages.
+* `ChatCopilotConnectors` controls connector discovery and whether connected connector MCP servers are available to {% data variables.product.prodname_copilot_short %} sessions.
 
-Plugins blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces managed by policy are identified in the marketplace picker.
+Plugins blocked by policy remain visible but appear disabled. In **Customize** > **Plugins**, policy-managed plugins are identified as managed by policy, and their toggles are locked. Marketplaces managed by policy are identified in the marketplace picker.
 
-For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, use {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
+For cross-client plugin governance instead of {% data variables.product.prodname_vscode_shortname %}-only policy, follow [Manage plugin marketplaces and plugins](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/manage-plugin-marketplaces-and-plugins) to configure {% data variables.product.prodname_copilot_short %} enterprise-managed settings.
+
+Enterprise-managed plugin settings only require or block plugins. They don't set optional defaults.
+
+For optional project-specific plugins, use [repository defaults](/docs/agent-customization/agent-plugins.md#workspace-plugin-recommendations). Members can turn off these defaults unless managed policy requires the plugin.
+
+The enterprise-managed `strictKnownMarketplaces` setting also disables built-in marketplaces. Configure the permitted sources explicitly.
 
 <!--
 #### Configure MCP server access
@@ -333,11 +373,25 @@ For Copilot harness sessions, use enterprise-managed settings to control which p
 
 | Managed setting | Effect in {% data variables.product.prodname_vscode_shortname %} |
 |-----------------|------------------------------------------------------------------|
-| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to remove **Allow all** from the permissions picker. |
-| `permissions.disableAssistedPermissionsMode` | Set to `true` to remove **Assisted permissions** from the permissions picker. |
+| `permissions.disableBypassPermissionsMode` | Set to `"disable"` to disable **Allow all** in the permissions picker. |
+| `permissions.disableAssistedPermissionsMode` | Set to `true` to disable **Assisted permissions** in the permissions picker. |
 | `permissions.defaultMode` | Sets the initial permission level. Supported values are `"manual"`, `"assisted"`, and `"allow-all"`. |
 
+For example, start sessions with **Assisted permissions** when available, while preventing **Allow all**:
+
+```json
+{
+    "permissions": {
+        "disableBypassPermissionsMode": "disable",
+        "disableAssistedPermissionsMode": false,
+        "defaultMode": "assisted"
+    }
+}
+```
+
 If the configured default is unavailable, new sessions use **Manual permissions**. Setting a default doesn't prevent developers from switching to another permission level that the organization allows.
+
+In both the editor and the {% data variables.copilot.agents_window %}, supported permission levels restricted by policy remain visible but disabled. The picker shows **Disabled by policy** with a briefcase icon and an explanation. Unsupported permission levels aren't shown.
 
 These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
 
@@ -361,6 +415,14 @@ Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based termi
 For {% data variables.product.prodname_copilot_short %} harness sessions, the policy requires approval for commands that run through the built-in shell tool. Set `ChatAgentHostCustomTerminalTool` to `false` to keep these sessions on that tool.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
+
+#### Control GitHub Environments (Preview)
+
+[GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) provides continuity across supported {% data variables.product.prodname_copilot_short %} clients by registering an existing development machine for remote access. Administrators can control this registration and connection path to meet remote-access and data-handling requirements while allowing approved cross-device work.
+
+Set the `ChatAgentHostGitHubEnvironments` device policy to `false` to prevent sharing a machine as a GitHub Environment and discovering or connecting to other registered machines through this feature. The policy controls `setting(chat.agentHost.githubEnvironments.enabled)` and requires {% data variables.product.prodname_vscode_shortname %} 1.144 or later. Turning off {% data variables.product.prodname_copilot_short %} preview features through organization policy also forces this setting off.
+
+This control doesn't govern all remote connectivity. It isn't a blanket restriction on SSH or dev tunnels, and it doesn't configure other clients' policies. Review those access paths separately before treating it as an organization-wide remote-access boundary.
 
 ### Configure security and observability
 
@@ -412,6 +474,8 @@ For the complete list of policies and the settings they control, see the [enterp
 GitHub-hosted controls apply through the signed-in account and GitHub services. They are not {% data variables.product.prodname_vscode_shortname %} device policies.
 
 Use GitHub organization and enterprise settings to manage {% data variables.product.prodname_copilot_short %} access, available models and features, content exclusions, and other service-side policies. See [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise).
+
+To restrict the unified marketplace and {% data variables.product.prodname_copilot_short %} connectors, turn off **Editor preview features**. This forces `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)` off, even though both default to `true`. Developers can't override this restriction in Settings. Other eligibility requirements and managed restrictions still apply when preview features are permitted.
 
 ### Configure organization-level custom instructions
 

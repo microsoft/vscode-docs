@@ -1,6 +1,6 @@
 ---
 ContentId: 1e2d3c4b-5a6f-4d7e-8c9b-0a1b2c3d4e06
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Start Claude and Codex agent sessions in VS Code and choose local or cloud workflows for coding tasks.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
@@ -89,7 +89,7 @@ Inside a Claude session, type `/` in the chat input to see the available command
 | Slash command | Description |
 | --- | --- |
 | `/agents` | Wizard for creating and managing Claude sub-agents. |
-| `/hooks` | Configure lifecycle hooks that run at key points during a session. |
+| `/hooks` | Configure hooks that run at specific points in the agent's workflow. |
 | `/memory` | Open and edit the `CLAUDE.md` memory file used across sessions. |
 | `/init` | Initialize a new `CLAUDE.md` memory file for the project. |
 | `/pr-comments` | Get comments from a pull request. |

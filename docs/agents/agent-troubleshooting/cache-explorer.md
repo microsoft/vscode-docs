@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3d1c2f-6a94-4e7b-9f21-5c8d0a1e2b34
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Diagnose prompt cache misses with Cache Explorer in {% data variables.product.prodname_vscode %} to investigate token use and latency.
 Keywords:
 - prompt caching
