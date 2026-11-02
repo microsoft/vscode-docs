@@ -14,7 +14,7 @@ Keywords:
 ---
 # Agent plugin authoring reference
 
-Package related customizations as a plugin that developers can install together. This reference covers manifests, directory layouts, component configuration, and compatibility across plugin formats and agent harnesses.
+Package related customizations as a plugin that developers can install together. This reference covers manifests, directory layouts, component and marketplace configuration, management commands, and compatibility across plugin formats and agent harnesses.
 
 Use it when creating a plugin or inspecting how its components are configured. To find, install, update, or remove an existing plugin, see [Use agent plugins](/docs/agent-customization/agent-plugins.md).
 
@@ -405,11 +405,109 @@ my-plugin/
 
 For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
+## Marketplace source formats
+
+Use `setting(chat.plugins.marketplaces)` (Experimental) to configure additional marketplace repositories in Settings. Supported source formats include:
+
+* **Shorthand**: `owner/repo` for public GitHub repositories. For example, `anthropics/claude-code`. Append `#<ref>` to select a branch, tag, or full 40-character commit SHA.
+* **HTTPS git remote**: a full URL ending in `.git`. For example, `https://github.com/anthropics/claude-code.git`.
+* **SCP-style git remote**: SSH-style references. For example, `git@github.com:anthropics/claude-code.git`.
+* **File URI**: a `file:///` path to a marketplace repository already cloned on disk.
+
+For example, add this property to `settings.json`, preserving other settings:
+
+```json
+{
+    "chat.plugins.marketplaces": [
+        "anthropics/claude-code"
+    ]
+}
+```
+
+For reproducible installations, use a full 40-character commit SHA, such as `owner/repo#<commit-sha>`. {% data variables.product.prodname_vscode_shortname %} installs plugins from that exact revision. Branch and tag references use the revision they resolve to when the marketplace is fetched.
+
+Private repositories are also supported. Sign in to GitHub and make sure you have read access to the marketplace repository. Organization membership alone doesn't grant repository access. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
+
+When a marketplace index declares a plugin at a relative path, {% data variables.product.prodname_vscode_shortname %} verifies the repository, resolved revision, and path before installation. Sources with a missing revision, an invalid path, or an ambiguous path match are rejected.
+
+Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces). Enterprise admins can [manage plugin and marketplace availability](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces).
+
+## Local plugin registration
+
+To register an existing development directory without installing it, use `setting(chat.pluginLocations)` (Experimental). This setting maps local plugin directory paths to an enabled or disabled state. Set a value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+
+For example, merge this property into `settings.json`, replacing the paths with directories on your machine:
+
+```json
+{
+    "chat.pluginLocations": {
+        "/path/to/my-plugin": true,
+        "/path/to/another-plugin": false
+    }
+}
+```
+
+To install a plugin from a local folder instead, follow [Install a plugin from source](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-source).
+
+## Workspace plugin settings
+
+Projects can configure plugin recommendations in `.claude/settings.json` or repository defaults in `.github/copilot/settings.json`:
+
+* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear among the available sources in the Agent Customizations editor.
+* **`enabledPlugins`**: lists plugins that should be enabled by default.
+
+For example:
+
+```json
+{
+    "extraKnownMarketplaces": {
+        "company-tools": {
+            "source": {
+                "source": "github",
+                "repo": "your-org/plugin-marketplace"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "code-formatter@company-tools": true
+    }
+}
+```
+
+The marketplace key, `company-tools` in this example, must match the `name` in the marketplace's `marketplace.json`. Plugin identifiers use `<plugin>@<marketplace>`, not the marketplace repository name. Keep marketplace names stable so shared settings continue to refer to the same plugins.
+
+For the differences between Local recommendations, Copilot repository defaults, and enterprise policy, see [workspace plugin recommendations](/docs/agent-customization/agent-plugins.md#workspace-plugin-recommendations).
+
+## Plugin management commands
+
+In a {% data variables.product.prodname_copilot_short %} harness session, enter `/plugin ` to view completions for plugin and marketplace operations.
+
+> [!NOTE]
+> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin list` | List installed plugins and their status. |
+| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
+| `/plugin update <plugin>` | Update an installed plugin. |
+| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
+| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
+| `/plugin uninstall <plugin>` | Remove an installed plugin. |
+| `/plugin marketplace list` | List included and registered marketplaces. |
+| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
+| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
+| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
+| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
+
+Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
+
+Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled through these commands. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
+
 ## Test and distribute a plugin
 
 Before distributing a plugin, verify its behavior with each harness and client you intend to support:
 
-1. Register your development copy as a [local plugin](/docs/agent-customization/agent-plugins.md#use-local-plugins). This configuration is Experimental.
+1. Register your development copy as a [local plugin](#local-plugin-registration). This configuration is Experimental.
 1. Check that its supported components appear, then run a representative task to verify the skills, agents, hooks, and tools that the plugin provides. Review any code that a hook or MCP server runs before testing.
 1. If the plugin includes automation templates, confirm that they appear in **Templates from Plugins** and review their configuration before creating an automation.
 1. Before publishing an update, bump the `version` field in `plugin.json` and in the `marketplace.json` plugin entry, if applicable. Follow the marketplace schema for your plugin format.

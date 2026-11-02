@@ -162,7 +162,11 @@ Use handoffs to review one stage of a task before starting the next. For example
 * **Implementation to review**: Complete implementation, then switch to a code review agent.
 * **Failing tests to passing tests**: Review generated tests, then hand off to an agent that implements the changes needed to pass them.
 
-For an optional planning-to-implementation workflow, create `.github/agents/planner.agent.md` with the following content:
+For an optional planning-to-implementation workflow:
+
+1. Select **Local** as the harness in the {% data variables.copilot.chat_view %}.
+1. Open the Agent Customizations editor, select **Agents**, and select **New Agent** (plus icon) next to **Workspace**.
+1. Choose the workspace location, enter `planner` as the file name, and replace the generated content with the following example.
 
 ```markdown
 ---
@@ -183,7 +187,7 @@ Do not edit files. Return a Markdown plan with these sections:
 * Tests to add or update
 ```
 
-Save the file, then try the handoff:
+Save the file, then try the handoff. If you prefer to create the file directly, save the example as `.github/agents/planner.agent.md`.
 
 1. In a Local harness session, select **Planner** and ask it to plan a change.
 1. Review the completed plan, then select **Implement Plan**.
