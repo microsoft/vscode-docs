@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Adapt extensions for {% data variables.product.prodname_vscode %} Remote Development and {% data variables.product.prodname_github_codespaces %}.

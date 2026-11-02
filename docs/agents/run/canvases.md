@@ -1,6 +1,6 @@
 ---
 ContentId: 4d8ccf7f-acff-40e2-9452-4686eda64a1f
-DateApproved: 10/27/2026
+DateApproved: 11/4/2026
 FeatureStatus: canvases
 MetaDescription: Collaborate with agents through interactive canvases in {% data variables.product.prodname_vscode_shortname %}. Find, open, and manage canvas extensions.
 MetaSocialImage: ../images/agent-harnesses/kanban-canvas.png

@@ -1,6 +1,6 @@
 ---
 ContentId: aad66383-6454-4291-b989-377abba471c5
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Test a Spring Boot web application with agent-driven Playwright MCP tools in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---

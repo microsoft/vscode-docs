@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Connect to and manage agent sessions through GitHub Environments, SSH, or dev tunnels in {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Run and manage remote agent sessions

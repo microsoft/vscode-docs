@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e1d9c-4b8f-4a3d-8e0c-2f5d6b7c8a02
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Install, use, and configure MCP servers to give agents in {% data variables.product.prodname_vscode_shortname %} focused external capabilities.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:

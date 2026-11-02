@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Use cloud-backed and local memory in {% data variables.product.prodname_vscode_shortname %} to retain coding preferences and repository knowledge.
 ---
 
