@@ -68,8 +68,8 @@ The following articles may help answer your question:
 * [Advanced container configuration](/remote/advancedcontainers/overview.md) or [Tips and Tricks](/docs/devcontainers/tips-and-tricks.md)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 * [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
-* [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-windows/faqs/)
-* [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
+* [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/) and [FAQ](https://docs.docker.com/desktop/troubleshoot-and-support/faqs/windowsfaqs/)
+* [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/) and [FAQ](https://docs.docker.com/desktop/troubleshoot-and-support/faqs/macfaqs/)
 
 ## Can I use dev containers outside of {% data variables.product.prodname_vscode_shortname %}?
 
