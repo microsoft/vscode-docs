@@ -135,6 +135,18 @@ Save the automation disabled so I can review it before enabling scheduled runs.
 
 The agent creates the automation through the normal tool-approval flow. Review any approval request before allowing creation. Then open **Automations** to review the saved prompt, execution environment, schedule, and permissions before enabling scheduled runs.
 
+For a custom cadence, specify a cron expression and the time zone:
+
+```prompt
+Create a local Agent Host automation for this workspace.
+Run at 9:00 AM and 5:00 PM Monday through Friday using the cron expression
+0 9,17 * * MON-FRI in my local time zone.
+Summarize commits from the last 24 hours. Do not modify files.
+Save the automation disabled so I can review it before enabling scheduled runs.
+```
+
+Cron schedules require a local Agent Host and aren't supported for cloud automations. Review the [cron schedule and syntax guidance](#use-a-cron-schedule) before enabling the automation.
+
 ## Start from a template
 
 Automation templates provide a starting name, prompt, and schedule that you can review and adapt:
@@ -170,6 +182,7 @@ After checking the first run, select the automation's name to edit it. Choose a 
 | **Hourly** (local only) | Every hour. |
 | **Daily** | At the selected **Time** each day. |
 | **Weekly** | At the selected **Time** on the selected **Day of week**. |
+| **Cron** (local only) | A custom schedule defined by a five-field cron expression. |
 
 Daily and weekly times are displayed in your local time zone. Cloud schedules are stored in UTC. Review the saved time when your local UTC offset changes, such as after a daylight saving time change.
 
@@ -182,6 +195,53 @@ For local automations, keep these execution requirements in mind:
 * An automation runs one session at a time. Another scheduled occurrence doesn't start a parallel run of the same automation.
 
 Cloud schedules run on GitHub rather than through your local scheduler. You can close the {% data variables.copilot.agents_window %} or turn off your computer without stopping the schedule.
+
+### Use a cron schedule
+
+Use a cron schedule when a preset doesn't fit, such as running twice each weekday or on the first day of each month. Cron schedules are not supported for cloud automations.
+
+1. Create or edit a local automation and select **Cron** in **Trigger**.
+
+1. Enter the expression in the five fields, or paste a complete five-field expression.
+
+1. Review the schedule explanation and time zone shown in the form. An incomplete or invalid expression keeps **Create** or **Save** unavailable.
+
+1. Select **Create** or **Save**. Keep **Enabled** cleared until you have reviewed the automation and checked its first run.
+
+<!-- TODO: Capture the Cron schedule editor with all five fields, the time zone, and the schedule explanation. -->
+
+New cron schedules use your local time zone. When you edit an existing cron schedule, the form shows its saved time zone rather than replacing it.
+
+After saving, the schedule remains **Cron**, even if its cadence matches a preset. To switch to a preset, select it explicitly in **Trigger**.
+
+#### Cron expression syntax
+
+Use exactly five fields, separated by spaces, in this order:
+
+| Field | Accepted values |
+|-------|-----------------|
+| Minute | `0` through `59` |
+| Hour | `0` through `23` |
+| Day of month | `1` through `31` |
+| Month | `1` through `12`, or `JAN` through `DEC` |
+| Day of week | `0` through `7`, or `SUN` through `SAT`. Both `0` and `7` mean Sunday. |
+
+Each field supports:
+
+* `*` for every value.
+* Comma-separated lists, such as `9,17`.
+* Ascending ranges, such as `MON-FRI`.
+* Positive steps on `*` or a range, such as `*/30` or `0-59/15`.
+
+Steps from a single starting value, such as `5/15`, aren't supported. Don't include a seconds field or aliases such as `@daily`.
+
+| Expression | When it runs |
+|------------|--------------|
+| `0 9,17 * * MON-FRI` | At 9:00 AM and 5:00 PM, Monday through Friday. |
+| `0 9 1 * *` | At 9:00 AM on the first day of each month. |
+| `*/30 * * * *` | At minutes `00` and `30` of every hour. |
+
+When both the day of month and day of week are restricted, either can match. The month field still applies to both. For example, `0 9 1 * MON` runs at 9:00 AM on the first day of each month and on Mondays, not only when the first day is a Monday.
 
 ## Run on repository events
 
@@ -217,8 +277,10 @@ If an existing automation uses triggers or fields that the editor doesn't suppor
 Export a local automation as a `.automation.md` file to reuse it on another machine or share it with someone else. The file is readable Markdown with YAML frontmatter and contains only portable information:
 
 * Name and prompt.
-* Manual, hourly, daily, or weekly schedule.
+* Manual, hourly, daily, weekly, or cron schedule.
 * File format version and portable identifier.
+
+Exported cron schedules use `timeZone: local`, so the importing machine uses its own local time zone. A cron schedule whose configured time zone differs from your current local time zone can't be exported.
 
 The file doesn't include the workspace, provider, model, permissions, enabled state, or run history. The person who imports the file chooses these options locally.
 

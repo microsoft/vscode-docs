@@ -195,7 +195,7 @@ The frontmatter supports these fields:
 | `id` | Yes | Identifier that is unique within the plugin. Use lowercase letters, numbers, periods, or hyphens, with a maximum of 64 characters. |
 | `name` | Yes | Display name for the template. |
 | `description` | No | Short description of the automation's purpose. |
-| `schedule` | Yes | Manual, hourly, daily, or weekly schedule. |
+| `schedule` | Yes | Manual, hourly, or five-field cron schedule. |
 
 Use one of these schedule formats:
 
@@ -205,8 +205,9 @@ Use one of these schedule formats:
 | Hourly | `kind: hourly` |
 | Daily | `kind: cron`, a five-field expression such as `"0 9 * * *"`, and `timeZone: local` |
 | Weekly | `kind: cron`, a five-field expression such as `"30 10 * * 5"`, and `timeZone: local` |
+| Cron | `kind: cron`, a supported five-field expression such as `"0 9,17 * * MON-FRI"`, and `timeZone: local` |
 
-The five cron fields represent minute, hour, day of month, month, and day of week. Only local-time cron expressions that represent a daily or weekly schedule are supported. {% data variables.product.prodname_vscode_shortname %} ignores invalid templates rather than changing their schedule.
+Cron schedules support the [five-field expression syntax](/docs/agents/run/automations.md#cron-expression-syntax), including lists, ranges, and steps. Cron templates require `timeZone: local`. Named time zones aren't supported in template files. {% data variables.product.prodname_vscode_shortname %} ignores invalid templates rather than changing their schedule.
 
 Plugin templates can't specify a workspace, provider, model, permissions, enabled state, or run history. When someone selects a template, the **New Automation** dialog opens so they can review the prompt and choose the execution configuration. The **Enabled** checkbox is cleared by default.
 
