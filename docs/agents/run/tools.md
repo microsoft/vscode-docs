@@ -42,7 +42,7 @@ To complete a request with tools:
     Find the cause of the failing tests in this project, fix it, and run the relevant tests to verify the change.
     ```
 
-1. Review each tool call as the agent works. If an approval prompt appears, expand the tool details to review its inputs, and then select **Allow** to run it.
+1. Review each tool call as the agent works. If an approval prompt appears, expand the tool details to review its inputs, and then select the one-time approval option, such as **Allow Once**, to run it.
 
 1. Expand a tool summary in the conversation to inspect the call and its output. When the task is complete, review the agent's response, code changes, and validation results.
 
