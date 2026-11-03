@@ -21,6 +21,8 @@ Every canvas is provided by a canvas extension. This guide shows you how to find
 
 ## Prerequisites
 
+Canvases currently require an agent session and can't be opened independently of one.
+
 Canvases work in the {% data variables.product.prodname_vscode_shortname %} desktop app in local sessions that use the {% data variables.product.prodname_copilot_short %} harness. You can use them in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 1. Turn on `setting(chat.canvases.enabled)`.
