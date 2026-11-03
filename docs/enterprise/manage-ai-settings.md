@@ -10,7 +10,7 @@ Organizations can govern AI features in {% data variables.product.prodname_vscod
 
 These solutions control different layers of the AI experience. An organization might use all three, but should configure an overlapping control in only one system.
 
-For an existing Local deployment, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for developer steps, a compatibility checklist, and an administrator rollout and verification procedure.
+For an existing Local deployment, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for developer steps, a compatibility checklist, and an administrator rollout and verification procedure.
 
 > [!NOTE]
 > If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved.
