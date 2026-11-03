@@ -349,7 +349,7 @@ HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatshee
 
 ### Abbreviations are failing to expand
 
-First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `setting(emmet.extensionsPath)` setting). The format of custom snippets changed in {% data variables.product.prodname_vscode_shortname %} release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `setting(emmet.extensionsPath)` setting). The format of custom snippets changed in {% data variables.product.prodname_vscode_shortname %} release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/src/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
 
 If abbreviations are still failing to expand:
 
