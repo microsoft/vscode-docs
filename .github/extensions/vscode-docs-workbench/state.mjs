@@ -23,7 +23,7 @@ export function text(value, name, maximum = 2000) {
 }
 
 export function itemKey(value) {
-  if (typeof value !== 'string' || (!/^microsoft\/vscode(?:-docs)?:(?:issue|pr):[1-9]\d*$/.test(value) &&
+  if (typeof value !== 'string' || (!/^[a-z\d][a-z\d-]*\/(?!\.{1,2}:)[a-z\d_.-]+:(?:issue|pr):[1-9]\d*$/i.test(value) &&
       !(value.startsWith('media:') && identifier.test(value.slice(6))))) {
     throw new WorkbenchError('Invalid work item identity.');
   }
@@ -40,7 +40,7 @@ export function milestoneName(value) {
 export function initialState(workspace, account) {
   return {
     format: 'vscode-docs-workbench', version: 1, workspace, account,
-    milestone: '1.145.0', records: {}, media: [], cache: {}, operations: {}
+    milestone: '1.145.0', hiddenBoardColumns: [], records: {}, media: [], cache: {}, operations: {}
   };
 }
 
@@ -52,12 +52,44 @@ export function validateState(state, workspace, account) {
     throw new WorkbenchError('Unrecognized or corrupt workbench state. Existing data has not been overwritten.', 500);
   }
   milestoneName(state.milestone);
+  if (state.hiddenBoardColumns !== undefined && (!Array.isArray(state.hiddenBoardColumns) ||
+      state.hiddenBoardColumns.some(status => !dispositions.includes(status)) ||
+      new Set(state.hiddenBoardColumns).size !== state.hiddenBoardColumns.length)) {
+    throw new WorkbenchError('Corrupt board column preferences. Existing data has not been overwritten.', 500);
+  }
   for (const [key, record] of Object.entries(state.records)) {
     itemKey(key);
     if (!object(record) || !dispositions.includes(record.disposition) || typeof record.note !== 'string' ||
         !Array.isArray(record.links) || !record.links.every(link => typeof link === 'string') ||
         !Array.isArray(record.runs)) throw new WorkbenchError(`Corrupt state for ${key}.`, 500);
     record.links.forEach(itemKey);
+    for (const field of ['archivedAt', 'restoredAt', 'completedAt']) {
+      if (record[field] !== undefined && (typeof record[field] !== 'string' || !Number.isFinite(Date.parse(record[field])))) {
+        throw new WorkbenchError(`Corrupt ${field} for ${key}.`, 500);
+      }
+    }
+    if (record.item !== undefined) {
+      const item = record.item;
+      if (!object(item) || item.key !== key || typeof item.title !== 'string' || !item.title.trim() ||
+          !['pr', 'issue', 'screenshot', 'video', 'media'].includes(item.kind) ||
+          !queues.includes(item.queue) || typeof item.sourceVersion !== 'string' ||
+          !Array.isArray(item.labels) || !item.labels.every(value => typeof value === 'string') ||
+          !Array.isArray(item.assignees) || !item.assignees.every(value => typeof value === 'string') ||
+          (item.url !== undefined && typeof item.url !== 'string') ||
+          (item.repo !== undefined && typeof item.repo !== 'string') ||
+          (item.number !== undefined && (!Number.isInteger(item.number) || item.number < 1)) ||
+          (item.author !== undefined && item.author !== null && typeof item.author !== 'string') ||
+          ['state', 'updatedAt', 'createdAt', 'reviewDecision', 'scenario', 'mediaStatus']
+            .some(field => item[field] !== undefined && typeof item[field] !== 'string') ||
+          (item.draft !== undefined && typeof item.draft !== 'boolean') ||
+          (item.target !== undefined && !['desktop', 'agents', 'browser'].includes(item.target)) ||
+          (item.metadataUnavailable !== undefined && typeof item.metadataUnavailable !== 'boolean')) {
+        throw new WorkbenchError(`Corrupt saved item metadata for ${key}.`, 500);
+      }
+    }
+    if (record.archivedAt && (!record.item || !['done', 'not-needed'].includes(record.disposition))) {
+      throw new WorkbenchError(`Corrupt archive entry for ${key}.`, 500);
+    }
     if (record.assets !== undefined && (!Array.isArray(record.assets) || record.assets.some(asset =>
       !object(asset) || !identifier.test(asset.id) || typeof asset.file !== 'string' ||
       !path.isAbsolute(asset.file) || typeof asset.description !== 'string' ||
@@ -115,6 +147,18 @@ export function recordFor(state, key) {
   return state.records[key] ??= { disposition: 'untriaged', note: '', links: [], runs: [] };
 }
 
+export async function replaceStateFile(source, target, renameFile = rename) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      await renameFile(source, target);
+      return;
+    } catch (error) {
+      if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code) || attempt >= 5) throw error;
+      await new Promise(resolve => setTimeout(resolve, 20 * 2 ** attempt));
+    }
+  }
+}
+
 export async function createStore(workspace, account, home = process.env.COPILOT_HOME || path.join(os.homedir(), '.copilot')) {
   const identity = createHash('sha256').update(JSON.stringify(['github.com', workspace, account])).digest('hex');
   const directory = path.join(home, 'extension-data', 'vscode-docs-workbench', identity);
@@ -161,7 +205,7 @@ export async function createStore(workspace, account, home = process.env.COPILOT
       } finally {
         await output.close();
       }
-      await rename(temporary, file);
+      await replaceStateFile(temporary, file);
       return result;
     } finally {
       await rm(temporary, { force: true });

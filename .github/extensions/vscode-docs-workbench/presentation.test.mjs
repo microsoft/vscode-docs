@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { authorLabel, relativeTime, visibleItems, workflowCounts } from './presentation.mjs';
+import { authorLabel, boardColumns, combinedItems, itemReference, relativeTime, statusInfo, visibleItems, workflowCounts } from './presentation.mjs';
 
 const filters = {
   search: '', label: '', disposition: '', showDone: false, mine: false, githubState: '', draft: '', review: ''
@@ -15,6 +15,14 @@ test('formats creators without inventing identities for deleted accounts or olde
   assert.equal(authorLabel('automation[bot]'), '@automation[bot]');
   assert.equal(authorLabel(null), 'Deleted account');
   assert.equal(authorLabel(undefined), 'Creator unavailable');
+});
+
+test('item references distinguish repositories without changing docs or media labels', () => {
+  assert.equal(itemReference({ repo: 'microsoft/vscode', number: 42 }), 'microsoft/vscode#42');
+  assert.equal(itemReference({ repo: 'other/product', number: 42 }), 'other/product#42');
+  assert.equal(itemReference({ repo: 'microsoft/vscode-docs', number: 42 }), '#42');
+  assert.equal(itemReference({ number: 42 }), '#42');
+  assert.equal(itemReference({ kind: 'video' }), 'Video');
 });
 
 test('formats relative age with explicit handling of missing and invalid timestamps', () => {
@@ -44,4 +52,55 @@ test('queue-aware filtering preserves PR filters while not applying them to medi
   assert.equal(visibleItems(items, {}, 'tpis', 'maintainer', { ...filters, mine: true }).length, 2);
   assert.equal(visibleItems([{ key: 'media', title: 'Settings screenshot' }], {}, 'media', 'maintainer',
     { ...filters, label: 'doc-bug', mine: true, githubState: 'closed', draft: 'yes' }).length, 1);
+});
+
+test('combines all queues using canonical identities without changing source items', () => {
+  const sources = {
+    pulls: [items[0]], tpis: [{ ...items[1], key: 'tpi' }],
+    issues: [items[0], { ...items[1], key: 'issue' }],
+    media: [{ key: 'media', title: 'Record settings', kind: 'video' }]
+  };
+  const combined = combinedItems(sources);
+  assert.deepEqual(combined.map(item => [item.key, item.queue]), [
+    ['first', 'pulls'], ['tpi', 'tpis'], ['issue', 'issues'], ['media', 'media']
+  ]);
+  assert.equal(sources.pulls[0].queue, undefined);
+});
+
+test('board columns include every target state, completed work, and default untriaged items', () => {
+  const records = { first: { disposition: 'done' }, second: { disposition: 'not-needed' } };
+  const columns = boardColumns([...items, { key: 'new' }], records);
+  assert.deepEqual(columns.map(column => column.status), Object.keys(statusInfo));
+  assert.deepEqual(columns.find(column => column.status === 'untriaged').items, [{ key: 'new' }]);
+  assert.equal(columns.find(column => column.status === 'done').items[0].key, 'first');
+  assert.equal(columns.find(column => column.status === 'not-needed').items[0].key, 'second');
+  assert.deepEqual(columns.find(column => column.status === 'ready').items, []);
+});
+
+test('hidden columns affect only the board and leave task dispositions intact', () => {
+  const records = { first: { disposition: 'needs-review' }, second: { disposition: 'blocked' } };
+  const hidden = ['needs-review', 'blocked'];
+  assert.equal(boardColumns(items, records, hidden).length, 5);
+  assert.deepEqual(boardColumns(items, records, hidden).flatMap(column => column.items), []);
+  assert.deepEqual(visibleItems(items, records, 'board', 'maintainer', filters, hidden), []);
+  assert.equal(visibleItems(items, records, 'pulls', 'maintainer', filters, hidden).length, 2);
+  assert.equal(records.first.disposition, 'needs-review');
+  assert.equal(records.second.disposition, 'blocked');
+  assert.deepEqual(boardColumns(items, records, Object.keys(statusInfo)), []);
+  assert.equal(boardColumns(items, records, []).flatMap(column => column.items).length, 2);
+});
+
+test('board filtering supports source, search, labels, status, and GitHub state without hiding completed columns', () => {
+  const combined = combinedItems({
+    pulls: [items[0]], tpis: [], issues: [items[1]], media: [{ key: 'media', title: 'Screenshot' }]
+  });
+  const records = { first: { disposition: 'done' }, second: { disposition: 'blocked' } };
+  assert.equal(visibleItems(combined, records, 'board', 'maintainer', filters).length, 3);
+  assert.deepEqual(visibleItems(combined, records, 'board', 'maintainer', { ...filters, source: 'media' }).map(item => item.key), ['media']);
+  assert.deepEqual(visibleItems(combined, records, 'board', 'maintainer', { ...filters, label: 'doc-bug' }).map(item => item.key), ['first']);
+  assert.deepEqual(visibleItems(combined, records, 'board', 'maintainer', { ...filters, search: '43', githubState: 'closed' }).map(item => item.key), ['second']);
+  const blocked = visibleItems(combined, records, 'board', 'maintainer', { ...filters, disposition: 'blocked' });
+  assert.equal(boardColumns(blocked, records).length, Object.keys(statusInfo).length);
+  assert.deepEqual(blocked.map(item => item.key), ['second']);
+  assert.equal(visibleItems(combined, records, 'board', 'maintainer', { ...filters, mine: true, draft: 'yes', review: 'APPROVED' }).length, 3);
 });

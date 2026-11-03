@@ -4,6 +4,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
 import { recordFor, text, WorkbenchError } from './state.mjs';
+import { hasActiveWork, rememberItem, restoreRecord, setDisposition } from './archive.mjs';
 
 const execute = promisify(execFile);
 export function workflowPrompt({ workflow, item, milestone, workspace, output, plan, worktree }) {
@@ -57,6 +58,7 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
   async function launch({ key, workflow, plan, base }) {
     if (!['review', 'document', 'close-comment', 'screenshot', 'video', 'implement'].includes(workflow)) throw new WorkbenchError('Unknown workflow.');
     const state = await store.read();
+    if (state.records[key]?.archivedAt) throw new WorkbenchError('Restore this task from History before starting work.', 409);
     const item = key.startsWith('media:') ? state.media.find(candidate => candidate.key === key) : await github.detail(key);
     if (!item) throw new WorkbenchError('Work item not found.', 404);
     if (workflow === 'review' && item.kind !== 'pr') throw new WorkbenchError('Review requires a PR.');
@@ -80,6 +82,7 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
     if (['screenshot', 'video'].includes(workflow)) await mkdir(output, { recursive: true });
     await store.update(current => {
       const record = recordFor(current, key);
+      if (record.archivedAt) throw new WorkbenchError('Restore this task from History before starting work.', 409);
       if (record.runs.some(run => ['starting', 'running', 'launch-uncertain'].includes(run.status))) {
         throw new WorkbenchError('An equivalent task is active or its launch outcome is uncertain. Reconcile it before launching again.', 409);
       }
@@ -87,7 +90,8 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
         id, workflow, sessionId: session.sessionId, status: 'starting', sourceVersion: item.sourceVersion || item.key,
         startedAt: new Date().toISOString(), milestone: current.milestone
       });
-      record.disposition = 'in-progress';
+      rememberItem(record, item);
+      setDisposition(record, 'in-progress');
       const media = current.media.find(candidate => candidate.key === key);
       if (media && ['screenshot', 'video'].includes(workflow)) media.mediaStatus = 'capturing';
     });
@@ -132,6 +136,7 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
           if (!task) continue;
           Object.assign(run, { agentId: task.id, status: task.status, result: task.latestResponse || task.result || run.result || '', error: task.error || '' });
         }
+        if (record.archivedAt && hasActiveWork(record)) restoreRecord(record);
         const last = record.runs.at(-1);
         if (last?.result && ['idle', 'completed'].includes(last.status) && record.disposition === 'in-progress') record.disposition = 'needs-review';
         if (last?.status === 'failed' && record.disposition === 'in-progress') record.disposition = 'blocked';
@@ -150,6 +155,7 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
   async function message({ key, runId, message }) {
     message = text(message, 'Follow-up message', 6000);
     const state = await store.read();
+    if (state.records[key]?.archivedAt) throw new WorkbenchError('Restore this task from History before following up.', 409);
     const run = state.records[key]?.runs.find(candidate => candidate.id === runId);
     if (!run?.agentId || run.sessionId !== session.sessionId) throw new WorkbenchError('Resume this task in its original host session.', 409);
     if (state.records[key].runs.some(candidate => candidate.id !== runId &&
@@ -160,7 +166,11 @@ export function createWorkflows({ session, store, github, workspace, runGit = ex
       id: run.agentId, message: `Maintainer follow-up: ${message}\nPreserve the original workflow scope and no-publishing restrictions. A follow-up does not authorize implementation; use the approved implementation workflow for edits.`
     });
     if (!response.sent) throw new WorkbenchError(response.error || 'The host could not deliver the message.', 502);
-    await store.update(current => { current.records[key].runs.find(candidate => candidate.id === runId).status = 'running'; });
+    await store.update(current => {
+      const record = current.records[key];
+      if (record.archivedAt) restoreRecord(record);
+      record.runs.find(candidate => candidate.id === runId).status = 'running';
+    });
     return { sent: true };
   }
   async function mediaRoot(key) {

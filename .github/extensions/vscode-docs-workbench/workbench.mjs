@@ -4,15 +4,19 @@ import path from 'node:path';
 import { dispositions, itemKey, milestoneName, recordFor, text, WorkbenchError } from './state.mjs';
 import { createClosingActions } from './closing.mjs';
 import { createWorkflows } from './workflows.mjs';
+import { archiveSummary, createArchive, knownItem, rememberItem, setDisposition } from './archive.mjs';
 
 export async function createWorkbench({ session, store, github, workspace, account }) {
   const workflows = createWorkflows({ session, store, github, workspace });
   const closing = createClosingActions(github, store, account);
+  const archive = createArchive(store);
   let refreshing = false;
   async function snapshot() {
     const state = await store.read();
     return {
       ...state, sessionId: session.sessionId, refreshing,
+      hiddenBoardColumns: state.hiddenBoardColumns ?? [],
+      ...archiveSummary(state),
       storageDirectory: store.directory,
       queues: {
         pulls: state.cache.pulls?.items || [],
@@ -35,6 +39,9 @@ export async function createWorkbench({ session, store, github, workspace, accou
         }
       }));
       await store.update(current => {
+        for (const item of [...current.media, ...Object.values(current.cache).flatMap(cache => cache.items)]) {
+          if (current.records[item.key]) rememberItem(current.records[item.key], item);
+        }
         for (const result of results) {
           const previous = current.cache[result.name];
           if (result.error) {
@@ -42,6 +49,9 @@ export async function createWorkbench({ session, store, github, workspace, accou
             else current.cache[result.name] = { items: [], fetchedAt: '', milestone: state.milestone, error: result.error };
           } else if (result.name !== 'tpis' || current.milestone === state.milestone) {
             current.cache[result.name] = { items: result.items, fetchedAt: new Date().toISOString(), milestone: state.milestone };
+            for (const item of result.items) {
+              if (current.records[item.key]) rememberItem(current.records[item.key], item);
+            }
           }
         }
       });
@@ -53,10 +63,13 @@ export async function createWorkbench({ session, store, github, workspace, accou
   async function detail(key) {
     itemKey(key);
     const state = await store.read();
-    const item = key.startsWith('media:') ? state.media.find(candidate => candidate.key === key) : await github.detail(key);
+    const record = state.records[key];
+    const saved = record?.archivedAt || (record?.item && !knownItem(state, key)) ? record.item : undefined;
+    const item = saved || (key.startsWith('media:') ? state.media.find(candidate => candidate.key === key) : await github.detail(key));
     if (!item) throw new WorkbenchError('Work item not found.', 404);
     return {
       ...item, record: state.records[key] || { disposition: 'untriaged', note: '', links: [], runs: [] },
+      sourceSnapshot: !!saved,
       mediaDirectory: await workflows.mediaRoot(key)
     };
   }
@@ -71,13 +84,30 @@ export async function createWorkbench({ session, store, github, workspace, accou
     await store.update(state => {
       const record = recordFor(state, key);
       if (disposition === 'not-needed' && !(note ?? record.note).trim()) throw new WorkbenchError('Record a reason before marking documentation not needed.');
-      if (disposition !== undefined) record.disposition = disposition;
+      rememberItem(record, knownItem(state, key));
+      if (disposition !== undefined) setDisposition(record, disposition);
       if (note !== undefined) record.note = note;
       if (link && !record.links.includes(link)) {
         record.links.push(link);
         const related = recordFor(state, link);
         if (!related.links.includes(key)) related.links.push(key);
       }
+    });
+    return snapshot();
+  }
+  async function updateBoardColumns({ status, visible, showAll }) {
+    if (showAll !== undefined && typeof showAll !== 'boolean') throw new WorkbenchError('Show all columns must be a boolean.');
+    if (showAll === true) {
+      if (status !== undefined || visible !== undefined) throw new WorkbenchError('Show all cannot be combined with a single column change.');
+    } else if (!dispositions.includes(status) || typeof visible !== 'boolean') {
+      throw new WorkbenchError('Choose a valid column and a boolean visibility value.');
+    }
+    await store.update(state => {
+      const hidden = new Set(state.hiddenBoardColumns ?? []);
+      if (showAll) hidden.clear();
+      else if (visible) hidden.delete(status);
+      else hidden.add(status);
+      state.hiddenBoardColumns = dispositions.filter(value => hidden.has(value));
     });
     return snapshot();
   }
@@ -162,6 +192,14 @@ export async function createWorkbench({ session, store, github, workspace, accou
       case 'sync': await workflows.sync(); return snapshot();
       case 'detail': return detail(input.key);
       case 'update-item': return updateItem(input);
+      case 'board-columns': return updateBoardColumns(input);
+      case 'archive-preview': return archive.preview();
+      case 'archive-completed':
+        await archive.archiveCompleted(input);
+        return snapshot();
+      case 'restore-archived':
+        await archive.restore(input);
+        return snapshot();
       case 'create-media': return createMedia(input);
       case 'attach-media': return attachMedia(input);
       case 'approve-media': return approveMedia(input);

@@ -16,6 +16,8 @@
       </a>
       <p class="nav-label">Work queues</p>
       <nav aria-label="Work queues" id="queues">
+        <button type="button" data-queue="board"><span class="nav-icon" data-icon="board"></span><span class="nav-title">Task board</span><span class="queue-count">0</span></button>
+        <button type="button" data-queue="history"><span class="nav-icon" data-icon="archive"></span><span class="nav-title">History</span><span class="queue-count">0</span></button>
         <button type="button" data-queue="pulls" aria-current="page"><span class="nav-icon" data-icon="pull"></span><span class="nav-title">Pull requests</span><span class="queue-count">0</span></button>
         <button type="button" data-queue="tpis"><span class="nav-icon" data-icon="release"></span><span class="nav-title">Release TPIs</span><span class="queue-count">0</span></button>
         <button type="button" data-queue="issues"><span class="nav-icon" data-icon="issue"></span><span class="nav-title">Docs issues</span><span class="queue-count">0</span></button>
@@ -37,6 +39,7 @@
           <div><p class="eyebrow">Docs workbench</p><h1 id="queue-title">Pull requests</h1><p id="queue-description" class="subtitle">Check technical accuracy and writing quality before contributions land.</p></div>
           <div class="header-actions">
             <button id="refresh" type="button"><span data-icon="refresh"></span><span>Refresh</span></button>
+            <button id="archive-completed" type="button" hidden><span data-icon="archive"></span><span>Archive completed</span></button>
             <button type="button" id="new-media" class="primary"><span data-icon="plus"></span><span>New media task</span></button>
           </div>
         </div>
@@ -54,14 +57,22 @@
           <details id="filters">
             <summary><span data-icon="filter"></span>Filters<span id="filter-count" hidden></span></summary>
             <div class="filter-fields">
+              <label id="source-label" hidden>Source queue<select id="source"><option value="">All queues</option><option value="pulls">Pull requests</option><option value="tpis">Release TPIs</option><option value="issues">Docs issues</option><option value="media">Media</option></select></label>
               <label id="mine-label" class="checkbox-label"><input id="mine" type="checkbox">Assigned to me</label>
               <label>Workflow status<select id="disposition"><option value="">All statuses</option></select></label>
               <label id="label-filter">Label<input id="label" placeholder="Exact label"></label>
               <label id="github-state-label">GitHub state<select id="github-state"><option value="">Any state</option><option value="open">Open</option><option value="closed">Closed</option></select></label>
               <label id="draft-label">Draft<select id="draft"><option value="">Any draft state</option><option value="yes">Drafts</option><option value="no">Ready for review</option></select></label>
               <label id="review-label">Review<select id="review"><option value="">Any review state</option><option value="REVIEW_REQUIRED">Review required</option><option value="CHANGES_REQUESTED">Changes requested</option><option value="APPROVED">Approved</option></select></label>
-              <label class="checkbox-label"><input id="show-done" type="checkbox">Include completed work</label>
+              <label id="show-done-label" class="checkbox-label"><input id="show-done" type="checkbox">Include completed work</label>
               <button type="button" id="reset-filters" class="text-button">Reset filters</button>
+            </div>
+          </details>
+          <details id="columns" hidden>
+            <summary><span data-icon="board"></span>Columns<span id="hidden-column-count" hidden></span></summary>
+            <div class="column-fields">
+              <fieldset id="column-choices"><legend class="sr-only">Visible status columns</legend></fieldset>
+              <button type="button" id="show-all-columns" class="text-button">Show all columns</button>
             </div>
           </details>
         </div>
@@ -78,6 +89,7 @@
               <button type="button" id="empty-action"></button>
             </div>
           </section>
+          <section id="board" class="task-board" aria-label="Task board" aria-describedby="queue-notice" tabindex="-1" hidden></section>
           <section id="detail" aria-label="Selected work item" hidden tabindex="-1"></section>
         </main>
         <p class="queue-footer"><span data-icon="check"></span>GitHub is the source of truth. Workflow status stays private.</p>

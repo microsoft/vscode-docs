@@ -3,8 +3,8 @@ import test from 'node:test';
 import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { createStore, initialState, recordFor, validateState } from './state.mjs';
-import { createGitHub, contextVersion, isDocumentationTpi, normalize } from './github.mjs';
+import { createStore, dispositions, initialState, itemKey, recordFor, validateState } from './state.mjs';
+import { createGitHub, contextVersion, isDocumentationTpi, normalize, sourceIdentity } from './github.mjs';
 import { createClosingActions } from './closing.mjs';
 import { createWorkflows, workflowPrompt } from './workflows.mjs';
 import { createWorkbench } from './workbench.mjs';
@@ -71,11 +71,16 @@ test('does not overwrite unsupported or corrupt state', async t => {
   assert.throws(() => validateState({ ...initialState('workspace', 'maintainer'), media: [{}] }, 'workspace', 'maintainer'), /Corrupt/);
 });
 
-test('TPI exclusions are exact and do not confuse verified features with verification work', () => {
-  assert.equal(isDocumentationTpi({ title: 'Test: Public feature', labels: ['testplan-item', 'verified'] }), true);
-  assert.equal(isDocumentationTpi({ title: 'Test: Public feature', labels: ['verification-needed'] }), false);
-  assert.equal(isDocumentationTpi({ title: 'Verification: fix', labels: ['testplan-item'] }), false);
-  assert.equal(isDocumentationTpi({ title: 'Test: Public feature', labels: ['invalid-testplan-item'] }), false);
+test('TPI exclusions only match Verification TPI anywhere in the title, regardless of labels', () => {
+  for (const title of ['Verification TPI', 'Test: Verification TPI: fix', 'Feature follow-up (verification tpi)']) {
+    assert.equal(isDocumentationTpi({ title, labels: ['testplan-item'] }), false);
+  }
+  for (const label of ['verified', 'verification', 'verification-needed', 'verification-found',
+    'verification-steps-needed', '~verification-steps-needed', 'author-verification-requested', 'invalid-testplan-item']) {
+    assert.equal(isDocumentationTpi({ title: 'Test: Public feature', labels: ['testplan-item', label] }), true);
+  }
+  assert.equal(isDocumentationTpi({ title: 'Verification: fix', labels: ['testplan-item'] }), true);
+  assert.equal(isDocumentationTpi({ title: 'Test: Pinned-session expansion and persistence', labels: ['testplan-item', 'verification-found'] }), true);
 });
 
 test('paginates issues without search limits and excludes PRs from issue queue', async () => {
@@ -145,15 +150,121 @@ test('creator cache accepts existing data and persists new creator metadata', as
   assert.equal((await store.read()).cache.pulls.items[0].author, 'creator');
 });
 
-test('TPI retrieval uses a numeric milestone and both issue states', async () => {
+test('TPI retrieval searches the named milestone across repositories and both issue states', async () => {
+  const calls = [];
   const github = createGitHub(async args => {
     const endpoint = args[3];
-    if (endpoint.includes('/milestones')) return [{ number: 7, title: '1.145.0', state: 'open' }];
-    assert.match(endpoint, /state=all&labels=testplan-item&milestone=7/);
-    return ['open', 'closed'].map((state, index) => ({ number: index + 1, title: 'Feature', state, updated_at: 'date' }));
+    calls.push(endpoint);
+    const url = new URL(`https://api.github.com/${endpoint}`);
+    assert.equal(url.pathname, '/search/issues');
+    assert.equal(url.searchParams.get('q'), 'is:issue milestone:1.145.0 label:testplan-item');
+    return { total_count: 5, incomplete_results: false, items: [
+      { number: 1, title: 'Feature', state: 'open', updated_at: 'date', repository_url: 'https://api.github.com/repos/microsoft/vscode' },
+      { number: 1, title: 'Other feature', state: 'closed', updated_at: 'date', labels: [{ name: 'verification-found' }], repository_url: 'https://api.github.com/repos/other/product', user: { login: 'creator' } },
+      { number: 2, title: 'Verification: fix', state: 'open', updated_at: 'date', repository_url: 'https://api.github.com/repos/other/product' },
+      { number: 3, title: 'Invalid feature', state: 'closed', updated_at: 'date', labels: [{ name: 'invalid-testplan-item' }], repository_url: 'https://api.github.com/repos/other/product' },
+      { number: 4, title: 'Test: Verification TPI: regression', state: 'open', updated_at: 'date', repository_url: 'https://api.github.com/repos/other/product' }
+    ] };
   });
-  assert.equal((await github.queue('tpis', '1.145.0')).length, 2);
-  await assert.rejects(github.queue('tpis', '1.999.0'), /does not exist/);
+  const items = await github.queue('tpis', '1.145.0');
+  assert.deepEqual(items.map(item => item.key), ['microsoft/vscode:issue:1', 'other/product:issue:1', 'other/product:issue:2', 'other/product:issue:3']);
+  assert.deepEqual(items.map(item => item.state), ['open', 'closed', 'open', 'closed']);
+  assert.equal(items[1].author, 'creator');
+  assert.equal(calls.length, 1);
+  await assert.rejects(github.queue('tpis', '1.145.0 repo:other/product'), /milestone/);
+  assert.equal(calls.length, 1);
+});
+
+test('TPI search paginates the search response and preserves distinct repository identities', async () => {
+  const calls = [];
+  const github = createGitHub(async args => {
+    const url = new URL(`https://api.github.com/${args[3]}`);
+    const page = Number(url.searchParams.get('page'));
+    calls.push(page);
+    return { total_count: 101, incomplete_results: false, items:
+      Array.from({ length: page === 1 ? 100 : 1 }, (_, index) => ({
+        number: page === 1 ? index + 1 : 1, title: 'Feature', state: 'closed', updated_at: 'date',
+        repository_url: `https://api.github.com/repos/other/${page === 1 ? 'first' : 'second'}`
+      }))
+    };
+  });
+  const items = await github.queue('tpis', '1.145.0');
+  assert.deepEqual(calls, [1, 2]);
+  assert.equal(items.length, 101);
+  assert.equal(items[0].key, 'other/first:issue:1');
+  assert.equal(items[100].key, 'other/second:issue:1');
+  assert.equal((await createGitHub(async () => ({ total_count: 0, incomplete_results: false, items: [] })).queue('tpis', '1.999.0')).length, 0);
+});
+
+test('TPI search rejects incomplete, oversized, and malformed results rather than showing a partial queue', async () => {
+  for (const result of [
+    [], { total_count: 1, items: {} }, { total_count: -1, items: [] },
+    { total_count: 1, incomplete_results: true, items: [] },
+    { total_count: 1001, incomplete_results: false, items: [] },
+    { total_count: 1, incomplete_results: false, items: [{ number: 1 }] }
+  ]) {
+    await assert.rejects(createGitHub(async () => result).queue('tpis', '1.145.0'), /search|repository identity/);
+  }
+});
+
+test('TPI search stops at the reported total, including the last allowed search page', async () => {
+  for (const total of [100, 1000]) {
+    const calls = [];
+    const github = createGitHub(async args => {
+      const page = Number(new URL(`https://api.github.com/${args[3]}`).searchParams.get('page'));
+      calls.push(page);
+      assert.ok(page <= total / 100);
+      return { total_count: total, incomplete_results: false, items: Array.from({ length: 100 }, (_, index) => ({
+        number: (page - 1) * 100 + index + 1, title: 'Feature', state: 'open', updated_at: 'date',
+        repository_url: 'https://api.github.com/repos/other/product'
+      })) };
+    });
+    assert.equal((await github.queue('tpis', '1.145.0')).length, total);
+    assert.equal(calls.length, total / 100);
+  }
+});
+
+test('GitHub identities support other repositories without accepting malformed paths', () => {
+  assert.equal(itemKey('other/.product:issue:1'), 'other/.product:issue:1');
+  assert.deepEqual(sourceIdentity('other/product:issue:1'), { repo: 'other/product', kind: 'issue', number: 1 });
+  for (const key of ['other/..:issue:1', 'other/.:issue:1', 'other/product/extra:issue:1',
+    'other/product?query:issue:1', 'other/product:issue:0', 'other/product:task:1']) {
+    assert.throws(() => itemKey(key), /Invalid work item identity/);
+  }
+});
+
+test('other-repository TPI details use their originating repository', async () => {
+  const calls = [];
+  const github = createGitHub(async args => {
+    const endpoint = args[3];
+    calls.push(endpoint);
+    if (endpoint.includes('/comments')) return [];
+    return { number: 1, title: 'Feature', state: 'closed', updated_at: 'date' };
+  });
+  const item = await github.detail('other/product:issue:1');
+  assert.deepEqual(calls, ['repos/other/product/issues/1', 'repos/other/product/issues/1/comments?per_page=100&page=1']);
+  assert.equal(item.key, 'other/product:issue:1');
+});
+
+test('other-repository TPIs persist through refresh, linking, and documentation planning', async t => {
+  const { home, store } = await fixture(t);
+  const item = { ...issue(), key: 'other/product:issue:1', repo: 'other/product', kind: 'issue', number: 1 };
+  const github = fakeGitHub(item);
+  github.queue = async name => name === 'tpis' ? [structuredClone(item)] : [];
+  let prompt;
+  const session = { sessionId: 'session', rpc: { tasks: { startAgent: async input => {
+    prompt = input.prompt;
+    return { agentId: 'planning-agent' };
+  } } } };
+  const workbench = await createWorkbench({ session, store, github, workspace: 'workspace', account: 'maintainer' });
+  assert.equal((await workbench.dispatch('refresh')).queues.tpis[0].key, item.key);
+  await workbench.dispatch('update-item', { key: item.key, disposition: 'ready', link: key });
+  const reopened = await createStore('workspace', 'maintainer', home);
+  assert.deepEqual((await reopened.read()).records[key].links, [item.key]);
+  await workbench.dispatch('launch', { key: item.key, workflow: 'document' });
+  assert.match(prompt, /other\/product:issue:1/);
+  assert.equal((await reopened.read()).records[item.key].runs[0].agentId, 'planning-agent');
+  await assert.rejects(workbench.dispatch('launch', { key: item.key, workflow: 'close-comment' }), /only for docs items/);
 });
 
 test('refresh preserves cached work on API failure and hides a previous milestone cache', async t => {
@@ -178,6 +289,85 @@ test('links work bidirectionally and not-needed requires a rationale', async t =
   assert.deepEqual((await store.read()).records['microsoft/vscode:issue:9'].links, [key]);
 });
 
+test('column visibility persists per workspace/account without changing tasks or making GitHub writes', async t => {
+  const { home, store } = await fixture(t);
+  const github = fakeGitHub();
+  const workbench = await createWorkbench({ session: { sessionId: 'session' }, store, github, workspace: 'workspace', account: 'maintainer' });
+  await store.update(state => { recordFor(state, key).disposition = 'blocked'; });
+  await Promise.all([
+    workbench.dispatch('board-columns', { status: 'needs-review', visible: false }),
+    workbench.dispatch('board-columns', { status: 'blocked', visible: false })
+  ]);
+  await workbench.dispatch('board-columns', { status: 'blocked', visible: false });
+  const reopened = await createStore('workspace', 'maintainer', home);
+  assert.deepEqual((await reopened.read()).hiddenBoardColumns, ['needs-review', 'blocked']);
+  assert.equal((await reopened.read()).records[key].disposition, 'blocked');
+  const otherWorkspace = await createStore('other-workspace', 'maintainer', home);
+  const otherAccount = await createStore('workspace', 'other-maintainer', home);
+  assert.deepEqual((await otherWorkspace.read()).hiddenBoardColumns, []);
+  assert.deepEqual((await otherAccount.read()).hiddenBoardColumns, []);
+  await workbench.dispatch('board-columns', { status: 'blocked', visible: true });
+  assert.deepEqual((await workbench.snapshot()).hiddenBoardColumns, ['needs-review']);
+  await workbench.dispatch('board-columns', { showAll: true });
+  assert.deepEqual((await reopened.read()).hiddenBoardColumns, []);
+  assert.deepEqual(github.calls, []);
+});
+
+test('all columns can be hidden and restored, and invalid preferences leave storage unchanged', async t => {
+  const { store } = await fixture(t);
+  const workbench = await createWorkbench({ session: { sessionId: 'session' }, store, github: fakeGitHub(), workspace: 'workspace', account: 'maintainer' });
+  for (const status of dispositions) await workbench.dispatch('board-columns', { status, visible: false });
+  assert.deepEqual((await store.read()).hiddenBoardColumns, dispositions);
+  for (const input of [{}, { status: 'other', visible: false }, { status: 'blocked', visible: 'false' }, { showAll: 'true' }, { showAll: true, status: 'blocked' }]) {
+    await assert.rejects(workbench.dispatch('board-columns', input), /column|boolean|Show all/);
+    assert.deepEqual((await store.read()).hiddenBoardColumns, dispositions);
+  }
+  await workbench.dispatch('board-columns', { showAll: true });
+  assert.deepEqual((await store.read()).hiddenBoardColumns, []);
+});
+
+test('legacy state defaults to all columns visible, while corrupt column preferences are never overwritten', async t => {
+  const { store } = await fixture(t);
+  const file = path.join(store.directory, 'state.json');
+  const legacy = initialState('workspace', 'maintainer');
+  delete legacy.hiddenBoardColumns;
+  await writeFile(file, JSON.stringify(legacy));
+  const workbench = await createWorkbench({ session: { sessionId: 'session' }, store, github: fakeGitHub(), workspace: 'workspace', account: 'maintainer' });
+  assert.deepEqual((await workbench.snapshot()).hiddenBoardColumns, []);
+  for (const hiddenBoardColumns of [null, 'blocked', ['unknown'], ['blocked', 'blocked']]) {
+    const corrupt = JSON.stringify({ ...legacy, hiddenBoardColumns });
+    await writeFile(file, corrupt);
+    await assert.rejects(workbench.dispatch('board-columns', { showAll: true }), /Corrupt board column preferences/);
+    assert.equal(await readFile(file, 'utf8'), corrupt);
+  }
+});
+
+test('board moves persist local status without changing GitHub state, agent state, links, or notes', async t => {
+  const { home, store } = await fixture(t);
+  const github = fakeGitHub();
+  const session = { sessionId: 'session' };
+  const workbench = await createWorkbench({ session, store, github, workspace: 'workspace', account: 'maintainer' });
+  await store.update(state => {
+    const record = recordFor(state, key);
+    record.note = 'Already covered by existing documentation.';
+    record.links = ['microsoft/vscode:issue:9'];
+    record.runs = [{ id: 'existing', workflow: 'review', sessionId: 'session', status: 'running', sourceVersion: 'sha1', startedAt: new Date().toISOString() }];
+  });
+  for (const disposition of dispositions) {
+    const state = await workbench.dispatch('update-item', { key, disposition });
+    assert.equal(state.records[key].disposition, disposition);
+    assert.equal(state.records[key].note, 'Already covered by existing documentation.');
+    assert.equal(state.records[key].runs[0].status, 'running');
+    assert.deepEqual(state.records[key].links, ['microsoft/vscode:issue:9']);
+  }
+  const reopened = await createStore('workspace', 'maintainer', home);
+  assert.equal((await reopened.read()).records[key].disposition, 'not-needed');
+  assert.equal(github.item.state, 'open');
+  assert.deepEqual(github.calls, []);
+  await assert.rejects(workbench.dispatch('update-item', { key, disposition: 'invalid-column' }), /Invalid workflow status/);
+  assert.equal((await reopened.read()).records[key].disposition, 'not-needed');
+});
+
 test('close preview never mutates GitHub, and cancellation and source drift block closure', async t => {
   const { store } = await fixture(t);
   const github = fakeGitHub();
@@ -189,6 +379,7 @@ test('close preview never mutates GitHub, and cancellation and source drift bloc
   await assert.rejects(closing.execute({ id: operation.id, confirmed: true }), /context changed/);
   assert.equal(github.calls.length, 0);
   await assert.rejects(closing.preview({ key: 'microsoft/vscode:issue:9', mode: 'invalid', comment: 'Invalid' }), /restricted/);
+  await assert.rejects(closing.preview({ key: 'other/product:issue:9', mode: 'invalid', comment: 'Invalid' }), /restricted/);
 });
 
 test('closes PR unmerged, labels only when requested, and reconciles partial failure without duplicate comments', async t => {

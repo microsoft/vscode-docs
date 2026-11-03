@@ -9,6 +9,8 @@ const assets = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/app.mjs', ['app.mjs', 'text/javascript; charset=utf-8']],
   ['/presentation.mjs', ['presentation.mjs', 'text/javascript; charset=utf-8']],
+  ['/dom.mjs', ['dom.mjs', 'text/javascript; charset=utf-8']],
+  ['/board.mjs', ['board.mjs', 'text/javascript; charset=utf-8']],
   ['/style.css', ['style.css', 'text/css; charset=utf-8']]
 ]);
 

@@ -1,7 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
-import { itemKey, WorkbenchError } from './state.mjs';
+import { itemKey, milestoneName, WorkbenchError } from './state.mjs';
 
 const execute = promisify(execFile);
 export async function runGh(args, input) {
@@ -25,7 +25,7 @@ export async function runGh(args, input) {
 
 export function sourceIdentity(key) {
   itemKey(key);
-  const match = /^(microsoft\/vscode(?:-docs)?):(issue|pr):([1-9]\d*)$/.exec(key);
+  const match = /^([^:]+):(issue|pr):([1-9]\d*)$/.exec(key);
   if (!match) throw new WorkbenchError('This operation requires a GitHub item.');
   return { repo: match[1], kind: match[2], number: Number(match[3]) };
 }
@@ -44,9 +44,7 @@ export function normalize(item, repo, kind) {
 }
 
 export function isDocumentationTpi(item) {
-  const excluded = ['verification', 'verification-needed', 'verification-found', 'verification-steps-needed',
-    '~verification-steps-needed', 'author-verification-requested', 'invalid-testplan-item'];
-  return !item.labels.some(label => excluded.includes(label)) && !/^(?:test:\s*)?verification\b/i.test(item.title);
+  return !/verification tpi/i.test(item.title);
 }
 
 export function createGitHub(run = runGh) {
@@ -91,10 +89,24 @@ export function createGitHub(run = runGh) {
         .filter(item => !item.pull_request).map(item => normalize(item, 'microsoft/vscode-docs', 'issue'));
     }
     if (name !== 'tpis') throw new WorkbenchError('Unknown GitHub queue.');
-    const release = (await milestones()).find(item => item.title === milestone);
-    if (!release) throw new WorkbenchError(`Milestone ${milestone} does not exist in microsoft/vscode.`);
-    return (await pages(`repos/microsoft/vscode/issues?state=all&labels=testplan-item&milestone=${release.number}`))
-      .filter(item => !item.pull_request).map(item => normalize(item, 'microsoft/vscode', 'issue')).filter(isDocumentationTpi);
+    const query = encodeURIComponent(`is:issue milestone:${milestoneName(milestone)} label:testplan-item`);
+    const items = [];
+    for (let page = 1; ; page++) {
+      const result = await api(`search/issues?q=${query}&per_page=100&page=${page}`);
+      if (!Array.isArray(result?.items) || !Number.isInteger(result.total_count) || result.total_count < 0) {
+        throw new WorkbenchError('GitHub returned an unexpected test plan search response.', 502);
+      }
+      if (result.incomplete_results || result.total_count > 1000) {
+        throw new WorkbenchError('GitHub test plan search is incomplete or exceeds the 1,000-result limit. Cached work has been retained.', 502);
+      }
+      for (const item of result.items.filter(item => !item.pull_request)) {
+        const repo = /^https:\/\/api\.github\.com\/repos\/([^/]+\/[^/]+)$/.exec(item.repository_url || '')?.[1];
+        if (!repo) throw new WorkbenchError('GitHub returned a test plan without a repository identity.', 502);
+        sourceIdentity(`${repo}:issue:${item.number}`);
+        items.push(normalize(item, repo, 'issue'));
+      }
+      if (result.items.length < 100 || page * 100 >= result.total_count) return items.filter(isDocumentationTpi);
+    }
   }
   async function detail(key) {
     const { repo, kind, number } = sourceIdentity(key);

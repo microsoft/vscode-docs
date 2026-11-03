@@ -68,10 +68,13 @@ const canvas = createCanvas({
       const state = await (await workbench()).snapshot();
       return {
         milestone: state.milestone, account: state.account,
+        historyCount: state.history.length, archiveCandidateCount: state.archiveCandidateCount,
         queues: Object.fromEntries(Object.entries(state.queues).map(([name, items]) => [name, {
-          count: items.length, fetchedAt: state.cache[name]?.fetchedAt, error: state.cache[name]?.error
+          count: items.filter(item => !state.records[item.key]?.archivedAt).length,
+          fetchedAt: state.cache[name]?.fetchedAt, error: state.cache[name]?.error
         }])),
-        records: Object.entries(state.records).map(([key, record]) => ({ key, disposition: record.disposition }))
+        records: Object.entries(state.records).filter(([, record]) => !record.archivedAt)
+          .map(([key, record]) => ({ key, disposition: record.disposition }))
       };
     }
   }, {
@@ -128,8 +131,11 @@ async function canvasActionSummary() {
   const state = await (await workbench()).snapshot();
   return {
     milestone: state.milestone,
-    queues: Object.fromEntries(Object.entries(state.queues).map(([name, items]) => [name, { count: items.length, error: state.cache[name]?.error }])),
-    tasks: Object.entries(state.records).flatMap(([key, record]) => record.runs.map(run => ({
+    historyCount: state.history.length, archiveCandidateCount: state.archiveCandidateCount,
+    queues: Object.fromEntries(Object.entries(state.queues).map(([name, items]) => [name, {
+      count: items.filter(item => !state.records[item.key]?.archivedAt).length, error: state.cache[name]?.error
+    }])),
+    tasks: Object.entries(state.records).filter(([, record]) => !record.archivedAt).flatMap(([key, record]) => record.runs.map(run => ({
       key, id: run.id, workflow: run.workflow, agentId: run.agentId, status: run.status, result: run.result, error: run.error
     })))
   };

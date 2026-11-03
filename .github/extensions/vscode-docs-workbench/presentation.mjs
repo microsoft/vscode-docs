@@ -1,9 +1,13 @@
 export const queueInfo = {
+  board: { title: 'Task board', icon: 'board', description: 'Move documentation work forward across all your queues.', empty: 'No work matches this board', action: 'Refresh work' },
+  history: { title: 'History', icon: 'archive', description: 'Find completed work you have archived, independently of release membership.', empty: 'No archived work yet', action: 'View task board' },
   pulls: { title: 'Pull requests', icon: 'pull', description: 'Check technical accuracy and writing quality before contributions land.', empty: 'No pull requests to review', action: 'Review PR' },
   tpis: { title: 'Release test plans', icon: 'release', description: 'Turn release features into documentation, independently of testing status.', empty: 'No test plans in this release', action: 'Plan documentation' },
   issues: { title: 'Documentation issues', icon: 'issue', description: 'Triage gaps, clarify existing content, and plan documentation updates.', empty: 'No open documentation issues', action: 'Plan documentation' },
   media: { title: 'Screenshots & videos', icon: 'media', description: 'Plan real product captures, review the results, and keep reusable scenarios.', empty: 'Give your docs a visual story', action: 'Create a media task' }
 };
+
+export const sourceLabels = { pulls: 'PR', tpis: 'TPI', issues: 'Docs issue', media: 'Media' };
 
 export const statusInfo = {
   untriaged: { label: 'To triage', tone: 'neutral' },
@@ -22,6 +26,11 @@ export function readable(value) {
 export function authorLabel(author) {
   if (author === undefined) return 'Creator unavailable';
   return author === null ? 'Deleted account' : `@${author}`;
+}
+
+export function itemReference(item) {
+  if (!item.number) return readable(item.kind);
+  return `${item.repo && item.repo !== 'microsoft/vscode-docs' ? item.repo : ''}#${item.number}`;
 }
 
 export function relativeTime(value, now = Date.now()) {
@@ -47,16 +56,44 @@ export function workflowCounts(items, records) {
   return counts;
 }
 
-export function visibleItems(items, records, queue, account, filters) {
+export function combinedItems(queues, trackedItems = []) {
+  const seen = new Set();
+  const items = ['pulls', 'tpis', 'issues', 'media'].flatMap(queue =>
+    queues[queue].filter(item => {
+      if (seen.has(item.key)) return false;
+      seen.add(item.key);
+      return true;
+    }).map(item => ({ ...item, queue }))
+  );
+  return items.concat(trackedItems.filter(item => {
+    if (seen.has(item.key)) return false;
+    seen.add(item.key);
+    return true;
+  }).map(item => ({ ...item })));
+}
+
+export function boardColumns(items, records, hiddenColumns = []) {
+  return Object.keys(statusInfo).filter(status => !hiddenColumns.includes(status)).map(status => ({
+    status, items: items.filter(item => (records[item.key]?.disposition || 'untriaged') === status)
+  }));
+}
+
+export function visibleItems(items, records, queue, account, filters, hiddenColumns = []) {
   const search = filters.search.trim().toLowerCase();
   const label = filters.label.trim().toLowerCase();
   return items.filter(item => {
     const status = records[item.key]?.disposition || 'untriaged';
-    return (!search || `${item.title} ${item.number || ''}`.toLowerCase().includes(search)) &&
-      (queue === 'media' || !label || item.labels.some(value => value.toLowerCase() === label)) &&
+    const archived = !!records[item.key]?.archivedAt;
+    const history = queue === 'history';
+    const searchable = `${item.title} #${item.number || ''} ${item.key} ${item.author || ''}${history ? ` ${records[item.key]?.note || ''}` : ''}`;
+    return (history ? archived : !archived) &&
+      (queue !== 'board' || !hiddenColumns.includes(status)) &&
+      (!search || searchable.toLowerCase().includes(search)) &&
+      (queue === 'media' || !label || (item.labels || []).some(value => value.toLowerCase() === label)) &&
+      (!['board', 'history'].includes(queue) || !filters.source || item.queue === filters.source) &&
       (!filters.disposition || status === filters.disposition) &&
-      (filters.showDone || ['done', 'not-needed'].includes(filters.disposition) || !['done', 'not-needed'].includes(status)) &&
-      (queue === 'tpis' || queue === 'media' || !filters.mine || item.assignees.includes(account)) &&
+      (queue === 'board' || history || filters.showDone || ['done', 'not-needed'].includes(filters.disposition) || !['done', 'not-needed'].includes(status)) &&
+      (queue === 'board' || history || queue === 'tpis' || queue === 'media' || !filters.mine || item.assignees.includes(account)) &&
       (queue === 'media' || !filters.githubState || item.state === filters.githubState) &&
       (queue !== 'pulls' || !filters.draft || item.draft === (filters.draft === 'yes')) &&
       (queue !== 'pulls' || !filters.review || item.reviewDecision === filters.review);
@@ -64,6 +101,8 @@ export function visibleItems(items, records, queue, account, filters) {
 }
 
 export const iconPaths = {
+  archive: ['M3 3h18v5H3z', 'M5 8v13h14V8', 'M10 12h4'],
+  board: ['M3 4h18v16H3z', 'M9 4v16', 'M15 4v16', 'M5 8h2', 'M11 8h2', 'M17 8h2'],
   book: ['M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-3H4z', 'M13 7a3 3 0 0 1 3-3h4v14h-3a4 4 0 0 0-4 3'],
   pull: ['M6 6v12', 'M18 18v-8a4 4 0 0 0-4-4h-1', 'm15 3-3 3 3 3', 'M8 4a2 2 0 1 0-4 0 2 2 0 0 0 4 0', 'M8 20a2 2 0 1 0-4 0 2 2 0 0 0 4 0', 'M20 20a2 2 0 1 0-4 0 2 2 0 0 0 4 0'],
   release: ['M20 13 13 20a2 2 0 0 1-3 0l-7-7V4h9l8 6a2 2 0 0 1 0 3Z', 'M7 8h.01'],

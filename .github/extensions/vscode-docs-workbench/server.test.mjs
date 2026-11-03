@@ -31,7 +31,7 @@ test('serves UI, validates host/origin/token, and invokes explicit action author
   assert.match(html, /Docs workbench/);
   assert.match(html, /type="module" src="\/app\.mjs"/);
   assert.match(page.headers.get('content-security-policy'), /script-src 'self'/);
-  for (const route of ['/app.mjs', '/presentation.mjs']) {
+  for (const route of ['/app.mjs', '/presentation.mjs', '/dom.mjs', '/board.mjs']) {
     const script = await fetch(`${server.url}${route}`);
     assert.equal(script.status, 200);
     assert.match(script.headers.get('content-type'), /text\/javascript/);
