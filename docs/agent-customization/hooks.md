@@ -17,7 +17,7 @@ Keywords:
 
 Hooks run custom actions at specific points in the agent's workflow, such as before or after a tool runs. Use them to add context, validate a tool call, run a formatter, or record an event without relying on the model to request the action.
 
-This article helps you configure hooks for the shared Copilot runtime, choose a personal or shared source, and verify the result. If you already have hooks, start with [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Migration includes user folders, settings, custom agents, and plugins, not only repository files.
+Use the [Agent Customizations editor](#find-and-manage-hooks) to create and manage hooks for the shared {% data variables.product.prodname_copilot_short %} runtime. This article walks through creating a hook, adding its supporting script, and verifying the result. If you already have hooks for another harness, start with [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Migration includes user folders, settings, custom agents, and plugins, not only repository files.
 
 > [!NOTE]
 > The {% data variables.product.prodname_vscode_shortname %} hooks experience is in Preview. Individual provider implementations can have a different lifecycle status and release schedule.
@@ -56,7 +56,7 @@ Before installing, review the scripts, required executables, and supported harne
 
 Follow the [plugin installation steps](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace), complete the publisher's setup, and verify the hook's execution in the intended environment. Check for [duplicate hook sources](#choose-a-hook-source) before also adding a standalone copy. If execution differs from your expectations, follow [hook troubleshooting](#troubleshoot-hooks).
 
-## Create and manage hooks
+## Find and manage hooks
 
 Select the harness before opening the hooks interface so the editor shows the relevant customization sources.
 
@@ -66,13 +66,65 @@ Select the harness before opening the hooks interface so the editor shows the re
    * In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar, and then **Hooks**.
    * In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, and then **Hooks** in the editor.
    * In the {% data variables.copilot.chat_view %}, enter `/hooks` in the chat input.
-1. Review the sources and select a hook to open its configuration.
+1. Select **New Hook** (plus icon) next to **Workspace** or **User** to create a hook, or select an existing hook to open its configuration.
 
 To generate a hook with AI, describe the hook you want in chat. The `/create-hook <description>` and **Chat: Generate Hook** shortcuts are available only for Local sessions. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
 
+## Create your first Copilot hook
+
+Start with a diagnostic that records only the tool name, not its arguments or result. This example creates a workspace hook and requires Node.js on the execution host. For a hook you can use across repositories, follow [Set up a personal hook](#set-up-a-personal-hook).
+
+1. Open your project folder and select **Copilot** from the **Session Target** control.
+1. Open the Agent Customizations editor and select the **Hooks** tab.
+1. Select **New Hook** (plus icon) next to **Workspace**.
+1. Select **Pre-Tool Use**. If existing hooks are listed, select **Add new hook...**.
+1. Select **Create new hook config file...**, choose the repository's `.github/hooks` folder if prompted, and enter `audit` as the file name.
+1. In the generated configuration, use the JSON below. Complete the supporting script before testing the hook.
+
+The editor creates and opens the configuration file. Use the `preToolUse` event name in this example because the script expects the corresponding camelCase payload:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "command": "node .github/hooks/log-tool-use.cjs",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}
+```
+
+Next, add the supporting script at `.github/hooks/log-tool-use.cjs`. The hook creation flow creates the configuration, not this script:
+
+```javascript
+const fs = require('node:fs');
+const path = require('node:path');
+const event = JSON.parse(fs.readFileSync(0, 'utf8'));
+if (typeof event.toolName !== 'string') {
+  throw new Error('Expected a Copilot preToolUse event with toolName.');
+}
+fs.appendFileSync(
+  path.join(__dirname, 'tool-use.log'),
+  `${JSON.stringify(event.toolName)}\n`
+);
+process.stdout.write('{}');
+```
+
+Add `.github/hooks/tool-use.log` to `.gitignore`. Start a new **Copilot** session and request a harmless task that uses a tool, such as reading a project file. Confirm that the log contains the tool name and that the task continues through its normal permission checks. Returning `{}` makes no permission decision; it does not automatically approve the tool.
+
+The log is written beside the script, so moving the script to your user hook directory keeps its log there too. For shared plugin hooks, use the [bundled-script example](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
+
+After verification, remove `tool-use.log`. Keep its `.gitignore` entry if you continue using the diagnostic, or remove the diagnostic configuration and script if you no longer need them. Before sharing the hook, review the script, document its Node.js dependency, and repeat the check in each intended environment, such as a container or remote workspace. A successful local check does not confirm that the execution host has the same paths, dependencies, or permissions.
+
+If you prefer to create the configuration directly, save the JSON as `.github/hooks/audit.json`, creating the folder if needed. Add the same supporting script and perform the verification above.
+
 ## Choose a hook source
 
-Choose the scope that matches the workflow:
+In the Agent Customizations editor, choose **Workspace** for shared repository hooks or **User** for personal hooks. The following table lists the underlying sources and other ways to distribute hooks:
 
 | Need | Source |
 |------|--------|
@@ -91,46 +143,18 @@ Also preserve disabled state. Local settings such as `chat.useHooks` do not prev
 
 In remote sessions and containers, the user folder and executable dependencies belong to the environment where the runtime runs. Local editor settings such as `chat.hookFilesLocations` do not configure Copilot discovery.
 
-## Create your first Copilot hook
+### Set up a personal hook
 
-Start with a diagnostic that records only the tool name, not its arguments or result. This example requires Node.js on the execution host.
+To use a new hook across repositories:
 
-Create `.github/hooks/audit.json`:
+1. Open **Hooks** in the Agent Customizations editor with the **Copilot** harness selected.
+1. Select **New Hook** (plus icon) next to **User**.
+1. Choose the event, add a new hook, and follow the prompts to create its configuration in a supported user hook folder.
+1. Add the supporting script to that folder and use its absolute, quoted path in the hook's `command`. The path and executable must exist in the environment where the agent runtime runs.
 
-```json
-{
-  "version": 1,
-  "hooks": {
-    "preToolUse": [
-      {
-        "type": "command",
-        "command": "node .github/hooks/log-tool-use.cjs",
-        "timeoutSec": 10
-      }
-    ]
-  }
-}
-```
+For example, adapt the [diagnostic hook](#create-your-first-copilot-hook) by placing `log-tool-use.cjs` in the user hook folder and updating its command path. Start a new session and verify its log as described above. Check the **Hooks** page for duplicate commands before testing.
 
-Create `.github/hooks/log-tool-use.cjs`:
-
-```javascript
-const fs = require('node:fs');
-const path = require('node:path');
-const event = JSON.parse(fs.readFileSync(0, 'utf8'));
-if (typeof event.toolName !== 'string') {
-  throw new Error('Expected a Copilot preToolUse event with toolName.');
-}
-fs.appendFileSync(
-  path.join(__dirname, 'tool-use.log'),
-  `${JSON.stringify(event.toolName)}\n`
-);
-process.stdout.write('{}');
-```
-
-Add `.github/hooks/tool-use.log` to `.gitignore`. Start a new **Copilot** session and request a harmless task that uses a tool, such as reading a project file. Confirm that the log contains the tool name and that the task continues through its normal permission checks. Returning `{}` makes no permission decision; it does not automatically approve the tool.
-
-The log is written beside the script, so moving the script to your user hook directory keeps its log there too. See the [personal hook and settings examples](/docs/agent-customization/migrate-customizations.md#personal-hooks-and-inline-settings) for quoted command paths. For shared plugin hooks, use the [bundled-script example](/docs/agents/reference/agent-plugin-reference.md#reference-plugin-paths-in-hook-commands); do not write logs into an installed plugin's code directory.
+If you prefer to create the files directly, use `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set, for the configuration and script.
 
 ## Configure commands and event data
 
