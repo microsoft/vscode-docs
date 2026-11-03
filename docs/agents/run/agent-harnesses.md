@@ -40,6 +40,8 @@ For Agent Host sessions managed by desktop {% data variables.product.prodname_vs
 
 Changing the model or agent role does not change the harness. For example, selecting a Claude model in a Copilot harness session still uses the Copilot harness. Opening the same session in another supported interface also keeps its harness.
 
+A session can group chats that use different harnesses with [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`. This starts a separate conversation on the chosen harness rather than handing off an existing conversation.
+
 **Local** is a harness name, not a synonym for running on your machine. The Copilot, Claude, and Codex harnesses can also run on your machine.
 
 Available models depend on the harness and how you [access models](/docs/agent-customization/language-models.md#choose-how-to-access-models), such as through a {% data variables.product.prodname_copilot %} subscription, another supported account, or your own API key. Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness.
@@ -87,6 +89,8 @@ To identify the current harness for a chat session, use one of the following met
 * In the {% data variables.copilot.agents_window %}, the chat input box shows the active harness as the watermark.
 
 * In the {% data variables.copilot.agents_window %}, hover over the session entry in the sessions list to see a tooltip showing the harness.
+
+For a nested chat that uses a different harness from its parent session, hover over its chat tab or its entry in the sessions list to see the chat's harness.
 
 ## Requirements and setup
 
