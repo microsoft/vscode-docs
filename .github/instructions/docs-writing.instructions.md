@@ -17,6 +17,16 @@ Infer this framing from the existing article, its location in the documentation 
 
 Use the agreed framing to guide the plan, scope, structure, terminology, prerequisites, examples, and level of detail. Include the primary persona, reader intent, and article purpose in documentation plans and outlines. After editing, verify that the introduction, main content, and next steps consistently serve that framing.
 
+## Prioritize useful coverage
+
+Documentation should be relevant and useful to the primary persona, not an exhaustive inventory of product functionality. Complete guidance for the reader's task matters more than covering every feature or UI element.
+
+* Before proposing or adding coverage, identify the reader problem it solves. Challenge additions that only repeat what the product already explains.
+* Don't document obvious labels, buttons, disabled states, tooltips, or routine bug fixes solely because they changed. Expected behavior, such as a working new-chat input or preserved draft, does not automatically need documentation.
+* Include UI details when they are necessary to complete a task, make a decision, understand a non-obvious constraint or safety implication, or recover from a problem. Self-explanatory controls still belong in procedural steps when readers need them to navigate the workflow.
+* Prefer a concise caveat or an update to an existing procedure over a new section that describes UI behavior.
+* If the existing UI and documentation already meet the reader's needs, propose no documentation update and explain why. Do not aim for 100% functionality coverage.
+
 ## Public availability and product truth
 
 On branches other than `vnext`, document only functionality that is available to the intended audience in the Stable release. On the `vnext` branch, which contains documentation for the upcoming release, you can also document functionality that is confirmed for that release. Public Preview and Experimental functionality can be documented only when it meets this branch-based availability requirement and its lifecycle is identified clearly. Do not document Insiders-only functionality unless you are working on `vnext` and the functionality is confirmed for the upcoming release.
@@ -29,7 +39,7 @@ Existence in source code is not proof of availability. Verify how the functional
 
 Keep research proportional to the documentation change. Accuracy and public availability checks remain required, but they don't require an exhaustive source audit.
 
-* Define the user-facing claims and open questions from the request and existing docs before searching. For coverage checks, use a checklist of the feature's functionality and settings, not an inventory of its implementation dependencies.
+* Define the user-facing claims and open questions from the request and existing docs before searching. For coverage checks, use a checklist of functionality and settings relevant to the reader's task, not an inventory of every feature or implementation dependency.
 * Start with the supplied issue or PR, relevant comments, and directly related changes. Follow linked files and exact setting or command IDs. Prefer searches within the relevant feature folder and bounded reads around registrations or behavior over repository-wide scans, bulk source downloads, and broad history searches.
 * Expand the search only to resolve a specific unanswered question that affects the documentation. Don't trace unrelated subsystems, enumerate every command, or follow every transitive dependency.
 * Reuse verified evidence across affected pages and delegated tasks. Don't repeat source scans or assign overlapping research to multiple agents.
