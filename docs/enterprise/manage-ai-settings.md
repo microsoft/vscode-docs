@@ -89,6 +89,54 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
+### Configure managed MCP server access
+
+Use `allowedMcpServers` in {% data variables.product.prodname_copilot_short %} enterprise-managed settings to limit which [MCP servers](/docs/agent-customization/mcp-servers.md) developers can install and run. Use `deniedMcpServers` to block servers even when they match the allowlist. Configure these keys through a [supported managed-settings delivery method](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started), not in a developer's editor settings or `mcp.json`.
+
+For example, the following managed settings permit remote servers under `https://mcp.example.com/`, except the blocked endpoint:
+
+```json
+{
+    "allowedMcpServers": [
+        {
+            "serverUrl": "https://mcp.example.com/*"
+        }
+    ],
+    "deniedMcpServers": [
+        {
+            "serverUrl": "https://mcp.example.com/blocked"
+        }
+    ]
+}
+```
+
+Each rule uses one matcher:
+
+* `serverUrl` matches a remote server's URL and supports `*` wildcards.
+* `serverCommand` matches a local server's exact command followed by its arguments, in order.
+* `serverName` matches the configured server name. The configuration author supplies this name, so it does not verify the command, endpoint, or publisher.
+
+Prefer command or URL rules when you need to constrain what runs or where it connects. If the allowlist contains command rules, local servers must match a command rule rather than a name rule. If it contains URL rules, remote servers must match a URL rule.
+
+#### Managed allowlists and registry precedence
+
+An MCP registry is a catalog for discovering and installing servers. A managed allowlist determines which servers your organization permits. Starting with {% data variables.product.prodname_vscode_shortname %} 1.145, an enterprise-managed allowlist takes precedence over registry-only access for editor-managed MCP servers:
+
+| Server configuration | Result |
+|----------------------|--------|
+| Matches the managed allowlist but is absent from the registry. | Permitted, unless a deny rule or MCP disablement blocks it. |
+| Appears in the registry but does not match the managed allowlist. | Blocked. Registry membership does not grant an exception. |
+
+The registry remains available for discovery. These precedence rules apply to editor-managed servers, including Local harness sessions, not servers owned by an [Agent Host](/docs/agents/concepts/agent-host.md).
+
+* An explicit `allowedMcpServers: []` blocks all servers. It does not fall back to registry approval.
+* Removing `allowedMcpServers` restores the effective access mode, including registry-only access, and any deny rules.
+* Deny rules and explicit MCP disablement, such as `setting(chat.mcp.access)` set to `"none"`, still take priority over the allowlist.
+
+User settings and workspace server definitions cannot broaden the enterprise-managed allowlist or remove its deny rules. Commands and URLs are checked again after variable resolution. Configuration edits must still match the managed rules, even if the server keeps its registry name.
+
+See [Verify applied managed settings](#verify-applied-managed-settings) to inspect the effective configuration and its source.
+
 ### Set managed model defaults
 
 Give developers a consistent starting model without preventing them from choosing another model for an individual task. Set the top-level `model` managed setting to `auto` or an available model ID.
@@ -476,6 +524,17 @@ GitHub-hosted controls apply through the signed-in account and GitHub services. 
 Use GitHub organization and enterprise settings to manage {% data variables.product.prodname_copilot_short %} access, available models and features, content exclusions, and other service-side policies. See [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise).
 
 To restrict the unified marketplace and {% data variables.product.prodname_copilot_short %} connectors, turn off **Editor preview features**. This forces `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)` off, even though both default to `true`. Developers can't override this restriction in Settings. Other eligibility requirements and managed restrictions still apply when preview features are permitted.
+
+### Understand MCP registry policy refresh failures
+
+GitHub organization and enterprise policies can restrict MCP access to servers in the configured registry. Starting with {% data variables.product.prodname_vscode_shortname %} 1.145, a temporary network or service failure while refreshing that policy does not remove a previously received restriction. {% data variables.product.prodname_vscode_shortname %} retains the last known registry URL and access restriction.
+
+A response confirming that no registry applies removes the cached registry restriction. Signing out or switching accounts also clears it.
+
+> [!IMPORTANT]
+> Retaining a cached policy is not a startup enforcement guarantee. If no registry policy is cached and the first fetch fails, registry policy alone does not restrict MCP access. For restrictions that must apply independently of a successful GitHub policy fetch, configure the `ChatMCP` [device policy](/docs/enterprise/policies.md).
+
+This refresh behavior applies to editor-managed MCP servers. It is separate from [managed allowlist precedence](#managed-allowlists-and-registry-precedence) and does not describe enforcement for Agent Host-owned servers.
 
 ### Configure organization-level custom instructions
 
