@@ -25,27 +25,27 @@ An agent's ability to complete a task depends on more than the model you choose.
 
 With the Copilot harness, you can:
 
-* Run tasks in a [cloud sandbox](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` without keeping your development machine online. Reconnect to continue the session while code and tools stay in the managed cloud environment.
-* Limit file system and network access for commands and tool servers started by the agent with [local sandboxing](/docs/agents/run/agent-sandboxing.md).
+* Run builds, tests, and other agent commands within the file system and network boundaries you configure with [local sandboxing](/docs/agents/run/agent-sandboxing.md).
 * Let [Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion) choose models and coordinate drafting and review for your task.
 * Delegate tasks across projects in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), then continue the same session in the editor when you want to edit, debug, or test. Both interfaces stay in sync.
-* Reduce approval interruptions with [assisted permissions](/docs/agents/run/approvals.md#permission-levels). A model-based judge assesses tool calls and asks for your confirmation when it doesn't approve a call.
-* Give the agent tools from services you use through [Copilot connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`.
-* Collaborate through [canvases](/docs/agents/run/canvases.md) `feature(canvases)` in Copilot sessions hosted on your machine.
+* Spend less time approving routine tool calls with [assisted permissions](/docs/agents/run/approvals.md#permission-levels). Calls that the risk assessment doesn't approve still come to you for confirmation.
+* Delegate work to a [cloud sandbox](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` and close your laptop. Reconnect later to review progress and continue the task.
+* Bring context from your team's services into agent tasks through [Copilot connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, without configuring MCP servers yourself.
+* Plan work on a task board or explore an interactive diagram with your agent through [canvases](/docs/agents/run/canvases.md) `feature(canvases)`.
 
 For organizations, the Copilot harness adds governance that the Local harness cannot enforce. Administrators can:
 
 * Enforce file system and network restrictions through [managed sandbox policy](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
-* Block specific operations with runtime permission rules. Use [approval controls](/docs/enterprise/manage-ai-settings.md#manage-permission-levels) to prevent developers from selecting **Allow all** or **Assisted permissions**. The runtime enforces these restrictions, rather than relying on the model to follow instructions.
-* Choose the team's [starting Fusion tier](/docs/enterprise/manage-ai-settings.md#set-managed-model-defaults) with `fusionTier`. New conversations use it as the default. Developers can select another available tier for a particular task.
+* Block operations your organization doesn't permit and control which [approval levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels) developers can use. The runtime enforces these restrictions, rather than relying on the model to follow instructions.
+* Give the team a consistent [starting model and effort level](/docs/enterprise/manage-ai-settings.md#set-managed-model-defaults), while letting developers choose another available option for a particular task.
 
-Administrators can also [require or block plugins and restrict marketplaces](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces) across supported clients. Required plugins give the team approved skills, tools, and hooks without individual setup. Developers can't turn off those plugins, and their toggles are locked.
+Administrators can also distribute approved skills, tools, and hooks through [required plugins and controlled marketplaces](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces) across supported clients, without individual setup.
 
-Deploy these controls where the agent runs, including remote hosts and containers, and [verify enforcement](#verify-the-workflow-and-controls) on each approved client and execution host.
+To put these capabilities and controls into practice, follow the [organization rollout steps](#roll-out-the-copilot-harness-in-your-organization).
 
 ## Understand what changes
 
-**Local** and **Copilot** are harness choices in the **Session Target** picker. Local is the legacy, editor-specific implementation. The Copilot harness uses the {% data variables.copilot.copilot_sdk_short %}, the shared runtime across {% data variables.product.prodname_copilot %} products. Switching between them changes the software that coordinates the agent's work, not whether you use {% data variables.product.prodname_copilot %}.
+**Local** and **Copilot** are harness choices in the **Session Target** picker. The Local harness is the legacy, editor-specific implementation. The Copilot harness uses the {% data variables.copilot.copilot_sdk_short %}, the shared runtime across {% data variables.product.prodname_copilot %} products. Switching between them changes the software that coordinates the agent's work, not whether you use {% data variables.product.prodname_copilot %}.
 
 The harness is also separate from the model and where your code runs. Selecting a Claude model doesn't switch to the Claude harness, and selecting the Copilot harness doesn't move your files to the cloud. The [Agent Host](/docs/agents/concepts/agent-host.md) is the process that runs Copilot sessions. The editor's {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} are interfaces for working with those sessions.
 
@@ -53,10 +53,10 @@ Use the Copilot harness for new workflows, but review compatibility before repla
 
 ## Before you start
 
-* Update to your organization's current approved {% data variables.product.prodname_vscode_shortname %} release. Check feature-specific prerequisites and any [managed minimum-version requirement](/docs/enterprise/manage-ai-settings.md#meet-minimum-version-requirements). This guide describes current behavior, not every intermediate upgrade.
+* Update to your organization's current approved {% data variables.product.prodname_vscode_shortname %} release. Check feature-specific prerequisites and any [managed minimum-version requirement](/docs/enterprise/manage-ai-settings.md#meet-minimum-version-requirements).
 * Sign in with the GitHub account that has your approved {% data variables.product.prodname_copilot_short %} access. Follow [Copilot setup](/docs/setup/copilot.md) or the [GHE.com account guidance](/docs/agents/run/agent-harnesses.md#copilot) as applicable.
 * Choose a small task that already works in the Local harness. Record the expected result, required tools, customizations, and approvals so you can compare the workflow after the switch.
-* Back up customization files and settings before changing them. Don't put credentials in the backup or in source control.
+* Back up customization files and settings before changing them.
 
 ## Set up your workflow
 
@@ -84,6 +84,7 @@ Use this compatibility checklist for the workflows you need:
 | Hooks | Review the supported events, script inputs and outputs, and failure behavior. Hooks have no automatic conversion. |
 | MCP servers and authentication | Verify server configuration, authorization, tools, and sandbox behavior. Input prompts and stored editor secrets don't automatically transfer. |
 | Built-in and extension tools | Check the tools available in the Copilot session. Extension tools require an editor window where the extension is running. |
+| Terminal environment | Verify that the agent's shell can run the commands your workflow needs. See [shell initialization](/docs/agents/run/tools.md#configure-shell-initialization) to configure the supported environment setup. |
 | Tool sets and chat participants | Replace Local-specific aliases and participant workflows with supported tools, agents, skills, or publisher integrations. |
 
 For MCP servers that use `${input:...}` or `${command:...}`, review [authentication and secret limitations](/docs/agent-customization/migrate-customizations.md#why-are-mcp-servers-with-input-prompts-missing) before moving configuration. Don't replace a secret placeholder with a literal credential in a shared or personal configuration file.
@@ -114,11 +115,38 @@ The session keeps its harness, workspace, and worktree. See [continue between in
 
 The session's Agent Host must stay running. For sessions on your machine, don't quit {% data variables.product.prodname_vscode_shortname %} or shut down the machine. [Editor-provided tools](/docs/agents/concepts/agent-host.md#session-lifetime-and-client-dependencies) still require a connected editor window.
 
-## Roll out in your organization
+## Roll out the Copilot harness in your organization
 
-Pilot the transition with developers who use representative projects, operating systems, and integrations. Include Remote SSH, WSL, and Dev Containers where your organization uses them.
+Standardize on the Copilot harness so developers can use its agent capabilities and administrators can enforce permissions and sandbox controls. Start with a pilot that covers the projects, integrations, and execution environments your developers use, including Remote SSH, WSL, and Dev Containers where applicable. Once those workflows are verified, require the harness for your rollout group and deploy the controls your organization needs.
 
-### Choose management channels
+Give pilot participants a support contact and the [steps for reporting a transition blocker](#troubleshoot-a-transition-blocker). Resolve blocking workflows before expanding the rollout.
+
+### Require the Copilot harness
+
+To require the Copilot harness for your rollout group, deploy these enterprise-managed settings on {% data variables.product.prodname_vscode_shortname %} 1.143 or later:
+
+```json
+{
+    "vscode": {
+        "temporaryAllowLocalHarness": false,
+        "temporaryDefaultToLocalHarness": false
+    }
+}
+```
+
+Add these keys to your enterprise-managed settings, not to the editor's user or workspace settings. `temporaryAllowLocalHarness: false` prohibits the Local, Claude, and Codex harnesses. It takes precedence over the temporary Local default. Setting `temporaryDefaultToLocalHarness` to `false` also clears that rollout opt-out.
+
+If you want to encourage adoption without requiring the harness yet, set the `ChatEditorPreferCopilotHarness` device policy to `true` instead. It selects the Copilot harness when a new editor chat would otherwise use the Local harness, without prohibiting other harnesses.
+
+Configure the team's model and permission defaults separately from the harness requirement. For example, to make Copilot Fusion the starting model, set `model` to `"auto"` and choose a `fusionTier` of `"standard"`, `"high"`, or `"max"`. See [managed model defaults](/docs/enterprise/manage-ai-settings.md#set-managed-model-defaults) and [permission-level defaults](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). A default sets the starting choice for a new conversation, not a restriction on later choices.
+
+Requiring the harness doesn't turn on sandboxing or add permission rules. Deploy those controls separately. Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, managed nonempty `permissions.deny` rules or `sandbox.enabled: true` also require the Copilot harness unless the temporary Local default applies. Other `permissions.*` settings and an empty deny list don't trigger that routing.
+
+The separate [Claude and Codex availability rule](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability) depends on the presence of enterprise-managed settings, not only on the deny-list and sandbox routing triggers. Setting `temporaryAllowLocalHarness` to `true` doesn't override other restrictions.
+
+After deployment, start a new editor chat and a new {% data variables.copilot.agents_window %} session. Confirm that they use the Copilot harness, prohibited harnesses are unavailable, and the intended model default appears. If the result differs, inspect **Developer: Policy Diagnostics** and check the effective temporary Local controls before changing the configuration. See [runtime policies and harness selection](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection).
+
+### Deploy your organization controls
 
 Keep the existing controls that your organization still needs. Switching harnesses doesn't replace editor-specific device policies.
 
@@ -127,18 +155,6 @@ Keep the existing controls that your organization still needs. Switching harness
 * Use GitHub organization and enterprise settings for account access, approved models, and feature availability. Check **Editor preview features** before piloting connectors or other features that require it.
 
 Review [precedence](/docs/enterprise/manage-ai-settings.md#understand-precedence) when controls overlap. Enterprise-managed settings take precedence over a device policy for the same control. Configure an overlapping control in one system where possible, and verify the effective value rather than assuming an existing policy is unchanged.
-
-### Distinguish a default from a requirement
-
-A harness default guides selection for new sessions. It isn't an enforcement boundary. For example, the `ChatEditorPreferCopilotHarness` device policy prefers the Copilot harness when a new chat would otherwise use Local. It doesn't prohibit other harnesses.
-
-Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, managed nonempty `permissions.deny` rules or `sandbox.enabled: true` require the Copilot harness unless the temporary Local default applies. Other `permissions.*` settings and an empty deny list don't trigger that routing.
-
-To prohibit Local, Claude, and Codex, set `vscode.temporaryAllowLocalHarness` to `false` in enterprise-managed settings. This takes precedence over `vscode.temporaryDefaultToLocalHarness: true`. Setting it to `true` doesn't override other restrictions.
-
-The separate [Claude and Codex availability rule](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability) depends on the presence of enterprise-managed settings, not only on the deny-list and sandbox routing triggers. Don't use Local routing behavior to infer whether those harnesses are available.
-
-See [runtime policies and harness selection](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection) for administrator guidance.
 
 ### Validate each execution environment
 
@@ -163,20 +179,52 @@ Use the [effective sandbox policy report](/docs/agents/run/agent-sandboxing.md#i
 
 ## Use the Local harness temporarily for a blocker
 
-If an integration has no supported replacement in the Copilot harness yet, use the Local harness only when your organization's controls permit it. In the editor, start a new session and select **Local** under **Session Target**. Local isn't available in the {% data variables.copilot.agents_window %}.
+If an integration has no supported replacement in the Copilot harness yet, use the Local harness only when your organization's controls permit it. In the editor, start a new session and select **Local** under **Session Target**. The Local harness isn't available in the {% data variables.copilot.agents_window %}.
 
-If the Local harness isn't available, ask your administrator to review the effective restrictions. Don't remove managed settings or copy secrets into configuration to work around a blocker.
+If the Local harness isn't available, ask your administrator to review the effective restrictions.
 
 Administrators can temporarily set `vscode.temporaryDefaultToLocalHarness` to `true`. This keeps the Local harness available and stops automatic routing to the Copilot harness, even when managed deny rules or sandbox settings would normally require it. Explicit and remembered harness choices are preserved.
 
 The temporary default doesn't override `vscode.temporaryAllowLocalHarness: false`. It also doesn't restore Claude and Codex when enterprise-managed settings disable them.
 
 > [!WARNING]
-> The Local harness cannot enforce Copilot runtime-only permission and sandbox controls. Keeping the same managed configuration while falling back to Local does not preserve those protections. An administrator must review and accept this gap before permitting fallback.
+> The Local harness cannot enforce Copilot runtime-only permission and sandbox controls. Keeping the same managed configuration while falling back to the Local harness does not preserve those protections. An administrator must review and accept this gap before permitting fallback.
 
-These are temporary transition controls, not a long-term compatibility guarantee. Track the integration blocker, test a supported replacement, and remove the temporary exception after verification. See [Local availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
+These are temporary transition controls, not a long-term compatibility guarantee. Track the integration blocker, test a supported replacement, and remove the temporary exception after verification. See [Local harness availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
 
 ## Frequently asked questions
+
+### How do I try the Copilot harness features?
+
+Start a Copilot harness session, then use the starting steps below. The linked guides cover platform requirements, account access, and organization controls.
+
+| Feature | Get started |
+|---------|-------------|
+| [Local sandboxing](/docs/agents/run/agent-sandboxing.md#turn-on-sandboxing-where-commands-run) | Set `setting(chat.agent.sandbox.enabled)` to `on` on the execution host. Start a new session and run `/sandbox policy` to check the restrictions. |
+| [Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion) | Select **Copilot Fusion** in the model picker, then choose an available effort level. |
+| [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) | Open the permissions picker in the chat input and select **Assisted permissions**. |
+| [Copilot connectors](/docs/agent-customization/copilot-connectors.md#connect-a-service) `feature(copilot-connectors)` | Run **Chat: Open Customizations**, select **Browse**, and choose **Copilot Connectors**. Select a service and choose **Connect**, then review and authorize its access. |
+| [Canvases](/docs/agents/run/canvases.md#prerequisites) `feature(canvases)` | Turn on `setting(chat.canvases.enabled)`, start a new session, and send a message. Install a canvas-providing plugin from **Browse** > **Canvases**, then ask the agent to open its canvas. |
+
+### Can I still review and undo the agent's edits?
+
+Yes. Copilot harness sessions in the editor support **Keep** and **Undo** through the [working set](/docs/agents/run/review-code-edits.md#review-pending-edits-with-the-working-set) `feature(editor-working-set)`, which is on by default. Open a file from the changed-files list and use the inline controls to keep or undo individual changes. In the {% data variables.copilot.agents_window %}, use the [Changes view](/docs/agents/run/review-code-edits.md#review-changes-in-the-agents-window).
+
+Pending edits are already saved to disk. **Keep** clears their pending-review state. It doesn't stage or commit them. The working set tracks supported agent edit tools, not changes made through terminal commands or scripts. Review those changes separately, for example in Source Control.
+
+### Where do I choose which tools the agent can use?
+
+With the Copilot harness selected, run **Chat: Open Customizations** and select **Tools**. Expand a tool group to select or clear individual tools. Your client-tool selection persists in the active user profile, rather than applying to only one request as in the Local harness picker.
+
+The **Copilot** group lists the runtime's built-in tools, which aren't individually configurable in that list. Client-provided tools need the contributing client connected. Enabling a tool doesn't approve its use automatically. See [manage available tools](/docs/agents/run/tools.md#manage-available-tools).
+
+### What happens to my existing memory?
+
+The Local harness's memory files and Copilot Memory are separate systems. Switching harnesses doesn't convert the existing files. By default, Copilot harness sessions use [cloud-backed Copilot Memory](/docs/agents/run/memory.md#copilot-memory), subject to your account settings and organization policies.
+
+An [Experimental repository-local storage option](/docs/agents/run/memory.md#store-copilot-memory-in-the-repository-experimental) is also available for Copilot harness sessions on your machine. It uses a different file from Local harness memory and doesn't support user-scoped memories. GitHub's cloud-memory settings and policies don't apply to that local store, so review its data-handling implications before turning it on.
+
+Keep required team guidance in reviewed [instructions](/docs/agent-customization/custom-instructions.md) or [skills](/docs/agent-customization/agent-skills.md), rather than relying on learned memories alone.
 
 ### Why can the same model behave differently after switching harnesses?
 
@@ -194,10 +242,6 @@ No. Review the customizations that depend on Local harness-specific locations, f
 
 Start with the [migration list](/docs/agent-customization/migrate-customizations.md#open-the-migration-list) rather than rewriting everything. Plugins and marketplaces are managed separately, but their tools and hooks still need a compatibility check. Supported formats can help you reuse customizations across clients; they don't guarantee identical tools or automatic synchronization of personal files.
 
-### Does the Agents window replace the editor?
-
-No. Use the editor when you want to edit, debug, and test alongside the agent. Use the {% data variables.copilot.agents_window %} when you want to assign tasks across projects, monitor progress, and review results. Both interfaces support Copilot sessions, and switching harnesses doesn't require you to change interfaces. See [continue between interfaces](#continue-between-interfaces).
-
 ### How do approvals, local sandboxing, and cloud sandboxes differ?
 
 These controls solve different problems:
@@ -210,11 +254,13 @@ These controls solve different problems:
 
 Use the protections appropriate to the task. Neither approvals nor a separate execution environment removes the need to review the agent's changes and access.
 
+With **Manual permissions**, choose **Allow Once** to approve only the current action. For broader access, review the [scope shown in the confirmation](/docs/agents/run/approvals.md#scope-approvals-in-copilot-sessions).
+
 ### Will our existing OpenTelemetry monitoring still work?
 
-OpenTelemetry is available for both Local and Copilot harness sessions, including supported managed export configuration. You don't need to stay on Local to export agent activity to an OTel collector.
+OpenTelemetry is available for both Local and Copilot harness sessions, including supported managed export configuration. You don't need to stay on the Local harness to export agent activity to an OTel collector.
 
-Verify the exporter destination, capture settings, and attributes your dashboards depend on after the switch. For example, developer and machine identity capture currently applies only to Local harness sessions. Agent Host telemetry doesn't include those identity attributes. See [monitor agent usage](/docs/agents/guides/monitoring-agents.md) and [identity capture](/docs/agents/guides/monitoring-agents.md#identity-capture).
+Verify the exporter destination, capture settings, and attributes your dashboards depend on after the switch. See [monitor agent usage](/docs/agents/guides/monitoring-agents.md) for configuration and coverage details.
 
 ## Troubleshoot a transition blocker
 
@@ -222,7 +268,13 @@ Verify the exporter destination, capture settings, and attributes your dashboard
 * If a customization or MCP tool is missing, use the [customization migration FAQ](/docs/agent-customization/migrate-customizations.md#frequently-asked-questions).
 * If a command is blocked or sandboxed tools fail to start, inspect `/sandbox policy` and follow [sandbox troubleshooting](/docs/agents/run/agent-sandboxing.md#troubleshoot-agent-sandboxing). Don't turn off enforcement as the first troubleshooting step.
 
-For an organization-managed restriction, contact the team that deployed it. For a product or compatibility blocker, [report an issue](https://github.com/microsoft/vscode/issues) with the product version, source and destination harnesses, operating system, execution environment, and minimal reproduction. Describe the missing capability and expected result. Remove credentials, private code, and sensitive policy details before sharing logs or configuration publicly.
+If a workflow still fails, use the appropriate reporting or support channel:
+
+* **Organization policy or rollout help**: Contact your organization's AI enablement or IT support team. They can review the deployed configuration and any temporary exception.
+* **Product bugs or compatibility gaps**: [Report an unresolved issue](/docs/agents/agent-troubleshooting/troubleshooting.md#report-an-unresolved-issue) through the {% data variables.product.prodname_vscode_shortname %} Issue Reporter. The reporting guide explains how to include diagnostic evidence safely.
+* **Assistance from GitHub Support**: {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers can [open a support ticket](https://docs.github.com/en/support/contacting-github-support/creating-a-support-ticket). Use that support channel rather than posting private organization details in a public issue.
+
+Include the product version, source and destination harnesses, operating system, execution environment, and minimal reproduction. Describe the missing capability and expected result. Remove credentials, private code, and sensitive policy details before sharing logs or configuration publicly.
 
 ## Related resources
 

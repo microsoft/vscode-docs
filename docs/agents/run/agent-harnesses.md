@@ -238,7 +238,7 @@ Changing a harness is different from starting another conversation or opening th
 
 `feature(canvases)`
 
-Canvases are interactive visual surfaces shared by you and the agent in supported local {% data variables.product.prodname_copilot_short %} sessions. For prerequisites and steps to find, open, and manage canvases, see [Use canvases with agents](/docs/agents/run/canvases.md).
+Canvases are interactive visual surfaces shared by you and the agent in supported {% data variables.product.prodname_copilot_short %} sessions, including remote Agent Host sessions in the {% data variables.copilot.agents_window %}. For prerequisites and steps to find, open, and manage canvases, see [Use canvases with agents](/docs/agents/run/canvases.md).
 
 ## Frequently asked questions
 
