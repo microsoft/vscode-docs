@@ -335,17 +335,27 @@ To delete an individual chat in the {% data variables.copilot.agents_window %} *
 
 ### Clean up session worktrees
 
-Run **Chat: Open Worktree Cleanup** to reclaim disk space from inactive session worktrees.
+Run **Chat: Open Worktree Cleanup** to reclaim disk space from inactive or leftover session worktrees.
 
 ![Screenshot showing the worktree cleanup editor with cleanup settings, an inactivity filter, and selected session worktrees with their storage sizes.](../../images/chat-sessions/worktree-cleanup-editor.png)
 
-1. Choose an inactivity period of 7, 15, 30, 60, or 90 days.
-1. Review estimated worktree sizes and clear any selected worktrees you want to keep. Eligible worktrees are selected by default.
+1. Choose an inactivity filter and, if needed, a workspace.
+1. Review the selected worktrees, including their branches, paths, and estimated sizes. Clear any selected worktrees you want to keep.
 1. Save open file edits in the selected worktrees, then confirm cleanup.
 
-Cleanup marks the sessions done and schedules their worktrees for removal. As with manual archiving, it commits uncommitted changes first and retains the session and branch history for restoration. If preservation or removal fails, the worktree remains.
+Normal cleanup marks listed sessions done, commits nonignored uncommitted changes to their branches, and schedules the worktree folders for removal. Branches and session history are retained, so restoring a listed session re-creates its worktree. Ignored files in removed worktrees are deleted. Normal cleanup protects worktrees used by other sessions or chats.
 
-The editor excludes sessions that are active, running, waiting for input, pinned, done, archived, untitled, in error, or newer than the inactivity threshold. Worktrees whose size can't be measured are also excluded.
+The cleanup editor also includes:
+
+* **Leftover worktrees from done or archived sessions.** Marking a session done does not guarantee that its worktree was removed. Eligible leftovers can be cleaned up even though their storage sizes are not measured.
+* **Managed worktrees without a listed session.** Git-registered session worktrees under the managed `<repository>.worktrees` directory can be cleaned up while retaining their branches, even when storage and last-used time are unknown. Arbitrary external worktrees and unregistered folders are excluded.
+
+Storage sizes are estimates. Unchanged idle estimates are reused across refreshes and restarts; new, changed, or active worktrees are measured on request. An unknown size does not mean zero storage or confirmed removal.
+
+If cleanup fails, review the error and use **Retry Failed Worktrees** for eligible failures. If instructed, restore the session and mark it done again. Failed or unresolved cleanup does not confirm that the worktree was removed.
+
+> [!CAUTION]
+> **Force Remove** permanently discards uncommitted changes and can remove a worktree used by other sessions or chats. Review the separate confirmation and preserve any needed work before proceeding.
 
 Open **Cleanup Settings** to configure automatic completion, deletion retention, or storage suggestions.
 
