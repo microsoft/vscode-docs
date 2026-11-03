@@ -67,6 +67,9 @@ On Windows, the documented update baselines are:
 > [!NOTE]
 > Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
 
+> [!TIP]
+> If local sandboxing isn't available, or you prefer to keep agent execution off your machine, consider [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`. They run agent tools in a managed cloud environment. Availability depends on your account and organization.
+
 <a name="turn-on-sandboxing-on-the-execution-host"></a>
 
 ## Turn on sandboxing where commands run

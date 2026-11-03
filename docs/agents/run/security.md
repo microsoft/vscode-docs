@@ -32,7 +32,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Use agent sandboxing and configure network access.** On a supported platform, turn on agent sandboxing to restrict file system access for agent-executed shell commands and child processes. Outbound network access remains enabled by default because `setting(chat.agent.sandbox.network.allowNetwork)` defaults to `true`. Configure network access separately when you need to restrict it. Learn more about [configuring agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+1. **Use agent sandboxing and configure network access.** On a supported platform, turn on agent sandboxing to restrict file system access for agent-executed shell commands and child processes. Outbound network access remains enabled by default because `setting(chat.agent.sandbox.network.allowNetwork)` defaults to `true`. Configure network access separately when you need to restrict it. Learn more about [configuring agent sandboxing](/docs/agents/run/agent-sandboxing.md). If sandboxing isn't available, or you prefer off-machine execution, consider [cloud sessions](#cloud-sessions) `feature(cloud-sessions)`.
 
 1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
