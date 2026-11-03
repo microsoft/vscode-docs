@@ -33,9 +33,25 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
+* Select **Add Context** (`+` icon) and then **Files** to choose files from disk, or **Symbols** to select a code symbol.
 
 Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
+
+#### Attach files from disk
+
+Use the file chooser to attach files outside your workspace, such as a screenshot or UI mockup from your desktop. You don't need to add their folder to the workspace or open a workspace first.
+
+1. Select **Add Context** (`+` icon) > **Files** in the chat input.
+
+1. Choose one or more files, including text files or supported images, and then select **Attach**.
+
+1. Confirm that the attachments appear in the chat input, then enter a prompt about them.
+
+<!-- TODO: Capture the Files... attachment workflow with files from outside the workspace. -->
+
+If the selected session supports only image attachments, **Files** filters the chooser to supported images. It doesn't enable ordinary local-file transfer for those sessions.
+
+In sandboxed Copilot harness sessions, attaching a file can grant read access for the session without changing sandbox settings. It doesn't grant write permission or override organization restrictions. See [Read attached files and folders](/docs/agents/run/agent-sandboxing.md#read-attached-files-and-folders).
 
 ### Add project and GitHub context
 

@@ -192,6 +192,19 @@ The `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)` setting defaults
 
 Use `/sandbox policy` to inspect the effective permissions, including runtime defaults and organization-managed restrictions.
 
+### Read attached files and folders
+
+In Copilot harness sessions with sandboxing enabled, files and folders that you explicitly [attach to a message](/docs/chat/copilot-chat-context.md#add-files-as-context) can receive read access for the session. The grant covers the attached file or the contents of the attached folder. This additional access is read-only and is never saved to sandbox settings.
+
+In **Manual permissions**, reading these attachments doesn't require an additional outside-workspace read approval. Attaching them doesn't grant write access. Writes still follow the existing permission and approval rules.
+
+The following restrictions still apply:
+
+* Denied paths remain blocked, even when attached.
+* If your organization's managed sandbox policy supplies an explicit read-only path list, attachments can't expand that list.
+* Attaching a folder doesn't grant access to symlink targets outside it. Those targets require their own permission.
+* Attaching a parent of the workspace, or of another writable folder, doesn't grant access to the whole parent. Attach specific files instead. Existing write access is preserved.
+
 ## Configure managed servers and credentials
 
 When sandboxing is on, these settings control the servers and credentials available to the session:
