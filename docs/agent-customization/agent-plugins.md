@@ -154,6 +154,8 @@ When a plugin is disabled, its skills, agents, hooks, MCP servers, slash command
 
 In the Agent Customizations editor, select **Plugins**, open the plugin's details, and select **Uninstall**.
 
+You can't uninstall a plugin required by your organization, including through its bundled skills, prompts, or other customizations.
+
 Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces

@@ -411,6 +411,8 @@ Domain allow and deny controls are available for compatible terminal tools. Thei
 
 Managed sandbox enforcement is in Preview. When a policy sets `sandbox.enabled` to `true`, `sandbox.allowBypass` determines whether the session toggle is editable: `true` lets you turn sandboxing off for the current session, while `false` or an omitted value keeps sandboxing on and locks the toggle. A session choice does not change the managed policy or other sessions. Your organization can also restrict network access.
 
+If your organization requires sandboxing and it is unavailable on the execution host, terminal commands cannot run. Follow the [sandbox troubleshooting guidance](#troubleshoot-agent-sandboxing) to meet the host requirements, or ask your administrator to review the policy.
+
 If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 
 ## Related resources
