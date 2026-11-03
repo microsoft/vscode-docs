@@ -274,7 +274,7 @@ Provide the JSON server configuration in the form `{\"name\":\"server-name\",\"c
 const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
-This link opens a confirmation dialog in VS Code displaying the configuration details for user review before installing.
+This link opens the MCP server details editor in VS Code so the user can review the configuration before choosing to install.
 
 ### Open an MCP server from a registry or gallery
 
@@ -286,19 +286,19 @@ If your MCP server is listed in an active MCP registry or gallery, you can provi
   vscode:mcp/by-name/<registry-server-name>
   ```
 
-  Resolves `<registry-server-name>` against the active MCP gallery and opens the server details page for user review. For example:
+  Resolves the exact registry name against the active MCP gallery and opens the server details page for user review. For example, GitHub's server uses the registry name `io.github.github/github-mcp-server`:
 
   ```text
-  vscode:mcp/by-name/github-mcp-server
+  vscode:mcp/by-name/io.github.github/github-mcp-server
   ```
 
-* **Lookup by gallery URL:**
+* **Lookup by gallery metadata URL:**
 
   ```text
   vscode:mcp/<https-server-url-without-scheme>
   ```
 
-  Resolves a server from the gallery matching the specified HTTPS URL (omitting the `https://` prefix). For example:
+  Opens a server using its HTTPS metadata URL in the active MCP gallery (omitting the `https://` prefix). The URL must be within the configured gallery's origin and path; it is not the server's MCP connection endpoint or an arbitrary project website. For example, for a gallery hosted at `https://example.com/mcp`, a server metadata resource might be:
 
   ```text
   vscode:mcp/example.com/mcp/server
@@ -314,10 +314,10 @@ To embed installation or lookup links on websites or documentation badges, use t
 https://vscode.dev/redirect?url=<url-encoded-vscode-URL>
 ```
 
-For example, to link to a gallery server:
+For example, to link to the GitHub server by its exact registry name:
 
 ```text
-https://vscode.dev/redirect?url=vscode%3Amcp%2Fby-name%2Fgithub-mcp-server
+https://vscode.dev/redirect?url=vscode%3Amcp%2Fby-name%2Fio.github.github%2Fgithub-mcp-server
 ```
 
 > [!NOTE]

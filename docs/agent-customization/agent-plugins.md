@@ -144,10 +144,10 @@ URL-encode parameter values (for example, `/` as `%2F`).
 **Example:**
 
 ```text
-vscode://chat-plugin/install?source=github%2Fevals&plugin=eval
+vscode://chat-plugin/install?source=owner%2Frepo&plugin=plugin-name
 ```
 
-When opened, {% data variables.product.prodname_vscode_shortname %} displays a confirmation dialog asking the user to confirm adding the marketplace and installing the plugin. If confirmed, {% data variables.product.prodname_vscode_shortname %} registers the marketplace, locates the plugin by name, installs it into the Copilot Agent Host session, and opens the Agent Customizations editor filtered to the plugin.
+When opened, {% data variables.product.prodname_vscode_shortname %} asks the user to confirm adding the marketplace and installing the plugin. If confirmed, {% data variables.product.prodname_vscode_shortname %} registers the marketplace, locates the plugin by name, installs it into the Copilot Agent Host session, and opens the Agent Customizations editor filtered to the plugin.
 
 #### Add a plugin marketplace
 
@@ -160,7 +160,7 @@ vscode://chat-plugin/add-marketplace?ref=<url-encoded-source>
 **Example:**
 
 ```text
-vscode://chat-plugin/add-marketplace?ref=github%2Fevals
+vscode://chat-plugin/add-marketplace?ref=owner%2Frepo
 ```
 
 When opened, {% data variables.product.prodname_vscode_shortname %} prompts the user to confirm adding the marketplace. Adding a marketplace alone makes its plugins discoverable, but does not install any plugins automatically.
@@ -168,11 +168,11 @@ When opened, {% data variables.product.prodname_vscode_shortname %} prompts the 
 #### Deep link requirements and security
 
 * **Consent and security:** Plugins can execute code via hooks or MCP servers. Deep links always prompt for explicit user confirmation before registering a marketplace or installing a plugin, and cannot bypass trust dialogs, workspace trust, or enterprise policies.
-* **Prerequisites:** Plugin deep links require `setting(chat.plugins.enabled)` to be enabled and an active or provisional Copilot Agent Host session.
+* **Prerequisites:** Plugin deep links require `setting(chat.plugins.enabled)` to be enabled and Copilot Agent Host support to be available. If no suitable session exists, {% data variables.product.prodname_vscode_shortname %} prompts the user to create one.
 * **Insiders and web redirect:** For {% data variables.product.prodname_vscode_shortname %} Insiders, use the `vscode-insiders://` scheme. To publish links on web pages or markdown badges, use the HTTPS redirect wrapper:
 
   ```text
-  https://vscode.dev/redirect?url=vscode%3A%2F%2Fchat-plugin%2Finstall%3Fsource%3Dgithub%252Fevals%26plugin%3Deval
+  https://vscode.dev/redirect?url=vscode%3A%2F%2Fchat-plugin%2Finstall%3Fsource%3Downer%252Frepo%26plugin%3Dplugin-name
   ```
 
 ### Plugins installed by {% data variables.copilot.copilot_cli %}

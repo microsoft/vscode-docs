@@ -84,7 +84,7 @@ vscode://chat-customizations/open?page=<page>&search=<query>
 Parameters:
 
 * **`page`** (required): The customization section to open. Supported values include:
-  * `discover`: Opens the Customization Marketplace (**Discover** page). Requires `setting(chat.customizations.marketplace.enabled)`.
+  * `discover`: Opens the Customization Marketplace (**Browse** page). Requires `setting(chat.customizations.marketplace.enabled)`.
   * `agents`: Opens the Custom Agents section.
   * `skills`: Opens the Agent Skills section.
   * `instructions`: Opens the Custom Instructions section.
