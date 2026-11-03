@@ -1,7 +1,7 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 DateApproved: 11/4/2026
-MetaDescription: A quick overview of the {% data variables.product.prodname_vscode %} user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
+MetaDescription: Navigate the {% data variables.product.prodname_vscode %} interface, manage files in the Explorer, and customize your editor layout.
 ---
 # User interface
 
@@ -169,6 +169,19 @@ You can also navigate to the location of a file or folder in the native operatin
 By default, {% data variables.product.prodname_vscode_shortname %} excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
 
 You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
+
+To show selected files or folders inside an excluded folder, add a `!` exception to `setting(files.exclude)` in your [settings.json file](/docs/configure/settings.md#settings-json-file). For example, hide `node_modules` but keep `node_modules/@types` visible:
+
+```json
+{
+  "files.exclude": {
+    "node_modules": true,
+    "!node_modules/@types": true
+  }
+}
+```
+
+The Explorer shows `@types` and its contents, along with the parent `node_modules` folder, while other entries in `node_modules` stay hidden. Exceptions also override `.gitignore` exclusions. Learn more about [exclude exceptions and their limitations](/docs/editor/glob-patterns.md#exclude-exceptions).
 
 When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is enabled, you can right-click image or video files or folders in the Explorer and select **Open Images in Carousel** to browse media files in a dedicated carousel view. This also works with multi-selection.
 
