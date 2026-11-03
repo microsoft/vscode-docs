@@ -161,6 +161,28 @@ The preview uses native filesystem notifications for content, images, and previe
 > [!NOTE]
 > The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
 
+### Use the docs workbench
+
+The workspace-scoped Docs workbench canvas brings together open documentation PRs, documentation issues, release test plan items (TPIs), and private media tasks. It requires a Copilot host that supports SDK canvas extensions, background-agent tasks, and approval dialogs, plus an authenticated `gh` CLI.
+
+Ask Copilot to open the **Docs workbench** canvas. Reload workspace extensions after updating its implementation. The extension does not require a separate SDK installation.
+
+* Use queue navigation, search, and filters to find work. Issue and PR rows show the creator's GitHub handle; select an item for a profile link and more details. Change the milestone explicitly for release TPIs. Closed TPIs remain visible because testing completion does not mean documentation is complete.
+* Select **Review PR** for separate technical-accuracy and writing-guidelines findings, or **Plan documentation** for a plan that stops before editing files.
+* Review the plan before selecting **Implement approved plan**. Confirm its product channel and local base branch (`main` or `vnext`); implementation uses a separate worktree.
+* Use **Actions** for related work, screenshots, recordings, closing-comment drafts, and confirmed issue or PR closures. Close actions apply only to `microsoft/vscode-docs`, require triage permission, and never merge PRs or delete branches.
+* Media tasks use real captures. Until the separate desktop recorder is available in this checkout, desktop tasks provide guided capture instructions. Capture tools, private sign-in, and live AI requests require their own approval. Copy completed captures into the task's private media directory, attach them, and inspect the preview before approving them.
+
+GitHub remains authoritative for issue and PR state. Workflow status, links, task results, and raw media are private to the authenticated user and workspace. They are stored under `extension-data\vscode-docs-workbench\` in `COPILOT_HOME`, or `~\.copilot` when that variable is unset. Do not commit this data, capture profiles, or credentials.
+
+Background tasks belong to the host session that started them. Resume that session to continue a task; **Update task results** reads its actual host state. Refresh failures retain cached work and display an error. If a launch has an uncertain outcome, check host task history before resolving the launch blocker or starting again.
+
+Closing comments, optional labels, and closure are separate GitHub operations. If a step fails, inspect the recorded outcome before explicitly retrying the remaining steps. Do not assume that a failed request means nothing changed remotely.
+
+Run the extension's targeted tests with `npm run test:workbench`. No GitHub writes are needed for these tests.
+
+HTTP diagnostics include the request method, path, and status code. Request failures are reported without failing the agent session. Unexpected server failures retain their error severity in the diagnostic text and return an HTTP error to the page. The server handles favicon requests and page readiness checks without reporting an error.
+
 ### Validate your Markdown
 
 * Check that your Markdown is properly formatted

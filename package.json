@@ -24,6 +24,7 @@
     "test:cards": "node --test ./build/cards.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",
+    "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && node ./build/serve.js",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"

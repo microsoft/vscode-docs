@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs workbench</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <div class="workbench-shell">
+    <aside class="sidebar" aria-label="Workbench navigation">
+      <a class="brand" href="/" aria-label="Docs workbench home">
+        <span class="brand-mark" data-icon="book"></span>
+        <span>Docs<span class="brand-secondary">workbench</span></span>
+      </a>
+      <p class="nav-label">Work queues</p>
+      <nav aria-label="Work queues" id="queues">
+        <button type="button" data-queue="pulls" aria-current="page"><span class="nav-icon" data-icon="pull"></span><span class="nav-title">Pull requests</span><span class="queue-count">0</span></button>
+        <button type="button" data-queue="tpis"><span class="nav-icon" data-icon="release"></span><span class="nav-title">Release TPIs</span><span class="queue-count">0</span></button>
+        <button type="button" data-queue="issues"><span class="nav-icon" data-icon="issue"></span><span class="nav-title">Docs issues</span><span class="queue-count">0</span></button>
+        <button type="button" data-queue="media"><span class="nav-icon" data-icon="media"></span><span class="nav-title">Media</span><span class="queue-count">0</span></button>
+      </nav>
+      <div class="sidebar-context">
+        <span class="context-icon" data-icon="layers"></span>
+        <div><strong>One place for your docs</strong><p>Review. Write. Show.</p></div>
+      </div>
+      <footer class="sidebar-footer">
+        <span class="account-avatar" id="account-avatar" aria-hidden="true">D</span>
+        <div><strong id="account">Connecting...</strong><span>Private workflow tracking</span></div>
+      </footer>
+    </aside>
+    <div class="workspace">
+      <header class="workspace-header">
+        <div class="workspace-context"><span class="context-dot" aria-hidden="true"></span>microsoft / vscode-docs<span class="workspace-tag">Content workspace</span></div>
+        <div class="heading">
+          <div><p class="eyebrow">Docs workbench</p><h1 id="queue-title">Pull requests</h1><p id="queue-description" class="subtitle">Check technical accuracy and writing quality before contributions land.</p></div>
+          <div class="header-actions">
+            <button id="refresh" type="button"><span data-icon="refresh"></span><span>Refresh</span></button>
+            <button type="button" id="new-media" class="primary"><span data-icon="plus"></span><span>New media task</span></button>
+          </div>
+        </div>
+        <div id="queue-overview" class="queue-overview" aria-label="Workflow status shortcuts">
+          <button type="button" data-status="" class="overview-item" aria-pressed="true"><span class="overview-value">0</span><span class="overview-label">In this queue</span></button>
+          <button type="button" data-status="needs-review" class="overview-item"><span class="overview-dot tone-purple" aria-hidden="true"></span><span class="overview-value">0</span><span class="overview-label">Needs review</span></button>
+          <button type="button" data-status="in-progress" class="overview-item"><span class="overview-dot tone-blue" aria-hidden="true"></span><span class="overview-value">0</span><span class="overview-label">In progress</span></button>
+          <button type="button" data-status="blocked" class="overview-item"><span class="overview-dot tone-amber" aria-hidden="true"></span><span class="overview-value">0</span><span class="overview-label">Blocked</span></button>
+        </div>
+      </header>
+      <div class="queue-content">
+        <div class="toolbar">
+          <label class="search"><span class="sr-only">Search this queue</span><span data-icon="search"></span><input id="search" type="search" placeholder="Search pull requests..."></label>
+          <label id="milestone-label" hidden><span class="sr-only">Release milestone</span><input id="milestone" aria-label="Release milestone" list="milestones" value="1.145.0" pattern="\d+\.\d+\.\d+"><datalist id="milestones"></datalist></label>
+          <details id="filters">
+            <summary><span data-icon="filter"></span>Filters<span id="filter-count" hidden></span></summary>
+            <div class="filter-fields">
+              <label id="mine-label" class="checkbox-label"><input id="mine" type="checkbox">Assigned to me</label>
+              <label>Workflow status<select id="disposition"><option value="">All statuses</option></select></label>
+              <label id="label-filter">Label<input id="label" placeholder="Exact label"></label>
+              <label id="github-state-label">GitHub state<select id="github-state"><option value="">Any state</option><option value="open">Open</option><option value="closed">Closed</option></select></label>
+              <label id="draft-label">Draft<select id="draft"><option value="">Any draft state</option><option value="yes">Drafts</option><option value="no">Ready for review</option></select></label>
+              <label id="review-label">Review<select id="review"><option value="">Any review state</option><option value="REVIEW_REQUIRED">Review required</option><option value="CHANGES_REQUESTED">Changes requested</option><option value="APPROVED">Approved</option></select></label>
+              <label class="checkbox-label"><input id="show-done" type="checkbox">Include completed work</label>
+              <button type="button" id="reset-filters" class="text-button">Reset filters</button>
+            </div>
+          </details>
+        </div>
+        <div class="list-context"><span id="results-count">Loading work...</span><span id="freshness" class="muted"></span></div>
+        <p id="queue-notice" class="queue-notice" hidden></p>
+        <p id="error" role="alert" hidden></p>
+        <p id="status" role="status" aria-live="polite"></p>
+        <main>
+          <section id="inbox" aria-label="Work items">
+            <ul id="items"></ul>
+            <div id="empty" class="empty-state" hidden>
+              <span id="empty-icon" class="empty-icon" aria-hidden="true"></span>
+              <h2 id="empty-title"></h2><p id="empty-description"></p>
+              <button type="button" id="empty-action"></button>
+            </div>
+          </section>
+          <section id="detail" aria-label="Selected work item" hidden tabindex="-1"></section>
+        </main>
+        <p class="queue-footer"><span data-icon="check"></span>GitHub is the source of truth. Workflow status stays private.</p>
+      </div>
+    </div>
+  </div>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <form id="dialog-form">
+      <p class="eyebrow">Docs workbench</p><h2 id="dialog-title"></h2>
+      <div id="dialog-content"></div>
+      <p id="dialog-error" role="alert"></p>
+      <div class="dialog-actions"><button type="button" id="dialog-cancel">Cancel</button><button type="submit" id="dialog-submit" class="primary">Continue</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
