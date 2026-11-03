@@ -4,7 +4,7 @@ ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
+MetaDescription: Control when {% data variables.product.prodname_vscode_shortname %} extensions load with activation events for commands, languages, views, and other features.
 ---
 
 # Activation Events
@@ -143,7 +143,7 @@ This activation event is emitted just before the `provideDebugConfigurations` me
 
 ## onView
 
-This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar. Built-in views do not emit an activation event.
+This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the {% data variables.product.prodname_vscode_shortname %} sidebar. Built-in views generally do not emit this event. The Timeline view supports `onView:timeline` to activate [Timeline providers](/api/extension-guides/timeline.md).
 
 The activation event below will fire whenever a view with the `nodeDependencies` id is visible:
 
@@ -154,6 +154,8 @@ The activation event below will fire whenever a view with the `nodeDependencies`
 ```
 
 > **Note**: Beginning with VS Code 1.74.0, views contributed by your extension do not require a corresponding `onView` activation event declaration for your extension to be activated.
+
+For the built-in Timeline view, explicitly declare `"activationEvents": ["onView:timeline"]` in your extension manifest.
 
 ## onUri
 

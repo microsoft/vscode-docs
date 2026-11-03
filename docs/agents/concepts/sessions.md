@@ -36,6 +36,8 @@ The session has a main chat. A **nested session** is a separate conversation gro
 
 Each conversation has its own history, title, status, and agent or model selection. Nested sessions use the parent session's folder or worktree by default. In the {% data variables.copilot.agents_window %}, supported harnesses let a nested session use another folder, its own worktree, or no workspace. A new nested session starts blank and doesn't inherit the conversation history of the other chats in the parent session.
 
+With [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`, each chat can use its own harness, model, and permission settings, even when grouped under a session that uses another harness.
+
 Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.

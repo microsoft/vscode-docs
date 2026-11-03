@@ -87,6 +87,11 @@
       "label": "MCP Apps",
       "state": "experimental"
     },
+    "mixed-harness-chats": {
+      "label": "Mixed-harness chats",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/344927"
+    },
     "modern-ui": {
       "label": "Modern UI",
       "state": "experimental"

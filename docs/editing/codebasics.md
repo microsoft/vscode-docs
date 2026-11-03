@@ -245,6 +245,18 @@ In the two input boxes below the search box, you can enter patterns to include o
 
 {% data variables.product.prodname_vscode_shortname %} excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/configure/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
 
+To search selected files inside an excluded folder without showing them in the Explorer, add a `!` exception to `setting(search.exclude)` in your [settings.json file](/docs/configure/settings.md#settings-json-file). For example, this exception searches `node_modules/@types` despite the default `node_modules` exclusion:
+
+```json
+{
+  "search.exclude": {
+    "!node_modules/@types": true
+  }
+}
+```
+
+Search inherits patterns from `setting(files.exclude)`, and an exception in either setting can override an exclusion in the other. Exceptions also apply to file search in Quick Open and override `.gitignore` rules. They apply only to these settings, not to the **files to exclude** input box. For precedence rules and limitations, see [exclude exceptions](/docs/editor/glob-patterns.md#exclude-exceptions).
+
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.

@@ -112,6 +112,20 @@ A visual indicator shows that the page is shared. Select **Share with Agent** ag
 
 If an agent needs access to an unshared tab, it can ask you to share one. In autopilot mode, {% data variables.product.prodname_vscode_shortname %} declines these requests automatically to protect your privacy.
 
+## Test apps on remote agent hosts
+
+`feature(integrated-browser-remote)`
+
+In the {% data variables.copilot.agents_window %}, agents can test apps through their session's remote host without forwarding the app's port to your local machine. Enable [remote browser proxying](/docs/debugtest/integrated-browser.md#browse-through-a-remote-agent-host), then ask the agent to start the app and open its original localhost URL.
+
+For example:
+
+```prompt
+Start the app on this session's remote host, open its localhost URL in the integrated browser, and test the sign-up flow. Fix any issues and verify the result.
+```
+
+You can also open the remote app yourself and select **Share with Agent** to let the agent test the same page.
+
 ## Give feedback from a web page
 
 The integrated browser lets you point to the rendered result instead of describing a visual or runtime problem only in text. You can select page content, attach diagnostic information, and give element-level instructions for the agent to implement.

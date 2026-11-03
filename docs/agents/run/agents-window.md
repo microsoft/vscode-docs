@@ -154,7 +154,7 @@ Run the same prompt with multiple models or harnesses, then compare their approa
 
 With a harness that supports multiple chats, use chat tabs and split groups to keep several conversations visible. Arrange nested sessions, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
-Select **+** (**New Nested Session**) on a session's row to start a nested session. Keep the preselected folder, or choose another folder, **New Worktree**, or **No Workspace**, where supported. The nested session uses the parent's harness and host.
+Select **+** (**New Nested Session**) on a session's row to start a nested session. Keep the preselected folder, or choose another folder, **New Worktree**, or **No Workspace**, where supported. The nested session uses the parent's harness by default and stays on the same host. To choose another harness, enable [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`.
 
 You can also [move nested sessions](/docs/agents/run/sessions/manage-sessions.md#move-chats-between-sessions-experimental) or promote a nested session to a top-level session. These actions preserve the conversation's working folder or worktree.
 
