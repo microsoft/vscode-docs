@@ -22,6 +22,8 @@ Use this guide to compare the available options, identify which harness your ses
 
 For a deeper explanation of how harnesses work and differ from models and hosts, [learn about agent harness concepts](/docs/agents/concepts/agent-harnesses.md).
 
+If you already use Local, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) to continue work, review compatibility, and verify organization controls.
+
 <a name="choose-a-session-target"></a>
 
 ## Compare agent harnesses
@@ -224,7 +226,7 @@ To hand off a Local harness session:
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the destination session. To implement a plan or continue it with another supported session, see [planning with agents](/docs/agents/run/planning.md).
 
 > [!NOTE]
-> Enterprise-managed sandbox or permission settings might automatically move a Local session to the Copilot harness so the Agent Host can enforce the policy. This policy-driven move preserves the conversation history and unsent input without submitting a prompt, and archives the original Local session as read-only. It is different from a user-initiated handoff. Learn more about [Agent Host policy enforcement](/docs/enterprise/manage-ai-settings.md#enforce-runtime-policies-with-copilot-agent-host).
+> When [runtime policy requires Copilot](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection), opening an unarchived Local conversation can move it automatically. Where the host supports conversation import, this preserves history and unsent input without submitting a prompt and archives the original as read-only. If import isn't available, **Continue in Copilot** attaches the transcript as context to a new conversation and keeps the original available. This differs from a user-initiated handoff. See [transition and history guidance](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
 
 Changing a harness is different from starting another conversation or opening the same session in another interface. Learn more about [sessions, forks, and handoffs](/docs/agents/concepts/sessions.md).
 
@@ -258,7 +260,7 @@ If your workflow depends on specific tools or customizations that aren't support
 
 ### Can I keep Local available while migrating?
 
-Yes. Local remains an editor harness option while you adapt integrations that depend on it. Start a new session in the editor's {% data variables.copilot.chat_view %} and select **Local** from **Session Target**. Local is not available in the {% data variables.copilot.agents_window %}.
+Yes, when organization controls permit it. Local remains a legacy editor harness option while you adapt integrations that depend on it. Start a new session in the editor's {% data variables.copilot.chat_view %} and select **Local** from **Session Target**. Local is not available in the {% data variables.copilot.agents_window %}.
 
 For an unmanaged editor, the following experimental settings make Local visible and turn off automatic Copilot preference:
 
@@ -270,7 +272,7 @@ For an unmanaged editor, the following experimental settings make Local visible 
 }
 ```
 
-An organization policy can override user settings. Starting with version 1.142, administrators can set `vscode.temporaryDefaultToLocalHarness` to `true` in [enterprise-managed settings](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default). This temporary control keeps Local available and suppresses automatic Copilot routing, including routing triggered by managed sandbox and permission settings. It preserves explicit, remembered, and current harness choices.
+An organization policy can override user settings. Starting with version 1.142, administrators can set `vscode.temporaryDefaultToLocalHarness` to `true` in [enterprise-managed settings](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default). This temporary control keeps Local available and suppresses automatic Copilot routing, including routing triggered by managed sandbox and permission settings. It preserves explicit, remembered, and current harness choices. Starting with version 1.143, `vscode.temporaryAllowLocalHarness: false` prohibits Local, Claude, and Codex and overrides that temporary default.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Administrators must review the security impact before using the temporary Local default. Copilot harness sessions continue to enforce those rules.
