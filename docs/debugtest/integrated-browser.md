@@ -303,6 +303,7 @@ Control how the integrated browser stores session data such as cookies, logins, 
 
 | Mode | Description |
 |------|-------------|
+| `default` | Uses `global` storage for local browsing and `workspace` storage for remote browsing. |
 | `global` | Data persists and is shared across all browser tabs and workspaces. |
 | `workspace` | Data persists within a workspace but is isolated between workspaces. |
 | `ephemeral` | Data is not shared between tabs or persisted. Similar to incognito mode. |
@@ -316,19 +317,44 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 
 `feature(integrated-browser-remote)`
 
-When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
+The integrated browser can proxy its `http` and `https` traffic through a remote workspace or a remote agent host. This lets you preview apps and reach services on the remote machine without forwarding a port to your local machine first.
 
-To enable remote proxying, enable the `setting(workbench.browser.enableRemoteProxy)` setting. The `setting(workbench.browser.dataStorage)` setting must not be set to `global`, because globally scoped sessions are shared across workspaces and are never proxied.
+To enable remote proxying, enable the `setting(workbench.browser.enableRemoteProxy)` setting. Keep `setting(workbench.browser.dataStorage)` at `default` to select the storage mode automatically. Tabs that use `global` storage always use the local network and are never proxied.
 
 When proxying is active, a remote indicator appears in the browser address bar.
 
-Remote proxying affects the browser in the following ways:
+### Remote workspaces
+
+When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, browser traffic uses that workspace's remote connection.
+
+Remote workspace proxying affects the browser in the following ways:
 
 * **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
 
 * **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
 
 * **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
+
+### Browse through a remote agent host
+
+In the {% data variables.copilot.agents_window %}, browser tabs can use the network of the session's remote {% data variables.product.prodname_vscode_shortname %} agent host. Supported connections include SSH, dev tunnels, WSL, and Dev Containers.
+
+With remote proxying enabled:
+
+1. Connect to a [remote agent host](/docs/agents/run/remote-agent-sessions.md) and start a session with a project folder.
+1. Start a web app on the remote host.
+1. Open the app in the integrated browser with its original localhost URL, such as `http://localhost:3000`.
+1. Check that the remote indicator in the address bar identifies the session's host.
+1. To let the agent interact with the app, select **Share with Agent** in the browser toolbar and confirm sharing. You can also ask the agent to open its own page.
+
+Browser tabs retain their original host when you switch sessions. When an agent opens a page, the page uses that agent's host, even if another session is active.
+
+For tabs you open with default storage, cookies and localStorage persist across sessions for the same project folder and host, including linked worktrees. Data is separate for different folders or hosts. Agent-opened pages use separate, in-memory storage per chat by default.
+
+If the host disconnects, the indicator reports the disconnected state and the tab doesn't fall back to the local network. Reconnect the host and reload the page to resume browsing. Turning off remote proxying makes newly opened tabs use the local network.
+
+> [!NOTE]
+> Both the client and remote host need to support agent-host browser proxying. If the indicator reports that the host doesn't support proxying, update both to current versions of {% data variables.product.prodname_vscode_shortname %}. Cloud sandboxes and other non-{% data variables.product.prodname_vscode_shortname %} agent hosts aren't supported.
 
 ## Use with the Live Preview extension
 

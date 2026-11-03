@@ -267,6 +267,14 @@ To run a session in a remote Dev Container:
 
 The **Use Dev Container** option appears only when the source machine advertises Dev Container support. It isn't available for unsupported machines or for folders whose source is nested inside another remote environment. For more information about prerequisites, switching back to the source machine, and troubleshooting, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
+## Preview a remote web app
+
+`feature(integrated-browser-remote)`
+
+In the {% data variables.copilot.agents_window %}, use the integrated browser to preview a web app running on the session's remote host without forwarding its port. Enable `setting(workbench.browser.enableRemoteProxy)`, leave `setting(workbench.browser.dataStorage)` at `default`, and open the app's original localhost URL.
+
+Select **Share with Agent** to let the agent interact with your page, or ask it to open the app and validate a user flow. See [browsing through a remote agent host](/docs/debugtest/integrated-browser.md#browse-through-a-remote-agent-host) for supported hosts, storage behavior, and connection troubleshooting.
+
 <a name="delegate-work-to-remote-agent-hosts-experimental"></a>
 
 ## Delegate tasks to remote machines (Experimental)
