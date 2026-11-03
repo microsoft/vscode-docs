@@ -192,6 +192,7 @@ Launch the guided Smart Diff tryout.
 
 ## Terminology
 
+* Use 'Agents window' without a 'desktop' qualifier. Use 'browser-based Agents window' only when referring to the Agents window in a browser.
 * Use "Select" instead of "Click" for UI elements like buttons, menu items, links, dropdowns, and checkboxes.
 * Use "might" instead of "may" for conditional statements.
 * Avoid latin abbreviations like "e.g.". Use "for example" instead.
