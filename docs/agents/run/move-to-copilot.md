@@ -67,7 +67,7 @@ Use the Copilot harness for new workflows, but review compatibility before repla
 1. Open **Session Target** and select **Copilot**.
 1. Select an available model and agent for your task.
 
-To use **Assisted permissions**, choose **Folder** isolation and select **Assisted permissions** from the permissions picker. See [permission levels](/docs/agents/run/approvals.md#permission-levels) for the available options.
+To use **Assisted permissions**, open the permissions picker in the chat input and select **Assisted permissions**. See [permission levels](/docs/agents/run/approvals.md#permission-levels) for the available options.
 
 To check an existing session, [identify its current harness](/docs/agents/run/agent-harnesses.md#identify-your-current-harness). Choosing a different model or opening the session in another interface doesn't change its harness.
 
