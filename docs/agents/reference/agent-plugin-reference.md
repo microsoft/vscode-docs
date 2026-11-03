@@ -434,7 +434,7 @@ Marketplace plugins can also reference external package sources such as npm or P
 
 ## Local plugin registration
 
-To register an existing development directory without installing it, use `setting(chat.pluginLocations)` (Experimental). This setting maps local plugin directory paths to an enabled or disabled state. Set a value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+To register an existing development directory without installing it, use `setting(chat.pluginLocations)` (Experimental). This setting maps plugin directory paths to an enabled or disabled state. Set a value to `true` to enable the plugin, or `false` to keep it registered but disabled.
 
 For example, merge this property into `settings.json`, replacing the paths with directories on your machine:
 
@@ -448,6 +448,8 @@ For example, merge this property into `settings.json`, replacing the paths with 
 ```
 
 To install a plugin from a local folder instead, follow [Install a plugin from source](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-source).
+
+For a remote workspace, add this setting in **Remote** settings and use paths on the remote machine or inside the container. See [Use plugins in remote windows](/docs/agent-customization/agent-plugins.md#use-plugins-in-remote-windows).
 
 ## Workspace plugin settings
 
