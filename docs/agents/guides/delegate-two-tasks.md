@@ -65,7 +65,7 @@ Choose where the agents can make changes before you send the prompts:
 For this walkthrough, use **two separate sessions**, each with **New Worktree** selected. Creating another chat or forking a conversation does not, by itself, create another worktree.
 
 > [!CAUTION]
-> Worktrees isolate working files, not the agent's access to your machine or external services. {% data variables.product.prodname_copilot_short %} worktree sessions use **Allow all**, which skips tool approval prompts. Use a trusted repository and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. If you require manual approvals, use folder sessions one at a time instead.
+> Worktrees isolate working files, not the agent's access to your machine or external services. Use a trusted repository, choose a permission level for each session, and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. Worktree sessions support manual approvals and don't require **Allow all**, which skips tool approval prompts.
 
 For details about the available choices, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
