@@ -82,6 +82,7 @@
                 "topics": [
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Move from Local to Copilot", "/docs/agents/run/move-to-copilot"],
                     ["Compare Model Results", "/docs/agents/run/compare-models"]
                 ]
             }],

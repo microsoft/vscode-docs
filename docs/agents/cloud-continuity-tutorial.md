@@ -1,6 +1,6 @@
 ---
 ContentId: 1e9a832b-694f-4ab6-85ce-cf4af9e71870
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 FeatureStatus: cloud-sessions
 MetaDescription: Explore a private repository in a cloud session, then continue the same session from a terminal with {% data variables.copilot.copilot_cli_short %}.
 MetaSocialImage: images/agents-overview/hero-copilot-cli-dark.png

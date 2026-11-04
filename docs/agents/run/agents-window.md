@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 ---
 # Use the {% data variables.copilot.agents_window %}
@@ -154,7 +154,7 @@ Run the same prompt with multiple models or harnesses, then compare their approa
 
 With a harness that supports multiple chats, use chat tabs and split groups to keep several conversations visible. Arrange nested sessions, [side chats](/docs/agents/run/sessions/manage-sessions.md#ask-side-questions), and [read-only subagent chats](/docs/agents/run/subagents.md#agents-window) horizontally or vertically.
 
-Select **+** (**New Nested Session**) on a session's row to start a nested session. Keep the preselected folder, or choose another folder, **New Worktree**, or **No Workspace**, where supported. The nested session uses the parent's harness and host.
+Select **+** (**New Nested Session**) on a session's row to start a nested session. Keep the preselected folder, or choose another folder, **New Worktree**, or **No Workspace**, where supported. The nested session uses the parent's harness by default and stays on the same host. To choose another harness, enable [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`.
 
 You can also [move nested sessions](/docs/agents/run/sessions/manage-sessions.md#move-chats-between-sessions-experimental) or promote a nested session to a top-level session. These actions preserve the conversation's working folder or worktree.
 
@@ -230,8 +230,6 @@ If {% data variables.product.prodname_vscode_shortname %} doesn't find a provide
 
 ### Run a session in a Dev Container
 
-`feature(agent-host-dev-containers)`
-
 Run a session in a Dev Container so the agent can build and test with your project's tools and dependencies. Use a local folder or, starting in {% data variables.product.prodname_vscode_shortname %} 1.139, a folder on an SSH, Tunnel, or WSL host.
 
 This option is available in the {% data variables.copilot.agents_window %}, but not in the browser version. Dev Container support (`setting(chat.agentHost.devContainer.enabled)`) is on by default.
@@ -253,6 +251,8 @@ To run a session in a Dev Container:
 1. Choose an available agent harness, configure the session, and enter your prompt.
 
 Dev Container sessions work directly in the container workspace and can't be combined with **New Worktree**. If the container fails to start, review the workspace-specific **Dev Container** channel in the Output view for setup and connection details.
+
+To sandbox terminal commands inside the container, see [Use sandboxing in Dev Containers](/docs/agents/run/agent-sandboxing.md#use-sandboxing-in-dev-containers).
 
 The **Use Dev Container** option isn't available for unsupported hosts or for folders whose source is nested inside another remote environment.
 

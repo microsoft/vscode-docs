@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find and reuse agent customizations from marketplaces in {% data variables.product.prodname_vscode_shortname %}, or create project guidance.
 Keywords:
 - ai

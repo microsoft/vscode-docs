@@ -1,7 +1,7 @@
 ---
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-DateApproved: 10/28/2026
-MetaDescription: {% data variables.product.prodname_vscode %} glob patterns reference
+DateApproved: 11/4/2026
+MetaDescription: Configure glob patterns in {% data variables.product.prodname_vscode %} to control file visibility, search results, and file associations.
 ---
 # Glob Patterns Reference
 
@@ -43,6 +43,37 @@ For example, if you have a `.gitignore` file with a pattern like `build/`, this 
 ## Special cases
 
 Glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
+
+## Exclude exceptions
+
+To keep selected files or folders visible or searchable when another pattern excludes them, prefix a pattern with `!` in `setting(files.exclude)` or `setting(search.exclude)`. Add the exception to your [settings.json file](/docs/configure/settings.md#settings-json-file). For example:
+
+```json
+{
+  "files.exclude": {
+    "node_modules": true,
+    "!node_modules/@types": true
+  }
+}
+```
+
+This configuration hides the root `node_modules` folder except for `@types` and its contents. The Explorer shows the parent folders needed to reach matching files. The exception also includes these files in Search and Quick Open, even if `setting(search.exclude)` or `.gitignore` would otherwise exclude them.
+
+Exceptions in `setting(search.exclude)` affect Search and Quick Open without changing Explorer visibility.
+
+The following rules apply to exceptions:
+
+* Patterns are relative to each workspace folder. For example, `!node_modules/@types` matches only at the workspace root, while `!**/node_modules/@types` also matches nested folders. Absolute exception paths are ignored.
+* An exception includes matching files or folders and everything inside matching folders. Exceptions override exclude patterns and `.gitignore`, regardless of pattern order. You cannot exclude files again inside a folder that matches an exception.
+* Set an exception to `false` to turn it off. Setting a regular exclude pattern to `false` only turns off that pattern. It does not restore files hidden by a different pattern or `.gitignore`.
+* Exceptions only restore excluded files. An exception on its own does not hide any files.
+* Version control folders such as `.git`, `.svn`, `.hg`, and `.jj` stay excluded unless an exception explicitly names them, such as `!.git/hooks`.
+* This syntax applies only to `setting(files.exclude)` and `setting(search.exclude)`, not to the Search view's **files to exclude** input box or other glob-based settings.
+
+> [!NOTE]
+> Prefer exceptions with a specific folder path. Exceptions that start with `**` require Search to traverse the whole workspace folder, including ignored folders, and can slow searches. In the Explorer, they can also show additional folders that might contain a match.
+
+Exceptions are not yet supported by extension-provided search providers, such as those used in some virtual workspaces.
 
 ## Common questions
 

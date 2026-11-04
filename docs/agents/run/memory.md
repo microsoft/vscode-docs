@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Use cloud-backed and local memory in {% data variables.product.prodname_vscode_shortname %} to retain coding preferences and repository knowledge.
 ---
 
@@ -8,13 +8,13 @@ MetaDescription: Use cloud-backed and local memory in {% data variables.product.
 
 Memory helps agents reuse coding preferences and repository knowledge without asking you to repeat them in every conversation. The memory system depends on your [agent harness](/docs/agents/run/agent-harnesses.md):
 
-* **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %}](#copilot-memory) to store repository facts and user preferences in the cloud.
+* **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %}](#copilot-memory) to store repository facts and user preferences in the cloud. An [Experimental local-storage option](#store-copilot-memory-in-the-repository-experimental) stores repository facts in the working tree instead.
 
 * **Local harness**: Use [memory files](#local-memory-files) for persistent notes and temporary session context.
 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
-This article shows how to set up cloud-backed memory, review or delete stored information, and manage local memory files.
+This article shows how to set up cloud-backed memory, choose repository-local storage, review or delete stored information, and manage Local harness memory files.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try memory in action">
 Launch a chat prompt that asks the agent to remember a coding preference.
@@ -87,6 +87,19 @@ Asking the agent to forget a cloud memory downvotes it rather than permanently d
 Facts and preferences that go unused are automatically deleted after 28 days. Successful validation and use can reset that timer. Learn more about [memory retention and validation](https://docs.github.com/en/copilot/concepts/prompting-and-context/copilot-memory#retention-and-validation).
 
 To stop using cloud memory in newly created or resumed {% data variables.product.prodname_vscode_shortname %} sessions, turn off `setting(chat.copilot.memory.enabled)`. Your personal memory setting on {% data variables.product.prodname_github %} controls its use across supported {% data variables.product.prodname_copilot_short %} features. To remove stored information, delete it on {% data variables.product.prodname_github %}.
+
+### Store Copilot Memory in the repository (Experimental)
+
+For Copilot harness sessions running on your machine, you can store repository memories in `.github/copilot-memories.jsonl` instead of the cloud memory service. This option requires a {% data variables.product.prodname_github %}-hosted repository and doesn't support user-scoped memories.
+
+1. Turn on `setting(chat.copilot.memory.enabled)`.
+1. Turn on `setting(chat.copilot.memory.local.enabled)`. It is off by default. Changing it restarts the Copilot runtime after active turns finish.
+1. Create or resume a Copilot harness session in the repository.
+
+This store is separate from the [Local harness memory files](#local-memory-files). It doesn't reuse those files. Manage the repository-local file directly rather than through the cloud memory settings on {% data variables.product.prodname_github %}.
+
+> [!CAUTION]
+> Your cloud-memory settings and organization policies on {% data variables.product.prodname_github %} don't apply to repository-local storage. The file is part of the working tree and can be included in commits, including commits made by the agent or the {% data variables.copilot.agents_window %}. Review its contents before committing or sharing it. Don't store credentials, secrets, or sensitive personal information.
 
 <a name="memory-tool"></a>
 

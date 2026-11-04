@@ -1,6 +1,6 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Configure file system and network isolation for {% data variables.product.prodname_copilot_short %} agents and troubleshoot sandbox failures.
 keywords:
 - copilot
@@ -67,6 +67,9 @@ On Windows, the documented update baselines are:
 > [!NOTE]
 > Windows support is Experimental. The separate [per-server MCP sandboxing feature](/docs/agents/run/manage-mcp-servers.md#sandbox-mcp-servers) is not available on Windows.
 
+> [!TIP]
+> If local sandboxing isn't available, or you prefer to keep agent execution off your machine, consider [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`. They run agent tools in a managed cloud environment. Availability depends on your account and organization.
+
 <a name="turn-on-sandboxing-on-the-execution-host"></a>
 
 ## Turn on sandboxing where commands run
@@ -112,6 +115,22 @@ Sandboxing is independent of the selected [permission level](/docs/agents/run/ap
 {% data variables.product.prodname_copilot_short %} sessions are available in both the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and an editor window. They use the built-in shell from the shared runtime by default. You do not need to change terminal implementations to use sandboxing.
 
 For a remote session, use the [session toggle](#control-sandboxing-for-the-current-session) to change the current session's sandbox state. Defaults for new sessions come from the remote machine's sandbox configuration, not from the machine where you connect to the session.
+
+### Use sandboxing in Dev Containers
+
+To run the sandbox inside a [Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), the container needs Docker options that a default container doesn't have. When sandboxing is on for a new Dev Container session, {% data variables.product.prodname_vscode_shortname %} adds these options when it starts the container:
+
+| Docker option | Why the sandbox needs it |
+|---|---|
+| `--security-opt seccomp=unconfined` | Docker's default seccomp profile blocks the system calls that create the sandbox's namespaces. |
+| `--security-opt apparmor=unconfined` | Docker's default AppArmor profile blocks the mount operations that set up the sandbox. |
+| `--security-opt systempaths=unconfined` | Docker's masked `/proc` and `/sys` paths prevent the sandbox from mounting its own `/proc`. |
+| `--device /dev/net/tun` | `slirp4netns` uses it to give the sandbox network access. |
+
+> [!CAUTION]
+> These options relax the container's isolation from the host. Terminal commands that the agent runs still run inside the sandbox.
+
+To use sandboxing with an existing container that was started without these options, recreate the container with sandboxing on.
 
 <a name="agent-host-sandbox-settings"></a>
 
@@ -175,6 +194,19 @@ The arrays default to empty.
 The `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)` setting defaults to `true`. It grants read access to tool directories on `PATH`, toolchain directories, developer-tool configuration and caches, including registry tokens, and read and write access to shared build caches. Set it to `false` to remove these automatic developer-tool grants, and add narrower paths if necessary.
 
 Use `/sandbox policy` to inspect the effective permissions, including runtime defaults and organization-managed restrictions.
+
+### Read attached files and folders
+
+In Copilot harness sessions with sandboxing enabled, files and folders that you explicitly [attach to a message](/docs/chat/copilot-chat-context.md#add-files-as-context) can receive read access for the session. The grant covers the attached file or the contents of the attached folder. This additional access is read-only and is never saved to sandbox settings.
+
+In **Manual permissions**, reading these attachments doesn't require an additional outside-workspace read approval. Attaching them doesn't grant write access. Writes still follow the existing permission and approval rules.
+
+The following restrictions still apply:
+
+* Denied paths remain blocked, even when attached.
+* If your organization's managed sandbox policy supplies an explicit read-only path list, attachments can't expand that list.
+* Attaching a folder doesn't grant access to symlink targets outside it. Those targets require their own permission.
+* Attaching a parent of the workspace, or of another writable folder, doesn't grant access to the whole parent. Attach specific files instead. Existing write access is preserved.
 
 ## Configure managed servers and credentials
 
@@ -381,6 +413,8 @@ Domain allow and deny controls are available for compatible terminal tools. Thei
 ## When your organization manages sandboxing
 
 Managed sandbox enforcement is in Preview. When a policy sets `sandbox.enabled` to `true`, `sandbox.allowBypass` determines whether the session toggle is editable: `true` lets you turn sandboxing off for the current session, while `false` or an omitted value keeps sandboxing on and locks the toggle. A session choice does not change the managed policy or other sessions. Your organization can also restrict network access.
+
+If your organization requires sandboxing and it is unavailable on the execution host, terminal commands cannot run. Follow the [sandbox troubleshooting guidance](#troubleshoot-agent-sandboxing) to meet the host requirements, or ask your administrator to review the policy.
 
 If a setting is locked or you need access that policy denies, contact your administrator. For policy details, see [enterprise agent sandboxing](/docs/enterprise/manage-ai-settings.md#configure-agent-sandboxing).
 

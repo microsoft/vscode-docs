@@ -43,6 +43,7 @@
       ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
       ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
+      ["Timeline", "/api/extension-guides/timeline"],
       ["Webview", "/api/extension-guides/webview"],
       ["Notebook", "/api/extension-guides/notebook"],
       ["Custom Editors", "/api/extension-guides/custom-editors"],

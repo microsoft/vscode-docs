@@ -1,6 +1,6 @@
 ---
 ContentId: b52d0265-d616-4c76-8910-c4e83d1efe13
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 FeatureStatus: copilot-connectors
 MetaDescription: Connect external services to {% data variables.product.prodname_copilot_short %} without server setup, use their tools, and manage connections.
 MetaSocialImage: images/customization/chat-customizations-editor.png

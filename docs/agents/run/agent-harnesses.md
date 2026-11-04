@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
@@ -22,6 +22,8 @@ Use this guide to compare the available options, identify which harness your ses
 
 For a deeper explanation of how harnesses work and differ from models and hosts, [learn about agent harness concepts](/docs/agents/concepts/agent-harnesses.md).
 
+If you already use the Local harness, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) to continue work, review compatibility, and verify organization controls.
+
 <a name="choose-a-session-target"></a>
 
 ## Compare agent harnesses
@@ -39,6 +41,8 @@ Start with the Copilot harness for day-to-day coding and agent tasks. Choose ano
 For Agent Host sessions managed by desktop {% data variables.product.prodname_vscode_shortname %} on your machine, keep the application running. Closing an editor window is different from quitting the application. Tools provided by a window also require that window to stay connected.
 
 Changing the model or agent role does not change the harness. For example, selecting a Claude model in a Copilot harness session still uses the Copilot harness. Opening the same session in another supported interface also keeps its harness.
+
+A session can group chats that use different harnesses with [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`. This starts a separate conversation on the chosen harness rather than handing off an existing conversation.
 
 **Local** is a harness name, not a synonym for running on your machine. The Copilot, Claude, and Codex harnesses can also run on your machine.
 
@@ -87,6 +91,8 @@ To identify the current harness for a chat session, use one of the following met
 * In the {% data variables.copilot.agents_window %}, the chat input box shows the active harness as the watermark.
 
 * In the {% data variables.copilot.agents_window %}, hover over the session entry in the sessions list to see a tooltip showing the harness.
+
+For a nested chat that uses a different harness from its parent session, hover over its chat tab or its entry in the sessions list to see the chat's harness.
 
 ## Requirements and setup
 
@@ -224,7 +230,7 @@ To hand off a Local harness session:
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the destination session. To implement a plan or continue it with another supported session, see [planning with agents](/docs/agents/run/planning.md).
 
 > [!NOTE]
-> Enterprise-managed sandbox or permission settings might automatically move a Local session to the Copilot harness so the Agent Host can enforce the policy. This policy-driven move preserves the conversation history and unsent input without submitting a prompt, and archives the original Local session as read-only. It is different from a user-initiated handoff. Learn more about [Agent Host policy enforcement](/docs/enterprise/manage-ai-settings.md#enforce-runtime-policies-with-copilot-agent-host).
+> When [runtime policy requires the Copilot harness](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection), opening an unarchived Local harness conversation can move it automatically. Where the host supports conversation import, this preserves history and unsent input without submitting a prompt and archives the original as read-only. If import isn't available, **Continue in Copilot** attaches the transcript as context to a new conversation and keeps the original available. This differs from a user-initiated handoff. See [transition and history guidance](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
 
 Changing a harness is different from starting another conversation or opening the same session in another interface. Learn more about [sessions, forks, and handoffs](/docs/agents/concepts/sessions.md).
 
@@ -232,7 +238,7 @@ Changing a harness is different from starting another conversation or opening th
 
 `feature(canvases)`
 
-Canvases are interactive visual surfaces shared by you and the agent in supported local {% data variables.product.prodname_copilot_short %} sessions. For prerequisites and steps to find, open, and manage canvases, see [Use canvases with agents](/docs/agents/run/canvases.md).
+Canvases are interactive visual surfaces shared by you and the agent in supported {% data variables.product.prodname_copilot_short %} sessions, including remote Agent Host sessions in the {% data variables.copilot.agents_window %}. For prerequisites and steps to find, open, and manage canvases, see [Use canvases with agents](/docs/agents/run/canvases.md).
 
 ## Frequently asked questions
 
@@ -256,9 +262,9 @@ Start with **Copilot** for day-to-day coding and agent tasks, especially when yo
 
 If your workflow depends on specific tools or customizations that aren't supported by the Copilot harness, please [let us know](https://github.com/microsoft/vscode/issues). Before moving an existing workflow, check [tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), [MCP configuration compatibility](/docs/agents/reference/mcp-configuration.md#configuration-file), and [hook compatibility](/docs/agent-customization/hooks.md#migrate-hooks-between-harnesses).
 
-### Can I keep Local available while migrating?
+### Can I keep the Local harness available while migrating?
 
-Yes. Local remains an editor harness option while you adapt integrations that depend on it. Start a new session in the editor's {% data variables.copilot.chat_view %} and select **Local** from **Session Target**. Local is not available in the {% data variables.copilot.agents_window %}.
+Yes, when organization controls permit it. The Local harness remains a legacy editor harness option while you adapt integrations that depend on it. Start a new session in the editor's {% data variables.copilot.chat_view %} and select **Local** from **Session Target**. The Local harness is not available in the {% data variables.copilot.agents_window %}.
 
 For an unmanaged editor, the following experimental settings make Local visible and turn off automatic Copilot preference:
 
@@ -270,7 +276,7 @@ For an unmanaged editor, the following experimental settings make Local visible 
 }
 ```
 
-An organization policy can override user settings. Starting with version 1.142, administrators can set `vscode.temporaryDefaultToLocalHarness` to `true` in [enterprise-managed settings](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default). This temporary control keeps Local available and suppresses automatic Copilot routing, including routing triggered by managed sandbox and permission settings. It preserves explicit, remembered, and current harness choices.
+An organization policy can override user settings. Starting with version 1.142, administrators can set `vscode.temporaryDefaultToLocalHarness` to `true` in [enterprise-managed settings](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default). This temporary control keeps the Local harness available and suppresses automatic Copilot routing, including routing triggered by managed sandbox and permission settings. It preserves explicit, remembered, and current harness choices. Starting with version 1.143, `vscode.temporaryAllowLocalHarness: false` prohibits Local, Claude, and Codex and overrides that temporary default.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Administrators must review the security impact before using the temporary Local default. Copilot harness sessions continue to enforce those rules.

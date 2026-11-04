@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Configure chat, inline, and voice models in {% data variables.product.prodname_vscode_shortname %}. Use your own API key or run models on your device.
 Keywords:
 - language models
@@ -106,7 +106,7 @@ You can see which model is used for generating a response by hovering over the c
 
 Copilot Fusion chooses models and a workflow to complete your task, so you don't need to select a model for each step. For background on how Fusion differs from Auto and when to use it, see [Copilot Fusion concepts](/docs/agents/concepts/language-models.md#copilot-fusion).
 
-For details about orchestration, tiers, availability, and AI credit usage, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
+For details about orchestration, effort levels, availability, and AI credit usage, see [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) in the GitHub documentation.
 
 To use Copilot Fusion:
 

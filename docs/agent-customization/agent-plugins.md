@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find, install, and manage agent plugins from marketplaces in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -154,6 +154,8 @@ When a plugin is disabled, its skills, agents, hooks, MCP servers, slash command
 
 In the Agent Customizations editor, select **Plugins**, open the plugin's details, and select **Uninstall**.
 
+You can't uninstall a plugin required by your organization, including through its bundled skills, prompts, or other customizations.
+
 Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces
@@ -185,6 +187,22 @@ You can discover plugins from marketplaces such as [copilot-plugins](https://git
 To install a plugin from a local folder, use [Install a plugin from source](#install-a-plugin-from-source) in the Agent Customizations editor.
 
 If you're developing a plugin or need to register an existing directory without installing it, follow [local plugin registration](/docs/agents/reference/agent-plugin-reference.md#local-plugin-registration) with the Experimental `setting(chat.pluginLocations)` setting.
+
+## Use plugins in remote windows
+
+You can use plugins stored on a remote machine when you work with Remote - SSH, WSL, Dev Containers, or Remote - Tunnels. The **Copilot** harness runs in the remote environment, where it loads the plugin's custom agents, skills, and hooks.
+
+In the connected window, use the Agent Customizations editor's **Plugins** page to [view and manage installed plugins](#view-installed-plugins).
+
+To register an existing plugin directory on the remote machine without installing a copy:
+
+1. Run **Preferences: Open Remote Settings (JSON)** from the Command Palette in the remote window.
+
+1. Add `setting(chat.pluginLocations)` (Experimental) with the plugin's path on the remote filesystem. For the configuration syntax, see [local plugin registration](/docs/agents/reference/agent-plugin-reference.md#local-plugin-registration).
+
+1. Start a new chat with the **Copilot** harness and [verify the plugin's components](#verify-a-plugin-after-installation).
+
+Hooks run on the remote machine or inside the container. Install their required runtimes and tools, such as Node.js, there rather than only on your local computer.
 
 ## Update plugins
 
