@@ -46,7 +46,7 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Open <https://insiders.vscode.dev/agents> in a browser to use the {% data variables.copilot.agents_window %} from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
-By default, the {% data variables.copilot.agents_window %} requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens.
+Sign in to {% data variables.product.prodname_github %} to use {% data variables.product.prodname_copilot_short %}-backed models and access your repositories, issues, and pull requests. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens. For other authentication options, see [Open without GitHub sign-in](#open-without-github-sign-in-experimental).
 
 > [!NOTE]
 > You can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the {% data variables.copilot.agents_window %} at any time from the Command Palette or command line.
@@ -55,29 +55,29 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 If this is your first agent task, follow the [agents quickstart](/docs/agents/quickstart.md) for a complete example with recommended settings. For work in your own project, choose a task with a clear outcome and checks you can run to verify it.
 
-Start a session for a local folder, GitHub repository, or [remote workspace](/docs/agents/run/remote-agent-sessions.md). You can attach other projects, issues, and pull requests as context before you send the first prompt. For work that doesn't belong to a project, start a [quick chat](#start-a-quick-chat).
+Start a session for a local folder, GitHub repository, or [remote workspace](/docs/agents/run/remote-agent-sessions.md). You can attach files, issues, and pull requests as context before you send the first prompt. For work that doesn't belong to a project, start a [quick chat](#start-a-quick-chat).
 
 To connect to and organize remote machines in one place, use [remote environment management (Experimental)](/docs/agents/run/remote-agent-sessions.md#manage-remote-environments-experimental).
 
 For interactive work on managed compute, [start a cloud session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-session) `feature(cloud-sessions)`. The cloud environment runs the task independently of your local machine. To continue it later, [reopen the existing session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) rather than starting another task.
+![Screenshot showing the new session input with environment, workspace, and context controls.](../images/agents-window/new-session-input-2.png)
 
 To start a new agent session in the {% data variables.copilot.agents_window %}:
 
-1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`. To start directly in a specific workspace, hover over the workspace in the sessions list and select **+** (New Session).
+1. Select **New Session** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`. To start directly in a specific workspace, hover over the workspace in the sessions list and select **+** (New Session).
 
-1. Select **Folder** or **Repository** to choose the primary execution workspace for the session. The first folder or repository you select determines where the agent runs and changes files.
+1. Choose where the agent runs from the environment picker above the input. Select **This Computer** for local work. To connect through SSH or a dev tunnel, select **SSH** or **Dev Tunnels** from the same picker.
 
-    To connect through SSH or a dev tunnel, select **Remote Setup**. If the workspace isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you continue.
+1. Use the workspace picker to select a recent folder, **Open Folder**, or **Work in Repository**. The selected workspace determines where the agent runs and changes files.
+
+    If the workspace isn't trusted, review the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt before you continue.
 
 1. Optionally, attach more context to the request:
 
-    * Select **Folder** or **Repository** to attach more projects as context without adding workspace roots.
-    * Select **Add Context**, and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+    * Select **Add Context** (`+` icon), and then select **Files**, **Issue**, or **Pull Request**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
     * Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
-    ![Screenshot of the new-session input highlighting the folder name and the Create PR control.](../images/agents-window/new-session-input.png)
-
-1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. For folder isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [choose where the agent makes changes](#choose-where-an-agent-makes-changes).
+1. Choose an available agent harness, and optionally configure the agent, language model, permission level, and isolation mode. With **Branch** isolation in a local Git repository, you can also select an existing local branch to check out before the session starts. The available options depend on the workspace. Learn how to [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses) and [choose where the agent makes changes](#choose-where-an-agent-makes-changes).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
 
@@ -95,25 +95,25 @@ Code isolation controls where the agent applies file changes. The permission lev
 | Choice | Choose it for | Considerations |
 |--------|---------------|----------------|
 | **New Worktree** | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
-| **Folder** | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
+| **Branch** | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
 
 For a walkthrough with separate worktrees for two independent tasks, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
-When you [start a session](#start-an-agent-session), select **New Worktree** and choose the base branch. The base branch provides the initial contents of the new worktree and does not change the branch in your active workspace.
+When you [start a session](#start-an-agent-session) in a Git repository, select **New Worktree** from the isolation dropdown above the input and choose the base branch. The base branch provides the initial contents of the new worktree and does not change the branch in your active workspace.
 
-If you leave **New Worktree** unselected, the agent works directly in the selected folder. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
+If you select **Branch**, the agent works directly in the selected folder. For a local Git repository with at least one branch, you can select an existing local branch to check out before the agent starts. Checking out a branch changes the branch in your active workspace and requires a clean working tree. Commit or stash your changes before you select another branch. The branch selection is not remembered for later sessions.
 
 Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace. **Local** sessions also always apply changes in the active workspace.
 
-In {% data variables.product.prodname_vscode_shortname %} Insiders, `setting(sessions.useWorktree)` controls whether **New Worktree** is selected when you create your first workspace session. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers your isolation choice across workspaces and uses it instead of this setting.
+The `setting(sessions.useWorktree)` setting controls the initial isolation choice for a workspace that hasn't started a session before. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers the isolation choice for that workspace and uses it instead of this setting.
 
-![Screenshot showing the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
+![Screenshot showing the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree-2.png)
 
-Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
+Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or select **Branch** when the task depends on your current uncommitted state.
 
 Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large ignored folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes an agent makes through the symlink affect the folder in the original checkout.
 
-Worktree sessions use **Allow all** and don't offer manual approval prompts. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
+Choose a [permission level](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness for either isolation mode. Worktree isolation doesn't require **Allow all**. For operating system-level file system and network restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
 
@@ -127,7 +127,7 @@ The sessions list shows sessions across all your workspaces. You can group sessi
 
 Arrange parallel sessions in a two-dimensional grid to monitor progress and compare results. To open another session in the grid:
 
-* To keep the active session visible while you start a new session, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New**.
+* To keep the active session visible while you start a new session, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New Session**.
 * Right-click a session in the sessions list and select **Open to the Side**.
 * Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.
@@ -138,9 +138,9 @@ Drag a session to the top, bottom, left, or right edge of another session to cre
 
 Only one session pane is active at a time. Select a pane to make it active and direct the **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions to that session. Selecting another session in the list replaces an unpinned active view.
 
-Open the **Session Layout** submenu from a session header or its overflow menu. From there, you can select **Arrange Sessions in a Balanced Grid**, focus a session in a direction, move the active session, or increase or decrease its width or height. The default directional focus shortcuts are `kb(sessions.focusSessionLeft)`, `kb(sessions.focusSessionRight)`, `kb(sessions.focusSessionAbove)`, and `kb(sessions.focusSessionBelow)`.
+When multiple session panes are visible, open the **Session Layout** submenu from a session header's context menu or overflow menu. From there, you can select **Arrange Sessions in a Balanced Grid**, focus a session in a direction, move the active session, or increase or decrease its width or height. The default directional focus shortcuts are `kb(sessions.focusSessionLeft)`, `kb(sessions.focusSessionRight)`, `kb(sessions.focusSessionAbove)`, and `kb(sessions.focusSessionBelow)`.
 
-Use **Maximize** in the session header to expand the active session, and use **Restore** to return to the grid. These actions are separate from the **Session Layout** submenu.
+Use **Maximize** in the session header menu to expand the active session, and use **Restore Size** to return to the grid. These actions are separate from the **Session Layout** submenu.
 
 Press `kb(sessions.closeAllSessions)` while a session has focus to close all visible panes and return to the new-session view. This action does not delete or archive the sessions.
 
@@ -202,7 +202,7 @@ The following parts of the window update when the active session changes:
 |------|--------------------------------------|
 | **Chat** | The conversation history and prompt input. |
 | **Files** | The files in the session's workspace folder or worktree. This view includes all workspace files, not only files changed by the agent. |
-| **Changes** | The changes and Git actions for the session. Use the dropdown to choose the branch changes, uncommitted changes, all changes, or changes from the last agent turn. |
+| **Changes** | The changes and Git actions for the session. Use the dropdown to choose **Branch**, **Uncommitted**, **Session**, or **Last Turn** changes. |
 | **Terminal and Tasks** | Commands and tasks that run in the session's workspace folder or worktree. |
 | **Browser** | Browser tabs and page state that belong to the session. |
 
@@ -212,13 +212,11 @@ The following parts of the window update when the active session changes:
 
 ### Open without GitHub sign-in (Experimental)
 
-On desktop, you can open the {% data variables.copilot.agents_window %} without signing in to GitHub when at least one of these options is available:
+On desktop, use one of the following options to run agent sessions without signing in to GitHub:
 
 * Claude configured with an API key or another supported Claude BYOK option.
 * Codex signed in to ChatGPT.
 * A visible BYOK model configured in {% data variables.product.prodname_vscode_shortname %}. Enable `setting(chat.agentHost.byokModels.enabled)` to make BYOK models available in the {% data variables.copilot.agents_window %}.
-
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
 
 To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the {% data variables.copilot.agents_window %}, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
@@ -226,7 +224,7 @@ While you're signed out of GitHub, the model picker only shows models from provi
 
 When {% data variables.product.prodname_vscode_shortname %} discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
 
-If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the {% data variables.copilot.agents_window %} shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
+If you haven't configured a provider, the {% data variables.copilot.agents_window %} offers **Add Models** and **Sign In**. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based {% data variables.copilot.agents_window %} always requires GitHub sign-in.
 
 ### Run a session in a Dev Container
 
@@ -242,11 +240,11 @@ Before you start, make sure that:
 
 To run a session in a Dev Container:
 
-1. Select **New** at the top of the sidebar.
+1. Select **New Session** at the top of the sidebar.
 
 1. In the workspace picker, expand the menu for an eligible local folder or a folder on a configured SSH, Tunnel, or WSL host, and select **Use Dev Container**.
 
-    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use Local** for a local folder or **Use Remote Host** for a remote folder.
+    The workspace label gains the **- Dev Container** suffix. To switch back before you start the session, expand the folder menu again and select **Use This Computer** for a local folder or **Use Remote Host** for a remote folder.
 
 1. Choose an available agent harness, configure the session, and enter your prompt.
 
@@ -276,7 +274,7 @@ To start a session from a pull request:
 
     The new session opens with the pull request title. Use the chat to ask questions about the pull request or enter a prompt to make more changes. The **Changes** view shows the pull request changes.
 
-1. Review and validate the changes, then select **Commit Changes** and **Sync Changes** in the title bar.
+1. Review and validate the changes. In **Changes**, select **Uncommitted** from the changeset dropdown, and then select **Commit**. Select **Sync Changes** in the title bar to update the pull request branch.
 
     **Sync Changes** updates the pull request branch on GitHub, so the existing pull request includes your commits.
 
@@ -339,7 +337,7 @@ When an agent finishes a task, make the session active to inspect its workspace 
 
 ### Inspect workspace files and changes
 
-Select **Files** to browse the active session's workspace folder or worktree. Select **Changes** to review branch changes, uncommitted changes, all changes, or changes from the last agent turn. Open a changed file to inspect its diff or leave range-based feedback for the agent.
+Select **Files** to browse the active session's workspace folder or worktree. Select **Changes**, and then use the dropdown to choose **Branch**, **Uncommitted**, **Session**, or **Last Turn** changes. Open a changed file to inspect its diff or leave range-based feedback for the agent.
 
 ![Screenshot showing the Changes panel in the {% data variables.copilot.agents_window %}, with the Files and Changes views visible.](../images/agents-window/agents-window-changes.png)
 
@@ -349,17 +347,17 @@ For complete instructions about feedback, revisions, checkpoints, and integratin
 
 Use the [integrated browser](/docs/debugtest/integrated-browser.md) to validate web applications in the active session. On desktop, opening a regular `.html` file in the active session opens it in the integrated browser by default. HTML diffs continue to open in the diff editor so you can review changes. You can also select a `localhost` link from the chat or terminal, right-click a file in **Files** and select **Open in Integrated Browser**, or run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Browser tabs and page state belong to the session where you open them. Learn how agents can [use browser tools](/docs/agents/run/browser-tools.md) to inspect and interact with a web page.
 
-To run a workspace task, select **Tasks** > **Add Task**, and then provide its name, command, run options, and save location. Run configured tasks from the **Tasks** dropdown. To run an ad hoc command in the active session's folder or worktree, select **Open Terminal** in the title bar.
+To run a workspace task, select **More Tasks** in the title bar, and then select **Add Task**. Provide its name, command, run options, and save location. Run configured tasks from the same menu. To run an ad hoc command in the active session's folder or worktree, select **Terminal** in the session activity bar.
 
 ### Commit changes
 
-If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
+If the active session has uncommitted changes, open **Changes**, select **Uncommitted** from the changeset dropdown, and then select **Commit**. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. The available Git actions depend on the session type.
 
 ### Create a pull request
 
 If the session doesn't already have a pull request, use the **Create PR** form to review the details and choose what happens after creation:
 
-1. Open the **Changes** view, and then select **Create PR**.
+1. Select **Create PR** in the title bar.
 
     The form opens while {% data variables.product.prodname_vscode_shortname %} generates a title and description. You can edit these fields without waiting for generation to finish.
 
@@ -372,7 +370,7 @@ If the session doesn't already have a pull request, use the **Create PR** form t
     * **Merge Manually**: merge the pull request yourself when it is ready.
     * **Auto-Merge**: let GitHub merge the pull request when required checks and approvals pass.
         * **Merge method**: select **Squash**, **Merge Commit**, or **Rebase**.
-    * **{% data variables.copilot.agent_merge_caps %}**: have {% data variables.copilot.agent_merge %} monitor the pull request and ask the agent to address blockers.
+    * **{% data variables.copilot.agent_merge_caps %}** (Experimental, when available): have {% data variables.copilot.agent_merge %} monitor the pull request and ask the agent to address blockers. This option requires `setting(chat.agentMerge.enabled)` and a supported session.
         * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
         * **Merge Pull Request**: select **Off**, **If Unchanged**, or **When Ready**. **Off** leaves the pull request open, **If Unchanged** merges it only if {% data variables.copilot.agent_merge %} makes no changes, and **When Ready** merges it after required checks and approvals pass.
 
@@ -386,7 +384,7 @@ The form remembers the draft setting, merge options, {% data variables.copilot.a
 
 To have the agent create the pull request instead, open the **Pull Request Actions** menu in the **Create PR** form and select **Send Create PR Message**.
 
-This action sends the title, description, draft status, and the **Merge Manually** or **Auto-Merge** choice to the session chat, including the merge method when you select **Auto-Merge**. It does not create the pull request directly. {% data variables.copilot.agent_merge_caps %} options are not included in the message.
+This action asks the session's agent to create the pull request with the selected draft status and merge options rather than creating it directly. The agent generates its own title and description instead of using the text in the form. For **Auto-Merge**, the request includes the selected merge method.
 
 ### Finish a pull request with {% data variables.copilot.agent_merge %}
 
