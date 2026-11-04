@@ -20,6 +20,8 @@ Run the same prompt with multiple models or agent harnesses in the {% data varia
 
 Model comparison is available in Preview and only in the {% data variables.copilot.agents_window %}. It isn't available in the editor {% data variables.copilot.chat_view %}.
 
+For help deciding when to compare models, evaluating results, and trying Fusion separately, follow the [Compare and choose models guide](/docs/agents/guides/choose-a-model.md).
+
 ## Prerequisites
 
 Before you start, make sure you have:

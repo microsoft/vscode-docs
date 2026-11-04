@@ -110,6 +110,8 @@ Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasize
 
 ## Improve results and recover
 
+* [Compare and choose models](/docs/agents/guides/choose-a-model.md): start with Fusion, Auto, or an individual model, then compare results when you need more evidence. **Use your own repository with working tests.**
+
 * [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md): choose whether to steer a request, recover unwanted changes, or reset conversation context.
 
 * [Reduce AI credit usage](/docs/agents/guides/optimize-usage.md): compare model costs and results, focus context, and scope tools to reduce unnecessary usage.
