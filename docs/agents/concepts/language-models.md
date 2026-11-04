@@ -71,6 +71,12 @@ Learn how to [configure the thinking effort level](/docs/agent-customization/lan
 
 ## Choose the right model
 
+{% action-card title="Choose models for your tasks" display="sidebar" %}
+Start with Fusion, Auto, or an individual model, then evaluate results on your code.
+
+* [Compare and choose models](/docs/agents/guides/choose-a-model.md)
+{% /action-card %}
+
 Each model has different strengths. Some are optimized for speed and work well for quick edits and simple questions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. As a general guideline:
 
 * **Fast models** are best for quick code edits, boilerplate generation, and straightforward questions.
@@ -78,6 +84,8 @@ Each model has different strengths. Some are optimized for speed and work well f
 * **Large context models** work well for large codebases or long conversations where retaining more information matters.
 
 You can switch models at any time, based on your needs for a particular task. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+
+For a practical workflow, [compare and choose models for your coding tasks](/docs/agents/guides/choose-a-model.md) using Fusion, Auto, or individual models.
 
 ### Auto model selection
 

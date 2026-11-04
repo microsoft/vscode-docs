@@ -1,7 +1,7 @@
 ---
 ContentId: e0f478a1-d3e4-4d38-b312-f292b6a2c748
 DateApproved: 11/4/2026
-MetaDescription: Choose between Copilot Fusion, Auto, and individual models, then compare coding results, time, and AI credit usage on representative tasks.
+MetaDescription: Decide when to use Copilot Fusion, Auto, or an individual model, and compare models on coding tasks to balance quality, time, and cost.
 MetaSocialImage: ../images/compare-models/bake-off-results.png
 Keywords:
 - copilot
@@ -13,147 +13,170 @@ Keywords:
 
 # Compare and choose models for your coding tasks
 
-You don't need to compare every model before you start coding. Let Copilot Fusion choose models and a workflow for your task, or select an individual model when you want more control.
+Choosing the right model can be difficult when you need to balance code quality, response time, and cost. This guide helps you decide when to let {% data variables.product.prodname_copilot_short %} choose models, when to select one yourself, and when to compare results on your own code.
 
-This guide helps you choose a starting approach, try it on your own code, and evaluate the result. If you need more evidence, compare alternatives before choosing an approach for similar tasks. The goal is a reliable result at an acceptable cost, not a model leaderboard.
+## Choose your path
 
-## Prerequisites
+If you're unsure where to start, use Fusion or Auto for your next task and let it choose the model for you. Choose a different path when you need a specific capability or evidence about which model works better for your tasks.
 
-* [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
-* Open a trusted Git repository with a working development environment and tests.
-* Preserve unrelated work using your team's normal branch and commit workflow.
+<div class="card-grid">
+    <a class="card" href="/docs/agents/guides/choose-a-model#let-fusion-or-auto-choose">
+        <div>
+            <p><strong>Let Fusion or Auto choose</strong></p>
+            <p>Start coding without hand-selecting a model for each task.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agents/guides/choose-a-model#choose-an-individual-model">
+        <div>
+            <p><strong>Choose an individual model</strong></p>
+            <p>Use a particular capability or control the model and its settings.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agents/guides/choose-a-model#compare-models-on-your-code-preview">
+        <div>
+            <p><strong>Compare models side by side (Preview)</strong></p>
+            <p>Try the same task with different models, then choose based on the results.</p>
+        </div>
+    </a>
+</div>
 
-The walkthrough uses the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot) in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). Available models and Fusion tiers depend on your account and organization policies. If you prefer the {% data variables.copilot.chat_view %}, use the [separate-session comparison workflow](#compare-fusion-auto-or-models-in-separate-sessions).
+The examples use the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot). [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) first. Available models and Fusion tiers depend on your account and organization policies.
 
-## 1. Choose a starting approach
+## Let Fusion or Auto choose
 
-Start with how much control you want over model selection:
+Use this path when you want to focus on the task rather than model selection. In a new chat, select **Copilot Fusion** or **Auto** from the model picker and send your task.
 
-| Approach | Consider it when |
+* **Copilot Fusion** chooses the best model for the task. It can use one model or coordinate several, such as having one draft a solution and another review it. You receive one final response.
+
+* **Auto**, when shown, selects one model per request based on task complexity and model availability.
+
+![Screenshot of the model picker, showing the Copilot Fusion option.](../images/choose-a-model-guide/model-picker-copilot-fusion.png)
+
+Start with the recommended configuration. See [Fusion setup and effort levels](/docs/agent-customization/language-models.md#use-copilot-fusion) or [Auto configuration](/docs/agent-customization/language-models.md#use-auto-model-selection) for the available options.
+
+Review the result as you would any AI-generated change. If it meets your needs within your time and credit budget, keep using that approach. Fusion's additional model calls can use more time and AI credits. Compare alternatives if the extra work isn't helping.
+
+## Choose an individual model
+
+Use this path when you already prefer a model, need a particular capability, or want control over its configuration. Use the [current model comparison reference](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) to find candidates that fit your task:
+
+| Your task or constraint | What to look for |
 |---|---|
-| **Copilot Fusion** | You want to delegate model selection and orchestration instead of choosing a model for each step. |
-| **An individual model** | You have a known preference, need a particular capability, or want to control the model and its configuration. |
-| **Auto**, when shown | You want automatic selection of one model per request based on task complexity and availability. |
+| Routine edits or short questions | Fast responses and lower usage costs. |
+| Difficult debugging, planning, or multi-file changes | Reasoning capabilities, then verify the result on your code. |
+| Working from a screenshot or a large amount of context | Support for image input or a context window that fits the material. |
 
-Fusion is an orchestration system, not an individual model. It can use one model or coordinate multiple models, such as having one draft a solution and another review it. You receive a single final response. A substantial, well-scoped bug fix or multi-file change is a useful task for assessing whether that additional review is worth the time and [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs).
+Select the model in the model picker. Start with its recommended thinking effort rather than increasing it for every task. Learn how to [change models and configure their settings](/docs/agent-customization/language-models.md#change-the-model-for-chat).
 
-To start with Fusion, create a new chat with the {% data variables.product.prodname_copilot_short %} harness, select **Copilot Fusion** in the model picker, and choose an available effort level. **Standard** is a starting point for everyday work. Consider **High** for substantial tasks where additional model calls can be worthwhile. For setup, available tiers, and what to do if the picker shows **Auto** instead, see [Use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion).
+If two models both look suitable, use the comparison workflow below to choose based on your work rather than a general ranking.
 
-<!-- TODO: Add a screenshot showing Copilot Fusion and its available effort levels in the Agents window model picker. -->
+## Compare models on your code (Preview)
 
-For an individual model, use the [current model comparison reference](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) to shortlist a model with the capabilities you need. Start with its recommended thinking effort rather than increasing it for every task.
+Use the side by side model comparison functionality in the {% data variables.copilot.agents_window %} when you want to explore alternatives, improve an unsatisfactory result, or choose a model for a recurring task. It runs the same prompt with multiple explicit models in parallel, each in an isolated worktree.
 
-## 2. Try a representative task
+{% action-card title="Explore model comparison options" display="sidebar" %}
+Find the full setup instructions and learn how to synthesize a result from multiple attempts.
 
-Choose a bounded task you actually do, with a result you can verify. Avoid a broad request such as 'improve this application', which leaves each attempt to define a different goal.
+* [Open the model comparison reference](/docs/agents/run/compare-models.md)
+{% /action-card %}
 
-1. Define the expected behavior, constraints, and checks before asking the agent to implement anything.
-1. Run the existing tests for the affected area. Resolve setup problems and record pre-existing failures.
-1. Commit the starting code that the agent needs and record the commit. In the {% data variables.copilot.agents_window %}, select **New**, choose your repository and the {% data variables.product.prodname_copilot_short %} harness, then select **New Worktree** and the base branch.
-1. Select Fusion, Auto, or your chosen model, then send the task prompt.
+### Prepare a small task
 
-Worktrees start from committed files. Uncommitted changes, ignored configuration, and installed dependencies might be absent. Use the same project setup for every attempt. See [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) for setup requirements.
+For this walkthrough:
 
-> [!CAUTION]
-> Worktree sessions use **Allow all**, which skips tool approval prompts. A worktree separates edits, not access to your machine or network. Review [agent sandboxing](/docs/agents/run/agent-sandboxing.md) before running the task. To retain manual approvals, open an isolated worktree as a workspace and use a folder session with a supported permission level instead.
+* Open a trusted Git repository with at least one commit and a Git remote.
+* Make sure you can run the relevant tests. Resolve setup problems before comparing models.
+* Preserve unrelated work and commit the starting code. Worktrees don't include your uncommitted changes. See [worktree requirements](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
-For example, use the following brief if your project has a paginated issues API with an existing title filter. Adapt the behavior and test commands to your project before sending it. Don't ask the agent to create a new API to fit the example.
+Choose a bounded task with a result you can check. For example, if your app has a profile form:
 
 ```prompt
-Fix the issues-list API so the optional q title filter runs before
-pagination. Match titles without regard to case and trim the query.
-Missing, empty, or whitespace-only q must preserve unfiltered behavior.
-The existing total field must count all matches, not just the page.
-A query with no matches must return an empty list and total of zero.
-
-Preserve response fields, ordering, page numbering, page size, and
-existing validation. Reuse the current implementation and test framework.
-Don't add dependencies or change unrelated endpoints.
-
-Add regression tests with enough matching records to span multiple pages.
-Cover trimmed and mixed-case queries, empty queries, no matches, and
-the absence of gaps or duplicates across pages.
-
-Run <targeted-test-command> and <related-test-command>.
-Report the commands and results, including checks that couldn't run.
+Require a display name of 1 to 50 characters in the profile form.
+Reject whitespace-only names and show an inline validation error.
+Preserve the existing styling and behavior of other fields.
+Add tests for valid, empty, whitespace-only, and overlong names.
+Run <test-command> and report the results, including anything you couldn't verify.
 ```
 
-Replace the command placeholders with your project's actual commands. Keep this brief and the starting commit if you decide to compare alternatives later.
+Replace the example with a task from your project and its actual test command. Keep the prompt, starting commit, harness, project instructions, tools, and permissions the same for each attempt. Start with two or three models, not the entire catalog.
 
-## 3. Evaluate the result
+Each attempt and optional judge evaluation uses models and adds to your usage.
 
-Evaluate the implementation, not how confident or detailed the final message sounds. Use the following scorecard for your first run and each alternative:
+> [!CAUTION]
+> Check the session's permissions before launching. **Allow all** skips tool approval prompts. Worktrees separate file changes, not access to your machine or network. Review [agent sandboxing](/docs/agents/run/agent-sandboxing.md) before running a comparison.
 
-| Check | Record for each run |
+### Run the comparison
+
+1. In the {% data variables.copilot.agents_window %}, select **New**, choose your repository and the {% data variables.product.prodname_copilot_short %} harness, then open the model picker and select **Compare Models**.
+
+    ![Screenshot showing the model picker with the Compare Models option selected.](../images/compare-models/compare-models-icon.png)
+
+1. Select two or three models. Keep their recommended configurations for your first comparison.
+
+1. To get an automated assessment, select **Configure Judge** and choose a judge model. Otherwise, compare the attempts yourself.
+
+1. Select **Done**, enter your task prompt, and select **Run N Attempts**.
+
+The attempts run concurrently. You can open each session to inspect its progress and changes. For additional setup options, including synthesis, see the [model comparison reference](/docs/agents/run/compare-models.md).
+
+### Review the results and choose
+
+If you selected a judge, it evaluates the attempts and provides a scorecard with a recommendation, validation evidence, time, and token usage. Select **Open Attempt N** to inspect a session and its changes.
+
+![Screenshot showing the judge scorecard with a recommended attempt, time and token usage, and validation evidence.](../images/compare-models/bake-off-results.png)
+
+With or without a judge, make the final decision using these checks:
+
+| Check | How to decide |
 |---|---|
-| Correctness | Which acceptance criteria pass or fail, based on observable behavior. |
-| Validation | Test commands, actual results, skipped checks, and missing evidence. |
-| Scope and maintainability | Unrelated changes, unnecessary dependencies, and whether the code follows project conventions. |
-| Time | Initial run duration and total time until the result is acceptable, including your review and corrections. |
-| Human rework | Follow-up prompts, manual edits, and unresolved problems. |
-| Usage | Reported AI credits and tokens, including follow-up requests. Mark unavailable measurements as unknown. |
+| Correctness | Review the changes and run the relevant tests in the attempt's worktree. Reject results that miss the task's requirements, even if they are faster or cheaper. |
+| Maintainability | Prefer focused changes that follow your project's conventions and don't require unrelated dependencies or edits. |
+| Time and effort | Include your review, follow-up prompts, and manual corrections, not only the initial response time. |
+| Cost | [Check reported AI credit usage](#check-credit-usage), including follow-ups. Account for judge usage separately as comparison overhead. |
 
-For the API example, inspect the regression tests. Use enough matching records to check more than one page, verify that `total` includes every match, and check that unfiltered requests still behave as before. Run the relevant tests in the attempt's worktree, not your original checkout. A check that couldn't run is not a pass.
+The judge's recommendation isn't proof of correctness.
 
-To record usage, [inspect request and session credit consumption](/docs/agents/guides/optimize-usage.md#monitor-your-usage). A short response or low token count alone doesn't establish a lower credit cost. Model prices, token types, and caching affect usage.
+#### Check credit usage
 
-If the result meets your quality threshold within your time and credit budget, continue with it. You don't need a comparison to justify that choice. Before changing models for a poor result, check whether the task, context, or environment was incomplete.
+Open an attempt's chat session to inspect its reported usage:
 
-## 4. Compare alternatives when you need more evidence
+* **Per request:** hover over a chat response to see that turn's credit consumption.
 
-Comparison is useful when a result misses your requirements, you want to explore alternatives, or a recurring task makes the evaluation effort worthwhile. Start with two or three candidates rather than running every available model.
+* **Per session:** select the context window control in the chat input. The **Session Info** popover shows the total reported credits under **Session Cost**.
 
-Keep the prompt, starting commit, harness, project instructions, tools, permissions, and environment consistent. Start fresh sessions without earlier attempts' conversation history. Record each model's effort and context configuration. The same effort label doesn't imply an equivalent reasoning budget across models.
+Compare each attempt's session total after any follow-up corrections. Account for the judge's session usage separately as comparison overhead, rather than adding it to one candidate's cost.
 
-If you need to keep manual approvals, use separate folder sessions for every candidate rather than the built-in comparison.
+Token totals, including those in the judge's scorecard, can be incomplete and aren't AI credit costs. If credit usage isn't shown, treat it as unknown, not zero. For monthly usage details, see [Monitor your usage](/docs/agents/guides/optimize-usage.md#monitor-your-usage).
 
-If you change harnesses as well as models, you're comparing complete agent setups, not isolating a model difference.
-
-### Compare explicit models in the {% data variables.copilot.agents_window %}
-
-Use [model comparison (Preview)](/docs/agents/run/compare-models.md) to run the same prompt with explicit models in isolated worktrees. Repository comparisons require at least one commit and a Git remote.
-
-1. Start a new repository session, open the model picker, and select **Compare Models**.
-1. Choose two or three models available to the {% data variables.product.prodname_copilot_short %} harness. Optionally configure a judge before launching.
-1. Select **Done**, send the unchanged task brief, and select **Run N Attempts**.
-1. Inspect each attempt's changes and complete the same scorecard.
-
-![Screenshot showing the model picker with the Compare Models option selected.](../images/compare-models/compare-models-icon.png)
-
-The optional judge provides a recommendation and validation evidence. Treat that recommendation as advice, not proof of correctness. Its scorecard reports time and tokens, which can be incomplete, not AI credit costs. Judge evaluation also uses models, so account for it separately from the implementation attempts.
+Open the attempt that meets your requirements and continue there. Before keeping its implementation, [review and integrate the worktree changes](/docs/agents/run/review-code-edits.md). Selecting a result doesn't merge it into your original working tree.
 
 ### Compare Fusion, Auto, or models in separate sessions
 
-**Compare Models** doesn't offer Fusion or Auto. Evaluate them as separate sessions using the same task and scorecard:
+**Compare Models** doesn't offer Fusion or Auto and isn't available in the {% data variables.copilot.chat_view %}. Use separate sessions for those comparisons. This is also an alternative when you need manual approvals that your worktree session doesn't offer.
 
-1. Create a fresh session in another worktree from the original base branch and commit, not from an earlier attempt's changes.
-1. Keep the same {% data variables.product.prodname_copilot_short %} harness, instructions, tools, and environment. Select **Copilot Fusion**, **Auto**, or an individual model, and record its configuration.
-1. Send the unchanged brief without including earlier answers or corrections.
-1. Review and verify the result independently. Include orchestration and any follow-up requests in its total time and usage.
+<details>
+<summary>Compare using separate sessions</summary>
 
-For the {% data variables.copilot.chat_view %}, open each worktree as its own workspace before starting a fresh chat. If comparison isn't available, this separate-session workflow also works for explicit models.
+1. Create separate worktrees from the same starting commit. Don't start a candidate from another attempt's changes.
+1. Open each worktree as its own workspace and start a fresh chat. For manual approvals, use folder sessions with a supported permission level.
+1. Keep the same harness, instructions, tools, permissions, and project setup. Select Fusion, Auto, or an individual model, and note its configuration.
+1. Send the same prompt without including other attempts' answers. Apply the [same review checks](#review-the-results-and-choose) to every result.
 
-Fusion can use different models and workflows across requests. Compare its end-to-end result with the explicit-model attempts rather than attributing it to a single underlying model.
+Compare Fusion's complete result and usage, not an assumed underlying model. If you change harnesses too, you're comparing complete agent setups rather than only models.
 
-Repeat promising candidates more than once because outputs vary. Use the same retry policy for each candidate and record every correction. A single successful run isn't evidence of consistent performance, and one task doesn't establish the best choice for every kind of work.
+</details>
 
-## 5. Keep a practical selection strategy
+## Decide what to use next
 
-Choose the option that consistently meets your quality threshold within your time and credit budget. Don't choose a faster or cheaper result that fails required behavior, and don't pay for extra reasoning when it doesn't improve the outcome.
+* **The result works for you:** keep the model or automatic selection approach for similar tasks. No further comparison is required.
 
-Record a small decision table based on your observations:
+* **The result misses your requirements:** check the prompt, context, and project setup before changing models. Use [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md) to choose a recovery action.
 
-| Your task type | Preferred option and configuration | Evidence and limits |
-|---|---|---|
-| Routine edits | Record Fusion, Auto, or an explicit model and effort. | Note correctness, review time, and usage across repeated runs. |
-| Difficult bug fixes | Record the choice that resolves representative bugs reliably. | Note regression coverage and how much correction was needed. |
-| Multi-file changes | Record the choice that preserves constraints across files. | Note scope discipline, integration checks, and total time and usage. |
+* **You're choosing for recurring work:** try the promising option on another representative task before treating it as your default. One successful attempt doesn't establish the best model for every task.
 
-Fusion is worth keeping when delegating model selection and review meets your requirements with less manual coordination. An explicit model is worth keeping when its control, capability, or measured results better fit the task. Neither choice removes the need to review and validate the changes.
-
-When you're ready to keep an implementation, follow the [agent change review and worktree integration workflow](/docs/agents/run/review-code-edits.md). Revisit your preferences when models, pricing, or your workload change.
+Revisit your choice when your work, available models, or pricing changes.
 
 ## Related resources
 
-* [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md)
+* [Understand language models](/docs/agents/concepts/language-models.md)
 * [Find prompt examples](/docs/agents/guides/prompt-examples.md)

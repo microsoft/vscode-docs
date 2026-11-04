@@ -83,7 +83,8 @@
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Move from Local to Copilot", "/docs/agents/run/move-to-copilot"],
-                    ["Compare Model Results", "/docs/agents/run/compare-models"]
+                    ["Compare Models Side by Side", "/docs/agents/run/compare-models"],
+                    ["Guide: Choose the Right Model", "/docs/agents/guides/choose-a-model", { "secondary": true }]
                 ]
             }],
 
@@ -126,15 +127,15 @@
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                     ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
                     ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
-                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
-                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Compare and Choose Models", "/docs/agents/guides/choose-a-model"],
                     ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                     ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
+                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
+                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
                     ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
-                    ["Compare and Choose Models", "/docs/agents/guides/choose-a-model"],
                     ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
                 ]
