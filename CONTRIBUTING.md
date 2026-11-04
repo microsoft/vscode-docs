@@ -648,7 +648,7 @@ Press `kb(workbench.action.files.openFile)` to open a file.
 ```
 
 > [!TIP]
-> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/configure/keybindings#_default-keyboard-shortcuts).
+> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/reference/default-keybindings).
 
 **For multiple key bindings, use a table:**
 
