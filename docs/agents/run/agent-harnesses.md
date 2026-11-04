@@ -144,7 +144,7 @@ When both options are available, the model picker groups models by **Anthropic**
 
 To use Claude without signing in to GitHub _(Experimental)_, configure a Claude API key or another supported Claude BYOK option. For an Anthropic API key, set `ANTHROPIC_API_KEY` in your environment or in the `env` object in `~/.claude/settings.json`. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
 
-Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the {% data variables.copilot.agents_window %} while signed out of GitHub. The model picker only shows models from your Claude BYOK configuration until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
+With your BYOK credentials configured, open the {% data variables.copilot.agents_window %} while signed out of {% data variables.product.prodname_github %}. The model picker only shows models from your {% data variables.product.prodname_anthropic_claude_short %} BYOK configuration until you sign in. After you sign in to {% data variables.product.prodname_github %}, {% data variables.product.prodname_copilot_short %}-routed models are also available.
 
 See [Claude permission modes](/docs/agents/run/approvals.md#claude-permission-modes) for approval behavior and related cautions.
 
@@ -175,7 +175,7 @@ Choose one of these access options for the Agent Host integration:
 
 When both accounts are signed in, the model picker groups models by **Copilot** and **ChatGPT**. Your selection determines which account provides model access, and {% data variables.product.prodname_vscode_shortname %} saves that provider with the session.
 
-To use Codex without signing in to GitHub _(Experimental)_, sign in to ChatGPT and enable `setting(chat.agentHost.allowSignedOutWhenUsable)`. The {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out. Copilot-backed models prompt you to sign in to GitHub, and the browser-based {% data variables.copilot.agents_window %} still requires GitHub sign-in.
+To use {% data variables.product.prodname_openai_codex_short %} without signing in to {% data variables.product.prodname_github %} _(Experimental)_, configure the Agent Host integration and sign in to ChatGPT as described above. The {% data variables.copilot.agents_window %} then shows ChatGPT-backed models while signed out of {% data variables.product.prodname_github %}. {% data variables.product.prodname_copilot_short %}-backed models prompt you to sign in to {% data variables.product.prodname_github %}, and the browser-based {% data variables.copilot.agents_window %} still requires {% data variables.product.prodname_github %} sign-in.
 
 See [Codex approval presets](/docs/agents/run/approvals.md#codex-approval-presets) for approval behavior and related cautions.
 
