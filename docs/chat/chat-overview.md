@@ -1,13 +1,13 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, navigate a conversation, and personalize the chat display. For an introduction to AI workflows, agents, and the available interfaces, see [Build with AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
+This article describes interaction mechanics shared by chat surfaces in {% data variables.product.prodname_vscode_shortname %}, including how to send and steer requests, add context, generate and edit images, navigate a conversation, and personalize the chat display. For an introduction to AI workflows, agents, and the available interfaces, see [Build with AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -18,7 +18,7 @@ Follow a hands-on tutorial to build an app with AI agents in {% data variables.p
 
 ## Choose where to chat
 
-The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Run agents](/docs/agents/run/overview.md#choose-an-interface).
+The interaction mechanics in this article apply to the {% data variables.copilot.chat_view %}, chat editor tabs, and the {% data variables.copilot.agents_window %}. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. To choose between collaborating over code in your current workspace and coordinating work across projects, see [Choose how you work](/docs/agents/overview.md#choose-how-you-work).
 
 For lightweight interactions, use [inline chat](/docs/chat/inline-chat.md) to edit code or get terminal suggestions in place, or open [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) for a temporary conversation.
 
@@ -94,6 +94,34 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
+## Generate and edit images (Experimental)
+
+Generate illustrations, UI mockups, or other image assets directly in chat. In a [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md) session, the agent uses a dedicated image-generation model, separate from the language model selected for the conversation.
+
+1. Verify that `setting(chat.copilot.imageGeneration.model)` is set to an image-generation model.
+
+1. Ask the agent to generate an image. Describe the subject, style, and intended use. For example:
+
+    ```prompt
+    Generate a wide mountain landscape illustration for my app's welcome screen. Use muted colors and leave space for a heading on the left.
+    ```
+
+1. Review the result and send a follow-up request to edit it:
+
+    ```prompt
+    Make it nighttime and add a few stars, keeping the space for the heading.
+    ```
+
+1. Select **Save** next to the image in chat to download it to your device.
+
+To edit an existing image, [attach the image as context](/docs/chat/copilot-chat-context.md#vision) and describe the changes. You can also ask for multiple images, such as three variations of an illustration with different color palettes.
+
+Image generation requires access to the image model and follows [tool permission controls](/docs/agents/run/approvals.md). Prompts and selected reference images are sent to the image model. Generation and editing use [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) in addition to those used by the conversation model. Check the model setting for current rates, and expand an image-generation tool call to review its AI-credit usage, duration, and input and output usage.
+
+To request a visible 'Made with AI' label on generated or edited images, turn on `setting(chat.copilot.imageGeneration.watermark)`. This setting defaults to `false` and applies to new and existing {% data variables.product.prodname_copilot_short %} sessions without turning image generation on. The image model generates the label, so it isn't guaranteed. Turning the setting off doesn't remove existing labels from reference images.
+
+To turn off image generation, set `setting(chat.copilot.imageGeneration.model)` to **Off**. This prevents future image-generation tool calls, but doesn't prevent the agent from creating SVGs or other graphics by writing code.
+
 ## Image carousel
 
 You can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
@@ -104,11 +132,13 @@ To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `fal
 
 ## Review and manage changes
 
-After the AI changes files, review and validate the result before you commit or integrate it. In the {% data variables.copilot.chat_view %}, select a changed file in the response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel.
+After the AI changes files, review and validate the result before you commit or integrate it. In a {% data variables.product.prodname_copilot_short %} harness session in the editor window, expand the working set `feature(editor-working-set)` above the chat input to review tracked edits and use **Keep** or **Undo**. This works without Git, but doesn't list edits made through terminal commands. **Keep** clears pending review for edits that are already saved.
+
+You can also select a changed file in a response to open its diff. In the {% data variables.copilot.agents_window %}, use the **Changes** panel instead of the editor working set. Review controls depend on the harness and interface.
 
 For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer](/docs/configure/accessibility/accessibility.md#diff-editor-accessibility).
 
-For instructions about requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For harness-specific review controls, requesting revisions, restoring checkpoints, and integrating folder or worktree changes, see [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
 
@@ -188,6 +218,21 @@ For an image background, run **Chat: Change Background Layout...** to repeat, st
 > Light and dark color themes have separate backgrounds and image layouts. These choices are stored on the current machine and don't sync across devices.
 
 Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
+
+#### Generate a chat background (Experimental)
+
+Generate a background from a text description instead of finding an image yourself. [Configure image generation](#generate-and-edit-images-experimental) and keep `setting(chat.agentSessions.appearanceTools.enabled)` turned on.
+
+In a [Copilot harness](/docs/agents/run/agent-harnesses.md) session in the {% data variables.copilot.agents_window %}, ask the agent to generate an image and apply it as your chat background. For example:
+
+```prompt
+Generate a subtle mountain landscape and set it as my chat background.
+```
+
+If you don't specify colors, the agent uses your current theme as guidance and aims to keep chat messages readable. Explicit colors and design preferences in your prompt take precedence over the theme.
+
+> [!NOTE]
+> Image generation requires access to the selected model and uses [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) in addition to those used by the conversation model. This workflow isn't available in the browser version of the {% data variables.copilot.agents_window %}.
 
 ## Get better responses
 

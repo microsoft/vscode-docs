@@ -1,13 +1,12 @@
 ---
 ContentId: 76a5b461-bcbd-474f-9638-d4533c51a4e3
-DateApproved: 10/21/2026
-FeatureStatus: automations
-MetaDescription: Create, schedule, and manage local and cloud agent automations in the {% data variables.copilot.agents_window %}, including reusable templates.
+DateApproved: 10/28/2026
+MetaDescription: Automate routine agent tasks locally or in GitHub from the {% data variables.copilot.agents_window %}, with schedules, repository triggers, and run history.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 ---
 # Create and manage agent automations
 
-Automations run agent tasks from a saved prompt, session configuration, and schedule. Use them for work such as summarizing repository changes or triaging issues without starting each session manually. Run an automation on demand or on a recurring schedule. You can also start from a template or share an automation as a reusable file.
+Automations run agent tasks from a saved prompt and session configuration. Use them for work such as summarizing repository changes or triaging issues without starting each session manually. Run an automation on demand, on a recurring schedule, or, for cloud automations, in response to supported repository events. You can also start from a template or share an automation as a reusable file.
 
 Run an automation locally when the task needs your development environment. Run it in GitHub's cloud `feature(cloud-automations)` when you want recurring repository work to continue while {% data variables.product.prodname_vscode_shortname %} and your computer are off.
 
@@ -16,22 +15,35 @@ This article explains how to choose between local and cloud automations, and how
 ## Prerequisites
 
 * Set up and open the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#prerequisites) with an available agent.
-* Enable `setting(chat.automations.enabled)` in the Settings editor.
-* To use cloud automations `feature(cloud-automations)`, also enable `setting(chat.automations.cloud.enabled)`.
+* For cloud automations `feature(cloud-automations)`, sign in with a GitHub.com account that has write access to an eligible private repository. Your Copilot plan and organization must allow automations. See [GitHub automation availability and permissions](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#availability-and-permissions).
 
-Automations are rolling out gradually. The setting is off by default on Stable and on by default in Insiders. If **Automations** isn't visible in the sidebar, check that the setting is enabled.
+Automations and cloud automation management are on by default. If **Automations** isn't visible in the sidebar, check that `setting(chat.automations.enabled)` is on. If **Run in the Cloud** isn't available in the creation form, also check `setting(chat.automations.cloud.enabled)`. Turning on these settings doesn't grant access to the GitHub service.
 
 ## Choose where an automation runs
 
-Local automations run with an agent on your computer and can use your local workspace and development environment. Keep the computer awake and the agent available for scheduled runs.
+You can choose to run an automation locally or in the cloud based on your needs:
 
-Cloud automations run remotely in GitHub and continue when you close {% data variables.product.prodname_vscode_shortname %} or turn off your computer. Use a cloud automation for unattended work in an eligible private repository on GitHub.com. GitHub service plans, permissions, repository visibility, billing, security, and supported triggers can change independently of {% data variables.product.prodname_vscode_shortname %}. Review [About GitHub Copilot coding agent automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations) before enabling unattended runs.
+| Option | Choose it when | Execution requirements |
+|--------|----------------|------------------------|
+| **Local** | The task needs your local workspace, tools, or development environment. | Keep your computer awake and the agent available for scheduled runs. |
+| **Cloud** | You want unattended repository work on a schedule or in response to supported issue and pull request events. | Runs on GitHub, even when your computer is off. Requires an eligible repository and service access. |
 
-## Create a local automation
+GitHub service plans, permissions, billing, security, and supported triggers can change independently of {% data variables.product.prodname_vscode_shortname %}. Review [{% data variables.product.prodname_copilot %} automations](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations) before enabling unattended cloud runs.
+
+Automations start a run when a trigger fires. They are different from [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md), where you start an interactive task and reopen the same session to continue it. Creating a cloud session doesn't create an automation or schedule.
+
+## Create an automation
+
+Choose local or cloud execution:
+
+{% tabs id="automation-execution" %}
+{% tab label="Local" %}
 
 1. In the {% data variables.copilot.agents_window %} sidebar, select **Automations**.
 
-1. Select **Create Automation**, or [start from a template](#start-from-a-template) to fill in a starting prompt and schedule.
+1. Create a new automation or select one of the [starter templates](#start-from-a-template). Starting from a template prepopulates the prompt and schedule fields.
+
+1. Leave **Run in the Cloud** off.
 
 1. Enter a descriptive **Name** and a **Prompt**. Specify the task, its scope, and the output you expect. For example:
 
@@ -44,36 +56,84 @@ Cloud automations run remotely in GitHub and continue when you close {% data var
 
     If you start with a template, review and adapt its prompt before saving.
 
-1. Choose the workspace where the agent should work, or **No workspace** for a task that doesn't need project files. The available agents depend on this choice.
+1. Choose the workspace where the agent should work, or **Chat** for a task that doesn't need project files. The available agents depend on this choice.
 
-1. Choose an available agent and review **Session configuration**, including the model and permission options. For a Git workspace, you can select **New Worktree** and a base branch when the agent supports isolation. Learn how to [choose an agent and code isolation](/docs/agents/run/agent-harnesses.md).
+1. Choose an available agent and review other configuration options like the model and permissions. For a Git workspace, you can select **New Worktree** and a base branch when the agent supports isolation. Learn how to [choose an agent and code isolation](/docs/agents/run/agent-harnesses.md).
 
-1. Set **Schedule** to **Manual** to check the task before making it recurring, and then select **Create**.
+1. Configure the **Trigger** to specify when the automation should run.
+
+    You can choose between **Manual** or a [recurring schedule](#set-a-recurring-schedule).
+
+1. Optionally, in the advanced settings, enable or disable the use of customizations.
+
+1. Review your automation settings, and then select **Create**.
 
 ![Screenshot showing the automation creation form with the prompt, workspace, session configuration, and schedule controls.](../images/automations/automation-creation-form.png)
 
 > [!CAUTION]
 > An automation can read files, run commands, and make changes according to its agent's permissions. Review the [permission level](/docs/agents/run/approvals.md#permission-levels) before scheduling unattended work. Saving an automation doesn't bypass organization policies or guarantee that future runs won't need your approval.
 
-## Create a cloud automation
+{% /tab %}
+{% tab label="Cloud" %}
 
 `feature(cloud-automations)`
 
-1. In the {% data variables.copilot.agents_window %} sidebar, select **Automations**, and then select **Create Automation**.
+1. In the {% data variables.copilot.agents_window %} sidebar, select **Automations**.
 
-1. For the workspace, select a local clone of a GitHub.com repository. To choose a repository that isn't open locally, select **Work in GitHub**, and then select the repository.
+1. Create a new automation or select one of the [starter templates](#start-from-a-template). Starting from a template prepopulates the prompt and schedule fields.
 
-1. Select **Cloud** as the session type.
+1. Turn on **Run in the Cloud**.
 
-1. Enter a descriptive **Name** and **Prompt**. Make the task, scope, expected output, and safety constraints explicit.
+1. Choose an eligible private GitHub.com repository in the workspace picker. You can use a local clone or select a repository without cloning it to your machine. Public repositories aren't supported.
 
-1. Select the model and review the allowed tools. Grant only the tools that the unattended task needs.
+1. Enter a descriptive **Name** and **Prompt**. Make the task, scope, expected output, and safety constraints explicit. For example, name the automation 'Daily repository summary' and use:
 
-1. Set the schedule to **Manual**, **Hourly**, **Daily**, or **Weekly**. Start with **Manual** so that you can review the first run before enabling a recurring schedule.
+    ```prompt
+    Summarize commits merged into the default branch in the last 24 hours.
+    Group them by feature, fix, and maintenance work.
+    Include commit references and flag changes that might need documentation.
+    Return the summary in the session. Do not modify files, open pull requests,
+    or change issues.
+    ```
 
-1. Review the configuration, and then select **Create**.
+1. Select an available model.
+
+1. In **Tools**, select **Configure allowed tools** to choose which tools the automation can use. No tools are selected by default. Grant only the tools the task needs. For the summary example, allow repository-reading tools and leave tools that change files, issues, or pull requests off.
+
+1. Choose an **Owner**.
+
+    * **Only me**: Only you can see and edit this automation definition, and its runs act as you.
+    * **Repository**: The automation is owned by a private repository, and it runs as Copilot. Anyone with read access to the repository can see the automation definition. Anyone with write access to the repository can edit and run it.
+
+    You can't change the owner after creation. The Automations view groups personal and repository-owned automations under **Your automations** and **Shared automations**.
+
+1. Configure the **Trigger** to specify when the automation should run.
+
+    You can choose between **Manual**, a [recurring schedule](#set-a-recurring-schedule), or responding to [repository events](#run-on-repository-events) (issues or pull requests).
+
+1. Review your automation settings, and then select **Create**.
+
+For the summary example, compare the cited commits with the repository history, confirm the summary covers the requested time window, and check that no files or issues changed. After this check, [set a recurring schedule](#set-a-recurring-schedule).
+
+<!-- TODO: Capture the cloud automation form with Run in the Cloud, repository, model, tools, Owner, and Trigger controls. -->
 
 The cloud service runs the prompt in the selected repository. It doesn't use your local working tree, uncommitted changes, or local development environment.
+
+{% /tab %}
+{% /tabs %}
+
+## Create an automation from chat
+
+You can also create an automation by asking in a normal chat in the {% data variables.copilot.agents_window %}. Describe the task, where it should run, and its schedule. For example:
+
+```prompt
+Create a local automation for this workspace that runs daily at 9:00 AM.
+Summarize commits from the last 24 hours, grouped by feature, fix, and maintenance.
+Return the summary in the session. Do not modify files.
+Save the automation disabled so I can review it before enabling scheduled runs.
+```
+
+The agent creates the automation through the normal tool-approval flow. Review any approval request before allowing creation. Then open **Automations** to review the saved prompt, execution environment, schedule, and permissions before enabling scheduled runs.
 
 ## Start from a template
 
@@ -96,36 +156,73 @@ Select a run in **History** to open its session. Review the response and any cha
 
 Each run uses the selected agent and model, so account for recurring usage when choosing a schedule.
 
-For a cloud automation, the automation card and its history update while a run is active and show whether the run is queued, running, completed, or failed. Select **Refresh** to retrieve changes made on GitHub. Select **Open on GitHub** to review and manage the run on GitHub. You can't continue a cloud run as a session in {% data variables.product.prodname_vscode_shortname %}.
+For a cloud automation, the automation card and its history update while a run is active and show whether the run is queued, running, completed, or failed. Select a run to open its session in the {% data variables.copilot.agents_window %}, review its output, and send a follow-up when available. A follow-up continues that run's conversation. It doesn't update the automation's saved prompt or future triggers.
+
+Select **Refresh** to retrieve changes made on GitHub. On a run, use **Open on GitHub** to review or manage it there, or if the session isn't available in the editor yet. If a run reports **Needs input on GitHub**, open it on GitHub to respond.
 
 ## Set a recurring schedule
 
-After checking the first run, select the automation's name to edit it. Choose a **Schedule**, keep **Enabled** selected, and select **Save**.
+After checking the first run, select the automation's name to edit it. Choose a schedule from **Trigger**, keep **Enabled** selected, and select **Save**.
 
 | Schedule | When it runs |
 |---|---|
 | **Manual** | Only when you select **Run now**. |
-| **Hourly** | Every hour. |
+| **Hourly** (local only) | Every hour. |
 | **Daily** | At the selected **Time** each day. |
 | **Weekly** | At the selected **Time** on the selected **Day of week**. |
 
-Daily and weekly schedules use your local time zone.
+Daily and weekly times are displayed in your local time zone. Cloud schedules are stored in UTC. Review the saved time when your local UTC offset changes, such as after a daylight saving time change.
 
-Keep these execution requirements in mind:
+Cloud automations support **Manual**, **Daily**, and **Weekly** triggers. For daily and weekly cloud schedules, select a time with minutes set to `00`, `15`, `30`, or `45`.
+
+For local automations, keep these execution requirements in mind:
 
 * Keep the machine that runs the automation awake and its agent available. Agent Host-backed schedules require a running Agent Host process. Other schedules require a running {% data variables.product.prodname_vscode_shortname %} window. Don't assume that local automations continue after you quit the application.
 * After an interruption, a missed schedule can trigger a catch-up run. Don't rely on every missed occurrence being replayed.
 * An automation runs one session at a time. Another scheduled occurrence doesn't start a parallel run of the same automation.
 
+Cloud schedules run on GitHub rather than through your local scheduler. You can close the {% data variables.copilot.agents_window %} or turn off your computer without stopping the schedule.
+
+## Run on repository events
+
+Instead of a schedule, a cloud automation can respond to events advertised by GitHub for your account and repository:
+
+1. Create or edit a cloud automation and set **Trigger** to **Issue** or **Pull Request**, when available.
+
+1. Choose the event or pull request events to respond to. For example, respond when an issue receives a label or a pull request review is submitted. Available events depend on GitHub's trigger catalog.
+
+1. Expand **Advanced** to configure the filters available for the selected event. The fields, allowed values, and required fields depend on GitHub's trigger catalog.
+
+    | Field | Use it to |
+    |-------|-----------|
+    | **Query** | Limit which issues or pull requests match. |
+    | **Comment text** | Filter by text in the triggering comment. |
+    | **Labels added** | Match labels added to an issue or pull request. |
+    | **Assignees** | Filter by assignees associated with the event. |
+    | **Changed paths** | Limit triggering to matching file paths in a pull request. |
+    | **Review states** | Filter by pull request review states. |
+
+1. Under **Trigger activity**, select **Include activity from users without write access to this repository** to let these users trigger runs. Clear it to restrict triggers to users with write access. Repository settings can keep this option cleared and unavailable, with **Disabled by your repository settings** shown. Review the [security considerations](#cloud-automation-security-and-usage) before including activity from users without write access.
+
+1. Review the prompt and allowed tools for the selected event, then save the automation with **Enabled** selected.
+
+<!-- TODO: Capture Issue and Pull Request trigger configuration with the Advanced filters and Include activity from users without write access to this repository option. -->
+
+Test with a controlled event in a repository where you can safely inspect the outcome. Event-triggered automations don't show **Run now**. To test the prompt manually first, create a separate automation with a **Manual** trigger.
+
+If an existing automation uses triggers or fields that the editor doesn't support, those trigger controls are read-only. Other supported changes preserve the triggers. Use **Open on GitHub** to manage the unsupported trigger configuration.
+
 ## Share an automation
 
-Export an automation as a `.automation.md` file to reuse it on another machine or share it with someone else. The file is readable Markdown with YAML frontmatter and contains only portable information:
+Export a local automation as a `.automation.md` file to reuse it on another machine or share it with someone else. The file is readable Markdown with YAML frontmatter and contains only portable information:
 
 * Name and prompt.
 * Manual, hourly, daily, or weekly schedule.
 * File format version and portable identifier.
 
 The file doesn't include the workspace, provider, model, permissions, enabled state, or run history. The person who imports the file chooses these options locally.
+
+Cloud automations don't offer **Export**. Manage their definitions and triggers on GitHub rather than relying on an exported `.automation.md` file to reproduce them.
 
 ### Export an automation
 
@@ -149,27 +246,46 @@ You can open the exported file in an editor to review its prompt and schedule be
 
 ## Manage an automation
 
-* **Edit**: select the automation's name, update its prompt, target, session configuration, or schedule, and select **Save**.
+* **Edit**: select the automation's name, update its supported fields, and select **Save**. A cloud automation's repository and **Owner** can't change after creation. Create another automation to use a different repository or owner, and disable the original if it should no longer run.
 * **Enable or disable future runs**: select **More Actions** > **Enable** or **Disable**. Disabling an automation doesn't stop a run already in progress.
-* **Duplicate**: select **More Actions** > **Duplicate**, review the copy in the **New Automation** dialog, and select **Create**.
-* **Stop an active run**: select **Stop** for the running session in **History**.
-* **Export**: select **More Actions** > **Export**. For more information, see [Share an automation](#share-an-automation).
+* **Duplicate**: select **More Actions** > **Duplicate**, review the copy in the **New Automation** dialog, and select **Create**. Duplicate event-triggered cloud automations on GitHub to preserve their complete configuration.
+* **Stop an active run**: select **Stop** for the run in **History** when available. This requests cancellation, not a rollback of completed actions.
+* **Export** (local only): select **More Actions** > **Export**. For more information, see [Share an automation](#share-an-automation).
+* **Open on GitHub** (cloud only): select **More Actions** > **Open on GitHub** to open the automation definition. Use this action on an individual run to open that run instead.
 * **Delete**: select **More Actions** > **Delete** and confirm. This permanently deletes the automation and its run history.
 
 For cloud automations, edit, enable, disable, and delete actions update the automation on GitHub. Disabling a cloud automation prevents future scheduled runs but doesn't stop a run in progress. Deleting it removes the cloud automation and its schedule from GitHub. Select **Refresh** after managing an automation on GitHub to update the Automations view.
 
 > [!IMPORTANT]
-> Turning off `setting(chat.automations.cloud.enabled)` hides cloud automation controls in {% data variables.product.prodname_vscode_shortname %}, but it doesn't stop schedules that are already active on GitHub. Disable or delete those cloud automations before turning off the setting.
+> Turning off `setting(chat.automations.cloud.enabled)` or `setting(chat.automations.enabled)` hides cloud automation controls in {% data variables.product.prodname_vscode_shortname %}, but it doesn't stop schedules or event triggers that are already active on GitHub. Disable or delete those cloud automations before turning off the settings.
+
+## Cloud automation security and usage
+
+Cloud automations perform unattended work with the tools you allow. Grant only the tools the task needs, use narrowly scoped prompts and event filters, and review a manual run before enabling recurring work. Don't assume that local approval or sandbox settings apply to GitHub's execution environment.
+
+An **Only me** automation is private, but its run sessions and logs can be visible to people with repository access. Don't put secrets in prompts. Use the repository's supported secret configuration and review [GitHub automation security and safety](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#security-and-safety).
+
+Scheduled runs, event-triggered runs, and follow-ups can consume service usage. Check [GitHub automation billing](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#billing) and your organization's policies before enabling frequent triggers.
+
+## Troubleshoot cloud automations
+
+| Symptom | What to check |
+|---------|---------------|
+| Cloud automation creation is unavailable | Check both automation settings, your GitHub.com account, repository write access, and service or organization eligibility. Turning on a setting doesn't grant access. |
+| A repository isn't offered | Use an eligible private GitHub.com repository. Public repositories and non-Git folders aren't cloud automation targets. |
+| A saved automation is missing | Check the signed-in account and selected repository. The view discovers automations in known repositories, not every repository in your account. Select the repository and then **Refresh**. |
+| **Run now** isn't available | Cloud automations must be enabled. Event-triggered automations run from matching events instead of **Run now**. |
+| A trigger or tool catalog doesn't load | Retry loading it and inspect the reported error. Don't replace saved tools or triggers with an empty selection to work around a load failure. |
+| A run needs input or its session won't open | Use **Open on GitHub**. If the session isn't available yet, refresh and try opening it again. |
+| Work continues after turning off an editor setting | Disable or delete the automation on GitHub. Hiding editor controls doesn't stop remote triggers or cancel an active run. |
 
 ## Cloud automation limitations
 
 Cloud automation support in {% data variables.product.prodname_vscode_shortname %} currently has these limitations:
 
-* Cloud automations are available for eligible private repositories on GitHub.com.
-* You can create automations with manual or scheduled triggers. For the full GitHub trigger model, see [About GitHub Copilot coding agent automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations).
-* Automations that use unsupported GitHub event triggers are read-only in {% data variables.product.prodname_vscode_shortname %}. Select **Open on GitHub** to manage them.
-* You can't continue a cloud run in {% data variables.product.prodname_vscode_shortname %}.
-* AI-assisted automation creation isn't available for cloud automations.
+* Available repositories, event types, filters, models, and tools depend on GitHub service support and your account's permissions.
+* A cloud automation uses the cloud model and tool configuration. It doesn't accept local mode or approval settings, custom agents, or local MCP configuration.
+* Unsupported trigger configuration must be managed on GitHub. It isn't replaced when you edit other supported fields.
 
 ## Next steps
 

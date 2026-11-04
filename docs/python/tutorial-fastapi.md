@@ -71,9 +71,7 @@ We will install FastAPI for creating the app, [uvicorn](https://www.uvicorn.org)
 
     >**Note**: This step may take a couple of minutes to complete.
 
-8. When asked for the environment type, select **Venv**:
-
-    ![Dropdown with "Venv" or "Conda" as options for environments that can be created with the Python: Create Environment command](images/environments/create_environment_dropdown.png)
+8. When asked for the environment type, select **Venv**.
 
 9. Then select the latest version of Python available on your machine:
 

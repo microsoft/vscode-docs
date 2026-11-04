@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Build and validate a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review and recover changes.
 ---
 # Quickstart: Complete your first task with an agent
@@ -98,7 +98,11 @@ The {% data variables.copilot.agents_window %} is a dedicated window for interac
 
 1. Select **New** at the top of the left sidebar to start a new agent session.
 
-    ![Screenshot of starting a new agent session in the redesigned new-session input.](images/agents-quickstart/agent-session-new.png)
+    ![Screenshot of starting a new agent session in the redesigned new-session input.](images/agents-quickstart/agent-session-new-2.png)
+
+1. Select **This Computer** from the environments dropdown. VS Code lets you connect to agents across different environments, but for this quickstart, you'll use the local environment.
+
+    ![Screenshot of selecting the local environment for the agent session.](images/agents-quickstart/agent-session-select-environment.png)
 
 1. Because the {% data variables.copilot.agents_window %} can operate across different projects, select the `agent-quickstart` folder you created earlier from the dropdown.
 
@@ -110,10 +114,10 @@ The {% data variables.copilot.agents_window %} is a dedicated window for interac
     |---------|-------|-------------------|
     | **Session Target** | **Copilot** | Selects the {% data variables.product.prodname_copilot_short %} harness and its tools and workflow for the session. |
     | **Agent** | **Agent** | Uses tools to plan, edit files, run commands, and validate the result. |
-    | **Language model** | **Auto** | Automatically selects a model based on task complexity and availability. |
+    | **Language model** | **Copilot Fusion** / **Auto** | Automatically selects a model based on task complexity and availability. |
     | **Permissions** | **Manual permissions** | Requests your approval for running tools or accessing resources. The agent can make file edits in your project folder. |
 
-    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role.png)
+    ![Screenshot of selecting the Copilot agent harness, Agent role, and Manual permissions in the redesigned new-session input.](images/agents-quickstart/agent-session-select-harness-role-2.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -226,9 +230,9 @@ The {% data variables.copilot.agents_window %} and {% data variables.copilot.cha
 
 * From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 
-* From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
+* Select **Open in Agents** in the application title bar, then select your existing {% data variables.product.prodname_copilot_short %} session from the sessions list.
 
-If you start work in {% data variables.copilot.copilot_cli %} or the {% data variables.copilot.github_copilot_app %}, you can [open and continue supported local sessions from those applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) in {% data variables.product.prodname_vscode_shortname %}. To continue a {% data variables.product.prodname_copilot_short %} session in the CLI, right-click the session and select [**Resume in Terminal**](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
+For other applications, terminal options, or access from another device, see [Continue an existing session](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session). That guide covers the supported routes and their requirements.
 
 ## Clean up resources
 

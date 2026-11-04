@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
 Keywords:
 - copilot
@@ -42,6 +42,8 @@ Each time the agent sends a request to the language model, {% data variables.pro
 * **Tool outputs**: results from file reads, terminal commands, codebase search results, and other tool calls during agent sessions.
 
 The context changes as the agent works. For example, the output of a code search can lead the agent to read a file, and that file can then inform the next model request. Information that isn't included in a request is unavailable to the model, but the agent can use tools to discover and add more information.
+
+The agent can also retrieve context from external services through [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` or other MCP tools. Connecting a service doesn't automatically load its data into the context. Results become tool output when an agent retrieves them.
 
 ## Workspace indexing
 

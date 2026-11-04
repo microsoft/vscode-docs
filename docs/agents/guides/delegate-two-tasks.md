@@ -1,6 +1,6 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
 Keywords:
 - ai
@@ -58,11 +58,11 @@ Choose where the agents can make changes before you send the prompts:
 
 | Work arrangement | Appropriate use | File isolation |
 |---|---|---|
-| Multiple chats in one session | Related questions or coordinated work that can share edits. | Chats share the session's folder or worktree, and their changes appear together. |
+| Nested sessions | Related questions or coordinated work that can share edits. | Nested sessions use the parent's folder or worktree by default. Supported nested sessions can use a different folder or a separate worktree. |
 | Separate sessions using the same folder | Read-only investigation alongside implementation, or tasks you run one at a time. | Conversations are separate, but both sessions can edit the same working files. |
 | Separate sessions, each with a new worktree | Independent implementation tasks you want to review and integrate separately. | Each task has its own working files and branch. Integration can still produce conflicts. |
 
-For this walkthrough, use **two separate sessions**, each with **New Worktree** selected. Creating another chat or forking a conversation is not a substitute for creating another worktree.
+For this walkthrough, use **two separate sessions**, each with **New Worktree** selected. Creating another chat or forking a conversation does not, by itself, create another worktree.
 
 > [!CAUTION]
 > Worktrees isolate working files, not the agent's access to your machine or external services. {% data variables.product.prodname_copilot_short %} worktree sessions use **Allow all**, which skips tool approval prompts. Use a trusted repository and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. If you require manual approvals, use folder sessions one at a time instead.

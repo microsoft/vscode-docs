@@ -1,6 +1,6 @@
 ---
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: TypeScript debugging with {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---

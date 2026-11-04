@@ -7,6 +7,7 @@ You've found the GitHub repository that contains the source for the Visual Studi
 Thank you for your interest in VS Code documentation!
 
 * [Prerequisites](#prerequisites)
+* [Agent writing hooks](#agent-writing-hooks)
 * [Quick Start](#quick-start)
 * [Contributing](#contributing)
 * [Testing Your Changes](#testing-your-changes)
@@ -22,6 +23,10 @@ Thank you for your interest in VS Code documentation!
 
 > [!IMPORTANT]
 > Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
+## Agent writing hooks
+
+The repository's hooks target the Copilot harness used by the CLI and Agents window. They use Node.js to check Markdown edits and remind agents about the writing guidelines, and run only for Copilot's editing tools: `create`, `edit`, `str_replace_editor`, and `apply_patch`. Bash and PowerShell launch the same Node.js hook on their respective platforms. If Node.js is unavailable or a hook fails, the hook reports a warning and allows the tool call. A successful check still blocks newly inserted en dashes and em dashes in Markdown.
 
 ## Prerequisites
 
@@ -136,6 +141,8 @@ Learn more about [making pull requests](https://docs.github.com/pull-requests/co
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.
 
+Use Node.js 20 or later.
+
 ```bash
 npm install
 npm run serve
@@ -148,6 +155,8 @@ This starts a local server (default `http://localhost:3000`) with:
 * Tabbed content validated and rendered with synchronized tab selections
 * Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
 * Full-text search across all content
+
+The preview uses native filesystem notifications for content, images, and preview support files. It does not scan the entire checkout or watch `node_modules` and Git metadata. Changes automatically refresh the browser. To use a different port, run `npm run serve -- --port 3001`.
 
 > [!NOTE]
 > The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.

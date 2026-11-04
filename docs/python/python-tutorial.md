@@ -98,19 +98,17 @@ Alternately, you can create a folder through the operating system UI, then use {
 
 A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in {% data variables.product.prodname_vscode_shortname %} using Venv or Anaconda with **Python: Create Environment**.
 
-Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
+Create a virtual environment by using the **Python: Create Environment** command:
 
-The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
-
-![Create Environment dropdown](images/environments/create_environment_dropdown.png)
-
-The command then presents a list of interpreters that can be used for your project. Select the interpreter you installed at the beginning of the tutorial.
-
-![Virtual environment interpreter selection](images/environments/interpreters-list.png)
+1. Open the Command Palette (`kb(workbench.action.showCommands)`).
+2. Search for and select **Python: Create Environment**.
+3. Select **Venv** to create a venv environment.
+4. Select a Python interpreter to use for the environment.
 
 After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
 
-![Create environment status notification](images/environments/create_environment_prompt_status.png)
+> [!TIP]
+> You can also create environments using the **Python** sidebar. Expand **Environment Managers** and select the **+** button for Quick Create, which uses sensible defaults.
 
 Ensure your new environment is selected by using the **Python: Select Interpreter** command from the **Command Palette**.
 

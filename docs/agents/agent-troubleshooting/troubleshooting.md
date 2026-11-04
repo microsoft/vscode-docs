@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
 Keywords:
 - ai
@@ -21,6 +21,9 @@ When chat, agents, or inline suggestions do not behave as expected, start with t
 | Chat or agents are unavailable | Check [chat and agent requirements](/docs/agents/agent-troubleshooting/faq.md#chat-features-arent-working-for-me). | Confirm your account, plan, settings, and organization policies. |
 | Inline suggestions do not appear | Check the [inline suggestion requirements](/docs/agents/agent-troubleshooting/faq.md#inline-suggestions-are-not-working-in-the-editor). | Inspect the Copilot logs if the requirements are met. |
 | Copilot cannot connect or sign in | [Collect network diagnostics](#collect-network-diagnostics). | Check your firewall, proxy, or VPN configuration. |
+| A GitHub Environment or its sessions are missing, offline, or disconnected | [Troubleshoot GitHub Environments](/docs/agents/run/remote-agent-sessions.md#troubleshoot-github-environments). | Check feature availability, account, host sharing, connection status, and session filters. |
+| A cloud session won't start or an existing cloud session is read-only | [Troubleshoot cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md#troubleshoot-cloud-sessions). | Check feature settings, service and repository access, and the environment's connection state. |
+| A cloud automation is unavailable, won't run, or continues after controls are hidden | [Troubleshoot cloud automations](/docs/agents/run/automations.md#troubleshoot-cloud-automations). | Check account and repository eligibility, trigger type, enabled state, and the automation's configuration on GitHub. |
 | Instructions are ignored | [Check customization diagnostics](#check-customization-diagnostics). | Inspect the session to verify which instructions reached the model. |
 | A file, tool, or expected step is missing from a response | [Inspect chat interactions](#inspect-chat-interactions). | Compare the session events with the request sent to the model. |
 | A response is slow or uses more tokens than expected | Open the Agent Debug Logs Summary view. | Use the Cache Explorer only if the session reports low cache reuse. |
@@ -39,20 +42,21 @@ Before you collect detailed logs:
 
 ## Check customization diagnostics
 
-Use the chat customization diagnostics view when an instructions file does not appear to apply.
+Check discovery before investigating whether the model follows an instruction:
 
-1. Open the {% data variables.copilot.chat_view %}.
-1. In the {% data variables.copilot.chat_view %}, open the context menu and select **Diagnostics**.
-1. Review the discovered instruction files and any reported errors.
+1. Select the harness and repository used by the affected session.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) and select **Instructions**.
+1. Find the instructions file and check its source, location, and any reported errors.
 
 Use the result to choose the next action:
 
-* **The file is missing**: Verify its file name, location, and the settings that control instruction discovery.
-* **The file has an error**: Fix the reported frontmatter or content error, and then reopen the diagnostics view.
-* **The file is loaded but not applied**: For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on. Also check the **References** section of the chat response to see which instructions were used.
+* **The file is missing**: Verify the harness, file name, and supported location. Confirm that the session uses the folder containing your changes, especially if you created a new worktree.
+* **The file has an error**: Fix the reported frontmatter or content error, then check discovery again.
+* **The file is discovered but not included**: Check its activation rules. For pattern-based instructions, test a file that matches `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. Alternatively, attach the instructions manually. Check **References**, where available, or inspect the request in the debug logs.
+* **The file is included but not followed**: Resolve contradictory guidance or clarify a vague rule. Repeat a representative task in a new chat and review the changes and tool activity. Inclusion alone doesn't establish compliance.
 * **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
-For file locations, applicability rules, and settings, see [Use custom instructions](/docs/agent-customization/custom-instructions.md). To verify the exact instructions sent to the model, use the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
+For file locations, activation rules, and settings, see the [Custom instructions reference](/docs/agents/reference/custom-instructions-reference.md). For a complete test procedure, see [Verify your instructions](/docs/agent-customization/custom-instructions.md#verify-your-instructions). To inspect request content and loading activity, [prepare logging](#inspect-chat-interactions) and reproduce the issue.
 
 ## Inspect chat interactions
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Understand agent harnesses, model access, execution environments, and code isolation in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -8,7 +8,7 @@ Keywords:
 - agents
 - agent harness
 - local agent
-- "{% data variables.copilot.copilot_cloud_agent_short %}"
+- cloud sessions
 - worktree
 - code isolation
 ---
@@ -84,7 +84,7 @@ The harness choice does not by itself determine where the language model runs or
 |-----------------------|---------|-----------------------|
 | **Copilot** | The {% data variables.product.prodname_copilot_short %} harness, which uses the shared runtime. | Your machine, a connected host, or a Dev Container. |
 | **Claude or Codex** | The corresponding provider harness and its provider-specific capabilities. | Your machine, or a connected host or Dev Container where the integration supports it. Check the [harness setup and capabilities](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
-| **Cloud** | The provider harness for the cloud agent that you select, such as Copilot, Claude, or Codex. | The provider's cloud infrastructure, working against a GitHub repository and returning the result through a pull request. |
+| **Cloud** | The Copilot harness in a managed cloud environment. | Managed infrastructure for [interactive cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` that you can reconnect to without keeping your own machine online. |
 
 > [!NOTE]
 > **For Local harness sessions:** The Local harness works in the current workspace through the editor's extension host. **Local** is a session-target name, not the only way to run agents on your machine. See [Local setup and capabilities](/docs/agents/run/agent-harnesses.md#local).
@@ -92,7 +92,7 @@ The harness choice does not by itself determine where the language model runs or
 > [!NOTE]
 > Claude and Codex harness integrations are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access. Selecting a Claude or OpenAI model in the Copilot harness is a separate choice and does not switch harnesses.
 
-Cloud is an execution target that groups available cloud agents, not a single provider harness. After you select Cloud, you choose an available cloud agent.
+Cloud is an execution target, not a separate harness. With cloud sessions enabled, new Cloud sessions use the Copilot harness in a managed environment. Cloud sessions currently support only this harness, even when you choose a model from another provider.
 
 ## Relate execution environments and code isolation
 
@@ -101,7 +101,7 @@ The execution environment determines where the harness runs workspace tools and 
 * **Your machine**: the harness works with a local folder or Git worktree and can access local context, such as test results and terminal output.
 * **A connected host**: the harness runs next to the source code on an SSH, Tunnel, or WSL host. Learn more about [remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
 * **A Dev Container**: the agent runs workspace tools inside the project's container and uses its configured tools and dependencies. The container can be on your machine or on a supported SSH, Tunnel, or WSL host.
-* **Cloud infrastructure**: the harness works with a GitHub repository and creates a pull request. It uses the tools and models configured in the cloud service instead of your local {% data variables.product.prodname_vscode_shortname %} environment.
+* **Cloud infrastructure**: the harness works in a managed environment rather than your local {% data variables.product.prodname_vscode_shortname %} workspace. [Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` support interactive work and reconnection.
 
 ![Diagram showing session execution options grouped by your machine, a connected SSH, Tunnel, or WSL host, and provider-managed cloud infrastructure. Both your machine and a connected host can run sessions directly on the host or inside a Dev Container.](../images/concepts/session-execution-options.svg)
 
@@ -109,13 +109,11 @@ The diagram shows where sessions work on code, not where you connect from or whe
 
 `feature(agent-host-dev-containers)`
 
-Dev Container sessions require the desktop {% data variables.copilot.agents_window %} and a host that supports Dev Container execution. Selecting a container in the workspace picker changes the execution environment, not the harness. Learn how to [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Dev Container sessions require the {% data variables.copilot.agents_window %} and a host that supports Dev Container execution. They aren't available in the browser version. Selecting a container in the workspace picker changes the execution environment, not the harness. Learn how to [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 For sessions that offer folder and worktree options, code isolation controls which working directory receives changes. Folder isolation applies edits directly to your current workspace, including its uncommitted changes. Worktree isolation gives the session a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) based on committed Git state. Dev Container sessions work directly in the container workspace and don't support **New Worktree**.
 
 A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) for operating system-level file system and network restrictions.
-
-For ongoing work, the available [handoff options](/docs/agents/concepts/sessions.md#hand-off-a-session) depend on the selected harness. From a Local harness session, you can select another harness or Cloud from the **Session Target** UI control and carry conversation history and context to the new session. Learn how to [continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 ## Related resources
 

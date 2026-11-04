@@ -3,7 +3,7 @@
   "features": {
     "agent-artifacts": {
       "label": "Agent artifacts",
-      "state": "preview"
+      "state": "experimental"
     },
     "agent-host-byok-models": {
       "label": "BYOK models in Agent Host",
@@ -33,16 +33,8 @@
       "label": "Agents window word wrap",
       "state": "experimental"
     },
-    "assisted-permissions": {
-      "label": "Assisted permissions",
-      "state": "experimental"
-    },
     "automatic-session-cleanup": {
       "label": "Automatic session cleanup",
-      "state": "preview"
-    },
-    "automations": {
-      "label": "Automations",
       "state": "preview"
     },
     "built-in-dictation": {
@@ -60,8 +52,20 @@
     },
     "cloud-automations": {
       "label": "Cloud automations",
-      "state": "experimental",
+      "state": "preview",
       "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
+    },
+    "cloud-sessions": {
+      "label": "Cloud sessions",
+      "state": "experimental"
+    },
+    "copilot-connectors": {
+      "label": "Copilot connectors",
+      "state": "preview"
+    },
+    "editor-working-set": {
+      "label": "Editor working set",
+      "state": "experimental"
     },
     "forked-skill-context": {
       "label": "Forked skill context",

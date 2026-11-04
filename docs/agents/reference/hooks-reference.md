@@ -1,6 +1,6 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Review legacy Local hook schemas when migrating to Copilot in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

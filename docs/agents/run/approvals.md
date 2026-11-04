@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 10/21/2026
+DateApproved: 10/28/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
@@ -41,13 +41,11 @@ Permission levels control how the agent handles approvals for the current chat s
 
 The levels below describe Copilot harness sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
-New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. The managed default doesn't prevent you from switching to another level that the organization allows.
+New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. If the managed default isn't available, new sessions use **Manual permissions**. The managed default doesn't prevent you from switching to another level that the organization allows.
 
 To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
 
-`feature(assisted-permissions)`
-
-Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
+Select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
 
 | Permission level | Description |
 |---|---|
@@ -55,7 +53,7 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select 
 | **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
 | **Allow all** | Runs all tool calls without confirmation. |
 
-An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). These settings can hide **Assisted permissions** or **Allow all** from the permissions picker.
+An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). In both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, supported permission levels blocked by policy remain visible but disabled. Permission levels that the harness doesn't support aren't shown.
 
 Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. The sandbox doesn't cover every tool, so use tool and URL approvals to control other actions with **Manual permissions**.
 
@@ -125,7 +123,7 @@ When approval is required, review the tool name and input parameters, then appro
 
 ![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/approvals/chat-approve-tool.png)
 
-For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %}.

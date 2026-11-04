@@ -48,6 +48,27 @@ test('renders all links in the current docs TOC, including secondary shortcuts',
   const sidebar = toc.map(section => renderTopics(section.topics, '')).join('');
   assert.equal((sidebar.match(/\[Agents Quickstart\]\(\/docs\/agents\/quickstart\)/g) || []).length, 2);
   assert.equal((sidebar.match(/\[Editor Tutorial\]\(\/docs\/editing\/getting-started\/editor-tutorial\)/g) || []).length, 2);
-  assert.match(sidebar, /\*\*Get started\*\*/);
+  assert.equal((sidebar.match(/\[Inline Suggestions\]\(\/docs\/editing\/ai-powered-suggestions\)/g) || []).length, 2);
+  assert.match(sidebar, /\[Continue a Session\]\(\/docs\/agents\/run\/sessions\/manage-sessions\)/);
+  assert.match(sidebar, /\*\*Get Started\*\*/);
   assert.doesNotMatch(sidebar, /undefined|secondary/);
+});
+
+test('keeps concepts alongside workflow groups and nests only reference and troubleshooting under help', function () {
+  const root = path.resolve(__dirname, '..');
+  const toc = loadJSON(path.join(root, 'docs', 'toc.json'), loadDataVariables(path.join(root, 'data', 'variables')));
+  const ai = toc.find(section => section.area === 'agentic');
+  const groups = ai.topics.filter(topic => topic[2]?.topics).map(topic => topic[2]);
+  assert.deepEqual(groups.map(group => group.name), [
+    'Get Started',
+    'Work with AI',
+    'Choose Models and Agents',
+    'Customize and Extend',
+    'Work Across Apps and Machines',
+    'Tutorials & Guides',
+    'Concepts',
+    'Reference and Help'
+  ]);
+  const help = groups.find(group => group.name === 'Reference and Help');
+  assert.deepEqual(help.topics.map(topic => topic[2].name), ['Reference', 'Troubleshooting']);
 });
