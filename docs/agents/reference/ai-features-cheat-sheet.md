@@ -102,7 +102,7 @@ To organize larger tasks:
 | Run a saved prompt on demand | [Prompt files](/docs/agent-customization/prompt-files.md), invoked as slash commands. |
 | Define a specialized role and tool selection | [Custom agents](/docs/agent-customization/custom-agents.md), such as a read-only reviewer. |
 | Connect a database, issue tracker, or other external system | [MCP servers](/docs/agent-customization/mcp-servers.md) that provide tools. |
-| Run a command at a specific agent lifecycle event | [Hooks](/docs/agent-customization/hooks.md), rather than relying on the model to follow an instruction. |
+| Run a command at a specific point in the agent's workflow | [Hooks](/docs/agent-customization/hooks.md), rather than relying on the model to follow an instruction. |
 | Install a packaged set of customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md). |
 
 Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to create and manage these options for your selected harness.

@@ -70,14 +70,14 @@ If a response stops early or omits part of the task:
 
 ### Instructions or a prompt file are not applied
 
-Custom instructions and prompt files enter a request in different ways:
+Custom instructions and prompt files enter a request in different ways. [Prepare logging](#before-you-start) before reproducing the issue, then distinguish discovery, inclusion, and adherence:
 
-1. Open the [chat customization diagnostics view](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics) to check whether an instructions file was discovered and whether it has errors.
-1. For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on.
+1. [Check customization discovery](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics) for the affected harness and repository. Confirm that the file is listed and has no errors.
+1. Check [instruction activation](/docs/agents/reference/custom-instructions-reference.md#discovery-and-activation). For pattern-based guidance, verify `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. If you attached the file manually, confirm that it was attached to the request you are inspecting.
 1. For a prompt file, verify that the session uses the Local harness and that you invoked the file manually. Prompt files are supported only in Local harness sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
 1. Check **Discovery** events in the Agent Debug Logs to see whether a customization was loaded, skipped, or rejected.
-1. In the Chat Debug view, inspect the **System prompt** for custom instructions and the **User prompt** for an invoked prompt file.
-1. Correct the discovery or applicability issue, repeat the request, and verify the corresponding prompt content again.
+1. Where request details are available, inspect the Chat Debug view for the instruction content or file-read results. For Local sessions, check the **System prompt** for custom instructions and the **User prompt** for an invoked prompt file. The response's **References** section, where available, is another inclusion check.
+1. If the content reached the model but the result doesn't follow it, check for conflicting or unclear guidance. Correct the relevant issue, repeat the task in a new chat, and compare the actual changes and tool activity.
 
 ## Agent Debug Logs panel
 

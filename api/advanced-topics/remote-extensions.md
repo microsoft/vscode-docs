@@ -3,7 +3,7 @@ ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
 DateApproved: 10/28/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
+MetaDescription: Adapt extensions for {% data variables.product.prodname_vscode %} Remote Development and {% data variables.product.prodname_github_codespaces %}.
 ---
 # Supporting Remote Development and GitHub Codespaces
 
@@ -26,6 +26,28 @@ When a user installs an extension, VS Code automatically installs it to the corr
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
 The VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace Extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
+
+## Execution location and access to client resources
+
+Running a workspace extension remotely does not isolate it from client resources. The **client** is the desktop {% data variables.product.prodname_vscode_shortname %} application or browser that presents the UI. Extension kind describes where extension code should run, not which resources it can access through {% data variables.product.prodname_vscode_shortname %} APIs.
+
+A remote workspace extension's Node.js code and child processes run on the remote host. However, its API calls can route operations to the client. Contributing UI does not move the extension to the local extension host or give it arbitrary local Node.js execution. Available capabilities depend on the API, resource URI, client environment, and applicable permissions.
+
+| Operation from a remote workspace extension | Execution or access model |
+| --- | --- |
+| Node.js filesystem APIs, native modules, and child processes | Operate in the remote extension host's environment, with that process's permissions. |
+| `vscode.workspace.fs` | Routes by resource URI and filesystem provider. Access is not inherently limited to the remote workspace and can include client-local files. |
+| [`vscode.env.clipboard`](#using-the-clipboard) | Uses the client clipboard service, subject to client capabilities and permissions. |
+| Views, status bar items, and notifications | Render in the client UI. Extension-side callbacks remain in the remote extension host. |
+| [Webview scripts](#using-the-webview-api) | Run in a sandbox on the client, separate from the remote extension code. |
+| [`vscode.env.openExternal`](#opening-something-in-a-local-browser-or-application) | Delegates opening to the client, subject to opener behavior and applicable restrictions. |
+| [`vscode.commands.executeCommand`](#communicating-between-extensions-using-commands) | Routes to the command's implementation, which can be local or remote. Available effects depend on the command. |
+
+For file operations, a `file:` URI in a remote Node.js extension host normally identifies a remote file. Constructing a URI with `vscode.Uri.file(...)` does not select a client-local file. {% data variables.product.prodname_vscode_shortname %} can bridge client-local file operations when the resource URI and available filesystem provider identify those resources. Preserve resource URIs returned by {% data variables.product.prodname_vscode_shortname %} APIs, including their scheme and authority, instead of converting them to filesystem paths and reconstructing them.
+
+Desktop and browser clients do not offer identical capabilities. Browser permissions and sandboxing can limit clipboard, filesystem, and external-opening operations. Do not assume that a browser client has unrestricted access to the local filesystem.
+
+[Webview sandboxing and resource-loading restrictions](/api/extension-guides/webview.md#security), including `localResourceRoots` and content security policies, govern webview content. They are not a general restriction on the extension's API calls.
 
 ## Debugging Extensions
 

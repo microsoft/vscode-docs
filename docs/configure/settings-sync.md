@@ -41,7 +41,7 @@ Run the **Settings Sync: Configure...** command or select **Settings Sync is On*
 | UI State | Display language, Activity Bar and Panel entries, view layout and visibility, recently used commands, and 'Do not show again' notification choices. |
 | Extensions | Installed extensions and the global enablement state of built-in and installed extensions. |
 | Profiles | [Profiles](/docs/configure/profiles.md) and their data for the selected categories. You can synchronize up to 20 profiles. |
-| Prompts and Instructions | [User prompt files](/docs/agent-customization/prompt-files.md#sync-user-prompt-files-across-devices) and [Local agent instructions](/docs/agent-customization/custom-instructions.md#sync-local-agent-instructions-across-devices) that are stored in your user profile. |
+| Prompts and Instructions | [User prompt files](/docs/agent-customization/prompt-files.md#sync-user-prompt-files-across-devices) and [Local agent instructions](/docs/agents/reference/custom-instructions-reference.md#user-instructions) that are stored in your user profile. |
 
 > [!NOTE]
 > {% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.

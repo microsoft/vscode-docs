@@ -125,6 +125,7 @@ Keep research proportional to the documentation change. Accuracy and public avai
 * Links to other documentation articles should be relative, not absolute. Start relative links with `/docs/` and include the `.md` suffix.
 * Links in release notes should be full URLs, not relative. Use the `https://code.visualstudio.com/docs/` domain.
 * Links to bookmarks within the same article should be relative and start with `#`.
+* When renaming a heading, update links to use the new heading anchor. Don't add bookmark anchors for the previous heading unless explicitly requested.
 * Link descriptions should be descriptive and make sense on their own. Don't use "click here" or "this link" or "here".
 - To let readers try a feature directly from a documentation article, use a feature tryout command link inside the `TRYOUTS` conditional:
 

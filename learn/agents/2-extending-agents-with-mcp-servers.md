@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e1d9c-4b8f-4a3d-8e0c-2f5d6b7c8a02
 DateApproved: 10/28/2026
-MetaDescription: Install, use, configure, and sandbox an MCP server to give VS Code agents focused external capabilities.
+MetaDescription: Install, use, and configure MCP servers to give agents in {% data variables.product.prodname_vscode_shortname %} focused external capabilities.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
   - mcp
@@ -20,7 +20,7 @@ MCP servers connect agents to external tools and data sources. In this guide, yo
 
 ## Prerequisites
 
-Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. You also need access to an MCP server or the ability to add one from the marketplace.
+Before you start, install {% data variables.product.prodname_vscode_shortname %}, enable AI features, and sign in to {% data variables.product.prodname_copilot %}. To use the [Customization Marketplace (Preview)](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) in this lesson, select the **Copilot** harness from the **Session Target** control in a new chat. Check the [harness requirements](/docs/agents/run/agent-harnesses.md#copilot) if it isn't available.
 
 * [Download VS Code](https://code.visualstudio.com/)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
@@ -29,31 +29,35 @@ Before you start, install VS Code, enable AI features, and sign in to GitHub Cop
 
 For this lesson, use the Playwright MCP server as the example. It gives the agent browser tools so it can open pages, interact with them, and capture screenshots.
 
-1. Open the Extensions view.
+1. Run **Chat: Open Customizations** from the Command Palette and select **Browse**.
 
-1. Search for `@mcp playwright`.
+1. Select **GitHub Feed** from the source menu and search for `playwright` with the `@type:mcp` filter.
 
-1. Select **Install** to install the Playwright MCP server in your user profile.
+1. Open the Playwright MCP server's details and review its publisher, launch command, and prerequisites.
 
-1. When VS Code asks whether you trust the server, review the publisher and server details, then confirm if you trust it.
+1. Select **Install** when available and choose a supported personal destination when prompted. Complete the publisher's setup, including installing the required runtime.
 
-When the server starts, VS Code discovers its tools and makes them available in chat.
+1. Review any server trust or authentication prompts before accepting them.
 
-![Screenshot showing the MCP servers in the Extensions view.](../images/agents/extensions-view-mcp-servers.png)
+If **Browse**, **GitHub Feed**, or automatic installation isn't available, follow the [Playwright connection steps](/docs/agent-customization/mcp-servers.md#connect-a-server) to add the publisher's command directly. Source availability depends on the harness and organization policy.
+
+When the server starts, the agent can discover and use its tools. Verify a tool call rather than relying on installation status alone.
+
+<!-- TODO: Add a screenshot showing Playwright MCP discovery and installation in the Agent Customizations editor. -->
 
 ## Use the server in chat
 
 Now give the agent a task that actually needs browser access.
 
-1. Open the Chat view.
+1. Open the {% data variables.copilot.chat_view %} with the same **Copilot** harness selected.
 
 1. Select **Agent**.
 
-1. Select **Configure Tools**.
+1. Open **Chat: Open Customizations** and select **Tools**.
 
 1. Enable the Playwright tools.
 
-1. Send this prompt:
+1. Return to chat and send this prompt:
 
     ```prompt
     Go to code.visualstudio.com, decline the cookie banner if it appears, and describe the main navigation items on the homepage.
@@ -65,17 +69,17 @@ The agent should call the Playwright MCP tools because the task requires browser
 
 ## Decide where the configuration belongs
 
-Installing a server writes configuration to an `mcp.json` file. Choose the scope based on who should use the server.
+The configuration location and format depend on the harness and installation destination. Choose the scope based on who should use the server:
 
 | Scope | Use it when | Example |
 | --- | --- | --- |
-| User profile | The server is useful across your own workspaces. | A browser automation server or documentation lookup server. |
+| User | The server is useful across your own workspaces. | A browser automation server or documentation lookup server. |
 | Workspace | The server is part of how the project works. | A project-specific API server or database inspection tool. |
-| Remote user profile | The server must run on a remote machine. | A server that needs access to tools installed in a dev container or remote environment. |
+| Remote environment | The server must run on a remote machine. | A server that needs access to tools installed in a dev container or remote environment. |
 
-Use **MCP: Open User Configuration** to inspect your user profile configuration. Use **MCP: Open Workspace Folder Configuration** when you want a `.vscode/mcp.json` file for the current project.
+For a personal {% data variables.product.prodname_copilot_short %} configuration, the guided **MCP: Add Server** flow offers **Global** > **Copilot Global**. Workspace-root `.mcp.json` uses the portable format, while workspace or user-profile `mcp.json` uses the {% data variables.product.prodname_vscode_shortname %} format. Follow [Choose a configuration destination](/docs/agent-customization/mcp-servers.md#choose-a-configuration-destination) for supported locations and capabilities.
 
-For servers that need credentials, do not hardcode secrets in a workspace file. Store sensitive values with input variables or environment files.
+For servers that need credentials, don't hardcode secrets in a workspace file. Use the [authentication options supported by your configuration](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets). Portable {% data variables.product.prodname_copilot_short %} configurations don't support input variables or environment files.
 
 > [!TIP]
 > VS Code provides IntelliSense and inline actions for `mcp.json`, which makes it easier to start, stop, and inspect servers.
@@ -97,6 +101,8 @@ Use tools when the agent needs to do something. Use resources when it needs to r
 
 Treat local MCP servers as code that can run on your machine. Review the publisher and configuration before you install one.
 
+This optional exercise uses a **Local** harness session and the {% data variables.product.prodname_vscode_shortname %} `mcp.json` format. Per-server sandboxing isn't a capability of the portable {% data variables.product.prodname_copilot_short %} configuration used earlier. To try it, select **Local** and configure the server in `.vscode/mcp.json`, following the [sandbox configuration reference](/docs/agents/reference/mcp-configuration.md#sandbox-configuration).
+
 By default, MCP tool calls prompt for approval before running, which keeps a human in the loop. For local stdio servers on macOS and Linux, you can enable sandboxing to restrict file system and network access.
 
 Add sandboxing when a server needs useful powers but should stay inside clear boundaries. For example, with the Playwright MCP server, sandboxing lets the agent navigate pages and run browser tasks without prompting on every step because the work is isolated from your host.
@@ -108,7 +114,7 @@ To enable sandboxing for a local stdio server, set `sandboxEnabled` to `true` in
   "servers": {
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@microsoft/mcp-server-playwright"],
+      "args": ["-y", "@playwright/mcp@latest"],
       "sandboxEnabled": true
     }
   }
@@ -121,13 +127,13 @@ To enable sandboxing for a local stdio server, set `sandboxEnabled` to `true` in
 
 After you try Playwright, install a documentation or API-focused MCP server and compare the workflow.
 
-1. Search for `@mcp` in the Extensions view.
+1. Select the **Copilot** harness, then run **Chat: Open Customizations** and select **Browse**.
 
-1. Pick a server that connects to documentation, issue tracking, or another system you use.
+1. Select **GitHub Feed** and use the `@type:mcp` filter to find a server for documentation, issue tracking, or another system you use.
 
-1. Install it in your user profile if it is personal tooling, or in the workspace if the project should share it.
+1. Review its publisher and setup requirements, then install it in a supported personal or workspace destination.
 
-1. Enable its tools in Chat.
+1. Complete setup and enable its tools in the **Tools** section of the Agent Customizations editor.
 
 1. Ask a prompt that requires that external source.
 
@@ -135,14 +141,15 @@ For example, with a documentation MCP server enabled, ask a question that should
 
 ## Manage MCP servers
 
-You can manage servers from several places in VS Code:
+Use **Chat: Open Customizations** > **MCP Servers** to manage servers for the selected harness. Select **Browse** to discover and install additional servers.
 
-* The Extensions view.
-* The `mcp.json` editor.
+Other management surfaces remain available:
+
+* The **MCP Servers - Installed** section in the Extensions view.
+* The configuration file editor.
 * The Command Palette, including **MCP: List Servers**.
-* The Agent Customizations view from the cog in the Chat view.
 
-Use these surfaces to start or stop a server, browse the marketplace, and install additional servers.
+With marketplace discovery enabled, searching for `@mcp` in Extensions shows **Find MCP Servers in Customizations**. Select **Browse MCP Servers** to continue in the Customizations editor rather than installing from the Extensions view.
 
 ![Screenshot showing the actions for an MCP server in the Command Palette.](../images/agents/mcp-list-servers-actions.png)
 

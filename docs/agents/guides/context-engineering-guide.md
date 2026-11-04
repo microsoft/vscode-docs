@@ -64,23 +64,23 @@ flowchart TD
 
 ## Step 1: Curate project-wide context
 
-To ground the AI agent in the specifics of the project, collect key project information like product vision, architecture, and other relevant documentation and add it as chat context via custom instructions. By using custom instructions, you ensure that the agent consistently has access to this context and doesn't have to re-learn it for each chat interaction
+Start with concise project instructions that address a repeated problem, such as using the wrong test command or missing an architectural constraint. Reuse existing project documentation for supporting detail instead of copying it all into the instructions file.
 
 **Why this helps:** The agent could find this information in the codebase, but it might be buried in comments or scattered across multiple files. By providing a concise summary of the most important information, you help the agent to always have critical context available for decision-making.
 
-1. Describe relevant project documentation in Markdown files in the repository, for example create `PRODUCT.md`, `ARCHITECTURE.md`, and `CONTRIBUTING.md` files.
+1. Identify existing documentation relevant to the problem, such as `ARCHITECTURE.md` or `CONTRIBUTING.md`. Create a supporting document only when the necessary information is missing.
 
     > [!TIP]
-    > If you have an existing codebase, you can use AI to generate these project documentation files. Make sure to review and refine the generated documentation files to ensure accuracy and completeness.
+    > If relevant documentation is missing, use AI to draft it, then review the result for accuracy. Choose only the document your task needs:
     > * `Generate an ARCHITECTURE.md (max 2 page) file that describes the overall architecture of the project.`
     > * `Generate a PRODUCT.md (max 2 page) file that describes the product functionality of the project.`
     > * `Generate a CONTRIBUTING.md (max 1 page) file that describes developer guidelines and best practices for contributing to the project.`
 
-1. Create a `.github/copilot-instructions.md` [instructions file](/docs/agent-customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
+1. Create a `.github/copilot-instructions.md` [instructions file](/docs/agent-customization/custom-instructions.md#create-project-instructions) at the root of your repository.
 
-    The instructions in this file are automatically included in all chat interactions as context for the AI agent.
+    For the Local workflow in this guide, this file is included when `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` is on, which is the default.
 
-1. Provide a high-level overview for the agent with the project context and guidelines. Reference relevant supporting documentation files by using Markdown links.
+1. Put essential rules directly in the instructions file and link to supporting documentation for detail. Adapt the following example to documents that exist in your repository.
 
     The following example `.github/copilot-instructions.md` file provides a starting point:
 
@@ -96,6 +96,8 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 > [!TIP]
 > Start small, keeping the initial project-wide context concise and focused on the most critical information. If uncertain, focus on high-level architecture and only add new rules to address errors or incorrect behavior the agent makes repeatedly (for example, using the wrong shell command, ignoring certain files).
+
+Markdown links don't guarantee that linked content reaches the model. Local's `setting(chat.includeReferencedInstructions)` setting is off by default. For a task that needs a supporting document, attach it or ask the agent to read it, then [verify inclusion and behavior](/docs/agent-customization/custom-instructions.md#verify-your-instructions).
 
 ## Step 2: Create implementation plan
 

@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for settings contributed by a Visual Studio Code 
 
 # Settings
 
-[Settings](/api/references/contribution-points#contributes.configuration) are how a user can configure your extension. Settings can be inputs boxes, booleans, dropdowns, lists, key/value pairs. If your extension requires the user to configure specific settings, you can open the Settings UI and query your extension setting via the setting ID.
+[Settings](/api/references/contribution-points#contributes.configuration) are how a user can configure your extension. Settings can be input boxes, booleans, dropdowns, lists, key/value pairs. If your extension requires the user to configure specific settings, you can open the Settings UI and query your extension setting via the setting ID.
 
 **✔️ Do**
 

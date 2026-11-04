@@ -42,20 +42,21 @@ Before you collect detailed logs:
 
 ## Check customization diagnostics
 
-Use the chat customization diagnostics view when an instructions file does not appear to apply.
+Check discovery before investigating whether the model follows an instruction:
 
-1. Open the {% data variables.copilot.chat_view %}.
-1. In the {% data variables.copilot.chat_view %}, open the context menu and select **Diagnostics**.
-1. Review the discovered instruction files and any reported errors.
+1. Select the harness and repository used by the affected session.
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) and select **Instructions**.
+1. Find the instructions file and check its source, location, and any reported errors.
 
 Use the result to choose the next action:
 
-* **The file is missing**: Verify its file name, location, and the settings that control instruction discovery.
-* **The file has an error**: Fix the reported frontmatter or content error, and then reopen the diagnostics view.
-* **The file is loaded but not applied**: For a `*.instructions.md` file, verify that its `applyTo` pattern matches the file you are working on. Also check the **References** section of the chat response to see which instructions were used.
+* **The file is missing**: Verify the harness, file name, and supported location. Confirm that the session uses the folder containing your changes, especially if you created a new worktree.
+* **The file has an error**: Fix the reported frontmatter or content error, then check discovery again.
+* **The file is discovered but not included**: Check its activation rules. For pattern-based instructions, test a file that matches `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. Alternatively, attach the instructions manually. Check **References**, where available, or inspect the request in the debug logs.
+* **The file is included but not followed**: Resolve contradictory guidance or clarify a vague rule. Repeat a representative task in a new chat and review the changes and tool activity. Inclusion alone doesn't establish compliance.
 * **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
-For file locations, applicability rules, and settings, see [Use custom instructions](/docs/agent-customization/custom-instructions.md). To verify the exact instructions sent to the model, use the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
+For file locations, activation rules, and settings, see the [Custom instructions reference](/docs/agents/reference/custom-instructions-reference.md). For a complete test procedure, see [Verify your instructions](/docs/agent-customization/custom-instructions.md#verify-your-instructions). To inspect request content and loading activity, [prepare logging](#inspect-chat-interactions) and reproduce the issue.
 
 ## Inspect chat interactions
 

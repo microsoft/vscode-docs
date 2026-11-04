@@ -1,7 +1,7 @@
 ---
 ContentId: a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d
 DateApproved: 10/28/2026
-MetaDescription: Learn how to use hooks in VS Code to automate workflows, enforce standards, and trigger actions based on lifecycle events in GitHub Copilot.
+MetaDescription: Run hooks at specific points in an agent's workflow in {% data variables.product.prodname_vscode_shortname %} to automate tasks and validate changes.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -24,7 +24,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 
 ## What are hooks?
 
-[Hooks](https://code.visualstudio.com/docs/agent-customization/hooks) allow you to execute custom shell commands at specific lifecycle points during an agent session.
+[Hooks](/docs/agent-customization/hooks.md) run custom shell commands at specific points in the agent's workflow, such as before or after a tool runs.
 
 Instead of manually running tasks, hooks let you define actions that happen automatically in response to events. This makes them ideal for automation, validation, and enforcing consistency across your workflow.
 
@@ -35,7 +35,7 @@ At a high level, hooks are commonly used to:
 - validate changes before or after execution
 - integrate with external tools
 
-## Lifecycle events (where hooks run)
+## When hooks run
 
 VS Code supports eight hook events that fire at specific points during an agent session:
 
@@ -50,11 +50,9 @@ VS Code supports eight hook events that fire at specific points during an agent 
 | `SubagentStop`     | Subagent completes                             | Aggregate results, cleanup subagent resources                   |
 | `Stop`             | Agent session ends                             | Generate reports, cleanup resources, send notifications         |
 
-Hooks rely on lifecycle events, which determine when they should run.
+Hooks respond to configured events in the agent's workflow, such as starting a session, submitting a prompt, or completing a tool call.
 
-These events act as trigger points during an agent session. For example, a hook might run when a session starts, when a prompt is submitted, or after a tool completes its work.
-
-Choosing the right lifecycle event is critical, because it defines when your automation actually happens.
+Choose the event that matches when you want the action to run.
 
 ## Example: auto-formatting with Prettier
 
@@ -80,7 +78,7 @@ Copilot can generate the hook for you based on your description, including the n
 
 ![Screenshot of a hook configuration that runs Prettier automatically after a tool completes](../images/customizations/ep-5-1-prettier-hook.png)
 
-After creating the hook, you may need to reload your environment to activate it. Once it's active, it runs automatically based on the lifecycle event you defined.
+After creating the hook, you might need to reload your environment to activate it. Once it's active, it runs automatically when its configured event occurs.
 
 ![Screenshot of a README file before the Prettier hook formats it](../images/customizations/ep-5-2-before-hook.png)
 

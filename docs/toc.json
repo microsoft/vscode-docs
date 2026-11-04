@@ -167,6 +167,7 @@
                             ["Settings Reference", "/docs/agents/reference/ai-settings"],
                             ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
+                            ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
                             ["Agent Plugin Authoring Reference", "/docs/agents/reference/agent-plugin-reference"],
                             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                             ["Hooks Reference", "/docs/agents/reference/hooks-reference"],

@@ -292,7 +292,7 @@ Select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit me
 
 ![Screenshot showing the generate commit message action in the Source Control view.](images/staging-commits/generate-commit-message.png)
 
-Commit message generation uses the utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. See [utility model configuration and requirements](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), including setup without a {% data variables.product.prodname_copilot %} account. You can also [configure instructions for generated commit messages](/docs/agent-customization/custom-instructions.md#specify-instructions-for-generated-content).
+Commit message generation uses the utility model configured by `setting(chat.utilitySmallModel)`, not the model selected for a chat or agent session. See [utility model configuration and requirements](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), including setup without a {% data variables.product.prodname_copilot %} account. You can also [configure instructions for generated commit messages](/docs/agents/reference/custom-instructions-reference.md#generated-content-settings).
 
 ### AI co-author attribution
 
