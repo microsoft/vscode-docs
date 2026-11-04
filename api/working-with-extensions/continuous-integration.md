@@ -52,7 +52,7 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
+    versionSpec: '22.x'
   displayName: 'Install Node.js'
 
 - bash: |
@@ -146,7 +146,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18.x
+        node-version: 22.x
     - run: npm install
     - run: xvfb-run -a npm test
       if: runner.os == 'Linux'
@@ -201,7 +201,7 @@ In our example, the condition has three checks:
 GitLab CI can be used to test and publish the extension in headless Docker containers. This can be done by pulling a preconfigured Docker image, or installing `xvfb` and the libraries required to run Visual Studio Code during the pipeline.
 
 ```yaml
-image: node:20-bookworm
+image: node:22-bookworm
 
 before_script:
   - npm install
