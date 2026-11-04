@@ -75,7 +75,7 @@ To configure model parameters:
 
 1. Select an effort level.
 
-    ![Screenshot showing the the model configuration submenu, with different effort levels and context size options.](images/language-models/thinking-effort-submenu.png)
+    ![Screenshot showing the model configuration submenu, with different effort levels and context size options.](images/language-models/thinking-effort-submenu.png)
 
 The model configuration is remembered per session, so revisiting an earlier session keeps the same effort level and context size it was using. New conversations start from the effort level and context size you last set for that model.
 

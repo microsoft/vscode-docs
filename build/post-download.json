@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Session continuity across environments",
-    "description": "Keep agent work moving across local, remote, and cloud environments. Explore Copilot Fusion, image generation in chat (Preview), and assisted permissions for fewer approval prompts.",
-    "link": "/updates/v1_144",
-    "image": "/assets/updates/1_144/release-highlights.webp"
+    "title": "Do more with remote agents",
+    "description": "Preview apps and use interactive canvases from remote sessions. Fine-tune local automations with cron and turn down the noise in chat.",
+    "link": "/updates/v1_145",
+    "image": "/assets/updates/1_145/release-highlights.webp"
   },
   "highlights": [
     {
