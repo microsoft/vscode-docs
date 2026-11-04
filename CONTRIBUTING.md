@@ -7,6 +7,7 @@ You've found the GitHub repository that contains the source for the Visual Studi
 Thank you for your interest in VS Code documentation!
 
 * [Prerequisites](#prerequisites)
+* [Agent writing hooks](#agent-writing-hooks)
 * [Quick Start](#quick-start)
 * [Contributing](#contributing)
 * [Testing Your Changes](#testing-your-changes)
@@ -22,6 +23,10 @@ Thank you for your interest in VS Code documentation!
 
 > [!IMPORTANT]
 > Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
+## Agent writing hooks
+
+The repository's hooks target the Copilot harness used by the CLI and Agents window. They use Node.js to check Markdown edits and remind agents about the writing guidelines, and run only for Copilot's editing tools: `create`, `edit`, `str_replace_editor`, and `apply_patch`. Bash and PowerShell launch the same Node.js hook on their respective platforms. If Node.js is unavailable or a hook fails, the hook reports a warning and allows the tool call. A successful check still blocks newly inserted en dashes and em dashes in Markdown.
 
 ## Prerequisites
 
@@ -136,6 +141,8 @@ Learn more about [making pull requests](https://docs.github.com/pull-requests/co
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.
 
+Use Node.js 20 or later.
+
 ```bash
 npm install
 npm run serve
@@ -149,8 +156,39 @@ This starts a local server (default `http://localhost:3000`) with:
 * Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
 * Full-text search across all content
 
+The preview uses native filesystem notifications for content, images, and preview support files. It does not scan the entire checkout or watch `node_modules` and Git metadata. Changes automatically refresh the browser. To use a different port, run `npm run serve -- --port 3001`.
+
 > [!NOTE]
 > The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, generated content such as the VS Code API reference, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
+
+### Use the docs workbench
+
+The workspace-scoped Docs workbench canvas brings together open documentation PRs, documentation issues, release test plan items (TPIs), and private media tasks. It requires a Copilot host that supports SDK canvas extensions, background-agent tasks, and approval dialogs, plus an authenticated `gh` CLI.
+
+Ask Copilot to open the **Docs workbench** canvas. Reload workspace extensions after updating its implementation. The extension does not require a separate SDK installation.
+
+* Use queue navigation, search, and filters to find work. Issue and PR rows show the creator's GitHub handle; select an item for a profile link and more details. Change the milestone explicitly for release TPIs. This queue searches all repositories accessible to your GitHub account with `is:issue milestone:<selected milestone> label:testplan-item`. It excludes only titles containing 'Verification TPI' (case-insensitive), not items with verification or invalid labels. Closed TPIs remain visible because testing completion does not mean documentation is complete.
+* Select **Task board** for a combined view of PRs, TPIs from the selected milestone, docs issues, and media tasks. Drag a card into its target status column, or use its **Move to** menu with a keyboard or touch device. Moves save private workflow status only; they do not close GitHub items, start agents, or cancel running work. **Not needed** requires a recorded reason.
+* Use board search and **Filters** to narrow cards by source queue, workflow status, label, or GitHub state. Filters do not remove visible status columns, and completed work is included on the board. A moved card can disappear from the results if its new status does not match the current filter.
+* Use **Columns** to hide status columns you do not use and **Show all columns** to restore them. These choices are saved privately for your account and workspace. Hiding a column hides its cards on the board without changing task statuses or the queue lists. Hidden statuses remain available in **Move to**, with a hidden-column label.
+* Use **Archive completed** on the board or in **History** during your weekly cleanup. Review and confirm the preview of all **Done** and **Not needed** items across queues, regardless of board filters, hidden columns, or milestone. Items with active or uncertain agent work remain active. Archiving does not close or delete anything on GitHub.
+* If work changes after the archive preview, or the preview expires, no items are archived. Preview the completed work again before retrying. Older tracked items without saved source titles are listed by their canonical identity.
+* Use **History** to search archived work by title, identity, creator, or notes, and filter by source queue or status. Saved metadata, notes, media, and task results remain available even after a source item leaves the pending queues. GitHub state shown from saved metadata is not a live check.
+* Select **Restore to active board** to restore an archived item with its previous status. Tracked work remains accessible on the board even if its source item leaves the pending queues. Column visibility choices still apply. Documentation issues and PRs do not need a release assignment to be archived or restored.
+* Select **Review PR** for separate technical-accuracy and writing-guidelines findings, or **Plan documentation** for a plan that stops before editing files.
+* Review the plan before selecting **Implement approved plan**. Confirm its product channel and local base branch (`main` or `vnext`); implementation uses a separate worktree.
+* Use **Actions** for related work, screenshots, recordings, closing-comment drafts, and confirmed issue or PR closures. Close actions apply only to `microsoft/vscode-docs`, require triage permission, and never merge PRs or delete branches.
+* Media tasks use real captures. Until the separate desktop recorder is available in this checkout, desktop tasks provide guided capture instructions. Capture tools, private sign-in, and live AI requests require their own approval. Copy completed captures into the task's private media directory, attach them, and inspect the preview before approving them.
+
+GitHub remains authoritative for issue and PR state. Workflow status, links, task results, and raw media are private to the authenticated user and workspace. They are stored under `extension-data\vscode-docs-workbench\` in `COPILOT_HOME`, or `~\.copilot` when that variable is unset. Do not commit this data, capture profiles, or credentials.
+
+Background tasks belong to the host session that started them. Resume that session to continue a task; **Update task results** reads its actual host state. Refresh failures retain cached work and display an error. If a launch has an uncertain outcome, check host task history before resolving the launch blocker or starting again.
+
+Closing comments, optional labels, and closure are separate GitHub operations. If a step fails, inspect the recorded outcome before explicitly retrying the remaining steps. Do not assume that a failed request means nothing changed remotely.
+
+Run the extension's targeted tests with `npm run test:workbench`. No GitHub writes are needed for these tests.
+
+HTTP diagnostics include the request method, path, and status code. Request failures are reported without failing the agent session. Unexpected server failures retain their error severity in the diagnostic text and return an HTTP error to the page. The server handles favicon requests and page readiness checks without reporting an error.
 
 ### Validate your Markdown
 

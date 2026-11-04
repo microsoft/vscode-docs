@@ -1,7 +1,7 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 10/21/2026
-MetaDescription: Create portable Agent Skills in {% data variables.product.prodname_vscode_shortname %} for specialized AI workflows across supported coding agents.
+DateApproved: 11/4/2026
+MetaDescription: Find, adapt, and create Agent Skills in {% data variables.product.prodname_vscode_shortname %} for reusable workflows with supported agents.
 Keywords:
 - copilot
 - agents
@@ -13,7 +13,7 @@ Keywords:
 ---
 # Use Agent Skills in {% data variables.product.prodname_vscode_shortname %}
 
-Agent Skills are folders of instructions, scripts, and resources that AI agents can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cloud_agent %}, and the [experimental {% data variables.product.prodname_openai_codex %} integration](/docs/agents/run/agent-harnesses.md#codex).
+Agent Skills are folders of instructions, scripts, and resources that AI agents can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and the [experimental {% data variables.product.prodname_openai_codex %} integration](/docs/agents/run/agent-harnesses.md#codex).
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable across skills-compatible agents, but supported locations and optional features vary by agent. Unless otherwise noted, the configuration options and controls on this page apply to {% data variables.product.prodname_copilot_short %}.
 
@@ -27,7 +27,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
@@ -36,7 +36,7 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | Feature | Agent Skills | Custom Instructions |
 | ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
-| **Portability** | Reusable across [skills-compatible coding agents](#agent-skills-standard), subject to each agent's supported locations and features | Reusable across experiences that support the selected [instruction format](/docs/agent-customization/custom-instructions.md#choose-a-format) |
+| **Portability** | Reusable across [skills-compatible coding agents](#agent-skills-standard), subject to each agent's supported locations and features | Reusable across experiences that support the selected [instruction format](/docs/agents/reference/custom-instructions-reference.md#supported-formats-and-locations) |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
 | **Scope** | Task-specific, loaded on-demand | Always applied (or via glob patterns) |
 | **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | Multiple formats, such as `AGENTS.md` and `.github/copilot-instructions.md` |
@@ -57,93 +57,152 @@ Use custom instructions when you want to:
 * Specify code review or commit message guidelines
 * Apply rules based on file types using glob patterns
 
-## Create a skill
+## Use an existing skill
 
-> [!TIP]
-> With **Local** selected in the {% data variables.copilot.chat_view %}, type `/skills` in the chat input to quickly open the **Configure Skills** menu. For other harnesses, such as **Copilot**, use **Open Customizations** instead.
+Start with an existing skill when it provides the workflow you need. [Browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to install an individual skill or find one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md). You can also copy and adapt a skill for your project. Check [harness compatibility](/docs/agent-customization/overview.md#check-harness-compatibility) before choosing a source and location.
 
-Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. {% data variables.product.prodname_vscode_shortname %} supports two types of skills:
+A skill includes its full directory, not only the `SKILL.md` file: scripts, templates, examples, and other resources can be part of the workflow.
 
-| Skill type | Location |
-| ---------- | -------- |
-| Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
-| Personal skills, stored in your home directory | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
+### Install a skill from the Customization Marketplace (Preview)
 
-> [!NOTE]
-> To reuse repository skills with {% data variables.product.prodname_openai_codex %}, [configure the experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). This integration discovers workspace skills in `.github/skills/` before your first prompt, without additional skill-location configuration. Codex also discovers `.agents/skills/` natively.
->
-> If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence. Discovery makes skills available to the model but does not guarantee that it invokes a skill for every relevant prompt.
->
-> The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+Use the Customization Marketplace to find and install skills from configured sources. Marketplace discovery is enabled by default. The experimental GitHub Feed requires a harness that provides marketplace search. Local sessions don't provide this source, and organization policy can restrict access.
 
-> [!NOTE]
-> Prefer native harness folders over custom search locations. The `setting(chat.agentSkillsLocations)` setting remains supported and is not deprecated, and the editor forwards skills from additional configured locations to Agent Host harnesses. Custom locations are not recommended for Copilot workflows because {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not inherit editor settings. [Move existing skills to native harness locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations) to use them across Copilot clients.
-
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
-
-To create a skill:
-
-1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** in the title bar to open the Agent Customizations editor, and then select **Skills**.
-
-1. Select **New Skill** (plus icon) next to the **Workspace** or **User** group, depending on where you want to store the skill.
-
-    <!-- TODO: Replace screenshot to show the New Skill (plus icon) buttons next to the Workspace and User groups in the Skills section. -->
-    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill-v2.png)
-
-1. Select the location and enter a name for the skill.
-
-1. Complete the `SKILL.md` file by filling in the YAML frontmatter and adding instructions in the body of the file.
-
-    ```markdown
-    ---
-    name: skill-name
-    description: Description of what the skill does and when to use it
-    ---
-
-    # Skill Instructions
-
-    Your detailed instructions, guidelines, and examples go here...
-    ```
-
-1. Optionally, add scripts, examples, or other resources to your skill's directory.
-
-    For example, a skill for testing web applications might include:
-
-    * `SKILL.md` - Instructions for running tests
-    * `test-template.js` - A template test file
-    * `examples/` - Example test scenarios
-
-    > [!NOTE]
-    > Make sure to reference any additional files in your `SKILL.md` for them to be picked up by the agent. Use Markdown links or `#file:` references with paths relative to the `SKILL.md` file, such as `[test template](./test-template.js)` or `#file:./test-template.js`.
-
-### Generate a skill with AI
-
-You can use AI to generate a skill based on a description of the capability. In chat, ask the agent to create a skill and describe the capability you want (for example, "create a skill for running and debugging integration tests"). This works for every harness, including **Copilot**. The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
-
-With **Local** selected, you can also type `/create-skill` in chat followed by the description. The `/create-skill` command isn't available for other harnesses.
-
-You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
-
-With **Local** selected in the {% data variables.copilot.chat_view %}, you can also generate a skill from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Skills** section.
-
-### Install a skill from the Customization Marketplace (Experimental)
-
-Use the Customization Marketplace to find and install complete skill packages from configured sources:
-
-1. Turn on the `setting(chat.customizations.marketplace.enabled)` setting.
-1. Open the Agent Customizations editor and select **Discover**.
+1. Open the Agent Customizations editor and select **Browse**.
 1. From the source menu, select **GitHub Feed**, and then search for a skill by name or add `@type:skill` to your search.
 1. Select a skill and review its publisher, source, and included files.
-1. Select **Install**, and then choose the user or workspace skills directory where you want to store the skill.
+1. Select **Install**, and choose a supported user or workspace destination when prompted.
+1. [Verify the installed skill](#verify-a-skill) in a session with the intended harness.
+
+To reuse skills bundled in a plugin, select a plugin marketplace from the source menu and [install the plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace). If your team's marketplace isn't listed, [add it through Configure Marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces).
 
 {% data variables.product.prodname_vscode_shortname %} doesn't overwrite an existing skill at the selected destination. If another supported location contains a skill with the same name, both skills appear on the **Skills** page. The source or publisher image identifies the Marketplace installation, and **Copy Relative Path** shows its exact location.
 
-Marketplace ownership applies to the exact installed skill directory. Deleting a Marketplace-installed skill from the **Skills** page uninstalls only that skill and doesn't remove a same-name local skill in another location.
+{% data variables.product.prodname_vscode_shortname %} tracks the directory of each skill installed from the Marketplace. Deleting that skill from the **Skills** page doesn't remove a local skill with the same name in another location.
 
-If files from a Marketplace-installed skill are missing, **Discover** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
+If files from a Marketplace-installed skill are missing, **Browse** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
 
-For more information about browsing sources and installation states, see [Discover marketplace customizations](/docs/agent-customization/overview.md#discover-marketplace-customizations-experimental).
+For source availability and setup, see [Discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
+
+### Copy and adapt an existing skill
+
+1. Review the skill's instructions, scripts, and other resources before adding it to your workspace.
+1. Copy the entire skill directory to a [supported project or personal location](#skill-locations) for your harness.
+1. Adapt the `SKILL.md` file to your needs. Check commands, file paths, dependencies, and assumptions about the project.
+1. Update any supporting scripts, templates, or examples that the adapted instructions use.
+1. [Verify the adapted skill](#verify-a-skill) before sharing it.
+
+> [!TIP]
+> Only reuse skills you trust. Skills can include scripts that run tools or interact with external systems. Review [security considerations](/docs/agents/run/security.md#approvals-and-review) before using them.
+
+## Create a skill
+
+Use the Agent Customizations editor to create the skill's directory and `SKILL.md` file in a location supported by your selected harness. Choose **Workspace** to share the skill with your project or **User** to use it across your workspaces.
+
+1. Select the intended harness, run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`), and select **Skills**. In the {% data variables.copilot.agents_window %}, you can also select **Customizations** in the sidebar.
+
+1. Select **New Skill** (plus icon) next to **Workspace** to store the skill in your project, or next to **User** to use it across your workspaces.
+
+    <!-- TODO: Replace screenshot to show the New Skill (plus icon) buttons next to the Workspace and User groups in the Skills section. -->
+    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill.png)
+
+1. Choose a location if prompted, and enter a skill name, such as `test-changes`. The editor offers locations for the selected harness. See [Skill locations](#skill-locations) for details.
+
+1. In the generated `SKILL.md` file, describe what the skill does, when to use it, and the instructions to follow. For example:
+
+    ```markdown
+    ---
+    name: test-changes
+    description: Run relevant project tests and report the results. Use when validating a code change.
+    ---
+
+    # Test changes
+
+    1. Identify the tests that cover the changed code.
+    1. Run them using the test commands documented in this repository.
+    1. Report what passed, what failed, and any checks you couldn't run.
+    ```
+
+    Keep `name` consistent with the skill directory name. For additional fields, see the [file format reference](#skillmd-file-format).
+
+1. If the skill needs scripts, templates, or examples, add them to its directory and reference them from `SKILL.md`.
+
+    Use Markdown links or `#file:` references with paths relative to `SKILL.md`, such as `[test template](./test-template.js)` or `#file:./test-template.js`.
+
+1. Save the files and [verify the skill](#verify-a-skill).
+
+If you prefer to create files directly, create a directory for the skill in a [supported skill location](#skill-locations) and save its instructions as `SKILL.md`. Keep the directory name consistent with the frontmatter `name`, then verify the skill in the same way.
+
+### Generate a skill with AI
+
+Instead of writing the file yourself, ask the agent to create a skill in a chat with your intended harness. Describe the task, when the skill should apply, and where to store it. For example:
+
+```prompt
+Create a project skill named test-changes in a location supported by this harness. It should identify and run the relevant tests for a code change using this repository's documented commands, then report what passed, failed, or wasn't run. Include a description of when to use the skill.
+```
+
+You can also ask the agent to turn a process from the current conversation into a skill, such as "create a skill from how we just debugged that." Review the generated instructions, file locations, and supporting resources, then [verify the skill](#verify-a-skill).
+
+### Local harness shortcuts
+
+With **Local** selected in the {% data variables.copilot.chat_view %}, you can also:
+
+* Enter `/skills` to open the **Configure Skills** menu.
+* Enter `/create-skill` followed by a description to generate a skill.
+* Select **Generate with AI** in the **Skills** section of the Agent Customizations editor.
+
+For other harnesses, use **Open Customizations** or describe the skill directly in chat.
+
+## Use skills as slash commands
+
+Skills can appear as slash commands in chat and can be loaded automatically when the request matches their description. Type `/` in the chat input field to see available skills and prompts, and select a skill to invoke it. You can add context after the command, such as `/test-changes for the authentication update`.
+
+Use the `user-invocable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
+
+| Configuration | Slash command | Auto-loaded by Copilot | Use case |
+|---|---|---|---|
+| Default (both properties omitted) | Yes | Yes | General-purpose skills |
+| `user-invocable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
+| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
+| Both set | No | No | Disabled skills |
+
+## Verify a skill
+
+Use these checks after installing, copying, creating, or editing a skill.
+
+Start a fresh chat with the intended harness and workspace. If the skill appears in the `/` menu, [run the skill yourself](#use-skills-as-slash-commands) and give it a small task you expect it to handle. Review the tool activity and result to confirm that it uses the expected instructions and resources.
+
+If you want the agent to select the skill automatically, test that separately with a request that matches its description. Discovery and installation make a skill available; they don't guarantee that the agent selects it for every relevant request.
+
+## Skill locations
+
+Store project skills in the repository when you want to share them with contributors. Store personal skills in your home directory to use them across workspaces. Each skill has its own directory containing `SKILL.md`.
+
+The following table gives a supported project and personal location for each harness, not every directory it recognizes. The Agent Customizations editor offers creation locations for the selected harness.
+
+| Harness | Skill directories |
+|---------|-------------------|
+| {% data variables.product.prodname_copilot_short %} | Project: `.github/skills/`<br>Personal: `~/.copilot/skills/` |
+| {% data variables.product.prodname_anthropic_claude %} | Project: `.claude/skills/`<br>Personal: `~/.claude/skills/` |
+| {% data variables.product.prodname_openai_codex %} | Project: `.agents/skills/`<br>Personal: `~/.agents/skills/` |
+| Local | Project: `.github/skills/`<br>Personal: `~/.copilot/skills/` |
+
+### Codex
+
+To reuse repository skills with {% data variables.product.prodname_openai_codex %}, [configure the experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). In addition to native `.agents/skills/` discovery, this integration discovers workspace skills in `.github/skills/` before your first prompt, without additional skill-location configuration.
+
+If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence.
+
+The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+
+### Local
+
+Local sessions also read project skills from `.claude/skills/` and `.agents/skills/`, and personal skills from `~/.claude/skills/` and `~/.agents/skills/`.
+
+The deprecated `setting(chat.agentSkillsLocations)` setting adds other skill locations for Local sessions and remains available for compatibility. When another harness runs in {% data variables.product.prodname_vscode_shortname %}, the editor forwards skills from these locations. Independent harness clients do not inherit this setting. To use these skills from native locations, [move them to supported locations](/docs/agent-customization/migrate-customizations.md#move-customizations-from-configured-locations).
+
+### Monorepos
+
+If you open a subfolder of a monorepo, check the [parent repository discovery requirements](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo) before storing skills above the open workspace folder.
 
 ## SKILL.md file format
 
@@ -256,6 +315,8 @@ npx playwright test --debug
 - Keep tests independent and atomic
 - Use Page Object Model for complex pages
 - Take screenshots on failure
+
+To check the skill, run `/webapp-testing for the login page`. Confirm that the result identifies the relevant test file, uses the project test command, and reports whether the test passed.
 ````
 
 </details>
@@ -291,21 +352,6 @@ This skill helps you debug failing GitHub Actions workflows in pull requests.
 
 </details>
 
-## Use skills as slash commands
-
-Skills are available as slash commands in chat, alongside [prompt files](/docs/agent-customization/prompt-files.md). Type `/` in the chat input field to see a list of available skills and prompts, and select a skill to invoke it.
-
-You can add extra context after the slash command. For example, `/webapp-testing for the login page` or `/github-actions-debugging PR #42`.
-
-By default, all skills appear in the `/` menu. Use the `user-invocable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
-
-| Configuration | Slash command | Auto-loaded by Copilot | Use case |
-|---|---|---|---|
-| Default (both properties omitted) | Yes | Yes | General-purpose skills |
-| `user-invocable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
-| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
-| Both set | No | No | Disabled skills |
-
 ## How Copilot uses skills
 
 Skills load content progressively to keep your context efficient. Here is an example of how Copilot uses the `webapp-testing` skill:
@@ -319,22 +365,6 @@ Skills load content progressively to keep your context efficient. Here is an exa
 This three-level loading system means you can install many skills without consuming context. Copilot loads only what is relevant for each task.
 
 Skills that opt in to a [forked context](#run-a-skill-in-a-forked-context) follow the same discovery step, but their instructions and any files they read are loaded into a separate subagent. Only the skill's final result is returned to the parent agent.
-
-## Use shared skills
-
-You can use skills created by others to enhance Copilot's capabilities. The [github/awesome-copilot](https://github.com/github/awesome-copilot) repository contains a growing community collection of skills, custom agents, instructions, and prompts. The [anthropics/skills](https://github.com/anthropics/skills) repository contains additional reference skills.
-
-You can also discover and install skills that are bundled in [agent plugins](/docs/agent-customization/agent-plugins.md). Skills from installed plugins appear alongside your locally defined skills in the **Configure Skills** menu.
-
-To use a shared skill:
-
-1. Browse the available skills in the repository
-1. Copy the skill directory to your `.github/skills/` folder
-1. Review and customize the `SKILL.md` file for your needs
-1. Optionally, modify or add resources as needed
-
-> [!TIP]
-> Always review shared skills before using them to ensure they meet your requirements and security standards. {% data variables.product.prodname_vscode_shortname %}'s [terminal tool](/docs/agents/run/tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/run/security.md#approvals-and-review) for auto-approval features.
 
 ## Contribute skills from extensions
 
@@ -390,7 +420,6 @@ Agent Skills is an open standard that enables portability across different AI ag
 * **GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}**: Available in chat and agent mode
 * **{% data variables.copilot.copilot_cli %}**: Accessible when working in the terminal
 * **{% data variables.copilot.github_copilot_app %}**: Available in the dedicated desktop experience.
-* **{% data variables.copilot.copilot_cloud_agent %}**: Used during automated coding tasks
 * **{% data variables.product.prodname_openai_codex %} integration (Experimental)**: Discovers workspace skills in `.github/skills/` after you [set up the integration](/docs/agents/run/agent-harnesses.md#codex).
 
 Learn more about the Agent Skills standard at [agentskills.io](https://agentskills.io).

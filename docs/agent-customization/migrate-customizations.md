@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Migrate agent customizations and resolve harness compatibility gaps in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
@@ -19,20 +19,42 @@ Keywords:
 ---
 # Migrate customizations to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}
 
-Move existing customizations to the Copilot harness, including customizations that require manual changes. When {% data variables.product.prodname_vscode_shortname %} shows a customization migration notice, use the migration list to move or convert the detected files, settings, or MCP servers.
+Move your existing Local customizations to the {% data variables.product.prodname_copilot_short %} harness without losing the workflows you rely on. Use the migration list for supported file moves and conversions, then verify the result with a representative task before retiring the original setup.
 
-This article covers supported migrations, [manual hook migration](#migrate-hooks), and replacements for [deprecated tool sets](#replace-tool-sets) and [chat participants](#replace-chat-participants). Hooks can come from user folders, settings, repositories, custom agents, or plugins. These manual migrations do not appear as automatic conversions in the migration list.
+Start with the path for your customization below. You don't need to complete every migration in this article. For answers about keeping Local available, MCP secrets, custom discovery paths, and agent tool names, see the [migration FAQ](#frequently-asked-questions).
 
-For answers about keeping Local available, MCP secrets, custom discovery paths, and agent tool names, see the [migration FAQ](#frequently-asked-questions).
+For the broader workflow transition, including session continuity, organization rollout, and policy verification, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md).
 
 > [!NOTE]
 > This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
 >
 > Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
+## Choose a migration path
+
+| Existing customization | Destination or replacement | How to migrate | What to recheck |
+|------------------------|----------------------------|----------------|-----------------|
+| Workspace or profile MCP servers | Portable Copilot MCP configuration | [Migrate compatible server entries](#migrate-mcp-servers). Review unsupported properties manually. | Authentication, available tools, enabled state, and sandbox settings |
+| Workspace or user prompt files | Project or user skills | [Convert prompt files](#convert-prompt-files-to-skills). Use **Migrate with Agent** when the workflow also needs an agent or tool configuration. | Explicit invocation and any omitted `agent`, `model`, or `tools` properties |
+| Agents and instructions in profile user data | Copilot user folders | [Move user customizations](#move-user-agents-and-instructions). | Discovery and behavior in a new Copilot session |
+| Files in configured search locations | Native workspace or user folders | [Move files from configured locations](#move-customizations-from-configured-locations). | Destination scope and duplicate active copies |
+| Hooks in files, settings, agents, or plugins | Supported Copilot hook sources and scripts | [Migrate hooks manually](#migrate-hooks). No automatic hook conversion is available. | Event timing, script inputs and outputs, approvals, and failure paths |
+| User-defined tool sets | Workflow-specific tool configuration | [Replace tool-set references](#replace-tool-sets). | Required capabilities and tool restrictions |
+| Chat participants | A publisher-provided replacement or a direct agent request | [Replace participant workflows](#replace-chat-participants). | Service access, attached context, and expected results |
+| Plugins or extension-provided customizations | A compatible installation | [Manage these separately](#customizations-without-automatic-migration). | Publisher setup, harness compatibility, and required extensions |
+
+Use the [publisher guidance](#if-you-maintain-a-participant) only if you maintain a participant implementation. Installing a replacement doesn't require you to build a plugin.
+
 ## Open the migration list
 
-A notice appears in chat when a workspace requires customization migrations. Select **Review Migrations** to open the list of migrations. To directy open the list of migrations:
+Before changing a customization:
+
+* Commit or back up workspace files, scripts, and user settings that you might change.
+* Choose a small task that works with the original customization. Record its expected result, required tools, and approvals so you can compare them after migration.
+* Review the source and destination for each item. Original and migrated copies don't synchronize.
+* If you don't maintain the repository, use **Migrate with Agent** to prepare a pull request, or ask a repository maintainer to make the change.
+
+A notice appears in chat when a workspace requires customization migrations. Select **Review Migrations** to open the list. To open it directly:
 
 1. In the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}, select **Copilot** as the **Session Target**.
 1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
@@ -48,14 +70,7 @@ Choose how to handle the migration:
 
 Use **Ignore** from a migration group's actions when you do not want to handle that group now. Select **Show Ignored Migrations** to restore ignored groups.
 
-Before you migrate:
-
-* Commit or back up workspace files that you might change.
-* Review the source and destination shown for each item.
-* Remember that the original and migrated copies do not synchronize.
-* If you do not maintain the repository, use **Migrate with Agent** to prepare a pull request, or ask a repository maintainer to make the change.
-
-You only need to migrate each item once. Keep the original until you verify the migrated customization, and then remove it when you no longer need it.
+Keep your backup until you [verify the migration](#verify-the-migration). Automatic MCP migration removes successfully migrated source entries, while **Migrate with Agent** preserves source files by default. Where an original remains, retire it only after verification and avoid leaving both copies active.
 
 ## Why migration is needed
 
@@ -185,7 +200,7 @@ Environment variables are not a secret store. This migration does not meet a req
 Copilot harness sessions use [agent skills](/docs/agent-customization/agent-skills.md) for reusable workflows and do not load `*.prompt.md` files. Convert workspace and user prompt files to skills to use those workflows with the Copilot harness. Prompt files remain supported in Local harness sessions.
 
 > [!IMPORTANT]
-> Converting a workspace prompt to a project skill changes how the Copilot harness can use it. A prompt file runs only when someone invokes it. The Copilot harness can select a committed skill automatically in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, Copilot cloud agent, and Copilot code review. Review the skill's description and instructions with the repository maintainer before you commit it. Convert a personal workflow to a user skill instead.
+> Conversion preserves explicit invocation by adding `disable-model-invocation: true` to the generated skill. If you later remove that restriction, the agent can select the skill automatically for relevant tasks. Review the description and instructions with the repository maintainer before enabling automatic invocation for a shared skill. Convert a personal workflow to a user skill instead.
 
 To convert prompt files:
 
@@ -194,9 +209,9 @@ To convert prompt files:
 1. Review the source and destination. Open a prompt if you want to inspect it.
 1. Select **Migrate**.
 
-The generated skill includes `disable-model-invocation: true`, so it remains an explicitly invoked workflow. Conversion maps the prompt file's `name`, `description`, and argument guidance to the skill. It does not preserve prompt-specific `agent`, `model`, or `tools` selection. {% data variables.product.prodname_vscode_shortname %} lists omitted properties after migration. If the prompt depends on a specific agent, model, or tool set, use **Migrate with Agent** to create a corresponding custom agent or adapt the workflow.
+Conversion maps the prompt file's `name`, `description`, and argument guidance to the skill. It does not preserve prompt-specific `agent`, `model`, or `tools` selection. {% data variables.product.prodname_vscode_shortname %} lists omitted properties after migration. If the prompt depends on a specific agent, model, or tool set, use **Migrate with Agent** to create a corresponding custom agent or adapt the workflow.
 
-Test each skill before you remove the old prompt file.
+In a new {% data variables.product.prodname_copilot_short %} session, invoke the converted skill explicitly and compare its output and tool activity with the original prompt's result. Check any replacement agent or tool restrictions separately. Remove the old prompt file only after the workflow meets your requirements.
 
 ## Move user agents and instructions
 
@@ -211,7 +226,7 @@ To move user customizations:
 
 The migrated files are not included in [Settings Sync](/docs/configure/settings-sync.md).
 
-After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agent-customization/custom-agents.md#custom-agent-file-locations) and [instruction file locations](/docs/agent-customization/custom-instructions.md#instructions-file-locations) for the supported destinations.
+After migration, start a Copilot harness session and verify that the agents and instructions are available. See [custom agent locations](/docs/agents/reference/custom-agent-file-reference.md#custom-agent-file-locations) and [instruction file locations](/docs/agents/reference/custom-instructions-reference.md#user-instructions) for the supported destinations.
 
 ## Move customizations from configured locations
 
@@ -221,9 +236,10 @@ The following settings remain supported for compatibility with existing editor w
 
 * `setting(chat.agentFilesLocations)`
 * `setting(chat.instructionsFilesLocations)`
-* `setting(chat.agentSkillsLocations)`
 
-{% data variables.product.prodname_vscode_shortname %} forwards files discovered in additional configured locations to Agent Host harnesses, including Copilot. The harness does not read the settings itself. Additional locations supplement the harness's built-in locations without removing them. The older `chat.modeFilesLocations` setting is deprecated.
+The `setting(chat.agentSkillsLocations)` setting is deprecated. Move skills to native harness folders rather than adding new skill search locations. The older `chat.modeFilesLocations` setting is also deprecated.
+
+{% data variables.product.prodname_vscode_shortname %} forwards files discovered in additional configured locations to Agent Host harnesses, including Copilot. The harness does not read the settings itself. Additional locations supplement the harness's built-in locations without removing them.
 
 Although these settings remain supported, custom locations are not recommended for Copilot workflows because they are editor-specific. If an MCP tool downloads specialist agents, update it to write to a native workspace or user agent folder rather than adding another search location.
 
@@ -248,6 +264,20 @@ Standalone {% data variables.copilot.copilot_cli %} does not inherit these edito
 
 > [!NOTE]
 > The migration list can suggest moving files from configured locations even when they work through editor forwarding. Review the destinations and avoid leaving duplicate active copies after migration. The migration suggestion behavior is tracked in [microsoft/vscode#342185](https://github.com/microsoft/vscode/issues/342185).
+
+## Verify the migration
+
+After completing the migration path for your customization:
+
+1. Start a new Copilot harness session in the repository and environment where you intend to use it.
+1. Confirm that the migrated agents, instructions, skills, MCP servers, or plugins appear in the Agent Customizations editor. This checks discovery, not whether they work.
+1. Repeat the representative task you chose before migration without restating the customization's guidance.
+1. Check actual inclusion or invocation through references, tool activity, or hook execution logs, as applicable. Compare the output, tools, and approvals with your expected result.
+1. For a replaced tool set, check for missing capabilities and preserved tool restrictions. For a replaced participant, test its workflows, unavailable-service errors, approvals, and any MCP App interactions.
+1. Check that old and migrated copies aren't both active.
+1. Review and commit workspace migrations when your team should share them. Remove remaining old files and settings only after the migrated customization works.
+
+For remote or Dev Container sessions, perform these checks in the destination environment. User customization folders belong to the machine or container where the agent runs. Hook migrations also require the [script and live-session checks](#verify-before-retiring-the-original) below.
 
 ## Customizations without automatic migration
 
@@ -290,13 +320,13 @@ Inventory each configuration and the scripts it invokes before changing anything
 | Additional Local locations | `chat.hookFilesLocations` does not configure Copilot discovery. Move the configuration and its dependencies to a supported source, or package shared hooks in a plugin. |
 | Repository settings | The Copilot harness reads an inline `hooks` map from `.github/copilot/settings.json` and `.github/copilot/settings.local.json`. It also reads repository `.claude/settings.json` and `.claude/settings.local.json`. Preserve other settings; do not replace a settings file with a standalone hook-file envelope. |
 | User settings | Copilot reads inline hooks from `~/.copilot/settings.json`, not `~/.copilot/config.json`. Do not assume a Local hook in `~/.claude/settings.json` is discovered by Copilot. Move it to a documented Copilot user source. |
-| Custom agent frontmatter | Review the agent's `hooks` map and the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} currently drops this field when converting plugin-provided agents. For those agents, keep the hook definition but leave its migration incomplete; see the [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks). Copilot also excludes scoped hooks from remote or organization-hosted agent definitions. |
+| Custom agent frontmatter | Preserve the agent's `hooks` map and review the [agent-scoped hook contract](https://docs.github.com/en/copilot/reference/hooks-reference#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} forwards scoped hooks for converted agents, including plugin-provided agents. Verify execution and expected decisions before completing the migration. Copilot excludes scoped hooks from remote or organization-hosted agent definitions. |
 | Installed plugins | Update the plugin's source package or obtain an updated version from its publisher. Do not patch an installation cache. Keep scripts with the plugin and review its path variables, events, and payloads. See [hooks in plugins](/docs/agents/reference/agent-plugin-reference.md#hooks-in-plugins). |
 | Administrator-managed hooks | Coordinate changes with the administrator. Policy hooks and managed plugin hooks have different discovery and trust rules from personal files. See [enterprise hook controls](/docs/enterprise/manage-ai-settings.md#enable-or-disable-hooks). |
 
 The Copilot harness combines applicable hooks from multiple sources; adding a repository copy does not replace a user or plugin copy. Avoid running both the original and migrated hook. For a shared setup used across repositories, consider distributing the converted hooks and scripts in a plugin rather than copying them into each repository.
 
-Plugin-wide hooks and hooks in a plugin-provided agent's frontmatter are separate configurations. Packaging an agent does not work around the conversion limitation for its scoped hooks. Do not broaden a scoped hook to plugin-wide or repository-wide execution merely to make it run.
+Plugin-wide hooks and hooks in a plugin-provided agent's frontmatter are separate configurations. Keep an agent's scoped hooks in its frontmatter when packaging it. Moving them to plugin-wide or repository-wide execution broadens which agents trigger them and is not an equivalent migration.
 
 ### Compare configuration and script contracts
 
@@ -321,7 +351,7 @@ For complete output and failure rules, see [Copilot decision control](https://do
 
 ### Review event timing
 
-Use this table to find the corresponding lifecycle point, not as a mechanical rename list. Changing a configured event from PascalCase to camelCase also changes its stdin payload.
+Use this table to find the event that corresponds to the same point in the agent's workflow, not as a mechanical rename list. Changing a configured event from PascalCase to camelCase also changes its stdin payload.
 
 | Local event | Copilot event | Behavior to verify |
 |-------------|---------------|--------------------|
@@ -340,7 +370,7 @@ Do not carry these assumptions into a migrated script:
 
 * **Common Local outputs:** `continue`, `stopReason`, and `systemMessage` are not a documented cross-event Copilot command-hook contract. Choose the destination's event-specific output. Do not treat denying one tool as stopping the whole session.
 * **Nested output envelopes:** accepting a PascalCase input alias does not establish support for every Local `hookSpecificOutput` field. Emit the documented Copilot output.
-* **Transcripts and tool IDs:** do not require `transcript_path` or `tool_use_id` on every event. Copilot documents transcript paths on particular lifecycle events, not all tool events. A transcript filename or substring is not proof that the agent read or followed an instruction.
+* **Transcripts and tool IDs:** do not require `transcript_path` or `tool_use_id` on every event. {% data variables.product.prodname_copilot_short %} documents transcript paths for particular events in the agent's workflow, not all tool events. A transcript filename or substring is not proof that the agent read or followed an instruction.
 * **Matcher behavior:** Local ignores matcher values. Copilot applies documented matcher rules, including different semantics for compatible `PreToolUse` names. Recheck every filter, including invalid patterns and tools it should not match.
 * **SDK callback types:** programmatic callbacks are not JSON-file command hooks. A field in SDK source, such as a callback-only prompt override, is not evidence that a shell hook can use it.
 * **Enforcement:** `ask` depends on an interactive approval flow; do not assume it pauses an unattended session. GitHub also documents fail-open timeouts, including for policy hooks. Neither instructions nor a migrated hook alone establishes a security boundary.
@@ -537,7 +567,7 @@ These fixtures check the script's input and output handling. They do not establi
 1. Disable the original hook without deleting its backup. Activate only the converted configuration you intend to use. For the standalone example, rename `review-copilot.json.disabled` to `review-copilot.json`; for settings, merge the validated hook entries into the existing `hooks` map.
 1. Select **Copilot** as the **Session Target** and start a new disposable session. Confirm the intended source is discovered and the hook actually fires. A visible file alone is not proof of execution.
 1. Test allow, deny, and approval paths as applicable. Separately test a command error and a timeout; they do not necessarily have the same result.
-1. Test the relevant lifecycle transitions, including resume or subagent completion when used. Check that each hook runs once, not once per duplicate source.
+1. Test the relevant events in the agent's workflow, including resuming a session or completing a subagent when used. Check that each hook runs once, not once per duplicate source.
 1. Repeat in the target operating system, remote host, container, or worktree. Verify `cwd`, script dependencies, user folders, and sandbox access without logging credentials or full prompts.
 1. Only then retire the old configuration. Publish shared changes through the repository or plugin's normal review process.
 
@@ -582,7 +612,57 @@ For an extension-provided participant, check whether its publisher provides an [
 
 There is no automatic conversion of an installed participant. If its publisher has not provided a replacement, ask for one. Keep Local compatibility only while you still need the original integration.
 
-### If you maintain a participant
+If you maintain the participant implementation, follow the separate [publisher guidance](#if-you-maintain-a-participant) after the FAQ.
+
+## Frequently asked questions
+
+### Can I keep using the Local harness while adapting my customizations?
+
+Yes, when organization controls permit it. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** as the **Session Target**. Local harness availability and automatic Copilot harness selection depend on your settings and organization policies. See [Keep the Local harness available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-local-available-while-migrating).
+
+Administrators can use the temporary `vscode.temporaryDefaultToLocalHarness` enterprise-managed setting, available from version 1.142. It keeps the Local harness available and suppresses automatic Copilot routing, but the Local harness does not enforce Copilot runtime-only sandbox and permission rules. It does not override `vscode.temporaryAllowLocalHarness: false`, available from version 1.143. Review the [administrator guidance and security caveat](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
+
+### Why are MCP servers with input prompts missing?
+
+Servers that require `${input:...}` or `${command:...}` variables are not forwarded from `.vscode/mcp.json` or profile `mcp.json` to the Copilot harness. The server's tools are therefore unavailable in the session. Resolving the prompt in a Local session first does not help: Copilot forwarding rejects these variables before resolving their values, including cached values.
+
+Moving the same configuration to `.mcp.json` does not add input-prompt support. Migration converts eligible non-secret inputs to environment variables. For password inputs or other manual changes, see [Replace input prompts with environment variables](#replace-input-prompts-with-environment-variables). Keep the original configuration until you have a supported authentication method and have verified the tools in a Copilot session. See [MCP input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) and the open reports [microsoft/vscode#334271](https://github.com/microsoft/vscode/issues/334271) and [microsoft/vscode#337311](https://github.com/microsoft/vscode/issues/337311).
+
+### Can Copilot pass a prompted secret to an HTTP MCP server without an environment variable or a file?
+
+There is no built-in MCP configuration option that passes a {% data variables.product.prodname_vscode_shortname %} `${input:...}` value or reads an existing `SecretStorage` value into an HTTP server's authentication header for the Copilot harness. Setting `password: true` on an input does not change this limitation.
+
+If the server supports OAuth, use its supported authorization flow instead of configuring a static bearer token. OAuth is a separate authentication mechanism, not a way to forward a prompted API key. Authentication UI gaps are tracked in [microsoft/vscode#339960](https://github.com/microsoft/vscode/issues/339960).
+
+If the server requires a fixed bearer token and your requirements exclude both environment variables and credentials in files, the Copilot harness has no equivalent built-in input-prompt workflow. Continue using Local for that integration while you evaluate supported authentication options. Do not replace the placeholder with a literal secret in either a shared or personal MCP file: personal files can also be read by tools and included in logs or other artifacts. See [Authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
+
+### Do I need to move every custom agent into the repository agents folder?
+
+Use a native Copilot location, but it does not have to be a repository folder. Store shared agents in `.github/agents` and personal agents in `~/.copilot/agents`. These are the recommended locations for using agents across Copilot clients.
+
+The `setting(chat.agentFilesLocations)` setting is not deprecated, and the editor forwards agents from additional configured locations to the Copilot harness. This is compatibility support, not the recommended setup: {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not read this editor setting. See [configured-location migration](#move-customizations-from-configured-locations).
+
+For dynamically downloaded agents, configure the tool that generates them to use a native workspace or user agent folder. Verify that the generated files are valid agent files and appear in **Chat: Open Customizations** for the selected harness. If they remain missing, include the product version, local or remote environment, path, and a minimal agent definition in a bug report. Remove secrets from the report.
+
+### Why does my coordinator's subagent invocation stop working?
+
+Local invokes subagents with `runSubagent`. The Copilot harness uses its native `task` tool. An instruction that requires a specific Local tool name does not switch to the Copilot tool automatically.
+
+Review both the coordinator's Markdown instructions and its `tools` list. Prefer instructions such as 'delegate this review to the reviewer agent' when the workflow should work across harnesses. If the workflow requires an explicit tool call, adapt its name and arguments to the selected harness instead of only renaming the tool. Verify that each specialist is discovered and available for subagent invocation. See [Subagents by harness](/docs/agents/run/subagents.md#subagents-by-harness).
+
+### Why does an agent fail with a tool-discovery capability error?
+
+Finding an agent file does not mean that its tool list is compatible with the selected harness. Local delegation references such as `agent/runSubagent` and user-defined tool sets aren't portable Copilot tool configurations. Qualified client-tool references, including `vscode/<tool>`, can be valid when those tools are provided to the Copilot session.
+
+Review each entry in `tools` against the capabilities available in the Copilot session. Select Copilot before [editing the agent file](/docs/agents/reference/custom-agent-file-reference.md#edit-a-custom-agent-file) and use its completions to preserve canonical tool references. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
+
+Do not assume that removing a prefix or replacing a tool name fixes every discovery error. These editor hints aren't proof of a runtime tool-discovery failure.
+
+A separate report, [microsoft/vscode#342961](https://github.com/microsoft/vscode/issues/342961), describes tool search returning no results even when MCP tools are callable. If compatible tools still cannot be discovered, report the exact error, selected model, agent tool list, and environment rather than treating every discovery failure as an authentication problem.
+
+## If you maintain a participant
+
+This section is for extension publishers replacing a participant implementation. If you only use an installed participant, follow [Replace chat participants](#replace-chat-participants) instead.
 
 Start with an **agent plugin containing skills and an MCP server**. Skills describe the domain workflow, and MCP tools provide the data and actions needed to complete it. Add a custom agent when users need an ongoing specialist role. This separates reusable expertise from the code that accesses a service and makes the integration usable beyond one editor.
 
@@ -645,64 +725,6 @@ that limitation and offer a text-only exercise instead.
 ```
 
 With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-concept`, rather than `@tutor /teach`. Test the installed plugin, authentication, app interactions, and text-only path before retiring the participant.
-
-## Verify the migration
-
-After you complete a migration:
-
-1. Start a new Copilot harness session.
-1. Confirm that the migrated agents, instructions, skills, MCP servers, or plugins appear in the Agent Customizations editor.
-1. Run a representative task that uses the customization.
-1. For a replaced tool set, inspect the selected tools and check for missing capabilities. For a replaced participant, test its workflows, unavailable-service errors, approvals, and any MCP App interactions.
-1. Check that old and migrated copies are not both active.
-1. Commit workspace migrations to source control when your team should share them.
-1. Remove old files and settings after the migrated customization works.
-
-For remote or Dev Container sessions, perform this check in the destination environment. User customization folders belong to the machine or container where the agent runs.
-
-## Frequently asked questions
-
-### Can I keep using Local while adapting my customizations?
-
-Yes. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** as the **Session Target**. Local availability and automatic Copilot selection depend on your settings and organization policies. See [Keep Local available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-local-available-while-migrating).
-
-Administrators can use the temporary `vscode.temporaryDefaultToLocalHarness` enterprise-managed setting, available from version 1.142. It keeps Local available and suppresses automatic Copilot routing, but Local does not enforce Copilot runtime-only sandbox and permission rules. Review the [administrator guidance and security caveat](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
-
-### Why are MCP servers with input prompts missing?
-
-Servers that require `${input:...}` or `${command:...}` variables are not forwarded from `.vscode/mcp.json` or profile `mcp.json` to the Copilot harness. The server's tools are therefore unavailable in the session. Resolving the prompt in a Local session first does not help: Copilot forwarding rejects these variables before resolving their values, including cached values.
-
-Moving the same configuration to `.mcp.json` does not add input-prompt support. Migration converts eligible non-secret inputs to environment variables. For password inputs or other manual changes, see [Replace input prompts with environment variables](#replace-input-prompts-with-environment-variables). Keep the original configuration until you have a supported authentication method and have verified the tools in a Copilot session. See [MCP input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) and the open reports [microsoft/vscode#334271](https://github.com/microsoft/vscode/issues/334271) and [microsoft/vscode#337311](https://github.com/microsoft/vscode/issues/337311).
-
-### Can Copilot pass a prompted secret to an HTTP MCP server without an environment variable or a file?
-
-There is no built-in MCP configuration option that passes a {% data variables.product.prodname_vscode_shortname %} `${input:...}` value or reads an existing `SecretStorage` value into an HTTP server's authentication header for the Copilot harness. Setting `password: true` on an input does not change this limitation.
-
-If the server supports OAuth, use its supported authorization flow instead of configuring a static bearer token. OAuth is a separate authentication mechanism, not a way to forward a prompted API key. Authentication UI gaps are tracked in [microsoft/vscode#339960](https://github.com/microsoft/vscode/issues/339960).
-
-If the server requires a fixed bearer token and your requirements exclude both environment variables and credentials in files, the Copilot harness has no equivalent built-in input-prompt workflow. Continue using Local for that integration while you evaluate supported authentication options. Do not replace the placeholder with a literal secret in either a shared or personal MCP file: personal files can also be read by tools and included in logs or other artifacts. See [Authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
-
-### Do I need to move every custom agent into the repository agents folder?
-
-Use a native Copilot location, but it does not have to be a repository folder. Store shared agents in `.github/agents` and personal agents in `~/.copilot/agents`. These are the recommended locations for using agents across Copilot clients.
-
-The `setting(chat.agentFilesLocations)` setting is not deprecated, and the editor forwards agents from additional configured locations to the Copilot harness. This is compatibility support, not the recommended setup: {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} do not read this editor setting. See [configured-location migration](#move-customizations-from-configured-locations).
-
-For dynamically downloaded agents, configure the tool that generates them to use a native workspace or user agent folder. Verify that the generated files are valid agent files and appear in **Chat: Open Customizations** for the selected harness. If they remain missing, include the product version, local or remote environment, path, and a minimal agent definition in a bug report. Remove secrets from the report.
-
-### Why does my coordinator's subagent invocation stop working?
-
-Local invokes subagents with `runSubagent`. The Copilot harness uses its native `task` tool. An instruction that requires a specific Local tool name does not switch to the Copilot tool automatically.
-
-Review both the coordinator's Markdown instructions and its `tools` list. Prefer instructions such as 'delegate this review to the reviewer agent' when the workflow should work across harnesses. If the workflow requires an explicit tool call, adapt its name and arguments to the selected harness instead of only renaming the tool. Verify that each specialist is discovered and available for subagent invocation. See [Subagents by harness](/docs/agents/run/subagents.md#subagents-by-harness).
-
-### Why does an agent fail with a tool-discovery capability error?
-
-Finding an agent file does not mean that its tool list is compatible with the selected harness. References such as `vscode/toolSearch`, Local tool IDs, and user-defined tool sets are not a portable Copilot tool configuration.
-
-Review each entry in `tools` against the capabilities available in the Copilot session. Check the [Tools tab](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness), the [custom agent tool reference](/docs/agents/reference/custom-agent-file-reference.md#tools), and [tool-set migration guidance](#replace-tool-sets). Keep required capabilities explicitly configured. Removing the entire tool restriction is not an equivalent migration.
-
-Do not assume that removing a prefix or replacing a tool name fixes every discovery error. Harness-aware editing and tool validation are tracked in [microsoft/vscode#342854](https://github.com/microsoft/vscode/issues/342854) and [microsoft/vscode#342881](https://github.com/microsoft/vscode/issues/342881). A separate open report, [microsoft/vscode#342961](https://github.com/microsoft/vscode/issues/342961), describes tool search returning no results even when MCP tools are callable. If compatible tools still cannot be discovered, report the exact error, selected model, agent tool list, and environment rather than treating every discovery failure as an authentication problem.
 
 ## Related resources
 

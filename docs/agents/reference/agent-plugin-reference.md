@@ -1,6 +1,6 @@
 ---
 ContentId: cbff1d23-7653-44b7-b24d-4a9a889fea41
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Package skills, agents, MCP servers, hooks, and automation templates with agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../agent-customization/images/agent-plugins/installed-plugins.png
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 ---
 # Agent plugin authoring reference
 
-Package related customizations as a plugin that developers can install together. This reference covers manifests, directory layouts, component configuration, and compatibility across plugin formats and agent harnesses.
+Package related customizations as a plugin that developers can install together. This reference covers manifests, directory layouts, component and marketplace configuration, management commands, and compatibility across plugin formats and agent harnesses.
 
 Use it when creating a plugin or inspecting how its components are configured. To find, install, update, or remove an existing plugin, see [Use agent plugins](/docs/agent-customization/agent-plugins.md).
 
@@ -27,7 +27,7 @@ Agent Plugins 1.0 defines skills and MCP servers as portable component types. Ot
 | [MCP servers](/docs/agent-customization/mcp-servers.md) | External tool integrations | | ✓ |
 | [Skills](/docs/agent-customization/agent-skills.md) | Instructions, scripts, and resources that load on-demand | | ✓ |
 | [Agents](/docs/agent-customization/custom-agents.md) | Specialized personas and tool configurations | ✓ | |
-| [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
+| [Hooks](/docs/agent-customization/hooks.md) | Shell commands that run at specific points in the agent's workflow | ✓ | |
 | [Automation templates](#automations-in-plugins) | Reusable prompts and schedules for agent tasks | ✓ | |
 | Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
@@ -195,7 +195,7 @@ The frontmatter supports these fields:
 | `id` | Yes | Identifier that is unique within the plugin. Use lowercase letters, numbers, periods, or hyphens, with a maximum of 64 characters. |
 | `name` | Yes | Display name for the template. |
 | `description` | No | Short description of the automation's purpose. |
-| `schedule` | Yes | Manual, hourly, daily, or weekly schedule. |
+| `schedule` | Yes | Manual, hourly, or five-field cron schedule. |
 
 Use one of these schedule formats:
 
@@ -205,8 +205,9 @@ Use one of these schedule formats:
 | Hourly | `kind: hourly` |
 | Daily | `kind: cron`, a five-field expression such as `"0 9 * * *"`, and `timeZone: local` |
 | Weekly | `kind: cron`, a five-field expression such as `"30 10 * * 5"`, and `timeZone: local` |
+| Cron | `kind: cron`, a supported five-field expression such as `"0 9,17 * * MON-FRI"`, and `timeZone: local` |
 
-The five cron fields represent minute, hour, day of month, month, and day of week. Only local-time cron expressions that represent a daily or weekly schedule are supported. {% data variables.product.prodname_vscode_shortname %} ignores invalid templates rather than changing their schedule.
+Cron schedules support the [five-field expression syntax](/docs/agents/run/automations.md#cron-expression-syntax), including lists, ranges, and steps. Cron templates require `timeZone: local`. Named time zones aren't supported in template files. {% data variables.product.prodname_vscode_shortname %} ignores invalid templates rather than changing their schedule.
 
 Plugin templates can't specify a workspace, provider, model, permissions, enabled state, or run history. When someone selects a template, the **New Automation** dialog opens so they can review the prompt and choose the execution configuration. The **Enabled** checkbox is cleared by default.
 
@@ -302,7 +303,7 @@ Disabling a plugin stops its MCP servers. Tools provided by the stopped servers 
 
 ## Hooks in plugins
 
-Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin-wide hooks work alongside your workspace and user-level hooks. When a plugin is enabled, these hooks fire in addition to any other hooks configured for the same event.
+Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at specific points in the agent's workflow. Plugin-wide hooks work alongside your workspace and user-level hooks. When a plugin is enabled, these hooks fire in addition to any other hooks configured for the same event.
 
 > [!NOTE]
 > Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
@@ -376,13 +377,13 @@ The [plugin parser](https://github.com/microsoft/vscode/blob/1.142.0/src/vs/plat
 
 Use the shared harness's [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for plugin-wide hooks.
 
-Hooks in a plugin-provided custom agent's frontmatter have a separate [conversion limitation](/docs/agent-customization/hooks.md#agent-scoped-hooks): {% data variables.product.prodname_vscode_shortname %} currently omits the agent's `hooks` field when passing that agent to the Copilot harness. The agent appearing in the picker does not prove its hooks run. Retain the scoped definition and leave its migration incomplete until this conversion is supported and verified. A plugin-wide hook is not an equivalent workaround.
+Hooks in a plugin-provided custom agent's frontmatter are [scoped to that agent](/docs/agent-customization/hooks.md#agent-scoped-hooks). {% data variables.product.prodname_vscode_shortname %} forwards those hooks when passing the agent to Copilot. The agent appearing in the picker doesn't prove its hooks run, so verify the expected events and decisions in a trusted session. Keep agent-specific hooks in the agent's frontmatter rather than broadening them to plugin-wide execution.
 
 ### How plugin hooks interact with other hooks
 
 Plugin-wide hooks run alongside other applicable hook sources. For Copilot `preToolUse`, a denial blocks the tool call. Return no decision when the hook should leave the normal permission flow unchanged. Review the runtime's timeout and failure rules before relying on a hook for validation.
 
-Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can enable or disable plugins globally or for a specific workspace from the Extensions view.
+Disabling a plugin also disables its hooks. Unless enterprise policy controls the plugin's enablement, you can [enable or disable plugins](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins) for the current profile or a specific workspace from the Agent Customizations editor.
 
 ## Cross-tool compatibility
 
@@ -405,11 +406,111 @@ my-plugin/
 
 For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
+## Marketplace source formats
+
+Use `setting(chat.plugins.marketplaces)` (Experimental) to configure additional marketplace repositories in Settings. Supported source formats include:
+
+* **Shorthand**: `owner/repo` for public GitHub repositories. For example, `anthropics/claude-code`. Append `#<ref>` to select a branch, tag, or full 40-character commit SHA.
+* **HTTPS git remote**: a full URL ending in `.git`. For example, `https://github.com/anthropics/claude-code.git`.
+* **SCP-style git remote**: SSH-style references. For example, `git@github.com:anthropics/claude-code.git`.
+* **File URI**: a `file:///` path to a marketplace repository already cloned on disk.
+
+For example, add this property to `settings.json`, preserving other settings:
+
+```json
+{
+    "chat.plugins.marketplaces": [
+        "anthropics/claude-code"
+    ]
+}
+```
+
+For reproducible installations, use a full 40-character commit SHA, such as `owner/repo#<commit-sha>`. {% data variables.product.prodname_vscode_shortname %} installs plugins from that exact revision. Branch and tag references use the revision they resolve to when the marketplace is fetched.
+
+Private repositories are also supported. Sign in to GitHub and make sure you have read access to the marketplace repository. Organization membership alone doesn't grant repository access. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
+
+When a marketplace index declares a plugin at a relative path, {% data variables.product.prodname_vscode_shortname %} verifies the repository, resolved revision, and path before installation. Sources with a missing revision, an invalid path, or an ambiguous path match are rejected.
+
+Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces). Enterprise admins can [manage plugin and marketplace availability](/docs/enterprise/manage-ai-settings.md#manage-agent-plugins-and-marketplaces).
+
+## Local plugin registration
+
+To register an existing development directory without installing it, use `setting(chat.pluginLocations)` (Experimental). This setting maps plugin directory paths to an enabled or disabled state. Set a value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+
+For example, merge this property into `settings.json`, replacing the paths with directories on your machine:
+
+```json
+{
+    "chat.pluginLocations": {
+        "/path/to/my-plugin": true,
+        "/path/to/another-plugin": false
+    }
+}
+```
+
+To install a plugin from a local folder instead, follow [Install a plugin from source](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-source).
+
+For a remote workspace, add this setting in **Remote** settings and use paths on the remote machine or inside the container. See [Use plugins in remote windows](/docs/agent-customization/agent-plugins.md#use-plugins-in-remote-windows).
+
+## Workspace plugin settings
+
+Projects can configure plugin recommendations in `.claude/settings.json` or repository defaults in `.github/copilot/settings.json`:
+
+* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear among the available sources in the Agent Customizations editor.
+* **`enabledPlugins`**: lists plugins that should be enabled by default.
+
+For example:
+
+```json
+{
+    "extraKnownMarketplaces": {
+        "company-tools": {
+            "source": {
+                "source": "github",
+                "repo": "your-org/plugin-marketplace"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "code-formatter@company-tools": true
+    }
+}
+```
+
+The marketplace key, `company-tools` in this example, must match the `name` in the marketplace's `marketplace.json`. Plugin identifiers use `<plugin>@<marketplace>`, not the marketplace repository name. Keep marketplace names stable so shared settings continue to refer to the same plugins.
+
+For the differences between Local recommendations, Copilot repository defaults, and enterprise policy, see [workspace plugin recommendations](/docs/agent-customization/agent-plugins.md#workspace-plugin-recommendations).
+
+## Plugin management commands
+
+In a {% data variables.product.prodname_copilot_short %} harness session, enter `/plugin ` to view completions for plugin and marketplace operations.
+
+> [!NOTE]
+> The `/plugin` commands and the Agent Customizations editor currently use separate plugin inventories. Manage a plugin from the interface where you installed it.
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin list` | List installed plugins and their status. |
+| `/plugin install <source>` | Install a plugin from a marketplace or Git repository. |
+| `/plugin update <plugin>` | Update an installed plugin. |
+| `/plugin enable <plugin>` | Enable an installed marketplace plugin. |
+| `/plugin disable <plugin>` | Disable an installed marketplace plugin. |
+| `/plugin uninstall <plugin>` | Remove an installed plugin. |
+| `/plugin marketplace list` | List included and registered marketplaces. |
+| `/plugin marketplace browse <name>` | Browse the plugins in a marketplace. |
+| `/plugin marketplace add <source>` | Add a marketplace from a Git repository. |
+| `/plugin marketplace update [name]` | Update one marketplace or all registered marketplaces. |
+| `/plugin marketplace remove <name> [--force]` | Remove a registered marketplace. Use `--force` if plugins from the marketplace are installed. |
+
+Marketplace plugins use the qualified identity `<plugin>@<marketplace>`. Use this identity when plugins in multiple marketplaces have the same name. Command completion suggests valid marketplace and plugin identities for each operation.
+
+Plugins installed directly from a Git repository can be updated or uninstalled, but they can't be enabled or disabled through these commands. To stop using a directly installed plugin, uninstall it. Included and centrally managed marketplaces can't be removed.
+
 ## Test and distribute a plugin
 
 Before distributing a plugin, verify its behavior with each harness and client you intend to support:
 
-1. Register your development copy as a [local plugin](/docs/agent-customization/agent-plugins.md#use-local-plugins). This configuration is Experimental.
+1. Register your development copy as a [local plugin](#local-plugin-registration). This configuration is Experimental.
 1. Check that its supported components appear, then run a representative task to verify the skills, agents, hooks, and tools that the plugin provides. Review any code that a hook or MCP server runs before testing.
 1. If the plugin includes automation templates, confirm that they appear in **Templates from Plugins** and review their configuration before creating an automation.
 1. Before publishing an update, bump the `version` field in `plugin.json` and in the `marketplace.json` plugin entry, if applicable. Follow the marketplace schema for your plugin format.
