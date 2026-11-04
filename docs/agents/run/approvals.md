@@ -43,9 +43,9 @@ The levels below describe Copilot harness sessions. For other harnesses, see [Cl
 
 New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. If the managed default isn't available, new sessions use **Manual permissions**. The managed default doesn't prevent you from switching to another level that the organization allows.
 
-To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
+Select **Assisted permissions** from the permissions picker in the chat input of a Copilot harness session. This option isn't available for Local harness sessions.
 
-Select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
+In the editor's {% data variables.copilot.chat_view %}, sessions already work in the current workspace. There is no isolation picker to configure. The separate worktree choice applies in the {% data variables.copilot.agents_window %}. Worktree sessions always use **Allow all**.
 
 | Permission level | Description |
 |---|---|

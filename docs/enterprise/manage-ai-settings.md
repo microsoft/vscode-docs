@@ -10,6 +10,8 @@ Organizations can govern AI features in {% data variables.product.prodname_vscod
 
 These solutions control different layers of the AI experience. An organization might use all three, but should configure an overlapping control in only one system.
 
+For an existing Local deployment, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for developer steps, a compatibility checklist, and an administrator rollout and verification procedure.
+
 > [!NOTE]
 > If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved.
 
@@ -159,7 +161,7 @@ For example, add the following values to your enterprise-managed settings:
 }
 ```
 
-This example starts new conversations on Fusion **High** when [Copilot Fusion (Research preview)](/docs/agent-customization/language-models.md#use-copilot-fusion-research-preview) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
+This example starts new conversations on Fusion **High** when [Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
 
 `fusionTier` takes precedence over the legacy `autoTier` setting. It applies to the Copilot harness, not Local sessions.
 
@@ -195,16 +197,20 @@ If you need access to one of these harnesses:
 
 Ask the administrator which harnesses are approved for your work and whether the deployed configuration needs review. You cannot restore access by changing your user or workspace settings.
 
-#### Runtime policies and harness selection
+### Runtime policies and harness selection
 
-The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. The following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
+The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, the following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
 
 * `sandbox.enabled` set to `true`.
-* A `permissions` object with at least one key.
+* A nonempty `permissions.deny` rule list.
 
-An empty `permissions` object does not trigger that routing.
+Other `permissions.*` settings and an empty deny list do not trigger that routing.
 
-The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply.
+To prohibit Local, Claude, and Codex, set `vscode.temporaryAllowLocalHarness` to `false` in enterprise-managed settings. This control is available from version 1.143 and takes precedence over `vscode.temporaryDefaultToLocalHarness: true`. Setting it to `true` does not override other policies.
+
+A default is not a harness requirement. The `ChatEditorPreferCopilotHarness` device policy prefers Copilot when a new editor chat would otherwise use Local, but does not prohibit other harnesses.
+
+The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply. For conversation and archive behavior when Copilot is required, see [continue an existing Local conversation](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
 
 ### Keep Local harness as default
 
@@ -220,7 +226,7 @@ Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed
 }
 ```
 
-This control suppresses [automatic routing to the Copilot harness](#enforce-runtime-policies-with-copilot-agent-host), including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
+This control suppresses [automatic routing to the Copilot harness](#runtime-policies-and-harness-selection), including routing triggered by managed sandbox requirements or nonempty deny lists. It does not change explicit, remembered, or current harness choices. It does not override `vscode.temporaryAllowLocalHarness: false`. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Those managed rules continue to be enforced in Copilot harness sessions. Review the security impact before you use this temporary control.
@@ -480,7 +486,7 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, use th
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
-The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. For Agent Host sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy).
+Use the shared `sandbox` key in enterprise-managed settings to enforce supported minimum sandbox restrictions. Follow the [sandbox schema and minimum client versions](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox). Verify policy delivery and the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) where the agent runs, including remote hosts and containers. Local harness sessions cannot enforce these runtime-only controls.
 
 <details>
 <summary>Sandbox device policies for Local harness sessions</summary>
