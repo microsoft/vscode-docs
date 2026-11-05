@@ -509,6 +509,8 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 
 #### scope
 
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
@@ -518,7 +520,25 @@ A configuration setting can have one of the following possible scopes:
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 - `language-overridable` - Resource settings that can be overridable at a language level.
 
-Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+The following table summarizes how each scope behaves with respect to overrides, multi-root workspaces, remote environments, and language-specific configuration:
+
+| Scope | Overridable in workspace | Overridable in workspace folder (multiroot) | Remote inherits local user settings | Overridable remotely | Overridable at language level |
+| --- | --- | --- | --- | --- | --- |
+| `application` | No | No | Yes | No | No |
+| `machine` | No | No | No | Yes (implicitly, as not inherited) | No |
+| `machine-overridable` | Yes | Yes | No | Yes (implicitly, as not inherited) | No |
+| `window` | Yes | No | Yes | Yes | No |
+| `resource` | Yes | Yes | Yes | Yes | No |
+| `language-overridable` | Yes | Yes | Yes | Yes | Yes |
+
+Column details:
+
+- **Overridable in workspace:** Whether the setting can be configured or overridden in workspace settings (or in folder settings for single-root workspaces).
+- **Overridable in workspace folder (multiroot):** Whether the setting can be customized per folder in a multi-root workspace scenario.
+- **Remote inherits local user settings:** Whether a remote window inherits the local user settings value when no remote value is set.
+- **Overridable remotely:** Whether the setting can be configured in remote settings.
+- **Overridable at language level:** Whether the setting supports language-specific overrides (for example, `"[typescript]": { ... }`).
+- **Settings Sync:** Settings marked with `machine` or `machine-overridable` scope are machine specific and excluded from Settings Sync by default.
 
 Below are example configuration scopes from the built-in Git extension:
 
