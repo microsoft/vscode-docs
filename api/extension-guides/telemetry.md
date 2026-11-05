@@ -9,7 +9,7 @@ MetaDescription: Learn how Visual Studio Code extensions can enable telemetry an
 
 # Telemetry extension authors guide
 
-Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry) to learn more.
+Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/configure/telemetry) to learn more.
 
 This topic has guidelines for extension authors so that their extensions can conform to VS Code telemetry requirements and best practices.
 
