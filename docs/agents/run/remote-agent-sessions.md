@@ -39,7 +39,7 @@ Remote environment management requires `setting(sessions.chat.experimental.envir
 
 Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`), or select **Manage Remote Environments** from the sessions list **More Actions** (`...`) menu.
 
-If the experimental new-session composer layout is enabled (`setting(sessions.chat.experimental.newSessionComposerLayout)`), you can also open the editor from the **Environment** picker:
+You can also open the editor from the **Environment** picker:
 
 1. Create a new chat or session in the {% data variables.copilot.agents_window %}.
 
