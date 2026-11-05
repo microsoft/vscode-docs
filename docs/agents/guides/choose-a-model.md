@@ -20,21 +20,21 @@ Choosing the right model can be difficult when you need to balance code quality,
 If you're unsure where to start, use Fusion or Auto for your next task and let it choose the model for you. Choose a different path when you need a specific capability or evidence about which model works better for your tasks.
 
 <div class="card-grid">
-    <a class="card" href="/docs/agents/guides/choose-a-model#let-fusion-or-auto-choose">
+    <a class="card" href="#_let-fusion-or-auto-choose">
         <div>
             <p><strong>Let Fusion or Auto choose</strong></p>
             <p>Start coding without hand-selecting a model for each task.</p>
         </div>
     </a>
-    <a class="card" href="/docs/agents/guides/choose-a-model#choose-an-individual-model">
+    <a class="card" href="#_choose-an-individual-model">
         <div>
             <p><strong>Choose an individual model</strong></p>
             <p>Use a particular capability or control the model and its settings.</p>
         </div>
     </a>
-    <a class="card" href="/docs/agents/guides/choose-a-model#compare-models-on-your-code-preview">
+    <a class="card" href="#_compare-models-on-your-code-preview">
         <div>
-            <p><strong>Compare models side by side (Preview)</strong></p>
+            <p><strong>Compare models side by side</strong></p>
             <p>Try the same task with different models, then choose based on the results.</p>
         </div>
     </a>
