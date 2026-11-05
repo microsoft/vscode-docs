@@ -74,9 +74,9 @@ Sandboxing is independent of the permission level. **Allow all** and **Autopilot
 > [!NOTE]
 > **For Local harness sessions:** **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
 
-### Advanced autopilot (Preview)
+### Advanced autopilot (Experimental)
 
-Advanced Autopilot delegates the completion decision to a separate model. After each turn, a small, fast model evaluates whether the original request is complete and guides the next turn when more work is needed. Set `setting(chat.autopilot.advanced.enabled)` to `true` to use this preview feature.
+Advanced Autopilot delegates the completion decision to a separate model. After each turn, a small, fast model evaluates whether the original request is complete and guides the next turn when more work is needed. Set `setting(chat.autopilot.advanced.enabled)` to `true` to use this experimental feature.
 
 > [!NOTE]
 > Autopilot consumes AI credits like interactive chat. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).

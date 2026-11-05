@@ -43,15 +43,11 @@ On files that don't belong to any chat session, `kb(inlinechat.start)` always op
 When you select text in the editor, {% data variables.product.prodname_vscode_shortname %} can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
 
 * `off`: no hint is shown when you select text
-* `gutter`: the hint appears in the line number area next to your selection
 * `editor`: the hint appears at the cursor position within your selection, integrated with the lightbulb for code actions
 
-![Screenshot showing the inline chat hint in the gutter when text is selected in the editor.](images/copilot-chat/inline-chat-hint-gutter.png)
+<!-- TODO: Add a screenshot showing the inline chat selection hint with inlineChat.affordance set to editor. -->
 
 The hint displays an inline chat input box and actions for adding the selection to chat, explaining the code, and starting a code review of the selection.
-
-> [!NOTE]
-> This feature is experimental and works with the `setting(inlineChat.renderMode)` setting set to `hover`.
 
 ## Use terminal inline chat
 

@@ -120,14 +120,6 @@ This setting is independent of [word wrap in code editors](/docs/agents/run/agen
 
 To change it from a diff editor, select **More Actions** (**...**) > **Word Wrap**.
 
-#### Review changes in the single-pane layout (Experimental)
-
-When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
-
-Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. The `kb(toggle.diff.renderSideBySide)` keybinding toggles the preferred diff view in the {% data variables.copilot.agents_window %}.
-
-The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
-
 ## Provide feedback and request revisions
 
 You can ask the agent to revise its work from any review workflow. Send a follow-up prompt, edit the files directly, or provide inline feedback in the {% data variables.copilot.agents_window %}.
