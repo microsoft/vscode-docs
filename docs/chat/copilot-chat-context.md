@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
 ---
 # Add context to chat
@@ -33,9 +33,25 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} and select **Files & Folders** or **Symbols** from the Quick Pick.
+* Select **Add Context** (`+` icon) and then **Files** to choose files from disk, or **Symbols** to select a code symbol.
 
 Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
+
+#### Attach files from disk
+
+Use the file chooser to attach files outside your workspace, such as a screenshot or UI mockup from your desktop. You don't need to add their folder to the workspace or open a workspace first.
+
+1. Select **Add Context** (`+` icon) > **Files** in the chat input.
+
+1. Choose one or more files, including text files or supported images, and then select **Attach**.
+
+1. Confirm that the attachments appear in the chat input, then enter a prompt about them.
+
+<!-- TODO: Capture the Files... attachment workflow with files from outside the workspace. -->
+
+If the selected session supports only image attachments, **Files** filters the chooser to supported images. It doesn't enable ordinary local-file transfer for those sessions.
+
+In sandboxed Copilot harness sessions, attaching a file can grant read access for the session without changing sandbox settings. It doesn't grant write permission or override organization restrictions. See [Read attached files and folders](/docs/agents/run/agent-sandboxing.md#read-attached-files-and-folders).
 
 ### Add project and GitHub context
 
@@ -75,6 +91,8 @@ Ask Copilot directly about your code, terminal output, or editor settings and at
 ## Vision
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
+
+Vision analyzes image input and doesn't generate image output. To create an image or edit an existing one, use [image generation](/docs/chat/chat-overview.md#generate-and-edit-images-experimental) in a {% data variables.product.prodname_copilot_short %} harness session.
 
 > [!TIP]
 > You can drag and drop an image from a web browser onto the {% data variables.copilot.chat_view %} to add it as context.

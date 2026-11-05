@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
+MetaDescription: Extend the {% data variables.product.prodname_vscode_shortname %} workbench with views, Timeline providers, webviews, and status bar items.
 ---
 
 # Extending Workbench
@@ -34,6 +34,10 @@ With the [`contributes.viewsContainers`](/api/references/contribution-points#con
 ## Tree View
 
 With the [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point, you can add new Views that display in any of the View Containers. Learn more at the [Tree View](/api/extension-guides/tree-view) topic.
+
+## Timeline
+
+Add file, folder, and workspace history to the built-in **Timeline** view with a `TimelineProvider` or `WorkspaceTimelineProvider`. Your entries appear alongside other history sources, such as Git and Local History. Learn how to register providers and add item actions in the [Timeline API guide](/api/extension-guides/timeline.md).
 
 ## Webview
 

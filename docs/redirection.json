@@ -1,4 +1,6 @@
 [
+    { "from": "/docs/agents/run/overview", "to": "/docs/agents/best-practices", "status": 301 },
+    { "from": "/docs/agents/run/cloud-agent-sessions", "to": "/docs/agents/run/cloud-sandbox-sessions", "status": 301 },
     { "from": "/docs/enterprise/ai-settings", "to": "/docs/enterprise/manage-ai-settings", "status": 301 },
     { "from": "/docs/agent-native/overview", "to": "/docs/agents/overview", "status": 301 },
     { "from": "/docs/agents/concepts/overview", "to": "/docs/agents/concepts/agents", "status": 301 },

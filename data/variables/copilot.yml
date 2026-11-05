@@ -38,7 +38,7 @@ copilot_cli_short: 'Copilot CLI'
 copilot_cli: 'GitHub Copilot CLI'
 
 ## Copilot SDK
-copilot_sdk: 'GitHub Copilot SDK'
+copilot_sdk: 'Microsoft Copilot SDK'
 copilot_sdk_short: 'Copilot SDK'
 
 ## Various Copilot features

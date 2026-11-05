@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Edit code efficiently in {% data variables.product.prodname_vscode %} with multiple cursors, search, formatting, folding, and automatic bracket closing.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -244,6 +244,18 @@ In the two input boxes below the search box, you can enter patterns to include o
 **Note about case sensitivity:** Glob patterns follow your operating system's file system rules. On Windows and macOS, patterns are case-insensitive (for example, `*.CS` matches `file.cs`). On Linux, patterns are case-sensitive. This is separate from the search text **Match Case** toggle, which controls whether the search text itself is case-sensitive. Learn more about [glob patterns](/docs/editor/glob-patterns.md#case-sensitivity).
 
 {% data variables.product.prodname_vscode_shortname %} excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/configure/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
+
+To search selected files inside an excluded folder without showing them in the Explorer, add a `!` exception to `setting(search.exclude)` in your [settings.json file](/docs/configure/settings.md#settings-json-file). For example, this exception searches `node_modules/@types` despite the default `node_modules` exclusion:
+
+```json
+{
+  "search.exclude": {
+    "!node_modules/@types": true
+  }
+}
+```
+
+Search inherits patterns from `setting(files.exclude)`, and an exception in either setting can override an exclusion in the other. Exceptions also apply to file search in Quick Open and override `.gitignore` rules. They apply only to these settings, not to the **files to exclude** input box. For precedence rules and limitations, see [exclude exceptions](/docs/editor/glob-patterns.md#exclude-exceptions).
 
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 31f461b7-c216-414a-b701-78c205fde8a8
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide for updating Visual Studio Code extensions to support Workspace Trust
@@ -111,4 +111,4 @@ Similar to debugging, VS Code prevents running tasks in Restricted Mode. If your
 
 ## Testing Workspace Trust
 
-See the [Workspace Trust user guide](/docs/editor/workspace-trust) for details on enabling and configuring Workspace Trust.
+See the [Workspace Trust user guide](/docs/editing/workspaces/workspace-trust) for details on enabling and configuring Workspace Trust.

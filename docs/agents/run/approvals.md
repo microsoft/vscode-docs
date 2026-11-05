@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
@@ -41,13 +41,11 @@ Permission levels control how the agent handles approvals for the current chat s
 
 The levels below describe Copilot harness sessions. For other harnesses, see [Claude permission modes](#claude-permission-modes) and [Codex approval presets](#codex-approval-presets).
 
-New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. The managed default doesn't prevent you from switching to another level that the organization allows.
+New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. If the managed default isn't available, new sessions use **Manual permissions**. The managed default doesn't prevent you from switching to another level that the organization allows.
 
-To use **Assisted permissions**, choose **Folder** isolation. Worktree sessions always use **Allow all**.
+Select **Assisted permissions** from the permissions picker in the chat input of a Copilot harness session. This option isn't available for Local harness sessions.
 
-`feature(assisted-permissions)`
-
-Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select **Assisted permissions** from the permissions picker. This option isn't available for Local harness sessions.
+In the editor's {% data variables.copilot.chat_view %}, sessions already work in the current workspace. There is no isolation picker to configure. The separate worktree choice applies in the {% data variables.copilot.agents_window %}. Worktree sessions always use **Allow all**.
 
 | Permission level | Description |
 |---|---|
@@ -55,7 +53,7 @@ Enable the `setting(chat.assistedPermissions.enabled)` setting, and then select 
 | **Assisted permissions** | Uses an LLM judge to assess each tool call. Calls that the judge does not approve require your confirmation. |
 | **Allow all** | Runs all tool calls without confirmation. |
 
-An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). These settings can hide **Assisted permissions** or **Allow all** from the permissions picker.
+An organization can use [enterprise-managed settings to control permission levels](/docs/enterprise/manage-ai-settings.md#manage-permission-levels). In both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}, supported permission levels blocked by policy remain visible but disabled. Permission levels that the harness doesn't support aren't shown.
 
 Sandboxing is independent of the permission level. **Allow all** and **Autopilot** skip approval prompts, but an enabled sandbox still restricts terminal file system and network access. The sandbox doesn't cover every tool, so use tool and URL approvals to control other actions with **Manual permissions**.
 
@@ -121,14 +119,36 @@ Prefer the session-scoped **Allow all** level when you do not need auto-approval
 
 Some tools can modify your environment or access external services. Their results can also contain prompt injection attempts. Tool approval protects against both risks.
 
-When approval is required, review the tool name and input parameters, then approve a single use or grant approval for the session, workspace, or all future invocations.
+When approval is required, review the tool name and input parameters, then approve a single use or choose a broader approval. The available scopes depend on the tool and [agent harness](/docs/agents/run/agent-harnesses.md).
 
 ![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/approvals/chat-approve-tool.png)
 
-For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+For files that contain secrets or sensitive configuration, require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %}.
+
+### Scope approvals in Copilot sessions
+
+In **Copilot** harness sessions with **Manual permissions**, you can reduce repeated prompts without approving every use of a tool. **Allow Once** is the default action for terminal commands, web fetches, and file access requests. Use the dropdown to grant approval for the command, site, or path shown in the confirmation.
+
+| Action | What a scoped approval covers |
+|---|---|
+| Terminal command | A suggested command prefix, such as `npm run build`, or the exact command. Approving a prefix covers other arguments for that prefix, not unrelated commands. |
+| Web fetch | The displayed host. Approving `https://example.com` does not cover `http://example.com` or `https://sub.example.com`. |
+| File read or edit | The selected file or, when offered, a folder. The folder scope covers the nearest parent Git repository, or the file's parent folder if there is no repository. Read and edit approvals are separate. |
+
+Choose an **in this Session** option to limit the grant to the current session. Choose **Always Allow** to save the scoped grant for future sessions on the same Agent Host, including after a restart. File and folder prompts also offer persistent approvals, not only session approvals.
+
+On your machine, terminal and URL approvals stay in sync with your **user** settings:
+
+* **Always Allow** for terminal commands updates `setting(chat.tools.terminal.autoApprove)`.
+* **Always Allow Fetching** updates request approval in `setting(chat.tools.urls.autoApprove)`, without enabling response auto-approval.
+* Changes to those user settings are also applied to the local Agent Host. Workspace settings are not copied.
+
+Remote agent sessions keep their own approvals. Your local settings are not pushed to a remote host, and choosing **Always Allow** there does not change your local settings.
+
+**Local** harness sessions retain their existing approval options, including workspace-scoped approvals where supported.
 
 ### Manage tool approvals
 
@@ -153,7 +173,7 @@ Run **Chat: Reset Tool Confirmations** from the Command Palette (`kb(workbench.a
 
 ## URL approval
 
-When a tool accesses a URL, such as the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} separates approval into two decisions:
+In **Local** harness sessions, tools such as `#web/fetch` separate URL approval into two decisions. For **Copilot** harness web fetches, see [Scope approvals in Copilot sessions](#scope-approvals-in-copilot-sessions).
 
 | Step | What you approve | Protection |
 |---|---|---|
@@ -211,13 +231,16 @@ For example:
 
 A `false` rule requires approval. It does not block the command. When moving this workflow to Copilot, review the shared runtime's [hook decision and failure behavior](/docs/agent-customization/hooks.md#decisions-and-failures). A `preToolUse` denial can block a tool call, but copying a Local hook does not preserve its tool names, arguments, or output contract.
 
-By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. A `false` rule always takes precedence.
+By default, rules match each subcommand. A compound command is auto-approved only when all its subcommands match a `true` rule and none match a `false` rule. When these rules are evaluated, a `false` rule takes precedence over a `true` rule or a session approval.
 
 To evaluate the full command line instead, use object syntax and set `matchCommandLine` to `true`.
 
+> [!NOTE]
+> In **Copilot** harness sessions, the runtime can approve read-only commands or sandboxed commands before terminal approval rules are evaluated. These calls do not prompt, even with a matching `false` rule or `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` enabled. Approval rules are not a substitute for [sandboxing](/docs/agents/run/agent-sandboxing.md).
+
 Related settings:
 
-* Disable `setting(chat.tools.terminal.enableAutoApprove)` to require approval for every command.
+* Disable `setting(chat.tools.terminal.enableAutoApprove)` to turn off rule-based terminal auto-approval.
 * `setting(chat.tools.terminal.blockDetectedFileWrites)` `feature(terminal-block-detected-file-writes)` defaults to `outsideWorkspace`, which requires approval for detected writes outside the workspace. The OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) is exempt when session-level command approval is active.
 * Enable the experimental `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` setting to ignore the built-in rules and use only your rules. Built-in deny rules are designed to protect against dangerous commands.
 

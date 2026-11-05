@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: c64264b1-09cd-4680-b0dc-9f0f7803e451
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to support virtual workspaces in extensions
@@ -190,7 +190,7 @@ If your extension provides both grammars and rich language support that needs to
 
 You can see this approach with the built-in language extensions, such as JSON, which consists of a JSON extension and a JSON language feature extension.
 
-This separation also helps with [Untrusted Workspaces](/api/extension-guides/workspace-trust) running in [Restricted Mode](/docs/editor/workspace-trust#restricted-mode). Rich language extensions often require trust while basic language features can run in any setup.
+This separation also helps with [Untrusted Workspaces](/api/extension-guides/workspace-trust) running in [Restricted Mode](/docs/editing/workspaces/workspace-trust#restricted-mode). Rich language extensions often require trust while basic language features can run in any setup.
 
 ### Language selectors
 

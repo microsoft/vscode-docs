@@ -20,8 +20,10 @@ prodname_copilot_short: 'Copilot'
 
 # OpenAI Codex
 prodname_openai_codex: 'OpenAI Codex'
+prodname_openai_codex_short: 'Codex'
 
 # Anthropic Claude
 prodname_anthropic_claude: 'Anthropic Claude'
+prodname_anthropic_claude_short: 'Claude'
 
 prodname_github: 'GitHub'

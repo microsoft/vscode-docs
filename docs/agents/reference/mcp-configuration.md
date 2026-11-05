@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Configure MCP servers in {% data variables.product.prodname_vscode %} with reference details for file formats, commands, settings, and sandboxing.
 MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
@@ -218,6 +218,9 @@ The `oauth` object supports the following properties:
 > [!NOTE]
 > When `oauth` is configured, {% data variables.product.prodname_vscode_shortname %} handles the OAuth flow automatically. A browser window opens for authorization on the first connection to the server.
 
+> [!NOTE]
+> A client secret is not part of `mcp.json`. If the server's OAuth client is confidential, select the **Set Client Secret** CodeLens that appears above `oauth.clientId` in `mcp.json`. {% data variables.product.prodname_vscode_shortname %} keeps the secret in its secret storage. To change it later, select **Replace Client Secret**.
+
 <details>
 <summary>Example remote server configuration</summary>
 
@@ -395,7 +398,7 @@ The following table lists the MCP-related commands available in the Command Pale
 | Command | Description |
 |---------|-------------|
 | **MCP: Add Server** | Add a new MCP server to your workspace or user profile. |
-| **MCP: Browse MCP Servers** | Open the MCP server gallery in the Extensions view. |
+| **MCP: Browse MCP Servers** | Open [MCP discovery](/docs/agent-customization/mcp-servers.md#find-another-server) in the Extensions view. With marketplace discovery enabled, select **Browse MCP Servers** to continue in the Agent Customizations editor. |
 | **MCP: Browse Resources** | Browse resources provided by MCP servers. |
 | **MCP: Install Server from Manifest** | Install an MCP server from an MCP manifest file. |
 | **MCP: List Servers** | List all configured MCP servers and perform actions like start, stop, restart, or show output. |

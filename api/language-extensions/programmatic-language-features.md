@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
@@ -92,7 +92,6 @@ let diagnosticCollection: vscode.DiagnosticCollection;
 
 export function activate(ctx: vscode.ExtensionContext): void {
   ...
-  ctx.subscriptions.push(getDisposable());
   diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
   ctx.subscriptions.push(diagnosticCollection);
   ...
@@ -162,13 +161,14 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    ctx.subscriptions.push(getDisposable());
     ctx.subscriptions.push(
         vscode.languages.registerCompletionItemProvider(
             GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
     ...
 }
 ```
+
+You can explore a complete example in the [completions sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/completions-sample).
 
 > **Basic**
 >
