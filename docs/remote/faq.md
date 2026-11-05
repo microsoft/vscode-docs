@@ -1,7 +1,7 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Find answers about {% data variables.product.prodname_vscode %} Remote Development, SSH, Dev Containers, WSL, and extension access to local resources.
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 ---
 # Remote Development FAQ
 

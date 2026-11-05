@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Use agent tools in {% data variables.product.prodname_vscode_shortname %} to inspect code, run commands, control desktop apps, and manage approvals.
 keywords:
 - copilot
@@ -42,7 +42,7 @@ To complete a request with tools:
     Find the cause of the failing tests in this project, fix it, and run the relevant tests to verify the change.
     ```
 
-1. Review each tool call as the agent works. If an approval prompt appears, expand the tool details to review its inputs, and then select **Allow** to run it.
+1. Review each tool call as the agent works. If an approval prompt appears, expand the tool details to review its inputs, and then select the one-time approval option, such as **Allow Once**, to run it.
 
 1. Expand a tool summary in the conversation to inspect the call and its output. When the task is complete, review the agent's response, code changes, and validation results.
 

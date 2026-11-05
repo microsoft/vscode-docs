@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.144 release",
-      "description": "Continue agent work across environments, let Copilot Fusion choose models, and try image generation (Preview).",
-      "link": "/updates/v1_144",
-      "image": "/assets/updates/1_144/release-highlights.webp"
+      "title": "VS Code 1.145 release",
+      "description": "Do more with remote agents, use cron for local automations, and declutter chat.",
+      "link": "/updates/v1_145",
+      "image": "/assets/updates/1_145/release-highlights.webp"
     },
     {
       "type": "documentation",

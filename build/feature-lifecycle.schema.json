@@ -30,13 +30,48 @@
           "state": {
             "enum": [
               "experimental",
-              "preview"
+              "preview",
+              "deprecated",
+              "pending-deprecation"
             ]
           },
           "trackingUrl": {
             "type": "string",
             "format": "uri",
             "pattern": "^https://"
+          },
+          "message": {
+            "type": "string",
+            "pattern": "\\S",
+            "description": "Optional plain-text guidance that replaces the standard pending-deprecation sentence."
+          },
+          "date": {
+            "type": "string",
+            "pattern": "\\S",
+            "description": "Optional display date used in the pending-deprecation sentence when no custom message is provided."
+          },
+          "moreInfoUrl": {
+            "type": "string",
+            "format": "uri-reference",
+            "pattern": "^(https://[^/?#]+(?:[/?#]|$)|/(?!/))",
+            "not": {
+              "pattern": "[\\s\\u0000-\\u001f\\u007f\\\\]"
+            },
+            "description": "Optional HTTPS URL or root-relative published website path for pending-deprecation details."
+          }
+        },
+        "if": {
+          "properties": {
+            "state": {
+              "const": "pending-deprecation"
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "message": false,
+            "date": false,
+            "moreInfoUrl": false
           }
         }
       }

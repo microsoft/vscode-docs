@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Understand how Copilot agents search workspace code, gather context, and work within indexing and exclusion limits.
 Keywords:
 - workspace context
@@ -97,7 +97,7 @@ Add exclusion patterns to your [workspace settings](/docs/configure/settings.md)
 
 The semantic search tool (`#codebase`) finds code by meaning rather than exact keywords.
 
-Semantic search requires building and maintaining an index so that it can run quickly, even on very large codebases. Copilot maintains this index for you automatically. Behind the scenes, parts of the index might be stored on your machine and parts might come from remote sources, but you don't need to manage this distinction.
+Semantic search requires an index so that it can run quickly, even on very large codebases. {% data variables.product.prodname_copilot_short %} maintains supported indexes automatically when indexing is available for your workspace. Availability depends on the repository host, your account's policies, and workspace settings.
 
 You can view the indexing status in the Copilot status dashboard in the {% data variables.product.prodname_vscode_shortname %} Status Bar.
 
@@ -105,15 +105,17 @@ You can view the indexing status in the Copilot status dashboard in the {% data 
 
 ### Semantic index sources
 
-Copilot builds and maintains a semantic index for any workspace automatically. The index source determines how quickly the index becomes available for the first time:
+The index source determines availability and how quickly the index becomes available for the first time:
 
 * **GitHub repositories**: GitHub indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
 
 * **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in {% data variables.product.prodname_vscode_shortname %} for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 
-* **Other workspaces**: For any other workspace, including local folders not backed by a GitHub or Azure DevOps repository, Copilot builds the semantic index for you. The initial build can take a few minutes, after which the index is kept up to date in the background. This feature is currently enabled for personal accounts but off by default for organization and enterprise users. See the [GitHub docs](https://docs.github.com/en/copilot/concepts/context/repository-indexing#semantic-indexing-for-non-github-repositories) for more details about how to enable this feature using a policy.
+* **Other workspaces**: For local folders and repositories without a supported {% data variables.product.prodname_github %} or Azure DevOps repository index, {% data variables.product.prodname_copilot_short %} can use **external ingest**. This uploads indexable workspace files to {% data variables.product.prodname_github %} to make them searchable. It must be permitted by your account's policy and enabled for the workspace. See [semantic indexing for non-GitHub repositories](https://docs.github.com/en/copilot/concepts/prompting-and-context/repository-indexing#semantic-indexing-for-non-github-repositories) for availability and policy requirements.
 
-To build or rebuild the index for the current workspace on demand, run the **Build Codebase semantic index** command from the Command Palette.
+External ingest also helps search files and local changes that aren't covered by an existing repository index. If you see 'External ingest is disabled', follow the [troubleshooting guidance](#why-do-i-see-external-ingest-is-disabled).
+
+When indexing is available and enabled, run the **Build Codebase Semantic Index** command from the Command Palette to build or rebuild the index for the current workspace on demand.
 
 ### What content is included in the semantic index
 
@@ -151,4 +153,19 @@ The `#codebase` tool is always semantic and provides consistent results. If you 
 
 ### What happens if my workspace is not semantically indexed?
 
-Most workspaces are indexed automatically, but if the index isn't available yet (for example, while a new local workspace is still building its initial index), agents still search your code effectively by using text search, grep, file search, and language intelligence. The workspace index enables semantic search, which finds code by meaning rather than keywords. Without it, agents rely on the other search tools and can still provide accurate results for most prompts. We've found that these other tools still provide great results.
+If an index is still building or unavailable because of policy or workspace settings, agents can still search your code with text search, grep, file search, and language intelligence. These tools don't require a semantic index. You can also reference important files explicitly to help the agent find relevant code.
+
+### Why do I see 'External ingest is disabled'?
+
+This message means that external ingest is blocked by your account's policy or disabled for the workspace. Open the {% data variables.product.prodname_copilot_short %} status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar and check **Codebase Semantic Index** for the full message.
+
+| Message | What to do |
+|---------|------------|
+| 'External ingest is disabled by your organization's policy' | Ask your organization or enterprise owner to set the **Semantic indexing for non-GitHub repositories** policy to **Enabled**. For {% data variables.product.prodname_copilot %} Business and Enterprise, leaving the policy **Unconfigured** keeps the feature unavailable. |
+| 'External ingest is disabled in this workspace' | Select **Enable external ingest?** in the status dashboard, if offered. Alternatively, open [workspace settings](/docs/configure/settings.md#workspace-settings) and enable `setting(github.copilot.chat.workspace.codeSearchExternalIngest.enabled)`. |
+
+For administrator steps, see {% data variables.product.prodname_github_docs %} on [managing organization policies](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) and [managing enterprise policies](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies). Workspace settings and rebuilding the index cannot override these policies.
+
+External ingest is available on github.com, but not on GHE.com or {% data variables.product.prodname_github %} Enterprise Server. See [semantic indexing for non-GitHub repositories](https://docs.github.com/copilot/concepts/prompting-and-context/repository-indexing#semantic-indexing-for-non-github-repositories).
+
+An existing repository index can remain available when external ingest is disabled, but semantic search results might be incomplete or out of date for local changes and files outside that index. If no usable index is available, use the [search tools that don't require an index](#search-and-read-tools) or reference files explicitly.

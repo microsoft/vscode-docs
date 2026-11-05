@@ -1,6 +1,6 @@
 ---
 ContentId: 9b18cd39-21c1-4f77-a0ab-c54f221998b7
-DateApproved: 10/23/2026
+DateApproved: 11/4/2026
 FeatureStatus: cloud-sessions
 MetaDescription: Run and continue cloud sessions from {% data variables.product.prodname_vscode_shortname %} without keeping your development machine online.
 Keywords:

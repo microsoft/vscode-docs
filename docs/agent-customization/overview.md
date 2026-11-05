@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find and reuse agent customizations from marketplaces in {% data variables.product.prodname_vscode_shortname %}, or create project guidance.
 Keywords:
 - ai
@@ -101,6 +101,53 @@ In the {% data variables.copilot.chat_view %}, select **Open Customizations** in
 
 {% /tab %}
 {% /tabs %}
+
+### Open customization pages with deep links
+
+You can also use `chat-customizations/open` URLs to navigate directly to a specific section in the Agent Customizations editor:
+
+```text
+vscode://chat-customizations/open?page=<page>&search=<query>
+```
+
+Parameters:
+
+* **`page`** (required): The customization section to open. Supported values include:
+  * `discover`: Opens the Customization Marketplace (**Browse** page). Requires `setting(chat.customizations.marketplace.enabled)`.
+  * `agents`: Opens the Custom Agents section.
+  * `skills`: Opens the Agent Skills section.
+  * `instructions`: Opens the Custom Instructions section.
+  * `hooks`: Opens the Hooks section.
+  * `mcp-servers`: Opens the MCP Servers section (also accepts `mcp-server`).
+  * `plugins`: Opens the Agent Plugins section.
+  * `tools`: Opens the Tools section.
+  * `migrations`: Opens the Migrations review view.
+* **`search`** (optional): A search query to pre-populate in the section's search field. URL-encode query values.
+
+These links navigate within the selected harness context; they do not install customizations or bypass consent, workspace trust, or enterprise policies.
+
+**Examples:**
+
+* Open the plugins section:
+
+  ```text
+  vscode://chat-customizations/open?page=plugins
+  ```
+
+* Open skills filtered to "python":
+
+  ```text
+  vscode://chat-customizations/open?page=skills&search=python
+  ```
+
+* Open the Discover marketplace:
+
+  ```text
+  vscode://chat-customizations/open?page=discover
+  ```
+
+> [!NOTE]
+> For {% data variables.product.prodname_vscode_shortname %} Insiders, use the `vscode-insiders://` scheme instead of `vscode://`. To share links on web pages or markdown badges, use the HTTPS redirect wrapper: `https://vscode.dev/redirect?url=<url-encoded-vscode-URL>`. For more information on URL handlers, see [URL handling](/docs/configure/command-line.md#url-handling).
 
 ## Discover and install existing customizations (Preview)
 

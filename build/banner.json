@@ -1,7 +1,8 @@
 {
   "enabled": true,
-  "version": "2026-10-21-gh-universe",
+  "version": "2026-11-03-gh-universe-wrapped",
   "messages": [
-    "<a href=\"https://githubuniverse.com/?utm_source=website&utm_medium=Social&utm_campaign=code_livestream&source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Join VS Code at GitHub Universe!</a>"
+    "<a href=\"https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog?tab.allsessions=1783449560443001ldrh&search.deliveryformat=1692799009854002CBbz&source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">GitHub Universe, on demand. Watch the VS Code session recordings.</a>",
+    "<a href=\"/blogs/2026/10/28/vscode-wrapped\" target=\"_blank\" rel=\"noopener\">A year of VS Code, wrapped. Explore the highlights.</a>"
   ]
 }

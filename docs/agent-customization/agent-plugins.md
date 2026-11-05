@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find, install, and manage agent plugins from marketplaces in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -107,6 +107,62 @@ The workflow succeeds when you can trace your browser comment back to the agent'
 
 After the trial, close the review tab and remove `plugin-review.md` if you don't need it. You can [uninstall the plugin](#uninstall-plugins) if you don't want to keep the workflow.
 
+### Share and install plugins with deep links
+
+Plugin providers can create shareable deep links to help users register a marketplace or install a specific named plugin directly in {% data variables.product.prodname_vscode_shortname %}.
+
+> [!IMPORTANT]
+> Agent plugins are distinct from {% data variables.product.prodname_vscode_shortname %} extensions. To install an extension from the {% data variables.product.prodname_vs_marketplace %}, use `vscode:extension/<publisher>.<extensionName>` as described in [URL handling](/docs/configure/command-line.md#url-handling).
+
+#### Install a specific plugin
+
+Use the `chat-plugin/install` route to add a marketplace (if not already registered) and install a specific named plugin:
+
+```text
+vscode://chat-plugin/install?source=<url-encoded-source>&plugin=<url-encoded-plugin-name>
+```
+
+Parameters:
+
+* **`source`** (required): The remote marketplace source (for example, `owner/repo` or a Git repository URL).
+* **`plugin`** (required): The exact plugin name declared in the plugin manifest (`plugin.json`). Do not include the `@marketplace` qualifier used by the CLI.
+
+URL-encode parameter values (for example, `/` as `%2F`).
+
+**Example:**
+
+```text
+vscode://chat-plugin/install?source=owner%2Frepo&plugin=plugin-name
+```
+
+When opened, {% data variables.product.prodname_vscode_shortname %} asks the user to confirm adding the marketplace and installing the plugin. If confirmed, {% data variables.product.prodname_vscode_shortname %} registers the marketplace, locates the plugin by name, installs it into the Copilot Agent Host session, and opens the Agent Customizations editor filtered to the plugin.
+
+#### Add a plugin marketplace
+
+To register a marketplace without installing any plugins, use the `chat-plugin/add-marketplace` route:
+
+```text
+vscode://chat-plugin/add-marketplace?ref=<url-encoded-source>
+```
+
+**Example:**
+
+```text
+vscode://chat-plugin/add-marketplace?ref=owner%2Frepo
+```
+
+When opened, {% data variables.product.prodname_vscode_shortname %} prompts the user to confirm adding the marketplace. Adding a marketplace alone makes its plugins discoverable, but does not install any plugins automatically.
+
+#### Deep link requirements and security
+
+* **Consent and security:** Plugins can execute code via hooks or MCP servers. Deep links always prompt for explicit user confirmation before registering a marketplace or installing a plugin, and cannot bypass trust dialogs, workspace trust, or enterprise policies.
+* **Prerequisites:** Plugin deep links require `setting(chat.plugins.enabled)` to be enabled and Copilot Agent Host support to be available. If no suitable session exists, {% data variables.product.prodname_vscode_shortname %} prompts the user to create one.
+* **Insiders and web redirect:** For {% data variables.product.prodname_vscode_shortname %} Insiders, use the `vscode-insiders://` scheme. To publish links on web pages or markdown badges, use the HTTPS redirect wrapper:
+
+  ```text
+  https://vscode.dev/redirect?url=vscode%3A%2F%2Fchat-plugin%2Finstall%3Fsource%3Downer%252Frepo%26plugin%3Dplugin-name
+  ```
+
 ### Plugins installed by {% data variables.copilot.copilot_cli %}
 
 {% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Discovered plugins from `~/.copilot/installed-plugins/` appear on the **Plugins** page of the Agent Customizations editor.
@@ -154,6 +210,8 @@ When a plugin is disabled, its skills, agents, hooks, MCP servers, slash command
 
 In the Agent Customizations editor, select **Plugins**, open the plugin's details, and select **Uninstall**.
 
+You can't uninstall a plugin required by your organization, including through its bundled skills, prompts, or other customizations.
+
 Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces
@@ -185,6 +243,22 @@ You can discover plugins from marketplaces such as [copilot-plugins](https://git
 To install a plugin from a local folder, use [Install a plugin from source](#install-a-plugin-from-source) in the Agent Customizations editor.
 
 If you're developing a plugin or need to register an existing directory without installing it, follow [local plugin registration](/docs/agents/reference/agent-plugin-reference.md#local-plugin-registration) with the Experimental `setting(chat.pluginLocations)` setting.
+
+## Use plugins in remote windows
+
+You can use plugins stored on a remote machine when you work with Remote - SSH, WSL, Dev Containers, or Remote - Tunnels. The **Copilot** harness runs in the remote environment, where it loads the plugin's custom agents, skills, and hooks.
+
+In the connected window, use the Agent Customizations editor's **Plugins** page to [view and manage installed plugins](#view-installed-plugins).
+
+To register an existing plugin directory on the remote machine without installing a copy:
+
+1. Run **Preferences: Open Remote Settings (JSON)** from the Command Palette in the remote window.
+
+1. Add `setting(chat.pluginLocations)` (Experimental) with the plugin's path on the remote filesystem. For the configuration syntax, see [local plugin registration](/docs/agents/reference/agent-plugin-reference.md#local-plugin-registration).
+
+1. Start a new chat with the **Copilot** harness and [verify the plugin's components](#verify-a-plugin-after-installation).
+
+Hooks run on the remote machine or inside the container. Install their required runtimes and tools, such as Node.js, there rather than only on your local computer.
 
 ## Update plugins
 

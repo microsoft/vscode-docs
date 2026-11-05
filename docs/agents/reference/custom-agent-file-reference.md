@@ -1,6 +1,6 @@
 ---
 ContentId: 30510047-1b9d-4df0-ba48-308f514f3592
-DateApproved: 10/30/2026
+DateApproved: 11/4/2026
 MetaDescription: Look up custom agent file locations, syntax, fields, and harness compatibility in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:
