@@ -48,7 +48,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 ## Remote connections and GitHub Environments
 
-[GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) lets you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
+[GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` lets you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
 
 Session actions are mirrored to {% data variables.product.prodname_github %} for catalog and history storage. Conversation content is not end-to-end encrypted. Review the sharing disclosure before registering a host and check your organization's data-handling requirements.
 

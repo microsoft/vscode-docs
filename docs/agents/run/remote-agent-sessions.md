@@ -17,7 +17,7 @@ Choose based on where you want to interact with the session and how you can reac
 
 | Connection | When to use it |
 |------------|----------------|
-| **[GitHub Environments (Preview)](#github-environments-preview)** | Register your machine for remote agent access from supported {% data variables.product.prodname_copilot_short %} clients, including {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli_short %}, GitHub.com, and GitHub Mobile. Available session types and actions vary by client. |
+| **[GitHub Environments](#github-environments)** `feature(github-environments)` | Register your machine for remote agent access from supported {% data variables.product.prodname_copilot_short %} clients, including {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli_short %}, GitHub.com, and GitHub Mobile. Available session types and actions vary by client. |
 | **[SSH](#connect-via-ssh)** | Connect the {% data variables.copilot.agents_window %} to a remote host through SSH. |
 | **[Dev tunnels](#connect-via-dev-tunnel)** | Connect from {% data variables.product.prodname_vscode_shortname %} or the [browser-based {% data variables.copilot.agents_window %}](#use-the-agents-window-in-the-browser) to a host through an authenticated tunnel. |
 
@@ -29,7 +29,7 @@ Connecting doesn't move a local session or copy its workspace to another machine
 
 ## Manage remote environments (Experimental)
 
-Use the Remote Environments editor in the {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When [GitHub Environments](#github-environments-preview) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
+Use the Remote Environments editor in the {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When [GitHub Environments](#github-environments) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
 
 Remote environment management requires `setting(sessions.chat.experimental.environmentPicker)`, `setting(sessions.chat.experimental.environmentPickerManageRemotes)`, and `setting(chat.remoteAgentHostsEnabled)`. All three settings are on by default.
 
@@ -57,7 +57,9 @@ Use the table to search, connect, and organize your remote machines. Keep these 
 
 * **Delete** is available only for GitHub Environments. It removes the registration and disconnects this client without deleting files. The environment can reappear if its owning application registers it again.
 
-## GitHub Environments (Preview)
+## GitHub Environments
+
+`feature(github-environments)`
 
 GitHub Environments supports continuity across apps and devices: register your development machine with your {% data variables.product.prodname_github %} account, then access its supported agent sessions from another client. Registration doesn't provision a new machine or copy your code.
 
@@ -65,7 +67,7 @@ GitHub Environments supports continuity across apps and devices: register your d
 
 * Sign in to the host and connecting client with the same {% data variables.product.prodname_github %} account.
 
-* Check your [organization's controls](/docs/enterprise/manage-ai-settings.md#control-github-environments-preview) if the option is managed or unavailable.
+* Check your [organization's controls](/docs/enterprise/manage-ai-settings.md#control-github-environments) if the option is managed or unavailable.
 
 ### Register your machine
 
@@ -116,7 +118,7 @@ Keep the host awake, online, and its owning application or Agent Host running wh
 
 | Symptom | What to check |
 |---------|---------------|
-| GitHub Environments or the connection command is missing | Check Preview availability, `setting(chat.agentHost.githubEnvironments.enabled)`, `setting(chat.remoteAgentHostsEnabled)`, and organization policy. |
+| GitHub Environments or the connection command is missing | Check feature availability, `setting(chat.agentHost.githubEnvironments.enabled)`, `setting(chat.remoteAgentHostsEnabled)`, and organization policy. |
 | The machine isn't listed | Confirm that sharing is on at the host and both clients use the same account. Refresh the environment picker. |
 | The environment is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Registration alone doesn't keep the host running. |
 | A session is missing | Check the connected host, supported session types, workspace group, and [sessions list filters](/docs/agents/run/sessions/manage-sessions.md#sessions-list). Starting a new session doesn't resume a missing one. |
@@ -200,7 +202,7 @@ The **Use Dev Container** option appears only when the source machine advertises
 
 The {% data variables.copilot.agents_window %} is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote machine without installing {% data variables.product.prodname_vscode %} locally.
 
-The browser acts only as a client for chatting, reviewing changes, and managing sessions. Agent sessions run on your development machine. Connect through a [dev tunnel](/docs/remote/tunnels.md), as described below, or use [GitHub Environments (Preview)](#github-environments-preview) for a registered machine. The browser doesn't connect directly over SSH.
+The browser acts only as a client for chatting, reviewing changes, and managing sessions. Agent sessions run on your development machine. Connect through a [dev tunnel](/docs/remote/tunnels.md), as described below, or use [GitHub Environments](#github-environments) `feature(github-environments)` for a registered machine. The browser doesn't connect directly over SSH.
 
 ### Set up a dev tunnel
 

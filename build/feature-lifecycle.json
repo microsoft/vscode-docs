@@ -67,6 +67,10 @@
       "label": "Forked skill context",
       "state": "experimental"
     },
+    "github-environments": {
+      "label": "GitHub Environments",
+      "state": "preview"
+    },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",
       "state": "experimental"

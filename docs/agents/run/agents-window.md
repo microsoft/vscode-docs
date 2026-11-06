@@ -296,7 +296,7 @@ Run the same prompt with multiple models or harnesses to compare responses or is
 
 To edit or debug alongside a supported project conversation, select **Open in Editor** in the title bar. To return, select **Open in Agents**, then select the existing session. Check the [supported session types and continuation requirements](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
 
-For continuity across apps and devices, use [GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview). For {% data variables.product.prodname_vscode_shortname %}-specific remote access, use [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). Keep the host and its required application or service running.
+For continuity across apps and devices, use [GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)`. For {% data variables.product.prodname_vscode_shortname %}-specific remote access, use [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). Keep the host and its required application or service running.
 
 ## Automate follow-up work
 
