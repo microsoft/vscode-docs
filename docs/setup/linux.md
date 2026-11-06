@@ -91,7 +91,7 @@ Microsoft provides the stable 64-bit {% data variables.product.prodname_vscode_s
     On older versions, use `yum`:
 
     ```bash
-    yum check-update &&
+    yum check-update
     sudo yum install code # or code-insiders
     ```
 
