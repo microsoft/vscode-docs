@@ -45,6 +45,8 @@ The core concepts work together each time you send a request:
 
 The repeated reasoning, action, and validation steps form the **agent loop**. A [session](/docs/agents/concepts/sessions.md) keeps the conversation and task state together. An [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the loop, while the execution environment determines where tools run and code changes are made.
 
+![Diagram showing a client connected to an Agent Host that maintains session state while a harness loops through context preparation, model requests, permission checks, and tool calls. Tools act on the workspace, independently of where the model runs. Deployment examples show local IPC and AHP connections to remote machines and managed cloud environments.](../images/concepts/agent-execution.svg)
+
 ## Agent loop
 
 The agent loop enables an agent to work through a task instead of producing a single response. At each step, the agent evaluates its progress and chooses the next action. The output of that action informs the next decision.
