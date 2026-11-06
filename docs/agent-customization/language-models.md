@@ -43,6 +43,8 @@ You can further extend the list of available models by [using your own language 
 > [!NOTE]
 > If you are a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
+If you're unsure which option to use, follow the [Compare and choose models guide](/docs/agents/guides/choose-a-model.md) to start with Fusion, Auto, or an individual model and evaluate it on your own code.
+
 To compare solutions to the same coding task, use [model comparison (Preview)](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %}. Run one prompt with multiple models or harnesses, then review the results side by side.
 
 ### Organization-managed model defaults

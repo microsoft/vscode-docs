@@ -247,3 +247,4 @@ When you no longer need the app, run these steps to clean up your local resource
 * [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md).
 * [Build a complete app and learn the editor, browser, and source control workflows](/docs/agents/agents-tutorial.md).
 * [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).
+* [Choose between Fusion, Auto, and individual models for your tasks](/docs/agents/guides/choose-a-model.md).
