@@ -737,9 +737,9 @@ Use this checklist to convert a legacy package. Review the [plugin manifest and 
 1. Move the manifest to `plugin.json` at the plugin root.
    * Set `$schema` to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`.
    * Validate the manifest against that schema. Check runtime discovery and execution separately.
-2. **Component paths and namespaces:**
-   - Move client-specific components (such as custom agents and commands) under `com.github.copilot/`.
-   - Retain portable components, such as `skills/` and Model Context Protocol (`mcp.json`) configurations, at their standard root locations.
+1. Move Copilot-specific agents, commands, rules, and hook configuration under `com.github.copilot/`.
+   * Keep skills in immediate subdirectories of `skills/`, with a `SKILL.md` file in each.
+   * Convert legacy `.mcp.json` or inline MCP definitions to `mcp.json` at the plugin root. Follow the [portable MCP configuration format](https://agent-plugins.org/plugin-authors/mcp-servers), including its `$schema`, transport types, executable paths, and variable-expansion rules.
 3. **Canvas extension discovery:**
    - SDK canvas extensions are discovered from `com.github.copilot/extensions/`. Manifest paths do not redirect discovery for canvas extensions.
 4. **Metadata pruning:**
