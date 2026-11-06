@@ -729,13 +729,14 @@ With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-
 * [Create and manage agent customizations](/docs/agent-customization/overview.md)
 * [Choose and configure an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Agent customization concepts](/docs/agents/concepts/customization.md)
-## Converting an existing plugin package to Agent Plugins 1.0
 
-When converting existing or legacy plugin packages to the standardized Agent Plugins format, follow this end-to-end checklist:
+## Convert an existing plugin package to Agent Plugins 1.0
 
-1. **Manifest relocation and schema:**
-   - Move the plugin manifest to the root as `plugin.json`.
-   - Declare the canonical schema in the manifest root to enable validation.
+Use this checklist to convert a legacy package. Review the [plugin manifest and package structure](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) for the destination format.
+
+1. Move the manifest to `plugin.json` at the plugin root.
+   * Set `$schema` to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`.
+   * Validate the manifest against that schema. Check runtime discovery and execution separately.
 2. **Component paths and namespaces:**
    - Move client-specific components (such as custom agents and commands) under `com.github.copilot/`.
    - Retain portable components, such as `skills/` and Model Context Protocol (`mcp.json`) configurations, at their standard root locations.
