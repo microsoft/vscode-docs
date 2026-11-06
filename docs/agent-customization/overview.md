@@ -1,7 +1,7 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
 DateApproved: 11/4/2026
-MetaDescription: Find and reuse agent customizations from marketplaces in {% data variables.product.prodname_vscode_shortname %}, or create project guidance.
+MetaDescription: Find, create, and manage agent customizations for a session's harness, workspace, and environment in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - ai
 - copilot
@@ -75,13 +75,15 @@ Store a customization at the narrowest scope that matches how you want to use an
 
 * **Organization**: centrally manage supported customization types across repositories. Configure these through GitHub rather than the Agent Customizations editor.
 
-Not every customization type supports every scope. User files must be stored in a location supported by the harness on the machine where the agent runs, and aren't shared automatically between machines. Follow the individual customization guide for supported locations.
+Not every customization type supports every scope. Store user files in a location supported by the harness in its execution environment. Remote sessions can also receive supported customizations from a connected client, as described in [remote session customizations](#manage-customizations-for-remote-sessions). Follow the individual customization guide for supported locations.
+
+Storage scope is separate from [where a customization is enabled](#understand-what-a-change-affects). For example, a server defined in the workspace can be disabled for one session without changing its shared configuration.
 
 ## Agent Customizations editor
 
-The Agent Customizations editor provides a central place to discover, create, and manage customizations for the selected harness. It organizes customization types into separate sections, with configuration forms, inline file editors, or read-only details depending on the type and source.
+The Agent Customizations editor provides a central place to discover, create, and manage customizations in the context of your selected session. The session's harness, workspace, and execution environment determine which customizations and management actions are available. The editor organizes customization types into separate sections, with configuration forms, inline file editors, or read-only details depending on the type and source.
 
-Follow these steps to open the Agent Customizations editor:
+Select the session you want to configure, then open the Agent Customizations editor:
 
 {% tabs id="chat-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
@@ -101,6 +103,52 @@ In the {% data variables.copilot.chat_view %}, select **Open Customizations** in
 
 {% /tab %}
 {% /tabs %}
+
+### Understand the editor's context
+
+The editor reflects the selected session, not a combined inventory of all open sessions. Check these three parts of its context before you create or change a customization:
+
+| Context | What it determines |
+|---------|--------------------|
+| **Harness** | The supported customization types, file formats, locations, and management actions. Changing the language model doesn't change the harness. |
+| **Workspace** | The project customizations available to the session. In the {% data variables.copilot.agents_window %}, this is the selected session's workspace or worktree. |
+| **Execution environment** | The local or remote host that runs the session and supplies its customizations. Remote sessions can also receive supported customizations from the connected client. |
+
+Selecting another session changes the editor's context. It doesn't copy customizations between harnesses, projects, or hosts.
+
+A customization appearing in the editor doesn't mean it is used in every request. Disabled items can still be listed, instructions can have matching conditions, and skills are loaded only when invoked or selected by the agent. To check discovery, inclusion, and results separately, [verify the customization](#verify-a-customization).
+
+### Understand what a change affects
+
+The selected session determines what you manage, but it doesn't limit every change to that session. Distinguish the customization's **source and storage**, where it is defined or installed, from its **enablement scope**, where it is turned on or off.
+
+| Action | What changes |
+|--------|--------------|
+| Edit a workspace instruction or skill | The project file changes. Other sessions that read that file can use the updated content. Sharing the file through source control also shares the change with contributors. |
+| Disable an MCP server for one session | The server is unavailable to that session without deleting its configuration or changing the shared server definition. |
+| Change a client-tool selection | The selection persists for that harness across windows and profiles, rather than only for the current request. For remote sessions, selections are stored separately for each remote host and harness. |
+
+Available global, workspace, or session enablement actions depend on the customization type and harness. Global actions aren't confined to the selected session. Check the action's scope before applying it, even when the customization is stored in the workspace.
+
+For detailed controls, see [plugin enablement](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins), [MCP server enablement](/docs/agents/run/manage-mcp-servers.md#enable-or-disable-mcp-servers), and [tool availability](/docs/agents/run/tools.md#manage-available-tools).
+
+### Manage customizations for remote sessions
+
+Select the remote session before opening the editor. Its harness and remote workspace determine the relevant customizations, rather than the project open on your local machine.
+
+The inventory can include customizations from these sources:
+
+| Source | What it provides |
+|--------|------------------|
+| **Remote workspace** | Supported project customizations in the remote session's workspace or worktree. |
+| **Remote host** | Customizations configured or installed on the machine that runs the agent. |
+| **Connected client** | Supported customizations supplied by the client to the remote session. Not every local customization is automatically transferred. |
+
+Where **Local** and **Remote** groups appear, they distinguish client-supplied customizations from host-owned customizations. These labels identify the source, not whether the customization applies to the remote session.
+
+Some client-supplied entries are read-only reflections of their source configuration. Manage them at the source rather than trying to edit a remote copy. For host-owned customizations, use the actions and writable locations offered by the remote harness. A global change on the remote host can affect other sessions on that host, not just the selected session.
+
+To connect to a host or resume its work, see [Run and manage remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
 
 ### Open customization pages with deep links
 
@@ -124,7 +172,7 @@ Parameters:
   * `migrations`: Opens the Migrations review view.
 * **`search`** (optional): A search query to pre-populate in the section's search field. URL-encode query values.
 
-These links navigate within the selected harness context; they do not install customizations or bypass consent, workspace trust, or enterprise policies.
+These links navigate within the selected session's customization context. They do not select a different session, install customizations, or bypass consent, workspace trust, or enterprise policies.
 
 **Examples:**
 
@@ -183,7 +231,7 @@ The experimental GitHub Feed source is enabled by default for harnesses that pro
 
 For file-based customizations, use the editor to create a file in the chosen scope:
 
-1. Open the Agent Customizations editor and select a customization type.
+1. Select the intended session and confirm its harness, workspace, and execution environment. Open the Agent Customizations editor and select a customization type.
 1. Select the `+` button next to **Workspace** to share the customization with your project, or next to **User** to use it across your workspaces.
 1. Enter a name and choose a storage location when prompted.
 1. Edit the customization in the inline editor, which provides syntax highlighting and validation.
@@ -209,14 +257,14 @@ If a stage fails, [troubleshoot that stage](#troubleshoot-customization-issues) 
 
 ## Manage existing customizations
 
-Use the Agent Customizations editor to find and update customizations for the selected harness:
+Use the Agent Customizations editor to find and update customizations for the selected session's context. Select the intended session and check its harness, workspace, and host before editing:
 
 1. Open the Agent Customizations editor and select the customization type.
 1. Use the search box to find the customization.
 1. Select the customization to open its details.
 1. If the customization is editable, update its form or file and save your changes. For a read-only customization, use the available action to open the source file.
 
-The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Manage plugin-provided customizations from the **Plugins** section.
+The available actions depend on the customization type and its source. Use the inline actions or context menu to access supported operations, such as revealing an editable file in your operating system or deleting it. Check [what the change affects](#understand-what-a-change-affects) before editing a shared file or changing enablement. Manage plugin-provided customizations from the **Plugins** section.
 
 `feature(user-customization-migration)`
 
@@ -229,7 +277,7 @@ Use the verification result to choose your next action:
 
 | Symptom | What to check |
 |---------|---------------|
-| The customization isn't listed | Confirm the harness, file name, and supported location. Ensure the session uses the folder containing your changes. |
+| The customization isn't listed | Confirm the selected session, harness, workspace, and host. Check the file name and supported location. For remote sessions, check whether the customization comes from the remote host or connected client. |
 | The customization has validation errors | Correct the reported file or configuration errors. |
 | It's discovered but isn't included or invoked | Check activation conditions against the current file or task. Invoke an on-demand customization explicitly when supported. |
 | It's included but doesn't improve the result | Resolve conflicting guidance, make vague rules more specific, and repeat the task in a fresh chat. |

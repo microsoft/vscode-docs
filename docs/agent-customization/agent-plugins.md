@@ -195,12 +195,12 @@ If you only need a skill, consider [using or adapting an existing skill](/docs/a
 
 ### Enable or disable plugins
 
-You can enable or disable a plugin for the current profile or a specific workspace:
+Where offered by the selected harness, you can enable or disable a plugin globally or for a specific workspace. Enablement is separate from where the plugin is installed:
 
-1. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
-1. Use **Enable** or **Disable** to change its state for the current profile, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose the scope.
+1. Select the intended session. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
+1. Use **Enable** or **Disable** to change its global state, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose an available scope.
 
-The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
+Global enablement isn't isolated to the active user profile. The enabled state is stored separately from the plugin configuration, so a workspace enablement choice doesn't change shared workspace settings. For remote sessions, check whether the plugin is host-owned or supplied by the connected client before changing it. See [customization context and change scope](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 Policy-managed plugins are identified as managed by policy, and their toggles are locked.
 

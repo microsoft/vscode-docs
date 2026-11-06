@@ -101,13 +101,26 @@ A plugin can distribute the complete configuration, for example within your orga
 
 ## Customization scope
 
-Scope determines where a customization is available and who can share it. It is separate from activation: a workspace customization isn't necessarily included in every request. Depending on the customization type, you can define it at one or more of these levels:
+Customization scope isn't a single configuration hierarchy. Distinguish these four questions:
+
+| Concept | Question it answers |
+|---------|---------------------|
+| **Compatibility** | Can the selected harness use this customization's type and format? |
+| **Storage and sharing** | Where is it defined or installed, and who can obtain it? |
+| **Enablement** | Is it turned on globally, for a workspace, or for a session, where those choices are supported? |
+| **Activation** | When does its guidance enter a request or its action run? |
+
+For storage and sharing, you can define customizations at one or more of these levels, depending on the type:
 
 * **User**: available to you across workspaces.
 * **Workspace or repository**: stored with the project and shared with contributors through source control.
 * **Organization**: managed centrally and shared across repositories, where supported.
 
 Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and repository-specific workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
+
+Storage doesn't determine enablement or activation. For example, an MCP server defined in a shared workspace file can be disabled for one session without changing the file. A workspace instruction can be available but only included when its conditions match. There is no universal user, workspace, and organization precedence order across customization types and harnesses.
+
+The Agent Customizations editor uses the selected session's harness, workspace, and execution environment as its context. This includes remote-host and supported client-supplied customizations for remote sessions. Selecting a session doesn't make every edit session-only. See [the editor's context](/docs/agent-customization/overview.md#understand-the-editors-context) and [what a change affects](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
 
