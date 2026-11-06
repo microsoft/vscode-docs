@@ -23,7 +23,7 @@ To install the Kubernetes extension, open the Extensions view (`kb(workbench.vie
 
 ## Containerize and publish the application
 
-You can follow the [Working with Docker](/docs/azure/docker.md) tutorial to build your project, generate a Docker image, and push it to a public or private container registry through the Microsoft [Container Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers).
+You can follow the [Working with Docker](/docs/containers/overview.md) tutorial to build your project, generate a Docker image, and push it to a public or private container registry through the Microsoft [Container Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers).
 
 ## Create and config a Kubernetes cluster
 
@@ -65,5 +65,5 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The {% data variables.product.prodname_vs_marketplace %} has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/overview.md) - The {% data variables.product.prodname_vs_marketplace %} has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

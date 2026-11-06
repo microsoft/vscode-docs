@@ -9,7 +9,7 @@ MetaDescription: Theme Color reference that lists all themable colors in Visual 
 
 # Theme Color
 
-You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/configure/settings).
+You can customize your active Visual Studio Code [color theme](/docs/configure/themes) with the `workbench.colorCustomizations` user [setting](/docs/configure/settings).
 
 ```json
 {
@@ -19,7 +19,7 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+**Note**: If you want to use an existing color theme, see [Color Themes](/docs/configure/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
 
 Theme colors are available as CSS variables in [webviews](/api/extension-guides/webview), and [an extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense for them.
 

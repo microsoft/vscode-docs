@@ -178,7 +178,7 @@ Inline suggestions are one way to work with AI, not a choice that locks you out 
 
 * To assign tasks and manage agent sessions across projects, use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
-You can keep using inline suggestions while working with chat or agents. If you already have an agent conversation, see how to [continue a supported session in another interface](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session).
+You can keep using inline suggestions while working with chat or agents. If you already have an agent conversation, see how to [continue a supported session in another interface](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
 
 ## Settings
 

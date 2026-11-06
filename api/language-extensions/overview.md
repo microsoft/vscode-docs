@@ -69,7 +69,7 @@ We offer an in-depth guide that explains how to implement a Language Server exte
 
 ### Multi-root workspace support
 
-When the user opens a [multi-root workspace](/docs/editor/multi-root-workspaces), you might need to adapt your Language Server extensions accordingly. This topic discusses multiple approaches to supporting multi-root workspaces.
+When the user opens a [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces), you might need to adapt your Language Server extensions accordingly. This topic discusses multiple approaches to supporting multi-root workspaces.
 
 ### Embedded languages
 

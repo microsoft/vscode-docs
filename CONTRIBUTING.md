@@ -275,11 +275,18 @@ The page title is taken from the first H1 heading in the topic.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
 * **Keywords** - Optional. A list of keywords relevant to this topic to help with search.
-* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental or preview feature.
+* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental, preview, deprecated, or soon-to-be-deprecated feature.
 
-## Experimental and preview features
+## Feature lifecycle statuses
 
-The `/build/feature-lifecycle.json` registry is the source of truth for non-stable feature states in the documentation. Each entry has a lowercase kebab-case ID, display label, and `experimental` or `preview` state. Do not add stable features to the registry.
+The `/build/feature-lifecycle.json` registry is the source of truth for feature lifecycle states in the documentation. Each entry has a lowercase kebab-case ID, display label, and one of these states:
+
+* `experimental`: Experimental.
+* `preview`: Preview.
+* `deprecated`: Deprecated.
+* `pending-deprecation`: To be deprecated in a future release.
+
+Do not add stable features to the registry.
 
 The website can build without the registry so infrastructure and content changes can be deployed independently. When the file is absent, the build treats it as an empty registry and renders no lifecycle status UI. An existing registry must still be valid.
 
@@ -289,7 +296,7 @@ To mark a whole page, add its feature ID to the topic metadata:
 FeatureStatus: agent-artifacts
 ```
 
-Keep the H1 free of manually authored `(Preview)` or `(Experimental)` text. The website build adds a consistent status treatment after the H1.
+Keep the H1 free of manually authored lifecycle labels such as `(Preview)`, `(Experimental)`, or `(Deprecated)`. The website build adds a consistent status treatment after the H1.
 
 To mark a feature within a page, add an empty marker directly after the heading or content that introduces it. Put the macro on a line by itself immediately after the heading or introductory content for the feature:
 
@@ -297,15 +304,44 @@ To mark a feature within a page, add an empty marker directly after the heading 
 `feature(integrated-browser-remote)`
 ```
 
-To include a beaker icon inline in text to mark a feature use the following syntax:
+To mark a feature inline in text, use the following syntax. Experimental and preview features use a beaker icon. Deprecation states use a warning icon.
 
 ```html
 Full page screenshots `feature(integrated-browser-full-page-screenshot)` capture the entire scrollable page.
 ```
 
-Keep enablement steps, limitations, and other feature-specific guidance in the authored content. The generated treatment only describes the lifecycle state.
+### Deprecation guidance
 
-When a feature becomes stable:
+Use `deprecated` for an already-deprecated feature and `pending-deprecation` for a feature that will be deprecated in a future release. The same page metadata and feature macros work for both states.
+
+A `pending-deprecation` entry can include optional `message`, `date`, and `moreInfoUrl` fields. You can supply each field independently. A custom message replaces the generated lifecycle sentence. Without a message, a date produces `<feature label> will be deprecated by <date string>.` Without either a message or date, the notice says the feature will be deprecated in a future release. The URL adds a **Learn more** link in all cases.
+
+```json
+{
+  "features": {
+    "legacy-feature": {
+      "label": "Legacy feature",
+      "state": "deprecated"
+    },
+    "retiring-feature": {
+      "label": "Retiring feature",
+      "state": "pending-deprecation",
+      "date": "February 21, 2027",
+      "moreInfoUrl": "/docs/configure/migration"
+    }
+  }
+}
+```
+
+Messages and dates must contain non-whitespace text and render as plain text, not Markdown or HTML. Dates are display strings, not parsed or reformatted, and do not automatically change the feature's state. More-info links must use HTTPS or a root-relative published website path, such as `/docs/configure/migration`, without a `.md` suffix. HTTPS links open in a new tab; website paths open in the current tab. Protocol-relative URLs (`//example.com`), other schemes, whitespace, control characters, and backslashes are not supported. The `message`, `date`, and `moreInfoUrl` fields are only supported for `pending-deprecation`.
+
+The generated deprecation notices do not imply a removal date or a commitment to remove the feature. Keep detailed timelines and migration instructions in the message or linked content.
+
+Keep enablement steps, limitations, and other detailed feature-specific guidance in the authored content.
+
+### When a feature becomes stable
+
+When an experimental or preview feature becomes stable:
 
 1. Remove its entry from `/build/feature-lifecycle.json`.
 2. Remove all matching `FeatureStatus` metadata and inline markers.
@@ -502,7 +538,7 @@ Use lowercase for file and folder names and dashes `-` as separators.
 
 For example:
 
-* `/docs/editor/workspace-trust.md`
+* `/docs/editing/workspaces/workspace-trust.md`
 * `/docs/supporting/troubleshoot-terminal-launch.md`
 * `/api/extension-guides/custom-editors.md`
 
@@ -677,7 +713,7 @@ Press `kb(workbench.action.files.openFile)` to open a file.
 ```
 
 > [!TIP]
-> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
+> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/reference/default-keybindings).
 
 **For multiple key bindings, use a table:**
 

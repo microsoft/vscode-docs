@@ -65,7 +65,7 @@ Let's build a simple Language Server extension that implements autocomplete and 
 If you prefer to jump right into the code:
 
 - **[lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample)**: Heavily documented source code for this guide.
-- **[lsp-multi-server-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](/docs/editor/multi-root-workspaces) feature in VS Code.
+- **[lsp-multi-server-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces) feature in VS Code.
 
 Clone the repository [Microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) and open the sample:
 
