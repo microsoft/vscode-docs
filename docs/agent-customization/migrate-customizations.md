@@ -731,3 +731,24 @@ With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-
 * [Create and manage agent customizations](/docs/agent-customization/overview.md)
 * [Choose and configure an agent harness](/docs/agents/run/agent-harnesses.md)
 * [Agent customization concepts](/docs/agents/concepts/customization.md)
+
+## Convert an existing plugin package to Agent Plugins 1.0
+
+Use this checklist to convert a legacy package. Review the [plugin manifest and package structure](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) for the destination format.
+
+1. Move the manifest to `plugin.json` at the plugin root.
+   * Set `$schema` to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`.
+   * Validate the manifest against that schema. Check runtime discovery and execution separately.
+1. Move Copilot-specific agents, commands, rules, and hook configuration under `com.github.copilot/`.
+   * Keep skills in immediate subdirectories of `skills/`, with a `SKILL.md` file in each.
+   * Convert legacy `.mcp.json` or inline MCP definitions to `mcp.json` at the plugin root. Follow the [portable MCP configuration format](https://agent-plugins.org/plugin-authors/mcp-servers), including its `$schema`, transport types, executable paths, and variable-expansion rules.
+3. **Canvas extension discovery:**
+   - SDK canvas extensions are discovered from `com.github.copilot/extensions/`. Manifest paths do not redirect discovery for canvas extensions.
+4. **Metadata pruning:**
+   - Remove unsupported manifest fields such as `categories`, `status`, `maintainers`, and `evals`. Move applicable catalog-level metadata to `marketplace.json`.
+1. Update relative path references, version metadata, and test fixtures.
+   * Deactivate any separately installed legacy package or standalone copies of its components before testing to avoid duplicate agents, hooks, or tools.
+   * In a new Copilot session, verify component discovery, MCP server connections, and hook execution and responses before removing the original package.
+1. Keep ordinary subprocess output separate from a hook's JSON response.
+   * Capture child-process output or redirect it to `stderr`, including progress and diagnostics from dependency installers such as `npm` and `pip`. If the hook returns JSON on `stdout`, inherited subprocess output can make that response invalid.
+   * Follow the target runtime's [hook output and progress-message rules](https://docs.github.com/en/copilot/reference/hooks-reference#progress-messages).
