@@ -20,6 +20,8 @@ Keywords:
 
 AI models have broad knowledge, but that knowledge isn't a substitute for your project's current requirements or your organization's internal practices. Agent customization adapts an agent to your environment by adding persistent context, repeatable workflows, specialized roles, external tools, and deterministic controls.
 
+Focused customizations reduce repeated prompting and corrective work, which can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep guidance relevant because loaded content also consumes space in the model's context window.
+
 This article explains how customization types differ, when they apply, and what they can and can't control. Use it to choose the right building blocks for your workflow. To install, create, and verify a customization, see [Customize agents for your workflow](/docs/agent-customization/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
@@ -29,102 +31,110 @@ Follow a hands-on tutorial to discover the customization options and configure t
 
 </div>
 
-## How customization changes an agent
+## Customization building blocks
 
-The model brings general knowledge learned during training. The agent combines that knowledge with your prompt, the current conversation, and available context, such as workspace files. Your organization's internal practices and information in other projects aren't automatically available. Customizations provide reusable guidance and access to additional capabilities, so you don't have to supply the same context in every prompt.
+Each customization type contributes something different to the agent's work:
 
-Different mechanisms change different parts of the agent's work. Instructions and workflows guide the model's decisions. Tools expand the actions it can take. Hooks run commands at specific points in the agent's workflow, such as before or after a tool runs, without relying on the model to request them. Plugins package related customizations for installation and sharing.
+| Type | What it contributes |
+|------|---------------------|
+| [Instructions](/docs/agent-customization/custom-instructions.md) | Standing guidance, such as coding conventions, supplied in files like `AGENTS.md`. Instructions can apply broadly or to particular files or tasks. |
+| [Skills](/docs/agent-customization/agent-skills.md) | Task-specific workflows with instructions, scripts, and supporting resources. |
+| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized roles with their own instructions and tool configuration. An agent can use skills as part of its work. |
+| [Tools and integrations](/docs/agents/run/tools.md) | Capabilities to query systems or take actions. Connect external services through [MCP servers](/docs/agent-customization/mcp-servers.md) or managed [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`. |
+| [Hooks](/docs/agent-customization/hooks.md) | Code that the harness runs at configured events, without relying on the model to request it. |
+| [Plugins](/docs/agent-customization/agent-plugins.md) | Bundles of related customizations for installation and sharing. [Marketplaces](#marketplaces-and-reusable-customizations) help you discover them. |
 
-Adding a rule to an instructions file is not equivalent to executing a validation script. Neither mechanism alone establishes a security boundary.
-
-Relevant customizations can reduce back-and-forth and rework by giving the agent project context from the start. Avoiding corrective turns and discarded implementations can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep customizations focused because their content also consumes space in the model's context window.
-
-## Customization options at a glance
-
-Customization types differ in both purpose and activation. Activation determines when guidance enters a request or an action runs. Support depends on the [agent harness](/docs/agents/concepts/agent-harnesses.md), the runtime that coordinates the model and tools, rather than the language model you select.
-
-| Need | Use | Example | Activation |
-|------|-----|---------|------------|
-| Apply standards across a project | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Require a specific logging library and error-handling pattern | Automatically included in each request |
-| Apply guidance to specific code or tasks | [File-based instructions](/docs/agent-customization/custom-instructions.md) | Apply React conventions when the agent works with `.tsx` files | Included when file patterns match. In Local sessions, the agent can also load instructions by task relevance. |
-| Teach the agent a workflow with supporting resources | [Agent skills](/docs/agent-customization/agent-skills.md) | Create a service from instructions, template files, and a setup script | The agent can load a relevant skill, or you invoke it directly |
-| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command (Local harness sessions only) |
-| Use a specialized role and tool configuration | [Custom agents](/docs/agent-customization/custom-agents.md) | Review code with read-only tools | You select the agent, use it as a subagent, or another agent delegates to it |
-| Connect to an external system | Manually configured [MCP servers](/docs/agent-customization/mcp-servers.md) or managed [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
-| Run code at a specific point in the agent's workflow | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | The harness runs the hook when the configured event occurs and its execution conditions are met |
-| Install a packaged customization setup | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Add a testing workflow with a skill, agent, hooks, and MCP server | Each bundled customization follows its own activation rules |
-
-The closest alternatives differ in these ways:
-
-* **Instructions or skills**: instructions provide standing guidance, such as project conventions. A skill describes how to perform a particular task and can include scripts, templates, and other resources.
-* **Skills or prompt files**: a skill can be discovered for a relevant task or invoked directly. A prompt file is a saved prompt that you invoke explicitly in a Local harness session.
-* **Skills or custom agents**: a skill supplies a workflow. A custom agent defines the role and tool configuration that performs work, and can use skills as part of that work.
-* **Instructions or custom agents**: an `AGENTS.md` file gives guidance to an existing agent. Despite its name, it doesn't define a custom agent.
-
-For supported services, {% data variables.product.prodname_copilot_short %} connectors provide managed MCP connections without local server setup or configuration files. Use a manually configured MCP server when you need another integration or its configuration options.
+For saved prompts that you invoke explicitly, [prompt files](/docs/agent-customization/prompt-files.md) are available in Local harness sessions only.
 
 You don't need a customization for a one-time requirement. Add it to the current request instead. When a problem repeats, [choose the smallest useful customization](/docs/agent-customization/overview.md#choose-how-to-customize).
+
+## How customizations combine
+
+Multiple customizations can contribute to the same task. For example, when you ask the agent to add a checkout button:
+
+* **Project instructions** specify which design-system components and TypeScript conventions to use.
+* A **component-building skill** provides the workflow and templates for creating the component and its tests.
+* A configured **post-edit hook** runs the project's formatter after file edits.
+
+The instructions guide the implementation within the skill's workflow. The hook handles formatting without relying on the agent to remember that step.
+
+Instructions, skills, and custom agents can all contain guidance. Keep shared project conventions in instructions, task-specific steps in skills, and role-specific guidance in custom agents. Avoid repeating the same rules across them, which makes updates harder and can introduce contradictions.
+
+## Model-driven vs. deterministic behavior
+
+**Model-driven behavior** depends on the model interpreting and following guidance. Even when guidance is loaded into context, the model can misunderstand, partially follow, or ignore it. Instructions are not enforcement.
+
+**Deterministic behavior** is triggered or enforced by harness code, rather than relying on the model to comply. The distinction depends on which part of a customization you use:
+
+| Customization | How behavior is controlled |
+|---------------|----------------------------|
+| **Instructions and skills** | Model-driven guidance. Loading instructions or invoking a skill doesn't guarantee that the model follows every rule, completes every step, or runs a bundled script. |
+| **Custom agents** | Mixed. Role instructions are model-driven. Supported tool restrictions are applied by the harness, subject to [harness compatibility](/docs/agents/reference/custom-agent-file-reference.md#harness-compatibility). |
+| **Tools and integrations** | Model-driven invocation. The model chooses whether to call a tool and supplies its arguments. If permitted, the tool executes its implementation. |
+| **Hooks** | Deterministic triggering. The harness runs the hook when its configured event occurs and its execution conditions are met, without the model requesting it. |
+| **Plugins** | Each bundled component keeps its own behavior. Packaging guidance in a plugin doesn't make it enforced. |
+
+For example, an instruction to 'run the formatter after editing' can be ignored. A configured post-edit hook triggers the formatter without relying on the model to remember that instruction.
+
+Deterministic triggering doesn't guarantee success or identical results. Hook execution still depends on discovery, enablement, trust, filters, timeouts, and error handling. Review actual tool and hook activity rather than relying only on the model's response.
+
+Neither instructions nor hooks alone establish a security boundary.
+
+## Customization scope
+
+Customization scope describes where a customization is defined or installed and how it is shared. A session can combine personal preferences, project-specific guidance, and organization-wide workflows. Scope alone doesn't determine whether a customization reaches the session or is used for a particular request.
+
+### Personal and shared customizations
+
+The same customization type can exist at different scopes, depending on harness support:
+
+* **User**: defined in a user's configuration and available across workspaces that use it.
+
+* **Workspace or repository**: stored with the project and shared with contributors through source control.
+
+* **Organization**: managed centrally and made available across repositories, where supported.
+
+Applicable customizations are additive: personal, project, and organization guidance can apply together. They can also conflict, for example if they require different test frameworks. There is no universal override order across harnesses and customization types.
+
+Repository customizations can be shared and versioned with the project. Personal customizations are stored separately from that project.
+
+Company-shared skills and plugins still need to be installed for the selected harness.
+
+Through managed policies, an organization can enforce limits on tools, MCP servers, and approvals. Customizations can't override those limits. See [enterprise AI controls](/docs/enterprise/manage-ai-settings.md).
+
+### Which customizations reach a session
+
+The customizations available to a session depend on its harness, workspace, execution environment, and connected client.
+
+The **agent harness** determines which customization types, formats, and locations are supported in an agent session. See [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) for setup guidance. For example, the {% data variables.product.prodname_copilot_short %} harness stores its configuration in a location shared with other {% data variables.product.prodname_copilot_short %} experiences.
+
+The selected **workspace** supplies project customizations. The **machine** (local, remote, or Dev Container) running the harness supplies its native user configuration.
+
+A **connected client** can supply additional supported customizations. A remote host or container changes where configuration is read, not its scope. Resuming a session from another device preserves its host-owned configuration, but can change the client-supplied customizations. Personal configuration isn't automatically identical across machines or harnesses.
+
+In the following diagram, the frontend session running on the user's workstation receives an organization skill, user instructions and the workspace's instructions and skill. When the user connects remotely to the agent session from another device, the session retains its host-owned configuration while adding the client-supplied customizations from the new device.
+
+![Diagram of two workspaces with user, workspace, and organization-shared customizations, plus supported instructions and tools supplied by a connected laptop to the selected frontend session.](../images/concepts/customization-sources.svg)
+
+The Agent Customizations editor shows discovered customizations for the **selected session**, including disabled items. See [Use the Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor). This means that if you select a different session, the editor displays the customizations relevant to that session, which may differ from the previous one.
+
+### When available customizations are used
+
+Enablement controls whether a customization is turned on globally, for a workspace, for a harness, or for a session, where those choices are supported. It doesn't change where the customization is stored.
+
+Even when enabled, a customization isn't necessarily used for every request. Always-on instructions are included in each request, while conditional instructions depend on matching files or tasks. A skill is loaded when invoked or selected, and a tool is called when needed.
+
+Editing a shared definition can affect other sessions that read it, even when the edit starts from one session's customization editor. See [what a change affects](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 ## Marketplaces and reusable customizations
 
 You don't need to author every customization yourself. Marketplaces help you discover existing workflows and integrations from community publishers or your organization.
 
-* **Customizations** are the instructions, workflows, tools, and other building blocks an agent uses.
-* **Plugins** package related customizations for installation together. A plugin can include skills, custom agents, hooks, and MCP servers.
-* **Plugin marketplaces** are catalogs of plugins. Adding a marketplace makes its plugins available to browse. Installing a plugin makes its supported components available to your harness.
+Plugin marketplaces are catalogs of plugins. Adding a marketplace makes its plugins available to browse. Installing a plugin makes its supported customizations available to your harness.
 
-The **Customization Marketplace** is the unified **Browse** experience in the Agent Customizations editor (Preview). It brings together supported sources, including plugin marketplaces, GitHub Feed, and {% data variables.product.prodname_copilot_short %} connectors `feature(copilot-connectors)`. Some sources offer individual skills or MCP servers; others offer plugins that bundle customizations. Available sources depend on the harness and organization policy.
+The Customization Marketplace in {% data variables.product.prodname_vscode_shortname %} is the unified browse experience in the Agent Customizations editor (Preview). It brings together supported sources, including plugin marketplaces, GitHub Feed, and {% data variables.product.prodname_copilot_short %} connectors `feature(copilot-connectors)`. Some sources offer individual skills or MCP servers; others offer plugins that bundle customizations. Available sources depend on the harness and organization policy.
 
 A marketplace is a discovery and distribution mechanism, not another customization type. Installed components keep their own activation rules. Review the publisher, included files, and setup requirements before installation, then test the result in your workflow. See [Discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
-
-## Model-driven vs. deterministic behavior
-
-Most customizations guide the model or give it more options. The model interprets instructions, decides whether a skill is relevant, and chooses when to call an available tool. The result depends on the request, available context, and model reasoning.
-
-The runtime triggers a hook when its configured event occurs, such as a tool call starting or finishing. Use a hook for actions such as validating a tool call or starting a formatter after an edit. Discovery, trust, filters, timeouts, and error handling still affect execution. Use instructions when you want to guide how the agent reasons or writes code.
-
-For example, an instruction that says "run the formatter after editing a file" asks the model to remember and perform that action. A hook configured to run after the editing tool completes performs that action regardless of whether the model remembers the instruction.
-
-## How customizations combine
-
-Customization types are building blocks rather than mutually exclusive alternatives. The following pull request workflow illustrates how they can work together, not a minimum setup to create. Add only the parts your workflow needs:
-
-1. **Instructions** provide the repository's coding standards and pull request conventions.
-1. A **custom agent** gives the agent a focused role and limits it to the tools needed for the task.
-1. An **agent skill** supplies the steps, scripts, and templates for preparing the pull request.
-1. An **MCP server** provides tools to retrieve the related issue from an external issue tracker.
-1. **Hooks** run configured validation after the agent edits files or reject disallowed tool calls before they run.
-
-Each layer has a separate responsibility. You can update the coding standards without changing the workflow, or replace the external system without rewriting the agent's role.
-
-A plugin can distribute the complete configuration, for example within your organization, so that other developers can install the same skills and MCP servers.
-
-## Customization scope
-
-Customization scope isn't a single configuration hierarchy. Distinguish these four questions:
-
-| Concept | Question it answers |
-|---------|---------------------|
-| **Compatibility** | Can the selected harness use this customization's type and format? |
-| **Storage and sharing** | Where is it defined or installed, and who can obtain it? |
-| **Enablement** | Is it turned on globally, for a workspace, or for a session, where those choices are supported? |
-| **Activation** | When does its guidance enter a request or its action run? |
-
-For storage and sharing, you can define customizations at one or more of these levels, depending on the type:
-
-* **User**: available to you across workspaces.
-* **Workspace or repository**: stored with the project and shared with contributors through source control.
-* **Organization**: managed centrally and shared across repositories, where supported.
-
-Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and repository-specific workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
-
-Storage doesn't determine enablement or activation. For example, an MCP server defined in a shared workspace file can be disabled for one session without changing the file. A workspace instruction can be available but only included when its conditions match. There is no universal user, workspace, and organization precedence order across customization types and harnesses.
-
-The Agent Customizations editor uses the selected session's harness, workspace, and execution environment as its context. This includes remote-host and supported client-supplied customizations for remote sessions. Selecting a session doesn't make every edit session-only. See [the editor's context](/docs/agent-customization/overview.md#understand-the-editors-context) and [what a change affects](/docs/agent-customization/overview.md#understand-what-a-change-affects).
-
-Agent [memory](/docs/agents/run/memory.md) is separate from project customization. Use local memory for personal preferences or emerging observations that aren't ready to share. Put reviewed project rules and workflows that contributors depend on in repository documentation or customizations so your team can review and maintain them.
-
-Not every customization type supports every scope or agent harness. Before creating files, [check compatibility and choose a scope](/docs/agent-customization/overview.md#check-harness-compatibility). Enterprise policies can further restrict the customizations available to you.
 
 ## Related resources
 

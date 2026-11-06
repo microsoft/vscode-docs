@@ -20,7 +20,7 @@ Agent plugins package related customizations, such as skills, agents, and tool i
 
 This article shows you how to discover and install a plugin, verify it with a document-review workflow, and manage the installation. To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
 
-If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-options-at-a-glance). Choose a bundle when its components support a workflow you want to adopt together.
+If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-building-blocks). Choose a bundle when its components support a workflow you want to adopt together.
 
 > [!NOTE]
 > Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.

@@ -29,7 +29,7 @@ Create a custom agent when a recurring role needs its own instructions, tools, o
 
 You don't need a custom agent for every task. Use the [built-in planning workflow](/docs/agents/run/planning.md) if it already meets your needs. Put project-wide conventions in [custom instructions](/docs/agent-customization/custom-instructions.md), and put one-time requirements in your prompt. For reusable workflows with supporting scripts or resources, consider an [agent skill](/docs/agent-customization/agent-skills.md).
 
-See the [customization comparison](/docs/agents/concepts/customization.md#customization-options-at-a-glance) if you're unsure which option fits.
+See the [customization building blocks](/docs/agents/concepts/customization.md#customization-building-blocks) if you're unsure which option fits.
 
 ## Reuse an agent from a plugin
 

@@ -59,7 +59,7 @@ Use custom instructions when you want to:
 
 ## Use an existing skill
 
-Start with an existing skill when it provides the workflow you need. [Browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to install an individual skill or find one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md). You can also copy and adapt a skill for your project. Check [harness compatibility](/docs/agent-customization/overview.md#check-harness-compatibility) before choosing a source and location.
+Start with an existing skill when it provides the workflow you need. [Browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to install an individual skill or find one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md). You can also copy and adapt a skill for your project. Review the requirements for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) before choosing a source and location.
 
 A skill includes its full directory, not only the `SKILL.md` file: scripts, templates, examples, and other resources can be part of the workflow.
 
