@@ -161,6 +161,8 @@ After connecting, [open an existing remote session or start a new one](#continue
 
 After connecting to the host, select the existing session from the {% data variables.copilot.agents_window %} [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list). Check the host, workspace group, and list filters if the session isn't visible.
 
+To manage its customizations, keep the remote session selected and open **Customizations**. The editor uses that session's harness and remote workspace. It can show both host-owned customizations and supported customizations supplied by your connected client. Changes aren't necessarily limited to the selected session. See [Manage customizations for remote sessions](/docs/agent-customization/overview.md#manage-customizations-for-remote-sessions).
+
 In the {% data variables.copilot.agents_window %}, ask the agent to delegate a task to a connected remote machine. Enable both `setting(chat.remoteAgentHostsEnabled)` and `setting(chat.remoteSessions.tools.enabled)`, and connect the machines that the agent can use. You don't need to select the target machine in the workspace picker.
 
 The remote delegation tools let an agent:

@@ -14,7 +14,7 @@ Keywords:
 
 Prompt files simplify prompting for common tasks by encoding them as standalone Markdown files that you invoke as slash commands in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
-Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
+Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See [customization building blocks](/docs/agents/concepts/customization.md#customization-building-blocks) to understand how instructions, skills, custom agents, and other customizations differ.
 
 Use prompt files to:
 
