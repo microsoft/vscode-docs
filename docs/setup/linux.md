@@ -85,8 +85,7 @@ Microsoft provides the stable 64-bit {% data variables.product.prodname_vscode_s
 1. Update the package cache and install the package with `dnf` on Fedora 22 and later:
 
     ```bash
-    dnf check-update &&
-    sudo dnf install code # or code-insiders
+    sudo dnf install --refresh code # or code-insiders
     ```
 
     On older versions, use `yum`:
