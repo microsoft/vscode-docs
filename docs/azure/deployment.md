@@ -27,4 +27,4 @@ You can find additional tutorials and walkthroughs on the
 
 * [Deploy to Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/deploy-visual-studio-code) - Run microservices and containerized applications on a serverless platform.
 * [{% data variables.product.prodname_vscode %} Azure Extensions](/docs/azure/overview.md) - The Azure Tools extension pack is designed to deploy your application to Azure within minutes.
-* [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
+* [Working with Docker](/docs/containers/overview.md) - Put your application in a Docker container for easy reuse and deployment.

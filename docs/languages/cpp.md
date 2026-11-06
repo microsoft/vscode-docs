@@ -181,7 +181,7 @@ You can find more documentation on using the Microsoft C/C++ extension under the
 
 - [Debugging](/docs/cpp/cpp-debug.md)
 - [Editing](/docs/cpp/cpp-ide.md)
-- [Settings](/docs/cpp/customize-default-settings-cpp.md)
+- [Settings](/docs/cpp/customize-cpp-settings.md)
 - [FAQ](/docs/cpp/faq-cpp.md)
 
 ![C++ TOC on code.visualstudio.com](images/cpp/cpp-toc.png)
