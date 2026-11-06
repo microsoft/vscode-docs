@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
+MetaDescription: Extend {% data variables.product.prodname_vscode_shortname %} with contribution points for commands, menus, views, settings, and other features.
 ---
 
 # Contribution Points
@@ -509,6 +509,8 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 
 #### scope
 
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
@@ -518,7 +520,25 @@ A configuration setting can have one of the following possible scopes:
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 - `language-overridable` - Resource settings that can be overridable at a language level.
 
-Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+The following table summarizes how each scope behaves with respect to overrides, multi-root workspaces, remote environments, and language-specific configuration:
+
+| Scope | Overridable in workspace | Overridable in workspace folder (multiroot) | Remote inherits local user settings | Overridable remotely | Overridable at language level |
+| --- | --- | --- | --- | --- | --- |
+| `application` | No | No | Yes | No | No |
+| `machine` | No | No | No | Yes (implicitly, as not inherited) | No |
+| `machine-overridable` | Yes | Yes | No | Yes (implicitly, as not inherited) | No |
+| `window` | Yes | No | Yes | Yes | No |
+| `resource` | Yes | Yes | Yes | Yes | No |
+| `language-overridable` | Yes | Yes | Yes | Yes | Yes |
+
+Column details:
+
+- **Overridable in workspace:** Whether the setting can be configured or overridden in workspace settings (or in folder settings for single-root workspaces).
+- **Overridable in workspace folder (multiroot):** Whether the setting can be customized per folder in a multi-root workspace scenario.
+- **Remote inherits local user settings:** Whether a remote window inherits the local user settings value when no remote value is set.
+- **Overridable remotely:** Whether the setting can be configured in remote settings.
+- **Overridable at language level:** Whether the setting supports language-specific overrides (for example, `"[typescript]": { ... }`).
+- **Settings Sync:** Settings marked with `machine` or `machine-overridable` scope are machine specific and excluded from Settings Sync by default.
 
 Below are example configuration scopes from the built-in Git extension:
 
@@ -854,7 +874,7 @@ Contribute a validation schema for a specific type of `json` file. The `url` val
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/configure/keybindings) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
@@ -1050,8 +1070,8 @@ Currently extension writers can contribute to:
 - `terminal/title/context` - terminal title context menu
 - `testing/item/context` - Test Explorer item context menu
 - `testing/item/gutter` - menu for a gutter decoration for a test item
-- `timeline/title` - Timeline view title menu bar
-- `timeline/item/context` - Timeline view item context menu
+- `timeline/title` - [Timeline view title menu](/api/extension-guides/timeline.md#add-timeline-actions)
+- `timeline/item/context` - [Timeline view item context menu](/api/extension-guides/timeline.md#add-timeline-actions)
 - `touchBar` - macOS Touch Bar
 - `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
 - `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
@@ -1071,6 +1091,8 @@ When you invoke an extension command from a menu, {% data variables.product.prod
 | `explorer/context` | The `Uri` of the file or folder on which you opened the context menu, followed by an array of selected resource URIs. If the target is part of a multiple selection, the array contains that selection. Otherwise, it contains only the target resource. |
 | `editor/title` | The editor's resource `Uri`, followed by an editor context object containing `groupId`. |
 | `editor/title/context` | The target editor's resource `Uri`, followed by an editor context object containing `groupId` and `editorIndex`. |
+| `timeline/title` | The `Uri` of the file or folder whose timeline is shown, or `undefined` for the workspace timeline. |
+| `timeline/item/context` | The `TimelineItem`, the timeline's resource `Uri` (or `undefined` for the workspace timeline), the provider ID, and the selected items from that provider when the target belongs to a multi-selection. Otherwise, the fourth argument is `undefined`. |
 
 The editor context identifies an editor group and, for a tab context menu, the editor's index in that group. A `groupId` is an internal group identifier, not a `ViewColumn`. Prefer the resource URI when your command operates on a document. For editors without a resource URI, the context object is the first argument.
 
@@ -1079,6 +1101,8 @@ If you open the Explorer context menu on empty space, the first argument is the 
 Commands contributed to `editor/lineNumber/context` receive an object with `uri` and `lineNumber` properties. The `uri` is the document URI and `lineNumber` is the one-based line number. These menu items can also reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators with an array-valued context key managed by the extension.
 
 Other menus supply context specific to their feature. For example, `view/item/context` in an extension's [Tree View](/api/extension-guides/tree-view.md#view-actions) passes the tree element supplied by its `TreeDataProvider`. If the target belongs to a multiple selection, a second argument contains the selected elements. Otherwise, the second argument is `undefined`. For Source Control menu arguments, see [Source Control menus](/api/extension-guides/scm-provider.md#menus).
+
+Timeline item commands receive the provider extension's original items when handled by that extension. Other extensions receive read-only copies without the `command` property. See [Timeline actions](/api/extension-guides/timeline.md#add-timeline-actions) for examples and selection context keys.
 
 These menu arguments are not automatically supplied when you invoke the same command from the Command Palette or a keyboard shortcut. See [Command handler arguments](/api/extension-guides/command.md#command-handler-arguments) for the other invocation methods and an example that handles a missing resource.
 

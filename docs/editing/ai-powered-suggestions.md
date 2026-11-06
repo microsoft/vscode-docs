@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Get AI-powered ghost text completions and next edit suggestions in {% data variables.product.prodname_vscode_shortname %}.
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
@@ -178,7 +178,7 @@ Inline suggestions are one way to work with AI, not a choice that locks you out 
 
 * To assign tasks and manage agent sessions across projects, use the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
-You can keep using inline suggestions while working with chat or agents. If you already have an agent conversation, see how to [continue a supported session in another interface](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session).
+You can keep using inline suggestions while working with chat or agents. If you already have an agent conversation, see how to [continue a supported session in another interface](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
 
 ## Settings
 

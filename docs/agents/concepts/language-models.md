@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Understand language models in {% data variables.product.prodname_vscode_shortname %}, including model access, characteristics, context windows, and selection.
 Keywords:
 - copilot
@@ -97,7 +97,7 @@ Copilot Fusion is a model orchestration system, not an individual language model
 
 Consider Fusion for substantial, well-scoped coding tasks where additional review can be worth the extra time and [AI credits](#ai-credits-and-model-costs). Availability depends on your account and organization policies.
 
-Learn how to [use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion). For details about orchestration, see [Copilot model orchestration](https://docs.github.com/en/early-access/copilot/hydrafusion) in the GitHub documentation.
+Learn how to [use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion). For details about orchestration, see [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) in the GitHub documentation.
 
 ### AI credits and model costs
 

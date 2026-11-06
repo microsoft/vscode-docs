@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -9,6 +9,8 @@ MetaDescription: Manage enterprise AI controls that affect {% data variables.pro
 Organizations can govern AI features in {% data variables.product.prodname_vscode_shortname %} through three management solutions: {% data variables.product.prodname_copilot_short %} enterprise-managed settings, {% data variables.product.prodname_vscode_shortname %} device policies, and GitHub organization or enterprise settings.
 
 These solutions control different layers of the AI experience. An organization might use all three, but should configure an overlapping control in only one system.
+
+For an existing Local deployment, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for developer steps, a compatibility checklist, and an administrator rollout and verification procedure.
 
 > [!NOTE]
 > If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved.
@@ -89,6 +91,54 @@ Configure and administer enterprise-managed settings by following the GitHub doc
 
 Not every enterprise-managed setting applies to every client. Before you configure a setting for {% data variables.product.prodname_vscode_shortname %}, check the **Supported clients** column in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
+### Configure managed MCP server access
+
+Use `allowedMcpServers` in {% data variables.product.prodname_copilot_short %} enterprise-managed settings to limit which [MCP servers](/docs/agent-customization/mcp-servers.md) developers can install and run. Use `deniedMcpServers` to block servers even when they match the allowlist. Configure these keys through a [supported managed-settings delivery method](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started), not in a developer's editor settings or `mcp.json`.
+
+For example, the following managed settings permit remote servers under `https://mcp.example.com/`, except the blocked endpoint:
+
+```json
+{
+    "allowedMcpServers": [
+        {
+            "serverUrl": "https://mcp.example.com/*"
+        }
+    ],
+    "deniedMcpServers": [
+        {
+            "serverUrl": "https://mcp.example.com/blocked"
+        }
+    ]
+}
+```
+
+Each rule uses one matcher:
+
+* `serverUrl` matches a remote server's URL and supports `*` wildcards.
+* `serverCommand` matches a local server's exact command followed by its arguments, in order.
+* `serverName` matches the configured server name. The configuration author supplies this name, so it does not verify the command, endpoint, or publisher.
+
+Prefer command or URL rules when you need to constrain what runs or where it connects. If the allowlist contains command rules, local servers must match a command rule rather than a name rule. If it contains URL rules, remote servers must match a URL rule.
+
+#### Managed allowlists and registry precedence
+
+An MCP registry is a catalog for discovering and installing servers. A managed allowlist determines which servers your organization permits. Starting with {% data variables.product.prodname_vscode_shortname %} 1.145, an enterprise-managed allowlist takes precedence over registry-only access for editor-managed MCP servers:
+
+| Server configuration | Result |
+|----------------------|--------|
+| Matches the managed allowlist but is absent from the registry. | Permitted, unless a deny rule or MCP disablement blocks it. |
+| Appears in the registry but does not match the managed allowlist. | Blocked. Registry membership does not grant an exception. |
+
+The registry remains available for discovery. These precedence rules apply to editor-managed servers, including Local harness sessions, not servers owned by an [Agent Host](/docs/agents/concepts/agent-host.md).
+
+* An explicit `allowedMcpServers: []` blocks all servers. It does not fall back to registry approval.
+* Removing `allowedMcpServers` restores the effective access mode, including registry-only access, and any deny rules.
+* Deny rules and explicit MCP disablement, such as `setting(chat.mcp.access)` set to `"none"`, still take priority over the allowlist.
+
+User settings and workspace server definitions cannot broaden the enterprise-managed allowlist or remove its deny rules. Commands and URLs are checked again after variable resolution. Configuration edits must still match the managed rules, even if the server keeps its registry name.
+
+See [Verify applied managed settings](#verify-applied-managed-settings) to inspect the effective configuration and its source.
+
 ### Set managed model defaults
 
 Give developers a consistent starting model without preventing them from choosing another model for an individual task. Set the top-level `model` managed setting to `auto` or an available model ID.
@@ -111,7 +161,7 @@ For example, add the following values to your enterprise-managed settings:
 }
 ```
 
-This example starts new conversations on Fusion **High** when [Copilot Fusion (Research preview)](/docs/agent-customization/language-models.md#use-copilot-fusion-research-preview) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
+This example starts new conversations on Fusion **High** when [Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion) is available to the account. Otherwise, it uses Auto **Intelligence**. A managed `model` value of `"fusion"` is also accepted as `"auto"`; it doesn't enable Fusion or grant access to an unavailable tier.
 
 `fusionTier` takes precedence over the legacy `autoTier` setting. It applies to the Copilot harness, not Local sessions.
 
@@ -147,16 +197,20 @@ If you need access to one of these harnesses:
 
 Ask the administrator which harnesses are approved for your work and whether the deployed configuration needs review. You cannot restore access by changing your user or workspace settings.
 
-#### Runtime policies and harness selection
+### Runtime policies and harness selection
 
-The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. The following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
+The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, the following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
 
 * `sandbox.enabled` set to `true`.
-* A `permissions` object with at least one key.
+* A nonempty `permissions.deny` rule list.
 
-An empty `permissions` object does not trigger that routing.
+Other `permissions.*` settings and an empty deny list do not trigger that routing.
 
-The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply.
+To prohibit Local, Claude, and Codex, set `vscode.temporaryAllowLocalHarness` to `false` in enterprise-managed settings. This control is available from version 1.143 and takes precedence over `vscode.temporaryDefaultToLocalHarness: true`. Setting it to `true` does not override other policies.
+
+A default is not a harness requirement. The `ChatEditorPreferCopilotHarness` device policy prefers Copilot when a new editor chat would otherwise use Local, but does not prohibit other harnesses.
+
+The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply. For conversation and archive behavior when Copilot is required, see [continue an existing Local conversation](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
 
 ### Keep Local harness as default
 
@@ -172,7 +226,7 @@ Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed
 }
 ```
 
-This control suppresses [automatic routing to the Copilot harness](#enforce-runtime-policies-with-copilot-agent-host), including routing triggered by managed `sandbox.enabled` or `permissions` values. It does not change explicit, remembered, or current harness choices. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
+This control suppresses [automatic routing to the Copilot harness](#runtime-policies-and-harness-selection), including routing triggered by managed sandbox requirements or nonempty deny lists. It does not change explicit, remembered, or current harness choices. It does not override `vscode.temporaryAllowLocalHarness: false`. Set `vscode.temporaryDefaultToLocalHarness` to `false` or remove the key to restore normal harness routing.
 
 > [!WARNING]
 > Local does not enforce runtime-only sandbox and permission rules. Those managed rules continue to be enforced in Copilot harness sessions. Review the security impact before you use this temporary control.
@@ -432,7 +486,7 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, use th
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
-The current [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys) does not list the shared `sandbox` key as supported for {% data variables.product.prodname_vscode_shortname %}. For Agent Host sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy).
+Use the shared `sandbox` key in enterprise-managed settings to enforce supported minimum sandbox restrictions. Follow the [sandbox schema and minimum client versions](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox). Verify policy delivery and the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) where the agent runs, including remote hosts and containers. Local harness sessions cannot enforce these runtime-only controls.
 
 <details>
 <summary>Sandbox device policies for Local harness sessions</summary>
@@ -476,6 +530,17 @@ GitHub-hosted controls apply through the signed-in account and GitHub services. 
 Use GitHub organization and enterprise settings to manage {% data variables.product.prodname_copilot_short %} access, available models and features, content exclusions, and other service-side policies. See [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise).
 
 To restrict the unified marketplace and {% data variables.product.prodname_copilot_short %} connectors, turn off **Editor preview features**. This forces `setting(chat.customizations.marketplace.enabled)` and `setting(chat.customizations.copilotConnectors.enabled)` off, even though both default to `true`. Developers can't override this restriction in Settings. Other eligibility requirements and managed restrictions still apply when preview features are permitted.
+
+### Understand MCP registry policy refresh failures
+
+GitHub organization and enterprise policies can restrict MCP access to servers in the configured registry. Starting with {% data variables.product.prodname_vscode_shortname %} 1.145, a temporary network or service failure while refreshing that policy does not remove a previously received restriction. {% data variables.product.prodname_vscode_shortname %} retains the last known registry URL and access restriction.
+
+A response confirming that no registry applies removes the cached registry restriction. Signing out or switching accounts also clears it.
+
+> [!IMPORTANT]
+> Retaining a cached policy is not a startup enforcement guarantee. If no registry policy is cached and the first fetch fails, registry policy alone does not restrict MCP access. For restrictions that must apply independently of a successful GitHub policy fetch, configure the `ChatMCP` [device policy](/docs/enterprise/policies.md).
+
+This refresh behavior applies to editor-managed MCP servers. It is separate from [managed allowlist precedence](#managed-allowlists-and-registry-precedence) and does not describe enforcement for Agent Host-owned servers.
 
 ### Configure organization-level custom instructions
 

@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 ---
 # AI features cheat sheet
@@ -102,7 +102,7 @@ To organize larger tasks:
 | Run a saved prompt on demand | [Prompt files](/docs/agent-customization/prompt-files.md), invoked as slash commands. |
 | Define a specialized role and tool selection | [Custom agents](/docs/agent-customization/custom-agents.md), such as a read-only reviewer. |
 | Connect a database, issue tracker, or other external system | [MCP servers](/docs/agent-customization/mcp-servers.md) that provide tools. |
-| Run a command at a specific agent lifecycle event | [Hooks](/docs/agent-customization/hooks.md), rather than relying on the model to follow an instruction. |
+| Run a command at a specific point in the agent's workflow | [Hooks](/docs/agent-customization/hooks.md), rather than relying on the model to follow an instruction. |
 | Install a packaged set of customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md). |
 
 Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to create and manage these options for your selected harness.

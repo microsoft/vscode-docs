@@ -1,6 +1,6 @@
 ---
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Learn about telemetry collection in {% data variables.product.prodname_vscode %} and how to opt out.
 ---
 # Telemetry
@@ -102,7 +102,7 @@ The `endpoint` field describes what data handler the data is sent to. This is no
 
 ## OpenTelemetry support for agent interactions
 
-[Copilot Chat](/docs/agent-native/overview.md) in {% data variables.product.prodname_vscode_shortname %} can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+[Copilot Chat](/docs/agents/overview.md) in {% data variables.product.prodname_vscode_shortname %} can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
 
 Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
 

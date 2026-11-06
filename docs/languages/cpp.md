@@ -1,6 +1,6 @@
 ---
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find out how to get the best out of {% data variables.product.prodname_vscode %} and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---
@@ -181,7 +181,7 @@ You can find more documentation on using the Microsoft C/C++ extension under the
 
 - [Debugging](/docs/cpp/cpp-debug.md)
 - [Editing](/docs/cpp/cpp-ide.md)
-- [Settings](/docs/cpp/customize-default-settings-cpp.md)
+- [Settings](/docs/cpp/customize-cpp-settings.md)
 - [FAQ](/docs/cpp/faq-cpp.md)
 
 ![C++ TOC on code.visualstudio.com](images/cpp/cpp-toc.png)

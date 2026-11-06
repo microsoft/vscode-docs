@@ -82,6 +82,7 @@
                 "topics": [
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Move from Local to Copilot", "/docs/agents/run/move-to-copilot"],
                     ["Compare Model Results", "/docs/agents/run/compare-models"]
                 ]
             }],
@@ -167,6 +168,7 @@
                             ["Settings Reference", "/docs/agents/reference/ai-settings"],
                             ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
+                            ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
                             ["Agent Plugin Authoring Reference", "/docs/agents/reference/agent-plugin-reference"],
                             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
                             ["Hooks Reference", "/docs/agents/reference/hooks-reference"],

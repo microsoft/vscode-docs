@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Build and validate a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review and recover changes.
 ---
 # Quickstart: Complete your first task with an agent
@@ -232,7 +232,7 @@ The {% data variables.copilot.agents_window %} and {% data variables.copilot.cha
 
 * Select **Open in Agents** in the application title bar, then select your existing {% data variables.product.prodname_copilot_short %} session from the sessions list.
 
-For other applications, terminal options, or access from another device, see [Continue an existing session](/docs/agents/run/sessions/manage-sessions.md#continue-an-existing-session). That guide covers the supported routes and their requirements.
+For other applications, terminal options, or access from another device, see [Continue an existing session](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window). That guide covers the supported routes and their requirements.
 
 ## Clean up resources
 

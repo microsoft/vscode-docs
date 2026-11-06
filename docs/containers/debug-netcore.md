@@ -64,13 +64,13 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
 1. In the `.vscode/tasks.json` file, add `configureSsl: true` to the `netCore` section. Also, add an environment variable `ASPNETCORE_URLS` in the `dockerRun` section of the `docker-run: debug` task, with the same port numbers you defined in the Dockerfile:
 
    ```json
-   dockerRun: {
+   "dockerRun": {
        "env": {
           "ASPNETCORE_URLS": "https://+:5001;http://+:5000"
       }
-    }
-    netCore: {
-        "appProject": "${workspacefolder}/MyProject.csproj",
+    },
+    "netCore": {
+        "appProject": "${workspaceFolder}/MyProject.csproj",
         "enableDebugging": true,
         "configureSsl": true
     }

@@ -69,6 +69,6 @@ You can easily create a managed MongoDB cluster on Azure for **Free** with [Azur
 ## Next steps
 
 * [Index Advisor](https://learn.microsoft.com/azure/documentdb/index-advisor) - Learn how to optimize your MongoDB performance with Index Advisor.
-* [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of {% data variables.product.prodname_vscode_shortname %} extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/overview.md) - The Visual Studio Marketplace has hundreds of {% data variables.product.prodname_vscode_shortname %} extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
-* [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
+* [Working with Docker](/docs/containers/overview.md) - Put your application in a Docker container for easy reuse and deployment.

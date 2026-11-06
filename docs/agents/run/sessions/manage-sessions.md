@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Find, continue, organize, and finish agent sessions in {% data variables.product.prodname_vscode_shortname %} without losing track of ongoing work.
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
@@ -113,7 +113,7 @@ On Windows, you can also open the {% data variables.copilot.agents_window %} by 
 
 ### Run multiple chats in a session
 
-A nested session is a separate, interactive conversation grouped under an existing session. It starts blank, without the other chats' history, and uses the parent's harness and host. The harness must support multiple chats, and the parent session must not be archived.
+A nested session is a separate, interactive conversation grouped under an existing session. It starts blank, without the other chats' history. By default, it uses the parent's harness and host. The harness must support multiple chats, and the parent session must not be archived.
 
 With a harness that provides [session-management tools](/docs/agents/run/tools.md#coordinate-work-across-sessions), ask the agent to start a separate chat within the ongoing session. This works in both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %}. For example:
 
@@ -125,7 +125,9 @@ Alternatively, use the controls in the {% data variables.copilot.agents_window %
 
 1. Hover over the parent session and select **+** (**New Nested Session**), use its context menu, or press `kb(sessions.chatCompositeBar.addChat)` while the session has focus.
 
-    <!-- TODO: Replace the outdated agents-window-new-subsession.png screenshot with one showing New Nested Session and the composer's folder and isolation controls. -->
+    <!-- TODO: Replace the outdated agents-window-new-subsession.png screenshot with one showing New Nested Session and the composer's harness picker, folder, and isolation controls. -->
+
+1. If [mixed-harness chats](#use-different-harnesses-in-a-session) are enabled, select a harness from the picker above the input. Choose the harness before the working folder, because the available workspace options depend on the harness.
 
 1. Choose the working folder above the input:
 
@@ -141,6 +143,16 @@ Alternatively, use the controls in the {% data variables.copilot.agents_window %
 
 Each chat has its own title, history, and agent or model selection. For a hands-on workflow with isolated changes, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
+#### Use different harnesses in a session
+
+`feature(mixed-harness-chats)`
+
+Enable `setting(chat.agentHost.multipleChatProviders.enabled)` (off by default) to keep related chats together while using different harnesses in the {% data variables.copilot.agents_window %}. For example, implement a change in a {% data variables.product.prodname_copilot_short %} chat and review it in a {% data variables.product.prodname_anthropic_claude_short %} chat within the same session.
+
+Choose the harness in the new nested session's picker before sending the first prompt. Available harnesses depend on their [setup requirements and organization policies](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
+
+Each chat uses its own harness's model options and permission controls. Changing one chat's model or permissions doesn't change the other chats. Each chat retains its harness, model, and permission settings after restarting {% data variables.product.prodname_vscode_shortname %}.
+
 ### Fork a chat session
 
 A fork retains the source conversation's history so you can explore an alternative without losing the original discussion. Type `/fork` to copy the full conversation, or hover over an earlier request and select **Fork Conversation** to include only the requests through that checkpoint.
@@ -148,6 +160,8 @@ A fork retains the source conversation's history so you can explore an alternati
 ![Screenshot showing the Fork Conversation button in the checkpoint toolbar in the {% data variables.copilot.chat_view %}.](../../images/chat-checkpoints/chat-fork-conversation.png)
 
 In multi-chat {% data variables.product.prodname_copilot_short %} sessions in the {% data variables.copilot.agents_window %}, the fork opens as a nested session. In single-chat sessions and harnesses without multiple-chat support, it opens as a separate session. A {% data variables.product.prodname_copilot_short %} worktree session's fork uses the original worktree, so forking doesn't isolate code changes.
+
+In a [mixed-harness session](#use-different-harnesses-in-a-session), a fork keeps the source chat's harness, model, and permission settings, even if the parent session uses another harness.
 
 Supported Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, also accept these forms in either interface:
 
@@ -273,15 +287,18 @@ Enable `setting(chat.agentHost.moveChats.enabled)` in the {% data variables.copi
 
 **Reorder nested sessions:** Select **Filter Sessions** > **Ordering** > **Created** to retain a manual order. Drag a nested session above or below a sibling, or use **Move Up** and **Move Down** in its context menu. With the row focused, use `kb(sessionsViewPane.moveChatUp)` or `kb(sessionsViewPane.moveChatDown)`. Available commands depend on the row's position, and the order persists after reopening the window.
 
-**Move or promote a conversation:**
+**Move a conversation:**
 
+* Select **Move to Session...** from a nested session's context menu to choose a destination session.
 * Drop a nested session on another session to append it, or on the top or bottom half of a nested row to insert it there. Hover over a collapsed destination to expand it.
-* Select **Promote to Session** from a nested session's context menu, or drag it to empty space below the list or a section header. Send at least one prompt before promoting it.
+* Select **Move to New Session** from a nested session's context menu, or drag it to empty space below the list or a section header. Send at least one prompt before moving it to a new session.
 * Drag a top-level session containing only one chat onto the center of another session, or above or below one of its nested rows, to nest it.
 
-Source and destination must use the same harness and host, the destination must support multiple chats, and neither session can be archived. In **Pinned** and custom groups, dropping near a top-level row's top edge can reorder it instead of nesting it. An insertion line indicates reordering, and a highlighted destination indicates nesting.
+Source and destination must use the same host, the destination must support multiple chats, and neither session can be archived. By default, they must also use the same harness. Enable [mixed-harness chats](#use-different-harnesses-in-a-session) to move chats between sessions that use different harnesses. The moved chat keeps its harness, model, and permission settings rather than adopting the destination session's settings.
 
-Promotion inherits the parent's custom group, but not its pinned state. A workspace-less conversation promoted to a top-level session appears in **Chats**.
+In **Pinned** and custom groups, dropping near a top-level row's top edge can reorder it instead of nesting it. An insertion line indicates reordering, and a highlighted destination indicates nesting.
+
+A chat moved to a new session inherits the parent's custom group, but not its pinned state. A workspace-less conversation moved to a top-level session appears in **Chats**.
 
 Moves don't ask for confirmation. A notice shows progress and the result. Select **Undo** within 10 seconds to restore the previous parent and position. A streaming response continues after a move. Linked subagent conversations, pull requests, and [{% data variables.copilot.agent_merge %} monitoring](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) stay with the conversation, including after undo.
 
@@ -335,17 +352,27 @@ To delete an individual chat in the {% data variables.copilot.agents_window %} *
 
 ### Clean up session worktrees
 
-Run **Chat: Open Worktree Cleanup** to reclaim disk space from inactive session worktrees.
+Run **Chat: Open Worktree Cleanup** to reclaim disk space from inactive or leftover session worktrees.
 
 ![Screenshot showing the worktree cleanup editor with cleanup settings, an inactivity filter, and selected session worktrees with their storage sizes.](../../images/chat-sessions/worktree-cleanup-editor.png)
 
-1. Choose an inactivity period of 7, 15, 30, 60, or 90 days.
-1. Review estimated worktree sizes and clear any selected worktrees you want to keep. Eligible worktrees are selected by default.
+1. Choose an inactivity filter and, if needed, a workspace.
+1. Review the selected worktrees, including their branches, paths, and estimated sizes. Clear any selected worktrees you want to keep.
 1. Save open file edits in the selected worktrees, then confirm cleanup.
 
-Cleanup marks the sessions done and schedules their worktrees for removal. As with manual archiving, it commits uncommitted changes first and retains the session and branch history for restoration. If preservation or removal fails, the worktree remains.
+Normal cleanup marks listed sessions done, commits nonignored uncommitted changes to their branches, and schedules the worktree folders for removal. Branches and session history are retained, so restoring a listed session re-creates its worktree. Ignored files in removed worktrees are deleted. Normal cleanup protects worktrees used by other sessions or chats.
 
-The editor excludes sessions that are active, running, waiting for input, pinned, done, archived, untitled, in error, or newer than the inactivity threshold. Worktrees whose size can't be measured are also excluded.
+The cleanup editor also includes:
+
+* **Leftover worktrees from done or archived sessions.** Marking a session done does not guarantee that its worktree was removed. Eligible leftovers can be cleaned up even though their storage sizes are not measured.
+* **Managed worktrees without a listed session.** Git-registered session worktrees under the managed `<repository>.worktrees` directory can be cleaned up while retaining their branches, even when storage and last-used time are unknown. Arbitrary external worktrees and unregistered folders are excluded.
+
+Storage sizes are estimates. Unchanged idle estimates are reused across refreshes and restarts; new, changed, or active worktrees are measured on request. An unknown size does not mean zero storage or confirmed removal.
+
+If cleanup fails, review the error and use **Retry Failed Worktrees** for eligible failures. If instructed, restore the session and mark it done again. Failed or unresolved cleanup does not confirm that the worktree was removed.
+
+> [!CAUTION]
+> **Force Remove** permanently discards uncommitted changes and can remove a worktree used by other sessions or chats. Review the separate confirmation and preserve any needed work before proceeding.
 
 Open **Cleanup Settings** to configure automatic completion, deletion retention, or storage suggestions.
 

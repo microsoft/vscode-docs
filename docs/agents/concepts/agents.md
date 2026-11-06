@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Understand how agents in {% data variables.product.prodname_vscode_shortname %} use models, context, and tools to complete coding tasks.
 Keywords:
 - copilot
@@ -44,6 +44,8 @@ The core concepts work together each time you send a request:
 1. **Review:** When the task is complete, you review the response, code changes, and validation results.
 
 The repeated reasoning, action, and validation steps form the **agent loop**. A [session](/docs/agents/concepts/sessions.md) keeps the conversation and task state together. An [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the loop, while the execution environment determines where tools run and code changes are made.
+
+![Diagram showing a client connected to an Agent Host that maintains session state while a harness loops through context preparation, model requests, permission checks, and tool calls. Tools act on the workspace, independently of where the model runs. Deployment examples show local IPC and AHP connections to remote machines and managed cloud environments.](../images/concepts/agent-execution.svg)
 
 ## Agent loop
 
@@ -131,7 +133,7 @@ You can customize the agent loop for a project or workflow:
 
 * A [**custom agent**](/docs/agent-customization/custom-agents.md) defines instructions, available tools, a language model, and optional handoffs for a specific workflow.
 * [**Agent skills**](/docs/agent-customization/agent-skills.md) give an agent instructions and resources for a specialized task.
-* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent lifecycle.
+* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent's workflow, such as before or after a tool runs.
 
 Learn more about [customization concepts](/docs/agents/concepts/customization.md).
 

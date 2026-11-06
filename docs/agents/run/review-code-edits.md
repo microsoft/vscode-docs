@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 10/21/2026
+DateApproved: 11/4/2026
 MetaDescription: Review and undo agent edits in {% data variables.product.prodname_vscode %} with working sets, diffs, and checkpoints.
 ---
 # Review and revert agent changes
@@ -119,14 +119,6 @@ Control how diff editors in the **Changes** view wrap long lines with `setting(s
 This setting is independent of [word wrap in code editors](/docs/agents/run/agents-window-configuration.md#configure-word-wrap-for-code-editors).
 
 To change it from a diff editor, select **More Actions** (**...**) > **Word Wrap**.
-
-#### Review changes in the single-pane layout (Experimental)
-
-When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window-configuration.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
-
-Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. The `kb(toggle.diff.renderSideBySide)` keybinding toggles the preferred diff view in the {% data variables.copilot.agents_window %}.
-
-The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
 ## Provide feedback and request revisions
 

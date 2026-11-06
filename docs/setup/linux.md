@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Linux with Debian, RPM, Snap, Arch, or Nix package options.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -85,14 +85,13 @@ Microsoft provides the stable 64-bit {% data variables.product.prodname_vscode_s
 1. Update the package cache and install the package with `dnf` on Fedora 22 and later:
 
     ```bash
-    dnf check-update &&
-    sudo dnf install code # or code-insiders
+    sudo dnf install --refresh code # or code-insiders
     ```
 
     On older versions, use `yum`:
 
     ```bash
-    yum check-update &&
+    yum check-update
     sudo yum install code # or code-insiders
     ```
 

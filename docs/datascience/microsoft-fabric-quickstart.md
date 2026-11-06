@@ -222,4 +222,4 @@ To engage with the community and get support:
 
 * [Microsoft Fabric community forums](https://community.fabric.microsoft.com/)
 * [Fabric samples and templates](https://github.com/microsoft/fabric-samples)
-* [Visual Studio Marketplace reviews and feedback](https://marketplace.visualstudio.com/items?itemName=ms-fabric.vscode-fabric)
+* [Visual Studio Marketplace reviews and feedback](https://marketplace.visualstudio.com/items?itemName=fabric.vscode-fabric)

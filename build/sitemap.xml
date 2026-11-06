@@ -566,6 +566,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/agent-plugin-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -642,6 +647,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/run/agent-harnesses</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/move-to-copilot</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1807,6 +1817,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/tree-view</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/timeline</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 
 MetaDescription: Use when-clause contexts in {% data variables.product.prodname_vscode_shortname %} to control keybindings, commands, menus, and views.
 ---
@@ -218,8 +218,9 @@ Context name | True when
 `customExecutionSupported` | True when VS Code can run `CustomExecution` tasks.
 **Timeline view contexts** |
 `timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
+`timelineForWorkspace` | True when the Timeline view shows the whole workspace's history rather than a file or folder timeline. See [Workspace timeline providers](/api/extension-guides/timeline.md#provide-workspace-history).
 **Timeline view item contexts** |
-`timelineItem` | True when the timeline item's context value matches.<br>Example: `"timelineItem =~ /git:file:commit\\b/"`.
+`timelineItem` | The item's `TimelineItem.contextValue`, used to target [Timeline item actions](/api/extension-guides/timeline.md#add-timeline-actions).<br>Example: `"timelineItem == saveHistoryEntry"`.
 **Extension contexts** |
 `extension` | True when the extension's ID matches.<br>Example: `"extension == eamodio.gitlens"`.
 `extensionStatus` | True when the extension is installed.<br>Example: `"extensionStatus == installed"`.

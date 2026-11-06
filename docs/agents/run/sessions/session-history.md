@@ -1,6 +1,6 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Save, search, and share session history in {% data variables.product.prodname_vscode %} with exports, sync, and privacy controls.
 ---
 # Save, sync, and query session history

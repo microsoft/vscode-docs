@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/28/2026
+DateApproved: 11/4/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 ---
 # Use chat in {% data variables.product.prodname_vscode_shortname %}
@@ -191,11 +191,11 @@ Use these settings to adjust the chat transcript:
 | Code block font and layout | Set the font family, size, weight, and line height with `setting(chat.editor.fontFamily)`, `setting(chat.editor.fontSize)`, `setting(chat.editor.fontWeight)`, and `setting(chat.editor.lineHeight)`. Control line wrapping with `setting(chat.editor.wordWrap)`. |
 | Sticky prompts | Use `setting(chat.stickyScroll.enabled)` to pin the current prompt to the top of the transcript while you scroll. |
 | Request timestamps | Use `setting(chat.verbose)` to show or hide request and completion timestamps. Hover over a completion timestamp to view the elapsed response time. |
-| Persistent progress (Experimental) | Use `setting(chat.experimental.persistentProgress)` to keep a progress indicator visible until an agent response finishes. Choose a colored or monochrome **Draw** animation, or turn the indicator off. |
+| Persistent progress (Experimental) | Use `setting(chat.persistentProgress)` to keep a progress indicator visible until an agent response finishes. Choose a colored or monochrome **Draw** animation, or turn the indicator off. |
 
-With persistent progress, reasoning appears in separate collapsible previews and tool calls remain visible while they run. `setting(chat.experimental.persistentProgressVerbosity)` controls completed tool-call details. **Compact** replaces completed groups with expandable summaries when response text resumes or the response finishes. **Verbose** keeps the full details visible.
+To adjust reasoning and tool-call details, select **More Actions** > **View Mode** in the {% data variables.copilot.chat_view %}, or use `setting(chat.persistentProgressVerbosity)` (Experimental). **Compact** (default) previews tool calls as they run and collapses completed groups, **Verbose** keeps tool calls expanded, and **Conversation** groups reasoning and tool calls into collapsed sections.
 
-Persistent progress defaults to **Draw** in Insiders and **Off** in Stable.
+Persistent progress defaults to **Draw**. The verbosity setting has no effect when persistent progress is **Off**.
 
 For more chat preferences, see the [AI settings reference](/docs/agents/reference/ai-settings.md#chat-experience).
 
