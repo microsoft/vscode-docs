@@ -747,6 +747,6 @@ Use this checklist to convert a legacy package. Review the [plugin manifest and 
 1. Update relative path references, version metadata, and test fixtures.
    * Deactivate any separately installed legacy package or standalone copies of its components before testing to avoid duplicate agents, hooks, or tools.
    * In a new Copilot session, verify component discovery, MCP server connections, and hook execution and responses before removing the original package.
-6. **Subprocess stdout isolation for hooks:**
-   - Hook scripts enforce a strict one-response JSON contract across the entire process tree.
-   - Ensure child processes or dependency installers (e.g., `npm`, `pip`) do not output progress or diagnostics to `stdout`. Redirect all subprocess logs to `stderr` to avoid invalidating the hook JSON response.
+1. Keep ordinary subprocess output separate from a hook's JSON response.
+   * Capture child-process output or redirect it to `stderr`, including progress and diagnostics from dependency installers such as `npm` and `pip`. If the hook returns JSON on `stdout`, inherited subprocess output can make that response invalid.
+   * Follow the target runtime's [hook output and progress-message rules](https://docs.github.com/en/copilot/reference/hooks-reference#progress-messages).
