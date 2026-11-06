@@ -744,9 +744,9 @@ Use this checklist to convert a legacy package. Review the [plugin manifest and 
    - SDK canvas extensions are discovered from `com.github.copilot/extensions/`. Manifest paths do not redirect discovery for canvas extensions.
 4. **Metadata pruning:**
    - Remove unsupported manifest fields such as `categories`, `status`, `maintainers`, and `evals`. Move applicable catalog-level metadata to `marketplace.json`.
-5. **Reference and duplicate cleanup:**
-   - Update relative path references, version numbers, and test fixtures.
-   - Deactivate or delete old legacy component paths to prevent duplicate entries in the agent picker and tool registries.
+1. Update relative path references, version metadata, and test fixtures.
+   * Deactivate any separately installed legacy package or standalone copies of its components before testing to avoid duplicate agents, hooks, or tools.
+   * In a new Copilot session, verify component discovery, MCP server connections, and hook execution and responses before removing the original package.
 6. **Subprocess stdout isolation for hooks:**
    - Hook scripts enforce a strict one-response JSON contract across the entire process tree.
    - Ensure child processes or dependency installers (e.g., `npm`, `pip`) do not output progress or diagnostics to `stdout`. Redirect all subprocess logs to `stderr` to avoid invalidating the hook JSON response.
