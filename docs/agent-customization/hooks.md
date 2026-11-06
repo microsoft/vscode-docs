@@ -160,6 +160,8 @@ If you prefer to create the files directly, use `~/.copilot/hooks/`, or `$COPILO
 
 A command hook receives event data as JSON on standard input (stdin). It can return one JSON output object on standard output (stdout). Keep diagnostic text separate from that output.
 
+Capture diagnostic output from child processes, including dependency installers, or redirect it to stderr. If that output inherits the hook's stdout, it can invalidate the JSON response.
+
 The Copilot harness supports a cross-platform `command` fallback and platform-specific `bash` or `powershell` commands. Command arguments belong in the command string. A shell-free `exec` and `args` form is also available; these arguments are not a replacement for the event JSON on stdin.
 
 Use `cwd`, `env`, and `timeoutSec` only as documented in the [command-hook reference](https://docs.github.com/en/copilot/reference/hooks-reference#command-hooks). Review the command's dependencies and working directory when moving it to a user folder, plugin, remote host, or container.

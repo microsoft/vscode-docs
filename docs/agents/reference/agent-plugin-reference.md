@@ -115,6 +115,18 @@ For the full field constraints and validation rules, see the [Agent Plugins mani
 | Claude | `.claude-plugin/plugin.json` |
 | Legacy OpenPlugin | `.plugin/plugin.json` |
 
+### Convert an existing plugin
+
+To convert an existing package to Agent Plugins 1.0 for the Copilot harness:
+
+1. Place `plugin.json` at the plugin root, declare the [Agent Plugins schema](#plugin-manifest-pluginjson), and remove unsupported top-level fields. Move applicable catalog metadata to `marketplace.json` only where its schema supports it.
+
+1. Move Copilot-specific components into the [client namespace](#package-structure) and their manifest configuration under `extensions["com.github.copilot"]`. Update relative references.
+
+1. Keep portable skills in `skills/`. Rename `.mcp.json` or extract inline MCP definitions into root `mcp.json`, then adapt them to the [portable MCP format](https://agent-plugins.org/plugin-authors/mcp-servers). Recheck executable paths and placeholder expansion.
+
+1. Validate the manifest and MCP configuration against their schemas. Disable the original installation before [testing the converted plugin](#test-and-distribute-a-plugin). Verify discovery and execution before retiring the original package.
+
 ### Plugin environment variables
 
 Some plugin formats provide a root token that you can use in hook commands and MCP server configurations to reference files within the plugin directory. {% data variables.product.prodname_vscode_shortname %} expands the token at runtime and also sets it as an environment variable in the hook or server process.
