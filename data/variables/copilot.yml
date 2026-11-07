@@ -58,3 +58,8 @@ chat_view: 'Chat view'
 ## Agent merge
 agent_merge: 'agent merge'
 agent_merge_caps: 'Agent merge'
+
+## GitHub environments
+github_environment: 'GitHub environment'
+github_environments: 'GitHub environments'
+github_environments_caps: 'GitHub Environments'

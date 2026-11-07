@@ -110,7 +110,6 @@
                 "name": "Work Across Apps and Machines",
                 "area": "agents/continuation",
                 "topics": [
-                    ["Continue a Session", "/docs/agents/run/sessions/manage-sessions", { "secondary": true }],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                     ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
                     ["Session History", "/docs/agents/run/sessions/session-history"]
