@@ -68,7 +68,7 @@
       "state": "experimental"
     },
     "github-environments": {
-      "label": "GitHub Environments",
+      "label": "GitHub environments",
       "state": "preview"
     },
     "integrated-browser-full-page-screenshot": {
@@ -77,7 +77,7 @@
     },
     "integrated-browser-remote": {
       "label": "Integrated browser remote connections",
-      "state": "preview"
+      "state": "experimental"
     },
     "markdown-editor": {
       "label": "Markdown Editor",

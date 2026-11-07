@@ -58,7 +58,7 @@ The Agent Host runs next to the workspace: on your machine, inside a Dev Contain
 
 The {% data variables.copilot.agents_window %} can connect to an Agent Host on the same machine or on a connected SSH, Tunnel, or WSL host. SSH and dev tunnels provide {% data variables.product.prodname_vscode_shortname %}-specific access to a remote host. A dev tunnel also supports the [browser-based {% data variables.copilot.agents_window %}](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser), where the browser is a client, not the host that runs the session.
 
-[GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` extends continuity across supported {% data variables.product.prodname_copilot_short %} clients. Register an existing machine with your {% data variables.product.prodname_github %} account to access its agent sessions from {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli_short %}, GitHub.com, or GitHub Mobile. Supported sessions and actions differ by client. Registration doesn't move the workspace or provision compute, and the host must remain running.
+[{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` extend continuity across supported {% data variables.product.prodname_copilot_short %} clients. Register an existing machine with your {% data variables.product.prodname_github %} account to access its agent sessions from {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli_short %}, GitHub.com, or GitHub Mobile. Supported sessions and actions differ by client. Registration doesn't move the workspace or provision compute, and the host must remain running.
 
 The following diagram illustrates local, container, and dev tunnel deployments.
 
@@ -74,7 +74,7 @@ Dev Container execution is an environment choice, not a different harness. See t
 
 Like [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
 
-The **Cloud** target is a separate choice that uses provider-managed infrastructure. [Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` run the Copilot runtime in a managed environment that you can reconnect to from a client. Unlike registering your own machine with GitHub Environments, this provisions cloud execution.
+The **Cloud** target is a separate choice that uses provider-managed infrastructure. [Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` run the Copilot runtime in a managed environment that you can reconnect to from a client. Unlike registering your own machine as a {% data variables.copilot.github_environment %}, this provisions cloud execution.
 
 <a name="self-contained-with-optional-client-tools"></a>
 

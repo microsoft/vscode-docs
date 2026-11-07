@@ -26,7 +26,7 @@ Explore your own private repository in a cloud session, then continue the same c
 | Option | Choose it when |
 |--------|----------------|
 | **Cloud session** | You want to keep agent tools and changes off your local machine, or work on managed cloud compute without maintaining a host or keeping your own machine online. Reconnect to the existing session to continue the task. |
-| **[GitHub Environments](/docs/agents/run/remote-agent-sessions.md#github-environments)** `feature(github-environments)` | You want to access sessions on your existing development machine across supported {% data variables.product.prodname_copilot_short %} clients. That machine and its Agent Host must remain running. |
+| **[{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments)** `feature(github-environments)` | You want to access sessions on your existing development machine across supported {% data variables.product.prodname_copilot_short %} clients. That machine and its Agent Host must remain running. |
 | **[SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect)** | You want {% data variables.product.prodname_vscode_shortname %}-specific access to an agent host on another machine. |
 
 Cloud execution separates agent activity from your local machine, but the agent can still affect the cloud workspace and services it has permission to access. See [cloud session security considerations](/docs/agents/run/security.md#cloud-sessions).
