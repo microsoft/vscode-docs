@@ -321,6 +321,41 @@ await runTests({
 });
 ```
 
+### Debugging with a clean, isolated profile
+
+By default, the Extension Development Host uses your default profile, inheriting your personal settings, keybindings, and UI configurations. To run and debug your extension in a clean, isolated environment without affecting your personal profile, add the `--profile-temp` argument to the `args` array in `launch.json` or to the `launchArgs` option in `@vscode/test-electron`.
+
+Passing `--profile-temp` creates a temporary, empty profile for the session that is automatically deleted when the Extension Development Host window closes.
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--profile-temp",
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+    }
+  ]
+}
+```
+
+```ts
+await runTests({
+  extensionDevelopmentPath,
+  extensionTestsPath,
+  launchArgs: ['--profile-temp', '--disable-extensions']
+});
+```
+
 ### Custom setup with `@vscode/test-electron`
 
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `@vscode/test-electron` has a more granular API to accommodate that case:
