@@ -74,6 +74,8 @@ The {% data variables.product.prodname_copilot_short %} working set works withou
 
 To show a changed-files summary after each request, enable `setting(chat.checkpoints.showFileChanges)`. Supported tools depend on your harness and installed extensions. For example, you can [work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md) with the required tools installed. In a [remote workspace](/docs/remote/remote-overview.md), the session uses that project's remote context and tools.
 
+If your project is on another machine, see [Work in a remote workspace](/docs/agents/run/remote-agent-sessions.md#work-in-a-remote-workspace). To make sessions on this machine reachable from other clients, see [Make a host available for remote access](/docs/agents/run/remote-agent-sessions.md#make-a-host-available-for-remote-access).
+
 ## Continue in another interface
 
 When you want to coordinate work across projects, select **Open in Agents** in the application title bar, then select your existing supported session from the sessions list. You don't have to start the task again. Review the [supported session types and continuation steps](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window) first: Local sessions and sessions from the OpenAI Codex extension remain editor-only.

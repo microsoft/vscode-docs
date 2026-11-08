@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1330" viewBox="0 0 1500 1330" role="img" aria-labelledby="title description">
+  <title id="title">How an agent runs</title>
+  <desc id="description">An Agent Host-backed session connects a client to an agent harness, session state, a language model, and workspace tools. Clients include VS Code, Copilot CLI, GitHub Copilot App, and GitHub.com. Supported sessions and actions vary by client. The harness prepares context, asks the model, checks permissions for tool requests, and coordinates tools before repeating the loop with their results. The execution environment contains the workspace operations, but does not determine where the model runs. Three smaller diagrams compare execution on your machine, another machine, and provider-managed cloud compute. Clients use AHP to connect to sessions on both remote machines and managed cloud compute.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9 Z" fill="#60738c"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #243247; }
+      .title { font-size: 32px; font-weight: 600; }
+      .section { font-size: 24px; font-weight: 600; }
+      .heading { font-size: 22px; font-weight: 500; }
+      .body { font-size: 18px; }
+      .small { font-size: 16px; }
+      .mini { font-size: 15px; }
+      .muted { fill: #607089; }
+      .blue { fill: #2268b5; }
+      .purple { fill: #7347b3; }
+      .teal { fill: #087f76; }
+      .environment { fill: #f8fafc; stroke: #93a4bc; stroke-width: 1.5; stroke-dasharray: 7 6; }
+      .card { fill: #fff; stroke: #c7d2e1; stroke-width: 1.5; }
+      .line { fill: none; stroke: #60738c; stroke-width: 1.8; marker-end: url(#arrow); }
+      .both { marker-start: url(#arrow); }
+      .state { stroke-dasharray: 4 4; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="1330" fill="#fff"/>
+  <text class="title" x="32" y="49">How an agent runs</text>
+  <text class="body muted" x="32" y="84">The client controls the session. The harness coordinates the loop. Workspace tools act where the session runs.</text>
+
+  <text class="section" x="32" y="151">Inside an agent session</text>
+  <text class="body muted" x="32" y="184">The model can respond, request a tool, or ask for input.</text>
+  <text class="body muted" x="32" y="211">Tool results become context for the next model request.</text>
+
+  <rect x="804" y="122" width="420" height="114" rx="7" fill="#f5f0fb" stroke="#d6cae8" stroke-width="1.5"/>
+  <path d="M805 123 V235" stroke="#7347b3" stroke-width="3"/>
+  <text class="heading purple" x="826" y="155">Language model</text>
+  <text class="body" x="826" y="184">Reasons over context and chooses</text>
+  <text class="body" x="826" y="211">a response or a tool request.</text>
+  <text class="small muted" x="1242" y="164">Model hosting</text>
+  <text class="small muted" x="1242" y="188">is independent</text>
+  <text class="small muted" x="1242" y="212">of execution location.</text>
+
+  <rect class="environment" x="332" y="274" width="1136" height="628" rx="10"/>
+  <text class="section" x="356" y="308">Execution environment</text>
+  <text class="small muted" x="1090" y="308">Where workspace actions happen</text>
+
+  <rect class="card" x="356" y="334" width="1088" height="340" rx="8"/>
+  <text class="heading" x="380" y="366">Agent Host</text>
+  <text class="small muted" x="505" y="366">Serves sessions to connected clients</text>
+
+  <rect x="382" y="389" width="772" height="260" rx="7" fill="#f0f6ff" stroke="#9bb7d8" stroke-width="1.5"/>
+  <text class="heading blue" x="404" y="422">Agent harness</text>
+  <text class="small muted" x="614" y="422">Coordinates the agent loop</text>
+
+  <rect class="card" x="426" y="450" width="264" height="66" rx="5"/>
+  <circle cx="449" cy="474" r="12" fill="#2268b5"/>
+  <text x="449" y="480" text-anchor="middle" style="font-size:16px;fill:#fff">1</text>
+  <text class="body" x="470" y="480">Prepare context</text>
+  <text class="small muted" x="444" y="504">Instructions, history, tool results</text>
+
+  <rect class="card" x="804" y="450" width="264" height="66" rx="5"/>
+  <circle cx="827" cy="474" r="12" fill="#2268b5"/>
+  <text x="827" y="480" text-anchor="middle" style="font-size:16px;fill:#fff">2</text>
+  <text class="body" x="848" y="480">Ask the model</text>
+  <text class="small muted" x="822" y="504">Respond or request a tool</text>
+
+  <rect class="card" x="804" y="562" width="264" height="66" rx="5"/>
+  <circle cx="827" cy="586" r="12" fill="#2268b5"/>
+  <text x="827" y="592" text-anchor="middle" style="font-size:16px;fill:#fff">3</text>
+  <text class="body" x="848" y="592">Check permissions</text>
+  <text class="small muted" x="822" y="616">Ask for approval if required</text>
+
+  <rect class="card" x="426" y="562" width="264" height="66" rx="5"/>
+  <circle cx="449" cy="586" r="12" fill="#2268b5"/>
+  <text x="449" y="592" text-anchor="middle" style="font-size:16px;fill:#fff">4</text>
+  <text class="body" x="470" y="592">Coordinate tools</text>
+  <text class="small muted" x="444" y="616">Call tools and collect results</text>
+
+  <path class="line" d="M690 483 H804"/>
+  <path class="line" d="M936 516 V562"/>
+  <text class="small muted" x="950" y="545">Tool request</text>
+  <path class="line" d="M804 595 H690"/>
+  <path class="line" d="M558 562 V516"/>
+  <text class="small muted" x="442" y="545">Tool results</text>
+  <text class="small blue" x="747" y="544" text-anchor="middle">Repeat</text>
+
+  <path class="line both" d="M936 450 V236"/>
+  <rect x="948" y="245" width="178" height="23" fill="#fff"/>
+  <text class="small muted" x="952" y="262">Context and response</text>
+
+  <rect x="1174" y="389" width="246" height="260" rx="7" fill="#f8fafc" stroke="#c7d2e1" stroke-width="1.5"/>
+  <text class="heading" x="1194" y="423">Session state</text>
+  <text class="small muted" x="1194" y="451">Keeps the task together</text>
+  <path d="M1194 468 H1400" stroke="#dbe2eb" stroke-width="1"/>
+  <text class="small" x="1194" y="493">Chats and their history</text>
+  <text class="small" x="1194" y="522">Tool activity and results</text>
+  <text class="small" x="1194" y="551">Task status</text>
+  <text class="small" x="1194" y="580">Workspace association</text>
+  <text class="mini muted" x="1194" y="624">Read and updated during work</text>
+  <path class="line both state" d="M1154 535 H1174"/>
+
+  <rect class="card" x="32" y="365" width="260" height="290" rx="8"/>
+  <text class="heading" x="54" y="400">Client</text>
+  <text class="small muted" x="54" y="435">VS Code (desktop or browser)</text>
+  <text class="small muted" x="54" y="458">Copilot CLI</text>
+  <text class="small muted" x="54" y="481">GitHub Copilot App</text>
+  <text class="small muted" x="54" y="504">GitHub.com</text>
+  <path d="M54 521 H270" stroke="#dbe2eb" stroke-width="1"/>
+  <text class="small" x="54" y="548">Send requests and approvals</text>
+  <text class="small" x="54" y="573">Review progress and results</text>
+  <text class="mini muted" x="54" y="616">Supported sessions and actions</text>
+  <text class="mini muted" x="54" y="638">vary by client.</text>
+  <path class="line both" d="M292 595 H356"/>
+  <text class="small blue" x="324" y="581" text-anchor="middle">AHP</text>
+  <text class="body muted" x="32" y="680">Remote access</text>
+  <text class="small muted" x="32" y="707">Requests, approvals, and updates</text>
+  <text class="small muted" x="32" y="732">cross the connection.</text>
+  <text class="small muted" x="32" y="766">The session and workspace</text>
+  <text class="small muted" x="32" y="791">stay on the host.</text>
+
+  <path class="line both" d="M558 628 V746"/>
+  <text class="small muted" x="575" y="708">Tool calls and results</text>
+  <rect x="396" y="746" width="428" height="124" rx="7" fill="#eef9f7" stroke="#c2ded9" stroke-width="1.5"/>
+  <path d="M397 747 V869" stroke="#087f76" stroke-width="3"/>
+  <text class="heading teal" x="418" y="780">Workspace tools</text>
+  <text class="body" x="418" y="812">Read files, edit code, run commands</text>
+  <text class="small muted" x="418" y="842">Return results to the harness</text>
+
+  <rect class="card" x="1000" y="746" width="420" height="124" rx="7"/>
+  <path d="M1021 769 H1036 L1041 776 H1053 V795 H1021 Z" fill="none" stroke="#93a4bc" stroke-width="1.5"/>
+  <text class="heading" x="1065" y="791">Workspace</text>
+  <text class="body" x="1022" y="821">Project files, folder or worktree</text>
+  <text class="small muted" x="1022" y="850">Development tools and dependencies</text>
+  <path class="line" d="M824 808 H1000"/>
+  <text class="small muted" x="912" y="794" text-anchor="middle">Operate on</text>
+  <text class="small muted" x="356" y="930">A Dev Container can provide the execution environment on your machine or a supported connected host.</text>
+
+  <text class="section" x="32" y="973">Same core parts. Different places to run.</text>
+
+  <rect class="environment" x="32" y="996" width="458" height="238" rx="8"/>
+  <text class="heading" x="52" y="1031">On your machine</text>
+  <rect class="card" x="52" y="1051" width="418" height="92" rx="6"/>
+  <text class="small muted" x="68" y="1076">Your machine</text>
+  <rect x="68" y="1091" width="90" height="34" rx="4" fill="#f1f4f8"/>
+  <text class="small" x="113" y="1114" text-anchor="middle">Client</text>
+  <path class="line both" d="M162 1108 H206"/>
+  <rect x="210" y="1091" width="244" height="34" rx="4" fill="#edf4ff"/>
+  <text class="mini" x="332" y="1114" text-anchor="middle">Host + session + workspace</text>
+  <text class="body" x="52" y="1179">Local connection (IPC)</text>
+  <text class="small muted" x="52" y="1210">Keep the application and host running.</text>
+
+  <rect class="environment" x="520" y="996" width="458" height="238" rx="8"/>
+  <text class="heading" x="540" y="1031">On another machine</text>
+  <rect class="card" x="540" y="1082" width="90" height="48" rx="5"/>
+  <text class="small" x="585" y="1112" text-anchor="middle">Client</text>
+  <path class="line both" d="M634 1108 H706"/>
+  <text class="mini blue" x="670" y="1094" text-anchor="middle">AHP</text>
+  <rect class="card" x="710" y="1051" width="248" height="92" rx="6"/>
+  <text class="small muted" x="725" y="1076">Remote machine</text>
+  <rect x="723" y="1091" width="222" height="34" rx="4" fill="#edf4ff"/>
+  <text class="mini" x="834" y="1114" text-anchor="middle">Host + session + workspace</text>
+  <text class="body" x="540" y="1179">SSH or dev tunnel access</text>
+  <text class="small muted" x="540" y="1210">Keep the remote machine and host running.</text>
+
+  <rect class="environment" x="1008" y="996" width="460" height="238" rx="8"/>
+  <text class="heading" x="1028" y="1031">In managed cloud compute</text>
+  <rect class="card" x="1028" y="1082" width="90" height="48" rx="5"/>
+  <text class="small" x="1073" y="1112" text-anchor="middle">Client</text>
+  <path class="line both" d="M1122 1108 H1194"/>
+  <text class="mini blue" x="1158" y="1094" text-anchor="middle">AHP</text>
+  <rect class="card" x="1198" y="1051" width="250" height="92" rx="6"/>
+  <text class="small muted" x="1212" y="1076">Managed environment</text>
+  <rect x="1211" y="1091" width="224" height="34" rx="4" fill="#edf4ff"/>
+  <text class="mini" x="1323" y="1114" text-anchor="middle">Copilot + session + workspace</text>
+  <text class="body" x="1028" y="1179">Provider-managed lifetime</text>
+  <text class="small muted" x="1028" y="1210">Execution does not depend on your device.</text>
+
+  <text class="small muted" x="32" y="1270">Agent Host-backed sessions shown, not the editor-bound Local harness. Conceptual roles, not process boundaries.</text>
+  <text class="small muted" x="32" y="1298">Workspace tools are shown; client-provided and external tools can run elsewhere. Harness and model options depend on the environment.</text>
+</svg>
