@@ -282,12 +282,14 @@ This setting does not apply to remote sessions or the custom terminal tool overr
 
 `feature(computer-use)`
 
-Use {% data variables.copilot.computer_use %} when a task needs a desktop application that the agent's other tools can't reach. {% data variables.product.prodname_github %}'s {% data variables.copilot.computer_use %} plugin lets the agent see application windows, click, type, and scroll. For web applications, use [browser tools](#use-browser-tools) instead.
+Use {% data variables.copilot.computer_use %} when a task needs a desktop application that the agent's other tools can't reach. For web applications, use [browser tools](#use-browser-tools) instead.
 
 {% data variables.copilot.computer_use_caps %} is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
 
+For shared capabilities, permission controls, and limitations, see [{% data variables.product.prodname_github %}'s {% data variables.copilot.computer_use %} guide](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
+
 > [!CAUTION]
-> {% data variables.copilot.computer_use_caps %} can read and change content in applications outside your workspace. Approve access only to apps needed for your task, and avoid exposing sensitive content in application windows. See [desktop application access risks](/docs/agents/run/security.md#security-risks-to-be-aware-of).
+> {% data variables.copilot.computer_use_caps %} can read and change content in applications outside your workspace. Avoid exposing sensitive content in application windows, and review requested access and results.
 
 ### Turn on {% data variables.copilot.computer_use %}
 
@@ -297,39 +299,12 @@ Use {% data variables.copilot.computer_use %} when a task needs a desktop applic
 
 1. Start a new local {% data variables.product.prodname_copilot_short %} chat in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The plugin downloads automatically on first use.
 
-1. Ask the agent to perform a task in a desktop application. For example:
+1. Run `/computer on` in the chat, or ask the agent to perform a task in a desktop application and follow the activation prompt.
 
-    ```prompt
-    Open Calculator and use it to compute 12 times 7.
-    ```
-
-1. When the agent asks **Turn on Computer Use?**, review its reason and select **Turn On**.
-
-1. On macOS, [grant the required system permissions](#grant-macos-permissions). On both platforms, approve access to each application when requested.
-
-You can also run `/computer on` in a {% data variables.product.prodname_copilot_short %} chat. If you select **Not Now**, the agent continues without {% data variables.copilot.computer_use %} and doesn't ask again in that chat. Run `/computer on` if you change your mind.
+1. On macOS, select **Set Up Computer Use** in the chat card and follow the prompts to grant the required system permissions. Review application-access requests when prompted.
 
 > [!IMPORTANT]
-> Turning on {% data variables.copilot.computer_use %} is not limited to the current chat. It stays on for {% data variables.product.prodname_copilot_short %} on this computer, including {% data variables.copilot.copilot_cli_short %}, until you run `/computer off`.
-
-### Grant macOS permissions
-
-On macOS, {% data variables.copilot.computer_use %} requires two permissions for the **Copilot Computer Use** helper app:
-
-* **Accessibility**: Click and type in applications.
-* **Screen Recording**: See application windows.
-
-To grant these permissions:
-
-1. Select **Set Up Computer Use** on the chat card.
-
-1. For the current permission, select **Allow in Settings** and follow the macOS prompt or turn on **Copilot Computer Use** in System Settings. If the app isn't listed, drag **Copilot Computer Use** from the setup dialog into the permission list in System Settings.
-
-1. Return to {% data variables.product.prodname_vscode_shortname %}. The dialog checks the permission and shows a check mark when it's granted. Repeat for the next permission. You can also select the refresh icon to check the current permission again.
-
-When both permissions are confirmed, the dialog closes and the agent continues your task.
-
-<!-- TODO: Add a screenshot of the macOS {% data variables.copilot.computer_use %} setup dialog showing the permission steps and the Copilot Computer Use helper app. -->
+> Activation persists across chats and also applies to {% data variables.copilot.copilot_cli_short %} on the same computer.
 
 ### Turn off {% data variables.copilot.computer_use %}
 
@@ -340,10 +315,8 @@ To stop offering the integration in {% data variables.product.prodname_vscode_sh
 ### Troubleshoot {% data variables.copilot.computer_use %}
 
 * **{% data variables.copilot.computer_use_caps %} isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
-* **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. If you previously selected **Not Now**, the agent doesn't ask again in that chat.
-* **The macOS setup dialog closes before you finish**: The dialog closes if the waiting tool call ends. Finish granting permissions in System Settings, then ask the agent to retry the task. A new setup card appears if permissions are still missing.
-* **Allow in Settings doesn't open a prompt**: After a restart, macOS might not show a permission prompt it has already shown. Select **Allow in Settings** again to open System Settings.
-* **Your organization blocks {% data variables.copilot.computer_use %}**: Contact your administrator. Turning on the setting doesn't override an organization restriction.
+* **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. Use the command if you previously selected **Not Now**, which suppresses further activation prompts in that chat.
+* **The macOS setup dialog closes before you finish**: Finish granting permissions in System Settings, then ask the agent to retry the task.
 
 ## Built-in tools and context reference
 
