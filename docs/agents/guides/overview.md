@@ -1,47 +1,45 @@
 ---
 ContentId: a73cc399-b974-4639-9965-497749172539
-DateApproved: 11/4/2026
+DateApproved: 11/8/2026
 MetaDescription: Find agent tutorials and guides for {% data variables.product.prodname_vscode_shortname %} by task, from a first app to testing and project workflows.
 MetaSocialImage: ../images/agents-overview/chat-view-expanded.png
 ---
 # Agent tutorials and guides
 
-Choose a tutorial to learn with a sample project, or follow a guide to apply an agent workflow to your own codebase in {% data variables.product.prodname_vscode_shortname %}.
+Find a tutorial or guide for the task you want to complete with agents in {% data variables.product.prodname_vscode_shortname %}. Learn with a sample project or apply a workflow to your own codebase.
 
-Still choosing how to use AI? [Compare suggestions, collaboration alongside code, and agent orchestration](/docs/agents/overview.md#choose-how-you-work) before choosing a guide. You don't need to delegate a task to use AI.
+For help choosing an AI workflow, [compare suggestions, collaboration alongside code, and agent orchestration](/docs/agents/overview.md#choose-how-you-work).
 
 ## Choose where to start
 
-If you're new to both {% data variables.product.prodname_vscode_shortname %} and AI, first [install the editor and open a workspace](/docs/getstarted/overview.md). Otherwise, choose a sample project to learn with, or apply an agent workflow to your own repository:
+Choose a starting path. If you're new to {% data variables.product.prodname_vscode_shortname %}, [install the editor and open a workspace](/docs/getstarted/overview.md) first.
 
 <div class="card-grid">
     <a class="card" href="/docs/agents/quickstart">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Complete your first agent task</strong></p>
-            <p>Recommended starting point. Build and validate a small web app, then review the changes.</p>
+            <p>Quickstart. Build and validate a small web app, then review the changes.</p>
             <p>Sample project. No runtime or build tools required.</p>
         </div>
     </a>
     <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <div>
-            <p><strong>Start in the {% data variables.copilot.agents_window %}, continue in the editor</strong></p>
-            <p>Build a portfolio page, then continue the same session alongside your code to refine, test, and review it.</p>
+            <p><strong>Build an app step by step</strong></p>
+            <p>Extended tutorial. Build a portfolio page in the {% data variables.copilot.agents_window %}, then continue the session in the {% data variables.copilot.chat_view %} to refine it.</p>
             <p>Sample project. Requires Git.</p>
         </div>
     </a>
-    <a class="card" href="/docs/agents/guides/overview#experienced-agent-fast-track">
+    <a class="card" href="/docs/agents/guides/overview#work-on-a-project">
         <i class="codicon codicon-source-control" aria-hidden="true"></i>
         <div>
             <p><strong>Work in your own repository</strong></p>
-            <p>Already use agents? Follow the fast track to explore your codebase or add a feature.</p>
-            <p>Use your own repository. Check the requirements for the guide you choose.</p>
+            <p>Explore your codebase, add a feature, or refactor existing code with an agent.</p>
+            <p>Your repository. Check the guide's prerequisites.</p>
         </div>
     </a>
 </div>
-
-To work beyond your development machine, [start a task in a cloud session and continue it from a terminal with {% data variables.copilot.copilot_cli_short %}](/docs/agents/cloud-continuity-tutorial.md) `feature(cloud-sessions)`. Use your own private repository without cloning it or installing project dependencies. Requires cloud session access and {% data variables.copilot.copilot_cli_short %}.
 
 Or jump to a task:
 
@@ -50,63 +48,35 @@ Or jump to a task:
 * [Customize and coordinate agents](#customize-and-coordinate-agents).
 * [Improve results and recover](#improve-results-and-recover).
 
-## Experienced-agent fast track
-
-Use your own repository and follow the harness, interface, and prerequisites specified by the guide you choose. Keep its recommended session settings for the first task. A guide's tool names or customization files might need changes before you can use them with another harness.
-
-To bring an existing setup, compare [agent harnesses and supported accounts](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Use the chosen guide's requirements to check compatibility.
-
-1. [Open your repository as a workspace](/docs/getstarted/overview.md#open-your-code) so that files, source control, terminals, tests, and agents share the same project context.
-
-1. Map your existing workflow to [{% data variables.product.prodname_vscode_shortname %} sessions](/docs/agents/concepts/sessions.md). Check that your account and environment meet the chosen guide's [harness setup requirements](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
-
-1. Start with a bounded task in your own repository. [Explore the codebase](/docs/agents/guides/explore-a-codebase.md) without making changes, or [add a feature](/docs/agents/guides/add-a-feature.md) with your existing development environment and tests.
-
-1. [Review and validate the code edits](/docs/agents/run/review-code-edits.md) before you integrate them.
-
-After one real-project task, [adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md) and [compare quality, reliability, and AI credit usage](/docs/agents/guides/optimize-usage.md). If you move between supported applications, learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
-
-On a managed device, your organization might control which agents and providers are available. Developers can review the [agent availability troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat), and administrators can [manage AI settings](/docs/enterprise/manage-ai-settings.md). For keyboard, screen reader, and low-vision workflows, use the [Accessible View and other accessibility features](/docs/configure/accessibility/accessibility.md#accessible-view).
-
-## Match a guide to your setup
-
-Before starting a guide, check:
-
-* **Project:** Does it create a sample project, or require your own repository with working build and test commands?
-
-* **Harness:** Does it use your selected harness's tools and customization formats? Choosing the same language model doesn't make those formats interchangeable.
-
-* **Interface:** Which steps use the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}?
-
-Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasizes collaboration over code in the current workspace; the {% data variables.copilot.agents_window %} emphasizes multi-project orchestration and higher-level task assignment. Follow the guide's chosen interface for its walkthrough. See [Choose how you work](/docs/agents/overview.md#choose-how-you-work) to compare approaches.
-
 ## Work on a project
 
-* [Explore a codebase](/docs/agents/guides/explore-a-codebase.md): trace a behavior without editing files and verify explanations against source references. **Use your own repository with {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.**
+* [Explore a codebase](/docs/agents/guides/explore-a-codebase.md): trace a behavior without editing files and verify explanations against source references. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Add a feature](/docs/agents/guides/add-a-feature.md): research, plan, implement, and verify a bounded change. **Use your own repository with a working development environment and tests, and {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.**
+* [Add a feature](/docs/agents/guides/add-a-feature.md): plan, implement, and test a change. **Setup:** your repository with a working development environment and tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md): reproduce a pagination bug, add a regression test, and review the fix. **Sample project. Requires Node.js 22 or later and Git.**
+* [Fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md): reproduce a pagination bug, add a regression test, and review the fix. **Setup:** sample project, Node.js 22 or later, and Git.
 
-* [Refactor safely](/docs/agents/guides/refactor-safely.md): change code structure in reviewable steps while preserving behavior and checking existing callers. **Use your own repository with {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.**
+* [Refactor safely](/docs/agents/guides/refactor-safely.md): change code structure in reviewable steps while preserving existing behavior. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md): create or edit a notebook, run cells, and review analysis results. **Use your own data. Requires the Jupyter extension and a notebook kernel.**
+* [Work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md): create or edit a notebook, run cells, and review results. **Setup:** your data, the Jupyter extension, and a notebook kernel.
 
 ## Test and validate
 
-* [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate tests for a function or module, run them, and review assertions, failures, and coverage. **Use your own project with {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.**
+* [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate and run tests, then review assertions, failures, and coverage. **Setup:** your project, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator app and check it against observable acceptance criteria. **Sample web app.**
+* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator app and test it against acceptance criteria. **Setup:** sample web app.
 
-* [Set up test-driven development](/docs/agents/guides/test-driven-development-guide.md): create custom agents and instructions for a repeatable test-first workflow. **Use your own repository with working tests and the Local harness in the {% data variables.copilot.chat_view %}.**
+* [Set up test-driven development](/docs/agents/guides/test-driven-development-guide.md): create custom agents and instructions for a repeatable test-first workflow. **Setup:** your repository with working tests, Local harness in the {% data variables.copilot.chat_view %}.
 
 ## Customize and coordinate agents
 
-* [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): share project instructions with your team, then add skills or specialized agents where needed. **Use your own repository.**
+* [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): share project instructions, then add skills or custom agents where needed. **Setup:** your repository.
 
-* [Set up a context engineering workflow](/docs/agents/guides/context-engineering-guide.md): curate project context and connect planning to implementation with instructions, custom agents, and prompt files. **Use your own repository and the Local harness in the {% data variables.copilot.chat_view %}.**
+* [Set up a context engineering workflow](/docs/agents/guides/context-engineering-guide.md): connect project context, planning, and implementation with instructions, custom agents, and prompt files. **Setup:** your repository, Local harness in the {% data variables.copilot.chat_view %}.
 
-* [Run independent tasks in parallel](/docs/agents/guides/delegate-two-tasks.md): work in separate Git worktrees, review each result, then integrate and retest the changes. **Use your own Git repository with {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}, after completing a single agent task.**
+* [Run independent tasks in parallel](/docs/agents/guides/delegate-two-tasks.md): work in separate Git worktrees, review each result, then integrate and retest. **Setup:** your Git repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}. Complete one agent task first.
+
+* [Continue a cloud session in your terminal](/docs/agents/cloud-continuity-tutorial.md) `feature(cloud-sessions)`: explore a repository in the cloud, then continue the same session in your terminal. **Setup:** your private repository, cloud session access, and {% data variables.copilot.copilot_cli_short %}.
 
 ## Improve results and recover
 
@@ -115,6 +85,18 @@ Both interfaces run agents. The {% data variables.copilot.chat_view %} emphasize
 * [Reduce AI credit usage](/docs/agents/guides/optimize-usage.md): compare model costs and results, focus context, and scope tools to reduce unnecessary usage.
 
 * [Find prompt examples](/docs/agents/guides/prompt-examples.md): adapt prompts for exploring code, building features, debugging, and testing.
+
+## Experienced-agent fast track
+
+To skip the sample projects, [open your repository as a workspace](/docs/getstarted/overview.md#open-your-code), then [explore the codebase](/docs/agents/guides/explore-a-codebase.md) or [add a feature](/docs/agents/guides/add-a-feature.md). Follow the guide's setup and [review and validate edits](/docs/agents/run/review-code-edits.md) before you integrate them.
+
+To bring an existing setup, compare [agent harnesses and supported accounts](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Check compatibility with the guide you choose.
+
+## Match a guide to your setup
+
+* **Project:** check whether the guide uses a sample or your own repository, and which development tools it requires.
+* **Harness:** use the specified harness. Tools and customization formats can differ, even with the same model.
+* **Interface:** follow the steps in the specified {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
 
 ## Background and help
 
