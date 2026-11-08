@@ -67,13 +67,17 @@
       "label": "Forked skill context",
       "state": "experimental"
     },
+    "github-environments": {
+      "label": "GitHub environments",
+      "state": "preview"
+    },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",
       "state": "experimental"
     },
     "integrated-browser-remote": {
       "label": "Integrated browser remote connections",
-      "state": "preview"
+      "state": "experimental"
     },
     "markdown-editor": {
       "label": "Markdown Editor",

@@ -206,7 +206,7 @@ No. When a session supports both interfaces, opening it in either one keeps the 
 
 ### Is picking up a session the same as syncing its history?
 
-No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live access from another device, use [GitHub Environments (Preview), SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session's host must remain running and reachable.
+No, [local session discovery](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) lets you continue supported sessions from another application on your machine, while [history sync](/docs/agents/run/sessions/session-history.md) makes recorded session data available through your {% data variables.product.prodname_github %} account. Sync is subject to your settings and organization policies and does not by itself provide control over a running agent. For live access from another device, use [{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` or [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The session's host must remain running and reachable.
 
 ## Troubleshooting and feedback
 

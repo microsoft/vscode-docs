@@ -298,5 +298,5 @@ Yes. In the Local session's chat input, open the **Session Target** dropdown and
 ## Related resources
 
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md), including [continuing in the terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal).
-* [Remote agent access through GitHub Environments, SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect)
+* [Remote agent access through {% data variables.copilot.github_environments %}, SSH, or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect)
 * [Approvals and permissions](/docs/agents/run/approvals.md)

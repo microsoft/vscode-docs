@@ -53,7 +53,7 @@ To modify a setting in {% data variables.product.prodname_vscode_shortname %} wi
 
 By default, {% data variables.product.prodname_vscode_shortname %} shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
 
-You can customize what {% data variables.product.prodname_vscode_shortname %} shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page).
+You can customize what {% data variables.product.prodname_vscode_shortname %} shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/agents/run/chat-view.md#view-sessions-on-the-welcome-page).
 
 Get more details about [configuring settings in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 

@@ -18,7 +18,7 @@ MetaSocialImage: images/tutorial/python-social.png
 
 ## Setting up your environment
 
-To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in {% data variables.product.prodname_vscode_shortname %}, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+To run Python code locally in a Jupyter Notebook, use a Python environment with [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) installed. In {% data variables.product.prodname_vscode_shortname %}, select the environment with the kernel picker in the upper right of the notebook. For details, see [Manage Jupyter Kernels](/docs/datascience/jupyter-kernel-management.md).
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
