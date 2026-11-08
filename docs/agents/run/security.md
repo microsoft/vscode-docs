@@ -147,7 +147,7 @@ All development tasks operate with the same permissions as the user.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
 
-* **Desktop application control**: [Computer Use (Experimental)](/docs/agents/run/tools.md#control-desktop-applications-experimental) can capture application windows and interact with apps outside your workspace. Review each application approval and keep sensitive content out of captured windows. Activation persists across chats and includes {% data variables.copilot.copilot_cli_short %} on the same computer. Run `/computer off` when you no longer need this access.
+* **Desktop application control**: [{% data variables.copilot.computer_use %}](/docs/agents/run/tools.md#control-desktop-applications) `feature(computer-use)` can capture application windows and interact with apps outside your workspace. Review each application approval and keep sensitive content out of captured windows. Activation persists across chats and includes {% data variables.copilot.copilot_cli_short %} on the same computer. Run `/computer off` when you no longer need this access.
 
 * **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 

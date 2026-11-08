@@ -278,18 +278,20 @@ With [Python Environments](/docs/python/environments.md#terminal-settings) insta
 
 This setting does not apply to remote sessions or the custom terminal tool override.
 
-## Control desktop applications (Experimental)
+## Control desktop applications
 
-Use Computer Use when a task needs a desktop application that the agent's other tools can't reach. {% data variables.product.prodname_github %}'s Computer Use plugin lets the agent see application windows, click, type, and scroll. For web applications, use [browser tools](#use-browser-tools) instead.
+`feature(computer-use)`
 
-Computer Use is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
+Use {% data variables.copilot.computer_use %} when a task needs a desktop application that the agent's other tools can't reach. {% data variables.product.prodname_github %}'s {% data variables.copilot.computer_use %} plugin lets the agent see application windows, click, type, and scroll. For web applications, use [browser tools](#use-browser-tools) instead.
+
+{% data variables.copilot.computer_use_caps %} is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
 
 > [!CAUTION]
-> Computer Use can read and change content in applications outside your workspace. Approve access only to apps needed for your task, and avoid exposing sensitive content in application windows. See [desktop application access risks](/docs/agents/run/security.md#security-risks-to-be-aware-of).
+> {% data variables.copilot.computer_use_caps %} can read and change content in applications outside your workspace. Approve access only to apps needed for your task, and avoid exposing sensitive content in application windows. See [desktop application access risks](/docs/agents/run/security.md#security-risks-to-be-aware-of).
 
-### Turn on Computer Use
+### Turn on {% data variables.copilot.computer_use %}
 
-Computer Use is Experimental and off by default. To use it:
+{% data variables.copilot.computer_use_caps %} is off by default. To use it:
 
 1. Turn on `setting(chat.agentHost.computerUse.enabled)` in Settings, and restart {% data variables.product.prodname_vscode_shortname %}.
 
@@ -305,14 +307,14 @@ Computer Use is Experimental and off by default. To use it:
 
 1. On macOS, [grant the required system permissions](#grant-macos-permissions). On both platforms, approve access to each application when requested.
 
-You can also run `/computer on` in a {% data variables.product.prodname_copilot_short %} chat. If you select **Not Now**, the agent continues without Computer Use and doesn't ask again in that chat. Run `/computer on` if you change your mind.
+You can also run `/computer on` in a {% data variables.product.prodname_copilot_short %} chat. If you select **Not Now**, the agent continues without {% data variables.copilot.computer_use %} and doesn't ask again in that chat. Run `/computer on` if you change your mind.
 
 > [!IMPORTANT]
-> Turning on Computer Use is not limited to the current chat. It stays on for {% data variables.product.prodname_copilot_short %} on this computer, including {% data variables.copilot.copilot_cli_short %}, until you run `/computer off`.
+> Turning on {% data variables.copilot.computer_use %} is not limited to the current chat. It stays on for {% data variables.product.prodname_copilot_short %} on this computer, including {% data variables.copilot.copilot_cli_short %}, until you run `/computer off`.
 
 ### Grant macOS permissions
 
-On macOS, Computer Use requires two permissions for the **Copilot Computer Use** helper app:
+On macOS, {% data variables.copilot.computer_use %} requires two permissions for the **Copilot Computer Use** helper app:
 
 * **Accessibility**: Click and type in applications.
 * **Screen Recording**: See application windows.
@@ -327,21 +329,21 @@ To grant these permissions:
 
 When both permissions are confirmed, the dialog closes and the agent continues your task.
 
-<!-- TODO: Add a screenshot of the macOS Computer Use setup dialog showing the permission steps and the Copilot Computer Use helper app. -->
+<!-- TODO: Add a screenshot of the macOS {% data variables.copilot.computer_use %} setup dialog showing the permission steps and the Copilot Computer Use helper app. -->
 
-### Turn off Computer Use
+### Turn off {% data variables.copilot.computer_use %}
 
-Run `/computer off` in a {% data variables.product.prodname_copilot_short %} chat to turn off Computer Use, including for {% data variables.copilot.copilot_cli_short %} on the same computer.
+Run `/computer off` in a {% data variables.product.prodname_copilot_short %} chat to turn off {% data variables.copilot.computer_use %}, including for {% data variables.copilot.copilot_cli_short %} on the same computer.
 
 To stop offering the integration in {% data variables.product.prodname_vscode_shortname %}, turn off `setting(chat.agentHost.computerUse.enabled)` and restart.
 
-### Troubleshoot Computer Use
+### Troubleshoot {% data variables.copilot.computer_use %}
 
-* **Computer Use isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
+* **{% data variables.copilot.computer_use_caps %} isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
 * **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. If you previously selected **Not Now**, the agent doesn't ask again in that chat.
 * **The macOS setup dialog closes before you finish**: The dialog closes if the waiting tool call ends. Finish granting permissions in System Settings, then ask the agent to retry the task. A new setup card appears if permissions are still missing.
 * **Allow in Settings doesn't open a prompt**: After a restart, macOS might not show a permission prompt it has already shown. Select **Allow in Settings** again to open System Settings.
-* **Your organization blocks Computer Use**: Contact your administrator. Turning on the setting doesn't override an organization restriction.
+* **Your organization blocks {% data variables.copilot.computer_use %}**: Contact your administrator. Turning on the setting doesn't override an organization restriction.
 
 ## Built-in tools and context reference
 

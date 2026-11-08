@@ -5,6 +5,10 @@
       "label": "Agent artifacts",
       "state": "experimental"
     },
+    "agent-hooks": {
+      "label": "Agent hooks",
+      "state": "preview"
+    },
     "agent-host-byok-models": {
       "label": "BYOK models in Agent Host",
       "state": "experimental"
@@ -55,6 +59,10 @@
       "label": "Cloud sessions",
       "state": "experimental"
     },
+    "computer-use": {
+      "label": "Computer use",
+      "state": "experimental"
+    },
     "copilot-connectors": {
       "label": "Copilot connectors",
       "state": "preview"
@@ -70,6 +78,10 @@
     "github-environments": {
       "label": "GitHub environments",
       "state": "preview"
+    },
+    "image-generation": {
+      "label": "Image generation",
+      "state": "experimental"
     },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",

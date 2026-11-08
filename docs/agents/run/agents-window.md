@@ -288,7 +288,7 @@ For related conversations, select **+** (**New Nested Session**) on a supported 
 
 For shared context, chat tabs, side chats, and moving conversations, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session). To choose another harness, see [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`.
 
-### Compare model results (Preview)
+### Compare model results
 
 Run the same prompt with multiple models or harnesses to compare responses or isolated code changes. See [Compare model results](/docs/agents/run/compare-models.md) for setup, judging, and synthesis options.
 

@@ -94,7 +94,9 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
-## Generate and edit images (Experimental)
+## Generate and edit images
+
+`feature(image-generation)`
 
 Generate illustrations, UI mockups, or other image assets directly in chat. In a [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md) session, the agent uses a dedicated image-generation model, separate from the language model selected for the conversation.
 
@@ -219,9 +221,11 @@ For an image background, run **Chat: Change Background Layout...** to repeat, st
 
 Backgrounds are hidden in high contrast themes to preserve chat readability. The background commands are also unavailable while a high contrast theme is active.
 
-#### Generate a chat background (Experimental)
+#### Generate a chat background
 
-Generate a background from a text description instead of finding an image yourself. [Configure image generation](#generate-and-edit-images-experimental) and keep `setting(chat.agentSessions.appearanceTools.enabled)` turned on.
+`feature(image-generation)`
+
+Generate a background from a text description instead of finding an image yourself. [Configure image generation](#generate-and-edit-images) and keep `setting(chat.agentSessions.appearanceTools.enabled)` turned on.
 
 In a [Copilot harness](/docs/agents/run/agent-harnesses.md) session in the {% data variables.copilot.agents_window %}, ask the agent to generate an image and apply it as your chat background. For example:
 

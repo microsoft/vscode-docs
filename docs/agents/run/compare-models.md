@@ -14,11 +14,11 @@ Keywords:
 - worktrees
 ---
 
-# Compare model results (Preview)
+# Compare model results
 
 Run the same prompt with multiple models or agent harnesses in the {% data variables.copilot.agents_window %}, then compare their responses or implementations side by side. Use a folderless chat to compare ideas and plans, or a Git repository to compare code changes in isolated worktrees. For repository comparisons, you can choose the strongest attempt or synthesize a new implementation from the best parts of several attempts.
 
-Model comparison is available in Preview and only in the {% data variables.copilot.agents_window %}. It isn't available in the editor {% data variables.copilot.chat_view %}.
+Model comparison is available only in the {% data variables.copilot.agents_window %}. It isn't available in the editor {% data variables.copilot.chat_view %}.
 
 ## Prerequisites
 
