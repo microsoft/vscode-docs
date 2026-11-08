@@ -74,9 +74,11 @@ The `#` menu also contains context items, such as files, folders, and editor sel
 
 ## Manage available tools
 
-For Copilot harness sessions, manage tools from the Agent Customizations editor. Your selection persists in the active [user profile](/docs/configure/profiles.md), rather than applying to only one request:
+For Copilot harness sessions, manage client-tool availability from the Agent Customizations editor. Your selection persists for the selected harness across windows and [user profiles](/docs/configure/profiles.md), rather than applying to only one request. For remote sessions, selections are stored separately for each remote host and harness.
 
-1. In the chat input, select the **Copilot** harness.
+To change the selection:
+
+1. Select the intended session and confirm its workspace and execution environment. In the chat input, select the **Copilot** harness.
 
 1. Open the Agent Customizations editor:
 
@@ -86,6 +88,8 @@ For Copilot harness sessions, manage tools from the Agent Customizations editor.
 1. Select the **Tools** tab.
 
 1. Select or deselect tools to control which ones are available to the agent.
+
+The selected session supplies the editor's context, but changing a client-tool selection can affect other sessions using that harness and host. It isn't a session-only override. See [what customization changes affect](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 Limit the selection to tools that are relevant to your request. Add MCP tools by connecting supported services with [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, [adding MCP servers](/docs/agent-customization/mcp-servers.md), or [installing agent plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) that bundle MCP servers. [Extensions](/docs/configure/extensions/extensions.md) can also contribute tools.
 

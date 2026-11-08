@@ -14,7 +14,7 @@ Keywords:
 
 Change, stop, share, or troubleshoot an existing MCP server in {% data variables.product.prodname_vscode %}. For first-time setup, see [Add MCP servers](/docs/agent-customization/mcp-servers.md). For formats and properties, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
-Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to edit connections, start or stop servers, change their enabled state, and view output. The editor is scoped to the selected agent harness. The configuration form steps below use the {% data variables.product.prodname_copilot_short %} harness. For differences in server support and configuration, see [Agent harnesses](/docs/agents/run/agent-harnesses.md).
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to edit connections, start or stop servers, change their enabled state, and view output. The editor uses the selected session's harness, workspace, and execution environment as its context. The configuration form steps below use the {% data variables.product.prodname_copilot_short %} harness. For differences in server support and configuration, see [Agent harnesses](/docs/agents/run/agent-harnesses.md).
 
 ## Open the server controls
 
@@ -63,6 +63,8 @@ Starting can require trust or authentication. If the server fails to start, [vie
 <a name="enable-or-disable-mcp-servers"></a>
 
 **Disabling is different from stopping.** A disabled server doesn't start, and its tools, resources, prompts, and MCP apps are unavailable. Use the toggle beside the server, or select an enablement action from its menu to choose a scope. Depending on the server and harness, global, workspace, or session scope is available. The enabled state is separate from shared configuration, so disabling a server doesn't change your teammates' configuration.
+
+The configuration destination doesn't determine the enablement scope. For example, you can disable a workspace-defined server for one session, where supported, without editing its shared configuration. A global action can affect other sessions, even when you open the editor from a particular session. For remote sessions, check the server's source and available actions in that session's context. See [what customization changes affect](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 <a name="remove-an-mcp-server"></a>
 

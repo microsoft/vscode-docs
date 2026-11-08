@@ -44,7 +44,7 @@ Use your own repository for this workflow. Before you start:
 * Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
 * Install the project dependencies and confirm that you can run its test command from the integrated terminal. The custom agents use that command to verify each phase.
 
-If you use another harness, adapt these TDD roles with the [customization formats that the harness supports](/docs/agents/concepts/customization.md#customization-options-at-a-glance). You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).
+If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt these TDD roles. You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).
 
 ## Implementation overview
 

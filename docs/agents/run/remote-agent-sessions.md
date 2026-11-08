@@ -62,6 +62,8 @@ Connect to the host that owns the session through [{% data variables.copilot.git
 
 Connecting to a host doesn't by itself reopen a conversation. To continue a task, select its existing session rather than submitting the task as a new prompt.
 
+To manage its customizations, keep the remote session selected and open **Customizations**. The editor uses that session's harness and remote workspace. It can show both host-owned customizations and supported customizations supplied by your connected client. Changes aren't necessarily limited to the selected session. See [Manage customizations for remote sessions](/docs/agent-customization/overview.md#manage-customizations-for-remote-sessions).
+
 ### {% data variables.copilot.github_environments %}
 
 `feature(github-environments)`
