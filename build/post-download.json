@@ -1,30 +1,30 @@
 {
   "featured": {
-    "title": "Do more with remote agents",
-    "description": "Preview apps and use interactive canvases from remote sessions. Fine-tune local automations with cron and turn down the noise in chat.",
-    "link": "/updates/v1_145",
-    "image": "/assets/updates/1_145/release-highlights.webp"
+    "title": "Get to know VS Code",
+    "description": "Understand how projects, language tools, and optional AI fit together, then choose your first hands-on task.",
+    "link": "/docs/getstarted/what-is-vscode",
+    "image": "/assets/docs/getstarted/overview/vscode-overview.png"
   },
   "highlights": [
     {
-      "type": "learn",
-      "title": "Learn VS Code",
-      "description": "Build your skills with structured training modules with hands-on exercises and real-world examples.",
-      "link": "/learn"
+      "type": "documentation",
+      "title": "Learn the editor",
+      "description": "Create, preview, and debug a small app while learning the editor. No AI required.",
+      "link": "/docs/editing/getting-started/editor-tutorial"
     },
     {
       "type": "documentation",
-      "title": "Optimize your AI usage",
-      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
-      "link": "/docs/agents/guides/optimize-usage",
-      "image": "/assets/docs/agents/optimize-usage-guide/copilot-status-dashboard.png"
+      "title": "Build your first app with AI",
+      "description": "Build a small web app with an AI agent, test it in the browser, and review the generated changes.",
+      "link": "/docs/agents/quickstart",
+      "image": "/assets/docs/agents/agents-quickstart/editor-integrated-browser-interaction.png"
     },
     {
-      "type": "blog",
-      "title": "VS Code Wrapped: GitHub Universe 2026",
-      "description": "Catch up on a year of VS Code, from parallel agents to continuous work across apps and environments.",
-      "link": "/blogs/2026/10/28/vscode-wrapped",
-      "image": "/assets/blogs/2026/10/28/social-image.png"
+      "type": "release",
+      "title": "See what's new",
+      "description": "Explore the latest features and improvements in VS Code.",
+      "link": "/updates/v1_145",
+      "image": "/assets/updates/1_145/release-highlights.webp"
     }
   ]
 }
