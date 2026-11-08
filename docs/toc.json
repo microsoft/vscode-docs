@@ -3,7 +3,8 @@
         "name": "Get Started",
         "area": "getstarted",
         "topics": [
-        ["Overview", "/docs/getstarted/overview"],
+        ["Download and Install", "/docs/getstarted/overview"],
+        ["Get to Know VS Code", "/docs/getstarted/what-is-vscode"],
         ["Agents Quickstart", "/docs/agents/quickstart", { "secondary": true }],
         ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial", { "secondary": true }],
         ["Intro Videos", "/docs/getstarted/introvideos"]
