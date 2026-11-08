@@ -33,6 +33,18 @@ Complete a short quickstart to create and validate an app with an agent in {% da
 
 </div>
 
+## Start with the essentials
+
+You don't need to configure every agent option before your first task. Read this article to understand the agent loop, then explore these concepts in order:
+
+1. [Language models](/docs/agents/concepts/language-models.md): what a model can do, its limitations, and how tokens and context limits affect your work.
+1. [Context](/docs/agents/concepts/context.md): what information the agent uses and what it remembers across conversations.
+1. [Tools](/docs/agents/concepts/tools.md): how an agent reads code, makes changes, and checks results.
+1. [Sessions and chats](/docs/agents/concepts/sessions.md): how to organize conversations and keep code changes separate.
+1. [Trust and safety](/docs/agents/concepts/trust-and-safety.md): how to control actions, review results, and understand data handling.
+
+When you need to adapt the experience, learn about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [customization](/docs/agents/concepts/customization.md). These are deeper choices, not prerequisites for the [agents quickstart](/docs/agents/quickstart.md).
+
 ## How the concepts fit together
 
 The core concepts work together each time you send a request:
@@ -44,8 +56,6 @@ The core concepts work together each time you send a request:
 1. **Review:** When the task is complete, you review the response, code changes, and validation results.
 
 The repeated reasoning, action, and validation steps form the **agent loop**. A [session](/docs/agents/concepts/sessions.md) keeps the conversation and task state together. An [agent harness](/docs/agents/concepts/agent-harnesses.md) coordinates the loop, while the execution environment determines where tools run and code changes are made.
-
-![Diagram showing a client connected to an Agent Host that maintains session state while a harness loops through context preparation, model requests, permission checks, and tool calls. Tools act on the workspace, independently of where the model runs. Deployment examples show local IPC and AHP connections to remote machines and managed cloud environments.](../images/concepts/agent-execution.svg)
 
 ## Agent loop
 
@@ -60,6 +70,20 @@ For example, when you ask an agent to add validation to a form, the loop typical
 1. **Validate:** The agent runs the relevant tests and checks for errors. If validation fails, it diagnoses the result, makes another change, and validates again.
 
 Simple questions might require only a few file reads. Larger implementation tasks might repeat the loop many times as the agent edits code, runs tests, and fixes problems.
+
+## Choose what the agent should do
+
+An agent doesn't need to change code to be useful. Start by deciding what outcome you want:
+
+| Intent | Example request | What to review |
+|--------|-----------------|----------------|
+| **Understand** | 'Explain how this form validates an email address.' | The explanation and the source code it references. |
+| **Plan** | 'Propose how to add server-side validation. Identify decisions before implementation.' | The approach, assumptions, and verification steps before approving implementation. |
+| **Implement** | 'Add server-side validation and tests for invalid email addresses.' | The code changes, test results, and behavior of the app. |
+
+Supported harnesses offer built-in agents such as **Ask**, **Plan**, and **Agent** for these intentions. See [choose a built-in agent](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent) and [plan work with agents](/docs/agents/run/planning.md) for the available workflows.
+
+Describe your goal, constraints, and how to verify success. A request to 'explain without making changes' guides the model, but doesn't change its available tools or permissions. Use the appropriate agent and [permission controls](/docs/agents/concepts/trust-and-safety.md) when you need to restrict actions.
 
 ## Stay in control
 
@@ -81,12 +105,21 @@ Sessions can run in parallel. Both the [{% data variables.copilot.chat_view %}](
 
 ## Agent harnesses and execution environments
 
-An agent harness is the runtime that coordinates the agent loop. It manages the session, connects the language model to tools, and provides provider-specific capabilities. {% data variables.product.prodname_vscode_shortname %} supports harnesses such as Copilot, Claude, and Codex.
+An agent harness is the runtime that coordinates the agent loop. It manages the session and connects the language model to tools. Different harnesses offer different tools and workflows, even when they use the same model. See [choose an agent harness](/docs/agents/run/agent-harnesses.md) for available options and organization restrictions.
 
-> [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+Where you interact with an agent and where its work happens are separate:
 
-The execution environment is where the harness runs workspace tools and changes code. Depending on the available harness, this can be your machine, a connected host, a Dev Container on either host, or cloud infrastructure. A Dev Container provides the project's configured tools and dependencies without changing the harness. Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
+* **Client**: the interface where you send requests, approve actions, and review results, such as the editor, {% data variables.copilot.agents_window %}, or a supported browser interface. The client can be on the same machine as the workspace or connect from another device.
+* **Execution environment**: where workspace tools run and code changes are made. It can be on your machine, a connected host, inside a Dev Container, or in cloud infrastructure, depending on harness support.
+* **Model hosting**: where the language model processes requests. This is independent of the client and execution environment. An agent can edit local files while sending model requests to a hosted provider.
+
+For example, you can use a browser on your laptop to control a supported session on a remote development machine. The browser displays the session, while workspace files and commands stay on the remote machine.
+
+The diagram shows how these parts connect in Agent Host-backed sessions, with local, remote, and managed cloud examples.
+
+![Diagram of a client connected to an Agent Host, with a harness coordinating context, model requests, permissions, and workspace tools. Deployment examples distinguish where the client connects from, where workspace tools run, and where the model is hosted.](../images/concepts/agent-execution.svg)
+
+Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
 
 ## Capabilities that extend agent work
 
@@ -96,7 +129,7 @@ Agents can use additional capabilities for complex tasks and recurring workflows
 
 Every agent decides which action to take next as part of the agent loop. For a complex task, use the built-in Plan agent to research the codebase, clarify requirements, and propose an implementation plan before code changes begin.
 
-The Plan agent uses read-only tools while preparing the plan. After you review and approve the approach, you can hand off the plan to an implementation agent. Learn more about [planning with agents](/docs/agents/run/planning.md).
+The planning workflow separates research and review from implementation. After you approve the approach, continue with implementation using the controls available for your harness. Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ### Subagents
 
@@ -120,12 +153,9 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ### Memory
 
-Memory retains preferences and codebase knowledge separately from the conversation context that a session accumulates automatically. The memory system depends on the agent harness:
+Memory retains selected preferences and codebase knowledge separately from conversation history. It can help an agent reuse a project fact in another conversation without you repeating it. It is not a complete record of everything you discussed, and a saved fact still needs to be retrieved to inform a response.
 
-* **{% data variables.copilot.copilot_memory %}**: Sessions that use the {% data variables.product.prodname_copilot_short %} harness locally can recall cloud-backed repository facts and user preferences. Repository facts are shared with people who have access to that repository and memory. User preferences apply to your own supported interactions across repositories.
-* **File-based memory**: The Local harness uses a separate memory tool for user, repository, and session notes. These files are stored locally by default. Session memory can hold temporary task context, such as an implementation plan.
-
-Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
+The harness determines how memory is stored, shared, and retrieved. Compare [context, instructions, and memory](/docs/agents/concepts/context.md#context-knowledge-and-memory), then learn how to [use and manage agent memory](/docs/agents/run/memory.md).
 
 ### Customization
 

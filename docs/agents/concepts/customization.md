@@ -1,7 +1,7 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 DateApproved: 11/4/2026
-MetaDescription: Compare agent customization types, marketplaces, activation, and scope in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Compare agent customization types and understand their scope and behavior in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -104,19 +104,17 @@ Through managed policies, an organization can enforce limits on tools, MCP serve
 
 ### Which customizations reach a session
 
-The customizations available to a session depend on its harness, workspace, execution environment, and connected client.
+The harness determines which customization types, formats, and locations it supports. The workspace supplies project customizations, while personal configuration can differ across harnesses and machines. A customization available in one session isn't necessarily available in another.
 
-The **agent harness** determines which customization types, formats, and locations are supported in an agent session. See [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) for setup guidance. For example, the {% data variables.product.prodname_copilot_short %} harness stores its configuration in a location shared with other {% data variables.product.prodname_copilot_short %} experiences.
+Start with the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for the **selected session**. It shows discovered customizations, including disabled items. Switching sessions can change what appears. See [reuse customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) before adapting an existing setup.
 
-The selected **workspace** supplies project customizations. The **machine** (local, remote, or Dev Container) running the harness supplies its native user configuration.
+For remote and multi-device workflows, the machine running the harness supplies its native configuration, and a connected client can contribute additional supported customizations. Reconnecting from another device doesn't replace the host's configuration, but client contributions can differ.
 
-A **connected client** can supply additional supported customizations. A remote host or container changes where configuration is read, not its scope. Resuming a session from another device preserves its host-owned configuration, but can change the client-supplied customizations. Personal configuration isn't automatically identical across machines or harnesses.
+The diagram shows how user, workspace, organization-shared, and client-supplied customizations contribute to a session.
 
-In the following diagram, the frontend session running on the user's workstation receives an organization skill, user instructions and the workspace's instructions and skill. When the user connects remotely to the agent session from another device, the session retains its host-owned configuration while adding the client-supplied customizations from the new device.
+![Diagram of two workspaces with user, workspace, and organization-shared customizations, plus instructions and tools supplied by a connected laptop to the selected frontend session.](../images/concepts/customization-sources.svg)
 
-![Diagram of two workspaces with user, workspace, and organization-shared customizations, plus supported instructions and tools supplied by a connected laptop to the selected frontend session.](../images/concepts/customization-sources.svg)
-
-The Agent Customizations editor shows discovered customizations for the **selected session**, including disabled items. See [Use the Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor). This means that if you select a different session, the editor displays the customizations relevant to that session, which may differ from the previous one.
+For setup, see [manage customizations for remote sessions](/docs/agent-customization/overview.md#manage-customizations-for-remote-sessions).
 
 ### When available customizations are used
 
@@ -132,9 +130,9 @@ You don't need to author every customization yourself. Marketplaces help you dis
 
 Plugin marketplaces are catalogs of plugins. Adding a marketplace makes its plugins available to browse. Installing a plugin makes its supported customizations available to your harness.
 
-The Customization Marketplace in {% data variables.product.prodname_vscode_shortname %} is the unified browse experience in the Agent Customizations editor (Preview). It brings together supported sources, including plugin marketplaces, GitHub Feed, and {% data variables.product.prodname_copilot_short %} connectors `feature(copilot-connectors)`. Some sources offer individual skills or MCP servers; others offer plugins that bundle customizations. Available sources depend on the harness and organization policy.
+A marketplace is a discovery and distribution mechanism, not another customization type. Installed components keep their own activation rules. Review the publisher, included files, and setup requirements before installation, then test the result in your workflow.
 
-A marketplace is a discovery and distribution mechanism, not another customization type. Installed components keep their own activation rules. Review the publisher, included files, and setup requirements before installation, then test the result in your workflow. See [Discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
+The Agent Customizations editor provides a unified marketplace experience (Preview). Available sources depend on the harness and organization policy. See [discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
 
 ## Related resources
 

@@ -18,7 +18,7 @@ Keywords:
 
 A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It brings together the workspace and code changes for a task. A chat is a conversation within that session, and a session can contain multiple chats when the harness supports them.
 
-This article helps you choose between starting a new chat, forking a conversation, and creating a new session. It explains what chats share, how to finish individual conversations, and how to continue work across surfaces or hand it off to another agent.
+This article explains how conversations relate to the workspace and helps you choose between continuing a chat, forking a conversation, and starting a new session. It also distinguishes continuing live work from accessing saved history.
 
 To create and organize sessions, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
@@ -32,25 +32,25 @@ The session's [execution environment](/docs/agents/concepts/agent-harnesses.md#r
 
 ## Chats within a session
 
-The session has a main chat. A **nested session** is a separate conversation grouped under an existing session. You can prompt each nested session independently. This differs from a [subagent](/docs/agents/run/subagents.md), which an agent starts to perform delegated work.
+The session starts with a **main chat**. Where supported, additional conversations appear beneath that session:
 
-Each conversation has its own history, title, status, and agent or model selection. Nested sessions use the parent session's folder or worktree by default. In the {% data variables.copilot.agents_window %}, supported harnesses let a nested session use another folder, its own worktree, or no workspace. A new nested session starts blank and doesn't inherit the conversation history of the other chats in the parent session.
+| Conversation | Who directs it | Relationship to the other chats |
+|--------------|----------------|---------------------------------|
+| **Main chat** | You send requests to the agent. | The starting conversation for the session. |
+| **Nested session** | You prompt another conversation independently. | Grouped under the parent session. A new nested session starts without the other chats' conversation history. |
+| **Subagent chat** | An agent delegates a focused task. | The subagent works in its own context and reports a result to the delegating agent. |
 
-With [mixed-harness chats](/docs/agents/run/sessions/manage-sessions.md#use-different-harnesses-in-a-session) `feature(mixed-harness-chats)`, each chat can use its own harness, model, and permission settings, even when grouped under a session that uses another harness.
+Grouping conversations together doesn't automatically share what the agents know. Each chat has its own history. Nested sessions use the parent session's folder or worktree by default, so they can work on the same saved files without sharing the discussion.
 
-Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. Learn how to [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Supported nested sessions can use a different folder or worktree, and some harnesses support different agent configurations for each chat. For compatibility and setup, see [run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session). To delegate work rather than direct another conversation yourself, see [subagents](/docs/agents/run/subagents.md).
 
 For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.
 
 Both chats can edit the same files if they use the same folder or worktree. When you need separate working directories, choose **New Worktree** for a nested session, where supported, or use separate top-level sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
-You can also [move nested sessions](/docs/agents/run/sessions/manage-sessions.md#move-chats-between-sessions-experimental) to organize related work. A move changes which session groups the conversation, not the folder or worktree where it runs.
-
 ## Choose a new chat, a fork, or a new session
 
 Continue in the same chat when you're working on the same task and its conversation history is still relevant. When you need a separate conversation, choose based on whether you want to retain that history and share the same workspace.
-
-If the task needs another folder or a new Git worktree, you don't have to start a new conversation. In supported single-chat sessions in the {% data variables.copilot.agents_window %}, you can [move the existing chat](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree) and continue with its conversation history intact.
 
 | Choose | When to use it | Conversation history | Workspace and code changes |
 |--------|----------------|----------------------|----------------------------|
@@ -67,19 +67,14 @@ Sessions can run in parallel and keep running when you switch between them. To r
 
 ## Sessions across surfaces
 
-> [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Existing sessions are not deleted by this restriction. Contact the IT team that deployed the settings to discuss access.
-
 You can access and continue the same live **Copilot** or **Claude** session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). To use **Codex** in both interfaces, configure the [experimental Codex integration](/docs/agents/run/agent-harnesses.md#codex). Switching between these interfaces doesn't create a session, fork the conversation, or change its harness, workspace, or worktree.
 
-Both interfaces provide access to the session's main chat and, for harnesses that support them, nested sessions. Their navigation and management controls differ. For the steps in each interface, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+Availability depends on the [harness requirements and organization policies](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Navigation and management controls differ between interfaces.
 
 > [!NOTE]
 > **For Local harness sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
 
-{% data variables.product.prodname_vscode_shortname %} can also discover supported local sessions created in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, Claude Code, and Codex. A discovered session is external until you send a message from {% data variables.product.prodname_vscode_shortname %}. After you send a message, the **External** filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
-
-With Copilot or Claude, or with Codex through the [experimental integration](/docs/agents/run/agent-harnesses.md#codex), an agent can also coordinate work across sessions. It can list sessions, create new sessions or chats, read another session's recent context, and send follow-up messages between sessions.
+Some sessions created in other applications can also be discovered and continued in {% data variables.product.prodname_vscode_shortname %}. See [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) for supported integrations.
 
 ## Hand off a session
 
@@ -99,7 +94,8 @@ A session doesn't have to run on your local machine, and it doesn't have to stay
 * **Remote sessions** run on a machine other than the one you work from. Register that machine as a [{% data variables.copilot.github_environment %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` for access across supported {% data variables.product.prodname_copilot_short %} clients. For {% data variables.product.prodname_vscode_shortname %}-specific access, connect over [SSH or a dev tunnel](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). The host, workspace, and running session stay on the remote machine.
 * **Cloud sessions** `feature(cloud-sessions)` run in managed cloud environments rather than on a machine you register. [Reopen the existing cloud session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session) to reconnect and continue work. This doesn't migrate an existing local conversation, and environment lifetime is managed by the service.
 * **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/run/sessions/session-history.md).
-* **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
+
+Saved history and live execution are different. Access to a conversation doesn't mean its agent is still running or its workspace is available. For work on your own machine, the host must remain running. For cloud sessions, the service manages the environment's lifetime. See [session lifetime and client dependencies](/docs/agents/concepts/agent-host.md#session-lifetime-and-client-dependencies) for the architecture details.
 
 ## Close a chat or finish work
 
@@ -109,13 +105,10 @@ Closing, marking done, and deleting serve different purposes:
 * **Mark a chat as done**: remove a completed conversation from the active sessions list while retaining its title and history. Restore it when you want to continue.
 * **Delete a chat**: permanently remove the conversation. Unlike closing or marking done, deletion can't be undone.
 
-In the {% data variables.copilot.agents_window %}, supported additional chats can be marked as done independently. This doesn't mark the main chat, other chats, or the owning session as done. Main chats, side chats, and subagent chats don't support being marked as done independently.
-
-For the steps and available actions, see [Manage chats within a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [Mark an individual chat as done](/docs/agents/run/sessions/manage-sessions.md#mark-an-individual-chat-as-done).
+These actions organize conversation history; they aren't substitutes for reviewing code or stopping active work. Available actions depend on the chat type and harness. See [manage chats within a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 ## Related resources
 
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
 * [Agents](/docs/agents/concepts/agents.md)
-* [{% data variables.product.prodname_vscode_shortname %} Agent Host architecture](/docs/agents/concepts/agent-host.md)
