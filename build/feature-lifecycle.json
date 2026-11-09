@@ -5,6 +5,11 @@
       "label": "Agent artifacts",
       "state": "experimental"
     },
+    "agent-driven-model-comparisons": {
+      "label": "Agent-driven model comparisons",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/346057"
+    },
     "agent-hooks": {
       "label": "Agent hooks",
       "state": "preview"
