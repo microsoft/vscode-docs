@@ -53,10 +53,10 @@
     },
     {
       "type": "documentation",
-      "title": "Agent harness concepts",
-      "description": "Understand the core concepts and how to use different types of harnesses within VS Code.",
-      "link": "/docs/agents/concepts/agent-harnesses",
-      "image": "/assets/docs/agents/agent-harnesses/agents-window-session-target.png"
+      "title": "Continue agents across apps",
+      "description": "Start an agent task in VS Code, then continue the same conversation in your terminal with Copilot CLI.",
+      "link": "/docs/agents/cloud-continuity-tutorial",
+      "image": "/assets/docs/agents/cloud-continuity-tutorial/connect-cloud-session.png"
     },
     {
       "type": "blog",
