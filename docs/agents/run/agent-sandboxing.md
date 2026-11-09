@@ -357,9 +357,9 @@ Installing the certificate does not, by itself, redirect or intercept other appl
 
 Sandbox certificate trust management is available for agent hosts running Windows or macOS.
 
-{% data variables.product.prodname_vscode_shortname %} shows a dismissible **Sandbox trusted CA is not installed** notice with an **Install** option when trust is missing and installation is supported.
+For sessions that run locally, {% data variables.product.prodname_vscode_shortname %} shows a dismissible **Sandbox trusted CA is not installed** notice with an **Install** option when trust is missing and installation is supported. For remote sessions, follow the [remote certificate-trust steps](#remote-environments).
 
-You can also run **Sandbox: Manage Trusted CA** from the Command Palette to install, rotate, or remove trust for the last-focused chat's agent host. Each operation asks for confirmation and identifies the target host.
+You can also run **Sandbox: Manage Trusted CA** from the Command Palette in a local desktop window to install, rotate, or remove trust on that computer, even when no chat is open or sandboxing is off. This command does not manage trust on the host of a selected remote chat. Each operation asks for confirmation and identifies the target computer.
 
 * **Install:** Adds the public CA certificate to OS trust. Installation can require operating system authorization.
   * **Windows:** Installation uses the machine's trusted root certificate store and requires administrator approval. Trust applies to all users on that machine. Installing only in the current user's store is not sufficient for sandboxed tools.
@@ -369,7 +369,7 @@ You can also run **Sandbox: Manage Trusted CA** from the Command Palette to inst
 
 Running sandboxed tools might need to restart after a certificate change.
 
-If **Install** is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Removing the CA from OS trust can cause tools that depend on it to stop working.
+If local certificate installation is unavailable, installation fails, or your organization manages certificate trust, contact your administrator or support. Removing the CA from OS trust can cause tools that depend on it to stop working.
 
 > [!NOTE]
 > On Linux, the runtime supplies a per-process CA bundle and does not install a system trust root.
@@ -396,7 +396,41 @@ The private key is stored unencrypted and protected by filesystem permissions. O
 
 Certificate operations affect the machine running the agent host, which might differ from the machine displaying {% data variables.product.prodname_vscode_shortname %}. Installing the CA locally does not automatically establish trust in a remote host, container, or WSL environment.
 
-Before confirming an operation, check the target host shown by {% data variables.product.prodname_vscode_shortname %}.
+For a Windows or macOS remote agent host, use the following CLI workflow on that host. You don't need desktop {% data variables.product.prodname_vscode_shortname %} or a separate {% data variables.product.prodname_copilot_short %} CLI installation there. For {% data variables.product.prodname_vscode_shortname %} Insiders, use `code-insiders` instead of `code` in the commands below.
+
+1. Open a terminal that runs on the remote agent-host computer, not the client computer. Use the same OS account as the agent host. If the host sets `COPILOT_HOME`, use the same value.
+
+    Run the commands yourself, not through an agent-executed terminal tool in chat.
+
+1. Create the CA, then add it to the host's OS trust store:
+
+    ```sh
+    code agent sandbox ca create
+    code agent sandbox ca trust
+    ```
+
+1. Accept the CLI confirmation and any required OS authorization. Windows requires administrator approval. macOS might request Keychain authorization.
+
+    If the remote terminal can't complete the authorization prompts, use an interactive login on the host. Do not run the agent host as Administrator or SYSTEM to work around authorization errors.
+
+1. Check that the certificate status is `installed`:
+
+    ```sh
+    code agent sandbox ca status
+    ```
+
+1. Return to the client and select **Refresh** in the certificate notice. The notice disappears when trust is confirmed, without restarting the host or reconnecting. **Refresh** checks certificate status but does not change trust.
+
+If **Refresh** is unavailable, or no certificate notice is visible, restart the remote agent host and reconnect the client after changing trust. Reloading only the client does not reliably clear the host's cached certificate status.
+
+To remove OS trust, run the following commands on the same host with the same OS account and `COPILOT_HOME`. Accept the confirmation and any required OS authorization:
+
+```sh
+code agent sandbox ca remove
+code agent sandbox ca status
+```
+
+The status becomes `notInstalled`. Removal retains the stored CA certificate and private key.
 
 ## Local harness sessions and custom terminal tools
 

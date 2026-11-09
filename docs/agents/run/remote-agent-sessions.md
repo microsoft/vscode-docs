@@ -326,6 +326,7 @@ Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote dele
 | The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
 | A session is missing | Check the connected host, supported session types, workspace group, and [sessions list filters](/docs/agents/run/sessions/manage-sessions.md#find-a-missing-session). Starting a new session doesn't resume a missing one. |
 | A transcript is visible but can't accept messages | Reconnect to the host. A cached transcript or [synced history](/docs/agents/run/sessions/session-history.md) is not a live connection. |
+| **Sandbox trusted CA is not installed** appears, or sandboxed tools report certificate errors | For Windows and macOS hosts, follow the [remote certificate-trust steps](/docs/agents/run/agent-sandboxing.md#remote-environments). Run the certificate commands on the host, not the client computer. |
 
 ### Troubleshoot {% data variables.copilot.github_environments %}
 
