@@ -43,10 +43,14 @@ To find earlier work by topic, file, or pull request instead of browsing the lis
 
 Supported {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_anthropic_claude_short %} sessions are available in both interfaces. {% data variables.product.prodname_openai_codex_short %} requires the [experimental Agent Host integration](/docs/agents/run/agent-harnesses.md#codex). Switching interfaces doesn't change the session's harness, workspace, or worktree.
 
-For a {% data variables.product.prodname_copilot_short %} session with a project:
+For a supported {% data variables.product.prodname_copilot_short %} session with a project:
 
 * **From the {% data variables.copilot.agents_window %}**: Select **Open in Editor** in the title bar. The editor opens the project with the session available in the {% data variables.copilot.chat_view %}.
-* **From the {% data variables.copilot.chat_view %}**: Select **Open in Agents** in the application title bar, then select the existing session from the sessions list.
+* **From the {% data variables.copilot.chat_view %}**: Select **Open in Agents Window** from the view's **...** menu.
+
+From an SSH, WSL, or tunnel editor window, opening the {% data variables.copilot.agents_window %} selects the same remote and folder. For remote Dev Containers, it selects the source folder on that remote.
+
+Supported tunnel connections can also reopen the same session in either window. For SSH, WSL, and Dev Containers, switching windows currently opens the folder without continuing the session.
 
 To change the harness instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
