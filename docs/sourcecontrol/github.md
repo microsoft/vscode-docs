@@ -245,6 +245,12 @@ Another feature of the GitHub Repositories extension is that every time you open
 
 The GitHub Repositories extension supports viewing and even committing LFS-tracked files without needing to install [Git LFS](https://git-lfs.github.com) (Large File System) locally. Add the file types you want tracked with LFS to a [`.gitattributes` file](https://git-lfs.com), then commit your changes directly to GitHub using the Source Control view.
 
+### Use Copilot in a virtual repository
+
+Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) in the editor window to ask questions about the code, search across files, or make edits with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot).
+
+Because this is a virtual workspace, Copilot accesses repository files through the {% data variables.product.prodname_github %} Repositories extension rather than a local checkout. Its terminal, Git, and worktree tools aren't available. To run or test your changes, [continue in a local clone or another development environment](#continue-working-on).
+
 ### Switching branches
 
 Select the branch indicator in the Status Bar to switch branches. You don't need to stash uncommitted changes first because the extension remembers your changes and reapplies them when you return to the branch.
