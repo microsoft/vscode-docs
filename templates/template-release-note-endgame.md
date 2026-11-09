@@ -29,6 +29,17 @@ _Release date: <release Month day, year>_
 This release ... <TODO @ntrogh>
 
 * [highlight](#bookmark): <highlight description, including availability or requirements when relevant>
+
+<!-- Optional video: remove this block when no highlights video is available.
+Before publishing, verify the media paths, add the actual duration to the summary,
+and provide captions and a descriptive transcript for narrated content. -->
+<!-- %IF IN_WEB %
+<details class="release-video">
+  <summary>Watch release highlights</summary>
+  <video src="images/1_<release number>/release-highlights.mp4" poster="images/1_<release number>/release-highlights.webp" title="Video showing the highlights of VS Code 1.<release number>." controls preload="none" playsinline></video>
+  <p><a href="/assets/updates/1_<release number>/release-highlights.mp4">Open the highlights video</a>.</p>
+</details>
+%ENDIF % -->
 <!-- RELEASE_HIGHLIGHTS_END -->
 
 <!-- %IF STABLE %
