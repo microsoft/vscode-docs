@@ -1,6 +1,6 @@
 ---
 ContentId: e54adfc9-1394-4d06-94c5-70f7b9cc9aa8
-DateApproved: 11/02/2026
+DateApproved: 11/11/2026
 MetaDescription: Move workflows from the Local harness to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}. Review customizations and verify organization controls.
 MetaSocialImage: ../images/agent-harnesses/agents-window-session-target-2.png
 Keywords:

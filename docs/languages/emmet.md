@@ -1,6 +1,6 @@
 ---
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Using Emmet abbreviations inside {% data variables.product.prodname_vscode %}.
 ---
 # Emmet in {% data variables.product.prodname_vscode %}

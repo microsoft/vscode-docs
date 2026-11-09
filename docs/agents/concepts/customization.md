@@ -1,6 +1,6 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Compare agent customization types and understand their scope and behavior in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

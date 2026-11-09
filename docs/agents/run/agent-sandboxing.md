@@ -1,6 +1,6 @@
 ---
 ContentId: 51cb4cc4-4f0a-4af7-b3c9-8c07795202cb
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Configure file system and network isolation for {% data variables.product.prodname_copilot_short %} agents and troubleshoot sandbox failures.
 keywords:
 - copilot

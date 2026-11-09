@@ -1,6 +1,6 @@
 ---
 ContentId: f35e56c9-6307-4741-94f0-5d6eb9699197
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Edit, share, stop, and troubleshoot MCP servers in {% data variables.product.prodname_vscode %}, with guidance on trust and remote environments.
 MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:

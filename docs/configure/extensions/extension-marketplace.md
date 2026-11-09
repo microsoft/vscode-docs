@@ -1,6 +1,6 @@
 ---
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Find, install, update, and manage {% data variables.product.prodname_vscode %} extensions from the Extension Marketplace.
 ---
 # Extension Marketplace

@@ -1,6 +1,6 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Customize the {% data variables.product.prodname_vscode %} layout with side bars, panels, editor groups, toolbars, and interface density.
 ---
 # Custom Layout

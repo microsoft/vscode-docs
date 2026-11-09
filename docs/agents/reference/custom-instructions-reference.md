@@ -1,6 +1,6 @@
 ---
 ContentId: 5d7b8e63-421c-4e92-9b03-a7d4c918f620
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Look up custom instruction formats, locations, activation rules, and settings in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:

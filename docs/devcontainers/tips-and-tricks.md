@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 ---
 # Dev Containers Tips and Tricks
 

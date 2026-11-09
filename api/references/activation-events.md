@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Control when {% data variables.product.prodname_vscode_shortname %} extensions load with activation events for commands, languages, views, and other features.

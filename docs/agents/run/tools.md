@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Use agent tools in {% data variables.product.prodname_vscode_shortname %} to inspect code, run commands, control desktop apps, and manage approvals.
 keywords:
 - copilot

@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 11/7/2026
+DateApproved: 11/11/2026
 MetaDescription: Continue agent work from another machine or start tasks on a remote host with {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Run and manage remote agent sessions

@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Find, create, and manage agent customizations for a session's harness, workspace, and environment in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - ai

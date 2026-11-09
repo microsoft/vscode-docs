@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Understand AI limitations, data handling, approvals, and isolation in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

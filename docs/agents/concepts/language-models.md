@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Understand language models, tokens, context limits, and model choices for AI tasks in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

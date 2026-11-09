@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Create and test custom instructions in {% data variables.product.prodname_vscode_shortname %} to guide agents with project conventions.
 MetaSocialImage: ../../learn/images/shared/agent-first-development-social.png
 Keywords:

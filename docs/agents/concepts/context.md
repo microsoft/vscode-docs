@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Understand AI context, conversation history, instructions, and memory in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot

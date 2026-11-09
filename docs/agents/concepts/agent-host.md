@@ -1,6 +1,6 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host manages sessions, execution environments, and connected clients.
 Keywords:
 - agent host

@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Review and undo agent edits in {% data variables.product.prodname_vscode %} with working sets, diffs, and checkpoints.
 ---
 # Review and revert agent changes
