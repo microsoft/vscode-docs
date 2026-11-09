@@ -96,7 +96,7 @@ For Copilot harness sessions running on your machine, you can store repository m
 1. Turn on `setting(chat.copilot.memory.local.enabled)`. It is off by default. Changing it restarts the Copilot runtime after active turns finish.
 1. Create or resume a Copilot harness session in the repository.
 
-This store is separate from the [Local harness `feature(local-harness)` memory files](#local-memory-files). It doesn't reuse those files. Manage the repository-local file directly rather than through the cloud memory settings on {% data variables.product.prodname_github %}.
+This store is separate from the [Local harness memory files](#local-memory-files) `feature(local-harness)`. It doesn't reuse those files. Manage the repository-local file directly rather than through the cloud memory settings on {% data variables.product.prodname_github %}.
 
 > [!CAUTION]
 > Your cloud-memory settings and organization policies on {% data variables.product.prodname_github %} don't apply to repository-local storage. The file is part of the working tree and can be included in commits, including commits made by the agent or the {% data variables.copilot.agents_window %}. Review its contents before committing or sharing it. Don't store credentials, secrets, or sensitive personal information.
