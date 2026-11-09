@@ -12,7 +12,7 @@ show_help() {
 Usage: ./build/docs-release-part1.sh <version> <releaseDate> <commitHash>
 
 Prepares a new VS Code Stable release by running the following steps:
-  1. Create the release notes file from the endgame template
+  1. Create the release notes file from the endgame template unless Stable notes already exist
   2. Update the VS Code commit hash and version in templates
   3. Export and clean up default keybindings
   4. Generate the social media image for the release
@@ -71,7 +71,12 @@ echo ""
 
 # Step 1: Create release notes
 echo "--- Step 1: Create release notes ---"
-node "$SCRIPT_DIR/create-release-notes.js" "$RELEASE_NUMBER" "$RELEASE_DATE" "$MILESTONE"
+RELEASE_NOTES_FILE="$ROOT_DIR/release-notes/v1_${RELEASE_NUMBER}.md"
+if [ -f "$RELEASE_NOTES_FILE" ] && grep -q '^ProductEdition:[[:space:]]*Stable[[:space:]]*$' "$RELEASE_NOTES_FILE"; then
+    echo "Skipping: Stable release notes already exist ($RELEASE_NOTES_FILE)."
+else
+    node "$SCRIPT_DIR/create-release-notes.js" "$RELEASE_NUMBER" "$RELEASE_DATE" "$MILESTONE"
+fi
 echo ""
 
 # Step 2: Update VS Code version in templates
