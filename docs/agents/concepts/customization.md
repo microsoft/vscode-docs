@@ -44,6 +44,8 @@ Each customization type contributes something different to the agent's work:
 | [Hooks](/docs/agent-customization/hooks.md) | Code that the harness runs at configured events, without relying on the model to request it. |
 | [Plugins](/docs/agent-customization/agent-plugins.md) | Bundles of related customizations for installation and sharing. [Marketplaces](#marketplaces-and-reusable-customizations) help you discover them. |
 
+Skills can come from project or personal files, marketplaces and plugins, extensions, or MCP servers `feature(mcp-skills)`. Their source doesn't change their role as task-specific guidance. See [Where skills come from](/docs/agent-customization/agent-skills.md#where-skills-come-from) for source and harness requirements.
+
 For saved prompts that you invoke explicitly, [prompt files](/docs/agent-customization/prompt-files.md) are available in Local harness sessions only.
 
 You don't need a customization for a one-time requirement. Add it to the current request instead. When a problem repeats, [choose the smallest useful customization](/docs/agent-customization/overview.md#choose-how-to-customize).
@@ -98,7 +100,7 @@ Applicable customizations are additive: personal, project, and organization guid
 
 Repository customizations can be shared and versioned with the project. Personal customizations are stored separately from that project.
 
-Company-shared skills and plugins still need to be installed for the selected harness.
+Company-shared plugins and file-based skills still need to be installed or placed in a supported location for the selected harness.
 
 Through managed policies, an organization can enforce limits on tools, MCP servers, and approvals. Customizations can't override those limits. See [enterprise AI controls](/docs/enterprise/manage-ai-settings.md).
 

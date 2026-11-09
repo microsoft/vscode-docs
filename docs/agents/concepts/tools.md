@@ -42,6 +42,8 @@ Each call gives the agent new information or changes the development environment
 * **MCP tools**: tools provided by [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers, an open standard for connecting AI models to external tools and data sources. MCP tools can come from servers you [configure directly](/docs/agent-customization/mcp-servers.md), managed [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)`, or servers bundled in [agent plugins](/docs/agent-customization/agent-plugins.md). MCP servers can run locally on your machine or be hosted remotely. Use MCP tools to connect to databases, APIs, and other external services.
 * **Extension tools**: tools contributed by {% data variables.product.prodname_vscode_shortname %} extensions through the Language Model Tools API. Extension tools integrate deeply with the editor and are available when you install the extension.
 
+An MCP server can also supply [skills](/docs/agent-customization/agent-skills.md#use-skills-from-an-mcp-server) `feature(mcp-skills)` in {% data variables.product.prodname_copilot_short %} harness sessions: tools provide actions the agent can take, while skills provide workflow instructions.
+
 ### Connect external services
 
 [{% data variables.product.prodname_copilot_short %} connectors](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` are {% data variables.product.prodname_github %}-managed connections that add MCP tools to your agent. For example, connect Microsoft Learn Docs so the agent can retrieve official documentation while working on a task.

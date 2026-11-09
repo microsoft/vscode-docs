@@ -180,6 +180,8 @@ Servers can provide more than tools. Available capabilities depend on the server
 
 * **Prompts:** use a server's prompt template by typing `/<server>.<prompt>` in chat.
 
+* **Skills:** load [server-provided skills](/docs/agent-customization/agent-skills.md#use-skills-from-an-mcp-server) `feature(mcp-skills)` in {% data variables.product.prodname_copilot_short %} harness sessions.
+
 * **MCP Apps (Experimental):** supported servers can display interactive forms or visualizations in chat. See [MCP Apps support](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support).
 
 ## If the server does not work

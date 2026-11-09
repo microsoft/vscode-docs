@@ -107,6 +107,11 @@
       "label": "MCP Apps",
       "state": "experimental"
     },
+    "mcp-skills": {
+      "label": "Skills from MCP servers",
+      "state": "experimental",
+      "trackingUrl": "https://github.com/microsoft/vscode/issues/338300"
+    },
     "mixed-harness-chats": {
       "label": "Mixed-harness chats",
       "state": "experimental",

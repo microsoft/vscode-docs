@@ -57,6 +57,17 @@ Use custom instructions when you want to:
 * Specify code review or commit message guidelines
 * Apply rules based on file types using glob patterns
 
+## Where skills come from
+
+Skills can come from the following sources:
+
+* **Project or personal files:** [Create a skill](#create-a-skill), [copy and adapt one](#copy-and-adapt-an-existing-skill), or use skills included in a repository.
+* **Marketplaces and plugins:** [Install individual skills](#install-a-skill-from-the-customization-marketplace-preview) or use skills bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md).
+* **Extensions:** Installed {% data variables.product.prodname_vscode_shortname %} extensions can [contribute skills](#contribute-skills-from-extensions).
+* **MCP servers:** Connected servers can [supply skills](#use-skills-from-an-mcp-server) `feature(mcp-skills)` for {% data variables.product.prodname_copilot_short %} harness sessions.
+
+Supported sources depend on your [agent harness](/docs/agents/run/agent-harnesses.md). For project and personal skill directories, see [Skill locations](#skill-locations).
+
 ## Use an existing skill
 
 Start with an existing skill when it provides the workflow you need. [Browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) to install an individual skill or find one bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md). You can also copy and adapt a skill for your project. Review the requirements for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) before choosing a source and location.
@@ -82,6 +93,32 @@ To reuse skills bundled in a plugin, select a plugin marketplace from the source
 If files from a Marketplace-installed skill are missing, **Browse** shows **Missing files**. Select **Repair** to restore only the missing packaged files. Files that you changed or added remain unchanged.
 
 For source availability and setup, see [Discover and install existing customizations](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview).
+
+### Use skills from an MCP server
+
+`feature(mcp-skills)`
+
+An [MCP server](/docs/agent-customization/mcp-servers.md) can provide Agent Skills alongside its tools. These skills supply reusable instructions for working with a service, without requiring you to copy a skill directory into your project. This feature requires the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) and isn't available in Local harness sessions.
+
+1. Enable the `setting(chat.agentHost.mcpSkills.enabled)` setting. It is off by default.
+1. [Connect an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) that provides skills, following the publisher's setup instructions.
+1. Start a new session with the {% data variables.product.prodname_copilot_short %} harness. Changing the setting doesn't affect sessions that are already running.
+1. Ask the agent to describe the skills available from that server.
+1. With that session selected, run **Chat: Open Customizations** and select **Skills**. Server-provided skills appear under **Skills from \<server\>**. Open a skill to inspect its read-only instructions.
+1. In chat, type `/` and select a skill, shown as `/<server>:<skill>`, or ask the agent to use it.
+
+Before the agent loads instructions from a server, it asks **Allow Skills from \<server\>?**. Only allow instructions from servers you trust. Your choice applies to that server:
+
+| Choice | Effect |
+|--------|--------|
+| **Allow Once** | Allow skills for the current session, including later turns. A new session asks again. |
+| **Always Allow** | Allow skills in the current and future sessions, including after a reload. |
+| **Not Now** | Decline for the current turn. A later turn can ask again. |
+| **Never** | Decline in the current and future sessions, including after a reload. |
+
+This approval is separate from [MCP server trust](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust).
+
+If skills don't appear, confirm that the server is fully running and authenticated, and that you started a new session after enabling the setting. If sign-in hasn't started, ask the agent to call a read-only tool from that server to trigger authentication.
 
 ### Copy and adapt an existing skill
 
