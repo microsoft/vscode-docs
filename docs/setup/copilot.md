@@ -47,7 +47,7 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
     Learn the basics with the [agents quickstart](/docs/agents/quickstart.md).
 
 > [!IMPORTANT]
-> Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+> Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](https://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
 ## Use Copilot with a GHE account
 
