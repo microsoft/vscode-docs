@@ -158,7 +158,7 @@ Add a decorative chat background, use the interactive VS Code pet, or adjust how
 
 ### Set a group icon and color
 
-Give [custom session groups](/docs/agents/run/sessions/manage-sessions.md#create-a-custom-group) distinct icons and colors to recognize related work in a busy list.
+Give [custom session groups](/docs/agents/run/sessions/organize-sessions.md#create-a-custom-group) distinct icons and colors to recognize related work in a busy list.
 
 Right-click a group header and select **Change Icon...** to search for an icon, or **Change Color...** to choose a color from the theme-aware palette.
 

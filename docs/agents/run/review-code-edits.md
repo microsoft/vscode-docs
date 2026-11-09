@@ -124,6 +124,8 @@ To change it from a diff editor, select **More Actions** (**...**) > **Word Wrap
 
 You can ask the agent to revise its work from any review workflow. Send a follow-up prompt, edit the files directly, or provide inline feedback in the {% data variables.copilot.agents_window %}.
 
+To act on existing review feedback or failing checks without switching conversations, use [Fix Checks and Address Comments in the sessions list](/docs/agents/run/sessions/organize-sessions.md#fix-checks-and-address-comments-from-the-sessions-list).
+
 ### Provide inline feedback to the agent
 
 1. In the {% data variables.copilot.agents_window %}, open a file from the **Changes** view.

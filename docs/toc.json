@@ -60,6 +60,7 @@
                         "area": "agents/run/sessions",
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Organize & Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]

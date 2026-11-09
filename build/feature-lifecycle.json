@@ -7,8 +7,7 @@
     },
     "agent-driven-model-comparisons": {
       "label": "Agent-driven model comparisons",
-      "state": "experimental",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/346057"
+      "state": "experimental"
     },
     "agent-hooks": {
       "label": "Agent hooks",
@@ -52,8 +51,7 @@
     },
     "canvases": {
       "label": "Canvases",
-      "state": "preview",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/340946"
+      "state": "preview"
     },
     "chat-pet": {
       "label": "VS Code pet",
@@ -61,8 +59,7 @@
     },
     "cloud-automations": {
       "label": "Cloud automations",
-      "state": "preview",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
+      "state": "preview"
     },
     "cloud-sessions": {
       "label": "Cloud sessions",
@@ -114,13 +111,11 @@
     },
     "mcp-skills": {
       "label": "Skills from MCP servers",
-      "state": "experimental",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/338300"
+      "state": "experimental"
     },
     "mixed-harness-chats": {
       "label": "Mixed-harness chats",
-      "state": "experimental",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/344927"
+      "state": "experimental"
     },
     "modern-ui": {
       "label": "Modern UI",
@@ -136,6 +131,14 @@
     },
     "rubber-duck": {
       "label": "Rubber Duck",
+      "state": "experimental"
+    },
+    "sessions-list-inbox": {
+      "label": "Sessions list Inbox mode",
+      "state": "experimental"
+    },
+    "sessions-list-inline-actions": {
+      "label": "Sessions list inline actions",
       "state": "experimental"
     },
     "subagent-auto-model-selection": {

@@ -71,7 +71,7 @@ Choose a task with a clear outcome and checks you can run to verify it. The foll
     You can optionally change the [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses), agent, or model.
 
 > [!TIP]
-> To start a session in the background without navigating into it, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The session appears in the sessions list after you send the prompt.
+> To start a session in the background without navigating into it, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. Focus stays in the composer so you can start another task. Select **Open Session** in the confirmation to open the sent conversation. With the [Inbox mode setting](/docs/agents/run/sessions/organize-sessions.md#turn-on-inbox-mode) enabled, you can also press `kbstyle(Ctrl+Enter)` (`kbstyle(Cmd+Enter)` on macOS).
 
 ### Choose where an agent makes changes
 
@@ -113,7 +113,7 @@ Use the sessions list to check status and change statistics. Select a session to
 * While it works, check that its changes stay within the task's scope. Send corrections to that session, not another task's conversation.
 * When it finishes, [review and validate the result](#review-and-finish-an-agent-session). A completed response isn't proof that the task is correct.
 
-Confirm the [active session](#understand-the-active-session) before sending feedback or running commands. For steering and stopping requests, see [Use chat](/docs/chat/chat-overview.md). To group, pin, or find sessions, see [Organize sessions](/docs/agents/run/sessions/manage-sessions.md#organize-sessions).
+Confirm the [active session](#understand-the-active-session) before sending feedback or running commands. For steering and stopping requests, see [Use chat](/docs/chat/chat-overview.md). To group, pin, or prioritize sessions that need attention, see [Organize and triage sessions](/docs/agents/run/sessions/organize-sessions.md).
 
 ### Arrange sessions in a grid
 

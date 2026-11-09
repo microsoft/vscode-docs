@@ -266,47 +266,11 @@ Stable context and forks can preserve prompt caching to reduce cost and latency.
 
 ## Organize sessions
 
-Hover over a session to pin it at the top of the list. Right-click it for additional actions, which depend on its harness and state. In the {% data variables.copilot.agents_window %}, you can also group sessions by workspace or timeframe and collapse group headers.
+Keep related work together or prioritize what needs attention without finishing the session:
 
-### Create a custom group
-
-In the {% data variables.copilot.agents_window %}, group related top-level sessions and [quick chats](/docs/agents/run/agents-window.md#start-a-quick-chat), including work across projects:
-
-1. Right-click a session, quick chat, or empty area of the list and select **Create Group**.
-1. Enter a name and press `kbstyle(Enter)`.
-1. Right-click another session and select **Add to Group** > your group, or **Move to Group** if it already belongs to one.
-
-You can also drag multiple selected sessions into a group. Create subgroups with **Create Subgroup**, or drag a group into another group. Drag sessions and group or workspace headers to reorder them, or drop a session on **Pinned** to pin it.
-
-Hover over a group header to start a session in that group or mark its sessions as done. Custom groups organize top-level sessions, not individual nested sessions.
-
-To distinguish groups visually, [set a custom group icon and color](/docs/agents/run/agents-window-configuration.md#set-a-group-icon-and-color).
-
-### Move chats between sessions (Experimental)
-
-Enable `setting(chat.agentHost.moveChats.enabled)` in the {% data variables.copilot.agents_window %} to reorganize conversations. It is on by default in Insiders.
-
-> [!NOTE]
-> These moves change how conversations are grouped, not where they work. History and working folders are preserved, including worktrees and temporary folders. Conversations sharing a worktree still share file changes after a move or promotion.
-
-**Reorder nested sessions:** Select **Filter Sessions** > **Ordering** > **Created** to retain a manual order. Drag a nested session above or below a sibling, or use **Move Up** and **Move Down** in its context menu. With the row focused, use `kb(sessionsViewPane.moveChatUp)` or `kb(sessionsViewPane.moveChatDown)`. Available commands depend on the row's position, and the order persists after reopening the window.
-
-**Move a conversation:**
-
-* Select **Move to Session...** from a nested session's context menu to choose a destination session.
-* Drop a nested session on another session to append it, or on the top or bottom half of a nested row to insert it there. Hover over a collapsed destination to expand it.
-* Select **Move to New Session** from a nested session's context menu, or drag it to empty space below the list or a section header. Send at least one prompt before moving it to a new session.
-* Drag a top-level session containing only one chat onto the center of another session, or above or below one of its nested rows, to nest it.
-
-Source and destination must use the same host, the destination must support multiple chats, and neither session can be archived. By default, they must also use the same harness. Enable [mixed-harness chats](#use-different-harnesses-in-a-session) to move chats between sessions that use different harnesses. The moved chat keeps its harness, model, and permission settings rather than adopting the destination session's settings.
-
-In **Pinned** and custom groups, dropping near a top-level row's top edge can reorder it instead of nesting it. An insertion line indicates reordering, and a highlighted destination indicates nesting.
-
-A chat moved to a new session inherits the parent's custom group, but not its pinned state. A workspace-less conversation moved to a top-level session appears in **Chats**.
-
-Moves don't ask for confirmation. A notice shows progress and the result. Select **Undo** within 10 seconds to restore the previous parent and position. A streaming response continues after a move. Linked subagent conversations, pull requests, and [{% data variables.copilot.agent_merge %} monitoring](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) stay with the conversation, including after undo.
-
-To change working files rather than grouping, [move the chat to another folder or worktree](#move-a-chat-to-another-folder-or-worktree).
+* [Pin sessions and create custom groups](/docs/agents/run/sessions/organize-sessions.md#pin-and-group-sessions) to keep related tasks accessible.
+* [Triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode) to dismiss or defer work without archiving it.
+* [Move chats between sessions](/docs/agents/run/sessions/organize-sessions.md#move-chats-between-sessions-experimental) to reorganize conversations without changing their working folders.
 
 ## Finish and restore sessions
 
@@ -315,6 +279,7 @@ Choose the action that matches what you want to keep:
 | Action | Effect |
 |---|---|
 | Close a chat tab | Hide the conversation without deleting it. Reopen it when needed. |
+| [Dismiss from Inbox](/docs/agents/run/sessions/organize-sessions.md#dismiss-defer-or-finish-work) | Move the session to **Done** in Inbox mode without stopping or archiving it. New activity can bring it back. |
 | Archive or mark as done | Remove completed work from the active list while retaining its conversation. Worktree or container resources can be removed as described below. |
 | Delete | Permanently remove the conversation. Associated worktrees or containers can also be removed. |
 

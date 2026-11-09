@@ -2331,6 +2331,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/sessions/organize-sessions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/run/sessions/session-history</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
