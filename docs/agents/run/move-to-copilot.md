@@ -193,7 +193,7 @@ The temporary default doesn't override `vscode.temporaryAllowLocalHarness: false
 > [!WARNING]
 > The Local harness `feature(local-harness)` cannot enforce Copilot runtime-only permission and sandbox controls. Keeping the same managed configuration while falling back to the Local harness `feature(local-harness)` does not preserve those protections. An administrator must review and accept this gap before permitting fallback.
 
-The Local harness `feature(local-harness)` and the temporary default setting will be removed by February 2027. Track the integration blocker, test a supported replacement, and remove the temporary exception before then. See [Local harness availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) `feature(local-harness)` and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
+The Local harness `feature(local-harness)` and the temporary default setting will be removed in February 2027. Track the integration blocker, test a supported replacement, and remove the temporary exception before then. See [Local harness availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) `feature(local-harness)` and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
 
 ## Frequently asked questions
 
