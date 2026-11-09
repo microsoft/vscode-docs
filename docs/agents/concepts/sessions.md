@@ -72,7 +72,7 @@ You can access and continue the same live **Copilot** or **Claude** session in t
 Availability depends on the [harness requirements and organization policies](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Navigation and management controls differ between interfaces.
 
 > [!NOTE]
-> **For Local harness sessions:** Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
+> **For Local harness sessions:** `feature(local-harness)` Use the {% data variables.copilot.chat_view %} in an editor window. These sessions aren't available in the {% data variables.copilot.agents_window %}. Sessions from the OpenAI Codex extension are also editor-only.
 
 Some sessions created in other applications can also be discovered and continued in {% data variables.product.prodname_vscode_shortname %}. See [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications) for supported integrations.
 
@@ -83,7 +83,7 @@ Handoff continues ongoing work with a different agent configuration and carries 
 For example, use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent. To work in a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md), start a separate session. Cloud sessions don't receive local-session handoffs.
 
 > [!NOTE]
-> **For Local harness sessions:** You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, or Codex. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
+> **For Local harness sessions:** `feature(local-harness)` You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, or Codex. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
 
 Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 

@@ -57,7 +57,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(github.copilot.chat.localeOverride)`<br/>Specify a locale for chat responses, such as `en` or `fr`. | `"auto"` |
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Control detection of [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants) in Local harness chat. Does not apply to the Copilot harness. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Control detection of [deprecated chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants) in Local harness chat `feature(local-harness)`. Does not apply to the Copilot harness. | `true` |
 | `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
@@ -106,7 +106,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
 | `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions `feature(local-harness)`. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
 | `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
 | `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, pull request titles and descriptions, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
@@ -164,7 +164,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` _(Experimental)_<br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/agents/run/security.md). | `false` |
-| `setting(chat.permissions.default)`<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Manual permissions), `autoApprove` (Allow all), `autopilot` (Autopilot, Preview). You can still change the permission level per session. In Copilot harness sessions, select Autopilot as an agent mode instead; in Local harness sessions, it's a permission level. If enterprise policy disables auto-approval, new sessions use Manual permissions. | `"default"` |
+| `setting(chat.permissions.default)`<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Manual permissions), `autoApprove` (Allow all), `autopilot` (Autopilot, Preview). You can still change the permission level per session. In Copilot harness sessions, select Autopilot as an agent mode instead; in Local harness sessions `feature(local-harness)`, it's a permission level. If enterprise policy disables auto-approval, new sessions use Manual permissions. | `"default"` |
 | `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/run/approvals.md#advanced-autopilot-experimental), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
 | `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/run/approvals.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
@@ -176,7 +176,7 @@ Use the following links to jump to the settings for a specific area:
 
 ### Sandboxing and network access
 
-The sandbox settings below apply to Copilot harness sessions that use the default tools. Defaults, paths, and platform behavior refer to the machine where commands run, including for remote sessions. Local harness sessions and custom terminal tools have [separate compatibility settings](#local-harness-and-custom-terminal-sandbox-settings).
+The sandbox settings below apply to Copilot harness sessions that use the default tools. Defaults, paths, and platform behavior refer to the machine where commands run, including for remote sessions. Local harness sessions `feature(local-harness)` and custom terminal tools have [separate compatibility settings](#local-harness-and-custom-terminal-sandbox-settings).
 
 | Setting and Description | Default |
 |------------------------|---------------|
@@ -200,7 +200,7 @@ The sandbox settings below apply to Copilot harness sessions that use the defaul
 
 #### Local harness and custom terminal sandbox settings
 
-The following settings configure the Local harness sandbox or custom terminal behavior. They do not configure sandboxing for the Copilot harness's default tools.
+The following settings configure the Local harness sandbox `feature(local-harness)` or custom terminal behavior. They do not configure sandboxing for the Copilot harness's default tools.
 
 | Setting and Description | Default |
 |------------------------|---------------|
@@ -349,18 +349,18 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Control the Local organization instruction provider. See [organization instruction availability](/docs/agents/reference/custom-instructions-reference.md#organization-instructions). | `true` |
 | `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo) for Local sessions. Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
-| `setting(chat.useHooks)` `feature(agent-hooks)`<br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness). This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
+| `setting(chat.useHooks)` `feature(agent-hooks)`<br/>Enable [hooks for the Local harness](/docs/agent-customization/hooks.md#configure-hooks-for-the-local-harness) `feature(local-harness)`. This setting does not configure Copilot, Claude, or Codex hook execution. | `true` |
 | `setting(chat.hookFilesLocations)` `feature(agent-hooks)`<br/>Configure additional Local hook file locations. Specify folders containing `*.json` files or individual `.json` files, using relative or tilde paths. For Copilot, [migrate to a supported hook source](/docs/agent-customization/migrate-customizations.md#find-every-hook-source) instead. | `{}` |
 | `setting(chat.useClaudeHooks)` `feature(agent-hooks)`<br/>Enable the Local harness to parse hooks from Claude configuration files. The Local harness ignores Claude matcher values. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Automatically attach instructions from workspace-root `AGENTS.md` files to chat requests in Local harness sessions only. Does not control [{% data variables.product.prodname_copilot_short %} instruction discovery](/docs/agents/reference/custom-instructions-reference.md#nested-project-instructions) or discovery in other harnesses. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions in Local sessions. | `true` |
-| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
+| `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions `feature(local-harness)`. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 
 ## Reusable prompt files settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local harness. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesLocations)` _(Deprecated)_<br/>Configure prompt file locations for the Local harness `feature(local-harness)`. Use [prompt file migration](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) to convert prompts to skills. | `{ ".github/prompts": true }` |
 | `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
 
 ## Custom agents settings
@@ -388,7 +388,7 @@ Learn how to [migrate agent customizations](/docs/agent-customization/migrate-cu
 | `setting(github.copilot.chat.otel.otlpEndpoint)` <br/>OTLP collector endpoint URL. | `"http://localhost:4318"` |
 | `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
 | `setting(github.copilot.chat.otel.captureContent)` <br/>Capture full prompt and response content in OTel spans. May include sensitive information. | `false` |
-| `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local harness sessions. This is independent of content capture and may include sensitive information. | `false` |
+| `setting(github.copilot.chat.otel.captureIdentity)` <br/>Capture the authenticated account name, operating system username, and machine hostname in OTel data for Local harness sessions `feature(local-harness)`. This is independent of content capture and may include sensitive information. | `false` |
 
 ## Customization marketplace settings
 

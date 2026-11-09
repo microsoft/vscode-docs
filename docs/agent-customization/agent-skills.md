@@ -98,7 +98,7 @@ For source availability and setup, see [Discover and install existing customizat
 
 `feature(mcp-skills)`
 
-An [MCP server](/docs/agent-customization/mcp-servers.md) can provide Agent Skills alongside its tools. These skills supply reusable instructions for working with a service, without requiring you to copy a skill directory into your project. This feature requires the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) and isn't available in Local harness sessions.
+An [MCP server](/docs/agent-customization/mcp-servers.md) can provide Agent Skills alongside its tools. These skills supply reusable instructions for working with a service, without requiring you to copy a skill directory into your project. This feature requires the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) and isn't available in Local harness sessions `feature(local-harness)`.
 
 1. Enable the `setting(chat.agentHost.mcpSkills.enabled)` setting. It is off by default.
 1. [Connect an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) that provides skills, following the publisher's setup instructions.
@@ -181,6 +181,8 @@ You can also ask the agent to turn a process from the current conversation into 
 
 ### Local harness shortcuts
 
+`feature(local-harness)`
+
 With **Local** selected in the {% data variables.copilot.chat_view %}, you can also:
 
 * Enter `/skills` to open the **Configure Skills** menu.
@@ -221,7 +223,7 @@ The following table gives a supported project and personal location for each har
 | {% data variables.product.prodname_copilot_short %} | Project: `.github/skills/`<br>Personal: `~/.copilot/skills/` |
 | {% data variables.product.prodname_anthropic_claude %} | Project: `.claude/skills/`<br>Personal: `~/.claude/skills/` |
 | {% data variables.product.prodname_openai_codex %} | Project: `.agents/skills/`<br>Personal: `~/.agents/skills/` |
-| Local | Project: `.github/skills/`<br>Personal: `~/.copilot/skills/` |
+| Local `feature(local-harness)` | Project: `.github/skills/`<br>Personal: `~/.copilot/skills/` |
 
 ### Codex
 
@@ -232,6 +234,8 @@ If skills in `.github/skills/` have duplicate names across workspace roots, the 
 The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
 ### Local
+
+`feature(local-harness)`
 
 Local sessions also read project skills from `.claude/skills/` and `.agents/skills/`, and personal skills from `~/.claude/skills/` and `~/.agents/skills/`.
 

@@ -122,7 +122,7 @@ For more examples to adapt and verify, see the community-contributed [Awesome Co
 
 Select the intended harness from the **Session Target** control, then choose your custom agent from the **Agent** dropdown. Enter a request for its role and review the response and tool calls. The custom agent remains selected until you switch agents. Switch back to a general-purpose agent when you're ready for a different task, such as implementing a review finding.
 
-In **Local** and **{% data variables.product.prodname_copilot_short %}** sessions, selecting an agent applies its preferred model and supported reasoning effort. You can choose a different model unless the agent uses `model-policy: required`, which limits your choices to its configured models. See [Model preferences](/docs/agents/reference/custom-agent-file-reference.md#model-preferences).
+In **Local** `feature(local-harness)` and **{% data variables.product.prodname_copilot_short %}** sessions, selecting an agent applies its preferred model and supported reasoning effort. You can choose a different model unless the agent uses `model-policy: required`, which limits your choices to its configured models. See [Model preferences](/docs/agents/reference/custom-agent-file-reference.md#model-preferences).
 
 In the {% data variables.product.prodname_copilot_short %} harness, the agent's instructions are added to your custom instructions and take precedence if they conflict. Keep the guidance consistent rather than relying on conflicting rules. For details, see the [agent file reference](/docs/agents/reference/custom-agent-file-reference.md#body).
 
@@ -154,7 +154,7 @@ Editing this property changes the agent definition, not a personal visibility pr
 ## Handoffs
 
 > [!NOTE]
-> Custom-agent `handoffs` are supported only in the **Local** harness. A Local handoff can still offer **Continue in** options for other supported session targets.
+> Custom-agent `handoffs` are supported only in the **Local** harness `feature(local-harness)`. A Local handoff can still offer **Continue in** options for other supported session targets.
 
 Handoffs connect agents into a workflow with suggested next steps. After a chat response completes, handoff buttons let you switch to another agent with the conversation context and a pre-filled prompt.
 

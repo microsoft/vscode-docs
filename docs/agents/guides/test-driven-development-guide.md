@@ -17,7 +17,7 @@ Keywords:
 
 Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. {% data variables.product.prodname_vscode %}'s AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
+This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
 
 <details>
 <summary>TDD overview</summary>

@@ -1,7 +1,7 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
 DateApproved: 11/11/2026
-MetaDescription: Use prompt files in {% data variables.product.prodname_vscode_shortname %} for reusable Local harness workflows, or migrate them to agent skills.
+MetaDescription: Use prompt files with the deprecated Local harness in {% data variables.product.prodname_vscode_shortname %}, or migrate workflows to agent skills.
 Keywords:
 - prompt files
 - slash commands
@@ -24,7 +24,7 @@ Use prompt files to:
 With **Local** selected, use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to discover, create, and manage prompt files. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!IMPORTANT]
-> Prompt files run only in **Local** harness sessions in the {% data variables.copilot.chat_view %}. For reusable workflows in other harnesses, create an [agent skill](/docs/agent-customization/agent-skills.md) or [convert an existing prompt file to a skill](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
+> Prompt files run only in **Local** harness sessions `feature(local-harness)` in the {% data variables.copilot.chat_view %}. The Local harness is deprecated and will be removed by **February 2027**. Before then, [convert existing prompt files to skills](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) for use with the Copilot harness. For new reusable workflows, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 Before writing a prompt file, consider [reusing a skill from the Customization Marketplace](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview) for the same task. This installs a skill, not a Local prompt file. Follow the skill's harness requirements and invocation instructions.
 

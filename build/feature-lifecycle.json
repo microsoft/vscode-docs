@@ -97,6 +97,12 @@
       "label": "Integrated browser remote connections",
       "state": "experimental"
     },
+    "local-harness": {
+      "label": "Local harness",
+      "state": "deprecated",
+      "message": "The Local harness is deprecated and will be removed by February 2027. Move your workflows to the Copilot harness before then.",
+      "moreInfoUrl": "/docs/agents/run/move-to-copilot"
+    },
     "markdown-editor": {
       "label": "Markdown Editor",
       "state": "experimental"

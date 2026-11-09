@@ -217,7 +217,7 @@ export OTEL_RESOURCE_ATTRIBUTES="team.id=platform,department=engineering"
 
 ### Identity capture
 
-For Local harness sessions, identity capture can attribute agent activity to an individual developer and machine. When enabled, telemetry includes:
+For Local harness sessions `feature(local-harness)`, identity capture can attribute agent activity to an individual developer and machine. When enabled, telemetry includes:
 
 * `user.name` on agent invocation spans, including subagent and inline chat spans.
 * `process.user.name` and `host.name` as resource attributes.
@@ -298,7 +298,7 @@ Enterprises can mandate OTel export configuration centrally through {% data vari
 
 For delivery methods, configuration fields, client support, and precedence, see [`telemetry` in the enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#telemetry). For the behavior specific to {% data variables.product.prodname_vscode_shortname %}, see [Apply managed telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/manage-ai-settings.md#apply-managed-telemetry-in-vs-code).
 
-For Local harness sessions, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
+For Local harness sessions `feature(local-harness)`, {% data variables.product.prodname_vscode_shortname %} automatically tries once per editor session to restart the extension hosts when a managed OTel configuration that enables export arrives after Copilot Chat starts. The restart can interrupt other extensions. If the automatic restart can't complete, or for later policy changes, select **Reload Window** when prompted.
 
 > [!NOTE]
 > When a managed telemetry value is configured, it overrides user settings. Managed identity capture also overrides `COPILOT_OTEL_CAPTURE_IDENTITY`, and managed resource attributes override `OTEL_RESOURCE_ATTRIBUTES`. Remove other conflicting OTel environment variables from managed devices to ensure that the enterprise configuration takes effect in the Copilot Chat extension.

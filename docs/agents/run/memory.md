@@ -10,7 +10,7 @@ Memory helps agents reuse coding preferences and repository knowledge without as
 
 * **{% data variables.product.prodname_copilot_short %} harness**: Use [{% data variables.copilot.copilot_memory %}](#copilot-memory) to store repository facts and user preferences in the cloud. An [Experimental local-storage option](#store-copilot-memory-in-the-repository-experimental) stores repository facts in the working tree instead.
 
-* **Local harness**: Use [memory files](#local-memory-files) for persistent notes and temporary session context.
+* **Local harness** `feature(local-harness)`: Use [memory files](#local-memory-files) for persistent notes and temporary session context.
 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
@@ -104,6 +104,8 @@ This store is separate from the [Local harness memory files](#local-memory-files
 <a name="memory-tool"></a>
 
 ## Local memory files
+
+`feature(local-harness)`
 
 The Local harness has a separate file-based memory tool that saves and recalls notes as the agent works. You can also explicitly ask the agent to remember something. By default, user, repository, and session memory are stored locally on your machine.
 

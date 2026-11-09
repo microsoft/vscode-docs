@@ -1,7 +1,7 @@
 ---
 ContentId: e54adfc9-1394-4d06-94c5-70f7b9cc9aa8
 DateApproved: 11/11/2026
-MetaDescription: Move workflows from the Local harness to the Copilot harness in {% data variables.product.prodname_vscode_shortname %}. Review customizations and verify organization controls.
+MetaDescription: Move from the deprecated Local harness to Copilot in {% data variables.product.prodname_vscode_shortname %} before February 2027.
 MetaSocialImage: ../images/agent-harnesses/agents-window-session-target-2.png
 Keywords:
 - copilot
@@ -17,7 +17,10 @@ The Copilot harness brings the shared coding agent runtime behind {% data variab
 
 For organizations, the shared runtime provides a common approach to governing agents across supported clients and development environments. Administrators can manage permissions and sandbox restrictions that the legacy Local harness cannot enforce, while developers use approved tools and services in their workflows.
 
-If you already use agents through the Local harness, this guide helps you make that transition. Review the customizations and integrations your work depends on, continue existing conversations where needed, and verify your organization's controls. The goal is a working setup for your daily tasks, not just a different session target.
+> [!IMPORTANT]
+> The Local harness `feature(local-harness)` is deprecated and will be removed by **February 2027**. Move your workflows to the Copilot harness before then. The temporary `vscode.temporaryDefaultToLocalHarness` enterprise-managed setting will also be removed.
+
+Use this guide to review the customizations and integrations your work depends on, continue existing conversations where needed, and verify your organization's controls. The goal is a working setup for your daily tasks, not just a different session target.
 
 ## Why move to the Copilot harness
 
@@ -179,6 +182,8 @@ Use the [effective sandbox policy report](/docs/agents/run/agent-sandboxing.md#i
 
 ## Use the Local harness temporarily for a blocker
 
+`feature(local-harness)`
+
 If an integration has no supported replacement in the Copilot harness yet, use the Local harness only when your organization's controls permit it. In the editor, start a new session and select **Local** under **Session Target**. The Local harness isn't available in the {% data variables.copilot.agents_window %}.
 
 If the Local harness isn't available, ask your administrator to review the effective restrictions.
@@ -190,7 +195,7 @@ The temporary default doesn't override `vscode.temporaryAllowLocalHarness: false
 > [!WARNING]
 > The Local harness cannot enforce Copilot runtime-only permission and sandbox controls. Keeping the same managed configuration while falling back to the Local harness does not preserve those protections. An administrator must review and accept this gap before permitting fallback.
 
-These are temporary transition controls, not a long-term compatibility guarantee. Track the integration blocker, test a supported replacement, and remove the temporary exception after verification. See [Local harness availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
+The Local harness and the temporary default setting will be removed by February 2027. Track the integration blocker, test a supported replacement, and remove the temporary exception before then. See [Local harness availability settings](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating) and [the administrator fallback guidance](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
 
 ## Frequently asked questions
 

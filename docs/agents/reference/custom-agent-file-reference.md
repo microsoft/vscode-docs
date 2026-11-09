@@ -49,6 +49,8 @@ In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to d
 
 ### Local harness locations and migration
 
+`feature(local-harness)`
+
 The **Local** harness stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 Prefer native harness folders, such as `.github/agents` and `~/.copilot/agents`, over custom search locations. The `setting(chat.agentFilesLocations)` setting remains supported and is not deprecated. The editor forwards agents from additional configured locations to Agent Host harnesses, including {% data variables.product.prodname_copilot_short %}, for compatibility with existing editor workflows. The older `chat.modeFilesLocations` setting is deprecated.
@@ -73,7 +75,7 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines which fields and tool names take effect. A shared file location does not imply identical behavior across harnesses.
 
-* **Local** supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
+* **Local** `feature(local-harness)` supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
 * **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs do not apply. See [Copilot-specific configuration](#copilot-specific-configuration) for fields recognized by the editor but not forwarded during agent conversion.
 * **Claude** uses its own [agent format](#claude-agent-format) and runtime behavior.
 * **{% data variables.copilot.copilot_cloud_agent %}** has a separate [configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration).
@@ -212,7 +214,7 @@ These fields change the shared agent definition, not a personal visibility prefe
 
 ### Handoff fields
 
-Each object in the `handoffs` array defines a transition in the Local harness:
+Each object in the `handoffs` array defines a transition in the Local harness `feature(local-harness)`:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -240,6 +242,8 @@ The Markdown body contains the instructions the agent follows, such as its task,
 When you select the custom agent in the {% data variables.copilot.chat_view %}, its body instructions are added after your custom instructions and take precedence if they conflict.
 
 ### Local file and tool references
+
+`feature(local-harness)`
 
 In Local, reference files with Markdown links or `#file:` syntax. Relative paths resolve from the custom agent file. Use `~` or `~/` to reference your home folder, and use Unix-style `/` separators to keep paths portable across operating systems.
 

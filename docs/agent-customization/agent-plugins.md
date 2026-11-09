@@ -274,7 +274,7 @@ Consider this update behavior when deciding whether to trust a plugin. Review ch
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-In the Local harness, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
+In the Local harness `feature(local-harness)`, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
 
 In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. You can turn off optional plugins in **Plugins** in the Agent Customizations editor without changing the shared defaults. Enterprise-managed settings take precedence over repository defaults and your choices.
 

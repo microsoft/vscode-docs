@@ -101,7 +101,7 @@ Learn more about [trust and safety controls](/docs/agents/concepts/trust-and-saf
 
 A session is the unit of work with an agent. It brings together the workspace, code changes, and execution state for a task. Depending on the harness, a session can contain multiple chats, each with its own conversation history.
 
-Sessions can run in parallel. Both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) support agents, but the harness determines whether you can continue the same session in both interfaces. For example, Local harness sessions are editor-only. Sessions can use the same folder or separate worktrees, so separate conversations don't necessarily isolate code changes. Learn about [session compatibility, execution environments, and handoff](/docs/agents/concepts/sessions.md).
+Sessions can run in parallel. Both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) support agents, but the harness determines whether you can continue the same session in both interfaces. For example, Local harness sessions `feature(local-harness)` are editor-only. Sessions can use the same folder or separate worktrees, so separate conversations don't necessarily isolate code changes. Learn about [session compatibility, execution environments, and handoff](/docs/agents/concepts/sessions.md).
 
 ## Agent harnesses and execution environments
 
@@ -139,7 +139,7 @@ Subagents are useful when independent research would add large amounts of interm
 
 Key characteristics of subagents:
 
-* **Context isolation**: each subagent works in its own context. The harness determines which instructions and conversation history it receives. In the Local harness, subagents receive the delegated task and applicable instructions, not the main conversation history.
+* **Context isolation**: each subagent works in its own context. The harness determines which instructions and conversation history it receives. In the Local harness `feature(local-harness)`, subagents receive the delegated task and applicable instructions, not the main conversation history.
 * **Parallel execution**: independent subtasks can run in parallel when the harness supports concurrent subagents, such as separate correctness and performance reviews.
 * **Focused results**: the main agent uses the subagent's result without adding all of its intermediate work to the main context.
 

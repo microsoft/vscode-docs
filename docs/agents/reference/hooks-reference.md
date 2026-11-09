@@ -15,7 +15,7 @@ Keywords:
 
 # Legacy Local hooks reference
 
-Use this reference to interpret an existing **Local** hook while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
+Use this reference to interpret an existing **Local** hook `feature(local-harness)` while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
 
 For hooks executed by a provider harness, use the corresponding provider documentation:
 

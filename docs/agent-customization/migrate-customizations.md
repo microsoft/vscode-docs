@@ -23,7 +23,7 @@ Move your existing Local customizations to the {% data variables.product.prodnam
 
 Start with the path for your customization below. You don't need to complete every migration in this article. For answers about keeping Local available, MCP secrets, custom discovery paths, and agent tool names, see the [migration FAQ](#frequently-asked-questions).
 
-For the broader workflow transition, including session continuity, organization rollout, and policy verification, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md).
+The Local harness `feature(local-harness)` is deprecated and will be removed by **February 2027**. Complete your customization migration before then. For the broader workflow transition, including session continuity, organization rollout, and policy verification, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md).
 
 > [!NOTE]
 > This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
@@ -618,7 +618,7 @@ If you maintain the participant implementation, follow the separate [publisher g
 
 ### Can I keep using the Local harness while adapting my customizations?
 
-Yes, when organization controls permit it. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** as the **Session Target**. Local harness availability and automatic Copilot harness selection depend on your settings and organization policies. See [Keep the Local harness available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-local-available-while-migrating).
+Yes, when organization controls permit it, until its removal by February 2027. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** `feature(local-harness)` as the **Session Target**. Local harness availability and automatic Copilot harness selection depend on your settings and organization policies. See [Keep the Local harness available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating).
 
 Administrators can use the temporary `vscode.temporaryDefaultToLocalHarness` enterprise-managed setting, available from version 1.142. It keeps the Local harness available and suppresses automatic Copilot routing, but the Local harness does not enforce Copilot runtime-only sandbox and permission rules. It does not override `vscode.temporaryAllowLocalHarness: false`, available from version 1.143. Review the [administrator guidance and security caveat](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
 

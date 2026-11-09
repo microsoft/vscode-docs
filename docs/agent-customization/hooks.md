@@ -41,7 +41,7 @@ Other session targets use their own hook implementations:
 
 [Cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` use the Copilot harness in a managed environment. Local hook files aren't automatically copied to that environment. Check the configuration available in the cloud workspace rather than assuming that hooks on your machine apply there.
 
-The older Local harness has a separate [Local hooks reference](/docs/agents/reference/hooks-reference.md). Use it to interpret existing hooks during migration, not as the schema for a new Copilot hook.
+The Local harness `feature(local-harness)` has a separate [Local hooks reference](/docs/agents/reference/hooks-reference.md). Use it to interpret existing hooks during migration, not as the schema for a new Copilot hook.
 
 ### Migrate hooks between harnesses
 
@@ -212,6 +212,8 @@ The [custom-agent editor](/docs/agents/reference/custom-agent-file-reference.md#
 Keep agent-specific automation in the agent's frontmatter. Moving a command to a repository-wide or plugin-wide event changes which agents trigger it and is not an equivalent configuration.
 
 ## Existing Local hooks
+
+`feature(local-harness)`
 
 <a id="configure-hooks-for-the-local-harness"></a>
 <a id="create-your-first-local-hook"></a>

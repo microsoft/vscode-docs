@@ -75,7 +75,7 @@ The **Codex** harness uses provider-native subagents to run independent tasks an
 <details>
 <summary>Subagents in Local harness sessions</summary>
 
-The **Local** harness uses the {% data variables.product.prodname_vscode_shortname %} `runSubagent` tool. The following instructions cover tool selection, custom-agent configuration, model selection, and nested subagents for this harness.
+The **Local** harness `feature(local-harness)` uses the {% data variables.product.prodname_vscode_shortname %} `runSubagent` tool. The following instructions cover tool selection, custom-agent configuration, model selection, and nested subagents for this harness.
 
 ### Invoke a subagent
 
@@ -324,7 +324,7 @@ The presentation depends on both the harness and the interface. [Nested sessions
 The editor's **Sessions** view shows nested sessions, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats, use the [{% data variables.copilot.agents_window %}](#agents-window).
 
 > [!NOTE]
-> **For Local harness sessions:** A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
+> **For Local harness sessions:** `feature(local-harness)` A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
 
 ### Agents window
 

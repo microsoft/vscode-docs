@@ -24,7 +24,7 @@ The settings and behavior below apply to Copilot harness sessions that use the d
 This process-level protection is different from [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`, which provide a managed cloud environment for running and continuing agent sessions. Use the cloud-session guide for that workflow, not the local sandbox setup below.
 
 > [!NOTE]
-> **For Local harness sessions and custom terminal tools:** The settings and behavior differ from those described here. See [Local harness sessions and custom terminal tools](#local-harness-sessions-and-custom-terminal-tools) for compatibility details.
+> **For Local harness sessions** `feature(local-harness)` **and custom terminal tools:** The settings and behavior differ from those described here. See [Local harness sessions and custom terminal tools](#local-harness-sessions-and-custom-terminal-tools) for compatibility details.
 
 ## Understand the sandbox boundary
 
@@ -434,7 +434,7 @@ The status becomes `notInstalled`. Removal retains the stored CA certificate and
 
 ## Local harness sessions and custom terminal tools
 
-Local harness sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
+Local harness sessions `feature(local-harness)` and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
 
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
 * `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local harness terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to the Copilot harness's default tools.

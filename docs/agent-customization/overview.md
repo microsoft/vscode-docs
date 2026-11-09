@@ -309,7 +309,7 @@ The **Canvases** section lists canvas extensions available to the active local {
 
 ### Use customizations in a monorepo
 
-In monorepo setups, you might open a subfolder of a repository rather than the repo root. For Local harness discovery, enable `setting(chat.useCustomizationsInParentRepositories)` to also discover customizations from the parent repository. Other harnesses use their own discovery rules. See [nested project instructions](/docs/agents/reference/custom-instructions-reference.md#nested-project-instructions).
+In monorepo setups, you might open a subfolder of a repository rather than the repo root. For Local harness discovery `feature(local-harness)`, enable `setting(chat.useCustomizationsInParentRepositories)` to also discover customizations from the parent repository. Other harnesses use their own discovery rules. See [nested project instructions](/docs/agents/reference/custom-instructions-reference.md#nested-project-instructions).
 
 When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
 

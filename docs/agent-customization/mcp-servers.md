@@ -43,7 +43,7 @@ Choose a destination before adding the server so its tools are available to the 
 |-----------|---------------|
 | Use a server across your workspaces | **Global** > **Copilot Global** writes to `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is unset. |
 | Share a server with a team using compatible Copilot tools | Workspace-root `.mcp.json`. The guided flow offers this destination when the Experimental `setting(chat.mcp.workspaceRootConfig.enabled)` setting is on. |
-| Use a Local harness configuration with input variables or per-server sandboxing | Workspace `.vscode/mcp.json` or user-profile `mcp.json`. These destinations remain available for compatibility and are labeled deprecated in the guided flow. |
+| Use a Local harness configuration `feature(local-harness)` with input variables or per-server sandboxing | Workspace `.vscode/mcp.json` or user-profile `mcp.json`. These destinations remain available for compatibility and are labeled deprecated in the guided flow. |
 
 Portable files use a top-level `mcpServers` object. The {% data variables.product.prodname_vscode_shortname %} format uses `servers`. Don't copy a configuration between them without checking the [format and capability reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
 
@@ -127,7 +127,7 @@ Adding a configuration isn't proof that the agent can use the server. Complete a
 
 If you only wanted to try the server, open **Chat: Open Customizations** > **MCP Servers** and use its ellipsis (**...**) menu to **Disable** or **Uninstall** it. Stopping a server only ends its current run; a later request can start it again. If **Uninstall** isn't available, follow [removal instructions for its configuration source](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server).
 
-To control available tools in a Copilot session, open **Chat: Open Customizations** > **Tools**. For Local harness sessions, use **Configure Tools** in the chat input. See [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) for the differences.
+To control available tools in a Copilot session, open **Chat: Open Customizations** > **Tools**. For Local harness sessions `feature(local-harness)`, use **Configure Tools** in the chat input. See [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) for the differences.
 
 ## Find another server
 

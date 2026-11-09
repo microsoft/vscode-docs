@@ -34,7 +34,7 @@ Opening a remote project in the editor is a separate workflow, described under [
 
 ## Make a host available for remote access
 
-Enable remote access to start or continue agent sessions from another device while the project, tools, and execution stay on the host machine. Remote clients can access its Agent Host-backed sessions, such as a {% data variables.product.prodname_copilot_short %} session. **Local** harness sessions and older extension-host sessions aren't shared this way.
+Enable remote access to start or continue agent sessions from another device while the project, tools, and execution stay on the host machine. Remote clients can access its Agent Host-backed sessions, such as a {% data variables.product.prodname_copilot_short %} session. **Local** harness sessions `feature(local-harness)` and older extension-host sessions aren't shared this way.
 
 Run these steps on the host machine to make it available for remote access.
 

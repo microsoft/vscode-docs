@@ -283,7 +283,7 @@ The Copilot harness has no built-in MCP configuration option to forward a `${inp
 
 Input variables in the {% data variables.product.prodname_vscode_shortname %} format let you define placeholders for values such as API keys or passwords. They aren't supported in portable configuration files, and servers that require them aren't forwarded to Copilot harness sessions.
 
-Forwarding rejects input and command variables before resolving them. Entering or caching the secret in a Local session first does not make the server available to Copilot. Keep the original configuration until a supported authentication method works in the destination harness.
+Forwarding rejects input and command variables before resolving them. Entering or caching the secret in a Local session `feature(local-harness)` first does not make the server available to Copilot. Keep the original configuration until a supported authentication method works in the destination harness.
 
 When you reference an input variable using `${input:variable-id}`, {% data variables.product.prodname_vscode_shortname %} prompts you for the value when the server starts for the first time. The value is then securely stored for subsequent use. Learn more about [input variables](/docs/reference/variables-reference.md#input-variables) in {% data variables.product.prodname_vscode_shortname %}.
 

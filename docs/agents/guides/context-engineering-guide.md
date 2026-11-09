@@ -5,7 +5,7 @@ MetaDescription: Learn how to implement context engineering using {% data variab
 ---
 # Set up a context engineering flow in {% data variables.product.prodname_vscode_shortname %}
 
-This guide shows you how to set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} using custom instructions, custom agents, and prompt files. The customization concepts apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness in the {% data variables.copilot.chat_view %} because it includes a prompt file and a custom agent handoff.
+This guide shows you how to set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} using custom instructions, custom agents, and prompt files. The customization concepts apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %} because it includes a prompt file and a custom agent handoff.
 
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 

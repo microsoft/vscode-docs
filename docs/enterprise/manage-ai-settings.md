@@ -214,6 +214,11 @@ The temporary Local default does not re-enable Claude or Codex while enterprise-
 
 ### Keep Local harness as default
 
+`feature(local-harness)`
+
+> [!IMPORTANT]
+> The Local harness is deprecated and will be removed by **February 2027**, together with `vscode.temporaryDefaultToLocalHarness`. Use this setting only as a temporary transition measure. Follow the [Copilot harness rollout and verification steps](/docs/agents/run/move-to-copilot.md#roll-out-the-copilot-harness-in-your-organization) to migrate your organization before then.
+
 Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness as the default for new agent sessions and prevent automatic selection of the Copilot harness.
 
 Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed settings:
