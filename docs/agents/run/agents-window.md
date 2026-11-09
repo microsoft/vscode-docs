@@ -127,6 +127,20 @@ Only one pane is active at a time. Selecting another session in the list replace
 
 When multiple panes are visible, use the session header's **Session Layout** menu to arrange or resize them. **Maximize** expands one pane, and **Restore Size** returns to the grid. These actions are separate from **Session Layout**.
 
+### Open chats in separate windows
+
+`feature(agents-window-chat-windows)`
+
+To keep a conversation and its files on another display, enable `setting(sessions.chatWindows.enabled)`, then right-click a session or chat in the sessions list and select **Open in** > **New Window**. The setting is on by default in Insiders.
+
+You can also drag a chat tab or session title out of the window to open it separately, or into another chat window to move it there.
+
+Use **Configure Layout** in the new window's title bar to show chat and editors side by side or stacked. In the stacked layout, run **Agents: Toggle Chat Conversation** from the Command Palette to hide the conversation and keep only the input visible.
+
+To rearrange content, hover over the top edge of a chat, editor, or terminal area to reveal its layout handle. Drag the handle to an edge of another area, using the placement preview to choose its new position.
+
+To move the window's chats and editors back to the main window, select **More Actions** (**...**) > **Move to Main Window** in the chat header.
+
 ## Review and finish an agent session
 
 When an agent finishes a task, use the {% data variables.copilot.agents_window %} to review its changes, request revisions, and validate the result. Once the work meets your requirements, commit the changes and integrate them into your project, either locally or through a pull request.

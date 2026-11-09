@@ -25,6 +25,10 @@
       "label": "Agents window chat backgrounds",
       "state": "experimental"
     },
+    "agents-window-chat-windows": {
+      "label": "Chat windows in the Agents window",
+      "state": "preview"
+    },
     "agents-window-pr-comments": {
       "label": "Pull request comments in the Agents window",
       "state": "experimental"
