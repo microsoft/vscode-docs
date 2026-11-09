@@ -217,9 +217,9 @@ To exclude languages from these suggestions, configure `setting(githubIssues.ign
 
 ## GitHub Repositories extension
 
-The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension lets you browse, search, edit, and commit to a remote GitHub repository without cloning it locally. Use this workflow to review source code or make a small change to a file.
+The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension opens a {% data variables.product.prodname_github %} repository as a virtual repository, so you can access its files directly from {% data variables.product.prodname_github %} without creating a local clone. You can browse, search, edit, and commit changes, for example to review source code or make a small change to a file.
 
-This is a virtual workspace, not a local checkout. To run terminal commands, build, or debug the project, [continue in a local clone or another development environment](#continue-working-on).
+{% data variables.product.prodname_vscode_shortname %} calls this a virtual workspace. It uses a virtual file system rather than files in a local checkout. To run terminal commands, build, or debug the project, [continue in a local clone or another development environment](#continue-working-on).
 
 ![Screenshot showing a remote repository opened with the GitHub Repositories extension.](images/github/github-repositories-extension.png)
 
@@ -237,9 +237,9 @@ If you haven't logged into GitHub from {% data variables.product.prodname_vscode
 
 You can provide the repository URL directly or search GitHub for the repository you want by typing in the text box.
 
-After you select a repository or pull request, {% data variables.product.prodname_vscode_shortname %} reloads the window and shows the repository contents in the Explorer view. You can open files with syntax highlighting and bracket matching, make edits, and commit changes as you would in a local clone.
+After you select a repository or pull request, {% data variables.product.prodname_vscode_shortname %} reloads the window and shows the repository contents in the Explorer view. You can open and edit files with syntax highlighting and bracket matching.
 
-One difference from working with a local repository is that when you commit a change with the GitHub Repository extension, the changes are pushed directly to the remote repository, similar to if you were working in the GitHub web interface.
+When you commit a change with the GitHub Repositories extension, it is committed directly to the repository on {% data variables.product.prodname_github %}. Unlike a local clone, there is no separate push step.
 
 Another feature of the GitHub Repositories extension is that every time you open a repository or branch, you get the up-to-date sources available from GitHub. You don't need to remember to pull to refresh as you would with a local repository.
 
@@ -273,7 +273,7 @@ Once you have created a Pull Request, you can use the [GitHub Pull Request and I
 
 ### Virtual file system
 
-Without a repository's files on your local machine, the GitHub Repositories extension creates a virtual file system in memory so you can view file contents and make edits. Using a virtual file system means that some operations and extensions which assume local files are not enabled or have limited functionality. Features such as tasks, debugging, and integrated terminals are not enabled and you can learn about the level of support for the virtual file system via the **features are not available** link in the Remote indicator hover.
+Some extensions and operations require a local file system and are unavailable or have limited functionality in a virtual workspace. To check feature support, hover over the Remote indicator in the Status Bar and select the **features are not available** link.
 
 ![Screenshot showing unavailable virtual workspace features in the Remote indicator hover.](images/github/features-not-available-hover.png)
 
