@@ -17,7 +17,7 @@ Context engineering is a systematic approach to providing AI agents with targete
 Use your own repository for this workflow. Before you start:
 
 * Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
-* Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the prompts and handoffs in this view.
+* Open the {% data variables.copilot.chat_view %} and select **Local** `feature(local-harness)` from the **Session Target** control. Run the prompts and handoffs in this view.
 * Set up the repository's development environment, including its dependencies and test commands, before you ask the agent to implement a plan.
 
 If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt the workflow. For example, use an [agent skill](/docs/agent-customization/agent-skills.md) instead of the prompt file in this guide.

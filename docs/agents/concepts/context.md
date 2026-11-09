@@ -75,7 +75,7 @@ Learn more about [workspace indexing](/docs/agents/reference/workspace-context.m
 
 * In the {% data variables.copilot.chat_view %}, the active file, notebook, or selected text can provide editor context.
 * With the Local harness `feature(local-harness)` and the default context settings, **Ask** includes active editor context. **Agent** suggests the active file as an attachment, while selected text is included.
-* Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, can also receive active editor context automatically. The Local harness behavior doesn't apply to every agent.
+* Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, can also receive active editor context automatically. The Local harness `feature(local-harness)` behavior doesn't apply to every agent.
 * In the {% data variables.copilot.agents_window %}, implicit editor context is off by default. Add the files or project context that the request needs.
 
 A suggested attachment isn't the same as an explicitly attached file. When a source is important, [add it to the request](/docs/chat/copilot-chat-context.md#add-files-as-context) instead of assuming that an open editor supplies the full file. The agent can also gather more context through its tools.

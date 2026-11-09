@@ -147,7 +147,7 @@ To keep a custom agent available as a [subagent](/docs/agents/run/subagents.md) 
 user-invocable: false
 ```
 
-This property controls picker visibility in both **Local** and **Copilot**. To show the agent again, set it to `true` or remove the property. Subagent invocation is controlled separately by `disable-model-invocation`.
+This property controls picker visibility in both **Local** `feature(local-harness)` and **Copilot**. To show the agent again, set it to `true` or remove the property. Subagent invocation is controlled separately by `disable-model-invocation`.
 
 Editing this property changes the agent definition, not a personal visibility preference. If you share the file in a repository, the change applies to everyone who uses that definition. It doesn't delete the agent file.
 
@@ -166,7 +166,7 @@ Use handoffs to review one stage of a task before starting the next. For example
 
 For an optional planning-to-implementation workflow:
 
-1. Select **Local** as the harness in the {% data variables.copilot.chat_view %}.
+1. Select **Local** `feature(local-harness)` as the harness in the {% data variables.copilot.chat_view %}.
 1. Open the Agent Customizations editor, select **Agents**, and select **New Agent** (plus icon) next to **Workspace**.
 1. Choose the workspace location, enter `planner` as the file name, and replace the generated content with the following example.
 
@@ -191,7 +191,7 @@ Do not edit files. Return a Markdown plan with these sections:
 
 Save the file, then try the handoff. If you prefer to create the file directly, save the example as `.github/agents/planner.agent.md`.
 
-1. In a Local harness session, select **Planner** and ask it to plan a change.
+1. In a Local harness `feature(local-harness)` session, select **Planner** and ask it to plan a change.
 1. Review the completed plan, then select **Implement Plan**.
 1. Review the pre-filled implementation prompt and send it when you're ready for code changes.
 

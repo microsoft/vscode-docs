@@ -133,7 +133,7 @@ For a repeatable planning workflow, define a [custom agent](/docs/agent-customiz
 
 `feature(local-harness)`
 
-The Local harness provides a built-in Plan agent with different controls from {% data variables.product.prodname_copilot_short %} Plan mode. Select **Local** from the **Session Target** UI control, then select **Plan** from the agents dropdown or enter `/plan` followed by your task.
+The Local harness `feature(local-harness)` provides a built-in Plan agent with different controls from {% data variables.product.prodname_copilot_short %} Plan mode. Select **Local** `feature(local-harness)` from the **Session Target** UI control, then select **Plan** from the agents dropdown or enter `/plan` followed by your task.
 
 By default, this agent researches your project without editing project files. After it creates a plan, use these actions:
 
@@ -145,11 +145,11 @@ By default, this agent researches your project without editing project files. Af
 | Save an editable copy | Select **Open in Editor**. This switches to Agent and asks it to create an untitled copy of the plan, which you can save in your project. Unlike **Open Full Plan**, it creates a copy rather than opening the existing plan file. |
 
 > [!CAUTION]
-> In a Local harness session, **Start with Autopilot** (Preview) starts implementation with automatic tool approval and continues autonomously. This includes approval for file edits, terminal commands, and external tool calls. Your organization can restrict this option.
+> In a Local harness `feature(local-harness)` session, **Start with Autopilot** (Preview) starts implementation with automatic tool approval and continues autonomously. This includes approval for file edits, terminal commands, and external tool calls. Your organization can restrict this option.
 
 ### Local planning settings
 
-These options apply to the built-in Plan agent in Local harness sessions, not to {% data variables.product.prodname_copilot_short %} Plan mode:
+These options apply to the built-in Plan agent in Local harness `feature(local-harness)` sessions, not to {% data variables.product.prodname_copilot_short %} Plan mode:
 
 * **Choose default models.** Use `setting(chat.planAgent.defaultModel)` for planning. The experimental `setting(github.copilot.chat.implementAgent.model)` setting selects the model used by **Start Implementation** in the current conversation.
 

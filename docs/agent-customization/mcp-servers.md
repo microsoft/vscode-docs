@@ -29,7 +29,7 @@ This article takes you from adding a server to verifying its first tool call. Ch
 ## Before you start
 
 * [Enable AI features](/docs/getstarted/overview.md#enable-ai-features) and open a local project folder in {% data variables.product.prodname_vscode_shortname %}.
-* Select the intended harness in the **Session Target** dropdown. The walkthrough below uses **Copilot** and a personal configuration. Choose a different destination below if you need to share the server or use a Local harness configuration.
+* Select the intended harness in the **Session Target** dropdown. The walkthrough below uses **Copilot** and a personal configuration. Choose a different destination below if you need to share the server or use a Local harness `feature(local-harness)` configuration.
 * For manually configured servers, check the server publisher's prerequisites. A remote HTTP server can require an account or sign-in. A server launched by a command needs its runtime installed on the machine that runs it.
 
 > [!CAUTION]

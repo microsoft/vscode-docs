@@ -41,7 +41,7 @@ The three phases are:
 Use your own repository for this workflow. Before you start:
 
 * Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
-* Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
+* Open the {% data variables.copilot.chat_view %} and select **Local** `feature(local-harness)` from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
 * Install the project dependencies and confirm that you can run its test command from the integrated terminal. The custom agents use that command to verify each phase.
 
 If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt these TDD roles. You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).

@@ -14,7 +14,7 @@ Memory helps agents reuse coding preferences and repository knowledge without as
 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
-This article shows how to set up cloud-backed memory, choose repository-local storage, review or delete stored information, and manage Local harness memory files.
+This article shows how to set up cloud-backed memory, choose repository-local storage, review or delete stored information, and manage Local harness `feature(local-harness)` memory files.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try memory in action">
 Launch a chat prompt that asks the agent to remember a coding preference.
@@ -96,7 +96,7 @@ For Copilot harness sessions running on your machine, you can store repository m
 1. Turn on `setting(chat.copilot.memory.local.enabled)`. It is off by default. Changing it restarts the Copilot runtime after active turns finish.
 1. Create or resume a Copilot harness session in the repository.
 
-This store is separate from the [Local harness memory files](#local-memory-files). It doesn't reuse those files. Manage the repository-local file directly rather than through the cloud memory settings on {% data variables.product.prodname_github %}.
+This store is separate from the [Local harness `feature(local-harness)` memory files](#local-memory-files). It doesn't reuse those files. Manage the repository-local file directly rather than through the cloud memory settings on {% data variables.product.prodname_github %}.
 
 > [!CAUTION]
 > Your cloud-memory settings and organization policies on {% data variables.product.prodname_github %} don't apply to repository-local storage. The file is part of the working tree and can be included in commits, including commits made by the agent or the {% data variables.copilot.agents_window %}. Review its contents before committing or sharing it. Don't store credentials, secrets, or sensitive personal information.
@@ -184,7 +184,7 @@ Memory file references in the agent's chat responses are clickable, so you can v
 
 ### Manage memory files
 
-{% data variables.product.prodname_vscode_shortname %} provides commands to view and manage local memory files in Local harness sessions:
+{% data variables.product.prodname_vscode_shortname %} provides commands to view and manage local memory files in Local harness `feature(local-harness)` sessions:
 
 * **Chat: Show Memory Files**: opens a list of all memory files across scopes. Select a file to view its contents.
 * **Chat: Clear All Memory Files**: removes all memory files across all scopes.

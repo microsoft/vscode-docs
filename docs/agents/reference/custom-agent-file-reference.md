@@ -51,7 +51,7 @@ In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to d
 
 `feature(local-harness)`
 
-The **Local** harness stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
+The **Local** harness `feature(local-harness)` stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 Prefer native harness folders, such as `.github/agents` and `~/.copilot/agents`, over custom search locations. The `setting(chat.agentFilesLocations)` setting remains supported and is not deprecated. The editor forwards agents from additional configured locations to Agent Host harnesses, including {% data variables.product.prodname_copilot_short %}, for compatibility with existing editor workflows. The older `chat.modeFilesLocations` setting is deprecated.
 
@@ -144,7 +144,7 @@ Local's `agent/runSubagent` reference isn't a portable delegation tool name. Cop
 
 ### Model preferences
 
-In **Local** and **{% data variables.product.prodname_copilot_short %}** chat sessions, selecting a custom agent applies the first available model in its `model` list and its `reasoning-effort`, if supported by that model.
+In **Local** `feature(local-harness)` and **{% data variables.product.prodname_copilot_short %}** chat sessions, selecting a custom agent applies the first available model in its `model` list and its `reasoning-effort`, if supported by that model.
 
 Use the model identifiers inserted by completions for the intended harness. Copilot completions insert runtime model IDs, including exact provider-qualified IDs for BYOK models. These differ from Local's qualified model display names.
 

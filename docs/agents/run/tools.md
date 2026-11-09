@@ -136,7 +136,7 @@ To remove an extension from the tool list, right-click its tool group and select
 
 For Local harness sessions `feature(local-harness)`, select tools for an individual request from the {% data variables.copilot.chat_view %}:
 
-1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+1. In the chat input, select the **Local** harness `feature(local-harness)` and then select **Agent** from the agent picker.
 
 1. Select **Configure Tools**.
 

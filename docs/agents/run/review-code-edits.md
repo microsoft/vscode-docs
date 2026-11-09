@@ -38,7 +38,7 @@ For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer
 
 ## Review pending edits with the working set
 
-When you use {% data variables.product.prodname_copilot_short %} and Local harness sessions in the editor window, supported file edits are tracked as pending review (working set). **Keep** retains the changes and clears their pending-review state. **Undo** reverts them without rewinding the agent conversation.
+When you use {% data variables.product.prodname_copilot_short %} and Local harness `feature(local-harness)` sessions in the editor window, supported file edits are tracked as pending review (working set). **Keep** retains the changes and clears their pending-review state. **Undo** reverts them without rewinding the agent conversation.
 
 Pending edits are already saved to disk, so running your application or tests uses the changed files. You don't need Git to review them, and **Keep** doesn't stage or commit them.
 

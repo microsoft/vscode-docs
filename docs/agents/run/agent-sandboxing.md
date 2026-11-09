@@ -155,7 +155,7 @@ The following settings configure sandboxing for Copilot harness sessions that us
 
 ## Inspect the effective sandbox policy
 
-In a Copilot harness session, run `/sandbox policy` to verify whether sandboxing is active or investigate why a process is blocked. This command isn't available in Local harness sessions.
+In a Copilot harness session, run `/sandbox policy` to verify whether sandboxing is active or investigate why a process is blocked. This command isn't available in Local harness `feature(local-harness)` sessions.
 
 * Enter `/sandbox policy` in the chat input and submit it. The report opens automatically in the editor as a Markdown preview. Select **Open Sandbox Policy** in the response to reopen it.
 
@@ -434,7 +434,7 @@ The status becomes `notInstalled`. Removal retains the stored CA certificate and
 
 ## Local harness sessions and custom terminal tools
 
-Local harness sessions `feature(local-harness)` and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
+Local harness `feature(local-harness)` sessions and custom terminal tools have different sandbox behavior. The following compatibility settings don't configure the Copilot harness sandbox described in this article:
 
 * The former `setting(chat.agent.sandbox.allowNetwork)` setting migrates to `setting(chat.agent.sandbox.network.allowNetwork)`.
 * `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is a deprecated setting for the Local harness terminal tool. It can offer a network-enabled retry inside that tool's sandbox and does not apply to the Copilot harness's default tools.

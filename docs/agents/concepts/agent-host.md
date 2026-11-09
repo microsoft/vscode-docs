@@ -119,7 +119,7 @@ The process boundary also affects how you review edits, configure the agent, and
 
 | Task | Guidance |
 |------|----------|
-| Review saved edits | [Local harness-specific behavior](/docs/agents/run/review-code-edits.md#local-harness-specific-behavior). |
+| Review saved edits | [Local harness-specific behavior](/docs/agents/run/review-code-edits.md#local-harness-specific-behavior) `feature(local-harness)`. |
 | Configure instructions and custom agents | [Choose customization scope and locations](/docs/agent-customization/overview.md#choose-a-customization-scope) or [move existing customizations](/docs/agent-customization/migrate-customizations.md). |
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |

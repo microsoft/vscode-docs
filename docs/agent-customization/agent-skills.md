@@ -183,7 +183,7 @@ You can also ask the agent to turn a process from the current conversation into 
 
 `feature(local-harness)`
 
-With **Local** selected in the {% data variables.copilot.chat_view %}, you can also:
+With **Local** `feature(local-harness)` selected in the {% data variables.copilot.chat_view %}, you can also:
 
 * Enter `/skills` to open the **Configure Skills** menu.
 * Enter `/create-skill` followed by a description to generate a skill.
