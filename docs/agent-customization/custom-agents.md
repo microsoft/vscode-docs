@@ -122,6 +122,8 @@ For more examples to adapt and verify, see the community-contributed [Awesome Co
 
 Select the intended harness from the **Session Target** control, then choose your custom agent from the **Agent** dropdown. Enter a request for its role and review the response and tool calls. The custom agent remains selected until you switch agents. Switch back to a general-purpose agent when you're ready for a different task, such as implementing a review finding.
 
+In **Local** and **{% data variables.product.prodname_copilot_short %}** sessions, selecting an agent applies its preferred model and supported reasoning effort. You can choose a different model unless the agent uses `model-policy: required`, which limits your choices to its configured models. See [Model preferences](/docs/agents/reference/custom-agent-file-reference.md#model-preferences).
+
 In the {% data variables.product.prodname_copilot_short %} harness, the agent's instructions are added to your custom instructions and take precedence if they conflict. Keep the guidance consistent rather than relying on conflicting rules. For details, see the [agent file reference](/docs/agents/reference/custom-agent-file-reference.md#body).
 
 Another agent can also invoke a custom agent as a [subagent](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent). Delegation is optional. You don't need it to use the reviewer yourself.
@@ -205,6 +207,7 @@ Identify whether the problem is discovery, configuration, or the result before c
 |------------------|---------------|
 | The file isn't listed in the Agent Customizations editor. | Confirm the selected harness, [file name and location](/docs/agents/reference/custom-agent-file-reference.md#custom-agent-file-locations), and repository folder. A new worktree might not contain your uncommitted agent file. |
 | The file is listed, but the agent isn't in the dropdown. | Check frontmatter errors and whether `user-invocable` is `false`. See [picker visibility](#customize-the-agents-dropdown-list). |
+| Sending is blocked because no required model is available. | Check the agent's `model` list and your access to those models. Select another agent, or edit the agent to use an available model or `model-policy: preferred`. |
 | The agent has unexpected tools or can't use a required tool. | Check the tool names supported by the selected harness and review actual tool activity. Editor completions don't prove runtime availability. For Local, also check whether a [prompt file overrides the tool list](/docs/agents/reference/custom-agent-file-reference.md#tool-list-priority). |
 | The agent is selected, but the result doesn't follow its role. | Check for vague or conflicting instructions. Clarify one rule and [repeat the task in a new chat](#verify-your-custom-agent). Don't add more tools unless the task needs them. |
 

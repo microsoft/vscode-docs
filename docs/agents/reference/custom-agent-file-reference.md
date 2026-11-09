@@ -104,9 +104,9 @@ Fields are optional unless noted. Defaults and harness-specific behavior are lis
 | `advancedOptions` | Object | Local-only map of advanced agent options. Not supported by the Copilot schema. |
 | `tools` | String or array of strings | Tools available to the agent. Tool names and supported aliases depend on the harness. User-defined tool sets are deprecated and are not supported in the Copilot harness. See [Tools](#tools). |
 | `agents` | Array of strings | Custom agents available as subagents. In Local, use `['*']` or omit the field to allow all available agents, or use `[]` to prevent subagent use. Include the `agent` tool set in `tools`. See [Subagent configuration](#subagent-configuration). |
-| `model` | String or array of strings | The model to use in the {% data variables.product.prodname_copilot_short %} harness. An array specifies models in preference order, using the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
-| `model-policy` | String | Recognized by the Copilot editor schema with values `preferred` and `required`. Not forwarded when converting plugin-provided agents. See [Model preferences](#model-preferences). |
-| `reasoning-effort` | String | Reasoning effort for the agent in the Copilot harness. Supported values depend on the model. Completions use the configured models' advertised capabilities, where available. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort). |
+| `model` | String or array of strings | Preferred model or ordered list of alternatives. Selecting the agent uses the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
+| `model-policy` | String | Whether the models in `model` are `preferred` (default) or `required`. See [Model preferences](#model-preferences). |
+| `reasoning-effort` | String | Initial reasoning effort for the selected model, when supported. Supported values depend on the model. Completions use the configured models' advertised capabilities, where available. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size). |
 | `skills` | Array of strings | Names of skills to load into the agent's context in Copilot. Completions and hovers use the matching harness's skill inventory. See [Skills](#skills). |
 | `deferred-tool-loading` | Boolean | Copilot schema field for loading tools on demand. See [conversion limits](#copilot-specific-configuration) before relying on it. |
 | `strict-tools-list` | Boolean | Copilot schema field for omitting standard required tools that aren't explicitly listed. See [conversion limits](#copilot-specific-configuration) before relying on it. |
@@ -142,15 +142,24 @@ Local's `agent/runSubagent` reference isn't a portable delegation tool name. Cop
 
 ### Model preferences
 
+In **Local** and **{% data variables.product.prodname_copilot_short %}** chat sessions, selecting a custom agent applies the first available model in its `model` list and its `reasoning-effort`, if supported by that model.
+
 Use the model identifiers inserted by completions for the intended harness. Copilot completions insert runtime model IDs, including exact provider-qualified IDs for BYOK models. These differ from Local's qualified model display names.
 
-To specify a prioritized list for Copilot, replace the placeholders with available model IDs. Keep the array in your preferred order:
+Use `model-policy` to control whether you can choose a different model:
+
+* `preferred` (default): You can select any other available model. Your manual choice remains selected for the conversation.
+* `required`: You can select only available models from the agent's list. If none are available, sending is blocked instead of falling back to another model or Auto.
+
+For example, restrict an agent to two models and set its initial thinking effort:
 
 ```yaml
 model: ['<preferred model ID>', '<fallback model ID>']
+model-policy: required
+reasoning-effort: high
 ```
 
-The Copilot editor schema also recognizes `model-policy: preferred` and `model-policy: required`. Conversion of plugin-provided agents selects a model from the authored list but doesn't forward `model-policy`. Don't rely on `required` to enforce a required-model policy for those converted agents.
+Replace the placeholders with available model identifiers in preference order and choose a supported effort level. You can still change thinking effort in the model picker. The `required` policy restricts model choices, not effort.
 
 ### Skills
 
@@ -175,7 +184,7 @@ The editor provides nested completions, hovers, and structural validation for th
 Structural validation doesn't start or authenticate MCP servers, or prove that a hook executes.
 
 > [!IMPORTANT]
-> Editor schema support doesn't guarantee runtime support. When converting agent files to SDK custom-agent configuration, including plugin-provided agents, {% data variables.product.prodname_vscode_shortname %} doesn't forward `model-policy`, `mcp-servers`, `github`, `deferred-tool-loading`, `strict-tools-list`, or `include-custom-instructions`. Don't rely on those fields to configure the runtime behavior of converted agents. To make MCP tools available to a session, use the [supported MCP server configuration](/docs/agent-customization/mcp-servers.md).
+> Editor schema support doesn't guarantee runtime support. When converting agent files to SDK custom-agent configuration, including plugin-provided agents, {% data variables.product.prodname_vscode_shortname %} doesn't forward `model-policy`, `mcp-servers`, `github`, `deferred-tool-loading`, `strict-tools-list`, or `include-custom-instructions`. {% data variables.product.prodname_vscode_shortname %} enforces `model-policy` for the agent selected in chat, but this isn't a runtime-wide model restriction. Don't rely on the other fields to configure the runtime behavior of converted agents. To make MCP tools available to a session, use the [supported MCP server configuration](/docs/agent-customization/mcp-servers.md).
 
 ### Subagent configuration
 
