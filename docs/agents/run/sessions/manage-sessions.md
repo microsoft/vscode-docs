@@ -83,6 +83,23 @@ If the session's context menu includes **Resume in Terminal**, select it to cont
 
 To begin a separate terminal conversation, [start a new CLI session](/docs/agents/run/chat-view.md#start-a-copilot-cli-session). Starting a new CLI session doesn't resume an existing conversation.
 
+### Continue a CLI session in {% data variables.product.prodname_vscode_shortname %} (Experimental)
+
+Move an existing {% data variables.copilot.copilot_cli %} conversation from a terminal outside {% data variables.product.prodname_vscode_shortname %} into the {% data variables.copilot.chat_view %} to continue beside your code without starting over. This workflow requires {% data variables.copilot.copilot_cli_short %} 1.0.107 or later and [Copilot harness access](/docs/agents/run/agent-harnesses.md#copilot) in {% data variables.product.prodname_vscode_shortname %}.
+
+1. In your Copilot CLI session, run `/settings experimental on` to turn on experimental CLI features.
+
+1. Run `/code`, or `/code-insiders` for {% data variables.product.prodname_vscode_shortname %} Insiders.
+
+The CLI exits, and {% data variables.product.prodname_vscode_shortname %} opens the session in the {% data variables.copilot.chat_view %} of the window for the session's folder, starting the application if needed. The session keeps its conversation history, model, reasoning effort, mode, and permissions, except for permissions that apply only to the CLI process.
+
+> [!NOTE]
+> CLI-process-only permissions, such as `--allow-tool` options or approvals granted for the CLI session, don't carry over. The CLI lists these permissions before handing off.
+
+If another CLI process still has the session open, {% data variables.product.prodname_vscode_shortname %} asks before opening it. Exit that process first to avoid both applications writing to the same session.
+
+To return to the CLI, run the `copilot --resume` command that the CLI displays when it hands off.
+
 ### Continue on another device or in the cloud
 
 | Where the session runs | How to continue |
