@@ -58,6 +58,8 @@ If the CLI isn't installed, `copilot` offers to install it. You can also add the
 
 The new session appears in the sessions list. To continue an existing conversation instead, use [Resume in Terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal), where available.
 
+If you already have a conversation running in the CLI, [continue it in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-a-cli-session-in-vs-code-experimental) with `/code` (Experimental).
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:
