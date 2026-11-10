@@ -1,7 +1,7 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 11/4/2026
-MetaDescription: Use prompt files in {% data variables.product.prodname_vscode_shortname %} for reusable Local harness workflows, or migrate them to agent skills.
+DateApproved: 11/11/2026
+MetaDescription: Use prompt files with the deprecated Local harness in {% data variables.product.prodname_vscode_shortname %}, or migrate workflows to agent skills.
 Keywords:
 - prompt files
 - slash commands
@@ -21,16 +21,16 @@ Use prompt files to:
 * Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
-With **Local** selected, use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to discover, create, and manage prompt files. Run **Chat: Open Customizations** from the Command Palette.
+With **Local** `feature(local-harness)` selected, use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to discover, create, and manage prompt files. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!IMPORTANT]
-> Prompt files run only in **Local** harness sessions in the {% data variables.copilot.chat_view %}. For reusable workflows in other harnesses, create an [agent skill](/docs/agent-customization/agent-skills.md) or [convert an existing prompt file to a skill](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
+> Prompt files run only in **Local** harness sessions `feature(local-harness)` in the {% data variables.copilot.chat_view %}. The Local harness is deprecated and will be removed by **February 2027**. Before then, [convert existing prompt files to skills](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills) for use with the Copilot harness. For new reusable workflows, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 Before writing a prompt file, consider [reusing a skill from the Customization Marketplace](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview) for the same task. This installs a skill, not a Local prompt file. Follow the skill's harness requirements and invocation instructions.
 
 ## Create a prompt file
 
-Before creating a prompt file, select the **Local** harness in the {% data variables.copilot.chat_view %}. Choose whether to store the file in your workspace or user profile. Workspace prompt files are available to Local sessions in that workspace. User prompt files are available to Local sessions across workspaces in the same profile.
+Before creating a prompt file, select the **Local** harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}. Choose whether to store the file in your workspace or user profile. Workspace prompt files are available to Local sessions in that workspace. User prompt files are available to Local sessions across workspaces in the same profile.
 
 Use the Agent Customizations editor to create the file in the selected scope:
 
@@ -69,15 +69,15 @@ An agent with file-editing tools can help author a prompt file, even if you use 
 
 Authoring a `.prompt.md` file in a {% data variables.product.prodname_copilot_short %} session doesn't make that file runnable by the Copilot harness. To reuse a workflow in that harness, [create a skill](/docs/agent-customization/agent-skills.md#create-a-skill) or [convert an existing prompt file](/docs/agent-customization/migrate-customizations.md#convert-prompt-files-to-skills).
 
-With **Local** selected, you can also type `/create-prompt` in chat followed by the description. The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage. The `/create-prompt` command isn't available for other harnesses.
+With **Local** `feature(local-harness)` selected, you can also type `/create-prompt` in chat followed by the description. The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage. The `/create-prompt` command isn't available for other harnesses.
 
 You can also ask an agent to capture an ongoing conversation as a prompt file for Local sessions. Specify the target harness so that it doesn't create a customization in a format you can't use.
 
-With **Local** selected in the {% data variables.copilot.chat_view %}, you can also generate a prompt file from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Prompts** section.
+With **Local** `feature(local-harness)` selected in the {% data variables.copilot.chat_view %}, you can also generate a prompt file from the Agent Customizations editor by selecting **Generate with AI** next to the **Workspace** group in the **Prompts** section.
 
 ## Use a prompt file in chat
 
-Select **Local** in the {% data variables.copilot.chat_view %} before running the prompt. The following options run prompt files in Local sessions:
+Select **Local** `feature(local-harness)` in the {% data variables.copilot.chat_view %} before running the prompt. The following options run prompt files in Local sessions:
 
 * In the {% data variables.copilot.chat_view %}, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/agent-customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
@@ -98,19 +98,19 @@ Select **Local** in the {% data variables.copilot.chat_view %} before running th
 
 Test discovery and effectiveness separately:
 
-1. Start a fresh **Local** chat in the workspace where you created the prompt.
+1. Start a fresh **Local** chat `feature(local-harness)` in the workspace where you created the prompt.
 1. Type `/` and confirm that `/review-api-security` appears. If it does not, follow [Troubleshoot prompt files](#troubleshoot-prompt-files).
 1. Run `/review-api-security` followed by the path to a small API file or folder.
 1. Confirm that the result cites files, groups findings by priority, and distinguishes observed controls from missing or uncertain controls.
 1. Open the prompt file, adjust instructions that produced an unclear or unsupported result, and use the editor play button to rerun the same request in a new chat.
 
-Discovery only confirms that the Local harness found the file. Review the result and tool activity to determine whether the prompt is effective for your task.
+Discovery only confirms that the Local harness `feature(local-harness)` found the file. Review the result and tool activity to determine whether the prompt is effective for your task.
 
 ## Troubleshoot prompt files
 
 If a prompt is missing or produces an unexpected result:
 
-1. Confirm that the session target is **Local** and that the file has the `.prompt.md` extension.
+1. Confirm that the session target is **Local** `feature(local-harness)` and that the file has the `.prompt.md` extension.
 1. Confirm that a workspace prompt is in `.github/prompts` for the open workspace, or that the user prompt is in the current {% data variables.product.prodname_vscode_shortname %} profile.
 1. Check the YAML frontmatter for syntax errors and confirm that configured agents, models, and tools are available.
 1. Run the prompt in a fresh chat to avoid context from an earlier task.
@@ -120,7 +120,7 @@ If a prompt is missing or produces an unexpected result:
 
 ### Locations
 
-You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations that the Local harness uses for prompt files.
+You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations that the Local harness `feature(local-harness)` uses for prompt files.
 
 | Scope | Default file location |
 |-------|-----------------------|
@@ -143,7 +143,7 @@ Prompt files are Markdown files with the `.prompt.md` extension. The optional YA
 | `argument-hint` | No | Hint text shown in the chat input field to guide users on how to interact with the prompt. |
 | `agent` | No | The agent used for running the prompt: `ask`, `agent`, `plan`, or the name of a [custom agent](/docs/agent-customization/custom-agents.md). By default, the current agent is used. If tools are specified, the default agent is `agent`. |
 | `model` | No | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools` | No | A list of tool names that are available for this Local harness prompt. Can include built-in tools, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format. Existing tool-set references are deprecated; see [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets).<br/>Learn more about [tools with agents](/docs/agents/run/tools.md). |
+| `tools` | No | A list of tool names that are available for this Local harness `feature(local-harness)` prompt. Can include built-in tools, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format. Existing tool-set references are deprecated; see [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets).<br/>Learn more about [tools with agents](/docs/agents/run/tools.md). |
 
 > [!NOTE]
 > If a given tool is not available when running the prompt, it is ignored.

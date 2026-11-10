@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Add and run tests for existing code with AI in {% data variables.product.prodname_vscode %}, then review assertions, failures, and coverage.
 ---
 # Test existing code with AI
@@ -136,5 +136,5 @@ Custom instructions guide the agent but don't enforce these safeguards. Review t
 ## Next steps
 
 * Follow a complete workflow to [fix an API bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md).
-* For a Local-harness example, set up a test-first workflow with [TDD custom agents and handoffs](/docs/agents/guides/test-driven-development-guide.md).
+* For a Local-harness example `feature(local-harness)`, set up a test-first workflow with [TDD custom agents and handoffs](/docs/agents/guides/test-driven-development-guide.md).
 * Try [testing web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md).

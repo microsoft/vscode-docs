@@ -1,6 +1,6 @@
 ---
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Replace deprecated tool sets with custom-agent tool selections and plugins in {% data variables.product.prodname_vscode %}.
 Keywords:
 - copilot
@@ -12,7 +12,7 @@ Keywords:
 ---
 # Tool sets (deprecated)
 
-User-defined tool sets group existing tools under a reusable name. They are deprecated and are not supported in the Copilot harness. Tool-set files remain available only for Local harness compatibility.
+User-defined tool sets group existing tools under a reusable name. They are deprecated and are not supported in the Copilot harness. Tool-set files remain available only for Local harness compatibility `feature(local-harness)`.
 
 To move an existing workflow to the Copilot harness, follow [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets).
 

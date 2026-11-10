@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -129,7 +129,7 @@ An MCP registry is a catalog for discovering and installing servers. A managed a
 | Matches the managed allowlist but is absent from the registry. | Permitted, unless a deny rule or MCP disablement blocks it. |
 | Appears in the registry but does not match the managed allowlist. | Blocked. Registry membership does not grant an exception. |
 
-The registry remains available for discovery. These precedence rules apply to editor-managed servers, including Local harness sessions, not servers owned by an [Agent Host](/docs/agents/concepts/agent-host.md).
+The registry remains available for discovery. These precedence rules apply to editor-managed servers, including Local harness `feature(local-harness)` sessions, not servers owned by an [Agent Host](/docs/agents/concepts/agent-host.md).
 
 * An explicit `allowedMcpServers: []` blocks all servers. It does not fall back to registry approval.
 * Removing `allowedMcpServers` restores the effective access mode, including registry-only access, and any deny rules.
@@ -214,7 +214,12 @@ The temporary Local default does not re-enable Claude or Codex while enterprise-
 
 ### Keep Local harness as default
 
-Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness as the default for new agent sessions and prevent automatic selection of the Copilot harness.
+`feature(local-harness)`
+
+> [!IMPORTANT]
+> The Local harness is deprecated and will be removed by **February 2027**, together with `vscode.temporaryDefaultToLocalHarness`. Use this setting only as a temporary transition measure. Follow the [Copilot harness rollout and verification steps](/docs/agents/run/move-to-copilot.md#roll-out-the-copilot-harness-in-your-organization) to migrate your organization before then.
+
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.142, organizations can keep the Local harness `feature(local-harness)` as the default for new agent sessions and prevent automatic selection of the Copilot harness.
 
 Set `vscode.temporaryDefaultToLocalHarness` to `true` in your enterprise-managed settings:
 
@@ -266,7 +271,7 @@ Identity capture is off by default and independent of content capture. Review bo
 The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) for accepted values and minimum versions.
 
 > [!IMPORTANT]
-> {% data variables.product.prodname_copilot_short %} harness sessions don't enforce every device policy the same way as Local harness sessions. The following sections note known differences. Test a policy in the harness that your developers use before you rely on it.
+> {% data variables.product.prodname_copilot_short %} harness sessions don't enforce every device policy the same way as Local harness `feature(local-harness)` sessions. The following sections note known differences. Test a policy in the harness that your developers use before you rely on it.
 
 Jump to:
 
@@ -359,7 +364,7 @@ To prevent transcript text from being sent to a language model, set `DictationLL
 Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} harness sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
 
 > [!NOTE]
-> **For Local harness sessions:** Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} harness sessions.
+> **For Local harness sessions:** `feature(local-harness)` Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} harness sessions.
 
 <a name="use-the-sdk-harness-for-policy-hooks"></a>
 
@@ -367,7 +372,7 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 
 {% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot harness sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
 
-Local harness sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
+Local harness `feature(local-harness)` sessions do not load SDK Policy Hooks. Configuring hooks for one harness does not enforce them in another harness. See [hook compatibility](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session).
 
 When moving to Copilot, inventory policy hooks, managed plugins, and any permitted user or repository hooks. Convert and test their scripts as well as their configuration. See [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks).
 
@@ -464,7 +469,7 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, a tool
 
 ##### Configure terminal auto-approval
 
-Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
+Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness `feature(local-harness)` sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
 For {% data variables.product.prodname_copilot_short %} harness sessions, the policy requires approval for commands that run through the built-in shell tool. Set `ChatAgentHostCustomTerminalTool` to `false` to keep these sessions on that tool.
 
@@ -488,12 +493,12 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, use th
 
 <a id="deploy-copilot-managed-sandbox-settings"></a>
 
-Use the shared `sandbox` key in enterprise-managed settings to enforce supported minimum sandbox restrictions. Follow the [sandbox schema and minimum client versions](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox). Verify policy delivery and the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) where the agent runs, including remote hosts and containers. Local harness sessions cannot enforce these runtime-only controls.
+Use the shared `sandbox` key in enterprise-managed settings to enforce supported minimum sandbox restrictions. Follow the [sandbox schema and minimum client versions](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox). Verify policy delivery and the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) where the agent runs, including remote hosts and containers. Local harness `feature(local-harness)` sessions cannot enforce these runtime-only controls.
 
 <details>
 <summary>Sandbox device policies for Local harness sessions</summary>
 
-The following {% data variables.product.prodname_vscode_shortname %} device policies are deprecated and apply to Local harness sessions. They do not enforce sandboxing for Copilot harness sessions.
+The following {% data variables.product.prodname_vscode_shortname %} device policies are deprecated and apply to Local harness `feature(local-harness)` sessions. They do not enforce sandboxing for Copilot harness sessions.
 
 | Policy | Local-session behavior |
 |--------|------------------------|
@@ -501,7 +506,7 @@ The following {% data variables.product.prodname_vscode_shortname %} device poli
 | `ChatAgentSandboxAllowNetwork` | Controls outbound network access for sandboxed terminal commands. |
 | `ChatAgentSandboxAllowUnsandboxedCommands` | Controls whether a command can run outside the sandbox after user confirmation. |
 
-Local harness sessions approve sandboxed terminal commands automatically. The [terminal auto-approval policy](#configure-terminal-auto-approval) controls rule-based approval, not sandbox auto-approval.
+Local harness `feature(local-harness)` sessions approve sandboxed terminal commands automatically. The [terminal auto-approval policy](#configure-terminal-auto-approval) controls rule-based approval, not sandbox auto-approval.
 
 </details>
 
@@ -511,7 +516,7 @@ Set `ChatAgentNetworkFilter` to `true` to restrict network access according to t
 
 Use `ChatAgentAllowedNetworkDomains` for permitted domain patterns and `ChatAgentDeniedNetworkDomains` for blocked patterns. Denied domains take precedence.
 
-In Local harness sessions, network filtering applies to the fetch tool and Integrated Browser. In {% data variables.product.prodname_copilot_short %} harness sessions, these policies also apply to the Integrated Browser.
+In Local harness `feature(local-harness)` sessions, network filtering applies to the fetch tool and Integrated Browser. In {% data variables.product.prodname_copilot_short %} harness sessions, these policies also apply to the Integrated Browser.
 
 When the `ChatAgentNetworkFilter` policy is `true` and the `ChatAgentAllowedNetworkDomains` policy contains permitted domains, {% data variables.product.prodname_copilot_short %} harness sessions block the runtime's web fetch tool from accessing domains outside that list, even with **Allow all** selected. This restriction does not require sandboxing.
 

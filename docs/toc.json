@@ -60,6 +60,7 @@
                         "area": "agents/run/sessions",
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Organize & Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
@@ -99,7 +100,7 @@
                     ["Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],
                     ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
-                    ["Add MCP Servers", "/docs/agent-customization/mcp-servers"],
+                    ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
                     ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
                     ["Hooks", "/docs/agent-customization/hooks"],
                     ["Prompt Files", "/docs/agent-customization/prompt-files"],
@@ -148,10 +149,9 @@
                     ["Context", "/docs/agents/concepts/context"],
                     ["Tools", "/docs/agents/concepts/tools"],
                     ["Sessions and Chats", "/docs/agents/concepts/sessions"],
+                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"],
                     ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
-                    ["Agent Customization", "/docs/agents/concepts/customization"],
-                    ["Workspace Context", "/docs/agents/reference/workspace-context"],
-                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+                    ["Agent Customization", "/docs/agents/concepts/customization"]
                 ]
             }],
 
@@ -165,6 +165,7 @@
                         "topics": [
                             ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
                             ["Tools and Context", "/docs/agents/reference/tools-reference"],
+                            ["Workspace Context", "/docs/agents/reference/workspace-context"],
                             ["Settings Reference", "/docs/agents/reference/ai-settings"],
                             ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],

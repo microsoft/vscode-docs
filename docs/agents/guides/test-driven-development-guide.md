@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Build a Local TDD workflow in {% data variables.product.prodname_vscode_shortname %} with custom agents, handoffs, and instructions.
 Keywords:
 - ai
@@ -17,7 +17,7 @@ Keywords:
 
 Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. {% data variables.product.prodname_vscode %}'s AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
+This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
 
 <details>
 <summary>TDD overview</summary>
@@ -41,7 +41,7 @@ The three phases are:
 Use your own repository for this workflow. Before you start:
 
 * Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
-* Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
+* Open the {% data variables.copilot.chat_view %} and select **Local** `feature(local-harness)` from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
 * Install the project dependencies and confirm that you can run its test command from the integrated terminal. The custom agents use that command to verify each phase.
 
 If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt these TDD roles. You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).

@@ -1,6 +1,6 @@
 ---
 ContentId: efbb70bd-40d6-4bfc-a651-7215a9a69bd2
-DateApproved: 11/8/2026
+DateApproved: 11/11/2026
 MetaDescription: Understand how projects, language tools, and optional AI fit together in {% data variables.product.prodname_vscode %}, then choose a starting path.
 MetaSocialImage: images/overview/vscode-overview.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 4d8ccf7f-acff-40e2-9452-4686eda64a1f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 FeatureStatus: canvases
 MetaDescription: Collaborate with agents through interactive canvases in {% data variables.product.prodname_vscode_shortname %}. Find, open, and manage canvas extensions.
 MetaSocialImage: ../images/agent-harnesses/kanban-canvas.png
@@ -23,7 +23,7 @@ Every canvas is provided by a canvas extension. This guide shows you how to find
 
 Canvases currently require an agent session and can't be opened independently of one.
 
-Canvases work in the {% data variables.product.prodname_vscode_shortname %} desktop app in sessions that use the {% data variables.product.prodname_copilot_short %} harness. For sessions hosted on your machine, you can use them in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The {% data variables.copilot.agents_window %} also supports [canvases on remote agent hosts](#use-canvases-on-a-remote-agent-host).
+Canvases work in {% data variables.product.prodname_vscode_shortname %} in sessions that use the {% data variables.product.prodname_copilot_short %} harness. For sessions hosted on your machine, you can use them in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The {% data variables.copilot.agents_window %} also supports canvases in separate chat windows and [on remote agent hosts](#use-canvases-on-a-remote-agent-host).
 
 1. Turn on `setting(chat.canvases.enabled)`.
 
@@ -32,7 +32,7 @@ Canvases work in the {% data variables.product.prodname_vscode_shortname %} desk
 1. Send your first message to initialize the session before opening the canvas menus or managing canvas extensions.
 
 > [!NOTE]
-> Canvases aren't supported in Claude, Codex, Local harness sessions, browser clients, or auxiliary windows.
+> Canvases aren't supported in Claude, Codex, Local harness sessions `feature(local-harness)`, or in browser clients.
 
 ### Use canvases on a remote agent host
 
@@ -87,15 +87,21 @@ You can also open a canvas that doesn't require input without asking the agent:
 | {% data variables.copilot.agents_window %} editor area | Select **Add Tab (+)** > **Canvas**. |
 | Agent Customizations editor | Select **Canvases**, then double-click a canvas marked **Ready to Open**. You can also select it and press `Enter`, or select **More Actions** > **Open Canvas**. |
 
+Canvas menus distinguish **Running** canvases whose tabs you've closed from **Available** canvases you can open.
+
+In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Canvas**. The **Discover More** section of this menu contains **Browse Canvases**, which opens the Agent Customizations editor, and **Create a Canvas**, which starts the canvas creation workflow.
+
 For a canvas marked **Requires Input**, ask the agent to open it and describe the information or configuration it should use.
+
+When a canvas extension asks for permission to load privileged capabilities, such as hooks, review the request in chat. Approve only if you trust the extension and the requested capabilities.
 
 ## Interact with a canvas
 
-A canvas opens in an editor tab and stays associated with the chat that opened it. The controls and supported actions depend on the canvas extension.
+A canvas opens in an editor tab and stays associated with the chat that opened it. In a separate chat window, removing the chat from the window also closes its canvas tabs. The controls and supported actions depend on the canvas extension.
 
 * **Interact directly**: Use the canvas controls to inspect or change its content. For example, create a card or move it between columns on a Kanban board.
 * **Ask the agent to make changes**: Describe what you want to update in chat. The agent can use actions exposed by the canvas to inspect or update its state.
-* **Return to a canvas**: Close and reopen a live canvas when the extension supports it. Use the canvas menus to return to an available canvas.
+* **Return to a canvas**: Use the canvas menus to reopen a running canvas whose tab you've closed.
 
 Depending on the extension, your interactions can also update the agent session.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Review and undo agent edits in {% data variables.product.prodname_vscode %} with working sets, diffs, and checkpoints.
 ---
 # Review and revert agent changes
@@ -26,7 +26,7 @@ You can review agent changes in diffs. Depending on your harness and window, a w
 | Claude or Codex harness in the editor window | [Compare saved changes in diffs](#compare-editor-session-changes). |
 | {% data variables.copilot.agents_window %} | [Compare diffs in the **Changes** view](#review-changes-in-the-agents-window). |
 | Cloud session | [Review pull request diffs](#review-sessions-and-cloud-pull-requests). |
-| Local harness | [Review pending edits](#review-pending-edits-with-the-working-set). See also [Local-specific behavior](#local-harness-specific-behavior). |
+| Local harness `feature(local-harness)` | [Review pending edits](#review-pending-edits-with-the-working-set). See also [Local-specific behavior](#local-harness-specific-behavior). |
 
 To check which harness your session uses, see [Identify your current agent harness](/docs/agents/run/agent-harnesses.md#identify-your-current-harness).
 
@@ -38,7 +38,7 @@ For keyboard and screen reader access to a diff, use the [Accessible Diff Viewer
 
 ## Review pending edits with the working set
 
-When you use {% data variables.product.prodname_copilot_short %} and Local harness sessions in the editor window, supported file edits are tracked as pending review (working set). **Keep** retains the changes and clears their pending-review state. **Undo** reverts them without rewinding the agent conversation.
+When you use {% data variables.product.prodname_copilot_short %} and Local harness `feature(local-harness)` sessions in the editor window, supported file edits are tracked as pending review (working set). **Keep** retains the changes and clears their pending-review state. **Undo** reverts them without rewinding the agent conversation.
 
 Pending edits are already saved to disk, so running your application or tests uses the changed files. You don't need Git to review them, and **Keep** doesn't stage or commit them.
 
@@ -124,6 +124,8 @@ To change it from a diff editor, select **More Actions** (**...**) > **Word Wrap
 
 You can ask the agent to revise its work from any review workflow. Send a follow-up prompt, edit the files directly, or provide inline feedback in the {% data variables.copilot.agents_window %}.
 
+To act on existing review feedback or failing checks without switching conversations, use [Fix Checks and Address Comments in the sessions list](/docs/agents/run/sessions/organize-sessions.md#fix-checks-and-address-comments-from-the-sessions-list).
+
 ### Provide inline feedback to the agent
 
 1. In the {% data variables.copilot.agents_window %}, open a file from the **Changes** view.
@@ -184,7 +186,7 @@ Choose a recovery action based on how much work you want to undo:
 | [Restore a checkpoint](#restore-a-checkpoint) | Sessions with **Restore Checkpoint** | Restores affected workspace files to the checkpoint and removes subsequent conversation turns. |
 | [Discard with Source Control](/docs/sourcecontrol/staging-commits.md#discard-changes) | Folders that use Git | Reverts selected repository changes without changing the conversation. |
 | Use an external service's recovery controls | Deployments, issues, databases, and other external state | Reverses effects that checkpoints and Git don't control. |
-| [**Undo** pending edits](#review-pending-edits-with-the-working-set) | Local harness sessions | Reverts an individual change, a file, or all pending edits without rewinding the conversation. |
+| [**Undo** pending edits](#review-pending-edits-with-the-working-set) | Local harness sessions `feature(local-harness)` | Reverts an individual change, a file, or all pending edits without rewinding the conversation. |
 
 For help choosing an action, see [Get an agent back on track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).
 
@@ -230,6 +232,8 @@ This example automatically approves edits except to JSON files in the `.vscode` 
 ```
 
 ## Local harness-specific behavior
+
+`feature(local-harness)`
 
 Local harness sessions and existing extension-host sessions use the [shared review process](#review-pending-edits-with-the-working-set). In these sessions, discarding changes in Source Control also discards their pending edits.
 

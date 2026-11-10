@@ -43,7 +43,7 @@
           "message": {
             "type": "string",
             "pattern": "\\S",
-            "description": "Optional plain-text guidance that replaces the standard pending-deprecation sentence."
+            "description": "Optional plain-text guidance that replaces the standard deprecation sentence."
           },
           "date": {
             "type": "string",
@@ -57,23 +57,43 @@
             "not": {
               "pattern": "[\\s\\u0000-\\u001f\\u007f\\\\]"
             },
-            "description": "Optional HTTPS URL or root-relative published website path for pending-deprecation details."
+            "description": "Optional HTTPS URL or root-relative published website path for deprecation details."
           }
         },
-        "if": {
-          "properties": {
-            "state": {
-              "const": "pending-deprecation"
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "enum": [
+                    "deprecated",
+                    "pending-deprecation"
+                  ]
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "message": false,
+                "moreInfoUrl": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "pending-deprecation"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "date": false
+              }
             }
           }
-        },
-        "else": {
-          "properties": {
-            "message": false,
-            "date": false,
-            "moreInfoUrl": false
-          }
-        }
+        ]
       }
     }
   }

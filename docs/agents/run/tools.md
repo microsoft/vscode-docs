@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Use agent tools in {% data variables.product.prodname_vscode_shortname %} to inspect code, run commands, control desktop apps, and manage approvals.
 keywords:
 - copilot
@@ -134,9 +134,9 @@ To remove an extension from the tool list, right-click its tool group and select
 <details>
 <summary>Select tools for a Local harness request</summary>
 
-For Local harness sessions, select tools for an individual request from the {% data variables.copilot.chat_view %}:
+For Local harness sessions `feature(local-harness)`, select tools for an individual request from the {% data variables.copilot.chat_view %}:
 
-1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+1. In the chat input, select the **Local** harness `feature(local-harness)` and then select **Agent** from the agent picker.
 
 1. Select **Configure Tools**.
 
@@ -155,7 +155,7 @@ For a tool call that requires approval, expand the confirmation dialog to review
 <details>
 <summary>Edit parameters in Local harness and extension tool confirmations</summary>
 
-Confirmations from the Local harness and extension-contributed tools can support parameter editing. When the confirmation provides editable fields:
+Confirmations from the Local harness `feature(local-harness)` and extension-contributed tools can support parameter editing. When the confirmation provides editable fields:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 
@@ -233,7 +233,7 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
-Copilot harness sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local harness sessions and configurations that use the integrated terminal tool.
+Copilot harness sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local harness sessions `feature(local-harness)` and configurations that use the integrated terminal tool.
 
 <details>
 <summary>Integrated-terminal controls</summary>
@@ -278,70 +278,45 @@ With [Python Environments](/docs/python/environments.md#terminal-settings) insta
 
 This setting does not apply to remote sessions or the custom terminal tool override.
 
-## Control desktop applications (Experimental)
+## Control desktop applications
 
-Use Computer Use when a task needs a desktop application that the agent's other tools can't reach. {% data variables.product.prodname_github %}'s Computer Use plugin lets the agent see application windows, click, type, and scroll. For web applications, use [browser tools](#use-browser-tools) instead.
+`feature(computer-use)`
 
-Computer Use is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
+Use {% data variables.copilot.computer_use %} when a task needs a desktop application that the agent's other tools can't reach. For web applications, use [browser tools](#use-browser-tools) instead.
+
+{% data variables.copilot.computer_use_caps %} is available for local [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) on macOS and Windows. It isn't available for the Local, Claude, or Codex harnesses, Linux, or remote or cloud hosts.
+
+For shared capabilities, permission controls, and limitations, see [{% data variables.product.prodname_github %}'s {% data variables.copilot.computer_use %} guide](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
 
 > [!CAUTION]
-> Computer Use can read and change content in applications outside your workspace. Approve access only to apps needed for your task, and avoid exposing sensitive content in application windows. See [desktop application access risks](/docs/agents/run/security.md#security-risks-to-be-aware-of).
+> {% data variables.copilot.computer_use_caps %} can read and change content in applications outside your workspace. Avoid exposing sensitive content in application windows, and review requested access and results.
 
-### Turn on Computer Use
+### Turn on {% data variables.copilot.computer_use %}
 
-Computer Use is Experimental and off by default. To use it:
+{% data variables.copilot.computer_use_caps %} is off by default. To use it:
 
 1. Turn on `setting(chat.agentHost.computerUse.enabled)` in Settings, and restart {% data variables.product.prodname_vscode_shortname %}.
 
 1. Start a new local {% data variables.product.prodname_copilot_short %} chat in the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. The plugin downloads automatically on first use.
 
-1. Ask the agent to perform a task in a desktop application. For example:
+1. Run `/computer on` in the chat, or ask the agent to perform a task in a desktop application and follow the activation prompt.
 
-    ```prompt
-    Open Calculator and use it to compute 12 times 7.
-    ```
-
-1. When the agent asks **Turn on Computer Use?**, review its reason and select **Turn On**.
-
-1. On macOS, [grant the required system permissions](#grant-macos-permissions). On both platforms, approve access to each application when requested.
-
-You can also run `/computer on` in a {% data variables.product.prodname_copilot_short %} chat. If you select **Not Now**, the agent continues without Computer Use and doesn't ask again in that chat. Run `/computer on` if you change your mind.
+1. On macOS, select **Set Up Computer Use** in the chat card and follow the prompts to grant the required system permissions. Review application-access requests when prompted.
 
 > [!IMPORTANT]
-> Turning on Computer Use is not limited to the current chat. It stays on for {% data variables.product.prodname_copilot_short %} on this computer, including {% data variables.copilot.copilot_cli_short %}, until you run `/computer off`.
+> Activation persists across chats and also applies to {% data variables.copilot.copilot_cli_short %} on the same computer.
 
-### Grant macOS permissions
+### Turn off {% data variables.copilot.computer_use %}
 
-On macOS, Computer Use requires two permissions for the **Copilot Computer Use** helper app:
-
-* **Accessibility**: Click and type in applications.
-* **Screen Recording**: See application windows.
-
-To grant these permissions:
-
-1. Select **Set Up Computer Use** on the chat card.
-
-1. For the current permission, select **Allow in Settings** and follow the macOS prompt or turn on **Copilot Computer Use** in System Settings. If the app isn't listed, drag **Copilot Computer Use** from the setup dialog into the permission list in System Settings.
-
-1. Return to {% data variables.product.prodname_vscode_shortname %}. The dialog checks the permission and shows a check mark when it's granted. Repeat for the next permission. You can also select the refresh icon to check the current permission again.
-
-When both permissions are confirmed, the dialog closes and the agent continues your task.
-
-<!-- TODO: Add a screenshot of the macOS Computer Use setup dialog showing the permission steps and the Copilot Computer Use helper app. -->
-
-### Turn off Computer Use
-
-Run `/computer off` in a {% data variables.product.prodname_copilot_short %} chat to turn off Computer Use, including for {% data variables.copilot.copilot_cli_short %} on the same computer.
+Run `/computer off` in a {% data variables.product.prodname_copilot_short %} chat to turn off {% data variables.copilot.computer_use %}, including for {% data variables.copilot.copilot_cli_short %} on the same computer.
 
 To stop offering the integration in {% data variables.product.prodname_vscode_shortname %}, turn off `setting(chat.agentHost.computerUse.enabled)` and restart.
 
-### Troubleshoot Computer Use
+### Troubleshoot {% data variables.copilot.computer_use %}
 
-* **Computer Use isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
-* **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. If you previously selected **Not Now**, the agent doesn't ask again in that chat.
-* **The macOS setup dialog closes before you finish**: The dialog closes if the waiting tool call ends. Finish granting permissions in System Settings, then ask the agent to retry the task. A new setup card appears if permissions are still missing.
-* **Allow in Settings doesn't open a prompt**: After a restart, macOS might not show a permission prompt it has already shown. Select **Allow in Settings** again to open System Settings.
-* **Your organization blocks Computer Use**: Contact your administrator. Turning on the setting doesn't override an organization restriction.
+* **{% data variables.copilot.computer_use_caps %} isn't offered**: Check the supported platform and harness, confirm that the setting is on, and restart before starting a new chat. On first use, allow time for the plugin to download.
+* **The agent doesn't ask to turn it on**: The activation prompt isn't shown in Autopilot or chats with automatic replies. Run `/computer on` yourself. Use the command if you previously selected **Not Now**, which suppresses further activation prompts in that chat.
+* **The macOS setup dialog closes before you finish**: Finish granting permissions in System Settings, then ask the agent to retry the task.
 
 ## Built-in tools and context reference
 
@@ -352,7 +327,7 @@ For individual names, descriptions, and availability, see the [Tools and context
 <details>
 <summary>How do I know which tools are available?</summary>
 
-Type `#` in the chat input field to browse available tools and context items. For Copilot harness sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools. For Local harness sessions, use **Configure Tools** in the chat input.
+Type `#` in the chat input field to browse available tools and context items. For Copilot harness sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools. For Local harness sessions `feature(local-harness)`, use **Configure Tools** in the chat input.
 
 </details>
 

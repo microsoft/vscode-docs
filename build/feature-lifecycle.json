@@ -5,6 +5,14 @@
       "label": "Agent artifacts",
       "state": "experimental"
     },
+    "agent-driven-model-comparisons": {
+      "label": "Agent-driven model comparisons",
+      "state": "experimental"
+    },
+    "agent-hooks": {
+      "label": "Agent hooks",
+      "state": "preview"
+    },
     "agent-host-byok-models": {
       "label": "BYOK models in Agent Host",
       "state": "experimental"
@@ -20,6 +28,10 @@
     "agents-window-chat-backgrounds": {
       "label": "Agents window chat backgrounds",
       "state": "experimental"
+    },
+    "agents-window-chat-windows": {
+      "label": "Chat windows in the Agents window",
+      "state": "preview"
     },
     "agents-window-pr-comments": {
       "label": "Pull request comments in the Agents window",
@@ -39,8 +51,7 @@
     },
     "canvases": {
       "label": "Canvases",
-      "state": "preview",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/340946"
+      "state": "preview"
     },
     "chat-pet": {
       "label": "VS Code pet",
@@ -48,11 +59,14 @@
     },
     "cloud-automations": {
       "label": "Cloud automations",
-      "state": "preview",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/340970"
+      "state": "preview"
     },
     "cloud-sessions": {
       "label": "Cloud sessions",
+      "state": "experimental"
+    },
+    "computer-use": {
+      "label": "Computer use",
       "state": "experimental"
     },
     "copilot-connectors": {
@@ -71,6 +85,10 @@
       "label": "GitHub environments",
       "state": "preview"
     },
+    "image-generation": {
+      "label": "Image generation",
+      "state": "experimental"
+    },
     "integrated-browser-full-page-screenshot": {
       "label": "Integrated browser full page screenshots",
       "state": "experimental"
@@ -78,6 +96,12 @@
     "integrated-browser-remote": {
       "label": "Integrated browser remote connections",
       "state": "experimental"
+    },
+    "local-harness": {
+      "label": "Local harness",
+      "state": "deprecated",
+      "message": "The Local harness is deprecated and will be removed in February 2027. Move your workflows to the Copilot harness before then.",
+      "moreInfoUrl": "/docs/agents/run/move-to-copilot"
     },
     "markdown-editor": {
       "label": "Markdown Editor",
@@ -91,10 +115,13 @@
       "label": "MCP Apps",
       "state": "experimental"
     },
+    "mcp-skills": {
+      "label": "Skills from MCP servers",
+      "state": "experimental"
+    },
     "mixed-harness-chats": {
       "label": "Mixed-harness chats",
-      "state": "experimental",
-      "trackingUrl": "https://github.com/microsoft/vscode/issues/344927"
+      "state": "experimental"
     },
     "modern-ui": {
       "label": "Modern UI",
@@ -110,6 +137,14 @@
     },
     "rubber-duck": {
       "label": "Rubber Duck",
+      "state": "experimental"
+    },
+    "sessions-list-inbox": {
+      "label": "Sessions list Inbox mode",
+      "state": "experimental"
+    },
+    "sessions-list-inline-actions": {
+      "label": "Sessions list inline actions",
       "state": "experimental"
     },
     "subagent-auto-model-selection": {

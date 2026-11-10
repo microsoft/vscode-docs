@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Find, create, and manage agent customizations for a session's harness, workspace, and environment in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - ai
@@ -45,7 +45,7 @@ Start with a recurring task or an observed problem, such as the agent using the 
 | Stop repeating project commands and conventions | [Create or refine project instructions](/docs/agent-customization/custom-instructions.md#get-started-with-project-instructions) |
 | Reuse a multi-step process specific to your team | [Create or adapt an agent skill](/docs/agent-customization/agent-skills.md#create-a-skill) |
 | Give a recurring role focused guidance and tools | [Create a custom agent](/docs/agent-customization/custom-agents.md) |
-| Connect an external service | [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` or [add an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) |
+| Connect an external service | [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` or [add an MCP server](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command) |
 | Run an action at specific events of the agent's workflow | [Configure a hook](/docs/agent-customization/hooks.md) |
 
 To understand what each type contributes, see [customization building blocks](/docs/agents/concepts/customization.md#customization-building-blocks).
@@ -79,7 +79,7 @@ To open the Agent Customizations editor:
 
 1. Use the tabs in the editor to navigate between different customization types, such as skills, custom agents, hooks, and MCP servers.
 
-    The experimental **Extensions** section also lets you [choose which installed extensions run in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
+    The experimental **Extensions** section also lets you [install and manage extensions in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
 
 For remote hosts and Dev Containers, see [Manage customizations for remote sessions](#manage-customizations-for-remote-sessions).
 
@@ -120,7 +120,7 @@ To find and install a customization:
 
 If your team shares plugins through another marketplace, select **Configure Marketplaces** from the source menu to [add or manage plugin marketplaces](/docs/agent-customization/agent-plugins.md#configure-plugin-marketplaces). Adding a marketplace makes its plugins available to browse. It doesn't install them.
 
-After installation, complete any publisher setup and [verify the customization](#verify-a-customization) with a representative task. For type-specific guidance, see [install a skill](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview), [install a plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace), or [find an MCP server](/docs/agent-customization/mcp-servers.md#find-another-server).
+After installation, complete any publisher setup and [verify the customization](#verify-a-customization) with a representative task. For type-specific guidance, see [install a skill](/docs/agent-customization/agent-skills.md#install-a-skill-from-the-customization-marketplace-preview), [install a plugin](/docs/agent-customization/agent-plugins.md#install-a-plugin-from-a-marketplace), or [find an MCP server](/docs/agent-customization/mcp-servers.md#find-and-install-a-server).
 
 ### Marketplace availability
 
@@ -146,7 +146,7 @@ For file-based customizations, use the editor to create a file at [user or works
 
 You can also run the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). The command creates the corresponding file in a supported location for that customization type.
 
-To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps, see [Add MCP servers](/docs/agent-customization/mcp-servers.md#connect-a-server). To update an existing connection, see [Edit an MCP server configuration](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration).
+To add an MCP server manually, select **MCP Servers**, select **Add Server** (**+**) in the **User** or **Workspace** group, and follow the guided flow. For detailed steps, see [Add MCP servers](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command). To update an existing connection, see [Edit an MCP server configuration](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration).
 
 Creating or saving a file doesn't establish that the agent uses it. Verify the customization before relying on it or sharing it with your team.
 
@@ -309,7 +309,7 @@ The **Canvases** section lists canvas extensions available to the active local {
 
 ### Use customizations in a monorepo
 
-In monorepo setups, you might open a subfolder of a repository rather than the repo root. For Local harness discovery, enable `setting(chat.useCustomizationsInParentRepositories)` to also discover customizations from the parent repository. Other harnesses use their own discovery rules. See [nested project instructions](/docs/agents/reference/custom-instructions-reference.md#nested-project-instructions).
+In monorepo setups, you might open a subfolder of a repository rather than the repo root. For Local harness discovery `feature(local-harness)`, enable `setting(chat.useCustomizationsInParentRepositories)` to also discover customizations from the parent repository. Other harnesses use their own discovery rules. See [nested project instructions](/docs/agents/reference/custom-instructions-reference.md#nested-project-instructions).
 
 When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
 
