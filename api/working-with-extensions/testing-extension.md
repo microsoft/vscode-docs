@@ -323,9 +323,9 @@ await runTests({
 
 ### Debugging with a clean, isolated profile
 
-By default, the Extension Development Host uses your default profile, inheriting your personal settings, keybindings, and UI configurations. To run and debug your extension in a clean, isolated environment without affecting your personal profile, add the `--profile-temp` argument to the `args` array in `launch.json` or to the `launchArgs` option in `@vscode/test-electron`.
+When you launch the Extension Development Host from {% data variables.product.prodname_vscode_shortname %}, it can reuse an existing profile and its settings, keybindings, and extensions. To run and debug your extension in a clean, isolated environment without affecting your personal profile, add the `--profile-temp` argument to the `args` array in `launch.json` or to the `launchArgs` option in `@vscode/test-electron`.
 
-Passing `--profile-temp` creates a temporary, empty profile for the session that is automatically deleted when the Extension Development Host window closes.
+Passing `--profile-temp` creates a new, empty temporary profile for the debugging session.
 
 ```json
 {

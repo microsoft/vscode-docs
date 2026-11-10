@@ -46,7 +46,7 @@ For a TypeScript project, fill out the following fields:
 
 Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
 
-> **Tip:** The Extension Development Host inherits your existing settings and installed extensions by default. You can add `"--profile-temp"` to the `args` array in `.vscode/launch.json` to launch the Extension Development Host with an empty, temporary profile.
+> **Tip:** When you launch the Extension Development Host from {% data variables.product.prodname_vscode_shortname %}, it can reuse an existing profile with your settings and extensions. You can add `"--profile-temp"` to the `args` array in `.vscode/launch.json` to launch it with a new, empty temporary profile.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
