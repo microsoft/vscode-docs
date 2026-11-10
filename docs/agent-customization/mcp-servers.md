@@ -1,7 +1,7 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
 DateApproved: 11/11/2026
-MetaDescription: Connect MCP servers in {% data variables.product.prodname_vscode_shortname %} to give agents external tools, then verify the first tool call.
+MetaDescription: Connect MCP servers to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} and verify a tool call.
 MetaSocialImage: images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
 - mcp
@@ -29,8 +29,7 @@ This article takes you from adding a server to verifying its first tool call. Ch
 ## Before you start
 
 * [Enable AI features](/docs/getstarted/overview.md#enable-ai-features) and open a local project folder in {% data variables.product.prodname_vscode_shortname %}.
-* Select the intended harness in the **Session Target** dropdown. The walkthrough below uses **Copilot** and a personal configuration. Choose a different destination below if you need to share the server or use a Local harness `feature(local-harness)` configuration.
-* For manually configured servers, check the server publisher's prerequisites. A remote HTTP server can require an account or sign-in. A server launched by a command needs its runtime installed on the machine that runs it.
+* Select the intended harness in the **Session Target** dropdown. The walkthrough below uses **Copilot** and a personal configuration. Choose a different destination below if you need to share the server or retain a deprecated Local harness `feature(local-harness)` configuration.
 
 > [!CAUTION]
 > Local MCP servers can run code on your machine, and tools can access external services using your permissions. Review the publisher, command or endpoint, and requested access before installing or starting a server. Only trust configurations you have reviewed. Learn about [MCP server trust](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust).
@@ -46,6 +45,8 @@ Choose a destination before adding the server so its tools are available to the 
 | Use a Local harness configuration `feature(local-harness)` with input variables or per-server sandboxing | Workspace `.vscode/mcp.json` or user-profile `mcp.json`. These destinations remain available for compatibility and are labeled deprecated in the guided flow. |
 
 Portable files use a top-level `mcpServers` object. The {% data variables.product.prodname_vscode_shortname %} format uses `servers`. Don't copy a configuration between them without checking the [format and capability reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
+
+The {% data variables.product.prodname_copilot_short %} runtime reads native configuration on the host where it runs, independently of editor discovery. A connected editor can also forward eligible definitions from editor configuration and extensions. See [editor forwarding](/docs/agents/reference/mcp-configuration.md#editor-forwarding-to-copilot) for restrictions. The guided form and the native runtime don't support exactly the same configuration fields.
 
 > [!IMPORTANT]
 > Portable configurations don't support {% data variables.product.prodname_vscode_shortname %} input variables or environment files. Servers requiring interactive inputs aren't forwarded to Copilot harness sessions. Use the [authentication guidance for your configuration](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets), rather than adding unsupported credential placeholders.
@@ -127,7 +128,7 @@ Adding a configuration isn't proof that the agent can use the server. Complete a
 
 If you only wanted to try the server, open **Chat: Open Customizations** > **MCP Servers** and use its ellipsis (**...**) menu to **Disable** or **Uninstall** it. Stopping a server only ends its current run; a later request can start it again. If **Uninstall** isn't available, follow [removal instructions for its configuration source](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server).
 
-To control available tools in a Copilot session, open **Chat: Open Customizations** > **Tools**. For Local harness sessions `feature(local-harness)`, use **Configure Tools** in the chat input. See [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) for the differences.
+To control native {% data variables.product.prodname_copilot_short %} MCP tools, see the server's `tools` filter in the [native configuration reference](/docs/agents/reference/mcp-configuration.md#portable-configuration). **Chat: Open Customizations** > **Tools** manages client-provided tools, not necessarily every tool from a native MCP server. For Local harness `feature(local-harness)` sessions, use **Configure Tools** in the chat input. See [Manage available tools](/docs/agents/run/tools.md#manage-available-tools) for the differences.
 
 ## Find another server
 
@@ -174,15 +175,17 @@ These options appear only when model-assisted setup is supported in your current
 
 ## Use context and prompts from your server
 
-Servers can provide more than tools. Available capabilities depend on the server and your session:
-
-* **Resources:** attach server-provided data to a request from **Add Context** > **MCP Resources**, or run **MCP: Browse Resources**.
-
-* **Prompts:** use a server's prompt template by typing `/<server>.<prompt>` in chat.
+Servers can provide more than tools. Availability depends on the server, harness, and connected client. See [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-features-supported-by-vs-code):
 
 * **Skills:** load [server-provided skills](/docs/agent-customization/agent-skills.md#use-skills-from-an-mcp-server) `feature(mcp-skills)` in {% data variables.product.prodname_copilot_short %} harness sessions.
 
-* **MCP Apps (Experimental):** supported servers can display interactive forms or visualizations in chat. See [MCP Apps support](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support).
+* **Elicitation:** servers can ask for input through host-rendered questions or a URL interaction during a {% data variables.product.prodname_copilot_short %} task. These requests aren't custom server-provided UI. See [elicitation](/api/extension-guides/ai/mcp.md#elicitation).
+
+* **MCP Apps (Experimental):** supported servers can display custom interactive forms or visualizations in {% data variables.product.prodname_vscode_shortname %} chat for both {% data variables.product.prodname_copilot_short %} and Local harness `feature(local-harness)` sessions. This requires a connected client that renders MCP Apps. See [MCP Apps support](/api/extension-guides/ai/mcp.md#mcp-apps).
+
+* **Resources:** for servers discovered by the editor's MCP client, run **MCP: Browse Resources**. In sessions that support MCP resource attachments, use **Add Context** > **MCP Resources**. These editor controls don't list every native {% data variables.product.prodname_copilot_short %} server's resources.
+
+* **Prompts:** in the deprecated Local harness `feature(local-harness)`, select a server's prompt template with `/mcp.<server>.<prompt>`. This editor slash-command workflow isn't available in {% data variables.product.prodname_copilot_short %} harness sessions.
 
 ## If the server does not work
 

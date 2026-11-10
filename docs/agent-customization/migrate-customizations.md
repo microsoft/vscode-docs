@@ -94,6 +94,8 @@ For a complete list of customization types and supported locations, see the [Cop
 
 MCP server migration moves compatible configurations to files that the Copilot harness reads directly:
 
+Migration is different from [editor forwarding](/docs/agents/reference/mcp-configuration.md#editor-forwarding-to-copilot), which can make eligible existing definitions available without moving their configuration. Neither path preserves every editor-specific capability. Check [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-features-supported-by-vs-code) if your workflow depends on prompts, resources, sampling, or interactive UI.
+
 | Existing configuration | Destination |
 |------------------------|-------------|
 | Workspace `.vscode/mcp.json` | `.mcp.json` at the corresponding workspace root |
@@ -108,6 +110,8 @@ To migrate MCP servers:
 1. Review the source, destination, and any properties that the destination format cannot preserve.
 1. Select **Migrate** for the group. You can also open one server and select **Migrate** from its detail page.
 1. Open the destination file and test the server with the Copilot harness.
+
+Test authentication and the capabilities your workflow needs, not only whether the server starts. Editor sampling model permissions, development mode, and editor-provided UI are not portable configuration properties.
 
 {% data variables.product.prodname_vscode_shortname %} writes and verifies each destination entry before removing the migrated entry from its source file. Unselected servers and servers that cannot be migrated stay in their current files.
 
@@ -183,7 +187,7 @@ Replace the example URL with your server's endpoint. For a stdio server, referen
 }
 ```
 
-Add this `env` object to the server's existing command and arguments. To update a portable entry, use **Chat: Open Customizations** > **MCP Servers**, select the server, and edit its headers or environment variables in the [configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration). Enter the reference, not the credential value, then select **Save**.
+Add this `env` object to the server's existing command and arguments. To update a portable entry, use **Chat: Open Customizations** > **MCP Servers** and select the server. For Copilot user configuration, enter references in the headers or environment-variable fields of the [configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration), then select **Save**. For workspace-root `.mcp.json`, select **Other Properties** and edit the source JSON because the form rejects `${...}` expressions. Enter the reference, not the credential value.
 
 Before testing:
 
