@@ -112,6 +112,12 @@ For more information, see [adding context to chat prompts](/docs/chat/copilot-ch
 
 ## Choose the right model
 
+{% action-card title="Choose models for your tasks" display="sidebar" %}
+Start with Fusion, Auto, or an individual model, then evaluate results on your code.
+
+* [Compare and choose models](/docs/agents/guides/choose-a-model.md)
+{% /action-card %}
+
 Each AI model has different strengths. Some are better at reasoning, others excel at code generation or faster responses. Choosing the right model for your task improves results.
 
 * **Match model to task complexity.** Use fast models for simple completions and boilerplate. Switch to reasoning-optimized models for planning, debugging, or architectural decisions.
@@ -120,7 +126,7 @@ Each AI model has different strengths. Some are better at reasoning, others exce
 
 * **Pin models in prompt files and agents.** Specify preferred models in your prompt file or custom agent definitions to ensure the right model is used consistently for specific tasks.
 
-* **Experiment and compare.** If you're not satisfied with a response, try a different model. Different models can produce significantly different results for the same prompt.
+* **Experiment and compare.** If you're not satisfied with a response, try a different model. Follow the [Compare and choose models guide](/docs/agents/guides/choose-a-model.md) to evaluate alternatives on your own code.
 
 * **Adjust thinking effort for reasoning models.** Use the [thinking effort control](/docs/agent-customization/language-models.md#configure-thinking-effort) in the model picker to increase effort for complex tasks or reduce it for simpler ones.
 

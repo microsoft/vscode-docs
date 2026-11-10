@@ -95,7 +95,7 @@ For a first agent task, [use the quickstart](/docs/agents/quickstart.md) without
 
 | Choice | Options |
 |--------|---------|
-| **Models** | Choose [models from multiple providers](/docs/agent-customization/language-models.md) through {% data variables.product.prodname_copilot %}, or use your own [API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) or a supported local model. |
+| **Models** | Choose [models from multiple providers](/docs/agent-customization/language-models.md) through {% data variables.product.prodname_copilot %}, or use your own [API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) or a supported local model. For help deciding, [compare and choose models for your tasks](/docs/agents/guides/choose-a-model.md). |
 | **Agent harnesses** | Choose between {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude_short %}, or {% data variables.product.prodname_openai_codex_short %} based on its [tools and workflows](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses). |
 | **Access and billing** | Use your existing {% data variables.product.prodname_copilot %} plan, a supported provider account, or an API key. Check [requirements for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
 | **Customization** | Tailor agents with [plugins](/docs/agent-customization/agent-plugins.md), [project instructions](/docs/agents/guides/customize-copilot-guide.md), and [skills](/docs/agent-customization/agent-skills.md). Connect external tools through [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md). |
