@@ -101,7 +101,7 @@ For source availability and setup, see [Discover and install existing customizat
 An [MCP server](/docs/agent-customization/mcp-servers.md) can provide Agent Skills alongside its tools. These skills supply reusable instructions for working with a service, without requiring you to copy a skill directory into your project. This feature requires the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) and isn't available in Local harness sessions `feature(local-harness)`.
 
 1. Enable the `setting(chat.agentHost.mcpSkills.enabled)` setting. It is off by default.
-1. [Connect an MCP server](/docs/agent-customization/mcp-servers.md#connect-a-server) that provides skills, following the publisher's setup instructions.
+1. [Add an MCP server](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command) that provides skills, following the publisher's setup instructions.
 1. Start a new session with the {% data variables.product.prodname_copilot_short %} harness. Changing the setting doesn't affect sessions that are already running.
 1. Ask the agent to describe the skills available from that server.
 1. With that session selected, run **Chat: Open Customizations** and select **Skills**. Server-provided skills appear under **Skills from \<server\>**. Open a skill to inspect its read-only instructions.

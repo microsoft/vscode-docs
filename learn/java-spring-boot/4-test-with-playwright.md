@@ -67,7 +67,7 @@ the layer this chapter covers.
 
 > [!NOTE]
 > If marketplace discovery or automatic installation isn't available, follow the
-> [Playwright connection steps](/docs/agent-customization/mcp-servers.md#connect-a-server)
+> [Playwright connection steps](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command)
 > to add the publisher's command through **MCP: Add Server**. Marketplace sources depend
 > on the harness and organization policy.
 >

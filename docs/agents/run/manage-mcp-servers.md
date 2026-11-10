@@ -1,7 +1,7 @@
 ---
 ContentId: f35e56c9-6307-4741-94f0-5d6eb9699197
 DateApproved: 11/11/2026
-MetaDescription: Edit, share, stop, and troubleshoot MCP servers in {% data variables.product.prodname_vscode %}, with guidance on trust and remote environments.
+MetaDescription: Manage MCP servers in {% data variables.product.prodname_copilot_short %} sessions and distinguish runtime controls from editor-managed connections.
 MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:
 - mcp
@@ -15,6 +15,8 @@ Keywords:
 Change, stop, share, or troubleshoot an existing MCP server in {% data variables.product.prodname_vscode %}. For first-time setup, see [Add MCP servers](/docs/agent-customization/mcp-servers.md). For formats and properties, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
 Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to edit connections, start or stop servers, change their enabled state, and view output. The editor uses the selected session's harness, workspace, and execution environment as its context. The configuration form steps below use the {% data variables.product.prodname_copilot_short %} harness. For differences in server support and configuration, see [Agent harnesses](/docs/agents/run/agent-harnesses.md).
+
+The Copilot runtime and the editor can connect to the same configured server independently. A control for the editor-managed connection does not necessarily affect the Copilot connection. Use the intended session's server entry, rather than assuming that a profile configuration, CodeLens action, or editor log represents the runtime server.
 
 ## Open the server controls
 
@@ -44,6 +46,8 @@ Enter arguments as a space-separated string or a JSON array of strings. With foc
 
 Portable configurations support form editing. {% data variables.product.prodname_vscode_shortname %} formats appear as read-only JSON, so edit their source file instead. Check the [configuration file comparison](/docs/agents/reference/mcp-configuration.md#configuration-file) for supported fields and forwarding restrictions. Legacy destinations can still be necessary for {% data variables.product.prodname_vscode_shortname %}-specific capabilities.
 
+For credentials, use [environment-variable references](/docs/agents/reference/mcp-configuration.md#environment-variable-references) instead of literal secrets. The workspace-root form rejects `${...}` expressions; edit those references through **Other Properties** in the source `.mcp.json`. The Copilot user configuration form accepts environment-variable references.
+
 <a name="start-stop-or-restart-a-server"></a>
 
 ## Control or remove a server
@@ -54,7 +58,8 @@ In **MCP Servers** in the [Agent Customizations editor](#open-the-server-control
 |--------|----------------|
 | **Start Server** | Start a configured server. |
 | **Stop Server** | End the current run. A later request can start the server again. |
-| **Restart Server** | Restart after changing configuration or resolving a problem. If this action isn't offered, stop the server and then start it again. |
+| **Restart Server** | Restart an editor-managed connection. For Copilot runtime servers, stop the server and then start it again. |
+| **Authenticate** | Complete authorization for a Copilot server that requires sign-in. This action appears when authentication is required. |
 | **Enable** or **Disable** | Control availability without deleting the configuration. |
 | **Uninstall** | Remove a server you no longer need. |
 
@@ -62,9 +67,11 @@ Starting can require trust or authentication. If the server fails to start, [vie
 
 <a name="enable-or-disable-mcp-servers"></a>
 
-**Disabling is different from stopping.** A disabled server doesn't start, and its tools, resources, prompts, and MCP apps are unavailable. Use the toggle beside the server, or select an enablement action from its menu to choose a scope. Depending on the server and harness, global, workspace, or session scope is available. The enabled state is separate from shared configuration, so disabling a server doesn't change your teammates' configuration.
+**Disabling is different from stopping.** A disabled server is unavailable in the scope you choose. Use the toggle beside the server, or select an enablement action from its menu to choose a scope. Depending on the server and harness, global, workspace, or session scope is available. The enabled state is separate from shared configuration, so disabling a server doesn't change your teammates' configuration.
 
 The configuration destination doesn't determine the enablement scope. For example, you can disable a workspace-defined server for one session, where supported, without editing its shared configuration. A global action can affect other sessions, even when you open the editor from a particular session. For remote sessions, check the server's source and available actions in that session's context. See [what customization changes affect](/docs/agent-customization/overview.md#understand-what-a-change-affects).
+
+If a server is unavailable because its plugin is disabled, use **Enable Plugin** when offered. Review the plugin's other contributions before enabling it.
 
 <a name="remove-an-mcp-server"></a>
 
@@ -97,11 +104,13 @@ To reuse configuration from another application, see [automatic MCP server disco
 
 ### Remote workspaces and dev containers
 
-Local user-profile stdio servers run locally. For [remote execution](/docs/remote/remote-overview.md), configure the server in the remote workspace or use **MCP: Open Remote User Configuration**. Install its runtime and dependencies where the command executes.
+For Copilot sessions, configure native servers in `.mcp.json` in the session's workspace or in the Copilot user configuration on the host where the harness runs. Install stdio runtimes and provide credentials in that environment. A local client's Copilot user file is not forwarded to a remote host.
 
 An HTTP server's URL identifies the service. Storing its configuration remotely doesn't move the service.
 
-To include a server in a Dev Container, add `customizations.vscode.mcp` to `devcontainer.json`. This example uses an image with Node.js for the `npx` command:
+For editor-managed compatibility, local user-profile stdio servers run locally. Use **MCP: Open Remote User Configuration** for the editor's remote `mcp.json`, not the Copilot user file. Eligible definitions can be [forwarded to Copilot](/docs/agents/reference/mcp-configuration.md#editor-forwarding-to-copilot), where paths and dependencies must work in the harness's execution environment.
+
+To supply an editor-managed configuration through a Dev Container, add `customizations.vscode.mcp` to `devcontainer.json`. This example uses an image with Node.js for the `npx` command:
 
 ```json
 {
@@ -138,6 +147,8 @@ This synchronizes the user-profile `mcp.json`, not workspace `.mcp.json` files o
 
 Trust controls whether a server can start. Authentication controls access to its service. Tool availability controls what the agent can use, while [approvals](/docs/agents/run/approvals.md) control individual actions. Resolving one of these doesn't automatically resolve the others.
 
+For native Copilot configuration, use the server's `tools` list to limit which tools are available. For editor-provided tools, use the [Tools tab](/docs/agents/run/tools.md#manage-available-tools). Neither a tool selection nor a server's `readOnlyHint` annotation is a substitute for the applicable approval policy.
+
 ### MCP server trust
 
 Workspace `.vscode/mcp.json` and `.mcp.json` configurations inherit [Workspace Trust](/docs/editing/workspaces/workspace-trust.md). Restricted mode prevents these servers from starting. In a trusted workspace, they can start without a separate MCP trust prompt, including after configuration changes.
@@ -146,7 +157,13 @@ Review MCP configuration before trusting a repository because stdio servers can 
 
 Non-workspace sources can use a separate trust decision and might prompt on first start or after a configuration change. Review the configuration linked from the prompt. If you don't trust it, continue without that server.
 
-Run **MCP: Reset Trust** to reset separate MCP trust decisions. This doesn't reset Workspace Trust.
+Run **MCP: Reset Trust** to reset separate editor-managed MCP trust decisions. This doesn't reset Workspace Trust or Copilot runtime tool approvals.
+
+### Sampling and model access
+
+Sampling lets an MCP server request a model response. In Copilot sessions, review the sampling request in the conversation and choose **Allow Once**, **Always Allow for This Server**, or **Skip**. Sampling has its own approval flow; trusting the server or enabling its tools does not grant sampling access. See [sampling behavior and limits](/api/extension-guides/ai/mcp.md#sampling).
+
+For editor-managed connections used by the Local harness `feature(local-harness)`, **MCP: List Servers** can offer **Configure Model Access** and **Show Sampling Requests**. These controls and `setting(chat.mcp.serverSampling)` apply to the editor's sampling service, not the Copilot runtime's model selection.
 
 ### Sandbox MCP servers
 

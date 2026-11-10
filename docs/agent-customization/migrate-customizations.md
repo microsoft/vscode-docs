@@ -94,6 +94,8 @@ For a complete list of customization types and supported locations, see the [Cop
 
 MCP server migration moves compatible configurations to files that the Copilot harness reads directly:
 
+Migration is different from [editor forwarding](/docs/agents/reference/mcp-configuration.md#editor-forwarding-to-copilot), which can make eligible existing definitions available without moving their configuration. Neither path preserves every editor-specific capability. Check [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-support-in-copilot) if your workflow depends on prompts, resources, sampling, or interactive UI.
+
 | Existing configuration | Destination |
 |------------------------|-------------|
 | Workspace `.vscode/mcp.json` | `.mcp.json` at the corresponding workspace root |
@@ -108,6 +110,8 @@ To migrate MCP servers:
 1. Review the source, destination, and any properties that the destination format cannot preserve.
 1. Select **Migrate** for the group. You can also open one server and select **Migrate** from its detail page.
 1. Open the destination file and test the server with the Copilot harness.
+
+Test authentication and the capabilities your workflow needs, not only whether the server starts. Editor sampling model permissions, development mode, and editor-provided UI are not portable configuration properties.
 
 {% data variables.product.prodname_vscode_shortname %} writes and verifies each destination entry before removing the migrated entry from its source file. Unselected servers and servers that cannot be migrated stay in their current files.
 
@@ -183,7 +187,7 @@ Replace the example URL with your server's endpoint. For a stdio server, referen
 }
 ```
 
-Add this `env` object to the server's existing command and arguments. To update a portable entry, use **Chat: Open Customizations** > **MCP Servers**, select the server, and edit its headers or environment variables in the [configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration). Enter the reference, not the credential value, then select **Save**.
+Add this `env` object to the server's existing command and arguments. To update a portable entry, use **Chat: Open Customizations** > **MCP Servers** and select the server. For Copilot user configuration, enter references in the headers or environment-variable fields of the [configuration form](/docs/agents/run/manage-mcp-servers.md#edit-an-mcp-server-configuration), then select **Save**. For workspace-root `.mcp.json`, select **Other Properties** and edit the source JSON because the form rejects `${...}` expressions. Enter the reference, not the credential value.
 
 Before testing:
 
@@ -273,7 +277,7 @@ After completing the migration path for your customization:
 1. Confirm that the migrated agents, instructions, skills, MCP servers, or plugins appear in the Agent Customizations editor. This checks discovery, not whether they work.
 1. Repeat the representative task you chose before migration without restating the customization's guidance.
 1. Check actual inclusion or invocation through references, tool activity, or hook execution logs, as applicable. Compare the output, tools, and approvals with your expected result.
-1. For a replaced tool set, check for missing capabilities and preserved tool restrictions. For a replaced participant, test its workflows, unavailable-service errors, approvals, and any MCP App interactions.
+1. For a replaced tool set, check for missing capabilities and preserved tool restrictions. For a replaced participant, test its workflows, unavailable-service errors, approvals, input collection, and any MCP App interactions.
 1. Check that old and migrated copies aren't both active.
 1. Review and commit workspace migrations when your team should share them. Remove remaining old files and settings only after the migrated customization works.
 
@@ -612,7 +616,80 @@ For an extension-provided participant, check whether its publisher provides an [
 
 There is no automatic conversion of an installed participant. If its publisher has not provided a replacement, ask for one. Keep Local compatibility only while you still need the original integration.
 
-If you maintain the participant implementation, follow the separate [publisher guidance](#if-you-maintain-a-participant) after the FAQ.
+### If you maintain a participant
+
+This section is for extension publishers replacing a participant implementation. If you only use an installed participant, follow the [user guidance](#if-you-use-a-participant) instead.
+
+Start with an **agent plugin containing skills and an MCP server**. Skills describe the domain workflow, and MCP tools provide the data and actions needed to complete it. Add a custom agent when users need an ongoing specialist role. This separates reusable expertise from the code that accesses a service and makes the integration usable beyond one editor.
+
+Choose based on the interaction, not the participant as a whole:
+
+* **[MCP elicitation](/api/extension-guides/ai/mcp.md#elicitation):** use when a tool needs input and standard host controls are sufficient. Supply a question and schema without building a frontend, for example to select exercise difficulty.
+* **[MCP Apps](/api/extension-guides/ai/mcp.md#mcp-apps):** use when the interaction needs your own layout, controls, or visualization. Implement a frontend, for example an interactive exercise that accepts answers and shows feedback.
+
+An integration can use both. Prefer [extension tools](/api/extension-guides/ai/tools.md) when the integration needs editor APIs or live editor context that an independent MCP server cannot access.
+
+Inventory the responsibilities of your participant before choosing its components:
+
+| Participant responsibility | Migration approach | What to review |
+|----------------------------|--------------------|----------------|
+| Domain instructions and examples | Put task-specific knowledge in a skill. Use a custom agent for a persistent role, or instruction files for standing project guidance. | Move the useful instructions, not the entire request-handler implementation. |
+| Slash commands such as `@tutor /exercise` | Create explicitly invoked skills for the workflows. Set `disable-model-invocation: true` when they should run only on request. | Choose the skill name and argument guidance. Plugin skills use the plugin's command prefix, not the old `@participant` syntax. |
+| Service access, retrieval, or actions | Expose bounded operations as MCP tools and include the server configuration in the plugin. | Preserve authentication, input validation, cancellation, error reporting, and approval requirements. Do not put secrets in the plugin. |
+| Missing information or a structured choice during a tool call | Use MCP elicitation to collect input through host-rendered controls. | Requests require an active turn and are canceled in Autopilot. Handle declined or canceled input without continuing the action that needs it. Keep credentials out of forms. |
+| Custom forms, visualizations, or interactive exercise UI | Return an MCP App from a tool and implement the interaction in its UI. | This requires a new UI implementation, not a conversion of `ChatResponseStream` calls. |
+| Selection, diagnostics, or other editor state | Let users attach context, or expose editor-specific operations through extension tools. | An MCP server does not automatically have access to {% data variables.product.prodname_vscode_shortname %} APIs. Extension tools require the contributing extension and a connected editor. |
+| A procedure that must run in a fixed order | Keep the procedure in a script or tool implementation and use the skill to describe when to call it. | Model instructions are not a substitute for deterministic execution or validation. |
+| Custom model calls, conversation history, or response rendering | Refactor a bounded operation into a tool, or retain the bespoke experience in extension commands and views. | A custom agent or skill does not take over the harness's conversation loop. Participant history, feedback events, routing rules, and arbitrary response parts have no automatic mapping. |
+
+Neither an elicitation response nor an MCP App confirmation replaces host tool approvals or service authorization.
+
+MCP Apps require a client that supports their UI. Provide a useful text or structured tool result for clients without that support. Test app behavior in each target client instead of assuming that every Copilot interface renders the same controls. In {% data variables.product.prodname_vscode_shortname %}, review the [MCP Apps behavior and limitations](/api/extension-guides/ai/mcp.md#vs-code-behavior-and-limitations), including how apps add messages and context.
+
+#### Example: migrate a code tutor to a plugin
+
+Instead of replacing a code-tutor participant with one large custom-agent prompt, separate its capabilities:
+
+* **Teaching workflow:** a `teach-concept` skill asks conversational questions about the learner's experience, explains a concept, and proposes an exercise. Ordinary chat questions don't require elicitation or an MCP App.
+* **Exercise operations:** MCP tools retrieve exercises and check answers.
+* **Structured tool input:** an exercise tool uses elicitation to ask for a missing difficulty level before retrieving an exercise.
+* **Optional interactive exercise:** an MCP App displays the question, accepts an answer, and shows feedback. Keep a text-based exercise path for clients without app support.
+* **Optional Tutor agent:** a custom agent holds the teaching style for a longer conversation.
+* **Optional editor integration:** an extension tool supplies diagnostics or selected code when the workflow needs live editor APIs. Otherwise, ask the learner to attach the code.
+
+A plugin can package the portable parts together:
+
+```text
+code-tutor/
+  plugin.json
+  skills/
+    teach-concept/
+      SKILL.md
+  mcp.json
+  com.github.copilot/
+    agents/
+      tutor.agent.md
+```
+
+Use the [plugin manifest and format guidance](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) to configure the package. The MCP server supplies the exercise tools and app resources; the plugin does not automatically convert or embed the old participant extension.
+
+For the teaching skill, preserve explicit invocation:
+
+```markdown
+---
+name: teach-concept
+description: Explain a programming concept and guide the learner through an exercise.
+argument-hint: "[concept or code to explain]"
+disable-model-invocation: true
+---
+
+Ask about the learner's experience and the concept or code they want to understand.
+Explain the concept with a short example before offering an exercise.
+Use the exercise server's tools when available. If they are unavailable, explain
+that limitation and offer a text-only exercise instead.
+```
+
+With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-concept`, rather than `@tutor /teach`. Test the installed plugin and authentication, accepted, declined, and canceled elicitation responses, any app interactions, and the text-only path before retiring the participant.
 
 ## Frequently asked questions
 
@@ -659,72 +736,6 @@ Review each entry in `tools` against the capabilities available in the Copilot s
 Do not assume that removing a prefix or replacing a tool name fixes every discovery error. These editor hints aren't proof of a runtime tool-discovery failure.
 
 A separate report, [microsoft/vscode#342961](https://github.com/microsoft/vscode/issues/342961), describes tool search returning no results even when MCP tools are callable. If compatible tools still cannot be discovered, report the exact error, selected model, agent tool list, and environment rather than treating every discovery failure as an authentication problem.
-
-## If you maintain a participant
-
-This section is for extension publishers replacing a participant implementation. If you only use an installed participant, follow [Replace chat participants](#replace-chat-participants) instead.
-
-Start with an **agent plugin containing skills and an MCP server**. Skills describe the domain workflow, and MCP tools provide the data and actions needed to complete it. Add a custom agent when users need an ongoing specialist role. This separates reusable expertise from the code that accesses a service and makes the integration usable beyond one editor.
-
-For interactive controls, use [MCP Apps](/api/extension-guides/ai/mcp.md#mcp-apps). They can provide buttons, forms, visualizations, and multi-step interactions in chat. Prefer [extension tools](/api/extension-guides/ai/tools.md) when the integration needs editor APIs or live editor context that an independent MCP server cannot access.
-
-Inventory the responsibilities of your participant before choosing its components:
-
-| Participant responsibility | Migration approach | What to review |
-|----------------------------|--------------------|----------------|
-| Domain instructions and examples | Put task-specific knowledge in a skill. Use a custom agent for a persistent role, or instruction files for standing project guidance. | Move the useful instructions, not the entire request-handler implementation. |
-| Slash commands such as `@tutor /exercise` | Create explicitly invoked skills for the workflows. Set `disable-model-invocation: true` when they should run only on request. | Choose the skill name and argument guidance. Plugin skills use the plugin's command prefix, not the old `@participant` syntax. |
-| Service access, retrieval, or actions | Expose bounded operations as MCP tools and include the server configuration in the plugin. | Preserve authentication, input validation, cancellation, error reporting, and approval requirements. Do not put secrets in the plugin. |
-| Buttons, forms, or a confirmation step within a workflow | Return an MCP App from a tool and implement the interaction in its UI. | This requires a new UI implementation, not a conversion of `ChatResponseStream` calls. An app's confirmation step does not replace host tool approvals or authorization in the service. |
-| Selection, diagnostics, or other editor state | Let users attach context, or expose editor-specific operations through extension tools. | An MCP server does not automatically have access to {% data variables.product.prodname_vscode_shortname %} APIs. Extension tools require the contributing extension and a connected editor. |
-| A procedure that must run in a fixed order | Keep the procedure in a script or tool implementation and use the skill to describe when to call it. | Model instructions are not a substitute for deterministic execution or validation. |
-| Custom model calls, conversation history, or response rendering | Refactor a bounded operation into a tool, or retain the bespoke experience in extension commands and views. | A custom agent or skill does not take over the harness's conversation loop. Participant history, feedback events, routing rules, and arbitrary response parts have no automatic mapping. |
-
-MCP Apps require a client that supports their UI. Provide a useful text or structured tool result for clients without that support. Test app behavior in each target client instead of assuming that every Copilot interface renders the same controls. In {% data variables.product.prodname_vscode_shortname %}, review the [MCP Apps behavior and limitations](/api/extension-guides/ai/mcp.md#vs-code-behavior-and-limitations), including how apps add messages and context.
-
-### Example: migrate a code tutor to a plugin
-
-Instead of replacing a code-tutor participant with one large custom-agent prompt, separate its capabilities:
-
-* **Teaching workflow:** a `teach-concept` skill asks about the learner's experience, explains a concept, and proposes an exercise.
-* **Exercise operations:** MCP tools retrieve exercises and check answers.
-* **Interactive exercise:** an MCP App displays the question, accepts an answer, and shows feedback. Keep a text-based exercise path for clients without app support.
-* **Optional Tutor agent:** a custom agent holds the teaching style for a longer conversation.
-* **Optional editor integration:** an extension tool supplies diagnostics or selected code when the workflow needs live editor APIs. Otherwise, ask the learner to attach the code.
-
-A plugin can package the portable parts together:
-
-```text
-code-tutor/
-  plugin.json
-  skills/
-    teach-concept/
-      SKILL.md
-  mcp.json
-  com.github.copilot/
-    agents/
-      tutor.agent.md
-```
-
-Use the [plugin manifest and format guidance](/docs/agents/reference/agent-plugin-reference.md#plugin-manifest-pluginjson) to configure the package. The MCP server supplies the exercise tools and app resources; the plugin does not automatically convert or embed the old participant extension.
-
-For the teaching skill, preserve explicit invocation:
-
-```markdown
----
-name: teach-concept
-description: Explain a programming concept and guide the learner through an exercise.
-argument-hint: "[concept or code to explain]"
-disable-model-invocation: true
----
-
-Ask about the learner's experience and the concept or code they want to understand.
-Explain the concept with a short example before offering an exercise.
-Use the exercise server's tools when available. If they are unavailable, explain
-that limitation and offer a text-only exercise instead.
-```
-
-With a plugin named `code-tutor`, users invoke this skill as `/code-tutor:teach-concept`, rather than `@tutor /teach`. Test the installed plugin, authentication, app interactions, and text-only path before retiring the participant.
 
 ## Related resources
 
