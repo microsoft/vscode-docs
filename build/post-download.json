@@ -21,10 +21,10 @@
     },
     {
       "type": "release",
-      "title": "See what's new",
-      "description": "Explore the latest features and improvements in VS Code.",
-      "link": "/updates/v1_145",
-      "image": "/assets/updates/1_145/release-highlights.webp"
+      "title": "Your agents, one inbox",
+      "description": "Stay on top of agent work with inbox mode: focus on sessions that need your attention and snooze others for later. Compare model results side by side, give chats their own windows, and install extensions without leaving the Agents window.",
+      "link": "/updates/v1_146",
+      "image": "/assets/updates/1_146/release-highlights.webp"
     }
   ]
 }

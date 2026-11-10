@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.145 release",
-      "description": "Do more with remote agents, use cron for local automations, and declutter chat.",
-      "link": "/updates/v1_145",
-      "image": "/assets/updates/1_145/release-highlights.webp"
+      "title": "VS Code 1.146 release",
+      "description": "Triage sessions with inbox mode and try chat windows.",
+      "link": "/updates/v1_146",
+      "image": "/assets/updates/1_146/release-highlights.webp"
     },
     {
       "type": "documentation",
