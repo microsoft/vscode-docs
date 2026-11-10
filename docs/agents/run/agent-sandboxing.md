@@ -221,6 +221,24 @@ These server controls apply to processes managed by the [Agent Host](/docs/agent
 
 Turn off credential access that a task does not need. A process with credentials can act with the permissions of the associated account.
 
+### Mask environment variables
+
+In the {% data variables.product.prodname_copilot_short %} harness, use `setting(chat.agent.sandbox.credentials.envVars)` to protect environment variable values from sandboxed tools. Tools receive placeholders, and the sandbox restores the real values only in HTTPS requests to hosts listed in `injectHosts`.
+
+Enter variable names, not secret values. For example, mask `API_TOKEN` and supply its value only to `api.example.com`:
+
+```json
+{
+    "chat.agent.sandbox.credentials.envVars": {
+        "API_TOKEN": {
+            "injectHosts": ["api.example.com"]
+        }
+    }
+}
+```
+
+On Windows, masking requires [local-network access](#configure-network-access). On Windows and macOS, tools that rely on the operating system's certificate store might also need [sandbox CA certificate trust](#trust-the-sandbox-ca-certificate-on-windows-and-macos).
+
 ## Configure network access
 
 File system and network isolation are separate controls:
