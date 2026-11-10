@@ -151,7 +151,7 @@ Use these commands for Copilot setup and management from the Command Palette (`k
 |---------|------------------|
 | **Chat: Open Customizations** | Open **MCP Servers** in the intended session's context to add, edit, or manage servers. |
 | **MCP: Add Server** | Start guided setup. Choose **Copilot Global** for native user configuration or workspace-root `.mcp.json` when offered. |
-| **MCP: Browse MCP Servers** | Open [MCP discovery](/docs/agent-customization/mcp-servers.md#find-another-server). With marketplace discovery enabled, continue in the Agent Customizations editor. |
+| **MCP: Browse MCP Servers** | Open [MCP discovery](/docs/agent-customization/mcp-servers.md#find-and-install-a-server). With marketplace discovery enabled, continue in the Agent Customizations editor. |
 | **MCP: Install Server from Manifest** | Install from an MCP manifest. Review the destination rather than assuming it uses native Copilot configuration. |
 | **MCP: List Servers** | Open available server controls. Use the intended session's context because Copilot runtime and editor-managed connections have different actions. |
 
@@ -503,7 +503,7 @@ For example, from a Bash shell:
 code --add-mcp '{"name":"playwright","type":"stdio","command":"npx","args":["-y","@playwright/mcp@latest"]}'
 ```
 
-This uses the {% data variables.product.prodname_vscode_shortname %} format, not the portable Copilot user file. To choose a portable destination, use the [guided connection flow](/docs/agent-customization/mcp-servers.md#connect-a-server). After installation, [verify a tool call](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call).
+This uses the {% data variables.product.prodname_vscode_shortname %} format, not the portable Copilot user file. To choose a portable destination, use the [guided connection flow](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command). After installation, [verify a tool call](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call).
 
 ### Editor-managed settings
 

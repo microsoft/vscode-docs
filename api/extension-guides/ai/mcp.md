@@ -37,7 +37,7 @@ Connectors reuse the managed connection across supported {% data variables.produ
 
 ### Native configuration
 
-In {% data variables.product.prodname_vscode_shortname %}, users add servers through **Chat: Open Customizations** > **MCP Servers** > **Add Server**. **Global** > **Copilot Global** selects the native user configuration. Link your installation instructions to the [connection walkthrough](/docs/agent-customization/mcp-servers.md#connect-a-server).
+In {% data variables.product.prodname_vscode_shortname %}, users add servers through **Chat: Open Customizations** > **MCP Servers** > **Add Server**. **Global** > **Copilot Global** selects the native user configuration. Link your installation instructions to the [connection walkthrough](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command).
 
 For manual configuration, provide an entry using the portable `mcpServers` format. This example connects to an HTTP server:
 

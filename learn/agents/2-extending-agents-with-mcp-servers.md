@@ -39,7 +39,7 @@ For this lesson, use the Playwright MCP server as the example. It gives the agen
 
 1. Review any server trust or authentication prompts before accepting them.
 
-If **Browse**, **GitHub Feed**, or automatic installation isn't available, follow the [Playwright connection steps](/docs/agent-customization/mcp-servers.md#connect-a-server) to add the publisher's command directly. Source availability depends on the harness and organization policy.
+If **Browse**, **GitHub Feed**, or automatic installation isn't available, follow the [Playwright connection steps](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command) to add the publisher's command directly. Source availability depends on the harness and organization policy.
 
 When the server starts, the agent can discover and use its tools. Verify a tool call rather than relying on installation status alone.
 
