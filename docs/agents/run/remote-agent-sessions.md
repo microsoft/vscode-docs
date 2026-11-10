@@ -214,6 +214,8 @@ In the installed {% data variables.copilot.agents_window %}, discovering a machi
 
 Use the Remote Environments editor in the installed {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. This editor is optional; you don't need to open it to follow the connection steps above.
 
+To also manage how this computer is shared, enable `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`. In **This Computer**, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Local sessions continue to run on this computer whether sharing is on or off.
+
 The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When support for [{% data variables.copilot.github_environments %}](#github-environments) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
 
 Remote environment management requires `setting(sessions.chat.experimental.environmentPicker)`, `setting(sessions.chat.experimental.environmentPickerManageRemotes)`, and `setting(chat.remoteAgentHostsEnabled)`. All three settings are on by default.
