@@ -46,9 +46,9 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 {% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Trust decisions cover the workspace, extension publishers, MCP servers, and network domains, and you can revoke trust at any time. Related boundaries can share a decision. For example, MCP servers in `.vscode/mcp.json` and workspace-root `.mcp.json` inherit Workspace Trust. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
-## Remote connections and GitHub Environments
+## Remote connections and {% data variables.copilot.github_environments %}
 
-[GitHub Environments (Preview)](/docs/agents/run/remote-agent-sessions.md#github-environments-preview) lets you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
+[{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` let you register a development machine for access from supported {% data variables.product.prodname_copilot_short %} clients. Connected clients receive trusted-owner access to sessions, tools, and workspace resources on that machine. Only connect from clients and devices you trust, and protect the {% data variables.product.prodname_github %} account used to register the host.
 
 Session actions are mirrored to {% data variables.product.prodname_github %} for catalog and history storage. Conversation content is not end-to-end encrypted. Review the sharing disclosure before registering a host and check your organization's data-handling requirements.
 

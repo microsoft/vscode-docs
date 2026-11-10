@@ -20,7 +20,7 @@ Use your own repository for this workflow. Before you start:
 * Open the {% data variables.copilot.chat_view %} and select **Local** from the **Session Target** control. Run the prompts and handoffs in this view.
 * Set up the repository's development environment, including its dependencies and test commands, before you ask the agent to implement a plan.
 
-If you use another harness, adapt the workflow with the [customization formats that the harness supports](/docs/agents/concepts/customization.md#customization-options-at-a-glance). For example, use an [agent skill](/docs/agent-customization/agent-skills.md) instead of the prompt file in this guide.
+If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt the workflow. For example, use an [agent skill](/docs/agent-customization/agent-skills.md) instead of the prompt file in this guide.
 
 ## Context engineering workflow
 

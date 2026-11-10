@@ -27,6 +27,8 @@ MCP server configuration uses one of the following file formats:
 
 Copilot harness sessions read the portable format directly. {% data variables.product.prodname_vscode_shortname %} forwards eligible servers from the {% data variables.product.prodname_vscode_shortname %} format to the session, except servers that require interactive input, such as `${input:...}` variables. The agent doesn't read `.vscode/mcp.json` directly. For setup steps, see [Choose a configuration destination](/docs/agent-customization/mcp-servers.md#choose-a-configuration-destination).
 
+For remote and Dev Container sessions, native user configuration refers to the home directory where the harness runs. The connected client's `$COPILOT_HOME/mcp-config.json` (or `~/.copilot/mcp-config.json`) isn't forwarded to another host or harness. Configure the server in the execution environment or use an eligible forwarded configuration instead. See [remote session customization sources](/docs/agent-customization/overview.md#manage-customizations-for-remote-sessions).
+
 For other providers, use the provider's MCP configuration documentation. Their configuration locations and schemas can differ from the two formats described here.
 
 The formats and locations differ in the capabilities they support:
