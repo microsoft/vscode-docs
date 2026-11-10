@@ -1,6 +1,6 @@
 ---
 ContentId: a4fa1788-9004-48ee-b75d-51765beaee5f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Build an app with AI agents in {% data variables.product.prodname_vscode_shortname %} and learn editor, browser, and source control workflows.
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}

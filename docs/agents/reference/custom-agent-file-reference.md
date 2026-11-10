@@ -1,6 +1,6 @@
 ---
 ContentId: 30510047-1b9d-4df0-ba48-308f514f3592
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Look up custom agent file locations, syntax, fields, and harness compatibility in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:
@@ -49,7 +49,9 @@ In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to d
 
 ### Local harness locations and migration
 
-The **Local** harness stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
+`feature(local-harness)`
+
+The **Local** harness `feature(local-harness)` stores user-level custom agents in {% data variables.product.prodname_vscode_shortname %} profile storage, separate from harness user folders such as `~/.copilot/agents` and `~/.claude/agents`. To reuse profile-based agents with another harness, [move them to that harness's user folder](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
 Prefer native harness folders, such as `.github/agents` and `~/.copilot/agents`, over custom search locations. The `setting(chat.agentFilesLocations)` setting remains supported and is not deprecated. The editor forwards agents from additional configured locations to Agent Host harnesses, including {% data variables.product.prodname_copilot_short %}, for compatibility with existing editor workflows. The older `chat.modeFilesLocations` setting is deprecated.
 
@@ -73,7 +75,7 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 The selected [agent harness](/docs/agents/run/agent-harnesses.md) determines which fields and tool names take effect. A shared file location does not imply identical behavior across harnesses.
 
-* **Local** supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
+* **Local** `feature(local-harness)` supports the {% data variables.product.prodname_vscode_shortname %} tool names, subagent configuration, handoffs, and agent-scoped hooks described below.
 * **Copilot** supports custom agent configuration through its runtime. Use the field-specific guidance below and the [Copilot custom agent documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents). Local handoffs do not apply. See [Copilot-specific configuration](#copilot-specific-configuration) for fields recognized by the editor but not forwarded during agent conversion.
 * **Claude** uses its own [agent format](#claude-agent-format) and runtime behavior.
 * **{% data variables.copilot.copilot_cloud_agent %}** has a separate [configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration).
@@ -104,9 +106,9 @@ Fields are optional unless noted. Defaults and harness-specific behavior are lis
 | `advancedOptions` | Object | Local-only map of advanced agent options. Not supported by the Copilot schema. |
 | `tools` | String or array of strings | Tools available to the agent. Tool names and supported aliases depend on the harness. User-defined tool sets are deprecated and are not supported in the Copilot harness. See [Tools](#tools). |
 | `agents` | Array of strings | Custom agents available as subagents. In Local, use `['*']` or omit the field to allow all available agents, or use `[]` to prevent subagent use. Include the `agent` tool set in `tools`. See [Subagent configuration](#subagent-configuration). |
-| `model` | String or array of strings | The model to use in the {% data variables.product.prodname_copilot_short %} harness. An array specifies models in preference order, using the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
-| `model-policy` | String | Recognized by the Copilot editor schema with values `preferred` and `required`. Not forwarded when converting plugin-provided agents. See [Model preferences](#model-preferences). |
-| `reasoning-effort` | String | Reasoning effort for the agent in the Copilot harness. Supported values depend on the model. Completions use the configured models' advertised capabilities, where available. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort). |
+| `model` | String or array of strings | Preferred model or ordered list of alternatives. Selecting the agent uses the first available model. If omitted, the currently selected model is used. Local subagents also use this field as part of their [model selection order](/docs/agents/run/subagents.md#select-the-model-for-a-subagent). |
+| `model-policy` | String | Whether the models in `model` are `preferred` (default) or `required`. See [Model preferences](#model-preferences). |
+| `reasoning-effort` | String | Initial reasoning effort for the selected model, when supported. Supported values depend on the model. Completions use the configured models' advertised capabilities, where available. See [Thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size). |
 | `skills` | Array of strings | Names of skills to load into the agent's context in Copilot. Completions and hovers use the matching harness's skill inventory. See [Skills](#skills). |
 | `deferred-tool-loading` | Boolean | Copilot schema field for loading tools on demand. See [conversion limits](#copilot-specific-configuration) before relying on it. |
 | `strict-tools-list` | Boolean | Copilot schema field for omitting standard required tools that aren't explicitly listed. See [conversion limits](#copilot-specific-configuration) before relying on it. |
@@ -142,15 +144,24 @@ Local's `agent/runSubagent` reference isn't a portable delegation tool name. Cop
 
 ### Model preferences
 
+In **Local** `feature(local-harness)` and **{% data variables.product.prodname_copilot_short %}** chat sessions, selecting a custom agent applies the first available model in its `model` list and its `reasoning-effort`, if supported by that model.
+
 Use the model identifiers inserted by completions for the intended harness. Copilot completions insert runtime model IDs, including exact provider-qualified IDs for BYOK models. These differ from Local's qualified model display names.
 
-To specify a prioritized list for Copilot, replace the placeholders with available model IDs. Keep the array in your preferred order:
+Use `model-policy` to control whether you can choose a different model:
+
+* `preferred` (default): You can select any other available model. Your manual choice remains selected for the conversation.
+* `required`: You can select only available models from the agent's list. If none are available, sending is blocked instead of falling back to another model or Auto.
+
+For example, restrict an agent to two models and set its initial thinking effort:
 
 ```yaml
 model: ['<preferred model ID>', '<fallback model ID>']
+model-policy: required
+reasoning-effort: high
 ```
 
-The Copilot editor schema also recognizes `model-policy: preferred` and `model-policy: required`. Conversion of plugin-provided agents selects a model from the authored list but doesn't forward `model-policy`. Don't rely on `required` to enforce a required-model policy for those converted agents.
+Replace the placeholders with available model identifiers in preference order and choose a supported effort level. You can still change thinking effort in the model picker. The `required` policy restricts model choices, not effort.
 
 ### Skills
 
@@ -175,7 +186,7 @@ The editor provides nested completions, hovers, and structural validation for th
 Structural validation doesn't start or authenticate MCP servers, or prove that a hook executes.
 
 > [!IMPORTANT]
-> Editor schema support doesn't guarantee runtime support. When converting agent files to SDK custom-agent configuration, including plugin-provided agents, {% data variables.product.prodname_vscode_shortname %} doesn't forward `model-policy`, `mcp-servers`, `github`, `deferred-tool-loading`, `strict-tools-list`, or `include-custom-instructions`. Don't rely on those fields to configure the runtime behavior of converted agents. To make MCP tools available to a session, use the [supported MCP server configuration](/docs/agent-customization/mcp-servers.md).
+> Editor schema support doesn't guarantee runtime support. When converting agent files to SDK custom-agent configuration, including plugin-provided agents, {% data variables.product.prodname_vscode_shortname %} doesn't forward `model-policy`, `mcp-servers`, `github`, `deferred-tool-loading`, `strict-tools-list`, or `include-custom-instructions`. {% data variables.product.prodname_vscode_shortname %} enforces `model-policy` for the agent selected in chat, but this isn't a runtime-wide model restriction. Don't rely on the other fields to configure the runtime behavior of converted agents. To make MCP tools available to a session, use the [supported MCP server configuration](/docs/agent-customization/mcp-servers.md).
 
 ### Subagent configuration
 
@@ -203,7 +214,7 @@ These fields change the shared agent definition, not a personal visibility prefe
 
 ### Handoff fields
 
-Each object in the `handoffs` array defines a transition in the Local harness:
+Each object in the `handoffs` array defines a transition in the Local harness `feature(local-harness)`:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -231,6 +242,8 @@ The Markdown body contains the instructions the agent follows, such as its task,
 When you select the custom agent in the {% data variables.copilot.chat_view %}, its body instructions are added after your custom instructions and take precedence if they conflict.
 
 ### Local file and tool references
+
+`feature(local-harness)`
 
 In Local, reference files with Markdown links or `#file:` syntax. Relative paths resolve from the custom agent file. Use `~` or `~/` to reference your home folder, and use Unix-style `/` separators to keep paths portable across operating systems.
 

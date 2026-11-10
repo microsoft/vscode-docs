@@ -1,6 +1,6 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
 Keywords:
 - ai
@@ -131,6 +131,8 @@ Worktrees don't include uncommitted changes from your primary workspace. Git-ign
 ## 4. Monitor both tasks
 
 Use the sessions list to track each task's status. Select a session to inspect its conversation and **Changes** view. Confirm which session is active before you send feedback or open a terminal.
+
+To prioritize tasks waiting for input or review, [triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode).
 
 > [!TIP]
 > You can view multiple sessions side by side in the Agents window to easily compare their progress and changes. Drag and drop sessions to arrange them as needed.

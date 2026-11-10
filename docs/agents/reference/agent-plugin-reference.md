@@ -1,6 +1,6 @@
 ---
 ContentId: cbff1d23-7653-44b7-b24d-4a9a889fea41
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Package skills, agents, MCP servers, hooks, and automation templates with agent plugins in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../agent-customization/images/agent-plugins/installed-plugins.png
 Keywords:
@@ -215,7 +215,9 @@ Disabling a plugin removes its templates from the Automations view. Automations 
 
 ## MCP servers in plugins
 
-Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to provide agents with additional tools and data sources. Plugin MCP servers start automatically when the plugin is enabled and stop when the plugin is disabled.
+Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to provide agents with additional tools and data sources. In Copilot sessions, these servers are delivered with the plugin rather than forwarded as separate editor-managed definitions. Don't copy them into your personal configuration unless you intend to maintain an independent server entry.
+
+Enabling a plugin makes its MCP servers available to the runtime, subject to server enablement, authentication, and policy. Disabling the plugin makes its servers unavailable. Server startup and available capabilities depend on the harness and client; see [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-support-in-copilot).
 
 ### MCP configuration file
 
@@ -291,15 +293,13 @@ For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server f
 
 ### How plugin MCP servers interact with other servers
 
-Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
+For Copilot sessions, open **Chat: Open Customizations** > **MCP Servers** in the intended session's context. Plugin MCP servers appear alongside native workspace and user servers. Use the server's available actions to control it or inspect output. If the plugin is disabled, **Enable Plugin** enables the plugin, not only that server.
 
-* Select **Configure Tools** in the {% data variables.copilot.chat_view %} to see tools from all MCP servers, including plugin servers.
+Use [server and tool controls](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server) to distinguish stopping a running server, disabling it, and limiting available tools. Tool availability does not bypass host approvals or service authorization.
 
-* Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
+For the deprecated Local harness `feature(local-harness)`, **Configure Tools** in the chat input selects tools for a request. **MCP: List Servers** provides controls for editor-managed server connections. These controls do not necessarily affect the runtime connection in a Copilot session.
 
-Plugin MCP servers are implicitly trusted when you install the plugin. Unlike workspace MCP servers, they do not show a separate trust prompt at startup.
-
-Disabling a plugin stops its MCP servers. Tools provided by the stopped servers are no longer available in chat.
+Review the publisher, server commands, endpoints, and permissions before installing a plugin. Installation can make server code available to run; don't rely on a separate server trust prompt as the point at which to review it.
 
 ## Hooks in plugins
 
@@ -310,7 +310,7 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 
 Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/manage-ai-settings.md#deploy-hooks-through-managed-plugins).
 
-For Copilot sessions, use the [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) for configuration, event payloads, and output decisions. A plugin packages hooks; it does not translate Local scripts into the shared harness's contract.
+For Copilot sessions, use the [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) for configuration, event payloads, and output decisions. A plugin packages hooks; it does not translate Local harness scripts `feature(local-harness)` into the shared harness's contract.
 
 When adopting or updating a plugin, follow [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Update the source package, not its installation cache. Check bundled scripts, path references, agent-scoped hooks, and any duplicate commands in user settings or repository hook files.
 

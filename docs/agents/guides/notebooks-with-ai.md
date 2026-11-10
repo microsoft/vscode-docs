@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Create, edit, run, and analyze Jupyter notebooks with AI in {% data variables.product.prodname_vscode %}.
 ---
 # Work with Jupyter notebooks using AI in {% data variables.product.prodname_vscode_shortname %}
@@ -21,7 +21,7 @@ This guide shows how to use AI for data analysis in a Jupyter notebook while you
 
 Start with the outcome you want instead of specifying individual cells. The agent plans the notebook, creates Markdown and code cells, and can run the code to validate the result.
 
-1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) (`kb(workbench.action.chat.open)`) and start a **Local** agent session.
+1. Open the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) (`kb(workbench.action.chat.open)`) and start a **Local** agent session `feature(local-harness)`.
 
 1. Add your data file as context, then describe the analysis and output you want.
 

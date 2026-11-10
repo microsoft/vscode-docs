@@ -1,6 +1,6 @@
 ---
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Customize keyboard shortcuts in {% data variables.product.prodname_vscode %}, including keybinding rules, command arguments, chords, and system-wide shortcuts.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---

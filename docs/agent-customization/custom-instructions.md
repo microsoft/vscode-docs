@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Create and test custom instructions in {% data variables.product.prodname_vscode_shortname %} to guide agents with project conventions.
 MetaSocialImage: ../../learn/images/shared/agent-first-development-social.png
 Keywords:
@@ -57,7 +57,7 @@ If you prefer to create the file outside the Agent Customizations editor, use a 
 | {% data variables.product.prodname_copilot_short %} | `.github/copilot-instructions.md` or `AGENTS.md` |
 | {% data variables.product.prodname_anthropic_claude %} | `CLAUDE.md` |
 | {% data variables.product.prodname_openai_codex %} | `AGENTS.md` |
-| Local | `.github/copilot-instructions.md` or `AGENTS.md` |
+| Local `feature(local-harness)` | `.github/copilot-instructions.md` or `AGENTS.md` |
 
 Add your rules, save the file, and verify it as described below. `AGENTS.md` is a cross-agent format, not a Codex-only file. See [supported formats](/docs/agents/reference/custom-instructions-reference.md#supported-formats-and-locations) before sharing one file across harnesses.
 
@@ -127,7 +127,7 @@ The pattern matches `tests/test_api.py` and `tests/unit/test_api.py`, but not `s
 
 If you prefer to create the file directly, save it as `.github/instructions/python-tests.instructions.md`. Use separate `.instructions.md` files for guidance that applies to different languages, folders, or tasks.
 
-In Local sessions, you can also add a `description`, such as `'Use when creating or updating Python tests.'`, for task-based discovery. The description is not an extra restriction on `applyTo`. The agent can load the file by relevance separately from pattern matching.
+In Local sessions `feature(local-harness)`, you can also add a `description`, such as `'Use when creating or updating Python tests.'`, for task-based discovery. The description is not an extra restriction on `applyTo`. The agent can load the file by relevance separately from pattern matching.
 
 {% /tab %}
 {% tab label="Claude" %}

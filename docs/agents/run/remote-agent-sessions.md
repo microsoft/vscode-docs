@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 11/7/2026
+DateApproved: 11/11/2026
 MetaDescription: Continue agent work from another machine or start tasks on a remote host with {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Run and manage remote agent sessions
@@ -34,7 +34,7 @@ Opening a remote project in the editor is a separate workflow, described under [
 
 ## Make a host available for remote access
 
-Enable remote access to start or continue agent sessions from another device while the project, tools, and execution stay on the host machine. Remote clients can access its Agent Host-backed sessions, such as a {% data variables.product.prodname_copilot_short %} session. **Local** harness sessions and older extension-host sessions aren't shared this way.
+Enable remote access to start or continue agent sessions from another device while the project, tools, and execution stay on the host machine. Remote clients can access its Agent Host-backed sessions, such as a {% data variables.product.prodname_copilot_short %} session. **Local** harness sessions `feature(local-harness)` and older extension-host sessions aren't shared this way.
 
 Run these steps on the host machine to make it available for remote access.
 
@@ -214,6 +214,8 @@ In the installed {% data variables.copilot.agents_window %}, discovering a machi
 
 Use the Remote Environments editor in the installed {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. This editor is optional; you don't need to open it to follow the connection steps above.
 
+To also manage how this computer is shared, enable `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`. In **This Computer**, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Local sessions continue to run on this computer whether sharing is on or off.
+
 The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When support for [{% data variables.copilot.github_environments %}](#github-environments) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
 
 Remote environment management requires `setting(sessions.chat.experimental.environmentPicker)`, `setting(sessions.chat.experimental.environmentPickerManageRemotes)`, and `setting(chat.remoteAgentHostsEnabled)`. All three settings are on by default.
@@ -326,6 +328,7 @@ Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote dele
 | The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
 | A session is missing | Check the connected host, supported session types, workspace group, and [sessions list filters](/docs/agents/run/sessions/manage-sessions.md#find-a-missing-session). Starting a new session doesn't resume a missing one. |
 | A transcript is visible but can't accept messages | Reconnect to the host. A cached transcript or [synced history](/docs/agents/run/sessions/session-history.md) is not a live connection. |
+| **Sandbox trusted CA is not installed** appears, or sandboxed tools report certificate errors | For Windows and macOS hosts, follow the [remote certificate-trust steps](/docs/agents/run/agent-sandboxing.md#remote-environments). Run the certificate commands on the host, not the client computer. |
 
 ### Troubleshoot {% data variables.copilot.github_environments %}
 

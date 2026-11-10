@@ -1,6 +1,6 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 ---
 # Configure the {% data variables.copilot.agents_window %}
@@ -118,15 +118,19 @@ Extensions that contribute only static content, such as themes, grammars, langua
 
 ### Manage extensions (Experimental)
 
-Use the **Extensions** section of the Agent Customizations editor to turn installed extensions on or off for the {% data variables.copilot.agents_window %}. This experimental section requires `setting(extensions.experimental.agentsWindowManagement)`. If the section isn't visible, turn on this setting.
+Use the **Extensions** section of the Agent Customizations editor to find, install, and manage extensions for the {% data variables.copilot.agents_window %}. This experimental section requires `setting(extensions.experimental.agentsWindowManagement)`. If the section isn't visible, turn on this setting.
 
 1. In the {% data variables.copilot.agents_window %}, select **Customizations** in the sidebar, or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Select **Extensions**.
 
-1. Find an extension in the list, or use the search field, and turn it on or off.
+1. Search for an extension. For a Marketplace result, select **Install** to add it and enable it in the {% data variables.copilot.agents_window %}.
+
+1. To manage an installed extension, turn it on or off, or open its context menu and select **Uninstall**.
 
 1. If **Restart Required** or **Reload Required** appears, select **Restart Extensions** or **Reload Window** to apply the change.
+
+Enabling or disabling an extension affects only the {% data variables.copilot.agents_window %}. Installing or uninstalling also changes your {% data variables.product.prodname_vscode_shortname %} installation.
 
 The list groups extensions by their support for the {% data variables.copilot.agents_window %}:
 
@@ -136,7 +140,7 @@ The list groups extensions by their support for the {% data variables.copilot.ag
 
 The `setting(extensions.experimental.agentsWindowSuggestions)` setting controls whether extension suggestions appear for the {% data variables.copilot.agents_window %}.
 
-Extensions that haven't declared support might not work as expected, especially if they rely on editor views or debugging.
+For extensions that haven't declared support, warnings identify unsupported features such as views or debuggers.
 
 ### Override extension support by ID
 
@@ -158,7 +162,7 @@ Add a decorative chat background, use the interactive VS Code pet, or adjust how
 
 ### Set a group icon and color
 
-Give [custom session groups](/docs/agents/run/sessions/manage-sessions.md#create-a-custom-group) distinct icons and colors to recognize related work in a busy list.
+Give [custom session groups](/docs/agents/run/sessions/organize-sessions.md#create-a-custom-group) distinct icons and colors to recognize related work in a busy list.
 
 Right-click a group header and select **Change Icon...** to search for an icon, or **Change Color...** to choose a color from the theme-aware palette.
 

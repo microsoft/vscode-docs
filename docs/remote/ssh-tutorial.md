@@ -1,7 +1,7 @@
 ---
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with {% data variables.product.prodname_vscode %}
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 ---
 # Remote development over SSH
 

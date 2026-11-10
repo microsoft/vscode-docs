@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
@@ -43,7 +43,7 @@ The levels below describe Copilot harness sessions. For other harnesses, see [Cl
 
 New sessions use the level configured by `setting(chat.permissions.default)`. An organization can set a different managed default for Copilot harness sessions. If the managed default isn't available, new sessions use **Manual permissions**. The managed default doesn't prevent you from switching to another level that the organization allows.
 
-Select **Assisted permissions** from the permissions picker in the chat input of a Copilot harness session. This option isn't available for Local harness sessions.
+Select **Assisted permissions** from the permissions picker in the chat input of a Copilot harness session. This option isn't available for Local harness sessions `feature(local-harness)`.
 
 In the editor's {% data variables.copilot.chat_view %}, sessions already work in the current workspace. There is no isolation picker to configure. The separate worktree choice applies in the {% data variables.copilot.agents_window %}. Worktree sessions always use **Allow all**.
 
@@ -72,7 +72,7 @@ Sandboxing is independent of the permission level. **Allow all** and **Autopilot
 * Responds automatically to questions that would otherwise block progress.
 
 > [!NOTE]
-> **For Local harness sessions:** **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
+> **For Local harness sessions:** `feature(local-harness)` **Autopilot** is a permission level rather than an agent mode. Select it from the permissions picker.
 
 ### Advanced autopilot (Experimental)
 
@@ -148,7 +148,7 @@ On your machine, terminal and URL approvals stay in sync with your **user** sett
 
 Remote agent sessions keep their own approvals. Your local settings are not pushed to a remote host, and choosing **Always Allow** there does not change your local settings.
 
-**Local** harness sessions retain their existing approval options, including workspace-scoped approvals where supported.
+**Local** harness sessions `feature(local-harness)` retain their existing approval options, including workspace-scoped approvals where supported.
 
 ### Manage tool approvals
 
@@ -173,7 +173,7 @@ Run **Chat: Reset Tool Confirmations** from the Command Palette (`kb(workbench.a
 
 ## URL approval
 
-In **Local** harness sessions, tools such as `#web/fetch` separate URL approval into two decisions. For **Copilot** harness web fetches, see [Scope approvals in Copilot sessions](#scope-approvals-in-copilot-sessions).
+In **Local** harness sessions `feature(local-harness)`, tools such as `#web/fetch` separate URL approval into two decisions. For **Copilot** harness web fetches, see [Scope approvals in Copilot sessions](#scope-approvals-in-copilot-sessions).
 
 | Step | What you approve | Protection |
 |---|---|---|
