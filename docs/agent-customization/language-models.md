@@ -270,7 +270,7 @@ To pin or unpin a model:
 
 Bring Your Own Key (BYOK) lets you connect to any compatible model provider while still using the {% data variables.product.prodname_vscode_shortname %} chat experience and tools. You can use BYOK to access models from other providers, to run models locally, or to use models that are not yet available as built-in options in {% data variables.product.prodname_vscode_shortname %}.
 
-In [Local harness sessions](/docs/agents/run/agent-harnesses.md#local), BYOK models work without signing into a GitHub account and without a Copilot plan. This lets you use AI chat features with your own models, including offline scenarios with local models such as Ollama.
+In [Local harness sessions](/docs/agents/run/agent-harnesses.md#local) `feature(local-harness)`, BYOK models work without signing into a GitHub account and without a Copilot plan. This lets you use AI chat features with your own models, including offline scenarios with local models such as Ollama.
 
 > [!NOTE]
 > To use supported BYOK models in Copilot harness sessions in the {% data variables.copilot.chat_view %} or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` `feature(agent-host-byok-models)`. For sign-in requirements, see [{% data variables.copilot.agents_window %} accounts and provider credentials](/docs/agents/run/agents-window-configuration.md#manage-ai-providers-and-accounts).

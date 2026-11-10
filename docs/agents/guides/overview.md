@@ -66,13 +66,13 @@ Or jump to a task:
 
 * [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator app and test it against acceptance criteria. **Setup:** sample web app.
 
-* [Set up test-driven development](/docs/agents/guides/test-driven-development-guide.md): create custom agents and instructions for a repeatable test-first workflow. **Setup:** your repository with working tests, Local harness in the {% data variables.copilot.chat_view %}.
+* [Set up test-driven development](/docs/agents/guides/test-driven-development-guide.md): create custom agents and instructions for a repeatable test-first workflow. **Setup:** your repository with working tests, Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
 
 ## Customize and coordinate agents
 
 * [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): share project instructions, then add skills or custom agents where needed. **Setup:** your repository.
 
-* [Set up a context engineering workflow](/docs/agents/guides/context-engineering-guide.md): connect project context, planning, and implementation with instructions, custom agents, and prompt files. **Setup:** your repository, Local harness in the {% data variables.copilot.chat_view %}.
+* [Set up a context engineering workflow](/docs/agents/guides/context-engineering-guide.md): connect project context, planning, and implementation with instructions, custom agents, and prompt files. **Setup:** your repository, Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
 
 * [Run independent tasks in parallel](/docs/agents/guides/delegate-two-tasks.md): work in separate Git worktrees, review each result, then integrate and retest. **Setup:** your Git repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}. Complete one agent task first.
 

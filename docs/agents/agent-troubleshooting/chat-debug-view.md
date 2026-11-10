@@ -33,7 +33,7 @@ Prepare logging before you reproduce the issue:
 * Reproduce the issue and note the affected session. Capture is not retroactive.
 
 > [!NOTE]
-> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+> **For Local harness sessions:** `feature(local-harness)` Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 > [!CAUTION]
 > Debug views and exported logs can contain prompts, source code, file paths, tool inputs and outputs, and other sensitive data. Review this content before sharing it, and never include credentials or secrets.
@@ -74,7 +74,7 @@ Custom instructions and prompt files enter a request in different ways. [Prepare
 
 1. [Check customization discovery](/docs/agents/agent-troubleshooting/troubleshooting.md#check-customization-diagnostics) for the affected harness and repository. Confirm that the file is listed and has no errors.
 1. Check [instruction activation](/docs/agents/reference/custom-instructions-reference.md#discovery-and-activation). For pattern-based guidance, verify `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. If you attached the file manually, confirm that it was attached to the request you are inspecting.
-1. For a prompt file, verify that the session uses the Local harness and that you invoked the file manually. Prompt files are supported only in Local harness sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
+1. For a prompt file, verify that the session uses the Local harness `feature(local-harness)` and that you invoked the file manually. Prompt files are supported only in Local harness sessions. For a workflow that you want to reuse with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md). For details, see [Use prompt files](/docs/agent-customization/prompt-files.md).
 1. Check **Discovery** events in the Agent Debug Logs to see whether a customization was loaded, skipped, or rejected.
 1. Where request details are available, inspect the Chat Debug view for the instruction content or file-read results. For Local sessions, check the **System prompt** for custom instructions and the **User prompt** for an invoked prompt file. The response's **References** section, where available, is another inclusion check.
 1. If the content reached the model but the result doesn't follow it, check for conflicting or unclear guidance. Correct the relevant issue, repeat the task in a new chat, and compare the actual changes and tool activity.

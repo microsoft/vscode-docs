@@ -12,7 +12,7 @@ Keywords:
 ---
 # Tool sets (deprecated)
 
-User-defined tool sets group existing tools under a reusable name. They are deprecated and are not supported in the Copilot harness. Tool-set files remain available only for Local harness compatibility.
+User-defined tool sets group existing tools under a reusable name. They are deprecated and are not supported in the Copilot harness. Tool-set files remain available only for Local harness compatibility `feature(local-harness)`.
 
 To move an existing workflow to the Copilot harness, follow [Replace tool sets](/docs/agent-customization/migrate-customizations.md#replace-tool-sets).
 

@@ -122,7 +122,7 @@ For more examples to adapt and verify, see the community-contributed [Awesome Co
 
 Select the intended harness from the **Session Target** control, then choose your custom agent from the **Agent** dropdown. Enter a request for its role and review the response and tool calls. The custom agent remains selected until you switch agents. Switch back to a general-purpose agent when you're ready for a different task, such as implementing a review finding.
 
-In **Local** and **{% data variables.product.prodname_copilot_short %}** sessions, selecting an agent applies its preferred model and supported reasoning effort. You can choose a different model unless the agent uses `model-policy: required`, which limits your choices to its configured models. See [Model preferences](/docs/agents/reference/custom-agent-file-reference.md#model-preferences).
+In **Local** `feature(local-harness)` and **{% data variables.product.prodname_copilot_short %}** sessions, selecting an agent applies its preferred model and supported reasoning effort. You can choose a different model unless the agent uses `model-policy: required`, which limits your choices to its configured models. See [Model preferences](/docs/agents/reference/custom-agent-file-reference.md#model-preferences).
 
 In the {% data variables.product.prodname_copilot_short %} harness, the agent's instructions are added to your custom instructions and take precedence if they conflict. Keep the guidance consistent rather than relying on conflicting rules. For details, see the [agent file reference](/docs/agents/reference/custom-agent-file-reference.md#body).
 
@@ -147,14 +147,14 @@ To keep a custom agent available as a [subagent](/docs/agents/run/subagents.md) 
 user-invocable: false
 ```
 
-This property controls picker visibility in both **Local** and **Copilot**. To show the agent again, set it to `true` or remove the property. Subagent invocation is controlled separately by `disable-model-invocation`.
+This property controls picker visibility in both **Local** `feature(local-harness)` and **Copilot**. To show the agent again, set it to `true` or remove the property. Subagent invocation is controlled separately by `disable-model-invocation`.
 
 Editing this property changes the agent definition, not a personal visibility preference. If you share the file in a repository, the change applies to everyone who uses that definition. It doesn't delete the agent file.
 
 ## Handoffs
 
 > [!NOTE]
-> Custom-agent `handoffs` are supported only in the **Local** harness. A Local handoff can still offer **Continue in** options for other supported session targets.
+> Custom-agent `handoffs` are supported only in the **Local** harness `feature(local-harness)`. A Local handoff can still offer **Continue in** options for other supported session targets.
 
 Handoffs connect agents into a workflow with suggested next steps. After a chat response completes, handoff buttons let you switch to another agent with the conversation context and a pre-filled prompt.
 
@@ -166,7 +166,7 @@ Use handoffs to review one stage of a task before starting the next. For example
 
 For an optional planning-to-implementation workflow:
 
-1. Select **Local** as the harness in the {% data variables.copilot.chat_view %}.
+1. Select **Local** `feature(local-harness)` as the harness in the {% data variables.copilot.chat_view %}.
 1. Open the Agent Customizations editor, select **Agents**, and select **New Agent** (plus icon) next to **Workspace**.
 1. Choose the workspace location, enter `planner` as the file name, and replace the generated content with the following example.
 
@@ -191,7 +191,7 @@ Do not edit files. Return a Markdown plan with these sections:
 
 Save the file, then try the handoff. If you prefer to create the file directly, save the example as `.github/agents/planner.agent.md`.
 
-1. In a Local harness session, select **Planner** and ask it to plan a change.
+1. In a Local harness `feature(local-harness)` session, select **Planner** and ask it to plan a change.
 1. Review the completed plan, then select **Implement Plan**.
 1. Review the pre-filled implementation prompt and send it when you're ready for code changes.
 

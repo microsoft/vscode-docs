@@ -108,7 +108,7 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 
 Not every agent session uses the Agent Host. Sessions use the extension host in these cases:
 
-* You select the **Local** harness when you create a session.
+* You select the **Local** harness `feature(local-harness)` when you create a session.
 * You continue a session that was created with the earlier extension-host architecture, before Agent Host-backed sessions were available.
 
 Extension-host sessions are closely integrated with the current editor window and its extensions. This integration comes with a tradeoff: the window owns the session, so closing the window stops ongoing work, and you can't continue the session from another interface.
@@ -119,7 +119,7 @@ The process boundary also affects how you review edits, configure the agent, and
 
 | Task | Guidance |
 |------|----------|
-| Review saved edits | [Local harness-specific behavior](/docs/agents/run/review-code-edits.md#local-harness-specific-behavior). |
+| Review saved edits | [Local harness-specific behavior](/docs/agents/run/review-code-edits.md#local-harness-specific-behavior) `feature(local-harness)`. |
 | Configure instructions and custom agents | [Choose customization scope and locations](/docs/agent-customization/overview.md#choose-a-customization-scope) or [move existing customizations](/docs/agent-customization/migrate-customizations.md). |
 | Configure hooks | [Choose the hook implementation for your session](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session). Sharing a host does not give harnesses a shared hook schema. |
 | Set permissions and Autopilot behavior | [Manage approvals and permissions](/docs/agents/run/approvals.md#permission-levels). |

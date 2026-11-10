@@ -75,13 +75,13 @@ The **Codex** harness uses provider-native subagents to run independent tasks an
 <details>
 <summary>Subagents in Local harness sessions</summary>
 
-The **Local** harness uses the {% data variables.product.prodname_vscode_shortname %} `runSubagent` tool. The following instructions cover tool selection, custom-agent configuration, model selection, and nested subagents for this harness.
+The **Local** harness `feature(local-harness)` uses the {% data variables.product.prodname_vscode_shortname %} `runSubagent` tool. The following instructions cover tool selection, custom-agent configuration, model selection, and nested subagents for this harness.
 
 ### Invoke a subagent
 
-Try a read-only research task in a Local harness session:
+Try a read-only research task in a Local harness `feature(local-harness)` session:
 
-1. Open your project, then [select the **Local** harness](/docs/agents/run/agent-harnesses.md#select-a-harness) and **Agent** role for a new session in the {% data variables.copilot.chat_view %}.
+1. Open your project, then [select the **Local** harness](/docs/agents/run/agent-harnesses.md#select-a-harness) `feature(local-harness)` and **Agent** role for a new session in the {% data variables.copilot.chat_view %}.
 1. Select **Configure Tools** and make sure **Run Subagent** (`agent/runSubagent`) is selected. Learn more about [selecting tools](/docs/agents/run/tools.md#use-tools-in-a-request).
 1. Enter a prompt that explicitly requests a subagent:
 
@@ -213,7 +213,7 @@ Summarize the purpose of each file without changing it.
 
 ### Orchestration patterns
 
-For repeatable multi-step work in a Local harness session, use a coordinator agent to assign focused tasks to workers and combine their results.
+For repeatable multi-step work in a Local harness `feature(local-harness)` session, use a coordinator agent to assign focused tasks to workers and combine their results.
 
 #### Coordinator and worker pattern
 
@@ -249,7 +249,7 @@ For each feature request:
 4. Address the findings, then summarize the changes and remaining risks.
 ```
 
-Save all three files. In a Local harness session, select **Feature Builder** from the agents dropdown and describe the feature to implement. The workers have read-only tools, while the coordinator has edit tools.
+Save all three files. In a Local harness `feature(local-harness)` session, select **Feature Builder** from the agents dropdown and describe the feature to implement. The workers have read-only tools, while the coordinator has edit tools.
 
 If another review is needed, the coordinator starts a new invocation and supplies the updated context. The earlier reviewer invocation doesn't retain a conversation for follow-up messages.
 
@@ -286,7 +286,7 @@ For each feature request:
 3. Summarize the implementation results and any validation still needed.
 ```
 
-Save the three files, select **Research and Implement** in a Local harness session, and describe a change. The coordinator can invoke only the named workers. Codebase Researcher has read-only tools, while Implementer can edit files.
+Save the three files, select **Research and Implement** in a Local harness `feature(local-harness)` session, and describe a change. The coordinator can invoke only the named workers. Codebase Researcher has read-only tools, while Implementer can edit files.
 
 For the syntax and defaults of `agents`, `tools`, and invocation controls, see the [custom agent file reference](/docs/agents/reference/custom-agent-file-reference.md#subagent-configuration).
 
@@ -304,7 +304,7 @@ Separate contexts can surface different issues, but don't guarantee unbiased or 
 
 ### Troubleshooting
 
-For Local harness sessions, check these common causes:
+For Local harness `feature(local-harness)` sessions, check these common causes:
 
 | Symptom | What to check |
 | --- | --- |
@@ -324,7 +324,7 @@ The presentation depends on both the harness and the interface. [Nested sessions
 The editor's **Sessions** view shows nested sessions, but doesn't include subagent chats in that hierarchy. To inspect read-only subagent chats, use the [{% data variables.copilot.agents_window %}](#agents-window).
 
 > [!NOTE]
-> **For Local harness sessions:** A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
+> **For Local harness sessions:** `feature(local-harness)` A running subagent appears as a collapsed tool call with its agent name and current activity, such as reading files or searching the codebase. Select the tool call to inspect the prompt, tool calls, and returned result.
 
 ### Agents window
 

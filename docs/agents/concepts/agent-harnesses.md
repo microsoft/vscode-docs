@@ -79,7 +79,7 @@ The harness choice does not by itself determine where the language model runs or
 
 The **Session Target** UI control presents harnesses and the Cloud execution target together. Two names need special care:
 
-* **Local** is a harness name, not the only way to run agents on your machine. Other harnesses can also work with local files.
+* **Local** `feature(local-harness)` is a harness name, not the only way to run agents on your machine. Other harnesses can also work with local files.
 * **Cloud** is an execution target, not a separate harness. It uses the {% data variables.product.prodname_copilot_short %} harness in a managed environment, even when you select a model from another provider.
 
 For the available choices and setup requirements, see [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses).

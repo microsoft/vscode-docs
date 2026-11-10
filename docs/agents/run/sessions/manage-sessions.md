@@ -35,7 +35,7 @@ Check these items before creating a replacement session:
 * **Workspace and host**: Open the original workspace or connect to the host where the session runs. The {% data variables.copilot.agents_window %} lets you browse across workspaces.
 * **State filters**: Include **Archived** or **Done** sessions, not only active sessions.
 * **Other applications**: Check the [External filter and discovery limits](#view-sessions-from-other-applications).
-* **Supported interface**: Local harness sessions and sessions from the {% data variables.product.prodname_openai_codex %} extension are editor-only. Check [which sessions support both interfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces).
+* **Supported interface**: Local harness sessions `feature(local-harness)` and sessions from the {% data variables.product.prodname_openai_codex %} extension are editor-only. Check [which sessions support both interfaces](/docs/agents/concepts/sessions.md#sessions-across-surfaces).
 
 To find earlier work by topic, file, or pull request instead of browsing the list, [query session history](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle). Synced history doesn't by itself provide access to a running agent.
 
@@ -227,7 +227,7 @@ In either interface, you can also type `/btw <question>` to start a side chat fr
 
 A side chat inherits the source conversation's agent, model, and context through the source turn. Inherited messages aren't shown in its transcript. The question and answer stay in the side chat rather than the source conversation. Side chats favor explanation unless you ask for changes or actions.
 
-Side chats aren't available for Local harness sessions or sessions from the {% data variables.product.prodname_openai_codex %} extension.
+Side chats aren't available for Local harness sessions `feature(local-harness)` or sessions from the {% data variables.product.prodname_openai_codex %} extension.
 
 ## Monitor progress and switch conversations
 

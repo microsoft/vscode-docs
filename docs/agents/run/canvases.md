@@ -32,7 +32,7 @@ Canvases work in {% data variables.product.prodname_vscode_shortname %} in sessi
 1. Send your first message to initialize the session before opening the canvas menus or managing canvas extensions.
 
 > [!NOTE]
-> Canvases aren't supported in Claude, Codex, Local harness sessions, or in browser clients.
+> Canvases aren't supported in Claude, Codex, Local harness sessions `feature(local-harness)`, or in browser clients.
 
 ### Use canvases on a remote agent host
 

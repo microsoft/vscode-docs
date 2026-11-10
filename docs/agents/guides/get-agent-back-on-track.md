@@ -99,7 +99,7 @@ Before you edit the request, review the affected changes so you understand which
 
 ## Recover unwanted changes
 
-To revert specific pending edits without changing the conversation, use **Undo** in the editor's review controls or the working set `feature(editor-working-set)`. {% data variables.product.prodname_copilot_short %} harness sessions support this workflow in the editor window, even without Git. The working set only includes edits made through tracked edit tools, not terminal commands. Use Source Control, if available, or edit the files yourself to revert changes outside the working set. Local harness sessions also support undoing pending edits. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes).
+To revert specific pending edits without changing the conversation, use **Undo** in the editor's review controls or the working set `feature(editor-working-set)`. {% data variables.product.prodname_copilot_short %} harness sessions support this workflow in the editor window, even without Git. The working set only includes edits made through tracked edit tools, not terminal commands. Use Source Control, if available, or edit the files yourself to revert changes outside the working set. Local harness sessions `feature(local-harness)` also support undoing pending edits. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes).
 
 Use a checkpoint when you can identify the last request before the agent's workspace changes went wrong. Restoring the checkpoint returns affected workspace files and chat history to that point.
 

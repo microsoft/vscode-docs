@@ -23,7 +23,7 @@ Move your existing Local customizations to the {% data variables.product.prodnam
 
 Start with the path for your customization below. You don't need to complete every migration in this article. For answers about keeping Local available, MCP secrets, custom discovery paths, and agent tool names, see the [migration FAQ](#frequently-asked-questions).
 
-For the broader workflow transition, including session continuity, organization rollout, and policy verification, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md).
+The Local harness `feature(local-harness)` is deprecated and will be removed by **February 2027**. Complete your customization migration before then. For the broader workflow transition, including session continuity, organization rollout, and policy verification, follow [Move from Local to the Copilot harness](/docs/agents/run/move-to-copilot.md).
 
 > [!NOTE]
 > This article covers migration to the Copilot harness. For the Claude or Codex harness, use the locations and formats in the provider documentation.
@@ -77,7 +77,7 @@ Keep your backup until you [verify the migration](#verify-the-migration). Automa
 The Copilot harness reads customizations from Copilot folders and portable formats. Move custom agents, instructions, and skills from editor-specific storage and configured custom locations to native harness folders so they can be discovered across Copilot clients. {% data variables.product.prodname_vscode_shortname %} can [forward files from configured locations](#move-customizations-from-configured-locations) for compatibility with existing editor workflows, but other clients do not inherit those settings.
 
 > [!NOTE]
-> **For Local harness sessions:** The agent reads {% data variables.product.prodname_vscode_shortname %} profile customizations and the additional locations configured through those settings. Moving a customization for the Copilot harness doesn't change which sources the Local harness reads.
+> **For Local harness sessions `feature(local-harness)`:** The agent reads {% data variables.product.prodname_vscode_shortname %} profile customizations and the additional locations configured through those settings. Moving a customization for the Copilot harness doesn't change which sources the Local harness reads.
 
 Moving customizations to those locations has these benefits:
 
@@ -197,7 +197,7 @@ Environment variables are not a secret store. This migration does not meet a req
 
 ## Convert prompt files to skills
 
-Copilot harness sessions use [agent skills](/docs/agent-customization/agent-skills.md) for reusable workflows and do not load `*.prompt.md` files. Convert workspace and user prompt files to skills to use those workflows with the Copilot harness. Prompt files remain supported in Local harness sessions.
+Copilot harness sessions use [agent skills](/docs/agent-customization/agent-skills.md) for reusable workflows and do not load `*.prompt.md` files. Convert workspace and user prompt files to skills to use those workflows with the Copilot harness. Prompt files remain supported in Local harness `feature(local-harness)` sessions.
 
 > [!IMPORTANT]
 > Conversion preserves explicit invocation by adding `disable-model-invocation: true` to the generated skill. If you later remove that restriction, the agent can select the skill automatically for relevant tasks. Review the description and instructions with the repository maintainer before enabling automatic invocation for a shared skill. Convert a personal workflow to a user skill instead.
@@ -283,7 +283,7 @@ For remote or Dev Container sessions, perform these checks in the destination en
 
 The migration list does not automatically convert every customization type:
 
-* **Custom agents with Local harness-specific behavior**: use **Migrate with Agent** when an agent depends on Local harness tool names, tool sets, hooks, or other behavior that needs semantic changes.
+* **Custom agents with Local harness-specific behavior**: use **Migrate with Agent** when an agent depends on Local harness `feature(local-harness)` tool names, tool sets, hooks, or other behavior that needs semantic changes.
 * **Tool sets**: deprecated and not supported in the Copilot harness. [Replace tool-set references](#replace-tool-sets) with tools configured for the workflow.
 * **Chat participants**: deprecated and not supported in the Copilot harness. [Replace participant capabilities](#replace-chat-participants) with plugins that combine skills, MCP tools, and, when needed, MCP Apps.
 * **Hooks**: there is no automatic hook migration. Follow [Migrate hooks](#migrate-hooks) to review discovery, command configuration, script inputs, and output decisions.
@@ -576,7 +576,7 @@ These fixtures check the script's input and output handling. They do not establi
 User-defined tool sets are deprecated and are not supported in the Copilot harness. A tool-set file groups existing tools under a reusable name; it does not implement the tools. Move the tool selection, not the file.
 
 > [!NOTE]
-> Tool-set files remain a Local harness compatibility feature. Tool groups displayed in the Copilot **Tools** tab and supported built-in tool aliases are separate from user-defined tool-set files.
+> Tool-set files remain a Local harness `feature(local-harness)` compatibility feature. Tool groups displayed in the Copilot **Tools** tab and supported built-in tool aliases are separate from user-defined tool-set files.
 
 Choose a replacement based on why you used the tool set:
 
@@ -602,7 +602,7 @@ For example, a `reader` set might combine code search, symbol usages, diagnostic
 
 ## Replace chat participants
 
-Chat participants, including extension-provided `@participant` integrations, are deprecated and are not supported in the Copilot harness. The Chat Participant API remains available for Local harness compatibility, but new integrations should not depend on it.
+Chat participants, including extension-provided `@participant` integrations, are deprecated and are not supported in the Copilot harness. The Chat Participant API remains available for Local harness `feature(local-harness)` compatibility, but new integrations should not depend on it.
 
 ### If you use a participant
 
@@ -618,7 +618,7 @@ If you maintain the participant implementation, follow the separate [publisher g
 
 ### Can I keep using the Local harness while adapting my customizations?
 
-Yes, when organization controls permit it. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** as the **Session Target**. Local harness availability and automatic Copilot harness selection depend on your settings and organization policies. See [Keep the Local harness available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-local-available-while-migrating).
+Yes, when organization controls permit it, until its removal in February 2027. In the editor's {% data variables.copilot.chat_view %}, start a new session and select **Local** `feature(local-harness)` as the **Session Target**. Local harness availability and automatic Copilot harness selection depend on your settings and organization policies. See [Keep the Local harness available while migrating](/docs/agents/run/agent-harnesses.md#can-i-keep-the-local-harness-available-while-migrating).
 
 Administrators can use the temporary `vscode.temporaryDefaultToLocalHarness` enterprise-managed setting, available from version 1.142. It keeps the Local harness available and suppresses automatic Copilot routing, but the Local harness does not enforce Copilot runtime-only sandbox and permission rules. It does not override `vscode.temporaryAllowLocalHarness: false`, available from version 1.143. Review the [administrator guidance and security caveat](/docs/enterprise/manage-ai-settings.md#keep-local-harness-as-default).
 

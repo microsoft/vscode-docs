@@ -310,7 +310,7 @@ Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell c
 
 Organizations can distribute approved hooks through plugins. When managed settings specify `allowManagedHooksOnly: true`, plugin hooks run only when the plugin is force-enabled by a managed `enabledPlugins["plugin@marketplace"]: true` entry. User enablement alone is not sufficient, and `allowManagedHooksOnly` does not itself enable the plugin. See [Deploy hooks through managed plugins](/docs/enterprise/manage-ai-settings.md#deploy-hooks-through-managed-plugins).
 
-For Copilot sessions, use the [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) for configuration, event payloads, and output decisions. A plugin packages hooks; it does not translate Local scripts into the shared harness's contract.
+For Copilot sessions, use the [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) for configuration, event payloads, and output decisions. A plugin packages hooks; it does not translate Local harness scripts `feature(local-harness)` into the shared harness's contract.
 
 When adopting or updating a plugin, follow [Migrate hooks](/docs/agent-customization/migrate-customizations.md#migrate-hooks). Update the source package, not its installation cache. Check bundled scripts, path references, agent-scoped hooks, and any duplicate commands in user settings or repository hook files.
 

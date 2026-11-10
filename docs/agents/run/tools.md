@@ -134,9 +134,9 @@ To remove an extension from the tool list, right-click its tool group and select
 <details>
 <summary>Select tools for a Local harness request</summary>
 
-For Local harness sessions, select tools for an individual request from the {% data variables.copilot.chat_view %}:
+For Local harness sessions `feature(local-harness)`, select tools for an individual request from the {% data variables.copilot.chat_view %}:
 
-1. In the chat input, select the **Local** harness and then select **Agent** from the agent picker.
+1. In the chat input, select the **Local** harness `feature(local-harness)` and then select **Agent** from the agent picker.
 
 1. Select **Configure Tools**.
 
@@ -155,7 +155,7 @@ For a tool call that requires approval, expand the confirmation dialog to review
 <details>
 <summary>Edit parameters in Local harness and extension tool confirmations</summary>
 
-Confirmations from the Local harness and extension-contributed tools can support parameter editing. When the confirmation provides editable fields:
+Confirmations from the Local harness `feature(local-harness)` and extension-contributed tools can support parameter editing. When the confirmation provides editable fields:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 
@@ -233,7 +233,7 @@ Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md),
 
 Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
-Copilot harness sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local harness sessions and configurations that use the integrated terminal tool.
+Copilot harness sessions use the built-in shell tool by default. Workspace commands run in the session's environment, and you review the results in chat. To load your shell profile before each command, see [Configure shell initialization](#configure-shell-initialization). The integrated-terminal controls below apply to Local harness sessions `feature(local-harness)` and configurations that use the integrated terminal tool.
 
 <details>
 <summary>Integrated-terminal controls</summary>
@@ -327,7 +327,7 @@ For individual names, descriptions, and availability, see the [Tools and context
 <details>
 <summary>How do I know which tools are available?</summary>
 
-Type `#` in the chat input field to browse available tools and context items. For Copilot harness sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools. For Local harness sessions, use **Configure Tools** in the chat input.
+Type `#` in the chat input field to browse available tools and context items. For Copilot harness sessions, open the Agent Customizations editor and select the **Tools** tab to view and manage enabled tools. For Local harness sessions `feature(local-harness)`, use **Configure Tools** in the chat input.
 
 </details>
 

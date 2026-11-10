@@ -46,7 +46,7 @@ Each customization type contributes something different to the agent's work:
 
 Skills can come from project or personal files, marketplaces and plugins, extensions, or MCP servers `feature(mcp-skills)`. Their source doesn't change their role as task-specific guidance. See [Where skills come from](/docs/agent-customization/agent-skills.md#where-skills-come-from) for source and harness requirements.
 
-For saved prompts that you invoke explicitly, [prompt files](/docs/agent-customization/prompt-files.md) are available in Local harness sessions only.
+For saved prompts that you invoke explicitly, [prompt files](/docs/agent-customization/prompt-files.md) are available in Local harness sessions `feature(local-harness)` only.
 
 You don't need a customization for a one-time requirement. Add it to the current request instead. When a problem repeats, [choose the smallest useful customization](/docs/agent-customization/overview.md#choose-how-to-customize).
 
