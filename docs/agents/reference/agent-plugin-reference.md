@@ -217,7 +217,7 @@ Disabling a plugin removes its templates from the Automations view. Automations 
 
 Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to provide agents with additional tools and data sources. In Copilot sessions, these servers are delivered with the plugin rather than forwarded as separate editor-managed definitions. Don't copy them into your personal configuration unless you intend to maintain an independent server entry.
 
-Enabling a plugin makes its MCP servers available to the runtime, subject to server enablement, authentication, and policy. Disabling the plugin makes its servers unavailable. Server startup and available capabilities depend on the harness and client; see [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-features-supported-by-vs-code).
+Enabling a plugin makes its MCP servers available to the runtime, subject to server enablement, authentication, and policy. Disabling the plugin makes its servers unavailable. Server startup and available capabilities depend on the harness and client; see [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-support-in-copilot).
 
 ### MCP configuration file
 

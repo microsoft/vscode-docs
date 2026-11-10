@@ -17,7 +17,7 @@ Start with an [agent plugin](/docs/agent-customization/agent-plugins.md) that pa
 
 * **Skills** provide domain knowledge and reusable workflows that users can invoke as slash commands.
 * **MCP tools** retrieve data and perform actions.
-* **MCP Apps** provide interactive controls, including buttons, forms, and multi-step workflows. See the [MCP development guide](/api/extension-guides/ai/mcp.md#mcp-apps).
+* **MCP Apps** provide interactive controls, including buttons, forms, and multi-step workflows. See the [MCP integration reference](/api/extension-guides/ai/mcp.md#mcp-apps).
 * **Custom agents** optionally provide an ongoing specialist role.
 
 Use [extension tools](/api/extension-guides/ai/tools.md) when the integration needs live editor context or access to {% data variables.product.prodname_vscode_shortname %} APIs. For information the user can supply directly, use [chat context attachments](/docs/chat/copilot-chat-context.md).

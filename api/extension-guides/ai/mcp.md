@@ -4,182 +4,145 @@ ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
 DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Build MCP servers for {% data variables.product.prodname_copilot_short %} with native configuration, plugins, and editor integration.
+MetaDescription: Integrate MCP servers with {% data variables.product.prodname_copilot_short %} across compatible clients, with configuration and editor guidance.
 ---
 
-# MCP developer guide
+# Integrate MCP servers with {% data variables.product.prodname_copilot_short %}
 
-Build a Model Context Protocol (MCP) server to give {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} access to your tools and services. MCP is an open standard that lets you reuse the same server across compatible clients.
+This reference helps Model Context Protocol (MCP) server and plugin authors integrate their tools with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. It covers configuration, supported capabilities, and editor-specific integrations.
 
-This guide helps server and plugin authors choose capabilities, distribute a server, and integrate with the editor. Start with the **Copilot** harness:
+The [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot) uses the {% data variables.copilot.copilot_sdk_short %}, the shared agent runtime used by {% data variables.product.prodname_vscode_shortname %}, [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers), and the [{% data variables.copilot.github_copilot_app %}](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app#configuring-mcp-servers). Building for its MCP support makes the same server usable across these compatible {% data variables.product.prodname_copilot_short %} experiences, not only in the editor. Your server implements MCP and doesn't need to depend on the {% data variables.copilot.copilot_sdk_short %}.
 
-* **Build for Copilot:** choose [capabilities](#mcp-features-supported-by-vs-code), [distribute your server](#add-mcp-servers-to-vs-code), and [test it in a session](#troubleshoot-and-debug-mcp-servers).
-* **Integrate with the connected editor:** use [OAuth](#authorization), [MCP Apps](#mcp-apps), or [extension registration](#register-an-mcp-server-in-your-extension) where your integration needs them. These features can serve Copilot sessions.
-* **Maintain an existing Local integration:** use the separate [Local harness compatibility section](#local-harness-compatibility-deprecated) `feature(local-harness)`.
+* **Make your server available:** choose a [delivery method](#make-your-server-available-to-copilot).
+* **Check compatibility:** review [Copilot capability support](#mcp-support-in-copilot) and connected-client requirements.
+* **Maintain an existing Local integration:** expand the [deprecated Local compatibility appendix](#local-harness-compatibility-deprecated) `feature(local-harness)`.
 
-MCP servers provide one of the [tool types](/docs/agents/concepts/tools.md#types-of-tools) available to agents. Protocol support depends on both the harness that runs the session and the client that presents it, as described in [MCP support and limitations](#mcp-features-supported-by-vs-code).
+For protocol and server implementation guidance, use the [MCP documentation and SDKs](https://modelcontextprotocol.io/docs/sdk).
 
 > [!TIP]
 > For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/agent-customization/mcp-servers.md).
 
-## Why use MCP servers?
+## Make your server available to {% data variables.product.prodname_copilot_short %}
 
-Use an MCP server when you want to:
+Use a managed connection for a supported service, or distribute your own server configuration or integration:
 
-* Give {% data variables.product.prodname_copilot_short %} domain-specific tools, such as database queries or access to a service's API.
-* Distribute tools independently or bundle them with skills and instructions in an [agent plugin](/docs/agent-customization/agent-plugins.md#author-a-plugin).
-* Run a server as a local process or connect to a remote service.
-* Reuse the server across MCP clients.
+| Delivery method | When to use it |
+|-----------------|----------------|
+| **{% data variables.product.prodname_copilot_short %} connector** `feature(copilot-connectors)` | Use a [{% data variables.product.prodname_github %}-managed MCP connection](/docs/agent-customization/copilot-connectors.md) for a supported service. {% data variables.product.prodname_github %} handles configuration and authentication, with no local server setup. |
+| **Native configuration** | Provide a launch command or HTTP endpoint that compatible {% data variables.product.prodname_copilot_short %} clients can use without an editor extension. |
+| **Agent plugin** | [Bundle the server with skills and other customizations](/docs/agents/reference/agent-plugin-reference.md#mcp-servers-in-plugins) for a reusable workflow. Servers load through the plugin, not as copies in an editor profile. |
+| **Connected-editor integration** | Offer an [installation URL](#create-an-mcp-installation-or-lookup-url) or [register the server from an extension](#register-an-mcp-server-in-your-extension). Eligible editor-provided definitions can be forwarded to the runtime. |
 
-If your integration requires editor APIs, consider an [extension-contributed language model tool](/api/extension-guides/ai/tools.md) or [register an MCP server from an extension](#register-an-mcp-server-in-your-extension). Extension APIs require a connected editor. A plugin or native MCP configuration doesn't have that dependency.
+Connectors reuse the managed connection across supported {% data variables.product.prodname_copilot_short %} clients signed in with the same account. For self-managed servers, prefer native configuration or an agent plugin for cross-client reuse. Each execution host needs the required dependencies, credentials, and service access. Editor-dependent features don't automatically transfer to another client.
 
-## MCP features supported by VS Code
+### Native configuration
 
-Use the following capabilities when building for the {% data variables.product.prodname_copilot_short %} harness. The runtime reads native configuration and plugin-provided servers. Some capabilities also require a connected client, such as the editor that renders MCP Apps or handles authentication.
+In {% data variables.product.prodname_vscode_shortname %}, users add servers through **Chat: Open Customizations** > **MCP Servers** > **Add Server**. **Global** > **Copilot Global** selects the native user configuration. Link your installation instructions to the [connection walkthrough](/docs/agent-customization/mcp-servers.md#connect-a-server).
+
+For manual configuration, provide an entry using the portable `mcpServers` format. This example connects to an HTTP server:
+
+```json
+{
+    "mcpServers": {
+        "myService": {
+            "type": "http",
+            "url": "https://example.com/mcp",
+            "tools": ["*"]
+        }
+    }
+}
+```
+
+Replace the example URL with your server's MCP endpoint and document any authentication requirements. Don't include credentials in shared configuration.
+
+The harness reads native configuration directly on the host where it runs:
+
+* **Workspace:** `.mcp.json` at the workspace root.
+* **User:** `$COPILOT_HOME/mcp-config.json`, or `~/.copilot/mcp-config.json` when `COPILOT_HOME` is unset.
+
+For stdio commands, supported fields, secrets, and remote hosts, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md). Don't use the deprecated Local `servers` format for new native configurations.
+
+Before distributing an integration, [verify an actual tool call](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call) in the intended {% data variables.product.prodname_copilot_short %} experience. Adding configuration alone doesn't confirm that the session can use its tools. For failures, see [MCP troubleshooting](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
+
+## MCP support in Copilot
+
+Start with tools, then add capabilities that your integration needs. Support depends on both the {% data variables.product.prodname_copilot_short %} harness that runs the session and the client that presents it. Some capabilities require a connected client, such as the editor that renders MCP Apps or handles authentication.
 
 | Capability | Support and limitations in Copilot |
 |------------|------------------------------------|
 | [Tools](#tools) | Invokes server tools under the session's tool availability and approval policies. |
-| [Sampling](#sampling) | Executes server sampling requests during an active turn, with per-server approval. |
+| [Sampling](#sampling) | Deprecated in MCP. Supported on compatible connections during an active turn, with per-server approval. |
 | [Elicitation](#elicitation) | Presents form and URL requests through host-rendered input during an active turn. |
 | [MCP Apps](#mcp-apps) | Displays interactive tool UI in a connected client that renders MCP Apps. This integration is Experimental. |
 | [Authorization](#authorization) | Supports MCP OAuth with authentication handled by the connected client. |
 | [Resources](#resources) | Reads resources for MCP Apps. Native servers don't automatically appear in the editor's resource browser. |
-| [Roots](#workspace-roots) | Use the runtime's negotiated roots capability and returned roots, rather than assuming it receives the editor's workspace folders. |
+| [Roots](#workspace-roots) | Deprecated in MCP. Existing integrations must check the runtime's negotiated capability and returned roots. |
 | [Prompts](#prompts) | The editor's `/mcp.<server>.<prompt>` completion flow isn't exposed in Copilot sessions. Use skills to distribute reusable workflows. |
 
-This table describes available integrations, not full MCP specification conformance. Check the capabilities negotiated with the target client and provide a tool-based workflow when your integration needs to work without editor features.
-
-For existing integrations that still use the Local harness `feature(local-harness)`, see [Local harness compatibility (deprecated)](#local-harness-compatibility-deprecated).
+This table describes available integrations, not full MCP specification conformance. Check the capabilities negotiated with the target client and match your implementation to the [SDK's protocol-version guidance](https://ts.sdk.modelcontextprotocol.io/v2/protocol-versions). Sampling and roots are [deprecated in MCP 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/deprecated), so prefer their alternatives for new integrations.
 
 For `stdio`, Streamable HTTP, and legacy SSE transport configuration, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md#configuration-file).
 
 ### Tools
 
-#### Tool definition
+For native servers, tool availability depends on the server's `tools` filter and the controls for the selected harness. See [native MCP configuration](/docs/agents/reference/mcp-configuration.md#portable-configuration) and [tool management](/docs/agents/run/tools.md#manage-available-tools).
 
-Define tools with clear names, descriptions, and input schemas so {% data variables.product.prodname_copilot_short %} can select them for a task. Users control tool availability through the server configuration and the controls for their harness. See [native MCP configuration](/docs/agents/reference/mcp-configuration.md#portable-configuration) and [tool management](/docs/agents/run/tools.md#manage-available-tools).
+Tool approval depends on session permissions, organization policy, and existing approvals. Don't assume every call prompts the user or that `readOnlyHint` bypasses approval. [Tool annotations](https://modelcontextprotocol.io/docs/concepts/tools#tool-annotations) describe behavior, not permission grants.
 
-Tool approval depends on the harness, session permissions, organization policy, and existing approvals. Don't assume every tool call prompts the user or that a read-only annotation bypasses approval. Validate inputs on the server rather than relying on users to edit model-generated parameters in a confirmation dialog.
-
-#### Dynamic tool discovery
-
-If your server uses [dynamic tool discovery](https://modelcontextprotocol.io/docs/concepts/tools#tool-discovery-and-updates), test tool-list changes in your target {% data variables.product.prodname_copilot_short %} client. Don't assume that every client refreshes its tool catalog in the same way. A tool still needs to pass the session's availability filters before the agent can call it.
-
-#### Tool annotations
-
-To provide extra metadata about a tool's behavior, you can use [tool annotations](https://modelcontextprotocol.io/docs/concepts/tools#tool-annotations):
-
-* `title`: A human-readable title for the tool.
-* `readOnlyHint`: A hint that the tool doesn't modify its environment. It isn't a permission grant or a guarantee of automatic approval.
-* `openWorldHint`: A hint that the tool can interact with external entities.
-
-Annotations describe behavior. They don't replace authentication, authorization, input validation, or the host's approval policy.
+If your server uses [dynamic tool discovery](https://modelcontextprotocol.io/docs/concepts/tools#tool-discovery-and-updates), verify tool-list changes in each target {% data variables.product.prodname_copilot_short %} client. Clients can refresh their tool catalogs differently, and discovered tools still need to pass the session's availability filters.
 
 ### Resources
 
-Resources provide structured data and content, such as screenshots or log files. In {% data variables.product.prodname_copilot_short %} sessions, [MCP Apps](#mcp-apps) can read server resources. This doesn't make every native server available in the editor's resource browser.
-
-For the editor-managed browsing and template workflows used by existing Local integrations, see [editor resource browsing](#editor-resource-browsing). Don't use those workflows as evidence of native Copilot resource discovery.
+In {% data variables.product.prodname_copilot_short %} sessions, [MCP Apps](#mcp-apps) can read resources, but native servers don't automatically appear in the editor's resource browser. Return content in a tool result when the agent needs it to complete a task, rather than relying on resource discovery. For editor-managed browsing, see the [Local compatibility appendix](#local-harness-compatibility-deprecated).
 
 ### Prompts
 
 To distribute reusable workflows for {% data variables.product.prodname_copilot_short %}, bundle [skills in an agent plugin](/docs/agent-customization/agent-plugins.md). Skills are separate from the MCP prompts protocol.
 
-The editor's `/mcp.<server>.<prompt>` picker and argument dialogs aren't exposed in Copilot sessions. For integrations that still need this workflow, see [Local prompt commands](#local-prompt-commands).
+The editor's `/mcp.<server>.<prompt>` picker and argument dialogs aren't exposed in Copilot sessions. For existing integrations that still need this workflow, expand the Local compatibility appendix and see [Local prompt commands](#local-harness-prompt-commands).
 
 ### Authorization
 
-{% data variables.product.prodname_copilot_short %} sessions support MCP servers that require OAuth authentication. The runtime requests authentication through the connected client. {% data variables.product.prodname_vscode_shortname %} owns durable credential storage, rather than relying on the runtime's keychain store.
+{% data variables.product.prodname_copilot_short %} sessions support MCP servers that require OAuth authentication. For directly configured servers, the runtime requests authentication through the connected client. {% data variables.product.prodname_vscode_shortname %} stores these credentials, rather than relying on the runtime's keychain store.
 
 Choose an authentication method that works with your configuration source. An editor input variable or an extension's `SecretStorage` value isn't automatically forwarded to a native server. See [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
 
-The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers (IdPs) rather than building their own OAuth implementations from scratch.
-
 #### Connected-editor OAuth integration
 
-The connected editor provides OAuth integration for {% data variables.product.prodname_copilot_short %} sessions. It has built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. With a compatible authorization server, users can manage MCP access through **Accounts menu** > **Manage Trusted MCP Servers** for that account.
+The connected editor provides OAuth integration for {% data variables.product.prodname_copilot_short %} sessions, including built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. It also supports other OAuth identity providers through [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) or a pre-registered OAuth client.
 
-![Screenshot showing the editor's Accounts menu with the Manage Trusted MCP Servers action.](../images/ai/mcp/manage-trusted-mcp.png)
+For your server integration:
 
-The editor also supports other OAuth identity providers. It can use [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) or a pre-registered OAuth client. If the provider doesn't support DCR, users can supply a client ID and, when required, a client secret. This isn't the OAuth client credentials grant.
-
-Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
-
-Below is a checklist to ensure your MCP server and VS Code's OAuth workflows will work:
-
-1. The MCP server defines the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
-2. The IdP supports DCR or a pre-registered OAuth client.
-3. The redirect URL list must include these URLs: `http://127.0.0.1:33418` and `https://vscode.dev/redirect`
-
-The following screenshots show the editor's prompts for a pre-registered OAuth client:
-
-![Screenshot showing the editor's authorization prompt when an MCP server requires a pre-registered OAuth client.](../images/ai/mcp/mcp-auth-dynamic-client-required.png)
-
-![Screenshot showing the editor requesting an OAuth client ID for an MCP server.](../images/ai/mcp/mcp-auth-client-id.png)
-
-![Screenshot showing the editor requesting an OAuth client secret for an MCP server.](../images/ai/mcp/mcp-auth-client-secret.png)
-
-> [!NOTE]
-> VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
+1. Implement the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+1. Choose an identity provider that supports DCR, or provide instructions for a pre-registered client ID and, when required, a client secret. This isn't the OAuth client credentials grant.
+1. Include `http://127.0.0.1:33418` and `https://vscode.dev/redirect` in the client's allowed redirect URLs.
+1. Test sign-in from the intended Copilot session. For setup and credential handling, follow [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
 
 ### Sampling
 
-[Sampling](https://modelcontextprotocol.io/docs/concepts/sampling) lets an MCP server request a language model response. For example, your server can summarize a large data set before returning a tool result.
+{% data variables.product.prodname_copilot_short %} handles [sampling](https://ts.sdk.modelcontextprotocol.io/v2/servers/sampling) during an active turn with per-server approval. Autopilot requires prior approval. Handle rejected or canceled requests without blocking the server.
 
-#### Copilot sampling
-
-{% data variables.product.prodname_copilot_short %} handles server sampling during an active turn. Unless the server already has sampling approval, the host offers **Allow Once**, **Always Allow for This Server**, or **Skip**. In Autopilot, server sampling requires prior approval. Handle rejected or canceled requests without blocking your server.
-
-The {% data variables.product.prodname_copilot_short %} runtime executes the request. Treat `modelPreferences` as hints, not a guarantee of a particular model or access to every model configured in the editor. The [Local sampling controls](#local-sampling-controls) don't configure this runtime path.
+The runtime executes the model request. Treat `modelPreferences` as hints, not a guarantee of a particular model or access to every model configured in the editor. The Local harness's model-access controls don't configure this runtime path.
 
 ### Elicitation
 
-Use [elicitation](https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation) when your server needs user input during a task. Form elicitation supplies a schema for the host to render as questions. URL elicitation asks the user to complete an interaction at a server-provided URL.
+{% data variables.product.prodname_copilot_short %} supports form and URL [elicitation](https://ts.sdk.modelcontextprotocol.io/v2/servers/elicitation) during an active turn. Requests are canceled in Autopilot and declined when there is no active turn. Handle both outcomes without continuing the action that needs input.
 
-{% data variables.product.prodname_copilot_short %} presents these requests through the connected host's input UI during an active turn. MCP elicitation is canceled in Autopilot and declined when there is no active turn. Handle decline and cancellation as normal outcomes.
+The connected host renders the input UI. For your own HTML interface, use [MCP Apps](#mcp-apps). Keep sensitive input, such as credentials, in a browser-based flow rather than a form.
 
-Elicitation doesn't let your server supply a custom chat interface. Use [MCP Apps](#mcp-apps) for your own HTML-based forms, visualizations, or interactive tool results. The host renders elicitation questions; your server supplies the UI for an MCP App.
+If you're replacing a chat participant that collects user input, see the [participant migration guidance](/docs/agent-customization/migrate-customizations.md#if-you-maintain-a-participant) for choosing between elicitation and MCP Apps.
 
 ### Workspace roots
 
-Check the client's negotiated `roots` capability and use the roots it returns. Don't treat the editor's workspace, a server process's working directory, and the harness's working directory as interchangeable.
-
-The [editor-managed roots behavior](#editor-managed-workspace-roots) used by the Local harness `feature(local-harness)` doesn't establish which roots a native {% data variables.product.prodname_copilot_short %} connection receives.
+For existing integrations using [roots](https://modelcontextprotocol.io/specification/2025-11-25/client/roots), check the runtime's negotiated capability and returned roots. The editor's workspace folders don't establish which roots a native {% data variables.product.prodname_copilot_short %} connection receives. Don't treat those roots, the server's working directory, and the harness's working directory as interchangeable.
 
 ### MCP Apps
 
-MCP Apps are an Experimental integration that lets tools provide interactive UI alongside their output, such as a visualization or a custom form. {% data variables.product.prodname_vscode_shortname %} renders MCP Apps for {% data variables.product.prodname_copilot_short %} sessions. Rendering requires a connected client with MCP Apps support; a server running in the native runtime alone doesn't provide a UI.
+Use MCP Apps (Experimental) when a tool needs an interactive visualization or custom form. {% data variables.product.prodname_vscode_shortname %} renders the UI for {% data variables.product.prodname_copilot_short %} sessions. A connected client with MCP Apps support is required.
 
-Include a useful text result for clients that don't render Apps. For ordinary questions with host-rendered input controls, use [elicitation](#elicitation) instead.
+Include a useful text result for clients that don't render Apps. For ordinary questions, use [elicitation](#elicitation) instead.
 
-#### Architecture
-
-MCP Apps use a Tool + UI Resource pattern:
-
-1. Declare `_meta.ui.resourceUri` on the tool definition to identify its UI resource.
-1. Create the resource with the `ui://` URI scheme and MIME type `text/html;profile=mcp-app`.
-1. Use the MCP Apps SDK in the HTML resource to communicate with the host. The editor renders it in a sandboxed iframe.
-
-#### SDK
-
-Use the [`@modelcontextprotocol/ext-apps`](https://github.com/modelcontextprotocol/ext-apps) package to build MCP Apps. The SDK provides:
-
-- **`App` class**: Main interface for communicating with the host
-    - `connect()`: Establish connection with VS Code
-    - `callServerTool(name, args)`: Call tools on the originating MCP server
-    - `sendMessage(content)`: Send a message to the chat input
-    - `updateModelContext(context)`: Provide context for future conversation turns
-    - `openLink(url)`: Request to open a URL in the browser
-    - `sendLog(level, message)`: Send debug logs (not added to conversation)
-
-- **Notification handlers**: Set these to receive events from VS Code
-    - `ontoolinput`: Receive complete tool arguments
-    - `ontoolinputpartial`: Receive streaming partial arguments
-    - `ontoolresult`: Receive tool execution results
-    - `ontoolcancelled`: Handle tool cancellation
-    - `onhostcontextchanged`: Respond to theme or locale changes
-    - `onteardown`: Clean up before unmounting
+For implementation, use the MCP Apps SDK's [server helpers](https://apps.extensions.modelcontextprotocol.io/api/modules/server-helpers.html) and [plain JavaScript example](https://github.com/modelcontextprotocol/ext-apps/tree/main/examples/basic-server-vanillajs).
 
 #### VS Code behavior and limitations
 
@@ -195,35 +158,7 @@ The following describes the editor renderer, including when it displays an App f
 
 #### Security
 
-MCP Apps run in sandboxed iframes with Content Security Policy (CSP) enforcement. When defining a UI resource, declare the domains your app needs to access:
-
-- `connectDomains`: Domains for fetch/XHR requests
-- `resourceDomains`: Domains for images, fonts, and other resources
-- `frameDomains`: Domains that can be embedded in iframes
-
-#### Learn more
-
-- [MCP Apps specification](https://modelcontextprotocol.github.io/ext-apps/api/)
-- [MCP Apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps)
-- [MCP Apps announcement blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
-
-## Add MCP servers to VS Code
-
-For {% data variables.product.prodname_copilot_short %}, distribute your server in one of these ways:
-
-* **Native configuration:** Provide a launch command or HTTP endpoint for workspace-root `.mcp.json` or `$COPILOT_HOME/mcp-config.json` (`~/.copilot/mcp-config.json` when `COPILOT_HOME` is unset). The runtime reads these files on the host where it runs, independently of editor discovery.
-* **Agent plugin:** [Bundle MCP servers with a plugin](/docs/agents/reference/agent-plugin-reference.md) when your integration also provides skills, instructions, or other customizations. Plugin-provided servers are loaded through the plugin, not copied into an editor profile.
-* **Connected-editor integration:** Offer an [installation URL](#create-an-mcp-installation-or-lookup-url) or [register servers from an extension](#register-an-mcp-server-in-your-extension). Eligible editor-provided definitions can be forwarded to the runtime.
-
-Link users to the [connection walkthrough](/docs/agent-customization/mcp-servers.md#connect-a-server), [configuration reference](/docs/agents/reference/mcp-configuration.md), and [first-tool-call verification](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call) rather than assuming that adding a configuration makes its tools available in every session.
-
-## Manage MCP servers
-
-For {% data variables.product.prodname_copilot_short %}, select the intended session and open **Chat: Open Customizations** > **MCP Servers**. Manage native servers in their configuration source and plugin-provided servers through their plugin. See [server controls](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server) for supported actions and removal instructions.
-
-Server startup and tool availability belong to the runtime that owns the connection. Stopping an editor-managed server doesn't stop a separate native connection, and a later request can restart a stopped server. See [automatic startup](/docs/agents/run/manage-mcp-servers.md#automatically-start-mcp-servers).
-
-**MCP: List Servers** also provides server actions. The available actions depend on the owning harness and configuration source. For existing Local integrations, see [Local harness compatibility (deprecated)](#local-harness-compatibility-deprecated) `feature(local-harness)`.
+MCP Apps run in sandboxed iframes with Content Security Policy (CSP) enforcement. Declare only the domains the UI resource needs: `connectDomains` for network requests, `resourceDomains` for assets, and `frameDomains` for embedded frames.
 
 ## Create an MCP installation or lookup URL
 
@@ -287,7 +222,7 @@ https://vscode.dev/redirect?url=vscode%3Amcp%2Fby-name%2Fio.github.github%2Fgith
 ```
 
 > [!NOTE]
-> For VS Code Insiders, use the `vscode-insiders:` scheme prefix (for example, `vscode-insiders:mcp/by-name/<registry-server-name>`). For more information about URL schemes across extensions, plugins, and workspaces, see [URL handling](/docs/configure/command-line.md#url-handling).
+> For {% data variables.product.prodname_vscode_shortname %} Insiders, use the `vscode-insiders:` scheme prefix (for example, `vscode-insiders:mcp/by-name/<registry-server-name>`). For more information about URL schemes across extensions, plugins, and workspaces, see [URL handling](/docs/configure/command-line.md#opening-vs-code-with-urls).
 
 ## Register an MCP server in your extension
 
@@ -338,60 +273,16 @@ An `McpServerDefinition` object can be one of the following types:
 - `vscode.McpStdioServerDefinition`: represents an MCP server available by running a local process and operating on its stdin and stdout streams.
 - `vscode.McpHttpServerDefinition`: represents an MCP server available using the Streamable HTTP transport.
 
-## Troubleshoot and debug MCP servers
-
-First test your server in its intended {% data variables.product.prodname_copilot_short %} session and [verify a tool call](/docs/agent-customization/mcp-servers.md#verify-the-first-tool-call). For startup, authentication, and runtime output, follow [MCP troubleshooting](/docs/agents/run/manage-mcp-servers.md#troubleshoot-mcp-servers).
-
-### MCP output log
-
-For {% data variables.product.prodname_copilot_short %} server logs, use the [output controls for the selected session](/docs/agents/run/manage-mcp-servers.md#view-server-output).
-
-For editor-managed connections, see [Local server output](#local-server-output) and [development mode](#mcp-development-mode-in-vs-code). Those controls don't apply to a separate native runtime connection.
-
-## Best practices
-
-* **Naming conventions** to ensure unique and descriptive names
-* **Implement proper error handling and validation** with descriptive error messages
-* **Use progress reporting** to inform users about long-running operations
-* **Keep tool operations focused and atomic** to avoid complex interactions
-* **Document your tools clearly** with descriptions that help users understand when to use them
-* **Handle missing input parameters gracefully** by providing default values or clear error messages
-* **Set MIME types for resources** to ensure proper handling of different content types in VS Code
-* **Use resource templates where supported by the target client** to collect parameters when accessing resources
-* **Cache resource content** to improve performance and reduce unnecessary network requests
-* **Set reasonable token limits** for sampling requests to avoid excessive resource usage
-* **Validate sampling responses** before using them
-
-### Naming conventions
-
-Apply the following naming conventions to the components your integration uses. A naming convention doesn't imply that every client exposes the component.
-
-| Component | Naming Convention Guidelines |
-|-----------|----------------------------|
-| Tool name | <ul><li>Unique within the MCP server</li><li>Describes the action and the target of the action</li><li>Use snake case, structured as `{verb}_{noun}`</li><li>Examples: `generate_report`, `fetch_data`, `analyze_code`</li></ul> |
-| Tool input parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `path`, `queryString`, `userId`</li></ul> |
-| Resource name | <ul><li>Unique within the MCP server</li><li>Describes the content of the resource</li><li>Use title case</li><li>Examples: `Application Logs`, `Database Table`, `GitHub Repository`</li></ul> |
-| Resource template parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `name`, `repo`, `fileType`</li></ul> |
-| Prompt name | <ul><li>Unique within the MCP server</li><li>Describes the intended use of the prompt</li><li>Use camelCase for multi-word parameters</li><li>Examples: `generateApiRoute`, `performSecurityReview`, `analyzeCodeQuality`</li></ul> |
-| Prompt input parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `filePath`, `queryString`, `userId`</li></ul> |
-
-## Get started to create an MCP server
-
-VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
-
-* [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-* [Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-* [Java SDK](https://github.com/modelcontextprotocol/java-sdk)
-* [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk)
-* [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
-
-You might also find the [MCP for Beginners curriculum](https://github.com/microsoft/mcp-for-beginners) helpful to get started with building your first MCP server.
-
 ## Local harness compatibility (deprecated)
 
 `feature(local-harness)`
 
-Use this section when maintaining an integration for the deprecated Local harness . The Local harness uses the editor's MCP client directly. The workflows below describe that editor-managed connection, not a native Copilot connection. Some editor UI can also be available outside Local harness sessions; its availability doesn't imply that native servers use the same connection or discovery path.
+Use this appendix only to maintain an existing Local harness integration. For new integrations, use the [Copilot delivery methods](#make-your-server-available-to-copilot).
+
+<details>
+<summary>Maintain an editor-managed Local integration</summary>
+
+The Local harness uses the editor's MCP client directly. The workflows below describe that editor-managed connection, not a native Copilot connection. Some editor UI can also be available outside Local harness sessions; its availability doesn't imply that native servers use the same connection or discovery path.
 
 Shared integrations that serve Copilot, including [OAuth](#authorization), [MCP Apps](#mcp-apps), and [extension registration](#register-an-mcp-server-in-your-extension), remain in the main guidance.
 
@@ -556,6 +447,8 @@ The following screenshots show errors and output for an editor-managed Local har
 Select the error notification and **Show Output**, or run **MCP: List Servers**, select the editor-managed server, and choose **Show Output**. Its log doesn't describe a separate native connection to the same server.
 
 ![Screenshot showing output from an editor-managed MCP server.](../images/ai/mcp/mcp-server-error-output.png)
+
+</details>
 
 ## Related content
 

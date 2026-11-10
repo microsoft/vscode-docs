@@ -175,7 +175,7 @@ These options appear only when model-assisted setup is supported in your current
 
 ## Use context and prompts from your server
 
-Servers can provide more than tools. Availability depends on the server, harness, and connected client. See [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-features-supported-by-vs-code):
+Servers can provide more than tools. Availability depends on the server, harness, and connected client. See [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-support-in-copilot):
 
 * **Skills:** load [server-provided skills](/docs/agent-customization/agent-skills.md#use-skills-from-an-mcp-server) `feature(mcp-skills)` in {% data variables.product.prodname_copilot_short %} harness sessions.
 

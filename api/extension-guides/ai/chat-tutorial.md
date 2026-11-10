@@ -16,5 +16,5 @@ The migration guide explains which participant responsibilities have replacement
 ## Related resources
 
 * [Package an agent plugin](/docs/agent-customization/agent-plugins.md)
-* [Build MCP tools and Apps](/api/extension-guides/ai/mcp.md)
+* [Integrate MCP tools and Apps](/api/extension-guides/ai/mcp.md)
 * [Build editor annotations with the Language Model API](/api/extension-guides/ai/language-model-tutorial.md)

@@ -24,7 +24,7 @@ Configure MCP servers for the {% data variables.product.prodname_copilot_short %
 
 For a complete first-time walkthrough, see [Add MCP servers](/docs/agent-customization/mcp-servers.md). To operate an existing server, see [Manage and troubleshoot MCP servers](/docs/agents/run/manage-mcp-servers.md).
 
-Configuration compatibility is separate from protocol support. For tools, prompts, resources, roots, sampling, elicitation, and MCP Apps, see [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-features-supported-by-vs-code).
+Configuration compatibility is separate from protocol support. For tools, prompts, resources, roots, sampling, elicitation, and MCP Apps, see [MCP support and limitations](/api/extension-guides/ai/mcp.md#mcp-support-in-copilot).
 
 ## Configure MCP for Copilot
 
@@ -458,7 +458,7 @@ For editor-managed servers, add a `dev` key to the server configuration to use _
 * `watch`: A glob pattern, or an array of glob patterns, to watch for file changes that restart the MCP server. Available for all server types.
 * `debug`: Enables you to set up a debugger with the MCP server. Currently, {% data variables.product.prodname_vscode_shortname %} supports debugging Node.js and Python MCP servers. Available for stdio servers only.
 
-Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP Dev Guide.
+Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP integration reference.
 
 ### Automatic MCP server discovery
 
