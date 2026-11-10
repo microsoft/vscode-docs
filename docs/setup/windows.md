@@ -30,7 +30,7 @@ See the [Download {% data variables.product.prodname_vscode %}](/download) page 
     By default, the User setup installs {% data variables.product.prodname_vscode_shortname %} under `C:\Users\{Username}\AppData\Local\Programs\Microsoft {% data variables.product.prodname_vscode_shortname %}`.
 
 > [!TIP]
-> Setup adds {% data variables.product.prodname_vscode %} to your `%PATH%` environment variable. Restart your console after installation, then run `code .` in a folder to open that folder in {% data variables.product.prodname_vscode_shortname %}.
+> Setup adds {% data variables.product.prodname_vscode %} to your `%PATH%` environment variable. Restart your console after installation, verify the setup by running `code --version`, and then run `code .` in a folder to open that folder in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Install with the System setup
 
@@ -120,6 +120,19 @@ To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) i
 <summary>I'm having trouble with the installer</summary>
 
 Use the [ZIP archive](/download) instead of the installer. To use this installation method, unzip {% data variables.product.prodname_vscode_shortname %} in your `AppData\Local\Programs` folder.
+
+</details>
+
+<details>
+<summary>The 'code' command is not recognized in the terminal</summary>
+
+If running `code` or `code --version` returns an error such as `'code' is not recognized as an internal or external command`:
+
+1. Close and reopen your terminal or command prompt window. Newly added environment variables are only available in terminal windows opened after the installation completes.
+2. Ensure that the **Add to PATH** option was selected during installation. You can run the {% data variables.product.prodname_vscode_shortname %} installer again and verify that **Add to PATH** is checked on the **Select Additional Tasks** step.
+3. Verify that the {% data variables.product.prodname_vscode_shortname %} `bin` folder is listed in your `PATH` environment variable:
+   * For User setup: `%LOCALAPPDATA%\Programs\Microsoft {% data variables.product.prodname_vscode_shortname %}\bin`
+   * For System setup: `C:\Program Files\Microsoft {% data variables.product.prodname_vscode_shortname %}\bin`
 
 </details>
 

@@ -123,7 +123,7 @@ For example, the below keybinding will send `SIGTERM`, causing it to terminate g
 
 In order to avoid unnecessary output and user prompts, the terminal does not show warning dialogs when processes exit. If warnings are desirable, they can be configured with the following settings:
 
-* `setting(terminal.integrated.confirmOnExit)` - Controls whether to confirm when the window closes if there are active debug sessions.
+* `setting(terminal.integrated.confirmOnExit)` - Controls whether to confirm when the window closes if there are active terminal sessions.
 * `setting(terminal.integrated.confirmOnKill)` - Controls whether to confirm killing terminals when they have child processes.
 * `setting(terminal.integrated.showExitAlert)` - Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
 
