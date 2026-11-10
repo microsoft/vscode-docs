@@ -79,7 +79,7 @@ To open the Agent Customizations editor:
 
 1. Use the tabs in the editor to navigate between different customization types, such as skills, custom agents, hooks, and MCP servers.
 
-    The experimental **Extensions** section also lets you [choose which installed extensions run in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
+    The experimental **Extensions** section also lets you [install and manage extensions in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md#manage-extensions-experimental).
 
 For remote hosts and Dev Containers, see [Manage customizations for remote sessions](#manage-customizations-for-remote-sessions).
 
