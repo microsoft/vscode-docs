@@ -1,8 +1,8 @@
 ---
-agent: Plan
+name: document-feature
 description: Document a new or updated VS Code feature in the project documentation.
+disable-model-invocation: true
 argument-hint: Feature to document or link to relevant issue/PR.
-tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, vscode/toolSearch, read, agent, search, web, github/get_file_contents, github/get_me, github/issue_read, github/list_issues, github/list_pull_requests, github/search_code, github/search_issues, github/search_pull_requests, github/search_repositories, artifacts]
 ---
 Analyze the feature description and related code updates, and suggest updates to the vs code docs (docs/ folder). It is acceptable to say that no documentation update is needed. Ask the user for confirmation if you think no updates are needed.
 
