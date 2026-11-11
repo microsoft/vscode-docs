@@ -93,7 +93,7 @@ In the {% data variables.copilot.agents_window %}, select **Add Tab (+)** > **Ca
 
 For a canvas marked **Requires Input**, ask the agent to open it and describe the information or configuration it should use.
 
-When a canvas extension asks for permission to load privileged capabilities, such as hooks, review the request in chat. Approve only if you trust the extension and the requested capabilities.
+When a canvas extension requests certain capabilities, such as registering hooks, review the request in chat. Approve only if you trust the extension and the requested capabilities.
 
 ## Interact with a canvas
 
