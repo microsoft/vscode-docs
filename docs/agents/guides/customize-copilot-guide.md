@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Configure project instructions, skills, and custom agents for multiple harnesses in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - customization
@@ -39,7 +39,7 @@ For this walkthrough, work in the current folder. If you're using the {% data va
 Choose the tabs for your **harness**, not your language model. For example, a Claude model in a {% data variables.product.prodname_copilot_short %} session still uses the {% data variables.product.prodname_copilot_short %} harness.
 
 > [!NOTE]
-> The **Local** harness also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local harness-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
+> The **Local** harness `feature(local-harness)` also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local harness-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
 
 ## Establish a baseline
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 MetaDescription: Use when-clause contexts in {% data variables.product.prodname_vscode_shortname %} to control keybindings, commands, menus, and views.
 ---

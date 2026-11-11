@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Extend the {% data variables.product.prodname_vscode_shortname %} workbench with views, Timeline providers, webviews, and status bar items.

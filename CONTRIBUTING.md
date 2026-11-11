@@ -314,14 +314,18 @@ Full page screenshots `feature(integrated-browser-full-page-screenshot)` capture
 
 Use `deprecated` for an already-deprecated feature and `pending-deprecation` for a feature that will be deprecated in a future release. The same page metadata and feature macros work for both states.
 
-A `pending-deprecation` entry can include optional `message`, `date`, and `moreInfoUrl` fields. You can supply each field independently. A custom message replaces the generated lifecycle sentence. Without a message, a date produces `<feature label> will be deprecated by <date string>.` Without either a message or date, the notice says the feature will be deprecated in a future release. The URL adds a **Learn more** link in all cases.
+Both `deprecated` and `pending-deprecation` entries can include optional `message` and `moreInfoUrl` fields. You can supply each field independently. A custom message replaces the generated lifecycle sentence. The URL adds a **Learn more** link, with or without a custom message.
+
+A `pending-deprecation` entry can also include a `date`. Without a custom message, a date produces `<feature label> will be deprecated by <date string>.` Without either a message or date, the notice says the feature will be deprecated in a future release. A `deprecated` entry without a custom message says `<feature label> is deprecated.` To describe a removal deadline for an already-deprecated feature, use `message`, not `date`.
 
 ```json
 {
   "features": {
     "legacy-feature": {
       "label": "Legacy feature",
-      "state": "deprecated"
+      "state": "deprecated",
+      "message": "This feature is deprecated. Use the replacement feature instead.",
+      "moreInfoUrl": "/docs/configure/migration"
     },
     "retiring-feature": {
       "label": "Retiring feature",
@@ -333,7 +337,7 @@ A `pending-deprecation` entry can include optional `message`, `date`, and `moreI
 }
 ```
 
-Messages and dates must contain non-whitespace text and render as plain text, not Markdown or HTML. Dates are display strings, not parsed or reformatted, and do not automatically change the feature's state. More-info links must use HTTPS or a root-relative published website path, such as `/docs/configure/migration`, without a `.md` suffix. HTTPS links open in a new tab; website paths open in the current tab. Protocol-relative URLs (`//example.com`), other schemes, whitespace, control characters, and backslashes are not supported. The `message`, `date`, and `moreInfoUrl` fields are only supported for `pending-deprecation`.
+Messages and dates must contain non-whitespace text and render as plain text, not Markdown or HTML. Dates are display strings, not parsed or reformatted, and do not automatically change the feature's state. More-info links must use HTTPS or a root-relative published website path, such as `/docs/configure/migration`, without a `.md` suffix. HTTPS links open in a new tab; website paths open in the current tab. Protocol-relative URLs (`//example.com`), other schemes, whitespace, control characters, and backslashes are not supported. The `message` and `moreInfoUrl` fields are supported only for `deprecated` and `pending-deprecation`. The `date` field is supported only for `pending-deprecation`.
 
 The generated deprecation notices do not imply a removal date or a commitment to remove the feature. Keep detailed timelines and migration instructions in the message or linked content.
 

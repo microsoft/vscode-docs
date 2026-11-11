@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 Keywords:
 - security
@@ -101,7 +101,7 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions, Autopilot is a permission level instead.
+* **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions `feature(local-harness)`, Autopilot is a permission level instead.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -109,7 +109,7 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review agent changes](/docs/agents/run/review-code-edits.md) before you commit, merge, or create a pull request. {% data variables.product.prodname_copilot_short %} harness sessions in the editor window provide a working set `feature(editor-working-set)` with **Keep** and **Undo**, including without Git. It only tracks edits made through supported edit tools, so review changes made through terminal commands separately. Keeping an edit acknowledges an already-saved change. It is not approval before execution. Local harness sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review agent changes](/docs/agents/run/review-code-edits.md) before you commit, merge, or create a pull request. {% data variables.product.prodname_copilot_short %} harness sessions in the editor window provide a working set `feature(editor-working-set)` with **Keep** and **Undo**, including without Git. It only tracks edits made through supported edit tools, so review changes made through terminal commands separately. Keeping an edit acknowledges an already-saved change. It is not approval before execution. Local harness `feature(local-harness)` sessions and existing extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
@@ -121,7 +121,7 @@ Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-
 
 In Copilot harness sessions that use the default tools, agent sandboxing uses OS-level isolation to confine shell execution and child processes. It can also sandbox MCP servers and language servers started or managed for the session when the corresponding settings are active. Both settings are active by default. Built-in and other non-process tools remain governed by separate permission checks.
 
-This sandboxing is available on supported Windows, macOS, and Linux machines and is independent of the selected permission level. For remote sessions, check prerequisites and configure restrictions on the machine where commands run. Local harness sessions and custom terminal tools have [different sandbox behavior](/docs/agents/run/agent-sandboxing.md#local-harness-sessions-and-custom-terminal-tools).
+This sandboxing is available on supported Windows, macOS, and Linux machines and is independent of the selected permission level. For remote sessions, check prerequisites and configure restrictions on the machine where commands run. Local harness sessions `feature(local-harness)` and custom terminal tools have [different sandbox behavior](/docs/agents/run/agent-sandboxing.md#local-harness-sessions-and-custom-terminal-tools).
 
 Sandboxing is an added layer. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. Credentials you explicitly inject, developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass all weaken its isolation. Learn how to [configure agent sandboxing](/docs/agents/run/agent-sandboxing.md). For the security model and OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
@@ -147,7 +147,7 @@ All development tasks operate with the same permissions as the user.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
 
-* **Desktop application control**: [Computer Use (Experimental)](/docs/agents/run/tools.md#control-desktop-applications-experimental) can capture application windows and interact with apps outside your workspace. Review each application approval and keep sensitive content out of captured windows. Activation persists across chats and includes {% data variables.copilot.copilot_cli_short %} on the same computer. Run `/computer off` when you no longer need this access.
+* **Desktop application control**: [{% data variables.copilot.computer_use %}](/docs/agents/run/tools.md#control-desktop-applications) `feature(computer-use)` can read and change content in applications outside your workspace. Review requested access and avoid exposing sensitive information. See [{% data variables.product.prodname_github %}'s {% data variables.copilot.computer_use %} security guidance](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use#limitations-and-risks) for shared risks and responsible use.
 
 * **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Turn on [agent sandboxing](#agent-sandboxing) and configure its network controls to restrict outbound access.
 

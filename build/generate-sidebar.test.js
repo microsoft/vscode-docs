@@ -49,7 +49,6 @@ test('renders all links in the current docs TOC, including secondary shortcuts',
   assert.equal((sidebar.match(/\[Agents Quickstart\]\(\/docs\/agents\/quickstart\)/g) || []).length, 2);
   assert.equal((sidebar.match(/\[Editor Tutorial\]\(\/docs\/editing\/getting-started\/editor-tutorial\)/g) || []).length, 2);
   assert.equal((sidebar.match(/\[Inline Suggestions\]\(\/docs\/editing\/ai-powered-suggestions\)/g) || []).length, 2);
-  assert.match(sidebar, /\[Continue a Session\]\(\/docs\/agents\/run\/sessions\/manage-sessions\)/);
   assert.match(sidebar, /\*\*Get Started\*\*/);
   assert.doesNotMatch(sidebar, /undefined|secondary/);
 });

@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 11/8/2026
+DateApproved: 11/11/2026
 MetaDescription: Download and install {% data variables.product.prodname_vscode %} on Windows, macOS, or Linux, then choose a starting path.
 MetaSocialImage: images/overview/vscode-overview.png
 ---

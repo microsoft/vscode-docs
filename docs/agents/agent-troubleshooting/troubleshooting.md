@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
 Keywords:
 - ai
@@ -54,7 +54,7 @@ Use the result to choose the next action:
 * **The file has an error**: Fix the reported frontmatter or content error, then check discovery again.
 * **The file is discovered but not included**: Check its activation rules. For pattern-based instructions, test a file that matches `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. Alternatively, attach the instructions manually. Check **References**, where available, or inspect the request in the debug logs.
 * **The file is included but not followed**: Resolve contradictory guidance or clarify a vague rule. Repeat a representative task in a new chat and review the changes and tool activity. Inclusion alone doesn't establish compliance.
-* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
+* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions `feature(local-harness)`. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 For file locations, activation rules, and settings, see the [Custom instructions reference](/docs/agents/reference/custom-instructions-reference.md). For a complete test procedure, see [Verify your instructions](/docs/agent-customization/custom-instructions.md#verify-your-instructions). To inspect request content and loading activity, [prepare logging](#inspect-chat-interactions) and reproduce the issue.
 
@@ -75,7 +75,7 @@ Prepare the session before you reproduce the issue:
 * Reproduce the issue, and then select that session when you open the logs or use `/troubleshoot`.
 
 > [!NOTE]
-> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+> **For Local harness sessions:** `feature(local-harness)` Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 To analyze a session with chat:
 

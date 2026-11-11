@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Choose AI features in {% data variables.product.prodname_vscode_shortname %} for coding, planning, testing, and reviewing changes.
 ---
 # AI features cheat sheet
@@ -31,7 +31,7 @@ New to agents? [Complete your first task with an agent](/docs/agents/quickstart.
 | Check a web app's behavior | [Browser tools](/docs/agents/run/browser-tools.md) | Ask the agent to open the app, test a user flow, and report the result. |
 | Repeat routine work on a schedule or repository event | [Automations](/docs/agents/run/automations.md) | Save a prompt and configuration in the {% data variables.copilot.agents_window %}. Check a manual run first. Cloud automations `feature(cloud-automations)` also support service-advertised issue and pull request triggers. |
 | Generate commit messages or rename symbols | [Smart actions](/docs/editing/copilot-smart-actions.md) | Use the sparkle action or editor context menu without writing a prompt. |
-| Explore data or edit a notebook | [AI for notebooks](/docs/agents/guides/notebooks-with-ai.md) | In a **Local** agent session, ask the agent to create, edit, and run notebook cells. |
+| Explore data or edit a notebook | [AI for notebooks](/docs/agents/guides/notebooks-with-ai.md) | In a **Local** agent session `feature(local-harness)`, ask the agent to create, edit, and run notebook cells. |
 | Find code or settings without exact keywords | [Semantic search](/docs/editing/copilot-smart-actions.md#semantic-search-results-preview) (Preview) and [AI settings search](/docs/editing/copilot-smart-actions.md#search-settings-with-ai) | Search by meaning in the Search view, or describe a setting in the Settings editor. |
 
 <a name="chat-experience-in-vs-code"></a>
@@ -168,7 +168,7 @@ Type `/` to see commands available in the current session. Availability depends 
 | `/rename <name>`, `/help` | Rename a local chat, or list commands and agents in a local Ask chat. |
 | `/models`, `/tools` | Open the model picker, or configure tools for a local chat. |
 | `/init` | Generate or update workspace instructions in a local agent session. |
-| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. In the {% data variables.copilot.chat_view %}, all are available with **Local**. Only `/prompts` and `/hooks` are available with **Copilot**. |
+| `/agents`, `/instructions`, `/skills`, `/prompts`, `/hooks` | Configure the corresponding customization type. In the {% data variables.copilot.chat_view %}, all are available with **Local** `feature(local-harness)`. Only `/prompts` and `/hooks` are available with **Copilot**. |
 | `/create-agent`, `/create-instructions`, `/create-skill`, `/create-prompt`, `/create-hook` | Generate a customization in a local agent session. |
 | `/troubleshoot` | Analyze agent debug logs in a local or {% data variables.copilot.copilot_cli_short %} session. |
 | `/debug` | Open the Chat Debug view from the {% data variables.copilot.chat_view %}, not the {% data variables.copilot.agents_window %}. |

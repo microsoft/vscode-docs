@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 ---
 # Remote Development Tips and Tricks
 

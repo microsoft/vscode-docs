@@ -29,7 +29,7 @@
         "topics": [
           ["AI Extensibility", "/api/extension-guides/ai/ai-extensibility-overview"],
           ["Language Model Tool", "/api/extension-guides/ai/tools"],
-          ["MCP Dev Guide", "/api/extension-guides/ai/mcp"],
+          ["MCP Integration", "/api/extension-guides/ai/mcp"],
           ["Chat Participants (Deprecated)", "/api/extension-guides/ai/chat"],
           ["Code-Tutor Migration", "/api/extension-guides/ai/chat-tutorial"],
           ["Language Model", "/api/extension-guides/ai/language-model"],

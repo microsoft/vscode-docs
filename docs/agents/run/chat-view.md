@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 ---
 # Use the {% data variables.copilot.chat_view %}
@@ -57,6 +57,8 @@ To start a new {% data variables.copilot.copilot_cli %} conversation from the ed
 If the CLI isn't installed, `copilot` offers to install it. You can also add the command to PATH during [macOS configuration](/docs/setup/mac.md#configure-path-with-vs-code) or [Windows setup](/docs/setup/windows.md#set-up-the-copilot-command).
 
 The new session appears in the sessions list. To continue an existing conversation instead, use [Resume in Terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal), where available.
+
+If you already have a conversation running in the CLI, [continue it in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-a-cli-session-in-vs-code-experimental) with `/code` (Experimental).
 
 ## Work with the agent
 
