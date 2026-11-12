@@ -190,6 +190,58 @@ Run the extension's targeted tests with `npm run test:workbench`. No GitHub writ
 
 HTTP diagnostics include the request method, path, and status code. Request failures are reported without failing the agent session. Unexpected server failures retain their error severity in the diagnostic text and return an HTTP error to the page. The server handles favicon requests and page readiness checks without reporting an error.
 
+### Annotated code examples
+
+Annotated examples keep complete fenced files beside explanatory steps. Start with
+`<!-- {% annotated-code id="..." %} -->` for a guided walkthrough, or add
+`layout="compact"` for a stacked example. Omitting `layout` is equivalent to
+`layout="guided"`. Inside, declare a
+`<!-- {% file id="..." path="..." %} -->` block around the fence and close it with
+`<!-- {% /file %} -->`.
+
+Declare all files first, then add `<!-- {% step id="..." match="..." %} -->` blocks.
+For multi-file examples, add `file="..."` to identify the file explained by each step.
+Start each step with an appropriate Markdown heading, explain what to adapt and
+how to verify it, and close it with `<!-- {% /step %} -->`. Close the component
+with `<!-- {% /annotated-code %} -->`.
+
+Selectors match exact, unique source lines. Use `from="..." to="..."` for a range,
+or omit selectors to explain the complete example. Encode quotes and angle
+brackets in attributes as HTML entities. Encode `--` as `&#45;&#45;` in attributes
+to keep comments valid. Keep directives unindented and outside
+fences. Components can appear inside a harness tab, but cannot nest or span tabs.
+Use unique kebab-case IDs. Each file has its own language fence and display path.
+With multiple files, every step must name its file, including steps with no selector.
+Selectors resolve only within that file. Single-file steps can omit `file`.
+
+Keep the HTML-comment wrappers so directives stay hidden in Markdown previews.
+Whitespace around `=` and inside the comment delimiters is optional, so
+`<!--{% annotated-code id = "example" %}-->` is also valid. Attribute values must
+be double-quoted; whitespace inside a value is preserved for exact source matching.
+
+Multiple files appear as keyboard-accessible tabs. Selecting a step opens its file;
+manual file browsing does not advance the explanation. Copying includes the whole
+displayed file, not just highlighted lines or a combination of files. No-JavaScript
+and print views retain all files and explanations.
+
+Guided examples automatically remove the right sidebar and use the available width
+beside the left navigation, including inside harness tabs. Prose retains its normal
+width, and Related actions move into the article. Set `DocsLayout: standard` to
+keep the right sidebar, or `DocsLayout: wide` to widen another article. Compact-only
+articles retain their normal layout.
+
+On sufficiently wide and tall screens, explanations scroll independently beside
+the code. Scrolling selects the topmost visible explanation; selecting a section
+holds that choice until it leaves the pane. Highlighted lines are revealed within
+the code pane without moving the page. Narrow-screen, short-screen, and compact
+layouts use normal page flow and manual selection. Line references are hidden in
+the interactive view but retained for accessibility, print, and no-JavaScript readers.
+
+Coordinate publication with the website implementation. GitHub and the local
+Docsify preview show the complete code and prose without interactive highlighting;
+validate the enhanced layout, copying, themes, and keyboard behavior in the
+website preview. Keep instructions framed as guidance, not guaranteed behavior.
+
 ### Validate your Markdown
 
 * Check that your Markdown is properly formatted
