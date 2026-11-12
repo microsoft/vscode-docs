@@ -7,12 +7,7 @@ MetaDescription: Build and validate a web app with an AI agent in {% data variab
 
 In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself.
 
-{% action-card title="Build a complete app with agents" display="sidebar" %}
-Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
-
-* [Start agents tutorial](/docs/agents/agents-tutorial.md)
-
-{% /action-card %}
+The app uses a single HTML file, so you don't need to install runtimes or build tools.
 
 ## Prerequisites
 
@@ -20,7 +15,7 @@ Follow a hands-on tutorial to build and refine an app with agents in {% data var
 
 * [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
 
-    Start with the [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot) to complete this quickstart. It connects the model to the tools that build and test your app.
+    This quickstart uses {% data variables.product.prodname_copilot_short %} with the recommended session settings shown below. You don't need to compare models or configure additional tools first.
 
 > [!NOTE]
 > Requests in this quickstart use AI credits from your Copilot plan. {% data variables.copilot.copilot_free_short %} includes a monthly allowance. Open the Copilot status dashboard from the Status Bar to monitor your monthly usage. Learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
@@ -37,12 +32,9 @@ mkdir agent-quickstart
 
 ## 2. Build the app
 
-{% data variables.product.prodname_vscode_shortname %} lets you work with agents in different ways:
+For your first task, follow the **{% data variables.copilot.chat_view %}** tab to work with the agent alongside your code in the editor.
 
-* **{% data variables.copilot.chat_view %}**: work with an agent alongside your code in the editor, focused on the current project.
-* **{% data variables.copilot.agents_window %}**: assign (high-level) tasks to agents and switch between projects without reloading the window.
-
-Choose the approach that works best for you and follow the steps in the corresponding tab below.
+If you prefer a dedicated window for agent tasks across projects, follow the **{% data variables.copilot.agents_window %}** tab instead. Both paths build the same app.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -56,8 +48,6 @@ Choose the approach that works best for you and follow the steps in the correspo
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select `+` to start a new chat.
 
     ![Screenshot of opening a new chat in the Copilot {% data variables.copilot.chat_view %}.](images/agents-quickstart/editor-new-chat.png)
-
-    If you already had an active chat, starting a new chat does not close the previous one. The previous chat remains accessible via the sessions list.
 
 1. Configure the following settings for the chat session. Keep the default values for any other options.
 
@@ -226,7 +216,7 @@ If a follow-up doesn't resolve the problem, use [Get an agent back on track](/do
 
 ## Continue in another interface or application
 
-The {% data variables.copilot.agents_window %} and {% data variables.copilot.chat_view %} share your {% data variables.product.prodname_copilot_short %} session, so you can switch between them without losing the conversation.
+This section is optional. The {% data variables.copilot.agents_window %} and {% data variables.copilot.chat_view %} share your {% data variables.product.prodname_copilot_short %} session, so you can switch between them without losing the conversation.
 
 * From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 

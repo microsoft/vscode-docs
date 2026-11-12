@@ -17,6 +17,8 @@ In this guide, you use an agent to research a small feature in your own reposito
 
 The example adds an optional title filter to a paginated issues API. Adapt the prompts and acceptance criteria to a feature in your project. No particular framework or sample project is required.
 
+For a practice project, complete [Fix an API bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md) first, then continue with its `pagination-bug` repository and `issues-api.js` file. Finish and commit the pagination fix before adding the filter, rather than using the buggy starting version.
+
 ## Prerequisites
 
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
@@ -58,6 +60,8 @@ Check that these assumptions match your API before using the prompts. For exampl
     ```
 
 1. Review the identified files and commands. Ask the agent to run the existing tests for the affected area, and inspect the actual output.
+
+    If you're continuing from the bug tutorial, run `node issues-api.js test` in the `pagination-bug` folder. Keep the pagination regression tests as part of the baseline.
 
 Resolve failures that prevent you from validating the feature before you continue. Record unrelated baseline failures separately so that they aren't confused with regressions from the change.
 
