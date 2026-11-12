@@ -156,9 +156,14 @@ Changing the model doesn't change the harness. Where tools run is another decisi
 
 Add customizations when the agent repeatedly misses a convention or workflow that it can't infer from your code. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for your selected session.
 
-* Start with concise [project instructions](/docs/agent-customization/custom-instructions.md) for non-obvious conventions, architecture, and test commands.
-* Reuse a multi-step workflow with an [agent skill](/docs/agent-customization/agent-skills.md), or define a specialized role with a [custom agent](/docs/agent-customization/custom-agents.md).
-* Add [external tools](/docs/agents/run/tools.md) only when a task needs them.
+{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) and create customizations for your selected harness.
+
+| Mechanism | Best for | Get started |
+|-----------|----------|-------------|
+| [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
+| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Select **Agents**, then **New Agent** next to **Workspace** in the Agent Customizations editor |
+| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Select **Skills**, then **New Skill** next to **Workspace** in the Agent Customizations editor |
+| [Tools and MCP servers](/docs/agents/run/tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
 Verify one customization on a representative task before adding more. Follow the [project customization guide](/docs/agents/guides/customize-copilot-guide.md) for a before-and-after comparison.
 
