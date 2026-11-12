@@ -804,7 +804,7 @@ See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide
 
 ## contributes.icons
 
-Contribute a new icon by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) anywhere a `ThemeIcon` can be used `new ThemeIcon("iconId")`, in [Markdown strings](/api/references/icons-in-labels#icon-in-labels) (`$(iconId)`), and as icons in certain contribution points.
+Contribute a new icon by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) anywhere a `ThemeIcon` can be used `new ThemeIcon("iconId")`, in [Markdown strings](/api/references/icons-in-labels#icons-in-labels) (`$(iconId)`), and as icons in certain contribution points.
 
 ```json
 {
