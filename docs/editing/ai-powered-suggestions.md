@@ -34,11 +34,21 @@ Follow a hands-on tutorial to build your first app with AI in {% data variables.
 
 Copilot offers dimmed *ghost text* suggestions as you type: sometimes the completion of the current line, sometimes a whole new block of code.
 
-1. Open a file in a programming language of your choice and start typing. You should see inline suggestions from Copilot as you type.
+![Screenshot showing a JavaScript function suggested as dimmed ghost text.](images/inline-suggestions/js-suggest.png)
 
-    The following example shows how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using dimmed *ghost text*:
+Try completing a small JavaScript function in a temporary file. Suggestions vary, so check the behavior rather than expecting an exact implementation.
 
-    ![JavaScript ghost text suggestion.](images/inline-suggestions/js-suggest.png)
+1. Create and save a file named `inline-suggestions-practice.js` in a temporary folder. Add this comment and function stub:
+
+    ```javascript
+    // Sum the numbers in the array. Return 0 for an empty array.
+    function sumNumbers(numbers) {
+    }
+    ```
+
+1. Place the cursor after the opening `{` and press `kbstyle(Enter)` to start a line inside the function. Pause for a suggestion.
+
+    If no suggestion appears, run **Trigger Inline Suggestion** from the Command Palette (`kb(workbench.action.showCommands)`). If it still doesn't appear, check the [inline suggestion troubleshooting steps](/docs/agents/agent-troubleshooting/faq.md#inline-suggestions-are-not-working-in-the-editor).
 
 1. Review the suggested code. Press `kbstyle(Tab)` to accept it, or `kbstyle(Escape)` to dismiss it.
 
@@ -47,7 +57,15 @@ Copilot offers dimmed *ghost text* suggestions as you type: sometimes the comple
     * Use `kb(editor.action.inlineSuggest.acceptNextWord)` to accept the next word.
     * Run **Accept Next Line Of Inline Suggestion** from the Command Palette (`kb(workbench.action.showCommands)`) to accept the next line.
 
-1. Continue editing and check that the accepted code does what you intended. Suggestions can be incorrect, so run the relevant tests before relying on the result.
+1. When the function is complete, copy it and these calls into a browser's JavaScript console, or run them in your existing JavaScript runtime. Compare the output with the comments:
+
+    ```javascript
+    console.log(sumNumbers([1, 2, 3])); // 6
+    console.log(sumNumbers([]));        // 0
+    console.log(sumNumbers([-2, 5]));   // 3
+    ```
+
+If a result differs, correct the code yourself or use [inline chat](/docs/chat/inline-chat.md#try-a-focused-edit) to describe the failing case, then repeat the checks. For changes to project code, run the relevant tests before relying on an accepted suggestion.
 
 ### Alternative suggestions
 
