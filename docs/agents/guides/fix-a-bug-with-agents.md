@@ -316,7 +316,8 @@ Before you commit an agent's work, inspect both the code and the evidence that s
 
 You fixed a reproducible API defect by establishing the expected behavior before changing production code. This workflow gives you evidence for the diagnosis, protects the behavior with a regression test, and keeps the final change focused and reviewable.
 
-## Related resources
+## Next steps
 
+* Continue with the fixed API and [add an optional title filter](/docs/agents/guides/add-a-feature.md). Use the same repository to practice planning and testing a feature while preserving the pagination behavior you verified.
 * Explore more ways to [test with GitHub Copilot](/docs/agents/guides/test-code-with-ai.md).
 * Review how to [inspect, revise, and revert agent changes](/docs/agents/run/review-code-edits.md).
