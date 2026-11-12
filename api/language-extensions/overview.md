@@ -29,12 +29,36 @@ Declarative language features are defined in configuration files. Examples inclu
 - Comment toggling
 - Auto indentation
 - Folding (by markers)
+- File icon
 
 We have three guides for writing Language Extensions that provide Declarative Language Features.
 
 - [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
 - [Snippet Completion guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
 - [Language Configuration guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
+
+### File icon
+
+You can define a default file icon for a contributed language under `contributes.languages` in `package.json`. File icon themes can use this icon as a fallback when they do not define their own icon for the language. Whether it is displayed depends on the theme's mappings and `showLanguageModeIcons` configuration.
+
+```json
+{
+  "contributes": {
+    "languages": [
+      {
+        "id": "myLanguage",
+        "extensions": [".mylang"],
+        "icon": {
+          "light": "./icons/mylang-light.png",
+          "dark": "./icons/mylang-dark.png"
+        }
+      }
+    ]
+  }
+}
+```
+
+Learn more about file icon themes and how they consume language default icons in the [File Icon Theme guide](/api/extension-guides/file-icon-theme#language-default-icons).
 
 ## Programmatic language features
 
