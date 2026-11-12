@@ -7,7 +7,7 @@ Keywords:
 ---
 # Using GCC with MinGW
 
-In this tutorial, you configure {% data variables.product.prodname_vscode %} to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](http://mingw-w64.org) to create programs that run on Windows. After configuring {% data variables.product.prodname_vscode_shortname %}, you will compile, run, and debug a Hello World program.
+In this tutorial, you configure {% data variables.product.prodname_vscode %} to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](https://www.mingw-w64.org) to create programs that run on Windows. After configuring {% data variables.product.prodname_vscode_shortname %}, you will compile, run, and debug a Hello World program.
 
 This tutorial does not teach you about GCC, GDB, minGW-w64, or the C++ language. For those subjects, there are many good resources available on the Web.
 
