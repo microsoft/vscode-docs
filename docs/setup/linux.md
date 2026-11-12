@@ -75,8 +75,15 @@ To manually install the apt repository:
 
 Microsoft provides the stable 64-bit {% data variables.product.prodname_vscode_shortname %} package for RHEL, Fedora, and CentOS-based distributions in a yum repository.
 
-1. Install the key and yum repository:
+1. Install the key and dnf5/yum repository:
 
+    In Fedora 45 or newer:
+    ```bash
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname={% data variables.product.prodname_vscode %}\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /usr/share/dnf5/repos.d/vscode.repo > /dev/null
+    ```
+
+    In Fedora 44 or older:
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
     echo -e "[code]\nname={% data variables.product.prodname_vscode %}\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
