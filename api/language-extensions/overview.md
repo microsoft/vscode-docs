@@ -39,7 +39,7 @@ We have three guides for writing Language Extensions that provide Declarative La
 
 ### File icon
 
-You can define a default file icon for a contributed language under `contributes.languages` in `package.json`. The active file icon theme uses this icon if the theme does not define its own icon for the language.
+You can define a default file icon for a contributed language under `contributes.languages` in `package.json`. File icon themes can use this icon as a fallback when they do not define their own icon for the language. Whether it is displayed depends on the theme's mappings and `showLanguageModeIcons` configuration.
 
 ```json
 {
