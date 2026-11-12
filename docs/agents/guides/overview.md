@@ -8,7 +8,7 @@ MetaSocialImage: ../images/agents-overview/chat-view-expanded.png
 
 Find a tutorial or guide for the task you want to complete with agents in {% data variables.product.prodname_vscode_shortname %}. Learn with a sample project or apply a workflow to your own codebase.
 
-For help choosing an AI workflow, [compare suggestions, collaboration alongside code, and agent orchestration](/docs/agents/overview.md#choose-how-you-work).
+For help choosing a feature and its first action, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
 ## Choose where to start
 
