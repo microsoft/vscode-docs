@@ -15,7 +15,7 @@ The [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/r
 
 * **Make your server available:** choose a [delivery method](#make-your-server-available-to-copilot).
 * **Check compatibility:** review [Copilot capability support](#mcp-support-in-copilot) and connected-client requirements.
-* **Maintain an existing Local integration:** expand the [deprecated Local compatibility appendix](#local-harness-compatibility-deprecated) `feature(local-harness)`.
+* **Maintain an existing Local integration:** expand the [deprecated Local compatibility appendix](#local-harness-compatibility-deprecated).
 
 For protocol and server implementation guidance, use the [MCP documentation and SDKs](https://modelcontextprotocol.io/docs/sdk).
 
@@ -28,7 +28,7 @@ Use a managed connection for a supported service, or distribute your own server 
 
 | Delivery method | When to use it |
 |-----------------|----------------|
-| **{% data variables.product.prodname_copilot_short %} connector** `feature(copilot-connectors)` | Use a [{% data variables.product.prodname_github %}-managed MCP connection](/docs/agent-customization/copilot-connectors.md) for a supported service. {% data variables.product.prodname_github %} handles configuration and authentication, with no local server setup. |
+| **{% data variables.product.prodname_copilot_short %} connector (Preview)** | Use a [{% data variables.product.prodname_github %}-managed MCP connection](/docs/agent-customization/copilot-connectors.md) for a supported service. {% data variables.product.prodname_github %} handles configuration and authentication, with no local server setup. |
 | **Native configuration** | Provide a launch command or HTTP endpoint that compatible {% data variables.product.prodname_copilot_short %} clients can use without an editor extension. |
 | **Agent plugin** | [Bundle the server with skills and other customizations](/docs/agents/reference/agent-plugin-reference.md#mcp-servers-in-plugins) for a reusable workflow. Servers load through the plugin, not as copies in an editor profile. |
 | **Connected-editor integration** | Offer an [installation URL](#create-an-mcp-installation-or-lookup-url) or [register the server from an extension](#register-an-mcp-server-in-your-extension). Eligible editor-provided definitions can be forwarded to the runtime. |
@@ -275,7 +275,8 @@ An `McpServerDefinition` object can be one of the following types:
 
 ## Local harness compatibility (deprecated)
 
-`feature(local-harness)`
+> [!WARNING]
+> The Local harness is deprecated and will be removed in February 2027. [Move your workflows to the Copilot harness](/docs/agents/run/move-to-copilot.md) before then.
 
 Use this appendix only to maintain an existing Local harness integration. For new integrations, use the [Copilot delivery methods](#make-your-server-available-to-copilot).
 
@@ -292,17 +293,17 @@ Users can retain `.vscode/mcp.json` and user-profile `mcp.json`. These are depre
 
 ### Local harness tool controls
 
-The following screenshots show the Local harness's `feature(local-harness)` editor-managed tools picker and confirmation UI. They aren't the native {% data variables.product.prodname_copilot_short %} tool controls for other harnesses.
+The following screenshots show the Local harness's editor-managed tools picker and confirmation UI. They aren't the native {% data variables.product.prodname_copilot_short %} tool controls for other harnesses.
 
 ![Screenshot showing the Local harness tools picker with tools from an MCP server.](../images/ai/mcp/mcp-tools-picker.png)
 
 ![Screenshot showing the Local harness confirmation dialog with input parameters for an MCP tool.](../images/ai/mcp/mcp-tool-input-parameters.png)
 
-In Local harness `feature(local-harness)` sessions, `readOnlyHint` affects default pre-execution confirmation, and `openWorldHint` affects confirmation of tool results. The editor's MCP client also supports dynamic tool discovery. Don't infer identical approval or refresh behavior in another harness.
+In Local harness sessions, `readOnlyHint` affects default pre-execution confirmation, and `openWorldHint` affects confirmation of tool results. The editor's MCP client also supports dynamic tool discovery. Don't infer identical approval or refresh behavior in another harness.
 
 ### Editor resource browsing
 
-These browsing, attachment, and template workflows use servers discovered by the editor's MCP client in Local harness `feature(local-harness)` sessions. They are separate from native resource reads for MCP Apps.
+These browsing, attachment, and template workflows use servers discovered by the editor's MCP client in Local harness sessions. They are separate from native resource reads for MCP Apps.
 
 For an editor-discovered server, the resource name appears in the MCP Resources picker. Users can open resources with **MCP: Browse Resources**. In sessions that support MCP resource attachments, users can also select **Add Context** > **MCP Resources**. Resources can contain text or binary content.
 
@@ -330,7 +331,7 @@ The editor's MCP client supports `icons` provided on servers, resources, and too
 
 ### Interactive extension-provider resolution
 
-For an editor-managed launch used by the Local harness `feature(local-harness)`, an extension can use `resolveMcpServerDefinition` to request missing information, such as an API key, before starting its server:
+For an editor-managed launch used by the Local harness, an extension can use `resolveMcpServerDefinition` to request missing information, such as an API key, before starting its server:
 
 1. Return the server definitions from `provideMcpServerDefinitions` without prompting the user.
 1. In `resolveMcpServerDefinition`, complete any required authentication or input collection and update the definition before returning it.
@@ -340,7 +341,7 @@ Don't write secrets to a workspace configuration or log them. This interactive l
 
 ### Local harness prompt commands
 
-Prompts are reusable templates that can introduce your server's tools or describe a workflow. In Local harness `feature(local-harness)` sessions, users invoke `/mcp.<server>.<prompt>` and supply any arguments in the editor.
+Prompts are reusable templates that can introduce your server's tools or describe a workflow. In Local harness sessions, users invoke `/mcp.<server>.<prompt>` and supply any arguments in the editor.
 
 Define [completions](https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/completion) to suggest values in the editor's prompt argument dialog:
 
@@ -366,11 +367,11 @@ server.prompt(
 > [!NOTE]
 > Users can enter a terminal command in the prompt dialog and use the command output as input for the prompt.
 
-When you include a resource type in the prompt response, this editor workflow attaches the resource as context to the chat prompt in Local harness `feature(local-harness)` sessions.
+When you include a resource type in the prompt response, this editor workflow attaches the resource as context to the chat prompt in Local harness sessions.
 
 ### Local harness sampling controls
 
-For editor-managed sampling in the Local harness `feature(local-harness)`, the user authorizes access to models. **MCP: List Servers** > **Configure Model Access** restricts the models available to that server. The editor selects from the allowed models when applying `modelPreferences`.
+For editor-managed sampling in the Local harness, the user authorizes access to models. **MCP: List Servers** > **Configure Model Access** restricts the models available to that server. The editor selects from the allowed models when applying `modelPreferences`.
 
 ![Screenshot showing the Local harness authorization prompt for an MCP server to access models.](../images/ai/mcp/mcp-allow-sampling.png)
 
@@ -440,7 +441,7 @@ The `dev` object has two properties:
 
 ### Local server output
 
-The following screenshots show errors and output for an editor-managed Local harness `feature(local-harness)` connection:
+The following screenshots show errors and output for an editor-managed Local harness connection:
 
 ![Screenshot showing an MCP server error in a Local chat session.](../images/ai/mcp/mcp-error-loading-tool.png)
 
