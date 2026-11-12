@@ -21,10 +21,10 @@
                 "area": "agents",
                 "topics": [
                     ["Find a Guide", "/docs/agents/guides/overview"],
+                    ["Choose an AI Feature", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Agents Quickstart", "/docs/agents/quickstart"],
                     ["Agents Tutorial", "/docs/agents/agents-tutorial"],
-                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
                     ["Best Practices", "/docs/agents/best-practices"]
                 ]
             }],
@@ -34,10 +34,11 @@
                 "area": "agents/run",
                 "topics": [
                     ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
-                    ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
+                    ["Chat View and Layout", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Inline Chat & Quick Chat", "/docs/chat/inline-chat"],
-                    ["Use Chat", "/docs/chat/chat-overview"],
+                    ["Chat Interactions", "/docs/chat/chat-overview"],
                     ["Canvases", "/docs/agents/run/canvases"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
                     ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
@@ -112,6 +113,7 @@
                 "name": "Work Across Apps and Machines",
                 "area": "agents/continuation",
                 "topics": [
+                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                     ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
                     ["Session History", "/docs/agents/run/sessions/session-history"]

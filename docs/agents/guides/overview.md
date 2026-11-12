@@ -12,9 +12,17 @@ For help choosing an AI workflow, [compare suggestions, collaboration alongside 
 
 ## Choose where to start
 
-Choose a starting path. If you're new to {% data variables.product.prodname_vscode_shortname %}, [install the editor and open a workspace](/docs/getstarted/overview.md) first.
+New to AI coding? Start by exploring your own code without changing it, or use a sample project to practice making and reviewing changes. If you're new to {% data variables.product.prodname_vscode_shortname %}, [install the editor and open a workspace](/docs/getstarted/overview.md) first.
 
 <div class="card-grid">
+    <a class="card" href="/docs/agents/guides/explore-a-codebase">
+        <i class="codicon codicon-source-control" aria-hidden="true"></i>
+        <div>
+            <p><strong>Explore your own code</strong></p>
+            <p>Ask about a behavior and verify the explanation without changing files.</p>
+            <p>Your repository. Start with a question about code you know.</p>
+        </div>
+    </a>
     <a class="card" href="/docs/agents/quickstart">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
@@ -31,15 +39,9 @@ Choose a starting path. If you're new to {% data variables.product.prodname_vsco
             <p>Sample project. Requires Git.</p>
         </div>
     </a>
-    <a class="card" href="/docs/agents/guides/overview#work-on-a-project">
-        <i class="codicon codicon-source-control" aria-hidden="true"></i>
-        <div>
-            <p><strong>Work in your own repository</strong></p>
-            <p>Explore your codebase, add a feature, or refactor existing code with an agent.</p>
-            <p>Your repository. Check the guide's prerequisites.</p>
-        </div>
-    </a>
 </div>
+
+Already use AI coding tools? Follow the [experienced-agent fast track](#experienced-agent-fast-track) to bring your workflow to {% data variables.product.prodname_vscode_shortname %}.
 
 Or jump to a task:
 
@@ -88,9 +90,15 @@ Or jump to a task:
 
 ## Experienced-agent fast track
 
-To skip the sample projects, [open your repository as a workspace](/docs/getstarted/overview.md#open-your-code), then [explore the codebase](/docs/agents/guides/explore-a-codebase.md) or [add a feature](/docs/agents/guides/add-a-feature.md). Follow the guide's setup and [review and validate edits](/docs/agents/run/review-code-edits.md) before you integrate them.
+If you already use AI coding tools but are new to {% data variables.product.prodname_vscode_shortname %}, bring your workflow to your own repository without completing the sample tutorials:
 
-To bring an existing setup, compare [agent harnesses and supported accounts](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). Check compatibility with the guide you choose.
+1. [Open your repository as a workspace](/docs/getstarted/overview.md#open-your-code).
+
+1. Connect your existing account by following the [setup for your agent harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
+1. Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) to work alongside your editor, tests, and debugger, or the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) to coordinate tasks across multiple projects.
+
+Start with a bounded task: [explore the codebase](/docs/agents/guides/explore-a-codebase.md) or [add a feature](/docs/agents/guides/add-a-feature.md). Check the guide's harness and interface requirements, and [review and validate edits](/docs/agents/run/review-code-edits.md) before you integrate them.
 
 ## Match a guide to your setup
 
