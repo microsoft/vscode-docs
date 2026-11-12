@@ -1,7 +1,7 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
 DateApproved: 11/11/2026
-MetaDescription: Configure project instructions, skills, and custom agents for multiple harnesses in {% data variables.product.prodname_vscode_shortname %}.
+MetaDescription: Improve your project's AI guidance with focused instructions, scoped rules, agents, and skills in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - customization
 - instructions
@@ -16,203 +16,272 @@ Keywords:
 
 # Configure AI for your codebase
 
-AI agents can produce better results when they understand how your codebase is structured, which commands to run, and which conventions to follow. Configure this information once as repository customizations instead of repeating it in every prompt.
+AI agents need reliable project context to follow your repository's structure and conventions. Build on the documentation and automation you already maintain. Start with one repeated problem, reuse an existing customization when it fits, and add your repository's own guidance only where needed.
 
-This guide helps you configure the {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_anthropic_claude %}, or {% data variables.product.prodname_openai_codex %} harness in {% data variables.product.prodname_vscode %}. Start with an observed project problem and a representative task. Make the smallest useful customization, confirm that it applies, repeat the task, and compare the results before you share the configuration. The workflow is shared, with tabs for harness-specific formats and behavior.
+This guide first helps you choose the right customization, then shows how the pieces fit together in a TypeScript API project. You'll apply what you need to your repository with focused project instructions and optional extensions. Finally, you'll try a representative task and refine the guidance based on the results.
 
-To understand how the customization types differ and work together, see [Agent customization](/docs/agents/concepts/customization.md).
+The example uses the {% data variables.product.prodname_copilot %} harness in {% data variables.product.prodname_vscode %}, with alternatives for the {% data variables.product.prodname_anthropic_claude %} and {% data variables.product.prodname_openai_codex %} harnesses. A harness is the agent environment that provides tools and loads customizations. It is separate from the language model.
 
-For ready-made workflows and integrations, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) before authoring your own. You can reuse an existing skill or plugin and still follow this guide to add repository-specific instructions.
+## Before you start
 
-## Prerequisites
+### Prepare your session
+
+* Open your repository root.
+* Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup) in {% data variables.product.prodname_vscode_shortname %}.
+* [Select your harness](/docs/agents/run/agent-harnesses.md#select-a-harness) from **Session Target** and use it throughout setup.
+
+Choose the article's tabs for your harness, not your language model. For example, a Claude model in a {% data variables.product.prodname_copilot_short %} session still uses the {% data variables.product.prodname_copilot_short %} harness.
+
+> [!NOTE]
+> Work in the current folder rather than a new worktree so new sessions can access your uncommitted customization files. In the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected.
 
 > [!NOTE]
 > Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
-* [Download and install {% data variables.product.prodname_vscode %}](/download).
-* Complete the [setup and authentication for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
-* Open the repository root that you want to configure.
-* [Start a session](/docs/agents/run/agent-harnesses.md#select-a-harness) and select **{% data variables.product.prodname_copilot_short %}**, **Claude**, or **Codex** from the **Session Target** UI control. Use the same harness when creating and testing its customizations.
+### Review your existing setup
 
-For this walkthrough, work in the current folder. If you're using the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected so new sessions can access your uncommitted customization files.
+Before adding another customization, check what the project already provides:
 
-Choose the tabs for your **harness**, not your language model. For example, a Claude model in a {% data variables.product.prodname_copilot_short %} session still uses the {% data variables.product.prodname_copilot_short %} harness.
+* Existing instruction files, skills, agents, and installed plugins for your harness.
+* Setup, build, lint, and test commands documented in `README.md`, `CONTRIBUTING.md`, or other project documentation.
+* Representative implementations, tests, and shared helpers that demonstrate the conventions you want followed.
 
-> [!NOTE]
-> The **Local** harness `feature(local-harness)` also supports the {% data variables.product.prodname_copilot_short %} file layout shown in this guide, but tool names and some activation behavior differ. For Local harness-specific configuration, see [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md).
+Fix missing, stale, or unreliable documentation and commands that affect the task you want to improve. A customization should point to those shared sources rather than maintain a separate version solely for the agent.
 
-## Establish a baseline
+If you haven't used an agent on this repository yet, run a representative task and use its result as a baseline. Otherwise, choose one recurring problem and note what the agent currently does and what a better result would look like. For example, generated API tests duplicate setup code, but should reuse the project's existing test helper.
 
-Choose one project-specific problem that occurs repeatedly, such as using the wrong test command, placing files in the wrong directory, or selecting a library that your project doesn't use. A one-time requirement belongs in the current request rather than in shared project configuration.
+## Choose the right customization
 
-Define a small representative task with a clear success criterion. Record the current result or use evidence from a recent task:
+Choose the customization that matches the need. A one-time requirement belongs in the current prompt, not shared project configuration.
 
-* Which files the agent creates or changes.
-* Which project patterns and libraries it follows.
-* Which commands and tests it runs, including failures or skipped checks.
-* Which corrections you have to provide.
+| What you encounter | Smallest useful response |
+|------|-----|
+| A published workflow already covers the capability you need | Reuse an existing skill or [plugin](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins) before building another |
+| The agent puts handlers in the wrong layer or uses the wrong project command | Add [project instructions](#add-project-instructions) pointing to the expected structure, examples, and commands |
+| Generated tests repeatedly duplicate shared setup | Add [scoped rules](#scoped-rules-for-specialized-conventions) for the relevant test files |
+| You repeatedly need an API investigation with the same scope and output | Define a [custom agent](#custom-agents-for-specialized-roles) for that role |
+| You repeat the same procedure to prepare a change for review | Package the procedure as an [agent skill](#skills-for-repeatable-procedures) |
+| A command needs to run at a supported workflow event without the model requesting it | Configure a [hook](#hooks-for-event-driven-actions) |
 
-If the result already meets your success criterion, stop. You don't need a customization for that behavior. For a coding task, see the [add a feature guide](/docs/agents/guides/add-a-feature.md) for guidance on establishing baseline tests and verifying the outcome.
+## Example: Customize an API project
 
-## Step 1: Create project instructions
+Consider a TypeScript API project with existing application code and tests. The `.github` entries below show the optional customizations discussed in this example, not files that every project needs:
 
-Start with a project instructions file for information that applies across your codebase. Focus the initial change on the observed problem and decisions the agent can't reliably infer from the repository. Each harness has its own discovery rules, so use its expected file name and location.
-
-In the prompts below, replace `<observed problem>` with the behavior you want to improve. For example, describe that the agent places HTTP handlers outside `src/api/routes` or uses a test command that doesn't work in your repository.
-
-1. Open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for the selected harness. In the {% data variables.copilot.chat_view %}, run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. In the **Overview** section, enter the prompt for your harness below and press `kbstyle(Enter)` to submit it.
-
-1. Continue in the chat that opens. Confirm that it uses the intended harness and repository, and answer any clarifying questions.
-
-1. Review the changes and save the instructions in the expected location. If the file already exists, review the update rather than replacing existing guidance without checking it.
-
-{% tabs id="customization-harness" %}
-{% tab label="{% data variables.product.prodname_copilot_short %}" %}
-
-Use `.github/copilot-instructions.md` at the repository root for project-wide instructions.
-
-```prompt
-Create or update .github/copilot-instructions.md to address this repeated problem: <observed problem>. Inspect relevant code and commands, then add only the project-specific guidance needed to avoid the problem. Preserve useful existing guidance, avoid duplication, and ask about anything you cannot verify. Do not change application code.
+```text
+your-project/
+  CONTRIBUTING.md              # Build, lint, and test commands
+  src/
+    api/routes/                # HTTP handlers
+    schemas/                   # Request validation
+    repositories/              # Data access
+  tests/
+    api/                       # Endpoint tests named *.test.ts
+    helpers/createTestApp.ts   # Shared application setup for tests
+  .github/
+    copilot-instructions.md    # Copilot project instructions
+    instructions/
+      api-tests.instructions.md
+    agents/
+      researcher.agent.md
+    skills/
+      validate-change/
+        SKILL.md
 ```
 
-{% /tab %}
-{% tab label="Claude" %}
+The team wants new handlers to follow this structure, API tests to reuse their existing setup, a researcher to explain request flows, and a repeatable procedure for checking an API change. These are different needs, not reasons to keep adding rules to one instruction file.
 
-Use `CLAUDE.md` at the repository root for project-wide instructions.
+The four files below show one way to separate them for the **{% data variables.product.prodname_copilot_short %}** harness. Their full paths are relative to the repository root. Adapt them to files that exist in your project, and merge useful guidance into existing customizations rather than replacing them wholesale. You don't need all four files to get started.
 
-```prompt
-Create or update CLAUDE.md at the repository root to address this repeated problem: <observed problem>. Inspect relevant code and commands, then add only the project-specific guidance needed to avoid the problem. Preserve useful existing guidance, avoid duplication, and ask about anything you cannot verify. Do not change application code.
-```
-
-{% /tab %}
-{% tab label="Codex" %}
-
-Use `AGENTS.md` at the repository root for project-wide instructions.
-
-```prompt
-Create or update AGENTS.md at the repository root to address this repeated problem: <observed problem>. Inspect relevant code and commands, then add only the project-specific guidance needed to avoid the problem. Preserve useful existing guidance, avoid duplication, and ask about anything you cannot verify. Do not change application code.
-```
-
-{% /tab %}
-{% /tabs %}
-
-> [!TIP]
-> Project instructions are most useful when they document decisions the agent cannot reliably infer from the code alone. Avoid generic advice that applies to any project.
-
-## Step 2: Review the generated instructions
-
-Treat generated instructions as a starting point. Check the categories relevant to your observed problem, rather than adding every category to the file:
-
-* **Observed problem**: include only the guidance needed to improve the baseline behavior.
-* **Architecture**: describe important directories, component boundaries, and where to add different types of code.
-* **Commands**: include the correct build, test, lint, and formatting commands.
-* **Technology choices**: identify preferred frameworks, libraries, and patterns.
-* **Conventions**: capture naming, error-handling, testing, security, and documentation requirements.
-* **Definition of done**: state which validations the agent should run before completing a task.
-
-Remove information that is generic, obsolete, or duplicated elsewhere in the file. Resolve conflicting instructions and keep each rule concise.
-
-For example, project-specific instructions might include:
+<!-- {% annotated-code id="project-guidance" %} -->
+<!-- {% file id="project" path=".github/copilot-instructions.md" %} -->
 
 ```markdown
-## Project structure
+# API project conventions
 
-* Add API routes under `src/api/routes`.
-* Put shared validation schemas in `src/schemas`.
-* Keep database access in the repository layer.
+* Put HTTP handlers in `src/api/routes`.
+* Put shared request-validation schemas in `src/schemas`.
+* Keep database access in `src/repositories`, not in HTTP handlers.
+* Read a nearby implementation before adding a new handler or schema.
 
-## Validation
+## Project commands
 
-* Run the unit tests for the changed package.
-* Run the linter before completing a code change.
-* Add or update tests for every behavior change.
+Use the build, lint, and test commands documented in `CONTRIBUTING.md`.
 ```
 
-Learn more about writing effective [custom instructions](/docs/agent-customization/custom-instructions.md).
+<!-- {% /file %} -->
+<!-- {% file id="tests" path=".github/instructions/api-tests.instructions.md" %} -->
 
-<a name="step-3-verify-the-improvement"></a>
+```markdown
+---
+applyTo: 'tests/api/**/*.test.ts'
+---
+# API tests
 
-## Step 3: Verify the improvement
+* Reuse application setup from `tests/helpers/createTestApp.ts`.
+* Check the response status and body for the requested behavior.
+* Keep each test's data independent of other tests.
+```
 
-Confirm that the instructions apply, and then repeat the representative task from your baseline. Keep the harness, model, tools, task, and relevant context the same where practical so that the customization is the main change.
+<!-- {% /file %} -->
+<!-- {% file id="researcher" path=".github/agents/researcher.agent.md" %} -->
 
-1. In the Agent Customizations editor, select **Instructions** for your harness and confirm that the project instructions file is listed. This checks discovery, not whether the agent follows every instruction.
-1. Start a new chat with the same harness and repository so the comparison doesn't rely on guidance from the creation conversation.
-1. Repeat the representative task with the same success criterion, without restating the saved instructions in the prompt.
-1. Check **References** in the response, where available, for the expected instructions. If inclusion is unclear, [inspect the request or instruction-loading activity](/docs/agents/agent-troubleshooting/chat-debug-view.md#instructions-or-a-prompt-file-are-not-applied).
-1. Compare the result with the baseline. Review file placement, project patterns, libraries, tool activity, commands, tests, and errors rather than relying on the agent's summary.
+```markdown
+---
+name: Researcher
+description: Trace API request handling and explain existing patterns without editing files
+tools: ['read', 'search']
+---
+Investigate the API behavior identified in the request.
+Follow the handler through validation and data access.
+Read related tests to understand the expected behavior.
 
-For an API task, record the observed results against criteria such as these:
+Return:
+* Relevant files and symbols.
+* A concise explanation of the request flow.
+* Existing patterns to reuse for the proposed change.
+* Open questions that the available code does not answer.
 
-| Criterion | Baseline observation | Successful result after adding instructions |
-|-----------|----------------------|---------------------------------------------|
-| Handler location | The agent creates a new top-level route directory. | The handler uses the existing `src/api/routes` directory. |
-| Data access | The handler contains database queries. | The handler uses the existing repository layer. |
-| Validation | The agent skips tests or runs the wrong command. | Tool activity shows the relevant tests and their results. |
+Do not edit files or run terminal commands.
+```
 
-These are example criteria, not guaranteed model outputs. Compare equivalent tasks from the same starting code, using the same model and available tools.
+<!-- {% /file %} -->
+<!-- {% file id="skill" path=".github/skills/validate-change/SKILL.md" %} -->
 
-If the file is missing, invalid, or included but not followed, use the [agent customization troubleshooting guide](/docs/agents/agent-troubleshooting/troubleshooting.md) to identify the failure before adding more instructions.
+```markdown
+---
+name: validate-change
+description: Check an API change using the project's tests and lint commands. Use when preparing a change for review.
+---
+# Validate an API change
 
-If the instructions are included but the result still misses the success criterion, clarify one relevant rule and repeat the task in another new chat. Stop when the task meets the criterion. More instructions consume context and can introduce conflicts without improving the result.
+1. Inspect the changed handlers, schemas, repositories, and related tests.
+1. Read `CONTRIBUTING.md` for test, lint, and setup commands.
+1. Choose the smallest set of checks that covers the changed behavior.
+   If a command or required tool is unavailable, report the limitation.
+1. Run those checks without changing application code or weakening tests.
+1. Summarize the commands, results, and remaining gaps.
+```
 
-For a broader controlled comparison that includes quality, reliability, credits, tokens, duration, and tool calls, use the [usage optimization loop](/docs/agents/guides/optimize-usage.md#inspect-token-usage-and-caching).
+<!-- {% /file %} -->
+<!-- {% step id="shared" file="project" from="* Put HTTP handlers in `src/api/routes`." to="Use the build, lint, and test commands documented in `CONTRIBUTING.md`." %} -->
+### Keep repository knowledge shared
 
-## Step 4: Share the configuration
+Project instructions describe decisions that matter across tasks: where code belongs, how layers interact, and where to find project commands. Keep this knowledge in one place instead of repeating it in every prompt or custom agent. For your repository, replace the example paths and remove rules that don't address a recurring problem.
 
-Commit the project instructions file and share it through your repository's normal pull request or review process. Contributors who obtain the updated files and use a compatible harness can reuse the guidance without recreating it.
+<!-- {% /step %} -->
+<!-- {% step id="scope" file="tests" match="applyTo: 'tests/api/**/*.test.ts'" %} -->
+### Narrow guidance to the files that need it
 
-Review the instructions like other development configuration. Use your existing ownership and review process to make responsibility for the file clear. Update it when the architecture, commands, dependencies, or team practices change, and remove stale or duplicate rules.
+The pattern targets API test files, such as `tests/api/users.test.ts`, rather than the handler in `src/api/routes/users.ts`. It is relative to the repository root, not the instructions directory. Use a scoped file when a part of your codebase needs guidance that would be distracting in the project-wide file.
 
-If your team uses multiple harnesses, keep shared guidance consistent and avoid contradictory copies. A file supported by one harness isn't automatically supported by every other harness.
+<!-- {% /step %} -->
+<!-- {% step id="conventions" file="tests" from="* Reuse application setup from `tests/helpers/createTestApp.ts`." to="* Keep each test's data independent of other tests." %} -->
+### Put specialized conventions beside their scope
 
-If the representative task now meets the success criterion, stop. Your repository has a useful baseline customization. The remaining steps are optional. Add them when different parts of the codebase need distinct guidance or when your team repeatedly performs the same workflow.
+These rules describe how this team writes API tests. They complement the shared architecture rules rather than repeating them. Adapt the fixture path and conventions to existing tests in your project. You don't need a separate agent just because one directory follows different rules.
 
-<a name="step-5-add-targeted-instructions"></a>
+<!-- {% /step %} -->
+<!-- {% step id="role" file="researcher" from="name: Researcher" to="tools: ['read', 'search']" %} -->
+### Define a role for a recurring task
 
-## Step 5: Add targeted instructions (optional)
+The researcher has a focused purpose and access to reading and search tools. Use it to trace an API request from its handler through validation and data access before deciding where to make a change. It is not another file of general coding conventions. Tool access is harness-specific, so configure available tools and permissions rather than relying on role text to restrict actions.
 
-Add targeted instructions when different parts of your codebase need different guidance. For example, frontend code and infrastructure code might follow different conventions. Keep project-wide standards in the instructions file from step 1.
+<!-- {% /step %} -->
+<!-- {% step id="result" file="researcher" from="Investigate the API behavior identified in the request." to="* Open questions that the available code does not answer." %} -->
+### Describe the result, not the repository again
 
-In the Agent Customizations editor's **Overview** section, submit a request to create the file for your harness below. Describe the conventions it should cover and use an existing file type or directory from your repository.
+The agent body defines the investigation and the answer it should return. It doesn't repeat the directory rules or test setup. This keeps role-specific guidance separate from shared project knowledge, so each can change without maintaining several copies of the same rules.
+
+<!-- {% /step %} -->
+<!-- {% step id="workflow" file="skill" from="name: validate-change" to="1. Summarize the commands, results, and remaining gaps." %} -->
+### Package a procedure for repeated use
+
+The skill describes a sequence: inspect a change, select checks, run them, and summarize the result. Its description explains when to use that procedure. Unlike the scoped test rules, it is a task you invoke or the agent selects when relevant, not a convention for every matching file. Use it with an agent that has the required tools: the researcher above has no command-execution tools, and this skill's instructions don't change that configuration.
+
+<!-- {% /step %} -->
+<!-- {% /annotated-code %} -->
+
+These responsibilities are useful across harnesses, but their file locations, activation rules, and tool controls differ. Use the harness-specific steps below to create your files. Instructions guide the model; they don't guarantee that it follows your conventions.
+
+## Add project instructions
+
+The first useful change is often one focused rule in an existing project instructions file. For example, point the agent to `src/api/routes` and a representative handler when it repeatedly creates handlers in the wrong layer. Keep an example of the current result so you can compare it after adding guidance. If the existing behavior already meets your needs, don't add a rule for it.
+
+1. Open or create the project instructions file for your harness, relative to the repository root:
+
+    * **{% data variables.product.prodname_copilot_short %}**: `.github/copilot-instructions.md` or `AGENTS.md`
+    * **Claude**: `CLAUDE.md`
+    * **Codex**: `AGENTS.md`
+
+    To open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor), run **Chat: Open Customizations** from the Command Palette.
+
+1. Add the guidance needed for your recurring problem. Use the [API project example](#example-customize-an-api-project) as a starting point, replacing its paths and conventions with your repository's own.
+1. Preserve useful existing rules, remove conflicting or duplicate guidance, and save the file.
+
+The example's project file is plain Markdown. You can adapt that body for another harness's project file, but don't assume that scoped-rule metadata or custom-agent tool lists transfer in the same way.
+
+> [!TIP]
+> You can ask an agent in chat to improve a customization. Identify the file and describe the behavior you want to change. Ask it to inspect relevant project conventions, preserve useful existing guidance, and limit changes to the customization. Use the intended harness and review the proposed changes.
+
+### Keep the guidance focused
+
+Keep only rules that help with your project:
+
+* Name real paths, commands, and conventions instead of generic advice.
+* Document decisions the agent cannot reliably infer from the code alone.
+* Resolve conflicts and remove guidance duplicated elsewhere.
+* Leave rules already enforced by formatters, linters, or CI in those tools. Explain how to run the existing checks instead of copying their configuration into prose.
+* Move specialized rules into a narrower customization when they don't belong at project scope.
+
+Learn more about [writing effective instructions](/docs/agent-customization/custom-instructions.md#write-effective-instructions). If this file addresses your need, skip the optional extensions and [try the guidance](#try-and-refine-your-guidance).
+
+## Extend only where needed
+
+Add another customization only when it addresses a specific need that your existing setup does not cover. Choose from the options below, or skip to [trying and refining your guidance](#try-and-refine-your-guidance). You don't need to use every type.
+
+### Scoped rules for specialized conventions
+
+Use scoped instructions when the agent needs conventions that apply only to particular files or directories. Keep broadly applicable rules in project instructions. A separate folder doesn't need its own instructions unless its conventions differ.
+
+In the [API project example](#example-customize-an-api-project), endpoint tests reuse a shared application setup. The scoped rules describe that test-specific convention without repeating the project-wide architecture rules.
+
+Create the file for your harness below, or ask the agent to create it from your existing test conventions.
 
 {% tabs id="customization-harness" %}
 {% tab label="{% data variables.product.prodname_copilot_short %}" %}
 
-Create `.github/instructions/frontend.instructions.md`. For TypeScript React files, include this YAML frontmatter before the Markdown instructions:
+Create `.github/instructions/api-tests.instructions.md`. For the example project's TypeScript API tests, include this YAML frontmatter before the Markdown instructions:
 
 ```yaml
 ---
-applyTo: "**/*.tsx"
+applyTo: 'tests/api/**/*.test.ts'
 ---
 ```
 
-The pattern matches `.tsx` files throughout the repository. Review the pattern and test the instructions by asking the agent to make a small change to a specific matching file.
+Add the API test rules from the example, adapted to your repository. The pattern matches `.test.ts` files under `tests/api`, including subdirectories.
 
 Learn more about [targeted instructions](/docs/agent-customization/custom-instructions.md#apply-instructions-to-specific-files-or-tasks) and [pattern syntax](/docs/agents/reference/custom-instructions-reference.md#file-patterns).
 
 {% /tab %}
 {% tab label="Claude" %}
 
-Create `.claude/rules/frontend.md`. Claude uses `paths` rather than `applyTo` for path-scoped rules:
+Create `.claude/rules/api-tests.md`. Claude uses `paths` rather than `applyTo` for path-scoped rules:
 
 ```yaml
 ---
 paths:
-  - "**/*.tsx"
+  - 'tests/api/**/*.test.ts'
 ---
 ```
 
-Review the pattern and test the rules by asking the agent to make a small change to a specific matching file. Without `paths`, the rule file applies generally rather than only to matching files.
+Add your API test conventions below the header. Without `paths`, the rule file applies generally rather than only to matching files.
 
 Learn more about [Claude path-specific rules](https://code.claude.com/docs/en/memory#path-specific-rules).
 
 {% /tab %}
 {% tab label="Codex" %}
 
-Use an `AGENTS.md` file in the directory that needs its own guidance, such as `packages/frontend/AGENTS.md`. Codex discovers instructions from the repository root down to the session's working directory. This is directory-based guidance, not an `applyTo` or `paths` glob.
+Put your API test conventions in `tests/api/AGENTS.md`. Codex discovers instructions from the repository root down to the session's working directory. This is directory-based guidance, not an `applyTo` or `paths` glob.
 
 To test the nested instructions, start a new Codex harness session with that subdirectory as its working folder. Opening a file in the editor doesn't change the session's working directory.
 
@@ -221,163 +290,87 @@ Learn more about [Codex instruction discovery](https://developers.openai.com/cod
 {% /tab %}
 {% /tabs %}
 
-Review and save the generated file, then test it in a new chat with the same harness. Confirm that the result follows the targeted conventions. If it doesn't, check discovery and scope before revising the instructions.
+Save the scoped rules and use a matching file when you [try the guidance](#try-and-refine-your-guidance). If you change the session's working folder for nested instructions, return to the repository root before creating other workspace customizations.
 
-If you changed the session's working folder to test nested instructions, return to the repository root before continuing.
+### Custom agents for specialized roles
 
-<a name="step-6-package-a-recurring-workflow"></a>
+Create a custom agent when you repeatedly need a distinct role with a consistent scope, expected output, or tool configuration. Use project or scoped instructions for additional coding conventions rather than creating a role for them.
 
-## Step 6: Package a recurring workflow (optional)
+The [researcher in the API project example](#example-customize-an-api-project) traces a request through the code and returns findings before you decide what to change.
 
-Create an agent skill when your team repeatedly explains the same multi-step process. A skill can include instructions, scripts, templates, examples, and other resources that the agent loads when relevant.
-
-For example, create a `validate-change` skill that selects and runs the relevant checks for a code change, then reports what passed, failed, or wasn't run. Submit the prompt for your harness in the Agent Customizations editor's **Overview** section:
+Adapt the researcher's role to your needs and use the file location and tool configuration for your harness:
 
 {% tabs id="customization-harness" %}
 {% tab label="{% data variables.product.prodname_copilot_short %}" %}
 
-```prompt
-Create a workspace skill named validate-change at .github/skills/validate-change/SKILL.md. It should inspect a code change, choose and run the relevant tests and lint checks using this repository's commands, and report what passed, failed, or was not run. Describe when to use it in its frontmatter.
-```
+Save the adapted researcher example as `.github/agents/researcher.agent.md`. Keep its `tools` allowlist limited to the intended reading and search tools rather than tools that can edit files, run commands, or delegate work.
 
 {% /tab %}
 {% tab label="Claude" %}
 
-```prompt
-Create a workspace skill named validate-change at .claude/skills/validate-change/SKILL.md. It should inspect a code change, choose and run the relevant tests and lint checks using this repository's commands, and report what passed, failed, or was not run. Describe when to use it in its frontmatter.
-```
+Create `.claude/agents/researcher.md` using the Claude agent format. Adapt the research instructions and restrict the tools to `Read`, `Grep`, and `Glob`. Learn more about [Claude custom agents and tool access](https://code.claude.com/docs/en/sub-agents#available-tools).
 
 {% /tab %}
 {% tab label="Codex" %}
 
-```prompt
-Create a workspace skill named validate-change at .agents/skills/validate-change/SKILL.md. It should inspect a code change, choose and run the relevant tests and lint checks using this repository's commands, and report what passed, failed, or was not run. Describe when to use it in its frontmatter.
-```
+Save the research instructions in `.github/agents/researcher.agent.md`. The Codex integration in {% data variables.product.prodname_vscode_shortname %} loads the role instructions from this file, but doesn't use its `tools` frontmatter as a tool allowlist. Treat the no-edit instruction as guidance, not enforcement. Review [Codex permissions](/docs/agents/run/agent-harnesses.md#codex) before using the agent.
 
 {% /tab %}
 {% /tabs %}
 
-After generating the skill:
-
-1. Review the `SKILL.md` file. Check that its `name` matches the directory name and its `description` explains what it does and when to use it.
-1. Review any scripts, templates, or other resources in the skill directory, and save your changes.
-1. Start a new chat with the same harness and repository. Type `/` in the chat input and select **validate-change** to invoke the skill explicitly. Identify the code change to validate.
-1. Review the tool activity and results. Check that the agent loads the skill, selects appropriate checks, and reports failures or skipped checks accurately.
-
-You can also test automatic selection in a separate chat by asking the agent to validate a change without naming the skill. If it doesn't select the skill, review the description and invocation settings. Explicit invocation and model-selected use are separate checks.
-
-Learn more about [agent skills](/docs/agent-customization/agent-skills.md).
-
-<a name="step-7-add-a-specialized-agent"></a>
-
-## Step 7: Add a specialized agent (optional)
-
-Create a custom agent when a role needs focused instructions. For example, a codebase researcher can investigate implementation details and report findings before you decide what to change. Tool restrictions depend on the harness, so don't assume a role description alone prevents edits.
-
-In the Agent Customizations editor's **Overview** section, submit the prompt for your harness:
-
-{% tabs id="customization-harness" %}
-{% tab label="{% data variables.product.prodname_copilot_short %}" %}
-
-```prompt
-Create a workspace custom agent named researcher at .github/agents/researcher.agent.md. It should trace how features work and report findings with file locations, without changing the repository. Configure its tools to use only the {% data variables.product.prodname_copilot_short %} harness's file-reading and code-search tools. Exclude tools that can edit files, run shell commands, or delegate to other agents.
-```
-
-Review the `tools` allowlist in the generated file. Confirm that it contains only the intended reading and search tools, rather than unrestricted tool access.
-
-{% /tab %}
-{% tab label="Claude" %}
-
-```prompt
-Create a workspace custom agent named researcher at .claude/agents/researcher.md. It should trace how features work and report findings with file locations, without changing the repository. Restrict its tools to Read, Grep, and Glob.
-```
-
-Review the generated agent's `tools` frontmatter to confirm that it limits the agent to those reading and search tools. Learn more about [Claude custom agents and tool access](https://code.claude.com/docs/en/sub-agents#available-tools).
-
-{% /tab %}
-{% tab label="Codex" %}
-
-```prompt
-Create a workspace custom agent named researcher at .github/agents/researcher.agent.md for Codex in {% data variables.product.prodname_vscode_shortname %}. It should trace how features work and report findings with file locations. Instruct it not to edit files or run commands that change the repository.
-```
-
-The Codex integration in {% data variables.product.prodname_vscode_shortname %} loads the role instructions from this file, but doesn't use its `tools` frontmatter as a tool allowlist. Treat the no-edit instruction as guidance, not enforcement. Review [Codex permissions](/docs/agents/run/agent-harnesses.md#codex) before using the agent.
-
-{% /tab %}
-{% /tabs %}
-
-After generating the agent:
-
-1. Review and save the file. Check that the instructions define a clear role and don't conflict with your project guidance.
-1. Start a new chat with the same harness and repository, and select **researcher** from the agents dropdown.
-1. Ask it to research how a feature works. Check that it identifies relevant files, supports findings with evidence, and follows its configured role.
-1. Review any changes and tool activity rather than assuming the agent's name or instructions make it read-only.
+Save the file and select the researcher from the agents dropdown in a new chat with the same harness. Ask it to explain an API request flow. Review its findings and tool activity.
 
 For a complete test procedure and guidance on refining the agent's role, see [Verify your custom agent](/docs/agent-customization/custom-agents.md#verify-your-custom-agent).
 
-## What you configured
+### Skills for repeatable procedures
 
-If you completed the optional steps, your repository can contain the following files for your selected harness. The frontend directory is an example; use the structure of your repository.
+Use an agent skill when you repeatedly explain the same multi-step procedure. Package the procedure for an agent to use rather than creating a separate role just to repeat that workflow. Use scoped instructions instead when you need a convention for particular files, not a procedure to carry out.
+
+The [validate-change skill in the API project example](#example-customize-an-api-project) packages the process of selecting and running relevant checks, then summarizing their results.
+
+Adapt that complete `SKILL.md` file to your repository's process. Use the directory for your harness below. A skill can also include scripts, templates, and other resources; see the [testing skill and report template](/docs/agent-customization/agent-skills.md#create-a-skill) for a multi-file example.
 
 {% tabs id="customization-harness" %}
 {% tab label="{% data variables.product.prodname_copilot_short %}" %}
 
-```text
-your-project/
-  .github/
-    copilot-instructions.md
-    instructions/
-      frontend.instructions.md
-    skills/
-      validate-change/
-        SKILL.md
-    agents/
-      researcher.agent.md
-```
+Store the skill at `.github/skills/validate-change/SKILL.md`, with its supporting files in the same skill directory.
 
 {% /tab %}
 {% tab label="Claude" %}
 
-```text
-your-project/
-  CLAUDE.md
-  .claude/
-    rules/
-      frontend.md
-    skills/
-      validate-change/
-        SKILL.md
-    agents/
-      researcher.md
-```
+Store the skill at `.claude/skills/validate-change/SKILL.md`, with its supporting files in the same skill directory.
 
 {% /tab %}
 {% tab label="Codex" %}
 
-```text
-your-project/
-  AGENTS.md
-  packages/
-    frontend/
-      AGENTS.md
-  .agents/
-    skills/
-      validate-change/
-        SKILL.md
-  .github/
-    agents/
-      researcher.agent.md
-```
+Store the skill at `.agents/skills/validate-change/SKILL.md`, with its supporting files in the same skill directory.
 
 {% /tab %}
 {% /tabs %}
 
-Project instructions provide the baseline. Targeted instructions focus guidance on part of the codebase. Skills package recurring workflows, and custom agents define specialized roles with harness-specific capabilities. You can adopt each layer independently as your repository's needs grow.
+Review the skill and all supporting files. Keep its `name` consistent with the directory name, and use the description to explain when the workflow is useful. In a fresh chat, select **validate-change** from the `/` menu and give it a small task. If you also want automatic selection, try a matching request separately without naming the skill. See [Verify a skill](/docs/agent-customization/agent-skills.md#verify-a-skill).
 
-Review and share any optional customization files through the same process as the project instructions. Include a skill's supporting resources so other contributors can use it.
+### Hooks for event-driven actions
 
-## Next steps
+Use a hook when a command should run at a supported event, such as recording a tool call or running a formatter after a tool completes. Unlike an instruction or skill, the hook is invoked by the runtime at that event rather than relying on the model to request the action.
 
-* [Create and manage customizations](/docs/agent-customization/overview.md) from the Agent Customizations editor.
-* Add [MCP servers](/docs/agent-customization/mcp-servers.md) to connect the agent to external tools and services.
-* Set up [hooks](/docs/agent-customization/hooks.md) when an action must run at a specific point in the agent's workflow, such as before a tool runs.
+Keep ordinary build and quality checks in your existing automation. Add a hook only when running a command at a specific agent event matters, reusing existing scripts or checks where possible.
+
+Hooks run code, and their event formats, permissions, and failure behavior depend on the harness. Review the script and its dependencies before enabling it. For setup and a connected configuration-and-script example, see [Configure agent hooks](/docs/agent-customization/hooks.md). Hooks complement project guidance; they don't replace it or guarantee that the model follows other instructions.
+
+Before building a reusable workflow or role, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for an existing skill or plugin. Plugins package related customizations so you can adopt them together. Review the publisher, included files, and supported harness before installing because a plugin can include scripts or servers that run code. Keep repository-specific rules in your project's instructions rather than duplicating a plugin's workflow. For more on how instructions, agents, skills, and hooks fit together, see [Agent customization](/docs/agents/concepts/customization.md).
+
+## Try and refine your guidance
+
+Choose a small task affected by the rule or role you added. For the API example, this could be adding a handler in the right layer, writing a test that reuses the shared setup, or explaining a request flow.
+
+1. Save the customization and start a fresh chat with the same harness and repository. Confirm that the file appears in the Agent Customizations editor.
+1. Repeat the task without restating the saved instructions in your prompt. Use a matching file for scoped guidance, select the custom agent for a role, or explicitly invoke a skill for its workflow.
+1. Check **References**, where available, or [inspect the request](/docs/agents/agent-troubleshooting/chat-debug-view.md#instructions-or-a-prompt-file-are-not-applied) if it is unclear whether the instructions were included.
+1. Compare the actual changes and tool activity with the earlier result. Keep the model, task, and relevant context consistent where practical. Check file placement, reused patterns, and command output, not only the agent's summary.
+
+Discovery, inclusion, and following the guidance are different checks. If a file is missing or not included, [troubleshoot the customization](/docs/agents/agent-troubleshooting/troubleshooting.md) before adding more instructions. If it is included but the result misses your goal, clarify one relevant rule and repeat the task.
+
+Stop when the guidance addresses the need. More instructions consume context and can introduce conflicts. For a broader comparison of quality, reliability, and resource use, follow the [usage optimization loop](/docs/agents/guides/optimize-usage.md#inspect-token-usage-and-caching).
+
+Keep useful customizations in version control with their supporting files, and update them when your project's structure or conventions change.
