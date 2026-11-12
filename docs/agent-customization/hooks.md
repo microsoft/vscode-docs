@@ -69,7 +69,7 @@ Select the harness before opening the hooks interface so the editor shows the re
    * In the {% data variables.copilot.chat_view %}, enter `/hooks` in the chat input.
 1. Select **New Hook** (plus icon) next to **Workspace** or **User** to create a hook, or select an existing hook to open its configuration.
 
-To generate a hook with AI, describe the hook you want in chat. The `/create-hook <description>` and **Chat: Generate Hook** shortcuts are available only for Local sessions. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
+To generate a hook with AI, describe the hook you want in chat. Review generated configuration and scripts against the destination reference before running them. Generation is not automatic migration or verification.
 
 ## Create your first Copilot hook
 
