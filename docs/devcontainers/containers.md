@@ -178,7 +178,7 @@ The rest of the Dev Containers quick start applies as-is. You can learn more abo
 
 ### Open an existing workspace in a container
 
-You can also follow a similar process to open a [{% data variables.product.prodname_vscode_shortname %} multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
+You can also follow a similar process to open a [{% data variables.product.prodname_vscode_shortname %} multi-root workspace](/docs/editing/workspaces/multi-root-workspaces.md) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
 
 You can either:
 
