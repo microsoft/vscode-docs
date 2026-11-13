@@ -1,12 +1,12 @@
 ---
+name: review-article
 description: Review a docs article
+disable-model-invocation: true
 argument-hint: Review a documentation article or section
-tools: ['search', 'vscodeAPI', 'problems', 'fetch', 'githubRepo']
 ---
-
 Review a documentation article by completing these tasks:
 
-* Review the article for adherence to our documentation [writing style guidelines](../instructions/docs-writing.instructions.md).
+* Review the article for adherence to our documentation [writing style guidelines](../../instructions/docs-writing.instructions.md).
 
 * Validate technical accuracy:
     - Verify all code samples are syntactically correct and follow best practices
