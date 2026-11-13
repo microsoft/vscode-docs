@@ -1,0 +1,35 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {"type":"text","id":"title","x":100,"y":0,"width":400,"height":30,"text":"tool_search(\"open browser page\")","fontSize":24,"strokeColor":"#1e1e1e","fontFamily":3},
+    {"type":"arrow","id":"a0","x":310,"y":32,"width":0,"height":28,"points":[[0,0],[0,28]],"strokeColor":"#1e1e1e","strokeWidth":2,"endArrowhead":"arrow"},
+    {"type":"rectangle","id":"eq","x":160,"y":65,"width":300,"height":65,"backgroundColor":"#d0bfff","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#8b5cf6","strokeWidth":2},
+    {"type":"text","id":"eqt","x":230,"y":83,"width":160,"height":30,"text":"Embed query","fontSize":22,"strokeColor":"#1e1e1e","containerId":"eq","textAlign":"center"},
+    {"type":"arrow","id":"a1","x":310,"y":130,"width":0,"height":50,"points":[[0,0],[0,50]],"strokeColor":"#8b5cf6","strokeWidth":2,"endArrowhead":"arrow"},
+    {"type":"text","id":"a1l","x":320,"y":140,"width":110,"height":20,"text":"query vector","fontSize":16,"strokeColor":"#757575"},
+    {"type":"rectangle","id":"cs","x":110,"y":185,"width":400,"height":80,"backgroundColor":"#fff3bf","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#f59e0b","strokeWidth":2},
+    {"type":"text","id":"cst","x":190,"y":200,"width":240,"height":50,"text":"Cosine similarity\ntop-k matches","fontSize":20,"strokeColor":"#1e1e1e","containerId":"cs","textAlign":"center"},
+    {"type":"arrow","id":"a2","x":310,"y":265,"width":0,"height":50,"points":[[0,0],[0,50]],"strokeColor":"#1e1e1e","strokeWidth":2,"endArrowhead":"arrow"},
+    {"type":"rectangle","id":"res","x":130,"y":320,"width":360,"height":75,"backgroundColor":"#b2f2bb","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#22c55e","strokeWidth":2},
+    {"type":"text","id":"rest","x":147,"y":327,"width":326,"height":60,"text":"tool_reference[]\nopen_browser, click_element, ...","fontSize":18,"strokeColor":"#1e1e1e","containerId":"res","textAlign":"center"},
+    {"type":"text","id":"ct","x":640,"y":0,"width":290,"height":28,"text":"Tool Embedding Cache","fontSize":22,"strokeColor":"#1e1e1e","fontFamily":3},
+    {"type":"rectangle","id":"c1","x":600,"y":45,"width":360,"height":95,"backgroundColor":"#a5d8ff","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#4a9eed","strokeWidth":2},
+    {"type":"text","id":"c1t","x":640,"y":58,"width":280,"height":69,"text":"Layer 1: Pre-computed\nBuilt-in tools\nShipped with VS Code","fontSize":16,"strokeColor":"#1e1e1e","containerId":"c1","textAlign":"center"},
+    {"type":"arrow","id":"ca1","x":600,"y":95,"width":-90,"height":115,"points":[[0,0],[-90,115]],"strokeColor":"#4a9eed","strokeWidth":2,"endArrowhead":"arrow"},
+    {"type":"rectangle","id":"c2","x":600,"y":170,"width":360,"height":95,"backgroundColor":"#c3fae8","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#06b6d4","strokeWidth":2},
+    {"type":"text","id":"c2t","x":640,"y":183,"width":280,"height":69,"text":"Layer 2: Local persistent cache\nMCP & extension tools\nLRU, 1000 entries","fontSize":16,"strokeColor":"#1e1e1e","containerId":"c2","textAlign":"center"},
+    {"type":"arrow","id":"ca2","x":600,"y":225,"width":-90,"height":5,"points":[[0,0],[-90,5]],"strokeColor":"#06b6d4","strokeWidth":2,"endArrowhead":"arrow"},
+    {"type":"text","id":"el","x":525,"y":125,"width":70,"height":40,"text":"tool\nembeddings","fontSize":16,"strokeColor":"#757575"},
+    {"type":"rectangle","id":"miss","x":650,"y":310,"width":260,"height":65,"backgroundColor":"#ffd8a8","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#f59e0b","strokeWidth":2},
+    {"type":"text","id":"misst","x":670,"y":323,"width":220,"height":40,"text":"Compute embedding\nStore in local cache","fontSize":16,"strokeColor":"#1e1e1e","containerId":"miss","textAlign":"center"},
+    {"type":"arrow","id":"am","x":780,"y":265,"width":0,"height":45,"points":[[0,0],[0,45]],"strokeColor":"#757575","strokeWidth":1,"endArrowhead":"arrow"},
+    {"type":"text","id":"aml","x":790,"y":278,"width":40,"height":20,"text":"miss","fontSize":14,"strokeColor":"#757575"},
+    {"type":"rectangle","id":"fast","x":180,"y":430,"width":260,"height":50,"backgroundColor":"#d3f9d8","fillStyle":"solid","roundness":{"type":3},"strokeColor":"#22c55e","strokeWidth":2},
+    {"type":"text","id":"fastt","x":198,"y":442,"width":224,"height":26,"text":"sub-millisecond lookup","fontSize":20,"strokeColor":"#15803d","containerId":"fast","textAlign":"center"}
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}
