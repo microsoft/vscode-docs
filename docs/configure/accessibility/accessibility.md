@@ -54,6 +54,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 * [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created for people with deuteranopia, featuring a high contrast color ratio.
 * [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both color blindness and light sensitivity.
 * [Pitaya Smoothie](https://marketplace.visualstudio.com/items?itemName=trallard.pitaya-smoothie) - Accessible to most forms of color blindness and compliant with [WCAG 2.1 criteria for color contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html).
+* [365 Day & Night](https://marketplace.visualstudio.com/items?itemName=mickaellherminez.365-daynight-vscode-theme-ext) - A Light, Dark, High Contrast, and High Contrast Light theme for every month, checked with protanopia, deuteranopia, and tritanopia simulations and [WCAG 2.2 criteria for color contrast](https://www.w3.org/TR/WCAG22/#contrast-minimum).
 
 ## Customizing warning colors
 
