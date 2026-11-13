@@ -1,6 +1,6 @@
 ---
 Tags: [GitHub Copilot, AI, Agents]
-Order: 
+Order:
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
@@ -105,7 +105,7 @@ As of last week's [VS Code Insiders](https://code.visualstudio.com/insiders/) re
 
 Agent mode in Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
-<video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="Agent-Sunrise-1.webp"></video>
+![Promotional image for agent mode](Agent-Sunrise-1.webp)
 
 We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode/issues) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
 
