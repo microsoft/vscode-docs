@@ -37,7 +37,7 @@ Depending on your scenario, you may want to use the {% data variables.product.pr
 
 ### How do I access a service that only runs on a remote machine?
 
-If you're connected to a remote workspace, the [integrated browser](/docs/debugtest/integrated-browser.md#browse-over-remote-connections-preview) can proxy its web traffic over the remote connection. This lets you reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine.
+If you're connected to a remote workspace, the [integrated browser](/docs/debugtest/integrated-browser.md#browse-over-remote-connections) can proxy its web traffic over the remote connection. This lets you reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine.
 
 ### How are forwarded ports secured?
 
