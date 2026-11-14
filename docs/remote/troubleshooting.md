@@ -717,7 +717,7 @@ Please file an issue and attach the full output.
 
 When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **WSL: Show Log**. The log will show in the terminal view under the WSL tab.
 
 ![WSL Log](images/troubleshooting/wsl-log.png)
 
