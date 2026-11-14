@@ -150,9 +150,7 @@ To prove that the extension is installed in WSL, open the Extensions view again 
 
 ![WSL installed extensions](images/wsl-tutorial/wsl-installed-extensions.png)
 
-Upon reload, you'll also get prompted telling you that the pylint linter is not installed. Linters are used to show errors and warnings in source code. Go ahead and select **Install**.
-
-![pylint not installed notification](images/wsl-tutorial/pylint-not-installed.png)
+To enable linting to identify errors and warnings in your code, you can install a linting extension such as the [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint) extension from the Extensions view in WSL. For more information about available linters and their configuration, see the [Python linting documentation](/docs/python/linting.md).
 
 Now, when you edit your code, you get rich colorization and completions.
 
