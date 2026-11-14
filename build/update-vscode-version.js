@@ -6,6 +6,10 @@ const path = require('path');
 const glob = require('glob');
 const readline = require('readline');
 
+/**
+ * @param {string} question
+ * @returns {Promise<string>}
+ */
 function prompt(question) {
 	const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 	return new Promise((resolve) => {
@@ -16,6 +20,9 @@ function prompt(question) {
 	});
 }
 
+/**
+ * @param {string} hash
+ */
 function validateCommitHash(hash) {
 	if (!/^[0-9a-f]{40}$/i.test(hash)) {
 		console.error('Error: commitHash must be a 40-character hex string.');
@@ -23,6 +30,9 @@ function validateCommitHash(hash) {
 	}
 }
 
+/**
+ * @param {string} ver
+ */
 function validateVersion(ver) {
 	if (!/^\d+\.\d+\.\d+$/.test(ver)) {
 		console.error('Error: version must be in the format x.y.z (e.g. 1.110.0).');
