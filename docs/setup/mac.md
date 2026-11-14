@@ -8,6 +8,8 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 
 {% data variables.product.prodname_vscode %} is available for macOS through a downloadable disk image. {% data variables.product.prodname_vscode_shortname %} supports Intel-based Macs and Macs with Apple silicon.
 
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to plan application distribution, configuration profiles, and pilot validation.
+
 ## Install {% data variables.product.prodname_vscode_shortname %} on macOS
 
 1. [Download {% data variables.product.prodname_vscode %}](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
@@ -91,6 +93,8 @@ Start a new terminal to pick up your changes. Run `code .` in any folder to star
 
 > [!NOTE]
 > [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update {% data variables.product.prodname_vscode_shortname %} on your own schedule.
+
+For managed devices, use [enterprise update policies and servicing guidance](/docs/enterprise/updates.md). If the installed version or policy differs from your deployment, follow [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
 
 ## Touch Bar support
 

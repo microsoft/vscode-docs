@@ -333,11 +333,14 @@
     "area": "enterprise",
     "topics": [
       ["Overview", "/docs/enterprise/overview"],
-      ["Enterprise Policies", "/docs/enterprise/policies"],
+      ["Deploy to Managed Devices", "/docs/enterprise/deployment"],
       ["Manage AI Settings", "/docs/enterprise/manage-ai-settings"],
+      ["Enterprise Policies", "/docs/enterprise/policies"],
       ["Extensions", "/docs/enterprise/extensions"],
       ["Telemetry", "/docs/enterprise/telemetry"],
-      ["Updates", "/docs/enterprise/updates"]
+      ["Updates", "/docs/enterprise/updates"],
+      ["Network Configuration", "/docs/setup/network", { "secondary": true }],
+      ["Troubleshoot Managed Deployments", "/docs/enterprise/troubleshooting"]
     ]
   },
 

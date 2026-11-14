@@ -8,6 +8,8 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 
 {% data variables.product.prodname_vscode %} is available on Linux through official Debian, RPM, and Snap packages. Community-maintained packages are also available for Arch Linux and Nix.
 
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to plan package distribution, policy delivery, and pilot validation.
+
 ## Install {% data variables.product.prodname_vscode_shortname %} on Linux
 
 Choose the package method that matches your Linux distribution.
@@ -190,6 +192,8 @@ sudo dnf install <file>.rpm
 
 > [!NOTE]
 > Updates are automatic and run in the background for the [Snap package](#snap-package).
+
+For managed devices, configure package-manager servicing separately from [application and extension update policies](/docs/enterprise/updates.md#update-policy). If an unexpected update or policy result affects your deployment, use [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
 
 ## Configure {% data variables.product.prodname_vscode_shortname %} as the default text editor
 
