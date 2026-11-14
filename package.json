@@ -36,6 +36,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-security": "^1.7.1",
     "get-port": "^5.1.1",
+    "glob": "^10.4.5",
     "gulp": "~5.0.0",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.3",
