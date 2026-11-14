@@ -136,4 +136,4 @@ Get started with the **[deployment and feature guide](https://aka.ms/private-mar
 
 * [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) - Learn about installing and managing extensions in {% data variables.product.prodname_vscode_shortname %}.
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md) - Learn about extension security in {% data variables.product.prodname_vscode_shortname %}.
-* [Enterprise policies](/docs/enterprise/policies.md) - Reference for all enterprise policies in {% data variables.product.prodname_vscode_shortname %}.
+* [Enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) - Reference for all enterprise policies in {% data variables.product.prodname_vscode_shortname %}.

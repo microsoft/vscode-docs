@@ -49,7 +49,7 @@ An installed extension can still be disabled by policy or require additional too
 
 Choose controls based on organizational requirements rather than deploying every policy in a sample file.
 
-* **Editor settings**: Deploy supported policies through [Windows Group Policy, macOS configuration profiles, or a Linux policy file](/docs/enterprise/policies.md).
+* **Editor settings**: Follow the deployment steps for [Windows Group Policy](/docs/enterprise/policies.md#windows-group-policies), [macOS configuration profiles](/docs/enterprise/policies.md#macos-configuration-profiles), or a [Linux policy file](/docs/enterprise/policies.md#linux-json-policies).
 * **AI access and execution**: [Choose a management solution](/docs/enterprise/manage-ai-settings.md#choose-a-management-solution) for each control. Check supported clients, harnesses, minimum versions, and precedence.
 * **Telemetry**: Configure [product telemetry and feedback](/docs/enterprise/telemetry.md). Review independent extension telemetry and agent monitoring separately.
 * **Servicing**: Decide who manages [application and extension updates](/docs/enterprise/updates.md#update-policy). The application's update policy does not control package managers or an external installer.

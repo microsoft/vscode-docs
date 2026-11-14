@@ -588,6 +588,6 @@ For {% data variables.product.prodname_copilot_short %} security, privacy, compl
 
 ## Related resources
 
-* [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md)
+* [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference)
 * [Get started with {% data variables.product.prodname_copilot_short %} enterprise-managed settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started)
 * [Troubleshoot managed deployments](/docs/enterprise/troubleshooting.md)

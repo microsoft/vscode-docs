@@ -95,5 +95,5 @@ See the [network documentation](/docs/setup/network.md#common-hostnames) for oth
 
 ## Related resources
 
-* [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
+* [Enterprise policies reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) - Complete list of enterprise policies
 * [Network connections](/docs/setup/network.md) - Proxy and firewall configuration

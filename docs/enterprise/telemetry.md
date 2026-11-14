@@ -102,6 +102,6 @@ Follow [Manage OTel configuration for your organization](/docs/agents/guides/mon
 
 ## Related resources
 
-* [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
+* [Enterprise policies reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) - Complete list of enterprise policies
 * [Telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/telemetry.md) - Learn about telemetry data collection
 * [Privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) - Microsoft privacy statement

@@ -16,6 +16,14 @@ Enterprise policies in {% data variables.product.prodname_vscode %} enable organ
 
 IT admins can deploy and enforce specific {% data variables.product.prodname_vscode_shortname %} configurations on users' devices through different device management solutions. {% data variables.product.prodname_vscode_shortname %} supports applying policies on Windows, macOS, and Linux.
 
+Go directly to your task:
+
+* [Deploy policies on Windows](#windows-group-policies).
+* [Deploy policies on macOS](#macos-configuration-profiles).
+* [Deploy policies on Linux](#linux-json-policies).
+* [Verify applied policies](#verify-policy-enforcement).
+* [Look up a policy](#vs-code-enterprise-policy-reference).
+
 ![Screenshot showing that the 'Extensions: Allowed' setting is managed by the organization.](images/policies/allowed-extensions-managed-by-organization.png)
 
 In this article, you learn which enterprise policies are available in {% data variables.product.prodname_vscode_shortname %} and how to configure them on different operating systems.
@@ -287,7 +295,7 @@ To remove the policies delivered through this file, delete `/etc/vscode/policy.j
 
 ## Verify policy enforcement
 
-After you deploy enterprise policies to a device, you can confirm that {% data variables.product.prodname_vscode_shortname %} is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
+After you deploy enterprise policies to a device, use **Developer: Policy Diagnostics** to inspect the policies received by {% data variables.product.prodname_vscode_shortname %} and their effective values. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
 
 The report includes the following sections:
 
@@ -303,7 +311,9 @@ The report includes the following sections:
 > The report can contain sensitive information such as account identifiers, session details, and the list of extensions with access to each account. Review the contents before you share the report.
 
 > [!TIP]
-> If the **Account Policy Gate** state is `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
+> If the **Account Policy Gate** state is `restricted` with the reason `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
+
+If a policy is missing or has an unexpected value, [check delivery and precedence](/docs/enterprise/troubleshooting.md#check-delivery-and-precedence). If the reported value is correct but the behavior differs, [check enforcement scope](/docs/enterprise/troubleshooting.md#check-enforcement-scope). The report alone does not prove that a restriction applies to every workflow or agent harness.
 
 ## {% data variables.product.prodname_vscode_shortname %} enterprise policy reference
 
