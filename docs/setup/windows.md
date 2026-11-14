@@ -8,6 +8,8 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 
 {% data variables.product.prodname_vscode %} is available for Windows through a user installer, a system installer, and a ZIP archive. The User setup is the recommended installation for most people because it does not require administrator permissions and supports smoother background updates.
 
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to choose the installation scope, configure policies, and validate a pilot.
+
 ## Install {% data variables.product.prodname_vscode_shortname %} on Windows
 
 ### Choose User setup or System setup
@@ -39,6 +41,14 @@ See the [Download {% data variables.product.prodname_vscode %}](/download) page 
 1. Run the installer with administrator permissions.
 
 The System setup makes {% data variables.product.prodname_vscode_shortname %} available to all users on the machine.
+
+### Run unattended setup
+
+{% data variables.product.prodname_vscode_shortname %} uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its Windows setup package. All [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available.
+
+To prevent Setup from launching {% data variables.product.prodname_vscode_shortname %} after completion, use `/mergetasks=!runcode`.
+
+To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) in a silent installation, use `/copilotcli=install`, `/copilotcli=onfirstuse`, or `/copilotcli=none`. These values match the options on the **{% data variables.copilot.copilot_cli %}** page. With `install`, the System setup adds the command without installing {% data variables.copilot.copilot_cli_short %}. Without this switch, Setup adds `copilot` to `%PATH%` when it also adds {% data variables.product.prodname_vscode_shortname %} to `%PATH%`, unless you made a different choice in an earlier installation. Setup doesn't download {% data variables.copilot.copilot_cli_short %} unless you use `/copilotcli=install`.
 
 ### Set up the copilot command
 
@@ -75,6 +85,8 @@ Updates keep your choice and never download {% data variables.copilot.copilot_cl
 > [!NOTE]
 > [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update {% data variables.product.prodname_vscode_shortname %} on your own schedule.
 
+For managed devices, use [enterprise update policies and servicing guidance](/docs/enterprise/updates.md). If the installed version or policy differs from your deployment, follow [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
+
 ## Develop on Windows
 
 Windows works well as a cross-platform development environment. This section covers the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and Windows Terminal.
@@ -104,17 +116,6 @@ After you install {% data variables.product.prodname_vscode_shortname %}, finish
 * [Start the {% data variables.product.prodname_vscode_shortname %} tutorial](/docs/editing/getting-started/editor-tutorial.md) for a hands-on tour of the user interface and key features.
 
 ## Common questions
-
-<details>
-<summary>What command-line arguments are supported by Windows Setup?</summary>
-
-{% data variables.product.prodname_vscode_shortname %} uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its Windows setup package. All [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available.
-
-To prevent Setup from launching {% data variables.product.prodname_vscode_shortname %} after completion, use `/mergetasks=!runcode`.
-
-To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) in a silent installation, use `/copilotcli=install`, `/copilotcli=onfirstuse`, or `/copilotcli=none`. These values match the options on the **{% data variables.copilot.copilot_cli %}** page. With `install`, the System setup adds the command without installing {% data variables.copilot.copilot_cli_short %}. Without this switch, Setup adds `copilot` to `%PATH%` when it also adds {% data variables.product.prodname_vscode_shortname %} to `%PATH%`, unless you made a different choice in an earlier installation. Setup doesn't download {% data variables.copilot.copilot_cli_short %} unless you use `/copilotcli=install`.
-
-</details>
 
 <details>
 <summary>I'm having trouble with the installer</summary>

@@ -40,6 +40,8 @@ If you use the JSON editor for your settings, add the following line:
 "telemetry.telemetryLevel": "off"
 ```
 
+To configure product telemetry across managed devices, follow the [enterprise telemetry policy guidance](/docs/enterprise/telemetry.md#configure-telemetry-level).
+
 > [!IMPORTANT]
 > To participate in the A/B experimentation and get early access to new features, you must have usage data enabled by setting `setting(telemetry.telemetryLevel)` to `all`.
 
@@ -170,6 +172,5 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Related resources
 
-* [Centrally manage telemetry log level](/docs/enterprise/telemetry.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [{% data variables.product.prodname_vscode %} FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize {% data variables.product.prodname_vscode_shortname %}.
