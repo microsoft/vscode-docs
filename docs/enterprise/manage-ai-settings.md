@@ -35,7 +35,7 @@ Use device policies for editor-specific controls on managed {% data variables.pr
 
 Administrators deploy these policies through platform management tools, such as Group Policy, Microsoft Intune, or macOS configuration profiles. The policies apply to the managed device and override the corresponding user settings in {% data variables.product.prodname_vscode_shortname %}.
 
-Refer to the [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md) for policy names, accepted values, supported platforms, and minimum versions.
+Refer to [enterprise policy deployment](/docs/enterprise/policies.md) for platform-specific setup and the policy reference. Use the feature-specific sections below for values and harness limitations.
 
 ### GitHub organization and enterprise settings
 
@@ -268,7 +268,7 @@ Identity capture is off by default and independent of content capture. Review bo
 
 ## Use {% data variables.product.prodname_vscode_shortname %} device policies
 
-The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) for accepted values and minimum versions.
+The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies, their values, and harness-specific behavior. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) to look up policy names and corresponding settings.
 
 > [!IMPORTANT]
 > {% data variables.product.prodname_copilot_short %} harness sessions don't enforce every device policy the same way as Local harness `feature(local-harness)` sessions. The following sections note known differences. Test a policy in the harness that your developers use before you rely on it.
@@ -290,13 +290,13 @@ Provide a JSON array of GitHub organization logins, such as `["contoso", "contos
 
 The policy is fail-closed. AI features remain disabled until account policy data resolves and the signed-in account belongs to an approved organization. Run **Developer: Policy Diagnostics** to inspect the **Account Policy Gate** state.
 
-#### Enable or disable the use of agents
+#### Control the Agent option and {% data variables.copilot.agents_window %}
 
-Set the `ChatAgentMode` policy to `false` to disable [agents](/docs/agents/overview.md). This policy controls `setting(chat.agent.enabled)`.
+The `ChatAgentMode` policy controls `setting(chat.agent.enabled)`. It is not a blanket restriction on [agent sessions](/docs/agents/overview.md).
 
-When the policy is disabled, the **Agent** option is not available in the agents dropdown, and the {% data variables.copilot.agents_window %} is unavailable. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits.
+Set it to `false` to disable the **Agent** option in the agents dropdown and make the {% data variables.copilot.agents_window %} unavailable. When agent mode is disabled by policy, the built-in **Ask** and deprecated **Edit** modes remain available.
 
-The policy does not remove Agent Host session targets, such as **Copilot**, from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) in the editor. Developers can still start agent sessions from those targets.
+The policy does not remove Agent Host harnesses, such as **Copilot**, from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) in the editor. Developers can still start agent sessions for those harnesses. Test the available harnesses as well as the dropdown before relying on this policy for your rollout.
 
 #### Enable or disable extension language tools
 
@@ -461,11 +461,15 @@ Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global
 > [!CAUTION]
 > Global auto-approval bypasses security prompts for tool invocations. Disable it unless your threat model explicitly supports this behavior.
 
-##### Require manual approval for specific tools
+##### Limit automatic approval for specific tools
 
-Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific tools.
+Use `ChatToolsEligibleForAutoApproval` to configure tool approval eligibility. This policy controls `setting(chat.tools.eligibleForAutoApproval)`, but its enforcement differs by harness:
 
-For {% data variables.product.prodname_copilot_short %} harness sessions, a tool marked `false` removes **Allow all** from the permissions picker for the whole session. It does not require confirmation for each call to that tool, so **Assisted permissions** and saved session approvals can still approve it.
+* For Local harness `feature(local-harness)` sessions, setting a tool to `false` requires manual approval for that tool and removes its auto-approval option.
+
+* For {% data variables.product.prodname_copilot_short %} harness sessions, a tool marked `false` removes **Allow all** from the permissions picker for the whole session. It does not require confirmation for each call to that tool. **Assisted permissions** and saved session approvals can still approve it.
+
+For {% data variables.product.prodname_copilot_short %} session-level restrictions, use [managed permission levels](#manage-permission-levels). Verify the actual approval behavior in the intended harness. A policy value in diagnostics alone does not demonstrate per-call confirmation.
 
 ##### Configure terminal auto-approval
 
