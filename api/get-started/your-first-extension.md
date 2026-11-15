@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -45,6 +45,8 @@ For a TypeScript project, fill out the following fields:
 ```
 
 Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
+
+> **Tip:** When you launch the Extension Development Host from {% data variables.product.prodname_vscode_shortname %}, it can reuse an existing profile with your settings and extensions. You can add `"--profile-temp"` to the `args` array in `.vscode/launch.json` to launch it with a new, empty temporary profile.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 

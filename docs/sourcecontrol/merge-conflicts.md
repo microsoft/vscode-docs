@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Resolve Git conflicts in {% data variables.product.prodname_vscode_shortname %}, review the result, and complete or cancel the operation.
 Keywords:
 - source control
@@ -177,7 +177,7 @@ These abort commands do not undo a stash restore. For stashed changes, inspect t
 
 1. Open a file with conflicts in the editor.
 
-1. Select the **Resolve Merge Conflict with AI** button at the top of the editor.
+1. Select **Resolve Conflicts with AI** in the editor.
 
     ![Screenshot showing the AI merge conflict resolution button in the editor.](images/overview/ai-merge-conflict-resolution.png)
 

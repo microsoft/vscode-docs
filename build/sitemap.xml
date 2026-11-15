@@ -111,6 +111,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/what-is-vscode</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/getstarted/introvideos</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -147,6 +152,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/enterprise/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/deployment</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/troubleshooting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2327,6 +2342,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/sessions/organize-sessions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -3,7 +3,8 @@
         "name": "Get Started",
         "area": "getstarted",
         "topics": [
-        ["Overview", "/docs/getstarted/overview"],
+        ["Download and Install", "/docs/getstarted/overview"],
+        ["Get to Know VS Code", "/docs/getstarted/what-is-vscode"],
         ["Agents Quickstart", "/docs/agents/quickstart", { "secondary": true }],
         ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial", { "secondary": true }],
         ["Intro Videos", "/docs/getstarted/introvideos"]
@@ -20,10 +21,10 @@
                 "area": "agents",
                 "topics": [
                     ["Find a Guide", "/docs/agents/guides/overview"],
+                    ["Choose an AI Feature", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Agents Quickstart", "/docs/agents/quickstart"],
                     ["Agents Tutorial", "/docs/agents/agents-tutorial"],
-                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
                     ["Best Practices", "/docs/agents/best-practices"]
                 ]
             }],
@@ -33,10 +34,11 @@
                 "area": "agents/run",
                 "topics": [
                     ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
-                    ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
+                    ["Chat View and Layout", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
                     ["Inline Chat & Quick Chat", "/docs/chat/inline-chat"],
-                    ["Use Chat", "/docs/chat/chat-overview"],
+                    ["Chat Interactions", "/docs/chat/chat-overview"],
                     ["Canvases", "/docs/agents/run/canvases"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
                     ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
@@ -59,6 +61,7 @@
                         "area": "agents/run/sessions",
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Organize & Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
@@ -99,7 +102,7 @@
                     ["Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],
                     ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
-                    ["Add MCP Servers", "/docs/agent-customization/mcp-servers"],
+                    ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
                     ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
                     ["Hooks", "/docs/agent-customization/hooks"],
                     ["Prompt Files", "/docs/agent-customization/prompt-files"],
@@ -111,7 +114,7 @@
                 "name": "Work Across Apps and Machines",
                 "area": "agents/continuation",
                 "topics": [
-                    ["Continue a Session", "/docs/agents/run/sessions/manage-sessions", { "secondary": true }],
+                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                     ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
                     ["Session History", "/docs/agents/run/sessions/session-history"]
@@ -125,16 +128,16 @@
                     ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
                     ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
-                    ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
                     ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
                     ["Compare and Choose Models", "/docs/agents/guides/choose-a-model"],
+                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
+                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                     ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
-                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
-                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
-                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
                     ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
@@ -150,10 +153,9 @@
                     ["Context", "/docs/agents/concepts/context"],
                     ["Tools", "/docs/agents/concepts/tools"],
                     ["Sessions and Chats", "/docs/agents/concepts/sessions"],
+                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"],
                     ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
-                    ["Agent Customization", "/docs/agents/concepts/customization"],
-                    ["Workspace Context", "/docs/agents/reference/workspace-context"],
-                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+                    ["Agent Customization", "/docs/agents/concepts/customization"]
                 ]
             }],
 
@@ -167,6 +169,7 @@
                         "topics": [
                             ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
                             ["Tools and Context", "/docs/agents/reference/tools-reference"],
+                            ["Workspace Context", "/docs/agents/reference/workspace-context"],
                             ["Settings Reference", "/docs/agents/reference/ai-settings"],
                             ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
@@ -319,6 +322,8 @@
         "name": "Guides & Tutorials",
         "area": "debugging/guides",
         "topics": [
+          ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
+          ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
           ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }],
         ]
@@ -332,11 +337,14 @@
     "area": "enterprise",
     "topics": [
       ["Overview", "/docs/enterprise/overview"],
-      ["Enterprise Policies", "/docs/enterprise/policies"],
+      ["Deploy to Managed Devices", "/docs/enterprise/deployment"],
       ["Manage AI Settings", "/docs/enterprise/manage-ai-settings"],
+      ["Enterprise Policies", "/docs/enterprise/policies"],
       ["Extensions", "/docs/enterprise/extensions"],
       ["Telemetry", "/docs/enterprise/telemetry"],
-      ["Updates", "/docs/enterprise/updates"]
+      ["Updates", "/docs/enterprise/updates"],
+      ["Network Configuration", "/docs/setup/network", { "secondary": true }],
+      ["Troubleshoot Managed Deployments", "/docs/enterprise/troubleshooting"]
     ]
   },
 

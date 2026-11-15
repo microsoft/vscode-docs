@@ -1,7 +1,7 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 11/4/2026
-MetaDescription: Understand how AI agents in {% data variables.product.prodname_vscode_shortname %} use and manage context to produce relevant responses.
+DateApproved: 11/11/2026
+MetaDescription: Understand AI context, conversation history, instructions, and memory in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
 - ai
@@ -27,6 +27,22 @@ You don't need to identify every relevant file before you start. During the [age
 
 Conversation history is scoped to a chat and isn't automatically shared with other chats or sessions. Context can be passed explicitly, such as in a delegated task or a [handoff](/docs/agents/concepts/sessions.md#hand-off-a-session). Persistent sources, such as [custom instructions](/docs/agent-customization/custom-instructions.md) or [agent memory](/docs/agents/concepts/agents.md#memory), can also provide information across conversations.
 
+## Context, knowledge, and memory
+
+Several sources help an agent respond, but they have different lifetimes:
+
+| Source | What it provides | What persists |
+|--------|------------------|---------------|
+| **Model training** | General capabilities and knowledge learned before your request. | The model's trained knowledge is separate from your chat. It doesn't automatically include your project. |
+| **Current context** | Information included in a particular model request, such as your message, files, and tool results. | Later requests need to include that information again, or retrieve it when needed. |
+| **Conversation history** | The discussion and tool activity in the current chat. | Saved history can outlast a request, but the model only sees the portion included in its context, which can be summarized. Other chats don't automatically inherit it. |
+| **Custom instructions** | Reusable guidance, such as project conventions and test commands. | Instructions remain in their configured source and apply when the harness discovers and includes them. |
+| **Memory** | Selected preferences or project facts stored separately from the conversation. | Retention and sharing depend on the memory system. A saved fact must be retrieved to inform a response. |
+
+Adding context is not the same as training a model. Correcting an answer can guide later responses while that correction remains in context, but doesn't by itself update the trained model or establish memory in other chats. Separate provider policies govern data retention and use for training. See [where information goes](/docs/agents/concepts/trust-and-safety.md#where-information-goes).
+
+For example, put a required project test command in [custom instructions](/docs/agent-customization/custom-instructions.md) rather than relying on an earlier chat. Use [memory](/docs/agents/run/memory.md) for supported preferences and reusable facts, and review saved information for accuracy.
+
 ## How {% data variables.product.prodname_vscode_shortname %} assembles context
 
 Each time the agent sends a request to the language model, {% data variables.product.prodname_vscode_shortname %} assembles a prompt from multiple sources:
@@ -35,7 +51,7 @@ Each time the agent sends a request to the language model, {% data variables.pro
 
 * **System instructions**: built-in guidelines that define the agent's behavior.
 * **Customizations**: AI customizations you set up, including custom agents, skills, and custom instructions.
-* **User message**: the current request or follow-up message you send to the agent.
+* **User message**: the current request or follow-up message you send to the agent. This is one part of the full prompt sent to the model.
 * **Conversation history**: the messages exchanged so far in the current chat.
 * **Implicit context**: editor information, such as the active file or selection, when the interface, harness, and context settings include it.
 * **Explicit references**: files, editor context, web content, and other sources you reference with `#`-mentions.
@@ -58,8 +74,8 @@ Learn more about [workspace indexing](/docs/agents/reference/workspace-context.m
 {% data variables.product.prodname_vscode_shortname %} can use your editor activity to provide context to a request or suggest an attachment. This behavior depends on the interface, harness, and context settings:
 
 * In the {% data variables.copilot.chat_view %}, the active file, notebook, or selected text can provide editor context.
-* With the Local harness and the default context settings, **Ask** includes active editor context. **Agent** suggests the active file as an attachment, while selected text is included.
-* Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, can also receive active editor context automatically. The Local harness behavior doesn't apply to every agent.
+* With the Local harness `feature(local-harness)` and the default context settings, **Ask** includes active editor context. **Agent** suggests the active file as an attachment, while selected text is included.
+* Agent Host sessions, such as {% data variables.product.prodname_copilot_short %}, can also receive active editor context automatically. The Local harness `feature(local-harness)` behavior doesn't apply to every agent.
 * In the {% data variables.copilot.agents_window %}, implicit editor context is off by default. Add the files or project context that the request needs.
 
 A suggested attachment isn't the same as an explicitly attached file. When a source is important, [add it to the request](/docs/chat/copilot-chat-context.md#add-files-as-context) instead of assuming that an open editor supplies the full file. The agent can also gather more context through its tools.
@@ -100,13 +116,13 @@ Learn how to [delegate work to subagents](/docs/agents/run/subagents.md).
 
 Consider asking an agent to explain how authentication works in your project.
 
-Without relevant workspace context:
+With an ambiguous request:
 
 ```prompt
 How does authentication work?
 ```
 
-The model has no way to know which project you mean and gives a generic answer about authentication patterns.
+An agent with workspace search tools can look for authentication code, but this request doesn't identify the part of the system or the outcome you care about. It might search broadly or ask you to clarify.
 
 After attaching `src/auth.ts` to the request as context:
 
@@ -114,7 +130,7 @@ After attaching `src/auth.ts` to the request as context:
 Explain the authentication flow and identify where tokens are validated.
 ```
 
-The referenced file gives the agent a starting point. The agent can then search for related code and explain the implementation with specific functions and configuration values.
+The referenced file gives the agent a starting point, and the request identifies what to explain. The agent can then search for related code and ground its answer in specific functions and configuration values. Attaching the file focuses discovery; it isn't a prerequisite for the agent to search your workspace.
 
 ## Related resources
 

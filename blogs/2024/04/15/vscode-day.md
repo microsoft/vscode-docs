@@ -1,6 +1,6 @@
 ---
 Tags: [Community, Education, AI]
-Order: 
+Order:
 TOCTitle: VS Code Day 2024
 PageTitle: Visual Studio Code Day 2024
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2024 on April 24, 2024
@@ -16,8 +16,6 @@ April 15, 2024 by Reynald Adolphe, [@ReynaldAdolphe](https://twitter.com/Reynald
 > **Watch [all content from VS Code Day 2024](https://youtube.com/live/iCDfAC4f25w) now.**
 
 VS Code Day is our annual event where you'll learn how to elevate your development workflow with the latest and greatest features of Visual Studio Code. This year, we'll have a big focus on AI but not limited to just that. You’ll hear from the VS Code team and other industry experts on topics like AI-powered programming with GitHub Copilot, building and deploying generative AI apps to the cloud, enhancing the C# development experience, and more!
-
-<video src="VS Code Day - Promo.mp4" title="VS Code Day 2024 Promotion video" autoplay muted loop controls></video>
 
 Expect to gain insights into the tools and practices shaping the future of coding, connect via Q&A’s with pioneers and peers, and find inspiration to tackle your next project.
 

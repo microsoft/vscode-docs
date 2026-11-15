@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: bea1d4c5-71e5-4b27-ac1e-fa9b59886dab
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Migrate a code-tutor chat participant to an agent plugin with skills, MCP tools, and interactive exercises.
 ---
 
@@ -16,5 +16,5 @@ The migration guide explains which participant responsibilities have replacement
 ## Related resources
 
 * [Package an agent plugin](/docs/agent-customization/agent-plugins.md)
-* [Build MCP tools and Apps](/api/extension-guides/ai/mcp.md)
+* [Integrate MCP tools and Apps](/api/extension-guides/ai/mcp.md)
 * [Build editor annotations with the Language Model API](/api/extension-guides/ai/language-model-tutorial.md)

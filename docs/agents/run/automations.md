@@ -1,6 +1,6 @@
 ---
 ContentId: 76a5b461-bcbd-474f-9638-d4533c51a4e3
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Automate routine agent tasks locally or in GitHub from the {% data variables.copilot.agents_window %}, with schedules, repository triggers, and run history.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 ---

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Build {% data variables.product.prodname_vscode_shortname %} extensions with guides and samples for commands, views, Timeline providers, and other APIs.

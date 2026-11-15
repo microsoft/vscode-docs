@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Run and debug tests in {% data variables.product.prodname_vscode_shortname %}, inspect coverage, and use optional AI assistance to add tests.
 ---
 # Testing
@@ -102,7 +102,9 @@ If a test fails, identify whether the cause is test setup, an incorrect expectat
 
 For a complete walkthrough, follow [Test existing code with AI](/docs/agents/guides/test-code-with-ai.md). It covers baseline tests, failure diagnosis, assertion quality, and coverage. An agent can run test commands in the terminal without a testing extension; Test Explorer discovery still requires an appropriate extension.
 
-For a quick starting point without writing a prompt, use the [Generate Tests smart action](/docs/editing/copilot-smart-actions.md#generate-tests). Review and run the generated tests before keeping them. To reuse project testing conventions, add [custom instructions](/docs/agent-customization/custom-instructions.md).
+To develop new behavior rather than cover existing code, follow [test-driven development with AI](/docs/agents/guides/test-driven-development-guide.md), with review checkpoints between writing a failing test, implementing the behavior, and refactoring.
+
+To reuse project testing conventions, add [custom instructions](/docs/agent-customization/custom-instructions.md).
 
 ## Run and debug tests
 

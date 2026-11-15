@@ -1,12 +1,14 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on macOS, add code to PATH, and optionally install {% data variables.copilot.copilot_cli %}.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Installing {% data variables.product.prodname_vscode %} on macOS
 
 {% data variables.product.prodname_vscode %} is available for macOS through a downloadable disk image. {% data variables.product.prodname_vscode_shortname %} supports Intel-based Macs and Macs with Apple silicon.
+
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to plan application distribution, configuration profiles, and pilot validation.
 
 ## Install {% data variables.product.prodname_vscode_shortname %} on macOS
 
@@ -91,6 +93,8 @@ Start a new terminal to pick up your changes. Run `code .` in any folder to star
 
 > [!NOTE]
 > [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update {% data variables.product.prodname_vscode_shortname %} on your own schedule.
+
+For managed devices, use [enterprise update policies and servicing guidance](/docs/enterprise/updates.md). If the installed version or policy differs from your deployment, follow [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
 
 ## Touch Bar support
 

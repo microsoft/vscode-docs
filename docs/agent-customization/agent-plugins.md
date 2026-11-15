@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Find, install, and manage agent plugins from marketplaces in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -20,7 +20,7 @@ Agent plugins package related customizations, such as skills, agents, and tool i
 
 This article shows you how to discover and install a plugin, verify it with a document-review workflow, and manage the installation. To create or package a plugin, see the [agent plugin authoring reference](/docs/agents/reference/agent-plugin-reference.md).
 
-If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-options-at-a-glance). Choose a bundle when its components support a workflow you want to adopt together.
+If you only need a project rule or a single skill, start with an [individual customization](/docs/agents/concepts/customization.md#customization-building-blocks). Choose a bundle when its components support a workflow you want to adopt together.
 
 > [!NOTE]
 > Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.
@@ -195,12 +195,12 @@ If you only need a skill, consider [using or adapting an existing skill](/docs/a
 
 ### Enable or disable plugins
 
-You can enable or disable a plugin for the current profile or a specific workspace:
+Where offered by the selected harness, you can enable or disable a plugin globally or for a specific workspace. Enablement is separate from where the plugin is installed:
 
-1. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
-1. Use **Enable** or **Disable** to change its state for the current profile, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose the scope.
+1. Select the intended session. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
+1. Use **Enable** or **Disable** to change its global state, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose an available scope.
 
-The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
+Global enablement isn't isolated to the active user profile. The enabled state is stored separately from the plugin configuration, so a workspace enablement choice doesn't change shared workspace settings. For remote sessions, check whether the plugin is host-owned or supplied by the connected client before changing it. See [customization context and change scope](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 Policy-managed plugins are identified as managed by policy, and their toggles are locked.
 
@@ -274,7 +274,7 @@ Consider this update behavior when deciding whether to trust a plugin. Review ch
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-In the Local harness, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
+In the Local harness `feature(local-harness)`, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
 
 In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. You can turn off optional plugins in **Plugins** in the Agent Customizations editor without changing the shared defaults. Enterprise-managed settings take precedence over repository defaults and your choices.
 

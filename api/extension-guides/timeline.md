@@ -1,6 +1,6 @@
 ---
 ContentId: bba20c6e-08c4-48ef-9d43-714322c88734
-DateApproved: 11/03/2026
+DateApproved: 11/11/2026
 MetaDescription: Build Timeline providers for file, folder, and workspace history in {% data variables.product.prodname_vscode_shortname %} extensions.
 MetaSocialImage: ../../images/logo-stable.png
 ---

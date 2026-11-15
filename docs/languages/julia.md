@@ -1,6 +1,6 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Learn about working with the Julia programming language in {% data variables.product.prodname_vscode %}.
 ---
 # Julia in {% data variables.product.prodname_vscode %}
@@ -57,7 +57,7 @@ To find out more about debugging Julia code with {% data variables.product.prodn
 
 The Julia {% data variables.product.prodname_vscode_shortname %} extension comes with code completion thanks to IntelliSense. This feature works out of the box and is useful for experienced and beginner Julia developers alike.
 
-<video src="images/julia/code-completion.mp4" title="Video showing Code completion with IntelliSense." autoplay loop controls muted></video>
+<video src="images/julia/code-completion-2.mp4" title="Video showing Code completion with IntelliSense." autoplay loop controls muted></video>
 
 You can learn more in the [{% data variables.product.prodname_vscode_shortname %} IntelliSense](/docs/editing/intellisense.md) topic.
 

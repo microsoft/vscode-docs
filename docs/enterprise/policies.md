@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 VSCodeCommitHash: db46a82c4f4a77c4853867dcdba5057229b5d099
 VSCodeVersion: 1.136.0
@@ -311,7 +311,7 @@ The report includes the following sections:
 
 * **System Information**: VS Code product name, version, and commit, useful for matching the report to a specific build.
 * **Account Information**: details of the default account that is signed in, including the raw account-level policy data returned by the account provider.
-* **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
+* **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/manage-ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
 * **Policy-Controlled Settings**: two tables that list the policy state for each registered setting:
     * **Applied Policy**: settings that are currently overridden by a policy, with the setting key, policy name, policy source, default value, current value, and the value enforced by the policy.
     * **Non-applied Policy**: registered policies that are not currently being enforced. Use this table to detect deployment errors, such as a misspelled key or a policy file that is not being read.
@@ -351,7 +351,7 @@ The following table lists all available enterprise policies in VS Code.
 | `ChatApprovedAccountOrganizations` | <span data-min-version="1.118">Setting this policy to a non-empty list activates the Approved Account gate: all AI features are disabled until the user signs into a GitHub account whose organizations intersect this list AND the account-side policy data has resolved. Comparison is case-insensitive. Use '*' as a wildcard to accept any signed-in GitHub or GHE account (use this for GHE deployments where the organization list is not surfaced).</span> |
 | `ChatStrictPluginOnlyCustomization` | <span data-min-version="1.132">Blocks standalone user and workspace skills, agents, hooks, instructions, and MCP servers while keeping eligible plugin customizations available.</span> |
 | `ChatDefaultModel`<br>`setting(chat.defaultModel)` | <span data-min-version="1.127">Sets the default chat model for new conversations. Accepts "auto", a model family name (such as "opus" or "gemini"), or a full model id. Users can still switch the model within a conversation.</span> |
-| `ChatEditorPreferCopilotHarness`<br>`setting(chat.editor.preferCopilotHarness)` | <span data-min-version="1.134">Configure whether VS Code uses the Agent Host Copilot SDK instead of the local harness for new editor chat sessions.</span> |
+| `ChatEditorPreferCopilotHarness`<br>`setting(chat.editor.preferCopilotHarness)` | <span data-min-version="1.134">Configure whether VS Code uses the Agent Host Copilot SDK instead of the local harness `feature(local-harness)` for new editor chat sessions.</span> |
 | `ChatAgentExtensionTools`<br>`setting(chat.extensionTools.enabled)` | <span data-min-version="1.99">Enable using tools contributed by third-party extensions.</span> |
 | `ChatAllowManagedHooksOnly` | <span data-min-version="1.132">Allows hooks only from enterprise-managed sources and plugins force-enabled by policy.</span> |
 | `ChatMCP`<br>`setting(chat.mcp.access)` | <span data-min-version="1.99">Controls access to installed Model Context Protocol servers.</span> |

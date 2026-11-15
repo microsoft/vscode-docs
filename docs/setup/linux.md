@@ -1,12 +1,14 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Linux with Debian, RPM, Snap, Arch, or Nix package options.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Installing {% data variables.product.prodname_vscode %} on Linux
 
 {% data variables.product.prodname_vscode %} is available on Linux through official Debian, RPM, and Snap packages. Community-maintained packages are also available for Arch Linux and Nix.
+
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to plan package distribution, policy delivery, and pilot validation.
 
 ## Install {% data variables.product.prodname_vscode_shortname %} on Linux
 
@@ -85,14 +87,13 @@ Microsoft provides the stable 64-bit {% data variables.product.prodname_vscode_s
 1. Update the package cache and install the package with `dnf` on Fedora 22 and later:
 
     ```bash
-    dnf check-update &&
-    sudo dnf install code # or code-insiders
+    sudo dnf install --refresh code # or code-insiders
     ```
 
     On older versions, use `yum`:
 
     ```bash
-    yum check-update &&
+    yum check-update
     sudo yum install code # or code-insiders
     ```
 
@@ -191,6 +192,8 @@ sudo dnf install <file>.rpm
 
 > [!NOTE]
 > Updates are automatic and run in the background for the [Snap package](#snap-package).
+
+For managed devices, configure package-manager servicing separately from [application and extension update policies](/docs/enterprise/updates.md#update-policy). If an unexpected update or policy result affects your deployment, use [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
 
 ## Configure {% data variables.product.prodname_vscode_shortname %} as the default text editor
 

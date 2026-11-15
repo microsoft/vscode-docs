@@ -1,6 +1,6 @@
 ---
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
 # Ruby in {% data variables.product.prodname_vscode %}
@@ -156,6 +156,8 @@ The Testing view provides the following test profiles:
 Ruby LSP discovers test files that follow common Ruby conventions. Test files must be in a `test`, `spec`, or `features` directory and use a supported file name, such as `*_test.rb`, `test_*.rb`, or `*_spec.rb`. Tests defined dynamically through metaprogramming might not appear until you run their test file.
 
 For framework support, discovery limitations, and customization options, see the [Ruby LSP Test Explorer documentation](https://shopify.github.io/ruby-lsp/test_explorer).
+
+To add tests with optional AI assistance, [follow the test-writing workflow](/docs/agents/guides/test-code-with-ai.md) using your repository's existing framework and helpers. Keep its Minitest assertions or RSpec matchers, for example, rather than changing frameworks to use generated tests.
 
 ## Debugging
 

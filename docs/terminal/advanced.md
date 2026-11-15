@@ -1,6 +1,6 @@
 ---
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -123,7 +123,7 @@ For example, the below keybinding will send `SIGTERM`, causing it to terminate g
 
 In order to avoid unnecessary output and user prompts, the terminal does not show warning dialogs when processes exit. If warnings are desirable, they can be configured with the following settings:
 
-* `setting(terminal.integrated.confirmOnExit)` - Controls whether to confirm when the window closes if there are active debug sessions.
+* `setting(terminal.integrated.confirmOnExit)` - Controls whether to confirm when the window closes if there are active terminal sessions.
 * `setting(terminal.integrated.confirmOnKill)` - Controls whether to confirm killing terminals when they have child processes.
 * `setting(terminal.integrated.showExitAlert)` - Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
 

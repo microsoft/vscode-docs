@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 ---
 # Use the {% data variables.copilot.chat_view %}
@@ -58,6 +58,8 @@ If the CLI isn't installed, `copilot` offers to install it. You can also add the
 
 The new session appears in the sessions list. To continue an existing conversation instead, use [Resume in Terminal](/docs/agents/run/sessions/manage-sessions.md#use-copilot-cli-from-the-terminal), where available.
 
+If you already have a conversation running in the CLI, [continue it in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-a-cli-session-in-vs-code-experimental) with `/code` (Experimental).
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:
@@ -73,6 +75,8 @@ Keep the code and its checks beside the conversation as you work:
 The {% data variables.product.prodname_copilot_short %} working set works without Git, but only lists changes made through tracked edit tools, not terminal commands. Review other changed files separately. See [review controls by harness and interface](/docs/agents/run/review-code-edits.md#review-agent-changes) for the complete workflow.
 
 To show a changed-files summary after each request, enable `setting(chat.checkpoints.showFileChanges)`. Supported tools depend on your harness and installed extensions. For example, you can [work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md) with the required tools installed. In a [remote workspace](/docs/remote/remote-overview.md), the session uses that project's remote context and tools.
+
+If your project is on another machine, see [Work in a remote workspace](/docs/agents/run/remote-agent-sessions.md#work-in-a-remote-workspace). To make sessions on this machine reachable from other clients, see [Make a host available for remote access](/docs/agents/run/remote-agent-sessions.md#make-a-host-available-for-remote-access).
 
 ## Continue in another interface
 
@@ -94,7 +98,7 @@ The {% data variables.copilot.chat_view %} offers several layout options within 
 
 The {% data variables.copilot.chat_view %} keeps the agent next to your code, so you can prompt, review, and edit in the same window. The {% data variables.copilot.chat_view %} has the following main areas:
 
-1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session).
 
 1. **Chat conversation**: in the center, where you see the conversation history and the agent's responses, including the changes it makes to your code.
 

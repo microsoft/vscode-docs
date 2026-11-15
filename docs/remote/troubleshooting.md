@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: {% data variables.product.prodname_vscode %} Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 ---
 # Remote Development Tips and Tricks
 
@@ -717,7 +717,7 @@ Please file an issue and attach the full output.
 
 When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **WSL: Show Log**. The log will show in the terminal view under the WSL tab.
 
 ![WSL Log](images/troubleshooting/wsl-log.png)
 

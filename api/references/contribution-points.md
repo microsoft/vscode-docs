@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Extend {% data variables.product.prodname_vscode_shortname %} with contribution points for commands, menus, views, settings, and other features.
@@ -509,6 +509,8 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 
 #### scope
 
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
@@ -518,7 +520,25 @@ A configuration setting can have one of the following possible scopes:
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 - `language-overridable` - Resource settings that can be overridable at a language level.
 
-Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+The following table summarizes how each scope behaves with respect to overrides, multi-root workspaces, remote environments, and language-specific configuration:
+
+| Scope | Overridable in workspace | Overridable in workspace folder (multiroot) | Remote inherits local user settings | Overridable remotely | Overridable at language level |
+| --- | --- | --- | --- | --- | --- |
+| `application` | No | No | Yes | No | No |
+| `machine` | No | No | No | Yes (implicitly, as not inherited) | No |
+| `machine-overridable` | Yes | Yes | No | Yes (implicitly, as not inherited) | No |
+| `window` | Yes | No | Yes | Yes | No |
+| `resource` | Yes | Yes | Yes | Yes | No |
+| `language-overridable` | Yes | Yes | Yes | Yes | Yes |
+
+Column details:
+
+- **Overridable in workspace:** Whether the setting can be configured or overridden in workspace settings (or in folder settings for single-root workspaces).
+- **Overridable in workspace folder (multiroot):** Whether the setting can be customized per folder in a multi-root workspace scenario.
+- **Remote inherits local user settings:** Whether a remote window inherits the local user settings value when no remote value is set.
+- **Overridable remotely:** Whether the setting can be configured in remote settings.
+- **Overridable at language level:** Whether the setting supports language-specific overrides (for example, `"[typescript]": { ... }`).
+- **Settings Sync:** Settings marked with `machine` or `machine-overridable` scope are machine specific and excluded from Settings Sync by default.
 
 Below are example configuration scopes from the built-in Git extension:
 
@@ -854,7 +874,7 @@ Contribute a validation schema for a specific type of `json` file. The `url` val
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/configure/keybindings) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
@@ -890,10 +910,10 @@ Contribute definition of a programming language. This will introduce a new langu
 The main effects of `contributes.languages` are:
 
 - Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.languageId` and the `onLanguage` Activation Events.
-  - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
+  - You can contribute a human-readable label using the `aliases` field. The first item in the list will be used as the human-readable label.
 - Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
-- Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
+- Contribute an icon which can be used in file icon themes if the active theme does not contain an icon for the language. Learn more in [Language default icons](/api/extension-guides/file-icon-theme#language-default-icons).
 
 ### language example
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
 Keywords:
 - ai
@@ -65,7 +65,7 @@ Choose where the agents can make changes before you send the prompts:
 For this walkthrough, use **two separate sessions**, each with **New Worktree** selected. Creating another chat or forking a conversation does not, by itself, create another worktree.
 
 > [!CAUTION]
-> Worktrees isolate working files, not the agent's access to your machine or external services. {% data variables.product.prodname_copilot_short %} worktree sessions use **Allow all**, which skips tool approval prompts. Use a trusted repository and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. If you require manual approvals, use folder sessions one at a time instead.
+> Worktrees isolate working files, not the agent's access to your machine or external services. Use a trusted repository, choose a permission level for each session, and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. Worktree sessions support manual approvals and don't require **Allow all**, which skips tool approval prompts.
 
 For details about the available choices, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
 
@@ -131,6 +131,8 @@ Worktrees don't include uncommitted changes from your primary workspace. Git-ign
 ## 4. Monitor both tasks
 
 Use the sessions list to track each task's status. Select a session to inspect its conversation and **Changes** view. Confirm which session is active before you send feedback or open a terminal.
+
+To prioritize tasks waiting for input or review, [triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode).
 
 > [!TIP]
 > You can view multiple sessions side by side in the Agents window to easily compare their progress and changes. Drag and drop sessions to arrange them as needed.

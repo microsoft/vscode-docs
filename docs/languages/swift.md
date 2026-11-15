@@ -1,5 +1,5 @@
 ---
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Learn about {% data variables.product.prodname_vscode %} editor features (code completion, debugging, testing) for Swift.
 ---
 # Swift in {% data variables.product.prodname_vscode %}
@@ -176,6 +176,8 @@ be used:
 The Swift extension supports [XCTest](https://developer.apple.com/documentation/xctest) as well as
 [Swift Testing](https://swiftpackageindex.com/swiftlang/swift-testing).
 As you write tests they are automatically added to the Test Explorer.
+
+For optional AI assistance, [add and review tests with an agent](/docs/agents/guides/test-code-with-ai.md). Provide the expected behavior and reuse your project's XCTest or Swift Testing conventions, then run the tests and review the assertions.
 
 ![Inline test errors](images/swift/inline_assertion_failures.png)
 

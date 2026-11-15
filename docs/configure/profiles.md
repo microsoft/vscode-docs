@@ -1,6 +1,6 @@
 ---
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Create and manage Profiles in {% data variables.product.prodname_vscode %} to customize settings, extensions, and UI layout for different workflows.
 ---
 # Profiles in {% data variables.product.prodname_vscode %}

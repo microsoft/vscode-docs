@@ -1,6 +1,6 @@
 ---
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: The {% data variables.product.prodname_vscode %} editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -13,6 +13,8 @@ There are a few ways you can debug your Node.js programs in {% data variables.pr
 * Use [auto attach](#auto-attach) to debug processes you run in {% data variables.product.prodname_vscode_shortname %}'s integrated terminal.
 * Use the [JavaScript debug terminal](#javascript-debug-terminal), similar to using the integrated terminal.
 * Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of {% data variables.product.prodname_vscode_shortname %}.
+
+For a hands-on AI-assisted bug-fixing workflow, [fix a pagination bug in a sample Node.js API](/docs/agents/guides/fix-a-bug-with-agents.md) by reproducing the problem, adding regression tests, and reviewing the fix.
 
 ## Auto Attach
 

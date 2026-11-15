@@ -1,7 +1,7 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 11/4/2026
-MetaDescription: How to modify {% data variables.product.prodname_vscode %} User and Workspace Settings.
+DateApproved: 11/11/2026
+MetaDescription: Configure user and workspace settings in {% data variables.product.prodname_vscode %} and understand how setting scopes take precedence.
 ---
 # User and workspace settings
 
@@ -268,6 +268,8 @@ Configurations can be overridden at multiple levels by the different setting sco
 * Language-specific workspace settings - Same as Workspace settings, but specific to a language.
 * Language-specific workspace folder settings - Same as Workspace Folder settings, but specific to a language.
 * Policy settings - Set by the system administrator, these values always override other setting values.
+
+If a setting is managed by your organization, contact your administrator about changes. Administrators investigating an unexpected value can [check policy delivery and precedence](/docs/enterprise/troubleshooting.md#check-delivery-and-precedence).
 
 Setting values can be of various types:
 

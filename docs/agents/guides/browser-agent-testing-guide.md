@@ -1,7 +1,7 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 11/4/2026
-MetaDescription: Build and validate a web app with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %}.
+DateApproved: 11/11/2026
+MetaDescription: Validate a web app with AI browser tools in {% data variables.product.prodname_vscode_shortname %}, reproduce a defect, and verify the fix.
 Keywords:
 - ai
 - copilot
@@ -15,150 +15,153 @@ Keywords:
 ---
 # Build and validate a web app with browser tools
 
-Browser tools give agents a closed development loop for web applications. The agent can create an app, open it in the integrated browser, interact with it against acceptance criteria, identify issues, fix them, and repeat the checks.
+Browser tools let an agent check a running web app instead of relying only on its source code. The agent can open the app, interact with it, inspect the result, and repeat a failing interaction after a fix.
 
-This guide walks you through that loop by building and validating a calculator app. For browser tool capabilities, session types, privacy controls, and prompting patterns, see [Use browser tools with agents](/docs/agents/run/browser-tools.md).
+In this guide, you build a calculator, validate it against explicit acceptance criteria, and practice reproducing and fixing a defect. Use the **{% data variables.product.prodname_copilot_short %}** harness in the {% data variables.copilot.chat_view %}. The generated implementation can vary but the expected behavior stays the same.
+
+These interactive checks provide feedback during development. They don't automatically create a saved test suite or prove that the entire app is correct.
 
 ## Prerequisites
 
-To complete this guide, you need:
+* [Install {% data variables.product.prodname_vscode %}](/download).
+* [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
+* Leave `setting(workbench.browser.enableChatTools)` turned on, which is the default.
 
-* [{% data variables.product.prodname_vscode %} installed on your computer](/download)
-* [A GitHub Copilot subscription](/docs/setup/copilot.md)
-* The `setting(workbench.browser.enableChatTools)` setting turned on, which is the default
+The sample uses HTML, CSS, and JavaScript without a build step or additional dependencies.
 
-## What the agent validates
+## Define the acceptance criteria
 
-Before you ask the agent to test the calculator, define observable acceptance criteria:
+Decide what the agent should observe before asking it to validate the app. For this calculator, use the following checks:
 
-* Each digit button enters the correct value.
-* Addition, subtraction, multiplication, and division return the expected result.
-* **Clear** resets the calculator.
-* Dividing by zero shows an error instead of an invalid numeric result.
+| Check | Actions | Expected result |
+|-------|---------|-----------------|
+| Digit buttons | Clear the calculator, then select a digit. Repeat for each digit from 0 to 9. | The display shows the selected digit. |
+| Addition | Enter `3 + 5 =`. | `8` |
+| Subtraction | Enter `9 - 4 =`. | `5` |
+| Multiplication | Enter `6 * 7 =`. | `42` |
+| Division | Enter `8 / 2 =`. | `4` |
+| Clear | Enter `9 +`, select **Clear**, then enter `2 + 3 =`. | Clear displays `0` and resets the pending operation. The new calculation returns `5`. |
+| Division by zero | Enter `7 / 0 =`. | `Error`, not `Infinity` or `NaN`. |
 
-These criteria give the agent a clear definition of success and make its final verification report easier to review.
+Start each independent check with **Clear** so that a previous calculation doesn't affect the result.
 
-## Step 1: Verify browser tools
+## Step 1: Check browser tool availability
 
-Browser tools are generally available by default. Verify that they are selected for the request:
-
-1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
-
+1. Create a project folder and open it in {% data variables.product.prodname_vscode_shortname %}.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), start a new chat, and select **{% data variables.product.prodname_copilot_short %}** as the **Session Target** and **Agent** from the agent picker.
 1. Select **Open Customizations** in the {% data variables.copilot.chat_view %} title bar > **Tools** and verify that **Integrated Browser** is selected.
 
-The agent can now use these tools to interact with web pages. If the tools are missing, verify that `setting(workbench.browser.enableChatTools)` is turned on. An organization policy can also turn off browser tools.
+If the tools are missing, check `setting(workbench.browser.enableChatTools)`. Organization policy can also turn them off. See [browser tools troubleshooting](/docs/agents/run/browser-tools.md#troubleshoot-browser-tools).
 
-## Step 2: Ask the agent to build a calculator
+## Step 2: Build the calculator
 
-With browser tools enabled, ask the agent to create a simple calculator application.
+Ask the agent to build the app with the behavior you intend to verify:
 
-1. Create a new project folder and open it in {% data variables.product.prodname_vscode_shortname %}.
+```prompt
+Create a calculator using index.html, styles.css, and script.js.
+Use plain HTML, CSS, and JavaScript without dependencies or a build step.
+It must work when index.html is opened directly in a browser.
 
-1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
+Include buttons for digits 0-9, addition, subtraction, multiplication,
+division, Clear, and equals. Show the entered value and calculation result.
+Clear must reset the display to 0 and discard any pending operation.
+Division by zero must display Error rather than Infinity or NaN.
+```
 
-    ```prompt
-    Create a calculator with buttons for digits 0-9, operations (add, subtract, multiply, divide), clear, and equals. Use HTML, CSS, and JavaScript. Style it with a clean, modern design.
-    ```
+[Review the saved changes](/docs/agents/run/review-code-edits.md). If edits are pending review, select **Keep** to retain them or **Undo** to revert them. **Keep** clears pending review; the files are already saved to your workspace.
 
-1. Review the generated files as the agent creates `index.html`, `styles.css`, and `script.js`.
+Don't assume the generated function names or internal structure match another calculator implementation. Judge the app against the acceptance criteria.
 
-1. [Review the saved changes](/docs/agents/run/review-code-edits.md). If edits are pending review, select **Keep** to retain them or **Undo** to revert them. **Keep** clears pending review; the files are already saved to your workspace.
+## Step 3: Run the acceptance checks
 
-The agent has built the basic structure of the calculator application.
+Ask the agent to interact with the app without changing it during the check:
 
-## Step 3: Let the agent test the calculator
+```prompt
+Open index.html in the integrated browser and check the calculator by
+selecting its buttons. Start each independent check with Clear.
 
-Now ask the agent to open the calculator in the integrated browser and verify it works correctly.
+Verify:
+* Each digit button from 0 to 9 displays that digit after Clear.
+* 3 + 5 = 8, 9 - 4 = 5, 6 * 7 = 42, and 8 / 2 = 4.
+* Entering 9 + and then Clear displays 0. Entering 2 + 3 = afterward
+  returns 5, without retaining the previous operation.
+* 7 / 0 = displays Error, not Infinity or NaN.
 
-1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
+Do not edit files. Report each check's actions, expected result, actual
+result, and pass or fail status. Mark checks you couldn't run as unverified.
+```
 
-    ```prompt
-    Open the calculator in the browser and validate it against these criteria:
-    each digit button enters the correct value; addition, subtraction,
-    multiplication, and division return the expected result; Clear resets
-    the calculator; and division by zero shows an error. Report the result
-    for each criterion. If any criterion fails, fix the issue and repeat
-    the complete validation.
-    ```
+Review the browser tool calls and reported results. A screenshot can support a visual observation, but it doesn't show that every interaction passed. If the agent can't open the page or complete an action, resolve that problem before treating the check as verified.
 
-1. Watch as the agent opens `index.html` in the integrated browser, parses the page content to understand the structure, and systematically tests each button and operation by simulating clicks and checking the results.
+The following video illustrates browser interaction with a calculator. Your generated layout and tool sequence might differ.
 
-    <video src="../images/browser-agent-testing-guide/agent-testing-calculator.mp4" title="Video showing the agent testing the calculator in the integrated browser." autoplay loop controls muted></video>
+<video src="../images/browser-agent-testing-guide/agent-testing-calculator.mp4" title="Video showing the agent testing the calculator in the integrated browser." autoplay loop controls muted></video>
 
-The agent reports which operations work correctly and identifies any issues it discovers.
+## Step 4: Reproduce and fix a defect
 
-## Step 4: Watch the agent debug and fix issues
+If an acceptance check failed, use that failure for this step. If all checks passed, introduce a controlled defect to practice the workflow:
 
-If the agent discovers bugs during testing, it automatically analyzes the problem and implements a fix.
+```prompt
+Introduce only this defect in the calculator: dividing by zero displays
+Infinity instead of Error. Keep the JavaScript syntactically valid and
+leave all other behavior unchanged. Do not fix the defect yet.
+```
 
-1. Let's introduce a bug by removing the division by zero check:
+Review the diff to confirm that only the intended behavior changed. Then reproduce the defect before requesting a fix:
 
-    ```javascript
-    function calculate() {
-        if (!operator || shouldReset) return;
+```prompt
+Reload the calculator to use the saved code. Select Clear, enter 7 / 0 =,
+and report the actual display value. It should be Error.
+Do not edit files during this check.
+```
 
-        const a = parseFloat(previous);
-        const b = parseFloat(current);
-        let result;
+After you observe the incorrect result, ask for a focused fix:
 
-        switch (operator) {
-        case '+': result = a + b; break;
-        case '-': result = a - b; break;
-        case '*': result = a * b; break;
-        case '/': result = a / b; break;
-    }
-    ```
+```prompt
+Fix the division-by-zero behavior so the display shows Error.
+Avoid unrelated changes.
 
-1. Ask the agent to reproduce the issue, fix it, and verify the acceptance criterion again:
+Reload the page and repeat the failing interaction. Then rerun every
+acceptance check from the earlier request, starting each with Clear.
+Report the actual results and any checks you couldn't complete.
+```
 
-    ```prompt
-    Test division by zero. If it produces an invalid numeric result instead
-    of an error, fix the issue. Then repeat the test and report the result.
-    ```
+For a different defect, replace the division-by-zero case with the actions and expected result from the failed check.
 
-1. Watch as the agent encounters an error when dividing by zero, then analyzes and fixes the code, and finally validates the bug fix.
+Review the fix and verification output. Reload after code changes so the agent checks the updated app, not a page still running the previous code.
 
-The agent has completed a full development cycle: build, validate, debug, fix, and revalidate by using browser tools.
+## Keep regression coverage
 
-## Step 5: Share a browser page with the agent (optional)
+Browser interaction during a chat isn't a saved automated test. To catch the same defect after future changes, add regression coverage to your project's test suite.
 
-You can also manually open web pages and explicitly share them with the agent for analysis or interaction. By default, the agent can only interact with web pages it opened itself.
+Use unit tests for isolated calculation behavior and browser tests for behavior that depends on the UI. Reuse an existing framework rather than introducing a second runner:
 
-1. Open the integrated browser by running the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
+```prompt
+Add a regression test for the defect we fixed using the project's existing
+test framework and conventions. Verify the expected behavior, not the
+implementation details, and run the relevant tests.
 
-1. Navigate to a web page you want the agent to analyze or interact with.
+If no suitable test framework exists, propose a minimal setup and wait
+for approval before installing dependencies or changing configuration.
+```
 
-1. Select the **Share with Agent** button in the browser toolbar.
+Review the assertions and execution output. See [Test existing code with AI](/docs/agents/guides/test-code-with-ai.md) for guidance on test quality, failures, and coverage.
 
-    A visual indicator on the browser tab shows that the page is actively shared with the agent.
+## Apply the workflow to your web app
 
-1. Ask the agent to perform actions on the shared page:
+For an existing project, give the agent the development-server command, app URL, a focused user journey, and expected results. Specify whether it should only report failures or also fix them.
 
-    ```prompt
-    What is the main heading on this page? Click the first link and tell me where it goes.
-    ```
+If a flow needs an existing browser session, [share a page with the agent](/docs/agents/run/browser-tools.md#share-an-existing-page). Sharing gives access to that page's current session, including its sign-in state. Use a test account and disposable data for actions that submit forms or change stored data.
 
-The agent can now access the shared page and perform interactions on your behalf. When you're done, select the **Share with Agent** button again to revoke access.
+Other useful checks include:
 
-> [!TIP]
-> Shared pages use your existing browser session, including cookies and login state. Pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
+* **Forms**: test valid and invalid input, error messages, and successful submission.
+* **Responsive layouts**: compare navigation and content at specified desktop and mobile viewport sizes.
+* **Accessibility**: investigate labels, headings, and keyboard interactions. Agent checks aren't a complete accessibility audit; include manual keyboard and assistive-technology testing.
 
-## Try these scenarios
+For browser capabilities, session isolation, and privacy controls, see [Use browser tools with agents](/docs/agents/run/browser-tools.md).
 
-Now that you understand how browser tools work, try these scenarios to explore different use cases:
+## Next steps
 
-* **Form validation testing**: have the agent verify validation rules, error messages, and successful submission by building and testing a contact form
-
-* **Responsive layout verification**: ask the agent to screenshot a page at different viewport sizes and verify responsive behavior (for example, a landing page with navigation menus)
-
-* **Authentication flow testing**: let the agent test credential validation, error handling, and successful redirects in a login page
-
-* **Interactive functionality testing**: have the agent verify user interactions and state management
-
-* **Accessibility audits**: ask the agent to check any web page for missing alt text, heading hierarchy, keyboard navigation, and color contrast issues
-
-## Related resources
-
-* [Use browser tools with agents](/docs/agents/run/browser-tools.md)
-* [Integrated browser](/docs/debugtest/integrated-browser.md)
-* [Core concepts of AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
+* Use [test-driven development](/docs/agents/guides/test-driven-development-guide.md) to define behavior before implementation.
+* Learn how to [attach browser elements, screenshots, and console output to chat](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat).

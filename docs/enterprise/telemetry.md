@@ -1,14 +1,16 @@
 ---
 ContentId: 9b3e5c2d-1a4f-6e8b-c7d9-0f2a3b4c5d6e
-DateApproved: 11/4/2026
-MetaDescription: Learn how to centrally manage {% data variables.product.prodname_vscode_shortname %} telemetry settings for enterprise environments, including telemetry levels and feedback options.
+DateApproved: 11/11/2026
+MetaDescription: Manage {% data variables.product.prodname_vscode_shortname %} product telemetry, feedback, and agent monitoring for enterprise deployments.
 ---
 
 # Manage telemetry in enterprise environments
 
 {% data variables.product.prodname_vscode_shortname %} collects telemetry data to help understand how the product is used and to improve it. Organizations can centrally manage telemetry settings to control what data is collected across their development teams.
 
-This article covers how IT admins can configure telemetry through [enterprise policies](/docs/enterprise/policies.md).
+This article covers how IT admins configure product telemetry through [enterprise policies](/docs/enterprise/policies.md) and where to manage agent monitoring separately.
+
+`TelemetryLevel` is not an organization-wide control for every data transfer. Review independent extension telemetry, [agent OpenTelemetry export](#opentelemetry-support-for-agent-interactions), and [other online services](/docs/configure/telemetry.md#managing-online-services) separately.
 
 ## Telemetry-related policies
 
@@ -45,7 +47,7 @@ The `TelemetryLevel` policy controls {% data variables.product.prodname_vscode_s
 
 ### Disable telemetry
 
-To disable all telemetry across your organization, set the `TelemetryLevel` policy to `off`:
+To stop product telemetry covered by this policy on managed devices, set `TelemetryLevel` to `off`:
 
 **Policy value**:
 
@@ -54,7 +56,7 @@ off
 ```
 
 > [!IMPORTANT]
-> Setting telemetry to `off` or `error` disables A/B experimentation. This might delay the rollout of new features to your users until they are generally available.
+> Setting telemetry to `off`, `crash`, or `error` disables A/B experimentation. This might delay the rollout of new features to your users until they are generally available.
 
 ### Enable error telemetry only
 
@@ -78,6 +80,8 @@ To disable feedback mechanisms, set the `EnableFeedback` policy to `false`:
 false
 ```
 
+After deployment, run **Developer: Policy Diagnostics** on a test device and confirm the effective `TelemetryLevel` and `EnableFeedback` values and their sources. See [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement). This confirms policy delivery, not the behavior of extensions that collect telemetry independently.
+
 ## Extension telemetry
 
 {% data variables.product.prodname_vscode_shortname %} extensions might collect their own telemetry data. The `setting(telemetry.telemetryLevel)` setting affects first-party Microsoft extensions and participating third-party extensions. However, some extensions might not respect this setting and might have their own telemetry configuration.
@@ -86,9 +90,11 @@ Review the documentation of extensions used in your organization to understand t
 
 ## OpenTelemetry support for agent interactions
 
-[Copilot Chat](/docs/agent-native/overview.md) in {% data variables.product.prodname_vscode_shortname %} can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+[Copilot Chat](/docs/agents/overview.md) in {% data variables.product.prodname_vscode_shortname %} can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
 
-Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
+This export has separate configuration for its destination and for capturing prompt, response, tool, and identity data. Do not use `TelemetryLevel` as a substitute for configuring OTel export.
+
+Follow [Manage OTel configuration for your organization](/docs/agents/guides/monitoring-agents.md#manage-otel-configuration-for-your-organization) for managed deployment, and review the [security and privacy guidance](/docs/agents/guides/monitoring-agents.md#security-and-privacy) before collecting agent data.
 
 ## GDPR compliance
 
@@ -96,6 +102,6 @@ Learn more about how to [Monitor agent interactions with OpenTelemetry](https://
 
 ## Related resources
 
-* [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
+* [Enterprise policies reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) - Complete list of enterprise policies
 * [Telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/telemetry.md) - Learn about telemetry data collection
 * [Privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) - Microsoft privacy statement

@@ -31,7 +31,7 @@ Running {% data variables.product.prodname_vscode_shortname %} with the [Dev Con
 ## Not supported
 
 * Running {% data variables.product.prodname_vscode_shortname %} in application virtualization solutions such as Microsoft App-V or MSIX for Windows, or third-party app virtualization technologies.
-* Running {% data variables.product.prodname_vscode_shortname %} in a virtual machine environment requires a full operating system.
+* Running {% data variables.product.prodname_vscode_shortname %} in a virtual machine environment without a full operating system.
 * Running {% data variables.product.prodname_vscode_shortname %} on a non-persistent virtual machine.
 * Running {% data variables.product.prodname_vscode_shortname %} on systems utilizing or managing users with FSLogix.
 * Multiple simultaneous users using the software on the same machine, including shared virtual desktop infrastructure machines or a pooled Windows/Linux Virtual Desktop host pool.

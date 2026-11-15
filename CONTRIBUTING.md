@@ -190,6 +190,58 @@ Run the extension's targeted tests with `npm run test:workbench`. No GitHub writ
 
 HTTP diagnostics include the request method, path, and status code. Request failures are reported without failing the agent session. Unexpected server failures retain their error severity in the diagnostic text and return an HTTP error to the page. The server handles favicon requests and page readiness checks without reporting an error.
 
+### Annotated code examples
+
+Annotated examples keep complete fenced files beside explanatory steps. Start with
+`<!-- {% annotated-code id="..." %} -->` for a guided walkthrough, or add
+`layout="compact"` for a stacked example. Omitting `layout` is equivalent to
+`layout="guided"`. Inside, declare a
+`<!-- {% file id="..." path="..." %} -->` block around the fence and close it with
+`<!-- {% /file %} -->`.
+
+Declare all files first, then add `<!-- {% step id="..." match="..." %} -->` blocks.
+For multi-file examples, add `file="..."` to identify the file explained by each step.
+Start each step with an appropriate Markdown heading, explain what to adapt and
+how to verify it, and close it with `<!-- {% /step %} -->`. Close the component
+with `<!-- {% /annotated-code %} -->`.
+
+Selectors match exact, unique source lines. Use `from="..." to="..."` for a range,
+or omit selectors to explain the complete example. Encode quotes and angle
+brackets in attributes as HTML entities. Encode `--` as `&#45;&#45;` in attributes
+to keep comments valid. Keep directives unindented and outside
+fences. Components can appear inside a harness tab, but cannot nest or span tabs.
+Use unique kebab-case IDs. Each file has its own language fence and display path.
+With multiple files, every step must name its file, including steps with no selector.
+Selectors resolve only within that file. Single-file steps can omit `file`.
+
+Keep the HTML-comment wrappers so directives stay hidden in Markdown previews.
+Whitespace around `=` and inside the comment delimiters is optional, so
+`<!--{% annotated-code id = "example" %}-->` is also valid. Attribute values must
+be double-quoted; whitespace inside a value is preserved for exact source matching.
+
+Multiple files appear as keyboard-accessible tabs. Selecting a step opens its file;
+manual file browsing does not advance the explanation. Copying includes the whole
+displayed file, not just highlighted lines or a combination of files. No-JavaScript
+and print views retain all files and explanations.
+
+Guided examples automatically remove the right sidebar and use the available width
+beside the left navigation, including inside harness tabs. Prose retains its normal
+width, and Related actions move into the article. Set `DocsLayout: standard` to
+keep the right sidebar, or `DocsLayout: wide` to widen another article. Compact-only
+articles retain their normal layout.
+
+On sufficiently wide and tall screens, explanations scroll independently beside
+the code. Scrolling selects the topmost visible explanation; selecting a section
+holds that choice until it leaves the pane. Highlighted lines are revealed within
+the code pane without moving the page. Narrow-screen, short-screen, and compact
+layouts use normal page flow and manual selection. Line references are hidden in
+the interactive view but retained for accessibility, print, and no-JavaScript readers.
+
+Coordinate publication with the website implementation. GitHub and the local
+Docsify preview show the complete code and prose without interactive highlighting;
+validate the enhanced layout, copying, themes, and keyboard behavior in the
+website preview. Keep instructions framed as guidance, not guaranteed behavior.
+
 ### Validate your Markdown
 
 * Check that your Markdown is properly formatted
@@ -275,11 +327,18 @@ The page title is taken from the first H1 heading in the topic.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
 * **Keywords** - Optional. A list of keywords relevant to this topic to help with search.
-* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental or preview feature.
+* **FeatureStatus** - Optional. The feature ID from `/build/feature-lifecycle.json` when the whole page documents an experimental, preview, deprecated, or soon-to-be-deprecated feature.
 
-## Experimental and preview features
+## Feature lifecycle statuses
 
-The `/build/feature-lifecycle.json` registry is the source of truth for non-stable feature states in the documentation. Each entry has a lowercase kebab-case ID, display label, and `experimental` or `preview` state. Do not add stable features to the registry.
+The `/build/feature-lifecycle.json` registry is the source of truth for feature lifecycle states in the documentation. Each entry has a lowercase kebab-case ID, display label, and one of these states:
+
+* `experimental`: Experimental.
+* `preview`: Preview.
+* `deprecated`: Deprecated.
+* `pending-deprecation`: To be deprecated in a future release.
+
+Do not add stable features to the registry.
 
 The website can build without the registry so infrastructure and content changes can be deployed independently. When the file is absent, the build treats it as an empty registry and renders no lifecycle status UI. An existing registry must still be valid.
 
@@ -289,7 +348,7 @@ To mark a whole page, add its feature ID to the topic metadata:
 FeatureStatus: agent-artifacts
 ```
 
-Keep the H1 free of manually authored `(Preview)` or `(Experimental)` text. The website build adds a consistent status treatment after the H1.
+Keep the H1 free of manually authored lifecycle labels such as `(Preview)`, `(Experimental)`, or `(Deprecated)`. The website build adds a consistent status treatment after the H1.
 
 To mark a feature within a page, add an empty marker directly after the heading or content that introduces it. Put the macro on a line by itself immediately after the heading or introductory content for the feature:
 
@@ -297,15 +356,48 @@ To mark a feature within a page, add an empty marker directly after the heading 
 `feature(integrated-browser-remote)`
 ```
 
-To include a beaker icon inline in text to mark a feature use the following syntax:
+To mark a feature inline in text, use the following syntax. Experimental and preview features use a beaker icon. Deprecation states use a warning icon.
 
 ```html
 Full page screenshots `feature(integrated-browser-full-page-screenshot)` capture the entire scrollable page.
 ```
 
-Keep enablement steps, limitations, and other feature-specific guidance in the authored content. The generated treatment only describes the lifecycle state.
+### Deprecation guidance
 
-When a feature becomes stable:
+Use `deprecated` for an already-deprecated feature and `pending-deprecation` for a feature that will be deprecated in a future release. The same page metadata and feature macros work for both states.
+
+Both `deprecated` and `pending-deprecation` entries can include optional `message` and `moreInfoUrl` fields. You can supply each field independently. A custom message replaces the generated lifecycle sentence. The URL adds a **Learn more** link, with or without a custom message.
+
+A `pending-deprecation` entry can also include a `date`. Without a custom message, a date produces `<feature label> will be deprecated by <date string>.` Without either a message or date, the notice says the feature will be deprecated in a future release. A `deprecated` entry without a custom message says `<feature label> is deprecated.` To describe a removal deadline for an already-deprecated feature, use `message`, not `date`.
+
+```json
+{
+  "features": {
+    "legacy-feature": {
+      "label": "Legacy feature",
+      "state": "deprecated",
+      "message": "This feature is deprecated. Use the replacement feature instead.",
+      "moreInfoUrl": "/docs/configure/migration"
+    },
+    "retiring-feature": {
+      "label": "Retiring feature",
+      "state": "pending-deprecation",
+      "date": "February 21, 2027",
+      "moreInfoUrl": "/docs/configure/migration"
+    }
+  }
+}
+```
+
+Messages and dates must contain non-whitespace text and render as plain text, not Markdown or HTML. Dates are display strings, not parsed or reformatted, and do not automatically change the feature's state. More-info links must use HTTPS or a root-relative published website path, such as `/docs/configure/migration`, without a `.md` suffix. HTTPS links open in a new tab; website paths open in the current tab. Protocol-relative URLs (`//example.com`), other schemes, whitespace, control characters, and backslashes are not supported. The `message` and `moreInfoUrl` fields are supported only for `deprecated` and `pending-deprecation`. The `date` field is supported only for `pending-deprecation`.
+
+The generated deprecation notices do not imply a removal date or a commitment to remove the feature. Keep detailed timelines and migration instructions in the message or linked content.
+
+Keep enablement steps, limitations, and other detailed feature-specific guidance in the authored content.
+
+### When a feature becomes stable
+
+When an experimental or preview feature becomes stable:
 
 1. Remove its entry from `/build/feature-lifecycle.json`.
 2. Remove all matching `FeatureStatus` metadata and inline markers.
@@ -502,7 +594,7 @@ Use lowercase for file and folder names and dashes `-` as separators.
 
 For example:
 
-* `/docs/editor/workspace-trust.md`
+* `/docs/editing/workspaces/workspace-trust.md`
 * `/docs/supporting/troubleshoot-terminal-launch.md`
 * `/api/extension-guides/custom-editors.md`
 
@@ -677,7 +769,7 @@ Press `kb(workbench.action.files.openFile)` to open a file.
 ```
 
 > [!TIP]
-> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
+> For a list of key bindings and Command IDs, review the [key bindings document](https://code.visualstudio.com/docs/reference/default-keybindings).
 
 **For multiple key bindings, use a table:**
 

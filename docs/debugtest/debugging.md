@@ -1,6 +1,6 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Debug applications in {% data variables.product.prodname_vscode %} with breakpoints, step controls, variable inspection, and the Debug Console.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -190,4 +190,4 @@ Debugger extensions define their supported launch configurations, breakpoint typ
 
 * [Configure debugging](/docs/debugtest/debugging-configuration.md) - Create and customize reusable `launch.json` configurations.
 * [Debug Node.js applications](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in JavaScript and Node.js debugger.
-* [Debug and fix issues with Copilot](/docs/copilot/overview.md#fix-issues) - Use AI-assisted tools to investigate and fix problems.
+* [Fix a bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md#apply-the-workflow-to-your-own-project): use your reproduction and debugger findings to add a regression test and verify a focused fix.

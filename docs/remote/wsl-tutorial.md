@@ -1,7 +1,7 @@
 ---
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with {% data variables.product.prodname_vscode %}
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 ---
 # Remote development in WSL
 
@@ -150,17 +150,15 @@ To prove that the extension is installed in WSL, open the Extensions view again 
 
 ![WSL installed extensions](images/wsl-tutorial/wsl-installed-extensions.png)
 
-Upon reload, you'll also get prompted telling you that the pylint linter is not installed. Linters are used to show errors and warnings in source code. Go ahead and select **Install**.
-
-![pylint not installed notification](images/wsl-tutorial/pylint-not-installed.png)
+To add linting, install a linter extension such as [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint). Linters show errors and warnings in source code. For more information about the available linter extensions, see [Linting Python](/docs/python/linting.md).
 
 Now, when you edit your code, you get rich colorization and completions.
 
 ![Python IntelliSense](images/wsl-tutorial/python-intellisense.png)
 
-And when you save your file (`kb(workbench.action.files.save)`), you'll get linting errors and warnings on the file.
+After you install the linter extension, linting errors and warnings appear on the file when you save it (`kb(workbench.action.files.save)`).
 
-![pylint error](images/wsl-tutorial/pylint-error.png)
+![Screenshot showing linting errors and warnings in the editor.](images/wsl-tutorial/pylint-error.png)
 
 ### Debugging
 

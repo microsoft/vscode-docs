@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -318,6 +318,41 @@ await runTests({
    * See `code --help` for possible arguments.
    */
   launchArgs: ['--disable-extensions']
+});
+```
+
+### Debugging with a clean, isolated profile
+
+When you launch the Extension Development Host from {% data variables.product.prodname_vscode_shortname %}, it can reuse an existing profile and its settings, keybindings, and extensions. To run and debug your extension in a clean, isolated environment without affecting your personal profile, add the `--profile-temp` argument to the `args` array in `launch.json` or to the `launchArgs` option in `@vscode/test-electron`.
+
+Passing `--profile-temp` creates a new, empty temporary profile for the debugging session.
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--profile-temp",
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+    }
+  ]
+}
+```
+
+```ts
+await runTests({
+  extensionDevelopmentPath,
+  extensionTestsPath,
+  launchArgs: ['--profile-temp', '--disable-extensions']
 });
 ```
 

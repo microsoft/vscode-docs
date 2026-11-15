@@ -1,6 +1,6 @@
 ---
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Configure glob patterns in {% data variables.product.prodname_vscode %} to control file visibility, search results, and file associations.
 ---
 # Glob Patterns Reference

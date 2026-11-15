@@ -95,6 +95,7 @@ Keep research proportional to the documentation change. Accuracy and public avai
 ## Text formatting
 
 * UI elements, like menu items, dialog names, and names of text boxes, should be in bold text.
+* Omit trailing ellipses when referring to UI controls, even if they appear in the label. For example, write **Open Folder**, not **Open Folder...**. This applies to both three dots and the ellipsis character (U+2026).
 * Use code style for:
     * Code elements, like method names, property names, and language keywords.
     * SQL commands.

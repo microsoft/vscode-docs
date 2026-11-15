@@ -1,6 +1,6 @@
 ---
 ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Learn about using PowerShell in {% data variables.product.prodname_vscode %}
 ---
 # PowerShell in {% data variables.product.prodname_vscode %}
@@ -226,7 +226,7 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [08]: /docs/editing/userdefinedsnippets.md
 [09]: /docs/editing/getting-started/tips-and-tricks.md#errors-and-warnings
 [10]: /docs/editing/getting-started/userinterface.md#outline-view
-[11]: http://github.com/PowerShell/PSScriptAnalyzer
+[11]: https://github.com/PowerShell/PSScriptAnalyzer
 [12]: https://code.visualstudio.com/docs/remote/vscode-web
 [13]: https://code.visualstudio.com/docs/remote/remote-overview
 [14]: https://code.visualstudio.com/docs/remote/vscode-server

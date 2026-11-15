@@ -1,6 +1,6 @@
 ---
 ContentId: 5d7b8e63-421c-4e92-9b03-a7d4c918f620
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Look up custom instruction formats, locations, activation rules, and settings in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../../learn/images/shared/agent-first-development-social.png
 Keywords:
@@ -25,7 +25,7 @@ The selected [agent harness](/docs/agents/run/agent-harnesses.md#select-a-harnes
 | {% data variables.product.prodname_copilot_short %} | `.github/copilot-instructions.md` or `AGENTS.md` | `.github/instructions/**/*.instructions.md` or nested `AGENTS.md` files |
 | {% data variables.product.prodname_anthropic_claude %} | `CLAUDE.md` or `.claude/CLAUDE.md` | Markdown files in `.claude/rules` |
 | {% data variables.product.prodname_openai_codex %} | `AGENTS.md` | `AGENTS.md` files along the path to the session's working directory |
-| Local | `.github/copilot-instructions.md`, `AGENTS.md`, or `CLAUDE.md` | `.github/instructions/**/*.instructions.md` or Markdown files in `.claude/rules` |
+| Local `feature(local-harness)` | `.github/copilot-instructions.md`, `AGENTS.md`, or `CLAUDE.md` | `.github/instructions/**/*.instructions.md` or Markdown files in `.claude/rules` |
 
 `AGENTS.md` is a cross-agent instruction format. It is not a custom agent definition, and its discovery rules differ by harness. If your team uses multiple harnesses, choose a shared supported format where possible and keep any separate copies consistent.
 
@@ -40,7 +40,7 @@ User instructions contain personal guidance across projects. `~` refers to the h
 | {% data variables.product.prodname_copilot_short %} | `~/.copilot/copilot-instructions.md` for general guidance; `~/.copilot/instructions/**/*.instructions.md` for modular instructions |
 | {% data variables.product.prodname_anthropic_claude %} | `~/.claude/CLAUDE.md` for general guidance; `~/.claude/rules` for modular rules |
 | {% data variables.product.prodname_openai_codex %} | `AGENTS.md` in the Codex home directory, which defaults to `~/.codex` |
-| Local | Instructions in the {% data variables.product.prodname_vscode_shortname %} user profile, created through the Agent Customizations editor |
+| Local `feature(local-harness)` | Instructions in the {% data variables.product.prodname_vscode_shortname %} user profile, created through the Agent Customizations editor |
 
 Harness user folders are separate from {% data variables.product.prodname_vscode_shortname %} profile storage and don't roam through Settings Sync. To move existing profile instructions, see [user customization migration](/docs/agent-customization/migrate-customizations.md#move-user-agents-and-instructions).
 
@@ -123,7 +123,7 @@ In {% data variables.product.prodname_copilot_short %} sessions, `applyTo` targe
 |---------|----------------------|
 | {% data variables.product.prodname_copilot_short %} | Discovers `AGENTS.md` at the repository root, working directory, intermediate directories, and along paths to files it works with. Applicable instructions are combined. |
 | {% data variables.product.prodname_openai_codex %} | Builds an instruction chain from the project root to the session's working directory. To use instructions in a subfolder, start the session with that subfolder as its working directory. |
-| Local | Workspace-root `AGENTS.md` is included when `setting(chat.useAgentsMdFile)` is on. Nested files require both that setting and `setting(chat.useNestedAgentsMdFiles)`. |
+| Local `feature(local-harness)` | Workspace-root `AGENTS.md` is included when `setting(chat.useAgentsMdFile)` is on. Nested files require both that setting and `setting(chat.useNestedAgentsMdFiles)`. |
 
 `feature(nested-agents-md-files)`
 
@@ -165,6 +165,8 @@ For organization configuration and supported GitHub experiences, see [organizati
 ## Settings
 
 ### Local harness settings
+
+`feature(local-harness)`
 
 These settings control Local discovery and activation, not the native discovery rules of other harnesses:
 

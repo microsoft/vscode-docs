@@ -1,6 +1,6 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Review legacy Local hook schemas when migrating to Copilot in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -15,7 +15,7 @@ Keywords:
 
 # Legacy Local hooks reference
 
-Use this reference to interpret an existing **Local** hook while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
+Use this reference to interpret an existing **Local** hook `feature(local-harness)` while [migrating to the Copilot harness](/docs/agent-customization/migrate-customizations.md#migrate-hooks). For new hooks, start with [Configure agent hooks](/docs/agent-customization/hooks.md), which uses the shared Copilot runtime. The Local harness `feature(local-harness)` runs in the extension host and sends the payloads documented here even when it accepts a compatible configuration format.
 
 For hooks executed by a provider harness, use the corresponding provider documentation:
 
@@ -26,7 +26,7 @@ For hooks executed by a provider harness, use the corresponding provider documen
 > [!NOTE]
 > Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
 
-If you select **Local** from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness maps the configuration and then sends the payloads documented here.
+If you select **Local** `feature(local-harness)` from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness `feature(local-harness)` maps the configuration and then sends the payloads documented here.
 
 For help choosing a harness, creating a hook, or migrating an existing hook, see [Configure agent hooks](/docs/agent-customization/hooks.md).
 
@@ -146,7 +146,7 @@ In addition to the [common input](#common-input), the hook receives:
 | `tool_input` | object | Arguments for the tool call. |
 | `tool_use_id` | string | Identifier for the tool call. |
 
-Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the tool schema for the Local harness session before you filter or modify a tool call.
+Tool names and input schemas differ between harnesses. Open the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) to inspect the tool schema for the Local harness `feature(local-harness)` session before you filter or modify a tool call.
 
 ### Output
 
@@ -168,7 +168,7 @@ Use `hookSpecificOutput` to control the tool call:
 | `hookEventName` | `"PreToolUse"` | Identifies the event-specific output. |
 | `permissionDecision` | `"allow"`, `"deny"`, or `"ask"` | Allows the tool call, denies it, or requires user confirmation. |
 | `permissionDecisionReason` | string | Reason shown to the user. |
-| `updatedInput` | object | Optional replacement tool input. The value must match the tool schema for the Local harness session. |
+| `updatedInput` | object | Optional replacement tool input. The value must match the tool schema for the Local harness `feature(local-harness)` session. |
 | `additionalContext` | string | Additional context for the model. |
 
 When multiple hooks return a permission decision for the same tool call, the most restrictive decision wins:
@@ -177,7 +177,7 @@ When multiple hooks return a permission decision for the same tool call, the mos
 1. `ask` requires user confirmation.
 1. `allow` approves the tool call.
 
-If `updatedInput` does not match the tool schema for the Local harness session, the harness ignores it.
+If `updatedInput` does not match the tool schema for the Local harness `feature(local-harness)` session, the harness ignores it.
 
 ## `PostToolUse`
 

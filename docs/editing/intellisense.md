@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription:  Learn about {% data variables.product.prodname_vscode %} IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -199,7 +199,7 @@ IntelliSense is just one of {% data variables.product.prodname_vscode_shortname 
 
 * [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+* [GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 

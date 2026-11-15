@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="title description">
+  <title id="title">Remote agent connection options</title>
+  <desc id="description">Three client cards connect to a host machine through directly labeled arrows. The installed Agents window uses GitHub environments, SSH, or a dev tunnel. The browser-based Agents window uses GitHub environments or a dev tunnel. Other Copilot experiences, grouped as Copilot CLI, GitHub Copilot app, GitHub.com, and GitHub Mobile, use GitHub environments. A shared cloud-sessions path from the entire client group connects to managed cloud compute. The agent session, project files, and tools run at the selected destination.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9 Z" fill="#60738c"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #243247; }
+      .heading { font-size: 24px; font-weight: 600; }
+      .body { font-size: 21px; }
+      .muted { fill: #52657e; }
+      .blue { fill: #2268b5; }
+      .teal { fill: #087f76; }
+      .purple { fill: #7347b3; }
+      .group { fill: #f8fafc; stroke: #93a4bc; stroke-width: 1.5; stroke-dasharray: 7 6; }
+      .client { fill: #f0f6ff; stroke: #9bb7d8; stroke-width: 1.5; }
+      .line { fill: none; stroke: #60738c; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1000" height="700" fill="#fff"/>
+  <text class="heading" x="24" y="34">Client machine</text>
+  <text class="heading" x="712" y="34">Session runs on</text>
+
+  <rect class="group" x="20" y="56" width="272" height="506" rx="10"/>
+
+  <rect class="client" x="40" y="76" width="232" height="104" rx="8"/>
+  <text class="heading blue" x="60" y="118">Agents window</text>
+  <text class="body" x="60" y="152">Installed app</text>
+  <text class="body" x="492" y="118" text-anchor="middle">GitHub environments, SSH, or dev tunnel</text>
+  <path class="line" d="M280 142 H704"/>
+
+  <rect class="client" x="40" y="212" width="232" height="104" rx="8"/>
+  <text class="heading blue" x="60" y="254">Agents window</text>
+  <text class="body" x="60" y="288">In a browser</text>
+  <text class="body" x="492" y="254" text-anchor="middle">GitHub environments or dev tunnel</text>
+  <path class="line" d="M280 278 H704"/>
+
+  <rect class="client" x="40" y="348" width="232" height="194" rx="8"/>
+  <text class="heading blue" x="60" y="383">Other Copilot</text>
+  <text class="heading blue" x="60" y="410">experiences</text>
+  <g class="body">
+    <text x="60" y="444">Copilot CLI</text>
+    <text x="60" y="472">GitHub Copilot app</text>
+    <text x="60" y="500">GitHub.com</text>
+    <text x="60" y="528">GitHub Mobile</text>
+  </g>
+  <text class="body" x="492" y="421" text-anchor="middle">GitHub environments</text>
+  <path class="line" d="M280 445 H704"/>
+
+  <rect x="712" y="76" width="264" height="466" rx="8" fill="#eef9f7" stroke="#90bdb6" stroke-width="1.5"/>
+  <text class="heading teal" x="736" y="254">Host machine</text>
+  <g class="body">
+    <text x="736" y="300">Agent session</text>
+    <text x="736" y="336">Project files</text>
+    <text x="736" y="372">Tools and commands</text>
+  </g>
+
+  <text class="body" x="492" y="610" text-anchor="middle">Cloud sessions</text>
+  <path class="line" d="M156 570 V624 H704"/>
+  <rect x="712" y="580" width="264" height="96" rx="8" fill="#f5f0fb" stroke="#d6cae8" stroke-width="1.5"/>
+  <text class="heading purple" x="736" y="616">Managed cloud</text>
+  <text class="body" x="736" y="648">Session, files, tools</text>
+</svg>

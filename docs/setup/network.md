@@ -1,11 +1,21 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 11/4/2026
-MetaDescription: Setup {% data variables.product.prodname_vscode_shortname %}'s Network Connection.
+DateApproved: 11/11/2026
+MetaDescription: Configure network access, proxies, and trusted certificates for {% data variables.product.prodname_vscode_shortname %} on managed devices.
 ---
-# Network Connections in {% data variables.product.prodname_vscode %}
+# Network connections in {% data variables.product.prodname_vscode %}
 
 {% data variables.product.prodname_vscode %} is built on top of [Electron](https://www.electronjs.org) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that {% data variables.product.prodname_vscode_shortname %} users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
+
+## Plan network access for managed devices
+
+As part of a [managed deployment](/docs/enterprise/deployment.md#prepare-network-access-and-extensions), identify which services the installation and developer accounts need. Coordinate firewall, proxy, and certificate changes with your network team.
+
+* **Installation and servicing**: Review the [application update service and download CDN](/docs/enterprise/updates.md#network-requirements). If you use Linux repositories or Snap, also review the package-distribution requirements in the [Linux installation guide](/docs/setup/linux.md).
+* **Extension distribution**: Decide whether clients use the public Marketplace or a [private marketplace](/docs/enterprise/extensions.md#host-a-private-extension-marketplace).
+* **AI services**: Check connectivity for the affected account and client with the [AI network diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#collect-network-diagnostics).
+
+Use the hostnames below for the services in scope rather than treating every endpoint as a requirement for every deployment.
 
 ## Common hostnames
 
@@ -105,6 +115,8 @@ Similarly to extensions, a few other {% data variables.product.prodname_vscode_s
 Due to both of these constraints, the `setting(http.proxy)`, `setting(http.proxyStrictSSL)` and `setting(http.proxyAuthorization)` variables are still part of {% data variables.product.prodname_vscode_shortname %}'s settings, yet they are only respected in these two scenarios.
 
 ## Troubleshooting
+
+For a managed-device incident, start with [administrator troubleshooting](/docs/enterprise/troubleshooting.md) to distinguish policy restrictions from account, version, and network failures before changing the configuration.
 
 Here are some helpful links that might help you troubleshoot networking issues in {% data variables.product.prodname_vscode_shortname %}:
 

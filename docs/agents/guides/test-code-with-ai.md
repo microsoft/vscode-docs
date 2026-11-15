@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Add and run tests for existing code with AI in {% data variables.product.prodname_vscode %}, then review assertions, failures, and coverage.
 ---
 # Test existing code with AI
@@ -23,6 +23,8 @@ A testing extension is optional for running tests in the terminal. To discover a
 
 Reuse the project's framework and test conventions instead of introducing a new test runner. This helps new tests work with existing test commands and avoids adding a second setup to maintain.
 
+Match the runtime or interpreter, working directory, environment setup, and runner options to the project's usual test run. An agent's terminal command doesn't necessarily use the same configuration as Test Explorer.
+
 1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), start a new chat, and select **{% data variables.product.prodname_copilot_short %}** as the **Session Target** and **Agent** from the agent picker.
 
 1. Ask the agent to inspect the project before making changes:
@@ -30,14 +32,18 @@ Reuse the project's framework and test conventions instead of introducing a new 
     ```prompt
     Inspect this project's testing setup. Identify the test framework,
     where tests belong, and the commands for running a single test file
-    and the related suite. Find an existing test that demonstrates the
-    project's naming, assertions, and mocking conventions.
+    and the related suite. Include the runtime or interpreter, working
+    directory, required environment setup, and runner options.
+    Find an existing test that demonstrates the project's naming,
+    assertions, and mocking conventions.
     Do not edit files or install dependencies.
     ```
 
-1. Review the identified commands and ask the agent to run the relevant existing tests as a baseline. Record any failures so you can distinguish them from failures introduced by new tests.
+1. Confirm that the identified commands use the intended environment and test selection, then ask the agent to run the relevant existing tests as a baseline. Record any failures so you can distinguish them from failures introduced by new tests.
 
 If the project has no tests, ask the agent to propose a framework and a minimal setup first. Review the proposal before asking it to install dependencies or change configuration.
+
+If tests pass in Test Explorer but fail in the agent's terminal, compare the environment, runner options, and selected tests before changing assertions or implementation code. Provide a known working command and the failure output to help the agent isolate the difference.
 
 > [!TIP]
 > To reuse your testing conventions and safeguards across sessions, see [Make the workflow repeatable](#make-the-workflow-repeatable).
@@ -136,5 +142,5 @@ Custom instructions guide the agent but don't enforce these safeguards. Review t
 ## Next steps
 
 * Follow a complete workflow to [fix an API bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md).
-* For a Local-harness example, set up a test-first workflow with [TDD custom agents and handoffs](/docs/agents/guides/test-driven-development-guide.md).
+* Practice [test-driven development with AI](/docs/agents/guides/test-driven-development-guide.md), with review checkpoints between writing a failing test, implementing behavior, and refactoring.
 * Try [testing web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md).

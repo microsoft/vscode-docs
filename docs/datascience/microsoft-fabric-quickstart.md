@@ -11,7 +11,7 @@ You can build and develop data science and data engineering solutions for [Micro
 
 ## What is Microsoft Fabric?
 
-[Microsoft Fabric](http://app.fabric.microsoft.com/) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. [Sign up for free](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) and explore Microsoft Fabric for 60 days — no credit card required.
+[Microsoft Fabric](https://app.fabric.microsoft.com/) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. [Sign up for free](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) and explore Microsoft Fabric for 60 days — no credit card required.
 
 ![Diagram that shows what is Microsoft Fabric?](images/microsoft-fabric/microsoft-fabric.png)
 

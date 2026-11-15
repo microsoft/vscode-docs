@@ -1,12 +1,14 @@
 ---
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Install {% data variables.product.prodname_vscode %} on Windows, choose User or System setup, and configure Windows developer tools.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Installing {% data variables.product.prodname_vscode %} on Windows
 
 {% data variables.product.prodname_vscode %} is available for Windows through a user installer, a system installer, and a ZIP archive. The User setup is the recommended installation for most people because it does not require administrator permissions and supports smoother background updates.
+
+For an organization-managed rollout, follow [Deploy to managed devices](/docs/enterprise/deployment.md) to choose the installation scope, configure policies, and validate a pilot.
 
 ## Install {% data variables.product.prodname_vscode_shortname %} on Windows
 
@@ -30,7 +32,7 @@ See the [Download {% data variables.product.prodname_vscode %}](/download) page 
     By default, the User setup installs {% data variables.product.prodname_vscode_shortname %} under `C:\Users\{Username}\AppData\Local\Programs\Microsoft {% data variables.product.prodname_vscode_shortname %}`.
 
 > [!TIP]
-> Setup adds {% data variables.product.prodname_vscode %} to your `%PATH%` environment variable. Restart your console after installation, then run `code .` in a folder to open that folder in {% data variables.product.prodname_vscode_shortname %}.
+> Setup adds {% data variables.product.prodname_vscode %} to your `%PATH%` environment variable. Restart your console after installation, verify the setup by running `code --version`, and then run `code .` in a folder to open that folder in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Install with the System setup
 
@@ -39,6 +41,14 @@ See the [Download {% data variables.product.prodname_vscode %}](/download) page 
 1. Run the installer with administrator permissions.
 
 The System setup makes {% data variables.product.prodname_vscode_shortname %} available to all users on the machine.
+
+### Run unattended setup
+
+{% data variables.product.prodname_vscode_shortname %} uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its Windows setup package. All [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available.
+
+To prevent Setup from launching {% data variables.product.prodname_vscode_shortname %} after completion, use `/mergetasks=!runcode`.
+
+To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) in a silent installation, use `/copilotcli=install`, `/copilotcli=onfirstuse`, or `/copilotcli=none`. These values match the options on the **{% data variables.copilot.copilot_cli %}** page. With `install`, the System setup adds the command without installing {% data variables.copilot.copilot_cli_short %}. Without this switch, Setup adds `copilot` to `%PATH%` when it also adds {% data variables.product.prodname_vscode_shortname %} to `%PATH%`, unless you made a different choice in an earlier installation. Setup doesn't download {% data variables.copilot.copilot_cli_short %} unless you use `/copilotcli=install`.
 
 ### Set up the copilot command
 
@@ -75,6 +85,8 @@ Updates keep your choice and never download {% data variables.copilot.copilot_cl
 > [!NOTE]
 > [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update {% data variables.product.prodname_vscode_shortname %} on your own schedule.
 
+For managed devices, use [enterprise update policies and servicing guidance](/docs/enterprise/updates.md). If the installed version or policy differs from your deployment, follow [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
+
 ## Develop on Windows
 
 Windows works well as a cross-platform development environment. This section covers the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and Windows Terminal.
@@ -106,20 +118,22 @@ After you install {% data variables.product.prodname_vscode_shortname %}, finish
 ## Common questions
 
 <details>
-<summary>What command-line arguments are supported by Windows Setup?</summary>
+<summary>I'm having trouble with the installer</summary>
 
-{% data variables.product.prodname_vscode_shortname %} uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its Windows setup package. All [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available.
-
-To prevent Setup from launching {% data variables.product.prodname_vscode_shortname %} after completion, use `/mergetasks=!runcode`.
-
-To choose how Setup sets up the [copilot command](#set-up-the-copilot-command) in a silent installation, use `/copilotcli=install`, `/copilotcli=onfirstuse`, or `/copilotcli=none`. These values match the options on the **{% data variables.copilot.copilot_cli %}** page. With `install`, the System setup adds the command without installing {% data variables.copilot.copilot_cli_short %}. Without this switch, Setup adds `copilot` to `%PATH%` when it also adds {% data variables.product.prodname_vscode_shortname %} to `%PATH%`, unless you made a different choice in an earlier installation. Setup doesn't download {% data variables.copilot.copilot_cli_short %} unless you use `/copilotcli=install`.
+Use the [ZIP archive](/download) instead of the installer. To use this installation method, unzip {% data variables.product.prodname_vscode_shortname %} in your `AppData\Local\Programs` folder.
 
 </details>
 
 <details>
-<summary>I'm having trouble with the installer</summary>
+<summary>The 'code' command is not recognized in the terminal</summary>
 
-Use the [ZIP archive](/download) instead of the installer. To use this installation method, unzip {% data variables.product.prodname_vscode_shortname %} in your `AppData\Local\Programs` folder.
+If running `code` or `code --version` returns an error such as `'code' is not recognized as an internal or external command`:
+
+1. Close and reopen your terminal or command prompt window. Newly added environment variables are only available in terminal windows opened after the installation completes.
+2. Ensure that the **Add to PATH** option was selected during installation. You can run the {% data variables.product.prodname_vscode_shortname %} installer again and verify that **Add to PATH** is checked on the **Select Additional Tasks** step.
+3. Verify that the {% data variables.product.prodname_vscode_shortname %} `bin` folder is listed in your `PATH` environment variable:
+   * For User setup: `%LOCALAPPDATA%\Programs\Microsoft {% data variables.product.prodname_vscode_shortname %}\bin`
+   * For System setup: `C:\Program Files\Microsoft {% data variables.product.prodname_vscode_shortname %}\bin`
 
 </details>
 

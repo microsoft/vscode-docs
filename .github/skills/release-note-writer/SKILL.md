@@ -59,11 +59,20 @@ The [1.109 release notes](./examples/v1_109.md) are a concrete example of an Ins
 
     Use this CLI command: `gh search issues --repo microsoft/vscode --label <label name> --milestone <milestone name> --state closed "closed:>=<latest update date>" -L 100`
 
-1. Verify that each candidate is available in the public Insiders build. Exclude and report internal-only candidates instead of creating entries for them.
-
 1. Ignore issues that are marked as duplicate or not planned.
 
-1. For each issue in the JSON result, run a subagent to update the release notes and TOC with a concise, technically accurate summary of the issue. Use associated PRs to verify details, but do not include implementation details in the entry. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
+1. Require a directly associated, merged implementation PR for each candidate before drafting an entry or launching a per-issue subagent.
+
+    * Check GitHub's `closedByPullRequestsReferences`, the closing PR, or the closing commit's `associatedPullRequests` to confirm the association.
+    * The PR must implement the issue's change. Open PRs, PRs closed without merging, unrelated cross-references, and comments pointing to older related work do not qualify.
+    * Exclude issues that were manually closed after verification, triage, or confirmation that the behavior already exists, without an associated merged implementation PR. A closed issue, a `COMPLETED` state reason, or a matching milestone alone is not evidence of a new change.
+    * Record the confirmed implementation PR URL with the candidate. If no qualifying association can be confirmed, skip the issue and report the exclusion.
+
+1. Verify that each remaining candidate is available in the public Insiders build. Exclude and report internal-only candidates instead of creating entries for them.
+
+1. For each eligible issue remaining after these filters, run a subagent to update the release notes and TOC with a concise, technically accurate summary of the issue. Pass the confirmed implementation PR URL to the subagent and use that PR to verify details, but do not include implementation details in the entry. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
+
+1. When filtering existing entries, remove any date sections left empty and their matching TOC links.
 
 ### Phrasing guidelines for Insiders entries
 

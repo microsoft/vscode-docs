@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1035" viewBox="0 0 1440 1035" role="img" aria-labelledby="title description">
+<title id="title">Customization sources for two projects and a remotely connected client</title>
+<desc id="description">An office workstation runs a Copilot frontend session and a Claude API session. Per-harness user instructions and an installed organization review skill are available to both. Each workspace has its own instructions and skill. The selected frontend session also receives supported user guidance and an issue lookup tool from an Agents window on a travel laptop. Dashed boundaries show execution and client locations, folder panels show workspaces, dark labels identify harnesses, and small badges identify customization scope.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#65758A"/></marker></defs>
+<rect width="1440" height="1035" fill="#FFFFFF"/>
+<text x="35" y="59" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="34"><tspan x="35" dy="0">Your projects, your customizations</tspan></text>
+<text x="35" y="105" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="35" dy="0">Customization types</tspan></text>
+<rect x="255" y="91" width="13" height="13" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="279" y="104" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="279" dy="0">Instructions</tspan></text>
+<rect x="445" y="91" width="13" height="13" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="469" y="104" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="469" dy="0">Skill</tspan></text>
+<rect x="560" y="91" width="13" height="13" rx="0" fill="#087D72" stroke="#087D72" stroke-width="0"/>
+<text x="584" y="104" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="584" dy="0">Tool</tspan></text>
+<rect x="1180" y="83" width="64" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="1189" y="104" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="1189" dy="0">User</tspan></text>
+<text x="1255" y="105" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="1255" dy="0">= scope</tspan></text>
+<rect x="385" y="145" width="1020" height="855" rx="10" fill="#FAFBFC" stroke="#8B97A6" stroke-width="1.5" stroke-dasharray="8 7"/>
+<text x="415" y="193" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="28"><tspan x="415" dy="0">Office workstation</tspan></text>
+<text x="1145" y="193" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="19"><tspan x="1145" dy="0">Execution environment</tspan></text>
+<rect x="415" y="235" width="450" height="116" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="415" y="235" width="4" height="116" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="433" y="263" fill="#2167AE" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="433" dy="0">Instructions</tspan></text>
+<rect x="789" y="245" width="64" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="798" y="266" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="798" dy="0">User</tspan></text>
+<text x="433" y="297" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="433" dy="0">Concise explanations</tspan></text>
+<text x="433" y="328" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="433" dy="0">Configured for each harness</tspan></text>
+<rect x="895" y="235" width="480" height="116" rx="5" fill="#F6F1FB" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="895" y="235" width="4" height="116" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="913" y="263" fill="#7044AA" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="913" dy="0">Skill</tspan></text>
+<rect x="1236" y="245" width="127" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="1245" y="266" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="1245" dy="0">Organization</tspan></text>
+<text x="913" y="297" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="913" dy="0">Company review</tspan></text>
+<text x="913" y="328" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="913" dy="0">Installed for both harnesses</tspan></text>
+<polyline points="640,351 640,380" fill="none" stroke="#7C8999" stroke-width="1.7" stroke-linejoin="round"/>
+<polyline points="1135,351 1135,380" fill="none" stroke="#7C8999" stroke-width="1.7" stroke-linejoin="round"/>
+<polyline points="640,380 1135,380" fill="none" stroke="#7C8999" stroke-width="1.7" stroke-linejoin="round"/>
+<polyline points="640,380 640,405" fill="none" stroke="#7C8999" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="1135,380 1135,405" fill="none" stroke="#7C8999" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="415" y="415" width="450" height="284" rx="8" fill="#FFFFFF" stroke="#445D79" stroke-width="2"/>
+<rect x="435" y="437" width="15" height="7" rx="0" fill="#FFFFFF" stroke="#8B97A6" stroke-width="1.5"/>
+<rect x="435" y="443" width="30" height="21" rx="0" fill="#FFFFFF" stroke="#8B97A6" stroke-width="1.5"/>
+<text x="477" y="459" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="28"><tspan x="477" dy="0">web-ui</tspan></text>
+<text x="437" y="494" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="437" dy="0">React + TypeScript</tspan></text>
+<rect x="753" y="473" width="90" height="34" rx="7" fill="#25354A" stroke="#25354A" stroke-width="1"/>
+<text x="766" y="497" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="766" dy="0">Copilot</tspan></text>
+<rect x="435" y="517" width="410" height="76" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="435" y="517" width="4" height="76" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="453" y="545" fill="#2167AE" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="453" dy="0">Instructions</tspan></text>
+<rect x="722" y="527" width="111" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="731" y="548" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="731" dy="0">Workspace</tspan></text>
+<text x="453" y="579" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="453" dy="0">React conventions</tspan></text>
+<rect x="435" y="603" width="410" height="76" rx="5" fill="#F6F1FB" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="435" y="603" width="4" height="76" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="453" y="631" fill="#7044AA" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="453" dy="0">Skill</tspan></text>
+<rect x="722" y="613" width="111" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="731" y="634" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="731" dy="0">Workspace</tspan></text>
+<text x="453" y="665" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="453" dy="0">Build a component</tspan></text>
+<rect x="895" y="415" width="480" height="284" rx="8" fill="#FFFFFF" stroke="#C5CCD6" stroke-width="1.5"/>
+<rect x="915" y="437" width="15" height="7" rx="0" fill="#FFFFFF" stroke="#8B97A6" stroke-width="1.5"/>
+<rect x="915" y="443" width="30" height="21" rx="0" fill="#FFFFFF" stroke="#8B97A6" stroke-width="1.5"/>
+<text x="957" y="459" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="28"><tspan x="957" dy="0">payments-api</tspan></text>
+<text x="917" y="494" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="917" dy="0">Python + FastAPI</tspan></text>
+<rect x="1263" y="473" width="90" height="34" rx="7" fill="#25354A" stroke="#25354A" stroke-width="1"/>
+<text x="1276" y="497" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="1276" dy="0">Claude</tspan></text>
+<rect x="915" y="517" width="440" height="76" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="915" y="517" width="4" height="76" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="933" y="545" fill="#2167AE" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="933" dy="0">Instructions</tspan></text>
+<rect x="1232" y="527" width="111" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="1241" y="548" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="1241" dy="0">Workspace</tspan></text>
+<text x="933" y="579" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="933" dy="0">FastAPI conventions</tspan></text>
+<rect x="915" y="603" width="440" height="76" rx="5" fill="#F6F1FB" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="915" y="603" width="4" height="76" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="933" y="631" fill="#7044AA" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="933" dy="0">Skill</tspan></text>
+<rect x="1232" y="613" width="111" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="1241" y="634" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="1241" dy="0">Workspace</tspan></text>
+<text x="933" y="665" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="933" dy="0">Test an endpoint</tspan></text>
+<polyline points="640,709 640,775" fill="none" stroke="#445D79" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="660" y="748" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="660" dy="0">Selected session</tspan></text>
+<rect x="415" y="785" width="960" height="188" rx="8" fill="#FFFFFF" stroke="#445D79" stroke-width="2"/>
+<text x="435" y="828" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="26"><tspan x="435" dy="0">Available in the frontend session</tspan></text>
+<rect x="435" y="849" width="292" height="40" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="447" y="864" width="8" height="10" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="466" y="876" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="466" dy="0">Concise explanations</tspan></text>
+<rect x="749" y="849" width="292" height="40" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="761" y="864" width="8" height="10" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="780" y="876" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="780" dy="0">React conventions</tspan></text>
+<rect x="1063" y="849" width="292" height="40" rx="5" fill="#F6F1FB" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="1075" y="864" width="8" height="10" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="1094" y="876" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="1094" dy="0">Build a component</tspan></text>
+<rect x="435" y="909" width="292" height="40" rx="5" fill="#F6F1FB" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="447" y="924" width="8" height="10" rx="0" fill="#7044AA" stroke="#7044AA" stroke-width="0"/>
+<text x="466" y="936" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="466" dy="0">Company review</tspan></text>
+<rect x="749" y="909" width="292" height="40" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="761" y="924" width="8" height="10" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="780" y="936" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="780" dy="0">PR writing style</tspan></text>
+<rect x="1063" y="909" width="292" height="40" rx="5" fill="#EEF9F6" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="1075" y="924" width="8" height="10" rx="0" fill="#087D72" stroke="#087D72" stroke-width="0"/>
+<text x="1094" y="936" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="1094" dy="0">Issue lookup</tspan></text>
+<rect x="35" y="415" width="300" height="330" rx="10" fill="#FAFBFC" stroke="#8B97A6" stroke-width="1.5" stroke-dasharray="8 7"/>
+<text x="55" y="463" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="28"><tspan x="55" dy="0">Travel laptop</tspan></text>
+<text x="55" y="499" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="20"><tspan x="55" dy="0">Agents window</tspan></text>
+<rect x="55" y="527" width="260" height="88" rx="5" fill="#EFF6FF" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="55" y="527" width="4" height="88" rx="0" fill="#2167AE" stroke="#2167AE" stroke-width="0"/>
+<text x="73" y="555" fill="#2167AE" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="73" dy="0">Instructions</tspan></text>
+<rect x="239" y="537" width="64" height="28" rx="5" fill="#FFFFFF" stroke="#B8C2CE" stroke-width="1"/>
+<text x="248" y="558" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="248" dy="0">User</tspan></text>
+<text x="73" y="589" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="73" dy="0">PR writing style</tspan></text>
+<rect x="55" y="633" width="260" height="88" rx="5" fill="#EEF9F6" stroke="#D5DCE5" stroke-width="1"/>
+<rect x="55" y="633" width="4" height="88" rx="0" fill="#087D72" stroke="#087D72" stroke-width="0"/>
+<text x="73" y="661" fill="#087D72" font-family="Arial, Helvetica, sans-serif" font-size="18"><tspan x="73" dy="0">Tool</tspan></text>
+<text x="73" y="695" fill="#182230" font-family="Arial, Helvetica, sans-serif" font-size="23"><tspan x="73" dy="0">Issue lookup</tspan></text>
+<polyline points="185,755 185,880 405,880" fill="none" stroke="#445D79" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="45" y="924" fill="#596579" font-family="Arial, Helvetica, sans-serif" font-size="21"><tspan x="45" dy="0">Supported client</tspan><tspan x="45" dy="26.25">contributions</tspan></text>
+</svg>

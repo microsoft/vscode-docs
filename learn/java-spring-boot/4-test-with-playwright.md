@@ -1,6 +1,6 @@
 ---
 ContentId: aad66383-6454-4291-b989-377abba471c5
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Test a Spring Boot web application with agent-driven Playwright MCP tools in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
@@ -67,7 +67,7 @@ the layer this chapter covers.
 
 > [!NOTE]
 > If marketplace discovery or automatic installation isn't available, follow the
-> [Playwright connection steps](/docs/agent-customization/mcp-servers.md#connect-a-server)
+> [Playwright connection steps](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command)
 > to add the publisher's command through **MCP: Add Server**. Marketplace sources depend
 > on the harness and organization policy.
 >

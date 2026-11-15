@@ -1,6 +1,6 @@
 ---
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: The {% data variables.product.prodname_vscode %} editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -148,3 +148,4 @@ During a browser debug session, the **Debug Options** panel in the **Run and Deb
 
 * [Debugging](/docs/debugtest/debugging.md) - Read about general {% data variables.product.prodname_vscode_shortname %} debugging features.
 * [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Set up debugging for your favorite platform.
+* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): use an agent to check user interactions and verify fixes in the integrated browser, complementing breakpoint debugging.

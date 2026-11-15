@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for focused edits, terminal help, and short AI conversations.
 ---
 # Inline chat and Quick Chat
@@ -17,7 +17,7 @@ To use editor inline chat:
 
 1. Open a file in the editor.
 
-1. Open editor inline chat by using the `kb(inlinechat.start)` keyboard shortcut or by selecting **Open Inline Chat** from the Chat menu in the title bar.
+1. Open editor inline chat by using the `kb(inlineChat.start)` keyboard shortcut or by selecting **Open Inline Chat** from the Chat menu in the title bar.
 
 1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
 
@@ -30,28 +30,59 @@ To use editor inline chat:
 
     ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-recursion.png)
 
+### Try a focused edit
+
+After you [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md), try an edit in a temporary file before using inline chat on your project.
+
+1. Create a file named `inline-chat-practice.js` in a temporary folder, open it in the editor, and add this function:
+
+    ```javascript
+    function greet(name) {
+        return `Hello, ${name}!`;
+    }
+    ```
+
+1. Select the function and press `kb(inlineChat.start)`. Enter this prompt:
+
+    ```text
+    Trim spaces from both ends of name.
+    Use 'Guest' if name is empty or contains only spaces.
+    Keep the greeting format and change only this function.
+    ```
+
+    If the shortcut opens **Ask in Chat** instead, see [inline chat in active editing sessions](#inline-chat-in-active-editing-sessions). Use a new file that isn't part of that session for this exercise.
+
+1. Inspect the diff. Check that the change handles empty names without changing the greeting for a nonempty name. Select **Keep** to retain it or **Undo** to reject it.
+
+1. After keeping the change, copy the updated function and these calls into a browser's JavaScript console, or run them in your existing JavaScript runtime. The comments show the expected output:
+
+    ```javascript
+    console.log(greet('Ada'));     // Hello, Ada!
+    console.log(greet(' Ada '));   // Hello, Ada!
+    console.log(greet(''));        // Hello, Guest!
+    console.log(greet('   '));     // Hello, Guest!
+    ```
+
+If a result differs, select the function again and tell inline chat which input failed, what it returned, and what you expected. Review the revised diff and repeat all four checks.
+
 ### Inline chat in active editing sessions
 
-When a file belongs to an active chat editing session, pressing `kb(inlinechat.start)` opens "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
+When a file belongs to an active chat editing session, pressing `kb(inlineChat.start)` opens "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
 
 To always use regular inline chat, even for files that belong to a chat session, set `setting(inlineChat.askInChat)` to `false`.
 
-On files that don't belong to any chat session, `kb(inlinechat.start)` always opens regular inline chat, regardless of this setting.
+On files that don't belong to any chat session, `kb(inlineChat.start)` always opens regular inline chat, regardless of this setting.
 
 ### Show a visual hint on text selection (Experimental)
 
 When you select text in the editor, {% data variables.product.prodname_vscode_shortname %} can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
 
 * `off`: no hint is shown when you select text
-* `gutter`: the hint appears in the line number area next to your selection
 * `editor`: the hint appears at the cursor position within your selection, integrated with the lightbulb for code actions
 
-![Screenshot showing the inline chat hint in the gutter when text is selected in the editor.](images/copilot-chat/inline-chat-hint-gutter.png)
+<!-- TODO: Add a screenshot showing the inline chat selection hint with inlineChat.affordance set to editor. -->
 
 The hint displays an inline chat input box and actions for adding the selection to chat, explaining the code, and starting a code review of the selection.
-
-> [!NOTE]
-> This feature is experimental and works with the `setting(inlineChat.renderMode)` setting set to `hover`.
 
 ## Use terminal inline chat
 

@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 11/4/2026
+DateApproved: 11/11/2026
 MetaDescription: Diagnose GitHub Copilot and agent issues in {% data variables.product.prodname_vscode %} with targeted checks, logs, and network diagnostics.
 Keywords:
 - ai
@@ -21,7 +21,7 @@ When chat, agents, or inline suggestions do not behave as expected, start with t
 | Chat or agents are unavailable | Check [chat and agent requirements](/docs/agents/agent-troubleshooting/faq.md#chat-features-arent-working-for-me). | Confirm your account, plan, settings, and organization policies. |
 | Inline suggestions do not appear | Check the [inline suggestion requirements](/docs/agents/agent-troubleshooting/faq.md#inline-suggestions-are-not-working-in-the-editor). | Inspect the Copilot logs if the requirements are met. |
 | Copilot cannot connect or sign in | [Collect network diagnostics](#collect-network-diagnostics). | Check your firewall, proxy, or VPN configuration. |
-| A GitHub Environment or its sessions are missing, offline, or disconnected | [Troubleshoot GitHub Environments](/docs/agents/run/remote-agent-sessions.md#troubleshoot-github-environments). | Check feature availability, account, host sharing, connection status, and session filters. |
+| A {% data variables.copilot.github_environment %} or its sessions are missing, offline, or disconnected | [Troubleshoot {% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#troubleshoot-github-environments). | Check feature availability, account, host sharing, connection status, and session filters. |
 | A cloud session won't start or an existing cloud session is read-only | [Troubleshoot cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md#troubleshoot-cloud-sessions). | Check feature settings, service and repository access, and the environment's connection state. |
 | A cloud automation is unavailable, won't run, or continues after controls are hidden | [Troubleshoot cloud automations](/docs/agents/run/automations.md#troubleshoot-cloud-automations). | Check account and repository eligibility, trigger type, enabled state, and the automation's configuration on GitHub. |
 | Instructions are ignored | [Check customization diagnostics](#check-customization-diagnostics). | Inspect the session to verify which instructions reached the model. |
@@ -40,6 +40,8 @@ Before you collect detailed logs:
 1. Check whether a workspace setting or organization policy turns off the affected feature. For agent availability, see [Agents are not available in chat](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 1. Reproduce the issue in a new chat session. When you compare two runs, keep the prompt, model, and available tools consistent.
 
+For organization-managed restrictions, contact your administrator. Administrators investigating unexpected restrictions can follow [managed-installation troubleshooting](/docs/enterprise/troubleshooting.md).
+
 ## Check customization diagnostics
 
 Check discovery before investigating whether the model follows an instruction:
@@ -54,7 +56,7 @@ Use the result to choose the next action:
 * **The file has an error**: Fix the reported frontmatter or content error, then check discovery again.
 * **The file is discovered but not included**: Check its activation rules. For pattern-based instructions, test a file that matches `applyTo` or Claude's `paths`. For Local task-based discovery, check the `description`. Alternatively, attach the instructions manually. Check **References**, where available, or inspect the request in the debug logs.
 * **The file is included but not followed**: Resolve contradictory guidance or clarify a vague rule. Repeat a representative task in a new chat and review the changes and tool activity. Inclusion alone doesn't establish compliance.
-* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
+* **A prompt file is missing from the request**: Prompt files are supported only in Local harness sessions `feature(local-harness)`. Invoke the prompt file manually in chat because prompt files do not use `applyTo`. For a reusable workflow with a skills-compatible agent, create an [agent skill](/docs/agent-customization/agent-skills.md).
 
 For file locations, activation rules, and settings, see the [Custom instructions reference](/docs/agents/reference/custom-instructions-reference.md). For a complete test procedure, see [Verify your instructions](/docs/agent-customization/custom-instructions.md#verify-your-instructions). To inspect request content and loading activity, [prepare logging](#inspect-chat-interactions) and reproduce the issue.
 
@@ -75,7 +77,7 @@ Prepare the session before you reproduce the issue:
 * Reproduce the issue, and then select that session when you open the logs or use `/troubleshoot`.
 
 > [!NOTE]
-> **For Local harness sessions:** Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
+> **For Local harness sessions:** `feature(local-harness)` Enable the experimental `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)` setting instead. Reload the editor window before you use `/troubleshoot`.
 
 To analyze a session with chat:
 
