@@ -127,15 +127,15 @@
                     ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
                     ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                     ["Add a Feature", "/docs/agents/guides/add-a-feature"],
-                    ["Fix a Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
                     ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
                     ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
                     ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                     ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
                     ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
-                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
                     ["Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
                     ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
@@ -320,6 +320,8 @@
         "name": "Guides & Tutorials",
         "area": "debugging/guides",
         "topics": [
+          ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
+          ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
           ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }],
         ]

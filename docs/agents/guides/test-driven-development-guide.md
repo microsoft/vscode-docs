@@ -1,7 +1,7 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
 DateApproved: 11/11/2026
-MetaDescription: Build a Local TDD workflow in {% data variables.product.prodname_vscode_shortname %} with custom agents, handoffs, and instructions.
+MetaDescription: Practice test-driven development with AI in {% data variables.product.prodname_vscode_shortname %}, using failing tests and review checkpoints.
 Keywords:
 - ai
 - copilot
@@ -9,271 +9,165 @@ Keywords:
 - instructions
 - customization
 - guide
-- tutorial
 - testing
 - TDD
 ---
-# Set up a test-driven development flow in {% data variables.product.prodname_vscode_shortname %}
+# Practice test-driven development with AI
 
-Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. {% data variables.product.prodname_vscode %}'s AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
+Test-driven development (TDD) starts with a test that detects missing behavior, followed by the implementation that makes it pass. You then refactor while keeping the tests passing. These small [red-green-refactor cycles](https://martinfowler.com/bliki/TestDrivenDevelopment.html) give you evidence for each change.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions. The TDD roles and instructions apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %} because it relies on handoff actions between the TDD agents.
+This guide shows you how to use an agent in {% data variables.product.prodname_vscode %} for each phase, with a review checkpoint before you move to the next. Use the **{% data variables.product.prodname_copilot_short %}** harness in the {% data variables.copilot.chat_view %} and your own repository. Custom agents and handoffs aren't required.
 
-<details>
-<summary>TDD overview</summary>
-
-The core tenet of test-driven development is to write tests before implementation. The tests define the desired outcomes for the functionality you want to build. By writing tests first, you clarify requirements and identify edge cases to ensure that your code behaves as expected.
-
-TDD follows a three-phase cycle known as [red-green-refactor](https://martinfowler.com/bliki/TestDrivenDevelopment.html) and repeats for each small increment of functionality.
-
-The three phases are:
-
-* **Red phase**: Write a failing test for the functionality you want to develop.
-
-* **Green phase**: Write the minimal application code needed to make the test pass. Focus on making it work, not making it perfect.
-
-* **Refactor phase**: Improve the code quality while keeping all tests passing. Clean up duplication, improve naming, and enhance structure.
-
-</details>
+If you want to cover behavior that already exists rather than develop new behavior, start with [Test existing code with AI](/docs/agents/guides/test-code-with-ai.md).
 
 ## Prerequisites
 
-Use your own repository for this workflow. Before you start:
+* [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
+* Open your repository in {% data variables.product.prodname_vscode_shortname %}.
+* Install the project's dependencies and confirm that its test command runs from the integrated terminal.
 
-* Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
-* Open the {% data variables.copilot.chat_view %} and select **Local** `feature(local-harness)` from the **Session Target** control. Run the TDD cycle and its handoffs in this view.
-* Install the project dependencies and confirm that you can run its test command from the integrated terminal. The custom agents use that command to verify each phase.
+If the project has no testing setup, [choose a framework and establish a test command](/docs/agents/guides/test-code-with-ai.md#identify-the-testing-setup) before starting the TDD cycle.
 
-If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt these TDD roles. You can package a portable workflow as an [agent skill](/docs/agent-customization/agent-skills.md).
+## Keep a review checkpoint between phases
 
-## Implementation overview
+Use separate requests for each phase instead of asking the agent to implement the entire feature at once.
 
-You can implement an AI-assisted TDD workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents. Each phase of the TDD process (red, green, refactor) has a specific goal and requires different AI behavior. You create a custom agent for each phase that defines the specific role and guidelines for that phase.
+| Phase | Agent's task | Evidence to review before continuing |
+|-------|--------------|--------------------------------------|
+| Red | Add a focused test without implementing the behavior. | The test runs and fails because the expected behavior is missing. |
+| Green | Implement the behavior without weakening the test. | The new test and relevant existing tests pass. |
+| Refactor | Improve the structure without changing behavior, if needed. | The tests still pass and the diff stays within scope. |
 
-With custom agent handoffs, you can transition from one phase to the next once the AI completes its task. The custom agents are connected in a cycle that mirrors the TDD workflow:
+One agent can handle all three phases. Your separate requests and review checkpoints keep you involved; separate custom agents are an optional way to reuse the roles.
 
-* **Red phase** → runs a new test to verify that it fails for the expected reason, then hands off to **Green phase**
-* **Green phase** → runs tests to verify implementation, then hands off to **Refactor phase**
-* **Refactor phase** → runs tests to ensure they still pass, then hands off back to **Red phase** to start the next cycle
+## Establish the baseline
 
-If you have established test conventions, you can use [custom instructions](/docs/agent-customization/custom-instructions.md) to set up a testing context that guides the AI in generating tests that align with your project's standards.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`), start a new chat, and select **{% data variables.product.prodname_copilot_short %}** as the **Session Target** and **Agent** from the agent picker.
 
-The following diagram shows how custom agents work together to implement the TDD workflow, with handoffs enabling smooth transitions between phases.
+1. Ask the agent to identify and run the relevant existing tests:
 
-![Diagram that shows the TDD implementation diagram for {% data variables.product.prodname_vscode_shortname %} with testing instructions, and custom agents for the red, green, and refactor phases.](../images/test-driven-development-guide/tdd-implementation-diagram.png)
+    ```prompt
+    Inspect this project's test framework, test locations, and conventions.
+    Identify the commands for a focused test run and the related suite.
+    Run the relevant existing tests and report any failures or skipped tests.
+    Do not edit files, install dependencies, or change configuration.
+    ```
 
-> [!TIP]
-> You can further enhance the TDD workflow by adding a planning phase before starting the cycle. You can use the built-in plan agent or create a custom planning agent that helps clarify requirements and identify edge cases to cover with tests.
+1. Review the output and record existing failures. Resolve setup problems before proceeding so you can distinguish a new failing assertion from a test that can't run.
 
-## Step 1: Set up testing guidelines
+## Define one behavior
 
-If you have established test conventions and practices, create a custom instructions file (`testing.instructions.md`) to help the AI generate tests that align with your project's standards.
+Describe the expected behavior independently of the current implementation. Choose a small increment rather than asking the agent to generate a complete feature and its tests.
 
-**Why this helps**: Without explicit test conventions, AI might generate tests that don't match your project's style, use inconsistent patterns, or miss important test scenarios.
+For example, suppose you're adding a username validator with this contract:
 
-To set up testing guidelines:
+* Accept names containing 3 to 20 ASCII letters, digits, or underscores.
+* Reject names outside that length range.
+* Reject spaces and other characters.
 
-1. Run the **Chat: Create Instructions File** command in the Command Palette to create a new instructions file in your workspace.
+Start with the minimum length rule: `ab` is invalid and `abc` is valid. Later cycles can cover the maximum length and allowed characters. Adapt the function name and file paths to your project, and clarify unspecified inputs, such as `null`, before testing them.
 
-    * Select `.github/instructions` to create the instructions file in your workspace.
-    * Enter "testing" as the name for the instructions file.
+## Red: add and run a failing test
 
-    > [!NOTE]
-    > By using a `*.instructions.md` file instead of the `copilot.instructions.md` file, you can selectively apply these testing guidelines only to test files in your project instead of including them in all AI interactions.
+1. Ask the agent to add only the tests for the first increment:
 
-1. Update the instructions `applyTo` metadata to automatically apply them to test files. Also set the `description` metadata to indicate that these instructions provide testing context.
+    ```prompt
+    Add focused tests for validateUsername using the existing test framework.
+    For this increment, "ab" must return false and "abc" must return true.
+    Keep expected values explicit and independent of the implementation.
 
-    The following example updates the `applyTo` field to target all files in the `tests/` directory:
+    Do not implement the behavior or refactor existing code. If a new
+    function or type needs a minimal placeholder for tests to execute,
+    explain what is needed and wait for approval.
+
+    Run the targeted tests. Report the command, actual failure, and why
+    it demonstrates missing behavior rather than a test setup problem.
+    Stop after the test run so I can review it.
+    ```
+
+1. Review the test code and failure output. Confirm that the tests call the intended code and fail on the expected behavior, not an unrelated import, dependency, or configuration error.
+
+If the tests already pass, the selected behavior might already exist. Review the assertions and choose the next missing behavior; don't break correct code to manufacture a failing test.
+
+## Green: implement the behavior
+
+After you confirm the red-phase result, ask for the smallest implementation that satisfies the current tests:
+
+```prompt
+Implement the behavior covered by the failing tests. Preserve existing
+behavior and follow the project's conventions. Do not add unrelated
+features, dependencies, or refactoring.
+
+Do not delete or weaken assertions, skip tests, or change expected values
+to make the suite pass. If a test conflicts with the agreed requirements,
+explain the conflict before changing it.
+
+Run the targeted tests and the related suite. Report results, including
+failures, skipped tests, and anything you couldn't run. Stop for review.
+```
+
+Review the implementation diff and actual test output. The current tests should pass without changing their meaning, and previously passing related tests should remain passing.
+
+If a test fails, [identify whether the cause is setup, the expectation, or the implementation](/docs/agents/guides/test-code-with-ai.md#run-tests-and-investigate-failures) before accepting another edit.
+
+## Refactor: improve structure without changing behavior
+
+Refactor only when the passing implementation needs cleanup. A cycle doesn't require a refactor if the code is already clear.
+
+```prompt
+Review the passing implementation for a small, useful refactor.
+If none is needed, say so and leave the files unchanged.
+
+If you refactor, preserve observable behavior and the existing assertions.
+Do not add functionality or unrelated cleanup. Run the targeted tests and
+related suite afterward, then summarize the changes and results for review.
+```
+
+[Review the diff](/docs/agents/run/review-code-edits.md) and confirm that the tests still pass. If the refactor requires changing assertions, check whether the tests depend on implementation details or the proposed change alters behavior.
+
+Repeat the cycle for the next requirement. In the username example, add cases at lengths 20 and 21, then cover allowed and disallowed characters. Keep each increment small enough to review.
+
+## Make the workflow repeatable
+
+Once the workflow works in your project, save its conventions rather than repeating them in every request.
+
+### Save project instructions
+
+1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) and select **Instructions** in the Agent Customizations editor.
+
+1. Open your existing project instructions. If none exist, select `+` next to **Workspace** and choose a project instructions file offered for the {% data variables.product.prodname_copilot_short %} harness.
+
+1. Add the verified test commands, framework, file locations, and relevant mocking conventions. Include safeguards such as:
 
     ```markdown
-    ---
-    description: 'Use these guidelines when generating or updating tests.'
-    applyTo: tests/**
-    ---
+    * Work on one agreed behavior at a time.
+    * In the red phase, add a test and confirm the expected failure before
+      implementing behavior.
+    * Do not weaken assertions, skip tests, or change expected values solely
+      to make tests pass.
+    * Run focused tests and the related suite after implementation changes.
+      Report failures, skipped tests, and checks that could not run.
+    * Stop for review between red, green, and refactor phases.
     ```
 
-1. Add your project's testing guidelines to the body of the instructions file.
+1. Save the instructions and [verify them in a new chat](/docs/agent-customization/custom-instructions.md#verify-your-instructions).
 
-    The following example provides a starting point for test conventions:
+If you prefer to create the file directly, use `.github/copilot-instructions.md` or `AGENTS.md` at the repository root. Keep phase and review rules in project-wide instructions because they apply to implementation changes as well as tests. For test-file-specific conventions, use [file-based instructions](/docs/agent-customization/custom-instructions.md#apply-instructions-to-specific-files-or-tasks).
 
-    ```markdown
-    ---
-    description: 'Use these guidelines when generating or updating tests.'
-    applyTo: tests/**
-    ---
-    # [Project Name] Testing Guidelines
+### Optionally create separate phase agents
 
-    ## Test conventions
-    * Write clear, focused tests that verify one behavior at a time
-    * Use descriptive test names that explain what is being tested and the expected outcome
-    * Follow Arrange-Act-Assert (AAA) pattern: set up test data, execute the code under test, verify results
-    * Keep tests independent - each test should run in isolation without depending on other tests
-    * Start with the simplest test case, then add edge cases and error conditions
-    * Tests should fail for the right reason - verify they catch the bugs they're meant to catch
-    * Mock external dependencies to keep tests fast and reliable
-    ```
+If your team repeatedly uses the same roles, open **Agents** in the Agent Customizations editor and select **New Agent** next to **Workspace**. Follow [Create a custom agent](/docs/agent-customization/custom-agents.md#create-a-custom-agent), using each phase's task and review criteria from this guide as its instructions.
 
-    > [!TIP]
-    > You can create an optional test structure template that defines sections and patterns for different test types (for example, `test-template.md`). Reference this template in your instructions file so the AI uses it when generating tests.
+Select the next phase's agent manually after reviewing the previous result. Verify the agents with your chosen harness before sharing them with the team.
 
-## Step 2: Create red phase custom agent
+> [!IMPORTANT]
+> Instructions guide behavior but don't enforce file-level restrictions. An agent with editing or terminal tools can change both tests and implementation. Review the diff and test output at every checkpoint.
 
-Create a "TDD-red" custom agent that focuses on the red phase of TDD. This custom agent is only responsible for writing failing tests based on the provided requirements and should not implement any application code. When completed, this agent hands off to the green phase custom agent.
+### Existing Local handoff workflows
 
-**Why this helps**: Without a focused mode, the AI might mix implementation suggestions with test creation, and miss the core TDD principle of writing tests first.
+The Local harness is deprecated `feature(local-harness)`. If you already use custom-agent handoffs, see the [Local handoff guidance](/docs/agent-customization/custom-agents.md#handoffs) and [move your workflow to the Copilot harness](/docs/agents/run/move-to-copilot.md). Handoff buttons aren't required for the review-driven workflow in this guide.
 
-To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/agent-customization/custom-agents.md):
+## Next steps
 
-1. Run the **Chat: New Custom Agent** command in the Command Palette.
-
-    * Select `.github/agents` to create the custom agent definition in your workspace.
-    * Enter "TDD-red" as the name for the custom agent.
-
-1. Update the custom agent definition to describe the guidelines and rules for the red phase, and to specify a handoff to the green phase custom agent.
-
-    The following `TDD-red.agent.md` file provides a starting point for the red phase.
-
-    ```markdown
-    ---
-    name: TDD Red
-    description: TDD phase for writing FAILING tests
-    disable-model-invocation: false
-    user-invocable: true
-    tools: ['read', 'edit', 'search', 'execute']
-    handoffs:
-      - label: TDD Green
-        agent: TDD Green
-        prompt: Implement minimal implementation
-    ---
-    You are a test writer. When given a function name, specification, or requirements, write a complete test file or test function that asserts the expected behavior. Use the project's style and conventions. Do not write implementation code.
-
-    Run the targeted test and verify that it fails for the expected reason before handing off.
-    ```
-
-## Step 3: Create green phase custom agent
-
-Create a "TDD-green" custom agent that focuses on the green phase of TDD. This custom agent is only responsible for writing the minimal implementation code to make the tests pass, without modifying the test code. After implementing, this agent runs the tests to verify they pass, then hands off to the refactor phase custom agent.
-
-To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/docs/agent-customization/custom-agents.md):
-
-1. Run the **Chat: New Custom Agent** command in the Command Palette.
-
-    * Select `.github/agents` to create the custom agent definition in your workspace.
-    * Enter "TDD-green" as the name for the custom agent.
-
-1. Update the custom agent definition to describe the guidelines and rules for the green phase, and to specify a handoff to the refactor phase custom agent.
-
-    The following `TDD-green.agent.md` file provides a starting point:
-
-    ```markdown
-    ---
-    name: TDD Green
-    description: TDD phase for writing MINIMAL implementation to pass tests
-    disable-model-invocation: false
-    user-invocable: true
-    tools: ['read', 'search', 'edit', 'execute']
-    handoffs:
-      - label: TDD Refactor
-        agent: TDD Refactor
-        prompt: Refactor the implementation
-    ---
-
-    You are a code-implementer. Given a failing test case and context (existing codebase or module), write the minimal code change needed so that the test passes - no extra features. Do not write tests, only implementation.
-
-    After implementing changes, run the tests to verify they pass.
-    ```
-
-## Step 4: Create refactor phase custom agent
-
-Create a "TDD-refactor" custom agent that focuses on the refactor phase of TDD to improve code quality while keeping all tests passing. This agent is responsible for cleaning up code, removing duplication, improving naming, and enhancing structure without changing functionality. After refactoring, this agent runs the tests to ensure they still pass, then hands off back to the red phase to start the next TDD cycle.
-
-To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat agent](/docs/agent-customization/custom-agents.md):
-
-1. Run the **Chat: New Custom Agent** command in the Command Palette.
-
-    * Select `.github/agents` to create the custom agent definition in your workspace.
-    * Enter "TDD-refactor" as the name for the custom agent.
-
-1. Update the custom agent definition to describe the guidelines and rules for the refactor phase.
-
-    The following `TDD-refactor.agent.md` file provides a starting point:
-
-    ```markdown
-    ---
-    name: TDD Refactor
-    description: Refactor code while maintaining passing tests
-    tools: ['search', 'edit', 'read', 'execute']
-    disable-model-invocation: false
-    user-invocable: true
-    handoffs:
-      - label: TDD Red
-        agent: TDD Red
-        prompt: Start next TDD cycle with new test
-    ---
-    You are refactor-assistant. Given code that passes all tests, examine it and suggest or apply refactoring to improve readability/structure/DRYness, without changing behavior. No new functionality, no breaking changes.
-
-    After refactoring, run the tests to ensure all tests still pass and behavior is preserved.
-    ```
-
-## Use the TDD workflow to implement features
-
-Now that the TDD custom agents are set up, you can use them to implement features in your project using the TDD workflow.
-
-1. Open the {% data variables.copilot.chat_view %} and select the **TDD Red** agent from the agent dropdown menu.
-
-1. Provide a prompt that describes the feature or behavior you want to test.
-
-    For example:
-
-    ```text
-    Write tests for user registration with email validation and password requirements.
-    ```
-
-1. Review the generated tests and use the handoff actions to transition through the TDD cycle:
-
-    * Confirm that the new test fails for the expected reason, and then select **TDD Green** to implement the minimal code that makes the test pass.
-    * Confirm that the green agent's test run passes, and then select **TDD Refactor** to improve code quality.
-    * Confirm that the refactor agent's test run still passes, and then select **TDD Red** to start the next cycle with additional functionality.
-
-    Each handoff switches to its named agent and fills the chat input with the next prompt. Review or edit the prompt before you submit it. The handoffs don't submit automatically because their configurations omit the `send` property.
-
-## Troubleshooting and best practices
-
-### Common TDD pitfalls with AI
-
-**Running TDD without handoffs**: Using a single agent to complete the entire TDD cycle removes the human from the loop. Handoffs provide control points where you can assess each step, verify the AI's work, and steer the agent in the right direction before moving to the next phase.
-
-**Missing test coverage for features**: TDD agents focus on making existing tests pass and won't implement features that don't have corresponding tests. Ensure every requirement in your specification has test coverage before expecting the implementation to include it.
-
-**Skipping the red phase**: AI might suggest implementing code before writing tests.
-
-**Over-implementation**: AI might generate more code than needed to pass the current test. Review implementations critically and remove unnecessary complexity.
-
-**Testing implementation details**: Tests should verify behavior, not implementation. If refactoring requires changing tests, they might be too tightly coupled to implementation details.
-
-**Incomplete test coverage**: AI might miss edge cases or error conditions. Review generated tests critically and ask for additional tests covering boundary conditions, error scenarios, and edge cases.
-
-### Best practices for TDD with AI
-
-**Choose the right model for the task**: Different language models have different strengths. Consider using reasoning models for complex test generation and edge case identification. Use the model picker in the {% data variables.copilot.chat_view %} to switch models during your TDD workflow or define the `model` in your custom agent properties.
-
-**Validate test quality**: After AI generates a test, review it to ensure it fails for the right reason. Run the test before implementing to verify it catches the missing functionality.
-
-**Maintain incremental progress**: Take small steps through the TDD cycle. Write one test, implement minimal code, refactor, then repeat. Small iterations prevent large mistakes and keep the codebase working.
-
-**Run tests frequently**: Execute tests immediately after changes. Don't accumulate multiple changes before testing. Frequent test runs provide rapid feedback and catch issues early.
-
-**Use test coverage as a guide**: High coverage doesn't guarantee quality, but low coverage indicates untested behavior. Ask AI to suggest tests for uncovered code paths.
-
-**Maintain test independence**: Tests should run in any order without affecting each other. If tests depend on execution order or shared state, refactor to make them independent.
-
-**Update test context as needed**: As your project evolves, update the testing guidelines in your instructions file to reflect new conventions, frameworks, or practices.
-
-## Related resources
-
-Learn more about testing and AI customization in {% data variables.product.prodname_vscode_shortname %}:
-
-* [Testing with AI](/docs/agents/guides/test-code-with-ai.md)
-* [Custom agents](/docs/agent-customization/custom-agents.md)
-* [Custom instructions](/docs/agent-customization/custom-instructions.md)
-* [Running tests with {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md)
+* Apply a failing-test-first workflow to [fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md).
+* Use existing tests to [refactor safely](/docs/agents/guides/refactor-safely.md).
