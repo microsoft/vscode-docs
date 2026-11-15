@@ -66,9 +66,9 @@ Or jump to a task:
 
 * [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate and run tests, then review assertions, failures, and coverage. **Setup:** your project, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator app and test it against acceptance criteria. **Setup:** sample web app.
+* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator, reproduce a defect, and verify the fix against explicit acceptance criteria. **Setup:** sample web app, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Set up test-driven development](/docs/agents/guides/test-driven-development-guide.md): create custom agents and instructions for a repeatable test-first workflow. **Setup:** your repository with working tests, Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
+* [Practice test-driven development](/docs/agents/guides/test-driven-development-guide.md): write a failing test, implement behavior, and refactor with a review checkpoint between phases. **Setup:** your repository with working tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}. Custom agents are optional.
 
 ## Customize and coordinate agents
 
