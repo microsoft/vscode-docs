@@ -354,6 +354,24 @@ Use the same checkpoints with your existing codebase:
 1. Add a regression test using the existing framework. Confirm that it fails because of the reported behavior before changing implementation code.
 1. Request a focused fix, run the targeted tests and related suite, and repeat the original reproduction. Review the diff before committing.
 
+Use this prompt to start the investigation. Replace the placeholders with your reproduction and the evidence you collected. Remove credentials and other sensitive values from any output you share.
+
+```prompt
+Investigate this bug in the attached code. Do not edit files yet.
+
+Reproduction: <command or minimal steps, including relevant input>
+Expected result: <the behavior required by the contract>
+Actual result: <observed output or error>
+Debugger findings: <relevant stack trace or variable values, if available>
+Test setup: <framework, runtime or interpreter, and working directory>
+Test command: <the project's command for the relevant tests>
+
+Run the reproduction and relevant existing tests if the environment is
+available. Explain the cause with file references and propose a regression
+test that fails on the reported behavior. Identify anything you couldn't
+verify, and stop for review before changing code.
+```
+
 If you can't reproduce the issue or the expected behavior is unclear, resolve that uncertainty before asking the agent to implement a fix.
 
 ## Next steps

@@ -24,6 +24,8 @@ If you enable pytest and it is not currently installed in the activated environm
 > [!Note]
 > The minimum supported version of pytest for the python extension is 7.0.0.
 
+Once your framework is configured, you can [add and review tests with AI](/docs/agents/guides/test-code-with-ai.md). Reuse your project's pytest fixtures or unittest conventions, and run the tests in the same Python environment as your existing tests.
+
 ## Test discovery
 
 By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
