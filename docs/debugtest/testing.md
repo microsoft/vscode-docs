@@ -104,7 +104,7 @@ For a complete walkthrough, follow [Test existing code with AI](/docs/agents/gui
 
 To develop new behavior rather than cover existing code, follow [test-driven development with AI](/docs/agents/guides/test-driven-development-guide.md), with review checkpoints between writing a failing test, implementing the behavior, and refactoring.
 
-For a quick starting point without writing a prompt, use the [Generate Tests smart action](/docs/editing/copilot-smart-actions.md#generate-tests). Review and run the generated tests before keeping them. To reuse project testing conventions, add [custom instructions](/docs/agent-customization/custom-instructions.md).
+To reuse project testing conventions, add [custom instructions](/docs/agent-customization/custom-instructions.md).
 
 ## Run and debug tests
 
