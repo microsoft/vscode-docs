@@ -190,6 +190,8 @@ If you trigger the source action from your test source code, you will be asked w
 <video src="images/java-testing/generate-tests-from-test.mp4" autoplay loop muted playsinline controls title="Generate tests from test">
 </video>
 
+For optional AI help beyond scaffolding, [add and review tests with an agent](/docs/agents/guides/test-code-with-ai.md) using your project's JUnit or TestNG framework. Provide the expected behavior so the agent can propose meaningful cases and assertions, not only test structure.
+
 ### Test navigation
 
 The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:

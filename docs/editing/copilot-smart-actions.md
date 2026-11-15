@@ -66,6 +66,8 @@ To generate tests for your application code without writing a prompt, you can us
 
 1. Optionally, refine the generated tests by providing additional context in the Inline Chat prompt.
 
+Before keeping generated tests, [review their assertions and coverage](/docs/agents/guides/test-code-with-ai.md#review-assertions-and-coverage) to check that they test the intended behavior. Run the tests and inspect the results rather than relying only on the generated code.
+
 ## Explain code
 
 Get help with explaining a block of code in the editor.
@@ -102,8 +104,7 @@ Get help with fixing failing tests in your codebase, directly from the Test Expl
 
 Alternatively, open the {% data variables.copilot.chat_view %} and ask the agent to investigate the failing test. Include the failure output and the behavior you expect.
 
-> [!TIP]
-> When using [agents](/docs/agents/concepts/agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+Before accepting a fix, [identify whether the failure comes from test setup, an incorrect expectation, or an implementation bug](/docs/agents/guides/test-code-with-ai.md#run-tests-and-investigate-failures). Review the diff and rerun the failed test and related tests. Don't weaken assertions solely to obtain a passing result.
 
 ## Fix terminal errors
 
