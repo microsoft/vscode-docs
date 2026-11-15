@@ -177,7 +177,7 @@ These abort commands do not undo a stash restore. For stashed changes, inspect t
 
 1. Open a file with conflicts in the editor.
 
-1. Select the **Resolve Merge Conflict with AI** button at the top of the editor.
+1. Select **Resolve Conflicts with AI** in the editor.
 
     ![Screenshot showing the AI merge conflict resolution button in the editor.](images/overview/ai-merge-conflict-resolution.png)
 

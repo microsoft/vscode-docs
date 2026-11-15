@@ -157,6 +157,8 @@ Ruby LSP discovers test files that follow common Ruby conventions. Test files mu
 
 For framework support, discovery limitations, and customization options, see the [Ruby LSP Test Explorer documentation](https://shopify.github.io/ruby-lsp/test_explorer).
 
+To add tests with optional AI assistance, [follow the test-writing workflow](/docs/agents/guides/test-code-with-ai.md) using your repository's existing framework and helpers. Keep its Minitest assertions or RSpec matchers, for example, rather than changing frameworks to use generated tests.
+
 ## Debugging
 
 The Ruby LSP extension supports debugging using the debug gem (Ruby's official debugger). Alternatively, developers can
