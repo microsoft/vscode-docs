@@ -1513,7 +1513,9 @@ let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
 
 ## contributes.terminal
 
-Contribute a terminal profile to VS Code, allowing extensions to handle the creation of the profiles. When defined, the profile should appear when creating the terminal profile
+Contribute a terminal profile or terminal quick fix to VS Code. Terminal profiles allow extensions to handle the creation of custom shell profiles, while quick fixes detect command output patterns to suggest automated solutions.
+
+### Terminal Profiles
 
 ```json
 {
@@ -1528,7 +1530,7 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
           "id": "my-ext.terminal-profile"
         }
       ]
-    },
+    }
   }
 }
 ```
@@ -1539,6 +1541,52 @@ When defined, the profile will show up in the terminal profile selector. When ac
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
   provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
     return { name: 'Profile from extension', shellPath: 'bash' };
+  }
+});
+```
+
+### Terminal Quick Fixes
+
+Extensions can contribute terminal quick fixes to automatically detect command errors or output patterns and suggest actions to the user:
+
+```json
+{
+  "contributes": {
+    "terminal": {
+      "quickFixes": [
+        {
+          "id": "my-ext.git-push-fix",
+          "commandLineMatcher": "^git push",
+          "outputMatcher": {
+            "lineMatcher": "git push --set-upstream origin",
+            "anchor": "bottom",
+            "offset": 0,
+            "length": 3
+          },
+          "exitStatus": false
+        }
+      ]
+    }
+  }
+}
+```
+
+Register the terminal quick fix provider in your extension activation:
+
+```ts
+vscode.window.registerTerminalQuickFixProvider('my-ext.git-push-fix', {
+  provideTerminalQuickFixes(terminalCommand: vscode.TerminalCommandMatchResult, token: vscode.CancellationToken): vscode.TerminalQuickFix[] | undefined {
+    return [
+      {
+        terminalCommand,
+        title: 'Run git push --set-upstream',
+        action: {
+          title: 'Run git push --set-upstream',
+          command: 'workbench.action.terminal.sendSequence',
+          arguments: [{ text: 'git push --set-upstream origin\\n' }]
+        }
+      }
+    ];
   }
 });
 ```
