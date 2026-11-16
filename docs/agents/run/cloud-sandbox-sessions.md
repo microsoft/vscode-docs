@@ -95,7 +95,7 @@ To pick up the same task, open its existing session rather than create another *
 
 1. Sign in to {% data variables.product.prodname_vscode_shortname %} with the account that owns the cloud session.
 
-1. Find the session in the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list). Check the repository and list filters if it isn't visible.
+1. Find the session in the [sessions list](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session). Check the repository and list filters if it isn't visible.
 
 1. Open the session and check its connection state before sending a follow-up.
 
