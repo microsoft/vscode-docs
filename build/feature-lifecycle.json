@@ -33,6 +33,10 @@
       "label": "Chat windows in the Agents window",
       "state": "preview"
     },
+    "agents-window-drafts": {
+      "label": "Session drafts in the Agents window",
+      "state": "experimental"
+    },
     "agents-window-pr-comments": {
       "label": "Pull request comments in the Agents window",
       "state": "experimental"

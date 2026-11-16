@@ -95,6 +95,26 @@ Dev Container sessions work directly in the container workspace and don't suppor
 > [!IMPORTANT]
 > Worktrees isolate working files, not the agent's access to your machine or external services. Either isolation mode supports the permission levels offered by your harness. For operating system-level restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md) or use [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md).
 
+### Save and resume drafts
+
+`feature(agents-window-drafts)`
+
+Prepare requests for several tasks and return to them when you're ready to send them. In the {% data variables.copilot.agents_window %}, drafts save unsent **New Session** requests without starting an agent session.
+
+1. Open Settings (`kb(workbench.action.openSettings)`) and enable `setting(sessions.drafts.enabled)`. The setting is off by default.
+
+1. Select **New Session** and compose a request, including any context attachments and session options.
+
+1. Navigate to another conversation. When the new-session input is no longer visible, the request is saved in **Drafts** in the sidebar.
+
+1. Select **Resume Draft** beside a saved draft, or **Open Draft** in the notification. Review or edit the request, then send it when you're ready.
+
+Each draft keeps its text, attachments, inline references, workspace, agent, model, and configuration. Saved drafts remain available after restarting the window. To save a new draft, navigate away from the input first. Restarting alone doesn't add it to **Drafts**.
+
+The draft is removed from the list after the request is accepted. To discard one without sending it, select **Delete Draft**.
+
+Turning off `setting(sessions.drafts.enabled)` hides saved drafts and stops saving new ones, but doesn't delete them. Turn it back on to access them again.
+
 ## Work with multiple sessions
 
 You can run multiple agent sessions in parallel, either in the same project or across different projects. Each session has its own conversation and task context, so you can delegate independent work and review one result while another session continues. For example, one session can implement a feature in one project while another investigates a bug in a different project.

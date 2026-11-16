@@ -13,6 +13,8 @@ A [session](/docs/agents/concepts/sessions.md) groups the workspace, code change
 
 Open an existing session to continue its conversation rather than start the task again.
 
+For an unsent **New Session** request in the {% data variables.copilot.agents_window %}, [resume a saved draft](/docs/agents/run/agents-window.md#save-and-resume-drafts) instead.
+
 1. Open the sessions list in the interface you use:
 
     | Interface | Location and scope |
