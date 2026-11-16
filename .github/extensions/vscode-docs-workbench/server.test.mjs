@@ -44,8 +44,10 @@ test('serves UI, validates host/origin/token, and invokes explicit action author
   assert.equal((await send({ 'Content-Type': 'application/json', 'X-Workbench-Token': token, Origin: 'https://untrusted.example' })).status, 403);
   const headers = { 'Content-Type': 'application/json', 'X-Workbench-Token': token, Origin: server.url };
   assert.deepEqual(await (await send(headers)).json(), { ok: true });
-  assert.equal(actions.length, 1);
-  assert.deepEqual(authorizations, ['refresh']);
+  const headersWithCharset = { 'Content-Type': 'application/json; charset=utf-8', 'X-Workbench-Token': token, Origin: server.url };
+  assert.deepEqual(await (await send(headersWithCharset)).json(), { ok: true });
+  assert.equal(actions.length, 2);
+  assert.deepEqual(authorizations, ['refresh', 'refresh']);
   const foreignHost = await new Promise((resolve, reject) => {
     get(server.url, { headers: { Host: 'untrusted.example' } }, response => { response.resume(); resolve(response.statusCode); }).on('error', reject);
   });

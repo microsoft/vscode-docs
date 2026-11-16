@@ -88,8 +88,11 @@ export async function createWorkbenchServer(workbench, authorize, log) {
           stream.pipe(response);
         } else throw new WorkbenchError('Not found.', 404);
       } else if (request.method === 'POST' && pathname === '/action') {
-        if (request.headers.origin !== url || request.headers['x-workbench-token'] !== token ||
-            request.headers['content-type'] !== 'application/json') throw new WorkbenchError('Invalid action origin or token.', 403);
+        const isJson = typeof request.headers['content-type'] === 'string' &&
+          request.headers['content-type'].split(';')[0].trim().toLowerCase() === 'application/json';
+        if (request.headers.origin !== url || request.headers['x-workbench-token'] !== token || !isJson) {
+          throw new WorkbenchError('Invalid action origin or token.', 403);
+        }
         const chunks = [];
         let length = 0;
         for await (const chunk of request) {
