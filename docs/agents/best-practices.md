@@ -141,6 +141,8 @@ You don't need the following techniques to complete a first task. Use them when 
 
 Start with **Copilot Fusion** or **Auto** when available. If results, speed, or cost don't meet your needs, compare models on the same representative task rather than changing several options at once.
 
+For help choosing between Copilot Fusion, Auto, and individual models, see the [model selection guide](/docs/agents/guides/choose-a-model.md).
+
 * Use the [model picker](/docs/agent-customization/language-models.md) to browse available models and their requirements.
 * Use [**Compare Models**](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %} to run the same prompt with multiple models and compare their results side by side.
 * For reasoning models, adjust [thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size) when the task needs more analysis.
