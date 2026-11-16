@@ -70,7 +70,7 @@ Enable semantic highlighting for a specific theme:
 },
 ```
 
-Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting guide](/api/language-extensions/syntax-highlight-guide#semantic-theming).
+Themes can define theming rules for semantic tokens as described in the [Semantic Highlighting guide](/api/language-extensions/semantic-highlight-guide#theming).
 
 ## Create a new Color Theme
 

@@ -6,15 +6,37 @@ MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Debug code with {% data variables.product.prodname_vscode %}
 
-Use the debugger in {% data variables.product.prodname_vscode %} to pause your application, inspect its state, and step through code to find the cause of a problem. This article guides you through your first debugging session and introduces the tools you use to investigate issues.
+Use the debugger in {% data variables.product.prodname_vscode %} to pause your application, inspect its state, and step through code to find the cause of a problem. This article explains how to start a session in your project and use the debugging tools to investigate it.
 
-{% data variables.product.prodname_vscode_shortname %} includes a debugger for JavaScript, TypeScript, and Node.js. For other languages and runtimes, install a [debugger extension](#debugger-extensions).
+Choose a starting point:
+
+* **New to debugging in {% data variables.product.prodname_vscode_shortname %}**: follow the [debugging quickstart](/docs/debugtest/quickstart.md) to find and fix a bug in a practice project.
+
+* **Debug an existing project**: check the [prerequisites](#prerequisites), then [start a debugging session](#start-a-debugging-session).
+
+* **Customize how your application starts**: [create a debug configuration](/docs/debugtest/debugging-configuration.md) for arguments, environment variables, startup tasks, or attaching to a process.
+
+* **Debugging isn't working**: use the [troubleshooting checks](#troubleshoot-debugging).
+
+## Prerequisites
+
+Install the runtime or SDK needed to run your application, and confirm that the application builds or runs outside the debugger. {% data variables.product.prodname_vscode_shortname %} includes a debugger for JavaScript, TypeScript, and Node.js, but it doesn't install their runtimes or build tools.
+
+For other languages, install a [debugger extension](#debugger-extensions). Use the guide for your language or runtime to complete setup:
+
+* [Node.js](/docs/nodejs/nodejs-tutorial.md#hello-world) or [browser JavaScript](/docs/nodejs/browser-debugging.md).
+* [Python](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+* [Java](/docs/java/java-debugging.md).
+* [C#](/docs/csharp/debugging.md).
+* [C++](/docs/cpp/cpp-debug.md).
 
 ## Start a debugging session
 
+Running code normally executes it without pausing for inspection. Starting it with the debugger lets you pause at breakpoints and inspect the state before the next line runs.
+
 To run your code until it reaches a breakpoint:
 
-1. Open the source file that you want to debug.
+1. Open your project folder, and then open the source file that you want to debug.
 
 1. Set a breakpoint by selecting the editor margin next to a line of executable code or by pressing `kb(editor.debug.action.toggleBreakpoint)`.
 
@@ -26,13 +48,15 @@ To run your code until it reaches a breakpoint:
 
     For a simple application, {% data variables.product.prodname_vscode_shortname %} tries to run the active file. If your application requires a specific entry point, command-line arguments, environment variables, or another custom setup, [create a `launch.json` configuration](/docs/debugtest/debugging-configuration.md).
 
-1. When execution pauses at the breakpoint, inspect values in the **VARIABLES** section and review the function calls in the **CALL STACK** section.
+1. When execution pauses at the breakpoint, inspect values in the **VARIABLES** section and review the function calls in the **CALL STACK** section. The highlighted execution line is the line that runs next.
 
-1. Use the Debug toolbar to continue execution, step through code, restart the application, or stop debugging.
+1. Use **Step Over** (`kb(workbench.action.debug.stepOver)`) to run the current line, and inspect how values change. Use **Continue** (`kb(workbench.action.debug.continue)`) to run until the next breakpoint or the end of the program.
 
-![Screenshot of an active debug session with the Run and Debug view, editor breakpoint, Debug toolbar, and Debug Console.](images/debugging/debug-session.png)
+Keep the application paused while you inspect variables or evaluate expressions. If execution doesn't pause, see [Troubleshoot debugging](#troubleshoot-debugging).
 
 ## Debugger user interface
+
+![Screenshot showing a paused debug session with the Run and Debug view, editor breakpoint, Debug toolbar, and Debug Console.](images/debugging/debug-session.png)
 
 During a debugging session, use these areas of the interface:
 
@@ -41,6 +65,43 @@ During a debugging session, use these areas of the interface:
 * **Debug toolbar**: control the flow of the application.
 * **Debug Console**: view debugger output and evaluate expressions.
 * **Debug status**: select the active debug configuration from the Status Bar.
+
+## Data inspection
+
+When execution pauses, inspect the current application state in the **Run and Debug** view or evaluate expressions in the Debug Console.
+
+### Run and Debug view
+
+The selected stack frame determines which variables and expressions are available:
+
+* **VARIABLES** shows local and global variables for the selected stack frame. To modify a value during the session, open the variable context menu and select **Set Value** (`kb(debug.setVariable)`).
+
+* **WATCH** evaluates expressions whenever the debugger pauses. Select **+** in **WATCH** and enter an expression to track it across pauses.
+
+* **CALL STACK** shows the active function calls. Select a stack frame to inspect its source location and variables.
+
+To filter variables by name or value, focus the **VARIABLES** section, use `kb(list.find)`, and enter a search term.
+
+You can also hover over an expression in the editor to inspect its current value. A variable assigned on the highlighted line doesn't have its new value until that line runs.
+
+### Debug console REPL
+
+The Debug Console shows debugger output and lets you evaluate expressions in the context of the selected stack frame. This interactive input is a REPL, or read-eval-print loop.
+
+Open it with **View: Debug Console** (`kb(workbench.debug.action.toggleRepl)`). Enter an expression and press `kbstyle(Enter)`. For multiline input, use `kbstyle(Shift+Enter)` between lines, and then press `kbstyle(Enter)` to evaluate the complete expression.
+
+For example, in a JavaScript debugging session, enter an expression that uses variables from the selected stack frame:
+
+```javascript
+price * quantity
+```
+
+With `price` set to `10` and `quantity` set to `3`, the Debug Console returns `30`. This expression calculates a value without changing your source code.
+
+The Debug Console is different from the integrated terminal, where you run shell commands or provide input to your application. Program output appears in the console or terminal selected by the debug configuration.
+
+> [!NOTE]
+> Expression syntax and evaluation support depend on the debugger. To inspect variables in a function, pause in that function and select its stack frame. After the program exits, start a new debugging session to inspect its state again.
 
 ## Debug actions
 
@@ -92,7 +153,7 @@ A conditional breakpoint pauses execution only when a specified condition is met
 
 To add a conditional breakpoint:
 
-1. Open the editor margin context menu and select **Add Conditional Breakpoint**, or run **Debug: Add Conditional Breakpoint...** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Open the editor margin context menu and select **Add Conditional Breakpoint**, or run **Debug: Add Conditional Breakpoint** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Select the condition type.
 
@@ -130,37 +191,31 @@ To create one, open the context menu for a variable in the **VARIABLES** section
 
 A logpoint writes a message to the Debug Console without pausing execution. Use logpoints to inspect values without adding logging statements to your source code.
 
-To add a logpoint, open the editor margin context menu and select **Add Logpoint**, or run **Debug: Add Logpoint...** from the Command Palette (`kb(workbench.action.showCommands)`). Enter plain text and include expressions in curly braces, such as `User ID: {user.id}`.
+To add a logpoint, open the editor margin context menu and select **Add Logpoint**, or run **Debug: Add Logpoint** from the Command Palette (`kb(workbench.action.showCommands)`). Enter plain text and include expressions in curly braces, such as `User ID: {user.id}`.
 
 Logpoints appear as diamond-shaped icons. You can add conditions and hit counts to them. To toggle logpoints with the middle mouse button in the editor margin, configure the `setting(debug.gutterMiddleClickAction)` setting.
 
 > [!NOTE]
 > Logpoints are available only when the debugger extension implements them.
 
-## Data inspection
+## Troubleshoot debugging
 
-When execution pauses, inspect the current application state in the **Run and Debug** view or evaluate expressions in the Debug Console.
+### The debugger doesn't start
 
-### Run and Debug view
+Confirm that the required runtime or SDK and debugger extension are installed. For a compiled language, check that the application builds. Read the error notification and debugger output for the failing command or missing dependency.
 
-The selected stack frame determines which variables and expressions are available:
+If you use `launch.json`, check the selected configuration and follow [Troubleshoot launch configurations](/docs/debugtest/debugging-configuration.md#troubleshoot-launch-configurations).
 
-* **VARIABLES** shows local and global variables for the selected stack frame. To modify a value during the session, open the variable context menu and select **Set Value** (`kb(debug.setVariable)`).
-* **WATCH** evaluates expressions whenever the debugger pauses. Use **Copy as Expression** on a variable to add an expression that accesses it.
-* **CALL STACK** shows the active function calls. Select a stack frame to inspect its source location and variables.
+### Execution doesn't pause at a breakpoint
 
-To filter variables by name or value, focus the **VARIABLES** section, use `kb(list.find)`, and enter a search term.
+* Use **Run** > **Start Debugging**, not **Run Without Debugging**. If you start your application from a terminal, follow your debugger's instructions for attaching to it.
+* Confirm that the breakpoint is enabled and is on an executable line in the code being run. Hover over a hollow breakpoint to read why it couldn't be registered.
+* Trigger the code path that contains the breakpoint. For example, a server might need a request before that code runs.
+* If the wrong file runs, check the active editor or the selected configuration's entry point. For transpiled or compiled code, consult your debugger's guidance on source maps or debug symbols.
 
-You can also hover over an expression in the editor to inspect its current value.
+### Variables or expressions aren't available
 
-### Debug console REPL
-
-The Debug Console is a REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) for the active debugging session. It shows debugger output and lets you evaluate expressions in the context of the selected stack frame.
-
-Open it with **View: Debug Console** (`kb(workbench.debug.action.toggleRepl)`). Enter an expression and press `kbstyle(Enter)`. For multiline input, use `kbstyle(Shift+Enter)` between lines, and then press `kbstyle(Enter)` to evaluate the complete expression.
-
-> [!NOTE]
-> Expression syntax and evaluation support depend on the debugger. An active debugging session is required.
+Pause execution and select the relevant frame in **CALL STACK**. Confirm that you entered expressions in the **Debug Console**, not shell commands in the terminal. If the program has finished, start debugging again.
 
 ## Multi-target debugging
 
@@ -190,4 +245,5 @@ Debugger extensions define their supported launch configurations, breakpoint typ
 
 * [Configure debugging](/docs/debugtest/debugging-configuration.md) - Create and customize reusable `launch.json` configurations.
 * [Debug Node.js applications](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in JavaScript and Node.js debugger.
+* [Fix coding errors with Copilot](/docs/editing/copilot-smart-actions.md#fix-coding-errors) - Use AI-assisted tools to investigate and fix problems.
 * [Fix a bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md#apply-the-workflow-to-your-own-project): use your reproduction and debugger findings to add a regression test and verify a focused fix.

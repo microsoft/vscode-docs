@@ -1,7 +1,7 @@
 ---
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 DateApproved: 02/04/2026
-MetaDescription: A Python hello world tutorial using the Python extension in {% data variables.product.prodname_vscode %}
+MetaDescription: Create, run, and debug a Python program in {% data variables.product.prodname_vscode %}, then work with virtual environments and packages.
 MetaSocialImage: images/tutorial/python-social.png
 ---
 # Getting Started with Python in {% data variables.product.prodname_vscode_shortname %}
@@ -195,17 +195,15 @@ The debugger will start, and then stop at the first line of the file breakpoint.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
-A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
+A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.continue)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
-The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
+The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. Keep the program paused at the breakpoint while you inspect its variables.
 
-To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the end.
+Hover over `msg` in the editor to see its current value, `Roll a dice!`.
 
-> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Roll a dice!` in a box above the variable.
-
-You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of {% data variables.product.prodname_vscode_shortname %}, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
+To evaluate expressions while paused, open **View** > **Debug Console** (`kb(workbench.debug.action.toggleRepl)`). Enter the following lines, one by one, at the **>** prompt at the bottom of the console:
 
 ```python
 msg
@@ -215,9 +213,9 @@ msg.split()
 
 ![Debugging step 3 - using the debug console](images/tutorial/debug-step-03.png)
 
-Select the blue **Continue** button on the toolbar again (or press `kb(workbench.action.debug.continue)`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and {% data variables.product.prodname_vscode_shortname %} exits debugging mode once the program is complete.
+After inspecting the values, select **Continue** on the Debug toolbar (`kb(workbench.action.debug.continue)`) to run the program to completion. With the **Python File** configuration, `Roll a dice!` appears in the integrated terminal. {% data variables.product.prodname_vscode_shortname %} exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint.
+To inspect the variables again, start debugging with `kb(workbench.action.debug.start)`. The program pauses at the same breakpoint.
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Run > Stop debugging** menu command.
 

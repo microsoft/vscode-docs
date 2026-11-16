@@ -33,6 +33,8 @@ MetaDescription: Extend {% data variables.product.prodname_vscode_shortname %} w
 - [`languageModelTools`](/api/references/contribution-points#contributes.languageModelTools)
 - [`localizations`](/api/references/contribution-points#contributes.localizations)
 - [`menus`](/api/references/contribution-points#contributes.menus)
+- [`notebookRenderer`](/api/references/contribution-points#contributes.notebookRenderer)
+- [`notebooks`](/api/references/contribution-points#contributes.notebooks)
 - [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
 - [`productIconThemes`](/api/references/contribution-points#contributes.productIconThemes)
@@ -805,7 +807,7 @@ See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide
 
 ## contributes.icons
 
-Contribute a new icon by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) anywhere a `ThemeIcon` can be used `new ThemeIcon("iconId")`, in [Markdown strings](/api/references/icons-in-labels#icon-in-labels) (`$(iconId)`), and as icons in certain contribution points.
+Contribute a new icon by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) anywhere a `ThemeIcon` can be used `new ThemeIcon("iconId")`, in [Markdown strings](/api/references/icons-in-labels#icons-in-labels) (`$(iconId)`), and as icons in certain contribution points.
 
 ```json
 {
@@ -1310,6 +1312,77 @@ The order inside a group depends on the title or an order-attribute. The group-l
   ]
 }
 ```
+
+## contributes.notebookRenderer
+
+Contribute an output renderer for notebooks. Notebook renderers are responsible for taking cell output data with specific MIME types and displaying rich visual representations in notebook cells (ranging from plain text and images to interactive web components).
+
+Here is a basic `notebookRenderer` contribution:
+
+```json
+{
+  "contributes": {
+    "notebookRenderer": [
+      {
+        "id": "my-notebook-renderer",
+        "displayName": "My Custom Output Renderer",
+        "entrypoint": "./out/renderer.js",
+        "mimeTypes": [
+          "application/vnd.my-custom-format+json",
+          "text/x-custom-data"
+        ]
+      }
+    ]
+  }
+}
+```
+
+`notebookRenderer` is an array, so your extension can contribute multiple output renderers.
+
+- `id` - Unique identifier for the notebook renderer.
+- `displayName` - Human-readable name of the renderer, displayed in VS Code's UI (such as output format pickers).
+- `entrypoint` - Path to the script loaded in the webview to render output. Can be:
+  - A string path relative to the extension root (for example, `"./out/renderer.js"`).
+  - An object specifying `path` and `extends` to augment an existing renderer (for example, `{"extends": "vscode.markdown-it-renderer", "path": "./out/customMarkdown.js"}`).
+- `mimeTypes` - Array of MIME types that the renderer handles. Output with matching MIME types will be routed to this renderer.
+- `requiresMessaging` - (optional) Defines if communication with the extension host via `createRendererMessaging` is required. Possible values are `"always"`, `"optional"`, and `"never"` (default).
+
+You can learn more in the [Notebooks](/api/extension-guides/notebook#notebook-renderer) extension guide.
+
+## contributes.notebooks
+
+The `notebooks` contribution point is how your extension tells VS Code about the notebook document providers it supports. VS Code uses this to determine which notebook type to associate with matching files and how to identify your notebook in the UI.
+
+Here is a basic `notebooks` contribution:
+
+```json
+{
+  "contributes": {
+    "notebooks": [
+      {
+        "type": "my-custom-notebook",
+        "displayName": "My Custom Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.customnb"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+`notebooks` is an array, so your extension can contribute multiple notebook types.
+
+- `type` - Unique identifier for the notebook type. This is used in code when registering your notebook serializer with `vscode.workspace.registerNotebookSerializer` and controllers with `vscode.notebooks.createNotebookController`.
+- `displayName` - Human-readable name of the notebook type displayed in VS Code's UI.
+- `selector` - Specifies which files the notebook is enabled for. An array of objects containing:
+  - `filenamePattern` - A glob pattern matching file names or extensions (for example, `"*.customnb"` or `"**/notebooks/*.json"`).
+  - `excludeFileNamePattern` - (optional) A glob pattern specifying files to exclude from matching this notebook type.
+- `priority` - (optional, deprecated) Controls if the notebook editor is enabled automatically when opening a matching file. Possible values are `"default"` (attempt to use by default) and `"option"` (not default, but selectable by the user). Can be overridden by the user with the `workbench.editorAssociations` setting.
+
+You can learn more in the [Notebooks](/api/extension-guides/notebook) extension guide.
 
 ## contributes.problemMatchers
 
