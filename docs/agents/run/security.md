@@ -105,6 +105,8 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
+* **Password handling (Experimental)**: Supported shell-authentication prompts in {% data variables.product.prodname_copilot_short %} harness sessions mask passwords and passphrases. The answer is passed to the requesting program, not sent to the model or saved in chat history. Review the displayed command and only provide credentials to programs and destinations you trust. This protection applies only to the dedicated authentication prompt. Don't paste passwords into ordinary chat messages or include them in command text.
+
 * **Tool approval**: MCP tool invocations require explicit user approval, which you can grant at different scopes: session-level for temporary access, workspace-level for project-specific trust, or user-level for broader permissions.
 
 * **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
