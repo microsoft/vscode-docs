@@ -64,7 +64,7 @@ For guided setup, [create an automation from chat](#create-an-automation-from-ch
 
     You can choose between **Manual** or a [recurring schedule](#set-a-recurring-schedule).
 
-1. Optionally, in the advanced settings, enable or disable the use of customizations.
+1. Optionally, expand **Advanced Settings** to choose customizations or [set an end date](#set-an-end-date).
 
 1. Review your automation settings, and then select **Create**.
 
@@ -139,16 +139,19 @@ For example, start a new chat with:
 at 9:00 AM in my local time zone.
 Summarize commits from the last 24 hours, grouped by feature, fix, and maintenance.
 Return the summary in the session. Do not modify files.
+Stop scheduled runs two weeks from now.
 Save the automation disabled so I can review it before enabling scheduled runs.
 ```
 
 1. Answer questions about missing task or schedule details. The agent uses relevant information from the conversation instead of asking you to repeat it.
 
-1. Review the proposed name, exact prompt, [execution environment](#choose-where-an-automation-runs), workspace, schedule, and time zone. Check any proposed [permissions](/docs/agents/run/approvals.md#permission-levels) and constraints before proceeding.
+1. Review the proposed name, exact prompt, [execution environment](#choose-where-an-automation-runs), workspace, schedule, time zone, and any [end date](#set-an-end-date). Check any proposed [permissions](/docs/agents/run/approvals.md#permission-levels) and constraints before proceeding.
 
 1. Ask for changes, or say `Create it` to save the reviewed automation. Invoking `/automate` alone doesn't confirm creation. Normal tool approvals and organization policies still apply.
 
 1. Open **Automations** to review the saved configuration, then [run and review the automation](#run-and-review-an-automation) before enabling recurring work.
+
+You can also ask the agent to change or remove an existing automation's end date. Review the resolved date and time zone before confirming the change. End dates stop future scheduled runs, not a run already in progress.
 
 You can also ask for an automation in ordinary chat without invoking `/automate`. For a custom cadence, specify a cron expression and the time zone:
 
@@ -210,6 +213,24 @@ For local automations, keep these execution requirements in mind:
 * An automation runs one session at a time. Another scheduled occurrence doesn't start a parallel run of the same automation.
 
 Cloud schedules run on GitHub rather than through your local scheduler. You can close the {% data variables.copilot.agents_window %} or turn off your computer without stopping the schedule.
+
+### Set an end date
+
+Set an end date for temporary work, such as a daily release summary that should run for two weeks. End dates are supported for automations on local or [remote Agent Hosts](/docs/agents/run/remote-agent-sessions.md), but not GitHub cloud automations.
+
+1. Create or edit an automation, and expand **Advanced Settings**.
+
+1. Under **Disables after**, select **Days**, **Weeks**, or **Months**, and enter a positive whole number.
+
+1. Review the estimated end date and time, and then select **Create** or **Save**.
+
+The duration is converted to a fixed end date when you save, using your local calendar. Reopening the form or editing unrelated fields doesn't extend it. Changing the duration calculates a new end date from the time you save.
+
+When the end date is reached, the automation disables future scheduled runs, including catch-up runs. It doesn't stop an active run or prevent you from selecting **Run now**.
+
+To remove the end date, select **Never** under **Disables after** and save, or select **More Actions** > **Remove end date** on the automation card. Removing the end date doesn't re-enable a disabled automation.
+
+To resume scheduled runs, set a future end date or remove it, and then enable the automation. If you enable an expired automation from its card, **Remove expiration and enable** removes the cutoff and resumes scheduling without an end date.
 
 ### Use a cron schedule
 
@@ -293,9 +314,12 @@ Export a local automation as a `.automation.md` file to reuse it on another mach
 
 * Name and prompt.
 * Manual, hourly, daily, weekly, or cron schedule.
+* An optional end date.
 * File format version and portable identifier.
 
 Exported cron schedules use `timeZone: local`, so the importing machine uses its own local time zone. A cron schedule whose configured time zone differs from your current local time zone can't be exported.
+
+Files with an end date use [format version `2`](/docs/agents/reference/agent-plugin-reference.md#automation-template-format) and preserve the fixed cutoff, not a duration that restarts on import. [Review or change the end date](#set-an-end-date) before enabling an imported automation.
 
 The file doesn't include the workspace, provider, model, permissions, enabled state, or run history. The person who imports the file chooses these options locally.
 
@@ -313,7 +337,7 @@ You can open the exported file in an editor to review its prompt and schedule be
 
 1. Select **Import Automation** in the Automations view, and then choose a `.automation.md` file. You can also drag one `.automation.md` file anywhere over the view.
 
-1. In the **New Automation** dialog, review the imported name, prompt, and schedule.
+1. In the **New Automation** dialog, review the imported name, prompt, schedule, and any end date.
 
 1. Choose the workspace, agent, model, permissions, and isolation for the automation.
 
@@ -323,7 +347,7 @@ You can open the exported file in an editor to review its prompt and schedule be
 
 ## Manage an automation
 
-* **Edit**: select the automation's name, update its supported fields, and select **Save**. A cloud automation's repository and **Owner** can't change after creation. Create another automation to use a different repository or owner, and disable the original if it should no longer run.
+* **Edit**: select the automation's name, update its supported fields, and select **Save**. For time-limited work, [set or change an end date](#set-an-end-date). A cloud automation's repository and **Owner** can't change after creation. Create another automation to use a different repository or owner, and disable the original if it should no longer run.
 * **Enable or disable future runs**: select **More Actions** > **Enable** or **Disable**. Disabling an automation doesn't stop a run already in progress.
 * **Duplicate**: select **More Actions** > **Duplicate**, review the copy in the **New Automation** dialog, and select **Create**. Duplicate event-triggered cloud automations on GitHub to preserve their complete configuration.
 * **Stop an active run**: select **Stop** for the run in **History** when available. This requests cancellation, not a rollback of completed actions.
@@ -362,6 +386,7 @@ Cloud automation support in {% data variables.product.prodname_vscode_shortname 
 
 * Available repositories, event types, filters, models, and tools depend on GitHub service support and your account's permissions.
 * A cloud automation uses the cloud model and tool configuration. It doesn't accept local mode or approval settings, custom agents, or local MCP configuration.
+* Cloud automations don't support end dates. Disable or delete the automation when scheduled or event-triggered work should stop.
 * Unsupported trigger configuration must be managed on GitHub. It isn't replaced when you edit other supported fields.
 
 ## Next steps

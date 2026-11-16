@@ -191,11 +191,23 @@ The frontmatter supports these fields:
 
 | Field | Required | Description |
 |-------|:--------:|-------------|
-| `version` | Yes | File format version. Use `1`. |
+| `version` | Yes | File format version. Use `1`, or `2` when including `disableConditions`. |
 | `id` | Yes | Identifier that is unique within the plugin. Use lowercase letters, numbers, periods, or hyphens, with a maximum of 64 characters. |
 | `name` | Yes | Display name for the template. |
 | `description` | No | Short description of the automation's purpose. |
 | `schedule` | Yes | Manual, hourly, or five-field cron schedule. |
+| `disableConditions` | No | One `afterDate` condition with a `date` set to an ISO 8601 timestamp with a time zone. Requires version `2`. |
+
+To include an [end date](/docs/agents/run/automations.md#set-an-end-date), use these fields alongside the other required frontmatter fields:
+
+```yaml
+version: 2
+disableConditions:
+  - kind: afterDate
+    date: "2027-01-31T17:00:00Z"
+```
+
+Replace the example timestamp with the intended future cutoff. The end date is fixed, not a duration that restarts when someone uses the template. It stops scheduled runs without stopping an active run or preventing manual runs. End dates require a local or remote Agent Host and aren't supported for GitHub cloud automations.
 
 Use one of these schedule formats:
 
