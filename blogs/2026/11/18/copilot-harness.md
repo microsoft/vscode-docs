@@ -1,24 +1,26 @@
 # The Copilot harness: Building on a shared foundation
 
+The Copilot harness is now the default for new agent sessions in VS Code, and we've [announced the older Local harness's retirement in February 2027](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness). Here's what that transition means for your workflows, why we're making it, and how data and your feedback are helping us improve quality alongside efficiency.
+
+## Why we're building on the Copilot harness
+
 Some agent tasks fit into a quick conversation beside your code. Others grow into a longer investigation, a test run, or work you want to follow while moving between projects or machines.
 
-Supporting that range of work takes more than a capable model. A **harness** is the software around the model that manages context, coordinates tools, and keeps an agent working through your task. We've been investing in the **Copilot harness**, built on the [Copilot SDK](https://code.visualstudio.com/blogs/2026/08/26/agent-host-architecture) and sharing its runtime with other Copilot products, like the Copilot CLI and the Copilot app.
+Supporting that range of work takes more than a capable model. A **harness** is the software around the model that manages context, coordinates tools, and keeps an agent working through your task. We've been investing in the **Copilot harness**, built on the [Copilot SDK](https://code.visualstudio.com/blogs/2026/08/26/agent-host-architecture) and sharing its runtime with other Copilot products, like the Copilot CLI and the Copilot app. In VS Code, these sessions run through the [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host), a separate process that lets you continue the same session between the editor and Agents window.
 
-You might already be familiar with the **Local harness**, VS Code's long-standing default agent harness. It runs in VS Code's extension host, where you work interactively with the agent through chat to implement changes in your main workspace. We've learned a great deal from investing in that experience: refining prompts and context handling, building tools, and improving edit review with your feedback.
+You might already be familiar with the **Local harness**, VS Code's long-standing default agent harness. It runs in VS Code's extension host (rather than the Agent Host), where you work interactively with the agent through chat to implement changes in your main workspace. We've learned a great deal from that investment, from [refining the agent harness](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode) to [improving token efficiency](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot) and edit review with your feedback. That experience informs our work on the Copilot harness.
 
-To make Copilot feel familiar and consistent wherever you're working, we've gradually expanded use of the Copilot harness as VS Code's new default over several months, first internally and then externally. Data and your feedback have shaped improvements every day in Insiders and weekly in Stable. The Copilot harness became the default for new sessions in [1.143](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). In [1.146, we announced the older Local harness's retirement in February 2027](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness), giving three months' notice so you and your team have time to try your workflows, review customizations, and share any blockers. We'll continue following the data and your feedback throughout that transition.
+To make Copilot feel familiar and consistent wherever you're working, we've gradually expanded use of the Copilot harness as VS Code's new default over several months, first internally and then externally. Data and your feedback have shaped improvements every day in Insiders and weekly in Stable. The Copilot harness fully became the default for new sessions in [1.143](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). In [1.146, we announced the older Local harness's retirement in February 2027](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness), giving three months' notice so you and your team have time to try your workflows, review customizations, and share any blockers. We'll continue following the data and your feedback throughout that transition.
 
-As we've developed and refined the Copilot harness, we've also brought new capabilities to VS Code that aren't available in Local. For example, [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) can select models and coordinate drafting and review for your task. For organizations, [managed permission and sandbox controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings) let administrators define boundaries the runtime enforces, rather than relying on model instructions. Availability and supported controls depend on your account and environment.
+As we've developed and refined the Copilot harness, we've also brought new capabilities to VS Code that aren't available in the Local harness. For example, [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) can select models and coordinate drafting and review for your task. For organizations, [managed permission and sandbox controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings) let administrators define boundaries the runtime enforces, rather than relying on model instructions.
 
-**Copilot doesn't mean cloud-only.** The Copilot harness can run on your machine, editing local files and running commands locally. Choosing a harness is separate from choosing a model provider or a cloud execution environment.
+**Copilot doesn't mean cloud.** It's the name of the harness, not the location of your workspace. For projects on your machine, the Copilot harness runs locally, editing files and running commands there.
 
-Let's look at the work behind this transition to the Copilot harness, starting with what we're learning from data and then the changes your feedback has helped shape. Along the way, we'll cover what the move means for your existing workflows and for teams bringing that shared experience to their organizations.
+To understand what this change means in practice, we've been measuring how the Copilot harness performs in everyday work. Here's what those results are telling us.
 
 ## What the data shows
 
-Our work on VS Code's **Local harness** taught us how much context handling and tool use can shape an agent's efficiency, as we explored in our posts on [the Local harness](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode) and [token efficiency](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot). We're applying those lessons to the shared **Copilot harness**.
-
-Over several months, we progressively introduced the Copilot harness as the default harness in place of Local, starting with internal users. We then expanded testing and rollout across Copilot plans and VS Code Insiders and Stable, covering workflows in both the Agents window and editor window. We monitored many key metrics, including token usage and efficiency, turn-completion success, errors, cancellations, engagement, and latency. At each step, we analyzed those signals alongside your feedback to guide product changes, decide when to expand further, and identify improvements to test in additional A/B experiments.
+Over several months, we progressively introduced the Copilot harness as the default in place of Local, starting with internal users. We then expanded testing and rollout across Copilot plans, VS Code Insiders and Stable, and workflows in both the editor and Agents window. At each step, we monitored a broad set of metrics, including token usage and efficiency, turn-completion success, errors, cancellations, engagement, and latency. We analyzed those signals alongside your feedback to guide product changes, decide when to expand further, and identify improvements to test in additional A/B experiments.
 
 One of these rollout checks followed **Copilot Business and Enterprise users on VS Code Stable** over roughly two days in October. New chats defaulted to the Copilot harness for one group and the Local harness for the other. The Copilot-default group showed **about 10% lower estimated model-usage cost per active computer**.
 
@@ -26,10 +28,10 @@ One of these rollout checks followed **Copilot Business and Enterprise users on 
 
 | What we measured | Change with Copilot as the default |
 | --- | ---: |
-| Average model-usage cost per active computer | **9.6% lower** (95% confidence interval: 8.2% to 11.3% lower) |
+| Average model-usage cost per active computer | **9.6% lower** (*The 9.6% figure is an estimate. Allowing for uncertainty, the analysis suggests an average cost reduction of roughly 8% to 11%.*) |
 | Tokens used per active computer | **14.2% fewer** |
 | Model requests per active computer | **7.7% fewer** |
-| Model-usage cost per request | 2.3% lower |
+| Model-usage cost per request | **2.3% lower** |
 
 The lower cost came alongside **fewer model requests and fewer tokens per active computer**. For users, the goal is to complete the same useful work with less model processing, which can reduce waiting and help a given budget go further.
 
@@ -55,13 +57,13 @@ That work continues: [1.145 improved review in remote workspaces and during para
 
 ### Less time waiting
 
-Responsiveness matters when you return to an earlier conversation, too. [1.145 made long chats smoother to reopen and browse](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements) by reusing existing content and rendering terminal output as you reveal it.
+We're continuing to improve responsiveness across the whole conversation, from the first signs of progress to picking up an earlier task. One example is [1.145's improvements to reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), which reuse existing content and render terminal output as you reveal it.
 
 ### Bringing your specialist integrations along
 
 Chat participants predate today's agent loops. [Custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents), skills, and [extension tools](https://code.visualstudio.com/api/extension-guides/ai/tools) or [MCP tools](https://code.visualstudio.com/api/extension-guides/ai/mcp) offer ways to bring that expertise into agent workflows. A review agent can hold your instructions, model preference, and tool selection, while an extension tool in a connected editor supplies diagnostics or calls a service.
 
-These aren't drop-in replacements, and not every interaction needs an agent loop. We're planning proactive outreach to participant authors, including our own extension teams. If something you need is missing, [tell us what you're trying to build](https://code.visualstudio.com/docs/agents/agent-troubleshooting/troubleshooting#_report-an-unresolved-issue) so we can identify the missing capabilities.
+These aren't drop-in replacements, and not every interaction needs an agent loop. We're planning proactive outreach to participant authors, including our own extension teams. If something you need is missing, [tell us what you're trying to build](https://github.com/microsoft/vscode/issues) so we can identify the missing capabilities.
 
 For an installed participant, look for the publisher's compatible tools or plugin; the [migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants) explains the options. A warning about a participant you don't use doesn't require action.
 
@@ -75,20 +77,18 @@ For a workspace on your machine, **Chat: Manage Language Models** lets you add s
 
 ## Bringing the shared foundation to your organization
 
-For a team, a familiar experience also means carrying approved tools, network access, and guardrails into daily work. The shared runtime gives organizations a common place to govern supported Copilot behavior across clients, including permission and sandbox controls that the older Local harness cannot enforce.
+For organizations, the transition needs to fit the tools, network, and safeguards your team relies on. The shared runtime gives administrators a common way to govern supported Copilot behavior across clients, including permission and sandbox controls the older Local harness cannot enforce.
 
-We've been improving that experience alongside the developer workflows. [1.142 added independent controls for permission modes](https://code.visualstudio.com/updates/v1_142#_manage-copilot-permission-modes-independently), so administrators can permit assisted approvals while restricting unrestricted access. [1.145 made required plugins clearer in the UI](https://code.visualstudio.com/updates/v1_145#_organization-required-plugins-cant-be-uninstalled), replacing an Uninstall action that would fail with an explanation that the plugin is organization-managed.
+We're improving that practical fit alongside the developer experience. For example, [1.146 improved enterprise proxy handling](https://code.visualstudio.com/updates/v1_146#_copilot-sessions-behind-enterprise-proxies) so the Copilot runtime follows per-destination PAC routing instead of forwarding a single proxy for every destination. Client proxy and Kerberos support also helps sessions in WSL and local Dev Containers work within organization networks.
 
-In [1.146, Copilot sessions gained support for enterprise proxy configurations](https://code.visualstudio.com/updates/v1_146#_copilot-sessions-behind-enterprise-proxies), including PAC and Kerberos when running locally, in WSL, or in a local Dev Container. The release also added [organization-provided help links](https://code.visualstudio.com/updates/v1_146#_organization-help-links-for-policy-restrictions), so someone encountering a restriction can find their own administrator's guidance.
+Start with a pilot that exercises your team's model gateway, authenticated tools, extensions, and execution environments. The [transition guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) covers rollout and verification, while the [enterprise management guide](https://code.visualstudio.com/docs/enterprise/manage-ai-settings) explains the available controls and their client coverage. Verify the effective configuration where commands run; switching harnesses doesn't itself enable every protection.
 
-A good rollout brings those pieces together on representative projects: your model gateway, authenticated tools, extensions, and remote or container environments. The [Local-to-Copilot transition guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) walks through piloting and verification. The [enterprise management guide](https://code.visualstudio.com/docs/enterprise/manage-ai-settings) explains how runtime-managed settings, editor device policies, and GitHub organization settings fit together. Coverage varies by control and client; verify the effective configuration where commands run, using **Developer: Policy Diagnostics** and `/sandbox policy`.
-
-Where policy permits, administrators can use the temporary Local fallback while validating a blocker. It doesn't enforce Copilot runtime-only permission and sandbox restrictions, so that exception needs an administrator's review. The temporary `vscode.temporaryDefaultToLocalHarness` setting retires with Local in February 2027.
+If a blocker needs more time, administrators can review a temporary Local fallback where policy permits. It doesn't preserve Copilot runtime-only permission and sandbox enforcement, and retires with Local in February 2027.
 
 ## Keep shaping what comes next
 
 If you're already using Copilot in the harness picker, you're on the shared foundation. You can keep working beside your code in the editor, or continue the same session in the Agents window. For sessions on your machine, keep VS Code and the Agent Host running; editor-provided tools still need their contributing client connected.
 
-If you're moving an existing setup, the [transition guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot) covers continuing conversations and reviewing customizations. Try a familiar task and tell us what works, where you wait, and which integration you still need. [Issue reports](https://code.visualstudio.com/docs/agents/agent-troubleshooting/troubleshooting#_report-an-unresolved-issue) help us follow up; enterprise customers can use GitHub Support for private configuration.
+If you're moving an existing setup, the [transition guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot) covers continuing conversations and reviewing customizations. Try a familiar task and tell us what works, where you wait, and which integration you still need. [Issue reports](https://github.com/microsoft/vscode/issues) help us follow up; enterprise customers can use GitHub Support for private configuration.
 
 Thank you for helping shape this work, from the measurements that reveal a pattern to the detailed report that changes a workflow. We're excited about what a shared Copilot foundation makes possible, and we're continuing to build it with your feedback.
