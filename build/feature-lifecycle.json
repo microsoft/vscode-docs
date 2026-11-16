@@ -85,6 +85,10 @@
       "label": "Copilot connectors",
       "state": "preview"
     },
+    "dev-container-state-volume": {
+      "label": "Dev Container state volumes",
+      "state": "experimental"
+    },
     "editor-working-set": {
       "label": "Editor working set",
       "state": "experimental"

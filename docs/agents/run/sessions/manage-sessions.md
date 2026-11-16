@@ -314,7 +314,7 @@ Choose the action that matches what you want to keep:
 
 For a worktree session, archiving commits uncommitted changes to the session branch before removing the worktree folder. If changes can't be preserved or the folder can't be removed, the worktree remains. The branch and commits are retained, so restoring re-creates the worktree.
 
-For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container and retains the conversation.
+For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
 
 > [!NOTE]
 > A Local session automatically archived by [enterprise runtime policy enforcement](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection) remains read-only while the policy applies. Continue in its replacement {% data variables.product.prodname_copilot_short %} session instead.

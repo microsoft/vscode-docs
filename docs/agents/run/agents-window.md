@@ -352,6 +352,8 @@ If startup fails, check the workspace-specific **Dev Container** Output channel.
 
 Idle containers stop after five minutes when no session is working, waiting for input, or holding an unsent draft. Continuing a session restarts the container without losing the conversation. Change the timeout with `setting(chat.agentHost.devContainer.idleTimeout)` (`300` seconds by default, `0` to turn off automatic shutdown). Marking sessions as done or deleting them can still remove the container.
 
+Restarting an existing container is different from rebuilding or replacing it. To keep container-stored chat sessions across replacements, enable `setting(chat.agentHost.devContainer.stateVolume.enabled)` before creating the container. See [Preserve chat sessions across rebuilds](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)`, especially the warning about the first rebuild of an existing container.
+
 ### Start a session from a pull request
 
 For a local {% data variables.product.prodname_github %}-backed workspace, start from an existing pull request to ask questions or continue its changes. The session includes the pull request details, changes, and comments, and uses an isolated worktree that tracks its branch.
