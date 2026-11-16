@@ -291,6 +291,8 @@ The **Use Dev Container** option appears only when the source machine advertises
 
 In the installed {% data variables.copilot.agents_window %}, use the integrated browser to preview a web app running on a supported session host without forwarding its port. Enable `setting(workbench.browser.enableRemoteProxy)`, leave `setting(workbench.browser.dataStorage)` at `default`, and open the app's original localhost URL. Check that the remote indicator in the address bar identifies the intended host.
 
+You can also [preview remote HTML files directly](/docs/debugtest/integrated-browser.md#open-remote-html-files) without starting a web server.
+
 Select **Share with Agent** to let the agent interact with your page, or ask it to open the app and validate a user flow. See [browsing through a remote agent host](/docs/debugtest/integrated-browser.md#browse-through-a-remote-agent-host) for supported hosts, storage behavior, and connection troubleshooting.
 
 <a name="delegate-work-to-remote-agent-hosts-experimental"></a>

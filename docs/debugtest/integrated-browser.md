@@ -33,7 +33,25 @@ Open a supported file in one of these ways:
 * Right-click the file's editor tab and select **Open in Integrated Browser**.
 * With the file open in the editor, select the **Open in Integrated Browser** (globe) button in the editor toolbar.
 
-These actions require a local `file://` URL and aren't available for remote or virtual workspace resources.
+For files stored on another machine, see [Open remote HTML files](#open-remote-html-files). Other virtual workspace resources aren't supported.
+
+### Open remote HTML files
+
+`feature(integrated-browser-remote)`
+
+Preview HTML files in SSH, WSL, or Dev Container workspaces without copying them to your computer or starting a web server. In the installed {% data variables.copilot.agents_window %}, you can also preview files from a remote agent host.
+
+1. Enable `setting(workbench.browser.enableRemoteProxy)` and keep `setting(workbench.browser.dataStorage)` set to `default`. Remote files don't load in tabs that use `global` storage.
+
+1. Open the remote workspace, or select the session on the remote agent host that contains the file.
+
+1. Right-click the HTML file in the Explorer or the session's files view and select **Open in Integrated Browser**. You can also use the **Open in Integrated Browser** button in the file's editor toolbar.
+
+The address bar shows a `file://` URL with the remote path. The page and its referenced resources are read from that host. Check the remote indicator to confirm the intended host. A `file://` URL entered in a remotely connected tab also refers to the remote machine, not your local disk.
+
+Remote file access is checked against trusted folders on that host. In a remote editor window in **Restricted Mode**, trust the project folder before previewing its HTML files.
+
+If you explicitly open a local HTML file in a remote window, such as by dragging it from your operating system's file manager, it still loads from your computer. The address bar indicator identifies it as a local file.
 
 ## Use an external browser
 
@@ -331,7 +349,7 @@ Remote workspace proxying affects the browser in the following ways:
 
 * **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
 
-* **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
+* **`file://` URLs**: In a remotely connected browser tab, file URLs read files from the remote machine's trusted folders, not your local disk. See [Open remote HTML files](#open-remote-html-files).
 
 * **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
 
@@ -406,7 +424,7 @@ Use the following settings to configure integrated browser behavior:
 | `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
 | `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
 | `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
-| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
+| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads `file://` pages when their files change, including supported remote files. |
 | `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
 | `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
 
