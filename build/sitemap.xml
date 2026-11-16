@@ -156,6 +156,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/deployment</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/troubleshooting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/enterprise/policies</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

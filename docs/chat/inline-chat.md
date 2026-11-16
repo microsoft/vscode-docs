@@ -17,7 +17,7 @@ To use editor inline chat:
 
 1. Open a file in the editor.
 
-1. Open editor inline chat by using the `kb(inlinechat.start)` keyboard shortcut or by selecting **Open Inline Chat** from the Chat menu in the title bar.
+1. Open editor inline chat by using the `kb(inlineChat.start)` keyboard shortcut or by selecting **Open Inline Chat** from the Chat menu in the title bar.
 
 1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
 
@@ -30,13 +30,48 @@ To use editor inline chat:
 
     ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-recursion.png)
 
+### Try a focused edit
+
+After you [set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md), try an edit in a temporary file before using inline chat on your project.
+
+1. Create a file named `inline-chat-practice.js` in a temporary folder, open it in the editor, and add this function:
+
+    ```javascript
+    function greet(name) {
+        return `Hello, ${name}!`;
+    }
+    ```
+
+1. Select the function and press `kb(inlineChat.start)`. Enter this prompt:
+
+    ```text
+    Trim spaces from both ends of name.
+    Use 'Guest' if name is empty or contains only spaces.
+    Keep the greeting format and change only this function.
+    ```
+
+    If the shortcut opens **Ask in Chat** instead, see [inline chat in active editing sessions](#inline-chat-in-active-editing-sessions). Use a new file that isn't part of that session for this exercise.
+
+1. Inspect the diff. Check that the change handles empty names without changing the greeting for a nonempty name. Select **Keep** to retain it or **Undo** to reject it.
+
+1. After keeping the change, copy the updated function and these calls into a browser's JavaScript console, or run them in your existing JavaScript runtime. The comments show the expected output:
+
+    ```javascript
+    console.log(greet('Ada'));     // Hello, Ada!
+    console.log(greet(' Ada '));   // Hello, Ada!
+    console.log(greet(''));        // Hello, Guest!
+    console.log(greet('   '));     // Hello, Guest!
+    ```
+
+If a result differs, select the function again and tell inline chat which input failed, what it returned, and what you expected. Review the revised diff and repeat all four checks.
+
 ### Inline chat in active editing sessions
 
-When a file belongs to an active chat editing session, pressing `kb(inlinechat.start)` opens "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
+When a file belongs to an active chat editing session, pressing `kb(inlineChat.start)` opens "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
 
 To always use regular inline chat, even for files that belong to a chat session, set `setting(inlineChat.askInChat)` to `false`.
 
-On files that don't belong to any chat session, `kb(inlinechat.start)` always opens regular inline chat, regardless of this setting.
+On files that don't belong to any chat session, `kb(inlineChat.start)` always opens regular inline chat, regardless of this setting.
 
 ### Show a visual hint on text selection (Experimental)
 

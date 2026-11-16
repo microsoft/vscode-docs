@@ -47,7 +47,7 @@ const KNOWN_SPECIAL_URLS = new Set([
 ]);
 
 // File names that are never standalone sitemap pages.
-const IGNORED_FILE_NAMES = new Set(['readme.md']);
+const IGNORED_FILE_NAMES = new Set(['readme.md', 'action-card-samples.md']);
 
 function loadJSON(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');

@@ -14,6 +14,8 @@ There are a few ways you can debug your Node.js programs in {% data variables.pr
 * Use the [JavaScript debug terminal](#javascript-debug-terminal), similar to using the integrated terminal.
 * Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of {% data variables.product.prodname_vscode_shortname %}.
 
+For a hands-on AI-assisted bug-fixing workflow, [fix a pagination bug in a sample Node.js API](/docs/agents/guides/fix-a-bug-with-agents.md) by reproducing the problem, adding regression tests, and reviewing the fix.
+
 ## Auto Attach
 
 If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from {% data variables.product.prodname_vscode_shortname %}'s Integrated Terminal. To enable the feature, either use the **Toggle Auto Attach** command from the Command Palette (`kb(workbench.action.showCommands)`) or, if it's already activated, use the **Auto Attach** Status bar item.

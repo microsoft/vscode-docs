@@ -100,7 +100,7 @@ Formatting is provided by `gopls`. If you want `gofumpt`-style formatting, you c
 
 ## Test
 
-The {% data variables.product.prodname_vscode_shortname %} [Test UI](/api/extension-guides/testing.md) and editor [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup) elements allow users to easily run tests, benchmarks, profiles for a given function, file, package, or workspace.
+The {% data variables.product.prodname_vscode_shortname %} [Test UI](/docs/debugtest/testing.md) and editor [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup) elements allow users to easily run tests, benchmarks, profiles for a given function, file, package, or workspace.
 
 Alternatively, the same functionality is available through a set of commands:
 
@@ -120,6 +120,8 @@ You can configure the extension to run tests and compute test coverage using:
 * `go.testOnSave`
 * `go.coverOnSave`
 * `go.testFlags`
+
+For optional AI help, [add behavior-focused tests and review their assertions](/docs/agents/guides/test-code-with-ai.md). Reuse the package's existing test helpers and `go test` command rather than introducing another test runner.
 
 ## Import packages
 

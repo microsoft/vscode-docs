@@ -190,4 +190,5 @@ Debugger extensions define their supported launch configurations, breakpoint typ
 
 * [Configure debugging](/docs/debugtest/debugging-configuration.md) - Create and customize reusable `launch.json` configurations.
 * [Debug Node.js applications](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in JavaScript and Node.js debugger.
-* [Debug and fix issues with Copilot](/docs/agents/reference/ai-features-cheat-sheet.md#debug-and-fix-problems) - Use AI-assisted tools to investigate and fix problems.
+* [Fix coding errors with Copilot](/docs/editing/copilot-smart-actions.md#fix-coding-errors) - Use AI-assisted tools to investigate and fix problems.
+* [Fix a bug with an agent](/docs/agents/guides/fix-a-bug-with-agents.md#apply-the-workflow-to-your-own-project): use your reproduction and debugger findings to add a regression test and verify a focused fix.

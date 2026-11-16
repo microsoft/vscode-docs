@@ -40,6 +40,8 @@ Before you collect detailed logs:
 1. Check whether a workspace setting or organization policy turns off the affected feature. For agent availability, see [Agents are not available in chat](/docs/agents/agent-troubleshooting/faq.md#agents-are-not-available-in-chat).
 1. Reproduce the issue in a new chat session. When you compare two runs, keep the prompt, model, and available tools consistent.
 
+For organization-managed restrictions, contact your administrator. Administrators investigating unexpected restrictions can follow [managed-installation troubleshooting](/docs/enterprise/troubleshooting.md).
+
 ## Check customization diagnostics
 
 Check discovery before investigating whether the model follows an instruction:

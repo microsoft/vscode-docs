@@ -78,6 +78,8 @@ From the Terminal, run the following command:
 dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
 ```
 
+Once your test project is configured, you can [add and review tests with AI](/docs/agents/guides/test-code-with-ai.md) using its existing xUnit, NUnit, or MSTest conventions. Provide the code under test and the expected behavior, then review the generated assertions and run the tests.
+
 ## Features
 
 ### Run/Debug test cases

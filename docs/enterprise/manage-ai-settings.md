@@ -6,14 +6,43 @@ MetaDescription: Manage enterprise AI controls that affect {% data variables.pro
 
 # Manage AI settings in enterprise environments
 
-Organizations can govern AI features in {% data variables.product.prodname_vscode_shortname %} through three management solutions: {% data variables.product.prodname_copilot_short %} enterprise-managed settings, {% data variables.product.prodname_vscode_shortname %} device policies, and GitHub organization or enterprise settings.
+As an IT or {% data variables.product.prodname_copilot_short %} admin, choose where to manage AI access, tools, and execution in {% data variables.product.prodname_vscode_shortname %}, then verify the controls in the clients and environments your developers use.
 
-These solutions control different layers of the AI experience. An organization might use all three, but should configure an overlapping control in only one system.
+You can use {% data variables.product.prodname_copilot_short %} enterprise-managed settings, {% data variables.product.prodname_vscode_shortname %} device policies, and GitHub organization or enterprise settings. These solutions control different layers of the AI experience. Configure an overlapping control in only one system when possible.
 
-For an existing Local deployment, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for developer steps, a compatibility checklist, and an administrator rollout and verification procedure.
+## Start with an admin task
 
-> [!NOTE]
-> If you're a developer and an agent, model, or tool is unavailable, first check the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). For an organization-managed restriction, ask your administrator which capabilities are approved.
+* **Plan an AI rollout**: [Choose a management solution](#choose-a-management-solution) and [verify the workflow and controls](#verify-an-ai-rollout).
+* **Restrict access**: Review [approved accounts](#restrict-ai-features-to-approved-github-organizations), [harness selection](#runtime-policies-and-harness-selection), and [GitHub service-side controls](#use-github-organization-and-enterprise-settings).
+* **Govern tools and customizations**: Configure [permission levels](#manage-permission-levels), [MCP server access](#configure-managed-mcp-server-access), or [plugins and marketplaces](#manage-agent-plugins-and-marketplaces).
+* **Constrain agent execution**: Review [sandboxing](#configure-agent-sandboxing) and [network filtering](#configure-agent-network-filtering) on the execution host.
+* **Configure models and data handling**: Set [managed model defaults](#set-managed-model-defaults), review [dictation data](#control-dictation-data), or configure [managed telemetry](#apply-managed-telemetry-in-vs-code).
+* **Resolve an unexpected restriction or policy result**: Follow [administrator troubleshooting](/docs/enterprise/troubleshooting.md).
+
+If you're a developer rather than an administrator, start with the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks).
+
+## Choose a management solution
+
+Choose the solution for each control based on its scope. An organization can use all three solutions.
+
+| Control you need | Where to manage it |
+|------------------|--------------------|
+| Consistent {% data variables.product.prodname_copilot_short %} guardrails across supported clients and keys. | Use [enterprise-managed settings](#copilot-enterprise-managed-settings) with GitHub-supported server, MDM, or file delivery. |
+| An editor-specific control on managed {% data variables.product.prodname_vscode_shortname %} installations. | Use [device policies](#vs-code-device-policies) through operating system or device management tools. |
+| {% data variables.product.prodname_copilot_short %} access, model availability, or GitHub-hosted organization behavior. | Use [GitHub organization and enterprise settings](#github-organization-and-enterprise-settings) for account-level and service-side controls. |
+
+Some controls are available through more than one solution. Review the [order of precedence](#understand-precedence) before you combine them.
+
+## Verify an AI rollout
+
+Follow the [deployment pilot checklist](/docs/enterprise/deployment.md#validate-a-pilot) before expanding access. For AI workflows, record the client, signed-in account, harness, and execution host used in each test.
+
+* Confirm the effective policy values and their sources with **Developer: Policy Diagnostics**. A delivered value does not establish that every harness enforces it in the same way.
+* Test an approved workflow and a harmless operation that policy should block in the intended harness. Check actual execution and approval behavior, not only the agent's response.
+* For sandbox requirements, inspect the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) where commands run. Repeat checks on approved remote hosts and containers.
+* Give developers a support contact. Use [administrator troubleshooting](/docs/enterprise/troubleshooting.md) when delivery, account eligibility, or enforcement differs from expectations.
+
+For an existing Local deployment, follow [Move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) for the compatibility checklist and migration procedure.
 
 ## Understand the three management solutions
 
@@ -35,7 +64,7 @@ Use device policies for editor-specific controls on managed {% data variables.pr
 
 Administrators deploy these policies through platform management tools, such as Group Policy, Microsoft Intune, or macOS configuration profiles. The policies apply to the managed device and override the corresponding user settings in {% data variables.product.prodname_vscode_shortname %}.
 
-Refer to the [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md) for policy names, accepted values, supported platforms, and minimum versions.
+Refer to [enterprise policy deployment](/docs/enterprise/policies.md) for platform-specific setup and the policy reference. Use the feature-specific sections below for values and harness limitations.
 
 ### GitHub organization and enterprise settings
 
@@ -44,20 +73,6 @@ Use GitHub organization and enterprise settings for account-level and service-si
 Administrators configure these controls on GitHub. They follow the signed-in GitHub account and its organization or enterprise membership rather than the {% data variables.product.prodname_vscode_shortname %} device-policy channel.
 
 Refer to [Manage {% data variables.product.prodname_copilot_short %} for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) for configuration and reference information about these controls.
-
-## Choose a management solution
-
-The solutions are not mutually exclusive. Choose the solution for each control based on the scope you need.
-
-| Requirement | Management solution | Configuration location | Scope |
-|-------------|---------------------|------------------------|-------|
-| Apply consistent {% data variables.product.prodname_copilot_short %} guardrails across supported clients. | {% data variables.product.prodname_copilot_short %} enterprise-managed settings | GitHub-supported server, MDM, or file delivery | Supported {% data variables.product.prodname_copilot_short %} clients and keys |
-| Control a {% data variables.product.prodname_vscode_shortname %}-specific editor feature on managed devices. | {% data variables.product.prodname_vscode_shortname %} device policies | Operating system or device management | Managed {% data variables.product.prodname_vscode_shortname %} installations |
-| Control {% data variables.product.prodname_copilot_short %} access or GitHub-hosted organization and enterprise behavior. | GitHub organization or enterprise settings | GitHub organization or enterprise administration | Signed-in accounts and GitHub-hosted services |
-
-Some controls are available through more than one solution. Review the [order of precedence](#understand-precedence) before you combine them.
-
-Before a broad rollout, test the proposed configuration with a representative project, device, and account. Confirm that developers can complete approved tasks while the intended restrictions remain in place.
 
 ## Understand precedence
 
@@ -268,7 +283,7 @@ Identity capture is off by default and independent of content capture. Review bo
 
 ## Use {% data variables.product.prodname_vscode_shortname %} device policies
 
-The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) for accepted values and minimum versions.
+The following sections describe {% data variables.product.prodname_vscode_shortname %} device policies, their values, and harness-specific behavior. Deploy them by following [Enterprise policies](/docs/enterprise/policies.md), and use the [policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference) to look up policy names and corresponding settings.
 
 > [!IMPORTANT]
 > {% data variables.product.prodname_copilot_short %} harness sessions don't enforce every device policy the same way as Local harness `feature(local-harness)` sessions. The following sections note known differences. Test a policy in the harness that your developers use before you rely on it.
@@ -280,9 +295,9 @@ Jump to:
 * [Govern agents and tools](#govern-agents-and-tools)
 * [Configure security and observability](#configure-security-and-observability)
 
-### Control access and feature availability
+## Control access and feature availability
 
-#### Restrict AI features to approved GitHub organizations
+### Restrict AI features to approved GitHub organizations
 
 Set the `ChatApprovedAccountOrganizations` policy to require developers to sign in with a GitHub account that belongs to an approved organization before AI features are activated.
 
@@ -290,15 +305,15 @@ Provide a JSON array of GitHub organization logins, such as `["contoso", "contos
 
 The policy is fail-closed. AI features remain disabled until account policy data resolves and the signed-in account belongs to an approved organization. Run **Developer: Policy Diagnostics** to inspect the **Account Policy Gate** state.
 
-#### Enable or disable the use of agents
+### Control the Agent option and {% data variables.copilot.agents_window %}
 
-Set the `ChatAgentMode` policy to `false` to disable [agents](/docs/agents/overview.md). This policy controls `setting(chat.agent.enabled)`.
+The `ChatAgentMode` policy controls `setting(chat.agent.enabled)`. It is not a blanket restriction on [agent sessions](/docs/agents/overview.md).
 
-When the policy is disabled, the **Agent** option is not available in the agents dropdown, and the {% data variables.copilot.agents_window %} is unavailable. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits.
+Set it to `false` to disable the **Agent** option in the agents dropdown and make the {% data variables.copilot.agents_window %} unavailable. When agent mode is disabled by policy, the built-in **Ask** and deprecated **Edit** modes remain available.
 
-The policy does not remove Agent Host session targets, such as **Copilot**, from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) in the editor. Developers can still start agent sessions from those targets.
+The policy does not remove Agent Host harnesses, such as **Copilot**, from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) in the editor. Developers can still start agent sessions for those harnesses. Test the available harnesses as well as the dropdown before relying on this policy for your rollout.
 
-#### Enable or disable extension language tools
+### Enable or disable extension language tools
 
 Use the following policies to control extension, browser, and plugin tools:
 
@@ -306,21 +321,21 @@ Use the following policies to control extension, browser, and plugin tools:
 * Set `BrowserChatTools` to `false` to disable browser tools.
 * Set `ChatPluginsEnabled` to `false` to disable agent plugin integration.
 
-#### Configure {% data variables.product.prodname_copilot_short %} code review
+### Configure {% data variables.product.prodname_copilot_short %} code review
 
 Use `CopilotReviewSelection` to control code review for selected code. Use `CopilotReviewAgent` to control access to the code review agent for pull requests and changed files.
 
-#### Configure next edit suggestions
+### Configure next edit suggestions
 
 Set `CopilotNextEditSuggestions` to `false` to disable next edit suggestions.
 
-#### Enable or disable Claude Agent
+### Enable or disable Claude Agent
 
 Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data variables.product.prodname_vscode_shortname %}.
 
 Setting this policy to `true` does not override the [Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
 
-#### Enable or disable the copilot command
+### Enable or disable the copilot command
 
 {% data variables.product.prodname_vscode_shortname %} includes a `copilot` command that runs {% data variables.copilot.copilot_cli %}. When {% data variables.copilot.copilot_cli_short %} isn't installed, the command offers to install it from GitHub. On Windows, setup can also [add the command to `PATH` and install {% data variables.copilot.copilot_cli_short %}](/docs/setup/windows.md#set-up-the-copilot-command).
 
@@ -333,9 +348,9 @@ The policy doesn't affect a {% data variables.copilot.copilot_cli_short %} insta
 
 Whether developers can use {% data variables.copilot.copilot_cli_short %} is controlled by your [GitHub organization and enterprise settings](#use-github-organization-and-enterprise-settings), which {% data variables.copilot.copilot_cli_short %} applies after sign-in.
 
-### Configure models and data handling
+## Configure models and data handling
 
-#### Set a default chat model
+### Set a default chat model
 
 Set the `ChatDefaultModel` policy to choose the default model for new conversations. This policy controls `setting(chat.defaultModel)` and accepts `auto`, a model family name, or a full model ID.
 
@@ -343,7 +358,7 @@ Developers can select another model for an individual conversation. Reopened con
 
 For defaults delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings, see [Set managed model defaults](#set-managed-model-defaults).
 
-#### Control dictation data
+### Control dictation data
 
 Use the following policies to control whether [dictation](/docs/configure/accessibility/voice.md#use-built-in-dictation) audio and transcripts leave the developer's device.
 
@@ -357,9 +372,9 @@ To keep dictation audio on the device, set `DictationModel` to `nemotron-3.5-asr
 
 To prevent transcript text from being sent to a language model, set `DictationLLMCleanup` to `false`. For more information, see [Dictation privacy](/docs/configure/accessibility/voice.md#understand-dictation-privacy).
 
-### Govern agents and tools
+## Govern agents and tools
 
-#### Enable or disable hooks
+### Enable or disable hooks
 
 Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} harness sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
 
@@ -368,7 +383,7 @@ Hook controls depend on the selected harness. For {% data variables.product.prod
 
 <a name="use-the-sdk-harness-for-policy-hooks"></a>
 
-##### Verify Policy Hook coverage
+#### Verify Policy Hook coverage
 
 {% data variables.product.prodname_copilot_short %} Policy Hooks apply to Copilot harness sessions, which use the {% data variables.copilot.copilot_sdk_short %} hook implementation. Confirm that developers select **Copilot** from the [**Session Target** UI control](/docs/agents/run/agent-harnesses.md#select-a-harness) before relying on these hooks for enforcement. Test the required hook behavior in the session that will perform the work.
 
@@ -383,13 +398,13 @@ Test failures and timeouts separately. The [Copilot command-hook reference](http
 
 <a id="deploy-hooks-through-managed-plugins"></a>
 
-##### Restrict hook sources
+#### Restrict hook sources
 
 Set `ChatAllowManagedHooksOnly` to allow hooks only from enterprise-managed sources and plugins that policy force-enables. Set `ChatStrictPluginOnlyCustomization` when you also need to block standalone user and workspace skills, agents, instructions, and MCP servers.
 
 Plugin distribution is a separate decision. To force-enable plugins or govern marketplaces across supported {% data variables.product.prodname_copilot_short %} clients, use the plugin controls in the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#enabledplugins).
 
-#### Manage agent plugins and marketplaces
+### Manage agent plugins and marketplaces
 
 Use the following policies to govern [agent plugins](/docs/agent-customization/agent-plugins.md) and customization discovery in {% data variables.product.prodname_vscode_shortname %}:
 
@@ -422,11 +437,11 @@ Use the following policies to govern [MCP servers](/docs/agent-customization/mcp
 `ChatAllowManagedMcpServersOnly` bridges the two management solutions. It tells {% data variables.product.prodname_vscode_shortname %} to accept grants only from the allowlist delivered through {% data variables.product.prodname_copilot_short %} enterprise-managed settings. Configure that allowlist by following the [GitHub MCP allowlist guidance](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
 -->
 
-#### Configure agent tool approvals
+### Configure agent tool approvals
 
 Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings to control session permission levels. Use {% data variables.product.prodname_vscode_shortname %} device policies for other approval behavior.
 
-##### Manage permission levels
+#### Manage permission levels
 
 For Copilot harness sessions, use enterprise-managed settings to control which permission levels developers can select and the initial level for new sessions.
 
@@ -454,20 +469,24 @@ In both the editor and the {% data variables.copilot.agents_window %}, supported
 
 These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
 
-##### Disable global auto-approval
+#### Disable global auto-approval
 
 Set `ChatToolsAutoApprove` to `false` to prevent developers from enabling global auto-approval. While this policy is set, tool confirmations offer only one-time approval, and tool approvals that developers saved earlier aren't applied.
 
 > [!CAUTION]
 > Global auto-approval bypasses security prompts for tool invocations. Disable it unless your threat model explicitly supports this behavior.
 
-##### Require manual approval for specific tools
+#### Limit automatic approval for specific tools
 
-Use `ChatToolsEligibleForAutoApproval` to require manual approval for specific tools.
+Use `ChatToolsEligibleForAutoApproval` to configure tool approval eligibility. This policy controls `setting(chat.tools.eligibleForAutoApproval)`, but its enforcement differs by harness:
 
-For {% data variables.product.prodname_copilot_short %} harness sessions, a tool marked `false` removes **Allow all** from the permissions picker for the whole session. It does not require confirmation for each call to that tool, so **Assisted permissions** and saved session approvals can still approve it.
+* For Local harness `feature(local-harness)` sessions, setting a tool to `false` requires manual approval for that tool and removes its auto-approval option.
 
-##### Configure terminal auto-approval
+* For {% data variables.product.prodname_copilot_short %} harness sessions, a tool marked `false` removes **Allow all** from the permissions picker for the whole session. It does not require confirmation for each call to that tool. **Assisted permissions** and saved session approvals can still approve it.
+
+For {% data variables.product.prodname_copilot_short %} session-level restrictions, use [managed permission levels](#manage-permission-levels). Verify the actual approval behavior in the intended harness. A policy value in diagnostics alone does not demonstrate per-call confirmation.
+
+#### Configure terminal auto-approval
 
 Set `ChatToolsTerminalEnableAutoApprove` to `false` to turn off rule-based terminal auto-approval. For Local harness `feature(local-harness)` sessions, this policy does not prevent automatic approval of sandboxed commands or approval through session-level permissions.
 
@@ -475,7 +494,7 @@ For {% data variables.product.prodname_copilot_short %} harness sessions, the po
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval).
 
-#### Control {% data variables.copilot.github_environments %}
+### Control {% data variables.copilot.github_environments %}
 
 `feature(github-environments)`
 
@@ -485,9 +504,9 @@ Set the `ChatAgentHostGitHubEnvironments` device policy to `false` to prevent sh
 
 This control doesn't govern all remote connectivity. It isn't a blanket restriction on SSH or dev tunnels, and it doesn't configure other clients' policies. Review those access paths separately before treating it as an organization-wide remote-access boundary.
 
-### Configure security and observability
+## Configure security and observability
 
-#### Configure agent sandboxing
+### Configure agent sandboxing
 
 For {% data variables.product.prodname_copilot_short %} harness sessions, use the [session sandbox controls](/docs/agents/run/agent-sandboxing.md#control-sandboxing-for-the-current-session) and verify the [effective sandbox policy](/docs/agents/run/agent-sandboxing.md#inspect-the-effective-sandbox-policy) on the machine where commands run.
 
@@ -510,7 +529,7 @@ Local harness `feature(local-harness)` sessions approve sandboxed terminal comma
 
 </details>
 
-#### Configure agent network filtering
+### Configure agent network filtering
 
 Set `ChatAgentNetworkFilter` to `true` to restrict network access according to the allowed and denied domain policies.
 
@@ -524,7 +543,7 @@ Terminal coverage depends on the selected harness, platform, and sandbox configu
 
 Restart {% data variables.product.prodname_vscode_shortname %} after you change network filtering settings so new Integrated Browser sessions use the updated policy.
 
-#### Configure telemetry export with OpenTelemetry
+### Configure telemetry export with OpenTelemetry
 
 Use the `CopilotOtel*` policies to control [OpenTelemetry](https://opentelemetry.io/) export for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. These policies cover export enablement, the collector endpoint and protocol, content and identity capture, the service name, resource attributes, and exporter headers.
 
@@ -569,6 +588,6 @@ For {% data variables.product.prodname_copilot_short %} security, privacy, compl
 
 ## Related resources
 
-* [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md)
+* [{% data variables.product.prodname_vscode_shortname %} enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference)
 * [Get started with {% data variables.product.prodname_copilot_short %} enterprise-managed settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started)
-* [{% data variables.product.prodname_copilot_short %} enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings)
+* [Troubleshoot managed deployments](/docs/enterprise/troubleshooting.md)

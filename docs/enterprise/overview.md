@@ -1,69 +1,40 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 DateApproved: 11/11/2026
-MetaDescription: Configure enterprise policies, extensions, AI access, and network settings for development teams in {% data variables.product.prodname_vscode %}.
+MetaDescription: Plan deployment, govern AI and extensions, and troubleshoot {% data variables.product.prodname_vscode %} across managed devices.
 ---
 
 # {% data variables.product.prodname_vscode_shortname %} for enterprise
 
-{% data variables.product.prodname_vscode %} can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure {% data variables.product.prodname_vscode_shortname %} to achieve consistency and compliance across your organization.
+As an IT admin, deploy {% data variables.product.prodname_vscode %}, configure your organization's controls, and verify that developers can complete approved work. Start with the task you need to accomplish, then follow the deployment and troubleshooting guides for the full workflow.
 
-For an AI rollout, start with [managing AI settings](/docs/enterprise/manage-ai-settings.md). Choose the controls your organization needs, test them with a representative development workflow, and tell developers which capabilities are available and how to request access.
+## Start with an admin task
 
-> [!NOTE]
-> If you're a developer using a managed device, start with the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). If a setting is managed by your organization, contact your administrator rather than trying to override the policy.
+* **Deploy to managed devices**: [Choose an installation method, configure controls, and validate a pilot](/docs/enterprise/deployment.md) before expanding your rollout.
+* **Govern AI use**: [Choose where to manage AI access, tools, and execution](/docs/enterprise/manage-ai-settings.md) based on the clients and accounts your organization uses.
+* **Manage extensions**: [Approve extensions and configure distribution](/docs/enterprise/extensions.md), including a private marketplace or Windows extension preinstallation.
+* **Control updates**: [Plan application and extension servicing](/docs/enterprise/updates.md) and verify which update mechanism manages each installation.
+* **Manage telemetry**: [Configure product telemetry and feedback](/docs/enterprise/telemetry.md), and review agent monitoring separately.
+* **Configure network access**: [Review service, proxy, and certificate requirements](/docs/setup/network.md#plan-network-access-for-managed-devices) with your network team.
+* **Resolve a managed-device issue**: [Check policy delivery, precedence, and enforcement](/docs/enterprise/troubleshooting.md) and collect evidence for the responsible administrator.
 
-## Enterprise policies
+## Choose the right management scope
 
-{% data variables.product.prodname_vscode_shortname %} supports centrally managed policies that override user settings on managed devices. Policies can be deployed through device management solutions like Microsoft Intune, Active Directory Group Policy, or MDM solutions on macOS.
+Use [device policies](/docs/enterprise/policies.md) for supported editor settings on managed Windows, macOS, and Linux installations. These policies override the corresponding user and workspace settings.
 
-Policies are available to control:
+AI controls can also come from {% data variables.product.prodname_copilot_short %} enterprise-managed settings or GitHub organization and enterprise settings. These systems have different scopes and precedence. Follow [Choose a management solution](/docs/enterprise/manage-ai-settings.md#choose-a-management-solution) rather than assuming a device policy covers every client or agent session.
 
-* [AI and Copilot features](/docs/enterprise/manage-ai-settings.md) - Agent mode, MCP servers, and tool approvals
-* [Extensions](/docs/enterprise/extensions.md) - Allowed extensions and private marketplace
-* [Telemetry](/docs/enterprise/telemetry.md) - Data collection levels and feedback mechanisms
-* [Automatic updates](/docs/enterprise/updates.md) - Control when and how {% data variables.product.prodname_vscode_shortname %} updates
+## Verify before expanding a rollout
 
-See the [enterprise policies reference](/docs/enterprise/policies.md) for a complete list of available policies.
+Use a pilot group that represents your developers' devices, accounts, projects, and execution environments. Confirm both the effective configuration and its behavior: an approved workflow should succeed, and a harmless operation that policy prohibits should be blocked.
 
-## Extension management
+Follow the [deployment validation checklist](/docs/enterprise/deployment.md#validate-a-pilot) for the editor and [AI rollout checks](/docs/enterprise/manage-ai-settings.md#verify-an-ai-rollout) for agent sessions. Give developers a support contact and a process for requesting access to restricted capabilities.
 
-Organizations can manage extension installation and enablement in {% data variables.product.prodname_vscode_shortname %} and host a private extension marketplace.
+## Help developers on managed devices
 
-* **Allowed extensions** - Configure which extensions {% data variables.product.prodname_vscode_shortname %} permits users to install and enable by publisher, extension ID, version, or platform
-* **Private marketplace** - Host and distribute internal and public extensions within your organization
-
-Learn more about [managing extensions in enterprise environments](/docs/enterprise/extensions.md).
-
-## Network configuration
-
-{% data variables.product.prodname_vscode_shortname %} requires network access for several features, including automatic updates, extension marketplace, and telemetry. For environments with restricted network access or proxy servers, you might need to configure:
-
-* **Firewall allowlist** - Allow specific hostnames for {% data variables.product.prodname_vscode_shortname %} functionality
-* **Proxy server** - {% data variables.product.prodname_vscode_shortname %} uses system proxy settings by default
-* **SSL certificates** - Configure trusted certificates for HTTPS proxies
-
-For detailed network configuration, see [Network connections in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/network.md).
-
-### Common hostnames
-
-If your firewall requires an allowlist, the key hostnames to allow include:
-
-* `update.code.visualstudio.com` - Updates
-* `marketplace.visualstudio.com` - Extension marketplace
-* `*.gallery.vsassets.io` - Extension assets
-* `vscode.download.prss.microsoft.com` - Downloads
-
-See the [complete list of hostnames](/docs/setup/network.md#common-hostnames) in the network documentation.
-
-## Preinstalled extensions
-
-You can prepare machine images or virtual machines with {% data variables.product.prodname_vscode_shortname %} and a set of preinstalled extensions. When users launch {% data variables.product.prodname_vscode_shortname %} for the first time, the extensions are installed automatically.
-
-Learn more about [preinstalling extensions](/docs/enterprise/extensions.md#preinstall-extensions).
+If you're a developer using a managed device, start with the [AI troubleshooting guidance](/docs/agents/agent-troubleshooting/troubleshooting.md#start-with-basic-checks). Contact your administrator about organization-managed restrictions rather than trying to override them in user or workspace settings.
 
 ## Related resources
 
-* [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of policies
-* [Network connections](/docs/setup/network.md) - Proxy and firewall configuration
-* [Settings Sync](/docs/configure/settings-sync.md) - Synchronize settings across devices
+* [System requirements and supported environments](/docs/supporting/requirements.md)
+* [Enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference)
