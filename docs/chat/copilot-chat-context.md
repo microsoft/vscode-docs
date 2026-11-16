@@ -109,11 +109,8 @@ The browser toolbar has an **Add to Chat** split button with actions that let yo
 
 Learn how to [add browser context to chat](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat). To let an agent interact with a page instead of attaching it as prompt context, see [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
 
-## Related resources
+## Next steps
 
-* [Use the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)
-* [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
-* [Prompt examples](/docs/agents/guides/prompt-examples.md)
-* [Prompt engineering guide](/docs/agents/best-practices.md)
-* [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
-* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
+* [Adapt a prompt to your project](/docs/agents/guides/prompt-examples.md#adapt-an-example-to-your-project) with relevant files, errors, and expected results.
+* [Explore a codebase](/docs/agents/guides/explore-a-codebase.md) and verify the explanation against source references.
+* If the response misses your intent, [get the agent back on track](/docs/agents/guides/get-agent-back-on-track.md) with focused feedback or a fresh conversation.

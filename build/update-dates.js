@@ -6,6 +6,10 @@ const path = require('path');
 const glob = require('glob');
 const readline = require('readline');
 
+/**
+ * @param {string} question
+ * @returns {Promise<string>}
+ */
 function prompt(question) {
 	const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 	return new Promise((resolve) => {
@@ -16,6 +20,9 @@ function prompt(question) {
 	});
 }
 
+/**
+ * @param {string} date
+ */
 function validateDate(date) {
 	// Validate yyyy-mm-dd format
 	if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
@@ -34,6 +41,9 @@ function validateDate(date) {
 	}
 }
 
+/**
+ * @param {string} version
+ */
 function validateVersion(version) {
 	if (!/^1[._]\d+$/.test(version)) {
 		console.error('Error: version must be in the format 1.110 or 1_110.');
@@ -41,12 +51,20 @@ function validateVersion(version) {
 	}
 }
 
+/**
+ * @param {string} isoDate
+ * @returns {string}
+ */
 function convertToDocDate(isoDate) {
 	// Convert yyyy-mm-dd to mm/dd/yyyy
 	const [year, month, day] = isoDate.split('-');
 	return `${parseInt(month)}/${parseInt(day)}/${year}`;
 }
 
+/**
+ * @param {string} isoDate
+ * @returns {string}
+ */
 function formatReleaseDateSentence(isoDate) {
 	const [year, month, day] = isoDate.split('-').map(Number);
 	const date = new Date(year, month - 1, day);
@@ -59,6 +77,11 @@ function formatReleaseDateSentence(isoDate) {
 	return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
+/**
+ * @param {string} content
+ * @param {string} newDate
+ * @returns {{ content: string, changed: boolean }}
+ */
 function updateDateApproved(content, newDate) {
 	if (!content.startsWith('---\n')) {
 		return { content, changed: false };
@@ -91,6 +114,11 @@ function updateDateApproved(content, newDate) {
 	};
 }
 
+/**
+ * @param {string} content
+ * @param {string} newDate
+ * @returns {{ content: string, changed: boolean }}
+ */
 function updateReleaseNoteDate(content, newDate) {
 	let changed = false;
 
@@ -152,11 +180,16 @@ Example:
 
 Documentation paths updated (DateApproved):
   - api/**/*.md
+  - docs/agent-customization/**/*.md
+  - docs/agents/**/*.md
+  - docs/chat/**/*.md
+  - docs/configure/**/*.md
+  - docs/extension-docs/**/*.md
   - docs/setup/**/*.md
   - docs/getstarted/**/*.md
   - docs/editing/**/*.md
+  - docs/editor/**/*.md
   - docs/debugtest/**/*.md
-  - docs/copilot/**/*.md
   - docs/sourcecontrol/**/*.md
   - docs/terminal/**/*.md
   - docs/enterprise/**/*.md
@@ -166,9 +199,13 @@ Documentation paths updated (DateApproved):
   - docs/remote/**/*.md
   - docs/devcontainers/**/*.md
   - docs/reference/**/*.md
-  - remote/**/*.md`);
+  - remote/**/*.md
+  - learn/**/*.md`);
 }
 
+/**
+ * @param {string} docDate
+ */
 async function updateDocumentation(docDate) {
 	console.log(`\n--- Updating Documentation ---`);
 	console.log(`DateApproved: ${docDate}\n`);
@@ -180,15 +217,13 @@ async function updateDocumentation(docDate) {
 		'docs/agent-customization/**/*.md',
 		'docs/agents/**/*.md',
 		'docs/chat/**/*.md',
-		`docs/configure/**/*.md`,
-		'docs/core-editor/**/*.md',
+		'docs/configure/**/*.md',
 		'docs/extension-docs/**/*.md',
 		'docs/setup/**/*.md',
 		'docs/getstarted/**/*.md',
 		'docs/editing/**/*.md',
 		'docs/editor/**/*.md',
 		'docs/debugtest/**/*.md',
-		'docs/copilot/**/*.md',
 		'docs/sourcecontrol/**/*.md',
 		'docs/terminal/**/*.md',
 		'docs/enterprise/**/*.md',
@@ -229,6 +264,10 @@ async function updateDocumentation(docDate) {
 	console.log(`  Skipped: ${skippedCount} (no DateApproved field or already up to date)`);
 }
 
+/**
+ * @param {string} version
+ * @param {string} releaseDate
+ */
 async function updateReleaseNote(version, releaseDate) {
 	console.log(`\n--- Updating Release Note ---`);
 	console.log(`Version: ${version}`);

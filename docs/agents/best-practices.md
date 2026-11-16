@@ -5,7 +5,7 @@ MetaDescription: Use AI effectively in {% data variables.product.prodname_vscode
 ---
 # Best practices for using AI in {% data variables.product.prodname_vscode_shortname %}
 
-This article covers good practices for using AI in {% data variables.product.prodname_vscode %}. Start with a bounded task, provide relevant context, and verify the result. Configure custom instructions, agents, or tools later when you have a recurring need.
+This article covers good practices for using AI in {% data variables.product.prodname_vscode %}. Start with a bounded task, provide relevant context, and verify the result. The first sections cover that workflow. [Go further with configuration and optimization](#go-further-when-you-need-to) when you have a recurring need.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in {% data variables.product.prodname_vscode_shortname %}">
 Learn about the agent loop, context window, tools, and other core concepts.
@@ -88,8 +88,6 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Tell the AI to ask clarifying questions.** If a task is ambiguous, instruct the AI to ask you questions before proceeding. This leads to more accurate results than guessing at requirements.
 
-* **Parallel tasks.** If you have multiple independent tasks, ask the AI to run them in parallel to save time. For example, "Perform isolated research about X and Y in parallel and summarize the findings."
-
 Adapt the [prompt examples](/docs/agents/guides/prompt-examples.md) for your task, including the multi-turn examples for refining a result. For a video introduction, watch [Core principles of prompt engineering with {% data variables.product.prodname_copilot %}](https://www.youtube.com/watch?v=hh1nOX14TyY).
 
 ## Provide the right context
@@ -108,38 +106,18 @@ The AI responds more accurately when it has relevant context. Use these techniqu
 
 * Give agents [browser tools](/docs/agents/run/browser-tools.md) to exercise user flows, inspect the result, fix problems, and verify their changes autonomously.
 
+* [Start a new chat for an unrelated task](/docs/agents/run/sessions/manage-sessions.md#start-a-new-or-related-conversation) instead of carrying irrelevant conversation history into the next request.
+
 For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/agents/run/tools.md).
-
-## Choose the right model
-
-Each AI model has different strengths. Some are better at reasoning, others excel at code generation or faster responses. Choosing the right model for your task improves results.
-
-* **Match model to task complexity.** Use fast models for simple completions and boilerplate. Switch to reasoning-optimized models for planning, debugging, or architectural decisions.
-
-* **Use latest models.** Newer models often have improved capabilities. {% data variables.product.prodname_vscode_shortname %} continuously adds support for new models and model versions. Check the [available models](/docs/agent-customization/language-models.md) and use the latest models.
-
-* **Pin models in prompt files and agents.** Specify preferred models in your prompt file or custom agent definitions to ensure the right model is used consistently for specific tasks.
-
-* **Experiment and compare.** If you're not satisfied with a response, try a different model. Different models can produce significantly different results for the same prompt.
-
-* **Adjust thinking effort for reasoning models.** Use the [thinking effort control](/docs/agent-customization/language-models.md#configure-thinking-effort) in the model picker to increase effort for complex tasks or reduce it for simpler ones.
-
-* **Use BYOK for additional control.** Bring your own API key for more model choices and hosting options.
-
-* **Consider credit consumption.** More capable models consume more [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) per token. Auto model selection balances quality and cost automatically. For more tips, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
-
-For more information, see [selecting AI models](/docs/agent-customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Plan first, then implement
 
 For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem and avoids spending [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) on code that needs to be thrown away.
 
-1. **Explore.** Use chat for questions or use a subagent to read the relevant code and understand how it works before making changes.
+1. **Explore.** Use **Ask** to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent sessions that use the Copilot, Claude, or Codex harness in parallel. For managed cloud execution, [start a cloud session](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` with the task and its context.
-1. **Review.** Use [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
-
-For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).
+1. **Implement.** Select **Agent** and implement the approved plan. Include tests or expected outputs so the agent can verify its work.
+1. **Review.** [Inspect the diff and validation results](/docs/agents/run/review-code-edits.md) before committing. If the result doesn't match the plan, request a focused revision.
 
 ## Review and verify AI output
 
@@ -155,100 +133,62 @@ AI-generated code can contain bugs, security issues, or subtle logic errors. Alw
 
 For more information, see [GitHub Copilot security](/docs/agents/run/security.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/faq).
 
-## Choose the right agent harness
+## Go further when you need to
 
-When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
+You don't need the following techniques to complete a first task. Use them when a specific problem or recurring workflow calls for more control.
 
-> [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+### Choose the right model
 
-* **Use the Copilot harness for day-to-day coding.** The Copilot harness runs tools on your machine with access to your workspace and run-time context. It is a good default for most coding tasks. Tool execution location is separate from where the selected language model runs.
+Start with **Copilot Fusion** or **Auto** when available. If results, speed, or cost don't meet your needs, compare models on the same representative task rather than changing several options at once.
 
-* **Use Claude or Codex for provider-specific capabilities.** These harnesses also run tools on your machine and provide their own SDK capabilities through the same {% data variables.product.prodname_vscode_shortname %} session experience.
+* Use the [model picker](/docs/agent-customization/language-models.md) to browse available models and their requirements.
+* Use [**Compare Models**](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %} to run the same prompt with multiple models and compare their results side by side.
+* For reasoning models, adjust [thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size) when the task needs more analysis.
+* Compare the result and verification evidence alongside [AI credit usage](/docs/agents/guides/optimize-usage.md), not only response speed.
 
-* **Use cloud sessions for managed execution.** Use [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` for interactive work on managed compute that you can reconnect to later, without keeping your own host online.
+### Choose the right agent harness
 
-* **Run parallel sessions for independent tasks.** Start multiple sessions with the Copilot, Claude, or Codex harness, or use cloud sessions, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+Keep the {% data variables.product.prodname_copilot_short %} harness for the workflow above. When you need another provider's tools or account, [compare harness requirements](/docs/agents/run/agent-harnesses.md#requirements-and-setup) before switching. Organization policies can restrict the available choices.
 
-For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
+Changing the model doesn't change the harness. Where tools run is another decision: use [remote sessions](/docs/agents/run/remote-agent-sessions.md) for a host you manage, or [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` for managed execution without keeping your own machine online.
 
-## Optimize your project for AI
+### Optimize your project for AI
 
-Project customization is optional. Add it when you have conventions, project context, or workflows that the AI can't reliably infer from your code. Concise customization can also help [optimize AI credit usage](/docs/agents/guides/optimize-usage.md) by reducing repeated context gathering, corrections, and retries.
+Add customizations when the agent repeatedly misses a convention or workflow that it can't infer from your code. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for your selected session.
 
-{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Enter `/init` in chat to generate a starter configuration.
+{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) and create customizations for your selected harness.
 
 | Mechanism | Best for | Get started |
 |-----------|----------|-------------|
 | [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
-| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
-| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
+| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Select **Agents**, then **New Agent** next to **Workspace** in the Agent Customizations editor |
+| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Select **Skills**, then **New Skill** next to **Workspace** in the Agent Customizations editor |
 | [Tools and MCP servers](/docs/agents/run/tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
-Tips for effective project configuration:
+Verify one customization on a representative task before adding more. Follow the [project customization guide](/docs/agents/guides/customize-copilot-guide.md) for a before-and-after comparison.
 
-* **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
-* **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
-* **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
-* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
+### Manage context and sessions
 
-For full setup details, see [Customize agent behavior in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md).
+Choose an approach based on the problem you're solving:
 
-## Manage context and sessions
+* **A long conversation is losing focus:** [Compact the conversation](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context), specifying what to retain, or start a fresh chat with a concise summary.
+* **You want to compare approaches:** [Fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) to retain its history. A fork doesn't isolate file changes.
+* **Independent tasks need to run in parallel:** Use [separate worktrees](/docs/agents/guides/delegate-two-tasks.md) when their changes must stay separate. Review each result before integrating it.
+* **One task needs a focused investigation:** Ask a [subagent](/docs/agents/run/subagents.md#subagents-by-harness) to investigate a bounded question and report back.
 
-AI responses might degrade as the conversation fills with irrelevant context. Manage your sessions proactively.
+### Optimize AI credit usage
 
-* **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality and wastes tokens on irrelevant history.
+If usage is higher than expected, first check task scope, relevant context, and repeated failed attempts. Planning before implementation and correcting the agent early can avoid work you would otherwise discard.
 
-* **Start a fresh chat for related work.** When the task still belongs in the same workspace but doesn't need the current conversation history, [start another chat in the session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session), where supported. It shares the session's files and code changes without inheriting the other chats' history.
+Use the [AI credit usage guide](/docs/agents/guides/optimize-usage.md) to compare cost with result quality. If session metrics indicate low cache reuse, use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to investigate it rather than treating cache tuning as a prerequisite for coding.
 
-* **Compact context.** Use [/compact](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context) and provide instructions to selectively compact the context and retain only the most relevant information. Compacting reduces the tokens sent with each subsequent request, which helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md).
+### Work with large codebases
 
-* **Verify cache performance.** Keep the early parts of your prompt stable across turns to reuse the prompt cache and reduce cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check cache hit rates and find where the cache breaks.
+Start with a bounded behavior or component instead of asking the agent to understand the entire repository. [Workspace context](/docs/agents/reference/workspace-context.md) explains how search and indexing help locate relevant code.
 
-* **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/run/subagents.md) so the findings don't clutter your main context.
+For monorepos or projects with multiple services, use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope the workspace, and record non-obvious module boundaries in [project instructions](/docs/agent-customization/custom-instructions.md). [Exclude generated and noisy files from search](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings) to keep searches focused.
 
-* **Choose the right harness and execution environment.** Start with the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot) for day-to-day work in a folder or isolated worktree on your machine, or a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` for interactive work on managed compute.
+## Next steps
 
-* **Scale with parallel sessions.** Run multiple sessions in separate folders or worktrees to save time and keep contexts separate. You can switch among sessions that run on your machine, a connected host, in a Dev Container, or on provider-managed cloud infrastructure from the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) in {% data variables.product.prodname_vscode_shortname %}.
-
-* **Fork instead of re-prompting.** Use [`/fork`](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) to explore alternatives without losing context, instead of starting over and re-establishing context from scratch.
-
-For more information, see [session management](/docs/agents/run/sessions/manage-sessions.md), [workspace indexing](/docs/agents/reference/workspace-context.md), and [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
-
-## Optimize AI credit usage
-
-Many of the practices in this article also help you control cost. More capable models, large contexts, and throwaway work all consume [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). A few levers have the biggest impact:
-
-* **Match the model to the task.** Use faster, cheaper models for simple work and reserve premium models for planning, debugging, and architectural decisions. Auto model selection balances quality and cost for you.
-
-* **Keep context lean.** Send only relevant context, [compact](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context) long conversations, and start fresh sessions for unrelated tasks to avoid paying for irrelevant history on every request.
-
-* **Plan before you implement.** Separating planning from implementation avoids spending credits on code you throw away.
-
-For a complete set of techniques, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
-
-## Work with large codebases
-
-Copilot is designed to work effectively with large, complex, and multi-root workspaces. Use these practices to get the best results at scale.
-
-* **Use workspace indexing.** {% data variables.product.prodname_vscode_shortname %} automatically indexes your project using semantic search, language intelligence, and GitHub's code search for deep cross-file reasoning. This works for both small projects and large enterprise codebases. For large repositories, use [remote indexing](/docs/agents/reference/workspace-context.md#semantic-index-sources) for fast, comprehensive results across your repository and related repositories on GitHub.
-
-* **Scope work with multi-root workspaces.** For monorepos or projects with multiple services, use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to give the AI clear boundaries and focused context.
-
-* **Provide project-level instructions.** Use [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
-
-* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list), each focused on a different area of the codebase.
-
-* **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/agents/run/planning.md) to create a structured implementation plan before executing.
-
-For more information, see [workspace context](/docs/agents/reference/workspace-context.md) and [agents](/docs/agents/overview.md).
-
-## Related resources
-
-* [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
-* [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md)
-* [Customize agent behavior in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md)
-* [Cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md)
-* [GitHub Copilot security](/docs/agents/run/security.md)
-* [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation
+* [Find a guide for your next project task](/docs/agents/guides/overview.md#work-on-a-project).
+* [Choose a recovery action when an agent gets off track](/docs/agents/guides/get-agent-back-on-track.md#choose-a-recovery-action).

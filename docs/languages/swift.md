@@ -177,6 +177,8 @@ The Swift extension supports [XCTest](https://developer.apple.com/documentation/
 [Swift Testing](https://swiftpackageindex.com/swiftlang/swift-testing).
 As you write tests they are automatically added to the Test Explorer.
 
+For optional AI assistance, [add and review tests with an agent](/docs/agents/guides/test-code-with-ai.md). Provide the expected behavior and reuse your project's XCTest or Swift Testing conventions, then run the tests and review the assertions.
+
 ![Inline test errors](images/swift/inline_assertion_failures.png)
 
 To debug a test:

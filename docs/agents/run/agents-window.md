@@ -9,8 +9,6 @@ The {% data variables.copilot.agents_window %} provides an agent-first interface
 
 This guide follows the workflow from choosing where an agent makes changes to monitoring, validating, and integrating its work. Start with one task, then add independent tasks as needed. If you're new to agent-assisted coding, first complete the [agents quickstart](/docs/agents/quickstart.md).
 
-<!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the {% data variables.copilot.agents_window %} experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
-
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
 

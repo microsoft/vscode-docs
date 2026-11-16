@@ -321,6 +321,8 @@ To install the Insiders build, go to the [Insiders download page](/insiders).
 
 By default, {% data variables.product.prodname_vscode_shortname %} is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, configure the **Update: Mode** setting (`setting(update.mode)`) from `default` to `none`.
 
+To manage updates across your organization's devices, use [enterprise update policies and servicing guidance](/docs/enterprise/updates.md#update-policy) rather than configuring each user's settings.
+
 To modify the update mode, go to **File** > **Preferences** > **Settings**, search for `update mode` and change the setting to `none`.
 
 If you use the JSON editor for your settings, add the following line:
