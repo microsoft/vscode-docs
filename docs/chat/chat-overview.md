@@ -128,6 +128,8 @@ To turn off image generation, set `setting(chat.copilot.imageGeneration.model)` 
 
 You can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
 
+On desktop, you can also open an image attached to the chat input and select **Mark Up** to draw or crop it before sending. See [Mark up an image](/docs/chat/copilot-chat-context.md#mark-up-an-image).
+
 ![Screenshot showing the image carousel view with multiple images.](images/chat-sessions/image-carousel.png)
 
 To disable the image carousel, set `setting(imageCarousel.chat.enabled)` to `false`.

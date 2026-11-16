@@ -94,10 +94,49 @@ Ask Copilot directly about your code, terminal output, or editor settings and at
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
 
-Vision analyzes image input and doesn't generate image output. To create an image or edit an existing one, use [image generation](/docs/chat/chat-overview.md#generate-and-edit-images) in a {% data variables.product.prodname_copilot_short %} harness session.
+Select a model that supports images to ask questions about visual content. Vision analyzes image input and doesn't generate image output. To generate an image or ask an image model to edit one, use [image generation](/docs/chat/chat-overview.md#generate-and-edit-images) in a {% data variables.product.prodname_copilot_short %} harness session. To highlight details yourself before sending an image, [mark up the attachment](#mark-up-an-image).
 
 > [!TIP]
 > You can drag and drop an image from a web browser onto the {% data variables.copilot.chat_view %} to add it as context.
+
+### Capture the {% data variables.product.prodname_vscode_shortname %} window
+
+On desktop, capture the whole {% data variables.product.prodname_vscode_shortname %} window or a selected area without saving an image file first:
+
+1. Select a model that supports images. **Screenshot Window** is only available when the selected model and session support image attachments.
+1. In the chat input, select **Add Context** (`+` icon) > **Screenshot Window**.
+1. When the cursor becomes a camera, select anywhere in the window or press `kbstyle(Enter)` to capture the whole window. Drag to capture an area instead. Press `kbstyle(Escape)` to cancel.
+
+The screenshot is attached to the chat input. Add a prompt describing the problem or change you want, then send it.
+
+### Capture another app window
+
+`feature(chat-app-window-screenshots)`
+
+On desktop, attach a screenshot of another app, such as a browser or simulator, to show the agent what you're building.
+
+1. Enable `setting(chat.appWindowScreenshots.enabled)` if needed. It is on by default in Insiders and off by default in Stable.
+1. Focus the chat input where you want the screenshot, then switch to the app you want to capture.
+1. Press `kb(workbench.action.chat.attachAppWindowScreenshot)`. {% data variables.product.prodname_vscode_shortname %} comes to the front with the screenshot attached. If you use the shortcut while {% data variables.product.prodname_vscode_shortname %} is in front, it captures the app window you just left.
+
+The shortcut works system-wide while the feature is enabled. To choose a window instead, select **Add Context** > **Screenshot App Window**, or run **Chat: Pick App Window to Screenshot** from the Command Palette.
+
+On macOS, follow the setup dialog to grant Screen Recording permission, then restart {% data variables.product.prodname_vscode_shortname %}. On Wayland, choose the window in the system's window picker.
+
+> [!NOTE]
+> The shortcut attaches to the chat input that last had focus. In the {% data variables.copilot.agents_window %}, this can differ from the session selected in the sessions list. Confirm the destination before sending.
+
+### Mark up an image
+
+On desktop, draw, add shapes, arrows, or text, and crop any image attached to the chat input. This works for screenshots and for images you paste or drop into chat.
+
+1. Select **Mark Up** (pencil icon) at the end of the image attachment. Alternatively, open the image preview and select **Mark Up** in its toolbar.
+1. Use the drawing and crop tools to highlight the relevant details.
+1. Select **Done** to update the attached image, then add your prompt and send it.
+
+<!-- TODO: Capture an attached screenshot open in Mark Up, with an annotation and the Done button visible. -->
+
+Taking a screenshot or marking up an image doesn't send a chat request. Review the image for sensitive content before sending it.
 
 ## Add browser context
 

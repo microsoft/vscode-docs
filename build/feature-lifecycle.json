@@ -61,6 +61,10 @@
       "label": "Canvases",
       "state": "preview"
     },
+    "chat-app-window-screenshots": {
+      "label": "App window screenshots in chat",
+      "state": "experimental"
+    },
     "chat-pet": {
       "label": "VS Code pet",
       "state": "experimental"

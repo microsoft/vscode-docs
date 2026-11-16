@@ -290,6 +290,8 @@ The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
 
 Each mode is also available as a **Browser:** command in the Command Palette.
 
+Before sending the prompt, [mark up the attached screenshot](/docs/chat/copilot-chat-context.md#mark-up-an-image) to highlight a layout issue or crop it to the relevant area.
+
 > [!NOTE]
 > To enable the full page screenshot mode, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
