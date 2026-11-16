@@ -159,7 +159,7 @@ If you prefer to create the files directly, use `~/.copilot/hooks/`, or `$COPILO
 
 ## Configure commands and event data
 
-A command hook receives event data as JSON on standard input (stdin). It can return one JSON output object on standard output (stdout). Keep diagnostic text separate from that output.
+A command hook receives event data as JSON on standard input (stdin). It can return one JSON output object on standard output (stdout). This single-JSON-object contract applies to the entire process tree, not just the hook script's final write: keep diagnostic text separate on standard error (stderr) and redirect or suppress stdout from any child processes (such as package managers or dependency installers), because extra text on stdout can invalidate the JSON response even when the hook exits successfully.
 
 The Copilot harness supports a cross-platform `command` fallback and platform-specific `bash` or `powershell` commands. Command arguments belong in the command string. A shell-free `exec` and `args` form is also available; these arguments are not a replacement for the event JSON on stdin.
 
