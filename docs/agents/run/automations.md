@@ -6,7 +6,7 @@ MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 ---
 # Create and manage agent automations
 
-Automations run agent tasks from a saved prompt and session configuration. Use them for work such as summarizing repository changes or triaging issues without starting each session manually. Run an automation on demand, on a recurring schedule, or, for cloud automations, in response to supported repository events. You can also start from a template or share an automation as a reusable file.
+Automations run agent tasks from a saved prompt and session configuration. Use them for work such as summarizing repository changes or triaging issues without starting each session manually. Run an automation on demand, on a recurring schedule, or, for cloud automations, in response to supported repository events. You can ask an agent to create an automation, start from a template, or share an automation as a reusable file.
 
 Run an automation locally when the task needs your development environment. Run it in GitHub's cloud `feature(cloud-automations)` when you want recurring repository work to continue while {% data variables.product.prodname_vscode_shortname %} and your computer are off.
 
@@ -34,14 +34,14 @@ Automations start a run when a trigger fires. They are different from [cloud ses
 
 ## Create an automation
 
-Choose local or cloud execution:
+For guided setup, [create an automation from chat](#create-an-automation-from-chat) with the built-in `/automate` skill. To enter the configuration yourself, follow the steps for local or cloud execution:
 
 {% tabs id="automation-execution" %}
 {% tab label="Local" %}
 
 1. In the {% data variables.copilot.agents_window %} sidebar, select **Automations**.
 
-1. Create a new automation or select one of the [starter templates](#start-from-a-template). Starting from a template prepopulates the prompt and schedule fields.
+1. Select the dropdown next to **Create with Agent**, and then select **Create Manually**. Alternatively, select one of the [starter templates](#start-from-a-template) to prepopulate the prompt and schedule fields.
 
 1. Leave **Run in the Cloud** off.
 
@@ -80,7 +80,7 @@ Choose local or cloud execution:
 
 1. In the {% data variables.copilot.agents_window %} sidebar, select **Automations**.
 
-1. Create a new automation or select one of the [starter templates](#start-from-a-template). Starting from a template prepopulates the prompt and schedule fields.
+1. Select the dropdown next to **Create with Agent**, and then select **Create Manually**. Alternatively, select one of the [starter templates](#start-from-a-template) to prepopulate the prompt and schedule fields.
 
 1. Turn on **Run in the Cloud**.
 
@@ -124,18 +124,33 @@ The cloud service runs the prompt in the selected repository. It doesn't use you
 
 ## Create an automation from chat
 
-You can also create an automation by asking in a normal chat in the {% data variables.copilot.agents_window %}. Describe the task, where it should run, and its schedule. For example:
+Use the built-in `/automate` skill in the {% data variables.copilot.agents_window %} to turn a completed task or a new idea into a recurring automation. The agent helps draft a reusable prompt and configuration for you to review before saving.
+
+Start in any of these ways:
+
+* **Reuse a completed task:** Enter `/automate` in the same chat. The agent uses the relevant goal, inputs, scope, and expected result, rather than saving the entire conversation. Add instructions after `/automate` to adjust what should repeat.
+* **Start from a new idea:** In a new chat, enter `/automate` followed by the task you want to repeat. If you enter `/automate` without context, the agent suggests examples and helps you define a task.
+* **Start from the Automations view:** Select **Automations** in the sidebar, and then select **Create with Agent**. This opens a new-session page with `/automate` prefilled. Add your task description and send the prompt.
+
+For example, start a new chat with:
 
 ```prompt
-Create a local automation for this workspace that runs daily at 9:00 AM.
+/automate Create a local automation for this workspace that runs daily
+at 9:00 AM in my local time zone.
 Summarize commits from the last 24 hours, grouped by feature, fix, and maintenance.
 Return the summary in the session. Do not modify files.
 Save the automation disabled so I can review it before enabling scheduled runs.
 ```
 
-The agent creates the automation through the normal tool-approval flow. Review any approval request before allowing creation. Then open **Automations** to review the saved prompt, execution environment, schedule, and permissions before enabling scheduled runs.
+1. Answer questions about missing task or schedule details. The agent uses relevant information from the conversation instead of asking you to repeat it.
 
-For a custom cadence, specify a cron expression and the time zone:
+1. Review the proposed name, exact prompt, [execution environment](#choose-where-an-automation-runs), workspace, schedule, and time zone. Check any proposed [permissions](/docs/agents/run/approvals.md#permission-levels) and constraints before proceeding.
+
+1. Ask for changes, or say `Create it` to save the reviewed automation. Invoking `/automate` alone doesn't confirm creation. Normal tool approvals and organization policies still apply.
+
+1. Open **Automations** to review the saved configuration, then [run and review the automation](#run-and-review-an-automation) before enabling recurring work.
+
+You can also ask for an automation in ordinary chat without invoking `/automate`. For a custom cadence, specify a cron expression and the time zone:
 
 ```prompt
 Create a local Agent Host automation for this workspace.

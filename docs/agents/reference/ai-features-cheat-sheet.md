@@ -88,6 +88,7 @@ These commands work in {% data variables.product.prodname_copilot_short %} harne
 | `/plan <task>` | Research the task and propose a plan before implementation. |
 | `/compact` | [Summarize earlier conversation context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context). |
 | `/fork` | [Copy the conversation with its history](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) to explore another approach. Forking doesn't isolate file changes. |
+| `/automate` | [Create a recurring automation from a completed task or a new idea](/docs/agents/run/automations.md#create-an-automation-from-chat) in the {% data variables.copilot.agents_window %}. |
 | `/<skill-name>` | [Run an installed skill](/docs/agent-customization/agent-skills.md#use-skills-as-slash-commands) by name. |
 
 <a name="add-context-to-your-prompt"></a>
@@ -139,7 +140,7 @@ Run **Chat: Open Customizations** to open the [Agent Customizations editor](/doc
 | Delegate part of a task | Ask for a [subagent](/docs/agents/run/subagents.md#subagents-by-harness) to investigate a bounded question and report back. |
 | Continue work from another device | Register your host through **Remote Connections** with [{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#make-a-host-available-for-remote-access). `feature(github-environments)` Keep the host running and reachable. |
 | Work without keeping my machine online | Follow [cloud session setup](/docs/agents/run/cloud-sandbox-sessions.md#prerequisites), then select **Cloud** for a new session. `feature(cloud-sessions)` |
-| Repeat a task automatically | Select **Automations** in the {% data variables.copilot.agents_window %} to [create an automation](/docs/agents/run/automations.md#create-an-automation). Review a manual run before scheduling it. |
+| Repeat a task automatically | Enter `/automate` in the {% data variables.copilot.agents_window %} to [turn the task into an automation](/docs/agents/run/automations.md#create-an-automation-from-chat). Review the proposed prompt and schedule, then check a manual run before enabling recurring work. |
 
 For unattended repository work, [cloud automations](/docs/agents/run/automations.md#choose-where-an-automation-runs) `feature(cloud-automations)` run on {% data variables.product.prodname_github %} without keeping your computer online.
 

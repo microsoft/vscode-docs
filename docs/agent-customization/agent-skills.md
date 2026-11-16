@@ -61,6 +61,7 @@ Use custom instructions when you want to:
 
 Skills can come from the following sources:
 
+* **Built-in skills:** The {% data variables.copilot.agents_window %} includes skills such as `/automate` to [turn a task into a recurring automation](/docs/agents/run/automations.md#create-an-automation-from-chat). No installation is needed.
 * **Project or personal files:** [Create a skill](#create-a-skill), [copy and adapt one](#copy-and-adapt-an-existing-skill), or use skills included in a repository.
 * **Marketplaces and plugins:** [Install individual skills](#install-a-skill-from-the-customization-marketplace-preview) or use skills bundled in an [agent plugin](/docs/agent-customization/agent-plugins.md).
 * **Extensions:** Installed {% data variables.product.prodname_vscode_shortname %} extensions can [contribute skills](#contribute-skills-from-extensions).

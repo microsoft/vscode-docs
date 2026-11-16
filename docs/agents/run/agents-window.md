@@ -344,7 +344,7 @@ To stop monitoring the pull request, select **{% data variables.copilot.agent_me
 
 ### Schedule recurring tasks
 
-Automations run saved agent tasks on a schedule or, for cloud automations `feature(cloud-automations)`, in response to supported repository events. Select **Automations** in the sidebar to get started. Learn how to [create and manage agent automations](/docs/agents/run/automations.md).
+Automations run saved agent tasks on a schedule or, for cloud automations `feature(cloud-automations)`, in response to supported repository events. To turn a completed task into an automation, enter `/automate` in its chat. To start from a new idea, select **Automations** in the sidebar, and then select **Create with Agent**. Follow the [chat-based creation workflow](/docs/agents/run/automations.md#create-an-automation-from-chat) to review the proposal, save it, and check a first run.
 
 ## Configure the {% data variables.copilot.agents_window %}
 
