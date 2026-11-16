@@ -11,12 +11,7 @@ Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://do
 
 The lowest-cost model does not always produce the lowest-cost result. A model that needs retries or creates rework can cost more than a capable model that completes the task reliably. The inverse is also true: not every task requires a complex, reasoning model, and routing simple or repetitive tasks to a lighter model avoids paying for capability you don't need.
 
-Start from the [AI model comparison table](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) and [best practices for model selection](/docs/agents/best-practices.md#choose-the-right-model) for general guidance, then use representative tasks from your own work to compare credit usage against response quality:
-
-1. Define the expected result and how you will assess its quality.
-1. Run each task more than once because model output is nondeterministic.
-1. Compare task completion, output quality, reliability, duration, and credit consumption.
-1. Choose the lowest-cost model that consistently meets your requirements, and reevaluate as models change.
+Follow the [Compare and choose models guide](/docs/agents/guides/choose-a-model.md) to evaluate Fusion, Auto, or explicit models on representative tasks. Compare correctness, reliability, time, and credit consumption, including retries and corrections. For current model capabilities, see the [AI model comparison table](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
 
 For a low-maintenance default, use **auto model selection** to let {% data variables.product.prodname_vscode_shortname %} route each request to an efficient model based on task complexity, model health, and availability. For repeatable workflows, configure a preferred model in a [custom agent](/docs/agent-customization/custom-agents.md).
 
