@@ -326,6 +326,8 @@ For a complete test procedure and guidance on refining the agent's role, see [Ve
 
 Use an agent skill when you repeatedly explain the same multi-step procedure. Package the procedure for an agent to use rather than creating a separate role just to repeat that workflow. Use scoped instructions instead when you need a convention for particular files, not a procedure to carry out.
 
+To run an agent task on a recurring schedule rather than invoke it yourself, [create an automation](/docs/agents/run/automations.md).
+
 The [validate-change skill in the API project example](#example-customize-an-api-project) packages the process of selecting and running relevant checks, then summarizing their results.
 
 Adapt that complete `SKILL.md` file to your repository's process. Use the directory for your harness below. A skill can also include scripts, templates, and other resources; see the [testing skill and report template](/docs/agent-customization/agent-skills.md#create-a-skill) for a multi-file example.

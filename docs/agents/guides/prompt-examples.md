@@ -201,6 +201,25 @@ Now add unit tests for the validation logic
 
 By building on earlier responses, the AI maintains context from the previous steps and generates more coherent code.
 
+## Schedule follow-up work
+
+These examples use the {% data variables.copilot.agents_window %}. For a one-time reminder in the same conversation, enable [Send Later](/docs/agents/run/agents-window.md#send-a-request-later) `feature(agents-window-send-later)` with a supported local desktop Agent Host, then ask:
+
+```prompt
+In 30 minutes, remind me in this chat to review the test results.
+```
+
+For work that repeats, [create an automation from chat](/docs/agents/run/automations.md#create-an-automation-from-chat):
+
+```prompt
+/automate Create a local automation for this repository that runs daily
+at 9:00 AM in my local time zone.
+Summarize commits from the last 24 hours. Do not modify files or publish anything.
+Save it disabled so I can review the configuration before enabling it.
+```
+
+Review the proposed configuration before confirming creation, then test the automation before enabling its schedule. Normal tool approvals apply to both examples. Local scheduled work requires your computer to be awake and the Agent Host available.
+
 ## Tips for crafting effective prompts
 
 * **Be specific**: Include details about what you want to accomplish, the technologies to use, and the expected output format.

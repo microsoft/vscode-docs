@@ -115,6 +115,59 @@ The draft is removed from the list after the request is accepted. To discard one
 
 Turning off `setting(sessions.drafts.enabled)` hides saved drafts and stops saving new ones, but doesn't delete them. Turn it back on to access them again.
 
+## Send a request later
+
+`feature(agents-window-send-later)`
+
+Use **Send Later** to start a new task or send a follow-up to an existing conversation at a future time. For tasks that repeat, [create an automation](/docs/agents/run/automations.md) instead.
+
+Enable `setting(sessions.sendLater.enabled)`, which is off by default, and keep `setting(chat.automations.enabled)` enabled. Send Later requires a supported local desktop [Agent Host](/docs/agents/concepts/agent-host.md). The [saved drafts setting](#save-and-resume-drafts) is optional.
+
+1. Compose a request in **New Session** or an existing conversation. For a new session, choose its workspace, agent, model, and other session options.
+
+1. Open the **Send** dropdown and select **Send Later**.
+
+1. Choose a preset, such as **In 5 Minutes** or **Tomorrow Morning** (9 AM the next day). Each preset shows its exact local send time.
+
+    For a custom time, select **Choose Date and Time**, choose a future date and time, and select **Schedule**. The time dropdown uses 15-minute steps. Select **Exact Time** to choose a precise minute. Review the date, time, and time zone before scheduling.
+
+<!-- TODO: Capture the Send Later calendar and an existing conversation's scheduled-message area. -->
+
+A scheduled new-session request appears under **Drafts**. Use **Preview** to check its prompt, time, workspace, and model. A scheduled follow-up appears inside its original conversation, including a nested chat, rather than as a new sidebar draft.
+
+At the scheduled time, a follow-up uses that conversation's current configuration. If the conversation is busy, the request joins its queue without interrupting or steering the active turn.
+
+> [!IMPORTANT]
+> Keep your computer awake and the Agent Host running for on-time delivery. Scheduling doesn't wake a sleeping computer or start a stopped host. Pending requests survive window reloads, and a missed send catches up once when the host becomes available.
+
+### Change or cancel a scheduled request
+
+Use the actions on the scheduled entry:
+
+| Action | Effect |
+|---|---|
+| **Reschedule** | Change the send time without changing the destination. |
+| **Send Now** | Send immediately, or queue the request if its conversation is busy. It doesn't send again at the original time. |
+| **Edit** | For an existing-chat request, change its text and send time, then select **Save**. |
+| **Cancel Schedule** | Cancel delivery and retain the request content. For a new session, cancellation keeps an ordinary draft if saved drafts are enabled, or restores the content to the composer otherwise. |
+| **Edit as Draft** | For a new-session request, cancel the schedule and reopen its content in the composer. |
+
+Recovery doesn't overwrite other unsent input. If cancellation reports an uncertain outcome, check **Automations** before sending the request again.
+
+Turning off `setting(sessions.sendLater.enabled)` doesn't cancel accepted schedules. Manage those requests in **Automations**.
+
+### Ask the agent to schedule a follow-up
+
+You can ask the agent to schedule a text-only request in the same conversation:
+
+```prompt
+In 30 minutes, remind me in this chat to review the test results.
+```
+
+An explicit one-time request doesn't require a separate `Create it` message. Review the scheduling tool approval if prompted. Scheduling doesn't approve future tool actions.
+
+The request targets the exact calling conversation unless you explicitly ask for a new session. You can also ask the agent to reschedule, cancel, or send a pending request now. Use the chat UI for requests with attachments.
+
 ## Work with multiple sessions
 
 You can run multiple agent sessions in parallel, either in the same project or across different projects. Each session has its own conversation and task context, so you can delegate independent work and review one result while another session continues. For example, one session can implement a feature in one project while another investigates a bug in a different project.

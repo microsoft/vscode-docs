@@ -12,6 +12,8 @@ Run an automation locally when the task needs your development environment. Run 
 
 This article explains how to choose between local and cloud automations, and how to create, monitor, and safely manage them.
 
+For a one-time request in a new session or an existing conversation, use [Send Later](/docs/agents/run/agents-window.md#send-a-request-later) `feature(agents-window-send-later)`.
+
 ## Prerequisites
 
 * Set up and open the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#prerequisites) with an available agent.
@@ -150,6 +152,8 @@ Save the automation disabled so I can review it before enabling scheduled runs.
 1. Ask for changes, or say `Create it` to save the reviewed automation. Invoking `/automate` alone doesn't confirm creation. Normal tool approvals and organization policies still apply.
 
 1. Open **Automations** to review the saved configuration, then [run and review the automation](#run-and-review-an-automation) before enabling recurring work.
+
+For an explicit [one-time scheduling request](/docs/agents/run/agents-window.md#ask-the-agent-to-schedule-a-follow-up), you don't need a separate `Create it` message. Normal tool approvals still apply.
 
 You can also ask the agent to change or remove an existing automation's end date. Review the resolved date and time zone before confirming the change. End dates stop future scheduled runs, not a run already in progress.
 

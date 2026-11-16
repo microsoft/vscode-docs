@@ -41,6 +41,10 @@
       "label": "Pull request comments in the Agents window",
       "state": "experimental"
     },
+    "agents-window-send-later": {
+      "label": "Send Later in the Agents window",
+      "state": "experimental"
+    },
     "agents-window-word-wrap": {
       "label": "Agents window word wrap",
       "state": "experimental"
