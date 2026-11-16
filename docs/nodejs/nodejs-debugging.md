@@ -1,12 +1,14 @@
 ---
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 DateApproved: 11/11/2026
-MetaDescription: The {% data variables.product.prodname_vscode %} editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
+MetaDescription: Debug Node.js applications in {% data variables.product.prodname_vscode %} with auto attach, launch configurations, breakpoints, and source maps.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
 # Node.js debugging in {% data variables.product.prodname_vscode_shortname %}
 
 The {% data variables.product.prodname_vscode %} editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript. Setting up a project for Node.js debugging is straightforward with {% data variables.product.prodname_vscode_shortname %} providing appropriate launch configuration defaults and snippets.
+
+New to the debugger? Follow the [debugging quickstart](/docs/debugtest/quickstart.md) to find and fix a bug in a small Node.js program without creating a launch configuration.
 
 There are a few ways you can debug your Node.js programs in {% data variables.product.prodname_vscode_shortname %}:
 

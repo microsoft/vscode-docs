@@ -311,6 +311,7 @@
     "area": "debugtest",
     "topics": [
       ["Debugging", "/docs/debugtest/debugging"],
+      ["Debugging Quickstart", "/docs/debugtest/quickstart"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Tasks", "/docs/debugtest/tasks"],
       ["Testing", "/docs/debugtest/testing"],
