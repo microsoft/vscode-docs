@@ -1,6 +1,6 @@
 ---
 ContentId: 645513c2-9e7d-4ed1-b923-f2c45974f30d
-DateApproved: 11/16/2026
+DateApproved: 11/18/2026
 MetaDescription: Find and fix a bug in {% data variables.product.prodname_vscode %} with a small JavaScript example, breakpoints, stepping, and variable inspection.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

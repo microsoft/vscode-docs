@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Configure MCP servers for the {% data variables.product.prodname_copilot_short %} harness with portable files, authentication, and tool controls.
 MetaSocialImage: ../../agent-customization/images/mcp-servers/mcp-server-configuration-form.png
 Keywords:

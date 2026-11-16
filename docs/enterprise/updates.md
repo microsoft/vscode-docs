@@ -1,6 +1,6 @@
 ---
 ContentId: 2c4d6e8f-0a1b-3c5d-7e9f-1a2b3c4d5e6f
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Control {% data variables.product.prodname_vscode_shortname %} application updates and plan managed deployments separately from extension updates.
 ---
 

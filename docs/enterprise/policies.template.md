@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 
-VSCodeCommitHash: 142e5584a76358bbb4fb687d8a0d2f4e859a6767
-VSCodeVersion: 1.146.0
+VSCodeCommitHash: 95906867e0763b595ee0c8814ba93fea96798d3e
+VSCodeVersion: 1.147.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Deploy and verify enterprise policies for {% data variables.product.prodname_vscode %} on managed Windows, macOS, and Linux devices.
