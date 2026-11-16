@@ -1,4 +1,18 @@
+---
+Tags: [Agents, GitHub Copilot, Engineering, Performance]
+Order: 143 # Recheck ordering against the destination branch before publishing.
+TOCTitle: The Copilot harness
+PageTitle: "The Copilot harness: Building on a shared foundation"
+MetaDescription: "Learn why {% data variables.product.prodname_vscode_shortname %} is moving from Local to the Copilot harness, guided by data and user feedback."
+MetaSocialImage: TODO-social-image.png # Add the image alongside the post and update this filename.
+Date: 2026-11-18
+Author: Brigit Murtaugh
+Keywords: [github copilot, copilot harness, local harness, copilot sdk, agent host, agent migration]
+---
+
 # The Copilot harness: Building on a shared foundation
+
+November 18, 2026 by [Brigit Murtaugh](https://github.com/bamurtaugh)
 
 The Copilot harness is now the default for new agent sessions in VS Code, and we've [announced the Local harness's retirement in February 2027](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness). Here's what that transition means for your workflows, why we're making it, and how data and your feedback are helping us improve quality alongside efficiency.
 
@@ -24,26 +38,22 @@ To understand what this change means in practice, we've been measuring how the C
 
 Over several months, we progressively introduced the Copilot harness as the default in place of Local, starting with internal users. We then expanded testing and rollout across Copilot plans, VS Code Insiders and Stable, and workflows in both the editor and Agents window. At each step, we monitored a broad set of metrics, including token usage and efficiency, turn-completion success, errors, cancellations, engagement, and latency. We analyzed those signals alongside your feedback to guide product changes, decide when to expand further, and identify improvements to test in additional A/B experiments.
 
-One of these rollout checks followed **Copilot Business and Enterprise users on VS Code Stable** over roughly two days in October. New chats defaulted to the Copilot harness for one group and the Local harness for the other. The Copilot-default group showed **about 10% lower estimated model-usage cost per active computer**.
-
-> Note: The figures below estimate our model-serving cost per active computer, not customer billing.
+One of these rollout checks followed **Copilot Business and Enterprise users on VS Code Stable** over roughly two days in October, with new chats defaulting to Copilot in one group and Local in the other. The Copilot-default group used **fewer tokens and model requests per active computer**, alongside **lower estimated model-processing costs to GitHub**:
 
 | What we measured | Change with Copilot as the default |
 | --- | ---: |
-| Average model-usage cost per active computer | **9.6% lower** (*The 9.6% figure is an estimate. Allowing for uncertainty, the analysis suggests an average cost reduction of roughly 8% to 11%.*) |
+| GitHub's estimated model-processing cost per active computer | **9.6% lower** |
 | Tokens used per active computer | **14.2% fewer** |
 | Model requests per active computer | **7.7% fewer** |
-| Model-usage cost per request | **2.3% lower** |
+| GitHub's estimated model-processing cost per request | **2.3% lower** |
 
-The lower cost came alongside **fewer model requests and fewer tokens per active computer**. For users, the goal is to complete the same useful work with less model processing, which can reduce waiting and help a given budget go further.
+Token consumption contributes to [AI credit usage](https://code.visualstudio.com/docs/agents/guides/optimize-usage), so reducing unnecessary model work matters to users as well as to the service. The goal is to complete useful work with less processing and waiting. We evaluate usage alongside completion and responsiveness to understand whether we're achieving that balance.
 
 **Quality alongside efficiency.** We've tracked turn completion, errors, and cancellations throughout the rollout, and continue today. Those signals, alongside response-time measurements and your feedback, help us identify where to improve next. For first requests, we've identified opportunities to reduce latency and have been actively investing in responsiveness, including [reducing delays from MCP tool loading](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). For follow-up requests, completion rates have often been close between the Copilot and Local harnesses in the comparisons we've checked.
 
-> **TODO - Bhavya:** Confirm the cost figures and approve a public summary.
+> **TODO - Bhavya:** Confirm the cost figures and approve a public summary. Check whether a matching billed-AI-credit comparison is available from CAPI; the current readout measures service costs, not customer credits.
 
 > **TODO - Karthik Nadig and Julia Kasper:** Do we have any matched Local-versus-Copilot task-success and latency evaluation results? Identify plans/cohorts, dates, task criteria, models and effort, repeats, and uncertainty.
-
-> **TODO - Other thoughts on latest data check:** Fresh aKusto checks covered November 12 and a six-hour window on November 13, split by plan, selected model, and request position.
 
 ## Shaping the experience with your feedback
 
