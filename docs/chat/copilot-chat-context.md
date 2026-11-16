@@ -63,9 +63,11 @@ You can attach project and GitHub context to a request:
 
 * In any chat input, select **Add Context** (`+` icon), and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
 
-* Paste a GitHub issue or pull request URL directly into the prompt. The URL remains in the prompt, and {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
+* Paste a GitHub issue or pull request URL directly into the prompt. {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
 
 You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
+
+With `setting(chat.inlineAttachments.enabled)` enabled (Experimental), you can preview GitHub items in your {% data variables.copilot.chat_view %} draft. Hover over a reference, or highlight it with the arrow keys, to see its title, status, and description. Select it or press `kbstyle(Enter)` while highlighted to open the item without sending the draft. Press `kbstyle(Escape)` to dismiss the preview.
 
 ### Reference content from the web
 
