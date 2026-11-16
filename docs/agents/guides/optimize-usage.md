@@ -44,7 +44,7 @@ Thinking effort controls how much reasoning a model applies to each request. Hig
 
 For most tasks, the defaults are sufficient. Only increase thinking effort for genuinely complex problems like architectural planning or multi-step debugging.
 
-For more information, see [configure thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort).
+For more information, see [configure thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size).
 
 ## Start new chats for new tasks
 
