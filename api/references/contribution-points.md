@@ -1309,8 +1309,6 @@ Here is a basic `notebookRenderer` contribution:
   - A string path relative to the extension root (for example, `"./out/renderer.js"`).
   - An object specifying `path` and `extends` to augment an existing renderer (for example, `{"extends": "vscode.markdown-it-renderer", "path": "./out/customMarkdown.js"}`).
 - `mimeTypes` - Array of MIME types that the renderer handles. Output with matching MIME types will be routed to this renderer.
-- `dependencies` - (optional) Array of kernel dependencies required by the renderer. If any specified dependency is present in `NotebookKernel.preloads`, this renderer can be used.
-- `optionalDependencies` - (optional) Array of soft kernel dependencies. If present, this renderer is preferred over renderers that do not interact with the kernel.
 - `requiresMessaging` - (optional) Defines if communication with the extension host via `createRendererMessaging` is required. Possible values are `"always"`, `"optional"`, and `"never"` (default).
 
 You can learn more in the [Notebooks](/api/extension-guides/notebook#notebook-renderer) extension guide.
@@ -1346,7 +1344,7 @@ Here is a basic `notebooks` contribution:
 - `selector` - Specifies which files the notebook is enabled for. An array of objects containing:
   - `filenamePattern` - A glob pattern matching file names or extensions (for example, `"*.customnb"` or `"**/notebooks/*.json"`).
   - `excludeFileNamePattern` - (optional) A glob pattern specifying files to exclude from matching this notebook type.
-- `priority` - (optional) Controls if the notebook editor is enabled automatically when opening a matching file. Possible values are `"default"` (attempt to use by default) and `"option"` (not default, but selectable by the user). Can be overridden by the user with the `workbench.editorAssociations` setting.
+- `priority` - (optional, deprecated) Controls if the notebook editor is enabled automatically when opening a matching file. Possible values are `"default"` (attempt to use by default) and `"option"` (not default, but selectable by the user). Can be overridden by the user with the `workbench.editorAssociations` setting.
 
 You can learn more in the [Notebooks](/api/extension-guides/notebook) extension guide.
 
