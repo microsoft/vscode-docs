@@ -288,7 +288,7 @@ Stable context and forks can preserve prompt caching to reduce cost and latency.
 Keep related work together or prioritize what needs attention without finishing the session:
 
 * [Pin sessions and create custom groups](/docs/agents/run/sessions/organize-sessions.md#pin-and-group-sessions) to keep related tasks accessible.
-* [Triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode) to dismiss or defer work without archiving it.
+* [Triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode) to acknowledge or defer work without archiving it.
 * [Move chats between sessions](/docs/agents/run/sessions/organize-sessions.md#move-chats-between-sessions-experimental) to reorganize conversations without changing their working folders.
 
 ## Finish and restore sessions
@@ -298,7 +298,7 @@ Choose the action that matches what you want to keep:
 | Action | Effect |
 |---|---|
 | Close a chat tab | Hide the conversation without deleting it. Reopen it when needed. |
-| [Dismiss from Inbox](/docs/agents/run/sessions/organize-sessions.md#dismiss-defer-or-finish-work) | Move the session to **Done** in Inbox mode without stopping or archiving it. New activity can bring it back. |
+| [Acknowledge](/docs/agents/run/sessions/organize-sessions.md#acknowledge-defer-or-finish-work) | Clear current Inbox activity without stopping, marking read, or archiving the session. Unpinned sessions move to **Acknowledged** until new activity or a new notification. |
 | Archive or mark as done | Remove completed work from the active list while retaining its conversation. Worktree or container resources can be removed as described below. |
 | Delete | Permanently remove the conversation. Associated worktrees or containers can also be removed. |
 

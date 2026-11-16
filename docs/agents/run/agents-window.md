@@ -69,7 +69,7 @@ Choose a task with a clear outcome and checks you can run to verify it. The foll
     You can optionally change the [agent harness](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses), agent, or model.
 
 > [!TIP]
-> To start a session in the background without navigating into it, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. Focus stays in the composer so you can start another task. Select **Open Session** in the confirmation to open the sent conversation. With the [Inbox mode setting](/docs/agents/run/sessions/organize-sessions.md#turn-on-inbox-mode) enabled, you can also press `kbstyle(Ctrl+Enter)` (`kbstyle(Cmd+Enter)` on macOS).
+> To start a session in the background without navigating into it, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. Focus stays in the composer so you can start another task. Select **Open Session** in the confirmation to open the sent conversation. With [Inbox grouping](/docs/agents/run/sessions/organize-sessions.md#turn-on-inbox-mode) selected, you can also press `kbstyle(Ctrl+Enter)` (`kbstyle(Cmd+Enter)` on macOS).
 
 ### Choose where an agent makes changes
 
