@@ -146,7 +146,9 @@ On your machine, terminal and URL approvals stay in sync with your **user** sett
 * **Always Allow Fetching** updates request approval in `setting(chat.tools.urls.autoApprove)`, without enabling response auto-approval.
 * Changes to those user settings are also applied to the local Agent Host. Workspace settings are not copied.
 
-Remote agent sessions keep their own approvals. Your local settings are not pushed to a remote host, and choosing **Always Allow** there does not change your local settings.
+Remote agent sessions keep their own tool approvals. The local terminal and URL approval settings described above aren't pushed to a remote host, and choosing **Always Allow** there doesn't change your local settings.
+
+Sandbox path-access requests use [separate approval scopes](/docs/agents/run/agent-sandboxing.md#choose-the-scope-of-a-path-approval). Unlike the tool approvals above, **Allow for This User** saves sandbox path access in local User settings and shares it with connected Agent Hosts.
 
 **Local** harness sessions `feature(local-harness)` retain their existing approval options, including workspace-scoped approvals where supported.
 

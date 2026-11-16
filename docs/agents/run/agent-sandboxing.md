@@ -195,6 +195,25 @@ The `setting(chat.agent.sandbox.fileSystem.allowDevToolAccess)` setting defaults
 
 Use `/sandbox policy` to inspect the effective permissions, including runtime defaults and organization-managed restrictions.
 
+### Choose the scope of a path approval
+
+When a sandboxed command needs additional file access, **Allow sandbox path access and retry?** offers a scoped grant. Review the displayed path and whether the request needs read or read/write access. A grant can cover a folder and its contents, not only the file that triggered the request.
+
+Use the approval dropdown to choose the narrowest scope that meets your needs:
+
+| Option | Where access applies |
+|---|---|
+| **Allow for This Session** (default) | All chats in the current session, including after reload or resume. Unrelated sessions don't receive the grant. User and Workspace settings remain unchanged. |
+| **Allow for This Workspace** (when available) | Sessions with the same set of workspace folders on the same Agent Host. The grant is saved privately on that host and survives reopening the workspace, without changing User or Workspace settings. |
+| **Allow for This User** | Saved in local User settings under `setting(chat.agent.sandbox.fileSystem.userConfiguredPaths)`. Applies across sessions and workspaces, and is forwarded to connected Agent Hosts. |
+| **Skip** | Declines this request without saving access or a permanent deny rule. |
+
+These grants retry the operation **inside the sandbox** and remain subject to organization-managed restrictions. They don't approve running the command outside the sandbox.
+
+Path-grant prompts require [sandbox bypass](#control-approval-and-fallback-behavior) to be allowed by your settings and managed policy. Allowing bypass makes the confirmation available. It doesn't automatically approve access.
+
+After granting access, [inspect the effective sandbox policy](#inspect-the-effective-sandbox-policy) to check the session's permissions.
+
 ### Read attached files and folders
 
 In Copilot harness sessions with sandboxing enabled, files and folders that you explicitly [attach to a message](/docs/chat/copilot-chat-context.md#add-files-as-context) can receive read access for the session. The grant covers the attached file or the contents of the attached folder. This additional access is read-only and is never saved to sandbox settings.
@@ -274,6 +293,8 @@ Your organization can enforce network restrictions that you cannot relax with a 
 ## Control approval and fallback behavior
 
 If a command is blocked, check the applicable [file system](#configure-file-system-access) or [network](#configure-network-access) restriction first. Grant only the access needed for the task rather than turning off the sandbox.
+
+When offered, use a [scoped path approval](#choose-the-scope-of-a-path-approval) to retry inside the sandbox instead of allowing an unsandboxed command.
 
 If a command cannot run inside the sandbox, the agent can ask for confirmation to run it outside the sandbox. The `setting(chat.agent.sandbox.allowUnsandboxedCommands)` setting controls this fallback:
 
