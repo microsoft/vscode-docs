@@ -37,6 +37,8 @@ We first built the Local harness for interactive coding before a shared Copilot 
 
 The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by [Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli), the [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app), and [other Microsoft products](https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/). The runtime is included in VS Code and works with existing Copilot plans. Clients can then share prompt tuning, model adaptation, provider integration, and evaluation findings instead of duplicating work across two harnesses, leaving more engineering time for the features, fixes, and workflow improvements you use.
 
+![Screenshot showing Copilot selected in the harness picker, with Local and other harnesses listed.](copilot-harness.png)
+
 ## What the data shows
 
 We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, VS Code Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments. We combine measurements from everyday VS Code workflows with controlled benchmarks of the shared Copilot runtime.
@@ -82,9 +84,13 @@ Thank you for taking the time to share your experiences and workflows - it has h
 	- **What we heard:** It can be helpful to have a dedicated read-only option to understand code and discuss an approach before making changes.
 	- **What shipped:** [Ask returned as a built-in agent in 1.142](https://code.visualstudio.com/updates/v1_142#_copilot-harness). Select **Ask** in the agent picker to explore a question without making code changes.
 
+	![Screenshot showing Ask highlighted in the agent picker.](ask-agent.png)
+
 - **Keep and Undo: review incrementally**
 	- **What we heard:** Depending on the task, you may want to review individual edits as an agent works, rather than accepting everything at once.
 	- **What shipped:** [Keep and Undo for files and individual changes shipped in 1.144](https://code.visualstudio.com/updates/v1_144#_review-copilot-file-edits-with-the-working-set-experimental), so you can review edits as the agent works. This required new work since the Local harness's edit tools applied changes through VS Code's editor. The Copilot harness writes edits directly to disk from a separate Agent Host process, so [we rebuilt edit tracking and review support](https://github.com/microsoft/vscode/issues/339363#issuecomment-6346982654).
+
+	![Screenshot showing changed files in chat with Keep and Undo controls for reviewing edits.](keep-undo-changes.png)
 
 ## Migration guidance and work underway
 
@@ -101,6 +107,8 @@ Switching harnesses doesn't automatically migrate every customization. For examp
 As another example, chat participants need adaptation. The Chat Participant API predates VS Code's agent loops, and today, custom agents, skills, and tools let integrations contribute directly to the agent's workflow instead. Participant authors can use the [participant migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants).
 
 In VS Code, you can use command **Chat: Open Customizations**, select **Migrations**, and review detected items that may need your action. The [harness transition guide's full checklist](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_review-customizations-and-integrations) covers hooks, MCP setup and authentication, file locations, and other compatibility checks.
+
+![Screenshot showing the Migrations view in Customizations, with a prompt-to-skill conversion notice and items to review.](customizations-migrations.png)
 
 ### BYOK and locally served models
 
