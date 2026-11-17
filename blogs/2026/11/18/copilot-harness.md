@@ -14,15 +14,15 @@ Keywords: [github copilot, copilot harness, local harness, copilot sdk, agent ho
 
 November 18, 2026 by [Brigit Murtaugh](https://github.com/bamurtaugh)
 
-The **Copilot harness**, built on the [Copilot SDK](https://github.com/github/copilot-sdk), is now the default for new agent sessions in VS Code. We've rolled it out progressively over several months, monitoring data and your feedback at every stage to improve the experience. The **Local harness**, VS Code's earlier editor-specific implementation, is now deprecated. The Local harness remains available during the [three-month transition](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness) before removal in February 2027 (unless your organization restricts its use). Here's why we're making this change and what it means for your workflows.
+The **Copilot harness**, built on the [Copilot SDK](https://github.com/github/copilot-sdk), is now the default for new agent sessions in VS Code. We've rolled it out progressively over several months, monitoring data and your feedback at every stage to improve the experience. The **Local harness**, VS Code's earlier editor-specific harness, is now deprecated. The Local harness remains available during a [three-month transition period](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness) before removal in February 2027 (unless your organization restricts its use). Here's why we're making this change and what it means for your workflows.
 
 ## TL;DR
 
-- **Shared work, more user value:** One runtime lets us share optimizations, evaluations, and fixes across Copilot clients rather than maintaining multiple separate harnesses.
-- **A more efficient harness:** We combine controlled benchmarks with data from everyday workflows to measure efficiency and outcomes, and we've found the Copilot harness to be quite efficient:
+- **A more efficient harness:** We combine controlled benchmarks with data from everyday workflows to measure efficiency and outcomes:
   - In one Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
   - On repeatable tasks with the same model, [published benchmarks](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) found comparable task completion with fewer tokens in most tested configurations versus model-provider harnesses. They evaluated Copilot CLI, which shares the runtime VS Code integrates through the Copilot SDK.
-- **Capabilities beyond the Local harness:** The Copilot harness brings features and protections the Local harness doesn't support, including:
+- **Faster fixes, more focus on your workflows:** A shared runtime helps fixes and optimizations reach you sooner across Copilot clients. Less duplicated maintenance means we can spend more time tackling pressing bugs, closing workflow gaps, and exploring new ways to help you work.
+- **Capabilities beyond the Local harness:** That shared foundation also enables features and protections the Local harness doesn't support, including:
   - [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
   - [Runtime-enforced permission and sandbox controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
   - [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions that can keep working after their project window closes, while VS Code remains running.
@@ -34,9 +34,7 @@ An [agent harness](https://code.visualstudio.com/docs/agents/concepts/agent-harn
 
 We first built the Local harness for interactive coding before a shared Copilot harness was available. That work shaped how you review agent edits and use tools supplied by VS Code extensions and MCP servers. We continually refined the harness with model providers and your feedback.
 
-The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by other Copilot products like Copilot CLI and the Copilot app. The runtime is included in VS Code and works with existing Copilot plans, including Free.
-
-Clients can then share prompt tuning, model adaptation, provider integration, and evaluation findings instead of duplicating work across two harnesses, leaving more engineering time for the features, fixes, and workflow improvements you use.
+The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by other Copilot products like Copilot CLI and the Copilot app. The runtime is included in VS Code and works with existing Copilot plans. Clients can then share prompt tuning, model adaptation, provider integration, and evaluation findings instead of duplicating work across two harnesses, leaving more engineering time for the features, fixes, and workflow improvements you use.
 
 ## What the data shows
 
@@ -63,14 +61,14 @@ One analysis followed **Copilot Business and Enterprise users on VS Code Stable*
 
 To gauge and improve quality, we tracked signals such as successful turn completion, errors, cancellations, and latency. Breaking these down by categories, like first requests versus follow-up requests, revealed different opportunities.
 
-For example, sampled results from first requests have shown room to improve latency. This data has helped shape ongoing investigations and shipped improvements, such as [changes in 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
+For example, sampled results from first requests have shown room to improve latency. This data has helped shape ongoing investigations and shipped improvements, such as [changes in VS Code version 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
 
 ### Shared efficiency work across clients
 
-Alongside rollout data, we can use controlled benchmarks to improve the Copilot harness across clients. As one example: our [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared Copilot CLI with model-provider harnesses using the same models and tasks. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
+Alongside rollout data, we can use controlled benchmarks to measure performance of the Copilot harness. As one example: our [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared Copilot CLI with model-provider harnesses using the same models and tasks. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
 
 - **Token efficiency:** The Copilot harness used fewer tokens across most tested configurations.
-- **Task resolution:** The report found task completion broadly comparable with the model-provider harnesses. Lower token consumption is useful only when the agent still gets the work done.
+- **Task resolution:** The report found task completion broadly comparable with the model-provider harnesses - lower token consumption is useful only when the agent still gets the work done.
 - **TerminalBench 2.0:** A cost-per-task versus resolution chart shows the tradeoff and run-to-run variability. The analysis covers 89 tasks and at least five runs per configuration, rather than treating one run as definitive.
 
 ## Improvements shaped by your feedback
