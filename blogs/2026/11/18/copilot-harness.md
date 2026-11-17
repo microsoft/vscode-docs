@@ -4,7 +4,7 @@ Order: 143 # Recheck ordering against the destination branch before publishing.
 TOCTitle: The Copilot harness
 PageTitle: "The Copilot harness: Building on a shared foundation"
 MetaDescription: "Learn why {% data variables.product.prodname_vscode_shortname %} is moving from the Local harness to the Copilot harness, guided by data and user feedback."
-MetaSocialImage: TODO-social-image.png # Add the image alongside the post and update this filename.
+MetaSocialImage: copilot-harness-social-image.png
 Date: 2026-11-18
 Author: Brigit Murtaugh
 Keywords: [github copilot, copilot harness, local harness, copilot sdk, agent host, agent migration]
@@ -28,8 +28,8 @@ Over the last several months, we've progressively rolled out the Copilot harness
 	- [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
 	- [Copilot runtime-enforced enterprise permission and sandbox policies](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
 	- [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions remain active after their project window closes, while VS Code remains running.
-- **Your workflow and transition:** 
-	- For local projects, the Copilot harness still runs on your machine in VS Code. 
+- **Your workflow and transition:**
+	- For local projects, the Copilot harness still runs on your machine in VS Code.
 	- [What we've shipped based on your feedback](#_improvements-shaped-by-your-feedback).
 	- [What's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
 
