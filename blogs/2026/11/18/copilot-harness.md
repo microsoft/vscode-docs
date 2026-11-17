@@ -26,7 +26,7 @@ We've progressively rolled out the Copilot harness as the default over several m
 	- On repeatable tasks with the same model, [published benchmarks](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) found comparable task completion with fewer tokens in most tested configurations versus model-provider harnesses. They evaluated Copilot CLI, which shares the runtime VS Code integrates through the Copilot SDK.
 - **Capabilities beyond the Local harness:** That shared foundation also enables features and protections the Local harness doesn't support, including:
 	- [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
-	- [Runtime-enforced permission and sandbox controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
+	- [Copilot runtime-enforced enterprise permission and sandbox policies](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
 	- [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions that can keep working after their project window closes, while VS Code remains running.
 - **Your workflow and transition:** For local projects, the Copilot harness still runs on your machine, in VS Code. See [what we've shipped based on your feedback](#_improvements-shaped-by-your-feedback) and [what's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
 
