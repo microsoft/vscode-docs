@@ -21,7 +21,7 @@ We've progressively rolled out the Copilot harness as the default over several m
 ## TL;DR
 
 - **Efficiency and reliability gains:** We assess both through everyday VS Code workflows and controlled evaluations:
-	- In one online Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
+	- In one online Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
 	- In offline side-by-side VS Code evaluations, the Copilot harness had fewer errors and interruptions during long coding tasks than the Local harness.
 	- On repeatable tasks with the same model, [published benchmarks](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) found comparable task completion with fewer tokens in most tested configurations versus model-provider harnesses. They evaluated Copilot CLI, which shares the runtime VS Code integrates through the Copilot SDK.
 - **Capabilities beyond the Local harness:** That shared foundation also enables features and protections the Local harness doesn't support, including:
@@ -54,7 +54,7 @@ We combine **online evaluations**, which show how the harness performs as people
 
 Across the Stable Business and Enterprise rollout stages we analyzed, estimates consistently pointed toward lower processing cost per active computer with the Copilot harness as the default.
 
-One analysis followed **Copilot Business and Enterprise users on VS Code Stable** in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active computer was statistically significant. These group averages reflect varied day-to-day work, not repeated runs of the same task:
+One analysis followed **Copilot Business and Enterprise users on VS Code Stable** in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active computer was statistically significant. These group averages describe resource use across varied day-to-day work, not repeated runs of the same task or how much work was completed:
 
 | Rollout measurement | Change with the Copilot harness as the default |
 | --- | ---: |
