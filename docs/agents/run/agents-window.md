@@ -121,7 +121,7 @@ Turning off `setting(sessions.drafts.enabled)` hides saved drafts and stops savi
 
 Use **Send Later** to start a new task or send a follow-up to an existing conversation at a future time. For tasks that repeat, [create an automation](/docs/agents/run/automations.md) instead.
 
-Enable `setting(sessions.sendLater.enabled)`, which is off by default, and keep `setting(chat.automations.enabled)` enabled. Send Later requires a supported local desktop [Agent Host](/docs/agents/concepts/agent-host.md). The [saved drafts setting](#save-and-resume-drafts) is optional.
+Enable `setting(sessions.sendLater.enabled)`, which is off by default, and keep `setting(chat.automations.enabled)` enabled. Send Later currently only works on the local machine and not for remote agent sessions.
 
 1. Compose a request in **New Session** or an existing conversation. For a new session, choose its workspace, agent, model, and other session options.
 
@@ -137,12 +137,12 @@ A scheduled new-session request appears under **Drafts**. Use **Preview** to che
 
 At the scheduled time, a follow-up uses that conversation's current configuration. If the conversation is busy, the request joins its queue without interrupting or steering the active turn.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Keep your computer awake and the Agent Host running for on-time delivery. Scheduling doesn't wake a sleeping computer or start a stopped host. Pending requests survive window reloads, and a missed send catches up once when the host becomes available.
 
 ### Change or cancel a scheduled request
 
-Use the actions on the scheduled entry:
+To update or manage a scheduled request, right-click a scheduled chat request and select an action.
 
 | Action | Effect |
 |---|---|
@@ -155,6 +155,9 @@ Use the actions on the scheduled entry:
 Recovery doesn't overwrite other unsent input. If cancellation reports an uncertain outcome, check **Automations** before sending the request again.
 
 Turning off `setting(sessions.sendLater.enabled)` doesn't cancel accepted schedules. Manage those requests in **Automations**.
+
+> [!TIP]
+> To view the list of scheduled requests, select the **Scheduled Only** filter option in the sessions list.
 
 ### Ask the agent to schedule a follow-up
 
