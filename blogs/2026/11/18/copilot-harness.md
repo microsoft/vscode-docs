@@ -105,7 +105,12 @@ In VS Code, you can use command **Chat: Open Customizations**, select **Migratio
 
 We're actively [working toward remote BYOK support with the Copilot harness for SSH, WSL, and Dev Containers before the Local harness is fully retired](https://github.com/microsoft/vscode/issues/332085#issuecomment-6802553573).
 
-### Organization rollouts
+### Organization rollouts and enterprise benefits
+
+The Copilot harness supports additional runtime-managed controls that the Local harness can't enforce, including:
+
+- [**Managed permissions**](https://code.visualstudio.com/docs/enterprise/manage-ai-settings#_manage-permission-levels) to block prohibited agent operations and control which approval levels developers can use.
+- [**Managed sandboxing**](https://code.visualstudio.com/docs/enterprise/manage-ai-settings#_configure-agent-sandboxing) to set file-system and network boundaries for agent commands.
 
 Your administrator may need to coordinate some of the transition with required integrations and security policies. The [organization rollout guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) provides more information.
 
