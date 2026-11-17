@@ -41,7 +41,7 @@ We first built the Local harness for interactive coding before a shared Copilot 
 
 The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by [Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli), the [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app), and [other Microsoft products](https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/). The runtime is included in VS Code and works with existing Copilot plans.
 
-A fix or optimization to that shared runtime can benefit VS Code and other Copilot clients, rather than each team having to repeat the work. That leaves more engineering time for VS Code-specific features, fixes, and workflow improvements.
+Fixes or optimizations to that shared runtime benefit VS Code and other Copilot clients. This provides a more consistent experience across clients, and leaves more engineering time for VS Code-specific features, fixes, and workflow improvements.
 
 ![Screenshot showing Copilot selected in the harness picker, with Local and other harnesses listed.](copilot-harness.png)
 
