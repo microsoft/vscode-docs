@@ -112,6 +112,20 @@ A visual indicator shows that the page is shared. Select **Share with Agent** ag
 
 If an agent needs access to an unshared tab, it can ask you to share one. In autopilot mode, {% data variables.product.prodname_vscode_shortname %} declines these requests automatically to protect your privacy.
 
+## Use Chrome or Edge with browser use (Preview)
+
+Use browser use when a task needs a site you're signed in to in Google Chrome or Microsoft Edge, rather than the integrated browser. Browser use is available for {% data variables.product.prodname_copilot_short %} harness sessions that run on your own machine.
+
+Before you start, install the [{% data variables.product.prodname_copilot %} browser extension](https://chromewebstore.google.com/detail/github-copilot/hblomdgalaelcilcdepgohfcogjiijhe) in Chrome or Edge and make sure Node.js 22 or later is on your `PATH`.
+
+1. Enable `setting(chat.agentHost.browserUse.enabled)`, which is off by default, and restart {% data variables.product.prodname_vscode_shortname %}.
+
+1. In a {% data variables.product.prodname_copilot_short %} chat, run `/plugin enable browser-use`.
+
+1. Start a new session and ask the agent to use Chrome or Edge for your task.
+
+If the agent can't connect to your browser, run `/browser-use:doctor` to check your setup.
+
 ## Test apps on remote agent hosts
 
 `feature(integrated-browser-remote)`

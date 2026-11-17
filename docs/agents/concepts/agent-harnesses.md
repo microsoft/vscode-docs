@@ -85,7 +85,7 @@ The **Session Target** UI control presents harnesses and the Cloud execution tar
 For the available choices and setup requirements, see [compare agent harnesses](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses).
 
 > [!NOTE]
-> Claude and Codex harness integrations are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access. Selecting a Claude or OpenAI model in the Copilot harness is a separate choice and does not switch harnesses.
+> Claude and Codex harness integrations are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access. Selecting a Claude or OpenAI model in the Copilot harness is a separate choice and does not switch harnesses.
 
 ## Relate execution environments and code isolation
 

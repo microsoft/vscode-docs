@@ -59,6 +59,18 @@ By default, localhost links, such as `localhost`, `127.0.0.1`, and `[::1]`, and 
 
 To open these links in an external browser instead, disable the `setting(workbench.browser.openLocalhostLinks)` setting. By default, {% data variables.product.prodname_vscode_shortname %} uses your operating system's default browser. To use a different browser, set `setting(workbench.externalBrowser)` to `edge`, `chrome`, `firefox`, or the absolute path to a browser executable.
 
+To open links to other sites in the integrated browser, configure the `setting(workbench.externalUriOpeners)` setting. For example, route links to your company's sites to the integrated browser:
+
+```json
+{
+  "workbench.externalUriOpeners": {
+    "*.contoso.com": "workbench.integratedBrowser"
+  }
+}
+```
+
+Use `"*"` as the pattern to match all HTTP and HTTPS domains.
+
 You can still open the integrated browser explicitly with the commands and UI actions described in [Open the browser](#open-the-browser).
 
 If you don't plan to use the integrated browser, you can also:
@@ -419,12 +431,14 @@ Use the following settings to configure integrated browser behavior:
 | Setting | Description |
 |---------|-------------|
 | `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
+| `setting(workbench.externalUriOpeners)` | Maps HTTP and HTTPS URL patterns to openers, such as `workbench.integratedBrowser` for the integrated browser. |
 | `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
 | `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
 | `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
 | `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
 | `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
 | `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
+| `setting(workbench.browser.dimOnOverlay)` | Set to `false` to prevent dimming when temporary overlays overlap the page. The page still pauses, and notifications still dim it. |
 | `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
 | `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads `file://` pages when their files change, including supported remote files. |
 | `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |

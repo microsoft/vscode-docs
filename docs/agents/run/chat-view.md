@@ -36,7 +36,7 @@ The {% data variables.copilot.chat_view %} opens in the Secondary Side Bar, next
 ## Start a session
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 1. Open the project you want to work on and select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`.
 

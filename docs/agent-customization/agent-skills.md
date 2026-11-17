@@ -220,7 +220,7 @@ To reuse repository skills with {% data variables.product.prodname_openai_codex 
 
 If skills in `.github/skills/` have duplicate names across workspace roots, the primary root takes precedence.
 
-The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+The Codex harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits it. Contact the IT team that deployed the settings to discuss access.
 
 ### Local
 

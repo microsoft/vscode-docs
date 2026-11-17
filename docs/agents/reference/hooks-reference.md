@@ -24,7 +24,7 @@ For hooks executed by a provider harness, use the corresponding provider documen
 * For **Codex** sessions, use the [Codex hooks documentation](https://developers.openai.com/codex/hooks/).
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 If you select **Local** `feature(local-harness)` from the **Session Target** UI control, use this reference even when the hook file uses a Copilot or Claude-compatible format. The Local harness `feature(local-harness)` maps the configuration and then sends the payloads documented here.
 

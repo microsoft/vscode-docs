@@ -414,7 +414,7 @@ The CLI runtime only supports `otlp-http`. When `otlp-grpc` is configured, the t
 ### Claude agent
 
 > [!NOTE]
-> The Claude harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed telemetry settings. Contact the IT team that deployed the settings to discuss access.
+> The Claude harness is disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed telemetry settings, unless your administrator explicitly permits it. Permitting Claude doesn't make it enforce managed telemetry settings. Contact the IT team that deployed the settings to discuss access.
 
 When OTel is enabled, Claude agent sessions produce extension-level spans under service `copilot-chat` that follow the GenAI semantic conventions. The extension creates spans by intercepting Claude SDK messages and proxying LLM calls through a local HTTP server.
 

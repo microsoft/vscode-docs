@@ -97,7 +97,7 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 ### Approvals and review
 
 > [!NOTE]
-> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss approved harnesses.
+> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings, unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss approved harnesses.
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 

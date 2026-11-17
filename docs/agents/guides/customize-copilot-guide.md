@@ -36,7 +36,7 @@ Choose the article's tabs for your harness, not your language model. For example
 > Work in the current folder rather than a new worktree so new sessions can access your uncommitted customization files. In the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected.
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 ### Review your existing setup
 

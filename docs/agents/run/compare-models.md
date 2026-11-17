@@ -93,6 +93,8 @@ Compare two available models on the task 'Suggest tests for a command-line calcu
 Use a judge to evaluate their answers.
 ```
 
+The comparison appears beneath the conversation that started it in the sessions list. Select **Open Comparison** in the agent's tool response to open the results.
+
 ## Compare the results
 
 After the attempts finish, compare them manually or use the judge scorecard:

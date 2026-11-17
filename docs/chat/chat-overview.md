@@ -94,6 +94,28 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
+## Request visual responses
+
+In the {% data variables.copilot.agents_window %}, ask for a visual response when a layout, chart, or table makes a result clearer than text alone. Two built-in [skills](/docs/agent-customization/agent-skills.md) support different kinds of output:
+
+* **HTML previews**: reports, diagrams, comparisons, and static UI mockups. Enable `setting(chat.htmlPreview.enabled)` and include `/html-preview` in your request.
+
+* **Native visuals (Experimental)**: metrics, badges, tables, bar charts, and expandable details rendered by {% data variables.product.prodname_vscode_shortname %} to match your theme, including high contrast themes. Enable `setting(chat.nativeComponents.enabled)` and include `/vscode-ui` in your request.
+
+Both settings are off by default. For example:
+
+```prompt
+/html-preview compare the two caching approaches in a visual report.
+```
+
+```prompt
+/vscode-ui compare the full and incremental build times.
+```
+
+HTML previews support self-contained HTML and CSS, tables, inline SVG, and expandable sections. They don't support scripts, forms, external links, or external resources. Use them for static documents, not running applications.
+
+Right-click a preview or native visual and select **Show Source** to inspect its markup. For an HTML preview, select **Open Preview** for a larger view or **Save HTML** to export a sanitized, self-contained HTML file. When the corresponding rendering setting is off, visual response blocks appear as source code instead.
+
 ## Generate and edit images
 
 `feature(image-generation)`

@@ -57,7 +57,7 @@ Supported tunnel connections can also reopen the same session in either window. 
 To change the harness instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
 > [!NOTE]
-> {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.
+> {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.
 
 ### View sessions from other applications
 

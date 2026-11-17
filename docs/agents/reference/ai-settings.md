@@ -13,7 +13,7 @@ The team is continuously working on improving the AI features in {% data variabl
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Enabling their user settings does not override that restriction. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings, unless your administrator explicitly permits them. Enabling their user settings does not override that restriction. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
 
 Use the following links to jump to the settings for a specific area:
 
@@ -73,6 +73,8 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
+| `setting(chat.htmlPreview.enabled)`<br/>Render [HTML previews](/docs/chat/chat-overview.md#request-visual-responses) in {% data variables.copilot.agents_window %} responses. When off, preview blocks appear as source code. | `false` |
+| `setting(chat.nativeComponents.enabled)` _(Experimental)_<br/>Render [native visuals](/docs/chat/chat-overview.md#request-visual-responses), such as metrics, tables, and bar charts, in {% data variables.copilot.agents_window %} responses. When off, visual blocks appear as source code. | `false` |
 | `setting(imageCarousel.chat.enabled)`<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `true` |
 
 ### Chat editing and artifacts
@@ -106,6 +108,7 @@ Use the following links to jump to the settings for a specific area:
 | `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
 | `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
 | `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
+| `setting(chat.agentHost.browserUse.enabled)` _(Preview)_<br/>Offer [browser use](/docs/agents/run/browser-tools.md#use-chrome-or-edge-with-browser-use-preview) for local {% data variables.product.prodname_copilot_short %} sessions to work in Chrome or Edge. Requires the browser extension, Node.js 22 or later, and plugin enablement. Restart {% data variables.product.prodname_vscode_shortname %} after changing this setting. | `false` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` `feature(nested-agents-md-files)`<br/>List `AGENTS.md` files in workspace subfolders for on-demand loading in Local harness sessions `feature(local-harness)`. Requires `setting(chat.useAgentsMdFile)` to be enabled. Does not affect other harnesses. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
@@ -146,6 +149,7 @@ Use the following links to jump to the settings for a specific area:
 |------------------------|---------------|
 | `setting(chat.tools.compressOutput.enabled)` _(Preview)_<br/>Compress large terminal output before sending it to the model to reduce context window usage. Collapses unchanged diff hunks, drops lockfile diffs, and strips install progress. | `false` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
+| `setting(chat.permissions.assisted.instructions)`<br/>Give the [Assisted permissions reviewer](/docs/agents/run/approvals.md#customize-assisted-permissions) instructions for {% data variables.product.prodname_copilot_short %} sessions. Applies to open sessions without overriding permission rules, organization policy, or sandbox restrictions. | `""` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.tools.terminal.outputLocation)` _(Experimental)_<br/>Configure where terminal command output appears: inline in chat or in the integrated terminal. | `"chat"` |
 | `setting(chat.tools.terminal.outputReflow)`<br/>Reflow [terminal output previews](/docs/agents/run/tools.md#run-terminal-commands) to fit the chat width. Turn this off to preserve the terminal's column width and scroll horizontally. | `true` |

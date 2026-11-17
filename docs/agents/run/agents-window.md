@@ -320,7 +320,7 @@ On desktop, you can run sessions using supported provider credentials instead of
 * Configure a [supported BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for the {% data variables.copilot.agents_window %}.
 
 > [!NOTE]
-> {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate credentials. Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.
+> {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Separate credentials don't override that restriction. Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.
 
 If no provider is configured, select **Add Models** or **Sign In** in the window. Models and operations that require {% data variables.product.prodname_github %} authentication prompt you when needed. The browser-based {% data variables.copilot.agents_window %} requires {% data variables.product.prodname_github %} sign-in.
 
