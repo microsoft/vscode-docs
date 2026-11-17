@@ -65,11 +65,11 @@ For example, sampled results from first requests have shown room to improve late
 
 ### Shared efficiency work across clients
 
-Alongside rollout data, we can use controlled benchmarks to measure performance of the Copilot harness. As one example: our [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared Copilot CLI with model-provider harnesses using the same models and tasks. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
+Alongside rollout data, we can use controlled benchmarks to measure performance of the Copilot harness. As one example: a [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared the Copilot harness in the Copilot CLI with model-provider harnesses. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
 
+Findings included:
 - **Token efficiency:** The Copilot harness used fewer tokens across most tested configurations.
-- **Task resolution:** The report found task completion broadly comparable with the model-provider harnesses - lower token consumption is useful only when the agent still gets the work done.
-- **TerminalBench 2.0:** A cost-per-task versus resolution chart shows the tradeoff and run-to-run variability. The analysis covers 89 tasks and at least five runs per configuration, rather than treating one run as definitive.
+- **Task resolution:** Task completion was broadly comparable with the model-provider harnesses. This is important since lower token consumption is useful only when the agent still gets the work done.
 
 ## Improvements shaped by your feedback
 
@@ -85,7 +85,7 @@ Thank you for taking the time to share your experiences and workflows - it has h
 
 ## Migration guidance and work underway
 
-We've been actively working to make the transition to the Copilot harness as smooth as possible. You may not need to change your workflow to use the new harness, and as described above, we continue to actively ship improvements based on your feedback.
+We've been actively working to make the transition to the Copilot harness as smooth as possible. You may not need to change your workflow very much to use the new harness, and as described above, we continue to actively ship improvements based on your feedback.
 
 Where some workflows may require updates to your setup, we aim to update our documentation and in-product guidance to help you identify any steps to take.
 
@@ -95,9 +95,9 @@ Our [transition guide on moving to the Copilot harness](https://code.visualstudi
 
 Switching harnesses doesn't automatically migrate every customization. For example, recurring prompt files may need conversion to skills.
 
-As another example, chat participants need adaptation, as the Chat Participant API predates VS Code's agent loops. Today, custom agents, skills, and tools let integrations contribute directly to the agent's workflow instead. Participant authors can use the [participant migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants).
+As another example, chat participants need adaptation. Tthe Chat Participant API predates VS Code's agent loops, and today, custom agents, skills, and tools let integrations contribute directly to the agent's workflow instead. Participant authors can use the [participant migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants).
 
-In VS Code, you can use command **Chat: Open Customizations**, select **Migrations**, and review detected items. The [harness transition guide's full checklist](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_review-customizations-and-integrations) covers hooks, MCP setup and authentication, file locations, and other compatibility checks.
+In VS Code, you can use command **Chat: Open Customizations**, select **Migrations**, and review detected items that may need your action. The [harness transition guide's full checklist](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_review-customizations-and-integrations) covers hooks, MCP setup and authentication, file locations, and other compatibility checks.
 
 ### BYOK and locally served models
 
@@ -107,7 +107,7 @@ We're actively [working toward remote BYOK support with the Copilot harness for 
 
 ### Organization rollouts
 
-Your administrator may need to coordinate the transition with required integrations and security policies. The [organization rollout guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) provides more information.
+Your administrator may need to coordinate some of the transition with required integrations and security policies. The [organization rollout guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) provides more information.
 
 ## Keep shaping what comes next
 
