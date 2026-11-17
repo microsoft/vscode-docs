@@ -52,7 +52,7 @@ In this section, we will create a folder to open as a workspace in {% data varia
 
 Now, let's create a `requirements.txt` file that lists the dependencies we wish to install for the application. The `requirements.txt` file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency.
 
-We will install FastAPI for creating the app, [uvicorn](https://www.uvicorn.org) to work as the server, and [Redis](https://redis.io) and `type-redis` for handling data storage and interacting with a Redis database.
+We will install FastAPI for creating the app, [uvicorn](https://uvicorn.dev) to work as the server, and [Redis](https://redis.io) and `type-redis` for handling data storage and interacting with a Redis database.
 
 4. Create a new file in {% data variables.product.prodname_vscode_shortname %} (**File** > **New Text File** or `kb(workbench.action.files.newUntitledFile)`).
 

@@ -16,7 +16,7 @@ For a one-time request in a new session or an existing conversation, use [Send L
 
 ## Prerequisites
 
-* Set up and open the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#prerequisites) with an available agent.
+* Set up and open the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#open-the-agents-window) with an available agent.
 * For cloud automations `feature(cloud-automations)`, sign in with a GitHub.com account that has write access to an eligible private repository. Your Copilot plan and organization must allow automations. See [GitHub automation availability and permissions](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#availability-and-permissions).
 
 Automations and cloud automation management are on by default. If **Automations** isn't visible in the sidebar, check that `setting(chat.automations.enabled)` is on. If **Run in the Cloud** isn't available in the creation form, also check `setting(chat.automations.cloud.enabled)`. Turning on these settings doesn't grant access to the GitHub service.

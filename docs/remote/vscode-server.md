@@ -88,7 +88,7 @@ No, hosting it as a service is not allowed, as specified in the [{% data variabl
 If you're working in a restricted environment, you may need to ensure the {% data variables.product.prodname_vscode_shortname %} Server has access to the endpoints listed in the following articles:
 
 * [Setup network common hostnames](/docs/setup/network.md#common-hostnames)
-* [Connectivity requirements for the {% data variables.product.prodname_vscode_shortname %} Server](/docs/remote/ssh.md#what-are-the-connectivity-requirements-for-the-vs-code-server-when-it-is-running-on-a-remote-machine--vm)
+* [Connectivity requirements for the {% data variables.product.prodname_vscode_shortname %} Server](/docs/remote/ssh.md#what-are-the-connectivity-requirements-for-the-vs-code-server-when-it-is-running-on-a-remote-machine-vm)
 
 ### Are there any other extension limitations?
 
