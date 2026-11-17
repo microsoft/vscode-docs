@@ -77,7 +77,7 @@ For example, sampled results from first requests have shown room to improve late
 
 We ran offline evaluations comparing the Copilot and Local harnesses in VS Code, matching the task, model, and reasoning effort in each comparison. Across our evaluation suites, repeated runs over multiple days produced **12,845 side-by-side comparisons**.
 
-In one suite, we ran **112 long coding tasks across seven models**. Each task was a multi-part feature request in an open-source project, such as adding standards-based deprecation headers to FastAPI.
+We ran **112 long coding tasks from the [DeepSWE benchmark](https://deepswe.datacurve.ai/) across seven models**. Each task was a multi-part feature request in an open-source project, such as adding standards-based deprecation headers to FastAPI.
 
 These runs showed fewer errors, fewer hangs or crashes, and higher task completion with the Copilot harness. The table shows overall results across the seven tested models:
 
