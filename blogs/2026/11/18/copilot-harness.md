@@ -152,3 +152,5 @@ Your administrator may need to coordinate some of the transition with required i
 ## Keep shaping what comes next
 
 We'd love your feedback as we continue improving the efficiency, performance, and effectiveness of agents in VS Code. Tell us what's working well and what would make the Copilot harness more useful for your workflows. Please [share a suggestion or report an issue](https://github.com/microsoft/vscode/issues). Thank you for helping us improve.
+
+Happy coding! 💙
