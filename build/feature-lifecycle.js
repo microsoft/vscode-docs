@@ -4,8 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.resolve(__dirname, '..');
-const FEATURE_PATTERN = /\bfeature\(([a-z0-9]+(?:-[a-z0-9]+)*)\)/g;
+const FEATURE_PATTERN = /`feature\(([a-z0-9]+(?:-[a-z0-9]+)*)\)`/g;
 
 /**
  * @typedef {Object} FeatureLifecycleIssue
@@ -38,14 +37,20 @@ function loadFeatureLifecycle(filePath) {
  * @param {string} line
  */
 function updateFence(fence, line) {
-	const match = line.match(/^\s*(`{3,}|~{3,})/);
-	if (!match) {
-		return fence;
-	}
-	const marker = match[1];
 	if (!fence) {
+		const openMatch = line.match(/^\s*(`{3,}|~{3,})/);
+		if (!openMatch) {
+			return fence;
+		}
+		const marker = openMatch[1];
 		return { character: marker.charAt(0), length: marker.length };
 	}
+
+	const closeMatch = line.match(/^\s*(`{3,}|~{3,})\s*$/);
+	if (!closeMatch) {
+		return fence;
+	}
+	const marker = closeMatch[1];
 	if (marker.charAt(0) === fence.character && marker.length >= fence.length) {
 		return undefined;
 	}

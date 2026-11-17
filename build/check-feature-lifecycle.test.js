@@ -50,6 +50,27 @@ describe('feature lifecycle validation', () => {
 		assert.deepEqual(validateFeatureMarkers(content, validFeatures), []);
 	});
 
+	it('ignores prose references like feature(s) without backticks', () => {
+		const content = [
+			'# Description',
+			'Describe the feature(s) you would like to enable in settings.'
+		].join('\n');
+
+		assert.deepEqual(validateFeatureMarkers(content, validFeatures), []);
+	});
+
+	it('does not close outer code fence on inner fence with info string', () => {
+		const content = [
+			'````markdown',
+			'```js',
+			'const f = `feature(unknown-inner)`;',
+			'```',
+			'````'
+		].join('\n');
+
+		assert.deepEqual(validateFeatureMarkers(content, validFeatures), []);
+	});
+
 	it('loads valid features from feature-lifecycle.json', () => {
 		const features = loadFeatureLifecycle();
 		assert.ok(features.size > 0);
