@@ -115,15 +115,21 @@ Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004.
 
 ### Can I run {% data variables.product.prodname_vscode_shortname %} on old macOS versions?
 
-{% data variables.product.prodname_vscode_shortname %} desktop version starting with 1.105 (September 2025) is deprecating support for macOS Big Sur (version 11.0 and older). Starting with {% data variables.product.prodname_vscode_shortname %} 1.107 (November 2025), we will stop updating {% data variables.product.prodname_vscode_shortname %} on macOS Big Sur (version 11.0 and older). You will need to upgrade to a newer macOS version to use later versions of {% data variables.product.prodname_vscode_shortname %}.
-
-{% data variables.product.prodname_vscode_shortname %} will no longer provide product updates or security fixes on macOS Big Sur (versions 11.0 and older) and {% data variables.product.prodname_vscode_shortname %} version 1.106 will be the last available release for macOS Big Sur (11.0 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
+{% data variables.product.prodname_vscode_shortname %} desktop version starting with 1.147 (November 2026) is deprecating support for macOS Ventura (version 13) and macOS Sonoma (version 14). Starting in December 2026, {% data variables.product.prodname_vscode_shortname %} will no longer provide product updates or security fixes on macOS Ventura and macOS Sonoma, and {% data variables.product.prodname_vscode_shortname %} version 1.149 will be the last available release for these macOS versions. You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ### Can I run {% data variables.product.prodname_vscode_shortname %} on older Linux distributions?
 
 Starting with {% data variables.product.prodname_vscode_shortname %} release 1.86.1 (January 2024), {% data variables.product.prodname_vscode_shortname %} desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
 If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/remote/vscode-web.md). If you would like to use the desktop version, then you can download the {% data variables.product.prodname_vscode_shortname %} release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/setup/portable.md).
+
+### Can I run {% data variables.product.prodname_vscode_shortname %} on 32-bit ARM Linux?
+
+{% data variables.product.prodname_vscode_shortname %} desktop version starting with 1.147 (November 2026) is deprecating support for 32-bit ARM Linux (armhf). Starting in December 2026, we will stop updating {% data variables.product.prodname_vscode_shortname %} on 32-bit ARM Linux. {% data variables.product.prodname_vscode_shortname %} version 1.149 will be the last available release for 32-bit ARM Linux, and it will no longer receive product updates or security fixes.
+
+To keep using the latest version of {% data variables.product.prodname_vscode_shortname %}, switch to a 64-bit operating system and install the 64-bit ARM (arm64) version of {% data variables.product.prodname_vscode_shortname %} from the [download page](https://code.visualstudio.com/download).
+
+If you can't switch to a 64-bit operating system, you can use the [web client](/docs/remote/vscode-web.md). Running the {% data variables.product.prodname_vscode_shortname %} Server on 32-bit ARM Linux hosts for remote development is already unsupported. Learn more in the [Remote Development FAQ](/docs/remote/faq.md#can-i-run-vs-code-server-on-32-bit-arm-linux-hosts).
 
 ### Can I run a portable version of {% data variables.product.prodname_vscode_shortname %}?
 
