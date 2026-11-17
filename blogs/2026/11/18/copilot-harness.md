@@ -18,14 +18,14 @@ The **Copilot harness**, built on the [Copilot SDK](https://github.com/github/co
 
 ## TL;DR
 
-- **A more efficient harness:** We combine controlled benchmarks with data from everyday workflows to measure efficiency and outcomes. For example:
-  - In one Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer, with **9.6% lower estimated processing cost**.
+- **Shared work, more user value:** One runtime lets us share optimizations, evaluations, and fixes across Copilot clients rather than maintaining multiple separate harnesses.
+- **A more efficient harness:** We combine controlled benchmarks with data from everyday workflows to measure efficiency and outcomes, and we've found the Copilot harness to be quite efficient:
+  - In one Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
   - On repeatable tasks with the same model, [published benchmarks](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) found comparable task completion with fewer tokens in most tested configurations versus model-provider harnesses. They evaluated Copilot CLI, which shares the runtime VS Code integrates through the Copilot SDK.
 - **Capabilities beyond the Local harness:** The Copilot harness brings features and protections the Local harness doesn't support, including:
   - [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
   - [Runtime-enforced permission and sandbox controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
   - [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions that can keep working after their project window closes, while VS Code remains running.
-- **Shared work, more user value:** One runtime lets us share optimizations, evaluations, and fixes across clients rather than maintaining multiple separate harnesses.
 - **Your workflow and transition:** For local projects, the Copilot harness still runs on your machine, in VS Code. See [what we've shipped based on your feedback](#_improvements-shaped-by-your-feedback) and [what's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
 
 ## Why one shared harness
@@ -40,7 +40,7 @@ Clients can then share prompt tuning, model adaptation, provider integration, an
 
 ## What the data shows
 
-We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments.
+We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, VS Code Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments.
 
 We combine measurements from everyday VS Code workflows with controlled benchmarks of the shared Copilot runtime. Together, they help us understand efficiency and task outcomes in different settings.
 
@@ -61,11 +61,9 @@ One analysis followed **Copilot Business and Enterprise users on VS Code Stable*
 
 #### Quality and responsiveness
 
-To improve quality and responsiveness, we tracked signals such as successful turn completion, errors, cancellations, and latency. Breaking these down by categories, like first versus follow-up requests, revealed different opportunities.
+To gauge and improve quality, we tracked signals such as successful turn completion, errors, cancellations, and latency. Breaking these down by categories, like first requests versus follow-up requests, revealed different opportunities.
 
-For example, sampled results from first requests have shown room to improve the wait before visible progress. This data has helped shape ongoing investigations and shipped improvements, such as [changes in 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default).
-
-Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
+For example, sampled results from first requests have shown room to improve latency. This data has helped shape ongoing investigations and shipped improvements, such as [changes in 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
 
 ### Shared efficiency work across clients
 
@@ -77,44 +75,42 @@ Alongside rollout data, we can use controlled benchmarks to improve the Copilot 
 
 ## Improvements shaped by your feedback
 
-Thank you for taking the time to share your experiences and workflows. Your feedback has helped us prioritize a variety of improvements, including how agents work and changes are reviewed.
+Thank you for taking the time to share your experiences and workflows - it has helped us prioritize a variety of improvements. Here are a few of the themes we heard most often:
 
-### Ask: explore without edits
+- **Ask: explore without edits**
+	- **What we heard:** It can be helpful to have a dedicated read-only option to understand code and discuss an approach before making changes.
+	- **What shipped:** [Ask returned as a built-in agent in 1.142](https://code.visualstudio.com/updates/v1_142#_copilot-harness). Select **Ask** in the agent picker to explore a question without making code changes.
 
-**What we heard:** It can be helpful to have a dedicated read-only option to understand code and discuss an approach before making changes.
-
-**What shipped:** [Ask returned as a built-in agent in 1.142](https://code.visualstudio.com/updates/v1_142#_copilot-harness). Select **Ask** in the agent picker to explore a question without making code changes.
-
-### Keep and Undo: review incrementally
-
-**What we heard:** Depending on the task, you may want to review individual edits as an agent works, rather than accepting everything at once.
-
-**What shipped:** [Keep and Undo for files and individual changes shipped in 1.144](https://code.visualstudio.com/updates/v1_144#_review-copilot-file-edits-with-the-working-set-experimental), so you can review edits as the agent works. This required new work since the Local harness's edit tools applied changes through VS Code's editor. The Copilot harness writes edits directly to disk from a separate Agent Host process, so [we rebuilt edit tracking and review support](https://github.com/microsoft/vscode/issues/339363#issuecomment-6346982654).
+- **Keep and Undo: review incrementally**
+	- **What we heard:** Depending on the task, you may want to review individual edits as an agent works, rather than accepting everything at once.
+	- **What shipped:** [Keep and Undo for files and individual changes shipped in 1.144](https://code.visualstudio.com/updates/v1_144#_review-copilot-file-edits-with-the-working-set-experimental), so you can review edits as the agent works. This required new work since the Local harness's edit tools applied changes through VS Code's editor. The Copilot harness writes edits directly to disk from a separate Agent Host process, so [we rebuilt edit tracking and review support](https://github.com/microsoft/vscode/issues/339363#issuecomment-6346982654).
 
 ## Migration guidance and work underway
 
-Some workflows need an updated integration or configuration, while others depend on support we're still building. Here's what needs attention and what you or your administrator can do. The [transition guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot) covers general setup and continuing existing conversations.
+We've been actively working to make the transition to the Copilot harness as smooth as possible. You may not need to change your workflow to use the new harness, and as described above, we continue to actively ship improvements based on your feedback.
 
-### Chat participants: migration required
+Where some workflows may require updates to your setup, we aim to update our documentation and in-product guidance to help you identify any steps to take.
 
-The Copilot harness uses custom agents, skills, and tools rather than the Chat Participant API. Existing participants don't carry over unchanged. A reviewer can combine a [custom agent](https://code.visualstudio.com/docs/agent-customization/custom-agents) for instructions and model preference with [extension tools](https://code.visualstudio.com/api/extension-guides/ai/tools) or MCP tools for editor and service access. Custom presentation or model routing may need extra work.
+Our [transition guide on moving to the Copilot harness](https://code.visualstudio.com/docs/agents/run/move-to-copilot) is a great starting point to explore what changes. Below are a few areas to check based on themes we've heard most often, including where your organization's administrator may need to help.
 
-**Your step:** Check whether your publisher offers a compatible integration; authors can use the [migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants). We're planning outreach, including to our extension teams; [report missing workflows](https://github.com/microsoft/vscode/issues) to help us identify gaps. An unused-participant warning doesn't require action.
+### Customizations: review what needs to migrate
+
+Switching harnesses doesn't automatically migrate every customization. For example, recurring prompt files may need conversion to skills.
+
+As another example, chat participants need adaptation, as the Chat Participant API predates VS Code's agent loops. Today, custom agents, skills, and tools let integrations contribute directly to the agent's workflow instead. Participant authors can use the [participant migration guide](https://code.visualstudio.com/docs/agent-customization/migrate-customizations#_replace-chat-participants).
+
+In VS Code, you can use command **Chat: Open Customizations**, select **Migrations**, and review detected items. The [harness transition guide's full checklist](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_review-customizations-and-integrations) covers hooks, MCP setup and authentication, file locations, and other compatibility checks.
 
 ### BYOK and locally served models
 
 **BYOK and locally served models remain options in supported local setups.** Use **Chat: Manage Language Models** and the [BYOK guide](https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key) to configure your provider.
 
-We're actively [working toward remote BYOK support with the Copilot harness for SSH, WSL, and Dev Containers before the Local harness is fully retired](https://github.com/microsoft/vscode/issues/332085#issuecomment-6802553573). Check the [remote BYOK tracking issue](https://github.com/microsoft/vscode/issues/332085) before switching a workflow that depends on it.
+We're actively [working toward remote BYOK support with the Copilot harness for SSH, WSL, and Dev Containers before the Local harness is fully retired](https://github.com/microsoft/vscode/issues/332085#issuecomment-6802553573).
 
-### Preparing your organization
+### Organization rollouts
 
-**Administrator action:** Pilot required models, tools, proxies, and remote or container setups. Follow the [rollout](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) and [enterprise controls](https://code.visualstudio.com/docs/enterprise/manage-ai-settings) guides to verify permissions and sandboxing where commands run.
-
-Selecting the Copilot harness doesn't enable sandboxing automatically. Temporary Local harness exceptions cannot enforce Copilot runtime-only controls.
+Your administrator may need to coordinate the transition with required integrations and security policies. The [organization rollout guide](https://code.visualstudio.com/docs/agents/run/move-to-copilot#_roll-out-the-copilot-harness-in-your-organization) provides more information.
 
 ## Keep shaping what comes next
 
-Our benchmarks and day-to-day use aren't a substitute for your workflow. If you're not seeing the efficiency improvements discussed here, or a repeatable task is less efficient with the Copilot harness than with the Local harness, [open a VS Code issue](https://github.com/microsoft/vscode/issues) with your version, model and effort settings, execution environment, and reproduction steps. Your examples help us reproduce the difference and improve the shared harness. Use GitHub Support for private enterprise details.
-
-Thank you for helping us turn shared investment, measurements, and feedback into a better experience.
+Thank you for helping us turn shared investment, measurements, and feedback into a better experience. We'd love to continue to hear how the Copilot harness fits your workflows: what's working well and what would make it more useful. Please [share a suggestion or report an issue](https://github.com/microsoft/vscode/issues).
