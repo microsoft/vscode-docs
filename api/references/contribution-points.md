@@ -31,6 +31,7 @@ MetaDescription: Extend {% data variables.product.prodname_vscode_shortname %} w
 - [`languages`](/api/references/contribution-points#contributes.languages)
 - [`languageModelChatProviders`](/api/references/contribution-points#contributes.languageModelChatProviders)
 - [`languageModelTools`](/api/references/contribution-points#contributes.languageModelTools)
+- [`localizations`](/api/references/contribution-points#contributes.localizations)
 - [`menus`](/api/references/contribution-points#contributes.menus)
 - [`notebookRenderer`](/api/references/contribution-points#contributes.notebookRenderer)
 - [`notebooks`](/api/references/contribution-points#contributes.notebooks)
@@ -1023,6 +1024,41 @@ Define each tool in the `contributes.languageModelTools` section, then register 
 | `tags` | `string[]` | No | Tags used to categorize or group the tool. |
 
 See the [Language Model Tool API guide](/api/extension-guides/ai/tools) for implementation details, including how to handle confirmations, stream results, and define typed input parameters.
+
+## contributes.localizations
+
+Contribute display language translations for VS Code or other extensions (commonly used in Language Pack extensions).
+
+Here is an example `localizations` contribution:
+
+```json
+{
+  "contributes": {
+    "localizations": [
+      {
+        "languageId": "es",
+        "languageName": "Spanish",
+        "localizedLanguageName": "Español",
+        "translations": [
+          {
+            "id": "vscode",
+            "path": "./translations/main.i18n.json"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Each entry in the `localizations` array supports the following properties:
+
+- `languageId` - (required) Identifier of the language into which the display strings are translated (for example, `"es"` or `"zh-cn"`).
+- `languageName` - Name of the language in English.
+- `localizedLanguageName` - Name of the language in the contributed language.
+- `translations` - (required) Array of translation entries associated with the language. Each item requires:
+  - `id` - Identifier of VS Code or the extension that the translation targets. Use `"vscode"` for VS Code itself, or `publisherId.extensionName` for an extension.
+  - `path` - Relative path to the JSON file containing the translations for the language.
 
 ## contributes.menus
 
