@@ -2,7 +2,7 @@
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 DateApproved: 11/11/2026
 MetaDescription: Debug Node.js applications in {% data variables.product.prodname_vscode %} with auto attach, launch configurations, breakpoints, and source maps.
-MetaSocialImage: ../editor/images/debugging/debugging-social.png
+MetaSocialImage: ../debugtest/images/debugging/debugging-social.png
 ---
 # Node.js debugging in {% data variables.product.prodname_vscode_shortname %}
 
@@ -581,7 +581,7 @@ A triggered breakpoint is a breakpoint that is automatically enabled once anothe
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
-<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+<video src="../debugtest/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
 ### Breakpoint validation
 
