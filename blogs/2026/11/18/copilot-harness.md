@@ -20,8 +20,9 @@ We've progressively rolled out the Copilot harness as the default over several m
 
 ## TL;DR
 
-- **A more efficient harness:** We combine controlled benchmarks with data from everyday workflows to measure efficiency and outcomes:
-	- In one Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
+- **Efficiency and reliability gains:** We assess both through everyday VS Code workflows and controlled evaluations:
+	- In one online Business/Enterprise rollout comparison, the group defaulting to the Copilot harness used **14.2% fewer tokens** and **7.7% fewer model requests** per active computer when compared to the Local harness, with **9.6% lower estimated processing cost**.
+	- In offline side-by-side VS Code evaluations, the Copilot harness had fewer errors and interruptions during long coding tasks than the Local harness.
 	- On repeatable tasks with the same model, [published benchmarks](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) found comparable task completion with fewer tokens in most tested configurations versus model-provider harnesses. They evaluated Copilot CLI, which shares the runtime VS Code integrates through the Copilot SDK.
 - **Capabilities beyond the Local harness:** That shared foundation also enables features and protections the Local harness doesn't support, including:
 	- [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
@@ -35,23 +36,25 @@ An [agent harness](https://code.visualstudio.com/docs/agents/concepts/agent-harn
 
 We first built the Local harness for interactive coding before a shared Copilot harness was available. That work shaped how you review agent edits and use tools supplied by VS Code extensions and MCP servers. We continually refined the harness with model providers and your feedback.
 
-The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by [Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli), the [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app), and [other Microsoft products](https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/). The runtime is included in VS Code and works with existing Copilot plans. Clients can then share prompt tuning, model adaptation, provider integration, and evaluation findings instead of duplicating work across two harnesses, leaving more engineering time for the features, fixes, and workflow improvements you use.
+The Copilot harness uses the [Copilot SDK](https://github.com/github/copilot-sdk) to combine VS Code's supported editor integrations with the runtime shared by [Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli), the [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app), and [other Microsoft products](https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/). The runtime is included in VS Code and works with existing Copilot plans.
+
+A fix or optimization to that shared runtime can benefit VS Code and other Copilot clients, rather than each team having to repeat the work. That leaves more engineering time for VS Code-specific features, fixes, and workflow improvements.
 
 ![Screenshot showing Copilot selected in the harness picker, with Local and other harnesses listed.](copilot-harness.png)
 
 ## What the data shows
 
-We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, VS Code Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments. We combine measurements from everyday VS Code workflows with controlled benchmarks of the shared Copilot runtime.
+We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, VS Code Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments.
 
-We'll next look at what these measurements tell us about efficiency and task outcomes. Then we'll take a closer look at [how your feedback has shaped the experience](#_improvements-shaped-by-your-feedback).
+We combine **online evaluations**, which show how the harness performs as people really work in VS Code, with **offline evaluations**, which run realistic development tasks under repeatable conditions. These offline evaluations include VS Code-specific comparisons and shared-runtime benchmarks. We'll next look at what these measurements tell us about efficiency, reliability, and task outcomes, then turn to [how your feedback has shaped the experience](#_improvements-shaped-by-your-feedback).
 
-### Real workflows: the VS Code rollout
+### Real online workflows: the VS Code rollout
 
 #### Efficiency and processing cost
 
 Across the Stable Business and Enterprise rollout stages we analyzed, estimates consistently pointed toward lower processing cost per active computer with the Copilot harness as the default.
 
-One analysis followed **Copilot Business and Enterprise users on VS Code Stable** over roughly two days in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active computer was statistically significant. These group averages reflect varied day-to-day work, not repeated runs of the same task:
+One analysis followed **Copilot Business and Enterprise users on VS Code Stable** in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active computer was statistically significant. These group averages reflect varied day-to-day work, not repeated runs of the same task:
 
 | Rollout measurement | Change with the Copilot harness as the default |
 | --- | ---: |
@@ -66,11 +69,29 @@ One analysis followed **Copilot Business and Enterprise users on VS Code Stable*
 
 To gauge and improve quality, we tracked signals such as successful turn completion, errors, cancellations, and latency. Breaking these down by categories, like first requests versus follow-up requests, revealed different opportunities.
 
-For example, sampled results from first requests have shown room to improve latency. This data has helped shape ongoing investigations and shipped improvements, such as [changes in VS Code version 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
+For example, sampled results from first requests have shown room to improve latency. We're continuing to work on that initial wait. Earlier improvements include [changes in VS Code version 1.143 that reduced delays caused by MCP servers that didn't finish loading their tools](https://code.visualstudio.com/updates/v1_143#_copilot-harness-as-the-default). Responsiveness matters when you return to earlier conversations, too. [1.145 improved reopening and browsing long chats](https://code.visualstudio.com/updates/v1_145#_chat-performance-improvements), including rendering terminal output as you reveal it.
 
-### Shared efficiency work across clients
+### Offline evaluations: reliability and task outcomes
 
-Alongside rollout data, we can use controlled benchmarks to measure performance of the Copilot harness. As one example: a [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared the Copilot harness in the Copilot CLI with model-provider harnesses. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
+#### Comparing the Copilot and Local harnesses
+
+We ran offline evaluations comparing the Copilot and Local harnesses in VS Code, matching the task, model, and reasoning effort in each comparison. Across our evaluation suites, repeated runs over multiple days produced **12,845 side-by-side comparisons**.
+
+In one suite, we ran **112 long coding tasks across seven models**. Each task was a multi-part feature request in an open-source project, such as adding standards-based deprecation headers to FastAPI.
+
+These runs showed fewer errors, fewer hangs or crashes, and higher task completion with the Copilot harness. The table shows overall results across the seven tested models:
+
+| Result | Local harness | Copilot harness |
+| --- | ---: | ---: |
+| Runs ending in an error | 5.3% | 1.9% |
+| Runs that hung or crashed | 3.1% | 0.2% |
+| Task completion, counting errors as incomplete | 54.8% | 61.2% |
+
+A session that stalls partway through a task can mean investigating what happened, restarting, and waiting again. That's why we measure errors, hangs, and crashes alongside task completion.
+
+#### Evaluating the shared runtime
+
+As another example, our [published evaluation of the shared Copilot harness](https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/) compared Copilot CLI with model-provider harnesses using the same models and tasks. VS Code's Copilot harness uses that same runtime through the Copilot SDK, so the findings can guide improvements in VS Code too.
 
 Findings included:
 - **Token efficiency:** The Copilot harness used fewer tokens across most tested configurations.
