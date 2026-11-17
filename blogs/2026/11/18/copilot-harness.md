@@ -55,15 +55,15 @@ We combine **online evaluations**, which show how the harness performs as people
 
 #### Efficiency and processing cost
 
-Across the Stable Business and Enterprise rollout stages we analyzed, estimates consistently pointed toward lower processing cost per active computer with the Copilot harness as the default.
+Across the Stable Business and Enterprise rollout stages we analyzed, estimates consistently pointed toward lower processing cost per active device with the Copilot harness as the default.
 
-One analysis followed **Copilot Business and Enterprise users on VS Code Stable** in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active computer was statistically significant. These group averages describe resource use across varied day-to-day work, not repeated runs of the same task or how much work was completed:
+One analysis followed **Copilot Business and Enterprise users on VS Code Stable** in October. New chats defaulted to the Copilot harness in one group and the Local harness in the other. The reduction in estimated processing cost per active device was statistically significant. These group averages describe resource use across varied day-to-day work, not repeated runs of the same task or how much work was completed:
 
 | Rollout measurement | Change with the Copilot harness as the default |
 | --- | ---: |
-| Tokens used per active computer | **14.2% fewer** |
-| Model requests per active computer | **7.7% fewer** |
-| Estimated processing cost per active computer | **9.6% lower** |
+| Tokens used per active device | **14.2% fewer** |
+| Model requests per active device | **7.7% fewer** |
+| Estimated processing cost per active device | **9.6% lower** |
 | Estimated processing cost per model request | **2.3% lower** |
 
 > **Note:** **Estimated processing cost** is the cost of the AI model work behind an agent's requests: processing context and generating responses. We estimate it from token usage, accounting for the model used and cached input, with the same model-specific rates applied to both groups. The calculation uses model-usage data rather than billing records (it doesn't report the [AI credits](https://code.visualstudio.com/docs/agents/guides/optimize-usage) charged).
