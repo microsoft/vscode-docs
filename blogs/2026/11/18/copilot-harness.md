@@ -16,7 +16,7 @@ November 18, 2026 by [Brigit Murtaugh](https://github.com/bamurtaugh)
 
 The **Copilot harness**, built on the [Copilot SDK](https://github.com/github/copilot-sdk), is now the default for new agent sessions in VS Code. Our goal is to keep the capabilities you love from VS Code's original, editor-specific **Local harness** and add the benefits of a runtime shared across Copilot products. Sharing fixes and optimizations instead of repeating work on separate harnesses helps us deliver improvements faster and focus more on pressing bugs, workflow gaps, and new capabilities.
 
-We've progressively rolled out the Copilot harness as the default over several months, monitoring data and your feedback at every stage to improve the experience. The Local harness is now deprecated and remains available during a [three-month transition period](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness) before removal in February 2027 (unless your organization restricts its use). Here's why we're making this change and what it means for your workflows.
+Over the last several months, we've progressively rolled out the Copilot harness as the default, while monitoring data and user feedback at every stage to improve the experience. The Local harness is now deprecated and remains available during a [three-month transition period](https://code.visualstudio.com/updates/v1_146#_copilot-harness-and-deprecation-of-the-local-harness) before removal in February 2027 (unless your organization restricts its use).
 
 ## TL;DR
 
