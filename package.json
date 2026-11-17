@@ -13,7 +13,6 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
-    "check-feature-lifecycle": "node ./build/check-feature-lifecycle.js",
     "check-release-note-toc": "node ./build/check-release-note-toc.js",
     "check-staged-files": "node ./build/check-staged-files.js",
     "lint": "eslint build/*.js",
@@ -28,8 +27,7 @@
     "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs .github/extensions/vscode-docs-workbench/archive.test.mjs",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && node ./build/serve.js",
-    "test-release-note-toc": "node --test ./build/release-note-toc.test.js",
-    "test:feature-lifecycle": "node --test ./build/check-feature-lifecycle.test.js"
+    "test-release-note-toc": "node --test ./build/release-note-toc.test.js"
   },
   "devDependencies": {
     "connect": "^3.7.0",
