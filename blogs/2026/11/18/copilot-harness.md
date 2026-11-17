@@ -28,7 +28,10 @@ Over the last several months, we've progressively rolled out the Copilot harness
 	- [Copilot Fusion](https://code.visualstudio.com/docs/agent-customization/language-models#_use-copilot-fusion) for multi-model work.
 	- [Copilot runtime-enforced enterprise permission and sandbox policies](https://code.visualstudio.com/docs/enterprise/manage-ai-settings).
 	- [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions remain active after their project window closes, while VS Code remains running.
-- **Your workflow and transition:** For local projects, the Copilot harness still runs on your machine, in VS Code. See [what we've shipped based on your feedback](#_improvements-shaped-by-your-feedback) and [what's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
+- **Your workflow and transition:** 
+	- For local projects, the Copilot harness still runs on your machine in VS Code. 
+	- [What we've shipped based on your feedback](#_improvements-shaped-by-your-feedback).
+	- [What's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
 
 ## Why one shared harness
 
