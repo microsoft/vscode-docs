@@ -1,24 +1,23 @@
 ---
 ContentId: 3d9f2c6b-2f5e-4f9d-9b3a-7e6a1c4d8b21
 DateApproved: 11/14/2025
-MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a custom dataset, download the resulting LoRA adapter, and perform inference with the adapter.
+MetaDescription: Learn how to fine-tune the Aion Instruct model in Azure using a custom dataset and download the resulting LoRA adapter.
 ---
-# LoRA fine-tuning for Phi Silica
+# LoRA fine-tuning for Aion Instruct
 
-You can use Low Rank Adaptation (LoRA) to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
+You can use Low Rank Adaptation (LoRA) to fine-tune the Aion Instruct model to enhance its performance for your specific use case. By using LoRA to optimize Aion Instruct, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
-> [!NOTE]
-> Phi Silica features are not available in China.
+<!-- TODO: Add the Aion Instruct model overview link and confirm regional availability. -->
 
 ## Prerequisites
 
-- You have identified a use case for enhancing the response of Phi Silica.
+- You have identified a use case for enhancing the response of Aion Instruct.
 - You have chosen an evaluation criteria to decide what a 'good response' is.
-- You have tried the Phi Silica APIs and they do not meet your evaluation criteria.
+- You have tried the Aion Instruct model and it does not meet your evaluation criteria.
 
 ## Train your adapter
 
-To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, you must first generate a dataset that the training process will use.
+To train a LoRA adapter for fine-tuning the Aion Instruct model, you must first generate a dataset that the training process will use.
 
 ### Generate a dataset for use with a LoRA adapter
 
@@ -63,21 +62,21 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 1. Navigate to **Model Tools > Fine-tuning** and select **New Project**.
 
-1. Select "microsoft/phi-silica" from the Model Catalog and select **Next**.
+1. Select "microsoft/aion-instruct" from the Model Catalog and select **Next**.
 
 1. In the dialog, select a Project Folder and enter a Project Name. A new {% data variables.product.prodname_vscode_shortname %} window will open for the project.
 
-    ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
+    ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/lora/create-finetuning-project.png)
 
 1. Select "LoRA" from the Method list.
 
-    ![Screenshot of selecting LoRA method.](./images/finetune/select-finetuning-method-lora.png)
+    ![Screenshot of selecting LoRA method.](./images/finetune/lora/select-finetuning-method-lora.png)
 
 1. Under **Data > Training Dataset name** and **Test Dataset name**, select your `train.json` and `test.json` files.
 
 1. Select **Run with Cloud**.
 
-    ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
+    ![Screenshot of filling fine-tuning job parameters.](./images/finetune/lora/fill-finetuning-job-parameters.png)
 
 1. In the dialog, select the Microsoft account with which to access your Azure subscription.
 
@@ -89,7 +88,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 1. Once the job has completed, you have the option to download the newly trained LoRA adapter by selecting  **Download** and selecting **Show Metrics** to check the fine-tuning metrics.
 
-    ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
+    ![Screenshot of downloading adapter and showing metrics](./images/finetune/lora/download-adapter-and-show-metrics.png)
 
 ## LoRA fine-tuning recommendations
 
@@ -111,13 +110,12 @@ Our standard parameter search space would be:
 | adam_beta2     | 0.9   | 0.999  | Uniform       |
 | adam_epsilon   | 1e-9  | 1e-6   | Log-uniform   |
 | num_warmup_steps | 0   | 10000  | Uniform       |
-| lora_dropout   | 0     | 0.5    | Uniform       |
 
 We also search over the learning rate scheduler, choosing one of `linear_with_warmup` or `cosine_with_warmup`. If the `num_warmup_steps` parameter is set to `0`, then you can equivalently use the linear or cosine options.
 
 The learning rate, learning rate scheduler and number of warmup steps all interact with each other. Keeping two fixed and varying the third will give you better insights into how they change the output of training on your dataset.
 
-The weight decay and LoRA dropout parameters are there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the values of these parameters.
+The weight decay parameter is there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the value of this parameter.
 
 The `adam_ parameters` affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the PyTorch documentation.
 
@@ -147,8 +145,6 @@ The list of all parameters that can be finetuned is appended here. If a paramete
 
 ```json
 [
-
-################## Basic config settings ##################
   {
     "groupId": "data",
     "fields": [
@@ -169,7 +165,7 @@ The list of all parameters that can be finetuned is appended here. If a paramete
       {
         "name": "finetune_dataset",
         "type": "str",
-        "defaultValue": "wikitext2",
+        "defaultValue": "mount/<run_id>/dataset",
         "info": "Dataset to finetune on.",
         "label": "Dataset name or path"
       },
@@ -190,7 +186,7 @@ The list of all parameters that can be finetuned is appended here. If a paramete
       {
         "name": "finetune_train_batch_size",
         "type": "int",
-        "defaultValue": 4,
+        "defaultValue": 2,
         "info": "Batch size for finetuning training.",
         "label": "Training batch size"
       },
@@ -204,7 +200,7 @@ The list of all parameters that can be finetuned is appended here. If a paramete
       {
         "name": "finetune_train_seqlen",
         "type": "int",
-        "defaultValue": 2048,
+        "defaultValue": 1024,
         "info": "Maximum sequence length for finetuning training. Longer sequences will be truncated.",
         "label": "Max training sequence length"
       },
@@ -214,6 +210,93 @@ The list of all parameters that can be finetuned is appended here. If a paramete
         "defaultValue": 2048,
         "info": "Maximum sequence length for finetuning testing. Longer sequences will be truncated.",
         "label": "Max test sequence length"
+      }
+    ]
+  },
+  {
+    "groupId": "advanced",
+    "fields": [
+      {
+        "name": "seed",
+        "type": "int",
+        "defaultValue": 42,
+        "info": "Seed for sampling the data.",
+        "label": "Random seed"
+      },
+      {
+        "name": "evaluation_strategy",
+        "type": "str",
+        "defaultValue": "steps",
+        "info": "Evaluation strategy to use.",
+        "label": "Evaluation strategy",
+        "optionValues": [
+          "steps",
+          "epoch",
+          "no"
+        ]
+      },
+      {
+        "name": "adam_beta1",
+        "type": "float",
+        "defaultValue": 0.9,
+        "info": "Beta1 hyperparameter for Adam optimizer.",
+        "label": "Adam beta 1"
+      },
+      {
+        "name": "adam_beta2",
+        "type": "float",
+        "defaultValue": 0.95,
+        "info": "Beta2 hyperparameter for Adam optimizer.",
+        "label": "Adam beta 2"
+      },
+      {
+        "name": "adam_epsilon",
+        "type": "float",
+        "defaultValue": 1E-08,
+        "info": "Epsilon hyperparameter for Adam optimizer.",
+        "label": "Adam epsilon"
+      },
+      {
+        "name": "weight_decay",
+        "type": "float",
+        "defaultValue": 0.0,
+        "info": "Weight decay coefficient applied by the optimizer. Automatically excluded from bias and LayerNorm parameters.",
+        "label": "weight decay"
+      },
+      {
+        "name": "gradient_accumulation_steps",
+        "type": "int",
+        "defaultValue": 1,
+        "info": "Number of update steps to accumulate gradients before performing a backward/update pass. Effective batch size = per_device_train_batch_size * num_devices * gradient_accumulation_steps.",
+        "label": "gradient accumulation steps"
+      },
+      {
+        "name": "max_grad_norm",
+        "type": "float",
+        "defaultValue": 1.0,
+        "info": "Maximum gradient norm for gradient clipping. Must be greater than 0; setting it to 0 prevents training.",
+        "label": "max grad norm"
+      },
+      {
+        "name": "gradient_checkpointing",
+        "type": "bool",
+        "defaultValue": false,
+        "info": "Enable gradient checkpointing to trade compute for memory. Reduces memory at the cost of ~20% slower training.",
+        "label": "gradient checkpointing"
+      },
+      {
+        "name": "eval_delay",
+        "type": "float",
+        "defaultValue": 0,
+        "info": "Number of epochs or steps to wait for before the first evaluation can be performed, depending on the eval_strategy.",
+        "label": "eval delay"
+      },
+      {
+        "name": "eval_accumulation_steps",
+        "type": "int | None",
+        "defaultValue": null,
+        "info": "Number of predictions steps to accumulate the output tensors for, before moving the results to the CPU. If unset, predictions are accumulated on the accelerator before being moved to the CPU.",
+        "label": "eval accumulation steps"
       }
     ]
   },
@@ -277,128 +360,11 @@ The list of all parameters that can be finetuned is appended here. If a paramete
       }
     ]
   }
-
-
-
-################## Advanced config settings ##################
-
-
-
-  {
-    "groupId": "advanced",
-    "fields": [
-      {
-        "name": "seed",
-        "type": "int",
-        "defaultValue": 42,
-        "info": "Seed for sampling the data.",
-        "label": "Random seed"
-      },
-      {
-        "name": "evaluation_strategy",
-        "type": "str",
-        "defaultValue": "steps",
-        "info": "Evaluation strategy to use.",
-        "label": "Evaluation strategy",
-        "optionValues": [
-          "steps",
-          "epoch",
-          "no"
-        ]
-      },
-      {
-        "name": "lora_dropout",
-        "type": "float",
-        "defaultValue": 0.1,
-        "info": "Dropout rate for LoRA.",
-        "label": "LoRA dropout"
-      },
-      {
-        "name": "adam_beta1",
-        "type": "float",
-        "defaultValue": 0.9,
-        "info": "Beta1 hyperparameter for Adam optimizer.",
-        "label": "Adam beta 1"
-      },
-      {
-        "name": "adam_beta2",
-        "type": "float",
-        "defaultValue": 0.95,
-        "info": "Beta2 hyperparameter for Adam optimizer.",
-        "label": "Adam beta 2"
-      },
-      {
-        "name": "adam_epsilon",
-        "type": "float",
-        "defaultValue": 1e-08,
-        "info": "Epsilon hyperparameter for Adam optimizer.",
-        "label": "Adam epsilon"
-      },
-      {
-        "name": "num_training_steps",
-        "type": "Optional",
-        "defaultValue": null,
-        "info": "The number of training steps there will be. If not set (recommended), this will be calculated internally.",
-        "label": "Number of training steps"
-      },
-      {
-        "name": "gradient_accumulation_steps",
-        "type": "int",
-        "defaultValue": 1,
-        "info": "Number of updates steps to accumulate before performing a backward/update pass.",
-        "label": "gradient accumulation steps"
-      },
-      {
-        "name": "eval_accumulation_steps",
-        "type": "Optional",
-        "defaultValue": null,
-        "info": "Number of predictions steps to accumulate before moving the tensors to the CPU.",
-        "label": "eval accumulation steps"
-      },
-      {
-        "name": "eval_delay",
-        "type": "Optional",
-        "defaultValue": 0,
-        "info": "Number of epochs or steps to wait for before the first evaluation can be performed, depending on the eval_strategy.",
-        "label": "eval delay"
-      },
-      {
-        "name": "weight_decay",
-        "type": "float",
-        "defaultValue": 0.0,
-        "info": "Weight decay for AdamW if we apply some.",
-        "label": "weight decay"
-      },
-      {
-        "name": "max_grad_norm",
-        "type": "float",
-        "defaultValue": 1.0,
-        "info": "Max gradient norm.",
-        "label": "max grad norm"
-      },
-      {
-        "name": "gradient_checkpointing",
-        "type": "bool",
-        "defaultValue": false,
-        "info": "If True, use gradient checkpointing to save memory at the expense of slower backward pass.",
-        "label": "gradient checkpointing"
-      }
-    ]
-  }
 ]
 ```
-
 
 ## Modify the Azure subscription and resource group
 
 If you want to modify the Azure subscription and resource group that were previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
 
-## Inference with the Phi Silica LoRA adapter
-
-> [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](https://learn.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
-
-> [!NOTE]
-> Inference with the Phi Silica LoRA adapter is currently supported only on Copilot+ PCs with ARM processors.
-
-Use Windows AI APIs to inference: [Phi Silica with LoRA adapter](https://github.com/MicrosoftDocs/windows-ai-docs/blob/docs/docs/apis/phi-silica-lora.md#c)
+<!-- TODO: Add Aion Instruct inference instructions and the supported API documentation. Confirm supported devices, operating systems, and access requirements before adding platform or access restrictions. -->
