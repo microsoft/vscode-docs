@@ -1,6 +1,6 @@
 ---
 ContentId: 8b38ebbb-831f-43ba-8285-93846b7cb135
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Configure accounts, models, layout, settings, extensions, and editors in the {% data variables.copilot.agents_window %}.
 ---
 # Configure the {% data variables.copilot.agents_window %}
@@ -21,7 +21,7 @@ The {% data variables.copilot.agents_window %} uses the accounts and model crede
 For account requirements, billing options, and integration setup, see [Agent harness requirements and setup](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Separate provider credentials don't override that restriction. Contact the IT team that deployed the settings to discuss access.
 
 {% data variables.product.prodname_anthropic_claude_short %}, ChatGPT-backed {% data variables.product.prodname_openai_codex_short %}, and BYOK models can run in the desktop {% data variables.copilot.agents_window %} without {% data variables.product.prodname_github %} sign-in when you configure the supported provider credentials. Features that require {% data variables.product.prodname_github %} authentication prompt you to sign in when needed. The browser-based {% data variables.copilot.agents_window %} always requires {% data variables.product.prodname_github %} sign-in.
 

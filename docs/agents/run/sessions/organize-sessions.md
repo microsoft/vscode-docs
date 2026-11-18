@@ -1,6 +1,6 @@
 ---
 ContentId: 7379b898-2d55-4a46-8694-f2dd894389cc
-DateApproved: 11/09/2026
+DateApproved: 11/18/2026
 MetaDescription: Organize agent sessions and triage work that needs attention in the {% data variables.copilot.agents_window %} without archiving it.
 MetaSocialImage: ../../images/agents-window/agents-window-ui-annotated.png
 ---
@@ -38,13 +38,15 @@ Group sessions by workspace or topic when you want to find a conversation. Use I
 
 ### Turn on Inbox mode
 
-1. Open Settings (`kb(workbench.action.openSettings)`) and turn on `setting(sessions.list.inboxEnabled)`. The setting is off by default.
+* In the sessions list, select **Filter Sessions** > **Grouping** > **Inbox Mode**.
 
-1. In the sessions list, select **Filter Sessions** > **Grouping** > **Inbox Mode**.
+The `setting(sessions.list.inboxEnabled)` setting chooses Inbox as the initial default only when you haven't selected a grouping. Changing the setting doesn't override a saved grouping choice.
 
-![Screenshot of Inbox mode in the Agents window sessions list.](../../images/organize-sessions/inbox-mode-sessions-list.png)
+<!-- TODO: Update the Inbox screenshot to show the workspace and environment pickers, Acknowledged category, and separate archived sessions. -->
 
-**Pinned** and **Inbox** appear above the other categories:
+![Screenshot showing Inbox mode in the Agents window sessions list.](../../images/organize-sessions/inbox-mode-sessions-list.png)
+
+**Pinned** and **Inbox** appear above the other categories. Pinned sessions stay in **Pinned** when acknowledged, held, or snoozed, but still follow the workspace and environment filters.
 
 | Category | What to look for |
 |---|---|
@@ -52,28 +54,45 @@ Group sessions by workspace or topic when you want to find a conversation. Use I
 | **Working** | Sessions whose agents are still working. |
 | **Ready to merge** | Sessions whose relevant open pull requests are all non-draft and have passing CI, with no other requests for attention. |
 | **On hold** | Sessions you've put on hold or snoozed. |
-| **Done** | Dismissed work and earlier completed sessions. Placement here doesn't by itself mean a session is archived. |
+| **Acknowledged** | Work whose current activity you've handled without archiving it. Expand this category to find acknowledged sessions. |
+| **Done** or **Archived** | Archived sessions. The label follows the session archive action's wording. |
 
 Failed, pending, or absent checks don't qualify a session for **Ready to merge**. Passing CI doesn't guarantee that a pull request can be merged. Review the changes before merging.
 
-### Dismiss, defer, or finish work
+For sessions whose provider supports merging, select **Merge** on the **Ready to merge** row to merge its pull request.
 
-Right-click a session to choose a triage action. You can select multiple sessions to apply the same action together.
+### Focus on a workspace or environment
+
+Use the workspace and environment pickers above the list to show matching sessions across every category, including **Pinned** and **On hold**. Select **All Workspaces** and **All Environments** to clear both filters. Selections persist after reloading the window.
+
+These filters don't change the **New Session** destination or filter the **Automations** catalog. An open conversation stays open even if its row is filtered out.
+
+### Acknowledge, defer, or finish work
+
+Right-click a session to choose a triage action. You can select multiple sessions to apply the same action together. **Acknowledge** is also available as the eye action on Inbox rows.
 
 | Action | Effect |
 |---|---|
-| **Dismiss from Inbox** | Move the session to **Done** in Inbox mode without archiving it. New activity or notifications can bring it back. |
-| **Return to Inbox** | Clear the triage choice. The session returns to the category appropriate to its current status. |
-| **Put on Hold** | Keep the session in **On hold** until you return it to the Inbox workflow. |
-| **Snooze** | Move the session to **On hold** until a chosen time or new activity, depending on the option you select. |
-| **Mark Session as Done** | [Archive the session](/docs/agents/run/sessions/manage-sessions.md#archive-sessions), which can also clean up its worktree or container. |
+| **Acknowledge** | Clear the current activity. Unpinned sessions move to **Acknowledged**. New activity or a new notification clears the acknowledgement. |
+| **Put on Hold** | Keep the session in **On hold** until you explicitly resume it. New activity and reloads don't release it. |
+| **Snooze** | Move the session to **On hold** until the chosen time, without returning early on new activity. Choose **Until New Activity** instead to return on new activity or a new notification. |
+| **Return to Inbox** | Clear the triage choice. The session returns to the category appropriate to its current activity, not necessarily **Inbox**. |
+| Archive or mark as done | [Archive the session](/docs/agents/run/sessions/manage-sessions.md#archive-sessions), which can also clean up its worktree or container. |
 
 > [!IMPORTANT]
-> Dismissing, holding, or snoozing a session doesn't stop its agent or archive the session. The row's close icon is **Dismiss from Inbox**; the checkmark is **Mark Session as Done**.
+> Acknowledging, holding, or snoozing a session doesn't stop its agent, mark it as read, or archive it. Opening or reading a conversation doesn't acknowledge its activity.
 
-Select **Undo** in the notification to reverse a triage action. Triage choices persist after reloading the window.
+When an acknowledgement or snooze ends, unpinned sessions return to the category matching their current activity. Triage choices persist after reloading the window.
 
-To return to project-based organization, choose another option under **Grouping**. Switching grouping or turning off `setting(sessions.list.inboxEnabled)` preserves your custom organization and saved triage choices.
+You can also drag one or more sessions onto **Pinned**, **On hold**, or the archive section to apply the corresponding action. To release a hold or snooze, select **Return to Inbox** or drag the session into the category matching its current activity.
+
+To return to project-based organization, choose another option under **Grouping**. Switching grouping preserves your custom organization and saved triage choices.
+
+### Work through the Inbox
+
+Open a conversation from **Inbox** and send a reply. After the request is accepted, the next visible Inbox conversation opens in the current order, within your workspace and environment filters. At the end of the list, the previous remaining conversation opens. If no visible Inbox conversations remain, focus returns to the **Inbox** heading.
+
+Starting a new session, sending in the background to another conversation, or replying outside **Inbox** doesn't advance through the Inbox.
 
 ## Fix checks and address comments from the sessions list
 

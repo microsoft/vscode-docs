@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Compare agent harnesses and built-in agents in {% data variables.product.prodname_vscode %}, select one for a session, and review provider requirements.
 Keywords:
 - copilot
@@ -50,7 +50,7 @@ A session can group chats that use different harnesses with [mixed-harness chats
 Available models depend on the harness and how you [access models](/docs/agent-customization/language-models.md#choose-how-to-access-models), such as through a {% data variables.product.prodname_copilot %} subscription, another supported account, or your own API key. Harness-specific customizations, including [hooks](/docs/agent-customization/hooks.md#choose-the-hook-implementation-for-your-session), follow the selected harness.
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings, unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access. If you don't know the owner, ask your IT help desk to find the responsible administrator.
 
 ## Select a harness
 
@@ -163,7 +163,7 @@ To use Codex in the {% data variables.copilot.chat_view %}, install and enable t
 #### Agent Host integration (Experimental)
 
 > [!NOTE]
-> The Codex Agent Host integration is disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), even with a ChatGPT account or the integration's user setting set to `true`. Contact the IT team that deployed the settings to discuss access.
+> The Codex Agent Host integration is disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits it. A ChatGPT account or the integration's user setting set to `true` doesn't override that restriction. Contact the IT team that deployed the settings to discuss access.
 
 Enable `setting(chat.agentHost.codexAgent.enabled)` to make Codex available in the {% data variables.copilot.agents_window %} without the {% data variables.product.prodname_openai_codex %} extension.
 

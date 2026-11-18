@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Improve your project's AI guidance with focused instructions, scoped rules, agents, and skills in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - customization
@@ -36,7 +36,7 @@ Choose the article's tabs for your harness, not your language model. For example
 > Work in the current folder rather than a new worktree so new sessions can access your uncommitted customization files. In the {% data variables.copilot.agents_window %}, leave **New Worktree** unselected.
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 ### Review your existing setup
 
@@ -325,6 +325,8 @@ For a complete test procedure and guidance on refining the agent's role, see [Ve
 ### Skills for repeatable procedures
 
 Use an agent skill when you repeatedly explain the same multi-step procedure. Package the procedure for an agent to use rather than creating a separate role just to repeat that workflow. Use scoped instructions instead when you need a convention for particular files, not a procedure to carry out.
+
+To run an agent task on a recurring schedule rather than invoke it yourself, [create an automation](/docs/agents/run/automations.md).
 
 The [validate-change skill in the API project example](#example-customize-an-api-project) packages the process of selecting and running relevant checks, then summarizing their results.
 

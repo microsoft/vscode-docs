@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Use prompt files with the deprecated Local harness in {% data variables.product.prodname_vscode_shortname %}, or migrate workflows to agent skills.
 Keywords:
 - prompt files

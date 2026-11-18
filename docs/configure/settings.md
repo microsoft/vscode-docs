@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Configure user and workspace settings in {% data variables.product.prodname_vscode %} and understand how setting scopes take precedence.
 ---
 # User and workspace settings

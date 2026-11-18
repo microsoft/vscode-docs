@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Practice test-driven development with AI in {% data variables.product.prodname_vscode_shortname %}, using failing tests and review checkpoints.
 Keywords:
 - ai

@@ -33,8 +33,16 @@
       "label": "Chat windows in the Agents window",
       "state": "preview"
     },
+    "agents-window-drafts": {
+      "label": "Session drafts in the Agents window",
+      "state": "experimental"
+    },
     "agents-window-pr-comments": {
       "label": "Pull request comments in the Agents window",
+      "state": "experimental"
+    },
+    "agents-window-send-later": {
+      "label": "Send Later in the Agents window",
       "state": "experimental"
     },
     "agents-window-word-wrap": {
@@ -52,6 +60,10 @@
     "canvases": {
       "label": "Canvases",
       "state": "preview"
+    },
+    "chat-app-window-screenshots": {
+      "label": "App window screenshots in chat",
+      "state": "experimental"
     },
     "chat-pet": {
       "label": "VS Code pet",
@@ -72,6 +84,10 @@
     "copilot-connectors": {
       "label": "Copilot connectors",
       "state": "preview"
+    },
+    "dev-container-state-volume": {
+      "label": "Dev Container state volumes",
+      "state": "experimental"
     },
     "editor-working-set": {
       "label": "Editor working set",

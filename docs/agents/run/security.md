@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Protect development environments when using AI agents and MCP servers in {% data variables.product.prodname_vscode_shortname %} with approvals and sandboxing.
 Keywords:
 - security
@@ -97,13 +97,15 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 ### Approvals and review
 
 > [!NOTE]
-> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Contact the IT team that deployed the settings to discuss approved harnesses.
+> Claude and Codex harnesses cannot enforce {% data variables.product.prodname_copilot_short %} enterprise-managed settings. They are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings, unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss approved harnesses.
 
 {% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
 * **Permission levels**: In a Copilot harness session, use the [permissions picker](/docs/agents/run/approvals.md#permission-levels) to choose how tool calls are approved. **Manual permissions** uses your configured approval settings. **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Allow all** auto-approves all tool calls. **Autopilot** is an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete. Available controls depend on the harness and code isolation. For Local harness sessions `feature(local-harness)`, Autopilot is a permission level instead.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
+
+* **Password handling (Experimental)**: Supported shell-authentication prompts in {% data variables.product.prodname_copilot_short %} harness sessions mask passwords and passphrases. The answer is passed to the requesting program, not sent to the model or saved in chat history. Review the displayed command and only provide credentials to programs and destinations you trust. This protection applies only to the dedicated authentication prompt. Don't paste passwords into ordinary chat messages or include them in command text.
 
 * **Tool approval**: MCP tool invocations require explicit user approval, which you can grant at different scopes: session-level for temporary access, workspace-level for project-specific trust, or user-level for broader permissions.
 

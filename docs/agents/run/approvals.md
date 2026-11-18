@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Manage agent permission levels, tool approvals, terminal auto-approval, and sandboxing in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
@@ -63,6 +63,22 @@ Sandboxing is independent of the permission level. **Allow all** and **Autopilot
 > [!CAUTION]
 > **Allow all** and **Autopilot** skip confirmation for potentially destructive actions, including file edits, terminal commands, and external tool calls. The first time you select either option, a warning dialog asks you to confirm. Use these options only when you trust the workspace and understand the [security implications](/docs/agents/run/security.md).
 
+### Customize Assisted permissions
+
+Use `setting(chat.permissions.assisted.instructions)` to tell the Assisted permissions reviewer which actions need your confirmation in {% data variables.product.prodname_copilot_short %} harness sessions. For example:
+
+```json
+{
+  "chat.permissions.assisted.instructions": "Always ask before installing packages or pushing to a remote. Running tests and read-only Git commands doesn't need my approval."
+}
+```
+
+These instructions go to the reviewer, not the agent. They take precedence over the reviewer's default guidance but can't override permission rules, organization policy, or sandbox restrictions. Changes apply to sessions that are already open.
+
+The reviewer also distinguishes your requests from requests sent by [automations](/docs/agents/run/automations.md) or other agents. Automated and delegated requests aren't treated as instructions you wrote, so they might require approval where your own request wouldn't.
+
+Your answers to agent questions and plan reviews also inform the review, including when you decline. An answer can authorize the follow-up work it describes, and a refusal can block an action that you approved earlier.
+
 ### How Autopilot works
 
 **Autopilot** is an agent mode, not a permission level. Select it from the mode picker in the chat input to let the agent work autonomously until it determines that the task is complete. Autopilot:
@@ -84,7 +100,7 @@ Advanced Autopilot delegates the completion decision to a separate model. After 
 ### Claude permission modes
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings. Their permission modes do not override that restriction. Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), including managed permission or sandbox settings, unless your administrator explicitly permits them. Their permission modes do not override organization restrictions. Contact the IT team that deployed the settings to discuss access.
 
 [Claude harness sessions](/docs/agents/run/agent-harnesses.md#claude) support these permission modes:
 
@@ -146,7 +162,9 @@ On your machine, terminal and URL approvals stay in sync with your **user** sett
 * **Always Allow Fetching** updates request approval in `setting(chat.tools.urls.autoApprove)`, without enabling response auto-approval.
 * Changes to those user settings are also applied to the local Agent Host. Workspace settings are not copied.
 
-Remote agent sessions keep their own approvals. Your local settings are not pushed to a remote host, and choosing **Always Allow** there does not change your local settings.
+Remote agent sessions keep their own tool approvals. The local terminal and URL approval settings described above aren't pushed to a remote host, and choosing **Always Allow** there doesn't change your local settings.
+
+Sandbox path-access requests use [separate approval scopes](/docs/agents/run/agent-sandboxing.md#choose-the-scope-of-a-path-approval). Unlike the tool approvals above, **Allow for This User** saves sandbox path access in local User settings and shares it with connected Agent Hosts.
 
 **Local** harness sessions `feature(local-harness)` retain their existing approval options, including workspace-scoped approvals where supported.
 

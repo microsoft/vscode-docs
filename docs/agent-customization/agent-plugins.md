@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Find, install, and manage agent plugins from marketplaces in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -195,14 +195,23 @@ If you only need a skill, consider [using or adapting an existing skill](/docs/a
 
 ### Enable or disable plugins
 
-Where offered by the selected harness, you can enable or disable a plugin globally or for a specific workspace. Enablement is separate from where the plugin is installed:
+Where offered by the selected harness, you can enable or disable a plugin globally or for a specific workspace. Enablement is separate from where the plugin is installed.
 
-1. Select the intended session. In the Agent Customizations editor, select **Plugins** and open the plugin's details.
-1. Use **Enable** or **Disable** to change its global state, or **Enable (Workspace)** or **Disable (Workspace)** for the current workspace. Use the button's dropdown menu to choose an available scope.
+For {% data variables.product.prodname_copilot_short %} harness sessions:
 
-Global enablement isn't isolated to the active user profile. The enabled state is stored separately from the plugin configuration, so a workspace enablement choice doesn't change shared workspace settings. For remote sessions, check whether the plugin is host-owned or supplied by the connected client before changing it. See [customization context and change scope](/docs/agent-customization/overview.md#understand-what-a-change-affects).
+1. Select the intended session. In the Agent Customizations editor, select **Plugins**. If the controls show **Waiting for Session Start**, send a message to start the session before changing enablement.
 
-Policy-managed plugins are identified as managed by policy, and their toggles are locked.
+1. For workspace-only changes, open the plugin's actions menu and select **Manage Enablement for This Workspace**. This creates an override matching the current enabled state and adds a **This Workspace** badge. Choosing the scope alone doesn't turn the plugin on or off.
+
+1. Use the plugin's switch to enable or disable it. With a workspace override, the switch changes that workspace's state. Without an override, it changes the global state.
+
+To remove the workspace override, select the **This Workspace** badge or open the plugin's actions menu, and choose **Use Global Enablement**. The plugin follows its global state again, which can change whether it is enabled.
+
+Workspace overrides are saved in `enabledPlugins` in `.github/copilot/settings.json`, relative to the selected chat's working directory. Review this project-file change before committing or sharing it.
+
+Workspace overrides are supported for marketplace-installed plugins, not direct installations. Policy-managed plugins are identified as managed by policy, and their toggles are locked. Other harnesses can offer different enablement controls and scopes.
+
+Global enablement isn't isolated to the active user profile. For remote sessions, check whether the plugin is host-owned or supplied by the connected client before changing it. See [customization context and change scope](/docs/agent-customization/overview.md#understand-what-a-change-affects).
 
 When a plugin is disabled, its skills, agents, hooks, MCP servers, slash commands, and automation templates are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**, and automation templates do not appear in **Templates from Plugins**. Disabled plugins appear with a dimmed style in the Agent Customizations editor.
 
@@ -276,7 +285,7 @@ Projects can recommend plugins for team members by configuring plugin settings i
 
 In the Local harness `feature(local-harness)`, {% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. To browse and install plugins from the project's marketplaces, open the Agent Customizations editor and select **Browse**, or select **Plugins** > **Browse Marketplace** if the unified Browse experience is unavailable.
 
-In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. You can turn off optional plugins in **Plugins** in the Agent Customizations editor without changing the shared defaults. Enterprise-managed settings take precedence over repository defaults and your choices.
+In the {% data variables.product.prodname_copilot_short %} harness, `.github/copilot/settings.json` supplies repository plugin and marketplace defaults. [Workspace enablement changes](#enable-or-disable-plugins) made in the Agent Customizations editor update `enabledPlugins` in that file. They aren't private preferences, so review them before sharing the configuration. Enterprise-managed settings take precedence over repository defaults and your choices.
 
 For the configuration fields, naming rules, and a complete example, see [workspace plugin settings](/docs/agents/reference/agent-plugin-reference.md#workspace-plugin-settings). Review a recommended plugin before enabling it, just as you would a plugin you discover yourself.
 

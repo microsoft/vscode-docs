@@ -1,6 +1,6 @@
 ---
 ContentId: 924a518d-d9de-4f32-aaf4-b16919f0e66b
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Compare model responses and code changes side by side in the {% data variables.copilot.agents_window %}, then continue with the strongest result.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 Keywords:
@@ -92,6 +92,8 @@ For example:
 Compare two available models on the task 'Suggest tests for a command-line calculator'.
 Use a judge to evaluate their answers.
 ```
+
+The comparison appears beneath the conversation that started it in the sessions list. Select **Open Comparison** in the agent's tool response to open the results.
 
 ## Compare the results
 

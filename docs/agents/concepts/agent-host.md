@@ -1,6 +1,6 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Understand how the {% data variables.product.prodname_vscode_shortname %} Agent Host manages sessions, execution environments, and connected clients.
 Keywords:
 - agent host
@@ -32,7 +32,7 @@ Separating the agent from the window that displays it provides these capabilitie
 * **Dedicated process**: agents run in their own process, where they won't be blocked by busy extensions.
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 ## Process architecture
 

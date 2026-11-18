@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Plan deployment, govern AI and extensions, and troubleshoot {% data variables.product.prodname_vscode %} across managed devices.
 ---
 

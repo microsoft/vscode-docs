@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 ---
 # Use the {% data variables.copilot.chat_view %}
@@ -36,7 +36,7 @@ The {% data variables.copilot.chat_view %} opens in the Secondary Side Bar, next
 ## Start a session
 
 > [!NOTE]
-> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability). Contact the IT team that deployed the settings to discuss access.
+> Claude and Codex harnesses are disabled when [{% data variables.product.prodname_copilot_short %} enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Contact the IT team that deployed the settings to discuss access.
 
 1. Open the project you want to work on and select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -186,19 +186,40 @@ To verify the model default, check **Org default** in the model picker and the b
 
 ### Claude and Codex availability
 
-The Claude and Codex harness integrations in {% data variables.product.prodname_vscode_shortname %} are disabled while {% data variables.product.prodname_copilot_short %} enterprise-managed settings apply. This includes settings delivered through server-managed, MDM-managed, or file-based deployments.
+By default, the Claude and Codex harness integrations in {% data variables.product.prodname_vscode_shortname %} are disabled while {% data variables.product.prodname_copilot_short %} enterprise-managed settings apply. This includes settings delivered through server-managed, MDM-managed, or file-based deployments.
 
-The {% data variables.product.prodname_copilot_short %} runtime enforces these settings, but the Claude and Codex harnesses cannot enforce them. {% data variables.product.prodname_vscode_shortname %} disables those harnesses so a session cannot bypass your organization's controls.
+The {% data variables.product.prodname_copilot_short %} runtime enforces these settings, but the Claude and Codex harnesses cannot enforce them.
 
 This restriction does not delete existing Claude or Codex sessions.
 
-The restriction depends on the presence of managed settings, not only on whether a particular restriction is enabled. For example:
+Without a `vscode.allowedHarnesses` exception, the restriction depends on the presence of managed settings, not only on whether a particular restriction is enabled. For example:
 
 * Managed permission settings, such as `permissions.disableBypassPermissionsMode`, `permissions.allow`, `permissions.ask`, or `permissions.deny`, disable the harnesses. An empty rule list still counts as a managed setting.
 * Managed `sandbox.enabled` disables the harnesses even when its value is `false`.
 * Other enterprise-managed controls, such as plugin or telemetry settings, can also disable the harnesses.
 
-Setting `setting(chat.agentHost.claudeAgent.enabled)` or `setting(chat.agentHost.codexAgent.enabled)` to `true` does not override this restriction. Setting the `Claude3PIntegration` or `Codex3PIntegration` device policy to `true` does not override it either. The restriction also applies when you use a Claude API key or a ChatGPT account.
+Starting with {% data variables.product.prodname_vscode_shortname %} 1.147, you can permit one or both harnesses by listing them in `vscode.allowedHarnesses` in enterprise-managed settings:
+
+```json
+{
+    "vscode": {
+        "allowedHarnesses": ["claude", "codex"]
+    }
+}
+```
+
+* Use the lowercase IDs `claude` and `codex`. Other entries are ignored.
+* The list permits only the harnesses it names. An empty list, `[]`, blocks both.
+* If you omit `vscode.allowedHarnesses`, managed settings continue to disable both harnesses.
+
+Configure this key through file-based or native MDM-managed settings. Server-managed settings don't yet support it.
+
+> [!WARNING]
+> Permitting a harness does not make it enforce your enterprise-managed settings. Claude and Codex sessions run without {% data variables.product.prodname_copilot_short %}'s managed permission, sandbox, MCP, and plugin controls. Review your organization's requirements before permitting these harnesses.
+
+`vscode.allowedHarnesses` only lifts the default managed-settings restriction. Other controls still apply, including `vscode.temporaryAllowLocalHarness: false` and device policies that disable a harness.
+
+Setting `setting(chat.agentHost.claudeAgent.enabled)` or `setting(chat.agentHost.codexAgent.enabled)` to `true` does not grant an exception to the default restriction. Setting the `Claude3PIntegration` or `Codex3PIntegration` device policy to `true` does not grant one either. Using a Claude API key or a ChatGPT account does not bypass the default restriction.
 
 This restriction applies to harness availability, not to Claude or OpenAI models selected in a Copilot harness session. Model availability is governed separately.
 
@@ -214,7 +235,7 @@ Ask the administrator which harnesses are approved for your work and whether the
 
 ### Runtime policies and harness selection
 
-The restriction on Claude and Codex is separate from automatic routing to the Copilot harness. Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, the following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
+The default restriction on Claude and Codex is separate from automatic routing to the Copilot harness. Starting with {% data variables.product.prodname_vscode_shortname %} 1.143, the following managed settings require the Copilot harness unless the administrator enables the [temporary Local default](#keep-local-harness-as-default):
 
 * `sandbox.enabled` set to `true`.
 * A nonempty `permissions.deny` rule list.
@@ -225,7 +246,7 @@ To prohibit Local, Claude, and Codex, set `vscode.temporaryAllowLocalHarness` to
 
 A default is not a harness requirement. The `ChatEditorPreferCopilotHarness` device policy prefers Copilot when a new editor chat would otherwise use Local, but does not prohibit other harnesses.
 
-The temporary Local default does not re-enable Claude or Codex while enterprise-managed settings apply. For conversation and archive behavior when Copilot is required, see [continue an existing Local conversation](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
+The temporary Local default does not grant an exception to the [default Claude and Codex restriction](#claude-and-codex-availability). Use `vscode.allowedHarnesses` to permit those harnesses while enterprise-managed settings apply. For conversation and archive behavior when Copilot is required, see [continue an existing Local conversation](/docs/agents/run/move-to-copilot.md#continue-an-existing-local-conversation).
 
 ### Keep Local harness as default
 
@@ -333,7 +354,7 @@ Set `CopilotNextEditSuggestions` to `false` to disable next edit suggestions.
 
 Set `Claude3PIntegration` to `false` to disable Claude Agent sessions in {% data variables.product.prodname_vscode_shortname %}.
 
-Setting this policy to `true` does not override the [Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
+Setting this policy to `true` does not grant an exception to the [default Claude and Codex restriction under enterprise-managed settings](#claude-and-codex-availability).
 
 ### Enable or disable the copilot command
 
@@ -439,7 +460,7 @@ Use the following policies to govern [MCP servers](/docs/agent-customization/mcp
 
 ### Configure agent tool approvals
 
-Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings to control session permission levels. Use {% data variables.product.prodname_vscode_shortname %} device policies for other approval behavior.
+Use {% data variables.product.prodname_copilot_short %} enterprise-managed settings to control session permission levels and shell permission rules. Use {% data variables.product.prodname_vscode_shortname %} device policies for editor-specific approval controls.
 
 #### Manage permission levels
 
@@ -468,6 +489,22 @@ If the configured default is unavailable, new sessions use **Manual permissions*
 In both the editor and the {% data variables.copilot.agents_window %}, supported permission levels restricted by policy remain visible but disabled. The picker shows **Disabled by policy** with a briefcase icon and an explanation. Unsupported permission levels aren't shown.
 
 These managed settings control [session permission levels](/docs/agents/run/approvals.md#permission-levels). The `ChatToolsAutoApprove` device policy controls global auto-approval separately. Refer to the [enterprise-managed settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) for configuration and deployment details.
+
+#### Define managed shell permission rules
+
+For {% data variables.product.prodname_copilot_short %} harness sessions, use regular expressions in enterprise-managed shell permission rules to match command alternatives or word boundaries with a single rule. `Shell(...)`, `Bash(...)`, and `PowerShell(...)` rules accept JavaScript regular expressions written as `/pattern/flags` in `permissions.deny`, `permissions.ask`, and `permissions.allow`.
+
+For example, require approval for commands that start with `git push` or `git pull`:
+
+```json
+{
+    "permissions": {
+        "ask": ["Shell(/^git\\s+(push|pull)\\b/)"]
+    }
+}
+```
+
+Escape backslashes in JSON strings, as shown by `\\s` and `\\b` in this example.
 
 #### Disable global auto-approval
 

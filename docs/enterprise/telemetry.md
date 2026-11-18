@@ -1,6 +1,6 @@
 ---
 ContentId: 9b3e5c2d-1a4f-6e8b-c7d9-0f2a3b4c5d6e
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Manage {% data variables.product.prodname_vscode_shortname %} product telemetry, feedback, and agent monitoring for enterprise deployments.
 ---
 

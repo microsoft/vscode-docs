@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 11/11/2026
+DateApproved: 11/18/2026
 MetaDescription: Preview and debug web apps with the integrated browser in {% data variables.product.prodname_vscode_shortname %} and configure browser behavior.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -33,13 +33,43 @@ Open a supported file in one of these ways:
 * Right-click the file's editor tab and select **Open in Integrated Browser**.
 * With the file open in the editor, select the **Open in Integrated Browser** (globe) button in the editor toolbar.
 
-These actions require a local `file://` URL and aren't available for remote or virtual workspace resources.
+For files stored on another machine, see [Open remote HTML files](#open-remote-html-files). Other virtual workspace resources aren't supported.
+
+### Open remote HTML files
+
+`feature(integrated-browser-remote)`
+
+Preview HTML files in SSH, WSL, or Dev Container workspaces without copying them to your computer or starting a web server. In the installed {% data variables.copilot.agents_window %}, you can also preview files from a remote agent host.
+
+1. Enable `setting(workbench.browser.enableRemoteProxy)` and keep `setting(workbench.browser.dataStorage)` set to `default`. Remote files don't load in tabs that use `global` storage.
+
+1. Open the remote workspace, or select the session on the remote agent host that contains the file.
+
+1. Right-click the HTML file in the Explorer or the session's files view and select **Open in Integrated Browser**. You can also use the **Open in Integrated Browser** button in the file's editor toolbar.
+
+The address bar shows a `file://` URL with the remote path. The page and its referenced resources are read from that host. Check the remote indicator to confirm the intended host. A `file://` URL entered in a remotely connected tab also refers to the remote machine, not your local disk.
+
+Remote file access is checked against trusted folders on that host. In a remote editor window in **Restricted Mode**, trust the project folder before previewing its HTML files.
+
+If you explicitly open a local HTML file in a remote window, such as by dragging it from your operating system's file manager, it still loads from your computer. The address bar indicator identifies it as a local file.
 
 ## Use an external browser
 
 By default, localhost links, such as `localhost`, `127.0.0.1`, and `[::1]`, and all-interfaces links, such as `0.0.0.0` and `[::]`, open in the integrated browser when you select them in the terminal, chat, or other parts of {% data variables.product.prodname_vscode_shortname %}.
 
 To open these links in an external browser instead, disable the `setting(workbench.browser.openLocalhostLinks)` setting. By default, {% data variables.product.prodname_vscode_shortname %} uses your operating system's default browser. To use a different browser, set `setting(workbench.externalBrowser)` to `edge`, `chrome`, `firefox`, or the absolute path to a browser executable.
+
+To open links to other sites in the integrated browser, configure the `setting(workbench.externalUriOpeners)` setting. For example, route links to your company's sites to the integrated browser:
+
+```json
+{
+  "workbench.externalUriOpeners": {
+    "*.contoso.com": "workbench.integratedBrowser"
+  }
+}
+```
+
+Use `"*"` as the pattern to match all HTTP and HTTPS domains.
 
 You can still open the integrated browser explicitly with the commands and UI actions described in [Open the browser](#open-the-browser).
 
@@ -272,6 +302,8 @@ The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
 
 Each mode is also available as a **Browser:** command in the Command Palette.
 
+Before sending the prompt, [mark up the attached screenshot](/docs/chat/copilot-chat-context.md#mark-up-an-image) to highlight a layout issue or crop it to the relevant area.
+
 > [!NOTE]
 > To enable the full page screenshot mode, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
@@ -331,7 +363,7 @@ Remote workspace proxying affects the browser in the following ways:
 
 * **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
 
-* **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
+* **`file://` URLs**: In a remotely connected browser tab, file URLs read files from the remote machine's trusted folders, not your local disk. See [Open remote HTML files](#open-remote-html-files).
 
 * **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
 
@@ -399,14 +431,16 @@ Use the following settings to configure integrated browser behavior:
 | Setting | Description |
 |---------|-------------|
 | `setting(workbench.browser.openLocalhostLinks)` | Controls whether localhost and all-interfaces links open in the integrated browser or an external browser. |
+| `setting(workbench.externalUriOpeners)` | Maps HTTP and HTTPS URL patterns to openers, such as `workbench.integratedBrowser` for the integrated browser. |
 | `setting(workbench.externalBrowser)` | Sets the browser that {% data variables.product.prodname_vscode_shortname %} uses to open external HTTP and HTTPS links. |
 | `setting(workbench.browser.showInTitleBar)` | Controls when the integrated browser button appears in the title bar. |
 | `setting(workbench.browser.enableChatTools)` | Controls whether chat agents can use [browser tools](/docs/agents/run/browser-tools.md). |
 | `setting(workbench.browser.newTabPlacement)` | Controls whether new browser tabs open in the active editor group, a side group, or a separate window. See [Tab placement](#tab-placement). |
 | `setting(workbench.browser.searchEngine)` | Sets the search engine for address bar searches. See [Search the web](#search-the-web). |
 | `setting(workbench.browser.pageZoom)` | Sets the default page zoom level for all sites. |
+| `setting(workbench.browser.dimOnOverlay)` | Set to `false` to prevent dimming when temporary overlays overlap the page. The page still pauses, and notifications still dim it. |
 | `setting(workbench.browser.maxHistoryEntries)` | Sets the maximum number of entries in [browser history](#browser-history). Set it to `0` to turn off history. |
-| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads local `file://` resources when they change on disk. |
+| `setting(workbench.browser.autoReloadOnFileChange)` | Controls whether the browser automatically reloads `file://` pages when their files change, including supported remote files. |
 | `setting(workbench.browser.dataStorage)` | Controls how the browser stores cookies, logins, local storage, and cache. See [Session storage](#session-storage). |
 | `setting(workbench.browser.enableRemoteProxy)` | Controls whether browser traffic is proxied over a remote connection. See [Browse over remote connections](#browse-over-remote-connections). |
 
