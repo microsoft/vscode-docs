@@ -80,7 +80,7 @@ Closing the application or turning off cloud controls doesn't disable GitHub tri
 
 {% data variables.product.prodname_vscode_shortname %} limits the potential impact of agent actions by controlling their scope of operation.
 
-* **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. You can optionally grant read-only access to additional folders with the `setting(chat.additionalReadAccessFolders)` setting.
+* **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. You can optionally grant read-only access to additional folders with the `setting(github.copilot.chat.additionalReadAccessPaths)` setting.
 
 * **Tools picker**: You can selectively [enable or disable specific tools](/docs/agents/run/tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent.
 
