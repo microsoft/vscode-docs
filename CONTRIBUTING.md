@@ -333,9 +333,23 @@ Extensions, updates, and telemetry are disabled for the isolated run, and Playwr
 
 The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
 
-Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs and menus, video capture, and unattended behavior are not proven by this screenshot pilot.
+Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs, menus, and unattended behavior remain unproven.
 
-Run `npm run test:capture` for unit tests of isolation, guards, output validation, and cleanup. Those tests use fake launchers and PNG headers; they do not prove that the real Electron capture works.
+#### Record an editor video candidate
+
+To record the same synthetic task, add `--video --ffmpeg '<absolute-path-to-encoder.exe>'`. Screenshot-only behavior remains the default. Video capture requires a Playwright build with `page.screencast` and its matching FFmpeg binary. Obtain missing dependencies through an approved source before running the pilot. The runner does not download tools or substitute older cached binaries.
+
+```powershell
+node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>' --video --ffmpeg '<absolute-path-to-playwright-ffmpeg.exe>'
+```
+
+The runner dry-runs Find and match navigation, resets the editor, then records opening Find, typing the query, matching case, and moving through all three results. It checks visible text between actions and finalizes recording even if an action fails. Failed partial recordings remain private and are marked as failed in `capture.json`.
+
+The video check requires 1920 by 1080 pixels, 25 frames per second, and a duration of four to 30 seconds. It rejects source frames that would need padding or scaling, decodes the complete bounded WebM, and checks every decoded frame's dimensions. A sampled pixel-change check rejects nearly static clips. This heuristic does not establish that the video is useful or free of private information.
+
+Successful runs retain `editor-find.webm`, four full-resolution frames in `video-review`, and video hashes, action timestamps, decoding results, and motion measurements in `capture.json`. Review the entire video, not only the sample frames, before approving the exact asset. Native UI capture and unattended execution remain unproven.
+
+Run `npm run test:capture` for unit tests of isolation, guards, recording failure paths, output validation, and cleanup. Those tests use fake launchers, media headers, and decoders. They do not prove that real Electron screenshot or video capture works.
 
 ### Preview locally with Docsify
 

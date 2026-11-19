@@ -213,3 +213,37 @@ test('allows zoom 1.5 only for explicitly wide content and preserves pixel dimen
     validatePng(image, 1920, 1080);
   });
 });
+
+test('opt-in video preserves screenshot behavior and records partial-video failures with cleanup', async function () {
+  for (const fail of [false, true]) {
+    await withOutput(async options => {
+      const fake = fakeApplication();
+      fake.recordVideo = async (_page, _app, _storyboard, directory, encoder, checkPrivacy) => {
+        assert.equal(encoder, options.executable);
+        await checkPrivacy();
+        fs.writeFileSync(path.join(directory, 'editor-find.webm'), 'Unit-test media placeholder.');
+        if (fail) {
+          throw new Error('Video fixture failure');
+        }
+        return {file: 'editor-find.webm', status: 'candidate'};
+      };
+      const capture = () => captureEditor({...options, video: true, ffmpeg: options.executable}, fake);
+      if (fail) {
+        await assert.rejects(capture, /Video fixture failure/);
+      } else {
+        await capture();
+      }
+      const run = fs.readdirSync(options.output).find(name => name.startsWith('editor-find-'));
+      const directory = path.join(options.output, run);
+      const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'capture.json'), 'utf8'));
+      assert.equal(manifest.status, fail ? 'failed' : 'candidate');
+      assert.equal(manifest.video.status, manifest.status);
+      assert.match(manifest.video.runnerSha256, /^[a-f0-9]{64}$/);
+      assert.match(manifest.video.encoderSha256, /^[a-f0-9]{64}$/);
+      assert.ok(fs.existsSync(path.join(directory, 'editor-find.png')));
+      assert.ok(fs.existsSync(path.join(directory, 'editor-find.webm')));
+      assert.equal(fs.existsSync(path.join(directory, 'runtime')), false);
+      assert.ok(fake.state().closed);
+    });
+  }
+});

@@ -51,7 +51,7 @@ function checkVisibleText(text, denied) {
   const normalized = text.toLowerCase();
   for (const value of denied) {
     if (normalized.includes(value.toLowerCase())) {
-      throw new Error('Privacy check failed: visible text matches a denied value. No candidate was saved.');
+      throw new Error('Privacy check failed: visible text matches a denied value. Retained private artifacts must not be approved.');
     }
   }
 }
@@ -85,7 +85,11 @@ async function captureEditor(options, dependencies = {}) {
   if (!path.isAbsolute(options.executable) || !/^[a-f0-9]{40}$/i.test(options.revision)) {
     throw new Error('Supply an absolute installed VS Code executable path and its full build revision.');
   }
+  if (options.video && (typeof options.ffmpeg !== 'string' || !path.isAbsolute(options.ffmpeg))) {
+    throw new Error('Video capture requires an absolute --ffmpeg encoder path.');
+  }
   const executable = fs.realpathSync(options.executable);
+  const encoder = options.video ? fs.realpathSync(options.ffmpeg) : undefined;
   const output = fs.realpathSync(options.output);
   if (!fs.statSync(output).isDirectory() || isWithinRoot(repository, output) || isWithinRoot(output, repository)) {
     throw new Error('Capture output must be an existing private directory outside the repository and its ancestors.');
@@ -197,6 +201,13 @@ async function captureEditor(options, dependencies = {}) {
     }
     manifest.window = windowState;
     manifest.viewport = viewport;
+    const checkPrivacy = async () => {
+      const visibleText = await page.locator('body').innerText();
+      checkVisibleText(`${await page.title()}\n${visibleText}`, [
+        ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
+        process.env.USERPROFILE || os.homedir(), os.userInfo().username
+      ]);
+    };
     await page.getByRole('tab', {name: /example\.js/}).first().click();
     await page.locator('.monaco-editor .view-lines').first().click();
     await page.keyboard.press('Control+Home');
@@ -211,11 +222,7 @@ async function captureEditor(options, dependencies = {}) {
       return count === String(expected);
     }, storyboard.scenario.expectedMatches);
     manifest.scenario = { kind: storyboard.scenario.kind, expectedMatches: storyboard.scenario.expectedMatches };
-    const visibleText = await page.locator('body').innerText();
-    checkVisibleText(`${await page.title()}\n${visibleText}`, [
-      ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
-      process.env.USERPROFILE || os.homedir(), os.userInfo().username
-    ]);
+    await checkPrivacy();
     manifest.privacy.textScan = 'passed';
     const encoded = await window.evaluate(async browserWindow =>
       (await browserWindow.capturePage()).toPNG().toString('base64'));
@@ -227,6 +234,15 @@ async function captureEditor(options, dependencies = {}) {
       file: storyboard.capture.file, alt: storyboard.capture.alt, method: 'electron-window-content',
       sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length
     };
+    if (options.video) {
+      manifest.video = {
+        file: 'editor-find.webm', status: 'recording',
+        runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-video.js'))).digest('hex'),
+        encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex')
+      };
+      const record = dependencies.recordVideo || require('./capture-video').recordFindVideo;
+      Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, encoder, checkPrivacy));
+    }
     manifest.status = 'candidate';
   } catch (error) {
     failure = error;
@@ -253,6 +269,9 @@ async function captureEditor(options, dependencies = {}) {
     }
     if (failure) {
       manifest.status = 'failed';
+      if (manifest.video) {
+        manifest.video.status = 'failed';
+      }
     }
     fs.writeFileSync(path.join(runDirectory, 'capture.json'), JSON.stringify(manifest, null, 2));
   }
@@ -264,15 +283,15 @@ async function captureEditor(options, dependencies = {}) {
 
 async function main(args = process.argv.slice(2)) {
   if (args.length === 1 && args[0] === '--help') {
-    console.log('Usage: node build/capture.js --executable <Code.exe> --revision <build-commit> --output <private-directory> [--storyboard <file>]');
+    console.log('Usage: node build/capture.js --executable <Code.exe> --revision <build-commit> --output <private-directory> [--storyboard <file>] [--video --ffmpeg <encoder.exe>]');
     return;
   }
   const options = new Map();
-  for (let index = 0; index < args.length; index += 2) {
+  for (let index = 0; index < args.length; index++) {
     const option = args.at(index);
-    const value = args.at(index + 1);
-    if (!['--executable', '--revision', '--output', '--storyboard'].includes(option) ||
-        options.has(option) || !value || value.startsWith('--')) {
+    const value = option === '--video' ? true : args.at(++index);
+    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg'].includes(option) ||
+        options.has(option) || !value || (typeof value === 'string' && value.startsWith('--'))) {
       throw new Error('Supply each capture option once with a value; use --help for usage.');
     }
     options.set(option, value);
@@ -280,10 +299,15 @@ async function main(args = process.argv.slice(2)) {
   if (!options.has('--executable') || !options.has('--revision') || !options.has('--output')) {
     throw new Error('Capture requires --executable, --revision, and --output.');
   }
+  if (options.has('--video') !== options.has('--ffmpeg')) {
+    throw new Error('Video capture requires both --video and --ffmpeg <encoder.exe>.');
+  }
   const result = await captureEditor({
     executable: options.get('--executable'),
     revision: options.get('--revision'),
     output: options.get('--output'),
+    video: options.has('--video'),
+    ffmpeg: options.get('--ffmpeg'),
     storyboard: options.get('--storyboard') || path.join(__dirname, 'storyboards', 'editor-find.json')
   });
   console.log(JSON.stringify(result, null, 2));
