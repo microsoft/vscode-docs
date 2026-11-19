@@ -9,8 +9,11 @@ import * as vscode from 'vscode';
 export interface FeatureDefinition {
 	id: string;
 	label: string;
-	state: 'experimental' | 'preview';
+	state: 'experimental' | 'preview' | 'deprecated' | 'pending-deprecation';
 	trackingUrl?: string;
+	message?: string;
+	date?: string;
+	moreInfoUrl?: string;
 	source: vscode.Uri;
 }
 
@@ -137,6 +140,10 @@ export class DocumentationRegistry implements vscode.Disposable {
 async function loadFeatures(folder: vscode.WorkspaceFolder): Promise<ReadonlyMap<string, FeatureDefinition>> {
 	const source = vscode.Uri.joinPath(folder.uri, 'build', 'feature-lifecycle.json');
 	const contents = await readRequiredFile(source, 'feature lifecycle registry');
+	return parseFeatures(contents, source);
+}
+
+export function parseFeatures(contents: string, source: vscode.Uri): ReadonlyMap<string, FeatureDefinition> {
 	let parsed: unknown;
 	try {
 		parsed = JSON.parse(contents);
@@ -157,17 +164,28 @@ async function loadFeatures(folder: vscode.WorkspaceFolder): Promise<ReadonlyMap
 		if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id) || !isRecord(value)) {
 			throw new Error(`Invalid feature entry "${id}" in ${source.fsPath}.`);
 		}
-		const { label, state, trackingUrl } = value;
-		if (Object.keys(value).some(key => key !== 'label' && key !== 'state' && key !== 'trackingUrl')) {
-			throw new Error(`Feature "${id}" in ${source.fsPath} contains an unsupported property.`);
+		const { label, state, trackingUrl, message, date, moreInfoUrl } = value;
+		const unsupported = Object.keys(value).find(key => !['label', 'state', 'trackingUrl', 'message', 'date', 'moreInfoUrl'].includes(key));
+		if (unsupported !== undefined) {
+			throw new Error(`Feature "${id}" in ${source.fsPath} contains an unsupported property "${unsupported}".`);
 		}
-		if (typeof label !== 'string' || label.length === 0 || (state !== 'experimental' && state !== 'preview')) {
+		const isDeprecation = state === 'deprecated' || state === 'pending-deprecation';
+		if (typeof label !== 'string' || label.length === 0 || (state !== 'experimental' && state !== 'preview' && !isDeprecation)) {
 			throw new Error(`Feature "${id}" in ${source.fsPath} must have a label and a valid state.`);
 		}
 		if (trackingUrl !== undefined && (typeof trackingUrl !== 'string' || !isHttpsUrl(trackingUrl))) {
 			throw new Error(`Feature "${id}" in ${source.fsPath} has an invalid trackingUrl.`);
 		}
-		features.set(id, { id, label, state, trackingUrl, source });
+		if (message !== undefined && (!isDeprecation || typeof message !== 'string' || !message.trim())) {
+			throw new Error(`Feature "${id}" in ${source.fsPath} has an invalid deprecation message.`);
+		}
+		if (date !== undefined && (state !== 'pending-deprecation' || typeof date !== 'string' || !date.trim())) {
+			throw new Error(`Feature "${id}" in ${source.fsPath} has an invalid pending-deprecation date.`);
+		}
+		if (moreInfoUrl !== undefined && (!isDeprecation || typeof moreInfoUrl !== 'string' || !isMoreInfoUrl(moreInfoUrl))) {
+			throw new Error(`Feature "${id}" in ${source.fsPath} has an invalid moreInfoUrl.`);
+		}
+		features.set(id, { id, label, state, trackingUrl, message, date, moreInfoUrl, source });
 	}
 	return features;
 }
@@ -331,4 +349,11 @@ function isHttpsUrl(value: string): boolean {
 	} catch {
 		return false;
 	}
+}
+
+function isMoreInfoUrl(value: string): boolean {
+	if (/[\s\\\p{Cc}]/u.test(value)) {
+		return false;
+	}
+	return /^\/(?!\/)/.test(value) || (/^https:\/\/[^/?#]/.test(value) && isHttpsUrl(value));
 }

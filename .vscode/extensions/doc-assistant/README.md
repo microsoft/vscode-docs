@@ -12,7 +12,7 @@ In Markdown files, the extension provides:
 * Diagnostics for unknown references and incomplete syntax.
 * Quick fixes for likely reference typos and missing closing delimiters.
 
-Feature completions come from `build/feature-lifecycle.json`. Variable completions come from `.yml` and `.yaml` files under `data/variables`.
+Feature completions come from `build/feature-lifecycle.json`, including deprecated features. When changing the registry format, keep the extension's parser in sync with [`build/feature-lifecycle.schema.json`](../../../build/feature-lifecycle.schema.json). Variable completions come from `.yml` and `.yaml` files under `data/variables`.
 
 Diagnostics run for Markdown files under `docs`, `api`, `remote`, `release-notes`, and `blogs`. Completions and hover information are available in any Markdown file in the repository.
 
