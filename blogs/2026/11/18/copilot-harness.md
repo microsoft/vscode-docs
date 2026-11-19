@@ -30,8 +30,8 @@ Over the last several months, we've progressively rolled out the Copilot harness
 	- [Agent Host](https://code.visualstudio.com/docs/agents/concepts/agent-host) sessions remain active after their project window closes, while VS Code remains running.
 - **Your workflow and transition:**
 	- For local projects, the Copilot harness still runs on your machine in VS Code.
-	- [What we've shipped based on your feedback](#_improvements-shaped-by-your-feedback).
-	- [What's in progress or may need your attention](#_migration-guidance-and-work-underway) below.
+	- [What we've shipped based on your feedback](#improvements-shaped-by-your-feedback).
+	- [What's in progress or may need your attention](#migration-guidance-and-work-underway) below.
 
 ## Why one shared harness
 
@@ -49,7 +49,7 @@ Fixes or optimizations to that shared runtime benefit VS Code and other Copilot 
 
 We expanded the rollout of the Copilot harness as the default over several months, starting internally, then across Copilot plans, VS Code Insiders and Stable, and editor and Agents-window workflows. At each step, we reviewed key metrics alongside your feedback, and then used those findings to improve the product and plan further experiments.
 
-We combine **online evaluations**, which show how the harness performs as people really work in VS Code, with **offline evaluations**, which run realistic development tasks under repeatable conditions. These offline evaluations include VS Code-specific comparisons and shared-runtime benchmarks. We'll next look at what these measurements tell us about efficiency, reliability, and task outcomes, then turn to [how your feedback has shaped the experience](#_improvements-shaped-by-your-feedback).
+We combine **online evaluations**, which show how the harness performs as people really work in VS Code, with **offline evaluations**, which run realistic development tasks under repeatable conditions. These offline evaluations include VS Code-specific comparisons and shared-runtime benchmarks. We'll next look at what these measurements tell us about efficiency, reliability, and task outcomes, then turn to [how your feedback has shaped the experience](#improvements-shaped-by-your-feedback).
 
 ### Real online workflows: the VS Code rollout
 
