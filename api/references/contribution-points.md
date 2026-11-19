@@ -32,6 +32,7 @@ MetaDescription: Extend {% data variables.product.prodname_vscode_shortname %} w
 - [`languageModelChatProviders`](/api/references/contribution-points#contributes.languageModelChatProviders)
 - [`languageModelTools`](/api/references/contribution-points#contributes.languageModelTools)
 - [`localizations`](/api/references/contribution-points#contributes.localizations)
+- [`mcpServerDefinitionProviders`](/api/references/contribution-points#contributes.mcpServerDefinitionProviders)
 - [`menus`](/api/references/contribution-points#contributes.menus)
 - [`notebookRenderer`](/api/references/contribution-points#contributes.notebookRenderer)
 - [`notebooks`](/api/references/contribution-points#contributes.notebooks)
@@ -1059,6 +1060,33 @@ Each entry in the `localizations` array supports the following properties:
 - `translations` - (required) Array of translation entries associated with the language. Each item requires:
   - `id` - Identifier of VS Code or the extension that the translation targets. Use `"vscode"` for VS Code itself, or `publisherId.extensionName` for an extension.
   - `path` - Relative path to the JSON file containing the translations for the language.
+
+## contributes.mcpServerDefinitionProviders
+
+Contribute Model Context Protocol (MCP) server definition providers. Define each provider collection in `contributes.mcpServerDefinitionProviders`, then register its implementation with `vscode.lm.registerMcpServerDefinitionProvider` in your extension activation.
+
+Here is an example `mcpServerDefinitionProviders` contribution:
+
+```json
+{
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "exampleProvider",
+        "label": "Example MCP Server Provider"
+      }
+    ]
+  }
+}
+```
+
+Each entry in the `mcpServerDefinitionProviders` array supports the following properties:
+
+- `id` - Unique identifier for the MCP server collection, matching the ID passed to `vscode.lm.registerMcpServerDefinitionProvider`.
+- `label` - Human-readable display name for the collection.
+- `when` - (optional) A [when clause](/api/references/when-clause-contexts) controlling when the collection is enabled.
+
+See the [MCP extension guide](/api/extension-guides/ai/mcp#register-an-mcp-server-in-your-extension) for implementation details.
 
 ## contributes.menus
 
