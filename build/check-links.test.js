@@ -239,3 +239,69 @@ test('handles encoded redirect targets, parameterized examples, and invalid URLs
     ]);
   });
 });
+
+test('requires website evidence for missing published routes but keeps missing local files and media as errors', function () {
+  withRepository(function (root, write) {
+    write(path.join('docs', 'article.md'), [
+      '[Published route](/docs/old-page)',
+      '[Source-style published route](/docs/old-page.md)',
+      '[Website URL](https://code.visualstudio.com/docs/old-page)',
+      '[Local file](old-page.md)',
+      '![Local media](images/missing.png)',
+      '![Root media](/images/missing.png)',
+      '[Broken fragment](#missing)'
+    ].join('\n'));
+    const report = checkClaims(root, ['docs'], { links: true, sourceRevision: 'test-revision' });
+    assert.deepEqual(report.findings.map(({line, severity}) => ({line, severity})), [
+      {line: 1, severity: 'unverified'},
+      {line: 2, severity: 'unverified'},
+      {line: 3, severity: 'unverified'},
+      {line: 4, severity: 'error'},
+      {line: 5, severity: 'error'},
+      {line: 6, severity: 'error'},
+      {line: 7, severity: 'error'}
+    ]);
+    assert.ok(report.findings.slice(0, 3).every(finding => /Website routing evidence is required/.test(finding.message)));
+  });
+});
+
+test('maps published documentation assets to source image directories', function () {
+  withRepository(function (root, write) {
+    write(path.join('api', 'get-started', 'images', 'sample', 'launch.mp4'), 'fixture');
+    write(path.join('docs', 'nested', 'section', 'images', 'sample', 'screen.png'), 'fixture');
+    write(path.join('api', 'images', 'sample', 'screen.png'), 'fixture');
+    write(path.join('release-notes', 'images', 'v1', 'screen.webp'), 'fixture');
+    const checker = createLinkChecker(root, {});
+    const results = checker.check(path.join(root, 'docs', 'article.md'), [
+      '<video src="/assets/api/get-started/sample/launch.mp4"></video>',
+      '<img src="/assets/docs/nested/section/sample/screen.png">',
+      '<img src="https://code.visualstudio.com/assets/updates/v1/screen.webp">',
+      '<img src="/assets/api/get-started/sample/missing.png">',
+      '<img src="/assets/website-only/image.png">',
+      '<img src="/assets/api/images/sample/screen.png">'
+    ].join('\n'));
+    assert.deepEqual(results.map(({line, severity}) => ({line, severity})), [
+      {line: 4, severity: 'error'},
+      {line: 5, severity: 'unverified'},
+      {line: 6, severity: 'error'}
+    ]);
+    assert.ok(checker.fingerprint().some(([file, value]) => file === 'api/get-started/images/sample/launch.mp4' && value === 'file'));
+    fs.rmSync(path.join(root, 'api', 'get-started', 'images', 'sample', 'launch.mp4'));
+    const fresh = createLinkChecker(root, {});
+    assert.equal(fresh.check(path.join(root, 'docs', 'article.md'),
+      '<video src="/assets/api/get-started/sample/launch.mp4"></video>')[0].severity, 'error');
+  });
+});
+
+test('preserves variable errors and explicitly reports incomplete link analysis', function () {
+  withRepository(function (root, write) {
+    write(path.join('docs', 'article.md'), '{% data variables.product.missing %}\n\n[Link](missing.md)');
+    write(path.join('docs', 'other.md'), '[Target](target.md#section)\n\n[Missing](missing.md)');
+    write(path.join('docs', 'target.md'), '## {% data variables.product.missing %}\n');
+    const report = checkClaims(root, ['docs/article.md', 'docs/other.md'], {links: true, sourceRevision: 'fixture'});
+    assert.ok(report.findings.some(finding => finding.severity === 'error' && /Missing data variable/.test(finding.message)));
+    assert.ok(report.findings.some(finding => finding.evidence === 'link-analysis-incomplete' && finding.severity === 'unverified'));
+    assert.ok(report.findings.some(finding => finding.article === 'docs/other.md' && /Cannot verify fragment/.test(finding.message)));
+    assert.ok(report.findings.some(finding => finding.article === 'docs/other.md' && finding.severity === 'error'));
+  });
+});

@@ -15,6 +15,37 @@ const { isWithinRoot } = require('./repository-paths');
 const CONTENT_DIRECTORIES = new Set([...CONTENT_ROOTS, 'blogs', 'release-notes', 'remote-release-notes']);
 const markdown = new MarkdownIt({ html: true, linkify: false });
 
+function assetCandidates(root, route) {
+  const [, prefix, section, ...segments] = route.split('/');
+  if (prefix !== 'assets') {
+    return undefined;
+  }
+  const directories = section === 'updates' ? ['release-notes', 'remote-release-notes']
+    : ['docs', 'api', 'learn', 'remote'].includes(section) ? [section] : [];
+  if (!directories.length || !/\.(?:png|jpg|svg|gif|mp4|webp)$/i.test(route)) {
+    return [];
+  }
+  const candidates = [];
+  for (const directory of directories) {
+    const sourceRoot = path.join(root, directory);
+    const addCandidate = candidate => {
+      const sourceDirectory = path.relative(sourceRoot, path.dirname(candidate)).split(path.sep).join('/');
+      const publishedPath = `${sourceDirectory.replace('images/', '')}/${path.basename(candidate)}`;
+      if (publishedPath === segments.join('/')) {
+        candidates.push(candidate);
+      }
+    };
+    if (segments.includes('images')) {
+      addCandidate(path.join(sourceRoot, ...segments));
+    }
+    // The website copy task removes the first "images/" segment from source directories.
+    for (let index = 0; index < segments.length - 1; index++) {
+      addCandidate(path.join(sourceRoot, ...segments.slice(0, index), 'images', ...segments.slice(index)));
+    }
+  }
+  return candidates;
+}
+
 function headingAnchor(heading, article) {
   const isApi = article.startsWith('api/');
   if (!isApi) {
@@ -82,7 +113,15 @@ function htmlReferences(content, firstLine, references, anchors) {
 }
 
 function analyzeDocument(content, article, variables) {
-  const resolved = substituteDataVariables(content, variables, article);
+  let resolved;
+  try {
+    resolved = substituteDataVariables(content, variables, article);
+  } catch (error) {
+    if (!(error instanceof Error)) {
+      throw error;
+    }
+    return { problem: `Data-variable validation failed: ${error.message}` };
+  }
   const body = resolved.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, match => match.replace(/[^\r\n]/g, ' '));
   const tokens = markdown.parse(body, {});
   const references = [];
@@ -297,7 +336,11 @@ function createLinkChecker(rootDirectory, variables) {
     if (file === root) {
       return { severity: 'unverified', message: `Website-owned target "${target}" cannot be checked from this repository.` };
     }
-    const candidates = [file];
+    const assets = reference.media && rootRelative ? assetCandidates(root, route) : undefined;
+    if (assets && assets.length === 0) {
+      return { severity: 'unverified', message: `Published asset "${target}" has no supported source mapping in this checker.` };
+    }
+    const candidates = assets || [file];
     if (!reference.media && !path.extname(file)) {
       candidates.push(`${file}.md`, path.join(file, 'index.md'));
     }
@@ -315,9 +358,13 @@ function createLinkChecker(rootDirectory, variables) {
       directoryTarget ||= Boolean(capture.directory);
     }
     if (!resolvedFile) {
-      const section = canonical.split('/')[1];
-      if ((!reference.media && directoryTarget) || KNOWN_SPECIAL_URLS.has(canonical) ||
-          (rootRelative && !CONTENT_DIRECTORIES.has(section))) {
+      if (!reference.media && rootRelative) {
+        return {
+          severity: 'unverified',
+          message: `No local page or repository redirect for published route "${target}". Website routing evidence is required.`
+        };
+      }
+      if (!reference.media && (directoryTarget || KNOWN_SPECIAL_URLS.has(canonical))) {
         return { severity: 'unverified', message: `Website-owned or generated target "${target}" cannot be checked from this repository.` };
       }
       return { severity: 'error', message: `Missing ${reference.media ? 'media file' : 'link target'} "${target}".` };
@@ -327,6 +374,9 @@ function createLinkChecker(rootDirectory, variables) {
         return { severity: 'unverified', message: `Cannot verify fragment "${fragment}" in "${target}" with the documentation renderer.` };
       }
       const parsed = document(resolvedFile);
+      if (parsed.problem) {
+        return { severity: 'unverified', message: `Cannot verify fragment "${fragment}" in "${target}". ${parsed.problem}` };
+      }
       if (!parsed.anchors.has(fragment)) {
         return {
           severity: parsed.uncertainAnchors ? 'unverified' : 'error',
@@ -346,6 +396,12 @@ function createLinkChecker(rootDirectory, variables) {
     },
     check(file, content) {
       const parsed = document(file, content);
+      if (parsed.problem) {
+        return [{
+          severity: 'unverified', line: 1, evidence: 'link-analysis-incomplete',
+          message: `Link analysis is incomplete for this article. ${parsed.problem}`
+        }];
+      }
       const findings = [];
       for (const reference of parsed.references) {
         const result = resolveTarget(file, reference);

@@ -53,10 +53,11 @@ test('checks nested and imported TOCs with source lines while allowing secondary
     const report = run();
     assert.deepEqual(report.checks, ['claims', 'navigation']);
     assert.deepEqual(report.findings.map(({article,line,evidence,severity}) => ({article,line,evidence,severity})), [
-      {article:'docs/section/toc.json',line:3,evidence:'toc-link(/docs/missing)',severity:'error'},
+      {article:'docs/section/toc.json',line:3,evidence:'toc-link(/docs/missing)',severity:'unverified'},
       {article:'docs/section/toc.json',line:4,evidence:'toc-link(/docs/article#missing)',severity:'error'}
     ]);
-    assert.match(formatReport(report, 'github'), /::error file=docs\/section\/toc.json,line=3/);
+    assert.match(formatReport(report, 'github'), /::notice file=docs\/section\/toc.json,line=3/);
+    assert.match(formatReport(report, 'github'), /::error file=docs\/section\/toc.json,line=4/);
     assert.equal(parseArguments(['--navigation', '--files', 'docs']).navigation, true);
     assert.throws(() => parseArguments(['--navigation','--navigation']), /only once/);
   });
@@ -105,7 +106,7 @@ test('maps sitemap problems to shared findings and keeps redirect-only findings 
     write(path.join('build','sitemap.xml'), sitemap(['/docs/article','/docs/missing','/docs/article','/docs/old']));
     const report = run();
     assert.deepEqual(report.findings.map(({article,line,evidence,severity}) => ({article,line,evidence,severity})), [
-      {article:'build/sitemap.xml',line:3,evidence:'sitemap-link(/docs/missing)',severity:'error'},
+      {article:'build/sitemap.xml',line:3,evidence:'sitemap-link(/docs/missing)',severity:'unverified'},
       {article:'build/sitemap.xml',line:4,evidence:'sitemap-duplicate(/docs/article)',severity:'error'},
       {article:'build/sitemap.xml',line:5,evidence:'sitemap-redirect(/docs/old)',severity:'warning'},
       {article:'docs/not-listed.md',line:1,evidence:'sitemap-missing(/docs/not-listed)',severity:'error'}
