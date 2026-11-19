@@ -86,7 +86,7 @@ For sessions on your own remote machines, keep the machine and the process servi
 
 Cloud session execution doesn't depend on keeping your local application open. The service manages the environment's availability and lifetime. A stored conversation doesn't guarantee that its cloud environment is still available. See [continue an existing cloud session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session).
 
-Connected clients can contribute tools, such as browser tools or tools from installed extensions. The Agent Host adds those definitions to the session and routes each tool call back to the contributing client. These tools require that client to remain connected. Learn how to [manage tool availability](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness).
+Connected clients can contribute tools, such as browser tools or tools from installed extensions. The Agent Host adds those definitions to the session and routes each tool call back to the contributing client. These tools require that client to remain connected. Learn how to [manage tool availability](/docs/agents/run/tools.md#manage-available-tools).
 
 ## Agent Host Protocol
 

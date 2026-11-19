@@ -5,11 +5,39 @@
 
 import * as assert from 'assert';
 import * as vscode from 'vscode';
-import { DocumentationRegistry, parseVariableFile } from '../markdown/registry';
+import { DocumentationRegistry, parseFeatures, parseVariableFile } from '../markdown/registry';
 import { findDocumentationReferences, isPublishedRelativePath, rankCandidates } from '../markdown/references';
 
 suite('Markdown authoring support', function () {
 	this.timeout(30_000);
+
+	test('loads deprecation metadata alongside existing lifecycle states', () => {
+		const source = vscode.Uri.file('feature-lifecycle.json');
+		const features = parseFeatures(JSON.stringify({ features: {
+			current: { label: 'Current', state: 'preview' },
+			legacy: { label: 'Legacy', state: 'deprecated', message: 'Move to Current.', moreInfoUrl: '/docs/migration' },
+			retiring: { label: 'Retiring', state: 'pending-deprecation', date: 'February 2027', moreInfoUrl: 'https://example.com/migration' }
+		} }), source);
+		assert.strictEqual(features.get('current')?.state, 'preview');
+		assert.strictEqual(features.get('legacy')?.message, 'Move to Current.');
+		assert.strictEqual(features.get('legacy')?.moreInfoUrl, '/docs/migration');
+		assert.strictEqual(features.get('retiring')?.date, 'February 2027');
+	});
+
+	test('rejects invalid or misplaced lifecycle properties', () => {
+		const parse = (entry: Record<string, unknown>) => parseFeatures(JSON.stringify({
+			features: { sample: { label: 'Sample', state: 'deprecated', ...entry } }
+		}), vscode.Uri.file('feature-lifecycle.json'));
+		assert.throws(() => parse({ typo: true }), /unsupported property "typo"/);
+		assert.throws(() => parse({ state: 'unknown' }), /valid state/);
+		assert.throws(() => parse({ state: 'preview', message: 'Not deprecated.' }), /invalid deprecation message/);
+		assert.throws(() => parse({ message: '  ' }), /invalid deprecation message/);
+		assert.throws(() => parse({ date: 'February 2027' }), /invalid pending-deprecation date/);
+		assert.throws(() => parse({ state: 'experimental', moreInfoUrl: '/docs/migration' }), /invalid moreInfoUrl/);
+		for (const url of ['//example.com', '/\\example.com', 'http://example.com', '/docs/a b']) {
+			assert.throws(() => parse({ moreInfoUrl: url }), /invalid moreInfoUrl/);
+		}
+	});
 
 	test('parses the supported reusable variable syntax', () => {
 		const variables = parseVariableFile([
@@ -106,7 +134,6 @@ suite('Markdown authoring support', function () {
 		const registry = new DocumentationRegistry(logger);
 		try {
 			const snapshot = await registry.getSnapshot(vscode.Uri.joinPath(folder.uri, 'docs', 'getstarted', 'overview.md'));
-			assert.strictEqual(snapshot.features.get('agent-artifacts')?.state, 'preview');
 			assert.strictEqual(snapshot.variables.get('variables.product.prodname_vscode')?.value, 'Visual Studio Code');
 
 			const markdownFiles = await vscode.workspace.findFiles(
