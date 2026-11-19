@@ -204,6 +204,24 @@ Add `--check-current` to rerun the saved scope and enabled checks against this c
 
 Freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
 
+#### Check a separate review worktree
+
+Use `--root` to read documentation from another checkout while running checker code and dependencies from your trusted checkout. Add `--expected-revision <full-commit-hash>` for a PR or branch review. The guard checks HEAD and rejects Git-visible tracked or untracked changes before and after scanning. It does not fetch, switch branches, create worktrees, or discard edits.
+
+```powershell
+$trustedRoot = 'C:\docs\vscode-docs'
+$reviewRoot = 'C:\worktrees\docs-pr'
+$headOid = '<screened-PR-head-commit>'
+node "$trustedRoot\build\check-claims.js" --root $reviewRoot --expected-revision $headOid --links --files docs\agents\overview.md > "$env:TEMP\docs-pr-findings.json"
+node "$trustedRoot\build\findings.js" --input "$env:TEMP\docs-pr-findings.json" --check-current --root $reviewRoot --expected-revision $headOid --format console
+```
+
+Replace the example paths and hash with the reviewed snapshot. Article paths are relative to `--root`; report input and product manifest paths are relative to the calling directory unless absolute. The default source root remains the checkout containing the checker. Reports retain portable, repository-relative paths and do not store the source worktree location, so supply `--root` again for freshness checks.
+
+Use a controlled worktree: the revision guard does not authenticate Git-ignored inputs or prevent concurrent writes between checks. Fingerprints record the inputs actually read. Without `--expected-revision`, local checks continue to support uncommitted edits. A revision mismatch or dirty pinned worktree produces no report and exits with code 1.
+
+The `pr-review` skill runs these checks after its prompt-injection screening and before manual claim verification. It attributes findings to the diff, reports coverage limits, and keeps product observations separate from proof of public availability. This does not authorize GitHub comments, commits, pushes, or scheduled runs.
+
 #### Add captured product evidence
 
 The checker can attach settings and keybinding evidence from a particular product build. Capture both the editor and the Agents window, using the same build and intended extension set:

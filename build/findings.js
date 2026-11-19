@@ -2,9 +2,9 @@
 
 const crypto = require('crypto');
 const fs = require('fs');
-const path = require('path');
 const schema = require('./findings.schema.json');
 const { validateManifestReference } = require('./product-manifest');
+const { resolveSourceRoot } = require('./review-source');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- The report path is explicitly supplied by the caller. */
 
@@ -184,14 +184,14 @@ function formatReport(report, format = 'json') {
 
 function main(args = process.argv.slice(2)) {
   if (args.length === 1 && args[0] === '--help') {
-    console.log('Usage: node build/findings.js --input <report.json> [--format json|console|github] [--check-current [--manifest <file>]]');
+    console.log('Usage: node build/findings.js --input <report.json> [--format json|console|github] [--check-current [--root <source-worktree>] [--expected-revision <commit>] [--manifest <file>]]');
     return 0;
   }
   const options = new Map();
   const argumentsLeft = [...args];
   while (argumentsLeft.length) {
     const option = argumentsLeft.shift();
-    if (!['--input', '--format', '--check-current', '--manifest'].includes(option) || options.has(option)) {
+    if (!['--input', '--format', '--check-current', '--manifest', '--root', '--expected-revision'].includes(option) || options.has(option)) {
       throw new Error(`Unknown or repeated option: ${option}`);
     }
     const value = option === '--check-current' ? true : argumentsLeft.shift();
@@ -200,8 +200,9 @@ function main(args = process.argv.slice(2)) {
     }
     options.set(option, value);
   }
-  if (!options.has('--input') || (options.has('--manifest') && !options.has('--check-current'))) {
-    throw new Error('Specify --input <report.json>; --manifest is only used with --check-current.');
+  if (!options.has('--input') ||
+      (['--manifest', '--root', '--expected-revision'].some(option => options.has(option)) && !options.has('--check-current'))) {
+    throw new Error('Specify --input <report.json>; --manifest, --root, and --expected-revision are only used with --check-current.');
   }
   const report = validateReport(JSON.parse(fs.readFileSync(options.get('--input'), 'utf8')));
   if (options.has('--check-current')) {
@@ -209,7 +210,8 @@ function main(args = process.argv.slice(2)) {
       throw new Error('Freshness checking requires --manifest exactly when the saved report used one.');
     }
     const { checkClaims } = require('./check-claims');
-    const current = checkClaims(path.resolve(__dirname, '..'), report.scanPaths, {
+    const current = checkClaims(resolveSourceRoot(options.get('--root')), report.scanPaths, {
+      expectedRevision: options.get('--expected-revision'),
       manifest: options.get('--manifest'),
       channel: report.productManifest?.product.channel,
       links: report.checks.includes('links'),

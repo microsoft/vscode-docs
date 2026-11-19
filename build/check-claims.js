@@ -10,6 +10,7 @@ const { createEvidenceLookup, loadManifest } = require('./product-manifest');
 const { formatReport, validateReport } = require('./findings');
 const { collectProductReferences } = require('./product-references');
 const { collectMarkdownFiles } = require('./repository-paths');
+const { assertReviewSource, resolveSourceRoot } = require('./review-source');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
@@ -78,9 +79,14 @@ function checkDataVariables(content, source, variables, add) {
 function checkClaims(rootDirectory, paths, options = {}) {
   const resolvedRoot = fs.realpathSync(rootDirectory);
   const generatedAt = new Date().toISOString();
+  if (options.expectedRevision !== undefined && options.sourceRevision !== undefined) {
+    throw new Error('Cannot override sourceRevision when an expected revision is supplied.');
+  }
+  const pinnedRevision = options.expectedRevision === undefined
+    ? undefined : assertReviewSource(resolvedRoot, options.expectedRevision);
   const product = options.manifest ? loadManifest(options.manifest, options.channel) : undefined;
   const lookup = product ? createEvidenceLookup(product.manifest) : undefined;
-  const sourceRevision = options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
+  const sourceRevision = pinnedRevision || options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
     cwd: resolvedRoot,
     encoding: 'utf8'
   }).trim();
@@ -164,6 +170,9 @@ function checkClaims(rootDirectory, paths, options = {}) {
     finding.lastSeen = generatedAt;
     addFinding(findings, finding);
   }
+  if (pinnedRevision) {
+    assertReviewSource(resolvedRoot, pinnedRevision);
+  }
   return validateReport({
     schemaVersion: 4,
     checks,
@@ -207,12 +216,22 @@ function parseArguments(args) {
         throw new Error('Expected at least one path after --files.');
       }
       readingPaths = true;
-    } else if (argument === '--manifest' || argument === '--channel' || argument === '--format') {
+    } else if (['--manifest', '--channel', '--format', '--root', '--expected-revision'].includes(argument)) {
       const value = args.at(++index);
       if (!value || value.startsWith('--')) {
         throw new Error(`Expected a value after ${argument}.`);
       }
-      if (argument === '--manifest') {
+      if (argument === '--root') {
+        if (options.root) {
+          throw new Error('Specify --root only once.');
+        }
+        options.root = value;
+      } else if (argument === '--expected-revision') {
+        if (options.expectedRevision || !/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/i.test(value)) {
+          throw new Error('Specify --expected-revision once, with a full Git commit hash.');
+        }
+        options.expectedRevision = value;
+      } else if (argument === '--manifest') {
         if (options.manifest) {
           throw new Error('Specify --manifest only once.');
         }
@@ -246,12 +265,12 @@ function parseArguments(args) {
 
 function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: npm run check-claims -- [--links] [--navigation] [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
+    console.log('Usage: npm run check-claims -- [--root <source-worktree>] [--expected-revision <commit>] [--links] [--navigation] [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
     return 0;
   }
 
-  const { paths, format, ...options } = parseArguments(args);
-  const report = checkClaims(path.resolve(__dirname, '..'), paths, options);
+  const { paths, format, root, ...options } = parseArguments(args);
+  const report = checkClaims(resolveSourceRoot(root), paths, options);
   const output = formatReport(report, format);
   if (output) {
     console.log(output);

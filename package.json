@@ -26,7 +26,7 @@
     "test:data-variables": "node --test ./build/data-variables.test.js",
     "test:tabs": "node --test ./build/tabs.test.js",
     "test:cards": "node --test ./build/cards.test.js",
-    "test:claims": "node --test ./build/check-claims.test.js ./build/product-manifest.test.js ./build/product-references.test.js ./build/findings.test.js",
+    "test:claims": "node --test ./build/check-claims.test.js ./build/product-manifest.test.js ./build/product-references.test.js ./build/findings.test.js ./build/review-source.test.js",
     "test:links": "node --test ./build/check-links.test.js",
     "test:navigation": "node --test ./build/check-navigation.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
