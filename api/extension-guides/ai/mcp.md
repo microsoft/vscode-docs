@@ -103,20 +103,22 @@ The editor's `/mcp.<server>.<prompt>` picker and argument dialogs aren't exposed
 
 ### Authorization
 
-{% data variables.product.prodname_copilot_short %} sessions support MCP servers that require OAuth authentication. For directly configured servers, the runtime requests authentication through the connected client. {% data variables.product.prodname_vscode_shortname %} stores these credentials, rather than relying on the runtime's keychain store.
+{% data variables.product.prodname_copilot_short %} sessions support MCP servers that require OAuth authentication. For directly configured servers in {% data variables.product.prodname_vscode_shortname %}, the runtime requests authentication through the editor, which stores the resulting credentials. Standalone {% data variables.product.prodname_copilot_short %} clients can use their own OAuth client IDs and credential stores.
 
 Choose an authentication method that works with your configuration source. An editor input variable or an extension's `SecretStorage` value isn't automatically forwarded to a native server. See [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
 
 #### Connected-editor OAuth integration
 
-The connected editor provides OAuth integration for {% data variables.product.prodname_copilot_short %} sessions, including built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. It also supports other OAuth identity providers through [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) or a pre-registered OAuth client.
+When the editor handles OAuth for a {% data variables.product.prodname_copilot_short %} session, it provides built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. For other OAuth providers, the editor uses an explicitly configured client ID first, then a saved client registration if available. If neither is available and the authorization server advertises `client_id_metadata_document_supported: true` in its metadata, the editor uses a [Client ID Metadata Document (CIMD)](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration#client-id-metadata-documents).
 
-For your server integration:
+The authorization server fetches the JSON metadata from the same URL the editor sends as its `client_id`, [`https://vscode.dev/oauth/client-metadata.json`](https://vscode.dev/oauth/client-metadata.json). This URL is intended to stay stable. The document lists `http://127.0.0.1:33418/` and `https://vscode.dev/redirect` as redirect URIs.
 
-1. Implement the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
-1. Choose an identity provider that supports DCR, or provide instructions for a pre-registered client ID and, when required, a client secret. This isn't the OAuth client credentials grant.
-1. Include `http://127.0.0.1:33418` and `https://vscode.dev/redirect` in the client's allowed redirect URLs.
-1. Test sign-in from the intended Copilot session. For setup and credential handling, follow [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
+For a server integration:
+
+1. Implement the [MCP authorization specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization).
+1. If your authorization server doesn't support CIMD, use [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration#dynamic-client-registration) or provide instructions for configuring a pre-registered client ID and, when required, a client secret.
+1. For a pre-registered client, use the authorization code flow and include the redirect URIs from the metadata document in the client's allowed redirect URIs.
+1. Test sign-in from each {% data variables.product.prodname_copilot_short %} client you support. For setup and credential handling, follow [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
 
 ### Sampling
 
