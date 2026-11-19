@@ -654,7 +654,7 @@ Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.s
 
 <video src="../images/tips-and-tricks/shrink_expand_selection.mp4" title="Video showing shrink expand selection." autoplay loop controls muted></video>
 
-You can learn more in the [Basic Editing](/docs/editing/codebasics.md#shrinkexpand-selection) documentation.
+You can learn more in the [Basic Editing](/docs/editing/codebasics.md#shrink-expand-selection) documentation.
 
 ### Go to Symbol in File
 

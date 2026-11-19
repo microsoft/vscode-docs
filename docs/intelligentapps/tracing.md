@@ -159,7 +159,7 @@ OpenAIAgentsInstrumentor().instrument()
 
 This local-tracing example replaces the SDK's existing trace processors before adding the OpenTelemetry processor. Without that replacement, the SDK can also export traces to its default backend. If you need existing processors, review the [OpenAI Agents tracing destinations](https://openai.github.io/openai-agents-python/tracing/) before changing them. Keep SDK tracing enabled so the OpenTelemetry processor receives events.
 
-After a short-lived application finishes its requests, call `provider.force_flush()` before exiting to send buffered spans. For help adapting these snippets to an existing application, use the Toolkit's [Tracing Code Gen tool](/docs/intelligentapps/copilot-tools.md#tracing-code-gen-tool).
+After a short-lived application finishes its requests, call `provider.force_flush()` before exiting to send buffered spans. For help adapting these snippets to an existing application, use the Toolkit's [Tracing Code Gen tool](/docs/intelligentapps/copilot-tools.md#add-tracing).
 
 <details>
 <summary>Add an OTLP log exporter when your instrumentation emits message events</summary>
