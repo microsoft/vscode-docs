@@ -6,35 +6,9 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { isWithinRoot } = require('./repository-paths');
+const { runSteps, validateStoryboard } = require('./storyboard');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- The runner owns a newly created private run directory. */
-
-function validateStoryboard(value) {
-  if (!value || value.schemaVersion !== 1 || value.id !== 'editor-find' ||
-      value.article !== 'docs/editing/codebasics.md' || value.channel !== 'insiders' || value.ai !== 'none') {
-    throw new Error('This pilot supports only the editor-find storyboard, Insiders, and ai: none.');
-  }
-  const profile = value.profile;
-  if (!profile || profile.platform !== 'win32' || profile.theme !== 'Dark Modern' ||
-      profile.width !== 1920 || profile.height !== 1080 || profile.deviceScaleFactor !== 1 ||
-      profile.fonts !== 'product-defaults') {
-    throw new Error('Capture requires Windows, Dark Modern, 1920x1080, scale 1, and default fonts.');
-  }
-  if ((profile.wideContent !== undefined && typeof profile.wideContent !== 'boolean') ||
-      profile.zoomLevel !== (profile.wideContent === true ? 1.5 : 2)) {
-    throw new Error('Use zoom level 2 by default, or 1.5 with profile.wideContent: true.');
-  }
-  if (value.fixture?.file !== 'example.js' || typeof value.fixture.content !== 'string' || !value.fixture.content.trim() ||
-      value.scenario?.kind !== 'editor-find' || typeof value.scenario.query !== 'string' || !value.scenario.query ||
-      value.scenario.matchCase !== true || !Number.isInteger(value.scenario.expectedMatches) || value.scenario.expectedMatches < 1 ||
-      value.capture?.file !== 'editor-find.png' || typeof value.capture.alt !== 'string' ||
-      !value.capture.alt.startsWith('Screenshot showing ') ||
-      !Array.isArray(value.privacy?.denyText) || value.privacy.denyText.some(text => typeof text !== 'string' || !text) ||
-      value.privacy.humanVisualReviewRequired !== true) {
-    throw new Error('Invalid editor-find fixture, scenario, capture, or privacy policy.');
-  }
-  return value;
-}
 
 function validatePng(bytes, width, height) {
   if (!Buffer.isBuffer(bytes) || bytes.length < 33 ||
@@ -79,6 +53,13 @@ async function captureEditor(options, dependencies = {}) {
   const repository = fs.realpathSync(path.resolve(__dirname, '..'));
   const storyboardBytes = fs.readFileSync(options.storyboard);
   const storyboard = validateStoryboard(JSON.parse(storyboardBytes.toString('utf8')));
+  const article = fs.realpathSync(path.resolve(repository, ...storyboard.article.split('/')));
+  if (!isWithinRoot(repository, article) || !fs.statSync(article).isFile()) {
+    throw new Error('Storyboard article must be an existing file inside the repository.');
+  }
+  if (options.video && !storyboard.video) {
+    throw new Error('This storyboard does not define video reset and recording steps.');
+  }
   if (process.platform !== storyboard.profile.platform && !dependencies.launch) {
     throw new Error('This capture pilot requires Windows.');
   }
@@ -101,9 +82,12 @@ async function captureEditor(options, dependencies = {}) {
   const fixture = path.join(runtime, 'workspace', storyboard.fixture.file);
   const manifest = {
     schemaVersion: 1,
-    storyboard: { id: storyboard.id, sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
+    storyboard: { id: storyboard.id, article: storyboard.article, sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
     sourceRevision: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: repository, encoding: 'utf8'}).trim(),
     runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),
+    storyboardRunnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'storyboard.js'))).digest('hex'),
+    storyboardSchemaSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'storyboard.schema.json'))).digest('hex'),
+    execution: storyboard.execution,
     createdAt: new Date().toISOString(),
     status: 'failed',
     profile: storyboard.profile,
@@ -162,8 +146,9 @@ async function captureEditor(options, dependencies = {}) {
     }));
     const configuration = JSON.parse(fs.readFileSync(path.join(identity.appPath, 'product.json'), 'utf8'));
     const product = {revision: configuration.commit, quality: configuration.quality, version: identity.version};
-    if (product.revision !== options.revision || product.quality !== 'insider') {
-      throw new Error('Running product does not match the requested Insiders build.');
+    const quality = storyboard.channel === 'insiders' ? 'insider' : 'stable';
+    if (product.revision !== options.revision || product.quality !== quality) {
+      throw new Error(`Running product does not match the requested ${storyboard.channel} build.`);
     }
     manifest.product = product;
     const page = await application.firstWindow();
@@ -202,26 +187,23 @@ async function captureEditor(options, dependencies = {}) {
     manifest.window = windowState;
     manifest.viewport = viewport;
     const checkPrivacy = async () => {
+      const visibility = await page.evaluate(() => document.visibilityState);
+      if (visibility !== 'visible') {
+        throw new Error('Attended capture requires a visible page throughout the run.');
+      }
       const visibleText = await page.locator('body').innerText();
-      checkVisibleText(`${await page.title()}\n${visibleText}`, [
-        ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
-        process.env.USERPROFILE || os.homedir(), os.userInfo().username
-      ]);
+      const title = await page.title();
+      try {
+        checkVisibleText(`${title}\n${visibleText}`, [
+          ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
+          process.env.USERPROFILE || os.homedir(), os.userInfo().username
+        ]);
+      } catch (error) {
+        manifest.privacy.textScan = 'failed';
+        throw error;
+      }
     };
-    await page.getByRole('tab', {name: /example\.js/}).first().click();
-    await page.locator('.monaco-editor .view-lines').first().click();
-    await page.keyboard.press('Control+Home');
-    await page.keyboard.press('Control+f');
-    const find = page.locator('.find-widget');
-    const query = find.getByRole('textbox', {name: 'Find', exact: true});
-    await query.fill(storyboard.scenario.query);
-    const matchCase = find.getByRole('checkbox', {name: /Match Case/});
-    await matchCase.check();
-    await page.waitForFunction(expected => {
-      const count = document.querySelector('.find-widget .matchesCount')?.textContent?.trim().split(' of ')[1];
-      return count === String(expected);
-    }, storyboard.scenario.expectedMatches);
-    manifest.scenario = { kind: storyboard.scenario.kind, expectedMatches: storyboard.scenario.expectedMatches };
+    manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy);
     await checkPrivacy();
     manifest.privacy.textScan = 'passed';
     const encoded = await window.evaluate(async browserWindow =>
@@ -236,11 +218,11 @@ async function captureEditor(options, dependencies = {}) {
     };
     if (options.video) {
       manifest.video = {
-        file: 'editor-find.webm', status: 'recording',
+        file: storyboard.video.file, status: 'recording',
         runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-video.js'))).digest('hex'),
         encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex')
       };
-      const record = dependencies.recordVideo || require('./capture-video').recordFindVideo;
+      const record = dependencies.recordVideo || require('./capture-video').recordStoryboardVideo;
       Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, encoder, checkPrivacy));
     }
     manifest.status = 'candidate';

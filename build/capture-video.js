@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { runSteps } = require('./storyboard');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- All media paths are inside the runner's private directory. */
 
@@ -151,64 +152,26 @@ async function validateVideo(file, encoder, profile, application, dependencies =
   }
 }
 
-async function recordFindVideo(page, application, storyboard, directory, encoder, checkPrivacy, dependencies = {}) {
+async function recordStoryboardVideo(page, application, storyboard, directory, encoder, checkPrivacy, dependencies = {}) {
   if (!page.screencast || typeof page.screencast.start !== 'function') {
     throw new Error('This Playwright build does not provide page.screencast.');
   }
-  const find = page.locator('.find-widget');
-  const query = find.getByRole('textbox', {name: 'Find', exact: true});
-  const next = find.getByRole('button', {name: /Next Match/});
-  if (storyboard.scenario.expectedMatches !== 3 || storyboard.scenario.query.length > 30) {
-    throw new Error('The video pilot requires three matches and a query of at most 30 characters.');
-  }
-  const waitForMatch = async current => {
-    const expected = `${current} of ${storyboard.scenario.expectedMatches}`;
-    try {
-      await page.waitForFunction(value =>
-        document.querySelector('.find-widget .matchesCount')?.textContent?.trim() === value, expected);
-    } catch (error) {
-      throw new Error(`Find navigation did not select ${expected}: ${error.message}`, {cause: error});
-    }
-  };
-  const readMatch = async () => {
-    await page.waitForFunction(total => {
-      const parts = document.querySelector('.find-widget .matchesCount')?.textContent?.trim().split(' of ');
-      return parts?.length === 2 && Number(parts[1]) === total && Number(parts[0]) >= 1 && Number(parts[0]) <= total;
-    }, storyboard.scenario.expectedMatches);
-    const text = await page.locator('.find-widget .matchesCount').innerText();
-    const current = Number(text.trim().split(' of ')[0]);
-    if (!Number.isInteger(current) || current < 1 || current > storyboard.scenario.expectedMatches) {
-      throw new Error('Find did not expose a valid selected-match index.');
-    }
-    return current;
-  };
-  let current = await readMatch();
-  for (let index = 0; index < storyboard.scenario.expectedMatches; index++) {
-    current = current % storyboard.scenario.expectedMatches + 1;
-    await next.click();
-    await waitForMatch(current);
-  }
-  await query.fill('');
-  await find.getByRole('checkbox', {name: /Match Case/}).uncheck();
-  await page.keyboard.press('Escape');
-  await page.keyboard.press('Control+Home');
-  await checkPrivacy();
+  const video = storyboard.video;
+  await runSteps(page, storyboard, video.reset, checkPrivacy, 'video.reset');
+  await runSteps(page, storyboard, video.steps, checkPrivacy, 'video.dryRun');
+  await runSteps(page, storyboard, video.reset, checkPrivacy, 'video.reset');
 
-  const file = path.join(directory, 'editor-find.webm');
+  const file = path.join(directory, video.file);
   let frameCount = 0;
   let frameError;
   let actionError;
-  const actions = [];
-  let started;
-  async function step(name, action) {
+  let actions;
+  const checkRecording = async () => {
     if (frameError) {
       throw frameError;
     }
     await checkPrivacy();
-    await action();
-    await checkPrivacy();
-    actions.push({name, elapsedMs: Date.now() - started});
-  }
+  };
   try {
     await page.screencast.start({
       path: file, size: {width: storyboard.profile.width, height: storyboard.profile.height}, fps: 25,
@@ -225,25 +188,13 @@ async function recordFindVideo(page, application, storyboard, directory, encoder
         }
       }
     });
-    started = Date.now();
+    const started = Date.now();
     await page.screencast.showActions({
       duration: 300, style: {title: 'display: none', highlight: 'outline: 2px solid #007acc'}
     });
-    await page.screencast.showChapter('Find in this file', {duration: 800});
+    await page.screencast.showChapter(video.title, {duration: 800});
     await page.waitForTimeout(800);
-    await step('Open Find', () => page.keyboard.press('Control+f'));
-    await step('Type the search term', () => query.pressSequentially(storyboard.scenario.query, {delay: 180}));
-    await page.waitForTimeout(500);
-    await step('Match case', () => find.getByRole('checkbox', {name: /Match Case/}).check());
-    current = await readMatch();
-    for (let index = 0; index < storyboard.scenario.expectedMatches; index++) {
-      await page.waitForTimeout(700);
-      current = current % storyboard.scenario.expectedMatches + 1;
-      await step('Next match', () => next.click());
-      await waitForMatch(current);
-    }
-    await page.waitForTimeout(700);
-    await checkPrivacy();
+    actions = await runSteps(page, storyboard, video.steps, checkRecording, 'video.steps', started);
   } catch (error) {
     actionError = error;
   } finally {
@@ -265,9 +216,9 @@ async function recordFindVideo(page, application, storyboard, directory, encoder
   }
   const validation = await (dependencies.validateVideo || validateVideo)(file, encoder, storyboard.profile, application);
   return {
-    file: path.basename(file), status: 'candidate', method: 'playwright-page-screencast',
+    file: path.basename(file), title: video.title, status: 'candidate', method: 'playwright-page-screencast',
     capturedFrames: frameCount, actions, ...validation, humanVisualReviewRequired: true
   };
 }
 
-module.exports = { analyzeVideoMetadata, assertMotion, jpegDimensions, measureMotion, recordFindVideo, validateVideo };
+module.exports = { analyzeVideoMetadata, assertMotion, jpegDimensions, measureMotion, recordStoryboardVideo, validateVideo };

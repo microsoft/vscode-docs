@@ -5,13 +5,14 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const test = require('node:test');
-const { analyzeVideoMetadata, assertMotion, jpegDimensions, measureMotion, recordFindVideo, validateVideo } = require('./capture-video');
+const { analyzeVideoMetadata, assertMotion, jpegDimensions, measureMotion, recordStoryboardVideo, validateVideo } = require('./capture-video');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- All media fixtures use isolated temporary directories. */
 
 const profile = {width: 1920, height: 1080};
 const metadata = 'Duration: 00:00:05.00, start: 0.000000\n  Stream #0:0: Video: vp9 (Profile 0), yuv420p, 1920x1080, 25 fps, 25 tbr\n';
 const motion = {samples: 21, movingIntervals: 10, intervalCount: 20, movingFraction: 0.5};
+const storyboard = require('./storyboards/editor-find.json');
 
 function jpegHeader(width = 1920) {
   const bytes = Buffer.alloc(15);
@@ -30,7 +31,7 @@ function temporaryDirectory(t) {
 }
 
 function fakePage(directory, overrides = {}) {
-  const state = {recording: false, stopped: false, dryRunClicks: 0, recordedClicks: 0, current: 1, typed: false};
+  const state = {recording: false, stopped: false, dryRunClicks: 0, recordedClicks: 0, current: 1, typed: false, findVisible: true, editorFocused: false};
   let onFrame;
   const frame = () => {
     if (state.recording && !overrides.noFrames) {
@@ -38,12 +39,12 @@ function fakePage(directory, overrides = {}) {
     }
   };
   const query = {
-    fill: async () => { state.current = 1; },
+    fill: async () => { state.current = 1; state.editorFocused = false; },
     pressSequentially: async (text, options) => {
       assert.equal(text, 'total');
       assert.ok(options.delay > 0);
       state.typed = true;
-      if (overrides.actionError) {
+      if (overrides.dryRunError || (overrides.actionError && state.recording)) {
         throw new Error('Typing failed');
       }
       frame();
@@ -62,20 +63,31 @@ function fakePage(directory, overrides = {}) {
     }
     frame();
   }};
-  const find = {getByRole: role => role === 'textbox' ? query : role === 'checkbox' ? checkbox : next};
+  const close = {click: async () => { state.findVisible = false; state.editorFocused = false; }};
+  const editor = {click: async () => { state.editorFocused = true; }};
+  editor.first = () => editor;
+  const find = {
+    getByRole: (role, options) => role === 'textbox' ? query : role === 'checkbox' ? checkbox :
+      options.name === 'Close' ? close : next,
+    waitFor: async options => assert.equal(state.findVisible, options.state === 'visible')
+  };
+  const count = {
+    innerText: async () => `${state.current} of 3`,
+    filter: ({hasText}) => ({waitFor: async () => {
+      const text = `${state.current} of 3`;
+      assert.ok(typeof hasText === 'string' ? text.includes(hasText) : hasText.test(text));
+    }})
+  };
   return {
     state,
     page: {
-      locator: selector => selector.endsWith('.matchesCount') ?
-        {innerText: async () => `${state.current} of 3`} : find,
-      keyboard: {press: async () => frame()},
-      waitForFunction: async (_fn, expected) => {
-        if (typeof expected === 'number') {
-          assert.equal(expected, 3);
-        } else {
-          assert.equal(`${state.current} of 3`, expected);
-        }
-      },
+      locator: selector => selector.endsWith('.matchesCount') ? count :
+        selector === '.monaco-editor .view-lines' ? editor : find,
+      keyboard: {press: async key => {
+        if (key === 'Control+Home') assert.ok(state.editorFocused);
+        if (key === 'Control+f') state.findVisible = true;
+        frame();
+      }},
       waitForTimeout: async delay => { assert.ok(delay <= 800); frame(); },
       screencast: {
         start: async options => {
@@ -83,6 +95,8 @@ function fakePage(directory, overrides = {}) {
           onFrame = options.onFrame;
           assert.equal(options.path, path.join(directory, 'editor-find.webm'));
           assert.equal(state.dryRunClicks, 3);
+          assert.equal(state.findVisible, false);
+          assert.equal(state.editorFocused, true);
           fs.writeFileSync(options.path, 'Private partial recording fixture.');
           if (overrides.startError) {
             throw new Error('Recorder start failed');
@@ -107,9 +121,7 @@ test('recording dry-runs navigation, shows real actions, and finalizes before va
   const directory = temporaryDirectory(t);
   const fake = fakePage(directory, {typedMatch: 2});
   let scans = 0;
-  const result = await recordFindVideo(fake.page, {}, {
-    profile, scenario: {query: 'total', expectedMatches: 3}
-  }, directory, 'unused-unit-test-encoder', async () => { scans++; }, {
+  const result = await recordStoryboardVideo(fake.page, {}, storyboard, directory, 'unused-unit-test-encoder', async () => { scans++; }, {
     validateVideo: async () => {
       assert.ok(fake.state.stopped);
       return {durationSeconds: 5, motion};
@@ -135,14 +147,22 @@ test('recording failures stop the recorder and retain the private partial file',
   ]) {
     const directory = temporaryDirectory(t);
     const fake = fakePage(directory, overrides);
-    await assert.rejects(() => recordFindVideo(fake.page, {}, {
-      profile, scenario: {query: 'total', expectedMatches: 3}
-    }, directory, 'unused', async () => {}, {
+    await assert.rejects(() => recordStoryboardVideo(fake.page, {}, storyboard, directory, 'unused', async () => {}, {
       validateVideo: async () => { assert.fail('Failed recordings must not reach validation.'); }
     }), pattern);
     assert.ok(fake.state.stopped);
     assert.ok(fs.existsSync(path.join(directory, 'editor-find.webm')));
   }
+});
+
+test('a failed storyboard dry run prevents recording entirely', async t => {
+  const directory = temporaryDirectory(t);
+  const fake = fakePage(directory, {dryRunError: true});
+  await assert.rejects(() => recordStoryboardVideo(fake.page, {}, storyboard, directory, 'unused', async () => {}),
+    /video.dryRun\[2\].*Typing failed/);
+  assert.equal(fake.state.recording, false);
+  assert.equal(fake.state.stopped, false);
+  assert.equal(fs.existsSync(path.join(directory, 'editor-find.webm')), false);
 });
 
 test('validates actual frame dimensions and bounded VP9 stream metadata', () => {

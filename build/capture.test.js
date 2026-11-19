@@ -51,16 +51,22 @@ function fakeApplication(overrides = {}) {
   locator.first = () => locator;
   locator.locator = () => locator;
   locator.getByRole = () => locator;
+  locator.filter = ({hasText}) => ({
+    waitFor: async () => {
+      const text = '1 of 3';
+      assert.ok(typeof hasText === 'string' ? text.includes(hasText) : hasText.test(text));
+    }
+  });
   const page = {
     setDefaultTimeout: () => {},
     locator: () => locator,
     getByRole: () => locator,
     keyboard: {press: async () => {}},
-    evaluate: async () => ({
+    evaluate: async callback => callback.toString().includes('devicePixelRatio') ? ({
       width: Math.floor(1920 / zoomFactor), height: Math.floor(1080 / zoomFactor),
       devicePixelRatio: zoomFactor, visibility: 'visible', darkModern: true,
       ...overrides.viewport
-    }),
+    }) : (overrides.visibilityDuringSteps || 'visible'),
     waitForFunction: async (_fn, expected) => {
       if (typeof expected === 'number') {
         assert.equal(expected, 3);
@@ -74,7 +80,7 @@ function fakeApplication(overrides = {}) {
       launchOptions = options;
       const appPath = path.dirname(options.executablePath);
       fs.writeFileSync(path.join(appPath, 'product.json'), JSON.stringify({
-        commit: overrides.revision || REVISION, quality: 'insider'
+        commit: overrides.revision || REVISION, quality: overrides.quality || 'insider'
       }));
       return {
         process: () => ({pid: 12345}),
@@ -113,6 +119,9 @@ test('capture runner isolates state, verifies dimensions, and leaves candidates 
     const state = fake.state();
     assert.equal(result.manifest.status, 'candidate');
     assert.equal(result.manifest.approval, 'human-visual-review-required');
+    assert.equal(result.manifest.execution, 'attended');
+    assert.equal(result.manifest.steps.length, 7);
+    assert.match(result.manifest.storyboardRunnerSha256, /^[a-f0-9]{64}$/);
     assert.equal(result.manifest.privacy.textScan, 'passed');
     assert.equal(result.manifest.privacy.pixelReview, 'required');
     assert.equal(result.manifest.window.zoomLevel, 2);
@@ -142,6 +151,7 @@ test('fails explicitly without saving a PNG when identity, viewport, or privacy 
     {zoomLevel: 0, zoomFactor: 1},
     {viewport: {width: 1500}},
     {viewport: {visibility: 'hidden'}},
+    {visibilityDuringSteps: 'hidden'},
     {viewport: {darkModern: false}},
     {text: 'Example user@example.test'},
     {text: `C: > Users > ${path.basename(os.homedir())} > workspace`},
@@ -156,6 +166,9 @@ test('fails explicitly without saving a PNG when identity, viewport, or privacy 
       const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'capture.json'), 'utf8'));
       assert.equal(manifest.status, 'failed');
       assert.ok(manifest.error);
+      if (overrides.text) {
+        assert.equal(manifest.privacy.textScan, 'failed');
+      }
       assert.equal(fs.existsSync(path.join(directory, 'editor-find.png')), false);
       assert.equal(fs.existsSync(path.join(directory, 'runtime')), false);
       assert.ok(fake.state().closed);
@@ -184,8 +197,8 @@ test('refuses repository outputs, AI storyboards, and invalid image headers', as
     assert.equal(fake.state().launchOptions, undefined);
   });
   const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
-  assert.throws(() => validateStoryboard({...storyboard, ai: 'live-approved'}), /ai: none/);
-  assert.throws(() => validateStoryboard({...storyboard, privacy: {denyText: [], humanVisualReviewRequired: false}}), /privacy policy/);
+  assert.throws(() => validateStoryboard({...storyboard, ai: 'live-approved'}), /ai must be "none"/);
+  assert.throws(() => validateStoryboard({...storyboard, privacy: {denyText: [], humanVisualReviewRequired: false}}), /privacy/);
   assert.throws(() => validatePng(Buffer.from('not a PNG'), 1920, 1080), /PNG/);
   assert.throws(() => checkVisibleText('authorization: Bearer secret', ['Bearer ']), /Privacy check failed/);
   assert.throws(() => checkVisibleText('C: > Users > fixture-user > workspace', ['fixture-user']), /Privacy check failed/);
@@ -198,7 +211,7 @@ test('allows zoom 1.5 only for explicitly wide content and preserves pixel dimen
     {...storyboard.profile, wideContent: true},
     {...storyboard.profile, zoomLevel: 1.5, wideContent: 'true'}
   ]) {
-    assert.throws(() => validateStoryboard({...storyboard, profile}), /zoom level 2 by default/);
+    assert.throws(() => validateStoryboard({...storyboard, profile}), /zoom level 2 by default|wideContent must be boolean/);
   }
   await withOutput(async options => {
     const wide = {...storyboard, profile: {...storyboard.profile, zoomLevel: 1.5, wideContent: true}};
@@ -211,6 +224,27 @@ test('allows zoom 1.5 only for explicitly wide content and preserves pixel dimen
     assert.equal(result.manifest.window.zoomLevel, 1.5);
     const image = fs.readFileSync(path.join(result.directory, result.manifest.asset.file));
     validatePng(image, 1920, 1080);
+  });
+});
+
+test('captures a second declarative workflow and pins its declared product channel', async function () {
+  const replacement = path.join(__dirname, 'storyboards', 'editor-find-replace.json');
+  await withOutput(async options => {
+    const fake = fakeApplication();
+    const result = await captureEditor({...options, storyboard: replacement}, fake);
+    assert.equal(result.manifest.storyboard.id, 'editor-find-replace');
+    assert.equal(result.manifest.steps.length, 10);
+    assert.equal(result.manifest.asset.file, 'editor-find-replace.png');
+    assert.ok(fake.state().launchOptions.args.at(-1).endsWith('totals.txt'));
+    await assert.rejects(() => captureEditor({...options, storyboard: replacement, video: true, ffmpeg: options.executable}, fake),
+      /does not define video/);
+    const stable = JSON.parse(fs.readFileSync(replacement, 'utf8'));
+    stable.channel = 'stable';
+    const file = path.join(options.output, 'stable.json');
+    fs.writeFileSync(file, JSON.stringify(stable));
+    await assert.rejects(() => captureEditor({...options, storyboard: file}, fakeApplication()), /requested stable build/);
+    const captured = await captureEditor({...options, storyboard: file}, fakeApplication({quality: 'stable'}));
+    assert.equal(captured.manifest.product.quality, 'stable');
   });
 });
 

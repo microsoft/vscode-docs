@@ -313,7 +313,9 @@ Run link and navigation tests with `npm run test:links` and `npm run test:naviga
 
 ### Capture an editor screenshot candidate
 
-The attended capture pilot uses an installed VS Code Insiders executable and the version-controlled [editor Find storyboard](build/storyboards/editor-find.json). It runs only a synthetic editor task, without sign-in or AI requests. It is not a general storyboard runner or an unattended capture service.
+The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, synthetic file, UI targets, actions, and expected outcomes. The runner supports bounded editor workflows without sign-in or AI requests, not arbitrary scripts or native UI automation.
+
+Screenshot and video capture is attended-only. Keep the capture window visible and remain available throughout the run. Unattended media capture, scheduled capture jobs, and lock-screen or sleep-state testing are out of scope.
 
 The pilot baseline is Windows, Dark Modern, a 1920 by 1080 pixel capture, 100% instance display scale, default fonts, and `window.zoomLevel: 2` (about 144%) for readability. For wide content, set `profile.wideContent: true` and `profile.zoomLevel: 1.5` (about 131%) in the storyboard. The runner requires this explicit exception rather than guessing content width.
 
@@ -325,15 +327,38 @@ After approving the local run, use PowerShell with the installed executable and 
 node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>'
 ```
 
-The runner creates a new run directory, isolated user-data and extension directories, a separate Copilot home, and a synthetic JavaScript file. It opens the file, searches for `total` with case matching, and requires exactly three matches. It verifies the product revision, theme, viewport dimensions, scale, window zoom, and page visibility before saving a PNG from Electron's native window-content capture. Images are not resized after capture.
+The runner creates a new run directory, isolated user-data and extension directories, a separate Copilot home, and the storyboard's synthetic file. The default workflow searches for `total` with case matching and requires three matches. The runner verifies the product revision and channel, theme, viewport dimensions, scale, window zoom, and page visibility before saving a PNG from Electron's native window-content capture. Images are not resized after capture.
 
-Candidates include `capture.json` with the storyboard and runner hashes, product revision, profile settings, asset hash, and `human-visual-review-required` status. The pilot disables breadcrumbs and AI features and hides the secondary sidebar. Visible text is checked against the storyboard denylist, the caller's home path, home-folder name, and local user name before a screenshot is saved. This is not a complete privacy guarantee: inspect actual pixels, including icons and notifications, before approval.
+Candidates include `capture.json` with storyboard, schema, and runner hashes, completed steps, product revision, profile settings, asset hash, and `human-visual-review-required` status. The runner disables breadcrumbs and AI features and hides the secondary sidebar. Page visibility and visible text are checked between steps. Text is checked against the storyboard denylist, the caller's home path, home-folder name, and local user name. This is not a complete privacy guarantee: inspect actual pixels, including icons and notifications, before approval.
 
 Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No existing profile is reused, and no credentials are supplied. Live AI captures remain separate work and require a dedicated test account plus explicit approval before sign-in or model requests.
 
 The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
 
-Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs, menus, and unattended behavior remain unproven.
+Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs and menus remain unproven.
+
+#### Create an attended storyboard
+
+Use the [storyboard schema](build/storyboard.schema.json) and the [editor Find](build/storyboards/editor-find.json) or [expanded Find and Replace](build/storyboards/editor-find-replace.json) examples. Version 2 supports one synthetic file, one PNG, and an optional WebM per run. Version 1 storyboards are rejected with a migration message rather than interpreted as version 2.
+
+Review a storyboard before running it. Storyboards are executable UI procedures, even though they contain no JavaScript. Do not run procedures from unreviewed PRs or remote text. Use a trusted checkout of the runner.
+
+* Set `article` to an existing article and `execution` to `attended`. Choose `stable` or `insiders` to match the documentation target and installed product. Build identity checks do not establish feature availability.
+* Define named `targets` using roles and accessible names. Matching is exact by default; set `exact: false` for names with shortcut suffixes. Use a CSS selector only when a semantic target is unavailable.
+* Define `steps` with `click`, `key`, `fill`, `type`, `check`, `wait-for`, `assert`, and `pause`. Include an outcome assertion before capture. Asserted text is literal, not a regular expression.
+* For controls that cycle through text states, a click can declare `expectTextCycle` with a target and ordered values. The runner reads the current state and verifies the next one. This avoids assuming that incremental Find always selects the first match.
+* For video, define `video.reset` and `video.steps`. Reset must restore the known start state, including any fixture edits. The runner resets, dry-runs the video steps, resets again, then records the same steps.
+* Keep each phase within 40 steps, 15 seconds of configured typing and pauses, and five seconds of pauses. Each pause is limited to 1.5 seconds. Actual video duration is checked separately.
+
+Validate one or more storyboards without launching VS Code:
+
+```powershell
+node .\build\storyboard.js .\build\storyboards\editor-find.json .\build\storyboards\editor-find-replace.json
+```
+
+Pass `--storyboard '<file>'` to the capture command to choose a workflow. Unsupported fields, actions, paths, and target references fail validation before launch. The runner does not support shell steps, arbitrary JavaScript, live AI, or unattended execution.
+
+Use the [docs-media skill](.github/skills/docs-media/SKILL.md) for the attended capture and exact-asset review procedure. The Find and Replace example is a candidate workflow, not authorization to replace the article's existing cropped, annotated image.
 
 #### Record an editor video candidate
 
@@ -343,11 +368,11 @@ To record the same synthetic task, add `--video --ffmpeg '<absolute-path-to-enco
 node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>' --video --ffmpeg '<absolute-path-to-playwright-ffmpeg.exe>'
 ```
 
-The runner dry-runs Find and match navigation, resets the editor, then records opening Find, typing the query, matching case, and moving through all three results. It checks visible text between actions and finalizes recording even if an action fails. Failed partial recordings remain private and are marked as failed in `capture.json`.
+The default video shows opening Find, typing the query, matching case, and moving through all three results. The runner checks visible text between actions and finalizes recording even if an action fails. Failed partial recordings remain private and are marked as failed in `capture.json`.
 
 The video check requires 1920 by 1080 pixels, 25 frames per second, and a duration of four to 30 seconds. It rejects source frames that would need padding or scaling, decodes the complete bounded WebM, and checks every decoded frame's dimensions. A sampled pixel-change check rejects nearly static clips. This heuristic does not establish that the video is useful or free of private information.
 
-Successful runs retain `editor-find.webm`, four full-resolution frames in `video-review`, and video hashes, action timestamps, decoding results, and motion measurements in `capture.json`. Review the entire video, not only the sample frames, before approving the exact asset. Native UI capture and unattended execution remain unproven.
+Successful runs retain `editor-find.webm`, four full-resolution frames in `video-review`, and video hashes, action timestamps, decoding results, and motion measurements in `capture.json`. Review the entire video, not only the sample frames, before approving the exact asset. Native UI capture remains unproven.
 
 Run `npm run test:capture` for unit tests of isolation, guards, recording failure paths, output validation, and cleanup. Those tests use fake launchers, media headers, and decoders. They do not prove that real Electron screenshot or video capture works.
 
