@@ -293,4 +293,8 @@ function main() {
   process.exit(hasIssues ? 1 : 0);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { CONTENT_ROOTS, KNOWN_SPECIAL_URLS };

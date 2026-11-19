@@ -9,6 +9,7 @@ const { substituteDataVariables } = require('./data-variables-substitution');
 const { createEvidenceLookup, loadManifest } = require('./product-manifest');
 const { formatReport, validateReport } = require('./findings');
 const { collectProductReferences } = require('./product-references');
+const { collectMarkdownFiles } = require('./repository-paths');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
@@ -16,45 +17,6 @@ const DEFAULT_DIRECTORIES = ['docs', 'api', 'remote', 'release-notes'];
 const FEATURE_PATTERN = /feature\(([^)\r\n]*)\)/g;
 const DATA_DIRECTIVE_PATTERN = /\{%\s*data\s+([^%\r\n]+?)\s*%\}/g;
 const DATA_DIRECTIVE_START_PATTERN = /\{%\s*data\b/g;
-
-function isWithinRoot(rootDirectory, filePath) {
-  const relativePath = path.relative(rootDirectory, filePath);
-  return relativePath !== '..' && !relativePath.startsWith(`..${path.sep}`) && !path.isAbsolute(relativePath);
-}
-
-function collectMarkdownFiles(rootDirectory, paths) {
-  const resolvedRoot = fs.realpathSync(rootDirectory);
-  const files = new Set();
-
-  function visit(targetPath) {
-    const resolvedPath = fs.realpathSync(targetPath);
-    if (!isWithinRoot(resolvedRoot, resolvedPath)) {
-      throw new Error(`Path is outside the repository: ${targetPath}`);
-    }
-
-    const stat = fs.statSync(resolvedPath);
-    if (stat.isDirectory()) {
-      for (const entry of fs.readdirSync(resolvedPath, { withFileTypes: true })
-        .sort((left, right) => left.name.localeCompare(right.name))) {
-        if (entry.isDirectory()) {
-          visit(path.join(resolvedPath, entry.name));
-        } else if (entry.isFile() && entry.name.endsWith('.md')) {
-          files.add(path.join(resolvedPath, entry.name));
-        }
-      }
-    } else if (stat.isFile() && resolvedPath.endsWith('.md')) {
-      files.add(resolvedPath);
-    } else {
-      throw new Error(`Expected a Markdown file or directory: ${targetPath}`);
-    }
-  }
-
-  for (const item of paths) {
-    visit(path.resolve(resolvedRoot, item));
-  }
-
-  return [...files].sort((left, right) => left.localeCompare(right));
-}
 
 function getLineNumber(content, offset) {
   return content.slice(0, offset).split('\n').length;
@@ -123,6 +85,8 @@ function checkClaims(rootDirectory, paths, options = {}) {
     encoding: 'utf8'
   }).trim();
   const variables = loadDataVariables(path.join(resolvedRoot, 'data', 'variables'));
+  const checks = options.links ? ['claims', 'links'] : ['claims'];
+  const linkChecker = options.links ? require('./check-links').createLinkChecker(resolvedRoot, variables) : undefined;
   const lifecycle = JSON.parse(fs.readFileSync(path.join(resolvedRoot, 'build', 'feature-lifecycle.json'), 'utf8'));
   const files = collectMarkdownFiles(resolvedRoot, paths);
   const scanPaths = [...new Set(paths.map(item =>
@@ -178,14 +142,27 @@ function checkClaims(rootDirectory, paths, options = {}) {
       }
       add(offset, kind, claim, message, evidence);
     }
+    if (linkChecker) {
+      for (const result of linkChecker.check(filePath, content)) {
+        const finding = createFinding(resolvedRoot, filePath, result.line, 'link', result.evidence,
+          result.severity, sourceRevision, result.message);
+        finding.articleHash = articleHash;
+        finding.firstSeen = generatedAt;
+        finding.lastSeen = generatedAt;
+        addFinding(findings, finding);
+      }
+    }
   }
 
   return validateReport({
-    schemaVersion: 3,
+    schemaVersion: 4,
+    checks,
     sourceRevision,
     generatedAt,
     scanPaths,
-    inputHash: crypto.createHash('sha256').update(JSON.stringify({ scanPaths, articles, variables, lifecycle })).digest('hex'),
+    inputHash: crypto.createHash('sha256')
+      .update(JSON.stringify({ checks, scanPaths, articles, variables, lifecycle, linkDependencies: linkChecker?.fingerprint() }))
+      .digest('hex'),
     ...(product ? { productManifest: product.reference } : {}),
     findings: [...findings.values()].sort((left, right) =>
       left.article.localeCompare(right.article) || left.line - right.line || left.id.localeCompare(right.id))
@@ -199,7 +176,13 @@ function parseArguments(args) {
 
   for (let index = 0; index < args.length; index++) {
     const argument = args.at(index);
-    if (argument === '--files') {
+    if (argument === '--links') {
+      if (options.links) {
+        throw new Error('Specify --links only once.');
+      }
+      options.links = true;
+      readingPaths = false;
+    } else if (argument === '--files') {
       if (!args[index + 1] || args[index + 1].startsWith('--')) {
         throw new Error('Expected at least one path after --files.');
       }
@@ -243,7 +226,7 @@ function parseArguments(args) {
 
 function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: npm run check-claims -- [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
+    console.log('Usage: npm run check-claims -- [--links] [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
     return 0;
   }
 

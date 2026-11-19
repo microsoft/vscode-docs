@@ -9,11 +9,12 @@
     "url": "https://github.com/microsoft/vscode-docs.git"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19.0"
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
     "check-claims": "node ./build/check-claims.js",
+    "check-links": "node ./build/check-claims.js --links",
     "generate-manifest": "node ./build/product-manifest.js",
     "check-release-note-toc": "node ./build/check-release-note-toc.js",
     "check-staged-files": "node ./build/check-staged-files.js",
@@ -25,6 +26,7 @@
     "test:tabs": "node --test ./build/tabs.test.js",
     "test:cards": "node --test ./build/cards.test.js",
     "test:claims": "node --test ./build/check-claims.test.js ./build/product-manifest.test.js ./build/product-references.test.js ./build/findings.test.js",
+    "test:links": "node --test ./build/check-links.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",
     "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs .github/extensions/vscode-docs-workbench/archive.test.mjs",
@@ -45,6 +47,7 @@
     "jsonc-parser": "^3.3.1",
     "lint-staged": "^12.3.3",
     "livereload": "^0.9.3",
+    "markdown-it": "^15.0.3",
     "serve-static": "^1.16.3",
     "shelljs": "^0.8.5"
   },

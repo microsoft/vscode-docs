@@ -147,6 +147,22 @@ npm run check-claims -- --files docs\agents
 
 Without `--files`, the checker scans `docs`, `api`, `remote`, and `release-notes`. It emits JSON and never edits articles. Exit code 1 indicates an invalid variable, lifecycle marker, malformed tryout link, invalid command-ID encoding, or execution error. Product existence and availability claims remain `unverified` and do not fail the run.
 
+#### Check internal links and media
+
+Add `--links`, or use `npm run check-links`, to include internal Markdown links, reference-style links, fragments, and media paths:
+
+```powershell
+npm run check-links -- --format console --files docs\agents
+```
+
+This opt-in check follows local redirects and maps published `/updates/` routes to release notes. It checks Markdown images and HTML anchor, image, audio, video, source, and poster attributes. Code examples and HTML comments are not interpreted as links. External sites are not contacted.
+
+Missing local targets, fragments, and media files are errors. Known website landing routes are accepted without a network request. Generated references, directory routes without a backing page, and fragments that may depend on conditional content or code imports remain unverified. Anchor checks use the website's documentation and API heading conventions, plus in-product release-note anchors. Finding lines identify the enclosing Markdown block, table row, or HTML tag. File existence follows the checkout's filesystem semantics; media contents are not validated or loaded. Findings describe this checkout, not historical releases or server-side redirects absent from the repository.
+
+These checks do not modify articles or redirects. TOC validation, sitemap-report integration, and validation of generated content remain separate work.
+
+#### Check tryout references
+
 The checker extracts tryout IDs from `vscode://tryout/<id>`, `vscode-insiders://tryout/<id>`, and `command:workbench.action.onboarding.tryFeature?<encoded-arguments>` links. Command arguments must be a URI-encoded JSON array containing exactly one ID. IDs must start with a letter or digit and contain at most 128 letters, digits, dots, underscores, or hyphens. External tryout links cannot include a nonempty query or fragment. Equivalent links to the same ID produce one finding per article. A bare mention of the command ID does not imply a tryout link. Valid syntax does not verify that a tryout is registered or available.
 
 Examples containing angle-bracket placeholders or template expressions remain unverified instead of producing syntax errors.
@@ -159,9 +175,9 @@ JSON is the default output. Use `--format console` for readable file and line di
 npm run check-claims -- --format console --files docs\agents
 ```
 
-Reports use [findings schema version 3](build/findings.schema.json), which adds evidence for commands listed without a default keybinding. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+Reports use [findings schema version 4](build/findings.schema.json), which records the enabled `checks` so freshness checks rerun the same checks. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
-The report's `inputHash` covers the scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
+The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. With link checks enabled, it also covers linked Markdown contents, redirect files, and target existence. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
 Validate and display a saved report with the standalone reporter:
 
@@ -169,7 +185,7 @@ Validate and display a saved report with the standalone reporter:
 node .\build\findings.js --input "$env:TEMP\findings.json" --format console
 ```
 
-Add `--check-current` to rerun the saved scope against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate version 1 and version 2 reports with the checker.
+Add `--check-current` to rerun the saved scope and enabled checks against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate reports from earlier schema versions with the checker.
 
 Freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
 
@@ -237,7 +253,7 @@ Run the focused tests with `npm run test:claims`.
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.
 
-Use Node.js 20 or later.
+Use Node.js 20.19 or later.
 
 ```bash
 npm install

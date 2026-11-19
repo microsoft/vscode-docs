@@ -14,7 +14,8 @@ const { assertReportCurrent, formatReport, validateReport } = require('./finding
 function createReport() {
   const generatedAt = '2026-11-19T15:00:00.000Z';
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
+    checks: ['claims'],
     sourceRevision: 'test-revision',
     generatedAt,
     scanPaths: ['docs'],
@@ -75,6 +76,7 @@ test('escapes annotation parameters and messages, and prevents terminal control 
 test('rejects malformed, inconsistent, and legacy reports before rendering', function () {
   const mutations = [
     [report => { report.schemaVersion = 1; }, /schemaVersion/],
+    [report => { report.checks = ['claims', 'unknown']; }, /checks must list/],
     [report => { report.findings[0].line = 0; }, /positive integer/],
     [report => { report.findings[0].article = '../outside.md'; }, /repository-relative/],
     [report => { report.scanPaths = ['C:\\outside']; }, /repository-relative/],
@@ -189,13 +191,13 @@ test('saved-report CLI checks current repository inputs before displaying a repo
   try {
     const file = path.join(directory, 'report.json');
     const script = path.join(__dirname, 'findings.js');
-    const report = checkClaims(path.resolve(__dirname, '..'), ['CONTRIBUTING.md']);
+    const report = checkClaims(path.resolve(__dirname, '..'), ['CONTRIBUTING.md'], { links: true });
     fs.writeFileSync(file, JSON.stringify(report));
     const args = [script, '--input', file, '--check-current', '--format', 'json'];
     const current = spawnSync(process.execPath, args, { encoding: 'utf8' });
+    assert.equal(current.stderr, '', current.stderr);
     assert.equal(current.status, report.findings.some(finding => finding.severity === 'error') ? 1 : 0, current.stderr);
     assert.deepEqual(JSON.parse(current.stdout), report);
-    assert.equal(current.stderr, '');
 
     report.inputHash = '0'.repeat(64);
     fs.writeFileSync(file, JSON.stringify(report));

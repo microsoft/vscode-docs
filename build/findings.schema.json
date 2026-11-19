@@ -2,10 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "VS Code documentation findings report",
   "type": "object",
-  "required": ["schemaVersion", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
+  "required": ["schemaVersion", "checks", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "const": 3 },
+    "schemaVersion": { "const": 4 },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains": { "const": "claims" },
+      "items": { "enum": ["claims", "links"] }
+    },
     "sourceRevision": { "$ref": "#/$defs/text" },
     "generatedAt": { "$ref": "#/$defs/timestamp" },
     "scanPaths": {
@@ -16,7 +23,7 @@
     },
     "inputHash": {
       "$ref": "#/$defs/hash",
-      "description": "SHA-256 of scan scope, article hashes, resolved data variables, and lifecycle data."
+      "description": "SHA-256 of enabled checks, scan scope, article hashes, resolved data variables, lifecycle data, and optional link dependencies."
     },
     "productManifest": { "$ref": "#/$defs/productManifest" },
     "findings": {
