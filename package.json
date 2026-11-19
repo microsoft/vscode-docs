@@ -29,6 +29,7 @@
     "test:claims": "node --test ./build/check-claims.test.js ./build/product-manifest.test.js ./build/product-references.test.js ./build/findings.test.js ./build/review-source.test.js",
     "test:links": "node --test ./build/check-links.test.js",
     "test:navigation": "node --test ./build/check-navigation.test.js",
+    "test:audit-state": "node --test ./build/audit-state.test.js ./.github/skills/daily-docs-audit/manage-state.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",
     "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs .github/extensions/vscode-docs-workbench/archive.test.mjs",

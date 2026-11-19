@@ -222,6 +222,29 @@ Use a controlled worktree: the revision guard does not authenticate Git-ignored 
 
 The `pr-review` skill runs these checks after its prompt-injection screening and before manual claim verification. It attributes findings to the diff, reports coverage limits, and keeps product observations separate from proof of public availability. This does not authorize GitHub comments, commits, pushes, or scheduled runs.
 
+#### Retain audit findings and review decisions
+
+The [audit state helper](build/audit-state.js) keeps pending issue proposals and checker findings in private Git metadata. It uses `git rev-parse --git-path daily-docs-audit/pending.json`, or the explicit `VSCODE_DOCS_AUDIT_STATE_PATH` override. The existing skill-local helper remains a compatibility wrapper. Run the helper from trusted code; do not commit its state, backups, or raw reports.
+
+After generating a report and checking freshness with `build/findings.js --check-current`, import it:
+
+```powershell
+Get-Content -Raw -LiteralPath $reportPath | node .\build\audit-state.js import-findings
+$stateJson = node .\build\audit-state.js list
+```
+
+The import validates report structure and returns added, refreshed, and reopened counts. It does not check the current checkout itself, create proposals, or contact GitHub. It preserves stable finding IDs and the original `firstSeen`; `lastSeen` advances for observations present in later reports. Absent findings are retained unchanged, not marked fixed.
+
+Review decisions persist while evidence is unchanged. Changed article bytes, severity, diagnostic message, or product evidence and manifest reopen decided findings. Source revision, scan scope, input fingerprint, and timestamps alone do not reopen them. The latest observation and report metadata are retained, together with status transitions, evidence hashes, timestamps, and reasons. Keep raw reports separately if you need every prior observation's contents.
+
+For an explicit review decision, pass `id`, the current record's `evidenceHash`, a `status` (`open`, `accepted`, `dismissed`, or `fixed`), and a nonempty `reason` as JSON on standard input to `node .\build\audit-state.js triage`. Changed evidence rejects a stale decision. Triage is local state only; it does not authorize content changes or issue creation.
+
+Pending proposals can include optional `findingIds` referencing imported findings. Existing proposal IDs, source PR markers, deduplication rules, and per-issue confirmation requirements remain unchanged. Removing a proposal retains its findings and history.
+
+Version 1 state is read without modification. The first successful mutation creates an exact `.v1.bak` backup and writes version 2. Corrupt state, unsupported versions, conflicting backups, older observations, and concurrent writers fail explicitly. Writes use an exclusive `.lock` and atomic replacement. Do not remove a lock until you have established that its writer is no longer active; the helper never clears locks automatically.
+
+Run the state migration and persistence tests with `npm run test:audit-state`. These tests use temporary state, not your pending proposals.
+
 #### Add captured product evidence
 
 The checker can attach settings and keybinding evidence from a particular product build. Capture both the editor and the Agents window, using the same build and intended extension set:
