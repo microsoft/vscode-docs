@@ -137,6 +137,74 @@ Learn more about [making pull requests](https://docs.github.com/pull-requests/co
 
 ## Testing Your Changes
 
+### Check documentation claims
+
+Run the report-only claim checker to find unknown data variables and feature lifecycle IDs, and collect product references for review:
+
+```powershell
+npm run check-claims -- --files docs\agents
+```
+
+Without `--files`, the checker scans `docs`, `api`, `remote`, and `release-notes`. It emits JSON and never edits articles. Exit code 1 indicates an invalid variable or lifecycle marker, or an execution error. Product claims remain `unverified` and do not fail the run.
+
+#### Add captured product evidence
+
+The checker can attach settings and keybinding evidence from a particular product build. Capture both the editor and the Agents window, using the same build and intended extension set:
+
+* **Settings:** In each window, run **Preferences: Open Default Settings (JSON)** from the Command Palette (`workbench.action.openRawDefaultSettings`). Save the entire generated document as a separate JSONC file. Do not use user or workspace settings files. There is no CLI settings export.
+* **Keybindings:** On Insiders, run the `--export-default-keybindings <output-directory>` CLI option once for the editor and once with `--agents`, using separate output directories. Keep the raw `doc.keybindings.win.json`, `doc.keybindings.osx.json`, and `doc.keybindings.linux.json` files. Do not use the cleaned files, which omit conditions and arguments.
+
+Use an isolated local profile and record the product channel, version, full build revision, and capture platform. Settings captures describe only the platform and registered extensions in that window. Keep raw captures, capture descriptions, manifests, and reports outside the repository.
+
+Create a capture description beside the captured files. For example, a Windows settings-only description has this shape; replace the version and revision placeholders with the captured build's values:
+
+```json
+{
+  "schemaVersion": 1,
+  "product": {
+    "channel": "insiders",
+    "version": "<version>",
+    "revision": "<full-build-revision>"
+  },
+  "sources": [
+    {
+      "kind": "settings",
+      "mode": "editor",
+      "platform": "win",
+      "file": "editor-default-settings.jsonc"
+    },
+    {
+      "kind": "settings",
+      "mode": "agents",
+      "platform": "win",
+      "file": "agents-default-settings.jsonc"
+    }
+  ]
+}
+```
+
+For keybinding captures, add sources with `"kind": "keybindings"` and the appropriate file, mode, and platform (`win`, `osx`, or `linux`). Each kind and platform requires both window modes. File paths are relative to the capture description.
+
+Generate a manifest, then pass it to the checker with an explicit matching channel. This PowerShell 7 example uses an existing capture directory under your temporary directory:
+
+```powershell
+$capture = Join-Path $env:TEMP 'vscode-docs-capture'
+node .\build\product-manifest.js --input "$capture\capture.json" > "$capture\manifest.json"
+node .\build\check-claims.js --channel insiders --manifest "$capture\manifest.json" --files docs\agents > "$capture\findings.json"
+```
+
+The manifest preserves defaults, keybinding conditions and arguments, mode, platform, and hashes of the raw captures. The report identifies the manifest by its hash and records the supplied product build. Build metadata is supplied by the person capturing the files, not inferred or independently verified.
+
+Product findings include `productEvidence.status`:
+
+* `observed`: The setting ID or default keybinding appears in a capture. Matches reference a source in `productManifest.sources` and retain its default value or binding.
+* `not-observed`: Captures cover this kind of reference, but do not contain the ID.
+* `not-covered`: No capture covers this kind of reference. Commands and tryouts are not verified from keybinding exports.
+
+All three remain `unverified`: presence does not establish public availability or validate surrounding prose, suggested setting values, or applicability to another mode or platform. Absence can reflect missing extensions, conditional registrations, or a different release rather than an invalid reference. Captures can become stale; recapture for the build you intend to check, especially when reviewing older release notes.
+
+Run the focused tests with `npm run test:claims`.
+
 ### Preview locally with Docsify
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.

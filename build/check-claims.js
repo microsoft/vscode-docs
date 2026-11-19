@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { loadDataVariables } = require('./data-variables');
 const { substituteDataVariables } = require('./data-variables-substitution');
+const { createEvidenceLookup, loadManifest } = require('./product-manifest');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
@@ -119,6 +120,8 @@ function checkDataVariables(content, source, variables, add) {
 
 function checkClaims(rootDirectory, paths, options = {}) {
   const resolvedRoot = fs.realpathSync(rootDirectory);
+  const product = options.manifest ? loadManifest(options.manifest, options.channel) : undefined;
+  const lookup = product ? createEvidenceLookup(product.manifest) : undefined;
   const sourceRevision = options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
     cwd: resolvedRoot,
     encoding: 'utf8'
@@ -130,8 +133,8 @@ function checkClaims(rootDirectory, paths, options = {}) {
 
   for (const filePath of files) {
     const content = fs.readFileSync(filePath, 'utf8');
-    const add = (offset, marker, claim, message) => {
-      addFinding(findings, createFinding(
+    const add = (offset, marker, claim, message, productEvidence) => {
+      const finding = createFinding(
         resolvedRoot,
         filePath,
         getLineNumber(content, offset),
@@ -140,7 +143,11 @@ function checkClaims(rootDirectory, paths, options = {}) {
         marker === 'feature' || marker === 'data-variable' ? 'error' : 'unverified',
         sourceRevision,
         message
-      ));
+      );
+      if (productEvidence) {
+        finding.productEvidence = productEvidence;
+      }
+      addFinding(findings, finding);
     };
 
     checkDataVariables(content, path.relative(resolvedRoot, filePath).split(path.sep).join('/'), variables, add);
@@ -155,7 +162,15 @@ function checkClaims(rootDirectory, paths, options = {}) {
     for (const { pattern, kind } of PRODUCT_CLAIM_PATTERNS) {
       for (const match of content.matchAll(pattern)) {
         const claim = match[1] ? `${kind}(${match[1].trim()})` : match[0];
-        add(match.index, kind, claim, `Could not verify ${kind} against a product manifest.`);
+        const target = kind === 'setting' ? match[1].split(':')[0].trim() : match[1]?.trim();
+        const evidence = lookup?.(kind, target);
+        let message = `Could not verify ${kind} against a product manifest.`;
+        if (evidence?.status === 'observed') {
+          message = `Found ${kind} in captured defaults. Public availability, context, and documented values still require review.`;
+        } else if (evidence?.status === 'not-observed') {
+          message = `Could not find ${kind} "${target}" in captured defaults. Missing evidence does not establish that it is invalid.`;
+        }
+        add(match.index, kind, claim, message, evidence);
       }
     }
   }
@@ -163,6 +178,7 @@ function checkClaims(rootDirectory, paths, options = {}) {
   return {
     schemaVersion: 1,
     sourceRevision,
+    ...(product ? { productManifest: product.reference } : {}),
     findings: [...findings.values()].sort((left, right) =>
       left.article.localeCompare(right.article) || left.line - right.line || left.id.localeCompare(right.id))
   };
@@ -170,11 +186,33 @@ function checkClaims(rootDirectory, paths, options = {}) {
 
 function parseArguments(args) {
   const paths = [];
+  const options = {};
   let readingPaths = false;
 
-  for (const argument of args) {
+  for (let index = 0; index < args.length; index++) {
+    const argument = args.at(index);
     if (argument === '--files') {
+      if (!args[index + 1] || args[index + 1].startsWith('--')) {
+        throw new Error('Expected at least one path after --files.');
+      }
       readingPaths = true;
+    } else if (argument === '--manifest' || argument === '--channel') {
+      const value = args.at(++index);
+      if (!value || value.startsWith('--')) {
+        throw new Error(`Expected a value after ${argument}.`);
+      }
+      if (argument === '--manifest') {
+        if (options.manifest) {
+          throw new Error('Specify --manifest only once.');
+        }
+        options.manifest = value;
+      } else {
+        if (options.channel || !['stable', 'insiders'].includes(value)) {
+          throw new Error('Specify --channel once, with stable or insiders.');
+        }
+        options.channel = value;
+      }
+      readingPaths = false;
     } else if (argument.startsWith('--')) {
       throw new Error(`Unknown option: ${argument}`);
     } else if (readingPaths) {
@@ -184,17 +222,20 @@ function parseArguments(args) {
     }
   }
 
-  return { paths: paths.length ? paths : DEFAULT_DIRECTORIES };
+  if (options.manifest && !options.channel) {
+    throw new Error('Select --channel stable or insiders when using a product manifest.');
+  }
+  return { paths: paths.length ? paths : DEFAULT_DIRECTORIES, ...options };
 }
 
 function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: npm run check-claims -- [--files <Markdown file or directory> ...]');
+    console.log('Usage: npm run check-claims -- [--channel stable|insiders] [--manifest <file>] [--files <Markdown file or directory> ...]');
     return 0;
   }
 
-  const { paths } = parseArguments(args);
-  const report = checkClaims(path.resolve(__dirname, '..'), paths);
+  const { paths, ...options } = parseArguments(args);
+  const report = checkClaims(path.resolve(__dirname, '..'), paths, options);
   console.log(JSON.stringify(report, null, 2));
   return report.findings.some(finding => finding.severity === 'error') ? 1 : 0;
 }
