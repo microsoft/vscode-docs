@@ -7,6 +7,7 @@ const path = require('path');
 const { loadDataVariables } = require('./data-variables');
 const { substituteDataVariables } = require('./data-variables-substitution');
 const { createEvidenceLookup, loadManifest } = require('./product-manifest');
+const { formatReport, validateReport } = require('./findings');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
@@ -120,6 +121,7 @@ function checkDataVariables(content, source, variables, add) {
 
 function checkClaims(rootDirectory, paths, options = {}) {
   const resolvedRoot = fs.realpathSync(rootDirectory);
+  const generatedAt = new Date().toISOString();
   const product = options.manifest ? loadManifest(options.manifest, options.channel) : undefined;
   const lookup = product ? createEvidenceLookup(product.manifest) : undefined;
   const sourceRevision = options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
@@ -129,10 +131,16 @@ function checkClaims(rootDirectory, paths, options = {}) {
   const variables = loadDataVariables(path.join(resolvedRoot, 'data', 'variables'));
   const lifecycle = JSON.parse(fs.readFileSync(path.join(resolvedRoot, 'build', 'feature-lifecycle.json'), 'utf8'));
   const files = collectMarkdownFiles(resolvedRoot, paths);
+  const scanPaths = [...new Set(paths.map(item =>
+    path.relative(resolvedRoot, fs.realpathSync(path.resolve(resolvedRoot, item))).split(path.sep).join('/') || '.'))].sort();
+  const articles = [];
   const findings = new Map();
 
   for (const filePath of files) {
-    const content = fs.readFileSync(filePath, 'utf8');
+    const bytes = fs.readFileSync(filePath);
+    const content = bytes.toString('utf8');
+    const articleHash = crypto.createHash('sha256').update(bytes).digest('hex');
+    articles.push([path.relative(resolvedRoot, filePath).split(path.sep).join('/'), articleHash]);
     const add = (offset, marker, claim, message, productEvidence) => {
       const finding = createFinding(
         resolvedRoot,
@@ -144,6 +152,9 @@ function checkClaims(rootDirectory, paths, options = {}) {
         sourceRevision,
         message
       );
+      finding.articleHash = articleHash;
+      finding.firstSeen = generatedAt;
+      finding.lastSeen = generatedAt;
       if (productEvidence) {
         finding.productEvidence = productEvidence;
       }
@@ -175,13 +186,16 @@ function checkClaims(rootDirectory, paths, options = {}) {
     }
   }
 
-  return {
-    schemaVersion: 1,
+  return validateReport({
+    schemaVersion: 2,
     sourceRevision,
+    generatedAt,
+    scanPaths,
+    inputHash: crypto.createHash('sha256').update(JSON.stringify({ scanPaths, articles, variables, lifecycle })).digest('hex'),
     ...(product ? { productManifest: product.reference } : {}),
     findings: [...findings.values()].sort((left, right) =>
       left.article.localeCompare(right.article) || left.line - right.line || left.id.localeCompare(right.id))
-  };
+  });
 }
 
 function parseArguments(args) {
@@ -196,7 +210,7 @@ function parseArguments(args) {
         throw new Error('Expected at least one path after --files.');
       }
       readingPaths = true;
-    } else if (argument === '--manifest' || argument === '--channel') {
+    } else if (argument === '--manifest' || argument === '--channel' || argument === '--format') {
       const value = args.at(++index);
       if (!value || value.startsWith('--')) {
         throw new Error(`Expected a value after ${argument}.`);
@@ -206,11 +220,16 @@ function parseArguments(args) {
           throw new Error('Specify --manifest only once.');
         }
         options.manifest = value;
-      } else {
+      } else if (argument === '--channel') {
         if (options.channel || !['stable', 'insiders'].includes(value)) {
           throw new Error('Specify --channel once, with stable or insiders.');
         }
         options.channel = value;
+      } else {
+        if (options.format || !['json', 'console', 'github'].includes(value)) {
+          throw new Error('Specify --format once, with json, console, or github.');
+        }
+        options.format = value;
       }
       readingPaths = false;
     } else if (argument.startsWith('--')) {
@@ -230,13 +249,16 @@ function parseArguments(args) {
 
 function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: npm run check-claims -- [--channel stable|insiders] [--manifest <file>] [--files <Markdown file or directory> ...]');
+    console.log('Usage: npm run check-claims -- [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
     return 0;
   }
 
-  const { paths, ...options } = parseArguments(args);
+  const { paths, format, ...options } = parseArguments(args);
   const report = checkClaims(path.resolve(__dirname, '..'), paths, options);
-  console.log(JSON.stringify(report, null, 2));
+  const output = formatReport(report, format);
+  if (output) {
+    console.log(output);
+  }
   return report.findings.some(finding => finding.severity === 'error') ? 1 : 0;
 }
 

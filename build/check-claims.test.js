@@ -8,6 +8,7 @@ const os = require('os');
 const path = require('path');
 const test = require('node:test');
 const { checkClaims, collectMarkdownFiles, parseArguments } = require('./check-claims');
+const { assertReportCurrent, formatReport } = require('./findings');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary directories. */
 
@@ -64,6 +65,9 @@ test('reports broken data variables and unknown lifecycle IDs with source locati
     ]);
     assert.ok(report.findings.every(finding =>
       finding.sourceRevision === 'test-revision' && finding.status === 'open'));
+    assert.ok(report.findings.every(finding =>
+      finding.firstSeen === report.generatedAt && finding.lastSeen === report.generatedAt));
+    assert.deepEqual(report.scanPaths, ['docs']);
   });
 });
 
@@ -182,4 +186,52 @@ test('checker CLI fails on invalid arguments without emitting a success report',
   assert.equal(result.status, 1);
   assert.equal(result.stdout, '');
   assert.match(result.stderr, /Expected at least one path/);
+});
+
+test('detects uncommitted input changes including added files and files without findings', function () {
+  withTemporaryRepository(function (root) {
+    const article = path.join(root, 'docs', 'article.md');
+    const cleanArticle = path.join(root, 'docs', 'clean.md');
+    fs.writeFileSync(article, '`setting(editor.fontSize)`');
+    fs.writeFileSync(cleanArticle, '# No product claims\n');
+    const run = () => checkClaims(root, ['docs'], { sourceRevision: 'same-head' });
+    const initial = run();
+    assert.doesNotThrow(() => assertReportCurrent(initial, run()));
+    assert.equal(initial.findings[0].articleHash, crypto.createHash('sha256').update(fs.readFileSync(article)).digest('hex'));
+
+    fs.appendFileSync(article, '\nNew prose.\n');
+    const edited = run();
+    assert.equal(initial.findings[0].id, edited.findings[0].id);
+    assert.throws(() => assertReportCurrent(initial, edited), /inputHash changed/);
+
+    fs.appendFileSync(cleanArticle, 'More prose.\n');
+    const cleanEdited = run();
+    assert.throws(() => assertReportCurrent(edited, cleanEdited), /inputHash changed/);
+
+    const newArticle = path.join(root, 'docs', 'new.md');
+    fs.writeFileSync(newArticle, '# Added article\n');
+    const added = run();
+    assert.throws(() => assertReportCurrent(cleanEdited, added), /inputHash changed/);
+    fs.rmSync(newArticle);
+    assert.throws(() => assertReportCurrent(added, run()), /inputHash changed/);
+
+    fs.writeFileSync(path.join(root, 'data', 'variables', 'product.yml'), 'name: Changed product\n');
+    const variablesEdited = run();
+    assert.throws(() => assertReportCurrent(cleanEdited, variablesEdited), /inputHash changed/);
+    fs.writeFileSync(path.join(root, 'build', 'feature-lifecycle.json'), '{"features":{}}');
+    assert.throws(() => assertReportCurrent(variablesEdited, run()), /inputHash changed/);
+  });
+});
+
+test('accepts explicit formats and renders empty successful scans without annotations', function () {
+  assert.equal(parseArguments(['--format', 'console']).format, 'console');
+  assert.equal(parseArguments(['--format', 'github']).format, 'github');
+  assert.throws(() => parseArguments(['--format', 'html']), /Specify --format/);
+  assert.throws(() => parseArguments(['--format', 'json', '--format', 'console']), /Specify --format/);
+  withTemporaryRepository(function (root) {
+    fs.writeFileSync(path.join(root, 'docs', 'article.md'), '# No claims\n');
+    const report = checkClaims(root, ['docs'], { sourceRevision: 'test-revision' });
+    assert.equal(formatReport(report, 'github'), '');
+    assert.equal(formatReport(report, 'console'), 'Docs claims: 0 error(s), 0 warning(s), 0 unverified.');
+  });
 });

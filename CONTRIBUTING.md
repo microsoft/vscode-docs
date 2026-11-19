@@ -147,6 +147,28 @@ npm run check-claims -- --files docs\agents
 
 Without `--files`, the checker scans `docs`, `api`, `remote`, and `release-notes`. It emits JSON and never edits articles. Exit code 1 indicates an invalid variable or lifecycle marker, or an execution error. Product claims remain `unverified` and do not fail the run.
 
+#### Choose report output
+
+JSON is the default output. Use `--format console` for readable file and line diagnostics, or `--format github` to emit GitHub workflow annotation syntax. Annotation output maps unverified findings to notices, not warnings or errors. These options only write to stdout; they do not enable a workflow, post comments, or publish findings.
+
+```powershell
+npm run check-claims -- --format console --files docs\agents
+```
+
+Reports use [findings schema version 2](build/findings.schema.json). The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+
+The report's `inputHash` covers the scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
+
+Validate and display a saved report with the standalone reporter:
+
+```powershell
+node .\build\findings.js --input "$env:TEMP\findings.json" --format console
+```
+
+Add `--check-current` to rerun the saved scope against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate older version 1 reports with the checker.
+
+Freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
+
 #### Add captured product evidence
 
 The checker can attach settings and keybinding evidence from a particular product build. Capture both the editor and the Agents window, using the same build and intended extension set:

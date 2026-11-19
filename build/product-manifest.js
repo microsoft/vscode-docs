@@ -71,13 +71,28 @@ function validateEntries(source) {
 
 function validateManifest(manifest) {
   validateMetadata(manifest);
+  validateSourceHashes(manifest.sources);
   for (const source of manifest.sources) {
-    if (typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) {
-      throw new Error(`${source.file}: Expected a SHA-256 hash of the raw capture.`);
-    }
     validateEntries(source);
   }
   return manifest;
+}
+
+function validateSourceHashes(sources) {
+  for (const source of sources) {
+    if (typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) {
+      throw new Error(`${source.file}: Expected a SHA-256 hash of the raw capture.`);
+    }
+  }
+}
+
+function validateManifestReference(reference) {
+  if (!isObject(reference) || typeof reference.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(reference.sha256)) {
+    throw new Error('Expected a product manifest reference with a SHA-256 hash.');
+  }
+  validateMetadata({ schemaVersion: 1, product: reference.product, sources: reference.sources });
+  validateSourceHashes(reference.sources);
+  return reference;
 }
 
 function generateManifest(input, baseDirectory) {
@@ -171,4 +186,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { createEvidenceLookup, generateManifest, loadManifest, main, validateManifest };
+module.exports = { createEvidenceLookup, generateManifest, loadManifest, main, validateManifest, validateManifestReference };

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VS Code documentation findings report",
+  "type": "object",
+  "required": ["schemaVersion", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "sourceRevision": { "$ref": "#/$defs/text" },
+    "generatedAt": { "$ref": "#/$defs/timestamp" },
+    "scanPaths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "anyOf": [{ "const": "." }, { "$ref": "#/$defs/article" }] }
+    },
+    "inputHash": {
+      "$ref": "#/$defs/hash",
+      "description": "SHA-256 of scan scope, article hashes, resolved data variables, and lifecycle data."
+    },
+    "productManifest": { "$ref": "#/$defs/productManifest" },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    }
+  },
+  "$defs": {
+    "text": { "type": "string", "pattern": "\\S" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "article": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)(?:\\.|\\.\\.)(?:/|$))(?!.*//)(?!.*\\/$)[^\\u0000-\\u001f\\u007f]+$"
+    },
+    "finding": {
+      "type": "object",
+      "required": ["id", "kind", "severity", "article", "articleHash", "line", "evidence", "sourceRevision", "status", "message", "firstSeen", "lastSeen"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/hash" },
+        "kind": { "enum": ["claim", "link", "lifecycle", "replay", "media-drift", "eval", "audit-proposal"] },
+        "severity": { "enum": ["error", "warning", "unverified"] },
+        "article": { "$ref": "#/$defs/article" },
+        "articleHash": { "$ref": "#/$defs/hash" },
+        "line": { "type": "integer", "minimum": 1 },
+        "evidence": { "$ref": "#/$defs/text" },
+        "sourceRevision": { "$ref": "#/$defs/text" },
+        "status": { "enum": ["open", "accepted", "dismissed", "fixed"] },
+        "message": { "$ref": "#/$defs/text" },
+        "firstSeen": { "$ref": "#/$defs/timestamp" },
+        "lastSeen": { "$ref": "#/$defs/timestamp" },
+        "productEvidence": { "$ref": "#/$defs/productEvidence" }
+      }
+    },
+    "productManifest": {
+      "type": "object",
+      "required": ["sha256", "product", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "sha256": { "$ref": "#/$defs/hash" },
+        "product": {
+          "type": "object",
+          "required": ["channel", "version", "revision"],
+          "additionalProperties": false,
+          "properties": {
+            "channel": { "enum": ["stable", "insiders"] },
+            "version": { "$ref": "#/$defs/text" },
+            "revision": { "type": "string", "pattern": "^[a-fA-F0-9]{40}$" }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/productSource" }
+        }
+      }
+    },
+    "productSource": {
+      "type": "object",
+      "required": ["kind", "mode", "platform", "file", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["settings", "keybindings"] },
+        "mode": { "enum": ["editor", "agents"] },
+        "platform": { "enum": ["win", "osx", "linux"] },
+        "file": { "$ref": "#/$defs/text" },
+        "sha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "productEvidence": {
+      "type": "object",
+      "required": ["status", "matches"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["observed", "not-observed", "not-covered"] },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source"],
+            "additionalProperties": false,
+            "properties": {
+              "source": { "type": "integer", "minimum": 0 },
+              "defaultValue": {},
+              "binding": { "$ref": "#/$defs/binding" }
+            },
+            "oneOf": [
+              { "required": ["defaultValue"], "not": { "required": ["binding"] } },
+              { "required": ["binding"], "not": { "required": ["defaultValue"] } }
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } } },
+          "then": { "properties": { "matches": { "minItems": 1 } } },
+          "else": { "properties": { "matches": { "maxItems": 0 } } }
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "required": ["key", "command"],
+      "properties": {
+        "key": { "$ref": "#/$defs/text" },
+        "command": { "$ref": "#/$defs/text" },
+        "when": { "type": "string" },
+        "args": {}
+      }
+    }
+  }
+}
