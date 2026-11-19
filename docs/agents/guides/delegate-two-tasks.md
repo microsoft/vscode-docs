@@ -168,7 +168,7 @@ A completed response is a handoff for review, not proof that the task is correct
 
 Inspect the expected results in the tests, not only whether the tests pass. The assertions should demonstrate the outcome in the task's brief, rather than repeat assumptions from the implementation.
 
-For the full diff and feedback procedures, see [review agent changes](/docs/agents/run/review-code-edits.md#review-agent-changes).
+For the full diff and feedback procedures, see [review agent changes](/docs/agents/run/review-code-edits.md#review-changes-by-comparing-diffs).
 
 ## 6. Integrate and retest
 

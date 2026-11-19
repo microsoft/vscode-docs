@@ -81,12 +81,12 @@ Use the following links to jump to the settings for a specific area:
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.editor.workingSet.enabled)` `feature(editor-working-set)`<br/>Show the [working set](/docs/agents/run/review-code-edits.md#review-agent-changes) for {% data variables.product.prodname_copilot_short %} harness sessions in the editor window, with **Keep**, **Undo**, and **View All Edits** controls. Turn off to show the Changes pill instead. Does not enable the working set for Claude or Codex. In the {% data variables.copilot.agents_window %}, this setting is fixed to `false`. | `true` |
+| `setting(chat.editor.workingSet.enabled)` `feature(editor-working-set)`<br/>Show the [working set](/docs/agents/run/review-code-edits.md#review-pending-edits-with-the-working-set) for {% data variables.product.prodname_copilot_short %} harness sessions in the editor window, with **Keep**, **Undo**, and **View All Edits** controls. Turn off to show the Changes pill instead. Does not enable the working set for Claude or Codex. In the {% data variables.copilot.agents_window %}, this setting is fixed to `false`. | `true` |
 | `setting(chat.artifacts.enabled)` `feature(agent-artifacts)`<br/>Show the [artifacts panel](/docs/agents/run/artifacts.md) in chat. | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` `feature(agent-artifacts)`<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` `feature(agent-artifacts)`<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
 | `setting(chat.artifacts.rules.byMemoryFilePath)` `feature(agent-artifacts)`<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
-| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) in the chat. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/agents/run/review-code-edits.md#restore-a-checkpoint) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
 | `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
