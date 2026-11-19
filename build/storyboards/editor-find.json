@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "editor-find",
+  "article": "docs/editing/codebasics.md",
+  "channel": "insiders",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "fixture": {
+    "file": "example.js",
+    "content": "function calculateTotal(prices) {\n  const total = prices.reduce((sum, price) => sum + price, 0);\n  console.log(total);\n  return total;\n}\n\ncalculateTotal([10, 20, 30]);\n"
+  },
+  "scenario": {
+    "kind": "editor-find",
+    "query": "total",
+    "matchCase": true,
+    "expectedMatches": 3
+  },
+  "capture": {
+    "file": "editor-find.png",
+    "alt": "Screenshot showing three matches for total in the editor Find control."
+  },
+  "privacy": {
+    "denyText": [
+      "@",
+      "Bearer ",
+      "ghp_",
+      "github_pat_"
+    ],
+    "humanVisualReviewRequired": true
+  }
+}

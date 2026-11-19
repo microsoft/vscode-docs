@@ -311,6 +311,32 @@ Run the focused tests with `npm run test:claims`.
 
 Run link and navigation tests with `npm run test:links` and `npm run test:navigation`.
 
+### Capture an editor screenshot candidate
+
+The attended capture pilot uses an installed VS Code Insiders executable and the version-controlled [editor Find storyboard](build/storyboards/editor-find.json). It runs only a synthetic editor task, without sign-in or AI requests. It is not a general storyboard runner or an unattended capture service.
+
+The pilot baseline is Windows, Dark Modern, a 1920 by 1080 pixel capture, 100% instance display scale, default fonts, and `window.zoomLevel: 2` (about 144%) for readability. For wide content, set `profile.wideContent: true` and `profile.zoomLevel: 1.5` (about 131%) in the storyboard. The runner requires this explicit exception rather than guessing content width.
+
+Window zoom reduces the CSS viewport to about 1333 by 750 at level 2, or 1461 by 822 at level 1.5, while the saved image remains 1920 by 1080. The runner verifies display scale and window zoom separately; it does not change Windows display settings. Raw output must go to an existing private directory outside the repository and its ancestors.
+
+After approving the local run, use PowerShell with the installed executable and the full build commit from **Help > About**:
+
+```powershell
+node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>'
+```
+
+The runner creates a new run directory, isolated user-data and extension directories, a separate Copilot home, and a synthetic JavaScript file. It opens the file, searches for `total` with case matching, and requires exactly three matches. It verifies the product revision, theme, viewport dimensions, scale, window zoom, and page visibility before saving a PNG from Electron's native window-content capture. Images are not resized after capture.
+
+Candidates include `capture.json` with the storyboard and runner hashes, product revision, profile settings, asset hash, and `human-visual-review-required` status. The pilot disables breadcrumbs and AI features and hides the secondary sidebar. Visible text is checked against the storyboard denylist, the caller's home path, home-folder name, and local user name before a screenshot is saved. This is not a complete privacy guarantee: inspect actual pixels, including icons and notifications, before approval.
+
+Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No existing profile is reused, and no credentials are supplied. Live AI captures remain separate work and require a dedicated test account plus explicit approval before sign-in or model requests.
+
+The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
+
+Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs and menus, video capture, and unattended behavior are not proven by this screenshot pilot.
+
+Run `npm run test:capture` for unit tests of isolation, guards, output validation, and cleanup. Those tests use fake launchers and PNG headers; they do not prove that the real Electron capture works.
+
 ### Preview locally with Docsify
 
 You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.

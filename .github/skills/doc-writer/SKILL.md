@@ -28,7 +28,7 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 * **Public functionality only.** Do not add or retain documentation for internal builds, dogfood-only functionality, hidden settings or commands, source-only implementation, or manually settable internal feature flags.
 * **Focused research.** Follow the [focused research guidance](../../instructions/docs-writing.instructions.md#focused-research). Verify the requested functionality and settings without turning the task into an exhaustive source audit.
 * **Never edit `enterprise/policies.md`.** This file is generated from the enterprise policy definitions in the VS Code source. Edit `enterprise/policies-template.md` instead, which is used to regenerate `policies.md`.
-* **Screenshots are human work.** When a screenshot needs to be added or updated, insert a `TODO` comment in the doc for a human to capture and insert it later — do not fabricate image references.
+* **Media candidates require human approval.** Agents may capture real screenshots or videos using an approved capture workflow. Keep candidates outside the repository until a human visually approves the exact asset. Never fabricate image references, publish unreviewed media, or treat a successful capture as visual approval. If capture is unavailable, leave a `TODO` explaining what still needs to be captured. Live AI captures require a dedicated test account and separate approval before sign-in or model requests.
 * **Style compliance.** All writing must follow the [docs-writing style guide](../../instructions/docs-writing.instructions.md).
 
 ## Phase 1 — Research & Propose a Plan (no edits)
@@ -44,7 +44,7 @@ Do not modify any files in this phase.
 6. **Present the plan.** Summarize:
    * The primary persona, reader intent, and article purpose.
    * Which `docs/` files and required navigation metadata you propose to create or change, and a short description of each edit.
-   * Any `TODO` screenshot placeholders that will be needed.
+   * Which screenshots or videos need candidate captures and human visual approval, or `TODO` placeholders if capture is unavailable.
    * Open questions or assumptions.
 
    If you conclude that **no documentation update is needed**, say so and ask the user to confirm before closing out.
@@ -60,7 +60,7 @@ Once the user approves the plan:
 
    Do not modify documentation files until the user answers. If the user chooses a new branch, ask for a branch name unless they already supplied one, then create the branch from `main` before editing. If uncommitted changes prevent safe branch creation, stop and explain the conflict instead of stashing or reverting changes. If the user chooses the current branch, continue without changing branches.
 2. Apply the documentation edits exactly as agreed, following the [docs-writing style guide](../../instructions/docs-writing.instructions.md) and the approved content framing.
-3. Add `TODO` comments where screenshots need to be captured by a human.
+3. Generate approved-scope media candidates where the capture workflow is available. Inspect them for privacy, framing, and accuracy, then obtain human visual approval before copying an asset into the article's media directory. Otherwise, add `TODO` comments identifying the capture needed.
 4. Respect the guardrails above (docs content and required sitemap updates only; no release notes/API docs unless asked; never edit generated `policies.md`).
 5. Verify that the introduction, main content, examples, and next steps serve the approved primary persona and reader intent.
 6. Summarize the changes you made and call out any remaining `TODO`s for the user.
