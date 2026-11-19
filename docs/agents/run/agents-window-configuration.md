@@ -114,6 +114,8 @@ This setting changes the default only in the {% data variables.copilot.agents_wi
 
 Choose which installed {% data variables.product.prodname_vscode_shortname %} extensions run in the {% data variables.copilot.agents_window %} without changing their enablement in the editor window. Extensions must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile.
 
+To give an agent new tools, follow [Add extension tools for the {% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/tools.md#add-extension-tools-for-the-copilot-harness). That workflow covers installation, extension enablement, and tool selection in both the editor and the {% data variables.copilot.agents_window %}. The options below apply to extensions generally, including those that don't contribute tools.
+
 Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
 
 ### Manage extensions (Experimental)
