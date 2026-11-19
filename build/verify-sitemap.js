@@ -18,6 +18,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { isWithinRoot } = require('./repository-paths');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITEMAP = path.join(__dirname, 'sitemap.xml');
@@ -78,38 +79,60 @@ function normalize(urlPath) {
 }
 
 // Extract URL entries from the sitemap, preserving each entry's loc, changefreq and priority.
-function readSitemapPaths() {
-  const xml = fs.readFileSync(SITEMAP, 'utf-8');
+function parseSitemap(xml) {
+  const content = xml.replace(/<!--[\s\S]*?-->/g, comment => comment.replace(/[^\r\n]/g, ' '));
+  if (!/<urlset(?:\s|>)/.test(content) || !/<\/urlset>\s*$/.test(content)) {
+    throw new Error('Expected a sitemap urlset document.');
+  }
   const paths = [];
   const re = /<url>([\s\S]*?)<\/url>/g;
   let m;
-  while ((m = re.exec(xml)) !== null) {
+  while ((m = re.exec(content)) !== null) {
     const block = m[1];
-    const loc = (block.match(/<loc>\s*([^<]+?)\s*<\/loc>/) || [])[1];
-    if (!loc) continue;
+    const location = /<loc>\s*([^<]+?)\s*<\/loc>/.exec(block);
+    if (!location) {
+      throw new Error(`Sitemap URL at line ${content.slice(0, m.index).split('\n').length} has no loc.`);
+    }
+    const loc = location[1];
     const changefreq = (block.match(/<changefreq>\s*([^<]+?)\s*<\/changefreq>/) || [])[1] || 'weekly';
     const priority = (block.match(/<priority>\s*([^<]+?)\s*<\/priority>/) || [])[1] || '0.8';
-    const entry = { raw: loc, path: null, changefreq, priority };
+    const line = content.slice(0, m.index + '<url>'.length + location.index).split('\n').length;
+    const entry = { raw: loc, path: null, changefreq, priority, line };
     if (loc.startsWith(DOMAIN)) entry.path = normalize(loc.slice(DOMAIN.length - 1));
     paths.push(entry);
   }
+  if ((content.match(/<url(?:\s|>)/g) || []).length !== paths.length ||
+      (content.match(/<\/url>/g) || []).length !== paths.length) {
+    throw new Error('Malformed sitemap URL entries; expected <url> elements containing <loc>.');
+  }
   return paths;
+}
+
+function readSitemapPaths() {
+  return parseSitemap(fs.readFileSync(SITEMAP, 'utf-8'));
 }
 
 // True if a markdown file has YAML frontmatter (i.e. is a standalone page).
 function hasFrontmatter(filePath) {
   const fd = fs.openSync(filePath, 'r');
-  const buf = Buffer.alloc(8);
-  const bytes = fs.readSync(fd, buf, 0, 8, 0);
-  fs.closeSync(fd);
-  return buf.slice(0, bytes).toString('utf-8').startsWith('---');
+  try {
+    const buf = Buffer.alloc(8);
+    const bytes = fs.readSync(fd, buf, 0, 8, 0);
+    return buf.slice(0, bytes).toString('utf-8').startsWith('---');
+  } finally {
+    fs.closeSync(fd);
+  }
 }
 
 // Walk a content root and collect standalone page URL paths.
-function collectPages(rootName) {
+function collectPages(rootName, rootDirectory = ROOT) {
   const pages = [];
-  const baseDir = path.join(ROOT, rootName);
+  const baseDir = path.join(rootDirectory, rootName);
   if (!fs.existsSync(baseDir)) return pages;
+  // eslint-disable-next-line security/detect-non-literal-fs-filename -- Reject content roots that resolve outside the repository.
+  if (!isWithinRoot(fs.realpathSync(rootDirectory), fs.realpathSync(baseDir))) {
+    throw new Error(`Content root is outside the repository: ${rootName}`);
+  }
 
   const walk = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -117,12 +140,12 @@ function collectPages(rootName) {
       if (entry.isDirectory()) {
         if (entry.name === 'images' || entry.name === 'node_modules') continue;
         walk(full);
-      } else if (entry.name.toLowerCase().endsWith('.md')) {
+      } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md')) {
         if (IGNORED_FILE_NAMES.has(entry.name.toLowerCase())) continue;
         // Skip non-page templates such as policies.template.md.
         if (/\.template\.md$/i.test(entry.name)) continue;
         if (!hasFrontmatter(full)) continue;
-        const rel = path.relative(ROOT, full).split(path.sep).join('/');
+        const rel = path.relative(rootDirectory, full).split(path.sep).join('/');
         let urlPath = '/' + rel.replace(/\.md$/, '');
         // index.md is served at the folder root (e.g. api/index.md -> /api).
         urlPath = urlPath.replace(/\/index$/, '');
@@ -206,12 +229,7 @@ function writeFixedSitemap(sitemapEntries, redirects, missingPages) {
   return added.size;
 }
 
-function main() {
-  const asJson = process.argv.includes('--json');
-  const fix = process.argv.includes('--fix');
-  const redirects = loadRedirects();
-  const sitemapEntries = readSitemapPaths();
-
+function analyzeSitemap(sitemapEntries, redirects, pages, fileExists) {
   const sitemapPaths = new Set(sitemapEntries.filter((e) => e.path).map((e) => e.path));
 
   // Problem 1: sitemap content URLs that resolve to nothing on disk.
@@ -222,20 +240,17 @@ function main() {
     const root = entry.path.split('/')[1];
     if (!CONTENT_ROOTS.includes(root)) continue;
 
-    const file = path.join(ROOT, entry.path.slice(1) + '.md');
-    if (fs.existsSync(file)) continue;
+    if (fileExists(entry.path)) continue;
     if (redirects.has(entry.path)) continue;
     brokenUrls.push(entry.path);
   }
 
   // Problem 2: standalone pages on disk that are absent from the sitemap.
   const missingPages = [];
-  for (const root of CONTENT_ROOTS) {
-    for (const pagePath of collectPages(root)) {
-      if (sitemapPaths.has(pagePath)) continue;
-      if (redirects.has(pagePath)) continue;
-      missingPages.push(pagePath);
-    }
+  for (const pagePath of pages) {
+    if (sitemapPaths.has(pagePath)) continue;
+    if (redirects.has(pagePath)) continue;
+    missingPages.push(pagePath);
   }
 
   // Problem 3: sitemap entries that 301-redirect elsewhere (should list the canonical target).
@@ -258,6 +273,18 @@ function main() {
   missingPages.sort();
   redirectingUrls.sort();
   duplicates.sort();
+
+  return { brokenUrls, missingPages, redirectingUrls, duplicates };
+}
+
+function main() {
+  const asJson = process.argv.includes('--json');
+  const fix = process.argv.includes('--fix');
+  const redirects = loadRedirects();
+  const sitemapEntries = readSitemapPaths();
+  const pages = CONTENT_ROOTS.flatMap(root => collectPages(root));
+  const { brokenUrls, missingPages, redirectingUrls, duplicates } =
+    analyzeSitemap(sitemapEntries, redirects, pages, contentFileExists);
 
   if (fix) {
     const count = writeFixedSitemap(sitemapEntries, redirects, missingPages);
@@ -297,4 +324,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { CONTENT_ROOTS, KNOWN_SPECIAL_URLS };
+module.exports = { analyzeSitemap, collectPages, CONTENT_ROOTS, KNOWN_SPECIAL_URLS, parseSitemap };

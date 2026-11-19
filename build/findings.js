@@ -86,7 +86,7 @@ function validateReport(report) {
   requireShape(report, schema, 'report');
   requireValue(Array.isArray(report.checks) && report.checks.includes('claims') &&
     report.checks.every(check => schema.properties.checks.items.enum.includes(check)) &&
-    new Set(report.checks).size === report.checks.length, 'checks must list claims and optionally links without duplicates.');
+    new Set(report.checks).size === report.checks.length, 'checks must list claims and optional links or navigation without duplicates.');
   requireText(report.sourceRevision, 'sourceRevision');
   requireTimestamp(report.generatedAt, 'generatedAt');
   requireHash(report.inputHash, 'inputHash');
@@ -176,7 +176,7 @@ function formatReport(report, format = 'json') {
     Reflect.set(counts, finding.severity, Reflect.get(counts, finding.severity) + 1);
   }
   return [
-    `Docs ${report.checks.includes('links') ? 'checks' : 'claims'}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
+    `Docs ${report.checks.length > 1 ? 'checks' : 'claims'}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
     ...report.findings.map(finding =>
       escapeConsole(`${finding.article}:${finding.line} [${finding.severity}, ${finding.status}] ${finding.message}`))
   ].join('\n');
@@ -212,7 +212,8 @@ function main(args = process.argv.slice(2)) {
     const current = checkClaims(path.resolve(__dirname, '..'), report.scanPaths, {
       manifest: options.get('--manifest'),
       channel: report.productManifest?.product.channel,
-      links: report.checks.includes('links')
+      links: report.checks.includes('links'),
+      navigation: report.checks.includes('navigation')
     });
     assertReportCurrent(report, current);
   }

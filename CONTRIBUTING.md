@@ -159,7 +159,22 @@ This opt-in check follows local redirects and maps published `/updates/` routes 
 
 Missing local targets, fragments, and media files are errors. Known website landing routes are accepted without a network request. Generated references, directory routes without a backing page, and fragments that may depend on conditional content or code imports remain unverified. Anchor checks use the website's documentation and API heading conventions, plus in-product release-note anchors. Finding lines identify the enclosing Markdown block, table row, or HTML tag. File existence follows the checkout's filesystem semantics; media contents are not validated or loaded. Findings describe this checkout, not historical releases or server-side redirects absent from the repository.
 
-These checks do not modify articles or redirects. TOC validation, sitemap-report integration, and validation of generated content remain separate work.
+These checks do not modify articles or redirects. Use the navigation check for TOCs and sitemap coverage. Generated content still requires separate validation.
+
+#### Check TOCs and sitemap coverage
+
+Add `--navigation`, or use `npm run check-navigation`, to include navigation diagnostics:
+
+```powershell
+npm run check-navigation -- --format console --files docs\agents
+```
+
+Navigation checks always cover the repository's Docs, API, and Learn root TOCs, their imported TOCs, and `build/sitemap.xml`. The `--files` option limits article checks, not navigation coverage. Combine `--links` and `--navigation` to run both checks.
+
+* TOC checks validate section and topic structure, resolve data variables, follow nested groups and TOC imports, and check article targets and fragments with the shared link resolver. Missing imports, import cycles, and paths outside the repository are errors. Repeated article links, including secondary navigation shortcuts, are allowed.
+* Sitemap checks reuse the standalone sitemap verifier's rules for missing targets, duplicate URLs, standalone pages missing from the sitemap, and redirecting URLs. Redirecting sitemap entries are warnings; other confirmed sitemap problems are errors. Generated or website-owned targets remain unverified when they cannot be checked locally.
+
+Results use the shared JSON, console, and annotation formats, with locations in the relevant TOC, sitemap, or missing page. Freshness checking includes imported TOCs, navigation targets, and the standalone-page inventory. No navigation files are rewritten, and external sites are not contacted. The existing `node build/verify-sitemap.js --json` command remains available.
 
 #### Check tryout references
 
@@ -177,7 +192,7 @@ npm run check-claims -- --format console --files docs\agents
 
 Reports use [findings schema version 4](build/findings.schema.json), which records the enabled `checks` so freshness checks rerun the same checks. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
-The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. With link checks enabled, it also covers linked Markdown contents, redirect files, and target existence. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
+The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. Link and navigation checks also cover their dependencies: linked Markdown contents, redirect files, target existence, TOCs, the sitemap, and the standalone-page inventory, as applicable. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
 Validate and display a saved report with the standalone reporter:
 
@@ -248,6 +263,8 @@ Product findings include `productEvidence.status`:
 All three remain `unverified`: presence does not establish public availability or validate surrounding prose, suggested setting values, or applicability to another mode or platform. Absence can reflect missing extensions, conditional registrations, or a different release rather than an invalid reference. Captures can become stale; recapture for the build you intend to check, especially when reviewing older release notes.
 
 Run the focused tests with `npm run test:claims`.
+
+Run link and navigation tests with `npm run test:links` and `npm run test:navigation`.
 
 ### Preview locally with Docsify
 

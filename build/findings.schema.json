@@ -11,7 +11,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "contains": { "const": "claims" },
-      "items": { "enum": ["claims", "links"] }
+      "items": { "enum": ["claims", "links", "navigation"] }
     },
     "sourceRevision": { "$ref": "#/$defs/text" },
     "generatedAt": { "$ref": "#/$defs/timestamp" },

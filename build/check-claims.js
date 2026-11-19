@@ -85,8 +85,9 @@ function checkClaims(rootDirectory, paths, options = {}) {
     encoding: 'utf8'
   }).trim();
   const variables = loadDataVariables(path.join(resolvedRoot, 'data', 'variables'));
-  const checks = options.links ? ['claims', 'links'] : ['claims'];
-  const linkChecker = options.links ? require('./check-links').createLinkChecker(resolvedRoot, variables) : undefined;
+  const checks = ['claims', ...(options.links ? ['links'] : []), ...(options.navigation ? ['navigation'] : [])];
+  const linkChecker = options.links || options.navigation
+    ? require('./check-links').createLinkChecker(resolvedRoot, variables) : undefined;
   const lifecycle = JSON.parse(fs.readFileSync(path.join(resolvedRoot, 'build', 'feature-lifecycle.json'), 'utf8'));
   const files = collectMarkdownFiles(resolvedRoot, paths);
   const scanPaths = [...new Set(paths.map(item =>
@@ -142,7 +143,7 @@ function checkClaims(rootDirectory, paths, options = {}) {
       }
       add(offset, kind, claim, message, evidence);
     }
-    if (linkChecker) {
+    if (options.links) {
       for (const result of linkChecker.check(filePath, content)) {
         const finding = createFinding(resolvedRoot, filePath, result.line, 'link', result.evidence,
           result.severity, sourceRevision, result.message);
@@ -154,6 +155,15 @@ function checkClaims(rootDirectory, paths, options = {}) {
     }
   }
 
+  const navigation = options.navigation ? require('./check-navigation').checkNavigation(resolvedRoot, variables, linkChecker) : undefined;
+  for (const result of navigation?.findings || []) {
+    const finding = createFinding(resolvedRoot, result.file, result.line, 'link', result.evidence,
+      result.severity, sourceRevision, result.message);
+    finding.articleHash = result.articleHash;
+    finding.firstSeen = generatedAt;
+    finding.lastSeen = generatedAt;
+    addFinding(findings, finding);
+  }
   return validateReport({
     schemaVersion: 4,
     checks,
@@ -161,7 +171,11 @@ function checkClaims(rootDirectory, paths, options = {}) {
     generatedAt,
     scanPaths,
     inputHash: crypto.createHash('sha256')
-      .update(JSON.stringify({ checks, scanPaths, articles, variables, lifecycle, linkDependencies: linkChecker?.fingerprint() }))
+      .update(JSON.stringify({
+        checks, scanPaths, articles, variables, lifecycle,
+        linkDependencies: linkChecker?.fingerprint(),
+        navigationDependencies: navigation?.fingerprint
+      }))
       .digest('hex'),
     ...(product ? { productManifest: product.reference } : {}),
     findings: [...findings.values()].sort((left, right) =>
@@ -176,7 +190,13 @@ function parseArguments(args) {
 
   for (let index = 0; index < args.length; index++) {
     const argument = args.at(index);
-    if (argument === '--links') {
+    if (argument === '--navigation') {
+      if (options.navigation) {
+        throw new Error('Specify --navigation only once.');
+      }
+      options.navigation = true;
+      readingPaths = false;
+    } else if (argument === '--links') {
       if (options.links) {
         throw new Error('Specify --links only once.');
       }
@@ -226,7 +246,7 @@ function parseArguments(args) {
 
 function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: npm run check-claims -- [--links] [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
+    console.log('Usage: npm run check-claims -- [--links] [--navigation] [--channel stable|insiders] [--manifest <file>] [--format json|console|github] [--files <Markdown file or directory> ...]');
     return 0;
   }
 

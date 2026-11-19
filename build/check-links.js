@@ -340,6 +340,10 @@ function createLinkChecker(rootDirectory, variables) {
   }
 
   return {
+    resolve: resolveTarget,
+    redirects() {
+      return new Map(redirects);
+    },
     check(file, content) {
       const parsed = document(file, content);
       const findings = [];

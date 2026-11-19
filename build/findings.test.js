@@ -191,7 +191,7 @@ test('saved-report CLI checks current repository inputs before displaying a repo
   try {
     const file = path.join(directory, 'report.json');
     const script = path.join(__dirname, 'findings.js');
-    const report = checkClaims(path.resolve(__dirname, '..'), ['CONTRIBUTING.md'], { links: true });
+    const report = checkClaims(path.resolve(__dirname, '..'), ['CONTRIBUTING.md'], { links: true, navigation: true });
     fs.writeFileSync(file, JSON.stringify(report));
     const args = [script, '--input', file, '--check-current', '--format', 'json'];
     const current = spawnSync(process.execPath, args, { encoding: 'utf8' });
