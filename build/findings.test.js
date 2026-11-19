@@ -14,7 +14,7 @@ const { assertReportCurrent, formatReport, validateReport } = require('./finding
 function createReport() {
   const generatedAt = '2026-11-19T15:00:00.000Z';
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceRevision: 'test-revision',
     generatedAt,
     scanPaths: ['docs'],
@@ -124,6 +124,14 @@ test('validates product evidence links, mode pairs, and binding/default value sh
   }
   report.findings[2].productEvidence.matches = [{ source: 1, binding: { key: 'ctrl+k', command: 'test', when: '!isWeb' } }];
   assert.equal(validateReport(report), report);
+  report.findings[2].productEvidence.matches = [{ source: 1, command: 'test.unbound', line: 25 }];
+  assert.equal(validateReport(report), report);
+  report.findings[2].productEvidence.matches[0].line = 0;
+  assert.throws(() => validateReport(report), /positive capture line/);
+  report.findings[2].productEvidence.matches[0].line = 25;
+  report.findings[2].productEvidence.matches[0].binding = { key: 'ctrl+k', command: 'test' };
+  assert.throws(() => validateReport(report), /only command and line/);
+  delete report.findings[2].productEvidence.matches[0].binding;
   const changedManifest = structuredClone(report);
   changedManifest.productManifest.sha256 = '9'.repeat(64);
   assert.throws(() => assertReportCurrent(report, changedManifest), /product manifest changed/);

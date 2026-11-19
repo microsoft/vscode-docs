@@ -67,6 +67,19 @@ function validateEntries(source) {
       throw new Error(`${source.file}: Invalid keybinding at entry ${index + 1}.`);
     }
   }
+  if (Object.hasOwn(source, 'unboundCommands')) {
+    if (!Array.isArray(source.unboundCommands)) {
+      throw new Error(`${source.file}: Expected an unboundCommands array.`);
+    }
+    const seen = new Set();
+    for (const entry of source.unboundCommands) {
+      if (!isObject(entry) || !isText(entry.command) || /[\r\n]/.test(entry.command) ||
+          !Number.isInteger(entry.line) || entry.line < 1 || seen.has(entry.command)) {
+        throw new Error(`${source.file}: Invalid or duplicate unbound command.`);
+      }
+      seen.add(entry.command);
+    }
+  }
 }
 
 function validateManifest(manifest) {
@@ -95,13 +108,35 @@ function validateManifestReference(reference) {
   return reference;
 }
 
+function extractUnboundCommands(text, rootEnd, file) {
+  const suffix = text.slice(rootEnd).split(/\r?\n/);
+  const header = suffix.findIndex(line => line.trim() === '// Here are other available commands:');
+  if (header === -1) {
+    return undefined;
+  }
+  const firstLine = text.slice(0, rootEnd).split('\n').length;
+  const commands = [];
+  for (const [index, line] of suffix.entries()) {
+    if (index <= header || !line.trim()) {
+      continue;
+    }
+    const match = /^\s*\/\/ - (.+)$/.exec(line);
+    if (!match) {
+      throw new Error(`${file}:${firstLine + index}: Malformed exported command list.`);
+    }
+    commands.push({ command: match[1], line: firstLine + index });
+  }
+  return commands;
+}
+
 function generateManifest(input, baseDirectory) {
-  const { parse, printParseErrorCode } = require('jsonc-parser');
+  const { parse, parseTree, printParseErrorCode } = require('jsonc-parser');
   validateMetadata(input);
   const sources = input.sources.map(({ kind, mode, platform, file }) => {
     const content = fs.readFileSync(path.resolve(baseDirectory, file));
+    const text = content.toString('utf8').replace(/^\uFEFF/, '');
     const errors = [];
-    const entries = parse(content.toString('utf8').replace(/^\uFEFF/, ''), errors, {
+    const entries = parse(text, errors, {
       allowTrailingComma: true
     });
     if (errors.length) {
@@ -109,6 +144,16 @@ function generateManifest(input, baseDirectory) {
       throw new Error(`${file}: Invalid JSONC (${printParseErrorCode(error.error)} at offset ${error.offset}).`);
     }
     const source = { kind, mode, platform, file, sha256: sha256(content), entries };
+    if (kind === 'keybindings') {
+      const tree = parseTree(text, [], { allowTrailingComma: true });
+      if (!tree) {
+        throw new Error(`${file}: Expected a JSONC document.`);
+      }
+      const unboundCommands = extractUnboundCommands(text, tree.offset + tree.length, file);
+      if (unboundCommands !== undefined) {
+        source.unboundCommands = unboundCommands;
+      }
+    }
     validateEntries(source);
     return source;
   });
@@ -130,27 +175,44 @@ function loadManifest(file, channel) {
     reference: {
       sha256: sha256(content),
       product: manifest.product,
-      sources: manifest.sources.map(({ entries, ...source }) => source)
+      sources: manifest.sources.map(({ entries, unboundCommands, ...source }) => source)
     }
   };
 }
 
 function createEvidenceLookup(manifest) {
   const indexes = new Map();
+  function add(kind, id, evidence) {
+    if (!indexes.has(kind)) {
+      indexes.set(kind, new Map());
+    }
+    const index = indexes.get(kind);
+    if (!index.has(id)) {
+      index.set(id, []);
+    }
+    index.get(id).push(evidence);
+  }
   for (const [sourceIndex, source] of manifest.sources.entries()) {
     const kind = source.kind === 'settings' ? 'setting' : 'keybinding';
     if (!indexes.has(kind)) {
       indexes.set(kind, new Map());
     }
-    const index = indexes.get(kind);
     const entries = source.kind === 'settings'
       ? Object.entries(source.entries).map(([id, defaultValue]) => [id, { defaultValue }])
       : source.entries.filter(entry => !entry.command.startsWith('-')).map(entry => [entry.command, { binding: entry }]);
     for (const [id, evidence] of entries) {
-      if (!index.has(id)) {
-        index.set(id, []);
+      add(kind, id, { source: sourceIndex, ...evidence });
+      if (source.kind === 'keybindings') {
+        add('command', id, { source: sourceIndex, ...evidence });
       }
-      index.get(id).push({ source: sourceIndex, ...evidence });
+    }
+    if (source.kind === 'keybindings') {
+      if (!indexes.has('command')) {
+        indexes.set('command', new Map());
+      }
+      for (const entry of source.unboundCommands || []) {
+        add('command', entry.command, { source: sourceIndex, ...entry });
+      }
     }
   }
   return (kind, id) => {

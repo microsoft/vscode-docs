@@ -145,7 +145,11 @@ Run the report-only claim checker to find unknown data variables and feature lif
 npm run check-claims -- --files docs\agents
 ```
 
-Without `--files`, the checker scans `docs`, `api`, `remote`, and `release-notes`. It emits JSON and never edits articles. Exit code 1 indicates an invalid variable or lifecycle marker, or an execution error. Product claims remain `unverified` and do not fail the run.
+Without `--files`, the checker scans `docs`, `api`, `remote`, and `release-notes`. It emits JSON and never edits articles. Exit code 1 indicates an invalid variable, lifecycle marker, malformed tryout link, invalid command-ID encoding, or execution error. Product existence and availability claims remain `unverified` and do not fail the run.
+
+The checker extracts tryout IDs from `vscode://tryout/<id>`, `vscode-insiders://tryout/<id>`, and `command:workbench.action.onboarding.tryFeature?<encoded-arguments>` links. Command arguments must be a URI-encoded JSON array containing exactly one ID. IDs must start with a letter or digit and contain at most 128 letters, digits, dots, underscores, or hyphens. External tryout links cannot include a nonempty query or fragment. Equivalent links to the same ID produce one finding per article. A bare mention of the command ID does not imply a tryout link. Valid syntax does not verify that a tryout is registered or available.
+
+Examples containing angle-bracket placeholders or template expressions remain unverified instead of producing syntax errors.
 
 #### Choose report output
 
@@ -155,7 +159,7 @@ JSON is the default output. Use `--format console` for readable file and line di
 npm run check-claims -- --format console --files docs\agents
 ```
 
-Reports use [findings schema version 2](build/findings.schema.json). The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+Reports use [findings schema version 3](build/findings.schema.json), which adds evidence for commands listed without a default keybinding. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
 The report's `inputHash` covers the scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
@@ -165,7 +169,7 @@ Validate and display a saved report with the standalone reporter:
 node .\build\findings.js --input "$env:TEMP\findings.json" --format console
 ```
 
-Add `--check-current` to rerun the saved scope against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate older version 1 reports with the checker.
+Add `--check-current` to rerun the saved scope against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate version 1 and version 2 reports with the checker.
 
 Freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
 
@@ -174,7 +178,7 @@ Freshness checking compares repository inputs and the supplied manifest, not the
 The checker can attach settings and keybinding evidence from a particular product build. Capture both the editor and the Agents window, using the same build and intended extension set:
 
 * **Settings:** In each window, run **Preferences: Open Default Settings (JSON)** from the Command Palette (`workbench.action.openRawDefaultSettings`). Save the entire generated document as a separate JSONC file. Do not use user or workspace settings files. There is no CLI settings export.
-* **Keybindings:** On Insiders, run the `--export-default-keybindings <output-directory>` CLI option once for the editor and once with `--agents`, using separate output directories. Keep the raw `doc.keybindings.win.json`, `doc.keybindings.osx.json`, and `doc.keybindings.linux.json` files. Do not use the cleaned files, which omit conditions and arguments.
+* **Keybindings and commands:** On Insiders, run the `--export-default-keybindings <output-directory>` CLI option once for the editor and once with `--agents`, using separate output directories. Keep the raw `doc.keybindings.win.json`, `doc.keybindings.osx.json`, and `doc.keybindings.linux.json` files, including their trailing `// Here are other available commands:` lists. Do not use the cleaned files, which omit conditions, arguments, and these command lists.
 
 Use an isolated local profile and record the product channel, version, full build revision, and capture platform. Settings captures describe only the platform and registered extensions in that window. Keep raw captures, capture descriptions, manifests, and reports outside the repository.
 
@@ -215,13 +219,15 @@ node .\build\product-manifest.js --input "$capture\capture.json" > "$capture\man
 node .\build\check-claims.js --channel insiders --manifest "$capture\manifest.json" --files docs\agents > "$capture\findings.json"
 ```
 
-The manifest preserves defaults, keybinding conditions and arguments, mode, platform, and hashes of the raw captures. The report identifies the manifest by its hash and records the supplied product build. Build metadata is supplied by the person capturing the files, not inferred or independently verified.
+The manifest preserves defaults, keybinding conditions and arguments, unbound command IDs and their capture line numbers, mode, platform, and hashes of the raw captures. The report identifies the manifest by its hash and records the supplied product build. Build metadata is supplied by the person capturing the files, not inferred or independently verified.
+
+Command evidence comes from bound commands and the exported trailing command lists. This is a partial inventory: the exporter filters some commands, including unbound IDs prefixed with `_` or `vscode.` and some commands that take arguments. It does not evaluate every command's context or prove public availability. Existing manifests without command lists still provide evidence from their keybindings; regenerate them from raw exports to include unbound commands.
 
 Product findings include `productEvidence.status`:
 
-* `observed`: The setting ID or default keybinding appears in a capture. Matches reference a source in `productManifest.sources` and retain its default value or binding.
+* `observed`: The setting ID, default keybinding, or command ID appears in a capture. Matches reference a source in `productManifest.sources` and retain its default value, binding, or unbound `command` and capture `line`.
 * `not-observed`: Captures cover this kind of reference, but do not contain the ID.
-* `not-covered`: No capture covers this kind of reference. Commands and tryouts are not verified from keybinding exports.
+* `not-covered`: No capture covers this kind of reference. Tryout registrations are not captured by these exports.
 
 All three remain `unverified`: presence does not establish public availability or validate surrounding prose, suggested setting values, or applicability to another mode or platform. Absence can reflect missing extensions, conditional registrations, or a different release rather than an invalid reference. Captures can become stale; recapture for the build you intend to check, especially when reviewing older release notes.
 

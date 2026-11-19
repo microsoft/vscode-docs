@@ -102,7 +102,7 @@ test('attaches captured settings and keybinding evidence without asserting publi
 
     const report = checkClaims(root, ['docs'], { sourceRevision: 'test-revision', manifest, channel: 'insiders' });
     assert.deepEqual(report.findings.map(finding => finding.productEvidence.status),
-      ['observed', 'observed', 'not-observed', 'observed', 'not-observed', 'not-covered', 'not-covered']);
+      ['observed', 'observed', 'not-observed', 'observed', 'not-observed', 'observed', 'not-covered']);
     assert.ok(report.findings.every(finding => finding.severity === 'unverified'));
     assert.deepEqual(report.findings[0].productEvidence.matches,
       [{ source: 0, defaultValue: 14 }, { source: 2, defaultValue: 16 }]);
@@ -233,5 +233,27 @@ test('accepts explicit formats and renders empty successful scans without annota
     const report = checkClaims(root, ['docs'], { sourceRevision: 'test-revision' });
     assert.equal(formatReport(report, 'github'), '');
     assert.equal(formatReport(report, 'console'), 'Docs claims: 0 error(s), 0 warning(s), 0 unverified.');
+  });
+
+});
+
+test('deduplicates equivalent tryout links but retains malformed links as errors', function () {
+  withTemporaryRepository(function (root) {
+    const command = 'command:workbench.action.onboarding.tryFeature';
+    fs.writeFileSync(path.join(root, 'docs', 'article.md'), [
+      '`workbench.action.onboarding.tryFeature` is the command ID.',
+      `[Try](${command}?%5B%22editor.sample%22%5D)`,
+      '[Try](vscode://tryout/editor.sample)',
+      '[Try Insiders](vscode-insiders://tryout/editor.sample)',
+      `[Invalid](${command}?%5B%22editor.sample%22%2C%22unexpected%22%5D)`,
+      '[Invalid URI](vscode-insiders://tryout/editor.sample/extra)'
+    ].join('\n'));
+    const report = checkClaims(root, ['docs'], { sourceRevision: 'test-revision' });
+    assert.equal(report.findings.length, 3);
+    assert.equal(report.findings[0].evidence, 'tryout(editor.sample)');
+    assert.equal(report.findings[0].line, 2);
+    assert.equal(report.findings[0].severity, 'unverified');
+    assert.deepEqual(report.findings.slice(1).map(item => [item.line, item.severity]), [[5, 'error'], [6, 'error']]);
+    assert.ok(formatReport(report, 'github').includes('::error file=docs/article.md,line=5'));
   });
 });

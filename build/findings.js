@@ -61,10 +61,16 @@ function validateEvidence(evidence, manifest, label) {
       match.source < manifest.sources.length, `${label} has an invalid source index.`);
     const source = manifest.sources.at(match.source);
     if (source.kind === 'settings') {
-      requireValue(Object.hasOwn(match, 'defaultValue') && !Object.hasOwn(match, 'binding'),
+      requireValue(Object.hasOwn(match, 'defaultValue') && !Object.hasOwn(match, 'binding') &&
+        !Object.hasOwn(match, 'command') && !Object.hasOwn(match, 'line'),
         `${label} must include only a defaultValue for a settings source.`);
+    } else if (Object.hasOwn(match, 'command')) {
+      requireValue(!Object.hasOwn(match, 'binding') && !Object.hasOwn(match, 'defaultValue'),
+        `${label} must include only command and line for an unbound command.`);
+      requireText(match.command, `${label}.command`);
+      requireValue(Number.isInteger(match.line) && match.line > 0, `${label}.line must be a positive capture line.`);
     } else {
-      requireValue(!Object.hasOwn(match, 'defaultValue') && match.binding !== null &&
+      requireValue(!Object.hasOwn(match, 'defaultValue') && !Object.hasOwn(match, 'line') && match.binding !== null &&
         typeof match.binding === 'object' && !Array.isArray(match.binding), `${label} requires a binding for a keybindings source.`);
       requireText(match.binding.key, `${label}.binding.key`);
       requireText(match.binding.command, `${label}.binding.command`);
@@ -76,7 +82,7 @@ function validateEvidence(evidence, manifest, label) {
 
 function validateReport(report) {
   requireValue(report?.schemaVersion === schema.properties.schemaVersion.const,
-    'unsupported schemaVersion; rerun the checker to generate a version 2 report.');
+    `unsupported schemaVersion; rerun the checker to generate a version ${schema.properties.schemaVersion.const} report.`);
   requireShape(report, schema, 'report');
   requireText(report.sourceRevision, 'sourceRevision');
   requireTimestamp(report.generatedAt, 'generatedAt');

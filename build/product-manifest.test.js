@@ -33,8 +33,8 @@ function withCaptures(callback) {
         { "key": "ctrl+k", "command": "${mode}.pick", "when": "!isWeb", "args": { "mode": "${mode}" } },
         { "key": "ctrl+x", "command": "-removed.command" },
       ]
-      // Other commands without default keybindings:
-      // unbound.command
+      // Here are other available commands:
+      // - ${mode}.unbound
       `);
       sources.push({ kind: 'keybindings', mode, platform: 'win', file: keybindingsFile });
     }
@@ -75,7 +75,16 @@ test('imports JSONC captures without losing defaults, modes, binding conditions,
     });
     assert.equal(lookup('keybinding', 'removed.command').status, 'not-observed');
     assert.equal(lookup('keybinding', 'unbound.command').status, 'not-observed');
-    assert.equal(lookup('command', 'agents.pick').status, 'not-covered');
+    assert.equal(lookup('command', 'agents.pick').status, 'observed');
+    const raw = fs.readFileSync(path.join(root, 'agents-keybindings.json'), 'utf8');
+    const line = raw.split('\n').findIndex(value => value.includes('// - agents.unbound')) + 1;
+    assert.deepEqual(lookup('command', 'agents.unbound'), {
+      status: 'observed',
+      matches: [{ source: 3, command: 'agents.unbound', line }]
+    });
+    assert.equal(lookup('keybinding', 'agents.unbound').status, 'not-observed');
+    assert.equal(lookup('command', 'removed.command').status, 'not-observed');
+    assert.equal(lookup('command', 'unknown.command').status, 'not-observed');
     assert.equal(lookup('setting', 'editor.tabSize').status, 'not-observed');
   });
 });
@@ -118,8 +127,45 @@ test('validates loaded manifests and requires an explicit matching channel', fun
     const loaded = loadManifest(file, 'insiders');
     assert.equal(loaded.reference.sha256, crypto.createHash('sha256').update(content).digest('hex'));
     assert.equal(Object.hasOwn(loaded.reference.sources[0], 'entries'), false);
+    assert.equal(Object.hasOwn(loaded.reference.sources[1], 'unboundCommands'), false);
     manifest.sources[0].sha256 = 'invalid';
     assert.throws(() => validateManifest(manifest), /SHA-256/);
+  });
+
+});
+
+test('extracts command evidence only from the exported trailing command list', function () {
+  withCaptures(function (root, input) {
+    const file = path.join(root, input.sources[1].file);
+    fs.writeFileSync(file, [
+      '// Here are other available commands:',
+      '// - not.a.command',
+      '[',
+      '  {"key": "ctrl+k", "command": "editor.pick", "args": "// Here are other available commands:\\n// - not.evidence"}',
+      ']',
+      '// Here are other available commands:',
+      '// - real.unbound',
+      '// - extensions.actions.searchByCategory.Data Science'
+    ].join('\r\n'));
+    const source = generateManifest(input, root).sources[1];
+    assert.deepEqual(source.unboundCommands, [
+      { command: 'real.unbound', line: 7 },
+      { command: 'extensions.actions.searchByCategory.Data Science', line: 8 }
+    ]);
+
+    fs.writeFileSync(file, '[{"key":"ctrl+k","command":"editor.pick"}]');
+    const oldStyle = generateManifest(input, root);
+    assert.equal(Object.hasOwn(oldStyle.sources[1], 'unboundCommands'), false);
+    assert.equal(createEvidenceLookup(oldStyle)('command', 'editor.pick').status, 'observed');
+
+    for (const suffix of [
+      '// - duplicate\n// - duplicate',
+      '// invalid entry',
+      '// - '
+    ]) {
+      fs.writeFileSync(file, `[{"key":"ctrl+k","command":"editor.pick"}]\n// Here are other available commands:\n${suffix}`);
+      assert.throws(() => generateManifest(input, root), /Malformed exported command list|duplicate unbound command/);
+    }
   });
 });
 

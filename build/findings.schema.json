@@ -5,7 +5,7 @@
   "required": ["schemaVersion", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "const": 2 },
+    "schemaVersion": { "const": 3 },
     "sourceRevision": { "$ref": "#/$defs/text" },
     "generatedAt": { "$ref": "#/$defs/timestamp" },
     "scanPaths": {
@@ -107,11 +107,14 @@
             "properties": {
               "source": { "type": "integer", "minimum": 0 },
               "defaultValue": {},
-              "binding": { "$ref": "#/$defs/binding" }
+              "binding": { "$ref": "#/$defs/binding" },
+              "command": { "$ref": "#/$defs/text" },
+              "line": { "type": "integer", "minimum": 1 }
             },
             "oneOf": [
-              { "required": ["defaultValue"], "not": { "required": ["binding"] } },
-              { "required": ["binding"], "not": { "required": ["defaultValue"] } }
+              { "required": ["defaultValue"], "not": { "anyOf": [{ "required": ["binding"] }, { "required": ["command"] }, { "required": ["line"] }] } },
+              { "required": ["binding"], "not": { "anyOf": [{ "required": ["defaultValue"] }, { "required": ["command"] }, { "required": ["line"] }] } },
+              { "required": ["command", "line"], "not": { "anyOf": [{ "required": ["defaultValue"] }, { "required": ["binding"] }] } }
             ]
           }
         }

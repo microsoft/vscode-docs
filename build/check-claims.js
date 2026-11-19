@@ -8,17 +8,11 @@ const { loadDataVariables } = require('./data-variables');
 const { substituteDataVariables } = require('./data-variables-substitution');
 const { createEvidenceLookup, loadManifest } = require('./product-manifest');
 const { formatReport, validateReport } = require('./findings');
+const { collectProductReferences } = require('./product-references');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
 const DEFAULT_DIRECTORIES = ['docs', 'api', 'remote', 'release-notes'];
-const PRODUCT_CLAIM_PATTERNS = [
-  { pattern: /setting\(([^)\r\n]+)\)/g, kind: 'setting' },
-  { pattern: /kb\(([^)\r\n]+)\)/g, kind: 'keybinding' },
-  { pattern: /command:([A-Za-z][A-Za-z0-9_.-]*)/g, kind: 'command' },
-  { pattern: /vscode:\/\/tryout\/([A-Za-z0-9._-]+)/g, kind: 'tryout' },
-  { pattern: /workbench\.action\.onboarding\.tryFeature/g, kind: 'tryout-command' }
-];
 const FEATURE_PATTERN = /feature\(([^)\r\n]*)\)/g;
 const DATA_DIRECTIVE_PATTERN = /\{%\s*data\s+([^%\r\n]+?)\s*%\}/g;
 const DATA_DIRECTIVE_START_PATTERN = /\{%\s*data\b/g;
@@ -141,14 +135,14 @@ function checkClaims(rootDirectory, paths, options = {}) {
     const content = bytes.toString('utf8');
     const articleHash = crypto.createHash('sha256').update(bytes).digest('hex');
     articles.push([path.relative(resolvedRoot, filePath).split(path.sep).join('/'), articleHash]);
-    const add = (offset, marker, claim, message, productEvidence) => {
+    const add = (offset, marker, claim, message, productEvidence, severity) => {
       const finding = createFinding(
         resolvedRoot,
         filePath,
         getLineNumber(content, offset),
         marker === 'feature' ? 'lifecycle' : 'claim',
         claim,
-        marker === 'feature' || marker === 'data-variable' ? 'error' : 'unverified',
+        severity || (marker === 'feature' || marker === 'data-variable' ? 'error' : 'unverified'),
         sourceRevision,
         message
       );
@@ -170,24 +164,24 @@ function checkClaims(rootDirectory, paths, options = {}) {
       }
     }
 
-    for (const { pattern, kind } of PRODUCT_CLAIM_PATTERNS) {
-      for (const match of content.matchAll(pattern)) {
-        const claim = match[1] ? `${kind}(${match[1].trim()})` : match[0];
-        const target = kind === 'setting' ? match[1].split(':')[0].trim() : match[1]?.trim();
-        const evidence = lookup?.(kind, target);
-        let message = `Could not verify ${kind} against a product manifest.`;
-        if (evidence?.status === 'observed') {
-          message = `Found ${kind} in captured defaults. Public availability, context, and documented values still require review.`;
-        } else if (evidence?.status === 'not-observed') {
-          message = `Could not find ${kind} "${target}" in captured defaults. Missing evidence does not establish that it is invalid.`;
-        }
-        add(match.index, kind, claim, message, evidence);
+    for (const { offset, kind, claim, target, error, message: referenceMessage } of collectProductReferences(content)) {
+      if (error) {
+        add(offset, kind, claim, error, undefined, 'error');
+        continue;
       }
+      const evidence = target === undefined ? undefined : lookup?.(kind, target);
+      let message = referenceMessage || `Could not verify ${kind} against a product manifest.`;
+      if (evidence?.status === 'observed') {
+        message = `Found ${kind} in captured product evidence. Public availability, context, and documented values still require review.`;
+      } else if (evidence?.status === 'not-observed') {
+        message = `Could not find ${kind} "${target}" in captured product evidence. Missing evidence does not establish that it is invalid.`;
+      }
+      add(offset, kind, claim, message, evidence);
     }
   }
 
   return validateReport({
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceRevision,
     generatedAt,
     scanPaths,
