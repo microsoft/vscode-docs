@@ -36,7 +36,7 @@ and provide captions and a descriptive transcript for narrated content. -->
 <!-- %IF HIGHLIGHTS_VIDEO %
 <details class="release-highlights-video" open>
   <summary>Watch release highlights</summary>
-  <video src="images/1_<release number>/release-highlights.mp4" poster="images/1_<release number>/release-highlights.webp" title="Video showing the highlights of VS Code 1.<release number>." controls preload="none" playsinline crossorigin="anonymous"></video>
+  <video src="images/1_<release number>/release-highlights.mp4" poster="images/1_<release number>/release-highlights.webp" title="Video showing the highlights of VS Code 1.<release number>." controls></video>
 </details>
 %ENDIF % -->
 <!-- RELEASE_HIGHLIGHTS_END -->
