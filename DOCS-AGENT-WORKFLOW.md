@@ -439,12 +439,14 @@ Checks cover data variables, lifecycle IDs, product-reference syntax, internal l
 
 ### Review an article with an agent
 
-Select **Review an article** in the **Task** picker to review one whole article without editing it. This first M1 slice supports local articles, not PR selection or section-only scope.
+Select **Review an article** in the **Task** picker to review a local article or one section without editing it. PR selection is not yet supported.
 
-1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both.
+1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both. For a section review, choose **One section** in **Review scope**, select **Load sections**, and choose a heading. Its nested subsections are included, up to the next heading at the same or higher level. Headings inside code examples are not section boundaries.
 2. Select **Start article review**. This authorizes local deterministic prechecks, a host-owned agent review, private result files, and read-only product-source research when needed. It can use host credits. It does not authorize sign-in, installs, article commands, UI execution, worktrees, documentation edits, or GitHub writes.
 3. Filter **Check type** to **Article review**. Expand a finding to inspect its exact article quotation, explanation, suggested correction, and any product citations. Record a decision only after inspecting the evidence.
-4. Expand **Coverage** for the review summary, limitations, and deterministic precheck findings. Prechecks are saved with the review and displayed separately from agent judgments. They do not replace findings from independently launched structural checks.
+4. Expand **Coverage** for the review summary, limitations, and deterministic precheck findings. Prechecks cover the whole article even when the agent reviews one section, and are displayed separately from agent judgments. They do not replace findings from independently launched structural checks.
+
+The full article remains available to the agent as context, but section findings must quote lines within the selected range. Section findings and coverage are tracked separately from whole-article reviews. Any article edit invalidates a loaded section selection. Select **Load sections** again before starting. Freshness remains bound to the whole article and its dependencies, not only the selected text.
 
 The [docs-review skill](.github/skills/docs-review/SKILL.md) defines the procedure. The [review helper](build/review.js) and [workflow adapter](.github/extensions/vscode-docs-workbench/article-review.mjs) validate the captured article, exact source spans, requested focus, channel, guidelines, local dependencies, and completion receipt before ingestion. Private state uses `reviews.json` and `review-runs` beside the existing inbox state, without migrating or overwriting checks, replay, daily audit, or account data.
 
@@ -563,7 +565,7 @@ An attended two-article batch also verified this redesign on the local Windows h
 
 These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs findings**. With separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
 
-PR review, feature documentation, audits, and media retain their existing entry points. PR selection, their full integration into this inbox, and docs-as-eval remain deferred. Coverage here includes local structural checks, scoped whole-article agent reviews, and explicitly reviewed replay procedures, not every documentation workflow.
+PR review, feature documentation, audits, and media retain their existing entry points. PR selection, their full integration into this inbox, and docs-as-eval remain deferred. Coverage here includes local structural checks, whole-article and section reviews, and explicitly reviewed replay procedures, not every documentation workflow. Planned inbox PR review reads GitHub snapshots as data without checking out or executing the PR.
 
 ## Use the docs workbench
 

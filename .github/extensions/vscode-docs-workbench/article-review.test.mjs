@@ -20,8 +20,8 @@ const draft = () => ({
     message: 'The instruction does not identify its target.', suggestion: 'Name the control to select.', sources: [] }]
 });
 
-async function fixture(t) {
-  const f = await createArticleFixture({ content });
+async function fixture(t, articleContent = content) {
+  const f = await createArticleFixture({ content: articleContent });
   let dispose = async () => {};
   t.after(async () => { try { await dispose(); } finally { await f.dispose(); } });
   let currentDraft = draft();
@@ -49,8 +49,8 @@ async function fixture(t) {
     setDraft(value) { currentDraft = value; },
     hold() { held = true; },
     get receiptError() { return receiptError; },
-    async launch() {
-      return workflow.dispatch('review-launch', { article: 'docs/article.md', channel: 'stable', focus: 'both', confirmed: true });
+    async launch(options = {}) {
+      return workflow.dispatch('review-launch', { article: 'docs/article.md', channel: 'stable', focus: 'both', confirmed: true, ...options });
     },
     async snapshot() { return workflow.dispatch('refresh', {}); },
     async files(run) {
@@ -87,6 +87,44 @@ test('review reports bind exact article lines and distinguish supported judgment
   assert.throws(() => review.makeReviewReport(binding, content, technical), /pinned/);
   const incomplete = { status: 'incomplete', summary: 'Could not finish.', limitations: [], findings: [] };
   assert.throws(() => review.makeReviewReport(binding, content, incomplete), /limitations/);
+});
+
+test('section ranges preserve source lines, include nested headings, and ignore frontmatter and fenced examples', () => {
+  const body = '\uFEFF' + ['---', 'title: Ignored', '---', '# Article', '', '## Setup', 'Intro',
+    '```md', '## Not a section', '```', '### Nested', 'Nested text', '', '## Usage', 'Usage text', '',
+    'Final section', '---', 'Final text'].join('\r\n');
+  assert.deepEqual(review.articleSections(body), [
+    { title: 'Article', startLine: 4, endLine: 19 },
+    { title: 'Setup', startLine: 6, endLine: 13 },
+    { title: 'Nested', startLine: 11, endLine: 13 },
+    { title: 'Usage', startLine: 14, endLine: 16 },
+    { title: 'Final section', startLine: 17, endLine: 19 }
+  ]);
+  assert.deepEqual(review.articleSections('A paragraph without headings.'), []);
+});
+
+test('section review enforces selected lines, preserves whole-article coverage, and rejects outdated selections', async t => {
+  const body = '# Fixture\n\n## Selected\nChoose the thing.\n\n## Other\nOther text.\n';
+  const f = await fixture(t, body);
+  const selectedDraft = draft();
+  selectedDraft.findings[0].line = 4;
+  selectedDraft.findings[0].endLine = 4;
+  f.setDraft(selectedDraft);
+  await f.launch();
+  await f.snapshot();
+  const catalog = await f.workflow.dispatch('review-sections', { article: 'docs/article.md' });
+  const run = await f.launch({ section: { startLine: 3, articleHash: catalog.articleHash } });
+  assert.deepEqual(run.binding.section, { title: 'Selected', startLine: 3, endLine: 5 });
+  const result = await f.snapshot();
+  assert.equal(result.coverage.filter(entry => entry.check === 'review').length, 2);
+  assert.equal(result.findings.length, 2);
+  const outside = draft();
+  Object.assign(outside.findings[0], { line: 7, endLine: 7, quote: 'Other text.' });
+  assert.throws(() => review.makeReviewReport(run.binding, body, outside), /outside the selected/);
+  const before = f.tracked.length;
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), body + '\nChanged outside the section.\n');
+  await assert.rejects(f.launch({ section: { startLine: 3, articleHash: catalog.articleHash } }), /Load sections again/);
+  assert.equal(f.tracked.length, before);
 });
 
 test('reviews require explicit launch, preserve claims and unchanged dismissals, and reopen changed evidence', async t => {
@@ -194,6 +232,18 @@ test('browser launches a source-bound article review and preserves decisions and
   assert.equal(await page.locator('.finding .review-state').innerText(), 'dismissed');
   await page.locator('#coverage-summary').click();
   await page.getByText('Deterministic precheck · 1 findings', { exact: true }).waitFor();
+  await page.getByLabel('Task', { exact: true }).selectOption('review');
+  await page.getByLabel('Article to review', { exact: true }).fill('docs/article.md');
+  await page.getByLabel('Review scope', { exact: true }).selectOption('section');
+  assert.equal(await page.getByRole('button', { name: 'Start article review', exact: true }).isDisabled(), true);
+  const tasksBeforeSelection = f.tracked.length;
+  await page.getByRole('button', { name: 'Load sections', exact: true }).click();
+  await page.locator('#review-section:enabled').waitFor();
+  assert.equal(f.tracked.length, tasksBeforeSelection);
+  await page.getByRole('button', { name: 'Start article review', exact: true }).click();
+  await page.locator('#finding-count').getByText('2 of 3', { exact: true }).waitFor();
+  assert.equal(await page.locator('#coverage-list .coverage-row').count(), 2);
+  assert.equal((await f.snapshot()).runs.at(-1).binding.section.title, 'Fixture article');
   assert.deepEqual((await f.rawWorkflow.store.read()).coverage, before.coverage);
   assert.deepEqual((await f.rawWorkflow.store.read()).review, before.review);
   assert.deepEqual(errors, []);

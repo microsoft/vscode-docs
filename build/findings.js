@@ -166,6 +166,12 @@ function validateReview(report) {
     JSON.stringify(report.scanPaths) === JSON.stringify([binding.article]), 'review source or scope mismatch.');
   requireValue(['stable', 'insiders'].includes(binding.channel) && ['editorial', 'technical', 'both'].includes(binding.focus),
     'review channel or focus is invalid.');
+  if (Object.hasOwn(binding, 'section')) {
+    requireShape(binding.section, schema.$defs.reviewSection, 'review.binding.section');
+    requireText(binding.section.title, 'review section title');
+    requireValue(Number.isSafeInteger(binding.section.startLine) && binding.section.startLine >= 1 &&
+      Number.isSafeInteger(binding.section.endLine) && binding.section.endLine >= binding.section.startLine, 'invalid review section range.');
+  }
   requireValue(report.inputHash === crypto.createHash('sha256').update(JSON.stringify(binding)).digest('hex'),
     'review inputHash does not match its binding.');
   requireValue(['complete', 'incomplete'].includes(status), 'review status is invalid.');
@@ -188,6 +194,8 @@ function validateReviewFinding(finding, report) {
     (binding.focus !== 'technical' || evidence.category === 'accuracy'), 'finding is outside the requested review focus.');
   requireValue(Number.isInteger(evidence.endLine) && evidence.endLine >= finding.line &&
     evidence.endLine - finding.line < 80, 'review source span is invalid.');
+  requireValue(!binding.section || (finding.line >= binding.section.startLine && evidence.endLine <= binding.section.endLine),
+    'finding is outside the selected article section.');
   for (const key of ['quote', 'suggestion']) {
     requireText(Reflect.get(evidence, key), `reviewEvidence.${key}`);
     requireValue(Reflect.get(evidence, key).length <= 16000, 'review evidence is oversized.');
@@ -212,6 +220,7 @@ function validateReviewFinding(finding, report) {
   requireValue(evidence.category !== 'accuracy' || evidence.assessment !== 'supported' || evidence.sources.length > 0,
     'supported technical findings require cited product evidence; otherwise report an unresolved question.');
   requireValue(finding.evidence === JSON.stringify({ channel: binding.channel, focus: binding.focus,
+    ...(binding.section ? { section: binding.section } : {}),
     category: evidence.category, quote: evidence.quote }), 'review identity does not match its quoted claim and scope.');
 }
 

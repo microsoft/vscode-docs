@@ -112,6 +112,10 @@ function htmlReferences(content, firstLine, references, anchors) {
   }
 }
 
+function maskFrontmatter(content) {
+  return content.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, match => match.replace(/[^\r\n]/g, ' '));
+}
+
 function analyzeDocument(content, article, variables) {
   let resolved;
   try {
@@ -122,7 +126,7 @@ function analyzeDocument(content, article, variables) {
     }
     return { problem: `Data-variable validation failed: ${error.message}` };
   }
-  const body = resolved.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, match => match.replace(/[^\r\n]/g, ' '));
+  const body = maskFrontmatter(resolved);
   const tokens = markdown.parse(body, {});
   const references = [];
   const anchors = new Set();
@@ -474,4 +478,4 @@ function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDo
   };
 }
 
-module.exports = { analyzeDocument, createDocumentCache, createFileSnapshot, createLinkChecker, headingAnchor };
+module.exports = { analyzeDocument, createDocumentCache, createFileSnapshot, createLinkChecker, headingAnchor, maskFrontmatter };

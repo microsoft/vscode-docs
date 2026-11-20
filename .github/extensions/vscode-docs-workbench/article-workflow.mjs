@@ -335,6 +335,7 @@ export async function createArticleWorkflow({
     'replay-ready': replays.ready,
     'replay-resolve': replays.resolve,
     'review-launch': reviews.launch,
+    'review-sections': reviews.sections,
     'review-resolve': reviews.resolve,
     'cancel-verification': async () => { await verifier.cancel(); return snapshot({ verify: false }); },
     'resolve-uncertain': resolveUncertain

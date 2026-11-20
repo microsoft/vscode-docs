@@ -120,7 +120,15 @@
         "article": {"$ref": "#/$defs/article"}, "articleHash": {"$ref": "#/$defs/hash"},
         "sourceRevision": {"$ref": "#/$defs/text"}, "channel": {"enum": ["stable", "insiders"]},
         "focus": {"enum": ["editorial", "technical", "both"]},
-        "guidelinesHash": {"$ref": "#/$defs/hash"}, "checkerInputHash": {"$ref": "#/$defs/hash"}
+        "guidelinesHash": {"$ref": "#/$defs/hash"}, "checkerInputHash": {"$ref": "#/$defs/hash"},
+        "section": {"$ref": "#/$defs/reviewSection"}
+      }
+    },
+    "reviewSection": {
+      "type": "object", "additionalProperties": false, "required": ["title", "startLine", "endLine"],
+      "properties": {
+        "title": {"$ref": "#/$defs/text"}, "startLine": {"type": "integer", "minimum": 1},
+        "endLine": {"type": "integer", "minimum": 1}
       }
     },
     "reviewEvidence": {

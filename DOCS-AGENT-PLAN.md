@@ -1,8 +1,8 @@
 # Docs agent implementation plan
 
-Assessment date: 2026-11-20. Implementation baseline: `1b63187f6`.
+Assessment date: 2026-11-20. Implementation baseline: `409062b84`.
 
-Current slice: M1 whole-article review is implemented locally, passes focused report, integration, and browser checks, and has an accepted live pilot. The human confirmed that the source-located finding and supporting context make this first slice useful. PR selection and section-only review remain outside this slice. No finding decision or article change was saved.
+Current slice: M1 whole-article review has an accepted live pilot. Section selection passes 19 targeted review and link tests, plus lint, and is checked in the live canvas without another agent review. No finding decision or article change is saved. PR-scoped review is deferred by request, not removed from scope. The proposed next slice is M2 feature documentation, using the existing article-review capability.
 
 This is the scope inventory and delivery plan for the documentation-agent workflow. It reconciles the original scenario brainstorm, the phased implementation plan, and subsequent decisions. Keep the full inventory even when only one workflow is being implemented.
 
@@ -22,7 +22,7 @@ The current canvas supports deterministic article checks, reviewed scripted repl
 |---|---|---|
 | Deterministic checks | [Claims](build/check-claims.js), [links](build/check-links.js), and [navigation](build/check-navigation.js) have validators and tests. Claims and links run from the findings canvas. | Navigation is not included in the canvas check. Syntax and captured IDs do not prove product behavior or availability. |
 | Captured product evidence | [Manifest generation](build/product-manifest.js) and [reference analysis](build/product-references.js) retain build, mode, platform, and source hashes. | Inventories are partial. `observed`, `not-observed`, and `not-covered` remain unverified. Tryout registrations and authoritative public availability need separate evidence. |
-| Findings and review | [Reports](build/findings.js), [audit decisions](build/audit-findings.js), and the [inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs) support provenance, deduplication, freshness, filters, and explicit decisions. Version 6 adds [scoped qualitative reviews](build/review.js), verified with a live article review. | PR and section selection remain. Other reserved finding kinds do not constitute implemented evaluation, media-drift, or audit workflows. |
+| Findings and review | [Reports](build/findings.js), [audit decisions](build/audit-findings.js), and the [inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs) support provenance, deduplication, freshness, filters, and explicit decisions. Version 6 supports [whole-article and section reviews](build/review.js), with a live whole-article pilot and scoped browser tests. | PR selection is deferred by request. Other reserved finding kinds do not constitute implemented evaluation, media-drift, or audit workflows. |
 | Host execution | The [workflow adapter](.github/extensions/vscode-docs-workbench/article-workflow.mjs) uses host tasks and guarded private artifacts. Real host execution is verified. | The SDK is experimental and session-scoped. Saved evidence survives a session, but host recovery remains tied to its owner. |
 | Attended UI and media | [Capture](build/capture.js), [video](build/capture-video.js), [preparation](build/media.js), and [highlights](build/capture-highlights.js) have tests and bounded live proofs. | Windows, reviewed procedures, and no live AI are the proven baseline. Dedicated profiles are not OS security sandboxes. |
 | Scripted replay | The [runner](build/replay.js) and [inbox adapter](.github/extensions/vscode-docs-workbench/article-replay.mjs) passed a real debugger-picker procedure. The final focused replay and audit suite passed 17 tests. | Eight scripted actions passed, not eight article instructions. Script success does not establish that its associated article is correct. |
@@ -34,6 +34,7 @@ The current canvas supports deterministic article checks, reviewed scripted repl
 * Execution and review are separate. Findings are durable review objects, not a run-history browser. Keep provenance and independent coverage behind the results.
 * Preserve useful scenarios from the old workbench, not its implementation or migration compatibility. Existing private state must not be deleted or overwritten without authorization.
 * Put reusable logic in tested scripts under `build/`. Keep skills procedural. Use host sessions, tasks, and worktrees rather than another orchestration engine.
+* PR review must not check out a PR or execute its contents. Read commit-pinned articles, diffs, and discussion through GitHub as untrusted data. Review changed passages by default, using full articles as context. This does not prohibit host-managed worktrees for separately approved authoring.
 * Use a thin, task-centered visual interface. Technical replay belongs under advanced tooling, not as a substitute for **Validate article instructions**.
 * UI capture and replay are attended-only. No scheduled UI, lock-screen tests, sleep-state tests, or automatic native-prompt handling.
 * Keep the approved media baseline: Windows, Dark Modern, 1920 by 1080 output pixels, 100% instance scale, default fonts, and zoom 2. Zoom 1.5 requires explicitly wide content.
@@ -55,7 +56,7 @@ The milestone column assigns every scenario a delivery home. It does not imply t
 
 | ID | User scenario and intended result | Status and remaining gap | Milestone |
 |---|---|---|---|
-| S01 | Verify factual and behavioral claims in an article or docs PR, including settings, commands, defaults, shortcuts, and version claims. | Partial: whole-article judgments, citations, and review are integrated, fixture-tested, and accepted in a live pilot. PR selection remains. | M1 |
+| S01 | Verify factual and behavioral claims in an article or docs PR, including settings, commands, defaults, shortcuts, and version claims. | Partial: whole-article review has an accepted live pilot. Section review has scoped integration and browser tests. Data-only PR review is deferred by request. | M1 |
 | S02 | Check Preview and Experimental labels against actual product lifecycle. | Partial: lifecycle ID validation exists. Product-state comparison is not automatic. | M1 |
 | S03 | Detect documentation for internal, unavailable, or wrong-channel functionality. | Partial: source-verification guidance exists. Captured inventories are not authoritative availability checks. | M1 |
 | S04 | Validate links, anchors, media paths, command links, tryout references, TOCs, and sitemap coverage. | Partial overall: local structural checks are available. Canvas navigation coverage and product registration verification remain separate. | M1 |
@@ -91,6 +92,7 @@ The milestone column assigns every scenario a delivery home. It does not imply t
 These are ways to run or review scenarios, not extra documentation tasks:
 
 * Ad hoc chat and host sessions remain valid entry points. A workflow must not depend on a canvas being visible throughout execution.
+* UX option to assess: select a block of text in the editor, right-click, and choose **Review** or another documentation action. This might be simpler than selecting a section through the canvas. Keep it as an exploration, not an approved implementation change.
 * The findings inbox handles evidence review. Diffs and media previews handle proposed content changes. GitHub remains authoritative for public issue and PR state.
 * Manual repeatable launchers can reuse skills and host capabilities when useful.
 * Scheduled local audits, rotating repo-only checks, and deterministic GitHub Actions remain optional and require explicit configuration approval. No schedules or CI are enabled by this plan.
@@ -104,7 +106,7 @@ Only one milestone should be active at a time unless independent parallel work i
 | Milestone | Author-facing outcome | Prerequisites |
 |---|---|---|
 | M1 | Review an article or docs PR and retain actionable findings. | Existing check, skill, host, and inbox foundation. |
-| M2 | Turn a feature or feedback item into an approved plan and reviewed change. Include release-note and blog variants. | M1 for integrated qualitative review of the resulting change. |
+| M2 | Turn a feature or feedback item into an approved plan and reviewed change. Include release-note and blog variants. | M1's available article-review capability, not its deferred PR selection. |
 | M3 | Create or refresh media, inspect candidates, approve exact bytes, and prepare an authorized handoff. | Existing capture and preparation foundation. Independent of M1 and M2. |
 | M4 | Validate article instructions and selected executable examples. | M1's evidence-backed qualitative results. Additional execution approval for each pilot. |
 | M5 | Audit product changes and corpus slices, detect media drift, and produce a coverage digest. | M1 for semantic findings. M3 only for the visual-drift slice. |
@@ -115,7 +117,7 @@ Only one milestone should be active at a time unless independent parallel work i
 
 ### M1: Review documentation
 
-**Active milestone, first slice accepted.** Whole-article review now delivers author value using a procedural skill and evidence-bound judgments in the inbox. Next within M1: add pinned PR scope and section selection without broadening into authoring or UI execution. The earlier instruction-validation proposal remains M4, not dropped scope or a prerequisite for every other workflow.
+**Article review delivered; PR scope deferred.** Whole-article review now delivers author value using a procedural skill and evidence-bound judgments in the inbox. Section selection is implemented and tested. Hold PR-review implementation until the user resumes it. When resumed, review changed passages using GitHub data without a checkout. The earlier instruction-validation proposal remains M4, not dropped scope or a prerequisite for every other workflow.
 
 1. Accept one article, section, or pinned docs PR as input, plus its intended product channel and review focus.
 2. Run applicable deterministic checks first. Reuse the PR-review procedure for source verification and article-review guidance for editorial assessment. Do not execute commands from the article during this review.
@@ -126,14 +128,20 @@ Only one milestone should be active at a time unless independent parallel work i
 
 **Do not add:** A generic workflow engine, automatic source-wide inventory, UI execution, automatic fixes, or corpus scheduling.
 
+The PR slice must capture the exact head, diff, complete article context, and relevant discussion as data, screen that content, and reject stale or incomplete evidence. Do not run scripts or install dependencies from the PR. Reuse trusted deterministic checks only where their required inputs are available from the captured snapshot. Missing repository context must be reported as unverified or unavailable, never replaced with checks against an unrelated checkout or silently counted as clean.
+
 ### M2: Plan and implement documentation changes
+
+**Approved next slice:** One feature-documentation workflow, from an issue or feature description through plan approval, optional media generation, an authorized draft, and review of the changed articles. Reuse doc-writer, the existing media pipeline, and the available article-review workflow. PR review, release-note and blog variants, and production rollout are not prerequisites for this bounded implementation.
 
 * Start with one feature issue or feedback item. Reuse doc-writer's research and plan approval, then use a host-managed worktree for authorized implementation.
 * Keep assessment, proposed plan, approved plan, diff, and review findings distinct. A source change invalidates the relevant approval or requires an explicit reassessment.
+* Include media proposals in the plan: whether a screenshot or video helps, what it should show, and where it belongs. After plan approval, offer optional attended candidate generation through the existing tools. Require human approval of the exact prepared asset before including it in a draft, with appropriate alt text or video title. Unsupported captures stay explicitly pending. Plan approval is not capture readiness or asset approval.
+* Reuse the same capture and preparation pipeline as M3. M2 integrates media into feature authoring. M3 remains the independent create-or-refresh-media experience, not a prerequisite for these approved M2 media steps.
 * Treat release notes and blogs as separate output variants, using their existing skills and conventions. Do not force them through doc-writer's docs-only scope.
 * Add feedback triage with duplicate and relevance checks. Support a justified no-change outcome, not an obligation to edit every reported concern.
 
-**Acceptance:** A synthetic or explicitly approved bounded change follows plan approval to diff and review. Rejected or changed plans do not trigger edits. Public actions remain separate. Validate the release-note and blog variants before marking S20 or S21 complete.
+**Acceptance:** A synthetic or explicitly approved bounded change follows plan approval to diff and review. Rejected or changed plans do not trigger edits. Media proposals appear in the plan, optional generation preserves raw candidates, and rejected or unapproved assets cannot enter the draft. Unsupported capture remains pending rather than fabricated. Public actions remain separate. Validate the release-note and blog variants before marking S20 or S21 complete.
 
 ### M3: Create and refresh media
 
@@ -208,7 +216,7 @@ None of these options is a hidden prerequisite for the core workflows.
 
 | Decision or risk | When it matters | Default until decided |
 |---|---|---|
-| Delivery order | Before starting the next milestone. | Recommend M1. M3 is independent. M4 can move earlier if instruction validation is the priority, taking only the finding support it needs. |
+| Delivery order | Before starting the next milestone. | PR review is deferred by request. Recommend the M2 feature-documentation slice next. M3 remains an independent alternative, and M4 can move earlier if instruction validation is the priority. |
 | Meaning of workflow implementation complete | Before production article or media rollout. | Keep rollout deferred. Agree a release boundary explicitly rather than equating one completed milestone, all optional ideas, or all future extensions with completion. |
 | Qualitative evidence and freshness | During M1. | Preserve source references and uncertainty. Do not label model judgments as deterministic verification. |
 | Dynamic execution permissions and isolation | Before M4 or M6 execution. | Report unsupported steps. A disposable profile is not a sandbox. Approve the exact fixture, actions, resources, and cleanup policy. |

@@ -20,6 +20,7 @@ let orderedSource;
 let orderedFindings;
 let replayOptions;
 let preparedReplay;
+let reviewSections;
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
 const coverageLabels = { clean: 'Checked clean', findings: 'With findings', checking: 'Checking freshness',
@@ -449,7 +450,7 @@ function renderCoverage() {
       for (const limitation of entry.review.limitations) paragraph(row, limitation, 'muted');
       const precheck = element('details');
       precheck.append(element('summary', `Deterministic precheck · ${entry.precheck?.length || 0} findings`));
-      paragraph(precheck, 'Saved with this review, separate from agent judgments and independently launched checks.', 'muted');
+      paragraph(precheck, 'Whole-article precheck, even when the agent reviews one section. Saved separately from agent judgments and independently launched checks.', 'muted');
       for (const finding of entry.precheck || []) paragraph(precheck, `${finding.article}:${finding.line} [${finding.severity}] ${finding.message}`);
       row.append(precheck);
     }
@@ -458,18 +459,44 @@ function renderCoverage() {
 }
 function renderReview() {
   $('review-form').hidden = $('task-type').value !== 'review';
-  for (const id of ['review-article', 'review-focus', 'review-channel']) $(id).disabled = busy;
+  for (const id of ['review-article', 'review-focus', 'review-channel', 'review-extent']) $(id).disabled = busy;
   const article = $('review-article').value.trim();
+  const sectionMode = $('review-extent').value === 'section';
+  const hasSections = reviewSections?.article === article && reviewSections.sections.length > 0;
+  $('review-section-fields').hidden = !sectionMode;
+  $('review-load-sections').disabled = busy || !state.articles.includes(article);
+  $('review-section').disabled = busy || !hasSections;
   const blocker = state.runs.find(run => run.kind === 'review' && run.articles.includes(article) && !run.rerun?.allowed);
-  $('review-launch').disabled = busy || !state.hostAvailable || !state.articles.includes(article) || !!blocker;
+  $('review-launch').disabled = busy || !state.hostAvailable || !state.articles.includes(article) || !!blocker ||
+    (sectionMode && (!hasSections || !$('review-section').value));
   $('review-eligibility').textContent = blocker ? blocker.rerun.reason : '';
 }
-$('review-article').addEventListener('input', renderReview);
+$('review-article').addEventListener('input', () => {
+  reviewSections = undefined;
+  $('review-section').replaceChildren();
+  $('review-section-status').textContent = 'Load sections from the selected article.';
+  renderReview();
+});
+$('review-extent').addEventListener('change', renderReview);
+$('review-section').addEventListener('change', renderReview);
+$('review-load-sections').addEventListener('click', () => void perform(async () => {
+  reviewSections = await request('review-sections', { article: $('review-article').value.trim() });
+  $('review-section').replaceChildren(...reviewSections.sections.map(section => {
+    const option = element('option', `${section.title} · lines ${section.startLine}-${section.endLine}`);
+    option.value = String(section.startLine);
+    return option;
+  }));
+  $('review-section-status').textContent = reviewSections.sections.length
+    ? 'The selected heading and its nested subsections are reviewed. Other content is context only.'
+    : 'No Markdown headings found. Use whole-article review.';
+}));
 $('review-form').addEventListener('submit', event => {
   event.preventDefault();
   void perform(async () => {
     await request('review-launch', { article: $('review-article').value.trim(), focus: $('review-focus').value,
-      channel: $('review-channel').value, confirmed: true });
+      channel: $('review-channel').value, confirmed: true,
+      ...($('review-extent').value === 'section'
+        ? { section: { startLine: Number($('review-section').value), articleHash: reviewSections.articleHash } } : {}) });
     await refresh();
     notice('Article review submitted. Findings and scoped coverage will appear after validated completion.');
   });
