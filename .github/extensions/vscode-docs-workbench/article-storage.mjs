@@ -150,15 +150,15 @@ export async function readBytes(file, maximum = 64_000_000) {
 
 export async function readJson(file, maximum) { return JSON.parse((await readBytes(file, maximum)).toString('utf8')); }
 
-export async function createArticleStore(workspace, home = homeDirectory()) {
+export async function createArticleStore(workspace, home = homeDirectory(), { readOnly = false } = {}) {
   workspace = await realpath(workspace);
   home = path.resolve(home);
-  await mkdir(home, { recursive: true });
+  if (!readOnly) await mkdir(home, { recursive: true });
   home = await realpath(home);
   if (within(workspace, home) || within(home, workspace)) throw new WorkbenchError('Private article state must be outside the documentation checkout and its ancestors.');
   const relative = path.join('extension-data', format, hash(process.platform === 'win32' ? workspace.toLowerCase() : workspace), 'inbox-v2');
-  const directory = await ownedPath(home, relative, true);
-  await mkdir(directory, { recursive: true, mode: 0o700 });
+  const directory = await ownedPath(home, relative, !readOnly);
+  if (!readOnly) await mkdir(directory, { recursive: true, mode: 0o700 });
   await ownedPath(home, relative);
   const stateFile = path.join(directory, 'inbox.json');
   async function file(relative, missing = true) { return ownedPath(directory, relative, missing); }
@@ -200,6 +200,7 @@ export async function createArticleStore(workspace, home = homeDirectory()) {
     return state;
   }
   async function update(change) {
+    if (readOnly) throw new WorkbenchError('Verification workers cannot write private state.');
     const lockFile = await file('inbox.lock');
     let lock;
     try { lock = await open(lockFile, 'wx', 0o600); }
@@ -222,5 +223,5 @@ export async function createArticleStore(workspace, home = homeDirectory()) {
     }
     return file(path.join('runs', id, name), missing);
   }
-  return { workspace, directory, stateFile, read, update, file, artifact };
+  return { workspace, home, directory, stateFile, read, update, file, artifact };
 }

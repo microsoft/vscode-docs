@@ -170,7 +170,80 @@ function analyzeDocument(content, article, variables) {
   return { references, anchors, uncertainAnchors };
 }
 
-function createLinkChecker(rootDirectory, variables) {
+function createDocumentCache() {
+  const entries = new Map();
+  const maximumBytes = 16 * 1024 * 1024;
+  let retainedBytes = 0;
+  return (content, article, variables) => {
+    const key = crypto.createHash('sha256').update(JSON.stringify([article, variables])).update('\0').update(content).digest('hex');
+    const previous = entries.get(key);
+    if (previous) {
+      entries.delete(key);
+      entries.set(key, previous);
+      return previous.value;
+    }
+    const value = analyzeDocument(content, article, variables);
+    const bytes = Buffer.byteLength(content);
+    if (bytes <= maximumBytes) {
+      while (entries.size && (retainedBytes + bytes > maximumBytes || entries.size >= 1000)) {
+        const oldest = entries.keys().next().value;
+        retainedBytes -= entries.get(oldest).bytes;
+        entries.delete(oldest);
+      }
+      entries.set(key, { value, bytes });
+      retainedBytes += bytes;
+    }
+    return value;
+  };
+}
+
+function captureFile(root, file) {
+  if (!isWithinRoot(root, file)) {
+    return { problem: 'Target is outside the repository.' };
+  }
+  try {
+    const actual = fs.realpathSync(file);
+    if (!isWithinRoot(root, actual)) {
+      return { problem: 'Target resolves outside the repository.' };
+    }
+    if (!fs.statSync(actual).isFile()) {
+      return { directory: true };
+    }
+    if (file.endsWith('.md') || path.basename(file) === 'redirection.json') {
+      const bytes = fs.readFileSync(actual);
+      return { file: true, bytes, sha256: crypto.createHash('sha256').update(bytes).digest('hex') };
+    }
+    return { file: true };
+  } catch (error) {
+    if (error.code !== 'ENOENT' && error.code !== 'ENOTDIR') {
+      throw error;
+    }
+    return { missing: true };
+  }
+}
+
+function fingerprintFile(result) {
+  return result.sha256 || result.problem || (result.directory ? 'directory' : result.file ? 'file' : 'missing');
+}
+
+function createFileSnapshot(root) {
+  const files = new Map();
+  return {
+    read(file) {
+      if (!files.has(file)) files.set(file, captureFile(root, file));
+      return files.get(file);
+    },
+    assertUnchanged() {
+      for (const [file, previous] of files) {
+        if (fingerprintFile(previous) !== fingerprintFile(captureFile(root, file))) {
+          throw new Error(`Stale findings report: Input changed during the check: ${path.relative(root, file)}.`);
+        }
+      }
+    }
+  };
+}
+
+function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDocument, fileSnapshot, redirectCache } = {}) {
   const root = fs.realpathSync(rootDirectory);
   const dependencies = new Map();
   const files = new Map();
@@ -179,35 +252,11 @@ function createLinkChecker(rootDirectory, variables) {
   const relative = file => path.relative(root, file).split(path.sep).join('/');
 
   function readFile(file) {
-    if (!isWithinRoot(root, file)) {
-      return { problem: 'Target is outside the repository.' };
-    }
-    if (files.has(file)) {
-      return files.get(file);
-    }
-    let result;
-    try {
-      const actual = fs.realpathSync(file);
-      if (!isWithinRoot(root, actual)) {
-        result = { problem: 'Target resolves outside the repository.' };
-      } else if (!fs.statSync(actual).isFile()) {
-        result = { directory: true };
-      } else {
-        result = { file: true };
-        if (file.endsWith('.md') || path.basename(file) === 'redirection.json') {
-          const bytes = fs.readFileSync(actual);
-          result = { file: true, bytes, sha256: crypto.createHash('sha256').update(bytes).digest('hex') };
-        }
-      }
-    } catch (error) {
-      if (error.code !== 'ENOENT' && error.code !== 'ENOTDIR') {
-        throw error;
-      }
-      result = { missing: true };
-    }
+    if (!isWithinRoot(root, file)) return { problem: 'Target is outside the repository.' };
+    if (files.has(file)) return files.get(file);
+    const result = fileSnapshot ? fileSnapshot.read(file) : captureFile(root, file);
     files.set(file, result);
-    dependencies.set(relative(file), result.sha256 || result.problem ||
-      (result.directory ? 'directory' : result.file ? 'file' : 'missing'));
+    dependencies.set(relative(file), fingerprintFile(result));
     return result;
   }
 
@@ -220,10 +269,14 @@ function createLinkChecker(rootDirectory, variables) {
     if (!capture.bytes) {
       throw new Error(`${relative(file)}: Expected a redirect file inside the repository.`);
     }
-    const errors = [];
-    const entries = parse(capture.bytes.toString('utf8'), errors, { allowTrailingComma: true });
-    if (errors.length || !Array.isArray(entries)) {
-      throw new Error(`${relative(file)}: Invalid redirect JSONC.`);
+    let entries = redirectCache?.get(capture.sha256);
+    if (!entries) {
+      const errors = [];
+      entries = parse(capture.bytes.toString('utf8'), errors, { allowTrailingComma: true });
+      if (errors.length || !Array.isArray(entries)) {
+        throw new Error(`${relative(file)}: Invalid redirect JSONC.`);
+      }
+      redirectCache?.set(capture.sha256, entries);
     }
     for (const entry of entries) {
       if (!entry || typeof entry.from !== 'string' || !entry.from.startsWith('/') ||
@@ -240,7 +293,7 @@ function createLinkChecker(rootDirectory, variables) {
 
   function document(file, content) {
     if (!documents.has(file)) {
-      documents.set(file, analyzeDocument(content ?? readFile(file).bytes.toString('utf8'), relative(file), variables));
+      documents.set(file, documentCache(content ?? readFile(file).bytes.toString('utf8'), relative(file), variables));
     }
     return documents.get(file);
   }
@@ -421,4 +474,4 @@ function createLinkChecker(rootDirectory, variables) {
   };
 }
 
-module.exports = { analyzeDocument, createLinkChecker, headingAnchor };
+module.exports = { analyzeDocument, createDocumentCache, createFileSnapshot, createLinkChecker, headingAnchor };

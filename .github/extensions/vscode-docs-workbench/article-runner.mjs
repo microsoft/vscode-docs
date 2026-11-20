@@ -24,7 +24,7 @@ export function validateRequest(request, workspace) {
   return request;
 }
 
-export async function runArticleCheck(requestFile, { workspace = trustedWorkspace, home, check = claims.checkClaims } = {}) {
+export async function runArticleCheck(requestFile, { workspace = trustedWorkspace, home, check = claims.createClaimChecker() } = {}) {
   const store = await createArticleStore(workspace, home);
   const id = path.basename(path.dirname(requestFile));
   const expected = await store.artifact(id, 'request.json', false);
@@ -50,8 +50,10 @@ export async function runArticleCheck(requestFile, { workspace = trustedWorkspac
     try {
       await assertInputs('after launch');
       // One bounded task, with individual checker fingerprints so unrelated articles stay fresh.
-      const reports = request.articles.map(article =>
-        findings.validateReport(check(store.workspace, [article.path], { links: true })));
+      const reports = (check.batch
+        ? check.batch(store.workspace, request.articles.map(article => article.path), { links: true })
+        : request.articles.map(article => check(store.workspace, [article.path], { links: true })))
+        .map(report => findings.validateReport(report));
       await assertInputs('during the check');
       const reportFile = await store.artifact(id, 'report.json');
       await atomicJson(reportFile, { format, version, reports });

@@ -6,7 +6,8 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createArticleFixture, resolveFixtureTemporaryRoot, resolveScreenshotRoot } from './article-fixture.mjs';
-import { createArticleWorkflow } from './article-workflow.mjs';
+import { createProgressiveVerification, startVerificationWorker } from './article-verification.mjs';
+import { inspectInbox } from './article-inbox.mjs';
 import { runArticleCheck } from './article-runner.mjs';
 import { articlePath, atomicJson, hash, readJson, within } from './article-storage.mjs';
 import { loadRunArtifacts, rerunDecision, validateRunArtifacts } from './article-artifacts.mjs';
@@ -31,6 +32,160 @@ const decide = (f, record, overrides = {}) => f.workflow.dispatch('triage', {
 });
 const coverage = (state, article) => state.coverage.find(entry => entry.article === article);
 const storedReview = async f => (await f.workflow.store.read()).review;
+
+function heldVerification() {
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  let captured;
+  const completed = new Promise(resolve => { captured = resolve; });
+  let starts = 0;
+  return {
+    release, completed, get starts() { return starts; },
+    launch(data, timeout) {
+      const task = startVerificationWorker(data, timeout);
+      if (data.action !== 'inbox') return task;
+      starts++;
+      return {
+        done: task.done.then(async result => { captured(result); await gate; return result; }),
+        async cancel() { release(); await task.cancel(); }
+      };
+    }
+  };
+}
+
+test('verification workers require an explicit private home without using account defaults', async () => {
+  const checkout = fileURLToPath(new URL('../../../', import.meta.url));
+  const previous = process.env.COPILOT_HOME;
+  process.env.COPILOT_HOME = checkout;
+  try {
+    const worker = startVerificationWorker({ workspace: checkout, action: 'inbox', state: { runs: [], coverage: [] } }, 5000);
+    await assert.rejects(worker.done, /explicit absolute workspace and private-home/);
+  } finally {
+    if (previous === undefined) delete process.env.COPILOT_HOME;
+    else process.env.COPILOT_HOME = previous;
+  }
+});
+
+test('verification retries deferred ingestion only after host confirmation is available', async t => {
+  const f = await fixture(t, { content: '`setting(deferred)`' });
+  const run = await f.launch();
+  await f.rawWorkflow.dispatch('sync', { id: run.id });
+  let confirmed = false;
+  let checks = 0;
+  const verifier = createProgressiveVerification({
+    store: f.rawWorkflow.store, check: f.check,
+    mayIngest: () => confirmed, onMetrics: () => { checks++; }
+  });
+  try {
+    const state = await f.rawWorkflow.store.read();
+    const inspected = await inspectInbox(f.rawWorkflow.store, state);
+    verifier.request(state, inspected);
+    await verifier.whenSettled();
+    assert.equal((await f.rawWorkflow.store.read()).coverage.length, 0);
+    assert.equal(verifier.observed(run, inspected.get(run.id)).state, 'unconfirmed');
+    verifier.request(state, inspected);
+    await verifier.whenSettled();
+    assert.equal(checks, 1, 'Pending confirmation must not cause repeated verification.');
+
+    confirmed = true;
+    verifier.request(state, inspected);
+    await verifier.whenSettled();
+    const accepted = await f.rawWorkflow.store.read();
+    assert.equal(accepted.coverage.length, 1, 'Confirmation must release the deferred result even when its input signature is unchanged.');
+    assert.equal(accepted.review.findings.length, 1);
+    assert.equal(accepted.review.findings[0].history.length, 0);
+    verifier.request(accepted, await inspectInbox(f.rawWorkflow.store, accepted));
+    await verifier.whenSettled();
+    assert.equal(checks, 2, 'Accepted results must not cause a retry loop.');
+  } finally { await verifier.dispose(); }
+});
+
+test('progressive display coalesces opens and stays usable while verification cannot finish', { timeout: 20_000 }, async t => {
+  const f = await fixture(t);
+  await f.launch();
+  const accepted = await refresh(f);
+  const held = heldVerification();
+  t.after(held.release);
+  const opened = await f.reopen({ verificationWorker: held.launch });
+  const raw = opened.raw;
+  const initial = await raw.snapshot();
+  assert.equal(initial.verification.state, 'checking');
+  assert.equal(initial.checkedAt, null);
+  assert.equal(initial.findings.length, accepted.findings.length);
+  assert.ok(initial.findings.every(record => record.freshness === 'checking' && record.reviewable));
+  assert.equal(coverage(initial, 'docs/article.md').state, 'checking');
+  await Promise.all([raw.snapshot(), raw.dispatch('refresh', {}), raw.snapshot()]);
+  assert.equal(held.starts, 1, 'Duplicate opens and refreshes share one bounded verification.');
+  await held.completed;
+  const server = await createWorkbenchServer(raw, async () => {}, () => {}, { assetEntries: articleAssets });
+  t.after(() => server.close());
+  const response = await (await fetch(`${server.url}/bootstrap`)).json();
+  assert.equal(response.state.verification.state, 'checking', 'HTTP display must not wait for verification.');
+  await raw.dispatch('triage', {
+    findingId: accepted.findings[0].finding.id, evidenceHash: accepted.findings[0].evidenceHash,
+    coverageToken: accepted.findings[0].coverageToken, status: 'dismissed', reason: 'Reviewed while the full check is pending.'
+  });
+  held.release();
+  await raw.whenVerified();
+  const verified = await raw.snapshot({ verify: false });
+  const reviewed = verified.findings.find(record => record.finding.id === accepted.findings[0].finding.id);
+  assert.equal(reviewed.finding.status, 'dismissed');
+  assert.equal(reviewed.history.length, 1, 'Background completion must not replace a newer human decision.');
+  assert.equal(verified.verification.state, 'complete');
+  assert.ok(verified.findings.every(record => record.freshness === 'fresh'));
+});
+
+test('obsolete verification cannot overwrite newer coverage and a missing article stays scoped', { timeout: 20_000 }, async t => {
+  const f = await fixture(t, { articles: { 'docs/other.md': '# Unrelated clean article' } });
+  await f.launch(['docs']);
+  await refresh(f);
+  const held = heldVerification();
+  t.after(held.release);
+  const opened = await f.reopen({ verificationWorker: held.launch });
+  await opened.raw.snapshot();
+  await held.completed;
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), '# Clean now');
+  await f.launch(['docs/article.md']);
+  const newer = await refresh(f);
+  const expected = structuredClone((await f.workflow.store.read()).coverage);
+  held.release();
+  await opened.raw.whenVerified();
+  const current = await opened.raw.snapshot({ verify: false });
+  assert.deepEqual((await f.workflow.store.read()).coverage, expected);
+  assert.equal(coverage(current, 'docs/article.md').verification.token, coverage(newer, 'docs/article.md').verification.token);
+  assert.ok(current.findings.every(record => record.freshness === 'not-observed'));
+  await rm(path.join(f.workspace, 'docs', 'article.md'));
+  const missing = await opened.snapshot();
+  assert.equal(coverage(missing, 'docs/article.md').state, 'stale');
+  assert.equal(coverage(missing, 'docs/other.md').state, 'clean');
+});
+
+test('verification timeout and cancellation retain evidence and leave no state writer', { timeout: 20_000 }, async t => {
+  const f = await fixture(t);
+  await f.launch();
+  const accepted = await refresh(f);
+  const before = await f.workflow.store.read();
+  const timed = await f.reopen({ verificationTimeout: 1 });
+  await timed.raw.snapshot();
+  await timed.raw.whenVerified();
+  const failed = await timed.raw.snapshot({ verify: false });
+  assert.equal(failed.verification.state, 'failed');
+  assert.match(failed.verification.message, /timed out/);
+  assert.equal(failed.findings.length, accepted.findings.length);
+  await assert.rejects(decide({ workflow: timed.raw }, accepted.findings[0]), /timed out/);
+  assert.deepEqual((await f.workflow.store.read()).review, before.review);
+  await assert.rejects(readFile(await f.workflow.store.file('inbox.lock')), { code: 'ENOENT' });
+  const held = heldVerification();
+  t.after(held.release);
+  const stopped = await f.reopen({ verificationWorker: held.launch });
+  await stopped.raw.snapshot();
+  await stopped.raw.dispatch('cancel-verification', {});
+  const cancelled = await stopped.raw.snapshot({ verify: false });
+  assert.equal(cancelled.verification.state, 'cancelled');
+  assert.ok(cancelled.findings.every(record => record.freshness === 'unavailable'));
+  assert.deepEqual((await f.workflow.store.read()).review, before.review);
+  assert.equal(f.requests.length, 1, 'Local verification cancellation must not start or cancel host tasks.');
+});
 
 test('fixture isolation rejects checkout roots and non-private screenshots', async () => {
   const checkout = fileURLToPath(new URL('../../../', import.meta.url));
@@ -116,7 +271,7 @@ test('fresh results enter the inbox automatically, but unobserved host completio
   const inspected = await f.workflow.dispatch('inspect', { id: run.id });
   assert.equal(inspected.checkerExitCode, 1, 'Valid error findings are not infrastructure errors.');
   await assert.rejects(f.workflow.dispatch('import', { id: run.id }), /Unknown article action/);
-  const reopened = await createArticleWorkflow(f);
+  const reopened = await f.reopen();
   assert.equal((await reopened.snapshot()).findings.length, 2);
   assert.equal((await reopened.snapshot()).runs[0].activity, undefined);
   assert.ok((await storedReview(f)).findings.every(record => !record.history.length));
@@ -225,7 +380,7 @@ test('identical findings that reappear after verified absence reopen fixed decis
   assert.deepEqual(absence.report, coverage(clean, 'docs/article.md').verification.report);
   assert.equal(dismissal.finding.status, 'dismissed');
   assert.equal(dismissal.history.length, 1);
-  const reopened = await createArticleWorkflow(f);
+  const reopened = await f.reopen();
   assert.equal((await reopened.snapshot()).findings.find(record => record.finding.id === original.finding.id).history.length, 2);
   await f.launch();
   const repeated = await refresh(f);
@@ -295,9 +450,9 @@ test('freshness covers link dependencies and verification failures without makin
   assert.equal(coverage(state, 'docs/article.md').state, 'stale');
   assert.equal(coverage(state, 'docs/other.md').state, 'clean');
   assert.equal(coverage(state, 'docs/missing.md').state, 'never-checked');
-  const unavailable = await createArticleWorkflow({ ...f, check() { throw new Error('Verification unavailable'); } });
+  const unavailable = await f.reopen({ check() { throw new Error('Verification unavailable'); } });
   const failed = await unavailable.snapshot();
-  assert.equal(coverage(failed, 'docs/other.md').state, 'incomplete');
+  assert.equal(coverage(failed, 'docs/other.md').state, 'unavailable');
   assert.equal(coverage(failed, 'docs/other.md').verification.freshness, 'unavailable');
   assert.equal(failed.findings.length, state.findings.length);
 });
@@ -332,7 +487,7 @@ test('reruns recheck actual host state and reject overlapping batches but allow 
   assert.equal(f.requests.length, 2);
   f.tracked[0].status = 'idle';
   await writeFile(path.join(f.workspace, 'docs', 'article.md'), '# Stale old report');
-  const noFreshness = await createArticleWorkflow({ ...f, check() { throw new Error('Eligibility must not check freshness'); } });
+  const noFreshness = await f.reopen({ check() { throw new Error('Eligibility must not check freshness'); } });
   assert.equal((await noFreshness.dispatch('launch', { scope: ['docs'], confirmed: true })).launch, 'acknowledged');
   assert.equal(f.requests.length, 3);
   assert.equal(f.tracked[0].status, 'idle');
@@ -486,7 +641,7 @@ test('another session can review confirmed saved evidence but cannot recover or 
   const f = await fixture(t);
   const run = await f.launch();
   await refresh(f);
-  const other = await createArticleWorkflow({ ...f, session: { ...f.session, sessionId: 'other-session' } });
+  const other = await f.reopen({ session: { ...f.session, sessionId: 'other-session' } });
   const calls = f.listCalls;
   const state = await other.snapshot();
   assert.equal(state.findings.length, 2);
@@ -554,7 +709,7 @@ test('runner refuses repeat execution and changed launch inputs, including clean
 
 test('missing host API, failed preflight and lost progress never fabricate successful verification', async t => {
   const f = await fixture(t, { execute: false });
-  const unavailable = await createArticleWorkflow({ ...f, session: { sessionId: 'fixture-owner' } });
+  const unavailable = await f.reopen({ session: { sessionId: 'fixture-owner' } });
   assert.equal((await unavailable.snapshot()).hostAvailable, false);
   await assert.rejects(unavailable.dispatch('launch', { scope: ['docs'], confirmed: true }), /does not expose/);
   const list = f.session.rpc.tasks.list;

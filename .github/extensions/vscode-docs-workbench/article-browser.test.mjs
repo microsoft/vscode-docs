@@ -7,6 +7,7 @@ import { createArticleFixture, resolveScreenshotRoot } from './article-fixture.m
 import { runArticleCheck } from './article-runner.mjs';
 import { articleAssets } from './article-canvas.mjs';
 import { createWorkbenchServer } from './server.mjs';
+import { startVerificationWorker } from './article-verification.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests own OS-temp fixtures and browser profiles; optional screenshots use an explicit private directory outside the checkout. */
 
@@ -25,7 +26,7 @@ async function browserFixture(t, options) {
       finally { await f.dispose(); }
     }
   });
-  server = await createWorkbenchServer(f.workflow, async () => {}, () => {}, { assetEntries: articleAssets });
+  server = await createWorkbenchServer(f.rawWorkflow, async () => {}, () => {}, { assetEntries: articleAssets });
   const browserFiles = path.join(f.directory, 'browser');
   await mkdir(browserFiles);
   context = await chromium.launchPersistentContext(path.join(browserFiles, 'profile'), {
@@ -193,6 +194,30 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
   assert.deepEqual(failures, []);
 });
 
+test('completed host work keeps polling until its accepted findings reach the view', browserOptions, async t => {
+  const { f, page, failures } = await browserFixture(t, { content: '`setting(completed)`' });
+  const empty = await f.rawWorkflow.snapshot({ verify: false });
+  const dispatch = f.rawWorkflow.dispatch;
+  let delayedView = false;
+  f.rawWorkflow.dispatch = async (action, input) => {
+    const result = await dispatch(action, input);
+    if (action !== 'refresh' || delayedView) return result;
+    delayedView = true;
+    await f.rawWorkflow.whenVerified();
+    const completed = await f.rawWorkflow.snapshot({ verify: false });
+    return {
+      ...completed, findings: empty.findings, coverage: empty.coverage,
+      runs: completed.runs.map(({ ingestedHash: _ingestedHash, ...run }) => run)
+    };
+  };
+  await page.locator('#scope').fill('docs/article.md');
+  await page.getByRole('button', { name: 'Run checks', exact: true }).click();
+  await page.locator('.finding .freshness').getByText('Fresh', { exact: true }).waitFor({ timeout: 6000 });
+  assert.equal(delayedView, true);
+  assert.equal(f.requests.length, 1, 'Polling must not launch another check.');
+  assert.deepEqual(failures, []);
+});
+
 test('batch scope is independent of article, check, status and freshness inbox filters and coverage', browserOptions, async t => {
   const { f, page, failures } = await browserFixture(t, {
     articles: { 'docs/group/one.md': '`setting(one)`', 'docs/group/clean.md': '# Clean', 'api/other.md': '`setting(other)`' }
@@ -273,7 +298,7 @@ test('host outages leave accepted evidence reviewable and exact-byte regressions
   f.session.rpc.tasks.list = async () => { throw new Error('Synthetic host lookup unavailable'); };
   await refresh.click();
   await page.locator('#reload:enabled').waitFor();
-  assert.equal(await row.locator('.freshness').innerText(), 'Fresh');
+  await row.locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
   assert.equal(await form.getByRole('button', { name: 'Save decision', exact: true }).isEnabled(), true);
   assert.equal(await launch.isDisabled(), true);
   await page.locator('#execution-details > summary').click();
@@ -296,5 +321,51 @@ test('host outages leave accepted evidence reviewable and exact-byte regressions
   await page.locator('.finding-detail').getByText(/^Reopened after reappearance:/).waitFor();
   assert.equal(await form.getByLabel('Decision', { exact: true }).inputValue(), 'open');
   assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), '');
+  assert.deepEqual(failures, []);
+});
+
+test('checking history stays filterable and a new verification clears an obsolete review draft', browserOptions, async t => {
+  let holding = false;
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  t.after(() => release());
+  const { f, page, failures } = await browserFixture(t, {
+    content: '`setting(progressive.example)`',
+    workflowOptions: {
+      verificationWorker(data, timeout) {
+        const worker = startVerificationWorker(data, timeout);
+        if (!holding || data.action !== 'inbox') return worker;
+        return {
+          done: worker.done.then(async result => { await gate; return result; }),
+          async cancel() { release(); await worker.cancel(); }
+        };
+      }
+    }
+  });
+  const launch = page.getByRole('button', { name: 'Run checks', exact: true });
+  await page.locator('#scope').fill('docs/article.md');
+  await launch.click();
+  await page.locator('.finding .freshness').getByText('Fresh', { exact: true }).waitFor();
+  holding = true;
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
+  await page.locator('.finding .freshness').getByText('Checking', { exact: true }).waitFor();
+  await page.getByRole('button', { name: /^docs\/article\.md:\d+ · setting\(progressive\.example\)$/ }).click();
+  const form = page.locator('.finding-detail:not([hidden]) form');
+  await form.getByLabel('Reason', { exact: true }).fill('Draft for the last accepted verification.');
+  assert.equal(await form.getByRole('button', { name: 'Save decision', exact: true }).isEnabled(), true);
+  await page.getByLabel('Freshness', { exact: true }).selectOption('fresh');
+  assert.equal(await page.locator('.finding').count(), 0, 'Checking evidence must not appear in the Fresh filter.');
+  await page.getByLabel('Freshness', { exact: true }).selectOption('checking');
+  assert.equal(await page.locator('.finding').count(), 1);
+  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), 'Draft for the last accepted verification.');
+  assert.equal(f.requests.length, 1, 'Filtering pending verification never launches checks.');
+  await page.getByLabel('Freshness', { exact: true }).selectOption('all');
+  await launch.click();
+  await page.locator('#execution-indicator').getByText('Waiting for verified results · 1 article(s)', { exact: true }).waitFor();
+  release();
+  await page.locator('#execution-indicator').getByText('Findings updated · 1 article(s)', { exact: true }).waitFor();
+  await page.locator('.finding .freshness').getByText('Fresh', { exact: true }).waitFor();
+  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), '', 'A new coverage token cannot inherit an old draft.');
+  assert.equal((await f.workflow.store.read()).review.findings[0].history.length, 0);
   assert.deepEqual(failures, []);
 });

@@ -24,9 +24,32 @@ export async function inspectExecution(store, run) {
   }
 }
 
-async function assertCurrent(store, report, check) {
-  await resolveArticle(store.workspace, report.scanPaths[0]);
-  const current = check(store.workspace, report.scanPaths, { links: true });
+async function currentReports(store, reports, check) {
+  const current = new Map();
+  const articles = [];
+  for (const article of new Set(reports.map(report => report.scanPaths[0]))) {
+    try { await resolveArticle(store.workspace, article); articles.push(article); }
+    catch (error) { current.set(article, error); }
+  }
+  if (check.batch && articles.length) {
+    try {
+      const checked = check.batch(store.workspace, articles, { links: true }, { settled: true });
+      articles.forEach((article, index) => current.set(article, checked.at(index)));
+    } catch (error) {
+      const incomplete = new Error(`Batch verification did not complete consistently: ${error.message}`);
+      for (const article of articles) current.set(article, incomplete);
+    }
+  } else {
+    for (const article of articles) {
+      try { current.set(article, check(store.workspace, [article], { links: true })); }
+      catch (error) { current.set(article, error); }
+    }
+  }
+  return current;
+}
+
+function assertCurrent(report, current) {
+  if (current instanceof Error) throw current;
   findings.assertReportCurrent(report, current);
   const observations = value => value.findings.map(({ firstSeen, lastSeen, ...finding }) => finding)
     .sort((left, right) => left.id.localeCompare(right.id));
@@ -35,28 +58,95 @@ async function assertCurrent(store, report, check) {
   }
 }
 
-export async function collectInbox(store, check) {
+export async function inspectInbox(store, state) {
   const inspected = new Map();
-  const initial = await store.read();
-  for (const run of initial.runs) {
+  for (const run of state.runs) {
     if (run.launch !== 'not-started') inspected.set(run.id, await inspectExecution(store, run));
   }
-  const ready = initial.runs.filter(run => inspected.get(run.id)?.state === 'valid' && !run.ingestedHash);
-  if (ready.length) await store.update(async state => {
-    for (const candidate of ready) {
+  return inspected;
+}
+
+export function executionBinding(run, result) {
+  return hash(JSON.stringify([
+    run.id, run.ownerSessionId, run.agentId, run.createdAt, run.scope, run.articles,
+    result?.state, result?.message, result?.request, result?.receipt, result?.reportHash
+  ]));
+}
+
+export function coverageBinding(entry, run, result, execution = executionBinding(run, result)) {
+  return hash(JSON.stringify([entry, execution]));
+}
+
+export function inboxBindings(state, inspected) {
+  const executions = new Map(state.runs.map(run => [run.id, executionBinding(run, inspected.get(run.id))]));
+  const coverage = new Map(state.coverage.map(entry =>
+    [entry.article, coverageBinding(entry, undefined, undefined, executions.get(entry.runId))]));
+  return { executions, coverage };
+}
+
+function coverageEntry(run, result, index) {
+  const { findings: observations, ...metadata } = result.reports.at(index);
+  return {
+    article: metadata.scanPaths[0], articleHash: result.request.articles.at(index).sha256,
+    runId: run.id, reportHash: result.reportHash, report: metadata,
+    findingIds: observations.map(finding => finding.id)
+  };
+}
+
+// This stage is read-only and can be terminated without leaving a writer or a private lock.
+export async function verifyInbox(store, state, check) {
+  const inspected = await inspectInbox(store, state);
+  const bindings = inboxBindings(state, inspected);
+  const ready = state.runs.filter(run => inspected.get(run.id)?.state === 'valid' && !run.ingestedHash);
+  const reports = ready.flatMap(run => inspected.get(run.id).reports);
+  for (const entry of state.coverage) {
+    const report = inspectCoverage(entry, inspected).report;
+    if (report) reports.push(report);
+  }
+  const current = await currentReports(store, reports, check);
+  const attempts = [];
+  const proofs = [];
+  for (const run of ready) {
+    const result = inspected.get(run.id);
+    const binding = bindings.executions.get(run.id);
+    try {
+      for (const report of result.reports) assertCurrent(report, current.get(report.scanPaths[0]));
+      attempts.push({ id: run.id, binding, state: 'valid', candidate: true });
+      result.reports.forEach((_, index) => {
+        const entry = coverageEntry(run, result, index);
+        proofs.push({ article: entry.article, binding: coverageBinding(entry, run, result, binding), freshness: 'fresh' });
+      });
+    } catch (error) {
+      attempts.push({ id: run.id, binding, state: error.code === 'ENOENT' || error.message.startsWith('Stale findings report:') ?
+        'stale' : 'freshness-failed', message: error.message });
+    }
+  }
+  for (const entry of state.coverage) {
+    const run = state.runs.find(run => run.id === entry.runId);
+    proofs.push({
+      article: entry.article, binding: bindings.coverage.get(entry.article),
+      ...await verifyCoverage(store, entry, inspected, check, current)
+    });
+  }
+  return { attempts, proofs, checkedAt: now() };
+}
+
+export async function commitVerifiedInbox(store, verification, isCurrent = () => true, mayIngest = () => true) {
+  const candidates = verification.attempts.filter(attempt => attempt.candidate);
+  if (!candidates.length || !isCurrent()) return;
+  await store.update(async state => {
+    for (const candidate of candidates) {
+      if (!isCurrent()) return;
       const run = state.runs.find(run => run.id === candidate.id);
-      if (run.ingestedHash) continue;
-      const result = await inspectExecution(store, run);
-      inspected.set(run.id, result);
-      if (result.state !== 'valid') continue;
-      try {
-        // Validate the entire batch before importing anything, including articles with no findings.
-        for (const report of result.reports) await assertCurrent(store, report, check);
-      } catch (error) {
-        inspected.set(run.id, { ...result, state: error.code === 'ENOENT' || error.message.startsWith('Stale findings report:') ?
-          'stale' : 'freshness-failed', message: error.message });
+      if (!run || run.ingestedHash) continue;
+      if (!mayIngest(run)) {
+        Object.assign(candidate, { candidate: false, state: 'unconfirmed',
+          message: 'Owning-host confirmation is pending or unavailable. Refresh to reconcile it before ingestion.' });
         continue;
       }
+      const result = await inspectExecution(store, run);
+      if (!isCurrent()) return;
+      if (result.state !== 'valid' || executionBinding(run, result) !== candidate.binding) continue;
       const review = structuredClone(state.review);
       let coverage = [...state.coverage];
       try {
@@ -67,17 +157,11 @@ export async function collectInbox(store, check) {
           auditFindings.importFindings(review, report, now(), {
             previousVerification: previous && { report: previous.report, findingIds: previous.findingIds }
           });
-          const { findings: observations, ...metadata } = report;
-          const entry = {
-            article, articleHash: result.request.articles.at(index).sha256,
-            runId: run.id, reportHash: result.reportHash, report: metadata,
-            findingIds: observations.map(finding => finding.id)
-          };
           coverage = coverage.filter(entry => entry.article !== article);
-          coverage.push(entry);
+          coverage.push(coverageEntry(run, result, index));
         }
       } catch (error) {
-        inspected.set(run.id, { ...result, state: 'invalid', message: error.message });
+        Object.assign(candidate, { candidate: false, state: 'invalid', message: error.message });
         continue;
       }
       state.review = review;
@@ -85,6 +169,20 @@ export async function collectInbox(store, check) {
       run.ingestedHash = result.reportHash;
     }
   });
+}
+
+export async function collectInbox(store, check) {
+  const verification = await verifyInbox(store, await store.read(), check);
+  await commitVerifiedInbox(store, verification);
+  const state = await store.read();
+  const inspected = await inspectInbox(store, state);
+  for (const attempt of verification.attempts) {
+    const run = state.runs.find(run => run.id === attempt.id);
+    const result = inspected.get(attempt.id);
+    if (run && executionBinding(run, result) === attempt.binding) {
+      inspected.set(run.id, { ...result, state: attempt.state, message: attempt.message });
+    }
+  }
   return inspected;
 }
 
@@ -92,7 +190,7 @@ export function coverageToken(entry) {
   return hash(JSON.stringify([entry.runId, entry.reportHash, entry.report.inputHash]));
 }
 
-async function verifyCoverage(store, entry, inspected, check) {
+export function inspectCoverage(entry, inspected) {
   const execution = inspected.get(entry.runId);
   if (execution?.state !== 'valid' || execution.reportHash !== entry.reportHash) {
     return { freshness: 'unavailable', message: execution?.message || 'Saved execution provenance is unavailable.' };
@@ -104,8 +202,16 @@ async function verifyCoverage(store, entry, inspected, check) {
       execution.request.articles.find(article => article.path === entry.article)?.sha256 !== entry.articleHash) {
     return { freshness: 'unavailable', message: 'Coverage does not match its saved execution evidence.' };
   }
+  return { report };
+}
+
+export async function verifyCoverage(store, entry, inspected, check, current) {
+  const evidence = inspectCoverage(entry, inspected);
+  if (!evidence.report) return evidence;
   try {
-    await assertCurrent(store, report, check);
+    const report = evidence.report;
+    current ||= await currentReports(store, [report], check);
+    assertCurrent(report, current.get(entry.article));
     return { freshness: 'fresh' };
   } catch (error) {
     return { freshness: error.code === 'ENOENT' || error.message.startsWith('Stale findings report:') ? 'stale' : 'unavailable',
@@ -114,26 +220,44 @@ async function verifyCoverage(store, entry, inspected, check) {
 }
 
 export async function inboxSnapshot(store, state, articles, inspected, check) {
+  const reports = state.coverage.flatMap(entry => {
+    const execution = inspected.get(entry.runId);
+    return execution?.state === 'valid' && execution.reportHash === entry.reportHash
+      ? execution.reports.filter(report => report.scanPaths[0] === entry.article) : [];
+  });
+  const current = await currentReports(store, reports, check);
   const verified = new Map();
   for (const entry of state.coverage) verified.set(entry.article, {
-    ...entry, ...await verifyCoverage(store, entry, inspected, check), token: coverageToken(entry)
+    ...entry, ...await verifyCoverage(store, entry, inspected, check, current), token: coverageToken(entry)
   });
+  return inboxView(state, articles, inspected, verified);
+}
+
+export function inboxView(state, articles, inspected, verified, checkedAt = now()) {
+  const metadata = new Map(state.review.reports.map(entry => [entry.id, entry.report]));
+  const runs = new Map(state.runs.map(run => [run.id, run]));
   const records = state.review.findings.map(record => {
     const verification = verified.get(record.finding.article);
+    const notObserved = verification && !verification.findingIds.includes(record.finding.id);
     const freshness = verification?.freshness === 'fresh'
-      ? verification.findingIds.includes(record.finding.id) ? 'fresh' : 'not-observed'
+      ? notObserved ? 'not-observed' : 'fresh'
       : verification?.freshness || 'unavailable';
-    const report = state.review.reports.find(entry => entry.id === record.reportId).report;
+    const report = metadata.get(record.reportId);
     return {
-      ...record, freshness, reviewable: ['fresh', 'not-observed'].includes(freshness),
+      ...record, freshness, observation: notObserved ? 'not-observed' : 'observed',
+      reviewable: ['fresh', 'not-observed', 'checking'].includes(freshness) ||
+        (freshness === 'unavailable' && verification?.canValidateOnSave === true),
       coverageToken: verification?.token,
       message: freshness === 'not-observed'
         ? 'Not observed in the latest applicable scan. Retained for an explicit decision; not automatically fixed.'
-        : verification?.message,
+        : freshness === 'checking' && notObserved
+          ? 'Not observed in the last accepted scan. Retained for an explicit decision; current freshness is being checked.'
+          : verification?.message,
       provenance: {
         report, lastVerification: verification?.report.generatedAt,
+        currentCheckedAt: verification?.checkedAt,
         runId: verification?.runId,
-        scope: state.runs.find(run => run.id === verification?.runId)?.scope,
+        scope: runs.get(verification?.runId)?.scope,
         product: 'No product build or manifest supplied. Public availability is unverified.'
       }
     };
@@ -145,18 +269,21 @@ export async function inboxSnapshot(store, state, articles, inspected, check) {
       id: latest.id, at: latest.createdAt, state: inspected.get(latest.id)?.state || 'unconfirmed',
       message: inspected.get(latest.id)?.message
     } : undefined;
-    const incomplete = latest && (!verification || latest.id !== verification.runId || verification.freshness === 'unavailable');
+    const incomplete = latest && (!verification || latest.id !== verification.runId);
     return {
       article, state: incomplete ? 'incomplete' : !verification ? 'never-checked' :
-        verification.freshness !== 'fresh' ? 'stale' : verification.findingIds.length ? 'findings' : 'clean',
+        verification.freshness === 'checking' ? 'checking' :
+          verification.freshness === 'unavailable' ? 'unavailable' :
+            verification.freshness !== 'fresh' ? 'stale' : verification.findingIds.length ? 'findings' : 'clean',
+      lastAcceptedState: verification ? verification.findingIds.length ? 'findings' : 'clean' : undefined,
       attempt, verification,
       retained: records.filter(record => record.finding.article === article && record.freshness === 'not-observed').length
     };
   });
-  return { findings: records, coverage, checkedAt: now() };
+  return { findings: records, coverage, checkedAt };
 }
 
-export async function triageInbox(store, input, check) {
+export async function triageInbox(store, input, check, verify) {
   const reason = text(input.reason, 'Decision reason', 4000);
   return store.update(async state => {
     const record = state.review.findings.find(record => record.finding.id === input.findingId);
@@ -164,7 +291,8 @@ export async function triageInbox(store, input, check) {
     const entry = state.coverage.find(entry => entry.article === record.finding.article);
     if (!entry || input.coverageToken !== coverageToken(entry)) throw new WorkbenchError('Verification changed since review; reload before deciding.', 409);
     const run = state.runs.find(run => run.id === entry.runId);
-    const result = await verifyCoverage(store, entry, new Map([[run.id, await inspectExecution(store, run)]]), check);
+    const result = verify ? await verify(entry, run) :
+      await verifyCoverage(store, entry, new Map([[run.id, await inspectExecution(store, run)]]), check);
     if (result.freshness !== 'fresh') throw new WorkbenchError(`Cannot decide on ${result.freshness} evidence: ${result.message}`, 409);
     return auditFindings.triageFinding(state.review, {
       id: input.findingId, evidenceHash: input.evidenceHash, status: input.status, reason

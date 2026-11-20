@@ -43,6 +43,7 @@ export function articleCanvasOptions({ getSession, CanvasError, createWorkflow =
     async onClose({ instanceId }) {
       const instance = await instances.get(instanceId);
       if (instance) { await instance.close(); instances.delete(instanceId); }
+      if (!instances.size && initializing) await (await initializing).cancelVerification?.();
     }
   };
 }

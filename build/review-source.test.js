@@ -7,7 +7,7 @@ const os = require('os');
 const path = require('path');
 const test = require('node:test');
 const { checkClaims, parseArguments } = require('./check-claims');
-const { assertReviewSource } = require('./review-source');
+const { assertReviewSource, createRevisionGuard } = require('./review-source');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary repositories. */
 
@@ -56,6 +56,25 @@ function withReviewSource(callback) {
     fs.rmSync(directory, { recursive: true, force: true });
   }
 }
+
+test('batch revision guards reject changed loose, packed, and detached source identities', () => {
+  withReviewSource(({ root, revision, git, write, snapshot }) => {
+    const loose = createRevisionGuard(root);
+    assert.equal(loose.revision, revision);
+    loose.assertCurrent(true);
+    git(['pack-refs', '--all']);
+    assert.throws(() => loose.assertCurrent(), /source identity changed/);
+    const packed = createRevisionGuard(root);
+    packed.assertCurrent(true);
+    git(['checkout', '--detach', revision]);
+    assert.throws(() => packed.assertCurrent(), /source identity changed/);
+    const detached = createRevisionGuard(root);
+    detached.assertCurrent(true);
+    write(path.join('docs', 'article.md'), '# New source');
+    snapshot();
+    assert.throws(() => detached.assertCurrent(), /source identity changed/);
+  });
+});
 
 test('runs trusted checker and freshness CLI against a different pinned source worktree', function () {
   withReviewSource(({directory, root, revision, git, run}) => {

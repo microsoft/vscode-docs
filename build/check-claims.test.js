@@ -7,7 +7,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const test = require('node:test');
-const { checkClaims, collectMarkdownFiles, parseArguments } = require('./check-claims');
+const { checkClaims, createClaimChecker, collectMarkdownFiles, parseArguments } = require('./check-claims');
 const { assertReportCurrent, formatReport } = require('./findings');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary directories. */
@@ -30,6 +30,78 @@ function withTemporaryRepository(callback) {
     fs.rmSync(temporaryDirectory, { recursive: true, force: true });
   }
 }
+
+test('batched checks retain independent fingerprints and reread content-addressed dependencies', function (t) {
+  withTemporaryRepository(root => {
+    const articles = ['docs/a.md', 'docs/b.md', 'docs/clean.md'];
+    fs.writeFileSync(path.join(root, 'docs', 'a.md'), '[Target](target.md#vs-code)\n`setting(example)`');
+    fs.writeFileSync(path.join(root, 'docs', 'b.md'), '[Target](target.md#vs-code)');
+    fs.writeFileSync(path.join(root, 'docs', 'clean.md'), '# Clean');
+    const target = path.join(root, 'docs', 'target.md');
+    fs.writeFileSync(target, '## {% data variables.product.name %}');
+    const options = { links: true, sourceRevision: 'batch-fixture' };
+    const normalize = ({ generatedAt, findings, ...report }) => ({
+      ...report, findings: findings.map(({ firstSeen, lastSeen, ...finding }) => finding)
+    });
+    const expected = articles.map(article => checkClaims(root, [article], options));
+    const checker = createClaimChecker();
+    const read = fs.readFileSync;
+    let targetReads = 0;
+    const instrumented = t.mock.method(fs, 'readFileSync', function (file, ...args) {
+      if (file === target) targetReads++;
+      return read.call(this, file, ...args);
+    });
+    let initial;
+    try { initial = checker.batch(root, articles, options); }
+    finally { instrumented.mock.restore(); }
+    assert.deepEqual(initial.map(normalize), expected.map(normalize));
+    assert.equal(targetReads, 2, 'Read shared target once, then reread its bytes before returning reports.');
+    const oldTime = fs.statSync(target);
+    fs.writeFileSync(target, '## Different');
+    fs.utimesSync(target, oldTime.atime, oldTime.mtime);
+    const changed = checker.batch(root, articles, options);
+    assert.throws(() => assertReportCurrent(initial[0], changed[0]), /Stale/);
+    assert.throws(() => assertReportCurrent(initial[1], changed[1]), /Stale/);
+    assert.doesNotThrow(() => assertReportCurrent(initial[2], changed[2]));
+    assert.deepEqual(changed.map(normalize), articles.map(article => normalize(checkClaims(root, [article], options))));
+    fs.rmSync(path.join(root, 'docs', 'b.md'));
+    const partial = checker.batch(root, articles, options, { settled: true });
+    assert.ok(partial[1] instanceof Error);
+    assert.doesNotThrow(() => assertReportCurrent(initial[2], partial[2]));
+    assert.throws(() => checker.batch(root, articles, options), /ENOENT/);
+  });
+});
+
+test('batched checks reject source, link, and shared-input changes during a scan', function (t) {
+  for (const [file, replacement] of [
+    ['docs/a.md', '# Changed article'],
+    ['docs/target.md', '## Changed target'],
+    ['docs/redirection.json', '[{"from":"/docs/old","to":"/docs/new"}]'],
+    ['data/variables/product.yml', 'name: Changed\n'],
+    ['build/feature-lifecycle.json', '{"features":{}}']
+  ]) withTemporaryRepository(root => {
+    fs.writeFileSync(path.join(root, 'docs', 'a.md'), '[Target](target.md#original)');
+    fs.writeFileSync(path.join(root, 'docs', 'b.md'), '# Second');
+    fs.writeFileSync(path.join(root, 'docs', 'target.md'), '## Original');
+    fs.writeFileSync(path.join(root, 'docs', 'redirection.json'), '[]');
+    const read = fs.readFileSync;
+    let changed = false;
+    const instrumented = t.mock.method(fs, 'readFileSync', function (input, ...args) {
+      const bytes = read.call(this, input, ...args);
+      if (!changed && input === path.join(root, 'docs', 'b.md')) {
+        changed = true;
+        fs.writeFileSync(path.join(root, file), replacement);
+      }
+      return bytes;
+    });
+    try {
+      assert.throws(() => createClaimChecker().batch(root, ['docs/a.md', 'docs/b.md'], {
+        links: true, sourceRevision: 'batch-fixture'
+      }), /Stale findings report: .*changed during the check/);
+      assert.equal(changed, true);
+    } finally { instrumented.mock.restore(); }
+  });
+});
 
 test('reports broken data variables and unknown lifecycle IDs with source locations', function () {
   withTemporaryRepository(function (root) {

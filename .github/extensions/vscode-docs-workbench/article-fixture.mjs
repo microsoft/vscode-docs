@@ -39,7 +39,7 @@ export async function createArticleFixture(options = {}) {
   }
 }
 
-async function initializeFixture(directory, { execute = true, content, articles = {}, acknowledgement = 'normal' }) {
+async function initializeFixture(directory, { execute = true, content, articles = {}, acknowledgement = 'normal', workflowOptions = {} }) {
   const workspace = path.join(directory, 'repo');
   const home = path.join(directory, 'private');
   await mkdir(path.join(workspace, 'docs'), { recursive: true });
@@ -54,9 +54,13 @@ async function initializeFixture(directory, { execute = true, content, articles 
     await mkdir(path.dirname(file), { recursive: true });
     await writeFile(file, bytes);
   }
-  const check = (root, files, options) => claims.checkClaims(root, files, { ...options, sourceRevision: 'fixture-revision' });
+  const productionCheck = claims.createClaimChecker();
+  const check = (root, files, options) => productionCheck(root, files, { ...options, sourceRevision: 'fixture-revision' });
+  check.batch = (root, files, options, batchOptions) =>
+    productionCheck.batch(root, files, { ...options, sourceRevision: 'fixture-revision' }, batchOptions);
   const tracked = [];
   const requests = [];
+  const executions = new Set();
   let listCalls = 0;
   let workflow;
   const session = {
@@ -69,7 +73,9 @@ async function initializeFixture(directory, { execute = true, content, articles 
         const task = { type: 'agent', id: `agent-${id}`, description: request.description, status: 'running', startedAt: now() };
         tracked.push(task);
         if (execute) {
-          await runArticleCheck(await workflow.store.artifact(id, 'request.json'), { workspace, home, check });
+          const execution = runArticleCheck(await workflow.store.artifact(id, 'request.json'), { workspace, home, check });
+          executions.add(execution);
+          try { await execution; } finally { executions.delete(execution); }
           task.status = 'completed';
           task.completedAt = now();
         }
@@ -84,11 +90,35 @@ async function initializeFixture(directory, { execute = true, content, articles 
       }
     } }
   };
-  workflow = await createArticleWorkflow({ session, workspace, home, check, acknowledgementTimeout: acknowledgement === 'timeout' ? 20 : 10_000 });
+  const options = { session, workspace, home, checkerOptions: { sourceRevision: 'fixture-revision' },
+    acknowledgementTimeout: acknowledgement === 'timeout' ? 20 : 10_000, ...workflowOptions };
+  workflow = await createArticleWorkflow(options);
+  const workflows = new Set([workflow]);
+  function settled(value) {
+    return {
+      ...value, raw: value,
+      snapshot: () => value.verifiedSnapshot(),
+      async dispatch(action, input) {
+        const result = await value.dispatch(action, input);
+        if (action !== 'refresh' && action !== 'poll') return result;
+        await value.whenVerified();
+        return value.snapshot({ verify: false });
+      }
+    };
+  }
   return {
-    directory, workspace, home, check, session, workflow, tracked, requests,
+    directory, workspace, home, check, session, workflow: settled(workflow), rawWorkflow: workflow, tracked, requests,
+    async reopen(changes = {}) {
+      const instance = await createArticleWorkflow({ ...options, ...changes });
+      workflows.add(instance);
+      return settled(instance);
+    },
     get listCalls() { return listCalls; },
     launch: (scope = ['docs/article.md']) => workflow.dispatch('launch', { scope, confirmed: true }),
-    dispose: () => rm(directory, { recursive: true, force: true })
+    async dispose() {
+      await Promise.all([...workflows].map(value => value.dispose()));
+      await Promise.allSettled([...executions]);
+      await rm(directory, { recursive: true, force: true });
+    }
   };
 }

@@ -1,13 +1,13 @@
 import { randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import claims from '../../../build/check-claims.js';
 import { WorkbenchError, text } from './state.mjs';
 import {
   createArticleStore, hostStatuses, isTime, listArticles, now, resolveScope
 } from './article-storage.mjs';
 import { prepareRequest } from './article-runner.mjs';
 import { loadRunArtifacts, rerunDecision } from './article-artifacts.mjs';
-import { collectInbox, inboxSnapshot, inspectExecution, triageInbox } from './article-inbox.mjs';
+import { inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
+import { createProgressiveVerification } from './article-verification.mjs';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -31,13 +31,40 @@ async function bounded(promise, milliseconds, message = 'Host acknowledgement ti
   } finally { clearTimeout(timer); }
 }
 
-export async function createArticleWorkflow({ session, workspace, home, check = claims.checkClaims, acknowledgementTimeout = 30_000 }) {
+export async function createArticleWorkflow({
+  session, workspace, home, check, checkerOptions, acknowledgementTimeout = 30_000,
+  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker
+}) {
   const store = await createArticleStore(workspace, home);
   const ownerSessionId = text(session.sessionId, 'Host session ID');
   const activity = new Map();
   const tasks = session.rpc?.tasks;
   const available = !!tasks && ['startAgent', 'list', 'getProgress'].every(method => typeof Reflect.get(tasks, method) === 'function');
   await store.read();
+  const verifier = createProgressiveVerification({ store, check, checkerOptions, timeout: verificationTimeout,
+    onMetrics: onVerificationMetrics, launchWorker: verificationWorker,
+    mayIngest: run => run.ownerSessionId !== ownerSessionId || !['checking', 'failed'].includes(hostStatus.state) });
+  let catalog;
+  let catalogPromise;
+  let catalogError;
+  let hostPromise;
+  let hostStatus = { state: 'idle' };
+  let lastHostPoll = 0;
+  let disposed = false;
+  const operations = new Set();
+  function track(operation) {
+    operations.add(operation);
+    return operation.finally(() => operations.delete(operation));
+  }
+
+  function updateCatalog() {
+    if (catalogPromise) return;
+    catalogError = undefined;
+    catalogPromise = listArticles(store.workspace)
+      .then(articles => { catalog = articles; })
+      .catch(error => { catalogError = error.message; })
+      .finally(() => { catalogPromise = undefined; });
+  }
 
   async function getRun(id) {
     const run = (await store.read()).runs.find(candidate => candidate.id === id);
@@ -54,22 +81,37 @@ export async function createArticleWorkflow({ session, workspace, home, check = 
       change(run);
     });
   }
-  async function snapshot() {
-    const inspected = await collectInbox(store, check);
+  function snapshot(options) { return track(buildSnapshot(options)); }
+  async function buildSnapshot({ verify = true } = {}) {
+    if (disposed) throw new WorkbenchError('This findings instance has been disposed.', 409);
     const state = await store.read();
-    const articles = await listArticles(store.workspace);
+    if (verify || !catalog) updateCatalog();
+    if (!state.coverage.length && !state.runs.length && !catalog) await catalogPromise;
+    if (hostStatus.state === 'failed') {
+      for (const run of state.runs) if (!run.ingestedHash && run.ownerSessionId === ownerSessionId) run.syncError = hostStatus.message;
+    }
+    const inspected = await inspectInbox(store, state);
+    verifier.request(state, inspected, verify);
+    const articles = catalog || [...new Set([...state.coverage.map(entry => entry.article), ...state.runs.flatMap(run => run.articles)])].sort();
+    const verified = verifier.view(state, inspected);
+    const verification = [...verified.values()].some(entry => entry.freshness === 'checking')
+      ? { ...verifier.status, state: 'checking', checkedAt: undefined } : verifier.status;
+    const observed = new Map(state.runs.map(run => [run.id, verifier.observed(run, inspected.get(run.id))]));
     return {
       workspace: store.workspace, ownerSessionId, storageDirectory: store.directory,
       hostAvailable: available,
       hostContract: 'Experimental session-scoped SDK tasks. API presence is not proof of a successful launch. No host links are returned by this contract.',
-      articles, ...await inboxSnapshot(store, state, articles, inspected, check),
+      articles, ...inboxView(state, articles, observed, verified, verification.checkedAt || null),
+      verification, hostSync: hostStatus,
+      catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: await Promise.all(state.runs.map(async run => {
-        const result = inspected.get(run.id);
+        const result = observed.get(run.id);
         const completion = result?.completion || await runnerCompletion(run);
         return {
           ...run, ownerMatches: run.ownerSessionId === ownerSessionId, activity: activity.get(run.id), completion,
           result: result && { state: result.state, message: result.message },
-          rerun: rerunDecision(run, ownerSessionId, run.syncError ? undefined : run.observation?.status, completion)
+          rerun: rerunDecision(run, ownerSessionId, run.syncError ||
+            (run.ownerSessionId === ownerSessionId && hostStatus.state === 'failed') ? undefined : run.observation?.status, completion)
         };
       }))
     };
@@ -203,7 +245,7 @@ export async function createArticleWorkflow({ session, workspace, home, check = 
     });
     return getRun(id);
   }
-  async function refresh() {
+  async function reconcileHost() {
     const owned = (await store.read()).runs.filter(run => run.ownerSessionId === ownerSessionId && run.launch !== 'not-started');
     if (owned.length) {
       let list;
@@ -215,24 +257,64 @@ export async function createArticleWorkflow({ session, workspace, home, check = 
             activity.delete(run.id);
           }
         });
-        return snapshot();
+        throw error;
       }
       for (const run of owned) await sync({ id: run.id }, list);
     }
+  }
+  function updateHost() {
+    if (hostPromise || disposed) return;
+    lastHostPoll = Date.now();
+    hostStatus = { state: 'checking' };
+    hostPromise = reconcileHost()
+      .then(() => { hostStatus = { state: 'complete' }; })
+      .catch(error => { hostStatus = { state: 'failed', message: error.message }; })
+      .then(async () => { if (!disposed) await snapshot({ verify: false }); })
+      .catch(error => { hostStatus = { state: 'failed', message: error.message }; })
+      .finally(() => { hostPromise = undefined; });
+  }
+  async function refresh() {
+    updateHost();
     return snapshot();
   }
+  async function poll() {
+    const state = await store.read();
+    if (Date.now() - lastHostPoll >= 5000 && state.runs.some(run =>
+      run.ownerSessionId === ownerSessionId && run.launch !== 'not-started' &&
+      (!run.observation || run.observation.status === 'running'))) updateHost();
+    return snapshot({ verify: false });
+  }
+  async function whenVerified() {
+    if (hostPromise) await hostPromise;
+    await verifier.whenSettled();
+    if (catalogPromise) await catalogPromise;
+  }
+  function triage(input) {
+    return triageInbox(store, input, check, (entry, run) => verifier.verifyDecision(entry, run));
+  }
   const actions = {
-    launch, sync, refresh,
+    launch, sync, refresh, poll,
     inspect: async ({ id }) => inspectExecution(store, await getRun(id)),
-    triage: input => triageInbox(store, input, check),
+    triage,
+    'cancel-verification': async () => { await verifier.cancel(); return snapshot({ verify: false }); },
     'resolve-uncertain': resolveUncertain
   };
   return {
-    store, snapshot,
+    store, snapshot, whenVerified,
+    async verifiedSnapshot() { await snapshot(); await whenVerified(); return snapshot({ verify: false }); },
+    async dispose() {
+      disposed = true;
+      if (hostPromise) await hostPromise;
+      await verifier.dispose();
+      await Promise.allSettled([...operations]);
+      if (catalogPromise) await catalogPromise;
+    },
+    cancelVerification: () => verifier.cancel(),
     async dispatch(action, input) {
+      if (disposed) throw new WorkbenchError('This findings instance has been disposed.', 409);
       if (!Object.hasOwn(actions, action)) throw new WorkbenchError('Unknown article action.');
       if (!input || typeof input !== 'object' || Array.isArray(input)) throw new WorkbenchError('Expected action input.');
-      return Reflect.get(actions, action)(input);
+      return track(Promise.resolve().then(() => Reflect.get(actions, action)(input)));
     }
   };
 }

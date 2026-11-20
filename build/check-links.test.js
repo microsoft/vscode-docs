@@ -7,9 +7,27 @@ const path = require('path');
 const test = require('node:test');
 const { checkClaims, parseArguments } = require('./check-claims');
 const { assertReportCurrent, formatReport } = require('./findings');
-const { analyzeDocument, createLinkChecker } = require('./check-links');
+const { analyzeDocument, createDocumentCache, createLinkChecker } = require('./check-links');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary directories. */
+
+test('cached document analysis binds article anchor rules, content, and resolved variables', () => {
+  const cached = createDocumentCache();
+  const content = '## contributes.commands\n\n## {% data variables.product.name %}\n\n[Target](one.md)';
+  const variables = { 'variables.product.name': 'First' };
+  const original = cached(content, 'docs/article.md', variables);
+  assert.equal(cached(content, 'docs/article.md', variables), original);
+  assert.deepEqual(original, analyzeDocument(content, 'docs/article.md', variables));
+  assert.deepEqual(cached(content, 'api/references/activation-events.md', variables),
+    analyzeDocument(content, 'api/references/activation-events.md', variables));
+  variables['variables.product.name'] = 'Second';
+  const changedVariables = cached(content, 'docs/article.md', variables);
+  assert.ok(changedVariables.anchors.has('second'));
+  assert.equal(changedVariables.anchors.has('first'), false);
+  const changedContent = cached(content.replace('one.md', 'two.md'), 'docs/article.md', variables);
+  assert.equal(changedContent.references[0].target, 'two.md');
+  assert.deepEqual(changedContent, analyzeDocument(content.replace('one.md', 'two.md'), 'docs/article.md', variables));
+});
 
 function withRepository(callback) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'vscode-docs-links-'));

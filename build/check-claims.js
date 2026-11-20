@@ -10,7 +10,7 @@ const { createEvidenceLookup, loadManifest } = require('./product-manifest');
 const { formatReport, validateReport } = require('./findings');
 const { collectProductReferences } = require('./product-references');
 const { collectMarkdownFiles } = require('./repository-paths');
-const { assertReviewSource, resolveSourceRoot } = require('./review-source');
+const { assertReviewSource, createRevisionGuard, resolveSourceRoot } = require('./review-source');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths are constrained to the repository root. */
 
@@ -76,25 +76,28 @@ function checkDataVariables(content, source, variables, add) {
   }
 }
 
-function checkClaims(rootDirectory, paths, options = {}) {
+function checkClaims(rootDirectory, paths, options = {}, { documentCache, context } = {}) {
   const resolvedRoot = fs.realpathSync(rootDirectory);
   const generatedAt = new Date().toISOString();
+  context?.guard?.assertCurrent();
   if (options.expectedRevision !== undefined && options.sourceRevision !== undefined) {
     throw new Error('Cannot override sourceRevision when an expected revision is supplied.');
   }
-  const pinnedRevision = options.expectedRevision === undefined
+  const pinnedRevision = context || options.expectedRevision === undefined
     ? undefined : assertReviewSource(resolvedRoot, options.expectedRevision);
-  const product = options.manifest ? loadManifest(options.manifest, options.channel) : undefined;
+  const product = context ? context.product : options.manifest ? loadManifest(options.manifest, options.channel) : undefined;
   const lookup = product ? createEvidenceLookup(product.manifest) : undefined;
-  const sourceRevision = pinnedRevision || options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
+  const sourceRevision = context?.sourceRevision || pinnedRevision || options.sourceRevision || execFileSync('git', ['rev-parse', 'HEAD'], {
     cwd: resolvedRoot,
     encoding: 'utf8'
   }).trim();
-  const variables = loadDataVariables(path.join(resolvedRoot, 'data', 'variables'));
+  const variables = context?.variables || loadDataVariables(path.join(resolvedRoot, 'data', 'variables'));
   const checks = ['claims', ...(options.links ? ['links'] : []), ...(options.navigation ? ['navigation'] : [])];
   const linkChecker = options.links || options.navigation
-    ? require('./check-links').createLinkChecker(resolvedRoot, variables) : undefined;
-  const lifecycle = JSON.parse(fs.readFileSync(path.join(resolvedRoot, 'build', 'feature-lifecycle.json'), 'utf8'));
+    ? require('./check-links').createLinkChecker(resolvedRoot, variables, {
+      documentCache, fileSnapshot: context?.files, redirectCache: context?.redirectCache
+    }) : undefined;
+  const lifecycle = context?.lifecycle || JSON.parse(fs.readFileSync(path.join(resolvedRoot, 'build', 'feature-lifecycle.json'), 'utf8'));
   const files = collectMarkdownFiles(resolvedRoot, paths);
   const scanPaths = [...new Set(paths.map(item =>
     path.relative(resolvedRoot, fs.realpathSync(path.resolve(resolvedRoot, item))).split(path.sep).join('/') || '.'))].sort();
@@ -102,7 +105,8 @@ function checkClaims(rootDirectory, paths, options = {}) {
   const findings = new Map();
 
   for (const filePath of files) {
-    const bytes = fs.readFileSync(filePath);
+    const bytes = context ? context.files.read(filePath).bytes : fs.readFileSync(filePath);
+    if (!bytes) throw new Error(`Stale findings report: Article disappeared during the check: ${filePath}.`);
     const content = bytes.toString('utf8');
     const articleHash = crypto.createHash('sha256').update(bytes).digest('hex');
     articles.push([path.relative(resolvedRoot, filePath).split(path.sep).join('/'), articleHash]);
@@ -173,6 +177,7 @@ function checkClaims(rootDirectory, paths, options = {}) {
   if (pinnedRevision) {
     assertReviewSource(resolvedRoot, pinnedRevision);
   }
+  context?.guard?.assertCurrent();
   return validateReport({
     schemaVersion: 5,
     checks,
@@ -190,6 +195,44 @@ function checkClaims(rootDirectory, paths, options = {}) {
     findings: [...findings.values()].sort((left, right) =>
       left.article.localeCompare(right.article) || left.line - right.line || left.id.localeCompare(right.id))
   });
+}
+
+function createClaimChecker() {
+  // Parsed documents are content-addressed. A batch additionally shares one input snapshot,
+  // which is reread and verified before any per-article reports are returned.
+  const documentCache = require('./check-links').createDocumentCache();
+  const check = (rootDirectory, paths, options) => checkClaims(rootDirectory, paths, options, { documentCache });
+  check.batch = (rootDirectory, articles, options = {}, { settled = false } = {}) => {
+    const root = fs.realpathSync(rootDirectory);
+    if (options.expectedRevision !== undefined && options.sourceRevision !== undefined) {
+      throw new Error('Cannot override sourceRevision when an expected revision is supplied.');
+    }
+    if (options.expectedRevision !== undefined) assertReviewSource(root, options.expectedRevision);
+    const guard = options.sourceRevision === undefined ? createRevisionGuard(root) : undefined;
+    const variablesDirectory = path.join(root, 'data', 'variables');
+    const lifecycleFile = path.join(root, 'build', 'feature-lifecycle.json');
+    const context = {
+      guard, sourceRevision: guard?.revision || options.sourceRevision,
+      variables: loadDataVariables(variablesDirectory),
+      lifecycle: JSON.parse(fs.readFileSync(lifecycleFile, 'utf8')),
+      product: options.manifest ? loadManifest(options.manifest, options.channel) : undefined,
+      files: require('./check-links').createFileSnapshot(root), redirectCache: new Map()
+    };
+    const reports = articles.map(article => {
+      try { return checkClaims(root, [article], options, { documentCache, context }); }
+      catch (error) { if (!settled) throw error; return error; }
+    });
+    context.files.assertUnchanged();
+    if (JSON.stringify(loadDataVariables(variablesDirectory)) !== JSON.stringify(context.variables) ||
+        JSON.stringify(JSON.parse(fs.readFileSync(lifecycleFile, 'utf8'))) !== JSON.stringify(context.lifecycle) ||
+        (options.manifest && JSON.stringify(loadManifest(options.manifest, options.channel)) !== JSON.stringify(context.product))) {
+      throw new Error('Stale findings report: Checker inputs changed during the check.');
+    }
+    guard?.assertCurrent(true);
+    if (options.expectedRevision !== undefined) assertReviewSource(root, options.expectedRevision);
+    return reports;
+  };
+  return check;
 }
 
 function parseArguments(args) {
@@ -289,6 +332,7 @@ if (require.main === module) {
 
 module.exports = {
   checkClaims,
+  createClaimChecker,
   collectMarkdownFiles,
   main,
   parseArguments

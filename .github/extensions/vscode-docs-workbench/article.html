@@ -27,13 +27,15 @@
     <div class="section-heading">
       <h2 id="report-heading">Findings <span id="finding-count" class="badge"></span></h2>
       <span id="execution-indicator" role="status" aria-live="polite" class="muted"></span>
+      <button id="stop-verification" type="button" class="secondary" hidden>Stop verification</button>
       <button id="reload" type="button" class="secondary">Refresh</button>
     </div>
+    <p id="verification-status" role="status" aria-live="polite" class="muted"></p>
     <div class="finding-toolbar">
       <div><label for="article-filter">Article or folder</label><input id="article-filter" list="scopes" placeholder="All articles"></div>
       <div><label for="check-filter">Check type</label><select id="check-filter"><option value="all">All checks</option><option value="claims">Claims</option><option value="links">Links</option></select></div>
       <div><label for="status-filter">Review status</label><select id="status-filter"><option value="all">All statuses</option><option value="open">Open</option><option value="accepted">Accepted</option><option value="dismissed">Dismissed</option><option value="fixed">Fixed</option></select></div>
-      <div><label for="freshness-filter">Freshness</label><select id="freshness-filter"><option value="all">All evidence</option><option value="fresh">Fresh</option><option value="stale">Stale</option><option value="not-observed">Not observed</option><option value="unavailable">Unavailable</option></select></div>
+      <div><label for="freshness-filter">Freshness</label><select id="freshness-filter"><option value="all">All evidence</option><option value="checking">Checking</option><option value="fresh">Fresh</option><option value="stale">Stale</option><option value="not-observed">Not observed</option><option value="unavailable">Unavailable</option></select></div>
     </div>
     <div class="finding-tools">
       <div id="filters" class="filters" aria-label="Filter by severity"></div>
@@ -60,8 +62,8 @@
       <p id="workspace"></p>
       <p id="host-contract"></p>
       <p id="ownership"></p>
-      <p>Fresh, complete, confirmed reports enter the inbox automatically. Decisions are explicit and evidence-bound. Changed evidence reopens decisions. Findings absent from a later applicable scan remain marked Not observed, never automatically fixed. Failed or incomplete attempts preserve earlier results.</p>
-      <p>Recent host activity is not saved as a transcript. Hidden execution references support provenance and recovery, not run-history navigation. The task API returns no host deep links. Local review never authorizes documentation edits, GitHub writes, media approval, publication, cancellation, or archiving.</p>
+      <p>Saved findings appear while current freshness is checked in a local worker. Checking is not Fresh. Complete, confirmed reports enter the inbox only after full validation. Every decision save freshly validates the selected article and its dependencies. Changed evidence reopens decisions. Findings absent from a later applicable scan remain marked Not observed, never automatically fixed. Failed or incomplete attempts preserve earlier results.</p>
+      <p>Recent host activity is not saved as a transcript. Hidden execution references support provenance and recovery, not run-history navigation. The task API returns no host deep links. Stopping local freshness verification never cancels a host task. Local review never authorizes documentation edits, GitHub writes, media approval, publication, host-task cancellation, or archiving.</p>
       <p>PR review, feature documentation, audits, media, replay, and docs-as-eval remain separate workflows.</p>
     </details>
   </footer>
