@@ -2,6 +2,7 @@
 
 const crypto = require('crypto');
 const fs = require('fs');
+const path = require('path');
 const schema = require('./findings.schema.json');
 const { validateManifestReference } = require('./product-manifest');
 const { resolveSourceRoot } = require('./review-source');
@@ -81,12 +82,13 @@ function validateEvidence(evidence, manifest, label) {
 }
 
 function validateReport(report) {
-  requireValue(report?.schemaVersion === schema.properties.schemaVersion.const,
-    `unsupported schemaVersion; rerun the checker to generate a version ${schema.properties.schemaVersion.const} report.`);
+  requireValue(schema.properties.schemaVersion.enum.includes(report?.schemaVersion),
+    'unsupported schemaVersion; rerun the checker to generate a version 5 report.');
   requireShape(report, schema, 'report');
-  requireValue(Array.isArray(report.checks) && report.checks.includes('claims') &&
+  const replay = report.checks?.length === 1 && report.checks[0] === 'replay';
+  requireValue(Array.isArray(report.checks) && (replay || (report.checks.includes('claims') && !report.checks.includes('replay'))) &&
     report.checks.every(check => schema.properties.checks.items.enum.includes(check)) &&
-    new Set(report.checks).size === report.checks.length, 'checks must list claims and optional links or navigation without duplicates.');
+    new Set(report.checks).size === report.checks.length, 'checks must list claims and optional links or navigation, or replay alone, without duplicates.');
   requireText(report.sourceRevision, 'sourceRevision');
   requireTimestamp(report.generatedAt, 'generatedAt');
   requireHash(report.inputHash, 'inputHash');
@@ -101,6 +103,8 @@ function validateReport(report) {
       requireShape(source, schema.$defs.productSource, 'productManifest.sources[]');
     }
   }
+  requireValue(Object.hasOwn(report, 'replay') === replay, 'replay metadata must accompany replay checks only.');
+  if (replay) validateReplay(report);
   requireValue(Array.isArray(report.findings), 'findings must be an array.');
   const ids = new Set();
   const articleHashes = new Map();
@@ -130,8 +134,77 @@ function validateReport(report) {
     if (Object.hasOwn(finding, 'productEvidence')) {
       validateEvidence(finding.productEvidence, report.productManifest, `finding ${id}.productEvidence`);
     }
+    requireValue(Object.hasOwn(finding, 'replayEvidence') === replay, 'replayEvidence must accompany replay findings only.');
+    if (replay) {
+      requireValue(kind === 'replay' && article === report.replay.binding.article &&
+        articleHash === report.replay.binding.articleHash, 'replay finding must match the reviewed article.');
+      validateReplayEvidence(finding.replayEvidence);
+      requireValue(severity === (finding.replayEvidence.category === 'mismatch' ? 'warning' : 'unverified'),
+        'replay severity does not match failure category.');
+      requireValue(report.replay.status !== 'passed' &&
+        (finding.replayEvidence.category === 'mismatch' || report.replay.status === 'incomplete'),
+        'replay status contradicts a failure.');
+    }
   }
   return report;
+}
+
+function validateReplay(report) {
+  const replay = report.replay;
+  requireValue(report.schemaVersion === 5 && !report.productManifest, 'replay requires version 5 without a product manifest.');
+  requireShape(replay, schema.$defs.replay, 'replay');
+  requireShape(replay.binding, schema.$defs.replayBinding, 'replay.binding');
+  const binding = replay.binding;
+  for (const key of ['articleHash', 'storyboardHash', 'runnerHash']) requireHash(Reflect.get(binding, key), `replay.binding.${key}`);
+  requireText(binding.storyboardId, 'replay.binding.storyboardId');
+  requireValue(binding.sourceRevision === report.sourceRevision && isArticle(binding.article) &&
+    report.scanPaths.length === 1 && report.scanPaths[0] === binding.article, 'replay source or scan scope mismatch.');
+  requireValue(report.inputHash === crypto.createHash('sha256').update(JSON.stringify(binding)).digest('hex'),
+    'replay inputHash does not match the reviewed inputs.');
+  requireShape(binding.product, schema.$defs.replayBinding.properties.product, 'replay.binding.product');
+  requireValue(['stable', 'insiders'].includes(binding.product.channel) && /^[a-f0-9]{40}$/i.test(binding.product.revision),
+    'replay product pin is invalid.');
+  requireValue(Object.hasOwn(binding, 'workspace') === Object.hasOwn(binding, 'captureProfile'), 'replay workspace and profile must be paired.');
+  for (const key of ['workspace', 'captureProfile']) {
+    if (Object.hasOwn(binding, key)) requireValue(typeof Reflect.get(binding, key) === 'string' &&
+      path.isAbsolute(Reflect.get(binding, key)), `replay.binding.${key} must be absolute.`);
+  }
+  for (const key of ['review', 'evidence']) {
+    const reference = Reflect.get(replay, key);
+    requireShape(reference, schema.$defs.privateReference, `replay.${key}`);
+    requireText(reference.file, `replay.${key}.file`);
+    requireValue(path.isAbsolute(reference.file), `replay.${key}.file must be absolute.`);
+    requireHash(reference.sha256, `replay.${key}.sha256`);
+  }
+  requireValue(schema.$defs.replay.properties.status.enum.includes(replay.status), 'replay status is invalid.');
+}
+
+function validateReplayEvidence(evidence) {
+  requireShape(evidence, schema.$defs.replayEvidence, 'replayEvidence');
+  requireValue(schema.$defs.replayEvidence.properties.category.enum.includes(evidence.category), 'replay category is invalid.');
+  requireValue(typeof evidence.code === 'string' && /^[a-z][a-z-]+$/.test(evidence.code), 'replay failure code is invalid.');
+  if (['step', 'phase', 'kind'].some(key => Object.hasOwn(evidence, key))) {
+    requireValue(Number.isInteger(evidence.step) && evidence.step >= 0 && evidence.step <= 39 &&
+      schema.$defs.replayEvidence.properties.phase.enum.includes(evidence.phase) &&
+      schema.$defs.replayEvidence.properties.kind.enum.includes(evidence.kind), 'replay failed step is invalid.');
+  }
+  if (Object.hasOwn(evidence, 'target')) requireText(evidence.target, 'replayEvidence.target');
+  if (evidence.category === 'mismatch') {
+    requireValue(Number.isInteger(evidence.step), 'mismatch requires a failed step.');
+    requireValue(evidence.expected && typeof evidence.expected === 'object', 'mismatch requires an expected outcome.');
+    const definitions = schema.$defs.replayEvidence.properties.expected.oneOf;
+    const cycle = Object.hasOwn(evidence.expected, 'values');
+    requireShape(evidence.expected, definitions.at(cycle ? 1 : 0), 'replayEvidence.expected');
+    if (cycle) requireValue(Array.isArray(evidence.expected.values) && evidence.expected.values.length > 0 &&
+      evidence.expected.values.every(value => typeof value === 'string' && /\S/.test(value)), 'invalid expected cycle.');
+    else {
+      requireText(evidence.expected.text, 'replayEvidence.expected.text');
+      requireValue(['equals', 'contains'].includes(evidence.expected.match), 'invalid expected text match.');
+    }
+    requireValue(JSON.stringify(evidence.observed) === JSON.stringify({state: 'visible', matches: false}),
+      'mismatch requires privacy-safe contradictory observation.');
+  } else requireValue(!Object.hasOwn(evidence, 'expected') && !Object.hasOwn(evidence, 'observed'),
+    'incomplete replay cannot claim a contradictory observation.');
 }
 
 function assertReportCurrent(saved, current) {
@@ -176,7 +249,7 @@ function formatReport(report, format = 'json') {
     Reflect.set(counts, finding.severity, Reflect.get(counts, finding.severity) + 1);
   }
   return [
-    `Docs ${report.checks.length > 1 ? 'checks' : 'claims'}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
+    `Docs ${report.checks.length > 1 ? 'checks' : report.checks[0]}${report.replay ? ` (${report.replay.status})` : ''}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
     ...report.findings.map(finding =>
       escapeConsole(`${finding.article}:${finding.line} [${finding.severity}, ${finding.status}] ${finding.message}`))
   ].join('\n');
@@ -185,13 +258,14 @@ function formatReport(report, format = 'json') {
 function main(args = process.argv.slice(2)) {
   if (args.length === 1 && args[0] === '--help') {
     console.log('Usage: node build/findings.js --input <report.json> [--format json|console|github] [--check-current [--root <source-worktree>] [--expected-revision <commit>] [--manifest <file>]]');
+    console.log('Replay freshness (never launches UI): --check-current --storyboard <file> --replay-review <review.json>');
     return 0;
   }
   const options = new Map();
   const argumentsLeft = [...args];
   while (argumentsLeft.length) {
     const option = argumentsLeft.shift();
-    if (!['--input', '--format', '--check-current', '--manifest', '--root', '--expected-revision'].includes(option) || options.has(option)) {
+    if (!['--input', '--format', '--check-current', '--manifest', '--root', '--expected-revision', '--storyboard', '--replay-review'].includes(option) || options.has(option)) {
       throw new Error(`Unknown or repeated option: ${option}`);
     }
     const value = option === '--check-current' ? true : argumentsLeft.shift();
@@ -201,29 +275,39 @@ function main(args = process.argv.slice(2)) {
     options.set(option, value);
   }
   if (!options.has('--input') ||
-      (['--manifest', '--root', '--expected-revision'].some(option => options.has(option)) && !options.has('--check-current'))) {
+      (['--manifest', '--root', '--expected-revision', '--storyboard', '--replay-review'].some(option => options.has(option)) && !options.has('--check-current'))) {
     throw new Error('Specify --input <report.json>; --manifest, --root, and --expected-revision are only used with --check-current.');
   }
   const report = validateReport(JSON.parse(fs.readFileSync(options.get('--input'), 'utf8')));
   if (options.has('--check-current')) {
-    if (Boolean(report.productManifest) !== options.has('--manifest')) {
-      throw new Error('Freshness checking requires --manifest exactly when the saved report used one.');
+    if (report.replay) {
+      if (!options.has('--storyboard') || !options.has('--replay-review') ||
+          ['--root', '--expected-revision', '--manifest'].some(option => options.has(option))) {
+        throw new Error('Replay freshness requires --storyboard and --replay-review, not claim-checker options.');
+      }
+      require('./replay').assertReplayCurrent(report, {storyboard: options.get('--storyboard'), review: options.get('--replay-review')});
+    } else {
+      if (options.has('--storyboard') || options.has('--replay-review')) throw new Error('Replay options require a replay report.');
+      if (Boolean(report.productManifest) !== options.has('--manifest')) {
+        throw new Error('Freshness checking requires --manifest exactly when the saved report used one.');
+      }
+      const { checkClaims } = require('./check-claims');
+      const current = checkClaims(resolveSourceRoot(options.get('--root')), report.scanPaths, {
+        expectedRevision: options.get('--expected-revision'),
+        manifest: options.get('--manifest'),
+        channel: report.productManifest?.product.channel,
+        links: report.checks.includes('links'),
+        navigation: report.checks.includes('navigation')
+      });
+      assertReportCurrent(report, current);
     }
-    const { checkClaims } = require('./check-claims');
-    const current = checkClaims(resolveSourceRoot(options.get('--root')), report.scanPaths, {
-      expectedRevision: options.get('--expected-revision'),
-      manifest: options.get('--manifest'),
-      channel: report.productManifest?.product.channel,
-      links: report.checks.includes('links'),
-      navigation: report.checks.includes('navigation')
-    });
-    assertReportCurrent(report, current);
   }
   const output = formatReport(report, options.get('--format') || 'console');
   if (output) {
     console.log(output);
   }
-  return report.findings.some(finding => finding.severity === 'error') ? 1 : 0;
+  return report.replay ? report.replay.status === 'passed' ? 0 : report.replay.status === 'mismatch' ? 1 : 2 :
+    report.findings.some(finding => finding.severity === 'error') ? 1 : 0;
 }
 
 // Publish the helpers before the CLI freshness check loads the claim checker.

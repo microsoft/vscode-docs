@@ -8,6 +8,9 @@ const test = require('node:test');
 const { spawnSync } = require('node:child_process');
 const { captureEditor, checkVisibleText, validatePng, validateStoryboard } = require('./capture');
 const {renderHighlights} = require('./capture-highlights');
+const {assertReplayCurrent, inspectProcedure, main: replayMain, replayProcedure, reviewProcedure} = require('./replay');
+const {formatReport, main: findingsMain, validateReport} = require('./findings');
+const {importFindings, triageFinding, validateAuditFindings} = require('./audit-findings');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary directories and fake launchers. */
 
@@ -46,19 +49,29 @@ function fakeApplication(overrides = {}) {
   const zoomFactor = overrides.zoomFactor ?? Math.pow(1.2, zoomLevel);
   const locator = {
     waitFor: async () => {},
-    click: async () => {},
+    click: async () => {
+      if (overrides.clickTimeout) throw Object.assign(new Error('Private locator diagnostic'), {name: 'TimeoutError'});
+    },
     fill: async () => {},
     check: async () => {},
     boundingBox: async () => overrides.bounds ? overrides.bounds(++boundsCalls) : {x: 100, y: 100, width: 200, height: 40},
-    innerText: async () => overrides.text || 'example.js Find total 1 of 3'
+    count: async () => overrides.targetCount ?? 1,
+    isVisible: async () => overrides.targetVisible ?? true,
+    innerText: async () => overrides.text || overrides.assertionText || 'example.js Find total 1 of 3'
   };
   locator.first = () => locator;
   locator.locator = () => locator;
   locator.getByRole = () => locator;
   locator.filter = ({hasText}) => ({
+    count: async () => {
+      const text = overrides.assertionText || '1 of 3';
+      return (typeof hasText === 'string' ? text.includes(hasText) : hasText.test(text)) ? 1 : 0;
+    },
     waitFor: async () => {
-      const text = '1 of 3';
-      assert.ok(typeof hasText === 'string' ? text.includes(hasText) : hasText.test(text));
+      const text = overrides.assertionText || '1 of 3';
+      if (!(typeof hasText === 'string' ? text.includes(hasText) : hasText.test(text))) {
+        throw Object.assign(new Error('Private assertion diagnostic'), {name: 'TimeoutError'});
+      }
     }
   });
   const page = {
@@ -81,6 +94,7 @@ function fakeApplication(overrides = {}) {
   };
   return {
     launch: async options => {
+      if (overrides.launchError) throw new Error('Private launch diagnostic');
       launchOptions = options;
       const appPath = path.dirname(options.executablePath);
       fs.writeFileSync(path.join(appPath, 'product.json'), JSON.stringify({
@@ -416,6 +430,7 @@ test('highlights preserve the raw image, record provenance, and reject failures 
           return {png: annotated.toString('base64'), verification: {allOtherPixelsUnchanged: true, encodedPixelsVerified: true}};
         }
       });
+
       const capture = () => captureEditor({...options, storyboard: file}, fake);
       if (failure) {
         await assert.rejects(capture, /Highlight encoder fixture failed|targets moved/);
@@ -440,4 +455,273 @@ test('highlights preserve the raw image, record provenance, and reject failures 
       assert.ok(fake.state().closed);
     });
   }
+});
+
+function reviewedReplay(options) {
+  const inspected = inspectProcedure(options);
+  const review = reviewProcedure({...options, bindingHash: inspected.bindingHash, attestReviewed: true});
+  return {...options, review: review.file};
+}
+
+function replayFake(overrides) {
+  return {...fakeApplication(overrides), confirmReady: async () => true};
+}
+
+test('replay passes unchanged assertions without saving pixels and reports label drift with stable identity', async () => {
+  await withOutput(async options => {
+    const reviewed = reviewedReplay(options);
+    const unchanged = replayFake();
+    const passed = await replayProcedure(reviewed, unchanged);
+    assert.equal(passed.report.replay.status, 'passed');
+    assert.deepEqual(passed.report.findings, []);
+    assert.equal(unchanged.state().photographed, false);
+    assert.ok(unchanged.state().closed);
+    const evidence = JSON.parse(fs.readFileSync(passed.report.replay.evidence.file));
+    const capture = JSON.parse(fs.readFileSync(evidence.capture.file));
+    assert.equal(capture.status, 'passed');
+    assert.equal(capture.approval, 'not-a-media-candidate');
+    assert.equal(capture.asset, undefined);
+    assert.ok(evidence.steps.every(step => step.status === 'passed'));
+    assertReplayCurrent(passed.report, {storyboard: options.storyboard, review: reviewed.review});
+    const first = await replayProcedure(reviewed, replayFake({assertionText: 'Renamed result label'}));
+    const second = await replayProcedure(reviewed, replayFake({assertionText: 'Different result label'}));
+    assert.notEqual(first.directory, second.directory);
+    assert.equal(first.report.replay.status, 'mismatch');
+    assert.equal(first.report.findings[0].id, second.report.findings[0].id);
+    const finding = first.report.findings[0];
+    assert.equal(finding.replayEvidence.category, 'mismatch');
+    assert.equal(finding.replayEvidence.step, 6);
+    assert.equal(finding.replayEvidence.target, 'count');
+    assert.deepEqual(finding.replayEvidence.expected, {text: 'of 3', match: 'contains'});
+    assert.deepEqual(finding.replayEvidence.observed, {state: 'visible', matches: false});
+    assert.equal(finding.article, 'docs/editing/codebasics.md');
+    assert.equal(first.report.replay.binding.product.revision, REVISION);
+    assert.doesNotMatch(JSON.stringify(first.report), /Renamed result label|Private assertion diagnostic/);
+    const failed = JSON.parse(fs.readFileSync(first.report.replay.evidence.file));
+    assert.equal(failed.status, 'failed');
+    assert.equal(failed.steps.at(-1).status, 'failed');
+    assert.equal(JSON.parse(fs.readFileSync(failed.capture.file)).status, 'failed');
+    assert.match(formatReport(first.report, 'console'), /Docs replay \(mismatch\).*[\s\S]*step 7/);
+    assert.match(formatReport(first.report, 'github'), /^::warning /);
+    const reporter = spawnSync(process.execPath, [path.join(__dirname, 'findings.js'), '--input', first.reportFile,
+      '--check-current', '--storyboard', reviewed.storyboard, '--replay-review', reviewed.review, '--format', 'console'], {encoding: 'utf8'});
+    assert.equal(reporter.status, 1, reporter.stderr);
+    assert.match(reporter.stdout, /mismatch/);
+    const concealed = structuredClone(first.report);
+    concealed.findings = [];
+    concealed.replay.status = 'passed';
+    assert.throws(() => assertReplayCurrent(concealed, {storyboard: reviewed.storyboard, review: reviewed.review}),
+      /contradicts the saved step evidence/);
+  });
+});
+
+test('replay classifies blocked and unsafe runs without claiming documentation drift or leaking diagnostics', async t => {
+  t.mock.method(console, 'log', () => {});
+  const cases = [
+    {overrides: {revision: 'b'.repeat(40)}, category: 'prerequisite', code: 'build-mismatch'},
+    {overrides: {quality: 'stable'}, category: 'prerequisite', code: 'build-mismatch'},
+    {overrides: {launchError: true}, category: 'environment', code: 'launch-failed'},
+    {overrides: {clickTimeout: true}, category: 'environment', code: 'operation-failed'},
+    {overrides: {assertionText: 'Wrong', targetCount: 0}, category: 'environment', code: 'operation-failed'},
+    {overrides: {assertionText: 'Wrong', targetVisible: false}, category: 'environment', code: 'operation-failed'},
+    {overrides: {text: 'user@example.test'}, category: 'privacy', code: 'denied-text'},
+    {overrides: {closeError: true}, category: 'cleanup', code: 'process-close-failed'},
+    {overrides: {visibilityDuringSteps: 'hidden'}, category: 'environment', code: 'window-not-visible'},
+    {overrides: {}, readiness: false, category: 'prerequisite', code: 'readiness-denied'},
+    {overrides: {}, executable: 'missing.exe', category: 'prerequisite', code: 'executable-unavailable'}
+  ];
+  for (const scenario of cases) {
+    await withOutput(async options => {
+      const reviewed = reviewedReplay(options);
+      if (scenario.executable) reviewed.executable = path.join(options.output, scenario.executable);
+      const fake = replayFake(scenario.overrides);
+      if (scenario.readiness === false) fake.confirmReady = async () => false;
+      const result = await replayProcedure(reviewed, fake);
+      assert.equal(result.report.replay.status, 'incomplete', scenario.code);
+      assert.equal(result.report.findings[0].replayEvidence.category, scenario.category);
+      assert.equal(result.report.findings[0].replayEvidence.code, scenario.code);
+      assert.ok(result.report.findings.every(finding => finding.severity === 'unverified'));
+      assert.equal(fake.state().photographed, false);
+      const evidence = fs.readFileSync(result.report.replay.evidence.file, 'utf8');
+      assert.doesNotMatch(evidence, /user@example.test|Private .* diagnostic/);
+      const captureFile = JSON.parse(evidence).capture?.file;
+      if (captureFile) {
+        const capture = fs.readFileSync(captureFile, 'utf8');
+        assert.doesNotMatch(capture, /user@example.test|Private .* diagnostic/);
+        assert.equal(JSON.parse(capture).status, 'failed');
+      }
+      assert.equal(findingsMain(['--input', result.reportFile, '--format', 'console']), 2);
+    });
+  }
+});
+
+test('replay retains separate cleanup failures and refuses unavailable approved workspaces', async () => {
+  await withOutput(async options => {
+    const reviewed = reviewedReplay(options);
+    const result = await replayProcedure(reviewed, replayFake({assertionText: 'Changed', closeError: true}));
+    assert.equal(result.report.replay.status, 'incomplete');
+    assert.deepEqual(result.report.findings.map(item => item.replayEvidence.category), ['mismatch', 'cleanup']);
+    const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));
+    delete storyboard.fixture;
+    storyboard.workspace = {entry: 'example.js'};
+    const file = path.join(options.output, 'workspace-storyboard.json');
+    fs.writeFileSync(file, JSON.stringify(storyboard));
+    const workspaceOptions = {...options, storyboard: file, workspace: path.join(options.output, 'absent-workspace'),
+      captureProfile: path.join(options.output, 'owned-profile')};
+    const output = path.join(options.output, 'reports');
+    fs.mkdirSync(output);
+    const workspaceReview = reviewedReplay({...workspaceOptions, output});
+    const fake = replayFake();
+    const blocked = await replayProcedure(workspaceReview, fake);
+    assert.equal(blocked.report.replay.status, 'incomplete');
+    assert.equal(blocked.report.findings[0].replayEvidence.category, 'prerequisite');
+    assert.equal(fake.state().launchOptions, undefined);
+  });
+});
+
+test('replay preserves failed outcomes when the capture manifest cannot be saved', async t => {
+  const writeFile = fs.writeFileSync;
+  let parentWritable = true;
+  t.mock.method(fs, 'writeFileSync', (file, ...args) => {
+    const name = path.basename(file);
+    if (name === 'capture.json' || (!parentWritable && ['replay.json', 'findings.json'].includes(name))) {
+      throw Object.assign(new Error('Private persistence diagnostic user@example.test'), {code: 'EACCES'});
+    }
+    return writeFile(file, ...args);
+  });
+  await withOutput(async options => {
+    const reviewed = reviewedReplay(options);
+    const fake = replayFake({assertionText: 'Private changed label', closeError: true});
+    const result = await replayProcedure(reviewed, fake);
+    assert.equal(result.report.replay.status, 'incomplete');
+    assert.deepEqual(result.report.findings.map(item => [item.replayEvidence.category, item.replayEvidence.code]), [
+      ['mismatch', 'text-mismatch'], ['cleanup', 'process-close-failed'], ['environment', 'capture-manifest-write-failed']
+    ]);
+    const evidenceText = fs.readFileSync(result.report.replay.evidence.file, 'utf8');
+    const evidence = JSON.parse(evidenceText);
+    assert.equal(evidence.status, 'failed');
+    assert.equal(evidence.steps.length, 7);
+    assert.ok(evidence.steps.slice(0, -1).every(step => step.status === 'passed'));
+    assert.equal(evidence.steps.at(-1).status, 'failed');
+    assert.equal(evidence.steps.at(-1).failure.category, 'mismatch');
+    assert.equal(evidence.capture, undefined);
+    assert.equal(evidence.captureState.status, 'failed');
+    assert.equal(evidence.captureState.runtimeRetained, true);
+    assert.deepEqual(evidence.captureState.steps, evidence.steps);
+    assert.deepEqual(evidence.captureState.failures, evidence.failures);
+    const captureRun = fs.readdirSync(result.directory).find(name => name.startsWith('editor-find-'));
+    assert.ok(captureRun);
+    assert.equal(fs.existsSync(path.join(result.directory, captureRun, 'capture.json')), false);
+    for (const file of [result.reportFile, result.report.replay.review.file, result.report.replay.evidence.file]) {
+      assert.ok(fs.statSync(file).isFile());
+    }
+    assert.doesNotMatch(evidenceText + fs.readFileSync(result.reportFile, 'utf8'),
+      /user@example\.test|Private .*diagnostic|Private changed label|Fixture close failure/);
+    assert.equal(fake.state().photographed, false);
+    validateReport(result.report);
+    assertReplayCurrent(result.report, {storyboard: reviewed.storyboard, review: reviewed.review});
+
+    parentWritable = false;
+    await assert.rejects(() => replayProcedure(reviewed, replayFake()), error => {
+      assert.match(error.message, /Replay failed: could not save complete private replay evidence/);
+      assert.doesNotMatch(error.message, /Private persistence diagnostic|user@example\.test/);
+      return true;
+    });
+  });
+});
+
+test('replay reviews bind exact inputs and freshness rejects changed storyboard or private evidence', async () => {
+  await withOutput(async options => {
+    const file = path.join(options.output, 'reviewed-storyboard.json');
+    fs.copyFileSync(STORYBOARD, file);
+    options = {...options, storyboard: file};
+    assert.throws(() => reviewProcedure({...options, attestReviewed: true, bindingHash: '0'.repeat(64)}), /exact inspected/);
+    assert.throws(() => reviewProcedure({...options, bindingHash: inspectProcedure(options).bindingHash}), /explicit human/);
+    const reviewed = reviewedReplay(options);
+    const result = await replayProcedure(reviewed, replayFake());
+    const check = () => assertReplayCurrent(result.report, {storyboard: file, review: reviewed.review});
+    check();
+    const evidence = fs.readFileSync(result.report.replay.evidence.file);
+    fs.appendFileSync(result.report.replay.evidence.file, ' ');
+    assert.throws(check, /evidence changed/);
+    fs.writeFileSync(result.report.replay.evidence.file, evidence);
+    const capture = JSON.parse(evidence).capture;
+    fs.appendFileSync(capture.file, ' ');
+    assert.throws(check, /Capture evidence changed/);
+    fs.appendFileSync(file, ' ');
+    assert.throws(check, /Stale procedure review/);
+    const fake = replayFake();
+    await assert.rejects(() => replayProcedure(reviewed, fake), /Stale procedure review/);
+    assert.equal(fake.state().launchOptions, undefined);
+  });
+
+});
+
+test('replay reports inputs changed during execution as incomplete rather than a successful procedure', async () => {
+  await withOutput(async options => {
+    const file = path.join(options.output, 'changing-storyboard.json');
+    fs.copyFileSync(STORYBOARD, file);
+    const reviewed = reviewedReplay({...options, storyboard: file});
+    const fake = replayFake();
+    fake.confirmReady = async () => {
+      fs.appendFileSync(file, ' ');
+      return true;
+    };
+    const result = await replayProcedure(reviewed, fake);
+    assert.equal(result.report.replay.status, 'incomplete');
+    assert.equal(result.report.findings[0].replayEvidence.code, 'reviewed-inputs-changed');
+    assert.equal(JSON.parse(fs.readFileSync(result.report.replay.evidence.file)).status, 'failed');
+    assert.equal(fake.state().photographed, false);
+  });
+});
+
+test('replay findings integrate with hash-bound triage and schema validation', async () => {
+  await withOutput(async options => {
+    const reviewed = reviewedReplay(options);
+    const result = await replayProcedure(reviewed, replayFake({assertionText: 'Changed'}));
+    const state = {reports: [], findings: []};
+    const stamp = new Date(Date.parse(result.report.generatedAt) + 10).toISOString();
+    importFindings(state, result.report, stamp);
+    const record = state.findings[0];
+    triageFinding(state, {id: record.finding.id, evidenceHash: record.evidenceHash, status: 'dismissed',
+      reason: 'Synthetic fixture decision.'}, stamp);
+    const refreshed = structuredClone(result.report);
+    refreshed.generatedAt = new Date(Date.parse(stamp) + 10).toISOString();
+    for (const finding of refreshed.findings) finding.firstSeen = finding.lastSeen = refreshed.generatedAt;
+    refreshed.replay.evidence.file = path.join(options.output, 'another-random-run', 'replay.json');
+    importFindings(state, refreshed, refreshed.generatedAt);
+    assert.equal(state.findings[0].finding.status, 'dismissed', 'Artifact location must not reopen an unchanged observation.');
+    const changed = structuredClone(refreshed);
+    changed.generatedAt = new Date(Date.parse(refreshed.generatedAt) + 10).toISOString();
+    for (const finding of changed.findings) finding.firstSeen = finding.lastSeen = changed.generatedAt;
+    changed.findings[0].replayEvidence.expected.text = 'Different reviewed expectation';
+    const imported = importFindings(state, changed, changed.generatedAt);
+    assert.equal(imported.reopened, 1);
+    validateAuditFindings(state.reports, state.findings);
+    for (const mutate of [
+      report => {report.replay.status = 'passed';},
+      report => {report.findings[0].replayEvidence.observed = {text: 'Private UI text'};},
+      report => {report.findings[0].replayEvidence.category = 'environment';},
+      report => {report.replay.binding.product.revision = 'wrong';},
+      report => {report.checks = ['claims', 'replay'];},
+      report => {report.schemaVersion = 4;}
+    ]) {
+      const invalid = structuredClone(result.report);
+      mutate(invalid);
+      assert.throws(() => validateReport(invalid), /Invalid findings report/, String(mutate));
+    }
+  });
+});
+
+test('replay CLI and missing Playwright produce incomplete reports without launching the product', async t => {
+  t.mock.method(console, 'log', () => {});
+  await withOutput(async options => {
+    const reviewed = reviewedReplay(options);
+    const code = await replayMain(['run', '--storyboard', reviewed.storyboard, '--review', reviewed.review,
+      '--executable', path.join(options.output, 'not-installed.exe'), '--output', options.output, '--wait-for-ready']);
+    assert.equal(code, 2);
+    const missing = await replayProcedure(reviewed, {resolvePlaywright: () => {throw new Error('Missing fixture dependency');}});
+    assert.equal(missing.report.replay.status, 'incomplete');
+    assert.equal(missing.report.findings[0].replayEvidence.code, 'playwright-unavailable');
+  });
 });

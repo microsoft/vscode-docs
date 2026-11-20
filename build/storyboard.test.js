@@ -69,6 +69,8 @@ test('validates screenshot highlights without allowing unknown targets, colors, 
 function fakePage() {
   const state = {text: 'Beta', clicks: 0, events: []};
   const observed = {
+    count: async () => 1,
+    isVisible: async () => true,
     innerText: async () => state.text,
     filter: ({hasText}) => ({waitFor: async () => {
       assert.ok(typeof hasText === 'string' ? state.text.includes(hasText) : hasText.test(state.text), 'Unexpected visible text');

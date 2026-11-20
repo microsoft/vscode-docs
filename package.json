@@ -32,6 +32,8 @@
     "test:audit-state": "node --test ./build/audit-state.test.js ./.github/skills/daily-docs-audit/manage-state.test.js",
     "capture": "node ./build/capture.js",
     "test:capture": "node --test ./build/capture.test.js ./build/capture-video.test.js ./build/storyboard.test.js ./build/capture-preparation.test.js ./build/capture-highlights.test.js",
+    "replay": "node ./build/replay.js",
+    "test:replay": "node --test --test-name-pattern=replay ./build/capture.test.js",
     "test:media": "node --test ./build/media.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",

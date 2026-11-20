@@ -174,7 +174,7 @@ function checkClaims(rootDirectory, paths, options = {}) {
     assertReviewSource(resolvedRoot, pinnedRevision);
   }
   return validateReport({
-    schemaVersion: 4,
+    schemaVersion: 5,
     checks,
     sourceRevision,
     generatedAt,

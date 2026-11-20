@@ -10,6 +10,7 @@ const { isWithinRoot } = require('./repository-paths');
 const { runSteps, validateStoryboard } = require('./storyboard');
 const {WORKSPACE_SETTINGS, acquireCaptureProfile, replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
 const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
+const {ProcedureFailure, failureDetails} = require('./replay-errors');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- The runner owns a newly created private run directory. */
 
@@ -28,7 +29,7 @@ function checkVisibleText(text, denied) {
   const normalized = text.toLowerCase();
   for (const value of denied) {
     if (normalized.includes(value.toLowerCase())) {
-      throw new Error('Privacy check failed: visible text matches a denied value. Retained private artifacts must not be approved.');
+      throw new ProcedureFailure('privacy', 'denied-text', 'Privacy check failed: visible text matches a denied value. Retained private artifacts must not be approved.');
     }
   }
 }
@@ -93,7 +94,7 @@ async function captureEditor(options, dependencies = {}) {
   if (options.video && !storyboard.video) {
     throw new Error('This storyboard does not define video reset and recording steps.');
   }
-  const needsPreparation = Boolean(storyboard.workspace || storyboard.fixture?.openFolder);
+  const needsPreparation = Boolean(storyboard.workspace || storyboard.fixture?.openFolder || options.replay);
   if (needsPreparation && !options.waitForReady && !dependencies.confirmReady && (!process.stdin.isTTY || !process.stdout.isTTY)) {
     throw new Error('Folder capture requires an interactive terminal, or --wait-for-ready for an explicit chat readiness response.');
   }
@@ -136,6 +137,7 @@ async function captureEditor(options, dependencies = {}) {
   const manifest = {
     schemaVersion: 1,
     storyboard: { id: storyboard.id, article: storyboard.article, sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
+    articleHash: crypto.createHash('sha256').update(fs.readFileSync(article)).digest('hex'),
     sourceRevision: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: repository, encoding: 'utf8'}).trim(),
     runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),
     storyboardRunnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'storyboard.js'))).digest('hex'),
@@ -147,13 +149,16 @@ async function captureEditor(options, dependencies = {}) {
     profile: storyboard.profile,
     ai: storyboard.ai,
     approval: 'human-visual-review-required',
-    privacy: { textScan: 'not-run', pixelReview: 'required' }
+    privacy: { textScan: 'not-run', pixelReview: options.replay ? 'not-captured' : 'required' },
+    ...(options.replay ? {purpose: 'procedure-replay', approval: 'not-a-media-candidate'} : {})
   };
   let application;
   let captureProfile;
   let workspaceSnapshot;
   let failure;
   let closed = true;
+  let manifestPersisted = false;
+  let stage = 'preparation';
   try {
     if (storyboard.workspace) {
       workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry);
@@ -190,6 +195,7 @@ async function captureEditor(options, dependencies = {}) {
     manifest.settings = settings;
     fs.writeFileSync(path.join(userDirectory, 'settings.json'), JSON.stringify(settings, null, 2));
     if (storyboard.fixture) fs.writeFileSync(fixture, storyboard.fixture.content);
+    stage = 'launch';
     application = await launch({
       executablePath: executable,
       args: [
@@ -198,7 +204,7 @@ async function captureEditor(options, dependencies = {}) {
         '--force-device-scale-factor=1', '--locale=en',
         '--user-data-dir', userData,
         '--extensions-dir', path.join(runtime, 'extensions'),
-        ...(needsPreparation ? [workspace, '--goto'] : []), fixture
+        ...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture
       ],
       env: environment,
       cwd: workspace,
@@ -214,23 +220,26 @@ async function captureEditor(options, dependencies = {}) {
     const configuration = JSON.parse(fs.readFileSync(path.join(identity.appPath, 'product.json'), 'utf8'));
     const product = {revision: configuration.commit, quality: configuration.quality, version: identity.version};
     const quality = storyboard.channel === 'insiders' ? 'insider' : 'stable';
-    if (product.revision !== options.revision || product.quality !== quality) {
-      throw new Error(`Running product does not match the requested ${storyboard.channel} build.`);
-    }
     manifest.product = product;
+    if (product.revision !== options.revision || product.quality !== quality) {
+      throw new ProcedureFailure('prerequisite', 'build-mismatch', `Running product does not match the requested ${storyboard.channel} build.`);
+    }
+    stage = 'window';
     const page = await application.firstWindow();
     page.setDefaultTimeout(15000);
     await page.locator('.monaco-workbench').waitFor({state: 'visible'});
     const window = await application.browserWindow(page);
     await window.evaluate((browserWindow, size) => browserWindow.setContentSize(size.width, size.height), storyboard.profile);
     if (needsPreparation) {
+      stage = 'readiness';
       manifest.workspacePreparation = {status: 'awaiting-human'};
       const ready = options.waitForReady ? await waitForReadiness(runDirectory, workspace) :
         await (dependencies.confirmReady || confirmWorkspaceReady)(workspace);
       if (ready !== true) {
         manifest.workspacePreparation.status = 'cancelled';
-        throw new Error('Workspace preparation was cancelled. No candidate was saved.');
+        throw new ProcedureFailure('prerequisite', 'readiness-denied', 'Workspace preparation was cancelled. No candidate was saved.');
       }
+      stage = 'baseline';
       manifest.workspacePreparation = {status: 'confirmed', confirmedAt: new Date().toISOString()};
     }
     await page.waitForFunction(profile => {
@@ -266,7 +275,7 @@ async function captureEditor(options, dependencies = {}) {
     const checkPrivacy = async () => {
       const visibility = await page.evaluate(() => document.visibilityState);
       if (visibility !== 'visible') {
-        throw new Error('Attended capture requires a visible page throughout the run.');
+        throw new ProcedureFailure('environment', 'window-not-visible', 'Attended capture requires a visible page throughout the run.');
       }
       const visibleText = await page.locator('body').innerText();
       const title = await page.title();
@@ -280,53 +289,63 @@ async function captureEditor(options, dependencies = {}) {
         throw error;
       }
     };
+    stage = 'steps';
     manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy);
-    const highlightRectangles = storyboard.capture.highlights ? await collectHighlightRectangles(page, storyboard) : undefined;
     await checkPrivacy();
     manifest.privacy.textScan = 'passed';
-    const encoded = await window.evaluate(async browserWindow =>
-      (await browserWindow.capturePage()).toPNG().toString('base64'));
-    const bytes = Buffer.from(encoded, 'base64');
-    validatePng(bytes, storyboard.profile.width, storyboard.profile.height);
-    const file = path.join(runDirectory, storyboard.capture.file);
-    fs.writeFileSync(file, bytes, {flag: 'wx'});
-    manifest.asset = {
-      file: storyboard.capture.file, alt: storyboard.capture.alt, method: 'electron-window-content',
-      sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length
-    };
-    if (highlightRectangles) {
-      assertStableHighlights(highlightRectangles, await collectHighlightRectangles(page, storyboard));
-      const strokeWidth = storyboard.capture.highlights.strokeWidth ?? 2;
-      const result = await application.evaluate(renderHighlights, {
-        png: encoded, width: storyboard.profile.width, height: storyboard.profile.height,
-        rectangles: highlightRectangles, strokeWidth
-      });
-      const highlighted = Buffer.from(result.png, 'base64');
-      validatePng(highlighted, storyboard.profile.width, storyboard.profile.height);
-      const name = `${path.basename(storyboard.capture.file, '.png')}-highlighted.png`;
-      fs.writeFileSync(path.join(runDirectory, name), highlighted, {flag: 'wx'});
-      manifest.highlighted = {
-        file: name, alt: storyboard.capture.alt, method: 'pixel-rectangles',
-        sourceFile: manifest.asset.file, sourceSha256: manifest.asset.sha256,
-        runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-highlights.js'))).digest('hex'),
-        sha256: crypto.createHash('sha256').update(highlighted).digest('hex'), bytes: highlighted.length,
-        color: '#FF0000', strokeWidth, rectangles: highlightRectangles,
-        verification: result.verification, humanVisualReviewRequired: true
+    if (!options.replay) {
+      const highlightRectangles = storyboard.capture.highlights ? await collectHighlightRectangles(page, storyboard) : undefined;
+      await checkPrivacy();
+      const encoded = await window.evaluate(async browserWindow =>
+        (await browserWindow.capturePage()).toPNG().toString('base64'));
+      const bytes = Buffer.from(encoded, 'base64');
+      validatePng(bytes, storyboard.profile.width, storyboard.profile.height);
+      const file = path.join(runDirectory, storyboard.capture.file);
+      fs.writeFileSync(file, bytes, {flag: 'wx'});
+      manifest.asset = {
+        file: storyboard.capture.file, alt: storyboard.capture.alt, method: 'electron-window-content',
+        sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length
       };
+      if (highlightRectangles) {
+        assertStableHighlights(highlightRectangles, await collectHighlightRectangles(page, storyboard));
+        const strokeWidth = storyboard.capture.highlights.strokeWidth ?? 2;
+        const result = await application.evaluate(renderHighlights, {
+          png: encoded, width: storyboard.profile.width, height: storyboard.profile.height,
+          rectangles: highlightRectangles, strokeWidth
+        });
+        const highlighted = Buffer.from(result.png, 'base64');
+        validatePng(highlighted, storyboard.profile.width, storyboard.profile.height);
+        const name = `${path.basename(storyboard.capture.file, '.png')}-highlighted.png`;
+        fs.writeFileSync(path.join(runDirectory, name), highlighted, {flag: 'wx'});
+        manifest.highlighted = {
+          file: name, alt: storyboard.capture.alt, method: 'pixel-rectangles',
+          sourceFile: manifest.asset.file, sourceSha256: manifest.asset.sha256,
+          runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-highlights.js'))).digest('hex'),
+          sha256: crypto.createHash('sha256').update(highlighted).digest('hex'), bytes: highlighted.length,
+          color: '#FF0000', strokeWidth, rectangles: highlightRectangles,
+          verification: result.verification, humanVisualReviewRequired: true
+        };
+      }
+      if (options.video) {
+        manifest.video = {
+          file: storyboard.video.file, status: 'recording',
+          runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-video.js'))).digest('hex'),
+          encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex')
+        };
+        const record = dependencies.recordVideo || require('./capture-video').recordStoryboardVideo;
+        Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, encoder, checkPrivacy));
+      }
     }
-    if (options.video) {
-      manifest.video = {
-        file: storyboard.video.file, status: 'recording',
-        runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-video.js'))).digest('hex'),
-        encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex')
-      };
-      const record = dependencies.recordVideo || require('./capture-video').recordStoryboardVideo;
-      Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, encoder, checkPrivacy));
-    }
-    manifest.status = 'candidate';
+    manifest.status = options.replay ? 'passed' : 'candidate';
   } catch (error) {
     failure = error;
-    manifest.error = error.message;
+    if (error.steps) {
+      if (error.failure.phase === 'steps') manifest.steps = error.steps;
+      else manifest.failedSteps = {phase: error.failure.phase, steps: error.steps};
+    }
+    const category = ['preparation', 'readiness'].includes(stage) ? 'prerequisite' : 'environment';
+    manifest.failures = [failureDetails(error, category, `${stage}-failed`)];
+    manifest.error = options.replay ? `${manifest.failures[0].category}: ${manifest.failures[0].code}` : error.message;
     if (manifest.workspacePreparation?.status === 'awaiting-human') {
       manifest.workspacePreparation.status = 'failed';
     }
@@ -338,7 +357,8 @@ async function captureEditor(options, dependencies = {}) {
       }
     } catch (error) {
       failure = failure ? new AggregateError([failure, error], 'Capture and process cleanup failed.') : error;
-      manifest.cleanupError = error.message;
+      (manifest.failures ||= []).push({category: 'cleanup', code: 'process-close-failed'});
+      manifest.cleanupError = options.replay ? 'process-close-failed' : error.message;
     }
     try {
       if (closed) {
@@ -348,7 +368,8 @@ async function captureEditor(options, dependencies = {}) {
       }
     } catch (error) {
       failure = failure ? new AggregateError([failure, error], 'Capture and directory cleanup failed.') : error;
-      manifest.cleanupError = error.message;
+      (manifest.failures ||= []).push({category: 'cleanup', code: 'directory-cleanup-failed'});
+      manifest.cleanupError = options.replay ? 'directory-cleanup-failed' : error.message;
     }
     if (captureProfile && closed) {
       try {
@@ -356,7 +377,8 @@ async function captureEditor(options, dependencies = {}) {
         manifest.captureProfile.lockRetained = false;
       } catch (error) {
         failure = failure ? new AggregateError([failure, error], 'Capture and profile unlock failed.') : error;
-        manifest.cleanupError = error.message;
+        (manifest.failures ||= []).push({category: 'cleanup', code: 'profile-unlock-failed'});
+        manifest.cleanupError = options.replay ? 'profile-unlock-failed' : error.message;
       }
     }
     if (workspaceSnapshot) {
@@ -368,20 +390,35 @@ async function captureEditor(options, dependencies = {}) {
       } catch (error) {
         failure = failure ? new AggregateError([failure, error], `${failure.message}; ${error.message}`) : error;
         if (manifest.workspace) manifest.workspace.check = 'failed';
-        manifest.workspaceError = error.message;
+        (manifest.failures ||= []).push({category: 'environment', code: 'workspace-changed'});
+        manifest.workspaceError = options.replay ? 'workspace-changed' : error.message;
       }
     }
     if (failure) {
       manifest.status = 'failed';
-      manifest.error ||= failure.message;
+      manifest.error ||= options.replay ? 'Replay did not complete successfully.' : failure.message;
       if (manifest.video) {
         manifest.video.status = 'failed';
       }
     }
-    fs.writeFileSync(path.join(runDirectory, 'capture.json'), JSON.stringify(manifest, null, 2));
+    try {
+      fs.writeFileSync(path.join(runDirectory, 'capture.json'), JSON.stringify(manifest, null, 2));
+      manifestPersisted = true;
+    } catch (error) {
+      failure = failure ? new AggregateError([failure, error], 'Capture and manifest persistence failed.') : error;
+      (manifest.failures ||= []).push({category: 'environment', code: 'capture-manifest-write-failed'});
+      manifest.status = 'failed';
+      manifest.error ||= 'Capture manifest could not be saved.';
+      if (manifest.video) manifest.video.status = 'failed';
+    }
   }
   if (failure) {
-    throw new Error(`Capture failed; inspect ${path.join(runDirectory, 'capture.json')}: ${failure.message}`, {cause: failure});
+    const message = manifestPersisted ?
+      `Capture failed; inspect ${path.join(runDirectory, 'capture.json')}: ${options.replay ? manifest.error : failure.message}` :
+      'Capture failed; the private capture manifest could not be saved. Private runtime state may remain.';
+    const error = new Error(message, {cause: failure});
+    error.capture = {directory: runDirectory, manifest, manifestPersisted};
+    throw error;
   }
   return { directory: runDirectory, manifest };
 }

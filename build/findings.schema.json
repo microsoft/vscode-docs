@@ -5,13 +5,16 @@
   "required": ["schemaVersion", "checks", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "const": 4 },
+    "schemaVersion": { "enum": [4, 5] },
     "checks": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "contains": { "const": "claims" },
-      "items": { "enum": ["claims", "links", "navigation"] }
+      "items": { "enum": ["claims", "links", "navigation", "replay"] },
+      "oneOf": [
+        {"contains": {"const": "claims"}, "not": {"contains": {"const": "replay"}}},
+        {"const": ["replay"]}
+      ]
     },
     "sourceRevision": { "$ref": "#/$defs/text" },
     "generatedAt": { "$ref": "#/$defs/timestamp" },
@@ -23,14 +26,32 @@
     },
     "inputHash": {
       "$ref": "#/$defs/hash",
-      "description": "SHA-256 of enabled checks, scan scope, article hashes, resolved data variables, lifecycle data, and optional link dependencies."
+      "description": "SHA-256 of claim-checker inputs and enabled checks, or of the exact reviewed replay binding."
     },
     "productManifest": { "$ref": "#/$defs/productManifest" },
+    "replay": { "$ref": "#/$defs/replay" },
     "findings": {
       "type": "array",
       "items": { "$ref": "#/$defs/finding" }
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"checks": {"contains": {"const": "replay"}}}},
+      "then": {
+        "required": ["replay"],
+        "properties": {
+          "schemaVersion": {"const": 5},
+          "findings": {"items": {"required": ["replayEvidence"], "properties": {"kind": {"const": "replay"}}, "not": {"required": ["productEvidence"]}}}
+        },
+        "not": {"required": ["productManifest"]}
+      },
+      "else": {
+        "not": {"required": ["replay"]},
+        "properties": {"findings": {"items": {"not": {"required": ["replayEvidence"]}}}}
+      }
+    }
+  ],
   "$defs": {
     "text": { "type": "string", "pattern": "\\S" },
     "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
@@ -61,8 +82,66 @@
         "message": { "$ref": "#/$defs/text" },
         "firstSeen": { "$ref": "#/$defs/timestamp" },
         "lastSeen": { "$ref": "#/$defs/timestamp" },
-        "productEvidence": { "$ref": "#/$defs/productEvidence" }
+        "productEvidence": { "$ref": "#/$defs/productEvidence" },
+        "replayEvidence": { "$ref": "#/$defs/replayEvidence" }
       }
+    },
+    "privateReference": {
+      "type": "object", "additionalProperties": false, "required": ["file", "sha256"],
+      "properties": {"file": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/hash"}}
+    },
+    "replay": {
+      "type": "object", "additionalProperties": false, "required": ["binding", "review", "evidence", "status"],
+      "properties": {
+        "binding": {"$ref": "#/$defs/replayBinding"},
+        "review": {"$ref": "#/$defs/privateReference"},
+        "evidence": {"$ref": "#/$defs/privateReference"},
+        "status": {"enum": ["passed", "mismatch", "incomplete"]}
+      }
+    },
+    "replayBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["article", "articleHash", "sourceRevision", "storyboardId", "storyboardHash", "runnerHash", "product"],
+      "properties": {
+        "article": {"$ref": "#/$defs/article"}, "articleHash": {"$ref": "#/$defs/hash"},
+        "sourceRevision": {"$ref": "#/$defs/text"}, "storyboardId": {"$ref": "#/$defs/text"},
+        "storyboardHash": {"$ref": "#/$defs/hash"}, "runnerHash": {"$ref": "#/$defs/hash"},
+        "product": {
+          "type": "object", "additionalProperties": false, "required": ["revision", "channel"],
+          "properties": {
+            "revision": {"type": "string", "pattern": "^[a-fA-F0-9]{40}$"},
+            "channel": {"enum": ["stable", "insiders"]}
+          }
+        },
+        "workspace": {"$ref": "#/$defs/text"}, "captureProfile": {"$ref": "#/$defs/text"}
+      },
+      "dependentRequired": {"workspace": ["captureProfile"], "captureProfile": ["workspace"]}
+    },
+    "replayEvidence": {
+      "type": "object", "additionalProperties": false, "required": ["category", "code"],
+      "properties": {
+        "category": {"enum": ["mismatch", "prerequisite", "environment", "privacy", "cleanup"]},
+        "code": {"type": "string", "pattern": "^[a-z][a-z-]+$"},
+        "phase": {"type": "string", "enum": ["steps", "video.steps", "video.reset"]},
+        "step": {"type": "integer", "minimum": 0, "maximum": 39},
+        "kind": {"enum": ["click", "key", "fill", "type", "check", "wait-for", "assert", "pause"]},
+        "target": {"$ref": "#/$defs/text"},
+        "expected": {
+          "oneOf": [
+            {"type": "object", "additionalProperties": false, "required": ["text", "match"],
+              "properties": {"text": {"$ref": "#/$defs/text"}, "match": {"enum": ["equals", "contains"]}}},
+            {"type": "object", "additionalProperties": false, "required": ["values"],
+              "properties": {"values": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}}}}
+          ]
+        },
+        "observed": {"const": {"state": "visible", "matches": false}}
+      },
+      "dependentRequired": {"step": ["phase", "kind"], "phase": ["step", "kind"], "kind": ["step", "phase"]},
+      "allOf": [{
+        "if": {"properties": {"category": {"const": "mismatch"}}},
+        "then": {"required": ["step", "expected", "observed"]},
+        "else": {"not": {"anyOf": [{"required": ["expected"]}, {"required": ["observed"]}]}}
+      }]
     },
     "productManifest": {
       "type": "object",

@@ -8,6 +8,8 @@ argument-hint: 'An article, existing media asset, or storyboard path.'
 
 Use the tested scripts under `build/` to produce private media candidates. This skill describes the procedure; it does not implement a separate driver or orchestration system.
 
+For assertion-based procedure checks without media, use [docs-replay](../docs-replay/SKILL.md). Replay outcomes are never media candidates or visual approvals.
+
 ## Guardrails
 
 * **Attended only.** A human must approve the local run, keep the capture window visible, and remain available. Do not schedule captures, test lock or sleep states, or change desktop power settings.

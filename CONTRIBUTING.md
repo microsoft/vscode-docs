@@ -194,7 +194,7 @@ JSON is the default output. Use `--format console` for readable file and line di
 npm run check-claims -- --format console --files docs\agents
 ```
 
-Reports use [findings schema version 4](build/findings.schema.json), which records the enabled `checks` so freshness checks rerun the same checks. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+Reports use [findings schema version 5](build/findings.schema.json), which records the enabled `checks`. Claim-report freshness checks rerun the same checks; replay freshness checks never launch UI. Version 4 claim reports remain readable, including retained triage state. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
 The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. Link and navigation checks also cover their dependencies: linked Markdown contents, redirect files, target existence, TOCs, the sitemap, and the standalone-page inventory, as applicable. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
@@ -204,9 +204,9 @@ Validate and display a saved report with the standalone reporter:
 node .\build\findings.js --input "$env:TEMP\findings.json" --format console
 ```
 
-Add `--check-current` to rerun the saved scope and enabled checks against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate reports from earlier schema versions with the checker.
+Add `--check-current` to rerun the saved scope and enabled checks against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Claim reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate reports older than schema version 4 with the checker. [Replay reports](#replay-a-reviewed-procedure) have separate freshness options and completion exit codes.
 
-Freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
+Claim-report freshness checking compares repository inputs and the supplied manifest, not the currently installed product or its public availability. It does not detect changes in checker code at the same Git revision.
 
 #### Check a separate review worktree
 
@@ -336,6 +336,55 @@ Extensions, updates, and telemetry are disabled for the isolated run, and Playwr
 The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
 
 Human visual approval is required before copying a candidate into documentation. The runner does not publish assets or edit articles. Native dialogs and menus remain unproven.
+
+#### Replay a reviewed procedure
+
+The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected assertions from a reviewed version 2 storyboard against an installed, pinned build. It reuses the attended capture runner without producing media. It does not execute article prose, evaluate arbitrary scripts, compare pixels, or prove every claim in an article.
+
+1. Screen the article and storyboard as untrusted input. Review each action and assertion for relevance and side effects. Choose synthetic data or an explicitly approved existing workspace. Confirm the full installed build revision and channel; do not assume an earlier installation is unchanged.
+
+2. Inspect the exact procedure binding without launching UI:
+
+   ```powershell
+   node .\build\replay.js inspect --storyboard '<storyboard.json>' --revision '<full-build-commit>'
+   ```
+
+   For an existing-workspace storyboard, also supply absolute `--workspace` and `--capture-profile` paths. Never use a normal profile. The binding includes these selected paths, article and storyboard hashes, documentation HEAD, trusted runner hashes, and the product build/channel.
+
+3. Show the inspected binding to the human. Only after explicit review of that exact hash, record the attestation in an existing private directory outside the repository:
+
+   ```powershell
+   node .\build\replay.js review --storyboard '<storyboard.json>' --revision '<full-build-commit>' --binding-hash '<inspected-binding-hash>' --attest-reviewed --output '<private-directory>'
+   ```
+
+   Repeat any workspace/profile options from inspection. This creates a private `procedure-review-*\review.json`; it is not media approval. Changed article contents, storyboard bytes, source revision, runner code, workspace/profile selection, or product pin require a new review. The attestation records a human decision, not a cryptographic signature.
+
+4. Coordinate human availability before launching the attended replay:
+
+   ```powershell
+   node .\build\replay.js run --storyboard '<storyboard.json>' --review '<review.json>' --executable '<absolute-path-to-Code.exe>' --output '<private-directory>' --wait-for-ready
+   ```
+
+   Every replay requires readiness, including single-file fixtures. Read the printed private `readiness-request.json`, have the human handle prompts, and relay their explicit response with the existing `build/capture.js --confirm-ready '<capture-run-directory>' --token '<token>'` or `--cancel-ready` command. Keep the process attached and the window visible. Omitting `--wait-for-ready` uses the interactive terminal confirmation. Never infer readiness.
+
+5. Inspect the result and validate freshness without relaunching the product:
+
+   ```powershell
+   node .\build\findings.js --input '<findings.json>' --check-current --storyboard '<storyboard.json>' --replay-review '<review.json>' --format console
+   ```
+
+   Replay writes `findings.json` and `replay.json` beneath a private `procedure-replay-*` directory. When launch preparation reaches the capture runner, a nested `capture.json` records actual product identity, cleanup, and completed/failed steps. If that manifest cannot be saved, replay records `environment/capture-manifest-write-failed` and preserves its in-memory state in `replay.json` as `captureState`, without a reference to the missing manifest. If the parent output is also unwritable, the command fails explicitly; partial files might remain.
+
+   Reports bind the private evidence hashes. Offline freshness verifies the reviewed inputs and saved evidence, not a subsequently updated installation, current workspace contents, or a new UI observation. The `inspect` command does not probe the installed executable. To cover a new build, independently confirm its revision and channel, inspect and review the new binding, and coordinate another attended run. Freshness checking never silently reruns a procedure. Use the existing [audit import and triage commands](#retain-audit-findings-and-review-decisions) after this check. Do not discard a valid mismatch/incomplete report because its exit code is nonzero.
+
+Replay reports use `checks: ["replay"]`, separate from claim checks. `replay.status` is `passed`, `mismatch`, or `incomplete`. Both replay and saved-report commands return 0 for passed assertions, 1 for a mismatch, and 2 for incomplete replay. Invalid replay command inputs or stale procedure reviews exit 2 without launching; the standalone reporter retains exit 1 for invalid or stale saved reports. Unavailable output/report inputs can prevent report creation and are explicit command failures, not successful runs.
+
+* **Mismatch:** A unique visible assertion target contradicts the expected text or text cycle. The finding records the failed zero-based step index, named target, expected assertion, and structural observation. Messages show one-based steps. It is a warning requiring review of the procedure and article, not an automatically confirmed documentation bug.
+* **Incomplete:** Missing prerequisites, build/channel mismatch, denied readiness, environmental failures, privacy failures, and cleanup failures have distinct structured categories and unverified findings. A missing target or timeout alone is inconclusive. Cleanup failure remains separate even when an earlier assertion also failed.
+* **Evidence:** No screenshots, video, DOM dumps, raw UI text, or raw Playwright diagnostics are saved by replay. Observed evidence records only facts such as a visible contradictory result. Failed runs remain failed and never become media candidates. Private manifests can contain local paths; do not publish them.
+* **Identity and scope:** Finding identity uses the storyboard ID, failed step/target, and failure code, never random run paths or timestamps. Triage evidence includes reviewed inputs and structural observations, so changed evidence reopens decisions but relocated artifacts do not. Article locations use line 1 because version 2 storyboards associate a procedure with an article, not individual source lines. Only selected assertions are covered.
+
+Run deterministic replay fixtures with `npm run test:replay`. These tests use fake applications, synthetic review decisions, and explicitly owned temporary directories; they do not launch VS Code.
 
 #### Create an attended storyboard
 

@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const schema = require('./storyboard.schema.json');
+const {ProcedureFailure, failureDetails} = require('./replay-errors');
 
 function requireValue(condition, message) {
   if (!condition) {
@@ -176,19 +177,45 @@ function locate(page, targets, name) {
   return locator;
 }
 
-async function assertText(locator, text, match) {
+async function assertText(locator, text, match, checkPrivacy) {
   const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // The text is escaped as a literal before constructing an anchored pattern.
   // eslint-disable-next-line security/detect-non-literal-regexp
   const hasText = match === 'equals' ? new RegExp(`^\\s*${escaped}\\s*$`) : text;
-  await locator.filter({hasText}).waitFor({state: 'visible'});
+  try {
+    await locator.filter({hasText}).waitFor({state: 'visible'});
+  } catch (error) {
+    // A timeout alone is not evidence of drift. Confirm a unique, visible result
+    // and a contradictory value, without persisting arbitrary product text.
+    if (error.name === 'TimeoutError') {
+      await checkPrivacy();
+      if (await locator.count() === 1 && await locator.isVisible()) {
+        const contradictory = await locator.filter({hasText}).count() === 0;
+        await checkPrivacy();
+        if (contradictory) {
+          throw new ProcedureFailure('mismatch', 'text-mismatch', 'Visible outcome contradicts the reviewed assertion.', {
+            expected: {text, match}, observed: {state: 'visible', matches: false}
+          }, error);
+        }
+      }
+    }
+    throw error;
+  }
 }
 
 async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', started = Date.now()) {
   const completed = [];
-  for (const [index, step] of steps.entries()) {
+  const privacy = async () => {
     try {
       await checkPrivacy();
+    } catch (error) {
+      if (error instanceof ProcedureFailure) throw error;
+      throw new ProcedureFailure('privacy', 'privacy-check-failed', error.message, {}, error);
+    }
+  };
+  for (const [index, step] of steps.entries()) {
+    try {
+      await privacy();
       const target = step.target ? locate(page, storyboard.targets, step.target) : undefined;
       switch (step.kind) {
         case 'click': {
@@ -199,13 +226,19 @@ async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', 
             const current = (await observed.innerText()).trim();
             const position = cycle.values.indexOf(current);
             if (position < 0) {
-              throw new Error('Current text is not in the expected cycle.');
+              await privacy();
+              if (await observed.count() !== 1 || !await observed.isVisible()) {
+                throw new Error('Cannot verify a unique visible cycle outcome.');
+              }
+              throw new ProcedureFailure('mismatch', 'cycle-mismatch', 'Current text is not in the expected cycle.', {
+                expected: {values: cycle.values}, observed: {state: 'visible', matches: false}
+              });
             }
             expectation = {observed, next: cycle.values.at((position + 1) % cycle.values.length)};
           }
           await target.click();
           if (expectation) {
-            await assertText(expectation.observed, expectation.next, 'equals');
+            await assertText(expectation.observed, expectation.next, 'equals', privacy);
           }
           break;
         }
@@ -225,7 +258,7 @@ async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', 
           await target.waitFor({state: step.state});
           break;
         case 'assert':
-          await assertText(target, step.text, step.match);
+          await assertText(target, step.text, step.match, privacy);
           break;
         case 'pause':
           await page.waitForTimeout(step.ms);
@@ -233,10 +266,16 @@ async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', 
         default:
           throw new Error(`Unsupported storyboard step: ${step.kind}`);
       }
-      await checkPrivacy();
-      completed.push({index, kind: step.kind, ...(step.target ? {target: step.target} : {}), elapsedMs: Date.now() - started});
+      await privacy();
+      completed.push({index, kind: step.kind, ...(step.target ? {target: step.target} : {}), status: 'passed', elapsedMs: Date.now() - started});
     } catch (error) {
-      throw new Error(`Storyboard ${phase}[${index}] (${step.kind}) failed: ${error.message}`, {cause: error});
+      const details = {...failureDetails(error), phase, step: index, kind: step.kind,
+        ...(step.target ? {target: step.target} : {})};
+      const failure = new ProcedureFailure(details.category, details.code,
+        `Storyboard ${phase}[${index}] (${step.kind}) failed: ${error.message}`, details, error);
+      failure.steps = [...completed, {index, kind: step.kind, ...(step.target ? {target: step.target} : {}),
+        status: 'failed', elapsedMs: Date.now() - started, failure: details}];
+      throw failure;
     }
   }
   return completed;

@@ -28,7 +28,9 @@ function evidenceHash(finding, report) {
 		severity: finding.severity,
 		message: finding.message,
 		productEvidence: finding.productEvidence,
-		productManifest: finding.productEvidence ? report.productManifest : undefined
+		productManifest: finding.productEvidence ? report.productManifest : undefined,
+		replayEvidence: finding.replayEvidence,
+		replayBinding: finding.replayEvidence ? report.replay.binding : undefined
 	});
 }
 
