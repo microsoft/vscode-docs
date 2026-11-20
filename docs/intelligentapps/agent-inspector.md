@@ -23,7 +23,7 @@ The following example shows a local Responses agent with tool calls, a latency w
 * A local agent project with its dependencies, model configuration, and credentials set up. To start from a sample, follow [Create and deploy a hosted agent](/docs/intelligentapps/hosted-agents.md) through its local testing section.
 * The debugger required by your project. The Python sample uses the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and `debugpy`. Other languages and samples have different requirements.
 
-For help adapting an existing project, use the [Foundry Toolkit Copilot tools](/docs/intelligentapps/copilot-tools.md#agent-code-gen-tool). Review the generated configuration and follow the project's `README.md` rather than replacing its launch files with a generic configuration.
+For help adapting an existing project, use the [Foundry Toolkit Copilot tools](/docs/intelligentapps/copilot-tools.md#generate-and-test-agent-code). Review the generated configuration and follow the project's `README.md` rather than replacing its launch files with a generic configuration.
 
 > [!IMPORTANT]
 > A local agent can call cloud models and live tools. Use non-sensitive test inputs, check tool permissions, and account for charges from the configured services. Inspector doesn't replace tools with mocks.
