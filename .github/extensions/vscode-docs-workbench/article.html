@@ -13,7 +13,7 @@
     <p class="muted">Check a scope. Review findings across articles, independently of when checks ran.</p>
   </header>
   <label for="task-type">Task</label>
-  <select id="task-type" disabled><option value="checks">Check claims and links</option><option value="replay">Replay procedure (attended)</option></select>
+  <select id="task-type" disabled><option value="checks">Check claims and links</option><option value="review">Review an article</option><option value="replay">Replay procedure (attended)</option></select>
   <form id="launch-form" class="launch-bar">
     <div class="article-picker">
       <label for="scope">Check scope <span class="muted">(articles or folders, separated by commas)</span></label>
@@ -23,6 +23,14 @@
     <button id="launch" type="submit" disabled>Run checks</button>
     <p class="launch-scope muted"><span id="scope-count">0 articles selected</span>. Read-only claims and links checks. Saves private results and uses host credits. No content or public changes.</p>
     <p id="launch-eligibility" class="error"></p>
+  </form>
+  <form id="review-form" class="launch-bar" hidden>
+    <div class="article-picker"><label for="review-article">Article to review</label><input id="review-article" list="scopes" placeholder="docs/editing/codebasics.md" required></div>
+    <div><label for="review-focus">Review focus</label><select id="review-focus"><option value="both">Technical and editorial</option><option value="editorial">Editorial</option><option value="technical">Technical accuracy</option></select></div>
+    <div><label for="review-channel">Intended product channel</label><select id="review-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
+    <button id="review-launch" type="submit" disabled>Start article review</button>
+    <p class="launch-scope muted">Reviews one whole article. Runs local prechecks, then uses a host agent and read-only product research when needed. Saves private results and uses host credits. No article edits, command execution, sign-in, or GitHub writes.</p>
+    <p id="review-eligibility" class="error"></p>
   </form>
   <form id="replay-form" class="launch-bar" hidden>
     <div class="article-picker"><label for="replay-storyboard">Reviewed storyboard</label><select id="replay-storyboard"></select></div>
@@ -54,7 +62,7 @@
     <p id="verification-status" role="status" aria-live="polite" class="muted"></p>
     <div class="finding-toolbar">
       <div><label for="article-filter">Article or folder</label><input id="article-filter" list="scopes" placeholder="All articles"></div>
-      <div><label for="check-filter">Check type</label><select id="check-filter"><option value="all">All checks</option><option value="claims">Claims</option><option value="links">Links</option><option value="replay">Replay</option></select></div>
+      <div><label for="check-filter">Check type</label><select id="check-filter"><option value="all">All checks</option><option value="claims">Claims</option><option value="links">Links</option><option value="review">Article review</option><option value="replay">Replay</option></select></div>
       <div><label for="status-filter">Review status</label><select id="status-filter"><option value="all">All statuses</option><option value="open">Open</option><option value="accepted">Accepted</option><option value="dismissed">Dismissed</option><option value="fixed">Fixed</option></select></div>
       <div><label for="freshness-filter">Freshness</label><select id="freshness-filter"><option value="all">All evidence</option><option value="checking">Checking</option><option value="fresh">Fresh</option><option value="stale">Stale</option><option value="not-observed">Not observed</option><option value="unavailable">Unavailable</option></select></div>
     </div>
@@ -85,7 +93,7 @@
       <p id="ownership"></p>
       <p>Saved findings appear while current freshness is checked in a local worker. Checking is not Fresh. Complete, confirmed reports enter the inbox only after full validation. Every decision save freshly validates the selected article and its dependencies. Changed evidence reopens decisions. Findings absent from a later applicable scan remain marked Not observed, never automatically fixed. Failed or incomplete attempts preserve earlier results.</p>
       <p>Recent host activity is not saved as a transcript. Hidden execution references support provenance and recovery, not run-history navigation. The task API returns no host deep links. Stopping local freshness verification never cancels a host task. Local review never authorizes documentation edits, GitHub writes, media approval, publication, host-task cancellation, or archiving.</p>
-      <p>Replay is attended and uses a reviewed storyboard and pinned build. Its coverage is separate from claims and links. A passed replay covers only its assertions, not every article claim or another product build. PR review, feature documentation, audits, media, and docs-as-eval remain separate workflows.</p>
+      <p>Article review produces scoped agent judgments, not a correctness verdict. Product citations are agent-supplied, and Fresh describes unchanged local inputs. Replay is attended and covers only its reviewed assertions. PR selection, feature documentation, audits, media, and docs-as-eval remain separate workflows.</p>
     </details>
   </footer>
 </main>

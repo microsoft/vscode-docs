@@ -5,15 +5,16 @@
   "required": ["schemaVersion", "checks", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "enum": [4, 5] },
+    "schemaVersion": { "enum": [4, 5, 6] },
     "checks": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "enum": ["claims", "links", "navigation", "replay"] },
+      "items": { "enum": ["claims", "links", "navigation", "replay", "review"] },
       "oneOf": [
-        {"contains": {"const": "claims"}, "not": {"contains": {"const": "replay"}}},
-        {"const": ["replay"]}
+        {"contains": {"const": "claims"}, "not": {"anyOf": [{"contains": {"const": "replay"}}, {"contains": {"const": "review"}}]}},
+        {"const": ["replay"]},
+        {"const": ["review"]}
       ]
     },
     "sourceRevision": { "$ref": "#/$defs/text" },
@@ -30,12 +31,28 @@
     },
     "productManifest": { "$ref": "#/$defs/productManifest" },
     "replay": { "$ref": "#/$defs/replay" },
+    "review": { "$ref": "#/$defs/review" },
     "findings": {
       "type": "array",
       "items": { "$ref": "#/$defs/finding" }
     }
   },
   "allOf": [
+    {
+      "if": {"properties": {"checks": {"const": ["review"]}}},
+      "then": {
+        "required": ["review"],
+        "properties": {
+          "schemaVersion": {"const": 6},
+          "findings": {"maxItems": 50, "items": {"required": ["reviewEvidence"], "properties": {"kind": {"const": "review"}}, "not": {"required": ["productEvidence"]}}}
+        },
+        "not": {"required": ["productManifest"]}
+      },
+      "else": {
+        "not": {"required": ["review"]},
+        "properties": {"findings": {"items": {"not": {"required": ["reviewEvidence"]}}}}
+      }
+    },
     {
       "if": {"properties": {"checks": {"contains": {"const": "replay"}}}},
       "then": {
@@ -71,7 +88,7 @@
       "additionalProperties": false,
       "properties": {
         "id": { "$ref": "#/$defs/hash" },
-        "kind": { "enum": ["claim", "link", "lifecycle", "replay", "media-drift", "eval", "audit-proposal"] },
+        "kind": { "enum": ["claim", "link", "lifecycle", "replay", "review", "media-drift", "eval", "audit-proposal"] },
         "severity": { "enum": ["error", "warning", "unverified"] },
         "article": { "$ref": "#/$defs/article" },
         "articleHash": { "$ref": "#/$defs/hash" },
@@ -83,7 +100,41 @@
         "firstSeen": { "$ref": "#/$defs/timestamp" },
         "lastSeen": { "$ref": "#/$defs/timestamp" },
         "productEvidence": { "$ref": "#/$defs/productEvidence" },
-        "replayEvidence": { "$ref": "#/$defs/replayEvidence" }
+        "replayEvidence": { "$ref": "#/$defs/replayEvidence" },
+        "reviewEvidence": { "$ref": "#/$defs/reviewEvidence" }
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false, "required": ["binding", "status", "summary", "limitations"],
+      "properties": {
+        "binding": {"$ref": "#/$defs/reviewBinding"},
+        "status": {"enum": ["complete", "incomplete"]},
+        "summary": {"$ref": "#/$defs/text"},
+        "limitations": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "reviewBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["article", "articleHash", "sourceRevision", "channel", "focus", "guidelinesHash", "checkerInputHash"],
+      "properties": {
+        "article": {"$ref": "#/$defs/article"}, "articleHash": {"$ref": "#/$defs/hash"},
+        "sourceRevision": {"$ref": "#/$defs/text"}, "channel": {"enum": ["stable", "insiders"]},
+        "focus": {"enum": ["editorial", "technical", "both"]},
+        "guidelinesHash": {"$ref": "#/$defs/hash"}, "checkerInputHash": {"$ref": "#/$defs/hash"}
+      }
+    },
+    "reviewEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["category", "assessment", "endLine", "quote", "suggestion", "sources"],
+      "properties": {
+        "category": {"enum": ["accuracy", "style", "structure", "accessibility", "discoverability"]},
+        "assessment": {"enum": ["supported", "question"]},
+        "endLine": {"type": "integer", "minimum": 1}, "quote": {"$ref": "#/$defs/text"},
+        "suggestion": {"$ref": "#/$defs/text"},
+        "sources": {"type": "array", "maxItems": 10, "items": {
+          "type": "object", "additionalProperties": false, "required": ["url", "quote"],
+          "properties": {"url": {"$ref": "#/$defs/text"}, "quote": {"$ref": "#/$defs/text"}}
+        }}
       }
     },
     "privateReference": {

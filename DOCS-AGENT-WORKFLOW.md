@@ -4,6 +4,8 @@ Use this guide to run agent-assisted documentation checks, retain findings and r
 
 Run commands from the repository root. For general contribution, formatting, and local preview instructions, see [Contributing to VS Code documentation](CONTRIBUTING.md).
 
+For the complete scenario inventory, implementation assessment, and proposed next steps, see the [Docs agent implementation plan](DOCS-AGENT-PLAN.md). This guide describes current procedures, not planned capabilities.
+
 * [Agent writing hooks](#agent-writing-hooks)
 * [Check documentation claims](#check-documentation-claims)
   * [Check internal links and media](#check-internal-links-and-media)
@@ -22,6 +24,7 @@ Run commands from the repository root. For general contribution, formatting, and
   * [Prepare saved media without changing the source](#prepare-saved-media-without-changing-the-source)
   * [Record an exact-asset review](#record-an-exact-asset-review)
 * [Check an article visually](#check-an-article-visually)
+  * [Review an article with an agent](#review-an-article-with-an-agent)
 * [Use the docs workbench](#use-the-docs-workbench)
 
 ## Agent writing hooks
@@ -85,7 +88,7 @@ JSON is the default output. Use `--format console` for readable file and line di
 npm run check-claims -- --format console --files docs\agents
 ```
 
-Reports use [findings schema version 5](build/findings.schema.json), which records the enabled `checks`. Claim-report freshness checks rerun the same checks; replay freshness checks never launch UI. Version 4 claim reports remain readable, including retained triage state. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+The [findings schema](build/findings.schema.json) accepts version 4 and 5 checker reports and version 6 agent-review reports, recording the enabled `checks`. Claim-report freshness checks rerun the same checks. Replay freshness never launches UI, and review freshness never reruns an agent. Retained checker triage remains readable. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
 The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. Link and navigation checks also cover their dependencies: linked Markdown contents, redirect files, target existence, TOCs, the sitemap, and the standalone-page inventory, as applicable. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
@@ -434,6 +437,29 @@ The shared `extension.json` declares both canvases so compatible hosts can list 
 
 Checks cover data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. They do not verify prose accuracy, public product availability, external websites, rendered media, generated content, or navigation. No product build or manifest is supplied, so product references remain **unverified**, distinct from errors and warnings. Checker exit 1 with a valid error report is a check result, not an infrastructure failure.
 
+### Review an article with an agent
+
+Select **Review an article** in the **Task** picker to review one whole article without editing it. This first M1 slice supports local articles, not PR selection or section-only scope.
+
+1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both.
+2. Select **Start article review**. This authorizes local deterministic prechecks, a host-owned agent review, private result files, and read-only product-source research when needed. It can use host credits. It does not authorize sign-in, installs, article commands, UI execution, worktrees, documentation edits, or GitHub writes.
+3. Filter **Check type** to **Article review**. Expand a finding to inspect its exact article quotation, explanation, suggested correction, and any product citations. Record a decision only after inspecting the evidence.
+4. Expand **Coverage** for the review summary, limitations, and deterministic precheck findings. Prechecks are saved with the review and displayed separately from agent judgments. They do not replace findings from independently launched structural checks.
+
+The [docs-review skill](.github/skills/docs-review/SKILL.md) defines the procedure. The [review helper](build/review.js) and [workflow adapter](.github/extensions/vscode-docs-workbench/article-review.mjs) validate the captured article, exact source spans, requested focus, channel, guidelines, local dependencies, and completion receipt before ingestion. Private state uses `reviews.json` and `review-runs` beside the existing inbox state, without migrating or overwriting checks, replay, daily audit, or account data.
+
+Supported observations are labeled as agent judgments and use warning severity. Unresolved questions are unverified. Supported technical findings require quotations and line references from commit-pinned `microsoft/vscode` sources. The agent and human reviewer assess those citations: the importer validates their shape but does not fetch or independently authenticate their contents or conclusions. A selected channel is review intent, not proof of an installed build or public availability. The agent uses the host's existing permissions, not a new security sandbox.
+
+**Agent review completed** means the requested focus was reviewed, not that the article is correct. Incomplete reviews require explicit limitations and retain earlier successful scoped coverage. A later review's silence does not resolve an earlier finding or establish verified absence. Unchanged dismissals persist, and changed evidence reopens decisions.
+
+Freshness checks never rerun the agent or contact GitHub. **Fresh** means local review inputs and saved artifacts remain current, not that a judgment is correct or that the current product still behaves the same way. Review decisions freshly recheck those inputs.
+
+For a saved version 6 report, `node .\build\findings.js --input '<report.json>' --check-current --root '<docs-checkout>'` verifies local freshness. Exit 0 means a completed review with no reported findings, 1 means a completed review with findings, and 2 means an incomplete review. Invalid or stale reports fail explicitly.
+
+Run the focused integration tests with `npm run test:article-workflow`. Set `DOCS_ARTICLE_BROWSER` as described below to include the browser review journey. Live acceptance requires an explicitly selected article and human inspection of the resulting findings.
+
+The accepted live pilot covers a combined technical and editorial review, source-cited findings, separate precheck results, and persistence after reload. Earlier findings and stored check coverage remain intact. The article remains unchanged, and no live triage decision is saved. This verifies the review handoff, not every category of possible documentation issue.
+
 ### Replay from the findings inbox
 
 Select **Replay procedure (attended)** in the **Task** picker. This checks a reviewed, checked-in storyboard without producing screenshots or videos.
@@ -537,7 +563,7 @@ An attended two-article batch also verified this redesign on the local Windows h
 
 These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs findings**. With separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
 
-PR review, feature documentation, audits, and media retain their existing entry points. Their integration into this inbox and docs-as-eval are deferred. Coverage here includes local claims/link checks and explicitly reviewed replay procedures, not every documentation workflow.
+PR review, feature documentation, audits, and media retain their existing entry points. PR selection, their full integration into this inbox, and docs-as-eval remain deferred. Coverage here includes local structural checks, scoped whole-article agent reviews, and explicitly reviewed replay procedures, not every documentation workflow.
 
 ## Use the docs workbench
 

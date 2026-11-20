@@ -30,13 +30,15 @@ function evidenceHash(finding, report) {
 		productEvidence: finding.productEvidence,
 		productManifest: finding.productEvidence ? report.productManifest : undefined,
 		replayEvidence: finding.replayEvidence,
-		replayBinding: finding.replayEvidence ? report.replay.binding : undefined
+		replayBinding: finding.replayEvidence ? report.replay.binding : undefined,
+		reviewEvidence: finding.reviewEvidence,
+		reviewGuidelines: finding.reviewEvidence ? report.review.binding.guidelinesHash : undefined
 	});
 }
 
 function sameArticleChecks(previous, current, article) {
 	return previous.scanPaths.includes(article) && current.scanPaths.includes(article) &&
-		((!previous.replay && !current.replay) ||
+		((!previous.replay && !current.replay && !previous.review && !current.review) ||
 			(previous.replay?.status === 'passed' && current.replay &&
 				previous.replay.binding.storyboardId === current.replay.binding.storyboardId &&
 				previous.replay.binding.product.channel === current.replay.binding.product.channel)) &&

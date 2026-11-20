@@ -83,12 +83,14 @@ function validateEvidence(evidence, manifest, label) {
 
 function validateReport(report) {
   requireValue(schema.properties.schemaVersion.enum.includes(report?.schemaVersion),
-    'unsupported schemaVersion; rerun the checker to generate a version 5 report.');
+    'unsupported schemaVersion; rerun the appropriate checker or review.');
   requireShape(report, schema, 'report');
   const replay = report.checks?.length === 1 && report.checks[0] === 'replay';
-  requireValue(Array.isArray(report.checks) && (replay || (report.checks.includes('claims') && !report.checks.includes('replay'))) &&
+  const review = report.checks?.length === 1 && report.checks[0] === 'review';
+  requireValue(Array.isArray(report.checks) && (replay || review ||
+    (report.checks.includes('claims') && !report.checks.includes('replay') && !report.checks.includes('review'))) &&
     report.checks.every(check => schema.properties.checks.items.enum.includes(check)) &&
-    new Set(report.checks).size === report.checks.length, 'checks must list claims and optional links or navigation, or replay alone, without duplicates.');
+    new Set(report.checks).size === report.checks.length, 'checks must list claims and optional links or navigation, or replay or review alone, without duplicates.');
   requireText(report.sourceRevision, 'sourceRevision');
   requireTimestamp(report.generatedAt, 'generatedAt');
   requireHash(report.inputHash, 'inputHash');
@@ -105,6 +107,8 @@ function validateReport(report) {
   }
   requireValue(Object.hasOwn(report, 'replay') === replay, 'replay metadata must accompany replay checks only.');
   if (replay) validateReplay(report);
+  requireValue(Object.hasOwn(report, 'review') === review, 'review metadata must accompany review checks only.');
+  if (review) validateReview(report);
   requireValue(Array.isArray(report.findings), 'findings must be an array.');
   const ids = new Set();
   const articleHashes = new Map();
@@ -135,6 +139,9 @@ function validateReport(report) {
       validateEvidence(finding.productEvidence, report.productManifest, `finding ${id}.productEvidence`);
     }
     requireValue(Object.hasOwn(finding, 'replayEvidence') === replay, 'replayEvidence must accompany replay findings only.');
+    requireValue(Object.hasOwn(finding, 'reviewEvidence') === review && (kind !== 'review' || review),
+      'reviewEvidence must accompany review findings only.');
+    if (review) validateReviewFinding(finding, report);
     if (replay) {
       requireValue(kind === 'replay' && article === report.replay.binding.article &&
         articleHash === report.replay.binding.articleHash, 'replay finding must match the reviewed article.');
@@ -147,6 +154,65 @@ function validateReport(report) {
     }
   }
   return report;
+}
+
+function validateReview(report) {
+  requireValue(report.schemaVersion === 6 && !report.productManifest, 'review requires version 6 without a product manifest.');
+  requireShape(report.review, schema.$defs.review, 'review');
+  const { binding, status, summary, limitations } = report.review;
+  requireShape(binding, schema.$defs.reviewBinding, 'review.binding');
+  for (const key of ['articleHash', 'guidelinesHash', 'checkerInputHash']) requireHash(Reflect.get(binding, key), `review.binding.${key}`);
+  requireValue(isArticle(binding.article) && binding.sourceRevision === report.sourceRevision &&
+    JSON.stringify(report.scanPaths) === JSON.stringify([binding.article]), 'review source or scope mismatch.');
+  requireValue(['stable', 'insiders'].includes(binding.channel) && ['editorial', 'technical', 'both'].includes(binding.focus),
+    'review channel or focus is invalid.');
+  requireValue(report.inputHash === crypto.createHash('sha256').update(JSON.stringify(binding)).digest('hex'),
+    'review inputHash does not match its binding.');
+  requireValue(['complete', 'incomplete'].includes(status), 'review status is invalid.');
+  requireText(summary, 'review.summary');
+  requireValue(summary.length <= 8000 && Array.isArray(limitations) && limitations.length <= 20 &&
+    limitations.every(item => typeof item === 'string' && /\S/.test(item) && item.length <= 4000) &&
+    (status !== 'incomplete' || limitations.length > 0), 'incomplete reviews require explicit limitations.');
+  requireValue(Array.isArray(report.findings) && report.findings.length <= 50, 'review supports at most 50 findings.');
+}
+
+function validateReviewFinding(finding, report) {
+  const { binding } = report.review;
+  const evidence = finding.reviewEvidence;
+  requireValue(finding.kind === 'review' && !finding.productEvidence && finding.article === binding.article &&
+    finding.articleHash === binding.articleHash, 'review finding does not match its article.');
+  requireShape(evidence, schema.$defs.reviewEvidence, 'reviewEvidence');
+  requireValue(schema.$defs.reviewEvidence.properties.category.enum.includes(evidence.category) &&
+    ['supported', 'question'].includes(evidence.assessment), 'invalid review category or assessment.');
+  requireValue((binding.focus !== 'editorial' || evidence.category !== 'accuracy') &&
+    (binding.focus !== 'technical' || evidence.category === 'accuracy'), 'finding is outside the requested review focus.');
+  requireValue(Number.isInteger(evidence.endLine) && evidence.endLine >= finding.line &&
+    evidence.endLine - finding.line < 80, 'review source span is invalid.');
+  for (const key of ['quote', 'suggestion']) {
+    requireText(Reflect.get(evidence, key), `reviewEvidence.${key}`);
+    requireValue(Reflect.get(evidence, key).length <= 16000, 'review evidence is oversized.');
+  }
+  requireValue(finding.message.length <= 8000, 'review message is oversized.');
+  requireValue(finding.severity === (evidence.assessment === 'supported' ? 'warning' : 'unverified'),
+    'agent judgments must not be classified as deterministic errors.');
+  requireValue(Array.isArray(evidence.sources) && evidence.sources.length <= 10, 'invalid review citations.');
+  for (const source of evidence.sources) {
+    requireShape(source, schema.$defs.reviewEvidence.properties.sources.items, 'review citation');
+    requireText(source.quote, 'review citation quote');
+    requireValue(source.quote.length <= 8000 && typeof source.url === 'string' && source.url.length <= 2000 &&
+      /^https:\/\/github\.com\/microsoft\/vscode\/blob\/[a-f0-9]{40}\//.test(source.url),
+      'product citations require a pinned microsoft/vscode source URL and line reference.');
+    const url = new URL(source.url);
+    const range = url.hash.slice(1).split('-');
+    requireValue(url.href === source.url && !url.search && url.pathname.split('/').slice(5).every(part =>
+      /^[a-zA-Z0-9_.-]+$/.test(part) && !['.', '..'].includes(part)) &&
+      range.length <= 2 && range.every(line => /^L[1-9]\d*$/.test(line)) &&
+      (range.length === 1 || Number(range[1].slice(1)) >= Number(range[0].slice(1))), 'invalid pinned source path or line range.');
+  }
+  requireValue(evidence.category !== 'accuracy' || evidence.assessment !== 'supported' || evidence.sources.length > 0,
+    'supported technical findings require cited product evidence; otherwise report an unresolved question.');
+  requireValue(finding.evidence === JSON.stringify({ channel: binding.channel, focus: binding.focus,
+    category: evidence.category, quote: evidence.quote }), 'review identity does not match its quoted claim and scope.');
 }
 
 function validateReplay(report) {
@@ -249,7 +315,7 @@ function formatReport(report, format = 'json') {
     Reflect.set(counts, finding.severity, Reflect.get(counts, finding.severity) + 1);
   }
   return [
-    `Docs ${report.checks.length > 1 ? 'checks' : report.checks[0]}${report.replay ? ` (${report.replay.status})` : ''}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
+    `Docs ${report.checks.length > 1 ? 'checks' : report.checks[0]}${report.replay ? ` (${report.replay.status})` : report.review ? ` (${report.review.status}, agent judgment)` : ''}: ${counts.error} error(s), ${counts.warning} warning(s), ${counts.unverified} unverified.`,
     ...report.findings.map(finding =>
       escapeConsole(`${finding.article}:${finding.line} [${finding.severity}, ${finding.status}] ${finding.message}`))
   ].join('\n');
@@ -280,7 +346,12 @@ function main(args = process.argv.slice(2)) {
   }
   const report = validateReport(JSON.parse(fs.readFileSync(options.get('--input'), 'utf8')));
   if (options.has('--check-current')) {
-    if (report.replay) {
+    if (report.review) {
+      if (['--storyboard', '--replay-review', '--manifest', '--expected-revision'].some(option => options.has(option))) {
+        throw new Error('Review freshness accepts only --root and never reruns the agent.');
+      }
+      require('./review').assertReviewCurrent(report, resolveSourceRoot(options.get('--root')));
+    } else if (report.replay) {
       if (!options.has('--storyboard') || !options.has('--replay-review') ||
           ['--root', '--expected-revision', '--manifest'].some(option => options.has(option))) {
         throw new Error('Replay freshness requires --storyboard and --replay-review, not claim-checker options.');
@@ -306,7 +377,8 @@ function main(args = process.argv.slice(2)) {
   if (output) {
     console.log(output);
   }
-  return report.replay ? report.replay.status === 'passed' ? 0 : report.replay.status === 'mismatch' ? 1 : 2 :
+  return report.review ? report.review.status === 'incomplete' ? 2 : report.findings.length ? 1 : 0 :
+    report.replay ? report.replay.status === 'passed' ? 0 : report.replay.status === 'mismatch' ? 1 : 2 :
     report.findings.some(finding => finding.severity === 'error') ? 1 : 0;
 }
 
