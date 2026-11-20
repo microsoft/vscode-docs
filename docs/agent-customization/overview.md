@@ -200,7 +200,7 @@ Changes made from one session's editor aren't necessarily limited to that sessio
 
 Available global, workspace, or session enablement actions depend on the customization type and harness. Check the action's scope before applying it. A global action isn't confined to the selected session, even when the customization is stored in the workspace.
 
-For detailed controls, see [plugin enablement](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins), [MCP server enablement](/docs/agents/run/manage-mcp-servers.md#enable-or-disable-mcp-servers), and [tool availability](/docs/agents/run/tools.md#manage-available-tools).
+For detailed controls, see [plugin enablement](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins), [MCP server enablement](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server), and [tool availability](/docs/agents/run/tools.md#manage-available-tools).
 
 ## Troubleshoot customization issues
 
