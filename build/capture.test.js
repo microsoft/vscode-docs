@@ -5,7 +5,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const test = require('node:test');
+const { spawnSync } = require('node:child_process');
 const { captureEditor, checkVisibleText, validatePng, validateStoryboard } = require('./capture');
+const {renderHighlights} = require('./capture-highlights');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary directories and fake launchers. */
 
@@ -39,6 +41,7 @@ function fakeApplication(overrides = {}) {
   let closed = false;
   let photographed = false;
   let launchOptions;
+  let boundsCalls = 0;
   const zoomLevel = overrides.zoomLevel ?? 2;
   const zoomFactor = overrides.zoomFactor ?? Math.pow(1.2, zoomLevel);
   const locator = {
@@ -46,6 +49,7 @@ function fakeApplication(overrides = {}) {
     click: async () => {},
     fill: async () => {},
     check: async () => {},
+    boundingBox: async () => overrides.bounds ? overrides.bounds(++boundsCalls) : {x: 100, y: 100, width: 200, height: 40},
     innerText: async () => overrides.text || 'example.js Find total 1 of 3'
   };
   locator.first = () => locator;
@@ -84,9 +88,13 @@ function fakeApplication(overrides = {}) {
       }));
       return {
         process: () => ({pid: 12345}),
-        evaluate: async callback => callback({
-          app: {getAppPath: () => appPath, getVersion: () => 'fixture'}
-        }),
+        evaluate: async (callback, argument) => {
+          if (callback === renderHighlights) {
+            if (!overrides.renderHighlights) throw new Error('Missing highlight-renderer fixture.');
+            return overrides.renderHighlights(argument);
+          }
+          return callback({app: {getAppPath: () => appPath, getVersion: () => 'fixture'}}, argument);
+        },
         firstWindow: async () => page,
         browserWindow: async () => ({evaluate: async (callback, argument) => callback({
           setContentSize: () => {},
@@ -119,6 +127,7 @@ test('capture runner isolates state, verifies dimensions, and leaves candidates 
     const state = fake.state();
     assert.equal(result.manifest.status, 'candidate');
     assert.equal(result.manifest.approval, 'human-visual-review-required');
+    assert.equal(result.manifest.highlighted, undefined);
     assert.equal(result.manifest.execution, 'attended');
     assert.equal(result.manifest.steps.length, 7);
     assert.match(result.manifest.storyboardRunnerSha256, /^[a-f0-9]{64}$/);
@@ -276,6 +285,157 @@ test('opt-in video preserves screenshot behavior and records partial-video failu
       assert.match(manifest.video.encoderSha256, /^[a-f0-9]{64}$/);
       assert.ok(fs.existsSync(path.join(directory, 'editor-find.png')));
       assert.ok(fs.existsSync(path.join(directory, 'editor-find.webm')));
+      assert.equal(fs.existsSync(path.join(directory, 'runtime')), false);
+      assert.ok(fake.state().closed);
+    });
+  }
+});
+
+test('folder capture requires explicit readiness and preserves cleanup on cancellation or failure', async function () {
+  for (const decision of [true, false, 'ready', new Error('Readiness timed out')]) {
+    await withOutput(async options => {
+      const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
+      storyboard.fixture.openFolder = true;
+      const file = path.join(options.output, 'folder-storyboard.json');
+      fs.writeFileSync(file, JSON.stringify(storyboard));
+      const fake = fakeApplication();
+      fake.confirmReady = async workspace => {
+        const state = fake.state();
+        assert.equal(state.photographed, false);
+        assert.deepEqual(state.launchOptions.args.slice(-3), [workspace, '--goto', path.join(workspace, 'example.js')]);
+        assert.deepEqual(fs.readdirSync(workspace), ['example.js']);
+        assert.equal(fs.readFileSync(path.join(workspace, 'example.js'), 'utf8'), storyboard.fixture.content);
+        if (decision instanceof Error) throw decision;
+        return decision;
+      };
+      const capture = () => captureEditor({...options, storyboard: file}, fake);
+      if (decision === true) {
+        const result = await capture();
+        assert.equal(result.manifest.workspacePreparation.status, 'confirmed');
+        assert.equal(result.manifest.approval, 'human-visual-review-required');
+        assert.ok(!Object.keys(result.manifest.settings).some(key => key.startsWith('security.workspace.trust')));
+      } else {
+        await assert.rejects(capture, /preparation was cancelled|Readiness timed out/);
+      }
+      const run = fs.readdirSync(options.output).find(name => name.startsWith('editor-find-'));
+      const directory = path.join(options.output, run);
+      const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'capture.json'), 'utf8'));
+      assert.equal(manifest.status, decision === true ? 'candidate' : 'failed');
+      assert.equal(fake.state().photographed, decision === true);
+      assert.ok(fake.state().closed);
+      assert.equal(fs.existsSync(path.join(directory, 'runtime')), false);
+    });
+  }
+});
+
+test('folder capture refuses noninteractive CLI input before launching the product', async function () {
+  await withOutput(async options => {
+    const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
+    storyboard.fixture.openFolder = true;
+    const file = path.join(options.output, 'folder-storyboard.json');
+    fs.writeFileSync(file, JSON.stringify(storyboard));
+    const result = spawnSync(process.execPath, [
+      path.join(__dirname, 'capture.js'), '--storyboard', file,
+      '--executable', options.executable, '--revision', REVISION, '--output', options.output
+    ], {encoding: 'utf8', timeout: 10000});
+    assert.equal(result.status, 1, result.error?.message);
+    assert.match(result.stderr, /interactive terminal/);
+    assert.ok(!fs.readdirSync(options.output).some(name => name.startsWith('editor-find-')));
+  });
+});
+
+test('existing workspace capture preserves source files and retains only its dedicated profile', async function () {
+  for (const failure of [undefined, 'modified', 'close']) {
+    await withOutput(async options => {
+      const workspace = path.join(options.output, 'workspace');
+      const output = path.join(options.output, 'captures');
+      const profile = path.join(options.output, 'profile');
+      fs.mkdirSync(workspace);
+      fs.mkdirSync(output);
+      const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
+      fs.writeFileSync(path.join(workspace, 'example.js'), storyboard.fixture.content);
+      delete storyboard.fixture;
+      storyboard.workspace = {entry: 'example.js'};
+      const file = path.join(options.output, 'existing-storyboard.json');
+      fs.writeFileSync(file, JSON.stringify(storyboard));
+      const fake = fakeApplication({closeError: failure === 'close'});
+      fake.confirmReady = async selected => {
+        assert.equal(selected, workspace);
+        assert.equal(fake.state().photographed, false);
+        if (failure === 'modified') {
+          fs.mkdirSync(path.join(workspace, '.vscode'));
+          fs.writeFileSync(path.join(workspace, '.vscode', 'launch.json'), '{}');
+        }
+        return true;
+      };
+      const capture = () => captureEditor({...options, output, workspace, captureProfile: profile, storyboard: file}, fake);
+      if (failure) {
+        await assert.rejects(capture, /configuration files changed|Fixture close failure/);
+      } else {
+        await capture();
+      }
+      const run = fs.readdirSync(output).find(name => name.startsWith('editor-find-'));
+      const directory = path.join(output, run);
+      const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'capture.json'), 'utf8'));
+      assert.equal(manifest.status, failure ? 'failed' : 'candidate');
+      assert.equal(manifest.workspace.check, failure === 'modified' ? 'failed' : 'unchanged');
+      assert.equal(manifest.captureProfile.lockRetained, failure === 'close');
+      assert.equal(manifest.settings['chat.mcp.access'], 'none');
+      assert.equal(manifest.settings['task.allowAutomaticTasks'], 'off');
+      assert.equal(fake.state().launchOptions.env.HOME, path.join(manifest.captureProfile.path, 'home'));
+      assert.equal(fake.state().launchOptions.env.USERPROFILE, fake.state().launchOptions.env.HOME);
+      assert.ok(fake.state().launchOptions.env.TEMP.startsWith(directory));
+      assert.ok(fs.existsSync(path.join(profile, 'home')));
+      assert.ok(fs.existsSync(path.join(profile, 'user-data', 'User', 'settings.json')));
+      assert.equal(fs.existsSync(path.join(directory, 'runtime')), failure === 'close');
+      assert.equal(fs.existsSync(path.join(profile, 'capture.lock')), failure === 'close');
+      if (failure === 'modified') {
+        assert.equal(fs.readFileSync(path.join(workspace, '.vscode', 'launch.json'), 'utf8'), '{}');
+      }
+    });
+  }
+});
+
+test('highlights preserve the raw image, record provenance, and reject failures without a derived asset', async function () {
+  for (const failure of [undefined, 'render', 'moved']) {
+    await withOutput(async options => {
+      const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
+      storyboard.capture.highlights = {targets: [{target: 'query'}]};
+      const file = path.join(options.output, 'highlight-storyboard.json');
+      fs.writeFileSync(file, JSON.stringify(storyboard));
+      const annotated = pngHeader();
+      annotated[32] = 1;
+      let rendered = false;
+      const fake = fakeApplication({
+        bounds: call => ({x: failure === 'moved' ? 100 + call : 100, y: 100, width: 200, height: 40}),
+        renderHighlights: async argument => {
+          rendered = true;
+          assert.equal(argument.strokeWidth, 2);
+          assert.ok(Buffer.from(argument.png, 'base64').equals(pngHeader()));
+          if (failure === 'render') throw new Error('Highlight encoder fixture failed');
+          return {png: annotated.toString('base64'), verification: {allOtherPixelsUnchanged: true, encodedPixelsVerified: true}};
+        }
+      });
+      const capture = () => captureEditor({...options, storyboard: file}, fake);
+      if (failure) {
+        await assert.rejects(capture, /Highlight encoder fixture failed|targets moved/);
+      } else {
+        await capture();
+      }
+      const run = fs.readdirSync(options.output).find(name => name.startsWith('editor-find-'));
+      const directory = path.join(options.output, run);
+      const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'capture.json'), 'utf8'));
+      assert.ok(fs.readFileSync(path.join(directory, 'editor-find.png')).equals(pngHeader()));
+      assert.equal(fs.existsSync(path.join(directory, 'editor-find-highlighted.png')), !failure);
+      assert.equal(manifest.status, failure ? 'failed' : 'candidate');
+      if (!failure) {
+        assert.ok(fs.readFileSync(path.join(directory, manifest.highlighted.file)).equals(annotated));
+        assert.equal(manifest.highlighted.sourceSha256, manifest.asset.sha256);
+        assert.notEqual(manifest.highlighted.sha256, manifest.asset.sha256);
+        assert.equal(manifest.highlighted.rectangles[0].target, 'query');
+        assert.equal(manifest.highlighted.humanVisualReviewRequired, true);
+      }
+      assert.equal(rendered, failure !== 'moved');
       assert.equal(fs.existsSync(path.join(directory, 'runtime')), false);
       assert.ok(fake.state().closed);
     });

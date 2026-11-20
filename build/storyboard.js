@@ -106,11 +106,17 @@ function validateSteps(steps, targets, label, requireAssertion) {
 
 function validateStoryboard(value) {
   requireValue(value?.schemaVersion === 2, 'unsupported schemaVersion; migrate to version 2 using build/storyboards/editor-find.json.');
-  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'targets', 'steps', 'capture', 'video', 'privacy']);
+  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'capture', 'video', 'privacy']);
   requireScalarFields(value.profile, schema.$defs.profile, 'profile');
   requireValue(value.profile.zoomLevel === (value.profile.wideContent ? 1.5 : 2),
     'use zoom level 2 by default, or 1.5 with profile.wideContent: true.');
-  requireScalarFields(value.fixture, schema.$defs.fixture, 'fixture');
+  requireValue(Object.hasOwn(value, 'fixture') !== Object.hasOwn(value, 'workspace'),
+    'supply either a generated fixture or an existing workspace entry.');
+  if (value.fixture) {
+    requireScalarFields(value.fixture, schema.$defs.fixture, 'fixture');
+  } else {
+    requireScalarFields(value.workspace, schema.$defs.workspace, 'workspace');
+  }
   const targetsRule = schema.properties.targets;
   requireValue(value.targets !== null && typeof value.targets === 'object' && !Array.isArray(value.targets),
     'targets must be an object.');
@@ -128,7 +134,20 @@ function validateStoryboard(value) {
     }
   }
   validateSteps(value.steps, value.targets, 'steps', true);
-  requireScalarFields(value.capture, schema.properties.capture, 'capture');
+  requireScalarFields(value.capture, schema.properties.capture, 'capture', ['highlights']);
+  if (Object.hasOwn(value.capture, 'highlights')) {
+    const highlights = value.capture.highlights;
+    const rule = schema.$defs.highlights;
+    requireScalarFields(highlights, rule, 'capture.highlights', ['targets']);
+    requireArray(highlights.targets, rule.properties.targets, 'capture.highlights.targets');
+    const seen = new Set();
+    for (const item of highlights.targets) {
+      requireScalarFields(item, rule.properties.targets.items, 'capture.highlights.targets[]');
+      requireValue(Object.hasOwn(value.targets, item.target), `highlight references unknown target "${item.target}".`);
+      requireValue(!seen.has(item.target), `duplicate highlight target "${item.target}".`);
+      seen.add(item.target);
+    }
+  }
   if (Object.hasOwn(value, 'video')) {
     requireScalarFields(value.video, schema.properties.video, 'video', ['reset', 'steps']);
     validateSteps(value.video.reset, value.targets, 'video.reset', false);
@@ -249,4 +268,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { main, runSteps, validateStoryboard };
+module.exports = { locate, main, runSteps, validateStoryboard };

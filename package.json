@@ -31,7 +31,7 @@
     "test:navigation": "node --test ./build/check-navigation.test.js",
     "test:audit-state": "node --test ./build/audit-state.test.js ./.github/skills/daily-docs-audit/manage-state.test.js",
     "capture": "node ./build/capture.js",
-    "test:capture": "node --test ./build/capture.test.js ./build/capture-video.test.js ./build/storyboard.test.js",
+    "test:capture": "node --test ./build/capture.test.js ./build/capture-video.test.js ./build/storyboard.test.js ./build/capture-preparation.test.js ./build/capture-highlights.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",
     "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs .github/extensions/vscode-docs-workbench/archive.test.mjs",

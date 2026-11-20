@@ -5,8 +5,11 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { createInterface } = require('node:readline/promises');
 const { isWithinRoot } = require('./repository-paths');
 const { runSteps, validateStoryboard } = require('./storyboard');
+const {WORKSPACE_SETTINGS, acquireCaptureProfile, replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
+const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- The runner owns a newly created private run directory. */
 
@@ -49,6 +52,36 @@ function launchEnvironment(runtime) {
   };
 }
 
+async function confirmWorkspaceReady(workspace) {
+  const terminal = createInterface({input: process.stdin, output: process.stdout});
+  const controller = new AbortController();
+  let expired = false;
+  const timer = setTimeout(() => {
+    expired = true;
+    controller.abort();
+  }, 120000);
+  terminal.on('SIGINT', () => controller.abort());
+  terminal.on('close', () => controller.abort());
+  try {
+    const answer = await terminal.question(
+      `\nCapture folder: ${workspace}\n` +
+      'Review the selected workspace and handle any Workspace Trust prompt yourself.\n' +
+      'Do not run the sample program. Keep the capture window visible.\n' +
+      'Within two minutes, type READY after preparation, or anything else to cancel: ',
+      {signal: controller.signal}
+    );
+    return answer.trim().toLowerCase() === 'ready';
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      throw new Error(expired ? 'Workspace preparation timed out.' : 'Workspace preparation was cancelled.', {cause: error});
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+    terminal.close();
+  }
+}
+
 async function captureEditor(options, dependencies = {}) {
   const repository = fs.realpathSync(path.resolve(__dirname, '..'));
   const storyboardBytes = fs.readFileSync(options.storyboard);
@@ -59,6 +92,20 @@ async function captureEditor(options, dependencies = {}) {
   }
   if (options.video && !storyboard.video) {
     throw new Error('This storyboard does not define video reset and recording steps.');
+  }
+  const needsPreparation = Boolean(storyboard.workspace || storyboard.fixture?.openFolder);
+  if (needsPreparation && !options.waitForReady && !dependencies.confirmReady && (!process.stdin.isTTY || !process.stdout.isTTY)) {
+    throw new Error('Folder capture requires an interactive terminal, or --wait-for-ready for an explicit chat readiness response.');
+  }
+  if (storyboard.workspace && (typeof options.workspace !== 'string' || !path.isAbsolute(options.workspace) ||
+      typeof options.captureProfile !== 'string' || !path.isAbsolute(options.captureProfile))) {
+    throw new Error('Existing-workspace capture requires absolute --workspace and --capture-profile paths.');
+  }
+  if (!storyboard.workspace && (options.workspace || options.captureProfile)) {
+    throw new Error('Workspace and profile options require an existing-workspace storyboard.');
+  }
+  if (options.waitForReady && !needsPreparation) {
+    throw new Error('Readiness confirmation requires a folder or existing-workspace storyboard.');
   }
   if (process.platform !== storyboard.profile.platform && !dependencies.launch) {
     throw new Error('This capture pilot requires Windows.');
@@ -76,10 +123,16 @@ async function captureEditor(options, dependencies = {}) {
     throw new Error('Capture output must be an existing private directory outside the repository and its ancestors.');
   }
   const launch = dependencies.launch || (launchOptions => require('playwright-core')._electron.launch(launchOptions));
+  const existingWorkspace = storyboard.workspace ? fs.realpathSync(options.workspace) : undefined;
+  if (existingWorkspace && (!fs.statSync(existingWorkspace).isDirectory() ||
+      isWithinRoot(existingWorkspace, output) || isWithinRoot(output, existingWorkspace))) {
+    throw new Error('Capture output must be separate from the existing workspace.');
+  }
   const runDirectory = fs.mkdtempSync(path.join(output, `${storyboard.id}-`));
   const runtime = path.join(runDirectory, 'runtime');
   const environment = launchEnvironment(runtime);
-  const fixture = path.join(runtime, 'workspace', storyboard.fixture.file);
+  const workspace = existingWorkspace || path.join(runtime, 'workspace');
+  const fixture = path.join(workspace, storyboard.workspace?.entry || storyboard.fixture.file);
   const manifest = {
     schemaVersion: 1,
     storyboard: { id: storyboard.id, article: storyboard.article, sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
@@ -87,6 +140,7 @@ async function captureEditor(options, dependencies = {}) {
     runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),
     storyboardRunnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'storyboard.js'))).digest('hex'),
     storyboardSchemaSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'storyboard.schema.json'))).digest('hex'),
+    preparationRunnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-preparation.js'))).digest('hex'),
     execution: storyboard.execution,
     createdAt: new Date().toISOString(),
     status: 'failed',
@@ -96,17 +150,29 @@ async function captureEditor(options, dependencies = {}) {
     privacy: { textScan: 'not-run', pixelReview: 'required' }
   };
   let application;
+  let captureProfile;
+  let workspaceSnapshot;
   let failure;
   let closed = true;
   try {
+    if (storyboard.workspace) {
+      workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry);
+      manifest.workspace = {path: workspace, entry: storyboard.workspace.entry, files: workspaceSnapshot, check: 'pending'};
+      captureProfile = acquireCaptureProfile(options.captureProfile, workspace, storyboard.channel, runDirectory);
+      manifest.captureProfile = {path: captureProfile.root, retained: true, lockRetained: true};
+      // Workspace Trust uses application-shared storage under the home directory, not only user-data.
+      environment.HOME = path.join(captureProfile.root, 'home');
+      environment.USERPROFILE = environment.HOME;
+    }
+    const userData = captureProfile?.userData || path.join(runtime, 'profile');
     for (const directory of new Set([
-      ...['profile', 'extensions', 'workspace'].map(name => path.join(runtime, name)),
+      userData, ...['extensions', 'workspace'].map(name => path.join(runtime, name)),
       environment.HOME, environment.APPDATA, environment.LOCALAPPDATA, environment.TEMP, environment.COPILOT_HOME
     ])) {
       fs.mkdirSync(directory, { recursive: true });
     }
-    const userDirectory = path.join(runtime, 'profile', 'User');
-    fs.mkdirSync(userDirectory);
+    const userDirectory = path.join(userData, 'User');
+    fs.mkdirSync(userDirectory, {recursive: true});
     const settings = {
       'workbench.colorTheme': storyboard.profile.theme,
       'window.zoomLevel': storyboard.profile.zoomLevel,
@@ -118,23 +184,24 @@ async function captureEditor(options, dependencies = {}) {
       'telemetry.telemetryLevel': 'off',
       'update.mode': 'none',
       'extensions.autoUpdate': false,
-      'extensions.autoCheckUpdates': false
+      'extensions.autoCheckUpdates': false,
+      ...(storyboard.workspace ? WORKSPACE_SETTINGS : {})
     };
     manifest.settings = settings;
     fs.writeFileSync(path.join(userDirectory, 'settings.json'), JSON.stringify(settings, null, 2));
-    fs.writeFileSync(fixture, storyboard.fixture.content);
+    if (storyboard.fixture) fs.writeFileSync(fixture, storyboard.fixture.content);
     application = await launch({
       executablePath: executable,
       args: [
         '--new-window', '--disable-extensions', '--skip-welcome', '--skip-release-notes',
         '--disable-updates', '--disable-telemetry', '--use-inmemory-secretstorage',
         '--force-device-scale-factor=1', '--locale=en',
-        '--user-data-dir', path.join(runtime, 'profile'),
+        '--user-data-dir', userData,
         '--extensions-dir', path.join(runtime, 'extensions'),
-        fixture
+        ...(needsPreparation ? [workspace, '--goto'] : []), fixture
       ],
       env: environment,
-      cwd: path.join(runtime, 'workspace'),
+      cwd: workspace,
       timeout: 60000,
       offline: true,
       acceptDownloads: false
@@ -156,6 +223,16 @@ async function captureEditor(options, dependencies = {}) {
     await page.locator('.monaco-workbench').waitFor({state: 'visible'});
     const window = await application.browserWindow(page);
     await window.evaluate((browserWindow, size) => browserWindow.setContentSize(size.width, size.height), storyboard.profile);
+    if (needsPreparation) {
+      manifest.workspacePreparation = {status: 'awaiting-human'};
+      const ready = options.waitForReady ? await waitForReadiness(runDirectory, workspace) :
+        await (dependencies.confirmReady || confirmWorkspaceReady)(workspace);
+      if (ready !== true) {
+        manifest.workspacePreparation.status = 'cancelled';
+        throw new Error('Workspace preparation was cancelled. No candidate was saved.');
+      }
+      manifest.workspacePreparation = {status: 'confirmed', confirmedAt: new Date().toISOString()};
+    }
     await page.waitForFunction(profile => {
       const expectedRatio = profile.deviceScaleFactor * Math.pow(1.2, profile.zoomLevel);
       return Math.abs(innerWidth * devicePixelRatio - profile.width * profile.deviceScaleFactor) <= 1 &&
@@ -204,6 +281,7 @@ async function captureEditor(options, dependencies = {}) {
       }
     };
     manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy);
+    const highlightRectangles = storyboard.capture.highlights ? await collectHighlightRectangles(page, storyboard) : undefined;
     await checkPrivacy();
     manifest.privacy.textScan = 'passed';
     const encoded = await window.evaluate(async browserWindow =>
@@ -216,6 +294,26 @@ async function captureEditor(options, dependencies = {}) {
       file: storyboard.capture.file, alt: storyboard.capture.alt, method: 'electron-window-content',
       sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length
     };
+    if (highlightRectangles) {
+      assertStableHighlights(highlightRectangles, await collectHighlightRectangles(page, storyboard));
+      const strokeWidth = storyboard.capture.highlights.strokeWidth ?? 2;
+      const result = await application.evaluate(renderHighlights, {
+        png: encoded, width: storyboard.profile.width, height: storyboard.profile.height,
+        rectangles: highlightRectangles, strokeWidth
+      });
+      const highlighted = Buffer.from(result.png, 'base64');
+      validatePng(highlighted, storyboard.profile.width, storyboard.profile.height);
+      const name = `${path.basename(storyboard.capture.file, '.png')}-highlighted.png`;
+      fs.writeFileSync(path.join(runDirectory, name), highlighted, {flag: 'wx'});
+      manifest.highlighted = {
+        file: name, alt: storyboard.capture.alt, method: 'pixel-rectangles',
+        sourceFile: manifest.asset.file, sourceSha256: manifest.asset.sha256,
+        runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-highlights.js'))).digest('hex'),
+        sha256: crypto.createHash('sha256').update(highlighted).digest('hex'), bytes: highlighted.length,
+        color: '#FF0000', strokeWidth, rectangles: highlightRectangles,
+        verification: result.verification, humanVisualReviewRequired: true
+      };
+    }
     if (options.video) {
       manifest.video = {
         file: storyboard.video.file, status: 'recording',
@@ -229,6 +327,9 @@ async function captureEditor(options, dependencies = {}) {
   } catch (error) {
     failure = error;
     manifest.error = error.message;
+    if (manifest.workspacePreparation?.status === 'awaiting-human') {
+      manifest.workspacePreparation.status = 'failed';
+    }
   } finally {
     try {
       if (application) {
@@ -249,8 +350,30 @@ async function captureEditor(options, dependencies = {}) {
       failure = failure ? new AggregateError([failure, error], 'Capture and directory cleanup failed.') : error;
       manifest.cleanupError = error.message;
     }
+    if (captureProfile && closed) {
+      try {
+        captureProfile.release();
+        manifest.captureProfile.lockRetained = false;
+      } catch (error) {
+        failure = failure ? new AggregateError([failure, error], 'Capture and profile unlock failed.') : error;
+        manifest.cleanupError = error.message;
+      }
+    }
+    if (workspaceSnapshot) {
+      try {
+        if (JSON.stringify(snapshotWorkspace(workspace, storyboard.workspace.entry)) !== JSON.stringify(workspaceSnapshot)) {
+          throw new Error('The workspace entry or configuration files changed during capture. No changes were rolled back.');
+        }
+        manifest.workspace.check = 'unchanged';
+      } catch (error) {
+        failure = failure ? new AggregateError([failure, error], `${failure.message}; ${error.message}`) : error;
+        if (manifest.workspace) manifest.workspace.check = 'failed';
+        manifest.workspaceError = error.message;
+      }
+    }
     if (failure) {
       manifest.status = 'failed';
+      manifest.error ||= failure.message;
       if (manifest.video) {
         manifest.video.status = 'failed';
       }
@@ -266,13 +389,23 @@ async function captureEditor(options, dependencies = {}) {
 async function main(args = process.argv.slice(2)) {
   if (args.length === 1 && args[0] === '--help') {
     console.log('Usage: node build/capture.js --executable <Code.exe> --revision <build-commit> --output <private-directory> [--storyboard <file>] [--video --ffmpeg <encoder.exe>]');
+    console.log('Existing workspace: --workspace <folder> --capture-profile <dedicated-directory> [--wait-for-ready]');
+    console.log('Relay an explicit human decision: --confirm-ready <run-directory> --token <token>, or --cancel-ready <run-directory> --token <token>');
+    return;
+  }
+  if (['--confirm-ready', '--cancel-ready'].includes(args[0])) {
+    if (args.length !== 4 || args[2] !== '--token') {
+      throw new Error('Readiness responses require a run directory and --token.');
+    }
+    replyToReadiness(args[1], args[3], args[0] === '--confirm-ready');
+    console.log('Human readiness response recorded. This does not approve any media asset.');
     return;
   }
   const options = new Map();
   for (let index = 0; index < args.length; index++) {
     const option = args.at(index);
-    const value = option === '--video' ? true : args.at(++index);
-    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg'].includes(option) ||
+    const value = ['--video', '--wait-for-ready'].includes(option) ? true : args.at(++index);
+    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready'].includes(option) ||
         options.has(option) || !value || (typeof value === 'string' && value.startsWith('--'))) {
       throw new Error('Supply each capture option once with a value; use --help for usage.');
     }
@@ -290,6 +423,9 @@ async function main(args = process.argv.slice(2)) {
     output: options.get('--output'),
     video: options.has('--video'),
     ffmpeg: options.get('--ffmpeg'),
+    workspace: options.get('--workspace'),
+    captureProfile: options.get('--capture-profile'),
+    waitForReady: options.has('--wait-for-ready'),
     storyboard: options.get('--storyboard') || path.join(__dirname, 'storyboards', 'editor-find.json')
   });
   console.log(JSON.stringify(result, null, 2));

@@ -11,7 +11,7 @@ Use the tested scripts under `build/` to produce private media candidates. This 
 ## Guardrails
 
 * **Attended only.** A human must approve the local run, keep the capture window visible, and remain available. Do not schedule captures, test lock or sleep states, or change desktop power settings.
-* **Real, synthetic examples.** Use real product UI with synthetic fixture data. The current runner supports `ai: none`, not sign-in, model requests, or existing user projects. Never fabricate results or bypass warnings, permissions, or authentication.
+* **Real, reviewed examples.** Use real product UI with synthetic data or an explicitly approved sample workspace. The runner supports `ai: none`, not sign-in or model requests. Review existing-workspace steps to avoid edits or execution. Never fabricate results or bypass warnings, permissions, or authentication.
 * **Trusted procedures only.** Review the storyboard and use a trusted checkout of the runner. Do not execute storyboards or scripts from unreviewed PRs or remote text. A clean profile and offline renderer are not an OS security sandbox.
 * **Private until approved.** Store candidates outside the repository. A successful run, text scan, or motion check is not visual or privacy approval. Never copy a failed or unreviewed capture into documentation.
 * **Explicit side-effect approval.** Ask before installing packages or binaries. Do not commit, push, open a PR, or publish without authorization.
@@ -28,6 +28,7 @@ Use the tested scripts under `build/` to produce private media candidates. This 
    * Prefer named role and accessible-name targets. Use CSS only where a semantic target is unavailable.
    * Add observable outcome assertions. Video reset steps must restore the known start state before both the dry run and recording.
    * Keep typing and navigation visible and pauses short. Do not add long holds to satisfy duration or motion checks.
+   * For screenshot highlights, configure `capture.highlights` with named targets instead of hand-coded pixel coordinates. Use red rectangles, defaulting to two pixels with a three-pixel maximum. Follow the [highlighting guidance](../../../CONTRIBUTING.md#highlight-screenshot-controls), and leave space around text and controls.
 
 4. **Validate without launching the product.**
 
@@ -45,7 +46,11 @@ Use the tested scripts under `build/` to produce private media candidates. This 
 
    Add `--video --ffmpeg '<absolute-path-to-encoder.exe>'` only when the storyboard defines video. The runner dry-runs those steps, resets, records, validates, and closes its isolated application.
 
-6. **Inspect the result.** Read `capture.json`, verify the file hashes and cleanup state, and inspect the actual screenshot or entire video. Check privacy, readability, framing, visible actions, and correspondence with the article. Sample frames and motion measurements are diagnostic evidence, not substitutes for full review. Keep failed partial recordings private and report the failure.
+   For a generated folder, set `fixture.openFolder: true`. For an approved existing workspace, use `workspace.entry` and supply `--workspace` plus `--capture-profile`. Use a dedicated capture profile, never a personal profile. The profile retains the human's own Workspace Trust decisions; do not set or copy trust decisions yourself.
+
+   Prefer agent-launched captures with `--wait-for-ready`. Read the private `readiness-request.json`, ask the human to handle any prompts and confirm readiness in chat, then relay their explicit response with `--confirm-ready '<run-directory>' --token '<request-token>'` or `--cancel-ready`. Never infer the answer. Keep the process attached and bounded, and collect its final result after confirmation. The interactive terminal `READY` prompt remains an optional fallback.
+
+6. **Inspect the result.** Read `capture.json`, verify the file hashes and cleanup state, and inspect the actual screenshot or entire video. When highlights are configured, compare the separate `-highlighted.png` candidate with the preserved raw PNG and review the recorded target rectangles and pixel checks. Check privacy, readability, framing, visible actions, and correspondence with the article. Sample frames and motion measurements are diagnostic evidence, not substitutes for full review. Keep failed partial recordings private and report the failure.
 
 7. **Obtain exact-asset approval.** Show the candidate and identify its path and SHA-256 hash. Record the human's explicit decision in the handoff. Any crop, annotation, conversion, optimization, or recapture changes the asset and requires approval of the resulting bytes. Follow the repository's existing media-format and Git LFS conventions; never rename WebM bytes to an MP4 extension. If approved conversion tools are unavailable, hand off the candidate rather than inserting an incompatible file.
 

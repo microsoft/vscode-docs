@@ -5,13 +5,17 @@ const test = require('node:test');
 const {runSteps, validateStoryboard} = require('./storyboard');
 const find = require('./storyboards/editor-find.json');
 const replace = require('./storyboards/editor-find-replace.json');
+const debugConfiguration = require('./storyboards/debug-create-configuration.json');
 
-test('validates both checked-in workflows and rejects unsafe paths or unsupported actions', () => {
+test('validates checked-in workflows and rejects unsafe paths or unsupported actions', () => {
   validateStoryboard(find);
   validateStoryboard(replace);
+  validateStoryboard(debugConfiguration);
   for (const change of [
     value => { value.fixture.file = '..\\outside.js'; },
     value => { value.fixture.file = 'con.js'; },
+    value => { value.fixture.openFolder = 'true'; },
+    value => { value.workspace = {entry: 'example.js'}; },
     value => { value.capture.file = '../outside.png'; },
     value => { value.video.file = 'capture.json'; },
     value => { value.id = '../escape'; },
@@ -30,6 +34,7 @@ test('validates both checked-in workflows and rejects unsafe paths or unsupporte
     assert.throws(() => validateStoryboard(value), /Invalid storyboard/);
   }
   assert.throws(() => validateStoryboard({...find, schemaVersion: 1}), /migrate to version 2/);
+  assert.throws(() => validateStoryboard({...debugConfiguration, workspace: {entry: '../secret.json'}}), /invalid format/);
 });
 
 test('requires outcome assertions and bounds typing and pause time', () => {
@@ -41,6 +46,23 @@ test('requires outcome assertions and bounds typing and pause time', () => {
     Array(41).fill(find.steps.at(-1))
   ]) {
     assert.throws(() => validateStoryboard({...find, steps}), /assertion|integer|budget|items/);
+  }
+});
+
+test('validates screenshot highlights without allowing unknown targets, colors, or oversized strokes', () => {
+  validateStoryboard({...find, capture: {...find.capture, highlights: {targets: [{target: 'query'}]}}});
+  for (const highlights of [
+    null,
+    {targets: []},
+    {targets: [{target: 'missing'}]},
+    {targets: [{target: 'query'}, {target: 'query'}]},
+    {targets: [{target: 'query', padding: 33}]},
+    {targets: [{target: 'query'}], strokeWidth: 0},
+    {targets: [{target: 'query'}], strokeWidth: 4},
+    {targets: [{target: 'query'}], strokeWidth: 1.5},
+    {targets: [{target: 'query'}], color: 'blue'}
+  ]) {
+    assert.throws(() => validateStoryboard({...find, capture: {...find.capture, highlights}}), /Invalid storyboard/);
   }
 });
 

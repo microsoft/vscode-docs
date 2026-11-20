@@ -313,7 +313,7 @@ Run link and navigation tests with `npm run test:links` and `npm run test:naviga
 
 ### Capture an editor screenshot candidate
 
-The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, synthetic file, UI targets, actions, and expected outcomes. The runner supports bounded editor workflows without sign-in or AI requests, not arbitrary scripts or native UI automation.
+The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, generated fixture or reviewed workspace entry, UI targets, actions, and expected outcomes. The runner supports bounded editor workflows without sign-in or AI requests, not arbitrary scripts or native UI automation.
 
 Screenshot and video capture is attended-only. Keep the capture window visible and remain available throughout the run. Unattended media capture, scheduled capture jobs, and lock-screen or sleep-state testing are out of scope.
 
@@ -331,7 +331,7 @@ The runner creates a new run directory, isolated user-data and extension directo
 
 Candidates include `capture.json` with storyboard, schema, and runner hashes, completed steps, product revision, profile settings, asset hash, and `human-visual-review-required` status. The runner disables breadcrumbs and AI features and hides the secondary sidebar. Page visibility and visible text are checked between steps. Text is checked against the storyboard denylist, the caller's home path, home-folder name, and local user name. This is not a complete privacy guarantee: inspect actual pixels, including icons and notifications, before approval.
 
-Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No existing profile is reused, and no credentials are supplied. Live AI captures remain separate work and require a dedicated test account plus explicit approval before sign-in or model requests.
+Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No personal profile is reused, and no credentials are supplied. Existing-workspace captures use a dedicated capture profile as described below. Live AI captures remain separate work and require a dedicated test account plus explicit approval before sign-in or model requests.
 
 The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
 
@@ -339,11 +339,12 @@ Human visual approval is required before copying a candidate into documentation.
 
 #### Create an attended storyboard
 
-Use the [storyboard schema](build/storyboard.schema.json) and the [editor Find](build/storyboards/editor-find.json) or [expanded Find and Replace](build/storyboards/editor-find-replace.json) examples. Version 2 supports one synthetic file, one PNG, and an optional WebM per run. Version 1 storyboards are rejected with a migration message rather than interpreted as version 2.
+Use the [storyboard schema](build/storyboard.schema.json) and the [editor Find](build/storyboards/editor-find.json) or [expanded Find and Replace](build/storyboards/editor-find-replace.json) examples. Version 2 supports a generated fixture or one root-level entry file in a reviewed existing workspace, a raw PNG, an optional highlighted PNG, and an optional WebM per run. Version 1 storyboards are rejected with a migration message rather than interpreted as version 2.
 
 Review a storyboard before running it. Storyboards are executable UI procedures, even though they contain no JavaScript. Do not run procedures from unreviewed PRs or remote text. Use a trusted checkout of the runner.
 
 * Set `article` to an existing article and `execution` to `attended`. Choose `stable` or `insiders` to match the documentation target and installed product. Build identity checks do not establish feature availability.
+* Set `fixture.openFolder: true` when a generated fixture needs a workspace. The runner opens its generated folder and file, then waits for human readiness. By default, use an interactive terminal: handle any Workspace Trust prompt yourself and type `READY` within two minutes. Any other answer, cancellation, or timeout aborts capture. The runner does not change trust settings or answer trust prompts.
 * Define named `targets` using roles and accessible names. Matching is exact by default; set `exact: false` for names with shortcut suffixes. Use a CSS selector only when a semantic target is unavailable.
 * Define `steps` with `click`, `key`, `fill`, `type`, `check`, `wait-for`, `assert`, and `pause`. Include an outcome assertion before capture. Asserted text is literal, not a regular expression.
 * For controls that cycle through text states, a click can declare `expectTextCycle` with a target and ordered values. The runner reads the current state and verifies the next one. This avoids assuming that incremental Find always selects the first match.
@@ -359,6 +360,50 @@ node .\build\storyboard.js .\build\storyboards\editor-find.json .\build\storyboa
 Pass `--storyboard '<file>'` to the capture command to choose a workflow. Unsupported fields, actions, paths, and target references fail validation before launch. The runner does not support shell steps, arbitrary JavaScript, live AI, or unattended execution.
 
 Use the [docs-media skill](.github/skills/docs-media/SKILL.md) for the attended capture and exact-asset review procedure. The Find and Replace example is a candidate workflow, not authorization to replace the article's existing cropped, annotated image.
+
+#### Highlight screenshot controls
+
+Add `capture.highlights` to draw red rectangles around named storyboard targets. This is optional and applies only to the screenshot, not the video. For example, the [debug-configuration storyboard](build/storyboards/debug-create-configuration.json) sets `capture.highlights` to:
+
+```json
+{
+  "strokeWidth": 2,
+  "targets": [
+    {"target": "createConfiguration", "padding": 8},
+    {"target": "picker", "padding": -4}
+  ]
+}
+```
+
+Rectangles are opaque red (`#FF0000`). Stroke width defaults to two pixels and must be an integer from one to three. Width and padding are output-image pixels, not CSS pixels, so editor zoom does not make the stroke thicker. Padding defaults to six pixels; a negative value insets the rectangle, which can help frame a container near the window edge. Leave enough space around text and controls, and do not obscure their content.
+
+The runner measures the live target bounds and converts them using the verified display scale and zoom. Missing, clipped, too-small, or moving targets fail capture rather than being skipped or silently clamped. Use assertions and waits to settle the UI before capturing.
+
+The raw PNG remains unchanged. A separate `-highlighted.png` candidate is saved without resizing, and `capture.json` records its source hash, target rectangles, color, stroke width, renderer hash, and pixel-verification results. Encoding is checked against the expected bitmap, including every pixel outside the rectangle borders. No decorations are inserted into the running application.
+
+Review the raw and highlighted images before choosing an asset. If you crop afterward, preserve the complete rectangles and comfortable margins. The exact final annotated or cropped bytes still require human approval before documentation use; the runner never replaces an article image automatically.
+
+#### Use an existing workspace with chat confirmation
+
+The [debug-configuration picker storyboard](build/storyboards/debug-create-configuration.json) uses `workspace.entry` instead of `fixture`. Supply the reviewed folder with `--workspace` and a separate, absolute `--capture-profile` directory whose parent exists. The runner creates a marked profile or reuses one bound to that workspace and channel. It refuses to adopt a nonempty unmarked directory, so never supply your personal VS Code profile.
+
+The dedicated profile retains its own home directory as well as user-data. Workspace Trust uses application-shared storage under that home, so retaining user-data alone is insufficient. Trust only the selected workspace yourself; the runner never copies or writes trust decisions. It disables automatic tasks, MCP access and autostart, Git integration, and automatic TypeScript type acquisition for the capture profile, and rejects conflicting workspace settings. It does not write an entry file into an existing project. Use only reviewed, non-editing UI steps. The entry and known workspace configuration files are hashed before and after the run; detected changes fail capture and are not automatically reverted. This check is not a filesystem sandbox or a complete project-change audit.
+
+Agents can launch the capture with `--wait-for-ready`, keeping terminal commands as an optional manual interface:
+
+```powershell
+node .\build\capture.js --storyboard .\build\storyboards\debug-create-configuration.json --executable '<absolute-path-to-Code.exe>' --revision '<full-build-commit>' --output '<existing-private-directory>' --workspace '<reviewed-workspace>' --capture-profile '<dedicated-profile-directory>' --wait-for-ready
+```
+
+The runner writes a private `readiness-request.json` and waits up to five minutes. After the human handles any prompts and explicitly confirms readiness in chat, relay that decision with the request's run directory and token:
+
+```powershell
+node .\build\capture.js --confirm-ready '<run-directory>' --token '<request-token>'
+```
+
+Use `--cancel-ready` instead to relay cancellation. Never infer readiness from an open window or a previous trust decision. Stale, mismatched, or duplicate responses are rejected. Readiness is permission to proceed with capture, not approval of the resulting media.
+
+The capture profile persists after successful shutdown; temporary runtime directories do not. A failed shutdown retains the profile lock and runtime for recovery. Inspect the owning run and application process before removing a stale lock, and never reuse a profile while that application is still running.
 
 #### Record an editor video candidate
 
