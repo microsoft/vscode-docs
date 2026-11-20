@@ -199,9 +199,9 @@ export async function createArticleStore(workspace, home = homeDirectory(), { re
     }
     return state;
   }
-  async function update(change) {
+  async function withLock(name, action) {
     if (readOnly) throw new WorkbenchError('Verification workers cannot write private state.');
-    const lockFile = await file('inbox.lock');
+    const lockFile = await file(name);
     let lock;
     try { lock = await open(lockFile, 'wx', 0o600); }
     catch (error) {
@@ -209,13 +209,18 @@ export async function createArticleStore(workspace, home = homeDirectory(), { re
       throw error;
     }
     try {
+      return await action();
+    } finally { await lock.close(); await rm(lockFile); }
+  }
+  async function update(change) {
+    return withLock('inbox.lock', async () => {
       const state = await read();
       const result = await change(state);
       validate(state);
       await file('inbox.json');
       await atomicJson(stateFile, state);
       return result;
-    } finally { await lock.close(); await rm(lockFile); }
+    });
   }
   async function artifact(id, name, missing = true) {
     if (!uuid.test(id) || !['request.json', 'report.json', 'receipt.json', 'execution.lock'].includes(name)) {
@@ -223,5 +228,5 @@ export async function createArticleStore(workspace, home = homeDirectory(), { re
     }
     return file(path.join('runs', id, name), missing);
   }
-  return { workspace, home, directory, stateFile, read, update, file, artifact };
+  return { workspace, home, directory, stateFile, read, update, file, artifact, withLock };
 }

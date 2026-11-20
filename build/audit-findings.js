@@ -36,7 +36,10 @@ function evidenceHash(finding, report) {
 
 function sameArticleChecks(previous, current, article) {
 	return previous.scanPaths.includes(article) && current.scanPaths.includes(article) &&
-		!previous.replay && !current.replay &&
+		((!previous.replay && !current.replay) ||
+			(previous.replay?.status === 'passed' && current.replay &&
+				previous.replay.binding.storyboardId === current.replay.binding.storyboardId &&
+				previous.replay.binding.product.channel === current.replay.binding.product.channel)) &&
 		JSON.stringify([...previous.checks].sort()) === JSON.stringify([...current.checks].sort());
 }
 
@@ -206,4 +209,4 @@ function triageFinding(state, input, timestamp) {
 	return record;
 }
 
-module.exports = { importFindings, triageFinding, validateAuditFindings };
+module.exports = { importFindings, triageFinding, validateAuditFindings, reportId: hash };

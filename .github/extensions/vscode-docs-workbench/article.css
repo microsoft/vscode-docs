@@ -72,6 +72,7 @@ body { margin: 0; }
 .article-app #execution section + section { border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
 .article-app .finding-detail td { padding: 10px 14px; background: var(--vscode-editorWidget-background, light-dark(#f6f7f8, #262626)); }
 .article-app .reference { font-family: var(--vscode-editor-font-family, monospace); font-size: .9em; }
+.article-app #replay-review pre, .article-app #replay-review li { white-space: pre-wrap; overflow-wrap: anywhere; }
 .article-app .decision-form { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 8px; align-items: start; max-width: 600px; margin-top: 12px; }
 .article-app .decision-form button { grid-column: 2; justify-self: start; }
 .article-app .error { color: var(--vscode-errorForeground, light-dark(#b00020, #f88)); }

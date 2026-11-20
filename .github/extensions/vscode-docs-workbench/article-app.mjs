@@ -18,6 +18,8 @@ let findingOrder;
 let emptyFindings;
 let orderedSource;
 let orderedFindings;
+let replayOptions;
+let preparedReplay;
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
 const coverageLabels = { clean: 'Checked clean', findings: 'With findings', checking: 'Checking freshness',
@@ -80,6 +82,7 @@ async function perform(action) {
 function scopeInput() { return [...new Set($('scope').value.split(',').map(value => value.trim()).filter(Boolean))].sort(); }
 function inScope(article, scope) { return scope.some(item => item === article || article.startsWith(`${item}/`)); }
 function articleMatches(article) { return article.toLowerCase().includes($('article-filter').value.trim().toLowerCase()); }
+function checkType(finding) { return finding.kind === 'replay' ? 'replay' : finding.kind === 'link' ? 'links' : 'claims'; }
 function executionLabel(run) {
   if (['starting', 'uncertain'].includes(run.launch)) return 'Launch unconfirmed';
   if (run.launch === 'not-started') return 'Not started';
@@ -87,7 +90,8 @@ function executionLabel(run) {
   if (run.result?.state === 'invalid') return 'Invalid report';
   if (run.result?.state === 'stale') return 'Out-of-date report';
   if (run.result?.state === 'freshness-failed') return 'Verification failed';
-  if (run.ingestedHash && run.result?.state === 'valid') return 'Findings updated';
+  if (run.readiness) return 'Waiting for your readiness';
+  if (run.ingestedHash && run.result?.state === 'valid') return run.kind === 'replay' ? `Replay ${run.result.replayStatus}` : 'Findings updated';
   if (['completed', 'failed', 'cancelled'].includes(run.observation?.status) && run.result?.state === 'missing') return 'No report';
   if (['failed', 'cancelled'].includes(run.observation?.status)) return `Host ${run.observation.status}`;
   if (run.observation?.status === 'running') return 'Host running';
@@ -124,7 +128,7 @@ function renderExecution() {
     if (run.ownerMatches && ['starting', 'uncertain'].includes(run.launch)) {
       const resolve = control(section, 'I checked host history: no task started', () => void perform(async () => {
         if (!window.confirm('Confirm you inspected the owning host session and no task started. This does not cancel any task.')) return;
-        await request('resolve-uncertain', { id: run.id, confirmed: true });
+        await request(run.kind === 'replay' ? 'replay-resolve' : 'resolve-uncertain', { id: run.id, confirmed: true });
         await refresh();
         notice('Launch resolved. No task was cancelled.');
       }));
@@ -150,7 +154,7 @@ function render() {
   const scope = scopeInput();
   const articles = state.articles.filter(article => inScope(article, scope));
   const valid = scope.length && scope.every(item => catalog.includes(item)) && articles.length;
-  const blocker = state.runs.find(run => run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
+  const blocker = state.runs.find(run => run.kind !== 'replay' && run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
   const catalogReady = !state.catalog || state.catalog.state === 'complete';
   $('launch').disabled = busy || !catalogReady || state.hostSync?.state === 'checking' || !state.hostAvailable || !valid || !!blocker;
   $('scope-count').textContent = catalogReady ? `${articles.length} article(s) selected` :
@@ -164,6 +168,7 @@ function render() {
     : state.verification?.message || state.catalog?.message || (state.hostSync?.state === 'failed' ? state.hostSync.message : '');
   if ($('verification-status').textContent !== verificationStatus) $('verification-status').textContent = verificationStatus;
   renderExecution();
+  renderReplay();
   renderFindings();
   renderCoverage();
 }
@@ -204,7 +209,7 @@ function renderDecision(parent, record) {
   form.append(label, status, reasonLabel, reason, submit);
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const decision = { findingId: finding.id, evidenceHash: record.evidenceHash, coverageToken: record.coverageToken,
+    const decision = { findingId: finding.id, check: checkType(finding), evidenceHash: record.evidenceHash, coverageToken: record.coverageToken,
       status: status.value, reason: reason.value };
     void perform(async () => {
       await request('triage', decision);
@@ -217,7 +222,7 @@ function renderDecision(parent, record) {
 }
 function findingContext(record) {
   const { finding } = record;
-  return `${finding.article}:${finding.line} · ${finding.kind === 'link' ? 'Links' : 'Claims'} · ${Reflect.get(freshnessLabels, record.freshness)}`;
+  return `${finding.article}:${finding.line} · ${checkType(finding)} · ${Reflect.get(freshnessLabels, record.freshness)}`;
 }
 function currentCheckText(provenance) {
   return provenance.currentCheckedAt ? `Current freshness last checked ${time(provenance.currentCheckedAt)}.` :
@@ -301,7 +306,7 @@ function renderFinding(record) {
 function matches(record, filters) {
   const { finding } = record;
   return finding.article.toLowerCase().includes(filters.article) &&
-    (filters.check === 'all' || (finding.kind === 'link' ? 'links' : 'claims') === filters.check) &&
+    (filters.check === 'all' || checkType(finding) === filters.check) &&
     (filters.status === 'all' || finding.status === filters.status) &&
     (filters.freshness === 'all' || record.freshness === filters.freshness) &&
     `${finding.article} ${finding.message} ${finding.evidence} ${finding.line}`.toLowerCase().includes(filters.query);
@@ -396,7 +401,9 @@ function renderFindings() {
   }
 }
 function renderCoverage() {
-  const items = state.coverage.filter(entry => articleMatches(entry.article));
+  const filter = $('check-filter').value;
+  const items = state.coverage.filter(entry => articleMatches(entry.article) &&
+    (filter === 'all' || (filter === 'replay' ? entry.check === 'replay' : entry.check !== 'replay')));
   const summary = `Coverage · ${Object.entries(coverageLabels).map(([key, label]) =>
     `${items.filter(entry => entry.state === key).length} ${label.toLowerCase()}`).join(' · ')}`;
   if ($('coverage-summary').textContent !== summary) $('coverage-summary').textContent = summary;
@@ -406,17 +413,17 @@ function renderCoverage() {
     return;
   }
   const key = JSON.stringify(items.map(entry => [
-    entry.article, entry.state, entry.lastAcceptedState, entry.retained, entry.verification?.report.generatedAt,
+    entry.article, entry.check, entry.procedure, entry.state, entry.lastAcceptedState, entry.retained, entry.verification?.report.generatedAt,
     entry.verification?.freshness, entry.verification?.message, entry.attempt?.state, entry.attempt?.message
   ]));
   if (coverageKey === key) return;
   coverageKey = key;
   $('coverage-list').replaceChildren();
-  paragraph($('coverage-list'), 'Claims and links only. Checked clean means no findings for these checks, not a complete article review. Later failures do not erase the last successful verification.', 'muted');
+  paragraph($('coverage-list'), 'Claims/links and replay procedures have independent coverage. A clean check or passed procedure is not a complete article review.', 'muted');
   for (const entry of items) {
     const row = element('div', undefined, 'coverage-row');
-    const title = element('strong', entry.article);
-    const description = element('span', Reflect.get(coverageLabels, entry.state));
+    const title = element('strong', `${entry.article}${entry.check === 'replay' ? ` · Replay: ${entry.procedure}` : ''}`);
+    const description = element('span', entry.check === 'replay' && entry.state === 'clean' ? 'Replay passed' : Reflect.get(coverageLabels, entry.state));
     const details = element('span', entry.verification
       ? `Last accepted ${time(entry.verification.report.generatedAt)} (${entry.lastAcceptedState === 'clean' ? 'no findings' : 'with findings'}) · current freshness: ${entry.verification.freshness}${entry.retained ? ` · ${entry.retained} retained, not observed` : ''}`
       : 'No successful verification', 'muted');
@@ -426,10 +433,93 @@ function renderCoverage() {
     $('coverage-list').append(row);
   }
 }
+function replayInput() {
+  const build = replayOptions?.builds.at(Number($('replay-build').value));
+  return { storyboard: $('replay-storyboard').value, executable: build?.executable, revision: build?.revision,
+    workspace: $('replay-workspace').value, captureProfile: $('replay-profile').value };
+}
+function invalidateReplay() { preparedReplay = undefined; $('replay-review').hidden = true; }
+function selectReplayStoryboard() {
+  invalidateReplay();
+  const selected = replayOptions?.storyboards.find(item => item.file === $('replay-storyboard').value);
+  $('replay-workspace-fields').hidden = !selected?.workspaceRequired;
+  $('replay-build').replaceChildren();
+  replayOptions?.builds.forEach((build, index) => {
+    if (build.channel !== selected?.channel) return;
+    const option = element('option', `${build.channel} · ${build.version} · ${build.revision.slice(0, 10)}`);
+    option.value = String(index); option.title = build.executable; $('replay-build').append(option);
+  });
+  $('replay-inspect').disabled = busy || !$('replay-build').children.length;
+}
+function renderReplay() {
+  $('task-type').disabled = busy;
+  for (const id of ['replay-storyboard', 'replay-build', 'replay-workspace', 'replay-profile']) $(id).disabled = busy;
+  const enabled = $('task-type').value === 'replay';
+  $('launch-form').hidden = enabled;
+  $('replay-form').hidden = !enabled;
+  $('replay-review').hidden = !enabled || !preparedReplay;
+  $('replay-inspect').disabled = busy || !$('replay-build').children.length;
+  $('replay-start').disabled = busy || !preparedReplay;
+  $('replay-readiness').replaceChildren();
+  for (const run of state.runs.filter(item => item.kind === 'replay' && item.readiness && item.ownerMatches)) {
+    const panel = element('section');
+    paragraph(panel, `VS Code is waiting: ${run.binding.storyboardId}. Handle any native prompts and keep its window visible.`);
+    const respond = ready => void perform(async () => {
+      await request('replay-ready', { id: run.id, ready, confirmed: true });
+      await refresh();
+      notice(ready ? 'Readiness sent. The reviewed procedure can continue.' : 'Cancellation sent. Waiting for cleanup.');
+    });
+    control(panel, "I'm ready", () => respond(true)).disabled = busy;
+    control(panel, 'Cancel waiting replay', () => respond(false)).disabled = busy;
+    $('replay-readiness').append(panel);
+  }
+}
+$('task-type').addEventListener('change', () => {
+  invalidateReplay();
+  render();
+  if ($('task-type').value !== 'replay' || replayOptions) return;
+  void perform(async () => {
+    $('replay-setup-status').textContent = 'Reading storyboard and installed-build prerequisites...';
+    replayOptions = await request('replay-options');
+    $('replay-storyboard').replaceChildren(...replayOptions.storyboards.map(item => {
+      const option = element('option', `${item.id} · ${item.article}`); option.value = item.file; return option;
+    }));
+    selectReplayStoryboard();
+    $('replay-setup-status').textContent = replayOptions.errors.length ? replayOptions.errors.join(' ') :
+      'Uses a dedicated capture profile. Keep the run attended; no live AI or media capture.';
+  });
+});
+$('replay-storyboard').addEventListener('change', selectReplayStoryboard);
+for (const id of ['replay-build', 'replay-workspace', 'replay-profile']) $(id).addEventListener('input', invalidateReplay);
+$('replay-form').addEventListener('submit', event => {
+  event.preventDefault();
+  void perform(async () => {
+    preparedReplay = await request('replay-prepare', replayInput());
+    const content = $('replay-review-content'); content.replaceChildren();
+    paragraph(content, `${preparedReplay.procedure.id} · ${preparedReplay.productVersion} · ${preparedReplay.binding.product.channel}`);
+    paragraph(content, preparedReplay.binding.article);
+    const steps = element('ol');
+    for (const step of preparedReplay.procedure.steps) {
+      const detail = step.target ? preparedReplay.procedure.targets[step.target] : undefined;
+      steps.append(element('li', `${JSON.stringify(step)}${detail ? ` · target ${JSON.stringify(detail)}` : ''}`));
+    }
+    content.append(steps);
+    const binding = element('details'); binding.append(element('summary', 'Exact inputs and binding'));
+    binding.append(element('pre', JSON.stringify({ config: preparedReplay.config, binding: preparedReplay.binding, hash: preparedReplay.bindingHash }, null, 2)));
+    content.append(binding);
+  });
+});
+$('replay-start').addEventListener('click', () => void perform(async () => {
+  if (!preparedReplay) throw new Error('Review the procedure first.');
+  await request('replay-launch', { ...preparedReplay.config, bindingHash: preparedReplay.bindingHash, confirmed: true });
+  invalidateReplay();
+  await refresh();
+  notice('Attended replay submitted. Handle native prompts, then confirm readiness here.');
+}));
 $('scope').addEventListener('input', render);
 $('finding-search').addEventListener('input', renderFindings);
 $('article-filter').addEventListener('input', () => { renderFindings(); renderCoverage(); });
-for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', renderFindings);
+for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', () => { renderFindings(); renderCoverage(); });
 $('coverage-details').addEventListener('toggle', () => { if (state) renderCoverage(); });
 $('execution-details').addEventListener('toggle', () => { if (state) renderExecution(); });
 $('launch-form').addEventListener('submit', event => {

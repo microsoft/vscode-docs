@@ -8,6 +8,7 @@ import { prepareRequest } from './article-runner.mjs';
 import { loadRunArtifacts, rerunDecision } from './article-artifacts.mjs';
 import { inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
 import { createProgressiveVerification } from './article-verification.mjs';
+import { createReplayWorkflow } from './article-replay.mjs';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -33,7 +34,7 @@ async function bounded(promise, milliseconds, message = 'Host acknowledgement ti
 
 export async function createArticleWorkflow({
   session, workspace, home, check, checkerOptions, acknowledgementTimeout = 30_000,
-  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker
+  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions
 }) {
   const store = await createArticleStore(workspace, home);
   const ownerSessionId = text(session.sessionId, 'Host session ID');
@@ -52,6 +53,9 @@ export async function createArticleWorkflow({
   let lastHostPoll = 0;
   let disposed = false;
   const operations = new Set();
+  const replays = await createReplayWorkflow(store, {
+    ownerSessionId, list: hostList, start: startHostTask, find: findHostTask, observation: hostObservation
+  }, replayOptions);
   function track(operation) {
     operations.add(operation);
     return operation.finally(() => operations.delete(operation));
@@ -97,23 +101,28 @@ export async function createArticleWorkflow({
     const verification = [...verified.values()].some(entry => entry.freshness === 'checking')
       ? { ...verifier.status, state: 'checking', checkedAt: undefined } : verifier.status;
     const observed = new Map(state.runs.map(run => [run.id, verifier.observed(run, inspected.get(run.id))]));
+    const claims = inboxView(state, articles, observed, verified, verification.checkedAt || null);
+    const replayView = await replays.snapshot();
+    const runs = await Promise.all(state.runs.map(async run => {
+      const result = observed.get(run.id);
+      const completion = result?.completion || await runnerCompletion(run);
+      return {
+        ...run, ownerMatches: run.ownerSessionId === ownerSessionId, activity: activity.get(run.id), completion,
+        result: result && { state: result.state, message: result.message },
+        rerun: rerunDecision(run, ownerSessionId, run.syncError ||
+          (run.ownerSessionId === ownerSessionId && hostStatus.state === 'failed') ? undefined : run.observation?.status, completion)
+      };
+    }));
     return {
       workspace: store.workspace, ownerSessionId, storageDirectory: store.directory,
       hostAvailable: available,
       hostContract: 'Experimental session-scoped SDK tasks. API presence is not proof of a successful launch. No host links are returned by this contract.',
-      articles, ...inboxView(state, articles, observed, verified, verification.checkedAt || null),
+      articles, ...claims,
+      findings: [...claims.findings, ...replayView.findings],
+      coverage: [...claims.coverage.map(entry => ({ ...entry, check: 'checks' })), ...replayView.coverage],
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
-      runs: await Promise.all(state.runs.map(async run => {
-        const result = observed.get(run.id);
-        const completion = result?.completion || await runnerCompletion(run);
-        return {
-          ...run, ownerMatches: run.ownerSessionId === ownerSessionId, activity: activity.get(run.id), completion,
-          result: result && { state: result.state, message: result.message },
-          rerun: rerunDecision(run, ownerSessionId, run.syncError ||
-            (run.ownerSessionId === ownerSessionId && hostStatus.state === 'failed') ? undefined : run.observation?.status, completion)
-        };
-      }))
+      runs: [...runs, ...replayView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
     };
   }
   async function runnerCompletion(run) {
@@ -130,6 +139,12 @@ export async function createArticleWorkflow({
     const response = await bounded(tasks.list(), acknowledgementTimeout, 'Host task lookup timed out. No start request was sent by this lookup.');
     if (!Array.isArray(response?.tasks)) throw new WorkbenchError('Invalid host task list.', 502);
     return response.tasks;
+  }
+  async function startHostTask(input) {
+    if (!available) throw new WorkbenchError('The required host task API is unavailable.', 409);
+    const response = await bounded(tasks.startAgent(input), acknowledgementTimeout);
+    if (typeof response?.agentId !== 'string' || !response.agentId) throw new Error('Host returned no agent ID.');
+    return response;
   }
   async function launch({ scope, confirmed }) {
     if (confirmed !== true) throw new WorkbenchError('Confirm the bounded check and private writes before starting.');
@@ -170,10 +185,9 @@ export async function createArticleWorkflow({
       throw error;
     }
     try {
-      const response = await bounded(tasks.startAgent({
+      const response = await startHostTask({
         agentType: 'task', name: `article-${run.id}`, description: description(run.id), prompt: articlePrompt(requestFile)
-      }), acknowledgementTimeout);
-      if (typeof response?.agentId !== 'string' || !response.agentId) throw new Error('Host returned no agent ID.');
+      });
       await patch(run.id, current => Object.assign(current, {
         launch: 'acknowledged', agentId: response.agentId, acknowledgedAt: now(), error: ''
       }));
@@ -184,9 +198,9 @@ export async function createArticleWorkflow({
     }
     return getRun(run.id);
   }
-  function findHostTask(list, run) {
+  function findHostTask(list, run, label = description(run.id)) {
     const matches = list.filter(candidate => candidate.type === 'agent' &&
-      (run.agentId ? candidate.id === run.agentId : candidate.description === description(run.id)));
+      (run.agentId ? candidate.id === run.agentId : candidate.description === label));
     if (matches.length !== 1) throw new WorkbenchError(matches.length ? 'Ambiguous host task identity; inspect the owning session.' :
       'Task not found in the owning session. This does not prove that it never ran.', 409);
     const task = matches[0];
@@ -247,7 +261,8 @@ export async function createArticleWorkflow({
   }
   async function reconcileHost() {
     const owned = (await store.read()).runs.filter(run => run.ownerSessionId === ownerSessionId && run.launch !== 'not-started');
-    if (owned.length) {
+    const replayRuns = await replays.ownedRuns();
+    if (owned.length || replayRuns.length) {
       let list;
       try { list = await hostList(); }
       catch (error) {
@@ -257,9 +272,11 @@ export async function createArticleWorkflow({
             activity.delete(run.id);
           }
         });
+        if (replayRuns.length) await replays.sync(undefined, error);
         throw error;
       }
       for (const run of owned) await sync({ id: run.id }, list);
+      if (replayRuns.length) await replays.sync(list);
     }
   }
   function updateHost() {
@@ -279,7 +296,8 @@ export async function createArticleWorkflow({
   }
   async function poll() {
     const state = await store.read();
-    if (Date.now() - lastHostPoll >= 5000 && state.runs.some(run =>
+    const replayRuns = await replays.ownedRuns();
+    if (Date.now() - lastHostPoll >= 5000 && [...state.runs, ...replayRuns].some(run =>
       run.ownerSessionId === ownerSessionId && run.launch !== 'not-started' &&
       (!run.observation || run.observation.status === 'running'))) updateHost();
     return snapshot({ verify: false });
@@ -290,12 +308,21 @@ export async function createArticleWorkflow({
     if (catalogPromise) await catalogPromise;
   }
   function triage(input) {
+    if (input.check === 'replay') return replays.triage(input);
     return triageInbox(store, input, check, (entry, run) => verifier.verifyDecision(entry, run));
   }
   const actions = {
     launch, sync, refresh, poll,
-    inspect: async ({ id }) => inspectExecution(store, await getRun(id)),
+    inspect: async ({ id }) => {
+      const run = (await store.read()).runs.find(item => item.id === id);
+      return run ? inspectExecution(store, run) : replays.inspect({ id });
+    },
     triage,
+    'replay-options': replays.options,
+    'replay-prepare': replays.prepare,
+    'replay-launch': replays.launch,
+    'replay-ready': replays.ready,
+    'replay-resolve': replays.resolve,
     'cancel-verification': async () => { await verifier.cancel(); return snapshot({ verify: false }); },
     'resolve-uncertain': resolveUncertain
   };

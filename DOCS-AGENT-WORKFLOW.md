@@ -230,6 +230,8 @@ Human visual approval is required before copying a candidate into documentation.
 
 ### Replay a reviewed procedure
 
+For visual setup, readiness confirmation, and retained findings, use [replay from the findings inbox](#replay-from-the-findings-inbox). The commands below remain available as a manual interface.
+
 The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected assertions from a reviewed version 2 storyboard against an installed, pinned build. It reuses the attended capture runner without producing media. It does not execute article prose, evaluate arbitrary scripts, compare pixels, or prove every claim in an article.
 
 1. Screen the article and storyboard as untrusted input. Review each action and assertion for relevance and side effects. Choose synthetic data or an explicitly approved existing workspace. Confirm the full installed build revision and channel; do not assume an earlier installation is unchanged.
@@ -432,6 +434,24 @@ The shared `extension.json` declares both canvases so compatible hosts can list 
 
 Checks cover data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. They do not verify prose accuracy, public product availability, external websites, rendered media, generated content, or navigation. No product build or manifest is supplied, so product references remain **unverified**, distinct from errors and warnings. Checker exit 1 with a valid error report is a check result, not an infrastructure failure.
 
+### Replay from the findings inbox
+
+Select **Replay procedure (attended)** in the **Task** picker. This checks a reviewed, checked-in storyboard without producing screenshots or videos.
+
+1. Select a storyboard and a matching installed VS Code build. The current Windows integration discovers standard Stable and Insiders installations and reads their version information without opening an editor window.
+2. If the storyboard requires a workspace, enter its absolute path. Optionally select an existing dedicated capture profile; otherwise a private workspace-bound profile is created when you start. Never select a normal profile.
+3. Select **Review procedure** and inspect the actions, targets, build, workspace, and exact binding. Select **Start attended replay** only after reviewing those inputs and when you can remain available. Changing an input requires another review.
+4. Handle any native Workspace Trust or other prompts yourself. When the canvas shows that VS Code is waiting, select **I'm ready**. **Cancel waiting replay** declines that readiness request and lets the runner clean up. Neither action changes trust decisions or cancels an unrelated host task.
+5. Review replay findings in the same inbox using the **Replay** check-type filter. A passed replay covers only its assertions. A mismatch needs investigation; an incomplete replay reports prerequisites, readiness, privacy, or cleanup problems rather than claiming an article bug.
+
+Replay uses the existing `build/replay.js` runner and readiness protocol. Its private records live in `replay.json` and `replay-runs` beneath the workspace's inbox directory. Capture output and default profiles use shorter, guarded `replay-output` and `replay-profiles` directories beneath the canvas's private extension-data directory to avoid Windows path-length limits. Execution IDs and reviewed bindings retain workspace ownership. They use the shared audit and guarded storage helpers, but do not change the claims/link state or coverage. Existing claims and their review decisions remain intact.
+
+Coverage is tracked per storyboard, separately from claims and links. An incomplete attempt retains earlier successful verification. Only a passed replay can establish that an earlier finding was not observed; absence does not automatically mark it fixed. A fixed finding returning after a passed replay reopens, while unchanged dismissals persist.
+
+Loading and reviewing replay evidence never reruns the UI. Freshness checks bind article, storyboard, runner, source revision, review, and evidence hashes to the selected build. They do not inspect a subsequently updated installation or current workspace contents. The product pin remains visible in the finding's provenance. No media approval or publication is authorized by replay.
+
+Live validation covers all eight steps of the Stable debugger-picker procedure, including explicit procedure review and readiness. It confirms an unchanged workspace, no media capture, application shutdown, and release of the dedicated profile lock. Existing claim and link findings and coverage remain intact. Isolated tests cover replay review decisions and reappearing findings. Live validation does not save review decisions.
+
 ### Coverage and retained findings
 
 **Coverage** distinguishes checked-clean articles, articles with observed findings, never-checked articles, checking or unavailable freshness, stale verification, and failed or incomplete attempts. While verification is pending, it shows the last accepted result separately from current freshness. It follows the article-or-folder filter and always describes the supported claims-and-links scope, not a comprehensive article review. Review decisions do not change objective coverage: dismissing every observation does not make an article checked-clean.
@@ -517,7 +537,7 @@ An attended two-article batch also verified this redesign on the local Windows h
 
 These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs findings**. With separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
 
-PR review, feature documentation, audits, media, and replay retain their existing entry points. Their integration into this inbox and docs-as-eval are deferred. Coverage here is limited to the local claims-and-links checker, not every documentation workflow.
+PR review, feature documentation, audits, and media retain their existing entry points. Their integration into this inbox and docs-as-eval are deferred. Coverage here includes local claims/link checks and explicitly reviewed replay procedures, not every documentation workflow.
 
 ## Use the docs workbench
 
