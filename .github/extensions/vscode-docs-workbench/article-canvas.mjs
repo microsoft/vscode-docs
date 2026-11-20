@@ -1,0 +1,48 @@
+import { fileURLToPath } from 'node:url';
+import { createWorkbenchServer, createHttpDiagnostics } from './server.mjs';
+import { declaredCanvas } from './canvas-declarations.mjs';
+
+async function createArticleWorkflow(options) {
+  const workflow = await import('./article-workflow.mjs');
+  return workflow.createArticleWorkflow(options);
+}
+
+export const articleAssets = new Map([
+  ['/', ['article.html', 'text/html; charset=utf-8']],
+  ['/article-app.mjs', ['article-app.mjs', 'text/javascript; charset=utf-8']],
+  ['/article.css', ['article.css', 'text/css; charset=utf-8']]
+]);
+
+export function articleCanvasOptions({ getSession, CanvasError, createWorkflow = createArticleWorkflow }) {
+  const instances = new Map();
+  let initializing;
+  async function workflow() {
+    if (!initializing) initializing = createWorkflow({
+      session: getSession(), workspace: fileURLToPath(new URL('../../../', import.meta.url))
+    })
+      .catch(error => { initializing = undefined; throw error; });
+    return initializing;
+  }
+  async function guarded(callback) {
+    try { return await callback(); }
+    catch (error) { throw new CanvasError('article-check-failed', error.message); }
+  }
+  return {
+    ...declaredCanvas('vscode-docs-article-checks', {
+      status: () => guarded(async () => (await workflow()).snapshot()),
+      'inspect-report': ({ input }) => guarded(async () => (await workflow()).dispatch('inspect', input))
+    }),
+    open: ({ instanceId }) => guarded(async () => {
+      if (!instances.has(instanceId)) {
+        instances.set(instanceId, (async () => createWorkbenchServer(
+          await workflow(), async () => {}, createHttpDiagnostics(getSession()), { assetEntries: articleAssets }
+        ))().catch(error => { instances.delete(instanceId); throw error; }));
+      }
+      return { url: (await instances.get(instanceId)).url };
+    }),
+    async onClose({ instanceId }) {
+      const instance = await instances.get(instanceId);
+      if (instance) { await instance.close(); instances.delete(instanceId); }
+    }
+  };
+}

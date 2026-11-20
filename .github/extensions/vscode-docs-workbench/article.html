@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs findings</title>
+  <link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main class="article-app">
+  <header>
+    <h1>Findings inbox</h1>
+    <p class="muted">Check a scope. Review findings across articles, independently of when checks ran.</p>
+  </header>
+  <form id="launch-form" class="launch-bar">
+    <div class="article-picker">
+      <label for="scope">Check scope <span class="muted">(articles or folders, separated by commas)</span></label>
+      <input id="scope" list="scopes" required autocomplete="off" placeholder="docs/debugtest, docs/editing/codebasics.md">
+      <datalist id="scopes"></datalist>
+    </div>
+    <button id="launch" type="submit" disabled>Run checks</button>
+    <p class="launch-scope muted"><span id="scope-count">0 articles selected</span>. Read-only claims and links checks. Saves private results and uses host credits. No content or public changes.</p>
+    <p id="launch-eligibility" class="error"></p>
+  </form>
+  <p id="notice" role="status" aria-live="polite" class="muted">Loading...</p>
+  <section class="results" aria-labelledby="report-heading">
+    <div class="section-heading">
+      <h2 id="report-heading">Findings <span id="finding-count" class="badge"></span></h2>
+      <span id="execution-indicator" role="status" aria-live="polite" class="muted"></span>
+      <button id="reload" type="button" class="secondary">Refresh</button>
+    </div>
+    <div class="finding-toolbar">
+      <div><label for="article-filter">Article or folder</label><input id="article-filter" list="scopes" placeholder="All articles"></div>
+      <div><label for="check-filter">Check type</label><select id="check-filter"><option value="all">All checks</option><option value="claims">Claims</option><option value="links">Links</option></select></div>
+      <div><label for="status-filter">Review status</label><select id="status-filter"><option value="all">All statuses</option><option value="open">Open</option><option value="accepted">Accepted</option><option value="dismissed">Dismissed</option><option value="fixed">Fixed</option></select></div>
+      <div><label for="freshness-filter">Freshness</label><select id="freshness-filter"><option value="all">All evidence</option><option value="fresh">Fresh</option><option value="stale">Stale</option><option value="not-observed">Not observed</option><option value="unavailable">Unavailable</option></select></div>
+    </div>
+    <div class="finding-tools">
+      <div id="filters" class="filters" aria-label="Filter by severity"></div>
+      <label for="finding-search" class="sr-only">Filter findings</label>
+      <input id="finding-search" type="search" placeholder="Search findings...">
+    </div>
+    <div id="report"></div>
+    <p id="evidence-note" class="muted"></p>
+    <details id="coverage-details">
+      <summary id="coverage-summary">Coverage</summary>
+      <div id="coverage-list"></div>
+    </details>
+    <details id="execution-details" hidden>
+      <summary>Execution details and recovery</summary>
+      <div id="execution"></div>
+    </details>
+  </section>
+  <footer>
+    <details>
+      <summary>Scope, prerequisites, and privacy</summary>
+      <p>Checks data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. No external website requests. A batch resolves the chosen folders and articles at launch and checks only that fixed article set in one host task.</p>
+      <p>Product availability, prose accuracy, external links, rendered media, navigation, and generated content are not verified. Product references can remain unverified because no product manifest is supplied.</p>
+      <p>Requires installed Node.js and checker dependencies, a trusted checkout, and a Copilot host with background-task APIs. The host can require permissions. It owns execution; this canvas does not sandbox agents, create worktrees, schedule runs, install tools, or interpret article text as instructions.</p>
+      <p id="workspace"></p>
+      <p id="host-contract"></p>
+      <p id="ownership"></p>
+      <p>Fresh, complete, confirmed reports enter the inbox automatically. Decisions are explicit and evidence-bound. Changed evidence reopens decisions. Findings absent from a later applicable scan remain marked Not observed, never automatically fixed. Failed or incomplete attempts preserve earlier results.</p>
+      <p>Recent host activity is not saved as a transcript. Hidden execution references support provenance and recovery, not run-history navigation. The task API returns no host deep links. Local review never authorizes documentation edits, GitHub writes, media approval, publication, cancellation, or archiving.</p>
+      <p>PR review, feature documentation, audits, media, replay, and docs-as-eval remain separate workflows.</p>
+    </details>
+  </footer>
+</main>
+<script type="module" src="/article-app.mjs"></script>
+</body>
+</html>

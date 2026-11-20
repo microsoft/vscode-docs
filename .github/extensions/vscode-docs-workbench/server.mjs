@@ -25,9 +25,9 @@ export function createHttpDiagnostics(session) {
   };
 }
 
-export async function createWorkbenchServer(workbench, authorize, log) {
+export async function createWorkbenchServer(workbench, authorize, log, { assetEntries = assets } = {}) {
   const token = randomBytes(32).toString('hex');
-  const files = new Map(await Promise.all([...assets].map(async ([route, [file, type]]) =>
+  const files = new Map(await Promise.all([...assetEntries].map(async ([route, [file, type]]) =>
     [route, { body: await readFile(new URL(`./${file}`, import.meta.url)), type }])));
   let url;
   const server = createServer(async (request, response) => {

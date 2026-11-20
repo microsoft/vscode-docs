@@ -34,6 +34,12 @@ function evidenceHash(finding, report) {
 	});
 }
 
+function sameArticleChecks(previous, current, article) {
+	return previous.scanPaths.includes(article) && current.scanPaths.includes(article) &&
+		!previous.replay && !current.replay &&
+		JSON.stringify([...previous.checks].sort()) === JSON.stringify([...current.checks].sort());
+}
+
 function validateAuditFindings(reports, records) {
 	if (!Array.isArray(reports) || !Array.isArray(records)) {
 		throw new Error('Audit state reports and findings must be arrays.');
@@ -61,10 +67,11 @@ function validateAuditFindings(reports, records) {
 		groups.get(record.reportId).push(record.finding);
 		let status = 'open';
 		let lastTimestamp = record.finding.firstSeen;
+		let lastReport;
 		for (const decision of record.history) {
 			assertTimestamp(decision.at);
 			if (decision.from !== status || !['open', 'accepted', 'dismissed', 'fixed'].includes(decision.to) ||
-				!['triage', 'evidence-changed'].includes(decision.action) ||
+				!['triage', 'evidence-changed', 'finding-reappeared'].includes(decision.action) ||
 				typeof decision.reason !== 'string' || !decision.reason.trim() ||
 				!metadata.has(decision.reportId) || typeof decision.evidenceHash !== 'string' ||
 				!/^[a-f0-9]{64}$/.test(decision.evidenceHash) || decision.at < lastTimestamp ||
@@ -72,8 +79,18 @@ function validateAuditFindings(reports, records) {
 				(decision.action === 'evidence-changed' && decision.to !== 'open')) {
 				throw new Error('Invalid finding triage history.');
 			}
+			const reappeared = decision.action === 'finding-reappeared';
+			const absence = metadata.get(decision.absenceReportId);
+			const observation = metadata.get(decision.reportId);
+			if (Object.hasOwn(decision, 'absenceReportId') !== reappeared ||
+				(reappeared && (decision.from !== 'fixed' || decision.to !== 'open' || !absence || !lastReport ||
+					absence.generatedAt <= lastReport.generatedAt || absence.generatedAt >= observation.generatedAt ||
+					!sameArticleChecks(absence, observation, record.finding.article)))) {
+				throw new Error('Invalid finding reappearance history.');
+			}
 			status = decision.to;
 			lastTimestamp = decision.at;
+			lastReport = observation;
 		}
 		if (record.finding.status !== status) {
 			throw new Error('Finding status does not match its triage history.');
@@ -90,7 +107,7 @@ function validateAuditFindings(reports, records) {
 	}
 }
 
-function importFindings(state, input, timestamp) {
+function importFindings(state, input, timestamp, { previousVerification } = {}) {
 	validateReport(input);
 	assertTimestamp(timestamp);
 	if (input.generatedAt > timestamp) {
@@ -102,6 +119,22 @@ function importFindings(state, input, timestamp) {
 	const { findings, ...report } = structuredClone(input);
 	const reportId = hash(report);
 	const existing = new Map(state.findings.map(record => [record.finding.id, record]));
+	let verified;
+	let verifiedIds;
+	if (previousVerification !== undefined) {
+		// Only callers that verified complete, explicit article coverage can supply this context.
+		verified = previousVerification?.report;
+		if (!verified || Object.hasOwn(verified, 'findings')) throw new Error('Previous verification requires report metadata.');
+		validateReport({ ...verified, findings: [] });
+		const ids = previousVerification.findingIds;
+		if (verified.generatedAt >= report.generatedAt || !Array.isArray(ids) ||
+			new Set(ids).size !== ids.length || ids.some(id => !existing.has(id) ||
+				existing.get(id).finding.lastSeen !== verified.generatedAt)) {
+			throw new Error('Invalid previous verification observations or timestamp.');
+		}
+		verifiedIds = new Set(ids);
+	}
+	let absenceReportId;
 	const result = { added: 0, refreshed: 0, reopened: 0 };
 	for (const finding of findings) {
 		const previous = existing.get(finding.id);
@@ -110,8 +143,11 @@ function importFindings(state, input, timestamp) {
 			throw new Error(`Older observation for finding ${finding.id}; state was not updated.`);
 		}
 		const changed = previous && previous.evidenceHash !== digest;
+		const reappeared = previous?.finding.status === 'fixed' && verified &&
+			previous.finding.lastSeen < verified.generatedAt && !verifiedIds.has(finding.id) &&
+			sameArticleChecks(verified, report, finding.article);
 		const lastDecision = previous?.history.at(-1);
-		if (changed && (finding.lastSeen === previous.finding.lastSeen ||
+		if ((changed || reappeared) && (finding.lastSeen === previous.finding.lastSeen ||
 			(lastDecision && finding.lastSeen < lastDecision.at))) {
 			throw new Error(`Conflicting or outdated evidence for finding ${finding.id}; rerun the checker.`);
 		}
@@ -123,10 +159,12 @@ function importFindings(state, input, timestamp) {
 			result.added++;
 		}
 		const history = previous ? [...previous.history] : [];
-		if (changed && finding.status !== 'open') {
+		if ((changed || reappeared) && finding.status !== 'open') {
+			if (!changed) absenceReportId = hash(verified);
 			history.push({
-				at: timestamp, action: 'evidence-changed', from: finding.status, to: 'open',
-				reason: 'Observed article or product evidence changed.',
+				at: timestamp, action: changed ? 'evidence-changed' : 'finding-reappeared', from: finding.status, to: 'open',
+				reason: changed ? 'Observed article or product evidence changed.' : 'Finding reappeared after a verified scan did not observe it.',
+				...(!changed ? { absenceReportId } : {}),
 				evidenceHash: digest, reportId
 			});
 			finding.status = 'open';
@@ -136,6 +174,9 @@ function importFindings(state, input, timestamp) {
 	}
 	if (findings.length && !state.reports.some(entry => entry.id === reportId)) {
 		state.reports.push({ id: reportId, report });
+	}
+	if (absenceReportId && !state.reports.some(entry => entry.id === absenceReportId)) {
+		state.reports.push({ id: absenceReportId, report: structuredClone(verified) });
 	}
 	state.findings = [...existing.values()].sort((left, right) => left.finding.id.localeCompare(right.finding.id));
 	return result;

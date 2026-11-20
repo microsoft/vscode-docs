@@ -21,6 +21,7 @@ Run commands from the repository root. For general contribution, formatting, and
   * [Record an editor video candidate](#record-an-editor-video-candidate)
   * [Prepare saved media without changing the source](#prepare-saved-media-without-changing-the-source)
   * [Record an exact-asset review](#record-an-exact-asset-review)
+* [Check an article visually](#check-an-article-visually)
 * [Use the docs workbench](#use-the-docs-workbench)
 
 ## Agent writing hooks
@@ -129,7 +130,7 @@ $stateJson = node .\build\audit-state.js list
 
 The import validates report structure and returns added, refreshed, and reopened counts. It does not check the current checkout itself, create proposals, or contact GitHub. It preserves stable finding IDs and the original `firstSeen`; `lastSeen` advances for observations present in later reports. Absent findings are retained unchanged, not marked fixed.
 
-Review decisions persist while evidence is unchanged. Changed article bytes, severity, diagnostic message, or product evidence and manifest reopen decided findings. Source revision, scan scope, input fingerprint, and timestamps alone do not reopen them. The latest observation and report metadata are retained, together with status transitions, evidence hashes, timestamps, and reasons. Keep raw reports separately if you need every prior observation's contents.
+Review decisions persist while evidence is unchanged. Changed article bytes, severity, diagnostic message, or product evidence and manifest reopen decided findings. Source revision, scan scope, input fingerprint, and timestamps alone do not reopen them. The findings canvas also supplies verified per-article absence to the shared audit helper: if a fixed finding reappears after that verification, it reopens even when the evidence is identical. This automatic `finding-reappeared` history event references the intervening verification and is distinct from human triage. Ordinary report imports do not infer verified absence. The latest observation and report metadata are retained, together with status transitions, evidence hashes, timestamps, and reasons. Keep raw reports separately if you need every prior observation's contents.
 
 For an explicit review decision, pass `id`, the current record's `evidenceHash`, a `status` (`open`, `accepted`, `dismissed`, or `fixed`), and a nonempty `reason` as JSON on standard input to `node .\build\audit-state.js triage`. Changed evidence rejects a stale decision. Triage is local state only; it does not authorize content changes or issue creation.
 
@@ -413,9 +414,90 @@ Use `--decision rejected` to record rejection. Add the required media-tool optio
 
 `verify` revalidates the media, source and capture hashes, preparation record, and any review record. It returns `human-visual-review-required`, `approved`, or `rejected`; malformed or stale records fail. A successful exit alone is not approval. There is one immutable decision per candidate. To revise a decision or transform the media again, prepare a new candidate and review it; approvals are never inherited, even for byte-identical new candidates. Keep the sources and manifests available for verification. A separate, authorized article update must use the exact approved bytes and follow Git LFS and media-format conventions. These commands do not copy media into documentation, publish, or commit.
 
+## Check an article visually
+
+The **Docs findings** canvas gives documentation maintainers a persistent findings inbox, independent of check execution. Check selected articles or folders, filter accumulated findings, and record reasoned decisions directly. It requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
+
+Ask Copilot to open the `vscode-docs-article-checks` canvas from `.github\extensions\vscode-docs-workbench`. Opening it loads the inbox and incorporates eligible saved results, but never launches a task, fetches GitHub, or requires `gh` authentication. After updating the extension, an attended extension reload is needed. Do not reload or change extension configuration automatically.
+
+The shared `extension.json` declares both canvases so compatible hosts can list them without starting the provider. The provider starts on the first canvas open or action. Runtime registrations use those same declarations. Article initialization is independent of the existing GitHub queue initialization.
+
+1. Enter one or more Markdown articles or folders in **Check scope**, separated by commas, for example `docs/debugtest, docs/editing/codebasics.md`. Scope paths must be under `docs`, `api`, `remote`, or `release-notes`. The picker shows the resolved article count and rejects traversal, symbolic links, junctions, arbitrary files, and shell text. For the default corpus, enter `docs, api, remote, release-notes`. Batches are limited to 5,000 articles.
+2. Select **Run checks**. This explicit action authorizes a read-only check, private results, and automatic ingestion, and can use host credits. No separate confirmation checkbox or import step is required. One host task executes a fixed command to `article-runner.mjs` for the whole batch. The runner resolves scope at launch and checks each selected article with `build/check-claims.js` and links enabled. Overlapping selections are deduplicated; files subsequently added to a selected folder are not silently included. Article text remains data, never agent instructions. The action does not authorize edits, public writes, installs, worktrees, media capture, or review decisions.
+3. Review the **Findings** inbox while checks run. Validated results are incorporated automatically after the owning task is observed idle or completed. Reopening also loads eligible saved results. Filter by article or folder, check type, severity, review status, freshness, and search text. These filters do not change execution scope, launch tasks, or create decisions. There is no run-history navigation.
+4. Expand a finding, choose a decision, enter a reason, and select **Save decision**. The save rechecks current evidence and the latest applicable verification. Unsaved reasons survive filter changes while evidence and review history remain unchanged. An automatic reopen clears drafts from the previous review state. The existing audit helpers deduplicate observations, preserve decisions for unchanged evidence, and reopen decisions when observed evidence changes. Review does not update documentation, create proposals or issues, or approve publication.
+5. Use **Refresh** after editing an article. Freshness is checked when loading results and saving decisions, not continuously watched. **Evidence and provenance** contains source revision, observation times, selected scope, and verification references. **Execution details and recovery** contains host observations and unresolved launches, not a transcript or run-history browser.
+
+Checks cover data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. They do not verify prose accuracy, public product availability, external websites, rendered media, generated content, or navigation. No product build or manifest is supplied, so product references remain **unverified**, distinct from errors and warnings. Checker exit 1 with a valid error report is a check result, not an infrastructure failure.
+
+### Coverage and retained findings
+
+**Coverage** distinguishes checked-clean articles, articles with observed findings, never-checked articles, stale verification, and failed or incomplete attempts. It follows the article-or-folder filter and always describes the supported claims-and-links scope, not a comprehensive article review. Review decisions do not change objective coverage: dismissing every observation does not make an article checked-clean.
+
+Each article has its own source revision and checker input fingerprint, including relevant link dependencies. Editing one article does not automatically invalidate unrelated articles from the same batch. A subset check preserves coverage outside that subset. Files added after scope resolution remain never checked. A later failed attempt retains the last successful verification and its separate freshness status.
+
+Ingestion validates the complete batch, request ownership, request and report hashes, article hashes (including clean articles), schema, check scope, timestamps, and current checker evidence. Missing, invalid, stale, partial, failed, or unconfirmed results do not replace successful coverage or resolve findings. Freshness is evidence at the displayed time, not proof about an installed product.
+
+Findings absent from the latest successful applicable scan stay in the inbox as **Not observed**, with their existing decision. They are never automatically marked fixed. You can make an explicit reasoned decision against that current verification, including marking a confirmed fix. If a fixed finding returns after verified non-observation, it reopens even when the exact original bytes return. Unchanged false-positive dismissals remain dismissed. Reappearance is recorded as an automatic history event, not a human decision.
+
+After ingestion, evidence review is independent of later host lookup failures, task disappearance, or task status changes. These remain visible in execution details and still constrain new launches, but do not invalidate accepted verification. Receipt ownership, the accepted report hash, report structure, and current source evidence are still checked on every load and save. Stale or tampered evidence remains read-only. Source and verification tokens are checked again on save so another scan cannot silently change the evidence being reviewed.
+
+### Ownership and uncertain launches
+
+Private state lives under `extension-data\vscode-docs-article-checks\<workspace-hash>\inbox-v2\` in `COPILOT_HOME`, or `~\.copilot` when unset. The canonical checkout path identifies the workspace. Separate checkouts do not share state. `inbox.json` atomically stores coverage, hidden execution references, and the existing audit-helper review model. `runs\<run-id>\` holds a request, a bundle of per-article reports, and a receipt. Recent tool activity stays in memory rather than becoming another transcript store.
+
+This redesign starts a separate versioned inbox. It does not read, migrate, reset, or overwrite the previous prototype's sibling `runs.json`, `findings.json`, or `runs` directory. It also never reads or merges per-account workbench records, the live daily audit state, or `VSCODE_DOCS_AUDIT_STATE_PATH`. Previous prototype results do not appear in the new inbox; an explicitly requested new check creates new evidence.
+
+Files are private local data, not repository artifacts, and must not be committed. Atomic replacements and exclusive locks serialize ingestion and decisions; do not remove a lock until its writer is known to have stopped. Corrupt or unsupported records fail instead of being overwritten. This storage assumes a trusted local user and filesystem; it is not protection against another process running as that user.
+
+A reload preserves run IDs, owner session IDs, agent IDs, and artifact references. Host tasks remain owned by their original session. Another session can validate saved evidence in the same workspace but cannot observe or resume the original host task through this canvas. The inspected SDK returns no task or session link, so the canvas does not invent deep links.
+
+If acknowledgement is lost or times out, the run remains blocked and is not retried. Refresh host activity to reconcile its exact run identity. A missing task in host history does not prove that nothing ran. Only after inspecting the owning session can you explicitly confirm **I checked host history: no task started**. This records a local decision, does not cancel anything, and does not start another run.
+
+The **verified-finished** rerun policy allows another check after the prior runner's completed receipt is verified and its owning host task is observed idle or in a terminal state. Completion validation checks the owned request, receipt, report scope, and hashes without comparing the report to current article contents. Editing an article can therefore make old evidence stale without blocking a new check. A valid execution-failed receipt also identifies a finished attempt, not a successful check.
+
+Running, uncertain, and unacknowledged work remains blocked. Missing, malformed, owner-mismatched, scope-mismatched, or hash-mismatched artifacts also block overlapping work, even if the host reports a terminal state. The UI shows eligibility based on saved observations and revalidated artifacts, but each launch rereads receipts and queries the owning host again under a launch reservation. A task that resumed running after the UI refresh blocks the launch.
+
+Overlap is based on resolved articles, so a folder check cannot bypass an active single-article check. Disjoint scopes can run independently. All prior tracked tasks overlapping the selected articles must be observable in their owning session before another launch. A missing task or different owning session cannot be bypassed with a saved idle status or report. The canvas never automatically cancels an agent, marks documentation complete, or makes a human review decision.
+
+### Validation and integration boundary
+
+Run deterministic tests without a live host or GitHub:
+
+```powershell
+npm run test:article-workflow
+npm run test:workbench
+```
+
+The fixture uses the real checker, reporter, audit helper, HTTP server, and UI with a fake host task API. Each test exclusively owns a uniquely created directory under the OS temporary directory containing its synthetic checkout and isolated private state. Tests remove their fixture directories, including browser profiles, after use or initialization failure. A temporary-directory override inside the checkout is rejected. Tests never use existing private state or generate files in the documentation checkout.
+
+For browser validation, point to an already installed Chromium browser. This creates a separate headless browser profile in the fixture directory and does not download tools:
+
+```powershell
+$env:DOCS_ARTICLE_BROWSER = 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+npm run test:article-browser
+Remove-Item Env:DOCS_ARTICLE_BROWSER
+```
+
+Optionally set `DOCS_ARTICLE_SCREENSHOTS` to an existing absolute private directory outside the checkout and its ancestors. The browser test retains synthetic dark and light screenshots in a uniquely named child directory and prints that path in its diagnostics. Relative paths and paths resolving into the checkout are rejected. Screenshot retention is opt-in; fixture and browser-profile cleanup still runs.
+
+Browser tests exercise automatic ingestion, compact rows, all finding filters, direct reasoned review, draft preservation, merged scopes, retained findings, coverage, reload, delayed reports, failed attempts, verified-finished reruns, escaping, narrow layouts, and dark and light appearances. Without `DOCS_ARTICLE_BROWSER`, browser tests are explicitly skipped. This is a plain HTTP SDK canvas using the existing native JavaScript UI approach, not a `*.vscode-app.html` app.
+
+The adapter imports `@microsoft/copilot-sdk/extension` and registers canvases with `joinSession({ canvases: { definitions: [...] } })`. An offline entry-point regression checks that contract with a test-double SDK, without an installed SDK path or host connection. It is not a test of the installed SDK's `Canvas.declaration` implementation. Automated validation does not start live agents, reload extensions, or change global configuration.
+
+An attended local Windows round-trip on 20 November 2026 verified the previous single-article prototype: canvas discovery, exactly one host task, a fresh report with seven unverified findings, and preserved references on reopen. That check did not exercise ingestion, triage, or this findings-inbox redesign. Its private artifacts remain untouched.
+
+An attended two-article batch also verified this redesign on the local Windows host. One host task returned exit 0 and produced 88 unverified findings, no errors, and no warnings. The completed batch entered the inbox without a separate import action. Provider reload preserved the inbox and per-article coverage; article, check-type, review-status, and freshness filters worked independently of execution scope. Direct review controls were inspected, but no live decisions or public writes were made. Automatic visible-page polling is covered by browser tests; the live browser page was hidden, so **Refresh** reconciled the completed task.
+
+These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs findings**. With separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
+
+PR review, feature documentation, audits, media, and replay retain their existing entry points. Their integration into this inbox and docs-as-eval are deferred. Coverage here is limited to the local claims-and-links checker, not every documentation workflow.
+
 ## Use the docs workbench
 
 The workspace-scoped Docs workbench canvas brings together open documentation PRs, documentation issues, release test plan items (TPIs), and private media tasks. It requires a Copilot host that supports SDK canvas extensions, background-agent tasks, and approval dialogs, plus an authenticated `gh` CLI.
+
+This existing queue canvas is separate from **Docs findings**. Its attachment approval flag is not an [exact-asset review](#record-an-exact-asset-review) and does not authorize documentation use or publication.
 
 Ask Copilot to open the **Docs workbench** canvas. Reload workspace extensions after updating its implementation. The extension does not require a separate SDK installation.
 

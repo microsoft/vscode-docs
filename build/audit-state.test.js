@@ -7,7 +7,8 @@ const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const test = require('node:test');
-const { importReport, loadState, removeProposal, triage, upsertProposal } = require('./audit-state');
+const { createEmptyState, importReport, loadState, removeProposal, saveState, triage, upsertProposal, validateState } = require('./audit-state');
+const { importFindings, triageFinding } = require('./audit-findings');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests use isolated temporary state files. */
 
@@ -122,6 +123,61 @@ test('reopens changed evidence without erasing prior decisions or changing unsee
 			id: record.finding.id, evidenceHash: decided.evidenceHash, status: 'dismissed', reason: 'Old review'
 		}, THIRD), /evidence changed/);
 		assert.equal(fs.readFileSync(statePath, 'utf8'), persisted);
+	});
+});
+
+test('verified article absence reopens identical fixed findings with automatic history, not human triage', function () {
+	withState(statePath => {
+		const state = createEmptyState();
+		const original = {...report(), scanPaths: ['docs/article.md']};
+		importFindings(state, original, FIRST);
+		const absent = {...report(SECOND, []), scanPaths: ['docs/article.md']};
+		importFindings(state, absent, SECOND);
+		const {findings, ...metadata} = absent;
+		assert.equal(findings.length, 0);
+		const context = {previousVerification: {report: metadata, findingIds: []}};
+		for (const record of state.findings) {
+			triageFinding(state, {
+				id: record.finding.id, evidenceHash: record.evidenceHash,
+				status: record.finding.evidence === 'setting(one)' ? 'fixed' : 'dismissed', reason: 'Reviewed verified absence.'
+			}, SECOND);
+		}
+		const returning = {...report(THIRD), scanPaths: ['docs/article.md']};
+		const unchanged = structuredClone(state);
+		assert.equal(importFindings(unchanged, returning, THIRD).reopened, 0, 'Ordinary imports do not infer verified absence.');
+		for (const scope of [['docs/another.md'], ['docs']]) {
+			const unrelated = structuredClone(state);
+			assert.equal(importFindings(unrelated, returning, THIRD, {
+				previousVerification: {...context.previousVerification, report: {...metadata, scanPaths: scope}}
+			}).reopened, 0, 'Absence must explicitly cover the article.');
+		}
+		const otherChecks = structuredClone(state);
+		assert.equal(importFindings(otherChecks, returning, THIRD, {
+			previousVerification: {...context.previousVerification, report: {...metadata, checks: ['claims', 'links']}}
+		}).reopened, 0);
+		assert.equal(importFindings(state, returning, THIRD, context).reopened, 1);
+		const fixed = state.findings.find(record => record.finding.evidence === 'setting(one)');
+		const dismissed = state.findings.find(record => record.finding.evidence === 'setting(two)');
+		assert.equal(fixed.finding.status, 'open');
+		assert.equal(fixed.history[0].action, 'triage');
+		assert.equal(fixed.history[1].action, 'finding-reappeared');
+		assert.equal(fixed.history[1].evidenceHash, fixed.history[0].evidenceHash);
+		assert.equal(dismissed.finding.status, 'dismissed');
+		assert.equal(dismissed.history.length, 1);
+		assert.deepEqual(state.reports.find(entry => entry.id === fixed.history[1].absenceReportId).report, metadata);
+		saveState(statePath, state);
+		assert.deepEqual(loadState(statePath), state);
+		assert.equal(importFindings(state, returning, THIRD, context).reopened, 0, 'A repeated import does not repeat the reopen.');
+		for (const mutate of [
+			decision => { delete decision.absenceReportId; },
+			decision => { decision.absenceReportId = decision.reportId; },
+			decision => { decision.action = 'triage'; },
+			decision => { decision.to = 'fixed'; }
+		]) {
+			const invalid = structuredClone(state);
+			mutate(invalid.findings.find(record => record.finding.id === fixed.finding.id).history[1]);
+			assert.throws(() => validateState(invalid), /reappearance history/);
+		}
 	});
 });
 
