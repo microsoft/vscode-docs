@@ -8,7 +8,7 @@ const zlib = require('zlib');
 const test = require('node:test');
 const {prepareMedia, recordReview, verifyMedia, privateDirectory, main} = require('./media');
 const {crc32, decodePng, encodePng, framing} = require('./media-png');
-const {MAX_DECODE_BYTES, conversionTools, convertMedia, pngFrames, probeMetadata, runTool, sha256, validateMedia} = require('./media-tools');
+const {MAX_DECODE_BYTES, conversionTools, convertMedia, pngFrames, probeMetadata, runTool, sha256, validateMedia, videoHighlights} = require('./media-tools');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Every fixture uses a newly created, test-owned temporary directory. */
 
@@ -196,6 +196,79 @@ test('conversion explicitly checks prerequisites and uses non-destructive bounde
     assert.equal(args.at(args.indexOf('-fps_mode') + 1), 'passthrough');
     assert.ok(!args.includes('-t'));
   }
+});
+
+test('timed video highlights reject clipped geometry, invalid frame ranges, and unsupported output before encoding', t => {
+  const frame = framing(160, 120, {format: 'mp4', crop: {x: 4, y: 6, width: 128, height: 96}});
+  const rectangle = {x: 12, y: 16, width: 40, height: 24, startFrame: 25, endFrame: 50};
+  assert.deepEqual(videoHighlights([rectangle], frame, 100), [rectangle]);
+  for (const change of [{x: 3}, {y: 5}, {width: 4}, {height: 200},
+    {startFrame: -1}, {startFrame: 25.5}, {endFrame: 25}, {endFrame: 101}, {color: 'red'}, {x: '12;injected'}]) {
+    assert.throws(() => videoHighlights([{...rectangle, ...change}], frame, 100), /highlight/i);
+  }
+  assert.throws(() => videoHighlights([], frame, 100), /1-20/);
+  assert.throws(() => videoHighlights(Array(21).fill(rectangle), frame, 100), /1-20/);
+  assert.throws(() => videoHighlights([rectangle], {...frame, format: 'webm'}, 100), /MP4/);
+  let calls = 0;
+  assert.throws(() => convertMedia('input', 'output', {...frame, highlights: [{...rectangle, x: 'injected'}]},
+    {}, () => { calls++; }), /integer/);
+  assert.equal(calls, 0);
+  const f = fixture(t);
+  assert.throws(() => prepareMedia({...f.options, recipe: {format: 'png', highlights: [rectangle]}}, f.deps), /MP4 output/);
+});
+
+test('real FFmpeg renders highlights on exact frames after crop and padding and never inherits asset approval', {
+  skip: !process.env.DOCS_MEDIA_FFMPEG || !process.env.DOCS_MEDIA_FFPROBE
+    ? 'Set DOCS_MEDIA_FFMPEG and DOCS_MEDIA_FFPROBE to approved installed tools.' : false,
+  timeout: 120000
+}, t => {
+  const f = fixture(t);
+  const tools = {ffmpeg: process.env.DOCS_MEDIA_FFMPEG, ffprobe: process.env.DOCS_MEDIA_FFPROBE};
+  conversionTools('mp4', tools);
+  const source = path.join(f.output, 'source.webm');
+  runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-n', '-f', 'lavfi', '-i', 'color=c=black:s=160x120:r=25:d=4',
+    '-an', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', source]);
+  const sourceHash = sha256(fs.readFileSync(source));
+  const recipe = {format: 'mp4', crop: {x: 4, y: 6, width: 128, height: 96},
+    padding: {top: 2, right: 2, bottom: 2, left: 2},
+    highlights: [
+      {x: 12, y: 16, width: 40, height: 24, startFrame: 20, endFrame: 40},
+      {x: 78, y: 42, width: 24, height: 18, startFrame: 70, endFrame: 100}
+    ]};
+  const options = {input: source, sha256: sourceHash, output: f.output, recipe, ...tools};
+  const result = prepareMedia(options, f.deps);
+  assert.equal(result.output.validation.decodedFrames, 100);
+  assert.equal(result.output.validation.durationSeconds, 4);
+  assert.equal(result.output.validation.width, 132);
+  assert.equal(result.output.validation.height, 100);
+  assert.deepEqual(readJson(result.manifest).recipe.highlights, recipe.highlights);
+  const output = path.join(result.directory, result.output.file);
+  const decoded = runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-i', output, '-map', '0:v:0', '-an',
+    '-fps_mode', 'passthrough', '-frames:v', '101', '-c:v', 'png', '-threads', '1', '-f', 'image2', '-update', '1', 'pipe:1'], {binary: true});
+  const frames = [...pngFrames(decoded.stdout)];
+  assert.equal(frames.length, 100);
+  for (const [index, bytes] of frames.entries()) {
+    const image = decodePng(bytes);
+    for (const rectangle of recipe.highlights) {
+      const x = rectangle.x - recipe.crop.x + recipe.padding.left;
+      const y = rectangle.y - recipe.crop.y + recipe.padding.top;
+      const border = image.pixels.subarray(((y + 8) * image.width + x) * 4, ((y + 8) * image.width + x) * 4 + 4);
+      const red = border[0] > 140 && border[1] < 90 && border[2] < 90;
+      assert.equal(red, index >= rectangle.startFrame && index < rectangle.endFrame, `Highlight timing/position differs on frame ${index}.`);
+      const interior = image.pixels.subarray(((y + 8) * image.width + x + 10) * 4, ((y + 8) * image.width + x + 10) * 4 + 3);
+      assert.ok(interior.every(channel => channel < 25), 'A rectangle must not fill or obscure its interior.');
+    }
+  }
+  assert.equal(sha256(fs.readFileSync(source)), sourceHash);
+  assert.equal(verifyMedia({manifest: result.manifest, ...tools}, f.deps).approval, 'human-visual-review-required');
+  recordReview({...reviewOptions(result), ...tools}, f.deps);
+  assert.equal(verifyMedia({manifest: result.manifest, ...tools}, f.deps).approval, 'approved');
+  const next = prepareMedia({...options, recipe: {...recipe, highlights: [{...recipe.highlights[0], startFrame: 21}]}}, f.deps);
+  assert.equal(verifyMedia({manifest: next.manifest, ...tools}, f.deps).approval, 'human-visual-review-required');
+  const changed = readJson(result.manifest);
+  changed.recipe.highlights[0].startFrame = 21;
+  overwriteJson(result.manifest, changed);
+  assert.throws(() => verifyMedia({manifest: result.manifest, ...tools}, f.deps), /malformed or stale/);
 });
 
 test('lossless WebP preparation validates decoded pixels and preserves raw PNG on encoder failures', t => {

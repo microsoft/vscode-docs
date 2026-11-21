@@ -6,7 +6,7 @@ const path = require('path');
 const {isDeepStrictEqual} = require('util');
 const {isWithinRoot} = require('./repository-paths');
 const {decodePng, framePng, framing, keys} = require('./media-png');
-const {conversionTools, convertMedia, readMedia, sha256, toolPath, validateMedia} = require('./media-tools');
+const {conversionTools, convertMedia, readMedia, sha256, toolPath, validateMedia, videoHighlights} = require('./media-tools');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Outputs are exclusive files in new, private directories; manifest paths are confined before use. */
 
@@ -111,15 +111,29 @@ function verifySources(manifest) {
   }
 }
 
+function preparationFrame(source, recipe) {
+  keys(recipe, ['format', 'crop', 'padding', 'background', 'highlights'], 'recipe');
+  const {highlights, ...geometry} = recipe;
+  const frame = framing(source.width, source.height, geometry);
+  if (highlights !== undefined) {
+    if (!['webm', 'mp4'].includes(source.format)) throw new Error('Timed highlights require a video source.');
+    frame.highlights = videoHighlights(highlights, frame, source.decodedFrames);
+  }
+  return frame;
+}
+
 function prepareMedia(options, dependencies = {}) {
   assertHash(options.sha256);
-  keys(options.recipe, ['format', 'crop', 'padding', 'background'], 'recipe');
+  keys(options.recipe, ['format', 'crop', 'padding', 'background', 'highlights'], 'recipe');
   const source = fs.realpathSync(options.input);
   const extension = path.extname(source).slice(1).toLowerCase();
   const format = options.recipe.format;
   if (!(extension === 'png' && ['png', 'webp'].includes(format)) &&
       !(['webm', 'mp4'].includes(extension) && format === 'mp4') && !(extension === 'webm' && format === 'webm')) {
     throw new Error('Supported operations: PNG to PNG/lossless WebP, WebM or MP4 to MP4, and unchanged WebM validation.');
+  }
+  if (options.recipe.highlights !== undefined && (!['webm', 'mp4'].includes(extension) || format !== 'mp4')) {
+    throw new Error('Timed highlights require WebM or MP4 input and MP4 output.');
   }
   if (format === 'webm' && Object.keys(options.recipe).length !== 1) throw new Error('WebM handoff preserves bytes; crop/padding requires MP4 conversion.');
   const sourcePrint = fingerprint(source, {sha256: options.sha256});
@@ -146,9 +160,10 @@ function prepareMedia(options, dependencies = {}) {
     fs.writeFileSync(input, readMedia(source), {flag: 'wx'});
     fingerprint(input, sourcePrint);
     const before = validateMedia(input, extension, work, options, dependencies.run);
-    const frame = framing(before.width, before.height, options.recipe);
+    const frame = preparationFrame(before, options.recipe);
     protectHighlights(capture, frame);
     manifest.recipe = {format, crop: frame.crop, padding: frame.padding, background: frame.background};
+    if (frame.highlights) manifest.recipe.highlights = frame.highlights;
     if (format === 'webm') manifest.recipe = {format};
     manifest.source.validation = before;
     const file = `prepared.${format}`;
@@ -216,7 +231,7 @@ function readPrepared(file, dependencies) {
       !Number.isInteger(m.source.bytes) || m.source.bytes < 1 || typeof m.createdAt !== 'string' || !Number.isFinite(Date.parse(m.createdAt))) {
     throw new Error('Preparation lacks validation evidence.');
   }
-  const frame = framing(m.source.validation.width, m.source.validation.height, m.recipe);
+  const frame = preparationFrame(m.source.validation, m.recipe);
   if (m.output.validation.width !== frame.width || m.output.validation.height !== frame.height) throw new Error('Invalid prepared dimensions.');
   protectHighlights(m.capture, frame);
   const output = confinedFile(directory, m.output.file);

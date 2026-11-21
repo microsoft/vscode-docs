@@ -34,6 +34,7 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
   * [Use an existing workspace with chat confirmation](#use-an-existing-workspace-with-chat-confirmation)
   * [Record an editor video candidate](#record-an-editor-video-candidate)
   * [Prepare saved media without changing the source](#prepare-saved-media-without-changing-the-source)
+  * [Add timed video callouts](#add-timed-video-callouts)
   * [Record an exact-asset review](#record-an-exact-asset-review)
 * [Use the docs workbench](#use-the-docs-workbench)
 
@@ -47,8 +48,8 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 |---|---|---|
 | Write new feature content | Open **Write documentation**, describe the desired content, and [start doc-writer in chat](#start-a-documentation-writing-chat). No existing article or issue is required. | Launcher tests do not prove full new-article creation and navigation; that needs separate end-to-end acceptance. |
 | Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
-| Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | The launcher does not capture or approve media. Full multi-image capture/replacement acceptance remains separate from handoff tests. |
-| Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | Uses the existing attended video tools, not a new recording system. Missing tools or unsupported captures remain pending. |
+| Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | A single screenshot refresh and approved disposable-copy handoff are validated. Multi-image acceptance and production use remain separate. |
+| Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | One annotated MP4 demo and approved disposable-copy insertion are validated. Multi-video acceptance and production use remain separate. |
 | Check content accuracy | Use **Run checks** on **Findings** for batch local structural checks. Use **Review in chat** for interactive product and editorial assessment. | Chat reviews do not automatically enter the inbox. Settings/keybindings in batch checks remain unverified without product evidence. External URLs are not checked. |
 | Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
 | Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
@@ -102,6 +103,10 @@ Create requests do not imply replacing existing assets. Refresh requests keep us
 Both pages share the proven native chat transport and its Windows/last-active-window limitations. They neither create batch workflow tasks nor change findings or review decisions. They also do not track chat completion. Check Chat before retrying a failed or timed-out launch.
 
 The focused launcher tests cover both media types, create/refresh choices, multiple-asset requests, failure handling, narrow layouts, and preserved batch state. They do not generate real media or establish full capture-workflow acceptance.
+
+A separate attended Stable pilot validated one Find/Replace screenshot refresh from the launcher through docs-media chat, capture, crop/callout preservation, human approval, and exact-byte replacement in a disposable article copy. Its scoped alt-text/reference checks and native before/after diff passed. The repository originals remained unchanged. This is not a full website build or proof of video, multi-asset, LFS staging, or production publication workflows.
+
+A subsequent Stable video pilot validated a 10.88-second, 1320 by 280 pixel Find demo with timed red rectangles. The human reviewed and approved the entire final MP4; all 272 frames, callout timing, approval hashes, title/reference, disposable-copy insertion, and native diff were checked. An initial cleanup failure stayed failed; recording was repeated only after explicit approval. Raw WebM playback was unsupported in the integrated viewer, while prepared MP4 playback worked. The repository originals and pre-existing changes remained unchanged. This is a single-video proof, not multi-asset or production acceptance.
 
 ## Start a procedure-check chat
 
@@ -488,7 +493,7 @@ Save a reusable JSON recipe. Coordinates refer to the source pixels, before padd
 }
 ```
 
-`crop`, `padding`, and `background` are optional. Defaults preserve the full image with no padding and use an opaque `#1F1F1F` background for any added padding. Crops must fit entirely inside the source. Supply all four padding edges, each from zero to 256 pixels. Dimensions are limited to 4096 pixels per side and eight megapixels; media files are limited to 50 MiB. There is no resizing, automatic clipping, trim, frame-rate change, annotation, or audio support. MP4 crop coordinates, crop dimensions, top and left padding, and final dimensions must be even. No rounding is applied.
+`crop`, `padding`, and `background` are optional. Defaults preserve the full image with no padding and use an opaque `#1F1F1F` background for any added padding. Crops must fit entirely inside the source. Supply all four padding edges, each from zero to 256 pixels. Dimensions are limited to 4096 pixels per side and eight megapixels; media files are limited to 50 MiB. MP4 preparation also supports [timed rectangle callouts](#add-timed-video-callouts). There is no resizing, automatic clipping, trim, frame-rate change, text/arrow overlay, or audio support. MP4 crop coordinates, crop dimensions, top and left padding, and final dimensions must be even. No rounding is applied.
 
 ```powershell
 node .\build\media.js prepare --input '<private-source.png>' --sha256 '<source-sha256>' --recipe '<recipe.json>' --output '<existing-private-parent>' --capture '<capture.json>' --capture-sha256 '<capture-manifest-sha256>'
@@ -500,7 +505,7 @@ Supported operations:
 
 * **PNG to PNG:** Lossless crop, solid padding, and adaptive-filter compression using Node built-ins. Supports noninterlaced, eight-bit RGB and RGBA PNGs from the runner. Palette, grayscale, transparency-key, and animated PNGs fail explicitly. Preparation removes ancillary metadata, preserves retained RGBA pixel values, and verifies the entire encoded bitmap. Review color appearance as well as geometry.
 * **PNG to WebP:** The same framing, followed by lossless `libwebp` conversion. Final decoded pixels must match the framed PNG exactly.
-* **WebM or MP4 to MP4:** Crop and padding, `libx264` at CRF 25, `yuv420p`, no audio, and fast-start metadata. This reuses the repository optimizer's codec and quality convention without its destructive replacement behavior. Input and output must have one video stream, 25 frames per second, and a duration of four to 30 seconds. Full decoding checks every frame, dimensions, and preserved duration and frame count.
+* **WebM or MP4 to MP4:** Crop, padding, optional timed rectangles, `libx264` at CRF 25, `yuv420p`, no audio, and fast-start metadata. This reuses the repository optimizer's codec and quality convention without its destructive replacement behavior. Input and output must have one video stream, 25 frames per second, and a duration of four to 30 seconds. Full decoding checks every frame, dimensions, and preserved duration and frame count.
 * **WebM to unchanged WebM:** Use `{"format":"webm"}` to preserve the VP9 capture bytes and validate the complete recording for private review or handoff. This is not MP4 conversion or permission to embed WebM in an article.
 
 WebP and video validation buffers concatenated PNG frames from FFmpeg in memory instead of writing frame files. Each decode has a 256 MiB output-buffer budget, a 120-second subprocess timeout, and the existing per-frame size and dimension limits. Every complete PNG is validated. Exceeding the buffer budget, a truncated frame, or trailing partial output fails validation; a valid prefix is never accepted as a complete recording. A compressed source smaller than 50 MiB can still exceed the decoded-output budget.
@@ -510,6 +515,33 @@ WebP and MP4 operations require explicit `--ffmpeg '<absolute-path>'` and `--ffp
 Each preparation creates a new `media-<id>` directory containing `prepared.<format>` and `media.json`. The manifest records source and final hashes, normalized framing, validation results, tool and implementation hashes, capture provenance when supplied, and byte-size change. Compression does not guarantee a smaller file. Raw and previously approved files remain untouched. Existing outputs are never overwritten.
 
 Preparation errors identify the private run path when available. Failed runs retain a manifest with `status: failed` and any partial candidate for diagnosis when the manifest can be written. Cleanup or finalization failures fail the operation rather than producing a reviewable success. A missing or incomplete manifest is not success. Do not approve failed outputs. Run `npm run test:media` for focused preparation and approval tests. Synthetic conversion tests do not prove an installed encoder works.
+
+### Add timed video callouts
+
+Add `highlights` to an MP4 preparation recipe to draw brief red rectangles around relevant controls. The raw WebM or MP4 is unchanged; preparation writes a new candidate. This is a post-recording operation, not a decoration inserted into the product UI.
+
+For example, this rectangle appears from one second up to, but not including, two seconds:
+
+```json
+{
+  "format": "mp4",
+  "highlights": [
+    {"x": 980, "y": 86, "width": 40, "height": 30, "startFrame": 25, "endFrame": 50}
+  ]
+}
+```
+
+* Coordinates are integer **source-video pixels**, before crop and padding. The helper translates them into the prepared frame and rejects a crop that clips a rectangle.
+* Frame indices are zero-based at the supported 25 frames per second. `startFrame` is inclusive; `endFrame` is exclusive and cannot exceed the decoded frame count. No implicit rounding or timing adjustment is applied.
+* Rectangles are opaque red (`#FF0000`) with a fixed two-pixel stroke. Width and height must exceed four pixels so the rectangle has an interior. A recipe accepts one to 20 rectangles.
+* Choose geometry and intervals from the actual recording and its action timestamps, not the example coordinates. Prefer one or two short-lived callouts that guide attention without hiding content. Rectangles do not track moving targets.
+* Only WebM/MP4 input with MP4 output supports this option. Unchanged WebM handoff and image preparation do not. Text labels, arrows, and animated callouts remain unsupported.
+
+Use the existing `build/media.js prepare` command with the recipe and the approved full FFmpeg/ffprobe paths. The preparation manifest records the rectangles and frame ranges. Every transformation creates a new candidate requiring exact-asset review; approval of a raw recording or earlier preparation is not inherited. H.264 encoding is lossy, so the preserved-source guarantee applies to the original file, not identical pixels in the re-encoded video.
+
+The agent should present a readable timing/placement proposal in chat; the author does not need to maintain this JSON. Review the entire final video for correct placement and timing. Automated checks validate geometry, frame bounds, and decodability, not whether a callout identifies the right control.
+
+The optional real-encoder regression uses synthetic footage. Set `DOCS_MEDIA_FFMPEG` and `DOCS_MEDIA_FFPROBE` to approved installed executables before `npm run test:media` to verify exact on/off frames and crop/padding translation. Without those variables, that test is explicitly skipped; no tools are downloaded.
 
 ### Record an exact-asset review
 

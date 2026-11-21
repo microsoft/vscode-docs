@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const {spawnSync} = require('child_process');
 const {analyzeVideoMetadata} = require('./capture-video');
-const {MAX_BYTES, decodePng, dimensions} = require('./media-png');
+const {MAX_BYTES, decodePng, dimensions, keys} = require('./media-png');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Callers supply verified input and tool paths. */
 
@@ -189,10 +189,36 @@ function validateMedia(file, format, _work, tools = {}, run = runTool, final = f
   return {format, ...metadata, decodedFrames, ...(pixelSha256 ? {pixelSha256} : {})};
 }
 
+function videoHighlights(value, frame, frameCount = 750) {
+  if (value === undefined) return [];
+  if (frame.format !== 'mp4' || !Array.isArray(value) || value.length < 1 || value.length > 20 ||
+      !Number.isInteger(frameCount) || frameCount < 100 || frameCount > 750) {
+    throw new Error('Timed highlights require MP4 output, 1-20 rectangles, and a validated 4-30 second video.');
+  }
+  return value.map(rectangle => {
+    keys(rectangle, ['x', 'y', 'width', 'height', 'startFrame', 'endFrame'], 'timed highlight');
+    const {x, y, width, height, startFrame, endFrame} = rectangle;
+    const c = frame.crop;
+    if (![x, y, width, height, startFrame, endFrame].every(Number.isSafeInteger) ||
+        width <= 4 || height <= 4 || x < c.x || y < c.y || x + width > c.x + c.width || y + height > c.y + c.height) {
+      throw new Error('Timed highlight must be an integer source-pixel rectangle with an interior, fully inside the crop.');
+    }
+    if (startFrame < 0 || startFrame >= endFrame || endFrame > frameCount) {
+      throw new Error('Timed highlight range must satisfy 0 <= startFrame < endFrame <= decoded frame count (end exclusive).');
+    }
+    return {x, y, width, height, startFrame, endFrame};
+  });
+}
+
 function convertMedia(input, output, frame, tools, run = runTool) {
+  const highlights = videoHighlights(frame.highlights, frame);
   conversionTools(frame.format, tools, run);
   const {crop: c, padding: p} = frame;
-  const filters = `crop=${c.width}:${c.height}:${c.x}:${c.y},pad=${frame.width}:${frame.height}:${p.left}:${p.top}:color=0x${frame.background.slice(1)}`;
+  const filters = [
+    `crop=${c.width}:${c.height}:${c.x}:${c.y}`,
+    `pad=${frame.width}:${frame.height}:${p.left}:${p.top}:color=0x${frame.background.slice(1)}`,
+    ...highlights.map(r => `drawbox=x=${r.x - c.x + p.left}:y=${r.y - c.y + p.top}:w=${r.width}:h=${r.height}:color=0xFF0000:t=2:enable='between(n,${r.startFrame},${r.endFrame - 1})'`)
+  ].join(',');
   const encoding = frame.format === 'webp' ?
     ['-c:v', 'libwebp', '-lossless', '1', '-compression_level', '6', '-frames:v', '1'] :
     ['-c:v', 'libx264', '-crf', '25', '-pix_fmt', 'yuv420p', '-movflags', '+faststart'];
@@ -203,4 +229,4 @@ function convertMedia(input, output, frame, tools, run = runTool) {
   ]);
 }
 
-module.exports = {MAX_DECODE_BYTES, assertFastStart, conversionTools, convertMedia, imageMetadata, pngFrames, probeMetadata, readMedia, runTool, sha256, toolPath, validateMedia};
+module.exports = {MAX_DECODE_BYTES, assertFastStart, conversionTools, convertMedia, imageMetadata, pngFrames, probeMetadata, readMedia, runTool, sha256, toolPath, validateMedia, videoHighlights};
