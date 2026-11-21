@@ -95,6 +95,26 @@ test('media launchers pass create/refresh and multiple-asset requests to docs-me
   assert.deepEqual(await f.rawWorkflow.store.read(), before);
 });
 
+test('procedure chat hands off reviewed scripted checks without claiming article-driven validation or starting UI', async t => {
+  const calls = [];
+  const f = await createArticleFixture({ workflowOptions: { editor: { available: true,
+    async chat(input) { calls.push(input); return { requested: true }; } } } });
+  t.after(() => f.dispose());
+  const input = { article: 'docs/article.md', request: 'Check the reviewed Find procedure.', channel: 'stable', confirmed: true };
+  await f.workflow.dispatch('procedure-chat', input);
+  assert.equal(calls[0].files[0], path.join(f.workspace, 'docs', 'article.md'));
+  assert.ok(calls[0].files[1].endsWith(path.join('skills', 'docs-replay', 'SKILL.md')));
+  assert.match(calls[0].prompt, /not automatic validation of article prose/);
+  assert.match(calls[0].prompt, /Do not launch the product until/);
+  assert.match(calls[0].prompt, /Check the reviewed Find procedure/);
+  await assert.rejects(f.workflow.dispatch('procedure-chat', { ...input, confirmed: false }), /explicitly/);
+  await assert.rejects(f.workflow.dispatch('procedure-chat', { ...input, channel: 'internal' }), /channel/);
+  await assert.rejects(f.workflow.dispatch('procedure-chat', { ...input, article: '../outside.md' }), /repository-relative/);
+  assert.equal(calls.length, 1);
+  assert.equal(f.tracked.length, 0);
+  assert.equal((await f.rawWorkflow.store.read()).runs.length, 0);
+});
+
 test('browser opens a preset-and-freeform review chat once and surfaces launch failures without retry', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
@@ -185,5 +205,43 @@ test('browser exposes separate screenshot and video launchers with the right con
   assert.equal(calls.length, 3);
   assert.equal(await page.getByLabel('Task', { exact: true }).inputValue(), 'create');
   assert.equal(await page.getByLabel('Additional request (optional)', { exact: true }).inputValue(), 'Create two short demos with visible actions.');
+  assert.deepEqual(errors, []);
+});
+
+test('browser separates instruction-check chat from batch Findings and labels the unimplemented capability', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const calls = [];
+  const f = await createArticleFixture({ workflowOptions: { editor: { available: true, async chat(input) {
+    calls.push(input); return { requested: true, message: 'Procedure request sent to chat.' };
+  } } } });
+  let browser;
+  const server = await createWorkbenchServer(f.rawWorkflow, async () => {}, () => {}, { assetEntries: articleAssets });
+  t.after(async () => { try { await browser?.close(); await server.close(); } finally { await f.dispose(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  assert.equal(await page.locator('#task-type, #review-form, #replay-form').count(), 0);
+  await page.getByRole('link', { name: 'Check instructions', exact: true }).click();
+  await page.locator('#chat-article:enabled').waitFor();
+  assert.equal(new URL(page.url()).pathname, '/instructions');
+  await page.getByText('Automatic article-driven UI validation is not yet available. Advanced option: replay a human-reviewed scripted procedure in chat.', { exact: true }).waitFor();
+  assert.equal(await page.locator('#chat-presets').isVisible(), false);
+  assert.equal(await page.locator('#chat-media-task').isVisible(), false);
+  assert.equal(calls.length, 0);
+  await page.getByLabel('Article', { exact: true }).fill('docs/article.md');
+  await page.getByLabel('Additional request (optional)', { exact: true }).fill('Check the reviewed Find procedure.');
+  await page.getByRole('button', { name: 'Start scripted replay in chat', exact: true }).click();
+  await page.getByText('Procedure request sent to chat.', { exact: true }).waitFor();
+  assert.equal(calls.length, 1);
+  assert.equal(f.tracked.length, 0);
+  await page.getByRole('link', { name: 'Findings', exact: true }).click();
+  await page.getByRole('heading', { name: 'Run batch checks', exact: true }).waitFor();
+  assert.equal(await page.locator('#task-type, #review-form, #replay-form').count(), 0);
   assert.deepEqual(errors, []);
 });

@@ -9,7 +9,7 @@ import audit from '../../../build/audit-state.js';
 import auditFindings from '../../../build/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { atomicJson, createArticleStore, hash, isHash, isTime, now, ownedPath, readBytes, readJson, resolveArticle, uuid, validateRun } from './article-storage.mjs';
-import { rerunDecision } from './article-artifacts.mjs';
+import { reportHostStatus, reportRerunDecision } from './article-artifacts.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- All artifacts are guarded private paths; article paths use resolveArticle. */
 
@@ -164,9 +164,9 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
     await stateFile.update(async state => {
       const list = await host.list();
       for (const previous of state.runs.filter(item => item.launch !== 'not-started' && item.articles.includes(input.article))) {
-        if (previous.ownerSessionId !== host.ownerSessionId) throw new Error('Resolve the previous article review in its owning session.');
-        const task = host.find(list, previous, description(previous.id));
-        const decision = rerunDecision(previous, host.ownerSessionId, task.status, await completion(previous));
+        const task = host.find(list, previous, description(previous.id), { allowMissing: true });
+        if (task) Object.assign(previous, { observation: host.observation(task), hostMissing: false, syncError: '' });
+        const decision = reportRerunDecision(previous, host.ownerSessionId, task?.status || 'missing', await completion(previous));
         if (!decision.allowed) throw new Error(decision.reason);
       }
       state.runs.push(run);
@@ -250,7 +250,7 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
       const result = results.get(run.id);
       runs.push({ ...run, kind: 'review', ownerMatches: run.ownerSessionId === host.ownerSessionId,
         result: result && { state: result.state, message: result.message, reviewStatus: result.report?.review.status },
-        rerun: rerunDecision(run, host.ownerSessionId, run.syncError ? undefined : run.observation?.status, await completion(run)) });
+        rerun: reportRerunDecision(run, host.ownerSessionId, reportHostStatus(run, host.ownerSessionId), await completion(run)) });
     }
     return { findings, coverage, runs };
   }
@@ -274,13 +274,16 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
     async has(id) { return (await stateFile.read()).runs.some(run => run.id === id); },
     async ownedRuns() { return (await stateFile.read()).runs.filter(run => run.ownerSessionId === host.ownerSessionId && run.launch !== 'not-started'); },
     async sync(list, failure) {
-      await stateFile.update(state => {
+      await stateFile.update(async state => {
         for (const run of state.runs.filter(item => item.ownerSessionId === host.ownerSessionId && item.launch !== 'not-started')) {
           try {
             if (failure) throw failure;
-            const task = host.find(list, run, description(run.id));
-            Object.assign(run, { launch: 'acknowledged', agentId: task.id, observation: host.observation(task), syncError: '' });
-          } catch (error) { run.syncError = error.message; }
+            const task = host.find(list, run, description(run.id), { allowMissing: true });
+            if (!task) {
+              const decision = reportRerunDecision(run, host.ownerSessionId, 'missing', await completion(run));
+              Object.assign(run, { hostMissing: true, syncError: decision.allowed ? '' : decision.reason });
+            } else Object.assign(run, { launch: 'acknowledged', agentId: task.id, observation: host.observation(task), hostMissing: false, syncError: '' });
+          } catch (error) { run.syncError = error.message; run.hostMissing = false; }
         }
       });
     },

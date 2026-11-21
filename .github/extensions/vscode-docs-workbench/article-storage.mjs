@@ -111,6 +111,7 @@ export function validateRun(run) {
   if (!run || !uuid.test(run.id) || typeof run.ownerSessionId !== 'string' || !run.ownerSessionId ||
       !isTime(run.createdAt) || !['starting', 'acknowledged', 'uncertain', 'not-started'].includes(run.launch) ||
       (run.agentId !== undefined && (typeof run.agentId !== 'string' || !run.agentId)) ||
+      (run.hostMissing !== undefined && typeof run.hostMissing !== 'boolean') ||
       (run.launch === 'acknowledged' && !run.agentId) ||
       ['error', 'syncError'].some(key => Reflect.get(run, key) !== undefined && typeof Reflect.get(run, key) !== 'string') ||
       ['acknowledgedAt', 'resolvedAt'].some(key => Reflect.get(run, key) !== undefined && !isTime(Reflect.get(run, key)))) {

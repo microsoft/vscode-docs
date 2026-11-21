@@ -21,15 +21,11 @@ let findingOrder;
 let emptyFindings;
 let orderedSource;
 let orderedFindings;
-let replayOptions;
-let preparedReplay;
-let reviewSections;
 let featurePlansKey;
 const planFeedback = new Map();
 const draftLocations = new Map();
 let writingRequestInitialized = false;
 const revisionFeedback = new Map();
-let reviewResultsKey;
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
 const coverageLabels = { clean: 'Checked clean', findings: 'With findings', checking: 'Checking freshness',
@@ -40,10 +36,6 @@ const time = value => value ? new Date(value).toLocaleString(undefined, {
 }) : 'Never';
 
 function currentPage() { return location.pathname === '/writing' ? 'writing' : 'findings'; }
-function navigate(page) {
-  history.pushState({}, '', `/${page}`);
-  render();
-}
 function renderPage() {
   const writing = currentPage() === 'writing';
   $('writing-page').hidden = !writing;
@@ -218,8 +210,7 @@ function render() {
   renderExecution(true);
   if (currentPage() === 'writing') renderFeaturePlans();
   else {
-    renderReplay();
-    renderReview();
+    renderReplayRecovery();
     renderFindings();
     renderCoverage();
   }
@@ -508,43 +499,6 @@ function renderCoverage() {
       row.append(precheck);
     }
     $('coverage-list').append(row);
-  }
-}
-function renderReview() {
-  $('review-form').hidden = $('task-type').value !== 'review';
-  for (const id of ['review-article', 'review-focus', 'review-channel', 'review-extent', 'review-concerns']) $(id).disabled = busy;
-  const article = $('review-article').value.trim();
-  const sectionMode = $('review-extent').value === 'section';
-  const hasSections = reviewSections?.article === article && reviewSections.sections.length > 0;
-  $('review-section-fields').hidden = !sectionMode;
-  $('review-load-sections').disabled = busy || !state.articles.includes(article);
-  $('review-section').disabled = busy || !hasSections;
-  const blocker = state.runs.find(run => run.kind === 'review' && run.articles.includes(article) && !run.rerun?.allowed);
-  $('review-launch').disabled = busy || !state.hostAvailable || !state.articles.includes(article) || !!blocker ||
-    (sectionMode && (!hasSections || !$('review-section').value));
-  $('review-eligibility').textContent = blocker ? blocker.rerun.reason : '';
-  const results = state.coverage.filter(item => item.check === 'review' && (!article || item.article === article));
-  const key = JSON.stringify([busy, results, state.featurePlans, $('task-type').value]);
-  if (key === reviewResultsKey) return;
-  reviewResultsKey = key;
-  const container = $('article-review-results');
-  container.hidden = !results.length || $('task-type').value !== 'review';
-  container.replaceChildren();
-  for (const result of results) {
-    const panel = element('section', undefined, 'plan-section');
-    panel.append(element('h2', result.article));
-    paragraph(panel, result.review?.summary || result.attempt?.message || 'Review is still in progress.');
-    for (const limitation of result.review?.limitations || []) paragraph(panel, limitation, 'muted');
-    const ongoing = state.featurePlans?.find(item => item.revision?.reviewId === result.runId);
-    if (ongoing) control(panel, 'Continue article update', () => navigate('writing')).disabled = busy;
-    else control(panel, 'Plan article update', () => void perform(async () => {
-      await request('feature-revision-launch', { reviewId: result.runId, confirmed: true });
-      await refresh();
-      navigate('writing');
-      notice('Preparing one article-level update plan. No edits have started.', false, 'writing');
-    })).disabled = busy || !result.canRevise;
-    paragraph(panel, 'Review detailed findings below if useful. Planning groups corrections into outcomes; no individual finding approvals are required.', 'muted');
-    container.append(panel);
   }
 }
 const mediaSetups = new Map();
@@ -932,63 +886,7 @@ $('feature-form').addEventListener('submit', event => {
     notice(run.launch === 'uncertain' ? run.error : 'Planning submitted. Drafting and media generation have not started.', run.launch === 'uncertain');
   });
 });
-$('review-article').addEventListener('input', () => {
-  reviewSections = undefined;
-  $('review-section').replaceChildren();
-  $('review-section-status').textContent = 'Load sections from the selected article.';
-  renderReview();
-});
-$('review-extent').addEventListener('change', renderReview);
-$('review-section').addEventListener('change', renderReview);
-$('review-load-sections').addEventListener('click', () => void perform(async () => {
-  reviewSections = await request('review-sections', { article: $('review-article').value.trim() });
-  $('review-section').replaceChildren(...reviewSections.sections.map(section => {
-    const option = element('option', `${section.title} · lines ${section.startLine}-${section.endLine}`);
-    option.value = String(section.startLine);
-    return option;
-  }));
-  $('review-section-status').textContent = reviewSections.sections.length
-    ? 'The selected heading and its nested subsections are reviewed. Other content is context only.'
-    : 'No Markdown headings found. Use whole-article review.';
-}));
-$('review-form').addEventListener('submit', event => {
-  event.preventDefault();
-  void perform(async () => {
-    await request('review-launch', { article: $('review-article').value.trim(), focus: $('review-focus').value,
-      channel: $('review-channel').value, concerns: $('review-concerns').value.trim(), confirmed: true,
-      ...($('review-extent').value === 'section'
-        ? { section: { startLine: Number($('review-section').value), articleHash: reviewSections.articleHash } } : {}) });
-    await refresh();
-    notice('Article review submitted. Findings and scoped coverage will appear after validated completion.');
-  });
-});
-function replayInput() {
-  const build = replayOptions?.builds.at(Number($('replay-build').value));
-  return { storyboard: $('replay-storyboard').value, executable: build?.executable, revision: build?.revision,
-    workspace: $('replay-workspace').value, captureProfile: $('replay-profile').value };
-}
-function invalidateReplay() { preparedReplay = undefined; $('replay-review').hidden = true; }
-function selectReplayStoryboard() {
-  invalidateReplay();
-  const selected = replayOptions?.storyboards.find(item => item.file === $('replay-storyboard').value);
-  $('replay-workspace-fields').hidden = !selected?.workspaceRequired;
-  $('replay-build').replaceChildren();
-  replayOptions?.builds.forEach((build, index) => {
-    if (build.channel !== selected?.channel) return;
-    const option = element('option', `${build.channel} · ${build.version} · ${build.revision.slice(0, 10)}`);
-    option.value = String(index); option.title = build.executable; $('replay-build').append(option);
-  });
-  $('replay-inspect').disabled = busy || !$('replay-build').children.length;
-}
-function renderReplay() {
-  $('task-type').disabled = busy;
-  for (const id of ['replay-storyboard', 'replay-build', 'replay-workspace', 'replay-profile']) $(id).disabled = busy;
-  const enabled = $('task-type').value === 'replay';
-  $('launch-form').hidden = $('task-type').value !== 'checks';
-  $('replay-form').hidden = !enabled;
-  $('replay-review').hidden = !enabled || !preparedReplay;
-  $('replay-inspect').disabled = busy || !$('replay-build').children.length;
-  $('replay-start').disabled = busy || !preparedReplay;
+function renderReplayRecovery() {
   $('replay-readiness').replaceChildren();
   for (const run of state.runs.filter(item => item.kind === 'replay' && item.readiness && item.ownerMatches)) {
     const panel = element('section');
@@ -1002,49 +900,8 @@ function renderReplay() {
     control(panel, 'Cancel waiting replay', () => respond(false)).disabled = busy;
     $('replay-readiness').append(panel);
   }
+  $('replay-readiness').hidden = !$('replay-readiness').children.length;
 }
-$('task-type').addEventListener('change', () => {
-  invalidateReplay();
-  render();
-  if ($('task-type').value !== 'replay' || replayOptions) return;
-  void perform(async () => {
-    $('replay-setup-status').textContent = 'Reading storyboard and installed-build prerequisites...';
-    replayOptions = await request('replay-options');
-    $('replay-storyboard').replaceChildren(...replayOptions.storyboards.map(item => {
-      const option = element('option', `${item.id} · ${item.article}`); option.value = item.file; return option;
-    }));
-    selectReplayStoryboard();
-    $('replay-setup-status').textContent = replayOptions.errors.length ? replayOptions.errors.join(' ') :
-      'Uses a dedicated capture profile. Keep the run attended; no live AI or media capture.';
-  });
-});
-$('replay-storyboard').addEventListener('change', selectReplayStoryboard);
-for (const id of ['replay-build', 'replay-workspace', 'replay-profile']) $(id).addEventListener('input', invalidateReplay);
-$('replay-form').addEventListener('submit', event => {
-  event.preventDefault();
-  void perform(async () => {
-    preparedReplay = await request('replay-prepare', replayInput());
-    const content = $('replay-review-content'); content.replaceChildren();
-    paragraph(content, `${preparedReplay.procedure.id} · ${preparedReplay.productVersion} · ${preparedReplay.binding.product.channel}`);
-    paragraph(content, preparedReplay.binding.article);
-    const steps = element('ol');
-    for (const step of preparedReplay.procedure.steps) {
-      const detail = step.target ? preparedReplay.procedure.targets[step.target] : undefined;
-      steps.append(element('li', `${JSON.stringify(step)}${detail ? ` · target ${JSON.stringify(detail)}` : ''}`));
-    }
-    content.append(steps);
-    const binding = element('details'); binding.append(element('summary', 'Exact inputs and binding'));
-    binding.append(element('pre', JSON.stringify({ config: preparedReplay.config, binding: preparedReplay.binding, hash: preparedReplay.bindingHash }, null, 2)));
-    content.append(binding);
-  });
-});
-$('replay-start').addEventListener('click', () => void perform(async () => {
-  if (!preparedReplay) throw new Error('Review the procedure first.');
-  await request('replay-launch', { ...preparedReplay.config, bindingHash: preparedReplay.bindingHash, confirmed: true });
-  invalidateReplay();
-  await refresh();
-  notice('Attended replay submitted. Handle native prompts, then confirm readiness here.');
-}));
 $('scope').addEventListener('input', render);
 $('finding-search').addEventListener('input', renderFindings);
 $('article-filter').addEventListener('input', () => { renderFindings(); renderCoverage(); });

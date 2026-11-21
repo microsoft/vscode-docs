@@ -216,7 +216,7 @@ test('new replay output supports nested capture directories without the long inb
   assert.ok(captureDirectory.startsWith(output + path.sep));
 });
 
-test('canvas reviews a replay, keeps check coverage, and relays readiness without terminal commands', {
+test('canvas retains saved replay findings and recovery for existing runs without replay launch controls', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const f = await fixture(t);
@@ -237,8 +237,8 @@ test('canvas reviews a replay, keeps check coverage, and relays readiness withou
   await page.route('**/bootstrap', async route => { await bootstrap; await route.continue(); });
   const navigation = page.goto(server.url);
   try {
-    await page.getByLabel('Task', { exact: true }).waitFor();
-    assert.equal(await page.getByLabel('Task', { exact: true }).isDisabled(), true);
+    await page.getByRole('button', { name: 'Run checks', exact: true }).waitFor();
+    assert.equal(await page.getByRole('button', { name: 'Run checks', exact: true }).isDisabled(), true);
   } finally { releaseBootstrap(); }
   await navigation;
   await page.getByText('Ready. Choose articles or folders to check.', { exact: true }).waitFor();
@@ -246,12 +246,10 @@ test('canvas reviews a replay, keeps check coverage, and relays readiness withou
   await page.getByRole('button', { name: 'Run checks', exact: true }).click();
   await page.locator('#finding-count').getByText('2 of 2', { exact: true }).waitFor();
   const before = (await f.rawWorkflow.store.read()).coverage;
-  await page.getByLabel('Task', { exact: true }).selectOption('replay');
-  await page.locator('#replay-inspect:enabled').waitFor();
-  await page.getByRole('button', { name: 'Review procedure', exact: true }).click();
-  await page.getByRole('heading', { name: 'Review the attended procedure', exact: true }).waitFor();
-  assert.equal(f.tasks.length, 0, 'Inspecting must not launch a replay.');
-  await page.getByRole('button', { name: 'Start attended replay', exact: true }).click();
+  assert.equal(await page.locator('#task-type, #replay-form, #replay-start').count(), 0);
+  await f.launch();
+  await workflow.dispatch('refresh', {});
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
   await page.locator('#execution-indicator').getByText('Replay mismatch · 1 article(s)', { exact: true }).waitFor();
   assert.equal(f.tasks.length, 1);
   await page.getByLabel('Check type', { exact: true }).selectOption('replay');
@@ -264,8 +262,8 @@ test('canvas reviews a replay, keeps check coverage, and relays readiness withou
   assert.deepEqual((await f.rawWorkflow.store.read()).coverage, before);
   assert.equal((await f.rawWorkflow.store.read()).review.findings.some(record => record.finding.kind === 'replay'), false);
   f.hold();
-  await page.getByRole('button', { name: 'Review procedure', exact: true }).click();
-  await page.getByRole('button', { name: 'Start attended replay', exact: true }).click();
+  await f.launch();
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
   await page.locator('#execution-indicator').getByText('Host running · 1 article(s)', { exact: true }).waitFor();
   const run = (await f.controller.snapshot()).runs.at(-1);
   const directory = path.join(await replayOutputDirectory(f.rawWorkflow.store, run), 'procedure-replay-ui', 'editor-find-ui');
@@ -273,6 +271,7 @@ test('canvas reviews a replay, keeps check coverage, and relays readiness withou
   await atomicJson(path.join(directory, 'readiness-request.json'), {
     schemaVersion: 1, token: 'c'.repeat(64), workspace: f.workspace, expiresAt: Date.now() + 60_000
   });
+  await page.locator('#execution-details > summary').click();
   await page.getByRole('button', { name: "I'm ready", exact: true }).click();
   await page.getByText('Readiness sent. The reviewed procedure can continue.', { exact: true }).waitFor();
   assert.equal((await readJson(path.join(directory, 'readiness-response.json'))).ready, true);

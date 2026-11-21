@@ -3,6 +3,7 @@ let token;
 let busy = false;
 let available = false;
 const mediaKind = location.pathname === '/screenshots' ? 'screenshot' : location.pathname === '/videos' ? 'video' : undefined;
+const procedure = location.pathname === '/instructions';
 
 if (mediaKind) {
   const title = mediaKind === 'screenshot' ? 'Screenshots' : 'Demo videos';
@@ -18,6 +19,17 @@ if (mediaKind) {
   $('chat-permissions').textContent = 'Opens an interactive chat with the article and docs-media guidance. Uses chat credits. Approve capture work in chat, remain present during capture, then review exact candidates before authorizing article changes.';
   $('chat-scope').textContent = 'No feature plan or existing draft is required. This page launches chat; it does not capture media or track chat completion. Batch findings remain separate.';
 }
+if (procedure) {
+  document.title = 'Check instructions';
+  $('chat-title').textContent = 'Check instructions';
+  $('chat-description').textContent = 'Automatic article-driven UI validation is not yet available. Advanced option: replay a human-reviewed scripted procedure in chat.';
+  $('chat-description').className = 'media-pending';
+  $('chat-presets').hidden = true;
+  $('chat-request').placeholder = 'Describe the reviewed procedure or specific assertions you want to check.';
+  $('chat-start').textContent = 'Start scripted replay in chat';
+  $('chat-permissions').textContent = 'Uses docs-replay and chat credits. Review the exact procedure and environment in chat, approve an attended run, and confirm readiness before execution.';
+  $('chat-scope').textContent = 'Scripted assertions are not proof that the article instructions are correct. No UI execution, media capture, or article edits start from this page. Chat results are not automatically saved to Findings.';
+}
 for (const link of document.querySelectorAll('.page-navigation a')) {
   if (link.pathname === location.pathname) link.setAttribute('aria-current', 'page');
   else link.removeAttribute('aria-current');
@@ -25,7 +37,7 @@ for (const link of document.querySelectorAll('.page-navigation a')) {
 
 function eligibility() {
   $('chat-start').disabled = busy || !available || !$('chat-article').value.trim() ||
-    (!mediaKind && !$('chat-request').value.trim() && !$('chat-presets').querySelector('input:checked'));
+    (!mediaKind && !procedure && !$('chat-request').value.trim() && !$('chat-presets').querySelector('input:checked'));
 }
 
 for (const id of ['chat-article', 'chat-request', 'chat-presets']) $(id).addEventListener('input', eligibility);
@@ -39,7 +51,7 @@ $('review-chat-form').addEventListener('submit', async event => {
   try {
     const response = await fetch('/action', {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Workbench-Token': token },
-      body: JSON.stringify({ action: mediaKind ? 'media-chat' : 'review-chat', input: { article: $('chat-article').value.trim(),
+      body: JSON.stringify({ action: procedure ? 'procedure-chat' : mediaKind ? 'media-chat' : 'review-chat', input: { article: $('chat-article').value.trim(),
         ...(mediaKind ? { kind: mediaKind, operation: $('chat-operation').value }
           : { presets: [...$('chat-presets').querySelectorAll('input:checked')].map(input => input.value) }),
         request: $('chat-request').value, channel: $('chat-channel').value, confirmed: true } })
@@ -58,11 +70,11 @@ try {
   if (!response.ok) throw new Error(`Cannot load chat inputs: HTTP ${response.status}`);
   const result = await response.json();
   token = result.token;
-  available = (mediaKind ? result.state.mediaChat : result.state.reviewChat)?.available === true;
+  available = (procedure ? result.state.procedureChat : mediaKind ? result.state.mediaChat : result.state.reviewChat)?.available === true;
   for (const article of result.state.articles) {
     const option = document.createElement('option'); option.value = article; $('chat-articles').append(option);
   }
-  for (const preset of mediaKind ? [] : result.state.reviewChat?.presets || []) {
+  for (const preset of mediaKind || procedure ? [] : result.state.reviewChat?.presets || []) {
     const label = document.createElement('label');
     const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.value = preset.id;
     checkbox.checked = ['technical', 'editorial'].includes(preset.id);

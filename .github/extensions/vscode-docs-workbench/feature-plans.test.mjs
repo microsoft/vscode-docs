@@ -691,7 +691,7 @@ test('new article diffs use the platform null device without staging files', asy
   assert.equal(f.git(['diff', '--cached', '--name-only']), '');
 });
 
-test('browser completes article review, grouped approval, editor diff, and same-item adjustments', {
+test('browser preserves previously prepared article-update plans, editor diff, and same-item adjustments', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const f = await fixture(t, { authoring: true, revision: true });
@@ -702,6 +702,11 @@ test('browser completes article review, grouped approval, editor diff, and same-
   f.setPlan(plan);
   const article = path.join(f.workspace, 'docs', 'article.md');
   f.editDraft(async () => writeFile(article, (await readFile(article, 'utf8')).replace('Choose the thing.', 'Choose the control.')));
+  const reviewed = await f.workflow.dispatch('review-launch', { article: 'docs/article.md', focus: 'both',
+    channel: 'stable', concerns: 'Keep the examples.', confirmed: true });
+  await f.snapshot();
+  await f.workflow.dispatch('feature-revision-launch', { reviewId: reviewed.id, confirmed: true });
+  await f.snapshot();
   let browser;
   const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, { assetEntries: articleAssets });
   f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
@@ -712,14 +717,7 @@ test('browser completes article review, grouped approval, editor diff, and same-
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
-  await page.goto(`${server.url}/findings`);
-  await page.locator('#task-type:enabled').waitFor();
-  await page.getByLabel('Task', { exact: true }).selectOption('review');
-  await page.getByLabel('Article to review').fill('docs/article.md');
-  await page.getByLabel('Particular concerns (optional)').fill('Keep the examples.');
-  await page.getByRole('button', { name: 'Start article review', exact: true }).click();
-  await page.getByRole('button', { name: 'Plan article update', exact: true }).waitFor({ timeout: 20_000 });
-  await page.getByRole('button', { name: 'Plan article update', exact: true }).click();
+  await page.goto(`${server.url}/writing`);
   const approve = page.getByRole('button', { name: 'Approve and update article', exact: true });
   await approve.waitFor({ timeout: 20_000 });
   assert.ok(page.url().endsWith('/writing'));

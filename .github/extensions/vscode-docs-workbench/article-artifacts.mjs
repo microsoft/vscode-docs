@@ -65,6 +65,7 @@ export function rerunDecision(run, ownerSessionId, hostStatus, completion) {
   if (run.launch !== 'acknowledged' || !run.agentId) {
     return { allowed: false, reason: 'This article has active or unconfirmed host work. Reconcile the launch first.' };
   }
+
   if (run.ownerSessionId !== ownerSessionId) {
     return { allowed: false, reason: 'Return to the owning session to verify its host task. Cross-session host access is unavailable.' };
   }
@@ -77,4 +78,28 @@ export function rerunDecision(run, ownerSessionId, hostStatus, completion) {
   return { allowed: false, reason: hostStatus === 'running'
     ? 'This article has active or unconfirmed host work. The owning task is running.'
     : 'Host state is unavailable. Refresh the owning task before another check.' };
+}
+
+// Report-only work can outlive its transient host listing. Do not use this policy for edits or UI execution.
+export function reportRerunDecision(run, ownerSessionId, hostStatus, completion) {
+  if (run.launch !== 'acknowledged' || !run.agentId) return rerunDecision(run, ownerSessionId, hostStatus, completion);
+  const stopped = ['idle', 'completed', 'failed', 'cancelled'];
+  const historical = completion?.state === 'finished' && stopped.includes(run.observation?.status) &&
+    isTime(completion.finishedAt) && isTime(run.observation?.observedAt) && run.observation.observedAt >= completion.finishedAt;
+  if (hostStatus === 'missing' || hostStatus === 'historical') {
+    if (historical) return { allowed: true, reason: 'Historical runner completion and a stopped-host observation are verified. A new report does not require the old host task.' };
+    return { allowed: false, reason: `The earlier run has no verified completion and stopped-host record. Inspect its owning session before overlapping work.${completion?.message ? ` ${completion.message}` : ''}` };
+  }
+  if (run.ownerSessionId !== ownerSessionId && stopped.includes(hostStatus) && historical) {
+    return { allowed: true, reason: 'Historical completion is verified and the visible task is stopped. This starts independent report-only work, not recovery of the old task.' };
+  }
+  return rerunDecision(run, ownerSessionId, hostStatus, completion);
+}
+
+export function reportHostStatus(run, ownerSessionId, lookupFailed = false) {
+  if (lookupFailed) return undefined;
+  if (run.ownerSessionId !== ownerSessionId) return 'historical';
+  if (run.hostMissing) return 'missing';
+  if (run.syncError) return undefined;
+  return run.observation?.status;
 }

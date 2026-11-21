@@ -493,6 +493,44 @@ test('reruns recheck actual host state and reject overlapping batches but allow 
   assert.equal(f.tracked[0].status, 'idle');
 });
 
+test('validated historical batches can run again after their host task disappears without losing findings', async t => {
+  const f = await fixture(t);
+  const run = await f.launch();
+  const first = await refresh(f);
+  await decide(f, first.findings[0], { status: 'dismissed' });
+  f.tracked.length = 0;
+  const reloaded = await f.reopen();
+  const state = await reloaded.dispatch('refresh', {});
+  const historical = state.runs.find(item => item.id === run.id);
+  assert.equal(historical.hostMissing, true);
+  assert.equal(historical.syncError, '');
+  assert.equal(historical.rerun.allowed, true);
+  assert.equal(state.findings[0].finding.status, 'dismissed');
+  const next = await reloaded.dispatch('launch', { scope: ['docs'], confirmed: true });
+  assert.equal(next.launch, 'acknowledged');
+  const after = await reloaded.dispatch('refresh', {});
+  assert.equal(after.findings.length, first.findings.length);
+  assert.equal(after.findings.find(item => item.finding.id === first.findings[0].finding.id).finding.status, 'dismissed');
+});
+
+test('missing tasks do not release batches with unverified receipts or no stopped-host observation', async t => {
+  const unobserved = await fixture(t);
+  await unobserved.launch();
+  unobserved.tracked.length = 0;
+  const pending = await refresh(unobserved);
+  assert.equal(pending.runs[0].rerun.allowed, false);
+  await assert.rejects(unobserved.launch(), /no verified completion and stopped-host record/);
+  assert.equal(unobserved.requests.length, 1);
+
+  const tampered = await fixture(t);
+  const run = await tampered.launch();
+  await refresh(tampered);
+  tampered.tracked.length = 0;
+  await writeFile(await tampered.workflow.store.artifact(run.id, 'receipt.json'), '{}');
+  await assert.rejects(tampered.launch(), /no verified completion and stopped-host record/);
+  assert.equal(tampered.requests.length, 1);
+});
+
 test('artifact validation binds complete batches, scope, hashes, ownership, timing and failed receipts', async t => {
   const f = await fixture(t);
   const run = await f.launch();
@@ -637,7 +675,7 @@ test('only explicit owning-session confirmation clears an unstarted launch; miss
   assert.deepEqual(state.findings, []);
 });
 
-test('another session can review confirmed saved evidence but cannot recover or overlap foreign work', async t => {
+test('another session can start new report-only work after verified historical completion but cannot recover old tasks', async t => {
   const f = await fixture(t);
   const run = await f.launch();
   await refresh(f);
@@ -647,8 +685,20 @@ test('another session can review confirmed saved evidence but cannot recover or 
   assert.equal(state.findings.length, 2);
   assert.equal(state.runs[0].ownerMatches, false);
   await assert.rejects(other.dispatch('sync', { id: run.id }), /original owning session/);
-  await assert.rejects(other.dispatch('launch', { scope: ['docs'], confirmed: true }), /owning session/);
   assert.equal(f.listCalls, calls);
+  f.tracked.length = 0;
+  const next = await other.dispatch('launch', { scope: ['docs'], confirmed: true });
+  assert.equal(next.ownerSessionId, 'other-session');
+  assert.equal(next.launch, 'acknowledged');
+  const after = await other.dispatch('refresh', {});
+  assert.equal(after.findings.length, state.findings.length);
+  assert.equal(after.runs.find(item => item.id === run.id).ownerSessionId, 'fixture-owner');
+
+  const pending = await fixture(t, { execute: false });
+  await pending.launch();
+  const foreign = await pending.reopen({ session: { ...pending.session, sessionId: 'other-session' } });
+  await assert.rejects(foreign.dispatch('launch', { scope: ['docs'], confirmed: true }), /owning session/);
+  assert.equal(pending.requests.length, 1);
 });
 
 test('safe scope selection and owned artifacts reject traversal, arbitrary files, junctions and malformed requests', async t => {

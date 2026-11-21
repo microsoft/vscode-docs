@@ -5,7 +5,7 @@ import {
   createArticleStore, hostStatuses, isTime, listArticles, now, resolveArticle, resolveScope
 } from './article-storage.mjs';
 import { prepareRequest } from './article-runner.mjs';
-import { loadRunArtifacts, rerunDecision } from './article-artifacts.mjs';
+import { loadRunArtifacts, reportHostStatus, reportRerunDecision } from './article-artifacts.mjs';
 import { inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
 import { createProgressiveVerification } from './article-verification.mjs';
 import { createReplayWorkflow } from './article-replay.mjs';
@@ -123,8 +123,7 @@ export async function createArticleWorkflow({
       return {
         ...run, ownerMatches: run.ownerSessionId === ownerSessionId, activity: activity.get(run.id), completion,
         result: result && { state: result.state, message: result.message },
-        rerun: rerunDecision(run, ownerSessionId, run.syncError ||
-          (run.ownerSessionId === ownerSessionId && hostStatus.state === 'failed') ? undefined : run.observation?.status, completion)
+        rerun: reportRerunDecision(run, ownerSessionId, reportHostStatus(run, ownerSessionId, hostStatus.state === 'failed'), completion)
       };
     }));
     return {
@@ -138,6 +137,7 @@ export async function createArticleWorkflow({
       editor: { available: sourceEditor.available, message: sourceEditor.message },
       reviewChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function', presets: reviewChat.presets.map(({ id, label }) => ({ id, label })) },
       mediaChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
+      procedureChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
@@ -146,7 +146,8 @@ export async function createArticleWorkflow({
   async function runnerCompletion(run) {
     const checkedAt = now();
     try {
-      const { receipt } = await loadRunArtifacts(store, run);
+      const { receipt, reportHash } = await loadRunArtifacts(store, run);
+      if (run.ingestedHash && run.ingestedHash !== reportHash) throw new Error('The accepted report changed after ingestion.');
       return { state: 'finished', outcome: receipt.outcome, finishedAt: receipt.finishedAt, checkedAt };
     } catch (error) {
       return { state: 'unverified', message: error.message, checkedAt };
@@ -171,24 +172,21 @@ export async function createArticleWorkflow({
     const blocked = await store.update(async state => {
       const previousRuns = state.runs.filter(previous => previous.articles.some(article => run.articles.includes(article)) &&
         previous.launch !== 'not-started');
-      for (const previous of previousRuns) {
-        if (previous.launch !== 'acknowledged' || !previous.agentId || previous.ownerSessionId !== ownerSessionId) {
-          throw new WorkbenchError(rerunDecision(previous, ownerSessionId).reason, 409);
-        }
-      }
       const completions = await Promise.all(previousRuns.map(runnerCompletion));
       // Check the host inside the launch reservation, after reading receipts. Never trust a UI eligibility flag.
       const list = await hostList();
       let refusal;
       previousRuns.forEach((previous, index) => {
         try {
-          const task = findHostTask(list, previous);
-          previous.observation = hostObservation(task);
-          previous.syncError = '';
-          const decision = rerunDecision(previous, ownerSessionId, task.status, completions.at(index));
+          const task = findHostTask(list, previous, description(previous.id), { allowMissing: true });
+          previous.hostMissing = !task;
+          if (task) previous.observation = hostObservation(task);
+          const decision = reportRerunDecision(previous, ownerSessionId, task?.status || 'missing', completions.at(index));
+          previous.syncError = decision.allowed ? '' : decision.reason;
           if (!decision.allowed) refusal ??= new WorkbenchError(decision.reason, 409);
         } catch (error) {
           previous.syncError = error.message;
+          previous.hostMissing = false;
           refusal ??= error;
         }
       });
@@ -216,9 +214,10 @@ export async function createArticleWorkflow({
     }
     return getRun(run.id);
   }
-  function findHostTask(list, run, label = description(run.id)) {
+  function findHostTask(list, run, label = description(run.id), { allowMissing = false } = {}) {
     const matches = list.filter(candidate => candidate.type === 'agent' &&
       (run.agentId ? candidate.id === run.agentId : candidate.description === label));
+    if (!matches.length && allowMissing) return undefined;
     if (matches.length !== 1) throw new WorkbenchError(matches.length ? 'Ambiguous host task identity; inspect the owning session.' :
       'Task not found in the owning session. This does not prove that it never ran.', 409);
     const task = matches[0];
@@ -240,12 +239,18 @@ export async function createArticleWorkflow({
     requireOwner(run);
     let task;
     try {
-      task = findHostTask(observedTasks || await hostList(), run);
+      task = findHostTask(observedTasks || await hostList(), run, description(run.id), { allowMissing: true });
+      if (!task) {
+        const decision = reportRerunDecision(run, ownerSessionId, 'missing', await runnerCompletion(run));
+        await patch(id, current => Object.assign(current, { hostMissing: true, syncError: decision.allowed ? '' : decision.reason }));
+        activity.delete(id);
+        return getRun(id);
+      }
       await patch(id, current => Object.assign(current, {
-        launch: 'acknowledged', agentId: task.id, syncError: '', observation: hostObservation(task)
+        launch: 'acknowledged', agentId: task.id, hostMissing: false, syncError: '', observation: hostObservation(task)
       }));
     } catch (error) {
-      await patch(id, current => { current.syncError = error.message; });
+      await patch(id, current => { current.syncError = error.message; current.hostMissing = false; });
       activity.delete(id);
       return getRun(id);
     }
@@ -289,6 +294,7 @@ export async function createArticleWorkflow({
         await store.update(state => {
           for (const run of state.runs.filter(run => owned.some(candidate => candidate.id === run.id))) {
             run.syncError = error.message;
+            run.hostMissing = false;
             activity.delete(run.id);
           }
         });
@@ -323,9 +329,11 @@ export async function createArticleWorkflow({
     const replayRuns = await replays.ownedRuns();
     const reviewRuns = await reviews.ownedRuns();
     const featureRuns = await features.ownedRuns();
+    const reportLookupPending = [...state.runs, ...reviewRuns].some(run =>
+      run.ownerSessionId === ownerSessionId && run.launch !== 'not-started' && run.syncError && !run.hostMissing);
     if (Date.now() - lastHostPoll >= 5000 && [...state.runs, ...replayRuns, ...reviewRuns, ...featureRuns].some(run =>
       run.ownerSessionId === ownerSessionId && run.launch !== 'not-started' &&
-      (!run.observation || run.observation.status === 'running'))) updateHost();
+      (!run.observation || run.observation.status === 'running' || reportLookupPending))) updateHost();
     return snapshot({ verify: false });
   }
   async function whenVerified() {
@@ -370,6 +378,14 @@ export async function createArticleWorkflow({
       const skill = fileURLToPath(new URL('../../skills/docs-media/SKILL.md', import.meta.url));
       const prompt = mediaChat.mediaPrompt({ article, skill, kind: input.kind, operation: input.operation,
         request: input.request, channel: input.channel });
+      return sourceEditor.chat({ files: [article, skill], prompt });
+    },
+    'procedure-chat': async input => {
+      if (input.confirmed !== true) throw new Error('Start the procedure request explicitly before opening chat.');
+      if (!sourceEditor.available || typeof sourceEditor.chat !== 'function') throw new Error(sourceEditor.message || 'Native chat opening is unavailable in this host.');
+      const article = await resolveArticle(store.workspace, input.article);
+      const skill = fileURLToPath(new URL('../../skills/docs-replay/SKILL.md', import.meta.url));
+      const prompt = reviewChat.procedurePrompt({ article, skill, request: input.request, channel: input.channel });
       return sourceEditor.chat({ files: [article, skill], prompt });
     },
     'open-article': async ({ article, line }) => sourceEditor.open({ file: await resolveArticle(store.workspace, article), line }),

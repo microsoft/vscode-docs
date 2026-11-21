@@ -9,9 +9,10 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 * [Choose a daily workflow](#choose-a-daily-workflow)
 * [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
 * [Start a screenshot or video chat](#start-a-screenshot-or-video-chat)
+* [Start a procedure-check chat](#start-a-procedure-check-chat)
 * [Target canvas experience](#target-canvas-experience)
 * [Use the Docs workflow canvas](#use-the-docs-workflow-canvas)
-  * [Review an article with an agent](#review-an-article-with-an-agent)
+  * [Saved article-review results](#saved-article-review-results)
   * [Revise the reviewed article](#revise-the-reviewed-article)
   * [Propose a feature-documentation plan](#propose-a-feature-documentation-plan)
   * [Review screenshots before drafting](#review-screenshots-before-drafting)
@@ -47,8 +48,8 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 | Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Use the separate structured article-review path when persistent findings are needed. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
 | Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | The launcher does not capture or approve media. Full multi-image capture/replacement acceptance remains separate from handoff tests. |
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | Uses the existing attended video tools, not a new recording system. Missing tools or unsupported captures remain pending. |
-| Check content accuracy | On **Findings**, use **Check claims and links** for local structural checks and **Review an article** for product claims and editorial/grammar assessment. | These are separate controls. Settings/keybindings in deterministic canvas checks remain unverified without product evidence. External URLs are not checked. No blanket accuracy verdict. |
-| Check article instructions against the actual UI | The existing [replay procedure](#replay-a-reviewed-procedure) can test selected predefined assertions. | It does not follow or validate article prose. Article-derived actions, source-step mapping, and expected-versus-observed results are planned. |
+| Check content accuracy | Use **Run checks** on **Findings** for batch local structural checks. Use **Review in chat** for interactive product and editorial assessment. | Chat reviews do not automatically enter the inbox. Settings/keybindings in batch checks remain unverified without product evidence. External URLs are not checked. |
+| Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
 | Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
 | Document a GitHub issue or test plan item | On **Docs writing**, supply a supported issue URL and the desired documentation outcome. A TPI uses its issue URL and the same plan-first flow. | No dedicated TPI intake or live TPI authoring proof. Confirm the interpreted requirements; a test plan is evidence, not a ready-made documentation outline or execution permission. |
 
@@ -86,6 +87,14 @@ Create requests do not imply replacing existing assets. Refresh requests keep us
 Both pages share the proven native chat transport and its Windows/last-active-window limitations. They neither create batch workflow tasks nor change findings or review decisions. They also do not track chat completion. Check Chat before retrying a failed or timed-out launch.
 
 The focused launcher tests cover both media types, create/refresh choices, multiple-asset requests, failure handling, narrow layouts, and preserved batch state. They do not generate real media or establish full capture-workflow acceptance.
+
+## Start a procedure-check chat
+
+Open **Check instructions** (`/instructions`). Article-driven UI validation is not implemented; the page labels that limitation explicitly.
+
+For advanced scripted checks, choose an article, describe the procedure or assertions, and select **Start scripted replay in chat**. The chat uses docs-replay to select or propose a bounded storyboard. Review the exact procedure and environment there, approve attended execution, and explicitly confirm readiness before the runner starts.
+
+The launcher does not execute UI or publish findings. Its results stay in chat/private replay artifacts unless separately imported through an existing supported procedure. A passing script verifies only its assertions, not the article as a whole. No screenshots, article edits, or public writes are authorized.
 
 ## Target canvas experience
 
@@ -316,7 +325,7 @@ Human visual approval is required before copying a candidate into documentation.
 
 ### Replay a reviewed procedure
 
-For visual setup, readiness confirmation, and retained findings, use [replay from the findings inbox](#replay-from-the-findings-inbox). The commands below remain available as a manual interface.
+For a chat-oriented entry point, use [Check instructions](#start-a-procedure-check-chat). The commands below remain available as a manual interface. Previously saved results remain accessible in [Findings](#saved-replay-results).
 
 The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected assertions from a reviewed version 2 storyboard against an installed, pinned build. It reuses the attended capture runner without producing media. It does not execute article prose, evaluate arbitrary scripts, compare pixels, or prove every claim in an article.
 
@@ -504,11 +513,13 @@ Use `--decision rejected` to record rejection. Add the required media-tool optio
 
 ## Use the Docs workflow canvas
 
-The **Docs workflow** canvas has two dedicated pages. **Docs writing** contains documentation requests, plans, approvals, and drafts. **Findings** contains checks, article reviews, replay, and a persistent findings inbox independent of check execution. Both use the same saved workflow state. The canvas requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
+The **Docs workflow** canvas separates chat launchers from batch findings. **Findings** contains batch claims/link checks and the persistent inbox; it does not start article reviews or replay procedures. **Review in chat** and **Check instructions** are separate chat-oriented entry points. The earlier **Docs writing** page retains saved plans and drafts. The findings workflow requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
 
 Ask Copilot to open the `vscode-docs-article-checks` canvas from `.github\extensions\vscode-docs-workbench`. Opening it loads the inbox and incorporates eligible saved results, but never launches a task, fetches GitHub, or requires `gh` authentication. After updating the extension, an attended extension reload is needed. Do not reload or change extension configuration automatically.
 
 Use the **Docs writing** and **Findings** navigation links to switch pages. The `/writing` and `/findings` routes support direct loading, reload, and browser navigation. Switching pages preserves unfinished form text and filters without starting work or making decisions. Writing progress and recovery stay on the writing page; check progress, freshness controls, and coverage stay on the findings page.
+
+Findings has a single **Run batch checks** section, so there is no task dropdown. Enter the scope and select **Run checks**. The **Article review** and **Replay** check-type filters remain for previously saved results; they are filters, not launch actions. No saved reports or decisions are deleted by removing the old launch controls.
 
 The shared `extension.json` declares both canvases so compatible hosts can list them without starting the provider. The provider starts on the first canvas open or action. Runtime registrations use those same declarations. Article initialization is independent of the existing GitHub queue initialization.
 
@@ -524,16 +535,11 @@ Visible views check for saved workflow updates every 10 seconds while idle and r
 
 Checks cover data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. They do not verify prose accuracy, public product availability, external websites, rendered media, generated content, or navigation. No product build or manifest is supplied, so product references remain **unverified**, distinct from errors and warnings. Checker exit 1 with a valid error report is a check result, not an infrastructure failure.
 
-### Review an article with an agent
+### Saved article-review results
 
-On **Findings**, select **Review an article** in the **Task** picker to review a local article or one section without editing it. PR selection is not yet supported.
+Start new interactive reviews on [Review in chat](#start-a-skill-driven-review-chat), not Findings. The earlier structured review adapter remains available for saved evidence and existing integrations, but its launch form and section picker are no longer exposed on Findings.
 
-1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both. Add **Particular concerns** if useful. For a section review, choose **One section** in **Review scope**, select **Load sections**, and choose a heading. Its nested subsections are included, up to the next heading at the same or higher level. Headings inside code examples are not section boundaries.
-2. Select **Start article review**. This authorizes local deterministic prechecks, a host-owned agent review, private result files, and read-only product-source research when needed. It can use host credits. It does not authorize sign-in, installs, article commands, UI execution, worktrees, documentation edits, or GitHub writes.
-3. Filter **Check type** to **Article review**. Expand a finding to inspect its exact article quotation, explanation, suggested correction, and any product citations. Record a decision only after inspecting the evidence.
-4. Expand **Coverage** for the review summary, limitations, and deterministic precheck findings. Prechecks cover the whole article even when the agent reviews one section, and are displayed separately from agent judgments. They do not replace findings from independently launched structural checks.
-
-The full article remains available to the agent as context, but section findings must quote lines within the selected range. Section findings and coverage are tracked separately from whole-article reviews. Any article edit invalidates a loaded section selection. Select **Load sections** again before starting. Freshness remains bound to the whole article and its dependencies, not only the selected text.
+Filter **Check type** to **Article review** to inspect saved quotations, suggested corrections, product citations, and review decisions. **Coverage** retains the review summary, limitations, and separate deterministic prechecks. Section findings remain scoped to the originally selected heading and nested subsections; their freshness is bound to the whole article and its dependencies.
 
 The [docs-review skill](.github/skills/docs-review/SKILL.md) defines the procedure. The [review helper](build/review.js) and [workflow adapter](.github/extensions/vscode-docs-workbench/article-review.mjs) validate the captured article, exact source spans, requested focus, channel, guidelines, local dependencies, and completion receipt before ingestion. Private state uses `reviews.json` and `review-runs` beside the existing inbox state, without migrating or overwriting checks, replay, daily audit, or account data.
 
@@ -551,7 +557,9 @@ The accepted live pilot covers a combined technical and editorial review, source
 
 ### Revise the reviewed article
 
-1. After a completed review, select **Plan article update** beneath its summary. The article, review focus, concerns, existing decisions, and evidence carry into **Docs writing**. There is no required checklist of findings to approve.
+New reviews and revisions continue in the [same interactive chat](#start-a-skill-driven-review-chat). The controls below apply to previously prepared structured update plans retained on **Docs writing**, not a second review entry point on Findings.
+
+1. Open the existing update plan on **Docs writing**. Its article, review context, and saved decisions remain attached.
 2. Review the short plan, grouped into outcomes such as accuracy, clarity, and consistency. Use **Adjust the update plan** to request changes or exclusions. Detailed findings remain available, but the approval is for the article update as a whole.
 3. Select **Approve and update article**. The confirmation includes the grouped scope, existing checkout, branch, and allowed file. This single decision authorizes both the plan and its scoped writes. Cancelling saves no approval and launches no update. The agent asks again only for a material ambiguity or scope expansion, not routine edits within the plan.
 4. The update preserves captured existing edits outside its scope and automatically runs local claim/link checks. Section updates cannot change content outside the selected section. The result is saved for human review; technical or editorial review findings are not automatically marked fixed.
@@ -622,15 +630,13 @@ No staging, commits, GitHub writes, publication, or captures are authorized by d
 
 The bounded live pilot verifies a one-paragraph draft, preserved surrounding content and media, saved checks and diff, and persistence in the actual canvas after reload. It originally left the change unstaged for human review; that approved pilot is now included in `9afaa1905`. New-file diffs, branch changes, scope violations, and pending media are covered by isolated tests, not by that one live edit.
 
-### Replay from the findings inbox
+### Saved replay results
 
-On **Findings**, select **Replay procedure (attended)** in the **Task** picker. This checks a reviewed, checked-in storyboard without producing screenshots or videos.
+Start new scripted procedure work through [Check instructions](#start-a-procedure-check-chat) or docs-replay in chat. Findings no longer offers a replay launch form.
 
-1. Select a storyboard and a matching installed VS Code build. The current Windows integration discovers standard Stable and Insiders installations and reads their version information without opening an editor window.
-2. If the storyboard requires a workspace, enter its absolute path. Optionally select an existing dedicated capture profile; otherwise a private workspace-bound profile is created when you start. Never select a normal profile.
-3. Select **Review procedure** and inspect the actions, targets, build, workspace, and exact binding. Select **Start attended replay** only after reviewing those inputs and when you can remain available. Changing an input requires another review.
-4. Handle any native Workspace Trust or other prompts yourself. When the canvas shows that VS Code is waiting, select **I'm ready**. **Cancel waiting replay** declines that readiness request and lets the runner clean up. Neither action changes trust decisions or cancels an unrelated host task.
-5. Review replay findings in the same inbox using the **Replay** check-type filter. A passed replay covers only its assertions. A mismatch needs investigation; an incomplete replay reports prerequisites, readiness, privacy, or cleanup problems rather than claiming an article bug.
+Use the **Replay** check-type filter to inspect previously saved findings and the independent coverage. A passed replay covers only its assertions. A mismatch needs investigation; an incomplete replay reports prerequisites, readiness, privacy, or cleanup problems rather than claiming an article bug.
+
+If a previously launched canvas-owned replay is still waiting, its **I'm ready** and **Cancel waiting replay** controls remain under **Execution details and recovery**. These recover existing work only; they do not start a new replay, change trust decisions, or cancel unrelated tasks.
 
 Replay uses the existing `build/replay.js` runner and readiness protocol. Its private records live in `replay.json` and `replay-runs` beneath the workspace's inbox directory. Capture output and default profiles use shorter, guarded `replay-output` and `replay-profiles` directories beneath the canvas's private extension-data directory to avoid Windows path-length limits. Execution IDs and reviewed bindings retain workspace ownership. They use the shared audit and guarded storage helpers, but do not change the claims/link state or coverage. Existing claims and their review decisions remain intact.
 
@@ -666,11 +672,11 @@ A reload preserves run IDs, owner session IDs, agent IDs, and artifact reference
 
 If acknowledgement is lost or times out, the run remains blocked and is not retried. Refresh host activity to reconcile its exact run identity. A missing task in host history does not prove that nothing ran. Only after inspecting the owning session can you explicitly confirm **I checked host history: no task started**. This records a local decision, does not cancel anything, and does not start another run.
 
-The **verified-finished** rerun policy allows another check after the prior runner's completed receipt is verified and its owning host task is observed idle or in a terminal state. Completion validation checks the owned request, receipt, report scope, and hashes without comparing the report to current article contents. Editing an article can therefore make old evidence stale without blocking a new check. A valid execution-failed receipt also identifies a finished attempt, not a successful check.
+For report-only claims/link batches and structured article reviews, a validated completion receipt plus a recorded idle/terminal host observation at or after completion identifies finished historical work. The old host task does not have to remain in a transient task list. A later session can start a new independent check without taking ownership of the earlier task. Completion validation checks the owned request, receipt, report scope, and hashes, not current article freshness; stale findings do not prevent a fresh review. A valid execution-failed receipt identifies a finished attempt, not a successful check.
 
-Running, uncertain, and unacknowledged work remains blocked. Missing, malformed, owner-mismatched, scope-mismatched, or hash-mismatched artifacts also block overlapping work, even if the host reports a terminal state. The UI shows eligibility based on saved observations and revalidated artifacts, but each launch rereads receipts and queries the owning host again under a launch reservation. A task that resumed running after the UI refresh blocks the launch.
+Running, uncertain, and unacknowledged work remains blocked. Missing, malformed, owner-mismatched, scope-mismatched, or hash-mismatched artifacts also block overlapping work. A missing task alone is insufficient: without verified completion and a stopped-host record, the run remains unresolved. Each new launch rereads receipts and queries the current host under a launch reservation. A visible task that resumed running blocks the launch. Host lookup failures and ambiguous task identities are not treated as absence.
 
-Overlap is based on resolved articles, so a folder check cannot bypass an active single-article check. Disjoint scopes can run independently. All prior tracked tasks overlapping the selected articles must be observable in their owning session before another launch. A missing task or different owning session cannot be bypassed with a saved idle status or report. The canvas never automatically cancels an agent, marks documentation complete, or makes a human review decision.
+Overlap is based on resolved articles, so a folder check cannot bypass an active single-article check. Disjoint scopes can run independently. Historical records and review decisions remain intact; no manual record deletion or automatic retry is required. This historical-completion policy does not apply to authoring, capture, or replay: their existing ownership, approval, and cleanup gates remain. The canvas never automatically cancels an agent, marks documentation complete, or makes a human review decision.
 
 ### Validation and integration boundary
 

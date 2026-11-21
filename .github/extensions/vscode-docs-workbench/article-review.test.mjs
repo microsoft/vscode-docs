@@ -43,7 +43,9 @@ async function fixture(t, articleContent = content) {
     }
     return { agentId: task.id };
   };
-  const workflow = await f.reopen({ reviewOptions: { check: f.check } });
+  const workflow = await f.reopen({ reviewOptions: { check: f.check }, replayOptions: {
+    builds: async () => ({ builds: [], errors: [] })
+  } });
   return { ...f, workflow,
     beforeDispose(callback) { dispose = callback; },
     setDraft(value) { currentDraft = value; },
@@ -193,7 +195,92 @@ test('unconfirmed, tampered and stale review completions are not accepted', asyn
   assert.equal((await readJson(pendingFiles.receipt)).outcome, 'execution-failed');
 });
 
-test('browser launches a source-bound article review and preserves decisions and existing checks after reload', {
+test('structured reviews can run again with missing historical tasks and in a new session', async t => {
+  const f = await fixture(t);
+  const run = await f.launch();
+  await f.launch();
+  const first = await f.snapshot();
+  const finding = first.findings[0];
+  await f.workflow.dispatch('triage', { check: 'review', findingId: finding.finding.id,
+    evidenceHash: finding.evidenceHash, coverageToken: finding.coverageToken, status: 'dismissed', reason: 'Keep this decision.' });
+  f.tracked.length = 0;
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), content + '\nAdditional context.\n');
+  const historical = (await f.snapshot()).runs.find(item => item.id === run.id);
+  assert.equal(historical.result.state, 'stale');
+  assert.equal(historical.hostMissing, true);
+  assert.equal(historical.rerun.allowed, true);
+  await f.launch();
+  assert.equal((await f.snapshot()).coverage.find(item => item.check === 'review').state, 'reviewed');
+  f.tracked.length = 0;
+  const other = await f.reopen({ session: { ...f.session, sessionId: 'new-owner' }, reviewOptions: { check: f.check } });
+  const next = await other.dispatch('review-launch', { article: 'docs/article.md', channel: 'stable', focus: 'both', confirmed: true });
+  assert.equal(next.ownerSessionId, 'new-owner');
+  const after = await other.dispatch('refresh', {});
+  assert.equal(after.coverage.find(item => item.check === 'review').state, 'reviewed');
+  assert.equal(after.findings.length, first.findings.length);
+  assert.equal((await readJson((await f.files(run)).receipt)).outcome, 'report');
+});
+
+test('structured review reruns still reject running tasks, lost unconfirmed work, and tampered completions', async t => {
+  const f = await fixture(t);
+  const run = await f.launch();
+  await f.snapshot();
+  f.tracked[0].status = 'running';
+  await assert.rejects(f.launch(), /running/);
+  f.tracked.length = 0;
+  await atomicJson((await f.files(run)).receipt, {});
+  await assert.rejects(f.launch(), /no verified completion and stopped-host record/);
+
+  const unconfirmed = await fixture(t);
+  await unconfirmed.launch();
+  unconfirmed.tracked.length = 0;
+  await assert.rejects(unconfirmed.launch(), /no verified completion and stopped-host record/);
+  assert.equal((await unconfirmed.snapshot()).findings.length, 0);
+});
+
+test('Findings offers batch checks only and retains historical article-review results', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const f = await fixture(t);
+  await f.launch();
+  await f.snapshot();
+  f.tracked.length = 0;
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), content + '\nNew context.\n');
+  await f.snapshot();
+  const statePath = await f.rawWorkflow.store.file('reviews.json');
+  const saved = await readJson(statePath);
+  saved.runs[0].syncError = 'Task not found in the owning session. This does not prove that it never ran.';
+  delete saved.runs[0].hostMissing;
+  await atomicJson(statePath, saved);
+  let browser;
+  const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, { assetEntries: articleAssets });
+  f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  await page.locator('#reload:enabled').waitFor();
+  await page.locator('.finding').first().waitFor();
+  assert.equal(await page.locator('#task-type, #review-form, #replay-form, #review-launch, #replay-start').count(), 0);
+  assert.equal(await page.locator('#launch-form').isVisible(), true);
+  await page.getByLabel('Check type', { exact: true }).selectOption('review');
+  assert.equal(await page.locator('.finding:visible').count(), 1);
+  assert.equal(f.tracked.length, 0, 'Opening or filtering saved findings must not start a review.');
+  assert.equal(await page.getByRole('link', { name: 'Review in chat', exact: true }).count(), 1);
+  assert.equal(await page.getByRole('link', { name: 'Check instructions', exact: true }).count(), 1);
+  await page.locator('#scope').fill('docs');
+  await page.getByRole('button', { name: 'Run checks', exact: true }).click();
+  await page.locator('#execution-indicator').getByText('Findings updated · 1 article(s)', { exact: true }).waitFor();
+  assert.equal(f.tracked.length, 1);
+  assert.equal(await page.locator('.finding:visible').count(), 1, 'The new batch must not remove saved review findings.');
+  assert.deepEqual(errors, []);
+});
+
+test('browser preserves saved article-review decisions and coverage without exposing review launch controls', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const f = await fixture(t);
@@ -213,11 +300,7 @@ test('browser launches a source-bound article review and preserves decisions and
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
   await page.goto(server.url);
-  await page.locator('#task-type:enabled').waitFor();
-  await page.getByLabel('Task', { exact: true }).selectOption('review');
-  await page.getByLabel('Article to review', { exact: true }).fill('docs/article.md');
-  await page.getByRole('button', { name: 'Start article review', exact: true }).click();
-  await page.locator('#execution-indicator').getByText('Article review complete · 1 article(s)', { exact: true }).waitFor();
+  await page.locator('.finding').first().waitFor();
   await page.getByLabel('Check type', { exact: true }).selectOption('review');
   assert.equal(await page.locator('.finding').count(), 1);
   await page.locator('.finding .finding-toggle').click();
@@ -227,20 +310,18 @@ test('browser launches a source-bound article review and preserves decisions and
   await page.getByRole('button', { name: 'Save decision', exact: true }).click();
   await page.getByText('Decision saved locally. Documentation and GitHub are unchanged.', { exact: true }).waitFor();
   await page.reload();
-  await page.locator('#task-type:enabled').waitFor();
+  await page.locator('.finding').first().waitFor();
   await page.getByLabel('Check type', { exact: true }).selectOption('review');
   assert.equal(await page.locator('.finding .review-state').innerText(), 'dismissed');
   await page.locator('#coverage-summary').click();
   await page.getByText('Deterministic precheck · 1 findings', { exact: true }).waitFor();
-  await page.getByLabel('Task', { exact: true }).selectOption('review');
-  await page.getByLabel('Article to review', { exact: true }).fill('docs/article.md');
-  await page.getByLabel('Review scope', { exact: true }).selectOption('section');
-  assert.equal(await page.getByRole('button', { name: 'Start article review', exact: true }).isDisabled(), true);
+  assert.equal(await page.locator('#review-form, #task-type').count(), 0);
   const tasksBeforeSelection = f.tracked.length;
-  await page.getByRole('button', { name: 'Load sections', exact: true }).click();
-  await page.locator('#review-section:enabled').waitFor();
+  const catalog = await f.workflow.dispatch('review-sections', { article: 'docs/article.md' });
   assert.equal(f.tracked.length, tasksBeforeSelection);
-  await page.getByRole('button', { name: 'Start article review', exact: true }).click();
+  await f.launch({ section: { startLine: catalog.sections[0].startLine, articleHash: catalog.articleHash } });
+  await f.snapshot();
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
   await page.locator('#finding-count').getByText('2 of 3', { exact: true }).waitFor();
   assert.equal(await page.locator('#coverage-list .coverage-row').count(), 2);
   assert.equal((await f.snapshot()).runs.at(-1).binding.section.title, 'Fixture article');
