@@ -1167,6 +1167,8 @@ Here's a command menu item:
 
 ![menus extension point example](images/contribution-points/menus.png)
 
+The screenshot shows an earlier version of the Markdown preview menu. [`resourceScheme`](/api/references/when-clause-contexts#available-context-keys) is the scheme of the editor's resource URI, such as `file`. To show an `editor/title` menu item for a particular webview panel, match `activeWebviewPanelId` to the panel's `viewType`. For example, `markdown.showSource` uses `activeWebviewPanelId == 'markdown.preview'`. For items in a [webview context menu](/api/extension-guides/webview#context-menus), match `webviewId` to the webview type.
+
 Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
 
 ```json
