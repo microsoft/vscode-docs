@@ -14,6 +14,7 @@ import { createFeaturePlans } from './feature-plans.mjs';
 import editorTools from '../../../build/docs-editor.js';
 import reviewChat from '../../../build/review-chat.js';
 import mediaChat from '../../../build/media-chat.js';
+import writingChat from '../../../build/writing-chat.js';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -138,6 +139,7 @@ export async function createArticleWorkflow({
       reviewChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function', presets: reviewChat.presets.map(({ id, label }) => ({ id, label })) },
       mediaChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       procedureChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
+      writingChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
@@ -387,6 +389,16 @@ export async function createArticleWorkflow({
       const skill = fileURLToPath(new URL('../../skills/docs-replay/SKILL.md', import.meta.url));
       const prompt = reviewChat.procedurePrompt({ article, skill, request: input.request, channel: input.channel });
       return sourceEditor.chat({ files: [article, skill], prompt });
+    },
+    'writing-chat': async input => {
+      if (input.confirmed !== true) throw new Error('Start the documentation request explicitly before opening chat.');
+      if (!sourceEditor.available || typeof sourceEditor.chat !== 'function') throw new Error(sourceEditor.message || 'Native chat opening is unavailable in this host.');
+      if (input.article !== undefined && typeof input.article !== 'string') throw new Error('Optional article context must be a repository-relative path.');
+      const article = input.article ? await resolveArticle(store.workspace, input.article) : undefined;
+      const skill = fileURLToPath(new URL('../../skills/doc-writer/SKILL.md', import.meta.url));
+      const prompt = writingChat.writingPrompt({ workspace: store.workspace, article, skill, kind: input.kind,
+        request: input.request, issue: input.issue, channel: input.channel });
+      return sourceEditor.chat({ files: [...(article ? [article] : []), skill], prompt });
     },
     'open-article': async ({ article, line }) => sourceEditor.open({ file: await resolveArticle(store.workspace, article), line }),
     'feature-open-diff': async input => sourceEditor.open(await features.diffFiles(input)),

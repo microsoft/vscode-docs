@@ -94,13 +94,7 @@ body { margin: 0; }
 .article-app #writing-page { padding-top: 4px; }
 .article-app #writing-page details { font-size: 1em; }
 .article-app #writing-page summary { color: inherit; }
-.article-app #writing-page .writing-request { margin: 12px 0 24px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 6px; }
-.article-app .writing-request > summary { font-weight: 600; }
-.article-app #feature-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(140px, 200px); gap: 16px; padding-top: 16px; }
-.article-app #feature-form .request-field, .article-app #feature-form .request-actions { grid-column: 1 / -1; }
-.article-app #feature-description { min-height: 112px; line-height: 1.5; }
-.article-app .request-actions, .article-app .plan-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
-.article-app .request-actions p { flex: 1; min-width: 180px; margin: 0; }
+.article-app .plan-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .article-app #feature-plans-section > h2 { font-size: 1.15em; margin-bottom: 4px; }
 .article-app #writing-page .feature-plan { margin-top: 16px; padding: 0; border: 1px solid var(--border); border-radius: 6px; background: var(--vscode-editorWidget-background, light-dark(#fafafa, #252526)); }
 .article-app .feature-plan > summary { display: flex; align-items: center; gap: 10px; padding: 16px 18px; list-style: none; }
@@ -147,11 +141,9 @@ body { margin: 0; }
 .article-app .review-chat-form fieldset { display: flex; flex-wrap: wrap; gap: 12px 24px; border: 1px solid var(--border); padding: 12px; }
 .article-app .review-chat-form fieldset label { display: flex; align-items: center; gap: 4px; }
 @media (max-width: 600px) {
-  .article-app #feature-form { grid-template-columns: minmax(0, 1fr); }
   .article-app .feature-plan > summary { flex-wrap: wrap; padding: 12px; }
   .article-app .plan-body { padding: 0 12px 12px; }
   .article-app .plan-status { margin-left: auto; }
-  .article-app .request-actions { align-items: stretch; flex-direction: column; }
 }
 @media (max-width: 650px) {
   .article-app .finding-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }

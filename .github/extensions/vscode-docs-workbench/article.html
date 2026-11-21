@@ -9,11 +9,12 @@
 <body>
 <main class="article-app">
   <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/write">Write documentation</a>
+    <a href="/issue">Document an issue/TPI</a>
     <a href="/review">Review in chat</a>
     <a href="/screenshots">Screenshots</a>
     <a href="/videos">Demo videos</a>
     <a href="/instructions">Check instructions</a>
-    <a href="/writing" data-page="writing">Docs writing</a>
     <a href="/findings" data-page="findings" aria-current="page">Findings</a>
   </nav>
   <header>
@@ -85,18 +86,7 @@
       <button id="writing-reload" type="button" class="secondary" disabled>Refresh</button>
     </div>
     <p id="writing-notice" role="status" aria-live="polite" class="muted"></p>
-    <details id="writing-request" class="writing-request" open>
-      <summary>New documentation request</summary>
-      <form id="feature-form">
-        <div class="request-field"><label for="feature-description">Documentation request</label><textarea id="feature-description" rows="4" maxlength="8000" placeholder="What should be documented, and who is it for? Add any context or constraints. No GitHub issue is required." disabled></textarea></div>
-        <div><label for="feature-issue">Related GitHub issue (optional)</label><input id="feature-issue" type="url" placeholder="https://github.com/microsoft/vscode/issues/..." disabled></div>
-        <div><label for="feature-channel">Product channel</label><select id="feature-channel" disabled><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
-        <div class="request-actions">
-          <button id="feature-launch" type="submit" disabled>Propose documentation plan</button>
-          <p class="muted">Uses host credits and read-only research. No article edits or captures.</p>
-        </div>
-      </form>
-    </details>
+    <p>Continue previously prepared plans and drafts here. For new work, use <a href="/write">Write documentation</a> or <a href="/issue">Document an issue/TPI</a>.</p>
     <p id="writing-host-status" class="error"></p>
     <section id="feature-plans-section" hidden aria-labelledby="feature-plans-heading">
       <h2 id="feature-plans-heading">Plans and drafts</h2>
@@ -116,6 +106,7 @@
       </details>
     </footer>
   </section>
+  <footer><a href="/writing" data-page="writing">Saved plans and drafts</a></footer>
 </main>
 <script type="module" src="/article-app.mjs"></script>
 </body>

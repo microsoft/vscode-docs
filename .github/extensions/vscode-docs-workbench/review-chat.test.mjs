@@ -115,6 +115,38 @@ test('procedure chat hands off reviewed scripted checks without claiming article
   assert.equal((await f.rawWorkflow.store.read()).runs.length, 0);
 });
 
+test('writing chat accepts a brief without an article and issue/TPI context without fetching or starting workflow tasks', async t => {
+  const calls = [];
+  const f = await createArticleFixture({ workflowOptions: { editor: { available: true,
+    async chat(input) { calls.push(input); return { requested: true }; } } } });
+  t.after(() => f.dispose());
+  f.session.rpc.tasks.list = async () => { throw new Error('No background tasks should be queried'); };
+  const input = { kind: 'feature', request: 'Explain the new workflow to extension authors.', channel: 'stable', confirmed: true };
+  await f.workflow.dispatch('writing-chat', input);
+  assert.equal(calls[0].files.length, 1);
+  assert.ok(calls[0].files[0].endsWith(path.join('skills', 'doc-writer', 'SKILL.md')));
+  assert.match(calls[0].prompt, /No existing article was selected/);
+  assert.match(calls[0].prompt, /No GitHub issue is required/);
+  assert.match(calls[0].prompt, /Explain the new workflow to extension authors/);
+  assert.match(calls[0].prompt, /Starting this chat authorizes planning only/);
+  assert.ok(calls[0].prompt.includes(f.workspace));
+  const issue = 'https://github.com/microsoft/vscode/issues/123#issuecomment-456';
+  await f.workflow.dispatch('writing-chat', { kind: 'issue', issue, article: 'docs/article.md', channel: 'stable', confirmed: true });
+  assert.equal(calls[1].files[0], path.join(f.workspace, 'docs', 'article.md'));
+  assert.ok(calls[1].prompt.includes(issue));
+  assert.match(calls[1].prompt, /not a complete specification/);
+  assert.match(calls[1].prompt, /do not copy test setup into the article/);
+  for (const change of [{ confirmed: false }, { request: '', issue: '' }, { kind: 'issue' }, { kind: 'other' },
+    { issue: 'https://github.com/microsoft/vscode/pull/123' }, { issue: 'https://example.test/issues/123' },
+    { issue: 'https://github.com/microsoft/vscode/issues/123#issuecomment-456#other' },
+    { request: 'x'.repeat(4001) }, { article: false }, { article: '../outside.md' }, { article: 'docs/missing.md' }]) {
+    await assert.rejects(f.workflow.dispatch('writing-chat', { ...input, ...change }));
+  }
+  assert.equal(calls.length, 2);
+  assert.equal(f.tracked.length, 0);
+  assert.equal((await f.rawWorkflow.store.read()).runs.length, 0);
+});
+
 test('browser opens a preset-and-freeform review chat once and surfaces launch failures without retry', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
@@ -243,5 +275,63 @@ test('browser separates instruction-check chat from batch Findings and labels th
   await page.getByRole('link', { name: 'Findings', exact: true }).click();
   await page.getByRole('heading', { name: 'Run batch checks', exact: true }).waitFor();
   assert.equal(await page.locator('#task-type, #review-form, #replay-form').count(), 0);
+  assert.deepEqual(errors, []);
+});
+
+test('browser launches writing and issue/TPI chats without mandatory article input and keeps saved work secondary', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const calls = [];
+  let fail = false;
+  const f = await createArticleFixture({ workflowOptions: { editor: { available: true, async chat(input) {
+    calls.push(input);
+    if (fail) throw new Error('Native writing chat timed out');
+    return { requested: true, message: 'Documentation request sent to chat.' };
+  } } } });
+  let browser;
+  const server = await createWorkbenchServer(f.rawWorkflow, async () => {}, () => {}, { assetEntries: articleAssets });
+  t.after(async () => { try { await browser?.close(); await server.close(); } finally { await f.dispose(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  await page.getByRole('link', { name: 'Write documentation', exact: true }).click();
+  await page.locator('#chat-request:enabled').waitFor();
+  assert.equal(new URL(page.url()).pathname, '/write');
+  assert.equal(await page.getByRole('button', { name: 'Start in chat', exact: true }).isDisabled(), true);
+  await page.getByLabel('Documentation request', { exact: true }).fill('Document the new workflow for extension authors.');
+  const requestBounds = await page.locator('#chat-request').boundingBox();
+  assert.ok(requestBounds.width >= (await page.locator('#review-chat-form').boundingBox()).width - 2);
+  assert.ok(requestBounds.y < (await page.locator('#chat-article').boundingBox()).y, 'The author brief must come before optional article context.');
+  await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
+  await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
+  assert.equal(calls[0].files.length, 1);
+  assert.match(calls[0].prompt, /Document the new workflow for extension authors/);
+  await page.getByRole('link', { name: 'Document an issue/TPI', exact: true }).click();
+  await page.locator('#chat-issue:enabled').waitFor();
+  assert.equal(new URL(page.url()).pathname, '/issue');
+  const url = 'https://github.com/microsoft/vscode/issues/123';
+  await page.getByLabel('GitHub issue or test plan item URL', { exact: true }).fill(url);
+  await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
+  await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
+  assert.equal(calls.length, 2);
+  assert.ok(calls[1].prompt.includes(url));
+  assert.equal(f.tracked.length, 0);
+  fail = true;
+  await page.getByLabel('Desired documentation outcome (optional)', { exact: true }).fill('Preserve these requirements on a failed handoff.');
+  await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
+  await page.getByText(/Native writing chat timed out.*Check VS Code Chat before trying again/).waitFor();
+  assert.equal(calls.length, 3);
+  assert.equal(await page.getByLabel('GitHub issue or test plan item URL', { exact: true }).inputValue(), url);
+  await page.setViewportSize({ width: 420, height: 800 });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert.equal(await page.locator('.page-navigation a[href="/writing"]').count(), 0);
+  await page.getByRole('link', { name: 'Saved plans and drafts', exact: true }).click();
+  await page.getByRole('heading', { name: 'Saved plans and drafts', exact: true }).waitFor();
+  assert.equal(await page.locator('#feature-form, #feature-launch').count(), 0);
   assert.deepEqual(errors, []);
 });

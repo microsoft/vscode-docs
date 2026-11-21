@@ -24,7 +24,6 @@ let orderedFindings;
 let featurePlansKey;
 const planFeedback = new Map();
 const draftLocations = new Map();
-let writingRequestInitialized = false;
 const revisionFeedback = new Map();
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
@@ -41,12 +40,12 @@ function renderPage() {
   $('writing-page').hidden = !writing;
   $('findings-page').hidden = writing;
   document.querySelector('.article-app').dataset.page = currentPage();
-  $('page-title').textContent = writing ? 'Docs writing' : 'Findings inbox';
+  $('page-title').textContent = writing ? 'Saved plans and drafts' : 'Findings inbox';
   $('page-description').textContent = writing
-    ? 'Describe your request, agree on a plan, then prepare and review the draft.'
+    ? 'Resume previously prepared work. Start new documentation requests in chat.'
     : 'Check a scope. Review findings across articles, independently of when checks ran.';
-  document.title = writing ? 'Docs writing' : 'Docs findings';
-  for (const link of document.querySelectorAll('.page-navigation a')) {
+  document.title = writing ? 'Saved plans and drafts' : 'Docs findings';
+  for (const link of document.querySelectorAll('a[data-page]')) {
     if (link.dataset.page === currentPage()) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
@@ -636,14 +635,7 @@ function renderMediaActions(record, container, disclosure) {
 
 function renderFeaturePlans() {
   $('writing-host-status').textContent = state.hostAvailable ? '' : 'This host does not expose the task API needed to plan and draft documentation.';
-  for (const id of ['feature-description', 'feature-issue', 'feature-channel']) $(id).disabled = busy;
-  $('feature-launch').disabled = busy || !state.hostAvailable ||
-    (!$('feature-description').value.trim() && !$('feature-issue').value.trim());
   const records = state.featurePlans || [];
-  if (!writingRequestInitialized) {
-    $('writing-request').open = !records.length || !!$('feature-description').value.trim() || !!$('feature-issue').value.trim();
-    writingRequestInitialized = true;
-  }
   $('feature-plans-section').hidden = !records.length;
   const key = JSON.stringify([busy, records]);
   if (key === featurePlansKey) return;
@@ -875,17 +867,6 @@ function renderFeaturePlans() {
     $('feature-plans').append(panel);
   }
 }
-for (const id of ['feature-description', 'feature-issue']) $(id).addEventListener('input', renderFeaturePlans);
-$('feature-form').addEventListener('submit', event => {
-  event.preventDefault();
-  void perform(async () => {
-    const run = await request('feature-launch', { feature: $('feature-description').value.trim(),
-      issue: $('feature-issue').value.trim(), channel: $('feature-channel').value, confirmed: true });
-    await refresh();
-    if (run.launch === 'acknowledged') $('writing-request').open = false;
-    notice(run.launch === 'uncertain' ? run.error : 'Planning submitted. Drafting and media generation have not started.', run.launch === 'uncertain');
-  });
-});
 function renderReplayRecovery() {
   $('replay-readiness').replaceChildren();
   for (const run of state.runs.filter(item => item.kind === 'replay' && item.readiness && item.ownerMatches)) {
@@ -957,7 +938,7 @@ async function pollResults(force = false) {
 setInterval(() => void pollResults(), 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) void pollResults(true); });
 window.addEventListener('focus', () => void pollResults(true));
-for (const link of document.querySelectorAll('.page-navigation a[data-page]')) {
+for (const link of document.querySelectorAll('a[data-page]')) {
   link.addEventListener('click', event => {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
@@ -973,5 +954,5 @@ await perform(async () => {
   render();
   if (state.runs.some(run => run.ownerMatches && run.launch !== 'not-started')) state = await request('poll');
   notice(state.runs.some(run => run.kind !== 'authoring') ? '' : 'Ready. Choose articles or folders to check.', false, 'findings');
-  notice(state.featurePlans?.length ? '' : 'Describe your documentation request to get started.', false, 'writing');
+  notice(state.featurePlans?.length ? '' : 'No saved plans or drafts. Start a new documentation request in chat.', false, 'writing');
 });

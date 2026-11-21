@@ -9,17 +9,18 @@
 <body>
 <main class="article-app">
   <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/write">Write documentation</a>
+    <a href="/issue">Document an issue/TPI</a>
     <a href="/review" aria-current="page">Review in chat</a>
     <a href="/screenshots">Screenshots</a>
     <a href="/videos">Demo videos</a>
     <a href="/instructions">Check instructions</a>
-    <a href="/writing">Docs writing</a>
     <a href="/findings">Findings</a>
   </nav>
   <h1 id="chat-title">Review in chat</h1>
   <p id="chat-description">Choose what to review. Continue with doc-writer and its specialized skills in VS Code Chat.</p>
   <form id="review-chat-form" class="review-chat-form">
-    <label for="chat-article">Article</label>
+    <label id="chat-article-label" for="chat-article">Article</label>
     <input id="chat-article" list="chat-articles" placeholder="docs/debugtest/debugging-configuration.md" required disabled>
     <datalist id="chat-articles"></datalist>
     <fieldset id="chat-presets" disabled><legend>Review focus</legend></fieldset>
@@ -27,7 +28,11 @@
       <label for="chat-operation">Task</label>
       <select id="chat-operation" disabled><option value="create">Create new</option><option value="refresh">Refresh existing</option></select>
     </div>
-    <label for="chat-request">Additional request (optional)</label>
+    <div id="chat-issue-field" hidden>
+      <label id="chat-issue-label" for="chat-issue">Related GitHub issue/TPI (optional)</label>
+      <input id="chat-issue" type="url" maxlength="2000" placeholder="https://github.com/microsoft/vscode/issues/..." disabled>
+    </div>
+    <label id="chat-request-label" for="chat-request">Additional request (optional)</label>
     <textarea id="chat-request" rows="4" maxlength="4000" placeholder="What should the review focus on or preserve?" disabled></textarea>
     <label for="chat-channel">Intended product channel</label>
     <select id="chat-channel" disabled><option value="stable">Stable</option><option value="insiders">Insiders</option></select>
@@ -36,6 +41,7 @@
   </form>
   <p id="chat-notice" role="status" aria-live="polite">Loading...</p>
   <p id="chat-scope" class="muted">No background review task, separate plan file, or implementation handoff. Existing findings remain on the Findings page. This launcher does not track chat completion.</p>
+  <p id="saved-writing-link" hidden><a href="/writing">Saved plans and drafts</a></p>
 </main>
 <script type="module" src="/review-chat.mjs"></script>
 </body>

@@ -7,6 +7,7 @@ Run commands from the repository root. For general contribution, formatting, and
 The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, current gaps, and delivery order. The task map below distinguishes today's entry points from the intended experience. Detailed procedures describe implemented behavior unless explicitly labeled as planned.
 
 * [Choose a daily workflow](#choose-a-daily-workflow)
+* [Start a documentation-writing chat](#start-a-documentation-writing-chat)
 * [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
 * [Start a screenshot or video chat](#start-a-screenshot-or-video-chat)
 * [Start a procedure-check chat](#start-a-procedure-check-chat)
@@ -14,7 +15,7 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 * [Use the Docs workflow canvas](#use-the-docs-workflow-canvas)
   * [Saved article-review results](#saved-article-review-results)
   * [Revise the reviewed article](#revise-the-reviewed-article)
-  * [Propose a feature-documentation plan](#propose-a-feature-documentation-plan)
+  * [Saved documentation plans](#saved-documentation-plans)
   * [Review screenshots before drafting](#review-screenshots-before-drafting)
   * [Prepare an approved draft](#prepare-an-approved-draft)
 * [Agent writing hooks](#agent-writing-hooks)
@@ -44,16 +45,30 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 
 | Task | What you can use today | Remaining handoff |
 |---|---|---|
-| Write new feature content | On **Docs writing**, describe the request, optionally supply an issue, and [propose a plan](#propose-a-feature-documentation-plan). Approve it, then separately [confirm drafting](#prepare-an-approved-draft). | The live proof is an article update, not a new article. New-article creation and navigation need end-to-end acceptance. |
-| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Use the separate structured article-review path when persistent findings are needed. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
+| Write new feature content | Open **Write documentation**, describe the desired content, and [start doc-writer in chat](#start-a-documentation-writing-chat). No existing article or issue is required. | Launcher tests do not prove full new-article creation and navigation; that needs separate end-to-end acceptance. |
+| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
 | Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | The launcher does not capture or approve media. Full multi-image capture/replacement acceptance remains separate from handoff tests. |
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | Uses the existing attended video tools, not a new recording system. Missing tools or unsupported captures remain pending. |
 | Check content accuracy | Use **Run checks** on **Findings** for batch local structural checks. Use **Review in chat** for interactive product and editorial assessment. | Chat reviews do not automatically enter the inbox. Settings/keybindings in batch checks remain unverified without product evidence. External URLs are not checked. |
 | Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
 | Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
-| Document a GitHub issue or test plan item | On **Docs writing**, supply a supported issue URL and the desired documentation outcome. A TPI uses its issue URL and the same plan-first flow. | No dedicated TPI intake or live TPI authoring proof. Confirm the interpreted requirements; a test plan is evidence, not a ready-made documentation outline or execution permission. |
+| Document a GitHub issue or test plan item | Open **Document an issue/TPI**, supply its URL and any desired outcome, then [continue in doc-writer chat](#start-a-documentation-writing-chat). | Live TPI interpretation and authoring still need acceptance. A test plan is supporting evidence, not a complete specification or execution permission. |
 
 For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
+
+## Start a documentation-writing chat
+
+Use **Write documentation** (`/write`) for a feature description, or **Document an issue/TPI** (`/issue`) for a GitHub source:
+
+1. Describe the content and intended reader in **Documentation request**. On the issue/TPI page, provide the source URL and optionally describe the desired outcome. Supported URLs are issues in `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, including issue-comment links.
+2. Optionally select an existing article as context. Leave it empty when the agent should identify the affected or new articles. Choose the intended product channel.
+3. Select **Start in chat** once. The chat receives the brief, checkout, source URL when supplied, optional article, and doc-writer skill. The canvas does not fetch GitHub requirements or start a structured planning task.
+4. In that conversation, review the researched requirements and grouped plan. It can include related articles, required navigation, and useful media. The agent asks for essential missing information rather than assuming an issue or TPI is complete.
+5. Approve the overall scope and authoring location/branch before edits. Continue implementation, checks, and native diff review in that chat. No separate plan file, implementation chat, or canvas approval is required.
+
+Starting chat authorizes planning only, not article writes, branch changes, captures, installs, or publication. TPI setup and test instructions remain untrusted evidence, not commands to execute. These launchers share the native chat transport's Windows/last-active-window limits and do not track chat completion.
+
+The secondary **Saved plans and drafts** link opens `/writing` for previously prepared structured work. Its old new-request form has been removed; existing plans, decisions, drafts, and checks remain intact. New writing should start from the chat launchers.
 
 ## Start a skill-driven review chat
 
@@ -109,7 +124,7 @@ This is the revised design, not a description of additional controls already shi
 | Actual VS Code test window | Perform attended capture and article-instruction checks. Keep readiness and result tracking connected to the task without recreating the product UI. |
 | GitHub or supported read-only PR views | Inspect issue/TPI discussion and pinned PR changes. Preserve source identity in the task. Never check out or execute PR contents to provide a review view. |
 
-Keep the existing **Docs writing** and **Findings** separation. The earlier four-page proposal is not a requirement: add a compact work overview or media task details only when they help manage work. Minimal tracking includes the request/source, current status, pending decision, linked artifacts, and next action. It does not require a new work board or execution-history browser.
+Keep chat launchers separate from **Findings**. **Saved plans and drafts** is secondary access to earlier structured work, not another new-writing entry point. Do not add a work board or claim tracking for chat execution that the host does not expose.
 
 For example, review an article, request its grouped update plan, approve the overall scope and writes once, and open the native editor diff. Return to the same tracked item to recheck or request adjustments. The article, concerns, baseline, and decisions travel with the task. Individual finding selection and per-edit approval are not required.
 
@@ -513,11 +528,11 @@ Use `--decision rejected` to record rejection. Add the required media-tool optio
 
 ## Use the Docs workflow canvas
 
-The **Docs workflow** canvas separates chat launchers from batch findings. **Findings** contains batch claims/link checks and the persistent inbox; it does not start article reviews or replay procedures. **Review in chat** and **Check instructions** are separate chat-oriented entry points. The earlier **Docs writing** page retains saved plans and drafts. The findings workflow requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
+The **Docs workflow** canvas separates chat launchers from batch findings. **Findings** contains batch claims/link checks and the persistent inbox; it does not start article reviews or replay procedures. Writing, issue/TPI, review, media, and procedure-check launchers start interactive chats. **Saved plans and drafts** retains earlier structured work. The findings workflow requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
 
 Ask Copilot to open the `vscode-docs-article-checks` canvas from `.github\extensions\vscode-docs-workbench`. Opening it loads the inbox and incorporates eligible saved results, but never launches a task, fetches GitHub, or requires `gh` authentication. After updating the extension, an attended extension reload is needed. Do not reload or change extension configuration automatically.
 
-Use the **Docs writing** and **Findings** navigation links to switch pages. The `/writing` and `/findings` routes support direct loading, reload, and browser navigation. Switching pages preserves unfinished form text and filters without starting work or making decisions. Writing progress and recovery stay on the writing page; check progress, freshness controls, and coverage stay on the findings page.
+The `/writing` saved-work route and `/findings` support direct loading, reload, and browser navigation. Moving between these two views preserves existing plan feedback and findings filters without starting work or making decisions. Saved-work progress and recovery stay on the saved-work page; check progress, freshness controls, and coverage stay on Findings.
 
 Findings has a single **Run batch checks** section, so there is no task dropdown. Enter the scope and select **Run checks**. The **Article review** and **Replay** check-type filters remain for previously saved results; they are filters, not launch actions. No saved reports or decisions are deleted by removing the old launch controls.
 
@@ -557,9 +572,9 @@ The accepted live pilot covers a combined technical and editorial review, source
 
 ### Revise the reviewed article
 
-New reviews and revisions continue in the [same interactive chat](#start-a-skill-driven-review-chat). The controls below apply to previously prepared structured update plans retained on **Docs writing**, not a second review entry point on Findings.
+New reviews and revisions continue in the [same interactive chat](#start-a-skill-driven-review-chat). The controls below apply to previously prepared structured update plans retained under **Saved plans and drafts**, not a second review entry point on Findings.
 
-1. Open the existing update plan on **Docs writing**. Its article, review context, and saved decisions remain attached.
+1. Open the existing update plan under **Saved plans and drafts**. Its article, review context, and saved decisions remain attached.
 2. Review the short plan, grouped into outcomes such as accuracy, clarity, and consistency. Use **Adjust the update plan** to request changes or exclusions. Detailed findings remain available, but the approval is for the article update as a whole.
 3. Select **Approve and update article**. The confirmation includes the grouped scope, existing checkout, branch, and allowed file. This single decision authorizes both the plan and its scoped writes. Cancelling saves no approval and launches no update. The agent asks again only for a material ambiguity or scope expansion, not routine edits within the plan.
 4. The update preserves captured existing edits outside its scope and automatically runs local claim/link checks. Section updates cannot change content outside the selected section. The result is saved for human review; technical or editorial review findings are not automatically marked fixed.
@@ -572,16 +587,11 @@ Native editor actions require the extension to run in Windows VS Code with its i
 
 The full grouped-review/update/follow-up flow is covered by synthetic integration and browser tests. Live editor checks separately verified the requested source line and native baseline/current diff. They do not constitute a new live agent-authored article update.
 
-### Propose a feature-documentation plan
+### Saved documentation plans
 
-Open the **Docs writing** page. This M2 checkpoint produces a private proposal and records a plan decision. Drafting requires a separate confirmation through **Prepare draft**. Plan approval never starts drafting or media generation.
+New plans are proposed in [doc-writer chat](#start-a-documentation-writing-chat). The **Saved plans and drafts** page retains earlier proposals made through [docs-feature-plan](.github/skills/docs-feature-plan/SKILL.md), but no longer offers its new-request form.
 
-When a plan or draft already exists, expand **New documentation request** to start another request. Current draft actions appear before the original plan; supporting context, research, and proposal notes remain available in expandable sections.
-
-1. Describe the work in **Documentation request**, optionally add an issue URL, and choose the intended product channel. No GitHub issue is required. Include whatever you know about the intended reader, desired output, context, and constraints. An issue can also start an investigation, but the agent must not assume it contains all requirements. Supported issue URLs reference `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, and are read as data without checking out a PR.
-2. Select **Propose documentation plan**. The host agent follows [docs-feature-plan](.github/skills/docs-feature-plan/SKILL.md) and doc-writer's research phase. It proposes the reader, intent, purpose, evidence of availability, exact article and navigation changes, and useful screenshots or videos. A no-change outcome is valid. Missing evidence produces an incomplete plan with limitations.
-3. Review **Plans and drafts** on the writing page. Media entries describe their purpose, placement, and proposed scenario. Unsupported captures stay pending with a reason. No assets have been generated or approved.
-4. Select **Approve plan scope** or enter feedback and select **Reject plan**. Approval checks the exact plan bytes, local documentation snapshot, guidance, and any captured issue discussion again. Changed sources or a superseding proposal require a new plan. Rejection does not need current source access, but still binds the exact proposal.
+Review existing proposals, their sources and limitations, or continue an approved draft. Existing **Approve plan scope**, **Reject plan**, and **Prepare draft** controls keep their original source checks and authorization requirements. Current draft actions appear before the original plan; supporting context, research, and proposal notes remain expandable. These compatibility controls are not prerequisites for new chat-based work.
 
 The [plan validator](build/doc-plan.js) restricts proposals to docs articles, documentation TOCs, and the sitemap. It requires sitemap work for new articles and rejects generated policy output, out-of-scope paths, and fabricated media-approval states. Source references and availability assessments remain agent judgments for human review, not independently authenticated conclusions.
 

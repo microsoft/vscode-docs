@@ -813,10 +813,12 @@ test('browser reviews a screenshot candidate and confirms its separate draft han
   assert.deepEqual(errors, []);
 });
 
-test('browser proposes a feature plan with media, saves scope approval, and retains it after reload', {
+test('browser preserves an existing feature plan and its approval without a competing new-request form', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const f = await fixture(t);
+  await f.launch();
+  await f.snapshot();
   let browser;
   const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, { assetEntries: articleAssets });
   f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
@@ -828,13 +830,7 @@ test('browser proposes a feature plan with media, saves scope approval, and reta
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
   await page.goto(`${server.url}/writing`);
-  await page.locator('#feature-description:enabled').waitFor();
-  const requestBounds = await page.locator('#feature-description').boundingBox();
-  const formBounds = await page.locator('#feature-form').boundingBox();
-  assert.ok(requestBounds.width >= formBounds.width - 2, 'The documentation request must use the full form width.');
-  assert.ok((await page.locator('#feature-issue').boundingBox()).y > requestBounds.y + requestBounds.height);
-  await page.getByLabel('Documentation request', { exact: true }).fill('Explain the fixture feature');
-  await page.getByRole('button', { name: 'Propose documentation plan', exact: true }).click();
+  assert.equal(await page.locator('#feature-form, #writing-request').count(), 0);
   await page.getByRole('button', { name: 'Approve plan scope', exact: true }).waitFor();
   await page.getByRole('heading', { name: 'Media proposals', exact: true }).waitFor();
   await page.getByText('Placement: After the steps. Scenario: The control is visible in the fixture', { exact: true }).waitFor();
@@ -875,7 +871,7 @@ test('browser confirms drafting separately and retains the saved diff after relo
   });
   await prepare.click();
   await page.getByText('Draft saved; checks need attention.', { exact: true }).waitFor({ timeout: 20_000 });
-  assert.equal(await page.locator('#writing-request').evaluate(node => node.open), false);
+  assert.equal(await page.locator('#writing-request').count(), 0);
   assert.equal(await page.locator('details[data-section$=":proposal"]').evaluate(node => node.open), false);
   assert.ok((await page.getByRole('button', { name: 'Open diff in editor', exact: true }).boundingBox()).y < 650, 'The primary draft action must be visible without the original plan obscuring it.');
   await page.getByText('Review draft diff', { exact: true }).click();
@@ -903,7 +899,7 @@ test('an idle canvas discovers plans from another client and refreshes decisions
   const page = await browser.newPage();
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
   await page.goto(`${server.url}/writing`);
-  await page.getByText('Describe your documentation request to get started.', { exact: true }).waitFor();
+  await page.getByText('No saved plans or drafts. Start a new documentation request in chat.', { exact: true }).waitFor();
   assert.equal(await page.locator('#feature-plans-section').isVisible(), false);
   await f.launch();
   await page.getByRole('button', { name: 'Approve plan scope', exact: true }).waitFor({ timeout: 20_000 });
@@ -922,7 +918,7 @@ test('an idle canvas discovers plans from another client and refreshes decisions
   assert.equal(f.tracked.length, 1, 'Discovery and visibility refresh must not start another task.');
 });
 
-test('writing and findings are separate pages with scoped status and preserved navigation state', {
+test('saved work and findings preserve feedback and filters without exposing legacy request intake', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const f = await fixture(t);
@@ -942,8 +938,7 @@ test('writing and findings are separate pages with scoped status and preserved n
   await page.getByRole('button', { name: 'Approve plan scope', exact: true }).waitFor();
   assert.equal(await page.locator('#findings-page').isVisible(), false);
   assert.equal(await page.locator('#writing-execution-indicator').innerText(), 'Plan ready for review · feature documentation');
-  await page.getByText('New documentation request', { exact: true }).click();
-  await page.getByLabel('Documentation request', { exact: true }).fill('Keep this unfinished request.');
+  assert.equal(await page.locator('#feature-form, #writing-request').count(), 0);
   await page.getByLabel('Plan feedback (required to reject)', { exact: true }).fill('Keep this feedback while I inspect findings.');
   await page.getByRole('link', { name: 'Findings', exact: true }).click();
   assert.equal(new URL(page.url()).pathname, '/findings');
@@ -952,9 +947,8 @@ test('writing and findings are separate pages with scoped status and preserved n
   assert.equal(await page.locator('#execution-indicator').innerText(), 'Findings updated · 1 article(s)');
   assert.equal(await page.locator('#task-type option[value=feature]').count(), 0);
   await page.getByLabel('Check type', { exact: true }).selectOption('links');
-  await page.getByRole('link', { name: 'Docs writing', exact: true }).click();
+  await page.getByRole('link', { name: 'Saved plans and drafts', exact: true }).click();
   assert.equal(new URL(page.url()).pathname, '/writing');
-  assert.equal(await page.getByLabel('Documentation request', { exact: true }).inputValue(), 'Keep this unfinished request.');
   assert.equal(await page.getByLabel('Plan feedback (required to reject)', { exact: true }).inputValue(), 'Keep this feedback while I inspect findings.');
   await page.goBack();
   assert.equal(await page.getByLabel('Check type', { exact: true }).inputValue(), 'links');
@@ -962,9 +956,8 @@ test('writing and findings are separate pages with scoped status and preserved n
   await page.reload();
   await page.getByRole('button', { name: 'Approve plan scope', exact: true }).waitFor();
   assert.equal(new URL(page.url()).pathname, '/writing');
-  assert.equal(await page.getByRole('heading', { name: 'Docs writing', exact: true }).isVisible(), true);
+  assert.equal(await page.getByRole('heading', { name: 'Saved plans and drafts', exact: true }).isVisible(), true);
   await page.setViewportSize({ width: 420, height: 800 });
-  await page.getByText('New documentation request', { exact: true }).click();
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth), true);
   const appearances = [];
   for (const colorScheme of ['dark', 'light']) {
