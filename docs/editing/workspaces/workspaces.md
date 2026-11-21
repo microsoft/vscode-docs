@@ -69,7 +69,7 @@ You can flexibly add or remove folders in your workspace. Start off by opening a
 
 *File Explorer context menu for adding or removing a folder in a workspace*
 
-Unless you have already opened a `.code-workspace` file, the first time you add a second folder to a workspace, {% data variables.product.prodname_vscode_shortname %} automatically creates an *untitled* workspace. In the background, {% data variables.product.prodname_vscode_shortname %} automatically maintains a `untitled.code-workspace` file for you that contains all the folders and workspace settings from your current session. The workspace remains *untitled* until you decide to save it to disk.
+Unless you have already opened a `.code-workspace` file, the first time you add a second folder to a workspace, {% data variables.product.prodname_vscode_shortname %} automatically creates an *untitled* workspace. In the background, {% data variables.product.prodname_vscode_shortname %} automatically maintains an `untitled.code-workspace` file for you that contains all the folders and workspace settings from your current session. The workspace remains *untitled* until you decide to save it to disk.
 
 ![Untitled multi-root workspace](images/workspaces/untitled-workspace.png)
 

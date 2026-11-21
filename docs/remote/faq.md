@@ -191,7 +191,7 @@ You can think of WSL as a Linux machine running on Windows, where you can instal
 
 For example, you might install the Go stack in WSL (compiler, debugger, linters, etc.). If you run {% data variables.product.prodname_vscode_shortname %} only on Windows, you must also install the same Go stack there to get features like smart completions, debugging, Go to Definition navigation. And because the language services are running on Windows, they don’t know what is in WSL.
 
-It’s true that you can run binaries in WSL from Windows and vice-versa, but regular {% data variables.product.prodname_vscode_shortname %} extensions don’t know how to do this. This is how we started out supporting debugging in WSL, but quickly realized we would have to update all extensions to know about WSL.
+It's true that you can run binaries in WSL from Windows and vice versa, but regular {% data variables.product.prodname_vscode_shortname %} extensions don't know how to do this. This is how we started out supporting debugging in WSL, but quickly realized we would have to update all extensions to know about WSL.
 
 We decided instead to make parts of {% data variables.product.prodname_vscode_shortname %} run in WSL and let the UI running on Windows talk to the {% data variables.product.prodname_vscode_shortname %} server running in WSL. This is what the WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (compiler, debugger, linters), while {% data variables.product.prodname_vscode_shortname %} runs on Windows.
 

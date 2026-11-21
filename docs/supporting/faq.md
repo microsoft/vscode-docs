@@ -83,7 +83,7 @@ Alternatively, use the **Learn How to Hide AI Features** action from the Chat me
 
 ### If I disable AI functionality in {% data variables.product.prodname_vscode_shortname %}, is my data still sent to Microsoft?
 
-No, if you disable AI functionality in {% data variables.product.prodname_vscode_shortname %} or if you don't login to your Copilot subscription from {% data variables.product.prodname_vscode_shortname %}, your data is not sent to the Copilot backend services. Learn more about [telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+No, if you disable AI functionality in {% data variables.product.prodname_vscode_shortname %} or if you don't log in to your Copilot subscription from {% data variables.product.prodname_vscode_shortname %}, your data is not sent to the Copilot backend services. Learn more about [telemetry in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
 
 ### Are the models that {% data variables.product.prodname_vscode_shortname %} uses in the Copilot extension open source (OSS)?
 
@@ -395,7 +395,7 @@ If you see other errors, please create an [issue](https://github.com/microsoft/v
 The process outlined below may help you identify which parts of your shell initialization are taking the most time:
 
 * Open your shell's startup file (for example, in {% data variables.product.prodname_vscode_shortname %} by typing `~/.bashrc` or `~/.zshrc` in Quick Open (`kb(workbench.action.quickOpen)`)).
-* Selectively comment out potentially long running operations (such as `nvm` if you find that).
+* Selectively comment out potentially long-running operations (such as `nvm` if you find that).
 * Save and fully restart {% data variables.product.prodname_vscode_shortname %}.
 * Continue commenting out operations until the error disappears.
 

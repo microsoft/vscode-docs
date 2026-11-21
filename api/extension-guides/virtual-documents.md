@@ -19,7 +19,7 @@ The API works by claiming an uri-scheme for which your provider then returns tex
 vscode.workspace.registerTextDocumentContentProvider(myScheme, myProvider);
 ```
 
-Calling `registerTextDocumentContentProvider` returns a disposable with which the registration can be undone. A provider must only implement the `provideTextDocumentContent`-function which is called with an uri and cancellation token.
+Calling `registerTextDocumentContentProvider` returns a disposable with which the registration can be undone. A provider must only implement the `provideTextDocumentContent`-function which is called with a URI and cancellation token.
 
 ```ts
 const myProvider = new class implements vscode.TextDocumentContentProvider {
@@ -30,9 +30,9 @@ const myProvider = new class implements vscode.TextDocumentContentProvider {
 };
 ```
 
-Note how the provider doesn't create uris for virtual documents - its role is to **provide** contents given such an uri. In return, content providers are wired into the open document logic so that providers are always considered.
+Note how the provider doesn't create URIs for virtual documents - its role is to **provide** contents given such a URI. In return, content providers are wired into the open document logic so that providers are always considered.
 
-This sample uses a 'cowsay'-command that crafts an uri which the editor should then show:
+This sample uses a 'cowsay'-command that crafts a URI which the editor should then show:
 
 ```ts
 vscode.commands.registerCommand('cowsay.say', async () => {
@@ -45,7 +45,7 @@ vscode.commands.registerCommand('cowsay.say', async () => {
 });
 ```
 
-The command prompts for input, creates an uri of the `cowsay`-scheme, opens a document for the uri, and finally opens an editor for that document. In step 3, opening the document, the provider is being asked to provide contents for that uri.
+The command prompts for input, creates a URI of the `cowsay`-scheme, opens a document for the URI, and finally opens an editor for that document. In step 3, opening the document, the provider is being asked to provide contents for that URI.
 
 With this we have a fully functional text document content provider. The next sections describe how virtual documents can be updated and how UI commands can be registered for virtual documents.
 
@@ -112,13 +112,13 @@ To top things with an editor command a declarative part in `package.json` is nee
 }
 ```
 
-This references the `cowsay.backwards`-command that defined in the `contributes/commands`-section and says it should appear in the editor title menu (the toolbar in the upper right corner). Now, just that would mean the command always shows, for every editor. That's what the `when`-clause is used for - it describes what condition must be true to show the action. In this sample it states that the scheme of the document in the editor must be the `cowsay`-scheme. The configuration is then repeated for the `commandPalette`-menu - it shows all commands by default.
+This references the `cowsay.backwards`-command that is defined in the `contributes/commands`-section and says it should appear in the editor title menu (the toolbar in the upper right corner). Now, just that would mean the command always shows, for every editor. That's what the `when`-clause is used for - it describes what condition must be true to show the action. In this sample it states that the scheme of the document in the editor must be the `cowsay`-scheme. The configuration is then repeated for the `commandPalette`-menu - it shows all commands by default.
 
 ![cowsay-bwd](images/virtual-documents/cowsay-bwd.png)
 
 ### Events and Visibility
 
-Document providers are first class citizens in VS Code, their contents appears in regular text documents, they use the same infrastructure as files etc. However, that also means that "your" documents cannot hide, they will appear in `onDidOpenTextDocument` and `onDidCloseTextDocument`-events, they are part of `vscode.workspace.textDocuments` and more. The rule for everyone is check the `scheme` of documents and then decide if you want to do something with/for the document.
+Document providers are first-class citizens in VS Code. Their contents appear in regular text documents, and they use the same infrastructure as files. However, that also means that "your" documents cannot hide. They appear in `onDidOpenTextDocument` and `onDidCloseTextDocument`-events and are part of `vscode.workspace.textDocuments`. The rule for everyone is to check the `scheme` of documents and then decide if you want to do something with the document.
 
 # File System API
 

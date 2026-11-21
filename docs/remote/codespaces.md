@@ -15,7 +15,7 @@ An environment is the "backend" half of GitHub Codespaces. It's where all of the
 
 ## Customization
 
-GitHub Codespaces are fully customizable on a per project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to {% data variables.product.prodname_vscode_shortname %} [Dev Containers](/docs/devcontainers/containers.md) development.
+GitHub Codespaces are fully customizable on a per-project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to {% data variables.product.prodname_vscode_shortname %} [Dev Containers](/docs/devcontainers/containers.md) development.
 
 Example customizations include:
 
@@ -114,13 +114,13 @@ Once you have granted {% data variables.product.prodname_vscode_shortname %} acc
 
 ### How do I allow {% data variables.product.prodname_vscode_shortname %} to always open new tabs and windows?
 
-Sometimes browsers will, as a security precaution, block {% data variables.product.prodname_vscode_shortname %} from opening new tabs or windows. If this happens, {% data variables.product.prodname_vscode_shortname %} will detect the blocking action and explicitly prompt the user. However, you can allow {% data variables.product.prodname_vscode_shortname %} to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and by allowing to **Pop-up Windows**.
+Sometimes browsers will, as a security precaution, block {% data variables.product.prodname_vscode_shortname %} from opening new tabs or windows. If this happens, {% data variables.product.prodname_vscode_shortname %} will detect the blocking action and explicitly prompt the user. However, you can allow {% data variables.product.prodname_vscode_shortname %} to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and allowing **Pop-up Windows**.
 
 ![Allow pop-up window in browser](images/codespaces/allow-new-tab.png)
 
 ### How do I allow {% data variables.product.prodname_vscode_shortname %} in a browser to access local files and folders?
 
-Opening local files and folders in {% data variables.product.prodname_vscode_shortname %} from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using {% data variables.product.prodname_vscode_shortname %} in a browser, please consider to switch to one of these two browsers.
+Opening local files and folders in {% data variables.product.prodname_vscode_shortname %} from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using {% data variables.product.prodname_vscode_shortname %} in a browser, please consider switching to one of these two browsers.
 
 ## Questions or feedback
 

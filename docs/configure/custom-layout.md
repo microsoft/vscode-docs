@@ -360,7 +360,7 @@ The commands related to editor group locking:
 * **View: Unlock Editor Group** - Unlock the active locked editor group.
 * **View: Toggle Editor Group Lock** - Lock or unlock the active editor group.
 
-You must have more that one editor group for these commands to be available.
+You must have more than one editor group for these commands to be available.
 
 ## Next steps
 

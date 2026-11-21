@@ -219,7 +219,7 @@ try {
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue, the kernel might produce a rich output with several properties on its `data` field:
 
 * A `text/html` field containing a formatted view of the issue.
-* A `text/x-json` field containing a machine readable view.
+* A `text/x-json` field containing a machine-readable view.
 * An `application/github-issue` field that a `NotebookRenderer` could use to create a fully interactive view of the issue.
 
 In this case, the `text/html` and `text/x-json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookRenderer` was registered to that mimetype.
@@ -253,7 +253,7 @@ VS Code will render these mimetypes as code in a built-in editor:
 * ... text/x-LANGUAGE_ID for any other built-in or installed languages.
 
 This notebook is using the built-in editor to display some Rust code:
-![Notebook displaying Rust code in a built in Monaco editor](images/notebook/rust-output.png)
+![Screenshot showing a notebook displaying Rust code in a built-in Monaco editor.](images/notebook/rust-output.png)
 
 To render an alternative mimetype, a `NotebookRenderer` must be registered for that mimetype.
 
@@ -534,7 +534,7 @@ The possible values for `requiresMessaging` include:
 
 The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
 
-The renderer script file can setup communications as follows:
+The renderer script file can set up communications as follows:
 
 ```js
 import { ActivationFunction } from 'vscode-notebook-renderer';

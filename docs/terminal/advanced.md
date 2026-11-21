@@ -22,7 +22,7 @@ Terminal tabs can be dragged and dropped between {% data variables.product.prodn
 
 ### Configure terminal visibility
 
-When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `setting(terminal.integrated.hideOnStartup)` setting.
+When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine-tuned with the `setting(terminal.integrated.hideOnStartup)` setting.
 
 * `never` (default): Never hide the terminal view on startup.
 * `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.

@@ -261,7 +261,7 @@ The WSL extension and {% data variables.product.prodname_vscode_shortname %} Ser
 
 Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-All other communication between the server and the {% data variables.product.prodname_vscode_shortname %} client is accomplished through an random local TCP port. You can find a list of locations {% data variables.product.prodname_vscode_shortname %} itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
+All other communication between the server and the {% data variables.product.prodname_vscode_shortname %} client is accomplished through a random local TCP port. You can find a list of locations {% data variables.product.prodname_vscode_shortname %} itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
 ### I'm behind a proxy and have connectivity issues
 

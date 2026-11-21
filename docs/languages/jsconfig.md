@@ -57,7 +57,7 @@ The `exclude` attribute (a [glob pattern](/docs/editor/glob-patterns.md)) tells 
 
 ### Using the `"include"` property
 
-Alternatively, you can explicitly set the files in your project using the `include` attribute (a [glob pattern](/docs/editor/glob-patterns.md)). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
+Alternatively, you can explicitly set the files in your project using the `include` attribute (a [glob pattern](/docs/editor/glob-patterns.md)). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When an `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
 
 ```json
 {
