@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { WorkbenchError, text } from './state.mjs';
 import {
-  createArticleStore, hostStatuses, isTime, listArticles, now, resolveScope
+  createArticleStore, hostStatuses, isTime, listArticles, now, resolveArticle, resolveScope
 } from './article-storage.mjs';
 import { prepareRequest } from './article-runner.mjs';
 import { loadRunArtifacts, rerunDecision } from './article-artifacts.mjs';
@@ -11,6 +11,8 @@ import { createProgressiveVerification } from './article-verification.mjs';
 import { createReplayWorkflow } from './article-replay.mjs';
 import { createReviewWorkflow } from './article-review.mjs';
 import { createFeaturePlans } from './feature-plans.mjs';
+import editorTools from '../../../build/docs-editor.js';
+import reviewChat from '../../../build/review-chat.js';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -36,9 +38,10 @@ async function bounded(promise, milliseconds, message = 'Host acknowledgement ti
 
 export async function createArticleWorkflow({
   session, workspace, home, check, checkerOptions, acknowledgementTimeout = 30_000,
-  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions, featureOptions
+  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions, featureOptions, editor
 }) {
   const store = await createArticleStore(workspace, home);
+  const sourceEditor = editor || await editorTools.createEditor();
   const ownerSessionId = text(session.sessionId, 'Host session ID');
   const activity = new Map();
   const tasks = session.rpc?.tasks;
@@ -63,7 +66,7 @@ export async function createArticleWorkflow({
   }, reviewOptions);
   const features = await createFeaturePlans(store, {
     ownerSessionId, list: hostList, start: startHostTask, find: findHostTask, observation: hostObservation
-  }, featureOptions);
+  }, { procedures: replays, revisionSource: reviews.revisionSource, ...featureOptions });
   function track(operation) {
     operations.add(operation);
     return operation.finally(() => operations.delete(operation));
@@ -131,6 +134,8 @@ export async function createArticleWorkflow({
       findings: [...claims.findings, ...replayView.findings, ...reviewView.findings],
       coverage: [...claims.coverage.map(entry => ({ ...entry, check: 'checks' })), ...replayView.coverage, ...reviewView.coverage],
       featurePlans: featureView.plans,
+      editor: { available: sourceEditor.available, message: sourceEditor.message },
+      reviewChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function', presets: reviewChat.presets.map(({ id, label }) => ({ id, label })) },
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
@@ -348,16 +353,36 @@ export async function createArticleWorkflow({
     'review-launch': reviews.launch,
     'review-sections': reviews.sections,
     'review-resolve': reviews.resolve,
+    'review-chat': async input => {
+      if (input.confirmed !== true) throw new Error('Start the review explicitly before opening chat.');
+      if (!sourceEditor.available || typeof sourceEditor.chat !== 'function') throw new Error(sourceEditor.message || 'Native chat opening is unavailable in this host.');
+      const article = await resolveArticle(store.workspace, input.article);
+      const skill = fileURLToPath(new URL('../../skills/doc-writer/SKILL.md', import.meta.url));
+      const prompt = reviewChat.reviewPrompt({ article, skill, selected: input.presets, request: input.request, channel: input.channel });
+      return sourceEditor.chat({ files: [article, skill], prompt });
+    },
+    'open-article': async ({ article, line }) => sourceEditor.open({ file: await resolveArticle(store.workspace, article), line }),
+    'feature-open-diff': async input => sourceEditor.open(await features.diffFiles(input)),
+    'feature-revision-launch': features.launchRevision,
+    'feature-revision-context': features.revisionContext,
+    'feature-revision-start': features.startRevision,
+    'feature-recheck': features.recheck,
+    'feature-follow-up': features.followUp,
     'feature-launch': features.launch,
     'feature-draft-context': features.draftContext,
     'feature-draft-start': features.startDraft,
+    'feature-media-options': features.media.options,
+    'feature-media-prepare': features.media.prepare,
+    'feature-media-launch': features.media.launch,
+    'feature-media-ready': features.media.ready,
+    'feature-media-review': features.media.review,
     'feature-decide': features.decide,
     'feature-resolve': features.resolve,
     'cancel-verification': async () => { await verifier.cancel(); return snapshot({ verify: false }); },
     'resolve-uncertain': resolveUncertain
   };
   return {
-    store, snapshot, whenVerified,
+    store, snapshot, whenVerified, asset: features.media.asset,
     async verifiedSnapshot() { await snapshot(); await whenVerified(); return snapshot({ verify: false }); },
     async dispose() {
       disposed = true;

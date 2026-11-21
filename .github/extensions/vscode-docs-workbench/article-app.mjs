@@ -28,6 +28,8 @@ let featurePlansKey;
 const planFeedback = new Map();
 const draftLocations = new Map();
 let writingRequestInitialized = false;
+const revisionFeedback = new Map();
+let reviewResultsKey;
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
 const coverageLabels = { clean: 'Checked clean', findings: 'With findings', checking: 'Checking freshness',
@@ -38,6 +40,10 @@ const time = value => value ? new Date(value).toLocaleString(undefined, {
 }) : 'Never';
 
 function currentPage() { return location.pathname === '/writing' ? 'writing' : 'findings'; }
+function navigate(page) {
+  history.pushState({}, '', `/${page}`);
+  render();
+}
 function renderPage() {
   const writing = currentPage() === 'writing';
   $('writing-page').hidden = !writing;
@@ -119,6 +125,7 @@ function executionLabel(run) {
   if (run.result?.state === 'stale') return 'Out-of-date report';
   if (run.result?.state === 'freshness-failed') return 'Verification failed';
   if (run.readiness) return 'Waiting for your readiness';
+  if (run.kind === 'authoring' && run.result?.phase === 'screenshot' && run.result.state === 'candidate') return 'Screenshot ready for review';
   if (run.kind === 'authoring' && run.ingestedHash && run.result?.state === 'valid') {
     if (run.result.phase === 'draft') return run.result.draftStatus === 'needs-attention' ? 'Draft checks need attention' : 'Draft ready for review';
     return run.decision ? `Plan ${run.decision.status}` :
@@ -329,6 +336,11 @@ function renderFinding(record) {
   const detailFields = {};
   if (!detail.hidden) {
     paragraph(content, finding.message);
+    control(content, 'Open article at finding', () => void perform(async () => {
+      await request('open-article', { article: finding.article, line: finding.line });
+      notice('Opened the current article in the editor. Saved finding lines can be stale after edits.');
+    })).disabled = busy || !state.editor?.available;
+    if (!state.editor?.available) paragraph(content, state.editor?.message || 'Open the article at this line in your editor.', 'muted');
     if (finding.reviewEvidence) {
       const evidence = finding.reviewEvidence;
       paragraph(content, `Agent ${evidence.assessment === 'question' ? 'question' : 'judgment'} · ${evidence.category} · lines ${finding.line}-${evidence.endLine}`, 'muted');
@@ -500,7 +512,7 @@ function renderCoverage() {
 }
 function renderReview() {
   $('review-form').hidden = $('task-type').value !== 'review';
-  for (const id of ['review-article', 'review-focus', 'review-channel', 'review-extent']) $(id).disabled = busy;
+  for (const id of ['review-article', 'review-focus', 'review-channel', 'review-extent', 'review-concerns']) $(id).disabled = busy;
   const article = $('review-article').value.trim();
   const sectionMode = $('review-extent').value === 'section';
   const hasSections = reviewSections?.article === article && reviewSections.sections.length > 0;
@@ -511,7 +523,163 @@ function renderReview() {
   $('review-launch').disabled = busy || !state.hostAvailable || !state.articles.includes(article) || !!blocker ||
     (sectionMode && (!hasSections || !$('review-section').value));
   $('review-eligibility').textContent = blocker ? blocker.rerun.reason : '';
+  const results = state.coverage.filter(item => item.check === 'review' && (!article || item.article === article));
+  const key = JSON.stringify([busy, results, state.featurePlans, $('task-type').value]);
+  if (key === reviewResultsKey) return;
+  reviewResultsKey = key;
+  const container = $('article-review-results');
+  container.hidden = !results.length || $('task-type').value !== 'review';
+  container.replaceChildren();
+  for (const result of results) {
+    const panel = element('section', undefined, 'plan-section');
+    panel.append(element('h2', result.article));
+    paragraph(panel, result.review?.summary || result.attempt?.message || 'Review is still in progress.');
+    for (const limitation of result.review?.limitations || []) paragraph(panel, limitation, 'muted');
+    const ongoing = state.featurePlans?.find(item => item.revision?.reviewId === result.runId);
+    if (ongoing) control(panel, 'Continue article update', () => navigate('writing')).disabled = busy;
+    else control(panel, 'Plan article update', () => void perform(async () => {
+      await request('feature-revision-launch', { reviewId: result.runId, confirmed: true });
+      await refresh();
+      navigate('writing');
+      notice('Preparing one article-level update plan. No edits have started.', false, 'writing');
+    })).disabled = busy || !result.canRevise;
+    paragraph(panel, 'Review detailed findings below if useful. Planning groups corrections into outcomes; no individual finding approvals are required.', 'muted');
+    container.append(panel);
+  }
 }
+const mediaSetups = new Map();
+const mediaDescriptions = new Map();
+
+function renderMediaActions(record, container, disclosure) {
+  if (record.decision?.status !== 'approved' || record.draft || !record.plan.media.length) return;
+  const panel = disclosure(`${record.id}:media-actions`, 'Optional media before drafting');
+  paragraph(panel, 'Generate and review useful screenshots before preparing the draft. Generation, asset approval, and draft writes are separate decisions.', 'muted');
+  for (const proposal of record.plan.media) {
+    const section = element('section', undefined, 'media-proposal');
+    section.append(element('h3', proposal.purpose));
+    paragraph(section, `${proposal.article} · ${proposal.placement}`, 'muted');
+    const identity = { id: record.id, planHash: record.planHash, mediaId: proposal.id };
+    const key = `${record.id}:${proposal.id}`;
+    const run = record.media?.find(item => item.proposalId === proposal.id);
+    if (run) {
+      if (run.message) paragraph(section, run.message, ['invalid', 'execution-failed'].includes(run.state) ? 'error' : 'muted');
+      if (run.readiness) {
+        paragraph(section, 'Handle native prompts in the capture window and keep it visible. Confirm only when you are ready.');
+        const respond = ready => void perform(async () => {
+          await request('feature-media-ready', { id: run.id, ready, confirmed: true });
+          await refresh();
+          notice(ready ? 'Readiness sent. Screenshot capture can continue.' : 'Cancellation sent. Waiting for cleanup.');
+        });
+        control(section, "I'm ready for the screenshot", () => respond(true)).disabled = busy;
+        control(section, 'Cancel waiting capture', () => respond(false)).disabled = busy;
+      }
+      if (run.state === 'candidate') {
+        const image = element('img', undefined, 'media-preview');
+        image.alt = 'Screenshot candidate awaiting human review';
+        image.src = `/assets/${run.id}?sha256=${run.assetHash}`;
+        const full = element('a', 'Open full-size screenshot');
+        full.href = image.src; full.target = '_blank'; full.rel = 'noopener noreferrer';
+        section.append(image, full);
+        paragraph(section, `${run.width} × ${run.height} pixels. Inspect text, framing, and private information before approval.`, 'muted');
+        if (run.review) {
+          paragraph(section, run.review.decision === 'approved' ? 'Screenshot approved. Prepare draft will separately confirm copying these exact bytes.' : 'Screenshot rejected. It will not be included in the draft.');
+          if (run.review.altText) paragraph(section, run.review.altText);
+        } else {
+          const alt = element('textarea');
+          alt.id = `media-alt-${run.id}`; alt.rows = 2; alt.maxLength = 1000;
+          alt.value = mediaDescriptions.get(run.id) || '';
+          alt.placeholder = 'Screenshot showing ...';
+          const label = element('label', 'Screenshot alt text');
+          label.htmlFor = alt.id;
+          section.append(label, alt);
+          let loaded = false;
+          const decide = decision => void perform(async () => {
+            if (!window.confirm(`${decision === 'approved' ? 'Approve' : 'Reject'} this exact screenshot after visual review? This does not edit or publish documentation.`)) return;
+            await request('feature-media-review', { id: run.id, manifestHash: run.manifestHash, assetHash: run.assetHash,
+              decision, altText: alt.value, confirmed: true });
+            await refresh();
+            notice('Exact screenshot review saved. No draft files were changed.');
+          });
+          const approve = control(section, 'Approve screenshot', () => decide('approved'));
+          const reject = control(section, 'Reject screenshot', () => decide('rejected'));
+          reject.classList.add('secondary');
+          const enabled = () => { approve.disabled = busy || !loaded || !alt.value.trim(); reject.disabled = busy || !loaded; };
+          image.addEventListener('load', () => { loaded = true; enabled(); });
+          image.addEventListener('error', () => { loaded = false; enabled(); paragraph(section, 'Screenshot preview could not be loaded. Refresh and inspect the saved evidence.', 'error'); });
+          alt.addEventListener('input', () => { mediaDescriptions.set(run.id, alt.value); enabled(); });
+          enabled();
+        }
+      }
+    } else if (proposal.kind !== 'screenshot') {
+      paragraph(section, 'Video remains pending. This first authoring slice supports screenshots.', 'media-pending');
+    } else {
+      const setup = mediaSetups.get(key);
+      if (!setup) {
+        control(section, 'Set up screenshot', () => void perform(async () => {
+          mediaSetups.set(key, { options: await request('feature-media-options', identity), selection: {} });
+        })).disabled = busy;
+      } else {
+        for (const error of setup.options.errors) paragraph(section, error, 'error');
+        if (!setup.options.storyboards.length) paragraph(section, 'No matching capture procedure. Leave this proposal pending and agree on a storyboard in conversation.', 'media-pending');
+        else {
+          const form = element('div', undefined, 'media-setup');
+          function field(name, labelText, values) {
+            const input = element(values ? 'select' : 'input');
+            input.id = `${key}-${name}`;
+            if (values) for (const [value, label] of values) {
+              const option = element('option', label); option.value = value; input.append(option);
+            }
+            input.value = Reflect.get(setup.selection, name) ?? values?.[0]?.[0] ?? '';
+            Reflect.set(setup.selection, name, input.value);
+            input.disabled = busy;
+            input.addEventListener('input', () => {
+              Reflect.set(setup.selection, name, input.value); setup.prepared = undefined;
+              if (values) { featurePlansKey = undefined; renderFeaturePlans(); }
+              else form.querySelector('.prepared-media')?.remove();
+            });
+            const label = element('label', labelText); label.htmlFor = input.id;
+            form.append(label, input);
+          }
+          field('storyboard', 'Capture procedure', setup.options.storyboards.map(story => [story.file, story.id]));
+          const story = setup.options.storyboards.find(story => story.file === setup.selection.storyboard);
+          const builds = setup.options.builds.filter(build => build.channel === story?.channel);
+          field('executable', 'Installed VS Code build', builds.map(build => [build.executable, `${build.channel} · ${build.version} · ${build.revision.slice(0, 10)}`]));
+          if (story?.workspaceRequired) field('workspace', 'Reviewed capture workspace (absolute path)');
+          if (!builds.length) paragraph(form, 'No matching installed build. Screenshot capture remains pending.', 'media-pending');
+          const inspect = control(form, 'Review capture procedure', () => void perform(async () => {
+            const build = builds.find(build => build.executable === setup.selection.executable);
+            setup.prepared = await request('feature-media-prepare', { ...identity, ...setup.selection, revision: build?.revision });
+          }));
+          inspect.disabled = busy || !builds.length;
+          if (setup.prepared) {
+            const procedure = setup.prepared.procedure;
+            const reviewed = element('section', undefined, 'prepared-media');
+            const steps = element('ol');
+            for (const step of procedure.procedure.steps) {
+              const target = step.target ? procedure.procedure.targets[step.target] : undefined;
+              steps.append(element('li', `${JSON.stringify(step)}${target ? ` · ${JSON.stringify(target)}` : ''}`));
+            }
+            paragraph(reviewed, 'Review these actions and assertions. The capture uses a dedicated profile, not your personal profile.', 'muted');
+            reviewed.append(steps);
+            control(reviewed, 'Generate screenshot', () => void perform(async () => {
+              if (!window.confirm(`Generate one attended screenshot for ${proposal.article}?\n\n${proposal.scenario}\n${procedure.productVersion} · ${procedure.binding.product.channel}\n${procedure.config.workspace || 'Synthetic fixture'}\n\nI reviewed the displayed procedure and will keep the capture window visible. No article changes or media approval.`)) return;
+              const launched = await request('feature-media-launch', { ...identity, ...procedure.config,
+                bindingHash: setup.prepared.bindingHash, confirmed: true });
+              mediaSetups.delete(key);
+              await refresh();
+              notice(launched.launch === 'uncertain' ? launched.error : 'Screenshot generation started. Handle any native prompts and confirm readiness here.', launched.launch === 'uncertain');
+            })).disabled = busy;
+            form.append(reviewed);
+          }
+          section.append(form);
+        }
+      }
+    }
+    panel.append(section);
+  }
+  container.append(panel);
+}
+
 function renderFeaturePlans() {
   $('writing-host-status').textContent = state.hostAvailable ? '' : 'This host does not expose the task API needed to plan and draft documentation.';
   for (const id of ['feature-description', 'feature-issue', 'feature-channel']) $(id).disabled = busy;
@@ -539,7 +707,10 @@ function renderFeaturePlans() {
   for (const record of records) {
     const plan = record.plan;
     const title = plan?.title || record.label;
-    const status = record.draft?.report ? record.draft.report.status === 'needs-attention' ? 'Checks need attention' : 'Draft ready'
+    const status = record.draft?.report ? record.draft.recheck
+      ? record.draft.recheck.checks.findings.some(item => item.severity === 'error') ? 'Checks need attention' : 'Draft ready'
+      : record.draft.freshness?.state === 'changed' ? 'Recheck needed'
+      : record.draft.report.status === 'needs-attention' ? 'Checks need attention' : 'Draft ready'
       : record.draft ? ['invalid', 'execution-failed'].includes(record.draft.state) ? 'Draft needs attention' : 'Preparing draft'
       : record.decision ? record.decision.status === 'approved' ? 'Approved' : 'Rejected'
       : plan ? Reflect.get({ 'changes-needed': 'Plan ready', 'no-change': 'No change proposed', incomplete: 'Research incomplete' }, plan.outcome)
@@ -615,7 +786,7 @@ function renderFeaturePlans() {
       proposal.append(notes);
     }
     if (record.decision) paragraph(next, `Plan ${record.decision.status} · ${time(record.decision.at)} · ${record.decision.reason}`, 'muted');
-    else if (record.canDecide) {
+    else if (record.canDecide && !record.revision) {
       const decision = element('div', undefined, 'plan-decision');
       const feedback = element('textarea');
       feedback.id = `plan-feedback-${record.id}`; feedback.rows = 2; feedback.maxLength = 4000;
@@ -637,6 +808,35 @@ function renderFeaturePlans() {
       reject.disabled = busy; reject.classList.add('secondary');
       decision.append(actions); next.append(decision);
     }
+    if (record.revision && record.canDecide && plan.outcome === 'changes-needed') {
+      const approval = element('section', undefined, 'plan-decision');
+      paragraph(approval, 'Approve this article-level plan once. Routine corrections within it do not require separate approval.', 'muted');
+      const target = element('input');
+      target.id = `revision-target-${record.id}`;
+      target.value = draftLocations.get(record.id) || record.revision.target || state.workspace;
+      target.disabled = busy;
+      target.addEventListener('input', () => draftLocations.set(record.id, target.value));
+      const label = element('label', 'Update in an existing checkout');
+      label.htmlFor = target.id;
+      approval.append(label, target);
+      control(approval, 'Approve and update article', () => void perform(async () => {
+        const input = { id: record.id, planHash: record.planHash, target: target.value.trim() };
+        const context = await request('feature-revision-context', input);
+        const preserve = context.preserveExistingEdits ? '\nExisting edits were captured and must be preserved outside this update.' : '';
+        if (!window.confirm(`Approve this article update and its file writes?\n\n${plan.summary}\n\n${plan.changes.map(item => item.description).join('\n')}\n\n${context.target}\nBranch: ${context.branch}\nFiles: ${context.files.join(', ')}${preserve}\n\nNo per-edit approvals, new media, commits, or publication.`)) return;
+        const run = await request('feature-revision-start', { ...input, contextHash: context.contextHash, branch: context.branch, confirmed: true });
+        await refresh();
+        notice(run.launch === 'uncertain' ? run.error : 'Article update approved and started. Relevant checks run automatically after editing.', run.launch === 'uncertain');
+      })).disabled = busy;
+      control(approval, 'Reject update plan', () => void perform(async () => {
+        await request('feature-decide', { id: record.id, planHash: record.planHash, status: 'rejected', confirmed: true,
+          reason: 'Rejected the article-level update plan.' });
+        await refresh();
+        notice('Update plan rejected. No article edits were authorized.');
+      })).disabled = busy;
+      next.append(approval);
+    }
+    renderMediaActions(record, next, disclosure);
     if (record.draft) {
       const draft = element('section', undefined, 'draft-result plan-section');
       draft.append(element('h3', 'Draft'));
@@ -645,15 +845,32 @@ function renderFeaturePlans() {
       const report = record.draft.report;
       if (!report && !record.draft.message) paragraph(draft, 'Waiting for confirmed draft results.', 'muted');
       if (report) {
-        paragraph(draft, report.status === 'needs-attention' ? 'Draft saved; checks need attention.' : 'Draft saved for human review.');
-        for (const item of report.files) paragraph(draft, item.path, 'reference');
-        const count = level => report.checks.findings.filter(finding => finding.severity === level).length;
+        const currentChecks = record.draft.recheck || report;
+        paragraph(draft, currentChecks.checks.findings.some(item => item.severity === 'error') ? 'Draft saved; checks need attention.' : 'Draft saved for human review.');
+        for (const item of report.files) {
+          paragraph(draft, item.path, 'reference');
+          if (item.path.endsWith('.md')) control(draft, 'Open diff in editor', () => void perform(async () => {
+            const opened = await request('feature-open-diff', { id: record.id, article: item.path });
+            notice(`${opened.comparison} Save editor changes before rechecking.`);
+          })).disabled = busy || !state.editor?.available;
+        }
+        if (!state.editor?.available) paragraph(draft, state.editor?.message || 'Native editor opening is unavailable. Use the saved diff below.', 'muted');
+        const count = level => currentChecks.checks.findings.filter(finding => finding.severity === level).length;
         const checks = disclosure(`${record.id}:checks`, `Checks · ${count('error')} errors · ${count('warning')} warnings · ${count('unverified')} unverified`);
-        for (const finding of report.checks.findings) paragraph(checks, `${finding.article}:${finding.line} [${finding.severity}] ${finding.message}`);
+        for (const finding of currentChecks.checks.findings) paragraph(checks, `${finding.article}:${finding.line} [${finding.severity}] ${finding.message}`);
         const diff = disclosure(`${record.id}:diff`, 'Review draft diff', false, 'draft-diff');
         diff.append(element('pre', report.diff));
         draft.append(diff, checks);
-        paragraph(draft, `Saved checks from ${time(report.generatedAt)}. Further edits require another check.`, 'muted');
+        paragraph(draft, `Saved checks from ${time(currentChecks.generatedAt)}. Further edits require another check.`, 'muted');
+        if (record.draft.freshness?.state !== 'unchanged' && !record.draft.recheck) {
+          paragraph(draft, record.draft.freshness?.message || 'Article files changed after drafting. Saved results are historical; recheck the current files.', 'media-pending');
+        }
+        if (record.draft.checkError) paragraph(draft, record.draft.checkError, 'error');
+        control(draft, 'Recheck current files', () => void perform(async () => {
+          await request('feature-recheck', { id: record.id });
+          await refresh();
+          notice('Current local checks saved. Product and editorial review findings remain separate.');
+        })).disabled = busy;
         for (const media of report.pendingMedia) paragraph(draft, `Media pending: ${media.id} (${media.kind}). ${media.reason}`, 'media-pending');
       }
       next.append(draft);
@@ -668,18 +885,38 @@ function renderFeaturePlans() {
       const label = element('label', 'Draft in an existing checkout');
       label.htmlFor = target.id;
       setup.append(label, target);
-      paragraph(setup, 'Confirm the existing branch and planned file writes before drafting. No branch creation, media generation, or publication.', 'muted');
+      paragraph(setup, 'Confirm the existing branch, planned files, and any approved screenshots before drafting. No branch creation, media generation, or publication.', 'muted');
       const actions = element('div', undefined, 'plan-actions');
       control(actions, 'Prepare draft', () => void perform(async () => {
         const input = { id: record.id, planHash: record.planHash, target: target.value.trim() };
         const context = await request('feature-draft-context', input);
         const changed = context.reconfirm ? 'The commit or planning guidance changed, but documentation inputs still match. Reconfirm this plan for drafting.\n\n' : '';
-        if (!window.confirm(`${changed}Prepare the approved text draft in:\n${context.target}\nBranch: ${context.branch}\n\nWrite only:\n${context.files.join('\n')}\n\nNo commits, new media, or GitHub writes. Continue?`)) return;
+        const assets = context.assets?.length ? `\nCopy exact approved screenshots:\n${context.assets.map(asset => `${asset.path}\nSHA-256: ${asset.sha256}\n${asset.markdown}`).join('\n')}\n` : '';
+        if (!window.confirm(`${changed}Prepare the approved draft in:\n${context.target}\nBranch: ${context.branch}\n\nWrite only:\n${context.files.join('\n')}\n${assets}\nNo commits, unapproved media, or GitHub writes. Continue?`)) return;
         const run = await request('feature-draft-start', { ...input, branch: context.branch, contextHash: context.contextHash, confirmed: true });
         await refresh();
         notice(run.launch === 'uncertain' ? run.error : 'Drafting started in the confirmed location. Media remains a separate attended step.', run.launch === 'uncertain');
       })).disabled = busy;
       setup.append(actions); next.append(setup);
+    }
+    if (record.revision && (!record.draft || record.draft.report)) {
+      const adjustments = disclosure(`${record.id}:adjustments`, record.draft ? 'Request further adjustments' : 'Adjust the update plan');
+      const input = element('textarea');
+      input.id = `revision-feedback-${record.workId}`; input.rows = 2; input.maxLength = 4000;
+      input.value = revisionFeedback.get(record.workId) || '';
+      input.disabled = busy;
+      const label = element('label', 'Requested adjustments');
+      label.htmlFor = input.id;
+      adjustments.append(label, input);
+      const send = control(adjustments, 'Plan adjustments', () => void perform(async () => {
+        await request('feature-follow-up', { id: record.id, instructions: input.value.trim(), confirmed: true });
+        revisionFeedback.delete(record.workId);
+        await refresh();
+        notice('Planning adjustments on the same article update. No new edits were authorized.');
+      }));
+      const update = () => { revisionFeedback.set(record.workId, input.value); send.disabled = busy || !input.value.trim(); };
+      input.addEventListener('input', update); update();
+      next.append(adjustments);
     }
     $('feature-plans').append(panel);
   }
@@ -718,7 +955,7 @@ $('review-form').addEventListener('submit', event => {
   event.preventDefault();
   void perform(async () => {
     await request('review-launch', { article: $('review-article').value.trim(), focus: $('review-focus').value,
-      channel: $('review-channel').value, confirmed: true,
+      channel: $('review-channel').value, concerns: $('review-concerns').value.trim(), confirmed: true,
       ...($('review-extent').value === 'section'
         ? { section: { startLine: Number($('review-section').value), articleHash: reviewSections.articleHash } } : {}) });
     await refresh();
@@ -863,7 +1100,7 @@ async function pollResults(force = false) {
 setInterval(() => void pollResults(), 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) void pollResults(true); });
 window.addEventListener('focus', () => void pollResults(true));
-for (const link of document.querySelectorAll('.page-navigation a')) {
+for (const link of document.querySelectorAll('.page-navigation a[data-page]')) {
   link.addEventListener('click', event => {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();

@@ -9,6 +9,7 @@
 <body>
 <main class="article-app">
   <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/review">Review in chat</a>
     <a href="/writing" data-page="writing">Docs writing</a>
     <a href="/findings" data-page="findings" aria-current="page">Findings</a>
   </nav>
@@ -39,10 +40,12 @@
     </div>
     <div><label for="review-focus">Review focus</label><select id="review-focus"><option value="both">Technical and editorial</option><option value="editorial">Editorial</option><option value="technical">Technical accuracy</option></select></div>
     <div><label for="review-channel">Intended product channel</label><select id="review-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
+    <div class="launch-scope"><label for="review-concerns">Particular concerns (optional)</label><input id="review-concerns" maxlength="4000" placeholder="For example, clarify prerequisites while preserving the examples."></div>
     <button id="review-launch" type="submit" disabled>Start article review</button>
     <p class="launch-scope muted">Reviews one article or section. Runs whole-article local prechecks, then uses a host agent and read-only product research when needed. Saves private results and uses host credits. No article edits, command execution, sign-in, or GitHub writes.</p>
     <p id="review-eligibility" class="error"></p>
   </form>
+  <section id="article-review-results" aria-label="Article review results" hidden></section>
   <form id="replay-form" class="launch-bar" hidden>
     <div class="article-picker"><label for="replay-storyboard">Reviewed storyboard</label><select id="replay-storyboard"></select></div>
     <div class="article-picker"><label for="replay-build">Installed VS Code build</label><select id="replay-build"></select></div>

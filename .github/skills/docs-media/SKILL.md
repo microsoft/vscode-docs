@@ -10,6 +10,17 @@ Use the tested scripts under `build/` to produce private media candidates. This 
 
 For assertion-based procedure checks without media, use [docs-replay](../docs-replay/SKILL.md). Replay outcomes are never media candidates or visual approvals.
 
+## Read-only media assessment
+
+For a review request, or when called by doc-writer/docs-review during assessment, stop after assessing existing media:
+
+* Read the nearby article instructions and inspect the actual referenced images. Check correspondence with the reader task, legibility, framing, annotations, potentially private content, and alt text.
+* Inspect video playback using an available viewer. Check visible actions, sequence, pacing, legibility, and title. A filename, metadata, or isolated frame is not proof of full video review.
+* Distinguish observed problems from uncertainty about the current product UI. Mark missing assets or unsupported playback as not reviewed.
+* Return grouped keep/update/replace recommendations with article locations and reasons in the current chat. Do not create new captures, transform or replace assets, launch the product, or require a media approval record for merely inspecting existing content.
+
+Return to the coordinating skill after assessment. Continue with the capture procedure below only for separately authorized media creation or refresh.
+
 ## Guardrails
 
 * **Attended only.** A human must approve the local run, keep the capture window visible, and remain available. Do not schedule captures, test lock or sleep states, or change desktop power settings.

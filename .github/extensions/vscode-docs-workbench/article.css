@@ -136,6 +136,16 @@ body { margin: 0; }
 .article-app .draft-diff pre { max-height: 440px; overflow: auto; padding: 12px; background: var(--vscode-editor-background, light-dark(#fff, #1f1f1f)); border: 1px solid var(--border); border-radius: 4px; font-size: .85em; line-height: 1.55; }
 .article-app .media-pending { border-left: 3px solid var(--vscode-editorWarning-foreground, #b89500); padding-left: 10px; }
 .article-app .media-proposal { padding: 8px 0; }
+.article-app .media-preview { display: block; max-width: 100%; max-height: 480px; object-fit: contain; margin: 12px 0; border: 1px solid var(--border); }
+.article-app .media-setup { display: grid; gap: 8px; max-width: 760px; }
+.article-app .media-setup input, .article-app .media-setup select { min-width: 0; width: 100%; }
+.article-app .media-proposal label { display: block; margin-top: 12px; }
+.article-app .media-proposal textarea { display: block; width: 100%; margin: 6px 0 12px; }
+.article-app .media-setup li { overflow-wrap: anywhere; }
+.article-app .review-chat-form { display: grid; gap: 12px; max-width: 820px; }
+.article-app .review-chat-form input:not([type="checkbox"]), .article-app .review-chat-form textarea, .article-app .review-chat-form select { width: 100%; min-width: 0; box-sizing: border-box; }
+.article-app .review-chat-form fieldset { display: flex; flex-wrap: wrap; gap: 12px 24px; border: 1px solid var(--border); padding: 12px; }
+.article-app .review-chat-form fieldset label { display: flex; align-items: center; gap: 4px; }
 @media (max-width: 600px) {
   .article-app #feature-form { grid-template-columns: minmax(0, 1fr); }
   .article-app .feature-plan > summary { flex-wrap: wrap; padding: 12px; }

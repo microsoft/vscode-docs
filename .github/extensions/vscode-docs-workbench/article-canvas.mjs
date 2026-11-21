@@ -11,6 +11,8 @@ export const articleAssets = new Map([
   ['/', ['article.html', 'text/html; charset=utf-8']],
   ['/findings', ['article.html', 'text/html; charset=utf-8']],
   ['/writing', ['article.html', 'text/html; charset=utf-8']],
+  ['/review', ['review-chat.html', 'text/html; charset=utf-8']],
+  ['/review-chat.mjs', ['review-chat.mjs', 'text/javascript; charset=utf-8']],
   ['/article-app.mjs', ['article-app.mjs', 'text/javascript; charset=utf-8']],
   ['/article.css', ['article.css', 'text/css; charset=utf-8']]
 ]);

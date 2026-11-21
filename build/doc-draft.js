@@ -44,15 +44,38 @@ function diff(directory, files, created) {
   return parts.filter(Boolean).join('\n');
 }
 
-function assertExistingMedia(before, after, article, directory) {
+function compare(directory, before, after) {
+  try { return git(directory, ['diff', '--no-index', '--no-ext-diff', '--no-textconv', '--', before, after]); }
+  catch (error) {
+    if (error.status !== 1 || typeof error.stdout !== 'string' || !error.stdout.trim()) throw error;
+    return error.stdout;
+  }
+}
+
+function assertSectionChanges(before, after, section) {
+  const lines = before.split('\n');
+  const prefix = lines.slice(0, section.startLine - 1).join('\n') + (section.startLine > 1 ? '\n' : '');
+  const suffix = lines.slice(section.endLine).join('\n');
+  if (!after.startsWith(prefix) || (suffix && !after.endsWith(`\n${suffix}`))) {
+    throw new Error('The revision changed content outside the approved article section.');
+  }
+}
+
+function assertExistingMedia(before, after, article, directory, approved = []) {
   const variables = loadDataVariables(path.join(directory, 'data', 'variables'));
   const previous = analyzeDocument(before, article, variables);
   const current = analyzeDocument(after, article, variables);
   if (previous.problem || current.problem) throw new Error(`Cannot verify draft media references: ${previous.problem || current.problem}`);
   const known = new Set(previous.references.filter(reference => reference.media).map(reference => reference.target));
+  for (const asset of approved) {
+    known.add(asset.reference);
+    if (!current.references.some(reference => reference.media && reference.target === asset.reference)) {
+      throw new Error('The draft did not include an approved media asset.');
+    }
+  }
   if (current.references.some(reference => reference.media && !known.has(reference.target))) {
     throw new Error('The text draft introduced media references that need separate asset approval. Keep new media as TODO comments.');
   }
 }
 
-module.exports = { location, changedPaths, diff, assertExistingMedia };
+module.exports = { location, changedPaths, diff, compare, assertSectionChanges, assertExistingMedia };

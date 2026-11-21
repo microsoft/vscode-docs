@@ -156,7 +156,9 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
     const binding = review.createBinding(input.article, content, precheck, input.channel, input.focus, input.section);
     if (hash(await readBytes(article, 500_000)) !== binding.articleHash) throw new Error('Article changed while preparing the review.');
     const id = randomUUID();
-    const request = { format, version: 1, id, ownerSessionId: host.ownerSessionId, binding, precheck };
+    const concerns = typeof input.concerns === 'string' ? input.concerns.trim() : '';
+    if (concerns.length > 4000) throw new Error('Keep review concerns under 4000 characters.');
+    const request = { format, version: 1, id, ownerSessionId: host.ownerSessionId, binding, precheck, ...(concerns ? { concerns } : {}) };
     const run = { id, ownerSessionId: host.ownerSessionId, articles: [input.article], scope: [input.article],
       createdAt: now(), launch: 'starting', binding, requestHash: hash(JSON.stringify(request)) };
     await stateFile.update(async state => {
@@ -240,7 +242,8 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
         attempt: { state: result?.state || 'missing', message: result?.message },
         verification: verified?.report && { report: verified.report, freshness: verified.state === 'valid' ? 'fresh' : verified.state },
         lastAcceptedState: 'reviewed', retained: 0,
-        review: result?.report?.review, precheck: result?.request?.precheck?.findings };
+        review: result?.report?.review, precheck: result?.request?.precheck?.findings, runId: run.id,
+        canRevise: result?.state === 'valid' && !!run.ingestedHash && result.report.review.status === 'complete' };
     });
     const runs = [];
     for (const run of state.runs) {
@@ -253,6 +256,17 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
   }
   return {
     launch,
+    async revisionSource({ id }) {
+      const state = await stateFile.read();
+      const run = state.runs.find(item => item.id === id);
+      if (!run?.ingestedHash) throw new Error('Use a completed, confirmed article review.');
+      const result = await inspect(run);
+      if (result.state !== 'valid' || result.report.review.status !== 'complete') throw new Error(result.message || 'Complete the article review before planning revisions.');
+      return { id, reportHash: result.reportHash, report: result.report, concerns: result.request.concerns || '',
+        precheck: result.request.precheck,
+        decisions: state.review.findings.filter(record => record.reportId === run.reportId)
+          .map(record => ({ id: record.finding.id, status: record.finding.status })) };
+    },
     async sections({ article }) {
       const content = await readBytes(await resolveArticle(store.workspace, article), 500_000);
       return { article, articleHash: hash(content), sections: review.articleSections(content.toString('utf8')) };

@@ -1,33 +1,84 @@
 # Docs agent implementation plan
 
-Assessment date: 2026-11-20. Implementation baseline: `0f660576b`.
+Assessment date: 2026-11-21. Earlier planning/drafting baseline: `9afaa1905`. This checkpoint adds screenshot handoff, article revisions, native editor actions, and the interactive review-chat launcher.
 
-Current slice: M2 has a live request-to-plan-to-text-draft proof. After separate write approval, the pilot updates one paragraph in the confirmed checkout and branch, saves its diff and checks, and appears in the actual canvas after reload. Checks report no errors or warnings and seven unverified product references. Nothing is staged, committed, or published. Media was not needed for this pilot and continues to use the existing attended workflow. M1 article and section review remain available. PR review stays deferred.
+Current position: request-to-plan-to-draft has a live one-paragraph update proof, not a new-article proof. Article-level review-to-revision has fixture and browser coverage, including one combined scope/write approval, preserved existing edits, automatic local checks, and same-item follow-up. Native source-line and diff opening are verified in Windows VS Code. Independent article media, integrated video, article-derived UI validation, and tracked PR review are still missing.
 
-This is the scope inventory and delivery plan for the documentation-agent workflow. It reconciles the original scenario brainstorm, the phased implementation plan, and subsequent decisions. Keep the full inventory even when only one workflow is being implemented.
+This revision makes the author's eight daily workflows the core release scope. The original 30 scenario IDs remain in the inventory, but broader audits, blogs, release notes, corpus maintenance, and optional extensions are not prerequisites for this release. PR accuracy is back in planned scope following the latest request; this does not authorize a PR review or relax the no-checkout rule.
 
 The delivery order below is proposed, not authorization to execute tasks or change existing approval policies. Use [Docs agent workflow](DOCS-AGENT-WORKFLOW.md) for current operating procedures.
 
+## Latest direction: separate chat launchers from batch findings
+
+Prefer a small review launcher over further canvas-managed review/plan/implementation stages. The user selects presets and/or a free-form request, then starts a real interactive chat with the article and doc-writer guidance. Doc-writer coordinates specialized skills, proposes grouped changes in that conversation, and continues after approval. A separate Markdown plan and implementation handoff are not required.
+
+Keep two distinct experiences:
+
+* **Interactive launchers:** Supply context and start the relevant skill in chat. The chat owns the conversation, approvals, implementation, and follow-up. Launching it does not promise structured findings ingestion or completion tracking.
+* **Batch checks and findings:** Choose a bounded scope, run supported report-only checks/reviews, and retain structured, deduplicated findings with coverage, freshness, and review decisions. This remains a first-class experience, not a hidden legacy view.
+
+Do not make the launcher depend on batch execution records or automatically import free-form chat output. Batch findings may lead to an optional grouped-fix request in chat, but a chat response is not proof that findings are resolved. Existing batch support primarily covers structural checks; broader semantic batch review is still future work.
+
+The bounded spike adds **Review in chat** at `/review`. A live click created a separate interactive review chat with the article and skill attached; that chat loaded doc-writer, returned the requested handoff acknowledgement, and stopped without editing. Three focused tests cover request preservation, native CLI arguments, and the browser launcher. This proves the handoff, not a full content/media review or automated chat-completion tracking.
+
+The launcher does not remove previous workflows or evidence or expand every scenario into a new page. Decide further navigation and retirement of the structured workflows below separately.
+
+The broader scenarios remain relevant. Their orchestration should stay in existing skills and the host chat wherever possible; the canvas supplies useful intake and context rather than another execution engine.
+
 * **Primary persona:** Documentation maintainers and authors who review, write, and maintain VS Code content.
 * **Reader intent:** Choose the next useful workflow, understand its prerequisites, and distinguish delivered behavior from supporting infrastructure.
-* **Purpose:** Preserve scope and guide bounded implementation through evidence-backed acceptance.
+* **Purpose:** Deliver the eight daily workflows using the most suitable existing tools, with a canvas to manage and track work rather than reproduce an editor, chat, or media application.
 
-## Assessment
+## Core day-to-day workflows
 
-There is enough shared infrastructure to implement author-facing workflows now. Do not start another general infrastructure phase. Existing writing, review, and audit skills remain usable independently of the findings canvas.
+These eight entries define the user-facing release boundary. W IDs identify workflows; the existing S IDs identify reusable scenarios and remain stable.
 
-The current canvas supports deterministic article checks, reviewed scripted replay, and an accepted whole-article review slice. It is not yet a general PR-review, authoring, media, or article-evaluation interface. Some remaining work is integration, but article-driven execution, visual drift detection, and authoritative reference generation need additional workflow-specific capabilities.
+| Workflow | Intended user journey | Current position | Scenario home |
+|---|---|---|---|
+| W1: Write feature content | Describe the request, review and adjust a short plan, approve scope, draft in a confirmed location, check and review the diff. Media is optional, not a prerequisite. | Partial. Free-form requests, optional issue context, plan decisions, and authorized drafting work. The live pilot updates one paragraph. New-article creation with navigation needs end-to-end acceptance. | S19, S30; M2 |
+| W2: Review and revise an article | Start an interactive review chat from presets and a request. Review, approve grouped changes, and continue there. Use structured review separately when persistent findings are the desired output. | The chat handoff has a live proof. The earlier structured revision path has synthetic end-to-end/browser coverage and a separate native-editor proof. Full live review-and-update acceptance remains. | S01, S26, S30; M1, M2 |
+| W3: Create or update screenshots | Select an article, choose existing images to refresh or describe new images, approve a capture proposal, review one or several candidates, then separately authorize article and asset changes. | Partial integration only. Existing capture/preparation helpers and a pre-draft feature-plan path work. There is no independent article media page, replacement preview, or accepted multi-image journey. Existing assets cannot be replaced by the current draft helper. | S12, S15, S16, S18; M3 |
+| W4: Create demo videos | Select an article, describe one or several demos, approve short action sequences, record attended candidates, review playback and titles, then authorize the selected insertions or replacements. | Capture, preparation, and validation helpers exist with bounded live proofs. The writing UI explicitly leaves video pending. Article-first video review and handoff are not integrated. | S14, S15, S16; M3 |
+| W5: Check content accuracy | Select an article, section, or bounded set and choose links, product claims, grammar/editorial, settings, or keybindings. Review results with explicit coverage and uncertainty. | Usable through separate checks and article-review controls, not one task. Local links and reference syntax are deterministic; grammar and product truth need agent review. Canvas checks do not consume captured product manifests or check external URLs. Unverified references are not passes. | S01-S04, S26; M1 |
+| W6: Check article instructions against the UI | Select an article section and target environment, review actions derived from its actual steps, approve attended execution, and inspect expected versus observed results tied to source lines. | Not implemented. Existing replay executes predefined storyboard assertions, not the article's instructions. | S07, S08; M4 |
+| W7: Verify a PR's accuracy | Supply a docs PR URL, inspect the pinned changed passages with full articles as context, choose check focus, and review source-backed findings and limitations. | A PR-review skill exists, but the new canvas has no PR input or snapshot-to-findings integration. Back in core planned scope, not delivered. Never check out or execute the PR. | S01-S04, S26; M1 |
+| W8: Document an issue or test plan item | Supply the GitHub source plus the author's desired outcome, review the interpreted requirements and availability, then use the same plan-first writing flow as W1. | Partial. A supported issue URL can already provide context; a TPI is an issue and can use that input. Dedicated intake, clear TPI interpretation, and an end-to-end TPI proof are missing. Test instructions do not authorize execution or become the documentation outline. | S19, S30; M2 |
 
-| Foundation | Current evidence | Remaining boundary |
+### Choose the right experience for each task
+
+The canvas manages and tracks work: its request, scope, current status, decisions, blockers, results, and next action. It does not need to contain every interaction. A workflow is complete when the author can move between the appropriate tools without losing context, not when every step fits inside the canvas.
+
+| Activity | Preferred experience | Canvas responsibility |
 |---|---|---|
-| Deterministic checks | [Claims](build/check-claims.js), [links](build/check-links.js), and [navigation](build/check-navigation.js) have validators and tests. Claims and links run from the findings canvas. | Navigation is not included in the canvas check. Syntax and captured IDs do not prove product behavior or availability. |
-| Captured product evidence | [Manifest generation](build/product-manifest.js) and [reference analysis](build/product-references.js) retain build, mode, platform, and source hashes. | Inventories are partial. `observed`, `not-observed`, and `not-covered` remain unverified. Tryout registrations and authoritative public availability need separate evidence. |
-| Findings and review | [Reports](build/findings.js), [audit decisions](build/audit-findings.js), and the [inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs) support provenance, deduplication, freshness, filters, and explicit decisions. Version 6 supports [whole-article and section reviews](build/review.js), with a live whole-article pilot and scoped browser tests. | PR selection is deferred by request. Other reserved finding kinds do not constitute implemented evaluation, media-drift, or audit workflows. |
-| Host execution | The [workflow adapter](.github/extensions/vscode-docs-workbench/article-workflow.mjs) uses host tasks and guarded private artifacts. Real host execution is verified. | The SDK is experimental and session-scoped. Saved evidence survives a session, but host recovery remains tied to its owner. |
-| Attended UI and media | [Capture](build/capture.js), [video](build/capture-video.js), [preparation](build/media.js), and [highlights](build/capture-highlights.js) have tests and bounded live proofs. | Windows, reviewed procedures, and no live AI are the proven baseline. Dedicated profiles are not OS security sandboxes. |
-| Scripted replay | The [runner](build/replay.js) and [inbox adapter](.github/extensions/vscode-docs-workbench/article-replay.mjs) passed a real debugger-picker procedure. The final focused replay and audit suite passed 17 tests. | Eight scripted actions passed, not eight article instructions. Script success does not establish that its associated article is correct. |
-| Existing author workflows | [PR review](.github/skills/pr-review/SKILL.md), [feature documentation](.github/skills/doc-writer/SKILL.md), [audits](.github/skills/daily-docs-audit/SKILL.md), and [media](.github/skills/docs-media/SKILL.md) define reusable procedures. | Connect them to the new experience rather than duplicating their prompts in JavaScript. Existing skill presence is not integrated-workflow acceptance. |
-| Scale | Small scopes and batch checking are usable. Progressive loading separates saved findings from current verification. | Full-corpus rendering, filtering, and verification still miss performance budgets. Further optimization is parked, not silently complete. |
+| Start or resume work across W1-W8 | A small task chooser and current-work list, with chat or editor entry points when useful. | Keep the request, article or source, progress, approvals, and next action together. Track work items, not execution transcripts. |
+| Clarify requirements and adjust plans (W1, W2, W8) | Existing agent conversation; a readable plan artifact for longer plans. | Show the current plan summary and its approval state. Open the plan or continue in the owning session through supported host actions. No embedded replacement chat. |
+| Read or edit articles; inspect corrections (W1, W2, W8) | Native editor, Markdown preview, and editor diff view. | List affected files and provide **Open article** and **Open diff** actions. Preserve the approved scope and check summary, not another text editor. |
+| Review findings (W2, W5, W6, W7) | Persistent findings inbox with navigation to the relevant source line; native diagnostics where supported and useful. | Filter and triage durable findings, select corrections, and track follow-up. Do not require a new diagnostics extension before basic source navigation works. |
+| Inspect screenshots and videos (W3, W4) | Existing image preview, side-by-side image views, or a compatible video player. Use a lightweight browser preview only where existing tools are insufficient. | Track one or several candidates, their destinations, descriptions, and exact-asset decisions. Thumbnails can help selection; a custom gallery, image editor, or player is not a prerequisite. |
+| Run article instructions (W6) | The actual attended VS Code test window, with the procedure and findings available alongside it. | Show the reviewed scope, readiness request, progress, blockers, and result links. Do not recreate the product UI. |
+| Inspect issue/TPI context or a docs PR (W7, W8) | Existing GitHub/browser views and read-only editor comparisons of captured PR content where supported. | Retain the source identity, pinned revision, interpretation, and review outcome. No PR checkout, executable preview, or duplicated GitHub conversation UI. |
+
+The earlier **Start / Docs writing / Media / Findings** navigation was a proposal, not a requirement. Preserve the current writing/findings separation. Add a compact work overview or media task details only where they help tracking; do not build dedicated pages just to host tools that already exist.
+
+Each tracked item needs only its request/source, scope, current status, pending decision or blocker, artifact links, and next action. Reuse existing state rather than adding a parallel task database or workflow engine. A task chooser must not offer working-looking actions for unimplemented workflows. Broader GitHub queues, board customization, and archive features remain backlog work.
+
+Handoffs carry the article, source revision, review context, approved plan, and exact candidate identity without making the author re-enter them. Closing an editor or preview does not lose the task. Editing an article or transforming media makes dependent evidence stale; returning to the canvas must show that state rather than imply the prior approval covers new bytes.
+
+**Editor integration:** The Windows extension uses the installed VS Code CLI for **Open article at finding** and **Open diff in editor**. The latter compares a verified, read-only captured baseline with the current editable article, not Git HEAD. The actual editor was inspected to confirm line navigation and the native diff view. Other hosts expose an explicit limitation and retain artifact paths and the saved diff as a fallback. No SDK editor API or session deep-link contract is assumed.
+
+Distinguish a saved draft comparison from the current working-tree diff. Compare the correct captured baseline and result, label which is shown, and never present an outdated report as current editor state. For PRs, use read-only pinned content without checking out or executing it.
+
+The current inline diff and screenshot preview can remain temporary fallbacks while editor and viewer handoffs are validated. Do not expand them or remove saved evidence prematurely. Plan adjustments stay in conversation; capture proposals remain readable rather than requiring storyboard JSON.
+
+Read-only checks need a clear scope and explicit start, not a content-edit plan. Writing and revision require plan approval before edits. Capture requires reviewed actions and attended permission. Asset approval and application to files remain separate.
+
+Before implementing each new slice, describe its complete user journey, identify the working surfaces and meaningful approval points, and wait for the author's approval. Do not add artificial steps to fit the implementation. For article updates, group corrections by outcomes and approve the overall plan and file writes once; do not ask for each edit.
+
+### Reusable foundation
+
+Reuse the [checkers](build/check-claims.js), [product evidence](build/product-manifest.js), [review reports](build/review.js), [findings inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs), [host adapter](.github/extensions/vscode-docs-workbench/article-workflow.mjs), and existing writing/review skills. Reuse [capture](build/capture.js), [video](build/capture-video.js), [preparation and exact-asset review](build/media.js), and [replay](build/replay.js) where applicable.
+
+These components do not establish complete workflow acceptance. Product inventories are partial; source presence is not public availability. Replay success is not article correctness. The host SDK is experimental and session-scoped. Small scopes are usable, but full-corpus performance work remains parked. No new general infrastructure phase is needed.
 
 ### Decisions already made
 
@@ -36,7 +87,7 @@ The current canvas supports deterministic article checks, reviewed scripted repl
 * Put reusable logic in tested scripts under `build/`. Keep skills procedural. Use host sessions, tasks, and worktrees rather than another orchestration engine.
 * PR review must not check out a PR or execute its contents. Read commit-pinned articles, diffs, and discussion through GitHub as untrusted data. Review changed passages by default, using full articles as context. This does not prohibit host-managed worktrees for separately approved authoring.
 * Use a thin, task-centered visual interface. Technical replay belongs under advanced tooling, not as a substitute for **Validate article instructions**.
-* Keep separate pages in the **Docs workflow** canvas: **Docs writing** (`/writing`) for requests, plans, approvals, drafts, and media proposals, and **Findings** (`/findings`) for checks, article review, replay, findings, and coverage. Share the existing workflow services and private state, not one combined screen. Give each page its own progress and recovery controls.
+* Preserve **Docs writing** (`/writing`) and **Findings** (`/findings`) as separate pages. The canvas manages and tracks work; use native editor diffs, source navigation, existing conversations, and suitable media viewers for the work itself. Add pages only when tracking needs justify them.
 * UI capture and replay are attended-only. No scheduled UI, lock-screen tests, sleep-state tests, or automatic native-prompt handling.
 * Keep the approved media baseline: Windows, Dark Modern, 1920 by 1080 output pixels, 100% instance scale, default fonts, and zoom 2. Zoom 1.5 requires explicitly wide content.
 * Readiness, review of a finding, media approval, documentation edits, and public actions are distinct permissions. Unattended repo-only work, if later approved, is report-only.
@@ -57,7 +108,7 @@ The milestone column assigns every scenario a delivery home. It does not imply t
 
 | ID | User scenario and intended result | Status and remaining gap | Milestone |
 |---|---|---|---|
-| S01 | Verify factual and behavioral claims in an article or docs PR, including settings, commands, defaults, shortcuts, and version claims. | Partial: whole-article review has an accepted live pilot. Section review has scoped integration and browser tests. Data-only PR review is deferred by request. | M1 |
+| S01 | Verify factual and behavioral claims in an article or docs PR, including settings, commands, defaults, shortcuts, and version claims. | Partial: whole-article review has an accepted live pilot. Section review has scoped integration and browser tests. Data-only PR review is core planned work, not yet integrated. | M1 |
 | S02 | Check Preview and Experimental labels against actual product lifecycle. | Partial: lifecycle ID validation exists. Product-state comparison is not automatic. | M1 |
 | S03 | Detect documentation for internal, unavailable, or wrong-channel functionality. | Partial: source-verification guidance exists. Captured inventories are not authoritative availability checks. | M1 |
 | S04 | Validate links, anchors, media paths, command links, tryout references, TOCs, and sitemap coverage. | Partial overall: local structural checks are available. Canvas navigation coverage and product registration verification remain separate. | M1 |
@@ -68,14 +119,14 @@ The milestone column assigns every scenario a delivery home. It does not imply t
 | S09 | Execute documented commands, task and debug configurations, and code or extension samples. | Planned: needs explicit execution boundaries and controlled fixtures. The replay runner is not a shell executor. | M4 |
 | S10 | Attempt a tutorial or quickstart as a fresh reader and report friction and missing prerequisites. | Planned: requires a defined starting state and recording of assistance. | M6 |
 | S11 | Give an agent a goal and only approved documentation, then assess task success and discoverability. | Planned: docs-as-eval needs goal-based outcomes and a documented evidence policy. | M6 |
-| S12 | Create or refresh a documentation screenshot. | Partial: capture and exact-asset approval work. Candidate review and authorized article handoff need integration. | M3 |
+| S12 | Create or refresh a documentation screenshot. | Partial: a pre-draft feature-plan path has fixture and browser proof. Independent article input, existing-image replacement, and multi-image acceptance are missing. | M3 |
 | S13 | Detect stale media by comparing current product captures with existing assets. | Planned: regeneration and hashes exist, but visual drift detection does not. Text assertions are not pixel comparison. | M5 |
 | S14 | Create a short demonstration video with visible actions. | Partial: video capture and validation work. Author-facing selection, preview, and handoff are missing. | M3 |
-| S15 | Write descriptive screenshot alt text and video titles. | Partial: guidance and skill procedures exist. Bind the proposed text to the actual candidate and article context. | M3 |
+| S15 | Write descriptive screenshot alt text and video titles. | Partial: the screenshot draft path binds human-reviewed alt text to the candidate. Agent-proposed descriptions and independent screenshot/video integration remain. | M3 |
 | S16 | Crop, frame, optimize, and convert media without destroying the source. | Available through tested helpers. Integrate these operations into candidate review. | M3 |
 | S17 | Produce theme variants where the reader benefits. | Optional: fixed-theme capture is proven, not a multi-theme workflow. | O1 |
 | S18 | Add annotated callouts to direct attention. | Available for reviewed red rectangles. Broader annotation styles remain optional. | M3, O1 |
-| S19 | Document a feature from an author's request, with optional issue or PR context, from approved plan to reviewed changes. | Partial: planning, separate draft authorization, a scoped text edit, saved diff, and checks have a live proof. Human review and a media-bearing handoff remain separate steps. | M2 |
+| S19 | Document a feature from an author's request, with optional issue or PR context, from approved plan to reviewed changes. | Partial: request/issue planning and a scoped draft have a live proof. Screenshot handoff has fixture/browser proof. New-article, TPI, and direct revision journeys still need acceptance. | M2 |
 | S20 | Draft and review release notes from milestone features, issues, and TPIs. | Partial: release-note skills exist. Preserve their distinct channel and milestone rules in the workflow. | M2 |
 | S21 | Draft and review a blog announcement from product context. | Partial: blog-writer exists. Its human-only image guardrail still differs from doc-writer's approved-candidate policy. | M2 |
 | S22 | Perform cross-article terminology changes, page moves, redirects, and navigation maintenance. | Partial: existing skills and checks help. Multi-file impact planning and acceptance need integration. | M7 |
@@ -102,80 +153,73 @@ These are ways to run or review scenarios, not extra documentation tasks:
 
 ## Proposed implementation sequence
 
-Only one milestone should be active at a time unless independent parallel work is explicitly useful. Dependencies below are actual prerequisites, not inferred from row order. Each milestone should ship its smallest useful slice before expanding its corpus or supported environments.
+Keep one bounded implementation slice active. This order replaces the previous broad M1-to-M8 progression. M IDs remain delivery homes, not a requirement to finish every scenario in a milestone before moving on.
 
-| Milestone | Author-facing outcome | Prerequisites |
+| Order | Slice and user-visible outcome | Prerequisites and acceptance |
 |---|---|---|
-| M1 | Review an article or docs PR and retain actionable findings. | Existing check, skill, host, and inbox foundation. |
-| M2 | Turn a feature or feedback item into an approved plan and reviewed change. Include release-note and blog variants. | M1's available article-review capability, not its deferred PR selection. |
-| M3 | Create or refresh media, inspect candidates, approve exact bytes, and prepare an authorized handoff. | Existing capture and preparation foundation. Independent of M1 and M2. |
-| M4 | Validate article instructions and selected executable examples. | M1's evidence-backed qualitative results. Additional execution approval for each pilot. |
-| M5 | Audit product changes and corpus slices, detect media drift, and produce a coverage digest. | M1 for semantic findings. M3 only for the visual-drift slice. |
-| M6 | Evaluate tutorials and docs-only reader goals. | M4's controlled execution and outcome recording. |
-| M7 | Maintain content across articles, identify gaps, and generate bounded references. | M1 for assessment. M2 for approved multi-file changes. Reference generation also requires verified product-source coverage. |
-| M8 | Organize work and support explicit follow-up across integrated workflows. | At least one completed workflow to drive the design. Integrate additional task types only as they ship. |
-| O1 | Add selected theme, annotation, locale, archive, or delivery options. | Explicit prioritization and the relevant accepted workflow. Scheduling also needs its own permission decision. |
+| 1 | M1/M2: Close the article review-to-revision loop (W2), starting with source navigation and native editor diff handoff. | Review a grouped correction plan, approve its scope and file writes once, inspect the editor diff, and recheck. The canvas tracks the same item throughout without requiring individual finding approvals or re-entering context. |
+| 2 | M1/M2: Finish plan-first writing and accuracy entry points (W1, W5, W8). | Reuse current helpers. Prove one new article with navigation and one issue/TPI request. Offer clear check categories and report covered, unverified, and blocked scope separately. No issue queue or milestone dashboard required. |
+| 3 | M3: Make screenshots an independent article workflow (W3), with candidate tracking and existing image-viewer handoffs. | Existing capture and exact-asset approval. Prove a new image, an existing-image replacement, and a multi-image request, including mixed approval and rejection. No feature plan, unfinished draft, or custom media page prerequisite. |
+| 4 | M3: Add short article demos to the same tracked media workflow (W4). | Reuse approval/handoff and existing video tools. Verify a compatible playback surface, visible actions, titles, and selected handoff for one or several videos. Do not build a custom player by default. |
+| 5 | M4: Derive and check actions from article instructions (W6). | Existing evidence model and approved execution boundaries, not the completion of all media work. Prove a correct procedure, an intentionally faulty instruction, and a blocked prerequisite. |
+| 6 | M1: Add data-only PR accuracy review (W7). | Existing review/check helpers plus pinned GitHub snapshots. Prove changed-passage attribution, full-article context, stale-head rejection, and no checkout or execution. This slice is not technically dependent on UI validation and can move earlier if prioritized. |
+
+**Current slice:** The approved review-to-revision journey is implemented and under acceptance. It starts from a completed article review and requires no individual finding selection. Before another implementation slice, describe its end-to-end journey and obtain approval. Keep the current media path as a bounded fallback; independent screenshots still come before video integration.
 
 ### M1: Review documentation
 
-**Article review delivered; PR scope deferred.** Whole-article review now delivers author value using a procedural skill and evidence-bound judgments in the inbox. Section selection is implemented and tested. Hold PR-review implementation until the user resumes it. When resumed, review changed passages using GitHub data without a checkout. The earlier instruction-validation proposal remains M4, not dropped scope or a prerequisite for every other workflow.
+**Current:** Whole-article and section review are implemented. Local deterministic checks and persistent findings work. PR selection and a unified accuracy task are not implemented.
 
-1. Accept one article, section, or pinned docs PR as input, plus its intended product channel and review focus.
-2. Run applicable deterministic checks first. Reuse the PR-review procedure for source verification and article-review guidance for editorial assessment. Do not execute commands from the article during this review.
-3. Add the minimal report and ingestion support for qualitative findings. Record article location, reviewed scope, source revision, product evidence where relevant, explanation, and suggested correction. Distinguish structural errors, supported judgments, and unresolved questions.
-4. Reuse existing filtering, decision history, and freshness behavior. Define model-review coverage explicitly rather than labeling the whole article correct because no findings were returned.
+* W2 reviews an article or selected section and offers **Plan article update**. The plan groups relevant corrections into a few outcomes rather than requiring selection or approval of every finding. Saved finding decisions remain context, not permission to edit.
+* W5 offers links, feature behavior/availability, grammar/editorial, settings, and keybindings as understandable check choices. Combine existing runners under that task, but keep deterministic failures, agent judgments, and unverified claims distinct. Identify the channel, build, platform, and mode where relevant.
+* Local link checks must not imply that external URLs were checked. Verify permitted external targets read-only or explicitly report the missing coverage. Captured settings/keybinding evidence assists research but does not prove behavior or public availability.
+* W7 accepts a PR URL and captures the exact base/head, changed passages, complete article context, and relevant discussion as untrusted data. Reuse applicable checks against those captured inputs, never an unrelated checkout. Missing dependencies produce limitations, not a clean result.
+* Reject stale PR heads and changed evidence. Do not check out the PR, run its scripts, install its dependencies, or post review comments without separate authorization.
 
-**Acceptance:** One bounded real review produces source-located, evidence-backed findings without editing content or writing to GitHub. Fixtures cover valid ingestion, changed evidence, incomplete review, and rejected stale reports. An unchanged dismissal survives re-review. A human inspects the pilot findings for usefulness.
-
-**Do not add:** A generic workflow engine, automatic source-wide inventory, UI execution, automatic fixes, or corpus scheduling.
-
-The PR slice must capture the exact head, diff, complete article context, and relevant discussion as data, screen that content, and reject stale or incomplete evidence. Do not run scripts or install dependencies from the PR. Reuse trusted deterministic checks only where their required inputs are available from the captured snapshot. Missing repository context must be reported as unverified or unavailable, never replaced with checks against an unrelated checkout or silently counted as clean.
+**Acceptance:** Source-located, actionable results with chosen-scope coverage and preserved decisions. A grammar-only request does not imply a product audit. A PR fixture identifies a changed-line problem using full-article context, rejects a changed head, and performs no checkout or execution. No agent-review silence automatically marks old findings fixed.
 
 ### M2: Plan and implement documentation changes
 
-**Approved next slice:** One feature-documentation workflow, from an issue or feature description through plan approval, optional media generation, an authorized draft, and review of the changed articles. Reuse doc-writer, the existing media pipeline, and the available article-review workflow. PR review, release-note and blog variants, and production rollout are not prerequisites for this bounded implementation.
+**Current:** Free-form and single-issue planning, source-bound approval, confirmed-checkout drafting, diffs, and checks work. The live one-paragraph pilot is part of `9afaa1905`. The newer screenshot handoff has synthetic integration and browser proof, not a live media-bearing authoring proof.
 
-**Keep v1 simple:** Start with the author's request, propose a short plan, discuss adjustments, obtain approval, then draft in the agreed location and run existing checks. Recommend media only when useful and reuse the existing attended capture and exact-asset approval steps. Use conversation for clarifications and plan adjustments initially. Do not add a workflow engine, elaborate task management, revision-comparison UI, or additional dashboards to deliver this first process. Retain those ideas for later refinement rather than making them prerequisites.
+* W1 starts with the author's goal, audience, context, and constraints. A GitHub issue is optional. Research relevant existing content and availability, then propose the smallest useful plan before writing.
+* W8 uses the same flow with an issue or TPI as supporting context. Present the interpreted feature, relevant discussion, open questions, and proposed content. Do not assume the source is complete or reproduce test setup as user documentation. Default to documentation articles; release-note and blog variants are later work.
+* W2 carries the article, review, existing decisions, concerns, and source hashes into a short revision plan. **Approve and update article** combines overall plan approval with confirmation of the target, branch, and exact file scope. Routine edits within that plan require no further prompts. Material ambiguity or scope expansion still requires a decision.
+* **Plan adjustments** creates a new proposal under the same work identity, capturing current article bytes and retaining previous evidence. Each proposal still permits one drafting attempt; never silently retry a failed attempt. Earlier/manual changes are preserved outside the requested adjustment.
+* Keep current draft actions prominent, with supporting research expandable. Reuse the existing authoring location confirmation and diff/check helpers, opening articles and comparisons in the editor. Keep only the affected-file list, result summary, and next actions in the canvas. Offer a recheck without requiring the author to reconstruct its scope.
+* Media remains optional. Link to M3 with the article and proposed placements, and accept only exact approved assets through a separate write confirmation. Do not require unfinished feature drafting for later media work.
 
-The authoring process lives on the dedicated **Docs writing** page, not inside the findings inbox or its task picker. Page navigation must preserve unfinished request text, plan feedback, and findings filters without launching tasks or saving decisions.
-
-Keep the writing layout focused on the current plan or draft and its next action. Use a full-width request field, grouped secondary inputs, concise status summaries, and expandable supporting evidence. An approved plan's original research and notes should not obscure the draft or appear to be its current operational status.
-
-Delivery checkpoints:
-
-* **Planning and decisions:** Verified with seven focused planning tests, selected existing-workflow regressions, and a live plan-and-scope-approval pilot. The approved pilot proposes one paragraph correction and explains why no new media is useful. Approval persists after reload and starts no drafting or capture.
-* **Authorized drafting:** Verified with 13 focused tests and a separately approved one-paragraph live edit. The actual canvas displays the saved diff and results after reload. Confirm an existing checkout, named branch, and allowed files, preserve unrelated work, and explicitly reconfirm metadata-only changes. No branch or worktree manager is added.
-* **Optional media generation and review:** Pending. Reuse attended capture, preparation, and exact-asset approval. Connect approved bytes and descriptions to the draft without treating plan approval as media permission.
-* **Integrated acceptance:** Pending. Demonstrate an authorized draft and reviewed media handoff in a fixture or separately approved pilot, preserving the production-rollout hold.
-
-* Start with one documentation request, optionally supported by a feature issue or feedback item. Reuse doc-writer's research and plan approval, then use an explicitly agreed authoring location for implementation.
-* Treat the author's free-form documentation request as a first-class starting point. It can describe the desired output, audience, reader goal, known context, and constraints without any GitHub issue. Optional issue links supplement the request and must not replace it or be assumed complete. Ask for essential missing information as the plan develops.
-* Keep assessment, proposed plan, approved plan, diff, and review findings distinct. A source change invalidates the relevant approval or requires an explicit reassessment.
-* Include media proposals in the plan: whether a screenshot or video helps, what it should show, and where it belongs. After plan approval, offer optional attended candidate generation through the existing tools. Require human approval of the exact prepared asset before including it in a draft, with appropriate alt text or video title. Unsupported captures stay explicitly pending. Plan approval is not capture readiness or asset approval.
-* Reuse the same capture and preparation pipeline as M3. M2 integrates media into feature authoring. M3 remains the independent create-or-refresh-media experience, not a prerequisite for these approved M2 media steps.
-* Treat release notes and blogs as separate output variants, using their existing skills and conventions. Do not force them through doc-writer's docs-only scope.
-* Add feedback triage with duplicate and relevance checks. Support a justified no-change outcome, not an obligation to edit every reported concern.
-
-**Acceptance:** A synthetic or explicitly approved bounded change follows plan approval to diff and review. Rejected or changed plans do not trigger edits. Media proposals appear in the plan, optional generation preserves raw candidates, and rejected or unapproved assets cannot enter the draft. Unsupported capture remains pending rather than fabricated. Public actions remain separate. Validate the release-note and blog variants before marking S20 or S21 complete.
+**Acceptance:** Prove a description-only new article with its required navigation, an issue/TPI-driven update, and an article-level correction plan leading to a checked editor diff. Verify the compared baseline, file/line navigation, and return to the same tracked work after manual edits. Rejected, stale, or cancelled plans make no edits. A no-change recommendation is valid. Rechecks report remaining issues rather than automatically treating a revised article as correct.
 
 ### M3: Create and refresh media
 
-* Present an article or existing asset as input. Let the agent prepare a readable capture proposal, using reviewed storyboards underneath rather than asking the author to maintain JSON.
-* Connect attended readiness, real capture, non-destructive preparation, candidate preview, alt text or title, and exact-byte human approval.
-* Show the existing asset alongside its replacement when refreshing media. Preserve both raw and prepared sources.
-* Prepare the exact approved asset and corresponding Markdown change for a separately authorized handoff. Approval must not copy, publish, or commit automatically.
+**Current:** Capture, highlighting, non-destructive preparation, and exact-byte approval exist. The new canvas integration is a constrained child of feature planning, not the independent workflow required by W3 and W4.
 
-**Acceptance:** One screenshot and one short video complete the private candidate-to-review flow. Rejection leaves article assets unchanged. Any transformation requires a new approval. An authorized fixture handoff uses exactly the approved bytes. No production rollout.
+* Start from an article, regardless of whether it has a feature plan or draft. List its current media and allow selecting replacements or describing new screenshots/videos. Accept one or several assets in the same request.
+* Let the agent propose what each asset shows, why it helps, its article placement, and a capture procedure. For video, show a short scene/action sequence and intended duration. Keep storyboard JSON as implementation evidence, not author homework.
+* Reuse attended capture and preparation. Native prompts remain human work. Unsupported UI, unavailable tools, or account requirements produce a clear pending/blocked item, not a fabricated candidate.
+* Track candidates with per-asset status and an action to open the exact asset. Compare images in existing preview surfaces and use a compatible player for video. Add only the minimal preview missing from those tools, not a custom gallery or media editor. Propose alt text or titles from the actual candidate and let the author edit them.
+* Approve or reject exact prepared assets individually. Multiple candidates can have different outcomes. A requested crop, annotation, or recapture creates a new candidate requiring new approval; preserve the original and prior decisions.
+* Separately confirm the exact insertions or replacements and affected Markdown. Bind replacements to both the existing asset and article hashes, verify approved output bytes, and rerun relevant checks. Do not overwrite a changed destination.
+* Reuse this workflow and its artifact handoffs from W1/W2/W8. Do not require a shared media page, duplicate feature-media and article-media implementations, or add batch scheduling.
+
+**Acceptance:** Without creating a feature plan, complete a new screenshot, a replacement, and a multi-image request. In a mixed-result fixture, approving two candidates and rejecting another changes only the two explicitly authorized assets and references; the rejected replacement leaves its original intact. Prove one short video and a multi-video selection through playback, title review, and exact-byte handoff. Any failed capture or preparation stays failed. Include reload persistence and a separately authorized attended proof. No production rollout.
 
 ### M4: Validate article instructions and examples
 
-* Start with one non-AI article section in an approved disposable fixture. Map article steps and expected outcomes to exact source spans. Keep environment setup separate from documented reader steps.
+* W6 starts with one non-AI article section in an approved disposable fixture, not a storyboard picker. Map article steps and expected outcomes to exact source spans. Keep environment setup separate from documented reader steps.
 * Have the agent derive a readable action plan from the article. Screen it and obtain approval before execution. Article text is not permission to run commands, install tools, change accounts, or access services.
 * Add bounded observation and action support only where the selected procedure needs it. Existing scripted replay can execute compatible reviewed actions but must not silently repair or replace the article's instructions.
 * Record expected and actual outcomes, missing prerequisites, assistance, and unsupported steps. Environment failures and agent failures are not automatically documentation bugs.
 * Add terminal commands, task and debug configurations, and extension samples as separately approved execution slices. Do not expand the current replay runner into an arbitrary shell executor. Cross-platform claims require corresponding platform evidence.
 
 **Acceptance:** Follow one actual article procedure, not a pre-authored passing storyboard. Include a controlled faulty-instruction fixture, a successful case, and a blocked-prerequisite case. Findings cite the problematic step. No unapproved downloads, sign-in, model requests, application execution, or changes outside the approved fixture.
+
+## Later backlog
+
+Retain the following delivery homes and all scenario IDs. They are not requirements for the eight-workflow release: scheduled or rotating audits, media drift detection, reader-goal evaluations, executable samples beyond approved UI-check prerequisites, broad corpus maintenance, reference generation, work queues, release-note/blog variants, feedback triage, and optional extensions. Reprioritize them explicitly after the daily workflows are useful.
+
+Release notes (S20) and blogs (S21) keep their existing skills and distinct policies under M2. Their presence in the inventory does not make them prerequisites for documenting an issue or TPI as an article.
 
 ### M5: Audit changes, corpus coverage, and drift
 
@@ -231,8 +275,9 @@ None of these options is a hidden prerequisite for the core workflows.
 
 | Decision or risk | When it matters | Default until decided |
 |---|---|---|
-| Delivery order | Before starting the next milestone. | PR review is deferred by request. Recommend the M2 feature-documentation slice next. M3 remains an independent alternative, and M4 can move earlier if instruction validation is the priority. |
-| Meaning of workflow implementation complete | Before production article or media rollout. | Keep rollout deferred. Agree a release boundary explicitly rather than equating one completed milestone, all optional ideas, or all future extensions with completion. |
+| Delivery order | Before starting the next slice. | Begin with editor source/diff handoff as part of review-to-revision. PR accuracy is included again; its execution still requires an explicit selected PR. Reorder slices deliberately rather than expanding the active one. |
+| Editor, viewer, and session integration | Before adding an open/continue action. | Verify supported host capabilities, exact target identity, and behavior in the intended editor. Report unavailable integration and provide an explicit artifact handoff; do not invent deep links or recreate the tool in the canvas. |
+| Meaning of workflow implementation complete | Before production article or media rollout. | W1-W8 are the proposed core release boundary, not all 30 scenarios. Each needs the stated end-to-end acceptance and visible supported limits. Production rollout still requires separate authorization. |
 | Qualitative evidence and freshness | During M1. | Preserve source references and uncertainty. Do not label model judgments as deterministic verification. |
 | Dynamic execution permissions and isolation | Before M4 or M6 execution. | Report unsupported steps. A disposable profile is not a sandbox. Approve the exact fixture, actions, resources, and cleanup policy. |
 | Live AI, accounts, extensions, and native UI | Before a scenario needs them. | No live AI or sign-in in the current runner. Human handles native prompts. No implied permission to download dependencies. |

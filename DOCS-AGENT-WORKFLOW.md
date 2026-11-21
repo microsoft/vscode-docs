@@ -1,11 +1,20 @@
 # Docs agent workflow
 
-Use this guide to run agent-assisted documentation checks, retain findings and review decisions, replay reviewed procedures, and prepare media for human approval.
+Use this guide for daily documentation writing, revision, media, and accuracy work. The canvas manages and tracks work; the editor, agent conversation, product window, and media viewers provide the appropriate working experience.
 
 Run commands from the repository root. For general contribution, formatting, and local preview instructions, see [Contributing to VS Code documentation](CONTRIBUTING.md).
 
-For the complete scenario inventory, implementation assessment, and proposed next steps, see the [Docs agent implementation plan](DOCS-AGENT-PLAN.md). This guide describes current procedures, not planned capabilities.
+The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, current gaps, and delivery order. The task map below distinguishes today's entry points from the intended experience. Detailed procedures describe implemented behavior unless explicitly labeled as planned.
 
+* [Choose a daily workflow](#choose-a-daily-workflow)
+* [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
+* [Target canvas experience](#target-canvas-experience)
+* [Use the Docs workflow canvas](#use-the-docs-workflow-canvas)
+  * [Review an article with an agent](#review-an-article-with-an-agent)
+  * [Revise the reviewed article](#revise-the-reviewed-article)
+  * [Propose a feature-documentation plan](#propose-a-feature-documentation-plan)
+  * [Review screenshots before drafting](#review-screenshots-before-drafting)
+  * [Prepare an approved draft](#prepare-an-approved-draft)
 * [Agent writing hooks](#agent-writing-hooks)
 * [Check documentation claims](#check-documentation-claims)
   * [Check internal links and media](#check-internal-links-and-media)
@@ -23,11 +32,66 @@ For the complete scenario inventory, implementation assessment, and proposed nex
   * [Record an editor video candidate](#record-an-editor-video-candidate)
   * [Prepare saved media without changing the source](#prepare-saved-media-without-changing-the-source)
   * [Record an exact-asset review](#record-an-exact-asset-review)
-* [Check an article visually](#check-an-article-visually)
-  * [Review an article with an agent](#review-an-article-with-an-agent)
-  * [Propose a feature-documentation plan](#propose-a-feature-documentation-plan)
-  * [Prepare an approved draft](#prepare-an-approved-draft)
 * [Use the docs workbench](#use-the-docs-workbench)
+
+## Choose a daily workflow
+
+The initial planning/drafting checkpoint is `9afaa1905`. The current workflow also includes screenshot handoff, article revisions, native editor actions, and **Review in chat**.
+
+**Review in chat is a launcher, separate from batch findings.** Use it to continue an interactive task with the relevant skills. Use **Findings** for the batch-like experience: bounded checks, persistent structured results, coverage, filtering, and triage. Both remain first-class; chat output is not automatically imported or treated as resolved findings.
+
+| Task | What you can use today | Remaining handoff |
+|---|---|---|
+| Write new feature content | On **Docs writing**, describe the request, optionally supply an issue, and [propose a plan](#propose-a-feature-documentation-plan). Approve it, then separately [confirm drafting](#prepare-an-approved-draft). | The live proof is an article update, not a new article. New-article creation and navigation need end-to-end acceptance. |
+| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Use the separate structured article-review path when persistent findings are needed. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
+| Create or refresh screenshots | Use the [attended media procedure](#capture-an-editor-screenshot-candidate). An approved feature plan can also [generate and review screenshots before its first draft](#review-screenshots-before-drafting). | No independent tracked article-media task, existing-image replacement flow, or accepted multi-image journey. Do not create a dummy feature plan just to unlock media controls. |
+| Generate short demo videos | Use the existing [attended video procedure](#record-an-editor-video-candidate) and [exact-asset review](#record-an-exact-asset-review), with explicit capture approval. | Video generation, playback review, and article handoff are not integrated into the new canvas. Feature-plan video proposals stay pending. |
+| Check content accuracy | On **Findings**, use **Check claims and links** for local structural checks and **Review an article** for product claims and editorial/grammar assessment. | These are separate controls. Settings/keybindings in deterministic canvas checks remain unverified without product evidence. External URLs are not checked. No blanket accuracy verdict. |
+| Check article instructions against the actual UI | The existing [replay procedure](#replay-a-reviewed-procedure) can test selected predefined assertions. | It does not follow or validate article prose. Article-derived actions, source-step mapping, and expected-versus-observed results are planned. |
+| Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
+| Document a GitHub issue or test plan item | On **Docs writing**, supply a supported issue URL and the desired documentation outcome. A TPI uses its issue URL and the same plan-first flow. | No dedicated TPI intake or live TPI authoring proof. Confirm the interpreted requirements; a test plan is evidence, not a ready-made documentation outline or execution permission. |
+
+For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
+
+## Start a skill-driven review chat
+
+On **Review in chat** (`/review`):
+
+1. Choose an article and any combination of **Technical accuracy**, **Clarity and grammar**, **Screenshots and videos**, and **Links and references**. Technical and editorial review are selected initially. You can also clear the presets and use only a free-form request.
+2. Add any concerns, exclusions, or desired outcomes in **Additional request** and choose the intended product channel.
+3. Select **Start review in chat**. The installed Windows VS Code CLI opens the native Chat view in agent mode with the article and doc-writer skill attached. It uses the last active VS Code window.
+4. Continue there. Doc-writer uses specialized skills as needed, proposes grouped changes in the conversation, and waits for your overall approval before editing. The review can include media and justified changes to related articles. No separate plan file or implementation chat is required.
+
+This launcher does not create a background workflow task or depend on an old task remaining discoverable. Existing reports and decisions remain untouched. It also does not have a chat-session identifier or completion callback: a successful launch means the CLI accepted the request, not that the review completed. Inspect Chat before retrying a failed or timed-out handoff.
+
+Native opening currently requires the Windows VS Code extension host and a CLI supporting `chat --add-file`. Other hosts show an explicit limitation. Starting a review does not authorize documentation edits, captures, UI execution, installs, or publication. Specialized skills retain those boundaries.
+
+The earlier findings-inbox review and structured drafting procedures below remain available; they are not mandatory steps for the chat launcher.
+
+A live one-click proof created a separate interactive chat with the article and skill attached, loaded doc-writer, and returned a handoff acknowledgement without performing a full review or editing files. Run `npm run test:review-chat` for the focused fixture checks; set `DOCS_ARTICLE_BROWSER` to the installed browser path described below to include the browser journey.
+
+## Target canvas experience
+
+This is the revised design, not a description of additional controls already shipped. The eight workflows remain the scope, but they do not all need to happen inside the canvas.
+
+| Where | What belongs there |
+|---|---|
+| Canvas | Start and track work, show scope/status/blockers, summarize the current plan and results, retain decisions, and offer the next action with links to artifacts. Keep the findings inbox for durable triage. |
+| Agent conversation | Describe the request, answer clarifying questions, adjust the plan, and discuss proposed corrections or capture actions. No replacement chat in the canvas. |
+| Editor and diff view | Read and edit articles, jump to a finding's line, inspect proposed changes against the correct baseline, and preview rendered Markdown. Do not build an inline editor or diff viewer in the canvas. |
+| Image preview and video player | Inspect exact screenshot/video candidates, compare existing and proposed images, and review full-size pixels or playback. The canvas tracks candidate status and approval; a custom gallery/player is not required. |
+| Actual VS Code test window | Perform attended capture and article-instruction checks. Keep readiness and result tracking connected to the task without recreating the product UI. |
+| GitHub or supported read-only PR views | Inspect issue/TPI discussion and pinned PR changes. Preserve source identity in the task. Never check out or execute PR contents to provide a review view. |
+
+Keep the existing **Docs writing** and **Findings** separation. The earlier four-page proposal is not a requirement: add a compact work overview or media task details only when they help manage work. Minimal tracking includes the request/source, current status, pending decision, linked artifacts, and next action. It does not require a new work board or execution-history browser.
+
+For example, review an article, request its grouped update plan, approve the overall scope and writes once, and open the native editor diff. Return to the same tracked item to recheck or request adjustments. The article, concerns, baseline, and decisions travel with the task. Individual finding selection and per-edit approval are not required.
+
+Opening an editor or preview is not approval. Asset approval must identify the exact prepared bytes even when reviewed outside the canvas. Manual article changes or new media transformations require freshness checks and renewed approval where relevant. Closing a working view must not lose the task or its artifacts.
+
+Native article/line and draft-diff opening are now implemented through the installed Windows VS Code CLI. The editor compares the captured pre-update article with the current file, which can include subsequent edits. The saved inline diff remains completion-time evidence and a fallback for other hosts, not the direction for further UI expansion. A successful CLI request does not mean the user approved or reviewed the diff.
+
+The [next implementation slice](DOCS-AGENT-PLAN.md#proposed-implementation-sequence) combines that editor handoff with review-to-revision tracking. Independent article media follows, using suitable viewers before adding custom preview UI. Article-derived UI checks and data-only PR accuracy remain core work; broader audits, blogs, release notes, and queues remain later work.
 
 ## Agent writing hooks
 
@@ -421,7 +485,7 @@ Use `--decision rejected` to record rejection. Add the required media-tool optio
 
 `verify` revalidates the media, source and capture hashes, preparation record, and any review record. It returns `human-visual-review-required`, `approved`, or `rejected`; malformed or stale records fail. A successful exit alone is not approval. There is one immutable decision per candidate. To revise a decision or transform the media again, prepare a new candidate and review it; approvals are never inherited, even for byte-identical new candidates. Keep the sources and manifests available for verification. A separate, authorized article update must use the exact approved bytes and follow Git LFS and media-format conventions. These commands do not copy media into documentation, publish, or commit.
 
-## Check an article visually
+## Use the Docs workflow canvas
 
 The **Docs workflow** canvas has two dedicated pages. **Docs writing** contains documentation requests, plans, approvals, and drafts. **Findings** contains checks, article reviews, replay, and a persistent findings inbox independent of check execution. Both use the same saved workflow state. The canvas requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
 
@@ -447,7 +511,7 @@ Checks cover data variables, lifecycle IDs, product-reference syntax, internal l
 
 On **Findings**, select **Review an article** in the **Task** picker to review a local article or one section without editing it. PR selection is not yet supported.
 
-1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both. For a section review, choose **One section** in **Review scope**, select **Load sections**, and choose a heading. Its nested subsections are included, up to the next heading at the same or higher level. Headings inside code examples are not section boundaries.
+1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both. Add **Particular concerns** if useful. For a section review, choose **One section** in **Review scope**, select **Load sections**, and choose a heading. Its nested subsections are included, up to the next heading at the same or higher level. Headings inside code examples are not section boundaries.
 2. Select **Start article review**. This authorizes local deterministic prechecks, a host-owned agent review, private result files, and read-only product-source research when needed. It can use host credits. It does not authorize sign-in, installs, article commands, UI execution, worktrees, documentation edits, or GitHub writes.
 3. Filter **Check type** to **Article review**. Expand a finding to inspect its exact article quotation, explanation, suggested correction, and any product citations. Record a decision only after inspecting the evidence.
 4. Expand **Coverage** for the review summary, limitations, and deterministic precheck findings. Prechecks cover the whole article even when the agent reviews one section, and are displayed separately from agent judgments. They do not replace findings from independently launched structural checks.
@@ -468,6 +532,21 @@ Run the focused integration tests with `npm run test:article-workflow`. Set `DOC
 
 The accepted live pilot covers a combined technical and editorial review, source-cited findings, separate precheck results, and persistence after reload. Earlier findings and stored check coverage remain intact. The article remains unchanged, and no live triage decision is saved. This verifies the review handoff, not every category of possible documentation issue.
 
+### Revise the reviewed article
+
+1. After a completed review, select **Plan article update** beneath its summary. The article, review focus, concerns, existing decisions, and evidence carry into **Docs writing**. There is no required checklist of findings to approve.
+2. Review the short plan, grouped into outcomes such as accuracy, clarity, and consistency. Use **Adjust the update plan** to request changes or exclusions. Detailed findings remain available, but the approval is for the article update as a whole.
+3. Select **Approve and update article**. The confirmation includes the grouped scope, existing checkout, branch, and allowed file. This single decision authorizes both the plan and its scoped writes. Cancelling saves no approval and launches no update. The agent asks again only for a material ambiguity or scope expansion, not routine edits within the plan.
+4. The update preserves captured existing edits outside its scope and automatically runs local claim/link checks. Section updates cannot change content outside the selected section. The result is saved for human review; technical or editorial review findings are not automatically marked fixed.
+5. Select **Open diff in editor** to compare the captured baseline with the current editable article. **Open article at finding** navigates from an expanded finding to its source line. Save manual editor changes before selecting **Recheck current files**. The original draft report stays unchanged; new local-check results are separate.
+6. Use **Request further adjustments** and **Plan adjustments** to continue the same article-update work item. The new proposal captures current bytes and preserves earlier evidence. Approve that new scope before further edits; there is no need to re-enter the article or create a worktree.
+
+This path currently updates one existing docs article, without generating or adding new media. Stale plans, unconfirmed reviews, incomplete drafts, changed branches, and expanded file scope stop explicitly. A failed update may leave edits; it is never automatically restarted or reverted.
+
+Native editor actions require the extension to run in Windows VS Code with its installed CLI available. They reuse a VS Code window through the CLI; they do not guarantee selection of a particular window when several are open. Other hosts retain the displayed article paths and saved diff with an explicit limitation. Baselines live in private `draft-diffs` storage, are read-only, and are hash-checked before reuse. No source files are staged, committed, or published.
+
+The full grouped-review/update/follow-up flow is covered by synthetic integration and browser tests. Live editor checks separately verified the requested source line and native baseline/current diff. They do not constitute a new live agent-authored article update.
+
 ### Propose a feature-documentation plan
 
 Open the **Docs writing** page. This M2 checkpoint produces a private proposal and records a plan decision. Drafting requires a separate confirmation through **Prepare draft**. Plan approval never starts drafting or media generation.
@@ -487,9 +566,25 @@ Private records use `feature-plans.json` and `feature-plans` beside the existing
 
 The source snapshot covers docs Markdown, docs TOCs, the sitemap, lifecycle data, data-variable files, and planning guidance. It is deliberately conservative: unrelated changes within this snapshot can require replanning. Approval records the checked snapshot at that time. A future drafting action must validate its source again and use an explicitly approved authoring location and branch.
 
-Plan approval does not authorize repository edits, worktree creation, capture readiness, media use, commits, or publication. The approved M2 scope still includes optional attended media generation and exact-asset approval before draft inclusion. Use the existing attended media procedure separately. The independent M3 media workflow will reuse the same capture and preparation tools.
+Plan approval does not authorize repository edits, worktree creation, capture readiness, media use, commits, or publication. Optional screenshot generation and exact-asset approval are separate decisions on the writing page. The independent M3 media workflow reuses the same capture and preparation tools.
 
 The live description-input pilot verifies plan creation, source evidence, an explicit no-new-media recommendation, plan-scope approval, and persistence after reload. Approval leaves articles, prior findings, and coverage unchanged and starts no additional agent or capture. Issue-source changes, proposed and pending media, rejection, and incomplete plans are covered by isolated tests.
+
+### Review screenshots before drafting
+
+After approving a media-bearing plan, expand **Optional media before drafting**:
+
+1. Select **Set up screenshot**. Choose a checked-in procedure matching the article and channel, an installed build, and a reviewed capture workspace if required. If no procedure or build matches, leave the proposal pending and agree on the missing setup in conversation.
+2. Select **Review capture procedure** and inspect the actions and assertions. Select **Generate screenshot** only after confirming that procedure and your availability for an attended run. The host runs the existing capture and preparation tools, using a dedicated profile and private output.
+3. Handle native prompts yourself. When a folder or existing-workspace capture waits for readiness, confirm readiness on the writing page or cancel. Readiness is not asset approval.
+4. Inspect the preview, including its full-size image, framing, text, and private information. Enter descriptive alt text starting with `Screenshot showing` or `Screenshot of`. Select **Approve screenshot** or **Reject screenshot**. This decision binds the prepared PNG, preparation record, and description, but does not edit documentation.
+5. Use **Prepare draft** for the separate write confirmation. It lists the screenshot destinations, exact hashes, and Markdown descriptions alongside the article files.
+
+The first integrated slice supports screenshots before the first draft. It preserves the full captured frame and uses the highlighted candidate when the storyboard provides one. Raw captures and prepared files remain private; the workflow never overwrites an existing article asset. Cropping, alternative preparations, video, and media additions after a draft starts require a separately agreed follow-up. Unsupported proposals remain pending.
+
+One capture attempt is recorded per proposal. Failed or uncertain attempts are retained, never automatically retried. An unresolved launch or cleanup failure blocks further capture and drafting. A confirmed, finished failure with no retained runtime can be left pending while the text draft proceeds. Changed candidates or reviews cannot become draft assets.
+
+Media evidence lives under the canvas's private `media-output` directory, with references in the existing feature-plan state. Isolated integration and browser fixtures exercise the real preparation, review, and draft helpers with synthetic captures; they are not proof of a new live Electron capture.
 
 ### Prepare an approved draft
 
@@ -497,18 +592,18 @@ After approving a plan that proposes changes:
 
 1. In **Draft in an existing checkout**, choose the authoring location. The current workspace is prefilled, but no edits are authorized yet. Use an existing named branch and save any open editor changes. The workflow does not create or switch branches or worktrees.
 2. Select **Prepare draft**. Review the location, branch, and exact file list in the confirmation. Cancel to leave everything unchanged. Planned files must be clean; unrelated uncommitted work is preserved and checked for unexpected changes.
-3. Confirm the text draft. If only the commit or planning guidance changed while all captured documentation inputs still match, the confirmation explicitly asks you to reconfirm the plan for drafting. Changed documentation inputs or issue requirements require reassessment instead.
+3. Confirm the draft and any listed approved screenshot copies. If only the commit or planning guidance changed while all captured documentation inputs still match, the confirmation explicitly asks you to reconfirm the plan for drafting. Changed documentation inputs or issue requirements require reassessment instead.
 4. Review the saved diff and check results under **Draft**. Errors remain visible as **Draft checks need attention**. A successful check does not replace human review. The report describes completion-time bytes; further manual edits require another check.
 
 The host agent uses [docs-feature-draft](.github/skills/docs-feature-draft/SKILL.md), follows the approved descriptions, and runs trusted preflight and completion helpers. The helpers check the branch, planned files, source inputs, unrelated working-copy content, and known media references. They run the existing claim and link checks, adding navigation checks for new articles or navigation changes. They do not execute package scripts or checker code from the authoring checkout.
 
-This step drafts text, not media. Existing media is preserved. New media references require a separate approved-asset step and are rejected here. Proposed assets remain explicitly pending, with TODO comments where appropriate. Use conversation and the existing attended media procedure for those assets rather than treating a text draft as finished media work.
+This step does not generate media. It preserves existing media and permits new references only for separately approved screenshots included in the write confirmation. Trusted preflight copies those exact bytes; completion verifies the assets, descriptions, and references again. Other proposals remain explicitly pending, with TODO comments where appropriate.
 
 If an agent or check fails after editing starts, edits can remain in the chosen checkout. Inspect them and continue explicitly in the editor or conversation. Do not repeat the draft automatically or reset the checkout. One draft attempt is recorded per approved plan in v1. These checks are safeguards within the host's existing permissions, not an OS sandbox or protection from every concurrent edit.
 
 No staging, commits, GitHub writes, publication, or captures are authorized by drafting.
 
-The bounded live pilot verifies a one-paragraph draft, preserved surrounding content and media, saved checks and diff, and persistence in the actual canvas after reload. It leaves the change unstaged for human review. New-file diffs, branch changes, scope violations, and pending media are covered by isolated tests, not by that one live edit.
+The bounded live pilot verifies a one-paragraph draft, preserved surrounding content and media, saved checks and diff, and persistence in the actual canvas after reload. It originally left the change unstaged for human review; that approved pilot is now included in `9afaa1905`. New-file diffs, branch changes, scope violations, and pending media are covered by isolated tests, not by that one live edit.
 
 ### Replay from the findings inbox
 
@@ -613,13 +708,13 @@ An attended two-article batch also verified this redesign on the local Windows h
 
 These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs workflow**. On **Findings**, with separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
 
-PR review, feature documentation, audits, and media retain their existing entry points. Feature authoring now includes plan decisions and separately confirmed text drafting with saved diffs and checks. Media remains a separate attended step. PR selection, full workflow integration, and docs-as-eval remain deferred. Planned inbox PR review reads GitHub snapshots as data without checking out or executing the PR.
+Feature authoring includes plan decisions, optional attended screenshot review, and separately confirmed drafting with saved diffs and checks. Independent media, video integration, article-derived UI checks, and PR selection are core planned work, not yet delivered. Docs-as-eval and broader audits remain later work. Planned PR review reads GitHub snapshots as data without checking out or executing the PR.
 
 ## Use the docs workbench
 
 The workspace-scoped Docs workbench canvas brings together open documentation PRs, documentation issues, release test plan items (TPIs), and private media tasks. It requires a Copilot host that supports SDK canvas extensions, background-agent tasks, and approval dialogs, plus an authenticated `gh` CLI.
 
-This existing queue canvas is separate from **Docs workflow**. Its attachment approval flag is not an [exact-asset review](#record-an-exact-asset-review) and does not authorize documentation use or publication.
+This legacy queue canvas is separate from **Docs workflow** and is not the target daily-work experience. Its controls do not establish acceptance of the eight core workflows. Its attachment approval flag is not an [exact-asset review](#record-an-exact-asset-review) and does not authorize documentation use or publication. Do not use a legacy action to bypass the current no-PR-checkout or separate-approval rules.
 
 Ask Copilot to open the **Docs workbench** canvas. Reload workspace extensions after updating its implementation. The extension does not require a separate SDK installation.
 
