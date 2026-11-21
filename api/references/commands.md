@@ -461,7 +461,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _uri_ - (optional) Uri of the folder or workspace file to open. If not provided, a native dialog will ask the user for the folder
 * _options_ - (optional) Options. Object with the following properties: `forceNewWindow`: Whether to open the folder/workspace in a new window or the same. Defaults to opening in the same window. `forceReuseWindow`: Whether to force opening the folder/workspace in the same window.  Defaults to false. `noRecentEntry`: Whether the opened URI will appear in the 'Open Recent' list. Defaults to false. Note, for backward compatibility, options can also be of type boolean, representing the `forceNewWindow` setting.
 
-`vscode.newWindow` - Opens an new window depending on the newWindow argument.
+`vscode.newWindow` - Opens a new window depending on the newWindow argument.
 
 * _options_ - (optional) Options. Object with the following properties: `reuseWindow`: Whether to open a new window or the same. Defaults to opening in a new window.
 
