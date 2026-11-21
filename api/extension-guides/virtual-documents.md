@@ -13,7 +13,7 @@ The text document content provider API allows you to create readonly documents i
 
 ## TextDocumentContentProvider
 
-The API works by claiming an uri-scheme for which your provider then returns text contents. The scheme must be provided when registering a provider and cannot change afterwards. The same provider can be used for multiple schemes and multiple providers can be registered for a single scheme.
+The API works by claiming a URI scheme for which your provider then returns text contents. The scheme must be provided when registering a provider and cannot change afterwards. The same provider can be used for multiple schemes and multiple providers can be registered for a single scheme.
 
 ```ts
 vscode.workspace.registerTextDocumentContentProvider(myScheme, myProvider);
